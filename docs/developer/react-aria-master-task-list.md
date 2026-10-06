@@ -324,7 +324,7 @@ Checklist IDs cover all 37 current directories, including catalog-only directori
 | M-36 | icons | Complete direct/public icon mapping and activity-type behavior |
 | M-37 | primitives | Replace every reexport with an owned implementation/type or documented removal |
 
-Recorded catalog completions (local, pending draft PR review): M-02, M-03, M-24,
+Recorded catalog completions ([draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review): M-02, M-03, M-24,
 M-35, M-11, M-12, M-13, M-14 and M-15. The [card migration record](react-aria-progress.md#card-pagination-and-course-cards)
 links the new card batch evidence. The [execution record](react-aria-progress.md#owned-controls-and-first-catalog-migrations)
 links implementation, stories, tests and consumer evidence. The other rows remain

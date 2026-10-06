@@ -241,7 +241,8 @@ the coherent first batch before those subsequent card edits.
 ## Card pagination and course cards
 
 Completed on 2026-10-06: M-11, M-12, M-13, M-14 and M-15. The preceding uncommitted
-foundation work was preserved and is included in the accumulated draft migration PR;
+foundation work was preserved and is included in [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1)
+(branch `feat/react-aria-owned-foundation-cards`);
 no merge or publication is authorized. See [card pagination contracts](react-aria-card-pagination.md)
 and [frame/card mappings](react-aria-card-frames.md) for the breaking stylesheet/scope,
 frame styling slots and page-size callback integrations. Public component names,
