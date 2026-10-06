@@ -1,0 +1,11 @@
+@layer sgui.components {
+  .root { display: flex; flex-direction: column; gap: var(--sgui-space2); color: var(--sgui-text); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .tokens { display: flex; flex-wrap: wrap; gap: var(--sgui-space1); }
+  .status { color: var(--sgui-text-muted); }
+  .list { max-block-size: 18rem; overflow: auto; padding: var(--sgui-space1); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); background: var(--sgui-surface); }
+  .list:focus-visible, .option[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: calc(-1 * var(--sgui-focus-width)); }
+  .option { display: flex; align-items: center; gap: var(--sgui-space2); min-block-size: var(--sgui-control-height); padding-inline: var(--sgui-control-padding); overflow-wrap: anywhere; cursor: pointer; border-radius: var(--sgui-field-radius); }
+  .option[data-focused], .option[data-selected] { background: var(--sgui-surface-subtle); }
+  .option[data-disabled] { color: var(--sgui-text-muted); cursor: default; }
+  @media (forced-colors: active) { .option[data-selected] { border: 1px solid Highlight; } .option[data-disabled] { color: GrayText; } }
+}

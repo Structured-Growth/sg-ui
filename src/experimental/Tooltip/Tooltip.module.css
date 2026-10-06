@@ -1,0 +1,11 @@
+@layer sgui.components {
+  .root {
+    box-sizing: border-box; max-inline-size: min(24rem, calc(100vw - 2rem));
+    padding-block: var(--sgui-space2); padding-inline: var(--sgui-space3);
+    border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius);
+    background: var(--sgui-surface); color: var(--sgui-text); box-shadow: var(--sgui-overlay-shadow);
+    font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height);
+    overflow-wrap: anywhere; z-index: var(--sgui-popover-layer);
+  }
+  @media (forced-colors: active) { .root { border-color: CanvasText; box-shadow: none; } }
+}

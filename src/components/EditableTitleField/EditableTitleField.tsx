@@ -1,10 +1,11 @@
-import { useState } from "react";
-import type { MouseEvent } from "react";
-import EditIcon from "@mui/icons-material/Edit";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { IconButton } from "../../experimental/IconButton/IconButton";
+import { TextField } from "../../experimental/TextField/TextField";
+import { Typography } from "../../experimental/Typography/Typography";
+import { EditIcon } from "../../experimental/icons/EditIcon";
+import { useTranslation } from "../../i18n";
+import styles from "./EditableTitleField.module.css";
 
 export type EditableTitleFieldProps = {
   title: string;
@@ -15,98 +16,85 @@ export type EditableTitleFieldProps = {
   readOnly?: boolean;
 };
 
-export function EditableTitleField({
-  title,
-  placeholder = "Untitled document",
-  onSave,
-  variant = "h4",
-  minWidth = 280,
-  readOnly = false,
-}: EditableTitleFieldProps) {
+export function EditableTitleField({ title, placeholder, onSave, variant = "h4", minWidth = 280, readOnly = false }: EditableTitleFieldProps) {
+  const { t } = useTranslation();
   const [isEditing, setIsEditing] = useState(false);
   const [draft, setDraft] = useState(title);
   const [isSaving, setIsSaving] = useState(false);
-
-  const enterEditMode = (event?: MouseEvent) => {
-    event?.stopPropagation();
-    if (isSaving || readOnly) {
-      return;
+  const [failed, setFailed] = useState(false);
+  const input = useRef<HTMLInputElement>(null);
+  const editButton = useRef<HTMLButtonElement>(null);
+  const editing = useRef(false);
+  const saving = useRef(false);
+  const session = useRef(0);
+  const restoreFocus = useRef(false);
+  const mounted = useRef(true);
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
+  useEffect(() => {
+    if (!isEditing && restoreFocus.current) {
+      editButton.current?.focus();
+      restoreFocus.current = false;
     }
+  }, [isEditing]);
+
+  const enterEditMode = () => {
+    if (saving.current || readOnly || editing.current) return;
+    session.current += 1;
+    editing.current = true;
     setDraft(title);
+    setFailed(false);
     setIsEditing(true);
   };
-
+  const finish = (focus: boolean) => {
+    editing.current = false;
+    restoreFocus.current = focus;
+    setIsEditing(false);
+  };
   const save = async () => {
+    if (!editing.current || saving.current) return;
     const next = draft.trim();
     if (!next || next === title) {
       setDraft(title);
-      setIsEditing(false);
+      finish(input.current === input.current?.ownerDocument.activeElement);
       return;
     }
-
+    const currentSession = session.current;
+    saving.current = true;
     setIsSaving(true);
+    setFailed(false);
     try {
       await onSave(next);
-      setIsEditing(false);
+      if (mounted.current && currentSession === session.current) finish(input.current === input.current?.ownerDocument.activeElement);
+    } catch {
+      if (mounted.current && currentSession === session.current) setFailed(true);
     } finally {
-      setIsSaving(false);
+      saving.current = false;
+      if (mounted.current) setIsSaving(false);
     }
   };
 
-  return (
-    <Box
-      onClick={() => {
-        if (!isEditing) {
-          enterEditMode();
-        }
-      }}
-      onDoubleClick={() => {
-        enterEditMode();
-      }}
-      sx={{
-        "& .editable-title-icon": { opacity: 0 },
-        "&:hover .editable-title-icon": { opacity: 1 },
-        alignItems: "center",
-        cursor: readOnly ? "default" : "text",
-        display: "inline-flex",
-        minHeight: 44,
-        minWidth,
-        px: 1,
-      }}
-    >
-      {isEditing ? (
-        <TextField
-          autoFocus
-          onBlur={() => {
-            if (!isSaving) {
-              void save();
-            }
-          }}
-          onChange={(event) => setDraft(event.target.value)}
-          onKeyDown={(event) => {
-            if (event.key === "Enter") {
-              event.preventDefault();
-              if (!isSaving) {
-                void save();
-              }
-            }
-            if (event.key === "Escape") {
-              setDraft(title);
-              setIsEditing(false);
-            }
-          }}
-          size="small"
-          sx={{ minWidth }}
-          value={draft}
-        />
-      ) : (
-        <>
-          <Typography variant={variant}>{title || placeholder}</Typography>
-          <IconButton className="editable-title-icon" disabled={readOnly} onClick={enterEditMode} size="small" sx={{ ml: 0.5 }}>
-            <EditIcon fontSize="small" />
-          </IconButton>
-        </>
-      )}
-    </Box>
-  );
+  return <div className={styles.root} style={{ minWidth }} data-read-only={readOnly || undefined} data-sgui-part="editable-title"
+    onClick={() => { if (!isEditing) enterEditMode(); }}
+    onDoubleClick={() => { if (!isEditing) enterEditMode(); }}
+    onKeyDown={(event) => {
+      if (!isEditing || event.target !== input.current || event.nativeEvent.isComposing) return;
+      if (event.key === "Enter") {
+        event.preventDefault(); event.stopPropagation(); void save();
+      } else if (event.key === "Escape") {
+        event.preventDefault(); event.stopPropagation(); session.current += 1;
+        setDraft(title); setFailed(false); finish(true);
+      }
+    }}>
+    {isEditing ? <TextField ref={input} autoFocus density="compact" className={styles.field}
+      aria-label={t("common.ui.documentTitle", { defaultMessage: "Document title" })}
+      onBlur={() => { void save(); }}
+      onValueChange={(value) => { setDraft(value); setFailed(false); }}
+      readOnly={isSaving} value={draft} invalid={failed}
+      errorMessage={failed ? t("common.ui.titleSaveFailed", { defaultMessage: "Could not save title. Try again." }) : undefined}
+      description={isSaving ? t("common.ui.savingTitle", { defaultMessage: "Saving title…" }) : undefined} /> : <>
+      <Typography as={variant} variant={variant}>{title || placeholder || t("common.ui.untitledDocument", { defaultMessage: "Untitled document" })}</Typography>
+      <IconButton ref={editButton} className={styles.edit} disabled={readOnly} loading={isSaving} density="compact"
+        label={t("common.ui.editTitle", { defaultMessage: "Edit title" })} onPress={enterEditMode}><EditIcon /></IconButton>
+    </>}
+  </div>;
 }

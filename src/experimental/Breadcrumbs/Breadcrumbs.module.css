@@ -1,0 +1,6 @@
+@layer sgui.components {
+  .root { min-inline-size: 0; }
+  .list { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); align-items: center; list-style: none; padding: 0; margin: 0; }
+  .item { display: flex; align-items: center; gap: var(--sgui-space2); min-inline-size: 0; }
+  .separator { color: var(--sgui-text-muted); }
+}

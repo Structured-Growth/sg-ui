@@ -1,0 +1,9 @@
+@layer sgui.components {
+  .root { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: var(--sgui-space3); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); color: var(--sgui-text); }
+  .summary { margin-inline-end: auto; }
+  .size, .actions { display: inline-flex; align-items: center; flex-wrap: wrap; gap: var(--sgui-space2); }
+  .select { box-sizing: border-box; min-block-size: var(--sgui-control-height); padding-inline: var(--sgui-space2); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); font: inherit; background: var(--sgui-surface); color: var(--sgui-text); }
+  .select:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+  .select:disabled { opacity: 0.5; }
+  @media (forced-colors: active) { .select:focus-visible { outline-color: Highlight; } .select:disabled { color: GrayText; opacity: 1; } }
+}

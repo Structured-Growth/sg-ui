@@ -1,0 +1,11 @@
+@layer sgui.components {
+  .label { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .popover { z-index: var(--sgui-popover-layer); background: var(--sgui-surface); color: var(--sgui-text); border: 1px solid var(--sgui-border); border-radius: var(--sgui-control-radius); box-shadow: var(--sgui-overlay-shadow); max-inline-size: calc(100vw - 2rem); }
+  .menu { padding: var(--sgui-space1); min-inline-size: 10rem; max-block-size: min(24rem, 70vh); overflow: auto; outline: none; font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
+  .item { display: flex; align-items: center; gap: var(--sgui-space2); min-block-size: var(--sgui-control-height); box-sizing: border-box; padding-inline: var(--sgui-control-padding); border-radius: var(--sgui-field-radius); cursor: pointer; outline: none; }
+  .item[data-focused] { background: var(--sgui-surface-subtle); outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: calc(-1 * var(--sgui-focus-width)); }
+  .item[data-disabled] { opacity: 0.5; cursor: default; }
+  .item[data-tone="danger"] { color: var(--sgui-danger); }
+  .icon { display: inline-flex; flex: none; }
+  @media (forced-colors: active) { .item[data-focused] { outline-color: Highlight; } .item[data-disabled] { color: GrayText; opacity: 1; } }
+}

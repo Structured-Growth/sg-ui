@@ -1,0 +1,5 @@
+@layer sgui.components {
+  .root { color: var(--sgui-text-muted); font-family: var(--sgui-font-family); font-size: var(--sgui-body2-size); line-height: var(--sgui-body2-line-height); }
+  .root[data-tone="danger"] { color: var(--sgui-danger); }
+  @media (forced-colors: active) { .root { color: CanvasText; } }
+}

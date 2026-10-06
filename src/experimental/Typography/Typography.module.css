@@ -1,0 +1,23 @@
+@layer sgui.components {
+  .root { margin: 0; font-family: var(--sgui-font-family); color: inherit; overflow-wrap: anywhere; }
+  .root[data-variant="h1"] { font-size: var(--sgui-h1-size); line-height: var(--sgui-h1-line-height); font-weight: var(--sgui-h1-weight); }
+  .root[data-variant="h2"] { font-size: var(--sgui-h2-size); line-height: var(--sgui-h2-line-height); font-weight: var(--sgui-h2-weight); }
+  .root[data-variant="h3"] { font-size: var(--sgui-h3-size); line-height: var(--sgui-h3-line-height); font-weight: var(--sgui-h3-weight); }
+  .root[data-variant="h4"] { font-size: var(--sgui-h4-size); line-height: var(--sgui-h4-line-height); font-weight: var(--sgui-h4-weight); }
+  .root[data-variant="h5"] { font-size: var(--sgui-h5-size); line-height: var(--sgui-h5-line-height); font-weight: var(--sgui-h5-weight); }
+  .root[data-variant="h6"] { font-size: var(--sgui-h6-size); line-height: var(--sgui-h6-line-height); font-weight: var(--sgui-h6-weight); }
+  .root[data-variant="body1"] { font-size: var(--sgui-body1-size); line-height: var(--sgui-body1-line-height); font-weight: var(--sgui-body1-weight); }
+  .root[data-variant="body2"] { font-size: var(--sgui-body2-size); line-height: var(--sgui-body2-line-height); font-weight: var(--sgui-body2-weight); }
+  .root[data-variant="bodyAlt2"] { font-size: var(--sgui-body-alt2-size); line-height: var(--sgui-body-alt2-line-height); font-weight: var(--sgui-body-alt2-weight); }
+  .root[data-variant="subtitle1"] { font-size: var(--sgui-subtitle1-size); line-height: var(--sgui-subtitle1-line-height); font-weight: var(--sgui-subtitle1-weight); }
+  .root[data-variant="subtitle2"] { font-size: var(--sgui-subtitle2-size); line-height: var(--sgui-subtitle2-line-height); font-weight: var(--sgui-subtitle2-weight); }
+  .root[data-variant="caption"] { font-size: var(--sgui-caption-size); line-height: var(--sgui-caption-line-height); font-weight: var(--sgui-caption-weight); }
+  .root[data-variant="overline"] { font-size: var(--sgui-overline-size); line-height: var(--sgui-overline-line-height); font-weight: var(--sgui-overline-weight); }
+  .root[data-variant="button"] { font-size: var(--sgui-button-size); line-height: var(--sgui-button-line-height); font-weight: var(--sgui-button-weight); }
+  .root[data-variant="code"] { font-size: var(--sgui-code-size); line-height: var(--sgui-code-line-height); font-weight: var(--sgui-code-weight); }
+  .root[data-variant="code"] { font-family: var(--sgui-code-font-family); }
+  .root[data-tone="muted"] { color: var(--sgui-text-muted); }
+  .root[data-tone="primary"] { color: var(--sgui-action); }
+  .root[data-tone="danger"] { color: var(--sgui-danger); }
+  .root[data-no-wrap] { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+}

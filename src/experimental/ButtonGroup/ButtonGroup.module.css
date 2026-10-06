@@ -1,0 +1,10 @@
+@layer sgui.components {
+  .root { display: inline-flex; align-items: stretch; gap: var(--sgui-space2); }
+  .root[data-orientation="vertical"] { flex-direction: column; }
+  .root[data-joined] { gap: 0; border: 1px solid var(--sgui-border); border-radius: var(--sgui-control-radius); }
+  .root[data-joined] > * { border-radius: 0; border-color: transparent; }
+  .root[data-joined] > :first-child { border-start-start-radius: var(--sgui-control-radius); border-end-start-radius: var(--sgui-control-radius); }
+  .root[data-joined] > :last-child { border-start-end-radius: var(--sgui-control-radius); border-end-end-radius: var(--sgui-control-radius); }
+  .root[data-joined] > * + * { border-inline-start: 1px solid var(--sgui-divider); }
+  .root[data-joined][data-orientation="vertical"] > * + * { border-inline-start: 0; border-block-start: 1px solid var(--sgui-divider); }
+}

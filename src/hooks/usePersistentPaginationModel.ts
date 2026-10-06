@@ -10,6 +10,10 @@ export type PaginationModel = {
 
 export const APP_PAGE_SIZE_OPTIONS = [25, 50, 100] as const;
 
+const isPaginationModel = (value: unknown): value is PaginationModel =>
+  value !== null && typeof value === "object" && "page" in value && "pageSize" in value &&
+  typeof value.page === "number" && typeof value.pageSize === "number";
+
 const normalizePageSize = (pageSize: number): number => {
   if (!Number.isFinite(pageSize)) {
     return APP_PAGE_SIZE_OPTIONS[0];
@@ -38,7 +42,7 @@ export const normalizePaginationModel = (model: PaginationModel): PaginationMode
 };
 
 export function usePersistentPaginationModel(key: string, initialValue: PaginationModel = { page: 0, pageSize: 25 }) {
-  const [value, setValue] = usePersistentState<PaginationModel>(key, normalizePaginationModel(initialValue));
+  const [value, setValue] = usePersistentState<PaginationModel>(key, normalizePaginationModel(initialValue), { validate: isPaginationModel });
   const normalizedValue = useMemo(
     () => normalizePaginationModel(value),
     [value],

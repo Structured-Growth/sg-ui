@@ -1,13 +1,12 @@
-import Link from "../../adapters/Link";
-import AutoStoriesIcon from "@mui/icons-material/AutoStories";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import CircleIcon from "@mui/icons-material/Circle";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+"use client";
+import { Link } from "../../experimental/Link/Link";
+import { Avatar } from "../../experimental/Avatar/Avatar";
+import { Typography } from "../../experimental/Typography/Typography";
+import { AutoStoriesIcon } from "../../experimental/icons/AutoStoriesIcon";
+import { CalendarTodayIcon } from "../../experimental/icons/CalendarTodayIcon";
 import { useTranslation } from "../../i18n";
-import { AppButton } from "../AppButton";
 import { ClassCardFrame } from "../ClassCardFrame";
+import styles from "./InstructorClassCard.module.css";
 
 export type InstructorClassCardStatus = "active" | "draft" | "closed" | "archived";
 
@@ -22,10 +21,10 @@ export type InstructorClassCardProps = {
 };
 
 const statusMeta: Record<InstructorClassCardStatus, { color: string; labelKey: string; defaultLabel: string }> = {
-  active: { color: "success.main", defaultLabel: "Active", labelKey: "card.status.active" },
-  archived: { color: "grey.400", defaultLabel: "Archived", labelKey: "card.status.archived" },
-  closed: { color: "warning.main", defaultLabel: "Closed", labelKey: "card.status.closed" },
-  draft: { color: "success.main", defaultLabel: "Draft", labelKey: "card.status.draft" },
+  active: { color: "action", defaultLabel: "Active", labelKey: "card.status.active" },
+  archived: { color: "muted", defaultLabel: "Archived", labelKey: "card.status.archived" },
+  closed: { color: "default", defaultLabel: "Closed", labelKey: "card.status.closed" },
+  draft: { color: "action", defaultLabel: "Draft", labelKey: "card.status.draft" },
 };
 
 const toActionLabel = (label: string, tr: (key: string, defaultMessage: string) => string) => {
@@ -69,47 +68,28 @@ export function InstructorClassCard({
   const resolvedActionLabel = toActionLabel(actionLabel, tr);
   const resolvedLastLearnerActivityLabel = toLastLearnerActivityLabel(lastLearnerActivityLabel, tr);
 
-  return (
-    <ClassCardFrame
-      body={
-        <>
-          <Box sx={{ alignItems: "center", display: "flex", gap: 1, mb: 1.5 }}>
-            <CircleIcon sx={{ color: statusItem.color, fontSize: 14 }} />
-            <Typography sx={{ fontSize: 30 / 2 }}>{tr(statusItem.labelKey, statusItem.defaultLabel)}</Typography>
-          </Box>
-
-          {status !== "archived" ? (
-            <>
-              <Box sx={{ alignItems: "center", display: "flex", gap: 1, mb: 1 }}>
-                <AutoStoriesIcon color="action" fontSize="small" />
-                <Typography sx={{ fontSize: 30 / 2 }}>
-                  {tr("card.learnersCount", "{count} Learners").replace("{count}", String(learnerCount))}
-                </Typography>
-              </Box>
-
-              <Box sx={{ alignItems: "center", display: "flex", gap: 1 }}>
-                <CalendarTodayIcon color="action" fontSize="small" />
-                <Typography sx={{ fontSize: 30 / 2 }}>
-                  {tr("card.lastLearnerActivity.label", "Last Learner Activity: {value}")
-                    .replace("{value}", resolvedLastLearnerActivityLabel)}
-                </Typography>
-              </Box>
-            </>
-          ) : null}
-        </>
-      }
-      footer={<AppButton component={Link} href={actionHref} size="small">{resolvedActionLabel}</AppButton>}
-      header={
-        <Box sx={{ alignItems: "center", display: "flex", gap: 1.75 }}>
-          <Avatar sx={{ bgcolor: "grey.400", borderRadius: 1, height: 42, width: 42 }}>HE</Avatar>
-          <Box>
-            <Typography sx={{ fontSize: 32 / 2, fontWeight: 500 }}>{className}</Typography>
-            <Typography color="text.secondary" sx={{ fontSize: 28 / 2 }}>
-              {siteName}
-            </Typography>
-          </Box>
-        </Box>
-      }
-    />
-  );
+  return <ClassCardFrame
+    header={<div className={styles.header}>
+      <Avatar alt="" fallback="HE" shape="square" className={styles.avatar} />
+      <div className={styles.heading}>
+        <Typography as="h3" variant="subtitle1">{className}</Typography>
+        <Typography variant="body2" tone="muted">{siteName}</Typography>
+      </div>
+    </div>}
+    body={<>
+      <div className={styles.status} data-status={status}>
+        <span aria-hidden="true" className={styles.statusMarker} data-tone={statusItem.color} />
+        <Typography variant="body2">{tr(statusItem.labelKey, statusItem.defaultLabel)}</Typography>
+      </div>
+      {status !== "archived" && <>
+        <div className={styles.row}><AutoStoriesIcon aria-hidden="true" className={styles.icon} />
+          <Typography variant="body2">{t("card.learnersCount", { defaultMessage: "{count} Learners", namespace: "sections.instructor", values: { count: learnerCount } }).replace("{count}", String(learnerCount))}</Typography>
+        </div>
+        <div className={styles.row}><CalendarTodayIcon aria-hidden="true" className={styles.icon} />
+          <Typography variant="body2">{t("card.lastLearnerActivity.label", { defaultMessage: "Last Learner Activity: {value}", namespace: "sections.instructor", values: { value: resolvedLastLearnerActivityLabel } }).replace("{value}", resolvedLastLearnerActivityLabel)}</Typography>
+        </div>
+      </>}
+    </>}
+    footer={<Link href={actionHref} className={styles.action} underline="none">{resolvedActionLabel}</Link>}
+  />;
 }

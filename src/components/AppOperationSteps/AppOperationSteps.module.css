@@ -1,0 +1,11 @@
+@layer sgui.components {
+  .root { display: grid; gap: var(--sgui-space3); min-inline-size: min(22.5rem, 100%); }
+  .steps { display: grid; gap: var(--sgui-space2); padding: 0; margin: 0; list-style: none; }
+  .step { display: flex; align-items: center; gap: var(--sgui-space2); }
+  .icon { display: inline-flex; inline-size: var(--sgui-space4); block-size: var(--sgui-space4); flex: none; color: var(--sgui-text-muted); }
+  .icon svg { inline-size: 100%; block-size: 100%; }
+  .step[data-status="completed"] .icon { color: var(--sgui-action); }
+  .spinner { flex: none; }
+  .spinner svg { inline-size: var(--sgui-space4); block-size: var(--sgui-space4); }
+  .srOnly { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}

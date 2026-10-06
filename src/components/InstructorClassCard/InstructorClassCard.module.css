@@ -1,0 +1,15 @@
+@layer sgui.components {
+  .header { display: flex; align-items: center; gap: var(--sgui-space4); }
+  .heading { min-inline-size: 0; overflow-wrap: anywhere; }
+  .avatar { flex: none; }
+  .row { display: flex; align-items: center; gap: var(--sgui-space2); }
+  .row + .row { margin-block-start: var(--sgui-space2); }
+  .icon { flex: none; inline-size: 1.25rem; block-size: 1.25rem; color: var(--sgui-text-muted); }
+  .status { display: flex; align-items: center; gap: var(--sgui-space2); margin-block-end: var(--sgui-space3); }
+  .statusMarker { inline-size: var(--sgui-space3); block-size: var(--sgui-space3); border-radius: 50%; flex: none; background: var(--sgui-text); }
+  .statusMarker[data-tone="action"] { background: var(--sgui-action); }
+  .statusMarker[data-tone="muted"] { background: var(--sgui-text-muted); }
+  .action[data-tone="primary"] { display: inline-flex; align-items: center; justify-content: center; gap: var(--sgui-space2); min-block-size: 2rem; padding-inline: var(--sgui-space3); border-radius: var(--sgui-field-radius); font-family: var(--sgui-font-family); font-size: var(--sgui-button-size); font-weight: var(--sgui-button-weight); line-height: var(--sgui-button-line-height); box-sizing: border-box; color: var(--sgui-on-action); background: var(--sgui-action); }
+  .action:hover { background: var(--sgui-action-hover); }
+  @media (forced-colors: active) { .statusMarker { background: CanvasText; } .action { border: 1px solid ButtonText; } }
+}

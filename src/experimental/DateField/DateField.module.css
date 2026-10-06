@@ -1,0 +1,10 @@
+@layer sgui.components {
+  .input { display: flex; align-items: center; gap: var(--sgui-space1); inline-size: fit-content; flex-wrap: wrap; }
+  .segment { padding-inline: var(--sgui-space1); border-radius: var(--sgui-field-radius); font-variant-numeric: tabular-nums; }
+  .segment[data-type="literal"] { padding: 0; }
+  .segment[data-placeholder] { color: var(--sgui-text-muted); }
+  .segment[data-focused] { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); background: var(--sgui-surface-subtle); }
+  .input[data-disabled] { opacity: 0.5; }
+  .input[data-invalid] { border-color: var(--sgui-danger); }
+  @media (forced-colors: active) { .segment[data-focused] { outline-color: Highlight; } }
+}

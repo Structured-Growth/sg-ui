@@ -9,6 +9,30 @@ execution backlog are in the [React Aria master task list](react-aria-master-tas
 Migration work replaces the foundation while keeping SGUI's APIs, styles, and host
 boundaries under SGUI ownership; update this architecture as that work lands.
 
+The first implementation adds `src/foundation` for generated scoped tokens and
+`ThemeScope`, and `src/experimental` for owned React Aria control proofs, including
+button/field, dialog, tabs, combobox, popover and host locale integration, plus
+calendar/date, async selection, grid, independent icons and native layout primitives.
+The [layout/action contracts](react-aria-layout-actions.md),
+[calendar contracts](react-aria-calendar-contracts.md),
+[grid decision](react-aria-grid-decision.md) and
+[persistent view state](persistent-view-state.md) document these additions.
+AppInlineProgress, AppOperationSteps and EditableTitleField now compose these owned
+controls, and Typefaces uses the owned typography catalog. These migrated directories
+have the same boundary/token checks, with transitive source and declaration audits.
+Their granular package subpaths avoid resolving the remaining legacy catalog.
+Consumers must import the stylesheet and provide an owned visual scope, including
+around mixed editor compositions. The [remaining control contracts](react-aria-remaining-controls.md)
+and [progress/avatar guide](react-aria-progress-avatar.md) document this transition.
+These use compiled CSS Modules and explicit client boundaries. Their
+[architecture decision](react-aria-architecture.md) and
+[execution evidence](react-aria-progress.md) govern new migration code. The current
+catalog below retains its extraction architecture pending component migration.
+
+CardCollectionWithFooter, CardPaginationFooter, ClassCardFrame, InstructorClassCard
+and LearnerClassCard now follow these owned boundaries too. The [pagination](react-aria-card-pagination.md)
+and [frame contracts](react-aria-card-frames.md) describe the styles and host callbacks.
+
 ## Source layout
 
 - `src/components/<Component>`: component implementation, index, stories and tests.
@@ -34,8 +58,10 @@ outside the SGUI package to make an import work.
 
 Colocate `*.stories.tsx` and behavior tests with each component. Use representative
 fixtures and adapters in stories so the catalog runs without the learner platform.
-The application-facing examples and Storybook share `src/theme`; use theme variants
-and shared overrides for visual consistency.
+The unmigrated catalog uses `src/theme`; migrated components use foundation tokens
+and CSS Modules. Storybook supplies the production owned Provider alongside the
+legacy provider during the transition, so mixed compositions receive the scoped
+tokens too. Do not create a separate set of story-only tokens.
 
 Use existing SGUI primitives and components for composed views. Base wrappers and
 themes can import MUI directly. Keep application-specific routing, persistence,

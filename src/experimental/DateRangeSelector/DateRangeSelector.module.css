@@ -1,0 +1,24 @@
+@layer sgui.components {
+  .root { container-type: inline-size; color: var(--sgui-text); background: var(--sgui-surface); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .calendar { display: flex; flex-direction: column; gap: var(--sgui-space2); }
+  .header, .actions, .presets { display: flex; align-items: center; gap: var(--sgui-space2); flex-wrap: wrap; }
+  .header { justify-content: space-between; }
+  .heading { font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); font-weight: var(--sgui-action-weight); margin: 0; }
+  .presets { padding-block-end: var(--sgui-space3); }
+  .fields { display: flex; flex-wrap: wrap; gap: var(--sgui-space3); padding-block-end: var(--sgui-space3); }
+  .months { display: flex; gap: var(--sgui-space3); flex-wrap: wrap; }
+  .month { flex: 1; text-align: center; }
+  .grid { border-spacing: var(--sgui-space1); inline-size: 100%; }
+  .weekday { font-weight: var(--sgui-action-weight); color: var(--sgui-text-muted); }
+  .cell { text-align: center; border-radius: var(--sgui-field-radius); min-inline-size: var(--sgui-control-height); block-size: var(--sgui-control-height); cursor: pointer; }
+  .cell[data-outside-month] { visibility: hidden; }
+  .cell[data-selected] { color: var(--sgui-on-action); background: var(--sgui-action); }
+  .cell[data-hovered]:not([data-selected]) { background: var(--sgui-surface-subtle); }
+  .cell[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+  .cell[data-disabled], .cell[data-unavailable] { color: var(--sgui-text-muted); text-decoration: line-through; cursor: default; }
+  .summary { margin-block: var(--sgui-space2); }
+  .actions { justify-content: flex-end; }
+  .availability { margin-block-start: var(--sgui-space2); }
+  @container (max-width: 38rem) { .months { flex-direction: column; } .grid { inline-size: 100%; } }
+  @media (forced-colors: active) { .cell[data-selected] { border: 1px solid Highlight; } .cell[data-disabled], .cell[data-unavailable] { color: GrayText; } }
+}

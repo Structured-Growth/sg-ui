@@ -7,6 +7,20 @@ source file has a destination in this library. Original components, helpers,
 stories, and tests were copied; framework coupling was then adapted.
 The learner platform checkout has not been modified.
 
+The subsequent foundation migration has begun with scoped tokens and experimental
+button/field proofs. See the [execution record](developer/react-aria-progress.md).
+The inventory and adaptations below remain extraction provenance; they do not
+describe a completed foundation migration. Catalog migration now includes
+AppInlineProgress, AppOperationSteps, EditableTitleField and the Typefaces stories.
+These keep their public names while moving to the foundation stylesheet/scope;
+see [owned control contracts](developer/react-aria-remaining-controls.md) and
+[progress/avatar contracts](developer/react-aria-progress-avatar.md).
+
+The card collection/footer and frame/instructor/learner cards now also use the
+owned foundation. See [card pagination](developer/react-aria-card-pagination.md) and
+[card frame mappings](developer/react-aria-card-frames.md) for breaking integration
+changes, retained presentation props, routing and callbacks.
+
 ## Source architecture
 
 The learner platform is a pnpm/Turbo monorepo with a Next.js React web application,

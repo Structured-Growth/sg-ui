@@ -1,0 +1,12 @@
+@layer sgui.components {
+  .root { display: inline-flex; align-items: center; gap: var(--sgui-space2); min-block-size: var(--sgui-control-height); color: var(--sgui-text); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); cursor: pointer; }
+  .track { display: flex; align-items: center; flex: none; inline-size: 2.25rem; block-size: 1.25rem; padding: 2px; box-sizing: border-box; border: 1px solid var(--sgui-border); border-radius: 1rem; background: var(--sgui-surface-subtle); }
+  .thumb { inline-size: 0.875rem; block-size: 0.875rem; border-radius: 50%; background: var(--sgui-text); }
+  .root[data-selected] .track { justify-content: flex-end; background: var(--sgui-action); }
+  .root[data-selected] .thumb { background: var(--sgui-on-action); }
+  .root[data-focus-visible] .track { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+  .root[data-disabled] { opacity: 0.5; cursor: default; }
+  .root[data-readonly] { cursor: default; }
+  .description { display: block; color: var(--sgui-text-muted); }
+  @media (forced-colors: active) { .root[data-selected] .track { background: Highlight; } .root[data-selected] .thumb { background: HighlightText; } .root[data-disabled] { color: GrayText; opacity: 1; } }
+}

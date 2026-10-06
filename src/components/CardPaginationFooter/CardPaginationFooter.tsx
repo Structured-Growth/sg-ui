@@ -1,81 +1,40 @@
 "use client";
-
-import Box from "@mui/material/Box";
-import TablePagination from "@mui/material/TablePagination";
+import type { CSSProperties } from "react";
 import { useTranslation } from "../../i18n";
+import { Pagination } from "../../experimental/Pagination/Pagination";
+import { normalizeCardPagination } from "./pagination";
+import styles from "./CardPaginationFooter.module.css";
 
-type AppPaginationFooterProps = {
+export type AppPaginationFooterProps = {
   page: number;
   pageSize: number;
   pageSizeOptions: number[];
-  totalCount: number;
+  /** Omit, pass null or -1 for a server total that is not known. */
+  totalCount?: number | null;
   onPageChange: (nextPage: number) => void;
+  /** Requests page zero before notifying the host of the new size. */
   onPageSizeChange: (nextPageSize: number) => void;
+  hasNextPage?: boolean;
+  disabled?: boolean;
+  label?: string;
+  className?: string;
+  style?: CSSProperties;
 };
 
-export function AppPaginationFooter({
-  page,
-  pageSize,
-  pageSizeOptions,
-  totalCount,
-  onPageChange,
-  onPageSizeChange,
-}: AppPaginationFooterProps) {
-  const maxPage = totalCount === 0 ? 0 : Math.max(Math.ceil(totalCount / pageSize) - 1, 0);
-  const clampedPage = Math.min(page, maxPage);
+export function AppPaginationFooter({ page, pageSize, pageSizeOptions, totalCount, onPageChange,
+  onPageSizeChange, hasNextPage, disabled, label, className, style }: AppPaginationFooterProps) {
   const { t, useNamespace } = useTranslation();
   useNamespace("common.ui");
-  const tr = (key: string, defaultMessage: string) => t(key, { defaultMessage, namespace: "common.ui" });
-
-  return (
-    <Box
-      sx={{
-        bgcolor: "action.hover",
-        borderTop: 1,
-        borderColor: "divider",
-        minHeight: 53,
-      }}
-    >
-      <TablePagination
-        component="div"
-        count={totalCount}
-        onPageChange={(_, nextPage) => {
-          onPageChange(nextPage);
-        }}
-        onRowsPerPageChange={(event) => {
-          onPageSizeChange(Number(event.target.value));
-        }}
-        getItemAriaLabel={(type) => {
-          if (type === "first") {
-            return tr("common.ui.pagination.firstPage", "Go to first page");
-          }
-          if (type === "last") {
-            return tr("common.ui.pagination.lastPage", "Go to last page");
-          }
-          if (type === "next") {
-            return tr("common.ui.pagination.nextPage", "Go to next page");
-          }
-          return tr("common.ui.pagination.previousPage", "Go to previous page");
-        }}
-        labelDisplayedRows={({ from, to, count }) =>
-          tr("common.ui.pagination.displayedRows", "{from}-{to} of {count}")
-            .replace("{from}", String(from))
-            .replace("{to}", String(to))
-            .replace("{count}", String(count))
-        }
-        labelRowsPerPage={tr("common.ui.pagination.rowsPerPage", "Rows per page:")}
-        page={clampedPage}
-        rowsPerPage={pageSize}
-        rowsPerPageOptions={pageSizeOptions}
-        showFirstButton
-        showLastButton
-        sx={{
-          "& .MuiTablePagination-toolbar": {
-            minHeight: 53,
-            px: 2,
-          },
-        }}
-      />
-    </Box>
-  );
+  const normalized = normalizeCardPagination(page, pageSize, totalCount);
+  const from = normalized.count === 0 ? 0 : normalized.page * normalized.pageSize + 1;
+  const to = Math.min((normalized.page + 1) * normalized.pageSize, normalized.count ?? 0);
+  return <footer className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="card-pagination-footer">
+    <span className={styles.count}>{normalized.count === undefined
+      ? t("common.ui.pagination.unknownTotal", { defaultMessage: "Total unknown", namespace: "common.ui" })
+      : t("common.ui.pagination.displayedRows", { defaultMessage: "{from}-{to} of {count}", namespace: "common.ui",
+        values: { from, to, count: normalized.count } })}</span>
+    <Pagination page={normalized.page} pageSize={normalized.pageSize} pageCount={normalized.pageCount}
+      pageSizeOptions={pageSizeOptions} onPageChange={onPageChange} onPageSizeChange={onPageSizeChange}
+      hasNextPage={hasNextPage} disabled={disabled} label={label} />
+  </footer>;
 }

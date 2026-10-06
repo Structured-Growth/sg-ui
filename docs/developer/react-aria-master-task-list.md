@@ -1,6 +1,7 @@
 # SGUI React Aria migration: master task list
 
-Status: planned; implementation has not started through this document.
+Status: in progress; owned control coverage and first catalog migrations implemented.
+See the [execution record](react-aria-progress.md) for evidence and remaining gates.
 Prepared: 2026-10-05. Source: the full SGUI planning conversation, the current
 SGUI checkout, and the learner platform UI guidance.
 
@@ -93,12 +94,12 @@ selectors, story decorators, test mocks, and the built-package consumer fixture.
 `scripts/build.mjs` currently prefixes every built JavaScript module with a client
 directive. `AppThemeProvider` currently installs a global baseline stylesheet.
 
-- [ ] B-01 Capture current Git status, relevant release tags, package metadata, and public exports without discarding existing work.
-- [ ] B-02 Read `AGENTS.md`, `README.md`, `docs/migration.md`, `docs/developer/component-architecture.md`, and `docs/agent-guidance-migration.md` before architecture changes.
+- [x] B-01 Capture current Git status, relevant release tags, package metadata, and public exports without discarding existing work.
+- [x] B-02 Read `AGENTS.md`, `README.md`, `docs/migration.md`, `docs/developer/component-architecture.md`, and `docs/agent-guidance-migration.md` before architecture changes.
 - [ ] B-03 Inventory dependency imports, transitive dependencies, public declarations, class names, DOM assumptions, augmentation, and generated artifacts; include hidden configuration files.
 - [ ] B-04 Inventory all primitive exports and all icons, including direct icon imports that are not present in the public icon barrel.
 - [ ] B-05 Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking.
-- [ ] B-06 Baseline existing unit/package/release-policy checks and Storybook build; record pre-existing failures separately.
+- [x] B-06 Baseline existing unit/package/release-policy checks and Storybook build; record pre-existing failures separately.
 - [ ] B-07 Capture representative screenshots and browser interactions for light/dark UI, compact/comfortable controls, editors, navigation, modals, and grids.
 - [ ] B-08 Record current grid behavior, including selection across pages, sorting, filtering, column visibility, row drag, card mode, and server callbacks.
 - [ ] B-09 Audit focus removal, hover-only triggers, drag-only interactions, labels, contrast, and sticky content; document findings without claiming a conformance audit from source inspection alone.
@@ -106,11 +107,11 @@ directive. `AppThemeProvider` currently installs a global baseline stylesheet.
 - [ ] B-11 Record browser, React, TypeScript, Node, bundler, SSR, and React Server Component support promises separately; maintain current React 18.3/19 support unless evidence justifies a documented change.
 - [ ] B-12 Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move.
 - [ ] B-13 Inventory storage keys, persisted schema shapes, locale/date behavior, and error states that consumers rely on.
-- [ ] B-14 Keep the learner platform unchanged; collect reference behavior and source provenance read-only.
+- [x] B-14 Keep the learner platform unchanged; collect reference behavior and source provenance read-only.
 
 ## 4. Architecture, public API ownership, and replaceability
 
-- [ ] A-01 Write an architecture decision record for React Aria, compiled CSS, the owned public API, specialist engines, and the reasons alternatives were not selected.
+- [x] A-01 Write an architecture decision record for React Aria, compiled CSS, the owned public API, specialist engines, and the reasons alternatives were not selected.
 - [ ] A-02 Establish layers: tokens/styles; native presentation primitives; interaction primitives; composed UI; optional grid/editor/learning extensions; host adapters.
 - [ ] A-03 Define one-way dependency boundaries; prevent root-barrel imports from internal implementations and prevent circular imports.
 - [ ] A-04 Keep React Aria imports inside the interaction implementation layer; consumers and higher-level compositions use SGUI contracts.
@@ -128,7 +129,7 @@ directive. `AppThemeProvider` currently installs a global baseline stylesheet.
 - [ ] A-16 Keep replacement implementations swappable behind observable behavior tests; do not promise a later rewrite will be cost-free or entirely nonbreaking.
 - [ ] A-17 Define extension points for advanced components without placing backend scheduling, booking, permission, or account logic inside UI controls.
 - [ ] A-18 Keep heavyweight modules out of basic-control dependency paths; decide which require separate subpaths versus separate packages.
-- [ ] A-19 Document package dependency placement, supported versions, upgrade policy, and deduplication requirements for React Aria and date utilities.
+- [x] A-19 Document package dependency placement, supported versions, upgrade policy, and deduplication requirements for React Aria and date utilities.
 - [ ] A-20 [Future] Document how tokens/CSS and framework-independent models could be shared with other frameworks; require separate wrappers, tests, and support policy before claiming such support.
 
 ## 5. Licensing and dependency governance
@@ -145,9 +146,9 @@ directive. `AppThemeProvider` currently installs a global baseline stylesheet.
 
 ## 6. Design tokens and visual foundations
 
-- [ ] D-01 Create one reviewable token source using a documented schema compatible with the Design Tokens Community Group format where appropriate.
+- [x] D-01 Create one reviewable token source using a documented schema compatible with the Design Tokens Community Group format where appropriate.
 - [ ] D-02 Separate base palette/scale tokens, semantic roles, and component-specific tokens; use aliases rather than duplicating values.
-- [ ] D-03 Generate CSS custom properties and typed references from that source with deterministic output and validation.
+- [x] D-03 Generate CSS custom properties and typed references from that source with deterministic output and validation.
 - [ ] D-04 Define semantic colors for surfaces, raised/overlay surfaces, text, borders, separators, primary/neutral/destructive actions, selected/hover/pressed states, validation, and focus.
 - [ ] D-05 Define coordinated light/dark themes; validate readable states rather than mechanically inverting colors.
 - [ ] D-06 Define a consistent spacing, sizing, radius, elevation, border, icon, and motion scale; reconcile the current differing button/card radii intentionally.
@@ -169,13 +170,13 @@ directive. `AppThemeProvider` currently installs a global baseline stylesheet.
 
 ## 7. Modern CSS and styling pipeline
 
-- [ ] C-01 Add a build pipeline that compiles colocated CSS Modules and emits browser-ready CSS with source maps where appropriate.
-- [ ] C-02 Choose/document stylesheet entry points and import order; provide a basic installation example that requires no consumer Tailwind/PostCSS configuration.
+- [x] C-01 Add a build pipeline that compiles colocated CSS Modules and emits browser-ready CSS with source maps where appropriate.
+- [x] C-02 Choose/document stylesheet entry points and import order; provide a basic installation example that requires no consumer Tailwind/PostCSS configuration.
 - [ ] C-03 Use CSS variables for themes and dynamic values, variant/state attributes for predictable states, and supported part hooks for customization.
 - [ ] C-04 Replace `sx`, `paperSx`, theme callbacks, object-style overrides, and retired DOM selectors with owned contracts and component styles; map each removed public styling prop.
-- [ ] C-05 Define a named, namespaced library cascade layer and low-specificity selectors; document unlayered consumer override behavior and important-declaration caveats.
-- [ ] C-06 Make a global reset optional; scope necessary component normalization and do not change host body, links, buttons, or typography merely by importing SGUI.
-- [ ] C-07 Document stylesheet composition across library themes, components, utilities, and consumer overrides; avoid escalating specificity or routine `!important`.
+- [x] C-05 Define a named, namespaced library cascade layer and low-specificity selectors; document unlayered consumer override behavior and important-declaration caveats.
+- [x] C-06 Make a global reset optional; scope necessary component normalization and do not change host body, links, buttons, or typography merely by importing SGUI.
+- [x] C-07 Document stylesheet composition across library themes, components, utilities, and consumer overrides; avoid escalating specificity or routine `!important`.
 - [ ] C-08 Use container size queries for reusable card, toolbar, navigation, and modal compositions; choose/document containment boundaries so consumers know what supplies the container.
 - [ ] C-09 Use logical properties and direction-aware icons/placement for RTL; do not assume physical left/right always means start/end.
 - [ ] C-10 Prefer Grid/Flexbox over JavaScript layout measurement; reserve observers/measurement for demonstrated interaction or virtualization needs and clean them up.
@@ -189,16 +190,16 @@ directive. `AppThemeProvider` currently installs a global baseline stylesheet.
 - [ ] C-18 Add CSS and token lint rules that catch retired selectors, accidental global rules, ad hoc typography, and unsupported token references.
 - [ ] C-19 Verify CSP behavior, including unavoidable inline styles for placement/dynamic values; do not claim strict CSP support without testing.
 - [ ] C-20 Verify compiled CSS distribution, consumer production builds, stylesheet deduplication, and tree-shaking behavior; CSS must not be removed as a false side effect.
-- [ ] C-21 [Decision] Keep CSS Modules as the default; adopt vanilla-extract or utility authoring only for an evidenced benefit and without imposing its toolchain on consumers.
+- [x] C-21 [Decision] Keep CSS Modules as the default; adopt vanilla-extract or utility authoring only for an evidenced benefit and without imposing its toolchain on consumers.
 
 ## 8. Icon system
 
-- [ ] I-01 Select an independently licensed SVG source or owned vector set with full coverage of the current library's symbols and editor controls.
-- [ ] I-02 Map every direct import and public icon export to a replacement, including account/logout, arrows, calendar, filters, status, editor formatting, undo/redo, and activity symbols.
-- [ ] I-03 Define SGUI-owned icon props for size, stroke/fill, current color, class/style hooks, decorative versus meaningful use, and ref behavior where needed.
-- [ ] I-04 Keep icons individually importable; avoid pulling an entire icon catalog into basic components.
+- [x] I-01 Select an independently licensed SVG source or owned vector set with full coverage of the current library's symbols and editor controls.
+- [x] I-02 Map every direct import and public icon export to a replacement, including account/logout, arrows, calendar, filters, status, editor formatting, undo/redo, and activity symbols.
+- [x] I-03 Define SGUI-owned icon props for size, stroke/fill, current color, class/style hooks, decorative versus meaningful use, and ref behavior where needed.
+- [x] I-04 Keep icons individually importable; avoid pulling an entire icon catalog into basic components.
 - [ ] I-05 Establish consistent optical size, weight, alignment, RTL mirroring policy, and theme contrast.
-- [ ] I-06 Make decorative icons hidden from assistive technology and require meaningful names at the appropriate control level.
+- [x] I-06 Make decorative icons hidden from assistive technology and require meaningful names at the appropriate control level.
 - [ ] I-07 Replace the activity-type icon map while preserving known/unknown fallbacks and consumer override options.
 - [ ] I-08 Add icon catalog, accessibility, and bundle checks; update notices for all shipped vector assets.
 
@@ -224,16 +225,16 @@ directive. `AppThemeProvider` currently installs a global baseline stylesheet.
 
 ## 10. Proof-of-concept and selection gates
 
-- [ ] P-01 Build a representative styled button and labeled field using the intended tokens, owned contracts, CSS output, and focus behavior.
-- [ ] P-02 Build a dialog containing validation, tabs, a combobox, and a nested popover; test focus entry/restoration, Escape, dismissal, and scrolling.
-- [ ] P-03 Build an asynchronous searchable multi-select using host-supplied loading/results; test cancellation, empty/error states, long lists, and keyboard behavior.
-- [ ] P-04 Build the advanced date selector with presets, multi-month range, unavailable dates, Apply/Cancel, locale/direction, and timezone-aware examples.
-- [ ] P-05 Identify requirements that React Aria's standard Calendar/RangeCalendar does not supply directly, such as arbitrary multiple-date or fiscal-period selection; test lower-level composition rather than assuming support.
-- [ ] P-06 Compare candidate grid foundations against a concrete parity checklist using selection, server pagination, multiple sorting/filter rules, column visibility, resizing, actions, and row reordering.
+- [x] P-01 Build a representative styled button and labeled field using the intended tokens, owned contracts, CSS output, and focus behavior.
+- [x] P-02 Build a dialog containing validation, tabs, a combobox, and a nested popover; test focus entry/restoration, Escape, dismissal, and scrolling.
+- [x] P-03 Build an asynchronous searchable multi-select using host-supplied loading/results; test cancellation, empty/error states, long lists, and keyboard behavior.
+- [x] P-04 Build the advanced date selector with presets, multi-month range, unavailable dates, Apply/Cancel, locale/direction, and timezone-aware examples.
+- [x] P-05 Identify requirements that React Aria's standard Calendar/RangeCalendar does not supply directly, such as arbitrary multiple-date or fiscal-period selection; test lower-level composition rather than assuming support.
+- [x] P-06 Compare candidate grid foundations against a concrete parity checklist using selection, server pagination, multiple sorting/filter rules, column visibility, resizing, actions, and row reordering.
 - [ ] P-07 Include keyboard, screen-reader, zoom, touch, dark theme, reduced-motion, SSR/hydration, and production bundle checks in prototype findings.
 - [ ] P-08 Set reproducible performance budgets from baseline and representative consumer hardware; do not invent universal speed or size rankings.
-- [ ] P-09 [Decision] Record the grid engine and which layer owns data state, rendering, focus, virtualization, and drag; assign one authoritative owner for each state domain.
-- [ ] P-10 [Decision] Keep React Aria as the primary foundation unless a demonstrated blocker warrants a recorded exception; no second general primitive system is added speculatively.
+- [x] P-09 [Decision] Record the grid engine and which layer owns data state, rendering, focus, virtualization, and drag; assign one authoritative owner for each state domain.
+- [x] P-10 [Decision] Keep React Aria as the primary foundation unless a demonstrated blocker warrants a recorded exception; no second general primitive system is added speculatively.
 - [ ] P-11 Document prototype outcomes, API changes, limitations, and accessibility gaps; do not call prototype completion a production feature release.
 
 ## 11. Owned replacement primitives and interaction standards
@@ -245,7 +246,7 @@ needs a React Aria wrapper.
 
 - [ ] U-01 Implement Button, IconButton, split action, and button groups with loading, disabled, form type, link/action distinction, and focus behavior.
 - [ ] U-02 Implement Box/container, Stack, surface/Paper, card/content, separator/Divider, and responsive layout primitives with scoped styles.
-- [ ] U-03 Implement Text/Typography with semantic element selection and all required typography roles.
+- [x] U-03 Implement Text/Typography with semantic element selection and all required typography roles.
 - [ ] U-04 Implement TextField, input base, labels, descriptions, validation errors, required state, textarea, and grouped fields with correct associations.
 - [ ] U-05 Implement Checkbox, mixed state, Switch, RadioGroup, and label composition; document keyboard and form-submission semantics.
 - [ ] U-06 Implement Select and searchable ComboBox/Autocomplete; define value identity, filtering ownership, empty/loading/error, multiple selection where required, and disabled options.
@@ -253,12 +254,12 @@ needs a React Aria wrapper.
 - [ ] U-08 Implement dialog primitives and modal composition with title/description, dismissal reasons, initial/return focus, scroll locking, background interaction handling, and nested overlays.
 - [ ] U-09 Implement Tabs with correct roles, panels, orientation, activation mode, disabled tabs, focus visibility, and overflow behavior.
 - [ ] U-10 Implement owned Link/Breadcrumbs with host navigation integration and meaningful external-link behavior.
-- [ ] U-11 Implement List/list items, navigation items, disclosure/Collapse, and selected/expanded state without misusing menu semantics for navigation.
-- [ ] U-12 Implement Chip/Tag, Badge, and removable tokens with accessible action labels and predictable focus after removal.
-- [ ] U-13 Implement progress indicators and status messages; distinguish determinate progress from loading and avoid noisy live-region announcements.
-- [ ] U-14 Implement Avatar/image fallbacks and accessible image labeling; keep sizing and aspect ratio stable while loading.
-- [ ] U-15 Implement semantic table parts and pagination primitives with owned contracts; do not export an engine's low-level table types as SGUI's entire API.
-- [ ] U-16 Implement toggle buttons/groups for editor and view-mode controls with pressed state and appropriate single/multiple selection semantics.
+- [x] U-11 Implement List/list items, navigation items, disclosure/Collapse, and selected/expanded state without misusing menu semantics for navigation.
+- [x] U-12 Implement Chip/Tag, Badge, and removable tokens with accessible action labels and predictable focus after removal.
+- [x] U-13 Implement progress indicators and status messages; distinguish determinate progress from loading and avoid noisy live-region announcements.
+- [x] U-14 Implement Avatar/image fallbacks and accessible image labeling; keep sizing and aspect ratio stable while loading.
+- [x] U-15 Implement semantic table parts and pagination primitives with owned contracts; do not export an engine's low-level table types as SGUI's entire API.
+- [x] U-16 Implement toggle buttons/groups for editor and view-mode controls with pressed state and appropriate single/multiple selection semantics.
 - [ ] U-17 Provide consistent focus ring, target size, disabled styling, validation, status announcement, and pointer/keyboard interactions across primitives.
 - [ ] U-18 Preserve native form participation, reset behavior, autofill, names/values, and submit behavior; test controlled and uncontrolled variants.
 - [ ] U-19 Define overlay collision/placement behavior at narrow widths and browser zoom; preserve theme/locale in portals and avoid clipped popovers.
@@ -322,6 +323,12 @@ Checklist IDs cover all 37 current directories, including catalog-only directori
 | M-35 | Typefaces | Foundation catalog using new theme/tokens and native typography contract |
 | M-36 | icons | Complete direct/public icon mapping and activity-type behavior |
 | M-37 | primitives | Replace every reexport with an owned implementation/type or documented removal |
+
+Recorded catalog completions (local, pending draft PR review): M-02, M-03, M-24,
+M-35, M-11, M-12, M-13, M-14 and M-15. The [card migration record](react-aria-progress.md#card-pagination-and-course-cards)
+links the new card batch evidence. The [execution record](react-aria-progress.md#owned-controls-and-first-catalog-migrations)
+links implementation, stories, tests and consumer evidence. The other rows remain
+open; M-38 is the final reconciliation of every catalog row, not a completion claim.
 
 - [ ] M-38 Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively.
 - [ ] M-39 Migrate `AdminDataGridOptions.ts` and `InstructorDataGridOptions.ts`, including column locks, static enums, filter/sort defaults, and translation labels.
@@ -557,7 +564,7 @@ Review completed on 2026-10-05:
 - Second-pass additions cover asynchronous grid rollback, focus/scroll after data
   changes, accessible calendar explanations, and actual release-blocking checks.
 - Verified unique task IDs, complete component coverage, existing local link
-  targets, and whitespace. Implementation checkboxes remain unchecked.
+  targets, and whitespace. Implementation checkboxes remained unchecked at that documentation-delivery review; subsequent completion evidence is in the execution record.
 - This delivery changes documentation only. UI tests and builds have not been
   rerun, and no migration, publication, remote configuration, or learner-platform
   modification is represented as completed.

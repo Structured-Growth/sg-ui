@@ -1,0 +1,11 @@
+@layer sgui.components {
+  .root { display: flex; flex-direction: column; min-block-size: 0; color: var(--sgui-text); font-family: var(--sgui-font-family); }
+  .list { display: flex; flex: none; overflow-x: auto; position: sticky; inset-block-start: 0; background: var(--sgui-surface); border-block-end: 1px solid var(--sgui-divider); }
+  .tab { display: flex; align-items: center; min-block-size: var(--sgui-control-height); padding-inline: var(--sgui-control-padding); border-block-end: 2px solid transparent; white-space: nowrap; cursor: pointer; font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
+  .tab[data-selected] { color: var(--sgui-action); border-block-end-color: var(--sgui-action); }
+  .tab[data-hovered] { background: var(--sgui-surface-subtle); }
+  .tab[data-disabled] { opacity: 0.5; cursor: default; }
+  .tab[data-focus-visible], .panel:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: calc(-1 * var(--sgui-focus-width)); }
+  .panel { min-block-size: 0; overflow: auto; padding-block: var(--sgui-space4); font-size: var(--sgui-body-size); line-height: var(--sgui-body-line-height); }
+  @media (forced-colors: active) { .tab[data-selected] { border-color: Highlight; } .tab[data-disabled] { color: GrayText; opacity: 1; } }
+}

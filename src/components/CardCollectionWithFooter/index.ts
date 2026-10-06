@@ -1,1 +1,1 @@
-export { CardCollectionWithFooter } from "./CardCollectionWithFooter";
+export { CardCollectionWithFooter, type CardCollectionWithFooterProps } from "./CardCollectionWithFooter";

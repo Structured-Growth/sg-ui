@@ -1,0 +1,22 @@
+@layer sgui.components {
+  .root {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sgui-space1);
+    padding: var(--sgui-space1) var(--sgui-space2);
+    border: 1px solid transparent;
+    border-radius: var(--sgui-control-radius);
+    font-family: var(--sgui-font-family);
+    font-size: var(--sgui-label-size);
+    line-height: var(--sgui-label-line-height);
+    font-weight: var(--sgui-label-weight);
+    color: var(--sgui-text);
+    background: var(--sgui-surface-subtle);
+    overflow-wrap: anywhere;
+  }
+  .root[data-tone="primary"] { background: var(--sgui-action); color: var(--sgui-on-action); }
+  .root[data-variant="outlined"] { background: transparent; border-color: var(--sgui-border); }
+  .root[data-tone="primary"][data-variant="outlined"] { border-color: var(--sgui-action); color: var(--sgui-action); }
+  @media (forced-colors: active) { .root { border-color: CanvasText; } }
+}

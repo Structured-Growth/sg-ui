@@ -1,0 +1,24 @@
+@layer sgui.components {
+  .button {
+    box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
+    gap: var(--sgui-space2); min-block-size: var(--sgui-control-height); min-inline-size: var(--sgui-control-height);
+    padding-block: var(--sgui-space1); padding-inline: var(--sgui-control-padding);
+    border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius);
+    font-family: var(--sgui-font-family); font-size: var(--sgui-label-size);
+    font-weight: var(--sgui-action-weight); line-height: var(--sgui-label-line-height);
+    color: var(--sgui-text); background: var(--sgui-surface); cursor: pointer;
+  }
+  .button[data-hovered], .button[data-pressed] { background: var(--sgui-surface-subtle); }
+  .button[data-selected] { color: var(--sgui-on-action); background: var(--sgui-action); border-color: var(--sgui-action); }
+  .button[data-selected][data-hovered] { background: var(--sgui-action-hover); }
+  .button[data-focus-visible] { position: relative; outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+  .button[data-disabled] { opacity: 0.5; cursor: default; }
+  .group { display: flex; flex-wrap: wrap; gap: var(--sgui-space1); }
+  .group[data-orientation="vertical"] { flex-direction: column; align-items: flex-start; }
+  .icon { display: inline-flex; }
+  @media (forced-colors: active) {
+    .button[data-selected] { color: HighlightText; background: Highlight; border-color: Highlight; forced-color-adjust: none; }
+    .button[data-disabled] { color: GrayText; opacity: 1; }
+    .button[data-focus-visible] { outline-color: Highlight; }
+  }
+}

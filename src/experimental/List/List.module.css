@@ -1,0 +1,9 @@
+@layer sgui.components {
+  .root { list-style: none; padding: 0; margin: 0; }
+  .item { min-inline-size: 0; }
+  .action { inline-size: 100%; justify-content: flex-start; text-align: start; }
+  .action[aria-pressed="true"] { background: var(--sgui-surface-subtle); }
+  .text { display: flex; flex-direction: column; min-inline-size: 0; text-align: start; }
+  .icon { display: inline-flex; align-items: center; flex: none; }
+  @media (forced-colors: active) { .action[aria-pressed="true"] { outline: 1px solid Highlight; outline-offset: -1px; } }
+}

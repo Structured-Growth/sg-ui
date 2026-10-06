@@ -1,0 +1,40 @@
+@layer sgui.components {
+  .root {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sgui-space2);
+    min-block-size: var(--sgui-control-height);
+    min-inline-size: var(--sgui-control-height);
+    padding-block: var(--sgui-space1);
+    padding-inline: var(--sgui-control-padding);
+    border: 1px solid transparent;
+    border-radius: var(--sgui-control-radius);
+    font-family: var(--sgui-font-family);
+    font-size: var(--sgui-label-size);
+    font-weight: var(--sgui-action-weight);
+    line-height: var(--sgui-label-line-height);
+    background: var(--sgui-action);
+    color: var(--sgui-on-action);
+    cursor: pointer;
+    transition: background-color var(--sgui-motion-duration);
+  }
+  .root[data-hovered], .root[data-pressed] { background: var(--sgui-action-hover); }
+  .root[data-tone="neutral"] { background: var(--sgui-surface-subtle); color: var(--sgui-text); }
+  .root[data-variant="outlined"], .root[data-variant="text"] { background: transparent; color: var(--sgui-action); }
+  .root[data-tone="neutral"][data-variant] { color: var(--sgui-text); }
+  .root[data-variant="outlined"] { border-color: var(--sgui-border); }
+  .root[data-variant="outlined"][data-hovered], .root[data-variant="text"][data-hovered],
+  .root[data-tone="neutral"][data-hovered], .root[data-variant="outlined"][data-pressed],
+  .root[data-variant="text"][data-pressed] { background: var(--sgui-surface-subtle); }
+  .root[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+  .root[data-disabled] { opacity: 0.5; cursor: default; }
+  .root[data-pending] { cursor: progress; }
+  .label { overflow-wrap: anywhere; }
+  .icon { display: inline-flex; flex: none; }
+  .spinner { inline-size: 1em; block-size: 1em; border: 2px solid currentColor; border-inline-end-color: transparent; border-radius: 50%; animation: spin 800ms linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .root { transition: none; } .spinner { animation: none; } }
+  @media (forced-colors: active) { .root { border-color: ButtonText; } .root[data-focus-visible] { outline-color: Highlight; } .root[data-disabled] { color: GrayText; opacity: 1; } }
+}

@@ -1,0 +1,5 @@
+@layer sgui.components {
+  .root { display: flex; flex: 1; flex-direction: column; min-block-size: 0; min-inline-size: 0; }
+  .grid { display: grid; flex: 1; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22.5rem), 1fr)); align-content: start; gap: var(--sgui-space4); min-block-size: 0; overflow: auto; padding: var(--sgui-space4); }
+  .item { min-inline-size: 0; overflow-wrap: anywhere; }
+}

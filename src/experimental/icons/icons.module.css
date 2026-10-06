@@ -1,0 +1,4 @@
+@layer sgui.components {
+  .root { display: inline-block; flex: none; vertical-align: middle; }
+  .root[data-mirror-rtl="true"]:dir(rtl) { transform: scaleX(-1); }
+}

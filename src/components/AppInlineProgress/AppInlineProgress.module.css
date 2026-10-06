@@ -1,0 +1,5 @@
+@layer sgui.components {
+  .root { display: inline-flex; align-items: center; gap: var(--sgui-space2); }
+  .progress { inline-size: calc(var(--sgui-space4) * 3.75); }
+  .progress > span { block-size: var(--sgui-space3); }
+}

@@ -10,8 +10,19 @@ The approved migration direction is React Aria Components, SGUI-owned APIs and
 design tokens, compiled CSS Modules, and complete removal of the existing UI
 foundation. The [master task list](docs/developer/react-aria-master-task-list.md)
 records the full migration scope, component inventory, sequencing, and acceptance
-checks. It is a plan; the current implementation and installation instructions
-below still describe the extracted library.
+checks. Implementation has begun with scoped tokens, compiled CSS Modules and
+experimental controls including button/field and nested dialog/form proofs. See the [execution record](docs/developer/react-aria-progress.md).
+Most catalog components and the peer installation instructions below still describe
+the extracted library. `AppInlineProgress`, `AppOperationSteps`, `EditableTitleField`
+and the Typefaces catalog have migrated; their public prop names remain, but they
+now need the foundation stylesheet and visual scope. See the
+[owned control contracts](docs/developer/react-aria-remaining-controls.md) and
+[progress/avatar guide](docs/developer/react-aria-progress-avatar.md).
+
+CardCollectionWithFooter, AppPaginationFooter, ClassCardFrame, InstructorClassCard
+and LearnerClassCard also use the owned foundation. See the [card pagination](docs/developer/react-aria-card-pagination.md)
+and [card frame mappings](docs/developer/react-aria-card-frames.md) for styling and
+callback integration changes. Each has a granular `/components/<directory>` export.
 
 **Commercial license required.** Public npm availability does not grant permission
 to use this library. Obtain a written agreement from Structured Growth before use.
@@ -58,6 +69,44 @@ applications share one runtime. Lexical editor dependencies ship with SGUI.
 
 The theme references Geist, with system-font fallbacks; applications supply the
 font if desired. No application-global CSS or Tailwind requirement is imposed.
+
+To review the migration proofs, import the compiled stylesheet once and use the
+experimental controls inside their visual scope:
+
+```tsx
+import "@structured-growth/sg-ui/styles.css";
+import { Button, TextField, ThemeScope } from "@structured-growth/sg-ui/experimental";
+
+export function MigrationProof() {
+  return <ThemeScope theme="system" density="comfortable">
+    <TextField label="Course name" name="course" />
+    <Button onPress={() => {}}>Save</Button>
+  </ThemeScope>;
+}
+```
+
+These are proof contracts that may change during migration. Existing `AppButton`
+and catalog components retain their current APIs and peers. See the
+[architecture and styling guide](docs/developer/react-aria-architecture.md).
+Run `pnpm test:foundation-consumer` to validate a packed Vite proof consumer.
+
+Migrated catalog controls also have granular subpaths so a consumer can avoid
+resolving the unmigrated catalog:
+
+```tsx
+import "@structured-growth/sg-ui/styles.css";
+import { Provider } from "@structured-growth/sg-ui/experimental";
+import { AppInlineProgress } from "@structured-growth/sg-ui/components/AppInlineProgress";
+
+export function CourseProgress() {
+  return <Provider><AppInlineProgress value={40} /></Provider>;
+}
+```
+
+The other granular migrated paths are `/components/AppOperationSteps` and
+`/components/EditableTitleField`. The package's legacy peer requirements remain
+until the complete migration and removal audit finish. During the transition,
+wrap mixed compositions such as ContentEditorChrome in the foundation scope too.
 
 Routing uses native anchors by default. Supply `SGNavigationProvider` with
 `pathname` and `navigate` for your router, plus an optional custom `Link`.

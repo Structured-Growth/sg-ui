@@ -1,0 +1,7 @@
+@layer sgui.components {
+  .root { z-index: var(--sgui-popover-layer); max-inline-size: min(24rem, calc(100vw - 2rem)); max-block-size: var(--available-height, 80vh); overflow: auto; background: var(--sgui-surface); color: var(--sgui-text); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); box-shadow: var(--sgui-overlay-shadow); font-family: var(--sgui-font-family); font-size: var(--sgui-body-size); line-height: var(--sgui-body-line-height); }
+  .dialog { padding: var(--sgui-space4); }
+  .root[data-size="lg"] { inline-size: min(48rem, calc(100vw - 2rem)); max-inline-size: calc(100vw - 2rem); }
+  .dialog:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: calc(-1 * var(--sgui-focus-width)); }
+  .title { margin: 0 0 var(--sgui-space2); font-size: var(--sgui-label-size); font-weight: var(--sgui-action-weight); line-height: var(--sgui-label-line-height); }
+}

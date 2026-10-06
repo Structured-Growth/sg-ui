@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Stack from "@mui/material/Stack";
+import { Stack } from "../../experimental/Stack/Stack";
+import { Provider } from "../../experimental/Provider/Provider";
 import { AppInlineProgress } from "./AppInlineProgress";
 
 const meta = {
   title: "Components/AppInlineProgress",
   component: AppInlineProgress,
   tags: ["autodocs"],
+  decorators: [(Story) => <Provider><Story /></Provider>],
   args: { value: 62 },
 } satisfies Meta<typeof AppInlineProgress>;
 
@@ -20,7 +22,7 @@ export const Default: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <Stack spacing={2}>
+    <Stack gap={2}>
       <AppInlineProgress value={0} />
       <AppInlineProgress value={24} />
       <AppInlineProgress value={62} />

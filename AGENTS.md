@@ -17,6 +17,34 @@ implementation; a planning checkbox is not evidence that migration has shipped.
 Reference task IDs in migration work and update affected stories, tests, consumer
 documentation, and these instructions as implementation changes land.
 
+Migration implementation has started in `src/foundation` and `src/experimental`.
+Follow docs/developer/react-aria-architecture.md for those modules: owned props,
+React Aria only inside interaction implementations, compiled CSS Modules in the
+sgui.components layer, generated tokens and native refs. Do not introduce MUI,
+Emotion, sx or upstream public types into these new modules. Existing catalog
+components retain the current guidance below until individually migrated.
+`AppInlineProgress`, `AppOperationSteps`, `EditableTitleField` and the Typefaces
+catalog now use the owned foundation. Apply the new-module rules to these directories
+too; the check audits migrated implementations' relative dependencies transitively.
+Their props/names remain available, but consumers (including mixed editor compositions)
+must load `/styles.css` and provide `Provider` or `ThemeScope`. See the
+[remaining controls](docs/developer/react-aria-remaining-controls.md) and
+[progress/avatar contracts](docs/developer/react-aria-progress-avatar.md).
+`CardCollectionWithFooter`, `AppPaginationFooter` (CardPaginationFooter directory),
+`ClassCardFrame`, `InstructorClassCard` and `LearnerClassCard` have also migrated.
+Apply the same owned rules to these directories; see the [card pagination](docs/developer/react-aria-card-pagination.md)
+and [card frame mappings](docs/developer/react-aria-card-frames.md). Frame styling slots
+now use className/native style, and page-size changes request page zero first.
+
+`/experimental` is a proof entry point, not an instruction to rename App-prefixed
+exports. `pnpm check` validates new import/layer/token boundaries and CSS output;
+`pnpm test:foundation-consumer` validates a real tarball in a clean Vite fixture.
+See docs/developer/react-aria-progress.md for completed tasks and remaining gates.
+Every new or migrated control needs colocated behavior tests as it lands. Add
+composed interaction tests for nested controls, and browser checks for behavior
+that depends on native event timing, positioning, scrolling or focus. The new
+foundation check verifies that registered interaction controls have test files.
+
 Read README.md, docs/migration.md and docs/developer/component-architecture.md
 before changing the architecture. The learner platform is provenance, not a
 runtime dependency. Never import its APIs,

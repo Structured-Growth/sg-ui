@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Box from "@mui/material/Box";
+import { ThemeScope } from "../../foundation/ThemeScope";
 import { InstructorClassCard } from "./InstructorClassCard";
 
 const meta = {
@@ -16,9 +16,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Box sx={{ p: 2 }}>
+      <ThemeScope><div style={{ padding: 16 }}>
         <Story />
-      </Box>
+      </div></ThemeScope>
     ),
   ],
   tags: ["autodocs"],
@@ -43,3 +43,15 @@ export const Archived: Story = {
     lastLearnerActivityLabel: "No recent activity",
   },
 };
+
+export const Closed: Story = { args: { status: "closed", actionLabel: "Continue", lastLearnerActivityLabel: "Yesterday 9:00 AM" } };
+
+export const NarrowLongNames: Story = {
+  args: {
+    className: "Advanced Defense and Practical Collaboration Across Multiple Learning Environments",
+    siteName: "A long host supplied institution name that wraps within the card",
+  },
+  decorators: [(Story) => <div style={{ width: 260 }}><Story /></div>],
+};
+
+export const Dark: Story = { render: args => <ThemeScope theme="dark"><InstructorClassCard {...args} /></ThemeScope> };

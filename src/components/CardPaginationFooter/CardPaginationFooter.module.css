@@ -1,0 +1,4 @@
+@layer sgui.components {
+  .root { flex-shrink: 0; box-sizing: border-box; border-block-start: 1px solid var(--sgui-divider); background: var(--sgui-surface-subtle); color: var(--sgui-text); padding: var(--sgui-space3) var(--sgui-space4); }
+  .count { display: block; margin-block-end: var(--sgui-space2); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+}

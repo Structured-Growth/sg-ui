@@ -101,11 +101,12 @@ export {
 } from "./DataToolbar";
 export {
   ClassCardFrame,
+  type ClassCardFrameProps,
   STANDARD_CLASS_CARD_MIN_WIDTH,
   STANDARD_CLASS_CARD_WIDTH,
 } from "./ClassCardFrame";
-export { CardCollectionWithFooter } from "./CardCollectionWithFooter";
-export { AppPaginationFooter } from "./CardPaginationFooter";
+export { CardCollectionWithFooter, type CardCollectionWithFooterProps } from "./CardCollectionWithFooter";
+export { AppPaginationFooter, type AppPaginationFooterProps } from "./CardPaginationFooter";
 export { InstructorClassCard, type InstructorClassCardProps, type InstructorClassCardStatus } from "./InstructorClassCard";
 export {
   instructorClassLearnersColumnOptions,
@@ -115,7 +116,7 @@ export {
   instructorClassesFilterFields,
   instructorClassesSortOptions,
 } from "./InstructorDataGridOptions";
-export { LearnerClassCard } from "./LearnerClassCard";
+export { LearnerClassCard, type LearnerClassCardProps } from "./LearnerClassCard";
 export { LearnerClassesDataGrid, learnerClassesColumnOptions, learnerClassesSortOptions } from "./LearnerClassesDataGrid";
 export {
   SideNavigation,
