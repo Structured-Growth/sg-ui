@@ -1,5 +1,12 @@
 # Structured Growth UI agent instructions
 
+AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
+foundation. See [button mappings](docs/developer/react-aria-button.md),
+[page navigation](docs/developer/react-aria-page-navigation.md) and
+[page layout](docs/developer/react-aria-page-layout.md). AppButton now uses onPress,
+owned variant/tone/density and native class/style; the upstream button prop surface
+is removed. Load /styles.css and provide Provider or ThemeScope.
+
 ## Purpose and boundaries
 
 SGUI is the reusable React UI library for Structured Growth, built on MUI 7,

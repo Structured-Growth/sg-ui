@@ -34,12 +34,22 @@ import { CardCollectionWithFooter } from '@structured-growth/sg-ui/components/Ca
 import { ClassCardFrame } from '@structured-growth/sg-ui/components/ClassCardFrame';
 import { InstructorClassCard } from '@structured-growth/sg-ui/components/InstructorClassCard';
 import { LearnerClassCard } from '@structured-growth/sg-ui/components/LearnerClassCard';
+import { AppButton } from '@structured-growth/sg-ui/components/AppButton';
+import { ExperiencePageNavigator } from '@structured-growth/sg-ui/components/ExperiencePageNavigator';
+import { AppPageTabs } from '@structured-growth/sg-ui/components/AppPageTabs';
+import { AppPageHeader } from '@structured-growth/sg-ui/components/AppPageHeader';
 
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
 export function Proof() {
   const [open,setOpen]=React.useState(false);
+  const [page,setPage]=React.useState('one');
+  const [tab,setTab]=React.useState('details');
   return <Provider theme="dark" style={{background:tokens.surface,padding:tokens.space4}}>
+    <AppPageHeader title="Course workspace" hierarchy="primary" breadcrumbs={[{label:'Courses',href:'/courses'},{label:'Workspace'}]} moreMenuItems={[{label:'Refresh',onClick:()=>{}}]} />
+    <AppPageTabs label="Workspace sections" value={tab} onChange={setTab} items={[{id:'details',label:'Details',content:'Course details'},{id:'access',label:'Access',content:'Course access'}]} />
+    <AppButton onPress={()=>setOpen(true)} density="compact">Catalog settings</AppButton>
+    <ExperiencePageNavigator pages={[{key:'one',title:'Introduction'},{key:'two',title:'Practice'}]} activePageKey={page} onSelectPage={setPage} onAddPage={()=>{}} onRemovePage={()=>{}} onRenamePage={()=>{}} onReorderPages={()=>{}} />
     <TextField label="Course name" name="course" required />
     <Button startIcon={<AddIcon />} onPress={()=>setOpen(true)}>Edit course</Button>
     <AsyncMultiSelect label="Courses" query="" onQueryChange={()=>{}} options={[{id:'one',label:'Science'}]} />

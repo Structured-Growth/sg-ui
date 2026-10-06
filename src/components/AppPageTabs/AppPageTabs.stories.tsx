@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
-import BookIcon from "@mui/icons-material/MenuBook";
-import PeopleIcon from "@mui/icons-material/People";
-import TuneIcon from "@mui/icons-material/Tune";
-import Box from "@mui/material/Box";
+import { MenuBookIcon as BookIcon } from "../../experimental/icons/MenuBookIcon";
+import { PeopleIcon } from "../../experimental/icons/PeopleIcon";
+import { BuildIcon as TuneIcon } from "../../experimental/icons/BuildIcon";
+
 import { AppPageTabs } from "./AppPageTabs";
 
 const items = [
-  { id: "activities", label: "Activities", href: "/sections/1/instructor/me", icon: <BookIcon fontSize="small" /> },
-  { id: "learners", label: "Learners", href: "/sections/1/instructor/me/learners", icon: <PeopleIcon fontSize="small" /> },
-  { id: "preferences", label: "Preferences", href: "/sections/1/instructor/me/preferences", icon: <TuneIcon fontSize="small" /> },
+  { id: "activities", label: "Activities", href: "/sections/1/instructor/me", icon: <BookIcon /> },
+  { id: "learners", label: "Learners", href: "/sections/1/instructor/me/learners", icon: <PeopleIcon /> },
+  { id: "preferences", label: "Preferences", href: "/sections/1/instructor/me/preferences", icon: <TuneIcon /> },
 ];
 
 const meta = {
@@ -21,9 +21,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Box sx={{ bgcolor: "background.default" }}>
+      <div>
         <Story />
-      </Box>
+      </div>
     ),
   ],
   tags: ["autodocs"],
@@ -36,7 +36,7 @@ export const LinkTabs: Story = {};
 
 function ControlledTabsPreview() {
   const [value, setValue] = useState("activities");
-  return <AppPageTabs items={items} onChange={setValue} value={value} />;
+  return <AppPageTabs items={items.map(item => ({ ...item, content: `${item.label} content` }))} onChange={setValue} value={value} />;
 }
 
 export const Controlled: Story = {
@@ -48,3 +48,6 @@ export const Compact: Story = {
     density: "compact",
   },
 };
+
+export const Overflow: Story = { decorators: [(Story) => <div style={{ width: 260 }}><Story /></div>] };
+export const Disabled: Story = { args: { items: items.map(item => ({ ...item, disabled: item.id === "learners" })) } };

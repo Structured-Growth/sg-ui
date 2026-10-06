@@ -101,6 +101,22 @@
     "./components/LearnerClassCard": {
       "types": "./dist/components/LearnerClassCard/index.d.ts",
       "import": "./dist/components/LearnerClassCard/index.js"
+    },
+    "./components/AppButton": {
+      "types": "./dist/components/AppButton/index.d.ts",
+      "import": "./dist/components/AppButton/index.js"
+    },
+    "./components/ExperiencePageNavigator": {
+      "types": "./dist/components/ExperiencePageNavigator/index.d.ts",
+      "import": "./dist/components/ExperiencePageNavigator/index.js"
+    },
+    "./components/AppPageTabs": {
+      "types": "./dist/components/AppPageTabs/index.d.ts",
+      "import": "./dist/components/AppPageTabs/index.js"
+    },
+    "./components/AppPageHeader": {
+      "types": "./dist/components/AppPageHeader/index.d.ts",
+      "import": "./dist/components/AppPageHeader/index.js"
     }
   },
   "repository": {

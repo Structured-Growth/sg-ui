@@ -1,5 +1,4 @@
-import { useState } from "react";
-import type { MouseEvent } from "react";
+import { useRef, useState } from "react";
 import type { ReactNode } from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import FormatClearIcon from "@mui/icons-material/FormatClear";
@@ -57,8 +56,10 @@ export function TextStyleMenuControl({
 }: TextStyleMenuControlProps) {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
-  const openMenu = (event: MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const openMenu = () => {
+    setAnchorEl(triggerRef.current);
   };
 
   const closeMenu = () => {
@@ -79,11 +80,15 @@ export function TextStyleMenuControl({
   return (
     <>
       <AppButton
-        color="inherit"
+        aria-label="Text style"
+        tone="neutral"
         disabled={disabled}
-        onClick={openMenu}
-        size="small"
-        sx={{ minHeight: 30, minWidth: 0, px: 0.5, py: 0.25 }}
+        onPress={openMenu}
+        ref={triggerRef}
+        aria-haspopup="menu"
+        aria-expanded={Boolean(anchorEl)}
+        density="compact"
+        style={{ minHeight: 30, minWidth: 0, padding: "2px 4px" }}
         variant="text"
       >
         <Typography variant="body2">Aa</Typography>

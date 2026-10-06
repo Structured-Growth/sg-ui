@@ -53,7 +53,7 @@ describe("ColumnsLayoutModal", () => {
     }) as any;
 
     const optionButtons = initialElement.props.children.props.children as any[];
-    optionButtons[1].props.onClick();
+    optionButtons[1].props.onPress();
     const rerenderedElement = ColumnsLayoutModal({
       open: true,
       onClose: vi.fn(),

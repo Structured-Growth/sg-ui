@@ -21,6 +21,13 @@ owned foundation. See [card pagination](developer/react-aria-card-pagination.md)
 [card frame mappings](developer/react-aria-card-frames.md) for breaking integration
 changes, retained presentation props, routing and callbacks.
 
+AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
+foundation. See [button mappings](developer/react-aria-button.md),
+[page navigation](developer/react-aria-page-navigation.md) and
+[page layout](developer/react-aria-page-layout.md). AppButton now uses onPress,
+owned variant/tone/density and native class/style; the upstream button prop surface
+is removed. Load /styles.css and provide Provider or ThemeScope.
+
 ## Source architecture
 
 The learner platform is a pnpm/Turbo monorepo with a Next.js React web application,

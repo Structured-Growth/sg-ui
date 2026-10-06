@@ -8,6 +8,7 @@ export {
   AppPageHeader,
   type AppPageHeaderBreadcrumb,
   type AppPageHeaderMetaItem,
+  type AppPageHeaderMenuItem,
   type AppPageHeaderProps,
 } from "./AppPageHeader";
 export { AppPageTabs, type AppPageTabItem, type AppPageTabsProps } from "./AppPageTabs";

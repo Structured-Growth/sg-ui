@@ -28,6 +28,13 @@ callback integration changes. Each has a granular `/components/<directory>` expo
 to use this library. Obtain a written agreement from Structured Growth before use.
 See [LICENSE](LICENSE) and [commercial licensing](docs/commercial-licensing.md).
 
+AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
+foundation. See [button mappings](docs/developer/react-aria-button.md),
+[page navigation](docs/developer/react-aria-page-navigation.md) and
+[page layout](docs/developer/react-aria-page-layout.md). AppButton now uses onPress,
+owned variant/tone/density and native class/style; the upstream button prop surface
+is removed. Load /styles.css and provide Provider or ThemeScope.
+
 ## Development
 
 Use Node 24 (see `.nvmrc`) and pnpm 10.29.3:
@@ -56,10 +63,12 @@ pnpm add @structured-growth/sg-ui react react-dom @mui/material@^7 @mui/icons-ma
 ```
 
 ```tsx
-import { AppButton, AppThemeProvider } from "@structured-growth/sg-ui";
+import "@structured-growth/sg-ui/styles.css";
+import { AppButton } from "@structured-growth/sg-ui/components/AppButton";
+import { Provider } from "@structured-growth/sg-ui/experimental";
 
 export function Example() {
-  return <AppThemeProvider><AppButton>Save</AppButton></AppThemeProvider>;
+  return <Provider><AppButton>Save</AppButton></Provider>;
 }
 ```
 
@@ -85,8 +94,7 @@ export function MigrationProof() {
 }
 ```
 
-These are proof contracts that may change during migration. Existing `AppButton`
-and catalog components retain their current APIs and peers. See the
+These are proof contracts that may change during migration. Unmigrated catalog components retain their current APIs and peers. See the
 [architecture and styling guide](docs/developer/react-aria-architecture.md).
 Run `pnpm test:foundation-consumer` to validate a packed Vite proof consumer.
 

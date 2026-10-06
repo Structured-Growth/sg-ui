@@ -32,3 +32,19 @@ it("keeps controlled open state under host authority", async () => {
   rerender(<Menu open onOpenChange={change} label="Actions" items={items} trigger={<Button>Open</Button>} />);
   expect(screen.getByRole("menu")).toBeDefined(); await user.keyboard("{Escape}"); expect(change).toHaveBeenLastCalledWith(false);
 });
+it("keeps link menuitems native while routing unmodified and keyboard activation through the host", async () => {
+  const { SGNavigationProvider } = await import("../../adapters/navigation");
+  const { fireEvent } = await import("@testing-library/react");
+  const navigate = vi.fn(); const action = vi.fn(); const user = userEvent.setup();
+  render(<SGNavigationProvider value={{ pathname: "/", navigate }}><Menu label="Routes" items={[{ id: "courses", label: "Courses", href: "/courses", replace: true }, { id: "external", label: "Reference", href: "https://example.com" }, { id: "locked", label: "Locked", href: "/locked", disabled: true }]} onAction={action} trigger={<Button>Routes</Button>} /></SGNavigationProvider>);
+  await user.click(screen.getByRole("button", { name: "Routes" }));
+  const link = screen.getByRole("menuitem", { name: "Courses" });
+  expect(link.tagName).toBe("A"); expect(link.getAttribute("href")).toBe("/courses");
+  fireEvent.click(link, { ctrlKey: true }); expect(navigate).not.toHaveBeenCalled();
+  if (!screen.queryByRole("menu")) await user.click(screen.getByRole("button", { name: "Routes" }));
+  await user.click(screen.getByRole("menuitem", { name: "Locked" })); expect(navigate).not.toHaveBeenCalled();
+  await user.click(screen.getByRole("menuitem", { name: "Courses" })); expect(navigate).toHaveBeenCalledExactlyOnceWith("/courses", { replace: true });
+  navigate.mockClear(); action.mockClear();
+  await user.click(screen.getByRole("button", { name: "Routes" })); await user.keyboard("{ArrowDown}{Enter}");
+  expect(navigate).toHaveBeenCalledExactlyOnceWith("/courses", { replace: true }); expect(action).toHaveBeenCalledExactlyOnceWith("courses");
+});

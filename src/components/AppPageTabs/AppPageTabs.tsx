@@ -1,81 +1,46 @@
-import Link from "../../adapters/Link";
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
-import Tabs from "@mui/material/Tabs";
-import type { ReactElement } from "react";
+"use client";
+import { forwardRef, type CSSProperties, type ReactNode } from "react";
+import { scrollTabIntoView } from "../../experimental/Tabs/scrollTabIntoView";
+import { Tabs } from "../../experimental/Tabs/Tabs";
+import { Link } from "../../experimental/Link/Link";
+import { useTranslation } from "../../i18n";
+import styles from "./AppPageTabs.module.css";
 
 export type AppPageTabItem = {
   id: string;
   label: string;
-  href: string;
-  icon?: ReactElement;
+  href?: string;
+  icon?: ReactNode;
   replace?: boolean;
+  disabled?: boolean;
+  /** Controlled tabs own their associated panel. Route tabs omit content. */
+  content?: ReactNode;
 };
-
 export type AppPageTabsProps = {
   value: string;
-  items: AppPageTabItem[];
+  items: readonly AppPageTabItem[];
   onChange?: (value: string) => void;
   density?: "default" | "comfortable" | "compact";
+  label?: string;
+  activation?: "automatic" | "manual";
+  className?: string;
+  style?: CSSProperties;
 };
-
-export function AppPageTabs({ value, items, onChange, density = "default" }: AppPageTabsProps) {
-  const tabSx = density === "compact"
-    ? {
-        minHeight: 36,
-        px: 1,
-        py: 0,
-        fontSize: 13,
-        "& .MuiTab-iconWrapper": {
-          mr: 0.75,
-        },
-      }
-    : density === "comfortable"
-      ? {
-          minHeight: 48,
-          px: 1.25,
-          py: 0.25,
-          fontSize: 14,
-          "& .MuiTab-iconWrapper": {
-            mr: 0.875,
-          },
-        }
-      : undefined;
-
-  return (
-    <Box sx={{ bgcolor: "background.paper", borderBottom: 1, borderColor: "divider", px: 1.5 }}>
-      <Tabs
-        onChange={(_, nextValue: string) => {
-          onChange?.(nextValue);
-        }}
-        sx={density === "compact" ? { minHeight: 36 } : density === "comfortable" ? { minHeight: 48 } : undefined}
-        value={value}
-      >
-        {items.map((item) => (
-          onChange ? (
-            <Tab
-              icon={item.icon}
-              iconPosition="start"
-              key={item.id}
-              label={item.label}
-              sx={tabSx}
-              value={item.id}
-            />
-          ) : (
-            <Tab
-              component={Link}
-              href={item.href}
-              icon={item.icon}
-              iconPosition="start"
-              key={item.id}
-              label={item.label}
-              replace={item.replace}
-              sx={tabSx}
-              value={item.id}
-            />
-          )
-        ))}
-      </Tabs>
-    </Box>
-  );
-}
+export const AppPageTabs = forwardRef<HTMLDivElement, AppPageTabsProps>(function AppPageTabs(
+  { value, items, onChange, density = "default", label, activation, className, style }, ref,
+) {
+  const { t } = useTranslation();
+  const name = label ?? t("common.ui.pageTabs", { defaultMessage: "Page sections" });
+  return <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style}
+    data-sgui-part="page-tabs" data-sgui-density={density === "default" ? undefined : density}>
+    {onChange ? <Tabs label={name} items={items.map(item => ({ ...item, content: item.content ?? null }))}
+      value={value} onValueChange={onChange} activation={activation} /> :
+      <nav aria-label={name} className={styles.navigation} onFocusCapture={event => scrollTabIntoView(event.currentTarget, event.target as HTMLElement)}>{items.map(item => item.disabled || !item.href ?
+        <span key={item.id} className={styles.link} aria-disabled={item.disabled || undefined} aria-current={item.id === value ? "page" : undefined}>
+          {item.icon && <span aria-hidden="true" className={styles.icon}>{item.icon}</span>}{item.label}
+        </span> : <Link key={item.id} href={item.href} replace={item.replace} underline="none" tone="inherit"
+          className={styles.link} aria-current={item.id === value ? "page" : undefined}>
+          {item.icon && <span aria-hidden="true" className={styles.icon}>{item.icon}</span>}{item.label}
+        </Link>)}</nav>}
+  </div>;
+});

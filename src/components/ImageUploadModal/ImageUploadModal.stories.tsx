@@ -23,7 +23,7 @@ export const Default: Story = {
 
     return (
       <>
-        <AppButton onClick={() => setOpen(true)} size="small" variant="outlined">
+        <AppButton onPress={() => setOpen(true)} density="compact" variant="outlined">
           Open Image Upload
         </AppButton>
         <ImageUploadModal

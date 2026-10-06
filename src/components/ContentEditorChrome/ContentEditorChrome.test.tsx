@@ -35,8 +35,10 @@ describe("ContentEditorChrome", () => {
 
     const menuButtons = menuRow.props.children as any[];
     expect(menuButtons).toHaveLength(2);
-    menuButtons[0].props.onClick({ type: "click" });
+    const nativeClick = { type: "click", currentTarget: { id: "file-menu-anchor" } };
+    menuButtons[0].props.onClick(nativeClick);
     menuButtons[1].props.onClick({ type: "click" });
+    expect(onFileClick).toHaveBeenCalledWith(nativeClick);
     expect(onFileClick).toHaveBeenCalledTimes(1);
     expect(onEditClick).toHaveBeenCalledTimes(1);
   });

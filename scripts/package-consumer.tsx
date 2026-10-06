@@ -95,3 +95,23 @@ export const dialogProof = <Provider theme="dark"><Dialog open={false} title="Co
   <ComboBox label="Category" options={[{id:'science',label:'Science'}]} onValueChange={value => console.log(value)} />
   <Popover title="Help" trigger={<Button>Help</Button>}><TextField label="Note" /></Popover>
 </>}]} /></Dialog></Provider>;
+
+import { AppButton as GranularAppButton } from '@structured-growth/sg-ui/components/AppButton';
+import { AppPageTabs } from '@structured-growth/sg-ui/components/AppPageTabs';
+import { AppPageHeader, type AppPageHeaderMenuItem } from '@structured-growth/sg-ui/components/AppPageHeader';
+import { ExperiencePageNavigator } from '@structured-growth/sg-ui/components/ExperiencePageNavigator';
+import { createRef } from 'react';
+const catalogRef = createRef<HTMLButtonElement>();
+const catalogMenu: AppPageHeaderMenuItem = { label: 'Edit', onClick: () => {} };
+export const migratedPages = <Provider>
+  <GranularAppButton ref={catalogRef} variant="filled" tone="neutral" density="compact" onPress={() => {}}>Save</GranularAppButton>
+  <AppPageHeader title="Course" hierarchy="primary" moreMenuItems={[catalogMenu]} />
+  <AppPageTabs value="details" onChange={() => {}} items={[{id:'details',label:'Details',content:'Details'}]} />
+  <ExperiencePageNavigator pages={[{key:'one',title:'Introduction'}]} activePageKey="one" onSelectPage={() => {}} onAddPage={() => {}} onRemovePage={() => {}} onRenamePage={() => {}} onReorderPages={() => {}} />
+</Provider>;
+// @ts-expect-error Catalog action no longer accepts upstream styling objects.
+export const retiredCatalogStyle = <GranularAppButton sx={{ color: 'red' }} />;
+// @ts-expect-error Catalog action uses the event-free owned activation callback.
+export const retiredCatalogClick = <GranularAppButton onClick={() => {}} />;
+// @ts-expect-error Routed actions use Link, not a polymorphic button.
+export const retiredCatalogLink = <GranularAppButton href="/courses" />;

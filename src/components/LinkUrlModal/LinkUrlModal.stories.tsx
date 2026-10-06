@@ -23,11 +23,11 @@ export const Default: Story = {
     return (
       <>
         <AppButton
-          onClick={() => {
+          onPress={() => {
             setSession((current) => current + 1);
             setOpen(true);
           }}
-          size="small"
+          density="compact"
           variant="outlined"
         >
           Open Link Modal

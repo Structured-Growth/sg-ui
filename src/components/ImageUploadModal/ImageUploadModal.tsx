@@ -87,7 +87,7 @@ export function ImageUploadModal({
         >
           <UploadFileIcon color="action" fontSize="large" />
           <Typography variant="body2">Drag and drop an image here</Typography>
-          <AppButton onClick={pickFile} size="small" variant="outlined">
+          <AppButton onPress={pickFile} density="compact" variant="outlined">
             Search Files
           </AppButton>
           <Typography color="text.secondary" variant="caption">

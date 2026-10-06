@@ -69,16 +69,16 @@ export function ColumnsLayoutModal({
           const active = option.preset === selectedPreset;
           return (
             <AppButton
-              color="inherit"
+              tone="neutral"
               key={option.preset}
-              onClick={() => setSelectedPreset(option.preset)}
-              size="large"
-              sx={{
-                borderColor: active ? "primary.main" : "transparent",
-                borderRadius: 2,
+              onPress={() => setSelectedPreset(option.preset)}
+              aria-pressed={active}
+              style={{
+                borderColor: active ? "var(--sgui-action)" : "transparent",
+                borderRadius: 8,
                 borderWidth: 2,
                 justifyContent: "flex-start",
-                px: 1.5,
+                paddingInline: 12,
               }}
               variant="outlined"
             >

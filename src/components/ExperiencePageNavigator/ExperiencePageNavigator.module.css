@@ -1,0 +1,13 @@
+@layer sgui.components {
+  .root { display: flex; flex-direction: column; block-size: 100%; min-block-size: 0; min-inline-size: 0; border-inline-end: 1px solid var(--sgui-divider); background: var(--sgui-surface); color: var(--sgui-text); }
+  .header { display: flex; align-items: center; justify-content: space-between; gap: var(--sgui-space2); padding: var(--sgui-space3) var(--sgui-space4); }
+  .list { flex: 1; min-block-size: 0; overflow-y: auto; list-style: none; margin: 0; padding: 0; border-block-start: 1px solid var(--sgui-divider); }
+  .row { display: flex; align-items: center; gap: var(--sgui-space2); padding: var(--sgui-space2) var(--sgui-space3); }
+  .row[data-active] { background: var(--sgui-surface-subtle); }
+  .handle { display: flex; flex-shrink: 0; color: var(--sgui-text-muted); }
+  .page { flex: 1; min-inline-size: 0; justify-content: flex-start; text-align: start; }
+  .page > span { min-inline-size: 0; }
+  .pageText { display: flex; flex-direction: column; overflow-wrap: anywhere; }
+  .actions { flex-shrink: 0; }
+  @media (hover: hover) { .actions { opacity: 0; } .row:hover .actions, .row:focus-within .actions { opacity: 1; } }
+}

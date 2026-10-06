@@ -25,7 +25,7 @@ export const Login: Story = {
     <AuthShell subtitle="Use your school email to continue." title="Sign In">
       <Stack spacing={2}>
         <TextField fullWidth label="Email Address" placeholder="name@school.org" />
-        <AppButton size="large">Continue</AppButton>
+        <AppButton density="comfortable">Continue</AppButton>
         <Typography variant="body2">
           Need help? <Link href="/forgot-password">Reset your password</Link>
         </Typography>

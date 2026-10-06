@@ -1,0 +1,13 @@
+@layer sgui.components {
+  .root { background: var(--sgui-surface-subtle); color: var(--sgui-text); padding: var(--sgui-space4) calc(var(--sgui-space3) * 2); border-block-end: 1px solid var(--sgui-divider); font-family: var(--sgui-font-family); }
+  .root[data-hierarchy="primary"] { background: var(--sgui-surface); }
+  .breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sgui-space2); margin: 0 0 var(--sgui-space2); padding: 0; list-style: none; font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
+  .crumb { display: flex; align-items: center; gap: var(--sgui-space2); min-inline-size: 0; overflow-wrap: anywhere; }
+  .row { display: flex; flex-wrap: wrap; align-items: stretch; gap: var(--sgui-space4); }
+  .text { flex: 1 1 18rem; min-inline-size: 0; overflow-wrap: anywhere; }
+  .description { margin-block-start: var(--sgui-space2); }
+  .metadata { display: flex; flex-direction: column; justify-content: center; gap: var(--sgui-space2); border-inline-start: 1px solid var(--sgui-divider); padding-inline-start: var(--sgui-space4); min-inline-size: 0; overflow-wrap: anywhere; }
+  .metaItem { display: flex; align-items: center; gap: var(--sgui-space2); }
+  .icon { display: inline-flex; flex: none; }
+  .actions { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--sgui-space2); margin-inline-start: auto; min-inline-size: 0; }
+}

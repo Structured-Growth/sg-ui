@@ -33,6 +33,13 @@ CardCollectionWithFooter, CardPaginationFooter, ClassCardFrame, InstructorClassC
 and LearnerClassCard now follow these owned boundaries too. The [pagination](react-aria-card-pagination.md)
 and [frame contracts](react-aria-card-frames.md) describe the styles and host callbacks.
 
+AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
+foundation. See [button mappings](react-aria-button.md),
+[page navigation](react-aria-page-navigation.md) and
+[page layout](react-aria-page-layout.md). AppButton now uses onPress,
+owned variant/tone/density and native class/style; the upstream button prop surface
+is removed. Load /styles.css and provide Provider or ThemeScope.
+
 ## Source layout
 
 - `src/components/<Component>`: component implementation, index, stories and tests.

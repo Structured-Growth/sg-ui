@@ -44,3 +44,16 @@ describe("owned tabs proof", () => {
     expect(screen.getByRole("tab", { name: "Access" }).getAttribute("aria-selected")).toBe("true");
   });
 });
+it("reveals a clipped controlled tab inside its strip during arrow navigation", async () => {
+  const user = userEvent.setup();
+  render(<Tabs label="Sections" items={items} activation="manual" />);
+  const strip = screen.getByRole("tablist");
+  const details = screen.getByRole("tab", { name: "Details" });
+  const access = screen.getByRole("tab", { name: "Access" });
+  Object.defineProperty(strip, "clientWidth", { value: 260 });
+  vi.spyOn(strip, "getBoundingClientRect").mockReturnValue({ left: 16, right: 276 } as DOMRect);
+  vi.spyOn(details, "getBoundingClientRect").mockImplementation(() => ({ left: 16 - strip.scrollLeft, right: 140 - strip.scrollLeft } as DOMRect));
+  vi.spyOn(access, "getBoundingClientRect").mockImplementation(() => ({ left: 254 - strip.scrollLeft, right: 388 - strip.scrollLeft } as DOMRect));
+  await user.click(details); await user.keyboard("{ArrowRight}");
+  expect(document.activeElement).toBe(access); expect(strip.scrollLeft).toBe(112);
+});

@@ -312,3 +312,70 @@ component-only Actions AI allowlist does not cover this infrastructure change;
 it requires the ordinary maintainer PR path. No release workflow or credential/
 permission setting was modified. A future merge of a release-worthy commit can
 trigger the existing release workflow; no merge is authorized by this record.
+
+## Page actions and navigation
+
+Completed on 2026-10-06: M-01, M-04, M-05 and M-10, added to the shared
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
+`feat/react-aria-owned-foundation-cards`. No merge or publication is authorized.
+Most catalog rows and broad U/X/R/Z gates remain open.
+
+| Task | Implementation and evidence |
+| --- | --- |
+| M-01 | AppButton now wraps owned Button, forwards a native button ref, uses variant/tone/density and event-free onPress, defaults to form-safe type=button and preserves loading/disabled semantics. Four behavior/SSR tests cover pointer/Enter/Space once, pending/disabled, native submit and decorative slots. Stories cover variants, dark pending/disabled, compact density and native form submission. |
+| M-05 | AppPageTabs preserves value/items/onChange/density and routing; adds disabled items, named regions, manual activation and owned content panels. Local tabs connect panel IDs, skip disabled items and retain host-controlled selection. Route sections use native links with aria-current, host routing/replacement and native modified clicks. Keyboard focus scrolls only the overflowing section strip. |
+| M-04 | AppPageHeader preserves title, metadata, breadcrumbs, menu/action precedence and owned zero-argument callbacks. Native heading level is independent of visual typography. Primary/subpage surfaces use shared light/dark tokens. Long paths retain collapsed ancestor menus with native route anchors, disabled commands and return focus. Metadata/actions and long text wrap in narrow containers. |
+| M-10 | ExperiencePageNavigator retains the actual authoring page-list model and host callbacks. Separate selection/actions, translated rename/remove, guarded native-form rename, read-only/last-page restrictions and drag source/target validation remain. Move up/down adds keyboard/touch reorder requests using the existing callback. Removal moves focus to a surviving adjacent page after the host commits row removal. |
+
+The [button](react-aria-button.md), [page layout](react-aria-page-layout.md) and
+[page navigation](react-aria-page-navigation.md) guides document breaking prop/style
+mappings and host integration. All four directories have granular exports,
+transitive source guards, owned declaration checks, colocated stories/tests and
+packed fixtures. Consumer typings reject AppButton sx, native onClick and href.
+Library-owned labels retain translation defaults; host titles remain host-owned.
+
+Dependent legacy editor/upload/modal stories and compositions now use AppButton's
+owned props. Their menu anchors use native refs rather than event objects and DOM
+regressions verify focus/activation. ContentEditorChrome keeps a legacy Button
+internally to preserve its existing MouseEvent callback contract until M-17; it
+is explicitly unmigrated. This is not evidence of complete editor/legacy removal.
+
+Validation:
+
+- `pnpm check`: 113 files / 525 tests passed, four foundation tests, four release
+  tests, source/token/layer checks, production/story typecheck, ESM/declarations,
+  public import and consumer type checks. Modified native link tests may emit the
+  existing jsdom unsupported navigation diagnostic; assertions pass.
+- `pnpm build-storybook`: passed with the existing directive/sourcemap and
+  large-chunk warnings. No check exemptions or warning filters were added.
+- Packed React 18.3.1 / 19.2.3: real tarballs passed SSR without browser globals,
+  production Vite builds, one compiled stylesheet and no legacy/editor bundles
+  or auto-installed legacy peers. Both hydrated Workspace Access panels and
+  opened navigator rename dialogs through keyboard menus with Introduction
+  focused in the labelled field; captured error/warning logs were empty.
+- Native in-app browser: AppButton Cancel did not submit; Enter and Space each
+  submitted once (count 2), with visible 2px focus and 44px default control height.
+  Navigator keyboard rename trimmed the title and returned action-trigger focus;
+  Move down changed the host-rendered order. Removing the focused row moved focus
+  to the surviving active selection. A 303px list scrolled 987px while document
+  scroll stayed zero and its header stayed at top 16px.
+- Local tabs ArrowRight selected Learners and rendered its named associated panel
+  with a visible 2px focus ring. Collapsed breadcrumb keyboard opening exposed a
+  native href anchor; Escape returned Show path focus. The 260px header wrapped
+  title/description/metadata/actions with scrollWidth equal to its 260px width.
+- Narrow route tabs initially left focused Preferences clipped. The resulting
+  regression fix moves only strip.scrollLeft: at 320px viewport/260px strip,
+  Preferences focus scrolled 112px, with document scroll zero; reverse Tab brought
+  Activities back into view. Colocated route/controlled keyboard geometry tests
+  cover this fix. Dark actions used scoped generated token colors.
+
+Node 26.5.0 / pnpm 10.29.3 remain the local tools. Full Chrome/Firefox/WebKit,
+touch, screen-reader, zoom/reflow matrix, visual regression, Node 24, Next.js/RSC
+and performance gates remain open. The native checks are representative evidence,
+not full acceptance of general U controls.
+
+Next batch: M-08 AppModal and M-07 AuthShell, then M-09 SideNavigation and M-06
+AppShell as dependencies allow. Preserve host routing/account adapters and map
+legacy modal props/callbacks in dependent editor compositions explicitly. Complete
+validation/commit/push before starting each successor chat; continue the required
+backlog in dependency order without overlapping checkout writes.

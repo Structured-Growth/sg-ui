@@ -1,5 +1,5 @@
-import { useState } from "react";
-import type { MouseEvent, ReactNode } from "react";
+import { useRef, useState } from "react";
+import type { ReactNode } from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
 import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
@@ -50,8 +50,10 @@ export function TextAlignMenuControl({
 }: TextAlignMenuControlProps) {
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
-  const openMenu = (event: MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const openMenu = () => {
+    setAnchorEl(triggerRef.current);
   };
 
   const closeMenu = () => {
@@ -74,12 +76,16 @@ export function TextAlignMenuControl({
   return (
     <>
       <AppButton
-        color="inherit"
+        aria-label={triggerMeta.label}
+        tone="neutral"
         disabled={disabled}
-        onClick={openMenu}
-        size="small"
+        onPress={openMenu}
+        ref={triggerRef}
+        aria-haspopup="menu"
+        aria-expanded={Boolean(anchorEl)}
+        density="compact"
         startIcon={triggerMeta.icon}
-        sx={{ minHeight: 30, minWidth: 0, px: 0.5, py: 0.25 }}
+        style={{ minHeight: 30, minWidth: 0, padding: "2px 4px" }}
         variant="text"
       >
         <ArrowDropDownIcon fontSize="small" />

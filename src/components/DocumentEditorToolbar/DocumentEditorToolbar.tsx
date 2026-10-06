@@ -122,7 +122,7 @@ export function DocumentEditorToolbar({
           {showCustomComponentAction ? (
             <>
               <Divider flexItem orientation="vertical" sx={{ mx: 0.5 }} />
-              <AppButton disabled size="small" startIcon={<AddIcon fontSize="small" />} variant="text">
+              <AppButton disabled density="compact" startIcon={<AddIcon fontSize="small" />} variant="text">
                 Custom component
               </AppButton>
             </>

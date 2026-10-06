@@ -7,6 +7,13 @@ not replace the current component catalog. See the
 [execution record](react-aria-progress.md) and
 [master backlog](react-aria-master-task-list.md).
 
+AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
+foundation. See [button mappings](react-aria-button.md),
+[page navigation](react-aria-page-navigation.md) and
+[page layout](react-aria-page-layout.md). AppButton now uses onPress,
+owned variant/tone/density and native class/style; the upstream button prop surface
+is removed. Load /styles.css and provide Provider or ThemeScope.
+
 ## Layers and dependency direction
 
 1. `src/foundation/tokens.json` owns token values. The generator resolves aliases,

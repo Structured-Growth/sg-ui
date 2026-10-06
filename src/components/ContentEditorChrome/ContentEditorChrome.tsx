@@ -1,7 +1,7 @@
 import type { MouseEvent, ReactNode } from "react";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import { AppButton } from "../AppButton";
+import Button from "@mui/material/Button";
 import { EditableTitleField } from "../EditableTitleField";
 
 export type ContentEditorChromeMenuItem = {
@@ -48,7 +48,8 @@ export function ContentEditorChrome({
 
           <Stack alignItems="center" direction="row" spacing={0.25} sx={{ color: "text.primary", mt: 0.5 }}>
             {menuItems.map((item) => (
-              <AppButton
+              // Preserve the public native MouseEvent callback until this editor chrome migrates.
+              <Button
                 color="inherit"
                 key={item.id}
                 onClick={(event) => item.onClick(event)}
@@ -57,7 +58,7 @@ export function ContentEditorChrome({
                 variant="text"
               >
                 {item.label}
-              </AppButton>
+              </Button>
             ))}
           </Stack>
         </Box>
