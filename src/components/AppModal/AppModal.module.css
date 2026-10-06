@@ -1,0 +1,8 @@
+@layer sgui.components {
+  .body { display: flex; flex-direction: column; }
+  .body > * { flex-shrink: 0; }
+  .body > [data-sgui-part="page-tabs"] { flex: 1 1 auto; min-block-size: 0; }
+  .footer { display: flex; align-items: center; justify-content: space-between; gap: var(--sgui-space4); inline-size: 100%; flex-wrap: wrap; }
+  .steps { color: var(--sgui-text-muted); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .actions { display: flex; gap: var(--sgui-space2); margin-inline-start: auto; flex-wrap: wrap; }
+}

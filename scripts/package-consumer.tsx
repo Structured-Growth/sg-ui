@@ -115,3 +115,16 @@ export const retiredCatalogStyle = <GranularAppButton sx={{ color: 'red' }} />;
 export const retiredCatalogClick = <GranularAppButton onClick={() => {}} />;
 // @ts-expect-error Routed actions use Link, not a polymorphic button.
 export const retiredCatalogLink = <GranularAppButton href="/courses" />;
+
+import { AppModal as GranularAppModal, type AppModalCloseReason } from '@structured-growth/sg-ui/components/AppModal';
+import { AuthShell } from '@structured-growth/sg-ui/components/AuthShell';
+import { SideNavigation } from '@structured-growth/sg-ui/components/SideNavigation';
+import { AppShell } from '@structured-growth/sg-ui/components/AppShell';
+export const migratedShells = <Provider><AuthShell title="Sign in"><TextField label="Email" /></AuthShell>
+<AppShell navigation={<SideNavigation model={{user:{initials:'AU',name:'Author',organization:'School'},rootMenu:{id:'root',sections:[]}}} />}><OwnedTypography as="h1">Courses</OwnedTypography></AppShell>
+<GranularAppModal open={false} title="Settings" size="md" bodyStyle={{padding:0}} onClose={reason=>{const owned: AppModalCloseReason=reason;console.log(owned);}}
+primaryAction={{label:'Save',onPress:()=>{},variant:'filled',tone:'primary'}}>Content</GranularAppModal></Provider>;
+// @ts-expect-error Modal styles are native rather than upstream styling callbacks.
+export const retiredModalStyles = <GranularAppModal open={false} paperSx={{padding:0}}>Content</GranularAppModal>;
+// @ts-expect-error Modal actions use owned normalized activation.
+export const retiredModalAction = <GranularAppModal open={false} primaryAction={{label:'Save',onClick:()=>{}}}>Content</GranularAppModal>;

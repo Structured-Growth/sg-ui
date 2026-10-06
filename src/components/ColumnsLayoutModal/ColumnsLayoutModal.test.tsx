@@ -26,7 +26,7 @@ describe("ColumnsLayoutModal", () => {
 
     expect(element.props.open).toBe(true);
     expect(element.props.title).toBe("Choose columns layout");
-    expect(element.props.paperSx).toEqual({ width: 460 });
+    expect(element.props.width).toBe(460);
 
     const optionsContainer = element.props.children;
     const optionButtons = optionsContainer.props.children as any[];
@@ -34,9 +34,9 @@ describe("ColumnsLayoutModal", () => {
     expect(optionButtons[0].props.children).toBe("2 columns (equal width)");
     expect(optionButtons[4].props.children).toBe("4 columns (equal width)");
 
-    element.props.primaryAction.onClick();
+    element.props.primaryAction.onPress();
     expect(onSubmit).toHaveBeenCalledWith("twoEqual");
-    element.props.secondaryAction.onClick();
+    element.props.secondaryAction.onPress();
     expect(onClose).toHaveBeenCalledTimes(1);
     element.props.onClose();
     expect(onClose).toHaveBeenCalledTimes(2);
@@ -60,7 +60,7 @@ describe("ColumnsLayoutModal", () => {
       onSubmit,
       defaultPreset: "threeEqual",
     }) as any;
-    rerenderedElement.props.primaryAction.onClick();
+    rerenderedElement.props.primaryAction.onPress();
     expect(onSubmit).toHaveBeenCalledWith("two2575");
   });
 });

@@ -48,18 +48,16 @@ export function ColumnsLayoutModal({
 
   return (
     <AppModal
-      fullWidth={false}
-      maxWidth={false}
       onClose={() => onClose()}
       open={open}
-      paperSx={{ width: 460 }}
+      width={460}
       primaryAction={{
         label: "Insert",
-        onClick: () => onSubmit(selectedPreset),
+        onPress: () => onSubmit(selectedPreset),
       }}
       secondaryAction={{
         label: "Cancel",
-        onClick: () => onClose(),
+        onPress: () => onClose(),
       }}
       showCloseButton
       title="Choose columns layout"

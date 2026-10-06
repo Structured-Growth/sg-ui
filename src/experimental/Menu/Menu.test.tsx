@@ -48,3 +48,7 @@ it("keeps link menuitems native while routing unmodified and keyboard activation
   await user.click(screen.getByRole("button", { name: "Routes" })); await user.keyboard("{ArrowDown}{Enter}");
   expect(navigate).toHaveBeenCalledExactlyOnceWith("/courses", { replace: true }); expect(action).toHaveBeenCalledExactlyOnceWith("courses");
 });
+it("keeps host action errors within the accessible menu scope", async () => {
+  const user = userEvent.setup(); render(<Provider theme="dark"><Menu label="Retry actions" errorMessage="Unable to save. Try again." items={items} trigger={<Button>Retry</Button>} /></Provider>);
+  await user.click(screen.getByRole("button", { name: "Retry" })); const alert = screen.getByRole("alert"); const menu = screen.getByRole("menu", { name: "Retry actions" }); expect(menu.getAttribute("aria-describedby")).toBe(alert.id); expect(alert.closest('[data-sgui-theme="dark"]')).toBeTruthy();
+});

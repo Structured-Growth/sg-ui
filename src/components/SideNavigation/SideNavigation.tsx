@@ -1,34 +1,16 @@
 "use client";
-
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { usePathname, useRouter } from "../../adapters/navigation";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Collapse from "@mui/material/Collapse";
-import Divider from "@mui/material/Divider";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
-import { keyframes } from "@mui/material/styles";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import AddIcon from "@mui/icons-material/Add";
-import CheckIcon from "@mui/icons-material/Check";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import LogoutIcon from "@mui/icons-material/Logout";
 import { useAccountAdapter } from "../../adapters/accounts";
-import { usePersistentState } from "../../hooks/usePersistentState";
-
-import { useTranslation } from "../../i18n";
 import type { AuthOrganization, StoredAuthSession } from "../../adapters/accounts";
+import { usePersistentState } from "../../hooks/usePersistentState";
+import { useTranslation } from "../../i18n";
+import { Button } from "../../experimental/Button/Button";
+import { Link } from "../../experimental/Link/Link";
+import { Menu, type MenuItem } from "../../experimental/Menu/Menu";
+import { Avatar } from "../../experimental/Avatar/Avatar";
+import { AccountCircleIcon, AddIcon, CheckIcon, ChevronRightIcon, ExpandMoreIcon, KeyboardArrowLeftIcon, LogoutIcon } from "../../experimental/icons";
+import styles from "./SideNavigation.module.css";
 
 export type SideNavChildBehavior = "expand" | "drilldown";
 
@@ -83,29 +65,10 @@ export type SideNavigationProps = {
   onItemSelect?: (itemId: string) => void;
   onOrganizationChange?: (organizationId: string, accountId?: string) => Promise<void> | void;
   resolveIcon?: (iconKey: string) => React.ReactNode;
+  className?: string;
+  style?: CSSProperties;
+  "aria-label"?: string;
 };
-
-const slideInFromRight = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
-
-const slideInFromLeft = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
 
 export const getMenuItems = (menu: SideNavMenu) => [
   ...menu.sections.flatMap((section) => section.items),
@@ -298,96 +261,36 @@ export const findFirstHref = (items: SideNavItem[]): string | undefined => {
   return undefined;
 };
 
-export function NavItems({
-  items,
-  pathname,
-  depth = 0,
-  expanded,
-  onToggle,
-  onDrilldown,
-  onItemSelect,
-  resolveIcon,
-  onNavigate,
-}: NavItemsProps) {
-  return (
-    <List dense disablePadding>
-      {items.map((item) => {
-        const hasChildren = Boolean(item.children?.length);
-        const behavior = item.childBehavior ?? "expand";
-        const isExpanded = expanded.has(item.id);
-        const icon = renderItemIcon(item.icon, resolveIcon);
-        const isSelected = item.active || pathMatchesHref(item.href, pathname);
-
-        return (
-          <Box key={item.id}>
-            <ListItemButton
-              dense
-              onClick={() => {
-                if (hasChildren && behavior === "expand") {
-                  if (item.href) {
-                    onNavigate?.(item.href);
-                  }
-                  onToggle(item.id);
-                  return;
-                }
-
-                if (hasChildren && behavior === "drilldown") {
-                  const drilldownHref = item.href ?? findFirstHref(item.children ?? []);
-
-                  if (drilldownHref) {
-                    onNavigate?.(drilldownHref);
-                  }
-                  onDrilldown(item);
-                  return;
-                }
-
-                if (item.href) {
-                  onNavigate?.(item.href);
-                }
-
-                onItemSelect?.(item.id);
-              }}
-              selected={isSelected}
-              sx={{
-                borderRadius: 1,
-                ml: depth > 0 ? depth * 2 : 0,
-                px: 1.5,
-                "&.Mui-selected": {
-                  bgcolor: "action.selected",
-                },
-              }}
-            >
-              {icon ? <ListItemIcon sx={{ color: "text.secondary", minWidth: 28 }}>{icon}</ListItemIcon> : null}
-              <ListItemText primary={item.label} primaryTypographyProps={{ fontWeight: isSelected ? 600 : 400 }} />
-              {hasChildren && behavior === "expand" ? (
-                isExpanded ? <ExpandLessIcon fontSize="small" /> : <ExpandMoreIcon fontSize="small" />
-              ) : null}
-              {hasChildren && behavior === "drilldown" ? <ChevronRightIcon fontSize="small" /> : null}
-            </ListItemButton>
-            {hasChildren && behavior === "expand" ? (
-              <Collapse in={isExpanded} timeout="auto" unmountOnExit>
-                <NavItems
-                  items={item.children ?? []}
-                  pathname={pathname}
-                  depth={depth + 1}
-                  expanded={expanded}
-                  onToggle={onToggle}
-                  onDrilldown={onDrilldown}
-                  onItemSelect={onItemSelect}
-                  resolveIcon={resolveIcon}
-                  onNavigate={onNavigate}
-                />
-              </Collapse>
-            ) : null}
-          </Box>
-        );
-      })}
-    </List>
-  );
+export function NavItems({ items, pathname, depth = 0, expanded, onToggle, onDrilldown, onItemSelect, resolveIcon, onNavigate }: NavItemsProps) {
+  return <ul className={styles.list}>
+    {items.map(item => {
+      const hasChildren = Boolean(item.children?.length);
+      const behavior = item.childBehavior ?? "expand";
+      const isExpanded = expanded.has(item.id);
+      const selected = item.active || pathMatchesHref(item.href, pathname);
+      const icon = renderItemIcon(item.icon, resolveIcon);
+      const content = <><span aria-hidden="true" className={styles.icon}>{icon}</span><span className={styles.itemLabel}>{item.label}</span>{hasChildren && <span aria-hidden="true" className={styles.icon}>{behavior === "expand" ? <ExpandMoreIcon className={isExpanded ? styles.rotated : undefined} /> : <ChevronRightIcon />}</span>}</>;
+      const activate = () => {
+        if (hasChildren && behavior === "expand") {
+          if (item.href) onNavigate?.(item.href);
+          onToggle(item.id);
+        } else if (hasChildren && behavior === "drilldown") {
+          const href = item.href ?? findFirstHref(item.children ?? []);
+          if (href) onNavigate?.(href);
+          onDrilldown(item);
+        } else onItemSelect?.(item.id);
+      };
+      return <li key={item.id} data-selected={selected || undefined} style={{ marginInlineStart: depth ? "var(--sgui-space4)" : undefined }}>
+        {item.href && !hasChildren ? <Link className={styles.item} href={item.href} tone="inherit" underline="none" aria-current={selected ? "page" : undefined} onClick={event => {
+          if (!event.defaultPrevented && event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) onItemSelect?.(item.id);
+        }}>{content}</Link> : <Button className={styles.item} variant="text" tone="neutral" density="compact" aria-expanded={hasChildren && behavior === "expand" ? isExpanded : undefined} onPress={activate}>{content}</Button>}
+        {hasChildren && behavior === "expand" && isExpanded && <NavItems items={item.children ?? []} pathname={pathname} depth={depth + 1} expanded={expanded} onToggle={onToggle} onDrilldown={onDrilldown} onItemSelect={onItemSelect} resolveIcon={resolveIcon} onNavigate={onNavigate} />}
+      </li>;
+    })}
+  </ul>;
 }
 
-/* c8 ignore start */
-export function SideNavigation({ model, onItemSelect, onOrganizationChange, resolveIcon }: SideNavigationProps) {
+export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(function SideNavigation({ model, onItemSelect, onOrganizationChange, resolveIcon, className, style, "aria-label": ariaLabel }, ref) {
   const { getStoredAuthSession, getStoredAuthSessions, markOrganizationSwitched,
     setActiveStoredAuthSession, logoutAccount, logoutAllAccounts, organizationStorageKey, enabled: accountsEnabled } = useAccountAdapter();
   const pathname = usePathname();
@@ -401,17 +304,17 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
   const [isSessionHydrated, setIsSessionHydrated] = useState(false);
   const [storedSessions, setStoredSessions] = useState<StoredAuthSession[]>([]);
   const [activeStoredAccountId, setActiveStoredAccountId] = useState<string | null>(null);
-  const refreshStoredSessions = () => {
+  const refreshStoredSessions = useCallback(() => {
     const sessions = getStoredAuthSessions();
     const active = getStoredAuthSession();
     setStoredSessions(sessions);
     setActiveStoredAccountId(active?.accountId ?? sessions[0]?.accountId ?? null);
-  };
+  }, [getStoredAuthSessions, getStoredAuthSession]);
 
   useEffect(() => {
     refreshStoredSessions();
     setIsSessionHydrated(true);
-  }, []);
+  }, [refreshStoredSessions]);
 
   const activeStoredSession = useMemo(() => {
     if (!isSessionHydrated || storedSessions.length === 0) {
@@ -429,7 +332,7 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
     () =>
       activeStoredSession?.organizations?.length
         ? activeStoredSession.organizations.map((organization) => ({
-            billingScopeLabel: "Organization Billing Account",
+            billingScopeLabel: tr("switch.billingScope", "Organization Billing Account"),
             id: organization.id,
             name: organization.name,
             role: tr("switch.role.member", "Member"),
@@ -438,7 +341,7 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
           ? model.user.organizations
         : [
             {
-              billingScopeLabel: "Organization Billing Account",
+              billingScopeLabel: tr("switch.billingScope", "Organization Billing Account"),
               id: model.user.defaultOrganizationId ?? "default-organization",
               name: model.user.organization,
               role: tr("switch.role.member", "Member"),
@@ -463,7 +366,7 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
     if (activeOrganizationId !== activeStoredSession.activeOrgId) {
       setActiveOrganizationId(activeStoredSession.activeOrgId);
     }
-  }, [activeOrganizationId, activeStoredSession, setActiveOrganizationId]);
+  }, [activeStoredSession, setActiveOrganizationId]);
 
   const [expanded, setExpanded] = useState<Set<string>>(
     () => new Set(collectExpandedDefaults(getMenuItems(model.rootMenu))),
@@ -471,33 +374,34 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
   const [transitionDirection, setTransitionDirection] = useState<"forward" | "back" | null>(null);
   const [menuStackOverride, setMenuStackOverride] = useState<SideNavMenu[] | null>(null);
   const [overridePathname, setOverridePathname] = useState<string | null>(null);
-  const [userMenuAnchorEl, setUserMenuAnchorEl] = useState<HTMLElement | null>(null);
-  const [logoutMenuAnchorEl, setLogoutMenuAnchorEl] = useState<HTMLElement | null>(null);
-  const [pendingSelection, setPendingSelection] = useState<{ accountId: string; organizationId: string } | null>(null);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
+  const [accountError, setAccountError] = useState<string | null>(null);
+  const menuContentRef = useRef<HTMLDivElement>(null);
+  const focusAfterTransition = useRef<string | null>(null);
   const [isSwitchingOrganization, setIsSwitchingOrganization] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const accountOperation = useRef(false);
   const derivedMenuStack = useMemo(() => buildMenuStack(model.rootMenu, pathname), [model.rootMenu, pathname]);
   const menuStack = overridePathname === pathname && menuStackOverride ? menuStackOverride : derivedMenuStack;
   const effectiveExpanded = useMemo(
     () =>
       new Set([
         ...expanded,
-        ...collectExpandedDefaults(getMenuItems(model.rootMenu)),
-        ...collectExpandedByPath(getMenuItems(model.rootMenu), pathname),
+
       ]),
     [expanded, model.rootMenu, pathname],
   );
 
   const currentMenu = menuStack[menuStack.length - 1] ?? model.rootMenu;
-  const isUserMenuOpen = Boolean(userMenuAnchorEl);
-  const isLogoutMenuOpen = Boolean(logoutMenuAnchorEl);
+
   useEffect(() => {
     if (!isUserMenuOpen) {
       return;
     }
 
     refreshStoredSessions();
-  }, [isUserMenuOpen]);
+  }, [isUserMenuOpen, refreshStoredSessions]);
   const switchAccountGroups = useMemo<SwitchAccountGroup[]>(
     () => {
       if (storedSessions.length > 0) {
@@ -547,6 +451,7 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
   const handleDrilldown = (item: SideNavItem) => {
     const childItems = item.children ?? [];
 
+    focusAfterTransition.current = "first";
     setTransitionDirection("forward");
     setOverridePathname(pathname);
     setMenuStackOverride((currentOverride) => {
@@ -576,6 +481,7 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
 
     const parentHref = menuStack[menuStack.length - 1]?.backHref;
 
+    focusAfterTransition.current = currentMenu.backLabel ?? "first";
     setTransitionDirection("back");
     setOverridePathname(pathname);
     setMenuStackOverride(menuStack.slice(0, -1));
@@ -586,8 +492,7 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
   };
 
   const handleUserMenuClose = () => {
-    setUserMenuAnchorEl(null);
-    setLogoutMenuAnchorEl(null);
+    setIsUserMenuOpen(false);
   };
 
   const handleOpenAddAccount = () => {
@@ -597,17 +502,17 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
   };
 
   const handleLogoutAccount = async (accountId: string) => {
-    if (isLoggingOut) {
+    if (!accountsEnabled || accountOperation.current) {
       return;
     }
 
+    accountOperation.current = true;
+    setAccountError(null);
     setIsLoggingOut(true);
     const wasActiveAccount = activeStoredSession?.accountId === accountId;
     try {
       await logoutAccount(accountId);
-    } finally {
       refreshStoredSessions();
-      setIsLoggingOut(false);
       handleUserMenuClose();
       const remainingSessions = getStoredAuthSessions();
       if (remainingSessions.length === 0) {
@@ -627,30 +532,36 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
 
         router.push(`/login/select-organization?next=${encodeURIComponent(pathname)}`);
       }
+    } finally {
+      accountOperation.current = false;
+      setIsLoggingOut(false);
     }
   };
 
   const handleLogoutAll = async () => {
-    if (isLoggingOut) {
+    if (!accountsEnabled || accountOperation.current) {
       return;
     }
 
     setIsLoggingOut(true);
+    accountOperation.current = true;
+    setAccountError(null);
     try {
       await logoutAllAccounts();
-    } finally {
       refreshStoredSessions();
-      setIsLoggingOut(false);
       handleUserMenuClose();
       router.push(`/login?next=${encodeURIComponent(pathname)}`);
+    } finally {
+      accountOperation.current = false;
+      setIsLoggingOut(false);
     }
   };
 
   const handleOrganizationSelect = async (accountId: string, organizationId: string) => {
-    if (isSwitchingOrganization) {
+    if (accountOperation.current) {
       return;
     }
-    setPendingSelection({ accountId, organizationId });
+    setAccountError(null);
 
     const targetAccountId = accountId === "default-account" ? undefined : accountId;
     const isSameAccount = activeStoredSession?.accountId
@@ -661,6 +572,7 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
       return;
     }
 
+    accountOperation.current = true;
     setIsSwitchingOrganization(true);
     try {
       await onOrganizationChange?.(organizationId, targetAccountId);
@@ -674,264 +586,54 @@ export function SideNavigation({ model, onItemSelect, onOrganizationChange, reso
       handleUserMenuClose();
       // The host owns refresh/navigation after an organization switch.
     } catch {
-      // Keep navigation stable if switching fails.
+      setAccountError(tr("switch.failed", "Unable to switch organization. Try again."));
     } finally {
+      accountOperation.current = false;
       setIsSwitchingOrganization(false);
     }
   };
 
-  return (
-    <Paper
-      square
-      elevation={0}
-      sx={{
-        borderRight: 1,
-        borderColor: "divider",
-        display: "flex",
-        flexDirection: "column",
-        height: "100vh",
-        width: 280,
-      }}
-    >
-      <Box
-        onClick={(event) => {
-          setUserMenuAnchorEl(event.currentTarget);
-        }}
-        onKeyDown={(event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            setUserMenuAnchorEl(event.currentTarget as HTMLElement);
-          }
-        }}
-        role="button"
-        sx={{
-          alignItems: "center",
-          cursor: "pointer",
-          display: "flex",
-          gap: 1.5,
-          px: 2,
-          py: 2,
-          "&:hover": {
-            bgcolor: "action.hover",
-          },
-        }}
-        tabIndex={0}
-      >
-        <Avatar sx={{ bgcolor: "grey.400", color: "common.white", height: 42, width: 42 }}>{displayUserInitials}</Avatar>
-        <Box sx={{ minWidth: 0 }}>
-          <Typography noWrap fontSize={16} fontWeight={500}>
-            {displayUserName}
-          </Typography>
-          <Typography color="text.secondary" noWrap fontSize={14}>
-            {activeOrganization.name}
-          </Typography>
-        </Box>
-        <KeyboardArrowDownIcon sx={{ color: "text.secondary", ml: "auto" }} />
-      </Box>
-
-      <Menu
-        anchorEl={userMenuAnchorEl}
-        MenuListProps={{ dense: true }}
-        onClose={handleUserMenuClose}
-        open={isUserMenuOpen}
-        PaperProps={{ sx: { minWidth: 260 } }}
-      >
-        <MenuItem
-          onClick={() => {
-            handleUserMenuClose();
-            router.push("/account");
-          }}
-          sx={{ fontSize: 13, minHeight: 30, px: 1.25 }}
-        >
-          <ListItemIcon sx={{ minWidth: 30 }}>
-            <AccountCircleIcon fontSize="small" />
-          </ListItemIcon>
-          {tr("user.manageProfile", "Manage Profile")}
-        </MenuItem>
-        <Divider />
-        {switchAccountGroups.flatMap((accountGroup) => {
-          const organizationItems = accountGroup.organizations.map((organization) => {
-            const isActive = (
-              activeStoredSession?.accountId === accountGroup.accountId
-              && activeOrganizationId === organization.id
-            ) || (
-              pendingSelection?.accountId === accountGroup.accountId
-              && pendingSelection.organizationId === organization.id
-            );
-            return (
-              <MenuItem
-                key={`${accountGroup.accountId}-${organization.id}`}
-                disabled={isSwitchingOrganization}
-                onClick={() => void handleOrganizationSelect(accountGroup.accountId, organization.id)}
-                sx={{ fontSize: 13, minHeight: 30, px: 0.5 }}
-              >
-                <ListItemIcon sx={{ justifyContent: "center", minWidth: 18, mr: 0.75 }}>
-                  {isActive ? <CheckIcon fontSize="small" /> : null}
-                </ListItemIcon>
-                {organization.name}
-              </MenuItem>
-            );
-          });
-
-          return [
-            <Box key={`${accountGroup.accountId}-label`} sx={{ px: 1.25, pt: 0.5 }}>
-              <Typography color="text.secondary" variant="caption">
-                {accountGroup.email || accountGroup.displayName}
-              </Typography>
-            </Box>,
-            ...organizationItems,
-          ];
-        })}
-        <Divider />
-        <MenuItem
-          disabled={isSwitchingOrganization}
-          onClick={handleOpenAddAccount}
-          sx={{ fontSize: 13, minHeight: 30, px: 1.25 }}
-        >
-          <ListItemIcon sx={{ minWidth: 30 }}>
-            <AddIcon fontSize="small" />
-          </ListItemIcon>
-          {tr("user.addAccount", "Add account")}
-        </MenuItem>
-        <Divider />
-        <MenuItem
-          onClick={(event) => {
-            if (hasMultipleAccounts) {
-              setLogoutMenuAnchorEl(event.currentTarget);
-              return;
-            }
-            const onlyAccountId = getStoredAuthSession()?.accountId ?? switchAccountGroups[0]?.accountId;
-            if (onlyAccountId) {
-              void handleLogoutAccount(onlyAccountId);
-            }
-          }}
-          sx={{ fontSize: 13, minHeight: 30, px: 1.25 }}
-        >
-          <ListItemIcon sx={{ minWidth: 30 }}>
-            <LogoutIcon fontSize="small" />
-          </ListItemIcon>
-          {tr("user.logout", "Logout")}
-          {hasMultipleAccounts ? <ChevronRightIcon fontSize="small" sx={{ ml: "auto" }} /> : null}
-        </MenuItem>
-      </Menu>
-      <Menu
-        anchorEl={logoutMenuAnchorEl}
-        MenuListProps={{ dense: true }}
-        onClose={() => setLogoutMenuAnchorEl(null)}
-        open={isLogoutMenuOpen}
-        PaperProps={{ sx: { minWidth: 260 } }}
-        anchorOrigin={{ horizontal: "right", vertical: "top" }}
-        transformOrigin={{ horizontal: "left", vertical: "top" }}
-      >
-        {switchAccountGroups.map((group) => (
-          <MenuItem
-            key={`logout-${group.accountId}`}
-            disabled={isLoggingOut || !accountsEnabled}
-            onClick={() => void handleLogoutAccount(group.accountId)}
-            sx={{ fontSize: 13, minHeight: 30, px: 1.25 }}
-          >
-            {group.email}
-          </MenuItem>
-        ))}
-        <Divider />
-        <MenuItem
-          disabled={isLoggingOut || !accountsEnabled}
-          onClick={() => void handleLogoutAll()}
-          sx={{ fontSize: 13, minHeight: 30, px: 1.25 }}
-        >
-          {tr("user.logoutAllAccounts", "Log out of all accounts")}
-        </MenuItem>
-      </Menu>
-
-      {currentMenu.backLabel ? (
-        <>
-          <Divider />
-          <List dense disablePadding sx={{ px: 1, py: 1 }}>
-            <ListItemButton dense onClick={handleBack} sx={{ borderRadius: 1, px: 1.5 }}>
-              <ListItemIcon sx={{ color: "text.secondary", minWidth: 28 }}>
-                <KeyboardArrowLeftIcon />
-              </ListItemIcon>
-              <ListItemText primary={currentMenu.backLabel} />
-            </ListItemButton>
-          </List>
-        </>
-      ) : null}
-
-      <Divider />
-
-      <Box
-        key={menuStack.map((menu) => menu.id).join("/")}
-        onAnimationEnd={() => {
-          setTransitionDirection(null);
-        }}
-        sx={{
-          animation:
-            transitionDirection === null
-              ? "none"
-              : `${transitionDirection === "forward" ? slideInFromRight : slideInFromLeft} 180ms ease-out`,
-          display: "flex",
-          flex: 1,
-          flexDirection: "column",
-          minHeight: 0,
-        }}
-      >
-        <Box sx={{ flex: 1, overflowY: "auto", px: 1.5, py: 1.5 }}>
-          {currentMenu.sections.map((section) => (
-            <Box key={section.id} sx={{ mb: 2.5 }}>
-              {section.title ? (
-                <Typography color="text.secondary" fontSize={14} sx={{ mb: 1, px: 0.5 }}>
-                  {section.title}
-                </Typography>
-              ) : null}
-              <NavItems
-                items={section.items}
-                pathname={pathname}
-                expanded={effectiveExpanded}
-                onToggle={handleToggle}
-                onDrilldown={handleDrilldown}
-                onItemSelect={onItemSelect}
-                resolveIcon={resolveIcon}
-                onNavigate={router.push}
-              />
-            </Box>
-          ))}
-        </Box>
-
-        {currentMenu.footerSections?.length ? (
-          <>
-            <Divider />
-            <Box sx={{ px: 1.5, py: 1.5 }}>
-              {currentMenu.footerSections.map((section, index) => (
-                <Box key={section.id}>
-                  {index > 0 ? <Divider sx={{ mb: 1.5 }} /> : null}
-                  <Box sx={{ mb: 1.5 }}>
-                    {section.title ? (
-                      <Typography color="text.secondary" fontSize={14} sx={{ mb: 1, px: 0.5 }}>
-                        {section.title}
-                      </Typography>
-                    ) : null}
-                    <NavItems
-                      items={section.items}
-                      pathname={pathname}
-                      expanded={effectiveExpanded}
-                      onToggle={handleToggle}
-                      onDrilldown={handleDrilldown}
-                      onItemSelect={onItemSelect}
-                      resolveIcon={resolveIcon}
-                      onNavigate={router.push}
-                    />
-                  </Box>
-                </Box>
-              ))}
-            </Box>
-          </>
-        ) : null}
-      </Box>
-
-      <Box sx={{ alignItems: "center", borderTop: 1, borderColor: "divider", display: "flex", minHeight: 40, px: 2 }}>
-        <ChevronRightIcon sx={{ color: "text.disabled", ml: "auto" }} />
-      </Box>
-    </Paper>
-  );
-}
-/* c8 ignore end */
+  const menuKey = menuStack.map(menu => menu.id).join("/");
+  useEffect(() => {
+    setExpanded(current => new Set([...current, ...collectExpandedByPath(getMenuItems(model.rootMenu), pathname)]));
+  }, [model.rootMenu, pathname]);
+  useEffect(() => {
+    const target = focusAfterTransition.current;
+    if (!target) return;
+    focusAfterTransition.current = null;
+    const controls = [...(menuContentRef.current?.querySelectorAll<HTMLElement>("button, a[href]") ?? [])];
+    (controls.find(control => control.textContent?.trim() === target) ?? controls[0])?.focus();
+  }, [menuKey]);
+  const menuActions = new Map<string, () => void>();
+  const accountItems: MenuItem[] = [];
+  const addAction = (item: MenuItem, action: () => void) => { accountItems.push(item); menuActions.set(item.id, action); };
+  addAction({ id: "profile", label: tr("user.manageProfile", "Manage Profile"), icon: <AccountCircleIcon /> }, () => router.push("/account"));
+  for (const [accountIndex, group] of switchAccountGroups.entries()) {
+    for (const [organizationIndex, organization] of group.organizations.entries()) {
+      const active = (activeStoredSession?.accountId === group.accountId || !activeStoredSession) && activeOrganizationId === organization.id;
+      addAction({ id: `organization-${accountIndex}-${organizationIndex}`, label: hasMultipleAccounts ? `${organization.name} (${group.email || group.displayName})` : organization.name, disabled: isSwitchingOrganization || isLoggingOut, icon: active ? <CheckIcon /> : undefined }, () => void handleOrganizationSelect(group.accountId, organization.id));
+    }
+  }
+  addAction({ id: "add", label: tr("user.addAccount", "Add account"), icon: <AddIcon />, disabled: !accountsEnabled || isSwitchingOrganization || isLoggingOut }, handleOpenAddAccount);
+  for (const [index, group] of switchAccountGroups.entries()) {
+    addAction({ id: `logout-${index}`, label: hasMultipleAccounts ? `${tr("user.logout", "Logout")} (${group.email || group.displayName})` : tr("user.logout", "Logout"), icon: <LogoutIcon />, disabled: !accountsEnabled || isLoggingOut || isSwitchingOrganization }, () => void handleLogoutAccount(group.accountId).catch(() => setAccountError(tr("user.logoutFailed", "Unable to log out. Try again."))));
+  }
+  if (hasMultipleAccounts) addAction({ id: "logout-all", label: tr("user.logoutAllAccounts", "Log out of all accounts"), disabled: !accountsEnabled || isLoggingOut || isSwitchingOrganization }, () => void handleLogoutAll().catch(() => setAccountError(tr("user.logoutFailed", "Unable to log out. Try again."))));
+  const renderSections = (sections: SideNavSection[]) => sections.map(section => <section key={section.id} className={styles.section} aria-label={section.title}>
+    {section.title && <h2 className={styles.sectionTitle}>{section.title}</h2>}
+    <NavItems items={section.items} pathname={pathname} expanded={effectiveExpanded} onToggle={handleToggle} onDrilldown={handleDrilldown} onItemSelect={onItemSelect} resolveIcon={resolveIcon} onNavigate={router.push} />
+  </section>);
+  return <nav ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} aria-label={ariaLabel ?? tr("landmark", "Main navigation")} data-collapsed={collapsed || undefined} data-sgui-part="side-navigation">
+    {!collapsed && <>
+      <Menu label={tr("user.menu", "Account and organization")} density="compact" errorMessage={accountError ?? undefined} open={isUserMenuOpen} onOpenChange={open => { if (open || !accountOperation.current) setIsUserMenuOpen(open); }} items={accountItems} onAction={id => menuActions.get(id)?.()} trigger={<Button variant="text" tone="neutral" className={styles.userTrigger}>
+        <Avatar alt="" fallback={displayUserInitials} /><span className={styles.identity}><span>{displayUserName}</span><span className={styles.organization}>{activeOrganization?.name}</span></span><ExpandMoreIcon />
+      </Button>} />
+      {accountError && !isUserMenuOpen && <p role="alert" className={styles.error}>{accountError}</p>}
+      <div ref={menuContentRef} className={styles.menuContent} data-direction={transitionDirection ?? undefined} onAnimationEnd={() => setTransitionDirection(null)}>
+        {currentMenu.backLabel && <Button variant="text" tone="neutral" startIcon={<KeyboardArrowLeftIcon />} className={styles.back} onPress={handleBack}>{currentMenu.backLabel}</Button>}
+        <div className={styles.scroll}>{renderSections(currentMenu.sections)}{currentMenu.footerSections?.length ? <div className={styles.footer}>{renderSections(currentMenu.footerSections)}</div> : null}</div>
+      </div>
+    </>}
+    <Button variant="text" tone="neutral" className={styles.collapse} aria-label={collapsed ? tr("expand", "Expand navigation") : tr("collapse", "Collapse navigation")} aria-expanded={!collapsed} onPress={() => setCollapsed(value => !value)}>{collapsed ? <ChevronRightIcon /> : <KeyboardArrowLeftIcon />}</Button>
+  </nav>;
+});

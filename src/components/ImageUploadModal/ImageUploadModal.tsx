@@ -43,14 +43,13 @@ export function ImageUploadModal({
 
   return (
     <AppModal
-      fullWidth
-      maxWidth="sm"
+      size="sm"
       onClose={onClose}
       open={open}
       primaryAction={{
         disabled: uploading || !selectedFile,
         label: uploading ? "Uploading..." : "Insert",
-        onClick: async () => {
+        onPress: async () => {
           if (!selectedFile) {
             return;
           }
@@ -59,9 +58,9 @@ export function ImageUploadModal({
         },
       }}
       secondaryAction={{
-        color: "inherit",
+        tone: "neutral",
         label: "Cancel",
-        onClick: () => {
+        onPress: () => {
           setSelectedFile(null);
           onClose();
         },

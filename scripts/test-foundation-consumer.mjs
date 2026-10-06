@@ -39,6 +39,10 @@ import { ExperiencePageNavigator } from '@structured-growth/sg-ui/components/Exp
 import { AppPageTabs } from '@structured-growth/sg-ui/components/AppPageTabs';
 import { AppPageHeader } from '@structured-growth/sg-ui/components/AppPageHeader';
 
+import { AppModal } from '@structured-growth/sg-ui/components/AppModal';
+import { AuthShell } from '@structured-growth/sg-ui/components/AuthShell';
+import { AppShell } from '@structured-growth/sg-ui/components/AppShell';
+import { SideNavigation } from '@structured-growth/sg-ui/components/SideNavigation';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
 export function Proof() {
@@ -65,16 +69,18 @@ export function Proof() {
     <Pagination page={0} pageCount={3} onPageChange={()=>{}} />
     <AppInlineProgress value={40} /><AppOperationSteps title="Publishing" steps={[{id:'one',label:'Prepare',status:'completed'}]} />
     <EditableTitleField title="Course title" onSave={()=>{}} />
-    <Dialog open={open} title="Course settings" onDismiss={()=>setOpen(false)}>
+    <AppModal open={open} title="Course settings" size="md" heightMode="md" showCloseButton onClose={()=>setOpen(false)} primaryAction={{label:"Save settings",onPress:()=>setOpen(false)}}>
       <Tabs label="Settings" items={[{id:'details',label:'Details',content:<>
         <ComboBox label="Category" options={[{id:'science',label:'Science'}]} />
         <Popover title="Help" trigger={<Button>Help</Button>}><TextField label="Note" /></Popover>
       </>},{id:'access',label:'Access',content:'Host settings'}]} />
-    </Dialog>
+    </AppModal>
   <AppPaginationFooter page={0} pageSize={4} pageSizeOptions={[4,8]} totalCount={12} onPageChange={()=>{}} onPageSizeChange={()=>{}} />
   <CardCollectionWithFooter rows={[{id:'one',label:'Science'}]} getRowId={row=>row.id} page={0} pageSize={4} pageSizeOptions={[4,8]} onPageChange={()=>{}} onPageSizeChange={()=>{}} renderCard={row=><ClassCardFrame header={row.label} body="Course details" />} />
   <InstructorClassCard className="Science" siteName="School" status="active" learnerCount={12} lastLearnerActivityLabel="Recent activity" actionLabel="Open Class" actionHref="/courses/science" />
   <LearnerClassCard courseName="Science" instructorName="Author" progressPercent={40} nextActivity="Read" dueAt="2026-10-10" referenceNow={new Date('2026-10-06T12:00:00Z')} detailsHref="/courses/science" />
+<AuthShell title="Sign in"><TextField label="Host email" /></AuthShell>
+<AppShell style={{height:300}} navigation={<SideNavigation model={{user:{initials:"AU",name:"Author",organization:"School"},rootMenu:{id:"root",sections:[{id:"courses",title:"Workspace",items:[{id:"courses",label:"Courses",href:"/courses"}]}]}}} />}><h1>Host workspace</h1></AppShell>
 </Provider>;
 }
 `);

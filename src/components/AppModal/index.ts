@@ -1,1 +1,1 @@
-export { AppModal, type AppModalAction, type AppModalProps, type AppModalStep } from "./AppModal";
+export { AppModal, type AppModalProps, type AppModalAction, type AppModalStep, type AppModalCloseReason } from "./AppModal";

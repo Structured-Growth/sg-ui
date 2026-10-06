@@ -28,6 +28,12 @@ foundation. See [button mappings](developer/react-aria-button.md),
 owned variant/tone/density and native class/style; the upstream button prop surface
 is removed. Load /styles.css and provide Provider or ThemeScope.
 
+AppModal, AuthShell, SideNavigation and AppShell now use the owned foundation.
+Apply the migrated-module boundaries to these directories. See [modal and shell
+contracts](developer/react-aria-modal-shells.md) for owned dismissal/action callbacks, native style slots,
+responsive navigation and host adapter behavior. Load /styles.css and provide an
+owned scope, including for editor dialogs.
+
 ## Source architecture
 
 The learner platform is a pnpm/Turbo monorepo with a Next.js React web application,

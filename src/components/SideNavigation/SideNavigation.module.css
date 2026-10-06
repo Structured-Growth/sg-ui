@@ -1,0 +1,32 @@
+@layer sgui.components {
+  .root { box-sizing: border-box; display: flex; flex-direction: column; flex: 0 0 17.5rem; inline-size: 17.5rem; max-inline-size: 100%; block-size: 100%; min-block-size: 0; min-inline-size: 0; border-inline-end: 1px solid var(--sgui-divider); background: var(--sgui-surface); color: var(--sgui-text); font-family: var(--sgui-font-family); }
+  .root[data-collapsed] { flex-basis: 3rem; inline-size: 3rem; }
+  .userTrigger { flex: 0 0 auto; inline-size: 100%; border-radius: 0; padding: var(--sgui-space4); }
+  .userTrigger > span { display: flex; align-items: center; gap: var(--sgui-space3); inline-size: 100%; min-inline-size: 0; }
+  .identity { display: flex; flex: 1; flex-direction: column; text-align: start; min-inline-size: 0; }
+  .identity > span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .organization { font-weight: var(--sgui-body2-weight); color: var(--sgui-text-muted); }
+  .menuContent { display: flex; flex-direction: column; flex: 1; min-block-size: 0; border-block-start: 1px solid var(--sgui-divider); }
+  .menuContent[data-direction="forward"] { animation: forward var(--sgui-motion-duration) ease-out; }
+  .menuContent[data-direction="back"] { animation: back var(--sgui-motion-duration) ease-out; }
+  .scroll { flex: 1; min-block-size: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--sgui-space3); }
+  .section { margin-block-end: var(--sgui-space4); }
+  .sectionTitle { margin: 0; padding: var(--sgui-space2); color: var(--sgui-text-muted); font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
+  .list { margin: 0; padding: 0; list-style: none; }
+  .item { box-sizing: border-box; inline-size: 100%; min-inline-size: 0; display: flex; text-align: start; gap: var(--sgui-space2); padding: var(--sgui-space2) var(--sgui-space3); min-block-size: 2.5rem; border: 0; border-radius: var(--sgui-field-radius); color: var(--sgui-text); font-size: var(--sgui-body2-size); font-weight: var(--sgui-body2-weight); line-height: var(--sgui-body2-line-height); }
+  button.item > span { display: flex; align-items: center; gap: var(--sgui-space2); inline-size: 100%; min-inline-size: 0; }
+  .item:hover, li[data-selected] > .item { background: var(--sgui-surface-subtle); }
+  li[data-selected] > .item { font-weight: var(--sgui-action-weight); }
+  .itemLabel { flex: 1; overflow-wrap: anywhere; }
+  .icon { display: inline-flex; flex: 0 0 auto; align-items: center; color: var(--sgui-text-muted); }
+  .icon:empty { display: none; }
+  .rotated { transform: rotate(180deg); }
+  .back { justify-content: start; flex-shrink: 0; margin: var(--sgui-space2); }
+  .footer { border-block-start: 1px solid var(--sgui-divider); padding-block-start: var(--sgui-space3); }
+  .collapse { align-self: stretch; flex-shrink: 0; border-radius: 0; border-block-start: 1px solid var(--sgui-divider); margin-block-start: auto; }
+  .error { color: var(--sgui-danger); padding: var(--sgui-space2); font-size: var(--sgui-label-size); }
+  @keyframes forward { from { opacity: 0; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes back { from { opacity: 0; transform: translateX(-1rem); } to { opacity: 1; transform: translateX(0); } }
+  @media (prefers-reduced-motion: reduce) { .menuContent[data-direction] { animation: none; } }
+  @media (forced-colors: active) { li[data-selected] > .item { outline: 1px solid Highlight; outline-offset: -1px; } }
+}

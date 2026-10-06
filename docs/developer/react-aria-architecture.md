@@ -14,6 +14,12 @@ foundation. See [button mappings](react-aria-button.md),
 owned variant/tone/density and native class/style; the upstream button prop surface
 is removed. Load /styles.css and provide Provider or ThemeScope.
 
+AppModal, AuthShell, SideNavigation and AppShell now use the owned foundation.
+Apply the migrated-module boundaries to these directories. See [modal and shell
+contracts](react-aria-modal-shells.md) for owned dismissal/action callbacks, native style slots,
+responsive navigation and host adapter behavior. Load /styles.css and provide an
+owned scope, including for editor dialogs.
+
 ## Layers and dependency direction
 
 1. `src/foundation/tokens.json` owns token values. The generator resolves aliases,

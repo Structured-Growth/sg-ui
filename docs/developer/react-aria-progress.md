@@ -379,3 +379,66 @@ AppShell as dependencies allow. Preserve host routing/account adapters and map
 legacy modal props/callbacks in dependent editor compositions explicitly. Complete
 validation/commit/push before starting each successor chat; continue the required
 backlog in dependency order without overlapping checkout writes.
+
+## Modal and application shells
+
+Completed on 2026-10-06: M-06, M-07, M-08 and M-09, in the shared
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
+`feat/react-aria-owned-foundation-cards`. No merge or publication is authorized.
+See [modal/shell mappings](react-aria-modal-shells.md) for the breaking modal
+callbacks/actions/size/style contract and deliberate navigation behavior changes.
+
+| Task | Implementation and evidence |
+| --- | --- |
+| M-08 | AppModal composes owned Dialog/Button; native ref/style/parts, independently locked dismissal, four owned reasons, associated subtitle, custom accessible header/footer and translated multi-step footer. Actions are form-safe/pending/disabled; one-step labels are hidden. Direct AppPageTabs fills a fixed-height body with independently scrolling panels. Six colocated behavior/SSR tests cover focus, nested tabs/popover, theme scope, dismissal locks/reasons, action once/pending, sizing/ref and custom sections. |
+| M-07 | AuthShell keeps its presentation props, adds native ref/class/style, semantic h1, responsive panel, wrapping footer and resilient tall/wide content. Three DOM tests cover field identity, host native form submission and host footer routing; stories include long content. |
+| M-09 | SideNavigation retains models, adapters and host callbacks while using owned links/buttons/icons/compact Menu. Selection, explicit expansion, drilldown/back focus, native collapse, account-qualified choices, duplicate suppression and retryable organization/logout failure are covered with seven DOM tests and retained path/stack/identity helper regressions. Account failures remain inside the accessible menu overlay via Menu.errorMessage. |
+| M-06 | AppShell retains navigation/children, adds native ref, mainId/mainLabel and a named main landmark. Desktop scroll remains independent; <=40rem stacks navigation above main with a 45dvh limit and functional collapse. Composed DOM/ref/collapse and no-browser-global SSR tests plus a long scroll story cover integration. |
+
+All four directories enter the transitive owned source/declaration guard, granular
+exports and packed consumer fixture. Consumer typings reject retired modal action
+and style props. Shared Dialog gains explicit subtitle description association,
+owned size/parts/header/body/ref support and full viewport sizing. AppPageTabs/Tabs
+flex sizing supports modal panels without scrolling the entire body. Existing
+link/image/columns editor dialogs now map modal actions/size/style; five new
+composed DOM tests cover keyboard trim/cancel, file selection/upload/pending and
+focus restoration. Their bodies remain unmigrated under M-31–M-33.
+
+Validation:
+
+- `pnpm check`: 116 files / 530 tests passed, four foundation tests, four release
+  tests, production/story typecheck, token/source/layer checks, ESM/declarations
+  and all public import/consumer typing checks. Existing modified/native-link
+  jsdom navigation diagnostics may appear; assertions pass.
+- `pnpm build-storybook`: passed with existing directive/sourcemap/large-chunk
+  warnings. No checks were weakened or warning filters added.
+- Packed React 18.3.1 / 19.2.3: real tarballs passed SSR without browser globals,
+  production Vite builds, one compiled stylesheet, no legacy/editor bundles or
+  auto-installed retired peers. Both hydrated AppModal, nested Help popover and
+  its Note field; nested Escape stayed local and Save returned Catalog settings
+  focus. Captured error/warning logs were empty on both React majors.
+- Native in-app browser: medium modal panel 261px with 1398px content scrolled
+  1137px; tabs/footer stayed outside its scroll and body/document scroll stayed
+  zero. Escape returned Open modal focus. Dark modal at 260px used a 228px surface
+  with matching scrollWidth; full modal measured exactly 260x600 at origin zero.
+  Browser caught full mode inheriting a height preset; fixed with a regression.
+- AuthShell long-content story at 260px had a 213px panel within the 245px document
+  content width (vertical scrollbar), a 1760px document and visible first heading;
+  no horizontal document overflow.
+- Production Storybook AppShell at 260x600 measured navigation270px/main330px,
+  document width260px/scroll0. Keyboard focus scrolled the nav list1327px while
+  main stayed0. Collapse retained Expand navigation focus and changed heights to
+  navigation45px/main555px. Wheel scrolling moved main676.5px with document0.
+  Desktop expanded navigation was280px; collapsed48px with full720px main height.
+  Keyboard account menu opened its scoped compact commands with unavailable host
+  actions disabled. DOM tests verify Escape focus return and retry failures.
+
+Node 26.5.0 / pnpm 10.29.3 local. Full browser/touch/screen-reader/zoom/visual,
+performance, Node24 and Next.js/RSC gates remain open under X/R/Z. Representative
+native checks do not complete the general U acceptance matrix.
+
+Next dependency batch: M-31 ColumnsLayoutModal, M-32 ImageUploadModal and M-33
+LinkUrlModal, then owned editor menu/formatting controls M-27–M-30 as dependencies
+allow. Preserve Lexical/host callbacks and explicitly map any new URL/image data
+contracts. Complete edits/checks/commit/push before starting the next local chat.
+Continue all required tasks in dependency order, with future tasks deferred.

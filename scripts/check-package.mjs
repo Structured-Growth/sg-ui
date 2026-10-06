@@ -56,4 +56,4 @@ async function checkOwnedDeclarations(dir) {
 }
 await checkOwnedDeclarations('dist/experimental');
 await checkOwnedDeclarations('dist/foundation');
-for (const name of ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'AppButton', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader']) await checkOwnedDeclarations(`dist/components/${name}`);
+for (const name of ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'AppButton', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell']) await checkOwnedDeclarations(`dist/components/${name}`);

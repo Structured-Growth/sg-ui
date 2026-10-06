@@ -24,13 +24,12 @@ export function LinkUrlModal({
 
   return (
     <AppModal
-      fullWidth
-      maxWidth="xs"
+      size="xs"
       onClose={() => onClose()}
       open={open}
       primaryAction={{
         label: "Apply",
-        onClick: () => {
+        onPress: () => {
           const trimmed = url.trim();
           onSubmit({
             displayText: displayText.trim(),
@@ -39,9 +38,9 @@ export function LinkUrlModal({
         },
       }}
       secondaryAction={{
-        color: "inherit",
+        tone: "neutral",
         label: "Cancel",
-        onClick: () => onClose(),
+        onPress: () => onClose(),
         variant: "text",
       }}
       title={title}
@@ -49,15 +48,13 @@ export function LinkUrlModal({
       <Box sx={{ pt: 0.5 }}>
         <TextField
           autoFocus
-          fullWidth
-          label="Display Text"
+              label="Display Text"
           onChange={(event) => setDisplayText(event.target.value)}
           sx={{ mb: 1.5 }}
           value={displayText}
         />
         <TextField
-          fullWidth
-          label="URL"
+              label="URL"
           onChange={(event) => setUrl(event.target.value)}
           onKeyDown={(event) => {
             if (event.key === "Enter") {

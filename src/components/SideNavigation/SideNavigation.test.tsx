@@ -1,230 +1,63 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { SideNavigation } from "./SideNavigation";
-
-const push = vi.fn();
-const logoutAccountMock = vi.hoisted(() => vi.fn());
-const logoutAllAccountsMock = vi.hoisted(() => vi.fn());
-const storedSessionsControl = vi.hoisted(() => ({
-  activeAccountId: "acct-1",
-  sessions: [{
-    accountId: "acct-1",
-    email: "harry@example.com",
-    activeOrgId: "org-1",
-    organizations: [{ id: "org-1", name: "Hogwarts" }],
-  }] as Array<{
-    accountId: string;
-    email: string;
-    activeOrgId: string;
-    organizations: Array<{ id: string; name: string }>;
-  }>,
-}));
-let stateCallIndex = 0;
-const stateOverrides = new Map<number, unknown>();
-const stateSetters = new Map<number, ReturnType<typeof vi.fn>>();
-
-type TreeNode = {
-  key?: string;
-  type?: unknown;
-  props?: {
-    children?: unknown;
-    onClick?: (event?: unknown) => unknown;
-  };
+// @vitest-environment jsdom
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { afterEach, expect, it, vi } from "vitest";
+import { SideNavigation, type SideNavigationModel } from "./SideNavigation";
+import { SGNavigationProvider } from "../../adapters/navigation";
+import { SGAccountProvider, type SGAccountAdapter } from "../../adapters/accounts";
+import { Provider } from "../../experimental/Provider/Provider";
+afterEach(() => { cleanup(); localStorage.clear(); });
+const model: SideNavigationModel = {
+  user: { initials: "HP", name: "Harry Potter", organization: "Hogwarts", email: "harry@example.com", defaultOrganizationId: "org-1", organizations: [{ id: "org-1", name: "Hogwarts", role: "Member", billingScopeLabel: "Billing" }, { id: "org-2", name: "Another School", role: "Member", billingScopeLabel: "Billing" }] },
+  rootMenu: { id: "root", sections: [{ id: "main", title: "Workspace", items: [{ id: "courses", label: "Courses", defaultExpanded: true, children: [{ id: "course", label: "Course", href: "/course" }] }, { id: "admin", label: "Admin", childBehavior: "drilldown", children: [{ id: "people", label: "People", href: "/people" }] }] }] },
 };
-
-const findNodes = (node: unknown, predicate: (candidate: TreeNode) => boolean, found: TreeNode[] = []) => {
-  if (!node || typeof node !== "object") {
-    return found;
-  }
-  const candidate = node as TreeNode;
-  if (predicate(candidate)) {
-    found.push(candidate);
-  }
-  if (typeof candidate.type === "function" && candidate.type.name === "NavItems") {
-    findNodes(candidate.type(candidate.props), predicate, found);
-  }
-  const children = candidate.props?.children;
-  if (Array.isArray(children)) {
-    children.forEach((child) => findNodes(child, predicate, found));
-  } else {
-    findNodes(children, predicate, found);
-  }
-  return found;
-};
-
-const renderSideNavigation = (
-  overrides?: Record<number, unknown>,
-  modelOverride?: Parameters<typeof SideNavigation>[0]["model"],
-  propsOverride?: Partial<Parameters<typeof SideNavigation>[0]>,
-) => {
-  stateCallIndex = 0;
-  stateOverrides.clear();
-  stateSetters.clear();
-  Object.entries(overrides ?? {}).forEach(([index, value]) => {
-    stateOverrides.set(Number(index), value);
-  });
-
-  const defaultModel = {
-    user: {
-      initials: "HP",
-      name: "Harry Potter",
-      organization: "Hogwarts",
-      defaultOrganizationId: "org-1",
-    },
-    rootMenu: {
-      id: "root",
-      sections: [
-        {
-          id: "sections",
-          title: "Sections",
-          items: [{ id: "my-sections", label: "My Sections", href: "/sections/instructor" }],
-        },
-      ],
-    },
-  } satisfies Parameters<typeof SideNavigation>[0]["model"];
-
-  return SideNavigation({ model: modelOverride ?? defaultModel, ...propsOverride }) as unknown;
-};
-
-const flushMicrotasks = async () => {
-  await Promise.resolve();
-  await Promise.resolve();
-};
-
-vi.mock("react", async () => {
-  const actual = await vi.importActual<typeof import("react")>("react");
-  return {
-    ...actual,
-    useCallback: <T,>(fn: T) => fn,
-    useEffect: (effect: () => void | (() => void)) => {
-      effect();
-    },
-    useMemo: <T,>(factory: () => T) => factory(),
-    useState: <T,>(initial: T | (() => T)) => {
-      const setter = vi.fn();
-      const value = (stateOverrides.has(stateCallIndex)
-        ? stateOverrides.get(stateCallIndex)
-        : typeof initial === "function"
-          ? (initial as () => T)()
-          : initial) as T;
-      stateSetters.set(stateCallIndex, setter);
-      stateCallIndex += 1;
-      return [value, setter] as const;
-    },
-  };
+function setup(options: { pathname?: string; accounts?: SGAccountAdapter; onOrganizationChange?: (id: string, accountId?: string) => Promise<void> | void } = {}) {
+  const navigate = vi.fn(); const select = vi.fn();
+  const view = <Provider theme="dark"><SGNavigationProvider value={{ pathname: options.pathname ?? "/course", navigate }}><SideNavigation model={model} onItemSelect={select} onOrganizationChange={options.onOrganizationChange} /></SGNavigationProvider></Provider>;
+  render(options.accounts ? <SGAccountProvider value={options.accounts}>{view}</SGAccountProvider> : view);
+  return { navigate, select, user: userEvent.setup() };
+}
+function accounts(): SGAccountAdapter { return { getStoredAuthSession: () => null, getStoredAuthSessions: () => [], setActiveStoredAuthSession: vi.fn(), markOrganizationSwitched: vi.fn(), logoutAccount: vi.fn(async () => {}), logoutAllAccounts: vi.fn(async () => {}) }; }
+it("uses native route links, selected state, keyboard activation and collapse", async () => {
+  const { navigate, select, user } = setup();
+  const link = screen.getByRole("link", { name: "Course" }); expect(link.getAttribute("href")).toBe("/course"); expect(link.getAttribute("aria-current")).toBe("page");
+  link.focus(); await user.keyboard("{Enter}"); expect(navigate).toHaveBeenCalledExactlyOnceWith("/course", { replace: undefined }); expect(select).toHaveBeenCalledExactlyOnceWith("course");
+  await user.click(screen.getByRole("button", { name: "Courses" })); expect(screen.queryByRole("link", { name: "Course" })).toBeNull();
+  await user.click(screen.getByRole("button", { name: "Collapse navigation" })); expect(screen.queryByRole("button", { name: "Courses" })).toBeNull();
+  const expand = screen.getByRole("button", { name: "Expand navigation" }); expect(document.activeElement).toBe(expand); await user.keyboard(" "); expect(screen.getByRole("button", { name: "Courses" })).toBeTruthy();
 });
-
-vi.mock("../../adapters/navigation", () => ({
-  usePathname: () => "/sections/instructor",
-  useRouter: () => ({ push }),
-}));
-
-vi.mock("../../hooks/usePersistentState", () => ({
-  usePersistentState: () => ["org-1", vi.fn()],
-}));
-
-vi.mock("../../i18n", () => ({
-  useTranslation: () => ({
-    t: (_key: string, { defaultMessage }: { defaultMessage: string }) => defaultMessage,
-    useNamespace: () => undefined,
-  }),
-}));
-
-vi.mock("../../adapters/accounts", () => ({
-  useAccountAdapter: () => ({
-    getStoredAuthSessions: () => storedSessionsControl.sessions,
-    getStoredAuthSession: () => storedSessionsControl.sessions.find((session) => session.accountId === storedSessionsControl.activeAccountId) ?? storedSessionsControl.sessions[0] ?? null,
-    markOrganizationSwitched: vi.fn(), setActiveStoredAuthSession: vi.fn(),
-    logoutAccount: logoutAccountMock, logoutAllAccounts: logoutAllAccountsMock,
-    enabled: true,
-  }),
-}));
-
-describe("SideNavigation", () => {
-  beforeEach(() => {
-    storedSessionsControl.sessions = [{
-      accountId: "acct-1",
-      email: "harry@example.com",
-      activeOrgId: "org-1",
-      organizations: [{ id: "org-1", name: "Hogwarts" }],
-    }];
-    storedSessionsControl.activeAccountId = "acct-1";
-    push.mockReset();
-    logoutAccountMock.mockReset();
-    logoutAllAccountsMock.mockReset();
-    logoutAccountMock.mockImplementation(async (accountId: string) => {
-      storedSessionsControl.sessions = storedSessionsControl.sessions.filter((session) => session.accountId !== accountId);
-      if (storedSessionsControl.activeAccountId === accountId) {
-        storedSessionsControl.activeAccountId = storedSessionsControl.sessions[0]?.accountId ?? "";
-      }
-    });
-    logoutAllAccountsMock.mockResolvedValue(undefined);
-  });
-
-  it("routes to account from the user menu", () => {
-    const element = renderSideNavigation();
-    const clickables = findNodes(element, (candidate) => typeof candidate?.props?.onClick === "function");
-
-    const manageProfile = clickables.find((node) => `${node?.props?.children}`.includes("Manage Profile"));
-    manageProfile?.props?.onClick();
-    expect(push).toHaveBeenCalledWith("/account");
-  });
-
-  it("logs out single account to login selection flow", async () => {
-    const element = renderSideNavigation({
-      0: true,
-      1: [{
-        accountId: "acct-1",
-        email: "harry@example.com",
-        activeOrgId: "org-1",
-        organizations: [{ id: "org-1", name: "Hogwarts" }],
-      }],
-      2: "acct-1",
-    });
-    const clickables = findNodes(element, (candidate) => typeof candidate?.props?.onClick === "function");
-
-    const logout = clickables.find((node) => `${node?.props?.children}`.includes("Logout"));
-    logout?.props?.onClick();
-    await flushMicrotasks();
-    expect(logoutAccountMock).toHaveBeenCalledWith("acct-1");
-    expect(push).toHaveBeenCalledWith("/login?next=%2Fsections%2Finstructor");
-  });
-
-  it("routes add-account to login with current path as next", () => {
-    const element = renderSideNavigation();
-    const clickables = findNodes(element, (candidate) => typeof candidate?.props?.onClick === "function");
-    const addAccount = clickables.find((node) => `${node?.props?.children}`.includes("Add account"));
-
-    addAccount?.props?.onClick();
-    expect(push).toHaveBeenCalledWith("/login?next=%2Fsections%2Finstructor");
-  });
-
-  it("opens separate logout flyout for multiple accounts", async () => {
-    const element = renderSideNavigation({
-      0: true,
-      1: [
-        {
-          accountId: "acct-1",
-          email: "harry@example.com",
-          activeOrgId: "org-1",
-          organizations: [{ id: "org-1", name: "Hogwarts" }],
-        },
-        {
-          accountId: "acct-2",
-          email: "tom@example.com",
-          activeOrgId: "org-2",
-          organizations: [{ id: "org-2", name: "Org Two" }],
-        },
-      ],
-      2: "acct-2",
-    });
-    const clickables = findNodes(element, (candidate) => typeof candidate?.props?.onClick === "function");
-
-    const logout = clickables.find((node) => `${node?.props?.children}`.includes("Logout"));
-    logout?.props?.onClick({ currentTarget: { nodeName: "DIV" } });
-    await flushMicrotasks();
-    expect(stateSetters.get(8)).toHaveBeenCalled();
-    expect(logoutAccountMock).not.toHaveBeenCalled();
-    expect(logoutAllAccountsMock).not.toHaveBeenCalled();
-    expect(push).not.toHaveBeenCalled();
-  });
+it("recovers focus on drilldown and back while preserving host navigation", async () => {
+  const { navigate, user } = setup(); await user.click(screen.getByRole("button", { name: "Admin" }));
+  expect(navigate).toHaveBeenCalledWith("/people"); expect(screen.getByRole("link", { name: "People" })).toBeTruthy();
+  await user.click(screen.getByRole("button", { name: "Admin" })); expect(screen.queryByRole("link", { name: "People" })).toBeNull(); expect(document.activeElement).toBe(screen.getByRole("button", { name: "Admin" }));
+});
+it("provides compact scoped account menu, Escape focus, and disabled host account actions", async () => {
+  const { user } = setup(); const trigger = screen.getByRole("button", { name: "Harry Potter Hogwarts" }); trigger.focus(); await user.keyboard("{ArrowDown}");
+  const menu = screen.getByRole("menu"); expect(menu.closest('[data-sgui-theme="dark"]')).toBeTruthy(); expect(menu.closest('[data-sgui-density="compact"]')).toBeTruthy();
+  expect(screen.getByRole("menuitem", { name: "Logout" }).getAttribute("aria-disabled")).toBe("true"); expect(screen.getByRole("menuitem", { name: "Add account" }).getAttribute("aria-disabled")).toBe("true");
+  await user.keyboard("{Escape}"); await waitFor(() => expect(document.activeElement).toBe(trigger));
+});
+it("keeps failed organization switches retryable and does not mark failed selections", async () => {
+  const host = accounts(); const change = vi.fn().mockRejectedValueOnce(new Error("failure")).mockResolvedValue(undefined); const { user } = setup({ accounts: host, onOrganizationChange: change });
+  const trigger = screen.getByRole("button", { name: "Harry Potter Hogwarts" }); await user.click(trigger); await user.click(screen.getByRole("menuitem", { name: "Another School" }));
+  await waitFor(() => expect(screen.getByRole("alert").textContent).toContain("Unable to switch")); expect(host.markOrganizationSwitched).not.toHaveBeenCalled();
+  if (!screen.queryByRole("menu")) await user.click(trigger); await user.click(screen.getByRole("menuitem", { name: "Another School" }));
+  await waitFor(() => expect(host.markOrganizationSwitched).toHaveBeenCalledTimes(1)); expect(change).toHaveBeenNthCalledWith(2, "org-2", undefined); expect(screen.queryByRole("alert")).toBeNull();
+});
+it("does not navigate after rejected logout and permits retry", async () => {
+  const host = accounts(); host.logoutAccount = vi.fn().mockRejectedValueOnce(new Error("failure")).mockResolvedValue(undefined); const { user, navigate } = setup({ accounts: host }); const trigger = screen.getByRole("button", { name: "Harry Potter Hogwarts" });
+  await user.click(trigger); await user.click(screen.getByRole("menuitem", { name: "Logout" })); await waitFor(() => expect(screen.getByRole("alert").textContent).toContain("Unable to log out")); expect(navigate).not.toHaveBeenCalled();
+  if (!screen.queryByRole("menu")) await user.click(trigger); await user.click(screen.getByRole("menuitem", { name: "Logout" })); await waitFor(() => expect(navigate).toHaveBeenCalledWith("/login?next=%2Fcourse")); expect(host.logoutAccount).toHaveBeenCalledTimes(2);
+});
+it("qualifies multiple accounts, switches the requested account and logs out all through the host", async () => {
+  const host = accounts(); const sessions = [{ accountId: "a", email: "a@example.com", activeOrgId: "org-1", organizations: [{ id: "org-1", name: "Hogwarts" }] }, { accountId: "b", email: "b@example.com", activeOrgId: "org-2", organizations: [{ id: "org-2", name: "Another School" }] }]; host.getStoredAuthSession = () => sessions[0]; host.getStoredAuthSessions = () => sessions;
+  const change = vi.fn(); const { user } = setup({ accounts: host, onOrganizationChange: change }); await user.click(screen.getByRole("button", { name: "Harry Potter Hogwarts" }));
+  expect(screen.getByRole("menuitem", { name: "Logout (a@example.com)" })).toBeTruthy(); expect(screen.getByRole("menuitem", { name: "Logout (b@example.com)" })).toBeTruthy();
+  await user.click(screen.getByRole("menuitem", { name: "Another School (b@example.com)" })); await waitFor(() => expect(change).toHaveBeenCalledExactlyOnceWith("org-2", "b")); expect(host.setActiveStoredAuthSession).toHaveBeenCalledExactlyOnceWith("b");
+  await user.click(screen.getByRole("button", { name: /Harry Potter/ })); await user.click(screen.getByRole("menuitem", { name: "Log out of all accounts" })); await waitFor(() => expect(host.logoutAllAccounts).toHaveBeenCalledTimes(1));
+});
+it("guards concurrent async account operations and returns focus on success", async () => {
+  let finish!: () => void; const change = vi.fn(() => new Promise<void>(resolve => { finish = resolve; })); const { user } = setup({ accounts: accounts(), onOrganizationChange: change }); const trigger = screen.getByRole("button", { name: "Harry Potter Hogwarts" });
+  await user.click(trigger); await user.click(screen.getByRole("menuitem", { name: "Another School" })); await user.click(screen.getByRole("menuitem", { name: "Another School" })); expect(change).toHaveBeenCalledTimes(1);
+  finish(); await waitFor(() => expect(screen.queryByRole("menu")).toBeNull()); await waitFor(() => expect(document.activeElement).toBe(trigger));
 });

@@ -3,7 +3,7 @@ export { AppButton, type AppButtonProps } from "./AppButton";
 export { AppInlineProgress, type AppInlineProgressProps } from "./AppInlineProgress";
 export { AppOperationSteps, type AppOperationStep, type AppOperationStepStatus, type AppOperationStepsProps } from "./AppOperationSteps";
 export { AuthShell, type AuthShellProps } from "./AuthShell";
-export { AppModal, type AppModalAction, type AppModalProps, type AppModalStep } from "./AppModal";
+export { AppModal, type AppModalAction, type AppModalProps, type AppModalStep, type AppModalCloseReason } from "./AppModal";
 export {
   AppPageHeader,
   type AppPageHeaderBreadcrumb,
@@ -80,7 +80,7 @@ export {
   type AppDataGridShellViewConfig,
 } from "./AppDataGridShell";
 export { DataGridDragHandle, type DataGridDragHandleProps, useDataGridRowDnd } from "./AppDataGridRowDnd";
-export { AppShell } from "./AppShell";
+export { AppShell, type AppShellProps } from "./AppShell";
 export {
   buildDataToolbarColumnOptions,
   DataToolbar,

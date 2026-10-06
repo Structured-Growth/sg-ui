@@ -117,6 +117,22 @@
     "./components/AppPageHeader": {
       "types": "./dist/components/AppPageHeader/index.d.ts",
       "import": "./dist/components/AppPageHeader/index.js"
+    },
+    "./components/AppModal": {
+      "types": "./dist/components/AppModal/index.d.ts",
+      "import": "./dist/components/AppModal/index.js"
+    },
+    "./components/AuthShell": {
+      "types": "./dist/components/AuthShell/index.d.ts",
+      "import": "./dist/components/AuthShell/index.js"
+    },
+    "./components/SideNavigation": {
+      "types": "./dist/components/SideNavigation/index.d.ts",
+      "import": "./dist/components/SideNavigation/index.js"
+    },
+    "./components/AppShell": {
+      "types": "./dist/components/AppShell/index.d.ts",
+      "import": "./dist/components/AppShell/index.js"
     }
   },
   "repository": {
