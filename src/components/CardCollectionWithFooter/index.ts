@@ -1,0 +1,1 @@
+export { CardCollectionWithFooter } from "./CardCollectionWithFooter";

@@ -1,0 +1,109 @@
+name: AI implementation
+on:
+  workflow_dispatch:
+    inputs:
+      task:
+        description: 'Describe the UI change and acceptance criteria'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: ai-implementation
+  cancel-in-progress: false
+jobs:
+  implement:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Prepare task
+        env:
+          TASK: ${{ inputs.task }}
+        run: |
+          node --input-type=module <<'JS'
+          import { writeFileSync } from 'node:fs';
+          writeFileSync('.codex-task.md', `Read AGENTS.md and implement the following task. Add meaningful tests and stories for changed behavior. Keep changes within src/, .storybook/, docs/, and README.md. Do not create changeset files. The first line of your final response must be a plain Conventional Commit PR title with no Markdown: fix: for fixes, feat: for features, a ! marker for breaking changes, or chore:/docs:/test: for non-release work. Follow it with a blank line and a concise summary. Do not modify workflows, package configuration, or AGENTS.md. Do not publish or contact external services. Run pnpm check and pnpm build-storybook.\n\nTask:\n${process.env.TASK}`);
+          JS
+      - uses: openai/codex-action@v1
+        with:
+          openai-api-key: ${{ secrets.OPENAI_API_KEY }}
+          prompt-file: .codex-task.md
+          output-file: .codex-output.md
+          sandbox: workspace-write
+          safety-strategy: drop-sudo
+      - name: Capture proposed changes
+        run: |
+          git add src .storybook docs README.md
+          git diff --cached --binary > "$RUNNER_TEMP/sgui.patch"
+          cp .codex-output.md "$RUNNER_TEMP/sgui-summary.md"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ai-proposal
+          path: |
+            ${{ runner.temp }}/sgui.patch
+            ${{ runner.temp }}/sgui-summary.md
+  propose:
+    needs: implement
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: ai-proposal
+          path: /tmp/sgui-proposal
+      - name: Apply proposed changes
+        run: |
+          if test -s /tmp/sgui-proposal/sgui.patch; then
+            git apply --check /tmp/sgui-proposal/sgui.patch
+            git apply /tmp/sgui-proposal/sgui.patch
+          fi
+          git add -N .
+          git diff --name-only -z | node --input-type=module -e '
+            import { readFileSync } from "node:fs";
+            const paths = readFileSync(0, "utf8").split("\0").filter(Boolean);
+            if (paths.some(p => !/^(src\/|\.storybook\/|docs\/|README\.md$)/.test(p))) process.exit(1);
+          '
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Read Conventional Commit title
+        id: metadata
+        run: |
+          node --input-type=module <<'JS'
+          import { readFileSync, writeFileSync, appendFileSync } from 'node:fs';
+          const title = readFileSync('/tmp/sgui-proposal/sgui-summary.md', 'utf8').split(/\r?\n/).find(line => line.trim())?.trim();
+          if (!title) throw new Error('AI output is missing a PR title.');
+          writeFileSync(`${process.env.RUNNER_TEMP}/sgui-pr-title`, `${title}\n`);
+          appendFileSync(process.env.GITHUB_OUTPUT, `title=${title}\n`);
+          JS
+      - name: Validate Conventional Commit title
+        run: pnpm exec commitlint --edit "$RUNNER_TEMP/sgui-pr-title"
+      - run: pnpm check
+      - run: pnpm build-storybook
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.AI_PR_TOKEN || github.token }}
+          branch: ai/sgui-${{ github.run_id }}
+          commit-message: ${{ steps.metadata.outputs.title }}
+          title: ${{ steps.metadata.outputs.title }}
+          body: 'Generated from the manual AI implementation workflow. Package checks and Storybook build passed. Review the Conventional Commit title and component behavior, then squash-merge using that title.'
+          draft: true

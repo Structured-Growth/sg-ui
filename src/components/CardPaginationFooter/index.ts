@@ -1,0 +1,1 @@
+export { AppPaginationFooter } from "./CardPaginationFooter";

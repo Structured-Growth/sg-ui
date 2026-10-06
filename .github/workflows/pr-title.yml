@@ -1,0 +1,28 @@
+name: PR title
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+jobs:
+  conventional-title:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Read PR title safely
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          node --input-type=module <<'JS'
+          import { writeFileSync } from 'node:fs';
+          writeFileSync(`${process.env.RUNNER_TEMP}/sgui-pr-title`, `${process.env.PR_TITLE}\n`);
+          JS
+      - name: Validate Conventional Commit title
+        run: pnpm exec commitlint --edit "$RUNNER_TEMP/sgui-pr-title"

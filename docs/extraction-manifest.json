@@ -1,0 +1,1012 @@
+{
+  "sourceRepository": "Structured-Growth/learning-platform",
+  "sourceCommit": "8e63f1e16fc3d43d851908b312603a1099ca13d9",
+  "sourceRoot": "apps/web/src/ui",
+  "files": [
+    {
+      "source": "components/AdminDataGridOptions.ts",
+      "destination": "src/components/AdminDataGridOptions.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppButton/AppButton.stories.tsx",
+      "destination": "src/components/AppButton/AppButton.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppButton/AppButton.test.tsx",
+      "destination": "src/components/AppButton/AppButton.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppButton/AppButton.tsx",
+      "destination": "src/components/AppButton/AppButton.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppButton/index.ts",
+      "destination": "src/components/AppButton/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.stories.tsx",
+      "destination": "src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.test.tsx",
+      "destination": "src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.tsx",
+      "destination": "src/components/AppDataGrid/AppDataGrid.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "destination": "src/components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/RowSubHeader.tsx",
+      "destination": "src/components/AppDataGrid/components/RowSubHeader.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "destination": "src/components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/TableNoResults.tsx",
+      "destination": "src/components/AppDataGrid/components/TableNoResults.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/baseGridSx.test.ts",
+      "destination": "src/components/AppDataGrid/components/baseGridSx.test.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/baseGridSx.ts",
+      "destination": "src/components/AppDataGrid/components/baseGridSx.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "destination": "src/components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "destination": "src/components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/index.ts",
+      "destination": "src/components/AppDataGrid/components/table-cell/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "destination": "src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/createActionMenuColumn.test.ts",
+      "destination": "src/components/AppDataGrid/createActionMenuColumn.test.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/createActionMenuColumn.ts",
+      "destination": "src/components/AppDataGrid/createActionMenuColumn.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/createDataGridColumns.test.tsx",
+      "destination": "src/components/AppDataGrid/createDataGridColumns.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/createDataGridColumns.tsx",
+      "destination": "src/components/AppDataGrid/createDataGridColumns.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/index.ts",
+      "destination": "src/components/AppDataGrid/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGrid/types.ts",
+      "destination": "src/components/AppDataGrid/types.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "destination": "src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "destination": "src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGridRowDnd/index.ts",
+      "destination": "src/components/AppDataGridRowDnd/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
+      "destination": "src/components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "destination": "src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "destination": "src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "destination": "src/components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.tsx",
+      "destination": "src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppDataGridShell/index.ts",
+      "destination": "src/components/AppDataGridShell/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "destination": "src/components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.test.tsx",
+      "destination": "src/components/AppInlineProgress/AppInlineProgress.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.tsx",
+      "destination": "src/components/AppInlineProgress/AppInlineProgress.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppInlineProgress/index.ts",
+      "destination": "src/components/AppInlineProgress/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppModal/AppModal.stories.tsx",
+      "destination": "src/components/AppModal/AppModal.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppModal/AppModal.test.tsx",
+      "destination": "src/components/AppModal/AppModal.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppModal/AppModal.tsx",
+      "destination": "src/components/AppModal/AppModal.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppModal/index.ts",
+      "destination": "src/components/AppModal/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "destination": "src/components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "destination": "src/components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.tsx",
+      "destination": "src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppOperationSteps/index.ts",
+      "destination": "src/components/AppOperationSteps/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.stories.tsx",
+      "destination": "src/components/AppPageHeader/AppPageHeader.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.test.tsx",
+      "destination": "src/components/AppPageHeader/AppPageHeader.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.tsx",
+      "destination": "src/components/AppPageHeader/AppPageHeader.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppPageHeader/index.ts",
+      "destination": "src/components/AppPageHeader/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.stories.tsx",
+      "destination": "src/components/AppPageTabs/AppPageTabs.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.test.tsx",
+      "destination": "src/components/AppPageTabs/AppPageTabs.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.tsx",
+      "destination": "src/components/AppPageTabs/AppPageTabs.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppPageTabs/index.ts",
+      "destination": "src/components/AppPageTabs/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AppShell/AppShell.stories.tsx",
+      "destination": "src/components/AppShell/AppShell.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppShell/AppShell.test.tsx",
+      "destination": "src/components/AppShell/AppShell.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppShell/AppShell.tsx",
+      "destination": "src/components/AppShell/AppShell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AppShell/index.ts",
+      "destination": "src/components/AppShell/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/AuthShell/AuthShell.stories.tsx",
+      "destination": "src/components/AuthShell/AuthShell.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AuthShell/AuthShell.test.tsx",
+      "destination": "src/components/AuthShell/AuthShell.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AuthShell/AuthShell.tsx",
+      "destination": "src/components/AuthShell/AuthShell.tsx",
+      "present": true
+    },
+    {
+      "source": "components/AuthShell/index.ts",
+      "destination": "src/components/AuthShell/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx",
+      "destination": "src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "destination": "src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "present": true
+    },
+    {
+      "source": "components/CardCollectionWithFooter/index.ts",
+      "destination": "src/components/CardCollectionWithFooter/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "destination": "src/components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.test.tsx",
+      "destination": "src/components/CardPaginationFooter/CardPaginationFooter.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "destination": "src/components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "present": true
+    },
+    {
+      "source": "components/CardPaginationFooter/index.ts",
+      "destination": "src/components/CardPaginationFooter/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "destination": "src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.test.tsx",
+      "destination": "src/components/ClassCardFrame/ClassCardFrame.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.tsx",
+      "destination": "src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ClassCardFrame/index.ts",
+      "destination": "src/components/ClassCardFrame/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "destination": "src/components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+      "destination": "src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "destination": "src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ColumnsLayoutModal/index.ts",
+      "destination": "src/components/ColumnsLayoutModal/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "destination": "src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "destination": "src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "destination": "src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ContentEditorChrome/index.ts",
+      "destination": "src/components/ContentEditorChrome/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.stories.tsx",
+      "destination": "src/components/DataToolbar/DataToolbar.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.test.tsx",
+      "destination": "src/components/DataToolbar/DataToolbar.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.tsx",
+      "destination": "src/components/DataToolbar/DataToolbar.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/buildColumnOptions.test.ts",
+      "destination": "src/components/DataToolbar/buildColumnOptions.test.ts",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/buildColumnOptions.ts",
+      "destination": "src/components/DataToolbar/buildColumnOptions.ts",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "destination": "src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/filterRuleValue.test.ts",
+      "destination": "src/components/DataToolbar/filterRuleValue.test.ts",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/filterRuleValue.ts",
+      "destination": "src/components/DataToolbar/filterRuleValue.ts",
+      "present": true
+    },
+    {
+      "source": "components/DataToolbar/index.ts",
+      "destination": "src/components/DataToolbar/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "destination": "src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "destination": "src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "destination": "src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DocumentEditorLayout/index.ts",
+      "destination": "src/components/DocumentEditorLayout/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "destination": "src/components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "destination": "src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "destination": "src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "present": true
+    },
+    {
+      "source": "components/DocumentEditorToolbar/index.ts",
+      "destination": "src/components/DocumentEditorToolbar/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/EditableTitleField/EditableTitleField.stories.tsx",
+      "destination": "src/components/EditableTitleField/EditableTitleField.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/EditableTitleField/EditableTitleField.tsx",
+      "destination": "src/components/EditableTitleField/EditableTitleField.tsx",
+      "present": true
+    },
+    {
+      "source": "components/EditableTitleField/index.ts",
+      "destination": "src/components/EditableTitleField/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "destination": "src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ExperiencePageNavigator/index.ts",
+      "destination": "src/components/ExperiencePageNavigator/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "destination": "src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "destination": "src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "present": true
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/index.ts",
+      "destination": "src/components/FloatingTextSelectionToolbar/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "destination": "src/components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ImageUploadModal/ImageUploadModal.tsx",
+      "destination": "src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "present": true
+    },
+    {
+      "source": "components/ImageUploadModal/index.ts",
+      "destination": "src/components/ImageUploadModal/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "destination": "src/components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "destination": "src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "present": true
+    },
+    {
+      "source": "components/InsertContentMenuControl/index.ts",
+      "destination": "src/components/InsertContentMenuControl/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "destination": "src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "destination": "src/components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.tsx",
+      "destination": "src/components/InstructorClassCard/InstructorClassCard.tsx",
+      "present": true
+    },
+    {
+      "source": "components/InstructorClassCard/index.ts",
+      "destination": "src/components/InstructorClassCard/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/InstructorDataGridOptions.ts",
+      "destination": "src/components/InstructorDataGridOptions.ts",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "destination": "src/components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "destination": "src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.tsx",
+      "destination": "src/components/LearnerClassCard/LearnerClassCard.tsx",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassCard/formatDueDateLabel.test.ts",
+      "destination": "src/components/LearnerClassCard/formatDueDateLabel.test.ts",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassCard/formatDueDateLabel.ts",
+      "destination": "src/components/LearnerClassCard/formatDueDateLabel.ts",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassCard/index.ts",
+      "destination": "src/components/LearnerClassCard/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "destination": "src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "destination": "src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "destination": "src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "present": true
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/index.ts",
+      "destination": "src/components/LearnerClassesDataGrid/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "destination": "src/components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/LinkUrlModal/LinkUrlModal.tsx",
+      "destination": "src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "present": true
+    },
+    {
+      "source": "components/LinkUrlModal/index.ts",
+      "destination": "src/components/LinkUrlModal/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "destination": "src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "destination": "src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "destination": "src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "destination": "src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/index.ts",
+      "destination": "src/components/PageRichTextEditorSection/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "destination": "src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "present": true
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "destination": "src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "present": true
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "destination": "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "present": true
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "destination": "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+      "destination": "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "destination": "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "present": true
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/index.ts",
+      "destination": "src/components/RichTextFormattingToolbar/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.helpers.test.ts",
+      "destination": "src/components/SideNavigation/SideNavigation.helpers.test.ts",
+      "present": true
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.stories.tsx",
+      "destination": "src/components/SideNavigation/SideNavigation.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.test.tsx",
+      "destination": "src/components/SideNavigation/SideNavigation.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.tsx",
+      "destination": "src/components/SideNavigation/SideNavigation.tsx",
+      "present": true
+    },
+    {
+      "source": "components/SideNavigation/index.ts",
+      "destination": "src/components/SideNavigation/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "destination": "src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+      "destination": "src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "destination": "src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextAlignMenuControl/index.ts",
+      "destination": "src/components/TextAlignMenuControl/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "destination": "src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "destination": "src/components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "destination": "src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "destination": "src/components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextColorPickerControl/index.ts",
+      "destination": "src/components/TextColorPickerControl/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "destination": "src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+      "destination": "src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "destination": "src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "present": true
+    },
+    {
+      "source": "components/TextStyleMenuControl/index.ts",
+      "destination": "src/components/TextStyleMenuControl/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/Typefaces/Typefaces.stories.tsx",
+      "destination": "src/components/Typefaces/Typefaces.stories.tsx",
+      "present": true
+    },
+    {
+      "source": "components/icons/activityTypeIcon.tsx",
+      "destination": "src/components/icons/activityTypeIcon.tsx",
+      "present": true
+    },
+    {
+      "source": "components/icons/index.ts",
+      "destination": "src/components/icons/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/index.ts",
+      "destination": "src/components/index.ts",
+      "present": true
+    },
+    {
+      "source": "components/primitives/index.ts",
+      "destination": "src/components/primitives/index.ts",
+      "present": true
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.hook.test.ts",
+      "destination": "src/hooks/usePersistentPaginationModel.hook.test.ts",
+      "present": true
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.test.ts",
+      "destination": "src/hooks/usePersistentPaginationModel.test.ts",
+      "present": true
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.ts",
+      "destination": "src/hooks/usePersistentPaginationModel.ts",
+      "present": true
+    },
+    {
+      "source": "hooks/usePersistentState.test.ts",
+      "destination": "src/hooks/usePersistentState.test.ts",
+      "present": true
+    },
+    {
+      "source": "hooks/usePersistentState.ts",
+      "destination": "src/hooks/usePersistentState.ts",
+      "present": true
+    },
+    {
+      "source": "index.ts",
+      "destination": "src/index.ts",
+      "present": true
+    },
+    {
+      "source": "theme/AppThemeProvider.test.tsx",
+      "destination": "src/theme/AppThemeProvider.test.tsx",
+      "present": true
+    },
+    {
+      "source": "theme/AppThemeProvider.tsx",
+      "destination": "src/theme/AppThemeProvider.tsx",
+      "present": true
+    },
+    {
+      "source": "theme/index.ts",
+      "destination": "src/theme/index.ts",
+      "present": true
+    },
+    {
+      "source": "theme/mui-typography.d.ts",
+      "destination": "src/theme/mui-typography.ts",
+      "present": true
+    },
+    {
+      "source": "theme/theme.test.ts",
+      "destination": "src/theme/theme.test.ts",
+      "present": true
+    },
+    {
+      "source": "theme/theme.ts",
+      "destination": "src/theme/theme.ts",
+      "present": true
+    }
+  ]
+}
