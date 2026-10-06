@@ -13,6 +13,11 @@ contracts](docs/developer/react-aria-modal-shells.md) for owned dismissal/action
 responsive navigation and host adapter behavior. Load /styles.css and provide an
 owned scope, including for editor dialogs.
 
+ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundation.
+Apply migrated boundaries to these directories; see [editor dialog contracts](docs/developer/react-aria-editor-dialogs.md)
+for preset draft reset, URL protocol validation and optional host-owned image descriptions.
+Load /styles.css and provide Provider or ThemeScope.
+
 ## Purpose and boundaries
 
 SGUI is the reusable React UI library for Structured Growth, built on MUI 7,

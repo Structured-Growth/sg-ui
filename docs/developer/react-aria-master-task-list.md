@@ -325,7 +325,9 @@ Checklist IDs cover all 37 current directories, including catalog-only directori
 | M-37 | primitives | Replace every reexport with an owned implementation/type or documented removal |
 
 Recorded catalog completions ([draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review): M-02, M-03, M-24,
-M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10 and M-06–M-09.
+M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31–M-33.
+The [editor dialog record](react-aria-progress.md#editor-dialogs) and
+[dialog contracts](react-aria-editor-dialogs.md) cover the latest batch.
 The [modal/shell record](react-aria-progress.md#modal-and-application-shells) and
 [consumer mappings](react-aria-modal-shells.md) cover the latest batch.
 The [page/action migration record](react-aria-progress.md#page-actions-and-navigation) records the new batch. The [card migration record](react-aria-progress.md#card-pagination-and-course-cards)

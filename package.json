@@ -133,6 +133,18 @@
     "./components/AppShell": {
       "types": "./dist/components/AppShell/index.d.ts",
       "import": "./dist/components/AppShell/index.js"
+    },
+    "./components/ColumnsLayoutModal": {
+      "types": "./dist/components/ColumnsLayoutModal/index.d.ts",
+      "import": "./dist/components/ColumnsLayoutModal/index.js"
+    },
+    "./components/ImageUploadModal": {
+      "types": "./dist/components/ImageUploadModal/index.d.ts",
+      "import": "./dist/components/ImageUploadModal/index.js"
+    },
+    "./components/LinkUrlModal": {
+      "types": "./dist/components/LinkUrlModal/index.d.ts",
+      "import": "./dist/components/LinkUrlModal/index.js"
     }
   },
   "repository": {

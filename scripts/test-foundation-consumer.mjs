@@ -43,13 +43,23 @@ import { AppModal } from '@structured-growth/sg-ui/components/AppModal';
 import { AuthShell } from '@structured-growth/sg-ui/components/AuthShell';
 import { AppShell } from '@structured-growth/sg-ui/components/AppShell';
 import { SideNavigation } from '@structured-growth/sg-ui/components/SideNavigation';
+import { ColumnsLayoutModal } from '@structured-growth/sg-ui/components/ColumnsLayoutModal';
+import { ImageUploadModal } from '@structured-growth/sg-ui/components/ImageUploadModal';
+import { LinkUrlModal } from '@structured-growth/sg-ui/components/LinkUrlModal';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
 export function Proof() {
   const [open,setOpen]=React.useState(false);
+  const [editorDialog,setEditorDialog]=React.useState(null);
+  const [result,setResult]=React.useState('No editor changes');
   const [page,setPage]=React.useState('one');
   const [tab,setTab]=React.useState('details');
   return <Provider theme="dark" style={{background:tokens.surface,padding:tokens.space4}}>
+    <Button onPress={()=>setEditorDialog('columns')}>Choose columns</Button><Button onPress={()=>setEditorDialog('link')}>Edit link</Button><Button onPress={()=>setEditorDialog('image')}>Upload image</Button>
+    <p role="status">{result}</p>
+    <ColumnsLayoutModal open={editorDialog==='columns'} onClose={()=>setEditorDialog(null)} onSubmit={preset=>{setResult(preset);setEditorDialog(null);}} />
+    <LinkUrlModal open={editorDialog==='link'} initialDisplayText="Course guide" onClose={()=>setEditorDialog(null)} onSubmit={payload=>{setResult(JSON.stringify(payload));setEditorDialog(null);}} />
+    <ImageUploadModal enableAltText open={editorDialog==='image'} onClose={()=>setEditorDialog(null)} onSubmit={(file,alt)=>{setResult(file.name+': '+alt);setEditorDialog(null);}} />
     <AppPageHeader title="Course workspace" hierarchy="primary" breadcrumbs={[{label:'Courses',href:'/courses'},{label:'Workspace'}]} moreMenuItems={[{label:'Refresh',onClick:()=>{}}]} />
     <AppPageTabs label="Workspace sections" value={tab} onChange={setTab} items={[{id:'details',label:'Details',content:'Course details'},{id:'access',label:'Access',content:'Course access'}]} />
     <AppButton onPress={()=>setOpen(true)} density="compact">Catalog settings</AppButton>

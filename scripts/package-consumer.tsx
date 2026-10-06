@@ -128,3 +128,12 @@ primaryAction={{label:'Save',onPress:()=>{},variant:'filled',tone:'primary'}}>Co
 export const retiredModalStyles = <GranularAppModal open={false} paperSx={{padding:0}}>Content</GranularAppModal>;
 // @ts-expect-error Modal actions use owned normalized activation.
 export const retiredModalAction = <GranularAppModal open={false} primaryAction={{label:'Save',onClick:()=>{}}}>Content</GranularAppModal>;
+
+import { ColumnsLayoutModal } from '@structured-growth/sg-ui/components/ColumnsLayoutModal';
+import { ImageUploadModal } from '@structured-growth/sg-ui/components/ImageUploadModal';
+import { LinkUrlModal } from '@structured-growth/sg-ui/components/LinkUrlModal';
+export const editorDialogs = <Provider>
+<ColumnsLayoutModal open={false} defaultPreset="three255025" onClose={()=>{}} onSubmit={preset=>{const value: import('@structured-growth/sg-ui/components/ColumnsLayoutModal').ColumnsLayoutPreset = preset; console.log(value);}} />
+<LinkUrlModal open={false} allowedProtocols={["https"]} allowRelativeUrls={false} onClose={()=>{}} onSubmit={payload=>{const url: string|null=payload.url; console.log(url);}} />
+<ImageUploadModal enableAltText open={false} onClose={()=>{}} onSubmit={(file,alt)=>{const native: File=file;const text: string|undefined=alt;console.log(native,text);}} />
+</Provider>;

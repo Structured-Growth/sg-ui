@@ -442,3 +442,73 @@ LinkUrlModal, then owned editor menu/formatting controls M-27–M-30 as dependen
 allow. Preserve Lexical/host callbacks and explicitly map any new URL/image data
 contracts. Complete edits/checks/commit/push before starting the next local chat.
 Continue all required tasks in dependency order, with future tasks deferred.
+
+## Editor dialogs
+
+Completed on 2026-10-06: M-31, M-32 and M-33, in the shared
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
+`feat/react-aria-owned-foundation-cards`. The [dialog contracts](react-aria-editor-dialogs.md)
+map the preserved host callbacks and deliberate URL/draft behavior changes.
+The surrounding editor, formatting/menu controls and general acceptance gates
+remain open; this batch does not complete M-34 or broader E/U/X/R/Z work.
+
+| Task | Implementation and evidence |
+| --- | --- |
+| M-31 | ColumnsLayoutModal uses owned RadioGroup and AppModal, translated title/preset/actions, five retained preset IDs, runtime invalid-ID fallback and draft reset on opening/default changes. Five DOM/SSR/translation tests replace mocked hook inspection: arrows select exactly one preset, Space inserts once without submitting the surrounding form, cancellation/reopening reloads host state and focus returns. Stories expose committed host layout and dark scope. |
+| M-32 | ImageUploadModal uses owned fields/actions/icon/typography, native file input and layered token CSS. Local image previews revoke object URLs on replacement/dismissal/unmount. Invalid files, promise pending/duplicate prevention, retry errors, session isolation, same-file reselection and opt-in descriptions are covered by seven DOM tests. File-only callers receive one argument; enableAltText callers receive trimmed text, including an explicit decorative empty string. Stories include host first-failure/retry and pending/error states. |
+| M-33 | LinkUrlModal uses owned fields/token CSS, translated labels and an explicit safe protocol/relative-URL policy. Twenty-three DOM tests cover accepted/rejected URLs, trimmed/null payloads, edit/unlink, associated validation/focus, URL Enter/Apply once and cancel/reopen focus. Stories show restricted protocols and blank removal. |
+
+All three directories enter the transitive source/declaration check, granular
+exports, public consumer type fixture and packed production fixture. The actual
+Lexical host integration has six additional tests with its real engine/plugins
+and JSON change callback (formatting/menu triggers isolated while unmigrated):
+relative/www URLs keep existing storage normalization and target/rel rules;
+existing-link editing/removal preserves text and valid selection; descriptions
+including empty text persist with asset IDs; late canceled upload success/failure
+cannot insert stale content, close a reopened dialog or report stale errors.
+These tests surfaced existing LinkNode.clear detachment and unlink selection bugs.
+The editor now atomically splices replacement text before selecting it, and selects
+plain replacement text on unlink. Image session guards preserve host upload APIs
+and prevent stale editor writes after cancellation/reopening/unmount.
+
+Validation:
+
+- `pnpm check`: 117 files / 564 tests, four foundation tests, four release tests,
+  production/story typecheck, token/source/layer checks, ESM/declarations and all
+  public imports/consumer typings passed. Existing jsdom native-navigation
+  diagnostics may appear; no checks were excluded or weakened.
+- `pnpm build-storybook`: passed with existing directive/sourcemap/large-chunk
+  warnings. Updated stories use the shared production owned scope.
+- Packed React 18.3.1 / 19.2.3: real tarballs pass SSR without browser globals,
+  production builds, one stylesheet, no legacy/editor bundle or auto-installed
+  retired peers. The fixture includes all three granular dialog imports.
+- Native in-app browser on both React majors: ArrowDown chose two2575, keyboard
+  Insert committed and returned Choose columns focus. URL Enter accepted host
+  values and returned Edit link focus; unsafe javascript URL stayed open with
+  URL focus, aria-invalid and an associated error. Native picker rendered a
+  decoded local preview; Space submitted the trimmed description and returned
+  Upload image focus. React18 captured warning/error logs were empty; React19
+  had no packed-preview diagnostics (earlier Storybook manager messages from
+  loading during a rebuild were unrelated and were retained in the tab log).
+- At 260x600, dark image dialog measured 213px wide with scrollWidth213, height568
+  and top16; its long description and filename wrapped and body scrolled with
+  footer visible. Production light columns story exposed one selected native
+  radio, a 3px keyboard focus outline and committed host status two2575.
+
+Local Node26.5.0 / pnpm10.29.3. Full browser/touch/screen-reader/zoom/visual,
+performance, Node24 and Next.js/RSC gates stay open. Representative checks do not
+complete the general U acceptance matrix. No merge or publication is authorized.
+
+Next dependency batch: M-27 InsertContentMenuControl, M-28 TextAlignMenuControl,
+M-29 TextColorPickerControl and M-30 TextStyleMenuControl, using owned controls and
+retaining Lexical/host command models. Then proceed through the remaining editor,
+grid and foundation backlog in dependency order. Complete edits/checks/commit/push
+before starting each successor local chat; avoid overlapping checkout writes.
+
+Additional native host evidence from the final production Storybook build: the
+real full-tools editor selected Guide, inserted Course guide at www.example.org/guide
+as an HTTPS anchor with `_blank`/`noopener noreferrer`, edited the existing anchor
+to Edited guide at /courses/edited with target/rel cleared, then submitted a blank
+URL. The editor retained Edited guide as plain text with zero anchors and native
+contenteditable focus; no captured Lexical diagnostics. Remaining legacy toolbar
+buttons in this story lack accessible names and remain required M-26 work.

@@ -352,6 +352,8 @@ export function PageRichTextEditorSection({
   const [imageUploadModalOpen, setImageUploadModalOpen] = useState(false);
   const [imageUploadError, setImageUploadError] = useState<string | null>(null);
   const [imageUploading, setImageUploading] = useState(false);
+  const imageUploadSessionRef = useRef(0);
+  useEffect(() => () => { imageUploadSessionRef.current += 1; }, []);
 
   const baseHiddenControls = useMemo<Partial<Record<RichTextToolbarControlId, boolean>>>(
     () => (toolPreset === "base" ? { code: true, link: true } : {}),
@@ -729,7 +731,9 @@ export function PageRichTextEditorSection({
         const previousDisplayText = linkNode.getTextContent();
 
         if (!url) {
-          linkNode.replace($createTextNode(displayText || previousDisplayText));
+          const replacement = $createTextNode(displayText || previousDisplayText);
+          linkNode.replace(replacement);
+          replacement.select();
           return;
         }
 
@@ -742,8 +746,10 @@ export function PageRichTextEditorSection({
           linkNode.setTarget(null);
           linkNode.setRel(null);
         }
-        linkNode.clear();
-        linkNode.append($createTextNode(displayText || previousDisplayText || normalizedUrl));
+        const replacement = $createTextNode(displayText || previousDisplayText || normalizedUrl);
+        // Replace children atomically: clearing a nonempty LinkNode detaches it.
+        linkNode.splice(0, linkNode.getChildrenSize(), [replacement]);
+        replacement.select();
       });
       setLinkModalOpen(false);
       setActiveLinkNodeKey(null);
@@ -898,6 +904,8 @@ export function PageRichTextEditorSection({
           if (readOnly) {
             return;
           }
+          imageUploadSessionRef.current += 1;
+          setImageUploading(false);
           setImageUploadError(null);
           setImageUploadModalOpen(true);
         }}
@@ -1138,13 +1146,16 @@ export function PageRichTextEditorSection({
         open={columnsLayoutModalOpen}
       />
       <ImageUploadModal
+        enableAltText
         errorMessage={imageUploadError}
         onClose={() => {
+          imageUploadSessionRef.current += 1;
           setImageUploadModalOpen(false);
           setImageUploadError(null);
           setImageUploading(false);
         }}
-        onSubmit={async (file) => {
+        onSubmit={async (file, altText) => {
+          const uploadSession = imageUploadSessionRef.current;
           try {
             setImageUploading(true);
             setImageUploadError(null);
@@ -1158,9 +1169,10 @@ export function PageRichTextEditorSection({
                   width: null,
                   height: null,
                 };
+            if (imageUploadSessionRef.current !== uploadSession) return;
             dispatchInsertCommand(INSERT_IMAGE_COMMAND, {
               src: uploaded.src,
-              altText: uploaded.altText ?? file.name,
+              altText: altText ?? uploaded.altText ?? file.name,
               width: uploaded.width ?? null,
               height: uploaded.height ?? null,
               assetId: uploaded.assetId,
@@ -1168,9 +1180,11 @@ export function PageRichTextEditorSection({
             });
             setImageUploadModalOpen(false);
           } catch (error) {
-            setImageUploadError(error instanceof Error ? error.message : "Image upload failed.");
+            if (imageUploadSessionRef.current === uploadSession) {
+              setImageUploadError(error instanceof Error ? error.message : "Image upload failed.");
+            }
           } finally {
-            setImageUploading(false);
+            if (imageUploadSessionRef.current === uploadSession) setImageUploading(false);
           }
         }}
         open={imageUploadModalOpen}

@@ -1,0 +1,8 @@
+@layer sgui.components {
+  .root { display: flex; flex-direction: column; gap: var(--sgui-space3); min-inline-size: 0; }
+  .dropZone { display: flex; flex-direction: column; align-items: center; gap: var(--sgui-space2); padding: calc(var(--sgui-space3) * 2); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); text-align: center; }
+  .preview { display: block; max-inline-size: 100%; max-block-size: calc(var(--sgui-space4) * 10); object-fit: contain; margin-block-end: var(--sgui-space2); }
+  .icon { color: var(--sgui-text-muted); }
+  .selection { padding: var(--sgui-space2); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); overflow-wrap: anywhere; }
+  @media (forced-colors: active) { .dropZone, .selection { border-color: CanvasText; } }
+}

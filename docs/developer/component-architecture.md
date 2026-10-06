@@ -93,3 +93,8 @@ Do not bring back its local aliases or move its API-bound screens into this libr
 
 [AGENTS.md](../../AGENTS.md) holds the active development rules; this document
 explains the architecture they apply to.
+
+ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundation.
+Apply migrated boundaries to these directories; see [editor dialog contracts](react-aria-editor-dialogs.md)
+for preset draft reset, URL protocol validation and optional host-owned image descriptions.
+Load /styles.css and provide Provider or ThemeScope.

@@ -160,3 +160,8 @@ The current production foundation remains installed during the proof. Removing
 its dependencies before migrating the catalog would break consumers. Do not claim
 the package is independent of that foundation until Z passes. No publication,
 version edit, prerelease channel or remote workflow setting is part of this change.
+
+ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundation.
+Apply migrated boundaries to these directories; see [editor dialog contracts](react-aria-editor-dialogs.md)
+for preset draft reset, URL protocol validation and optional host-owned image descriptions.
+Load /styles.css and provide Provider or ThemeScope.

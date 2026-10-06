@@ -139,3 +139,8 @@ root AGENTS.md. See [agent guidance migration](agent-guidance-migration.md) for
 the source inventory and section-by-section decisions, and
 [component architecture](developer/component-architecture.md) for the adapted
 architecture guidance. Application-only rules remain with the learner platform.
+
+ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundation.
+Apply migrated boundaries to these directories; see [editor dialog contracts](developer/react-aria-editor-dialogs.md)
+for preset draft reset, URL protocol validation and optional host-owned image descriptions.
+Load /styles.css and provide Provider or ThemeScope.
