@@ -7,7 +7,7 @@ const requests = (page: Page) => page.getByLabel('Host requests');
 const actions = (page: Page, title: string) => page.getByRole('button', { name: `Actions for ${title}`, exact: true });
 const row = (page: Page, title: string) => actions(page, title).locator('xpath=ancestor::li');
 
-// Observation only. Keep native key delivery and the bounded reach assertion intact.
+// Read-only observations select native traversal direction; never move focus here.
 async function focusSnapshot(target: Locator) {
   return target.evaluate(element => {
     const describe = (node: Element | null) => {
@@ -29,8 +29,15 @@ async function focusSnapshot(target: Locator) {
       return result;
     };
     const active = document.activeElement;
+    const targetPositionFromActive = active?.compareDocumentPosition(element) ?? null;
+    // These fixtures use ordinary DOM-ordered tab stops. BODY/HTML is document
+    // entry, not a sequential focus anchor; take one forward step and observe it.
+    const direction = active && active !== document.body && active !== document.documentElement &&
+      targetPositionFromActive !== null && !(targetPositionFromActive & Node.DOCUMENT_POSITION_DISCONNECTED) &&
+      (targetPositionFromActive & Node.DOCUMENT_POSITION_PRECEDING) ? 'backward' : 'forward';
     return {
       time: performance.now(), documentFocused: document.hasFocus(), visibility: document.visibilityState,
+      targetPositionFromActive, direction,
       reached: element === active, target: describe(element), targetAncestors: ancestors(element),
       active: describe(active), activeAncestors: active ? ancestors(active) : [],
       // DOM markers establish scope lifetime/containment, not internal React Aria state.
@@ -90,12 +97,15 @@ async function observeFocusLifecycle(page: Page) {
 
 async function reach(page: Page, target: Locator, browserName: string) {
   const tab = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
-  const observations = [{ tabs: 0, ...await focusSnapshot(target) }];
+  const backwardTab = browserName === 'webkit' ? 'Alt+Shift+Tab' : 'Shift+Tab';
+  const observations = [{ tabs: 0, key: null as string | null, ...await focusSnapshot(target) }];
   try {
     for (let i = 0; i < 24; i++) {
-      if (observations[observations.length - 1].reached) return;
-      await page.keyboard.press(tab);
-      observations.push({ tabs: i + 1, ...await focusSnapshot(target) });
+      const current = observations[observations.length - 1];
+      if (current.reached) return;
+      const key = current.direction === 'backward' ? backwardTab : tab;
+      await page.keyboard.press(key);
+      observations.push({ tabs: i + 1, key, ...await focusSnapshot(target) });
     }
     await expect(target).toBeFocused();
   } finally {
@@ -103,7 +113,7 @@ async function reach(page: Page, target: Locator, browserName: string) {
     const lifecycle = await page.evaluate(() =>
       (window as unknown as { navigatorFocusLifecycle: unknown[] }).navigatorFocusLifecycle);
     await test.info().attach('navigator-native-tab-reach', { contentType: 'application/json',
-      body: JSON.stringify({ browserName, key: tab, limit: 24, observations, finalObservation, lifecycle }) });
+      body: JSON.stringify({ browserName, key: tab, backwardKey: backwardTab, limit: 24, observations, finalObservation, lifecycle }) });
   }
 }
 async function openActions(page: Page, title: string, browserName: string) {
