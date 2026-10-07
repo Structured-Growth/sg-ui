@@ -3,7 +3,7 @@
 M-16 public renderer/helpers/parts, M-17 shell and M-19 learner composition now
 use owned contracts. Load `@structured-growth/sg-ui/styles.css` and wrap grids in
 `Provider` or `ThemeScope`. Import their granular component entry points to avoid
-the remaining legacy catalog. Broad G/U/X/R/Z acceptance and M-18 reorder remain
+the remaining legacy catalog. Broad G/U/X/R/Z acceptance remains
 open; this integration does not certify the complete migration.
 
 ```tsx
@@ -72,7 +72,13 @@ are rejected. The internal persistence reset removes versioned and legacy keys;
 a public reset-view control remains a follow-up acceptance item.
 
 Row drag integration is temporarily absent from the migrated renderer while
-M-18 replaces the retired DnD module with bounded pointer/touch/keyboard/Move and
-cancel behavior. Do not pass `rowDrag` to the new renderer until that batch lands.
+M-18 now integrates bounded pointer/touch/keyboard/Move requests and cancellation.
+See [reorder contracts](react-aria-grid-reorder.md) for the public rowDrag mapping.
 True pinning, expansion, editing and spreadsheet features remain deferred per
 [catalog contracts](react-aria-grid-contracts.md).
+
+## Row reorder
+
+The M-18 [reorder contracts](react-aria-grid-reorder.md) cover the public rowDrag
+configuration and owned handle/helper. List mode uses the same state/identity
+owner as selection and processing; cards mode has no reorder control.

@@ -44,7 +44,7 @@ function Grid<RowModel>(props: ComposedGridProps<RowModel> & { persist?: ReturnT
     if (document.activeElement !== pending.origin && document.activeElement !== document.body) return;
     const container = root.current?.querySelector<HTMLElement>("[data-sgui-part='grid-container']");
     if (container) container.scrollTop = 0;
-    (container?.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection'])") ?? container?.querySelector<HTMLElement>("table"))?.focus();
+    (container?.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder'])") ?? container?.querySelector<HTMLElement>("table"))?.focus();
   }, [state.paginationModel.page]);
   const options = normalizeGridPageSizeOptions(props.pageSizeOptions).map(option => option.value);
   return <div ref={root} className={styles.root} data-sgui-part="data-grid">

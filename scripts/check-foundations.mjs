@@ -10,11 +10,12 @@ const variables = new Set([...ts.matchAll(/var\((--sgui-[\w-]+)\)/g)].map(match 
 const interactionFiles = new Set(['Button', 'TextField', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'DateField', 'TimeField', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'Menu', 'Switch', 'RadioGroup', 'Select', 'TextArea', 'ToggleButton', 'Tooltip', 'TagGroup', 'Progress']
   .map(name => `src/experimental/${name}/${name}.tsx`));
 interactionFiles.add("src/components/AppDataGrid/ownedGridInteraction.tsx");
+interactionFiles.add("src/components/AppDataGridRowDnd/DataGridDragHandle.tsx");
 const componentFiles = new Set([...interactionFiles, ...['Typography', 'Box', 'Stack', 'Surface', 'Card', 'Divider', 'IconButton', 'ButtonGroup', 'SplitAction', 'Link', 'Breadcrumbs', 'List', 'Navigation', 'Disclosure', 'Collapse', 'Chip', 'Badge', 'Progress', 'Status', 'Avatar', 'Table', 'Pagination'].map(name => `src/experimental/${name}/${name}.tsx`)]);
 // Catalog components enter the same strict owned boundary as they migrate.
-const migratedDirectories = ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'Typefaces', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'AppButton', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar', 'AppDataGrid', 'AppDataGridShell', 'LearnerClassesDataGrid'];
+const migratedDirectories = ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'Typefaces', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'AppButton', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar', 'AppDataGrid', 'AppDataGridShell', 'LearnerClassesDataGrid', 'AppDataGridRowDnd'];
 for (const name of migratedDirectories.filter(name => name !== 'Typefaces')) {
-  componentFiles.add(`src/components/${name}/${name}.tsx`);
+  componentFiles.add(`src/components/${name}/${name === 'AppDataGridRowDnd' ? 'DataGridDragHandle' : name}.tsx`);
 }
 async function visit(dir, accept = () => true) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -69,7 +70,7 @@ async function auditDependencies(path) {
   }
 }
 for (const name of migratedDirectories.filter(name => name !== 'Typefaces')) {
-  await auditDependencies(resolve(`src/components/${name}/${name}.tsx`));
+  await auditDependencies(resolve(`src/components/${name}/${name === 'AppDataGridRowDnd' ? 'DataGridDragHandle' : name}.tsx`));
 }
 // M-16 is split into implementation batches. Audit the owned processing/model
 // files now without claiming that the surrounding legacy catalog has migrated.

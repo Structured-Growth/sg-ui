@@ -1,2 +1,2 @@
 export { DataGridDragHandle, type DataGridDragHandleProps } from "./DataGridDragHandle";
-export { useDataGridRowDnd } from "./useDataGridRowDnd";
+export { useDataGridRowDnd, type UseDataGridRowDndOptions, type ResolvedGridRow } from "./useDataGridRowDnd";

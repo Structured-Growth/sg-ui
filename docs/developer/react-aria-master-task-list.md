@@ -332,8 +332,9 @@ M-16 now has the public owned renderer/helpers/parts and optional validated
 persistence, with the M-17 shared shell and M-19 learner composition integrated.
 See [catalog integration](react-aria-catalog-grid.md) and the
 [execution record](react-aria-progress.md#catalog-grid-public-integration-batch).
-M-18 reorder, public reset-view and broad G/U/X/R/Z acceptance remain open; the
-migration rows are not whole-backlog completion markers.
+M-18 now has the owned handle/helper and public bounded reorder integration; see
+[reorder contracts](react-aria-grid-reorder.md). Public reset-view and broad
+G/U/X/R/Z acceptance remain open. Migration rows are not whole-backlog completion markers.
 
 - [ ] M-38 Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively.
 - [ ] M-39 Migrate `AdminDataGridOptions.ts` and `InstructorDataGridOptions.ts`, including column locks, static enums, filter/sort defaults, and translation labels.

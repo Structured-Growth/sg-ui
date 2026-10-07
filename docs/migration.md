@@ -179,3 +179,8 @@ boundaries. See [catalog grid integration](developer/react-aria-catalog-grid.md)
 for breaking mappings, one shared shell state owner and opt-in hydration-safe
 persistence. Load /styles.css and provide Provider or ThemeScope. M-18 reorder
 and broad G/U/X/R/Z acceptance remain open.
+
+AppDataGridRowDnd and public catalog grid row reorder now use the owned
+foundation and migrated-module boundaries. See [grid reorder contracts](developer/react-aria-grid-reorder.md)
+for the complete single-page dataset boundary, drag/Move requests, cancellation,
+source focus and host persistence/rollback ownership. Broad G/U/X/R/Z gates remain open.

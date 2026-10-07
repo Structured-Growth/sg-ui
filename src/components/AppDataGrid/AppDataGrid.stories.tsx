@@ -25,3 +25,34 @@ export const RetainedSelection: Story = { render: args => {
 export const Loading: Story = { args: { loading: true, rows: [] } };
 export const Refreshing: Story = { args: { refreshing: true } };
 export const Error: Story = { args: { errorMessage: "The host could not load these courses.", onRetry: () => {} } };
+
+/** Host-owned optimistic persistence and rollback; the grid only emits requests. */
+function HostReorder() {
+  const [courses, setCourses] = useState(rows.slice(0, 5));
+  const [pending, setPending] = useState(false);
+  const [failNext, setFailNext] = useState(false);
+  const [status, setStatus] = useState("Ready");
+  return <>
+    <button type="button" onClick={() => setFailNext(value => !value)} aria-pressed={failNext}>Reject next move</button>
+    <p role="status">{status}</p>
+    <AppDataGrid rows={courses} columns={columns} label="Reorder courses" getRowLabel={row => row.name}
+      defaultPaginationModel={{ page: 0, pageSize: 10 }} pageSizeOptions={[10]} refreshing={pending}
+      rowDrag={{ onReorder: ({ sourceRowId, targetRowId, position }) => {
+        if (pending) return;
+        const previous = courses;
+        const source = previous.find(row => row.id === sourceRowId)!;
+        const next = previous.filter(row => row.id !== sourceRowId);
+        next.splice(next.findIndex(row => row.id === targetRowId) + (position === "after" ? 1 : 0), 0, source);
+        setCourses(next); setPending(true); setStatus("Saving order…");
+        // A real host substitutes its persistence adapter here. This fixture has
+        // one outstanding request and restores its own snapshot on failure.
+        window.setTimeout(() => {
+          if (failNext) { setCourses(previous); setStatus("Save failed; previous order restored."); setFailNext(false); }
+          else setStatus("Order saved.");
+          setPending(false);
+        }, 600);
+      } }} />
+  </>;
+}
+export const HostOwnedReorder: Story = { render: () => <HostReorder /> };
+export const ReorderUnavailableWhileSorted: Story = { args: { rows: rows.slice(0, 5), sortRules: [{ field: "name", direction: "asc" }], rowDrag: { onReorder: () => {} } } };

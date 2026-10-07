@@ -1134,3 +1134,52 @@ kept List trigger focus; next footer page entered Course21/name. Native narrow
 Warning/error logs were empty. Screenshot: `/tmp/sgui-public-grid-shell.png`.
 Representative evidence only; touch, screen-reader, zoom, visual/performance and
 full browser matrices remain open.
+
+## Catalog grid reorder batch (M-18)
+
+The owned public AppDataGrid, shell list and LearnerClassesDataGrid now accept
+rowDrag requests with shared stable grid IDs and host row ownership. React Aria
+provides pointer/touch/keyboard drag semantics; owned Move up/down controls
+provide non-drag access. Reorder is disabled outside complete unsorted/unfiltered
+client data fitting on page zero, during pending/error states or multi-selection.
+Invalid/self/adjacent no-op and replaced-dataset drops emit no request. Focus
+repairs after collection reconciliation, including source controls disabled at
+list boundaries, pending host updates and preservation of external focus.
+
+AppDataGridRowDnd is migrated as a whole: named owned button/native ref/slot,
+owned row selectors and grid isolation, scoped token preview and lifecycle/SSR
+guards. Its granular entry, registered interaction, source/transitive and full
+declaration audit now join the strict migrated boundary. The action menu remains
+the last column; reorder controls precede text and page-entry focus skips control
+columns. See [reorder contracts](react-aria-grid-reorder.md) for breaking mappings
+and host optimistic persistence/rollback responsibilities. HostOwnedReorder and
+ReorderUnavailableWhileSorted stories exercise the new behavior.
+
+Validation: pnpm check passed 132 files / 704 tests, including 21 public reorder
+regressions and six handle/helper tests, plus four foundation and four release
+checks, production/story typing, ESM/declarations, public imports and consumer
+typing. pnpm build-storybook passed with existing directive/sourcemap/chunk
+warnings. Final packed React 19.2.3 and 18.3.1 consumers passed SSR,
+hydration-entry, production Vite/CSS and no-retired-peer checks. Source/transitive,
+registered interaction, token/layer and upstream declaration audits cover the
+whole reorder directory. Local links and diff whitespace were verified.
+
+Native IAB checks on HostOwnedReorder verified keyboard drop from Course 2 after
+Course 3, preserved Course 1 selection and eventual source-handle focus; Escape
+on an unselected source returns to that source handle, not the different selected
+row. Move requests show pending controls, and a rejected optimistic move restores
+the exact previous array/order and source Move button focus. This native check
+found and fixed two cancellation/rollback timing cases with regressions. The
+proof screenshot is /tmp/sgui-m18-reorder-rollback.jpg. No new runtime warning/error
+was observed in the completed story (an earlier missing-story error preceded its
+first build). IAB coordinate pointer drag attempts from both handle and row did
+not produce a move; pointer and touch-device verification are explicitly still
+open under G-17/G-18, along with the broad native matrix. React Aria pointer/touch
+integration is implemented, but these attempts are not passing device evidence.
+
+This batch updates [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1).
+Prior public-grid CI and title runs 37556178468/37556178514 completed successfully.
+The next code batch continues M-36/M-37 and the required remaining gates.
+M-36/M-37, public reset-view, M-38 reconciliation and broad G/U/X/R/Z gates
+remain open. Implementation evidence does not close full touch-device,
+screen-reader, browser, zoom, visual, performance, Node24 or NextRSC matrices.

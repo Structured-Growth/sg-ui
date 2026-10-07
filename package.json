@@ -201,6 +201,10 @@
     "./components/LearnerClassesDataGrid": {
       "types": "./dist/components/LearnerClassesDataGrid/index.d.ts",
       "import": "./dist/components/LearnerClassesDataGrid/index.js"
+    },
+    "./components/AppDataGridRowDnd": {
+      "types": "./dist/components/AppDataGridRowDnd/index.d.ts",
+      "import": "./dist/components/AppDataGridRowDnd/index.js"
     }
   },
   "repository": {
