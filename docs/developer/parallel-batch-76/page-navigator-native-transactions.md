@@ -36,7 +36,7 @@ only to a trusted dragstart and removes that source through host state.
 
 ## Added unit and authored browser coverage
 
-The [three composed units](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.test.tsx)
+The [composed units](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.test.tsx)
 verify rejected/accepted adjacent reorder snapshots, live read-only changes during
 an edit followed by permitted selection, and accepted removal focus to the next
 survivor with no selection callback. They are jsdom/user-event composition tests,
@@ -94,7 +94,7 @@ acquired light slot0 and released only that slot after completion.
 | Playwright focused `--list` | 33 cases, 3 engine projects discovered; no browser launched | `/tmp/batch76-browser-list.log` |
 | Diff whitespace, exact allowlist and report links | Pass | checked before commit |
 
-**Native execution is pending.** Coordinator alone reviews the frozen exact head,
+**Initial handoff: native execution was pending.** Coordinator alone reviews the frozen exact head,
 builds static Storybook in the shared pool and executes focused Chromium first:
 `pnpm exec playwright test tests/browser/page-navigator-native-transactions.spec.ts --project=chromium`.
 Firefox/WebKit are deferred checkpoints, not passes. This chat ran no browser,
@@ -107,3 +107,90 @@ and report a bounded successor instead of changing implementation or weakening
 assertions. Source/report are frozen at handoff. No CI dispatch/rerun/wait,
 re-enable, GitHub publication, main integration, force/delete, credential read,
 workflow-permission change, or foreign worktree/slot cleanup occurred.
+
+
+## Wave35 red evidence and bounded driver correction
+
+Coordinator-owned wave35 at exact `15ba1656429a89ea1f51700995b704efd68982ed`
+settled with **8 passed / 3 failed**, not an overall pass. Token:
+`378b8e10-1604-4ad9-ab7b-cdcef9967e97`, port 6813. Artifacts are retained in this
+worktree under `artifacts/browser-pool/<token>/page-navigator-native-transactions/`
+(`browser.log`, `results.json`, `evidence.json`, and all three error contexts,
+screenshots and trace ZIPs). Coordinator plan/attribution:
+`/tmp/sgui-thirtyfifth-navigator-plan.json` and
+`/tmp/sgui-wave35-navigator-attribution.json`. This chat read the artifacts only;
+it did not execute a native run or rebuild. Coordinator lifted the freeze solely
+for these owned fixture/spec/unit/report corrections after the commands settled.
+
+The six light/dark rename, removal and Move cases passed. Accepted and self-drop
+mouse cases passed, with actual attachments showing trusted dragstart/drop/dragend;
+both native drops carried `intro`. Accepted order and exact request assertions
+passed; self-drop left order and requests unchanged. These eight results remain
+attributed to the original exact head, not re-labelled as a later-head run.
+
+Both live-read-only failures occurred at the final attempt to reach Actions for
+Introduction (original line 138), after the open menu had correctly changed all
+four commands to disabled and Escape dismissed it. The trace records the next
+Alt+r key but the action trigger stays disabled. The host shortcut is scoped to
+its React wrapper, and the disabled opener cannot restore focus there after
+menu dismissal. This is a fixture/input precondition error: the spec assumed the
+next key would reach that wrapper. The corrected spec reaches the existing host
+Toggle read-only button with native Tab, activates it with Enter, and asserts
+both host read-only false and enabled action trigger before the removed-page edit.
+It retains every live dialog/menu disabled assertion, no-request assertion and
+removed-page save assertion. The new fourth composed unit covers disabling an
+open menu, Escape, explicit host re-enable and reopening rename without mutation.
+It does not claim that jsdom reproduces the browser's post-dismissal focus target.
+
+The source-removal trace stopped in `page.mouse.move` at the drag threshold
+(`call@136`, x=68/y=186.9296875), before the driver's event poll or drop. The final
+snapshot already has `["lesson","summary"]`, host requests `[]`, removal arm
+false and Lesson active. The fixture only removes on `event.isTrusted` dragstart,
+so that observed host state supports trusted native start/removal; the timed-out
+case produced no completed event-log attachment and is not a pass. Inspection of
+the installed Playwright 1.63 Chromium DragManager explains the missing completion:
+a dragstart sets `expectingDrag`, then the driver waits for `Input.dragIntercepted`
+even though immediate source removal cancelled the platform drag before that
+interception. This classifies the timeout as a driver cancellation path, without
+claiming complete product acceptance from the snapshot.
+
+Only the removed-source Chromium scenario now uses a fresh CDP session and real
+`Input.dispatchMouseEvent` movement/press/release, bypassing that interception.
+It still requires exactly one trusted dragstart, removal to the survivor order,
+zero reorder requests and trusted captured events. No synthetic DragEvent or
+DataTransfer is constructed or injected. Its actual event log must attach on a
+successful corrected run. A native drop remains optional because removing the
+source can cancel the platform drag. Firefox/WebKit retain the original native
+mouse driver and remain unverified; no automatic pass or reliable-driver claim
+is made for them.
+
+The story fixture and production source are byte-identical to the original head.
+All shared keyboard/native helpers and the six green keyboard bodies are also
+byte-identical. Accepted/self scenarios execute the unchanged original driver
+branch; the new CDP branch requires `scenario === "removed source"` and Chromium.
+SHA-256 equality checks against the original head passed:
+
+| Unchanged bytes | SHA-256 |
+| --- | --- |
+| keyboard reach/openActions/command/start helpers | `3888d6065b20d8f5b83b3c46a0fbc08e4bf28921ee6bad60449c79676e3197e1` |
+| six green keyboard case bodies | `13aadb82e88904d624e15bd92989625871f008ba9eeeafdafb6a195e9d5b2ba5` |
+| observeDrag/dragEvents/beginDrag/drop helpers | `481a9dbd11081c69cd9b45b0aeb734d5fc85bad387bf0b99856c138fdd12fcb9` |
+| full story fixture | `a45a5726bf0da324fdf16f652a648bf0fe556f7c42476b11985b0f0f769ce3f1` |
+| full ExperiencePageNavigator production source | `1a43e788c88dcb0bb9e7438bf30ac06f3b5d2a29c0770de78a9ddd05b647b37d` |
+
+Correction validation: 3 navigator unit/SSR files, **14 tests pass**
+(`/tmp/batch76-correction-units.log`); browser types pass
+(`/tmp/batch76-correction-browser-types.log`); foundations guard passes
+(`/tmp/batch76-correction-foundations.log`). The focused corrected Chromium list
+contains exactly three cases (`/tmp/batch76-correction-browser-list.log`), with no
+browser launched. Equality log: `/tmp/batch76-correction-unchanged-hashes.log`.
+Owned light slot0 was released after the local checks. Whitespace/allowlist/link
+checks passed before the correction commit. No production defect is established
+by these failures; production remains read-only.
+
+**Corrected three-case native execution is pending at the new frozen head.**
+Coordinator selection, separate from the eight original greens:
+`--project=chromium --grep 'live read-only and removed-page|first native mouse drag: removed source'`.
+Coordinator alone chooses the fresh build and execution/acceptance disposition.
+The original reds, cancellation scope, deferred Firefox/WebKit checkpoint and
+M-10 intent HOLD remain visible. No unchanged native rerun occurred in this chat.

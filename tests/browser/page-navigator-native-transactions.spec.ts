@@ -134,7 +134,12 @@ for (const theme of ['light', 'dark']) {
     await page.keyboard.press('Escape');
     await expect(page.getByRole('menu')).toHaveCount(0);
     await expect(requests(page)).toHaveText('[["select","lesson"]]');
-    await page.keyboard.press('Alt+r');
+    // The disabled menu opener cannot restore focus into the host shortcut wrapper.
+    // Reach the explicit host control before requesting the next controlled change.
+    await reach(page, page.getByRole('button', { name: 'Toggle read-only', exact: true }), browserName);
+    await page.keyboard.press('Enter');
+    await expect(page.getByLabel('Host read-only')).toHaveText('false');
+    await expect(actions(page, 'Introduction')).toBeEnabled();
     await openActions(page, 'Introduction', browserName); await command(page, 'Edit Page Name');
     await expect(field).toBeFocused(); await page.keyboard.press('Alt+x');
     await expect(order(page)).toHaveText('["lesson","summary"]');
@@ -173,15 +178,35 @@ async function drop(page: Page, title: string) {
   await page.mouse.up();
 }
 for (const scenario of ['accepted', 'self', 'removed source'] as const) {
-  test(`first native mouse drag: ${scenario}`, async ({ page }, info) => {
+  test(`first native mouse drag: ${scenario}`, async ({ page, browserName }, info) => {
     await observeDrag(page); const errors = await start(page, 'light');
     if (scenario === 'removed source') {
       await page.getByRole('button', { name: 'Remove source on native drag start', exact: true }).click();
       await expect(page.getByLabel('Host remove on drag')).toHaveText('true');
     }
-    await beginDrag(page);
-    if (scenario === 'removed source') await expect(order(page)).toHaveText('["lesson","summary"]');
-    await drop(page, scenario === 'self' ? 'Introduction' : 'Summary');
+    if (scenario === 'removed source' && browserName === 'chromium') {
+      // Playwright's Chromium mouse.move waits for Input.dragIntercepted after
+      // dragstart even when immediate source removal cancels the platform drag.
+      // Raw browser mouse input exercises that cancellation without interception;
+      // no DragEvent/DataTransfer is constructed or injected.
+      const input = await page.context().newCDPSession(page);
+      try {
+        const box = (await row(page, 'Introduction').boundingBox())!;
+        const x = box.x + 16; const y = box.y + box.height / 2;
+        await input.send('Input.dispatchMouseEvent', { type: 'mouseMoved', x, y });
+        await input.send('Input.dispatchMouseEvent', { type: 'mousePressed', x, y, button: 'left', buttons: 1, clickCount: 1 });
+        await input.send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: x + 20, y, button: 'left', buttons: 1 });
+        await expect.poll(async () => (await dragEvents(page)).filter(event => event.type === 'dragstart').map(event => event.trusted)).toEqual([true]);
+        await expect(order(page)).toHaveText('["lesson","summary"]');
+        const target = (await row(page, 'Summary').boundingBox())!;
+        await input.send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: target.x + 16, y: target.y + target.height / 2, button: 'left', buttons: 1 });
+        await input.send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: target.x + 16, y: target.y + target.height / 2, button: 'left', buttons: 0, clickCount: 1 });
+      } finally { await input.detach(); }
+    } else {
+      await beginDrag(page);
+      if (scenario === 'removed source') await expect(order(page)).toHaveText('["lesson","summary"]');
+      await drop(page, scenario === 'self' ? 'Introduction' : 'Summary');
+    }
     if (scenario === 'removed source') {
       // Removing the drag source can cancel the platform drag; no drop is required.
       await expect(requests(page)).toHaveText('[]');

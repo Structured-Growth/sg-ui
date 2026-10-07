@@ -48,3 +48,23 @@ it("records removal separately from selection and focuses the adjacent survivor 
   expect(screen.getByLabelText("Host page order").textContent).toBe('["intro","summary"]');
   expect(screen.getByRole("button", { name: "Introduction Page 1 • Active" }).getAttribute("aria-current")).toBe("page");
 });
+
+it("re-enables the host through its explicit control after a live read-only menu dismissal", async () => {
+  const user = userEvent.setup(); render(<Provider><NativeTransactionsHost /></Provider>);
+  await user.click(screen.getByRole("button", { name: "Actions for Introduction" }));
+  await user.keyboard("{Alt>}r{/Alt}");
+  expect(screen.getByLabelText("Host read-only").textContent).toBe("true");
+  for (const name of ["Edit Page Name", "Remove", "Move up", "Move down"]) {
+    expect(screen.getByRole("menuitem", { name }).getAttribute("aria-disabled")).toBe("true");
+  }
+  await user.keyboard("{Escape}");
+  expect(screen.queryByRole("menu")).toBeNull();
+  expect((screen.getByRole("button", { name: "Actions for Introduction" }) as HTMLButtonElement).disabled).toBe(true);
+  await user.click(screen.getByRole("button", { name: "Toggle read-only" }));
+  expect(screen.getByLabelText("Host read-only").textContent).toBe("false");
+  expect((screen.getByRole("button", { name: "Actions for Introduction" }) as HTMLButtonElement).disabled).toBe(false);
+  await user.click(screen.getByRole("button", { name: "Actions for Introduction" }));
+  await user.click(screen.getByRole("menuitem", { name: "Edit Page Name" }));
+  expect(screen.getByRole("textbox", { name: "Page Name" })).toBeTruthy();
+  expect(screen.getByLabelText("Host requests").textContent).toBe("[]");
+});
