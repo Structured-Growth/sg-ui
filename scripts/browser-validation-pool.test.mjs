@@ -5,7 +5,7 @@ import { mkdtemp, mkdir, writeFile, readFile, rm, chmod, symlink, readdir, lstat
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createServer } from 'node:net';
-import { acquireLease, releaseLease, acquireSlot, assertQueueDrained, assertPortFree, ownedPath, digestTree, LEGACY_LOCK, runPool, runOwnedCommand, createStage, validateSelection, prepareSnapshot, runFrozenSnapshot, sampleResources, assertBudget, validateBudget, acquirePortLease, sourceDigest, assertSource, MAX_SESSIONS, createAdmission } from './browser-validation-pool.mjs';
+import { acquireLease, releaseLease, acquireSlot, assertQueueDrained, assertPortFree, ownedPath, digestTree, LEGACY_LOCK, runPool, runOwnedCommand, createStage, validateSelection, prepareSnapshot, runFrozenSnapshot, sampleResources, assertBudget, validateBudget, acquirePortLease, sourceDigest, assertSource, MAX_SESSIONS, createAdmission, validateCaseFilter, snapshotCases } from './browser-validation-pool.mjs';
 import { browserSettings, startServer } from './serve-browser-storybook.mjs';
 const moduleURL = new URL('./browser-validation-pool.mjs', import.meta.url).href;
 async function fixture(t) {
@@ -175,6 +175,12 @@ async function thaw(root) {
     if ((await lstat(path)).isDirectory()) await thaw(path);
   }
 }
+function caseResults(shard, { empty = false, title = 'focused case', worktree = '/owned' } = {}) {
+  const projects = Array.isArray(shard.project) ? shard.project : [shard.project];
+  return { config: { rootDir: join(worktree, 'tests/browser') }, errors: [], stats: { expected: empty ? 0 : shard.specs.length * projects.length, unexpected: 0, skipped: 0, flaky: 0 },
+    suites: shard.specs.map(file => ({ title: file.slice('tests/browser/'.length), specs: empty ? [] : [{ title, file: file.slice('tests/browser/'.length), id: file, tags: [],
+      tests: projects.map(projectName => ({ projectName, status: 'expected', results: [{ status: 'passed', retry: 0 }] })) }] })) };
+}
 async function snapshotFixture(t, count = 4) {
   const root = await fixture(t); const worktree = join(root, 'worktree'); await mkdir(worktree);
   const git = (...args) => execFileSync('git', args, { cwd: worktree, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
@@ -193,7 +199,7 @@ async function snapshotFixture(t, count = 4) {
   const plan = { mode: 'snapshot', worktree, head: git('rev-parse', 'HEAD'), shards };
   const queueFile = join(root, 'queue'); await writeFile(queueFile, '[]');
   const state = { builds: 0, types: 0, active: 0, peak: 0, calls: [], fail: false, mutate: false, mutateBuild: false, empty: false };
-  const command = async ({ args, env, log, signal }) => {
+  const command = async ({ cwd, args, env, log, signal }) => {
     state.calls.push({ args, env }); await writeFile(log, args.join(' '));
     if (args[1] === 'storybook') {
       state.builds++;
@@ -214,7 +220,8 @@ async function snapshotFixture(t, count = 4) {
           const file = join(env.SGUI_BROWSER_STORYBOOK_DIR, 'iframe.html'); await chmod(file, 0o644); await writeFile(file, 'mutated static bytes');
         }
         if (state.fail) throw new Error('fixture browser failure');
-        await writeFile(env.SGUI_BROWSER_RESULTS_FILE, JSON.stringify({ stats: { expected: state.empty ? 0 : 1, unexpected: 0, skipped: 0, flaky: 0 } }));
+        const selected = plan.shards.find(shard => new RegExp(args[3]).test(shard.specs[0]));
+        await writeFile(env.SGUI_BROWSER_RESULTS_FILE, JSON.stringify(caseResults(selected, { empty: state.empty, worktree: cwd })));
       } finally { state.active--; }
     }
   };
@@ -530,4 +537,77 @@ test('legacy pool retains all admitted leases when command settlement is unknown
   const [slot] = (await readdir(runtime.poolRoot)).filter(name => name.startsWith('slot-'));
   assert.equal(await readFile(join(runtime.poolRoot, slot, 'owner'), 'utf8'), `${evidence.owner}:${evidence.token}`);
   assert.equal(await readFile(join(runtime.poolRoot, 'ports', String(evidence.port), 'owner'), 'utf8'), `${evidence.owner}:${evidence.token}`);
+});
+
+
+test('focused snapshot filters propagate as separate arguments and retain exact case evidence', async t => {
+  const { plan, runtime, state } = await snapshotFixture(t, 2);
+  plan.shards[0].project = ['firefox', 'webkit'];
+  plan.shards[0].grep = 'focused case$|literal `\\$\\(echo\\)`';
+  const run = await runFrozenSnapshot(plan, {}, runtime);
+  const evidence = JSON.parse(await readFile(join(run, 'evidence.json'), 'utf8'));
+  const item = evidence.sessions.find(item => item.id === plan.shards[0].id);
+  assert.equal(item.grep, plan.shards[0].grep);
+  assert.deepEqual(item.selectionArgs.slice(-2), ['--grep', plan.shards[0].grep]);
+  const call = state.calls.find(call => call.args.includes('--grep'));
+  assert.deepEqual(call.args.slice(-2), ['--grep', plan.shards[0].grep]);
+  assert.equal(item.count, 2); assert.equal(item.cases.length, 2);
+  assert.deepEqual(item.cases.map(item => item.project), ['firefox', 'webkit']);
+  assert.equal(evidence.sessions[1].grep, null);
+  assert.equal(evidence.sessions[1].selectionArgs.includes('--grep'), false);
+  assert.deepEqual(JSON.parse(await readFile(join(item.session, 'evidence.json'), 'utf8')), item);
+});
+test('focused regex admission rejects malformed, empty, unsafe and ambiguous fields before commands', async t => {
+  const { plan, runtime, state } = await snapshotFixture(t, 1);
+  for (const grep of ['', ' ', null, [], {}, 1, '--workers=30', '--help', 'foo|', '^$', 'foo||bar', '(foo)+', '.*', '[foo]', 'foo{2}', '\\1', '\\k<x>', 'foo\nbar', 'x'.repeat(513), Array(10).fill('x').join('|'), 'trailing\\']) {
+    await assert.rejects(runFrozenSnapshot({ ...plan, shards: [{ ...plan.shards[0], grep }] }, {}, runtime), /regex/);
+  }
+  for (const field of ['grepInvert', 'flags', 'args', 'env', 'source']) {
+    await assert.rejects(prepareSnapshot({ ...plan, shards: [{ ...plan.shards[0], [field]: 'foo' }] }, 'artifacts/pool'), /Ambiguous/);
+  }
+  assert.equal(state.calls.length, 0);
+  assert.equal(validateCaseFilter('focused case$|literal \\(case\\)').test('literal (case)'), true);
+});
+test('complete snapshot JSON rejects missing selections and inconsistent aggregate passes', async () => {
+  const shard = { specs: ['tests/browser/one.spec.ts', 'tests/browser/two.spec.ts'], project: ['firefox', 'webkit'], grep: 'focused case$' };
+  assert.equal(snapshotCases(caseResults(shard), shard, '/owned').length, 4);
+  for (const mutate of [
+    r => { r.suites = []; }, r => { r.config.rootDir = '/foreign'; }, r => { r.errors.push({ message: 'global failure' }); }, r => { delete r.suites; }, r => { r.stats.expected++; },
+    r => { r.suites.pop(); r.stats.expected = 2; },
+    r => { for (const suite of r.suites) suite.specs[0].tests.pop(); r.stats.expected = 2; },
+    r => { r.suites[0].specs[0].title = 'unselected'; },
+    r => { r.suites[0].specs[0].tags = ['focused']; },
+    r => { r.suites[0].specs[0].file = 'tests/browser/foreign.spec.ts'; },
+    r => { r.suites[0].specs[0].tests[0].projectName = 'chromium'; },
+    r => { r.suites[0].specs[0].tests[0].results.push({ status: 'passed', retry: 1 }); },
+    r => { r.suites[0].specs[0].tests[0].status = 'flaky'; },
+    r => { r.suites[0].specs[0].tests[0].results[0].status = 'skipped'; },
+    r => { r.suites[0].specs.push(r.suites[0].specs[0]); r.stats.expected += 2; },
+    ...['unexpected', 'flaky', 'skipped'].map(key => r => { r.stats[key] = 1; })
+  ]) { const results = caseResults(shard); mutate(results); assert.throws(() => snapshotCases(results, shard, '/owned')); }
+});
+test('zero or unselected focused cases retain failed evidence and release only owned claims', async t => {
+  for (const empty of [true, false]) {
+    const { plan, runtime, state, worktree } = await snapshotFixture(t, 1);
+    plan.shards[0].grep = 'missing case$'; state.empty = empty;
+    await assert.rejects(runFrozenSnapshot(plan, {}, runtime), /Snapshot/);
+    const [run] = await readdir(join(worktree, 'artifacts/browser-pool'));
+    const evidence = JSON.parse(await readFile(join(worktree, 'artifacts/browser-pool', run, 'evidence.json'), 'utf8'));
+    assert.equal(evidence.status, 'failed'); assert.equal(evidence.sessions[0].status, 'failed');
+    assert.equal(evidence.sessions[0].grep, 'missing case$');
+    assert.ok(await readFile(join(evidence.sessions[0].session, 'results.json'), 'utf8'));
+    await assert.rejects(readFile(join(runtime.bridgePath, 'owner')), { code: 'ENOENT' });
+  }
+});
+
+test('snapshot case attestation preserves nested untagged titles and whole-file tagged defaults', () => {
+  const shard = { specs: ['tests/browser/nested.spec.ts'], project: 'webkit', grep: 'describe focused case$' };
+  const report = caseResults(shard);
+  const fileSuite = report.suites[0];
+  fileSuite.suites = [{ title: 'describe', specs: fileSuite.specs }]; fileSuite.specs = [];
+  assert.equal(snapshotCases(report, shard, '/owned')[0].title, 'webkit nested.spec.ts describe focused case');
+  fileSuite.suites[0].specs[0].tags = ['regression'];
+  const { grep, ...wholeFile } = shard;
+  assert.equal(snapshotCases(report, wholeFile, '/owned').length, 1);
+  assert.throws(() => snapshotCases(report, shard, '/owned'), /untagged/);
 });

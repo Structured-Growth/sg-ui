@@ -162,3 +162,47 @@ lease; logs `/tmp/sgui-editor-chrome42-types-wave23-correction.log` and
 `/tmp/sgui-editor-chrome42-browser-types-wave23-correction.log`.
 Corrected native execution remains coordinator-pending. Original reds are preserved;
 no independent heavy/browser run or unchanged retry occurred.
+
+
+## Wave27 final scoped Chromium proof
+
+**All four editor-chrome-native Chromium cases passed**, with no retries, skipped
+or flaky cases, on 2026-10-07. Actual tested shared candidate:
+`4987a1fe046c37f2e612d6de159aa09e1e840043`. Frozen worker source/spec/report head
+supplied to that candidate: `bd4fac7db584dbdeb3f5bc55a5592875483315ce`, baseline
+`3c31ee6daae917ad82fbd2bd882c203f381d75dd`.
+`/tmp/sgui-batch45-candidate-wave27-attribution.json` records exact byte attribution
+for all five owned changed files. Before this report-only completion update, their
+SHA256 values were verified locally against that record; source/spec bytes remain
+unchanged. This is candidate execution with attributed worker bytes, not an
+independent browser execution of the worker checkout or whole-candidate acceptance.
+
+Coordinator runtime Node `v24.19.0`; fresh immutable Storybook built once, then
+browser typecheck and isolated focused shard on port6455, one Playwright worker.
+Exact focused command: `pnpm exec playwright test '(?:^|/)tests/browser/inventory-editor-chrome\.spec\.ts$' --project=chromium`.
+Shard browser.log reports **4 passed (11.1s)** for light/dark at 320px normal text
+and 640px/200% root font size. Thus the native heading/menu/host editor-return,
+callback counts, live read-only/pending/unavailable states, optional groups,
+controlled pressed state, available zoom, focus hit testing and component/document
+reflow assertions all completed successfully. Build digest
+`101bdd11ab686d9bad4c31857100322d960ee4edfcd19068dc77c1c06aec7a3e`.
+Coordinator confirms source/build/head remained immutable, final candidate clean
+and all owned commands settled.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/afadf38b-8476-4c9b-a10e-2a78d786822d/`.
+Root `evidence.json` records actual head/runtime/build/commands; scoped
+`editor-chrome-native/evidence.json`, `results.json`, `browser.log` and attachments
+record the complete green shard. Overall pool remains red for separate
+grid-shell/pointer scopes; this report does not claim their acceptance or include
+those histories. Earlier wave22/wave23 reds and inspection corrections above remain
+preserved. The separately reviewed batch52 Dialog recovery source belongs to its
+own task; this editor fixture uses Menu and does not claim authorship or independent
+proof of that recovery.
+
+This completion update changes only this report; no further test/build run occurred.
+Coordinator alone reviews and individually integrates this worker history.
+Firefox/WebKit remain deferred to the batch checkpoint; broad/manual/device/AT,
+rich-editor selection/formatting and arbitrary host overlay/anchor/scroll behavior
+remain open. The four Chromium cases complete this scoped F6b evidence slice, not
+whole M-22/M-23 or broad E/G/U/X/R/Z acceptance.

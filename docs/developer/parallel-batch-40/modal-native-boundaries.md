@@ -169,3 +169,43 @@ checks passed for the host-effect revision. Logs:
 `/tmp/sgui-b40-modal-host-effect-{0..2}.log`. No heavy/native rerun occurred here.
 The new frozen head is offered for coordinator correction proof, ideally composed
 with the separately owned shared fallback fix; original wave22/23 reds remain.
+
+## Completion handoff — wave27 Chromium proof
+
+**All 12 focused Chromium cases passed, with no retries**, on coordinator shared
+candidate `4987a1fe046c37f2e612d6de159aa09e1e840043`. Original frozen worker source
+head: `2a9ba67ddbbd0edf9b0b6da7af906449521a23b3`. Read-only `git show` byte
+comparison confirms the candidate's AppModal stories, AppModal tests and
+`inventory-modal-boundaries.spec.ts` are identical to that worker head. This final
+worker change is report-only; all source/spec bytes remain frozen.
+
+Fresh candidate build and browser types passed under Node `24.19.0`, pnpm
+`10.29.3`, Playwright `1.63.0`. Actual focused command:
+`pnpm exec playwright test '(?:^|/)tests/browser/inventory-modal-boundaries\.spec\.ts$' --project=chromium`.
+The shard ran on loopback port 6454, 2026-10-07 17:28:06–17:28:18 UTC.
+Candidate source digest `f51549571de652b8a8be38addfc49b31da7c903aba36c7e4f0301385bc752b79`
+and build digest `101bdd11ab686d9bad4c31857100322d960ee4edfcd19068dc77c1c06aec7a3e`
+remained unchanged, final HEAD matched, final Git status was clean and all owned
+commands settled.
+
+Exact preserved evidence:
+
+- Pool manifest: `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/afadf38b-8476-4c9b-a10e-2a78d786822d/evidence.json`.
+- Complete green shard, results/logs/traces: `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/afadf38b-8476-4c9b-a10e-2a78d786822d/modal-native-boundaries/`.
+
+**Batch40 depends on the separately reviewed batch52 shared Dialog recovery
+source**, as well as the separately corrected shared header CSS present in the
+candidate. This worker's original source did not independently supply either
+shared runtime fix. The 12-case result is candidate integration evidence for this
+bounded slice; the coordinator individually reviews/integrates worker history
+and required shared dependencies, not the whole candidate. Other grid-shell and
+pointer-scope failures leave the overall pool red; they do not invalidate or
+convert this complete green shard into a broad-suite pass.
+
+Original wave22/23 failures and underlying classifications above remain preserved.
+Local targeted unit/composed/type/guard evidence belongs to its recorded worker
+revisions; final native proof belongs to the exact shared candidate above.
+No further tests/builds or unrelated history merges ran for this report update.
+Firefox/WebKit await batch checkpoint; actual browser zoom, physical-device and
+assistive-technology validation remain deferred. Whole M-08 and broad acceptance
+are not claimed complete. Coordinator alone records acceptance and integration.

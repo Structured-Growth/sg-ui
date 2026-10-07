@@ -572,3 +572,19 @@ Five exclusive new cross-engine follow-ups (classification required, not assumed
 - Batch55 link-webkit-selection: chat01a11761-c591-71a1-aca9-9ddee4f6b541, scope src/components/LinkUrlModal/; tests/browser/inventory-link-modal.spec.ts; docs/developer/parallel-batch-55/link-webkit-selection.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
 - Batch56 toolbar-firefox-search-focus: chat01a11761-c8e9-78d3-b79c-d4bee3ce34bb, scope src/components/DataToolbar/; tests/browser/inventory-toolbar-composition.spec.ts; docs/developer/parallel-batch-56/toolbar-firefox-search-focus.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
 - Batch57 auth-firefox-keyboard-entry: chat01a11761-cbee-7f00-b4f9-c85ba499bf56, scope src/components/AuthShell/; tests/browser/inventory-auth-embedded-host.spec.ts; docs/developer/parallel-batch-57/auth-firefox-keyboard-entry.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
+
+## Wave27 focused handoff — 2026-10-07
+
+Eight isolated sessions shared one fresh build at testing-only candidate `4987a1fe046c37f2e612d6de159aa09e1e840043`: six complete green suites, 38 cases. Two held scopes retain enlarged-text grid visibility and replacement drag focus failures; no whole candidate merge. Source/build digests remained identical, clean final head, owned commands settled. Build 34.021s; total 56.828s, peak load 5.849, peak aggregate process RSS20.947GiB, swap delta0. Evidence: `artifacts/browser-pool/afadf38b-8476-4c9b-a10e-2a78d786822d/evidence.json` in managed batch45 candidate.
+
+- Batch36 `card-collection-native`: `cfce31bd49c25b0816403e381178404547102550` reviewed and individually integrated; complete scoped Chromium proof, report-only final delta.
+- Batch42 `editor-chrome-native`: `b306430acbbf827f42fa8581222209c82870a4c9` reviewed and individually integrated; complete scoped Chromium proof, report-only final delta.
+- Batch52 `dialog-removed-opener`: `2f96e20345396865ccc7cba96d102533c03ece26` reviewed and individually integrated; complete scoped Chromium proof, report-only final delta.
+- Batch58 snapshot-case-filters NEW chat `01a11767-eb62-74d0-8f22-eb02e504ec9f`: exclusive scheduler/tests/parallel guide/unique report; add fail-closed per-shard focused-case selection, independent review before deployment.
+
+## Post-wave27 reconciliation and successor — 2026-10-07
+
+- Whole inventory row M-13 accepted after independent criterion review: missing5caseFirefox explicit-width matrix passed; frame source/spec bytes equal reviewed dev352dc49. Original10C/W plus F1 8C/16F/W proof closes row-specific holds. Broad/manual/device/AT gates remain open. Canonical criterion record is react-aria-migration-inventory-acceptance.md#m-13-criterion-reconciliation-2026-10-07.
+- Batch40 finalhead1a51ee185a0d04ca9241845025fe2511b43d1975 and batch43 finalhead2b8e14a053dd724b84c0d02ca8724e5d210244d6 report-only deltas reviewed; full histories integrated/pushed to352dc49 after separately reviewed Dialog52 dependency. Fresh scoped Chromium12/2cases, crossmatrixpending.
+- Batch59 pointer-drop-focus NEWchat01a11771-a166-7cb2-85ad-4b38f9c6c715: exactbase352dc493f64520f544b489d656d30972ea63727b, isolated managed worktreebeforeedits, exclusive ownedGridInteraction.tsx plus unique drop-focus unit/report. Batch48 story/specremainreserved. Confirmed source-controlfocusdefect; delayedAria reconciliation mechanism inferred until regression.
+- Batch56/57 strict keyboard-driver fixture corrections independently reviewed and admitted to fresh Chromium/Firefox; nativepending. Batch58 case-filter infrastructure38Nodefixturespass1gatedskip reported; exact frozen source and independent deployment reviewpending.
