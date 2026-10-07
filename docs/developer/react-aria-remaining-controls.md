@@ -84,6 +84,12 @@ Controlled `open`, `defaultOpen`, `onOpenChange`, disabled state, logical placem
 native overlay ref and narrow-viewport collision handling are supported. Portals
 inherit the scope's theme, density, locale and explicit token overrides. Interactive
 help belongs in Popover. Tooltips do not provide the trigger's required action name.
+The trigger key identifies an action lifetime: change it when replacing the action.
+A new lifetime resets uncontrolled tooltip state and removes the old description;
+unmount/replacement invalidates late host notifications. Same-key content updates
+preserve trigger identity, and controlled `open` remains host-owned. See the
+[focused lifetime evidence](parallel-batch-13/control-tooltip.md).
+
 Nested command submenus remain an open part of U-07.
 
 ## Existing title editor and typography catalog
