@@ -1,5 +1,14 @@
 # Runtime and CI validation
 
+Final removal-guard head `7f03a35108bbf861e9b123b646694f64b21bb369` is independently
+verified by [run 37560788949](https://github.com/Structured-Growth/sg-ui/actions/runs/37560788949):
+both runtime jobs, all eight packed consumers and the required three-engine
+Storybook suite pass. Title validation run 37560788923 also passes. Downloaded
+browser JSON/logs are in `/tmp/sgui-ci-7f03-browser` and `/tmp/sgui-ci-7f03.log`.
+Seven artifacts remain unexpired; browser artifact `11456977272` expires
+2026-10-21 02:18:34 UTC. This evidence precedes the packed browser hydration and
+native handle fix batch; later heads require their own CI result.
+
 R-10 distinguishes the published consumer requirement from the repository's
 publishing tools. The package declares Node `>=22.12.0`; CI tests that exact
 minimum and the Node 24 line. React support remains 18.3.1 and 19. The package's

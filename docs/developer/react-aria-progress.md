@@ -1499,3 +1499,69 @@ closure to 92/320 required tasks, 228 open (28.75%). Broad native/touch/screen-
 reader/visual/framework/performance gates remain open. The PR remains draft;
 versions, licenses and workflow permissions/secrets are unchanged. Later heads
 require independent CI inspection.
+
+## Packed browser hydration and native handle input
+
+R-08/X-18 now execute the packed production Vite consumers in browsers for both
+React 18.3.1 and 19.2.3, rather than stopping at the hydration-entry build. The
+helper loads each fixture with JavaScript disabled and then hydrates it with
+mandatory browser diagnostics. Initial dark scope/English locale/leap-day
+calendar, duplicate IDs, hydrated accessibility references, exact server scope
+identity and real dialog/tab/refresh callbacks/focus are checked. Local Node 24
+Chromium and WebKit pass both fixtures.
+
+A separate clean packed Next.js 16.4.0/React 19.2.3 fixture builds production
+App Router output, starts the production server and executes the same two
+browser modes. Server shell/card/table/pagination imports run without a client
+boundary; a consumer Client Component owns scope, translation adapter, state and
+event handlers. Browser checks verify host `fr-FR`, French February headings,
+2024-02-28/29 endpoints, theme tokens, server node identity, tabs, nested overlays,
+save/Escape and trigger focus. Duplicate IDs fail in both modes and every IDREF
+must resolve after hydration and dialog mount. React Aria's date helper targets
+are inserted by client effects; their absence in SSR-only markup is explicitly
+recorded, not claimed as complete pre-JavaScript accessibility. Local Chromium
+and WebKit pass with zero browser errors or warnings. Next remains fixture-only.
+
+CI Node 24 now runs all three engines for both packed Vite React versions and
+the Next fixture, with diagnostic JSON/failure screenshots/traces in the existing
+14-day browser artifact. Local engine subsets are explicit and forbidden in CI.
+The [browser acceptance guide](react-aria-browser-acceptance.md) records commands,
+scope and limits. Logs: `/tmp/sgui-packed-browser18.log`,
+`/tmp/sgui-packed-browser19.log`, `/tmp/sgui-next-consumer.log`.
+
+Native handle-coordinate dragging exposed a real first-gesture defect: the
+upstream slot's `pointerEvents: none` passed hits to the enclosing cell and no
+native dragstart occurred, though dragging row text succeeded. The owned handle
+now defaults to native pointer hit testing for its drag slot while preserving
+host style. A colocated regression composes the actual public grid and verifies
+its draggable handle/row, without importing upstream context into tests.
+The new browser file uses native mouse gestures and requires trusted
+dragstart/drop/dragend, before/after host changes, cancellation/rollback and source
+focus. Trusted touchscreen taps separately verify the non-drag Move alternative
+at 390px. Physical-device long-press dragging, assistive-technology behavior and
+the broad G-17/G-18 matrix remain open.
+
+R-08/X-18 bring formal recorded closure to 94/320 required tasks (226 open,
+29.38%). These checks cover representative packed consumers rather than every
+host framework or control. The shared PR remains draft and unmerged.
+
+Final local Node 24 full check passes 138 files/858 tests, four foundation and
+four release tests, build/typing/package and owned-boundary guards. Frozen install
+passes. Fresh Storybook build passes with existing upstream warnings. The final
+Chromium/WebKit suite passes 40/40 in 41.7 seconds with 16 WCAG scans and ten
+native reorder/touch-alternative tests; no skipped or flaky tests. Final freshly
+packed React 18/19 Vite browser, Next browser and React 18/19 editor consumers pass
+serially in `/tmp/sgui-hydration-final-consumers.log`. Logs:
+`/tmp/sgui-hydration-check24.log`, `/tmp/sgui-hydration-final-browser.log`,
+`/tmp/sgui-native-drag-storybook.log`. 168 local guidance links and whitespace pass.
+Firefox remains required in CI and retains the known local Mac launch limitation.
+Exact-minimum Node 22.12.0 full check also passes 138 files/858 tests, foundation/
+release tests, production/story typing, build and package/owned guards in
+`/tmp/sgui-hydration-check22.log`. Current consumer execution is local Node 24;
+the CI matrix independently runs packed consumers on both supported runtimes.
+
+Previous final guard head `7f03a351` independently passes CI
+[37560788949](https://github.com/Structured-Growth/sg-ui/actions/runs/37560788949)
+on both runtimes, all eight consumers and 45/45 Linux browser tests. Downloaded
+JSON confirms zero skipped/unexpected/flaky results; all seven artifacts remain
+unexpired. This is previous-head evidence, not validation of this later batch.

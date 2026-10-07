@@ -3,6 +3,8 @@ import { execFileSync } from 'node:child_process';
 import { mkdtemp, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
+import { expect } from '@playwright/test';
+import { packedBrowsers, staticConsumer } from './packed-browser.mjs';
 
 const reactVersion = process.argv.includes('--react18') ? '18.3.1' : '19.2.3';
 // A disposable production fixture. No publication and no source aliases.
@@ -142,7 +144,8 @@ await writeFile(join(fixture, 'main.jsx'), `import React from 'react';
 import { hydrateRoot } from 'react-dom/client';
 import { Proof } from './Proof.jsx';
 import '@structured-growth/sg-ui/styles.css';
-hydrateRoot(document.getElementById('root'), <Proof />);
+window.packedServerScope = document.querySelector('[data-sgui-scope]');
+hydrateRoot(document.getElementById('root'), <Proof />, { onRecoverableError(error) { console.error(error); } });
 `);
 await writeFile(join(fixture, 'ssr.mjs'), `import assert from 'node:assert/strict';
 import { writeFile } from 'node:fs/promises';
@@ -248,3 +251,31 @@ assert(!js.includes('flask-conical') && !js.includes('graduation-cap') && !js.in
 const installed = await readdir(join(fixture, 'node_modules/.pnpm'));
 assert(!installed.some(name => /^@mui\+|^@emotion\+/.test(name)), 'Fixture unexpectedly installed retired peers');
 console.log(`Packed React ${reactVersion} SSR/hydration consumer builds with production CSS: ${resolve(fixture)}`);
+if (process.argv.includes('--browser')) {
+  await staticConsumer(join(fixture, 'dist'), url => packedBrowsers(url, `vite-react-${reactVersion}`, async (page, hydrated) => {
+    const scope = page.locator('[data-sgui-scope]').first();
+    await expect(scope).toHaveAttribute('data-sgui-theme', 'dark');
+    await expect(scope).toHaveAttribute('lang', 'en-US');
+    await expect(page.getByRole('textbox', { name: 'Course name', exact: true })).toBeVisible();
+    await expect(page.getByRole('grid', { name: 'Reporting dates, February 2024', exact: true })).toBeVisible();
+    // The committed leap-day range is present in both server and hydrated markup.
+    await expect(page.locator('[data-sgui-part="date-range-selector"]')).toContainText('February');
+    const ids = await page.locator('[id]').evaluateAll(elements => elements.map(element => element.id));
+    assert.equal(new Set(ids).size, ids.length, 'Duplicate accessible IDs');
+    if (!hydrated) return;
+    await page.getByRole('button', { name: 'Catalog settings', exact: true }).click();
+    const dialog = page.getByRole('dialog', { name: 'Course settings' });
+    await expect(dialog).toBeVisible();
+    await dialog.getByRole('tab', { name: 'Access', exact: true }).click();
+    await expect(dialog.getByRole('tabpanel')).toContainText('Host settings');
+    await dialog.getByRole('button', { name: 'Save settings', exact: true }).click();
+    await expect(dialog).toBeHidden();
+    await expect(page.getByRole('button', { name: 'Catalog settings', exact: true })).toBeFocused();
+    await page.getByLabel('Packed data toolbar', { exact: true }).getByRole('button', { name: 'Refresh', exact: true }).click();
+    await expect(page.getByRole('status', { exact: true }).filter({ hasText: 'Refreshed' })).toBeVisible();
+    assert(await scope.evaluate(element => element === window.packedServerScope), 'Hydration replaced the server scope');
+    // Accessibility references must resolve after hydration and portal cleanup.
+    assert(await page.locator('[aria-labelledby], [aria-describedby]').evaluateAll(elements => elements.every(element =>
+      ['aria-labelledby', 'aria-describedby'].every(attribute => (element.getAttribute(attribute) ?? '').split(/\s+/).filter(Boolean).every(id => document.getElementById(id))))), 'Dangling accessible ID reference');
+  }));
+}

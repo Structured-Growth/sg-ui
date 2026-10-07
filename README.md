@@ -68,6 +68,9 @@ come from Actions.
 The [browser acceptance suite](docs/developer/react-aria-browser-acceptance.md)
 executes built Storybook interactions, accessibility failures and a bounded
 performance smoke workload through `pnpm test:browser`.
+`pnpm test:hydration-consumer` executes packed React 18/19 Vite SSR and hydration
+in browsers; `pnpm test:next-consumer` builds and runs a clean packed Next.js App
+Router production consumer. See [server boundaries](docs/developer/react-aria-server-components.md).
 
 ## Use in an application
 

@@ -30,8 +30,26 @@ shell/card/table tree serializes without render errors. The renderer is confined
 to the disposable fixture and adds no package runtime dependency.
 
 The same fixture retains ordinary SSR and Vite hydration-entry builds, production
-CSS and unused icon pruning assertions. Running
+CSS and unused icon pruning assertions. Add `--browser` to execute the built
+output in Chromium, Firefox and WebKit: each engine first loads it with JavaScript
+disabled, then hydrates and exercises catalog dialogs, tabs, actions and focus
+restoration. It checks the initial dark theme, English locale, committed leap-day
+calendar, unique IDs, resolved accessibility references and preservation of the
+server scope node. Recoverable hydration errors, console warnings/errors and page
+errors fail. `SGUI_BROWSER_ENGINES=chromium,webkit` selects an explicit local
+subset; CI requires all three engines.
+
+`node scripts/test-next-consumer.mjs` independently packs SGUI into a clean
+Next.js App Router consumer, builds production output and starts its production
+server. Next is confined to the disposable fixture. The server imports eligible
+presentation and pagination modules and passes their output through a consumer
+Client Component that owns event handlers. The browser checks execute against
+the built framework output rather than source aliases. See
+[browser acceptance](react-aria-browser-acceptance.md) for evidence and limits.
+
+Running
 `node scripts/test-foundation-consumer.mjs --react18`
 validates the React 18.3 path without installing the React 19 Flight
-renderer. This evidence does not certify every host framework, browser hydration
-behavior or remaining R acceptance requirement; those need their own checks.
+renderer. These representative consumers do not certify every host framework or
+every control's hydration behavior; remaining R acceptance requirements retain
+their own checks.

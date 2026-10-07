@@ -44,13 +44,16 @@ jobs:
       # Do not rebuild dist while these fixtures pack it. Vite SSR also shares a
       # port, so React versions and foundation/editor fixtures run serially.
       - name: Packed React 18.3 foundation consumer
-        run: node scripts/test-foundation-consumer.mjs --react18 2>&1 | tee artifacts/logs/foundation-react18.txt
+        run: node scripts/test-foundation-consumer.mjs --react18 ${{ matrix.node == '24' && '--browser' || '' }} 2>&1 | tee artifacts/logs/foundation-react18.txt
       - name: Packed React 19 foundation and Flight consumer
-        run: node scripts/test-foundation-consumer.mjs 2>&1 | tee artifacts/logs/foundation-react19.txt
+        run: node scripts/test-foundation-consumer.mjs ${{ matrix.node == '24' && '--browser' || '' }} 2>&1 | tee artifacts/logs/foundation-react19.txt
       - name: Packed React 18.3 editor consumer
         run: node scripts/test-editor-consumer.mjs --react18 2>&1 | tee artifacts/logs/editor-react18.txt
       - name: Packed React 19 editor consumer
         run: node scripts/test-editor-consumer.mjs 2>&1 | tee artifacts/logs/editor-react19.txt
+      - name: Packed Next.js production and browser consumer
+        if: matrix.node == '24'
+        run: node scripts/test-next-consumer.mjs 2>&1 | tee artifacts/logs/next-consumer.txt
       - name: Pack validated package
         run: pnpm pack --pack-destination artifacts
       - name: Upload validated package
@@ -76,6 +79,7 @@ jobs:
             artifacts/browser-report/
             artifacts/browser-traces/
             artifacts/browser-results.json
+            artifacts/packed-browser/
           if-no-files-found: warn
           retention-days: 14
       - name: Upload validation results

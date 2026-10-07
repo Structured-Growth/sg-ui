@@ -46,6 +46,12 @@ against the shell's shared processed state.
 `onPress`, `disabled`, `dragging`, `slot`, native style/class and button ref.
 Legacy unnamed div `onClick` and native draggable callbacks are removed. A
 `slot="drag"` handle participates in React Aria collection drag interactions.
+The owned handle supplies native `pointerEvents: "auto"` for this slot so a first
+pointer gesture reaches the draggable button. The upstream slot's pass-through
+style otherwise targets the enclosing cell and can prevent drag initiation.
+Host native style remains available. Browser tests start from the handle's
+coordinates and require trusted native dragstart/drop/dragend events, host order
+changes and source focus; they do not dispatch synthetic drag events.
 For an independent native drag composition, the exported `useDataGridRowDnd`
 helper resolves `[data-sgui-part='grid-row'][data-grid-row]`, uses `dataset.gridRow`
 and optionally restricts targets with `rootRef`. Its preview stays inside the owned
@@ -54,5 +60,9 @@ retired renderer selector or hard-coded ghost styling remains.
 
 Public request, bounded-state, host commit/rollback, keyboard cancellation and
 helper isolation tests accompany this implementation. Representative browser
-checks are recorded in the execution log. Full touch-device, screen-reader,
+checks are recorded in the execution log. Native pointer before/after drops,
+outside cancellation, host rollback and selection/sorting boundaries now have
+executable checks. Trusted touchscreen taps verify the Move alternative at a
+390px viewport, including host rollback; they do not certify physical long-press
+dragging. Full touch-device, screen-reader,
 zoom, browser and performance acceptance remains open under G/X/U/Z gates.

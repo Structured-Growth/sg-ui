@@ -308,6 +308,9 @@ AppDataGridRowDnd and public catalog grid row reorder now use the owned
 foundation and migrated-module boundaries. See [grid reorder contracts](docs/developer/react-aria-grid-reorder.md)
 for the complete single-page dataset boundary, drag/Move requests, cancellation,
 source focus and host persistence/rollback ownership. Broad G/U/X/R/Z gates remain open.
+The drag slot handle keeps native pointer hit testing enabled; first-gesture
+pointer regressions run in the browser harness. Touch-emulated Move actions are
+distinct from physical-device long-press dragging, which remains unverified.
 
 The public icons (M-36) and primitives (M-37) now use owned implementations,
 with whole-directory source/transitive/declaration boundaries. See

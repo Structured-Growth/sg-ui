@@ -234,6 +234,8 @@
     "test:foundations": "node --test scripts/tokens.test.mjs scripts/css-modules.test.mjs",
     "foundations:check": "node scripts/check-foundations.mjs",
     "test:foundation-consumer": "pnpm build && node scripts/test-foundation-consumer.mjs",
+    "test:hydration-consumer": "pnpm build && node scripts/test-foundation-consumer.mjs --react18 --browser && node scripts/test-foundation-consumer.mjs --browser",
+    "test:next-consumer": "pnpm build && node scripts/test-next-consumer.mjs",
     "test:browser": "tsc --noEmit -p tests/browser/tsconfig.json && playwright test"
   },
   "peerDependencies": {

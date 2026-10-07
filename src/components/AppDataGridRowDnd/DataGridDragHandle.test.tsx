@@ -4,7 +4,15 @@ import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { DataGridDragHandle } from "./DataGridDragHandle";
+import { AppDataGrid } from "../AppDataGrid/AppDataGrid";
 afterEach(cleanup);
+it("keeps the composed drag slot available to native pointer input", () => {
+  render(<AppDataGrid rows={[{ id: "science", name: "Science" }]} columns={[{ field: "name", headerName: "Course" }]}
+    label="Courses" getRowLabel={row => row.name} rowDrag={{ onReorder: vi.fn() }} />);
+  const handle = screen.getByRole("button", { name: "Reorder Science" });
+  expect(handle.style.pointerEvents).toBe("auto");
+  expect(handle.closest("tr")?.getAttribute("draggable")).toBe("true");
+});
 it("normalizes pointer and keyboard activation once and forwards the native button", async () => {
   const user = userEvent.setup(); const onPress = vi.fn(); const ref = createRef<HTMLButtonElement>();
   render(<DataGridDragHandle label="Move History" onPress={onPress} ref={ref} style={{ margin: 4 }} className="host-handle" />);

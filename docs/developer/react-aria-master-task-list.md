@@ -446,7 +446,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] X-15 Require deliberate review of screenshot changes; do not automatically accept new snapshots to silence regressions.
 - [ ] X-16 Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions.
 - [ ] X-17 Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version.
-- [ ] X-18 Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values.
+- [x] X-18 Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values.
 - [ ] X-19 Record performance and memory budgets, profile large grids/selectors, and test listener/observer/timer/object-URL cleanup during mount/unmount.
 - [ ] X-20 Test API typing and package consumers, including generics, refs, callback payloads, CSS imports, isolated subpaths, and declaration dependency leakage.
 - [ ] X-21 Preserve and adapt the existing test/story inventory; add missing meaningful stories rather than assuming every existing test validates browser behavior.
@@ -460,7 +460,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] R-05 Update `files`, `exports`, `types`, and `sideEffects` for CSS and new output; remove the old augmentation entry and ensure required CSS survives bundlers.
 - [ ] R-06 Preserve React/React DOM as peers and decide correct direct/peer placement for each new dependency; remove all retired packages from every dependency section.
 - [ ] R-07 Regenerate the lockfile through the package manager and inspect resolved transitive dependencies, overrides, patched dependencies and optional packages.
-- [ ] R-08 Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output.
+- [x] R-08 Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output.
 - [ ] R-09 Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape.
 - [x] R-10 Keep the supported Node/runtime requirements explicit; reconcile development, CI, AI and release Node versions where their tool requirements differ. [Runtime matrix](react-aria-runtime-ci.md).
 - [x] R-11 Extend `pnpm check` and CI with necessary token/CSS/import-boundary/type/API checks, browser interactions, accessibility, package consumers, and performance smoke checks. Both runtime jobs, eight packed consumers and 45 browser gates pass at `83b8dae2`; [runtime evidence](react-aria-runtime-ci.md). Broader framework/device budgets remain separate tasks.

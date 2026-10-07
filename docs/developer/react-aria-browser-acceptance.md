@@ -57,7 +57,7 @@ report, axe results and smoke timings are retained as `sgui-browser-node-24` for
 Storybook. The Node 22.12.0 job independently validates package/consumer checks.
 See [runtime and artifact evidence](react-aria-runtime-ci.md).
 
-The broad browser matrix, pointer/touch dragging, manual screen-reader reviews,
+The broad browser matrix, physical touch dragging, manual screen-reader reviews,
 zoom/reflow, visual snapshots, IME/paste, clipboard permissions, framework
 hydration and full performance/memory budgets remain separate acceptance tasks.
 Representative executed gates must not be treated as completion of every G/U/X
@@ -70,6 +70,52 @@ reported macOS app-data restriction in [Playwright issue 42768](https://github.c
 but local tests alone do not prove that cause. Firefox is not skipped in CI;
 its behavior must be established by the required Linux job. No OS permissions or
 browser branding were changed to work around the local failure.
+
+## Packed browser consumers (R-08/X-18)
+
+`pnpm test:hydration-consumer` builds and packs the library into independent React
+18.3.1 and 19.2.3 Vite fixtures. Each browser loads the production output first
+with JavaScript disabled, then with hydration enabled. Checks include dark
+theme/English locale, committed leap-day dates, unique accessible IDs, hydrated
+reference resolution, unchanged server scope identity and real dialog/tab/action
+callbacks with focus restoration. React's recoverable hydration errors are
+forwarded into the mandatory browser diagnostic assertion.
+
+`pnpm test:next-consumer` independently packs the library and installs exact
+Next.js 16.4.0 with React 19.2.3 in a disposable consumer. Its production App
+Router build executes server presentation/pagination modules and passes server
+content through a client-owned scope and action composition. No Next dependency,
+source alias or framework configuration is added to SGUI's runtime package.
+The Next fixture checks a host `fr-FR` adapter, French month names, committed
+2024-02-28/29 endpoints, light/dark tokens and server presentation node identity.
+Date segment helper descriptions are inserted by React Aria client effects:
+some SSR-only IDREF targets are absent before JavaScript runs. Duplicate IDs fail
+before and after hydration; all IDREF targets must resolve after hydration and
+after the dialog portal mounts. This does not claim complete pre-JavaScript date
+accessibility.
+
+Node 24 CI executes all three engines for both Vite React versions and Next.
+Each fixture has fresh server markup and browser contexts; it never shares the
+Storybook server. The helper enforces 30-second native action/navigation deadlines
+and fails on every page error or console warning/error. JSON evidence and failure
+screenshots/traces live under `artifacts/packed-browser` and are retained with the
+14-day browser artifact. Explicit local engine subsets remain reported as subsets;
+CI refuses a subset.
+
+## Native reorder input (G-17/G-18 partial)
+
+`tests/browser/reorder.spec.ts` exercises the first handle gesture with native
+mouse input, trusted dragstart/drop/dragend events, before/after host order changes
+and originating handle focus. Dropping outside cancels without a host request;
+host rejection restores the prior order. Multiple selection and sorting prevent
+native drag initiation. There is no injected drag event, DataTransfer or CSS fix
+in the acceptance test. The test exposed the upstream drag-slot pass-through
+style; the owned handle now enables pointer hit testing.
+
+A separate 390px touchscreen context uses trusted taps on non-drag Move controls
+and verifies commit/rollback. This covers the touch alternative, not physical
+touch long-press dragging. G-17/G-18 stay open for their remaining device,
+screen-reader and cleanup/preview matrix.
 
 Final local Node 24 execution passes 30/30 tests across Chromium and WebKit,
 including 16 accessibility scans, in 23.7 seconds. Results:
