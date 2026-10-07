@@ -92,8 +92,14 @@ The additional composed regression verifies cell-first focus entry: directly
 focusing a nested header trigger can leave the collection's roving focus key on
 a body row. Entering via the header cell synchronizes its key and focuses the
 trigger. Both supported activation keys pass the targeted composed regression.
-No runtime change was required. Corrected browser evidence is pending a new
-coordinator pool run.
+No runtime change was required. Corrected pool `7a3d2ac9-c7ff-46a7-9606-8c81cfc1a419` at
+`1ff1ba6e92c32958703e2091daf71f6bcc68c9af` passed fresh build/types and three
+of four cases: Enter in both engines and WebKit Alt+ArrowDown. Chromium Alt opened
+the correct menu with selected/focused state and visible focus ring but failed
+Playwright's native focus assertion. Since that assertion requires both active
+node identity and document activation, the next diagnostic spec captures native
+focus/key events, activeElement and document.hasFocus() without weakening any
+assertion. Native evidence remains incomplete.
 
 Per the human policy update relayed by the coordinator, automatic GitHub dev checks
 are paused; no workflow files were changed or checks dispatched/waited for here.

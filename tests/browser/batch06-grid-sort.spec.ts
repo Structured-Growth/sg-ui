@@ -1,11 +1,20 @@
 import { expect, test } from '@playwright/test';
 
 for (const opener of ['Enter', 'Alt+ArrowDown']) {
-  test(`${opener} header promotion and toolbar clear keep controlled sorting and native focus coherent`, async ({ page }) => {
+  test(`${opener} header promotion and toolbar clear keep controlled sorting and native focus coherent`, async ({ page }, testInfo) => {
     const errors: string[] = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto('/iframe.html?id=migration-proofs-catalog-grid-sort-acceptance--controlled-multi-sort&viewMode=story&globals=a11y.manual:!true');
     const grid = page.getByRole('grid', { name: 'Sort acceptance courses' });
+    await page.evaluate(() => {
+      const events: string[] = [];
+      (window as Window & { sortFocusEvents?: string[] }).sortFocusEvents = events;
+      const describe = (target: EventTarget | null) => target instanceof Element
+        ? `${target.tagName}:${target.getAttribute('aria-label') ?? target.textContent?.trim().slice(0, 80)}` : String(target);
+      for (const type of ['focusin', 'focusout', 'blur', 'focus', 'keydown', 'keyup']) {
+        window.addEventListener(type, event => events.push(`${type}:${event instanceof KeyboardEvent ? event.key : ''}:${describe(event.target)}:active=${describe(document.activeElement)}:document=${document.hasFocus()}`), true);
+      }
+    });
     const group = grid.getByRole('button', { name: 'Sort Group', exact: true });
     await expect(group).toBeVisible();
     // Enter the collection through its cell so its roving focus key matches
@@ -15,7 +24,14 @@ for (const opener of ['Enter', 'Alt+ArrowDown']) {
     // Grid cells reserve plain arrows for row navigation. These keys activate
     // the nested menu while preserving that navigation contract.
     await page.keyboard.press(opener);
-    await expect(page.getByRole('menuitemradio', { name: 'Sort Ascending' })).toBeFocused();
+    try {
+      await expect(page.getByRole('menuitemradio', { name: 'Sort Ascending' })).toBeFocused();
+    } finally {
+      await testInfo.attach('sort-opener-native-focus', { contentType: 'application/json', body: JSON.stringify(await page.evaluate(() => ({
+        hasFocus: document.hasFocus(), activeElement: document.activeElement?.outerHTML,
+        events: (window as Window & { sortFocusEvents?: string[] }).sortFocusEvents,
+      }))) });
+    }
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
     await expect(group).toBeFocused();
