@@ -291,3 +291,18 @@ export const HostUploadLifecycle: Story = {
     </Provider>;
   },
 };
+
+/** Save the real editor callback and replace its key to exercise table history/reload. */
+export const TableHistory: Story = {
+  render: () => {
+    const [value, setValue] = useState<unknown>(null);
+    const [seed, setSeed] = useState<unknown>(null);
+    const [revision, setRevision] = useState(0);
+    return <Provider>
+      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved table</AppButton>
+      <PageRichTextEditorSection lexicalValue={seed} editorKey={`table-history-${revision}`} onLexicalChange={setValue}
+        aria-label="Table history document" toolPreset="full" style={{ height: 420 }} />
+      <pre aria-label="Saved table JSON">{JSON.stringify(value)}</pre>
+    </Provider>;
+  },
+};
