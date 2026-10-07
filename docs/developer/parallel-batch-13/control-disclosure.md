@@ -35,11 +35,11 @@ Runtime: Node `24.21.0`, pnpm `10.29.3`, React/React DOM `19.2.3`, Vitest `4.1.1
 
 Each Vitest execution acquired one atomic slot under `/tmp/sgui-light-validation-slots/slotN`, recorded owner token `batch13-control-disclosure`, and released only its own slot in `finally`. No installs, full check, full browser matrix, packed consumers or full Storybook build were run.
 
-## Pending native acceptance and reserved next work
+## Historical native queue and reserved scope
 
-Native browser/build validation is **queued, not passed**. The shared `/tmp/sgui-parallel-batch-01-validation.lock` was owned by chat `01a116a4-fa98-7d20-a217-302eca6279e1`; priority queue contained that chat plus `01a116a4-fd4c-7ab3-acfa-d29891b53fef` and `01a116a4-f72f-7853-b068-47a3e2ebe9cb`. No owner was interrupted, lock/queue removed, browser pool bypassed, or unchanged Firefox failure retried.
+At initial submission, native browser/build validation was **queued, not passed**. This historical limitation is superseded by the completed focused evidence below. The shared `/tmp/sgui-parallel-batch-01-validation.lock` was owned by chat `01a116a4-fa98-7d20-a217-302eca6279e1`; priority queue contained that chat plus `01a116a4-fd4c-7ab3-acfa-d29891b53fef` and `01a116a4-f72f-7853-b068-47a3e2ebe9cb`. No owner was interrupted, lock/queue removed, browser pool bypassed, or unchanged Firefox failure retried.
 
-Required follow-up: after those priorities and browser pool readiness, reserve the shared lock, build fresh static Storybook from this implementation, and run `pnpm test:browser tests/browser/batch13-control-disclosure.spec.ts` through the supported pool/browser setup. Record exact tested commit, engines and counts here. Do not integrate this focus change as natively validated before that evidence exists. If native results differ, reserve this same allowlist for the correction rather than changing shared infrastructure in this task.
+The required follow-up at initial submission was: after those priorities and browser pool readiness, reserve the shared lock, build fresh static Storybook from this implementation, and run `pnpm test:browser tests/browser/batch13-control-disclosure.spec.ts` through the supported pool/browser setup. Record exact tested commit, engines and counts here. Do not integrate this focus change as natively validated before that evidence exists. If native results differ, reserve this same allowlist for the correction rather than changing shared infrastructure in this task.
 
 Broad X/U acceptance, React 18 native coverage, manual/device/AT acceptance and production/full-checkpoint acceptance remain open. GitHub dev CI/title jobs remain paused; no waits, reruns, dispatches, merges, publication or permission changes.
 
@@ -58,4 +58,45 @@ directory with links to the primary workspace installation; no install was run.
 The following report commit freezes the head for the coordinator's fresh pool run
 of `tests/browser/batch13-control-disclosure.spec.ts` with explicit
 `--project=chromium --project=webkit`. No local build/server/browser was started.
-Native evidence remains pending until the coordinator returns the results.
+Native evidence was pending during that freeze; the coordinator returned the passing results below and explicitly released the freeze.
+
+## Completed focused native evidence and review handoff
+
+The coordinator released this checkout after its two-session pool completed at
+exact frozen head `c5e5bdcd9e20225af489b120d64c5f0edfce08cc`, source tree
+`0f5fd05ab60ed1201e80addb9731fc15279b1615`. The focused disclosure case passed
+once in Chromium and once in WebKit: **2 passed, 0 skipped, 0 unexpected failures,
+0 flaky**, no result errors. Node `24.21.0`, pnpm `10.29.3`, Playwright `1.63.0`,
+Darwin `27.0.0`; fresh Storybook build and browser TypeScript check both passed.
+
+Coordinator-owned commands recorded by the pool:
+
+```sh
+pnpm exec storybook build --output-dir /Users/thomashall/.codex/worktrees/batch13-control-disclosure/sg-ui/artifacts/browser-pool/9fda995e-6d0c-42f8-9399-ad1d0fe98870/storybook
+pnpm exec tsc --noEmit -p tests/browser/tsconfig.json
+pnpm exec playwright test tests/browser/batch13-control-disclosure.spec.ts --project=chromium --project=webkit
+```
+
+Retained evidence (local ignored artifacts):
+`/Users/thomashall/.codex/worktrees/batch13-control-disclosure/sg-ui/artifacts/browser-pool/9fda995e-6d0c-42f8-9399-ad1d0fe98870/evidence.json`
+and adjacent `results.json`, `build.log`, `types.log`, `browser.log`, HTML report
+and static build. Pool owner was
+`browser-pool:17884:41fc8f47-2fd4-46f9-b62f-62274347926b`, authorized queue owner
+`01a1164f-41db-7f30-aaf9-f20133b6566f`, slot 0, isolated loopback port 6273.
+Browser command interval: `2026-10-07T14:30:26.761Z` to
+`2026-10-07T14:30:29.216Z`. Final source status was clean, final head equaled
+frozen head, and initial/final static digest both equaled
+`6dcd51c9c5b3804a08868dcadedf1a214576c35110fcda3bd2005ce27f8f16ac`.
+Lockfile digest was
+`d96c82b63ec694520cff2395e0f302dd26790aeca15c8095ac6aa7cb5f0d8150`;
+harness digest was
+`3125b1cc96cb7f449c52fa715c33b211af7483c5fa57077d2221fc3f51ef874f`.
+
+Review decision: the bounded demonstrated defect now has regression-first local
+coverage and fresh focused native evidence, ready for coordinator review of draft
+PR #64. This final report-only commit changes no tested product/source behavior;
+no unchanged checks were rerun. Firefox remains blocked/unrun; neither this pair
+nor DOM heading assertions establish broader browser, React 18, device, manual or
+spoken AT acceptance. No shared acceptance checklist was closed. There are no
+additional product edits proposed in this scope. Any wider acceptance work needs
+its own reserved assignment; native correction is no longer pending here.
