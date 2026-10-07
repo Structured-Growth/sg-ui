@@ -2,7 +2,8 @@ import { test, expect } from '@playwright/test';
 
 test('keyed replacement and unmount clear descriptions without moving focus to a new action', async ({ page }) => {
   await page.goto('/iframe.html?id=migration-proofs-tooltip--trigger-lifetime&viewMode=story&globals=a11y.manual:!true');
-  await page.getByRole('button', { name: 'Replace trigger after delay' }).click();
+  await page.getByRole('button', { name: 'Replace trigger after delay' }).focus();
+  await page.keyboard.press('Enter');
   const original = page.getByRole('button', { name: 'Action 0', exact: true });
   await original.focus();
   const tooltip = page.getByRole('tooltip');
@@ -23,7 +24,8 @@ test('keyed replacement and unmount clear descriptions without moving focus to a
   await page.keyboard.press('Escape');
   await expect(tooltip).toHaveCount(0);
   await expect(replacement).toBeFocused();
-  await page.getByRole('button', { name: 'Remove tooltip after delay' }).click();
+  await page.getByRole('button', { name: 'Remove tooltip after delay' }).focus();
+  await page.keyboard.press('Enter');
   await replacement.focus();
   await expect(tooltip).toHaveText('Help for action 1');
   await expect(replacement).toHaveCount(0);
