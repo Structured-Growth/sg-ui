@@ -51,11 +51,41 @@ light `slot0`–`slot3` and install `slot0`–`slot1`; the used `slot1` was with
 that light range. All task-owned directories were released. No foreign slot was
 removed.
 
-Emitted-package proof is pending the coordinator's authorized build window;
-no independent heavy build was launched. After a fresh package build, compile the
-same fixture with the three mappings above changed to the corresponding
-`dist/index.d.ts`, `dist/components/index.d.ts`, and
-`dist/components/AppDataGrid/index.d.ts` files, then run `pnpm test:package`.
-This remains separate from the successful source-route proof. The fixture is not
-part of the repository's default tsconfig include; it needs that explicit targeted
-config. No shared config changes are included in this reserved three-file scope.
+## Authorized emitted-package validation
+
+Coordinator authorized one fresh build window at clean frozen source commit
+`6cf993b0e0d60f654dba0294d30280b36de4cc2c`. Node 24.21.0 results:
+
+- `pnpm build`: passed (3.90 seconds).
+- Emitted fixture: passed (0.67 seconds), including all negative shape assertions.
+- Focused package route/runtime and owned grid/shell declaration audit: passed.
+- `pnpm test:package`: failed before entry-point checks (0.57 seconds) because
+  `src/experimental/Select/SelectorDirectionStory.tsx` uses a React client API
+  without an explicit source client directive. This file is unchanged from the
+  reviewed baseline; the defect is outside the three-file assignment. No check
+  was weakened and no out-of-scope source fix or repeat build was attempted.
+
+The emitted fixture config `/tmp/sgui-batch26-grid-reset-type-emitted.json` derives
+all three mappings from actual package.json `exports[*].types`: `dist/index.d.ts`,
+`dist/components/index.d.ts`, and `dist/components/AppDataGrid/index.d.ts`.
+Command: `pnpm exec tsc --noEmit -p /tmp/sgui-batch26-grid-reset-type-emitted.json`.
+The fixture needs this explicit targeted config because the default repository
+config excludes tests/types. No shared config changes are included.
+
+The focused audit independently used TypeScript's Bundler resolver without path
+aliases and Node `import.meta.resolve` to verify the three actual package export
+routes, imported each runtime entry, verified the snapshot stays type-only, and
+used the existing `assertOwnedDeclaration`/`checkOwnedDeclarations` checks on the
+entry declarations and entire emitted AppDataGrid/AppDataGridShell directories.
+No upstream type references escaped those declarations.
+
+Evidence logs: `/tmp/sgui-batch26-grid-reset-type-build.log`,
+`/tmp/sgui-batch26-grid-reset-type-emitted.log`,
+`/tmp/sgui-batch26-grid-reset-type-package.log`,
+`/tmp/sgui-batch26-grid-reset-type-route-audit.log`, and
+`/tmp/sgui-batch26-grid-reset-type-package-evidence.json`.
+Both heavy/legacy leases were acquired atomically with this chat's unique token,
+priority-first ownership rechecked, and only owned leases and this chat's first
+queue entry released on completion. The focused audit used canonical light slots
+with token-verified cleanup. Source HEAD and checkout remained frozen through the
+build/audit; only this report changed afterward. Broad acceptance remains open.
