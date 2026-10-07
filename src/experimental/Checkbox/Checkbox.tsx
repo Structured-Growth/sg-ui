@@ -28,7 +28,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(function Che
   const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
   const selected = checked ?? internalChecked;
   const resetting = useFormReset(root, () => {
-    if (checked === undefined) setInternalChecked(defaultChecked ?? false);
+    if (slot !== "selection" && checked === undefined) setInternalChecked(defaultChecked ?? false);
   });
   function change(next: boolean) {
     // React Aria's form listener runs before delegated host onReset handlers.
@@ -37,7 +37,11 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(function Che
     if (checked === undefined) setInternalChecked(next);
     onCheckedChange?.(next);
   }
-  return <AriaCheckbox ref={root} isSelected={selected} onChange={change}
+  // Collection selection slots inherit their state and requests from the table.
+  // Supplying a local selected value would override that collection authority.
+  return <AriaCheckbox ref={root} isSelected={slot === "selection" ? checked : selected}
+    defaultSelected={slot === "selection" ? defaultChecked : undefined}
+    onChange={slot === "selection" ? onCheckedChange : change}
     isIndeterminate={mixed} isDisabled={disabled} isReadOnly={readOnly} isRequired={required} isInvalid={invalid} name={name} value={value}
     slot={slot} aria-labelledby={labelId}
     aria-describedby={[description && `${labelId}-description`, errorMessage && `${labelId}-error`].filter(Boolean).join(" ") || undefined} validationBehavior="native" className={styles.root}>
