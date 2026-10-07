@@ -122,3 +122,39 @@ Corrected browser typecheck and diff check passed; native rerun remains pending.
 The coordinator also reported an earlier **pre-browser environment failure**:
 child PATH error, cleanup EPERM and verified recovery of owned dead leases. That
 attempt is not native proof. The actual Wave 23 child used Node 24.19.0.
+
+## Completion: Wave 27 Chromium proof
+
+**2 Chromium cases passed**, light and dark, no retries. Actual immutable shared
+candidate: `4987a1fe046c37f2e612d6de159aa09e1e840043`; frozen worker source:
+`ea3d83c3832e6392bd4a2dd594a02eaf29642723` (original prepared head before driver
+corrections: `586c9b65c3b22d45d89b773a979635a99e43ee53`). Attribution retained at
+`/tmp/sgui-batch45-candidate-wave27-attribution.json` identifies all four owned
+files and SHA-256 digests. The worker independently compared the story, composed
+test and browser spec at both exact Git heads: all three byte-identical.
+This completion commit changes only this report; tested source/spec bytes remain
+frozen. Coordinator alone reviews and integrates the worker history.
+
+Session `afadf38b-8476-4c9b-a10e-2a78d786822d`, shard `editor-table-history`,
+port 6456, slot 3. Retained evidence:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/afadf38b-8476-4c9b-a10e-2a78d786822d/evidence.json`
+and its `editor-table-history/evidence.json`, `browser.log`, results and artifacts.
+Shard log reports **2 passed (6.5s)**; case durations light 2.8s/dark 2.4s.
+Build digest `101bdd11ab686d9bad4c31857100322d960ee4edfcd19068dc77c1c06aec7a3e`.
+Coordinator verified source/build/head immutability, clean final status, settled
+commands and released owned leases. Other grid-shell/pointer shard failures keep
+the overall pool red; they do not convert this complete green shard into a full
+pool pass. Original Wave 22/23 failures above remain retained.
+
+Observed sequence now includes real twoEqual insertion, keyboard cell navigation,
+selected substring formatting through the intended toolbar, exact callback JSON
+Undo/Redo, reload with a new editorKey, subsequent native cell edit and replacement
+editor history. This proves only the stated representative sequence on Chromium.
+Firefox/WebKit remain pending the batch checkpoint; M-34/E-02/E-04 whole acceptance,
+all presets/merges/mixed multi-cell selection/command combinations, physical devices,
+IME, assistive technology and E-06/E-07 trust/upload gates remain held. The shared
+candidate also contained separately owned changes; no claim is made that this
+worker supplied the batch52 Dialog recovery or any unrelated product fix.
+
+No further tests/builds were run for this report-only completion. Report links,
+evidence paths, attribution and `git diff --check` were verified read-only.
