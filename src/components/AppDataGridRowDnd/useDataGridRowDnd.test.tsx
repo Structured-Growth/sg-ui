@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, renderHook } from "@testing-library/react";
-import type { DragEvent } from "react";
+import { StrictMode, type DragEvent, type ReactNode } from "react";
 import { useDataGridRowDnd } from "./useDataGridRowDnd";
 afterEach(() => { cleanup(); document.body.innerHTML = ""; vi.restoreAllMocks(); });
 function grid() {
@@ -51,4 +51,42 @@ it("cleans existing preview when drag imagery is unavailable", () => {
   result.current.setDragPreview({ currentTarget: child, dataTransfer: { setDragImage: vi.fn() } } as unknown as DragEvent, "History");
   result.current.setDragPreview({ currentTarget: child, dataTransfer: null }, "Ignored");
   expect(document.querySelector("[data-sgui-part='grid-drag-preview']")).toBeNull();
+});
+
+it("removes the native dragend listener and preview after cancellation, replacement and Strict Mode unmount", () => {
+  const { root, child } = grid();
+  const add = vi.spyOn(document, "addEventListener");
+  const remove = vi.spyOn(document, "removeEventListener");
+  const { result, unmount } = renderHook(() => useDataGridRowDnd({ rowsById: new Map() }), {
+    wrapper: ({ children }: { children: ReactNode }) => <StrictMode>{children}</StrictMode>,
+  });
+  const drag = { currentTarget: child, dataTransfer: { setDragImage: vi.fn() } } as unknown as DragEvent;
+  const preview = () => root.querySelector("[data-sgui-part='grid-drag-preview']");
+  result.current.setDragPreview(drag, "History");
+  document.dispatchEvent(new Event("dragend")); // Also emitted for cancelled native drags.
+  expect(preview()).toBeNull();
+  result.current.setDragPreview(drag, "Science");
+  result.current.setDragPreview(drag, "Maths");
+  expect(root.querySelectorAll("[data-sgui-part='grid-drag-preview']")).toHaveLength(1);
+  unmount();
+  expect(preview()).toBeNull();
+  const listeners = add.mock.calls.filter(([type]) => type === "dragend");
+  expect(listeners).toHaveLength(3);
+  for (const [, listener, capture] of listeners) {
+    expect(capture).toBe(true);
+    expect(remove.mock.calls.filter(([type, removed, flag]) => type === "dragend" && removed === listener && flag === capture)).toHaveLength(3);
+  }
+  document.dispatchEvent(new Event("dragend"));
+  expect(preview()).toBeNull();
+});
+it("cleans previews and listeners when the browser rejects native drag imagery", () => {
+  const { child } = grid();
+  const remove = vi.spyOn(document, "removeEventListener");
+  const { result } = renderHook(() => useDataGridRowDnd({ rowsById: new Map() }));
+  const error = new Error("Drag imagery unavailable");
+  expect(() => result.current.setDragPreview({ currentTarget: child, dataTransfer: {
+    setDragImage: () => { throw error; },
+  } } as unknown as DragEvent, "History")).toThrow(error);
+  expect(document.querySelector("[data-sgui-part='grid-drag-preview']")).toBeNull();
+  expect(remove).toHaveBeenCalledWith("dragend", expect.any(Function), true);
 });

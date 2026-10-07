@@ -55,7 +55,11 @@ changes and source focus; they do not dispatch synthetic drag events.
 For an independent native drag composition, the exported `useDataGridRowDnd`
 helper resolves `[data-sgui-part='grid-row'][data-grid-row]`, uses `dataset.gridRow`
 and optionally restricts targets with `rootRef`. Its preview stays inside the owned
-scope and uses compiled token styles, with replacement/unmount cleanup. No
+scope and uses compiled token styles. Native `dragend` (drop or cancellation),
+preview replacement, explicit cleanup and unmount release the preview and its
+capture listener. A rejected `setDragImage` call also releases both before
+propagating the browser error. `cleanupDragPreview` remains idempotent for hosts
+that call it explicitly; the helper does not own reorder requests or persistence. No
 retired renderer selector or hard-coded ghost styling remains.
 
 Public request, bounded-state, host commit/rollback, keyboard cancellation and
@@ -66,3 +70,25 @@ executable checks. Trusted touchscreen taps verify the Move alternative at a
 390px viewport, including host rollback; they do not certify physical long-press
 dragging. Full touch-device, screen-reader,
 zoom, browser and performance acceptance remains open under G/X/U/Z gates.
+
+## Bounded cancellation and rollback acceptance (G-17/G-18/G-28/X-08)
+
+`DataGridDragHandle/StrictModeReorder` is a complete five-row, one-page host
+fixture rendered under React Strict Mode. The host counts requests, disables
+reorder while saving, applies an optimistic order and restores its previous
+snapshot when its simulated save fails. Its timer is cancelled on host unmount;
+production hosts still own network abort and stale-result guards.
+
+The dedicated `tests/browser/batch01-grid-reorder.spec.ts` checks keyboard Escape
+cancellation with another row selected, source focus, removal of drop indicators,
+remount and a subsequent single keyboard request. It also checks Enter/Space Move
+alternatives through pending save, commit and rollback, and pointer Move focus
+fallback when the destination disables that direction. Colocated helper tests
+check native drag-end preview/listener cleanup, replacement, browser drag-image
+errors and Strict Mode unmount. Existing `tests/browser/reorder.spec.ts` retains
+trusted native pointer and emulated touchscreen Move coverage.
+
+This slice does not establish physical-device long-press dragging, spoken
+screen-reader announcements, cross-grid cancellation, every dataset-change
+boundary or production network race reconciliation. G-17/G-18/G-28/X-08 and the
+broader G/U/X/R/Z gates remain open beyond this representative evidence.

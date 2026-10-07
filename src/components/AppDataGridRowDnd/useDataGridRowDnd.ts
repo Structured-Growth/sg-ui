@@ -18,7 +18,10 @@ const DEFAULT_ROW_SELECTOR = "[data-sgui-part='grid-row'][data-grid-row]";
 
 export function useDataGridRowDnd<RowModel>({ rowSelector = DEFAULT_ROW_SELECTOR, rowsById, rootRef }: UseDataGridRowDndOptions<RowModel>) {
   const dragPreviewRef = useRef<HTMLDivElement | null>(null);
+  const dragEndDocumentRef = useRef<Document | null>(null);
   const cleanupDragPreview = useCallback(() => {
+    dragEndDocumentRef.current?.removeEventListener("dragend", cleanupDragPreview, true);
+    dragEndDocumentRef.current = null;
     dragPreviewRef.current?.remove();
     dragPreviewRef.current = null;
   }, []);
@@ -58,7 +61,16 @@ export function useDataGridRowDnd<RowModel>({ rowSelector = DEFAULT_ROW_SELECTOR
     const scope = event.currentTarget?.closest("[data-sgui-theme]") ?? document.body;
     scope.appendChild(pill);
     dragPreviewRef.current = pill;
-    event.dataTransfer.setDragImage(pill, 16, 18);
+    // Native cancellation and drops both end with dragend, including outside
+    // the grid. Attach only while a preview exists; explicit cleanup remains safe.
+    dragEndDocumentRef.current = pill.ownerDocument;
+    pill.ownerDocument.addEventListener("dragend", cleanupDragPreview, true);
+    try {
+      event.dataTransfer.setDragImage(pill, 16, 18);
+    } catch (error) {
+      cleanupDragPreview();
+      throw error;
+    }
   };
   return { cleanupDragPreview, getDropPosition, resolveRowFromEvent, setDragPreview };
 }
