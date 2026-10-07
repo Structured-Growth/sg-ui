@@ -14,11 +14,11 @@ test('batch113 page selection excludes disabled rows, becomes mixed and None cle
   await expect(header).not.toBeChecked();
   await expect(header).toHaveJSProperty('indeterminate', false);
   const first = grid.getByRole('checkbox', { name: 'Select Course 1', exact: true });
-  await first.focus();
-  await page.keyboard.press('Space');
+  // The visible indicator belongs to the label; the native input is clipped.
+  await first.locator('xpath=ancestor::label[1]').click();
   await expect(first).toBeChecked();
   await expect(header).toHaveJSProperty('indeterminate', true);
-  await header.click();
+  await header.locator('xpath=ancestor::label[1]').click();
   await expect(header).toBeChecked();
   await expect(header).toHaveJSProperty('indeterminate', false);
   const disabled = grid.getByRole('checkbox', { name: 'Select Course 2', exact: true });
