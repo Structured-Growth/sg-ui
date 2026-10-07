@@ -18,14 +18,15 @@ const text = '<img src=x onerror="alert(1)"> & "quoted"\nSecond line';
 const json = JSON.stringify({ html: '<script>alert("quoted")</script>', text: 'First\nSecond & third' });
 
 for (const theme of ['light', 'dark']) {
-  test(`native keyboard copy preserves focus, selection and escaped text/JSON: ${theme}`, async ({ page }) => {
+  test(`native keyboard copy preserves focus, selection and escaped text/JSON: ${theme}`, async ({ page, context, browserName }) => {
+    if (browserName === 'chromium') await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: 'http://127.0.0.1:6173' });
     const grid = await open(page, theme);
     const destination = page.getByRole('textbox', { name: 'Clipboard destination' });
-    for (const [rowIndex, key, payload] of [[0, 'Enter', text], [1, 'Space', json]] as const) {
-      const cell = grid.locator(`tbody [data-grid-row="${rowIndex}"][data-grid-field="value"]`);
+    for (const [rowId, key, payload] of [['text', 'Enter', text], ['json', 'Space', json]] as const) {
+      const cell = grid.locator(`tbody [data-grid-row="${rowId}"][data-grid-field="value"]`);
       const button = cell.getByRole('button', { name: 'Copy', exact: true });
       // Enter nested controls through the collection's keyboard navigation.
-      await grid.locator(`tbody [data-grid-row="${rowIndex}"][data-grid-field="name"]`).focus();
+      await grid.locator(`tbody [data-grid-row="${rowId}"][data-grid-field="name"]`).focus();
       await page.keyboard.press('ArrowRight');
       await expect(button).toBeFocused();
       await expect(button).toHaveAttribute('data-focus-visible', 'true');
@@ -34,7 +35,7 @@ for (const theme of ['light', 'dark']) {
       await page.keyboard.press(key);
       await expect(cell.getByRole('status')).toHaveText('Copied');
       await expect(button).toBeFocused();
-      await expect(grid.getByRole('checkbox', { name: `Select ${rowIndex === 0 ? 'Text' : 'JSON'} course`, exact: true })).not.toBeChecked();
+      await expect(grid.getByRole('checkbox', { name: `Select ${rowId === 'text' ? 'Text' : 'JSON'} course`, exact: true })).not.toBeChecked();
       await expect(cell.locator('img, script')).toHaveCount(0);
       await destination.fill('');
       await destination.focus();
@@ -43,7 +44,7 @@ for (const theme of ['light', 'dark']) {
       await expect(cell.getByRole('status')).toHaveText('', { timeout: 5000 });
       await expect(destination).toBeFocused();
     }
-    await expect(grid.locator('tbody [data-grid-row="2"] [data-grid-field="value"]').getByRole('button', { name: 'Copy' })).toBeDisabled();
+    await expect(grid.locator('tbody [data-grid-row="empty"] [data-grid-field="value"]').getByRole('button', { name: 'Copy' })).toBeDisabled();
   });
 }
 
@@ -53,8 +54,8 @@ test('native denied clipboard write announces error and keeps keyboard focus', a
   const { targetInfo } = await session.send('Target.getTargetInfo');
   await session.send('Browser.setPermission', { permission: { name: 'clipboard-write' }, setting: 'denied', origin: 'http://127.0.0.1:6173', browserContextId: targetInfo.browserContextId });
   const grid = await open(page);
-  const cell = grid.locator('tbody [data-grid-row="0"][data-grid-field="value"]');
-  await grid.locator('tbody [data-grid-row="0"][data-grid-field="name"]').focus();
+  const cell = grid.locator('tbody [data-grid-row="text"][data-grid-field="value"]');
+  await grid.locator('tbody [data-grid-row="text"][data-grid-field="name"]').focus();
   await page.keyboard.press('ArrowRight');
   const button = cell.getByRole('button', { name: 'Copy' });
   await page.keyboard.press('Enter');
@@ -70,8 +71,8 @@ test('controlled rejection isolates feedback and replacement/unmount cleanup', a
     Object.defineProperty(navigator.clipboard, 'writeText', { configurable: true, value: () => Promise.reject(new DOMException('Denied', 'NotAllowedError')) });
   });
   const grid = await open(page);
-  const first = grid.locator('tbody [data-grid-row="0"][data-grid-field="value"]');
-  const second = grid.locator('tbody [data-grid-row="1"][data-grid-field="value"]');
+  const first = grid.locator('tbody [data-grid-row="text"][data-grid-field="value"]');
+  const second = grid.locator('tbody [data-grid-row="json"][data-grid-field="value"]');
   const independent = page.getByRole('region', { name: 'Independent copy cell' });
   await first.getByRole('button', { name: 'Copy' }).click();
   await expect(first.getByRole('status')).toHaveText('Unable to copy');
