@@ -22,6 +22,26 @@ function Fixture({ dismissed, locked = false }: { dismissed: (reason: DialogDism
   </Provider>;
 }
 describe("owned nested dialog proof", () => {
+  it("keeps custom heading and actions in the header with the owned Close action", async () => {
+    const user = userEvent.setup(); const dismissed = vi.fn(); const help = vi.fn();
+    render(<Provider><Dialog open aria-label="Custom settings" onDismiss={dismissed}
+      header={<><h2>Host settings heading</h2><Button onPress={help}>Header help</Button></>}
+      footer={<Button>Save settings</Button>}><TextField label="Setting" autoFocus /></Dialog></Provider>);
+    const dialog = screen.getByRole("dialog", { name: "Custom settings" });
+    const heading = screen.getByRole("heading", { name: "Host settings heading" });
+    const action = screen.getByRole("button", { name: "Header help" });
+    const close = screen.getByRole("button", { name: "Close" });
+    expect(heading.closest("header")).toBe(action.closest("header"));
+    expect(close.closest("header")).toBe(action.closest("header"));
+    expect(dialog.contains(heading)).toBe(true);
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("textbox", { name: "Setting" })));
+    await user.tab({ shift: true }); expect(document.activeElement).toBe(close);
+    await user.tab({ shift: true }); expect(document.activeElement).toBe(action);
+    await user.keyboard("{Enter}"); expect(help).toHaveBeenCalledOnce();
+    expect(dismissed).not.toHaveBeenCalled();
+    await user.tab(); await user.keyboard("{Enter}");
+    expect(dismissed).toHaveBeenLastCalledWith("close-button");
+  });
   it("moves focus into the dialog, traps it and restores the trigger on Escape", async () => {
     const user = userEvent.setup(); const dismissed = vi.fn();
     render(<Fixture dismissed={dismissed} />);
