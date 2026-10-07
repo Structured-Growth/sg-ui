@@ -19,3 +19,15 @@ it("supports custom host router components for internal URLs", () => {
  render(<SGNavigationProvider value={{ pathname: "/", navigate: vi.fn(), Link: props => <a {...props} data-host="router" /> }}><Link href="/courses">Courses</Link></SGNavigationProvider>);
  expect(screen.getByRole('link').getAttribute('data-host')).toBe('router');
 });
+
+it.each(["_BLANK", "_Blank"])("protects native new-tab target %s while forwarding anchor attributes and ref", target => {
+ const ref = createRef<HTMLAnchorElement>(); const navigate = vi.fn();
+ render(<SGNavigationProvider value={{ pathname: "/", navigate }}><Link ref={ref} href="#reference" target={target} rel="author noopener" aria-label="Reference destination"><span>Reference</span></Link></SGNavigationProvider>);
+ const anchor = screen.getByRole("link", { name: "Reference destination" });
+ expect(ref.current).toBe(anchor);
+ expect(anchor.getAttribute("href")).toBe("#reference");
+ expect(anchor.getAttribute("target")).toBe(target);
+ expect(anchor.getAttribute("rel")).toBe("author noopener noreferrer");
+ fireEvent.click(screen.getByText("Reference"));
+ expect(navigate).not.toHaveBeenCalled();
+});
