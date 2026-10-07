@@ -67,9 +67,9 @@ Chromium proof before provisional integration. Scoped browser selection:
 pnpm exec playwright test tests/browser/batch66-instructor-card-native-presentation.spec.ts --project=chromium
 ```
 
-Chromium native execution is pending coordinator evidence. Firefox/WebKit are
-pending the batch checkpoint. No native acceptance is inferred from unit/type
-passes. Physical device/touch, zoom beyond this enlarged-text fixture, spoken AT,
+Chromium native execution passed the coordinator wave30 candidate as recorded
+below. Firefox/WebKit remain pending the batch checkpoint. These focused passes
+do not imply full native acceptance. Physical device/touch, zoom beyond this enlarged-text fixture, spoken AT,
 broader locale/host composition and U/X/R/Z acceptance remain open. M-14 owner
 acceptance and disposition of historical menu/date/icon clauses remain with the
 coordinator; this report neither invents those contracts nor closes the row.
@@ -84,3 +84,41 @@ keyboard scrolling to settle while adding no synthetic reveal/scroll. Predecesso
 focus is explicitly setup; the date case's direct focus proves retention only.
 This correction changes only the scoped browser spec and report. Browser types
 passed again; no independent browser run or component/model/API changes.
+
+## Coordinator fresh Chromium proof
+
+Worker source head: `be3060abf7868a2af117f2f31020ea17f986cfd8` (includes the
+strict whole-control containment/hit-test correction). Actual tested wave30
+candidate: `5cc976dc1b9af6ced3980ec0e93fe930a9a8237b`, source tree
+`b468c7d33f618c07690fc81cb362a8653df83c2a`. This is attributed candidate evidence,
+not an independent browser run on the worker checkout.
+
+Coordinator built static Storybook once, then ran the exact anchored selection:
+
+```sh
+pnpm exec playwright test '(?:^|/)tests/browser/batch66-instructor-card-native-presentation\.spec\.ts$' --project=chromium
+```
+
+**3/3 Chromium cases passed**: light/comfortable/16px native keyboard route/focus;
+dark/compact/32px native keyboard route/focus with complete viewport/card bounds
+and center hit; native Intl date and host missing/invalid presentation retention.
+Browser log reports 4.3 seconds; supervisor command duration 5545.425ms. Node
+24.19.0, pnpm 10.29.3 and Playwright 1.63.0. Shard slot6/port6619 ran against
+build digest `6978ebf422790330db7d1a041dfa973e0d3f01c06362a9afbefb43719c5a6ee0`.
+Candidate head, source digest and build digest remained immutable through the run;
+owned commands settled and locks were released. The overall root snapshot was
+incomplete because of an unrelated pointer scope; this instructor shard is green.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/evidence.json`.
+Shard log/results/evidence:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/instructor-card-native-presentation`.
+Attribution: `/tmp/sgui-batch45-candidate-wave30-attribution.json`.
+Read-only verification matched all four frozen worker file digests to attribution
+before this report-only update. Every implementation/story/unit/spec byte remains
+unchanged. No redundant browser/build/test reruns. Coordinator integrates the
+individual reviewed worker history, never the full candidate.
+
+Firefox/WebKit checkpoint, physical device/touch, spoken AT, wider zoom/locale/host
+compositions and broad U/X/R/Z gates remain pending. This focused Chromium result
+does not close M-14 or dispose of historical menu/date/icon requirements.
