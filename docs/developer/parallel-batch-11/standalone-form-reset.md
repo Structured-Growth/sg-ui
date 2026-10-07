@@ -104,7 +104,41 @@ Dependencies were installed with Node24 `pnpm install --frozen-lockfile` in the
 recreated worktree. That short install preceded discovery of the current install
 slot wrapper; all validation commands used light slots. No standalone heavy build
 or browser process ran for this follow-up. Earlier six-browser-case evidence
-belongs to `462be54`, not this new follow-up. The current reassociation spec needs
-the coordinator's fresh-build queued native execution. The incomplete DateField
+belongs to `462be54`, not this new follow-up. The coordinator's fresh-build queued native execution has passed as recorded below. The incomplete DateField
 segment draft defect above remains a hold; complete-date evidence does not certify
 that case or close U-18/K-06.
+
+## Coordinator native result and final handoff
+
+Exclusive reassociation implementation: `c1182394de2322215bc4cfb08b00525fcefd9633`.
+The separately authorized normal full-ancestry prerequisite merge has parents
+`c1182394de2322215bc4cfb08b00525fcefd9633` and
+`6b9da4423f1e6675c37571d5552474da25e90258`, producing frozen tested head
+`e1c922c94b87ec3232d328c97861eae0f2b904a2`. It merged without conflicts in the
+same recreated attached worktree; exclusive task source/spec remained unchanged.
+The prerequisite changes only the reviewed browser-pool/harness infrastructure,
+tracked separately from this task's exclusive implementation.
+
+Coordinator pool evidence token: `efd7fe1f-9c81-4198-943c-ae903c651f2c`.
+Evidence and results are under this worktree's
+`artifacts/browser-pool/efd7fe1f-9c81-4198-943c-ae903c651f2c/`.
+Node `v24.21.0`, pnpm `10.29.3`, Playwright `1.63.0`; slot 1, port 6274.
+The coordinator ran these exact commands:
+
+- `pnpm exec storybook build --output-dir /Users/thomashall/.codex/worktrees/batch11-standalone-form-reset-review/sg-ui/artifacts/browser-pool/efd7fe1f-9c81-4198-943c-ae903c651f2c/storybook`: passed.
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- `pnpm exec playwright test tests/browser/batch11-standalone-reset.spec.ts --project=chromium --project=webkit`: 8 passed, zero skipped, flaky, unexpected or run errors.
+
+The source tree was `7ad366caec15273a16992d808b79795d9693962b`; the initial/final
+build digest matched (`4a48c6cef56daabe0bee43adbcce636dbeab7eb595ad6d3f02dab431ea17ca5f`).
+Initial/final HEAD matched the frozen head, final Git status was clean, and the
+coordinator released the worktree after the run. This final report-only commit
+adds no source changes and does not require an unchanged rerun.
+
+Draft PR [#42](https://github.com/Structured-Growth/sg-ui/pull/42) remains held:
+source review of the new association fix is required before integration, and
+prevented incomplete DateField draft loss remains an explicit **HOLD**. Eight
+native passes certify only the retained complete-value/reassociation/validation
+cases. Next bounded work is private DateField incomplete-segment reset ownership,
+with dedicated prevented/accepted reset evidence. Firefox, physical devices,
+assistive technology and broader U-18/K-06 acceptance remain unverified/open.
