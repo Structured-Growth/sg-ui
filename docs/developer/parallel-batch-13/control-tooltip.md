@@ -100,3 +100,32 @@ key identifies a new tooltip action lifetime; unmount/replacement invalidates la
 notifications without requesting host controlled-state changes. Reserve central
 AGENTS/master/progress/contract edits for integration. Broader nested dialog tooltip
 dismissal ordering and spoken descriptions remain separate acceptance tasks.
+
+## Authorized checkout recovery and common prerequisite
+
+The original attached checkout disappeared before pool bootstrap; its directory was
+missing and `git worktree list` had no Tooltip registration. Both local and pushed
+`codex/batch13-control-tooltip` retained exact source head
+`d264c5715cf9aa3f6acb10db3635843c39f0f560`. No primary edits, metadata cleanup,
+pruning or independent replacement happened before explicit recovery authorization.
+
+The managed API recovered that exact clean commit under the requested original
+name, allocating and attaching
+`/Users/thomashall/.codex/worktrees/batch13-control-tooltip-3440/sg-ui`.
+This is the authorized missing-checkout exception; the original source branch and
+history were preserved. The old attachment identity remains historical.
+
+A normal conflict-free full-ancestry merge of reviewed browser-pool commit
+`6b9da4423f1e6675c37571d5552474da25e90258` produced
+`9470f80131c4e9a1d78424448b88c71c8ccd5052`. Its six unchanged harness/documentation
+files are an explicitly authorized common prerequisite, separate from this task's
+exclusive source writes. No copied harness, graft, ours strategy or config edits.
+No behavior conflict resolution occurred, so no additional lightweight suite was
+required. The coordinator owns fresh builds/browser execution; this worker runs no
+build, server or browser while frozen. Firefox/manual evidence remains unverified.
+
+Additional task commits before bootstrap: `7fa4bb6c8486fbed8b83c701e922951bd0eed5d1`
+records Strict Mode evidence; `7c9e156` and `d264c5715cf9aa3f6acb10db3635843c39f0f560`
+make browser focus checks enter keyboard modality explicitly. Recovery documentation
+is committed after the prerequisite merge; the exact clean frozen head is sent to
+the coordinator and preserved for its pool evidence.
