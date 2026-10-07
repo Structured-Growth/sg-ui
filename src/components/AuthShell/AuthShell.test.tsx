@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { createRef } from "react";
+import { createRef, useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -105,6 +105,30 @@ describe("AuthShell", () => {
     callbacks.shift()!(0); expect(scroll).not.toHaveBeenCalled();
     act(() => input.focus()); unmount();
     callbacks.shift()!(0); expect(scroll).not.toHaveBeenCalled();
+  });
+
+  it("retains controlled native entry as the embedded host replaces guidance and footer", async () => {
+    const user = userEvent.setup();
+    function Host() {
+      const [value, setValue] = useState("");
+      const updated = value.length >= 8;
+      return <div style={{ height: 300, overflow: "auto" }}><AuthShell
+        style={{ minBlockSize: "100%" }} title={updated ? "Continue entry" : "School sign in"}
+        subtitle={updated ? "Updated host guidance" : "Initial host guidance"}
+        footerContent={<Link href="#support">{updated ? "Updated support" : "School support"}</Link>}>
+        <TextField label="School email" value={value} onValueChange={setValue} />
+      </AuthShell></div>;
+    }
+    render(<Host />);
+    const field = screen.getByRole("textbox", { name: "School email" });
+    await user.tab();
+    await user.keyboard("student@example.org");
+    expect(screen.getByRole("textbox")).toBe(field);
+    expect(document.activeElement).toBe(field);
+    expect((field as HTMLInputElement).value).toBe("student@example.org");
+    expect(screen.getByRole("heading").textContent).toBe("Continue entry");
+    expect(screen.getByText("Updated host guidance")).toBeTruthy();
+    expect(screen.getByRole("link").textContent).toBe("Updated support");
   });
 
 });

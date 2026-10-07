@@ -73,3 +73,33 @@ export const IndependentContent: Story = {
     footerContent: <Link href="#support">ContactYourSchoolAdministratorForAccountAndLearningSupport</Link>,
   },
 };
+
+/** A short host owns scrolling and replaces presentation while native entry continues. */
+function EmbeddedScrollingForm() {
+  const [email, setEmail] = useState("");
+  const [submissions, setSubmissions] = useState(0);
+  const updated = email.length >= 8;
+  return <div data-testid="auth-host-clip" style={{ margin: 24, maxInlineSize: 320, blockSize: 352, overflow: "hidden" }}>
+    <div data-testid="auth-scroll-host" style={{ blockSize: 300, overflow: "auto" }}>
+      <AuthShell style={{ minBlockSize: "100%" }} title={updated ? "Continue entry" : "School sign in"}
+        subtitle={updated ? "Your host updated this form." : "Your host manages this form."}
+        footerContent={<Link href="#support">{updated ? "Updated support" : "School support"}</Link>}>
+        <form onSubmit={event => { event.preventDefault(); setSubmissions(count => count + 1); }}>
+          <Stack gap={4}>
+            <TextField label="School email" name="email" type="email" value={email} onValueChange={setEmail} required />
+            <Typography data-testid="auth-host-copy">{updated ? "Updated host guidance" : "Initial host guidance"}</Typography>
+            <TextField label="School name" name="school" />
+            <TextField label="Host reference" name="reference" />
+            <AppButton type="submit">Continue</AppButton>
+            <Typography role="status">Host submissions: {submissions}</Typography>
+          </Stack>
+        </form>
+      </AuthShell>
+    </div>
+  </div>;
+}
+
+export const EmbeddedScrollingHost: Story = {
+  args: { children: undefined, title: "Host form" },
+  render: () => <EmbeddedScrollingForm />,
+};
