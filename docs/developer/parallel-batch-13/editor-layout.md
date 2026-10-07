@@ -12,6 +12,9 @@ closed by this report.
 - Managed, attached worktree:
   `/Users/thomashall/.codex/worktrees/batch13-editor-layout/sg-ui`.
 - Branch: `codex/batch13-editor-layout`; draft PR base: `codex/dev`.
+- Draft PR: [#59](https://github.com/Structured-Growth/sg-ui/pull/59).
+- Initial report commit: `bf23160`; final delivery HEAD is recorded in the
+  coordinator handoff and PR. Product source remains exactly at the baseline above.
 - Exclusive write allowlist: `src/components/DocumentEditorLayout/`,
   `tests/browser/batch13-editor-layout.spec.ts`, and this report.
 - Actual change: this report only. No source, story, test, API, dependency,
