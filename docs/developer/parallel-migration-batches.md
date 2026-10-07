@@ -418,3 +418,13 @@ Reviewed/integrated PR75 exact5-file scope,10unitreported/4coordinator nativepas
 - Restartconfirmed. Firefoxappdatareadable/native screenshotcreated; diagnostic crashespostexitgroupkillEPERM beforefullreport. Noownedprocessremains, ownlegacylockreleased; needcleanupfixbeforeconfirmation. gitlsremote/ghread success; devremote2c65726 behindlocal68339ac.
 - Reviewedconflictfree integration PR42includingcf11independentreview,PR84Switch,PR74TextArea,PR82Tooltip exactfinalheads/nativeevidence. PartialDateFieldpreventeddraft remainsheld. Newdiagnosticcleanupchat01a116f9-bb8b-71f0-a2fa-3bdd476fc399 exclusiveharnessfix; recoveredLinkb9e981ff preparedsameexistingtask.
 - Newbatch20provenDateFieldpartialdraftdefect chat01a116fa-ea11-7c21-8bf0-16af85f88624 owns onlyDateField/newnativespec/uniquereport, baseline7124a123. SharedTextFieldhelper readonly; existingbroadgatesheld.
+
+### Coordination 2026-10-07T15:37:01.146734+00:00
+
+- Diagnosticfix456a14c scopedsource reviewed +6mocktests independentlypassNode24.21. OwnedexitcleanupEPERM remainsstructured failure whilecaptureevidenceretained; after11thpooldrains coordinatoroneconfirmation pending. Devpushae89e71 succeeded, noCI/mainchanges.
+- DateFieldbatch20reproduced9existingpass/1newred, needspubliclowerlevelhookdependencies beforeownedfacade. Exclusivepackage/lock prereq reservedNEWbatch21chat01a116fd-fe4c-7f31-85c0-b0a97bbbc5d1 baselineae89e71, noDateFieldsourceoverlap; nofunctionalacceptance yet.
+- Eleventhpair Menu6C/Wpass correctedfocus;Checkboxreset2pass/fieldset2timeouts correctionrequested, neitherbroadgateclosed. Diagnostic456a14c scoped/6mockNode24pass merged; oneactualFirefoxconfirmation15173running underlegacylock.
+- Firefox actualconfirmation underNode24: Playwrightpersistent pageopened/nativecode0screenshot captured/appdatareadable. Diagnosticexit1 resolvedfalse becausepostexitgroupkillEPERM warning; launchprerequisiterestored, behaviorgatesstillopen. No furtherunchangedlaunchprobes.
+- TwelfthButtonGroup92cd135 C/F/W6expectedstarting (oneworker,max2policy). Linkrecoveredcheckout dependencyinstallauthorizedunder2slots; DateField64f3d26 REDreportheldawaitingbatch21deps, scopeexclusive noacceptance.
+- TwelfthactualC/F/WButtonGroupexecuted: C/FnativeTabpass;3layoutassertionfail/1WebKitTabfail. FirefoxlaunchaccessdemonstratedinrealStorybooktest, nohumanprerequisite now. Workerboundedcorrectionrequired noacceptance. Publichookdeps2b9ca35minimalreviewready; guardfollowupreserved.
+- Dependency2b9ca35 fullhistorymergeddev, minimalaligned3.52.1/3.50.0; DateFieldexistingworker authorizedsameworktreeprereqmergeandresumefacade; existingredspecnotmergedaspass.
