@@ -36,6 +36,34 @@ describe("CardCollectionWithFooter", () => {
     expect(screen.getAllByRole("article")).toHaveLength(3);
     expect(screen.getByText("Page 1 of 1")).toBeTruthy();
   });
+  it("withholds pagination requests until the host accepts and requests page zero before size", async () => {
+    const requests: string[] = [];
+    function Host() {
+      const [accept, setAccept] = useState(false);
+      const [page, setPage] = useState(1);
+      const [size, setSize] = useState(2);
+      return <>
+        <button onClick={() => setAccept(value => !value)}>Toggle acceptance</button>
+        <CardCollectionWithFooter {...defaults} page={page} pageSize={size}
+          onPageChange={next => { requests.push(`page:${next}`); if (accept) setPage(next); }}
+          onPageSizeChange={next => { requests.push(`size:${next}`); if (accept) setSize(next); }} />
+      </>;
+    }
+    render(<Host />);
+    const user = userEvent.setup();
+    await user.click(screen.getByRole("button", { name: "Previous page" }));
+    expect(requests).toEqual(["page:0"]);
+    expect(screen.getAllByRole("article").map(node => node.textContent)).toEqual(["Three"]);
+    await user.selectOptions(screen.getByRole("combobox"), "4");
+    expect(requests).toEqual(["page:0", "page:0", "size:4"]);
+    expect((screen.getByRole("combobox") as HTMLSelectElement).value).toBe("2");
+    expect(screen.getAllByRole("article").map(node => node.textContent)).toEqual(["Three"]);
+    await user.click(screen.getByRole("button", { name: "Toggle acceptance" }));
+    await user.selectOptions(screen.getByRole("combobox"), "4");
+    expect(requests).toEqual(["page:0", "page:0", "size:4", "page:0", "size:4"]);
+    expect(screen.getAllByRole("article").map(node => node.textContent)).toEqual(["One", "Two", "Three"]);
+    expect(screen.getByText("1-3 of 3")).toBeTruthy();
+  });
   it("preserves keyed card state through reordering", () => {
     function StatefulCard({ label }: { label: string }) { return <input aria-label={label} defaultValue={label} />; }
     const renderCard = (row: typeof rows[number]) => <StatefulCard label={row.label} />;
