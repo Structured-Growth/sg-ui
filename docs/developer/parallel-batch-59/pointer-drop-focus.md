@@ -89,3 +89,66 @@ coordinator proof. Chromium is **pending**; Firefox/WebKit await the batch check
 No provisional dev integration, M-18/G/U/X/R/Z completion, physical-device long-press
 or assistive-technology acceptance is claimed. Coordinator alone integrates reviewed
 full histories into `codex/dev`; no main/push/publication/permissions/secrets changes.
+
+## Ownership review correction — current frozen successor
+
+The preceding handoff describes initial commit
+`6c53e92e24aeb06162112b7b887b9d6503c15700`, not the current source.
+Coordinator's independent exact-source review blocked native admission: the initial
+frame permitted any focus inside the grid and ignored every initial same-grid
+focus event. That could steal a deliberate checkbox/button/cell focus transfer,
+including one followed by removal to body. Its 57-test green result did not cover
+this ownership defect; the original red/green logs above remain untouched.
+
+The successor cancels on every focus transfer except the retained handle, exact
+source TR/cell, and one narrowly captured native keyboard-cancellation entry.
+React Aria's real cancellation path with a different selected row first restores
+the drag handle, then briefly focuses that selected TR. Therefore only when the
+reported drag-end operation is `cancel`, and exactly one row was selected, that
+exact selected TR is admitted before the first frame. Its controls/cells receive
+no exception; the exception ends after the first repair. Arbitrary same-grid
+control focus immediately cancels the frame/listeners, even when the control is
+then removed. Drag-end admission also refuses to arm when another same-grid
+control already owns focus. Only body, the retained source entry, the captured
+cancellation TR, or the existing transient drop indicator can admit recovery.
+No time delay, polling, dependency edit or assertion weakening was introduced.
+
+The regression setup now uses a user-event click and **asserts source-handle focus
+before invoking the simulated drag callback**. The former direct programmatic
+focus could enter a not-yet-focused collection and reconcile to its first row;
+this setup gap was discovered while narrowing ownership. All drop-boundary focus
+assertions remain, and source TR/cell before-first-frame repair is explicitly
+covered. The removal oracle focuses an existing enabled same-grid Move control,
+asserts that focus, removes it to BODY, then restores the DOM node in `finally`
+for React cleanup. It requires both no handle focus call and BODY ownership.
+
+Current final validation on Node 24.19.0 under an owned light slot:
+
+| Validation | Result |
+| --- | --- |
+| Final strengthened 20-case regression against initial `6c53e92` source | **5 failed / 15 passed**: checkbox/button/cell transfer before the first frame, transfer then removal to BODY, and other control already focused at drag end then removed. |
+| Final regression + unchanged interaction/reorder tests | **64/64 pass**, 3 files, 6.70s. Includes the existing unselected-source/selected-other-row keyboard cancellation case. |
+| `pnpm exec tsc --noEmit` | Pass. |
+| `pnpm foundations:check` | Pass, guards unchanged. |
+| `git diff --check` | Pass. |
+
+Preserved correction evidence:
+`/tmp/sgui-batch59-correction-final-red.log`,
+`/tmp/sgui-batch59-correction-admission-unit.log`,
+`/tmp/sgui-batch59-correction-admission-types.log`,
+`/tmp/sgui-batch59-correction-admission-guard.log`.
+Earlier correction red/diagnostic logs use separate `correction-*` names; they do
+not overwrite the original `/tmp/sgui-batch59-{red,unit,types,guard}.log`.
+The prior-commit comparison again temporarily changes only the reserved interaction
+and restores successor bytes in `finally` before final validation.
+
+Current executable SHA-256, superseding the initial handoff hashes:
+
+- Interaction: `029a83d46f1e35ab4b17c480422f46ca5e4b347f935704a4b0d616b14094b8d5`.
+- Regression: `e4587b45ca08ce7e2c2539249a7f650e5714fb863dd8222d219b699dd32ff513`.
+
+Current source/report freeze resumes at the successor commit supplied in the
+completion handoff. Native admission still requires the coordinator's independent
+ownership review of these exact bytes and fresh Chromium proof with the unchanged
+batch 48 candidate. Browser focus args and all open engine/device/AT/acceptance
+limits remain as stated above. No native execution or integration occurred here.
