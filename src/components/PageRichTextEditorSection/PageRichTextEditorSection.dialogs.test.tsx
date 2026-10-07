@@ -178,6 +178,43 @@ describe("editor dialog host contracts", () => {
     expect(change).toHaveBeenCalledWith(output);
   });
 
+  it.each(["reset", "readOnly", "unmount"].flatMap(termination => ["success", "failure"].map(outcome => ({ termination, outcome }))))("isolates late $outcome after $termination from the next pending upload", async ({ termination, outcome }) => {
+    const user = userEvent.setup();
+    const requests: { resolve: (value: { assetId: string; assetVersionId: string; src: string }) => void; reject: (error: Error) => void }[] = [];
+    const upload = vi.fn(() => new Promise<{ assetId: string; assetVersionId: string; src: string }>((resolve, reject) => requests.push({ resolve, reject })));
+    const change = vi.fn();
+    const props = { lexicalValue: initial, editorKey: "first", toolPreset: "full" as const, onUploadImage: upload, onLexicalChange: change };
+    const view = render(<Provider><PageRichTextEditorSection {...props} /></Provider>);
+    await selectText(); await openImageDialog(user);
+    await user.upload(screen.getByLabelText("Choose image"), new File(["old"], "old.png", { type: "image/png" }));
+    await user.click(within(screen.getByRole("dialog")).getByRole("button", { name: "Insert", exact: true }));
+    if (termination === "unmount") view.rerender(<Provider />);
+    else view.rerender(<Provider><PageRichTextEditorSection {...props} editorKey={termination === "reset" ? "second" : "first"} readOnly={termination === "readOnly"} /></Provider>);
+    await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+    view.rerender(<Provider><PageRichTextEditorSection {...props} editorKey="second" /></Provider>);
+    await selectText(); await openImageDialog(user);
+    await user.upload(screen.getByLabelText("Choose image"), new File(["new"], "new.png", { type: "image/png" }));
+    await user.click(within(screen.getByRole("dialog")).getByRole("button", { name: "Insert", exact: true }));
+    const before = serializeEditorDocument(activeEditor!.getEditorState().toJSON());
+    change.mockClear();
+    await act(async () => {
+      if (outcome === "success") requests[0].resolve({ assetId: "stale", assetVersionId: "v1", src: "blob:host-stale" });
+      else requests[0].reject(new Error("Old failure"));
+    });
+    expect(serializeEditorDocument(activeEditor!.getEditorState().toJSON())).toEqual(before);
+    expect(change).not.toHaveBeenCalled();
+    expect((screen.getByRole("button", { name: "Uploading..." }) as HTMLButtonElement).disabled).toBe(true);
+    // A current failure remains retryable after the previous lifetime settles.
+    await act(async () => { requests[1].reject(new Error("Current failure")); });
+    expect(screen.getByRole("alert").textContent).toBe("Current failure");
+    expect(screen.getByText("new.png")).toBeTruthy();
+    await user.click(within(screen.getByRole("dialog")).getByRole("button", { name: "Insert", exact: true }));
+    view.rerender(<Provider><PageRichTextEditorSection {...props} editorKey="third" /></Provider>);
+    await act(async () => { requests[2].reject(new Error("Stale failure")); });
+    expect(screen.queryByRole("alert")).toBeNull();
+    expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).not.toContain('"type":"image"');
+  });
+
   it.each(["resolve", "reject"])("ignores a canceled host upload that later %ss after reopening", async outcome => {
     const user = userEvent.setup();
     let resolveUpload!: (value: { assetId: string; assetVersionId: string; src: string }) => void;

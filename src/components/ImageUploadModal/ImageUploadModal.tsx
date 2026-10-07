@@ -42,6 +42,8 @@ export function ImageUploadModal({ open, uploading = false, errorMessage = null,
     if (inputRef.current) inputRef.current.value = "";
   };
   useEffect(() => { if (!open) reset(); }, [open]);
+  // A host promise may outlive the component; invalidate its local state updates.
+  useEffect(() => () => { session.current += 1; }, []);
   useEffect(() => {
     if (!selectedFile || typeof URL.createObjectURL !== "function") { setPreview(null); return; }
     const url = URL.createObjectURL(selectedFile);

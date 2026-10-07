@@ -356,3 +356,27 @@ Vite/Next browser consumers and remote CI were not rerun. Evidence:
 `/tmp/sgui-links-final-check.log`, `/tmp/sgui-links-storybook.log`,
 `/tmp/sgui-links-final-browser.log`, `/tmp/sgui-links-final-browser-results.json`
 and `/tmp/sgui-links-consumers.log`.
+
+
+## Pending host upload lifetimes (E-06 partial)
+
+`tests/browser/editor-upload-lifecycle.spec.ts` uses HostUploadLifecycle for both
+late success/failure after document reset, read-only changes and unmount. Cases
+require no stale inserted image/error, clean dialog reopening without a file or
+description, available file selection and native Escape dismissal. Read-only
+keeps existing text. Unit tests additionally settle obsolete requests while a new
+upload is pending and preserve its busy state and retryable current failures.
+These checks establish local UI invalidation; the host owns transport cancellation
+and cleanup of any uploaded assets. See the
+[upload lifetime contract](react-aria-editor-section.md#host-upload-lifetime-e-06-partial).
+
+Local Node 24 `pnpm check` passes 143 files/968 behavior tests plus foundation,
+release, type, build/declaration and public package checks. Fresh Storybook passes
+with existing upstream warnings. Complete Chromium/WebKit passes 110/110 in
+89.4 seconds with zero skipped, unexpected or flaky cases, including the 12 new
+upload lifetime cases and 16 axe scans. Exact-minimum Node 22.12, local Firefox
+and packed browser consumers were not repeated for this slice. Predecessor
+6bee8cf CI run 37619587227 was still pending at handoff; current-head CI must be
+checked independently. Logs: `/tmp/sgui-upload-final-check.log`,
+`/tmp/sgui-upload-storybook.log`, `/tmp/sgui-upload-browser.log` and
+`/tmp/sgui-upload-browser-results.json`. Changed guidance paths and whitespace pass.

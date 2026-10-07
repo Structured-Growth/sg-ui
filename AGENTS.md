@@ -391,3 +391,9 @@ uploads remain retryable. See the [image source contract](docs/developer/react-a
 Image MIME syntax is not content or asset authorization validation. SVG data stays
 in an img context; never render it as inline markup. Host uploads and their URLs
 remain host-owned. E-06/E-07 broad acceptance remains open.
+
+Image upload lifetime E-06 browser/unit coverage includes late host success/failure
+after document reset, read-only changes and unmount, plus clean dialog reopening.
+Cancellation invalidates UI results; hosts still own network abort and asset cleanup.
+See the [upload lifetime contract](docs/developer/react-aria-editor-section.md#host-upload-lifetime-e-06-partial).
+E-06/E-07 broad acceptance remains open.

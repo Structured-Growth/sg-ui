@@ -62,7 +62,9 @@ or unmount. Non-image drops are rejected using MIME type or a supported filename
 extension when MIME is absent. This is presentation validation; the upload service
 must inspect the actual contents and enforce its own type, size and asset policy.
 The integrated editor ignores late upload success/error after cancellation,
-reopening or unmount, so it cannot insert a stale image or close the next dialog.
+reopening, document reset, read-only changes or unmount, so it cannot insert a
+stale image or close the next dialog. Standalone dialog unmount also invalidates
+local promise updates. See the [upload lifetime contract](react-aria-editor-section.md#host-upload-lifetime-e-06-partial).
 The host upload itself may still finish and owns any cleanup of created assets.
 The integrated editor also validates returned image addresses before insertion;
 unsupported addresses report an error and retain the file/description for retry.

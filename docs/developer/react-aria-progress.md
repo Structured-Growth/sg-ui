@@ -1847,3 +1847,35 @@ required. Evidence: `/tmp/sgui-image-policy-check.log`,
 `/tmp/sgui-image-policy-complete-browser.log`,
 `/tmp/sgui-image-policy-complete-browser-results.json` and
 `/tmp/sgui-image-policy-consumers.log`. Guidance links and whitespace checks pass.
+
+
+## Host upload lifetime matrix (E-06 partial)
+
+This slice completes representative UI cancellation acceptance after editorKey
+replacement, read-only changes and unmount. Each transition is tested with late
+host success and failure. Colocated composed tests settle the old request while a
+new upload is pending, require unchanged serialized document/callbacks and busy
+state, retain current failures for retry and reject another late failure after
+reset. Existing Cancel/reopening tests remain. Standalone ImageUploadModal now
+invalidates local promise updates on unmount; both late outcomes require a single
+preview release and an empty new draft.
+
+HostUploadLifecycle demonstrates these transitions with a delayed host promise.
+Native Chromium/WebKit cases require no stale image/error, clean reopening,
+enabled file selection, an empty description and Escape dismissal. Read-only
+retains the original text. Host callbacks remain File-only, returned URLs remain
+host-owned and UI invalidation does not abort transport or undo created assets.
+See the [upload lifetime contract](react-aria-editor-section.md#host-upload-lifetime-e-06-partial).
+E-06/E-07 remain open for wider file/content validation, author styles and trust
+acceptance; formal closure stays 94/320 required tasks.
+
+Local Node 24 `pnpm check` passes 143 files/968 behavior tests plus foundation,
+release, type, build/declaration and public package checks. Fresh Storybook passes
+with existing upstream warnings. Complete Chromium/WebKit passes 110/110 in
+89.4 seconds with zero skipped, unexpected or flaky cases, including the 12 new
+upload lifetime cases and 16 axe scans. Exact-minimum Node 22.12, local Firefox
+and packed browser consumers were not repeated for this slice. Predecessor
+6bee8cf CI run 37619587227 was still pending at handoff; current-head CI must be
+checked independently. Logs: `/tmp/sgui-upload-final-check.log`,
+`/tmp/sgui-upload-storybook.log`, `/tmp/sgui-upload-browser.log` and
+`/tmp/sgui-upload-browser-results.json`. Changed guidance paths and whitespace pass.

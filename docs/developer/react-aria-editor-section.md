@@ -158,5 +158,21 @@ reload, read-only rendering and a rejected host upload followed by retry. Unit
 tests cover the policy, node serialization and integrated retry. Browser gates
 require accepted PNGs to decode, rejected sources to create no resource request,
 unchanged saved metadata after reload, and successful retry with the original
-description. E-06/E-07 remain open for file/content validation, upload cancellation
-matrix, author styles and broader rich-content acceptance.
+description. E-06/E-07 remain open for file/content validation, author styles and
+broader rich-content acceptance.
+
+## Host upload lifetime (E-06 partial)
+
+Cancel/Escape, editorKey replacement, read-only changes and unmount invalidate
+pending upload results. Late success cannot insert an image; late failure cannot
+show an error or clear the pending state of a newer upload. A new dialog begins
+with an empty file/description draft. A current failure remains retryable.
+Cancellation is local UI invalidation: the host promise still settles, and the
+host owns network abort, asset cleanup and its returned URLs.
+
+HostUploadLifecycle demonstrates document reset, read-only changes and unmount
+before delayed host success/failure. Colocated tests exercise both outcomes while
+a newer upload is pending; browser cases verify no stale insertion/error, native
+Escape dismissal and clean reopening. The standalone ImageUploadModal also
+invalidates local promise updates on unmount and releases its preview once.
+No transport cancellation API, service validation or device evidence is implied.

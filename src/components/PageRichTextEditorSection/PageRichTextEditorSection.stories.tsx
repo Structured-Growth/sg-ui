@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Provider } from "../../experimental/Provider/Provider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection";
@@ -250,6 +250,44 @@ export const ImageSources: Story = {
           return { assetId: "uploaded-image", assetVersionId: "upload-v1", src: attempt === 0 ? "javascript:alert('unsafe-upload')" : IMAGE_POLICY_PIXEL };
         }} />
       <pre aria-label="Saved image source JSON">{JSON.stringify(value)}</pre>
+    </Provider>;
+  },
+};
+
+/** The host keeps ownership of work that finishes after an editor lifetime ends. */
+export const HostUploadLifecycle: Story = {
+  render: () => {
+    const [mode, setMode] = useState("reset");
+    const [outcome, setOutcome] = useState("success");
+    const [revision, setRevision] = useState(0);
+    const [readOnly, setReadOnly] = useState(false);
+    const [mounted, setMounted] = useState(true);
+    const [value, setValue] = useState<unknown>(null);
+    const [completed, setCompleted] = useState(0);
+    const [pending, setPending] = useState<{ resolve: (value: { assetId: string; assetVersionId: string; src: string }) => void; reject: (error: Error) => void } | null>(null);
+    useEffect(() => {
+      if (!pending) return;
+      if (mode === "reset") setRevision(current => current + 1);
+      else if (mode === "read-only") setReadOnly(true);
+      else setMounted(false);
+      const timer = window.setTimeout(() => {
+        if (outcome === "success") pending.resolve({ assetId: "stale-host-image", assetVersionId: "v1", src: IMAGE_POLICY_PIXEL });
+        else pending.reject(new Error("Stale host failure"));
+        setCompleted(current => current + 1);
+        setPending(null);
+      }, 100);
+      return () => window.clearTimeout(timer);
+    }, [pending, mode, outcome]);
+    return <Provider>
+      <p>Choose how the editor lifetime ends when upload starts. The host promise settles afterward.</p>
+      {['reset', 'read-only', 'unmount'].map(choice => <AppButton key={choice} onPress={() => setMode(choice)}>Use {choice}</AppButton>)}
+      {['success', 'failure'].map(choice => <AppButton key={choice} onPress={() => setOutcome(choice)}>Late {choice}</AppButton>)}
+      <AppButton onPress={() => { setMounted(true); setReadOnly(false); }}>Resume editor</AppButton>
+      <output aria-label="Host upload completion">{completed}</output>
+      {mounted && <PageRichTextEditorSection lexicalValue={null} editorKey={`host-upload-${revision}`} onLexicalChange={setValue}
+        readOnly={readOnly} aria-label="Host upload document" toolPreset="full" style={{ height: 360 }}
+        onUploadImage={() => new Promise((resolve, reject) => setPending({ resolve, reject }))} />}
+      <pre aria-label="Host upload document JSON">{JSON.stringify(value)}</pre>
     </Provider>;
   },
 };

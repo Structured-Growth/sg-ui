@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ImageUploadModal } from "./ImageUploadModal";
 import { Provider } from "../../experimental/Provider/Provider";
@@ -129,6 +129,25 @@ describe("ImageUploadModal preview and cancellation lifecycle", () => {
     await user.upload(screen.getByLabelText("Choose image"), first);
     unmount();
     expect(revoke).toHaveBeenCalledWith("blob:third");
+  });
+
+  it.each(["success", "failure"])("releases an unmounted pending preview once before late %s", async outcome => {
+    const user = userEvent.setup();
+    let resolve!: () => void; let reject!: (error: Error) => void;
+    const submit = vi.fn(() => new Promise<void>((done, fail) => { resolve = done; reject = fail; }));
+    const revoke = vi.fn();
+    vi.stubGlobal("URL", class extends URL { static createObjectURL = vi.fn(() => "blob:pending-preview"); static revokeObjectURL = revoke; });
+    const view = render(<Provider><ImageUploadModal open onClose={vi.fn()} onSubmit={submit} /></Provider>);
+    await user.upload(screen.getByLabelText("Choose image"), new File(["image"], "old.png", { type: "image/png" }));
+    await user.click(screen.getByRole("button", { name: "Insert" }));
+    view.unmount();
+    expect(revoke).toHaveBeenCalledExactlyOnceWith("blob:pending-preview");
+    render(<Provider><ImageUploadModal open onClose={vi.fn()} onSubmit={vi.fn()} /></Provider>);
+    await act(async () => { if (outcome === "success") resolve(); else reject(new Error("Stale failure")); });
+    expect(screen.queryByRole("alert")).toBeNull();
+    expect(screen.queryByText("old.png")).toBeNull();
+    expect((screen.getByRole("button", { name: "Insert" }) as HTMLButtonElement).disabled).toBe(true);
+    expect(revoke).toHaveBeenCalledTimes(1);
   });
 
   it("permits a new draft after cancel and ignores a rejected upload from the prior session", async () => {
