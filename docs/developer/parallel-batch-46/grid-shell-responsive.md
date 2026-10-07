@@ -1,6 +1,9 @@
 # M-17 responsive grid/card native transitions — F3
 
-Status: targeted local checks passed; fresh coordinator Chromium proof pending.
+Latest status: wave23 Chromium was **0 passed / 4 failed**. Bounded product
+corrections at `4f6379e6a80ed7151a2053f1cbf4bcbe16fcf85f` pass targeted checks;
+fresh corrected Chromium proof remains pending. The initial candidate record below
+is retained history, superseded by the diagnosis/correction section at the end.
 This is the bounded F3 evidence slice from the [batch30 inventory review](../parallel-batch-30/inventory-acceptance-13-24.md).
 Whole M-17, Firefox/WebKit, manual zoom/device/assistive-technology and broad G/U/X/R/Z acceptance remain open.
 
@@ -87,3 +90,78 @@ candidate is accepted dev or close cross-engine/whole-row gates. Firefox/WebKit
 remain coordinator batch-checkpoint work. Concrete native failures require diagnosis
 as product, fixture/driver/expectation, environment or unclassified, retaining red
 logs/traces and original assertions before any correction.
+
+
+## Wave23 retained failure and bounded corrections
+
+Actual tested coordinator candidate: `c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`.
+Immutable run root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457/grid-shell-responsive/`.
+Read `evidence.json`, `results.json`, failure screenshots, error contexts and trace
+snapshots directly. Attribution `/tmp/sgui-batch45-candidate-wave23-attribution.json`
+confirms this worker's original story/spec/report bytes in the tested candidate.
+Outcome **0 passed / 4 failed**, 0 skipped/flaky. The source/build remained immutable
+and all sessions/owned leases settled. Earlier coordinator pre-browser PATH failure
+and retained cleanup EPERM are environment/cleanup evidence, not native proof.
+Actual wave23 child Node runtime was 24.19.0 with corrected PATH.
+
+Two underlying product issues account for the four native failures:
+
+1. Both normal-text cases reached accepted page zero and the expected rows/request
+   count, but `course-1` wrapper was inactive at spec line 112. The screenshot shows
+   **Open Course 1** with the focus indicator; trace snapshots show card scrollTop 28.
+   Stale focused-card action repair runs before accepted footer-entry repair. Chromium
+   releases focus from the newly disabled Previous button; card repair then focuses
+   the new card's button, and the footer effect sees another active owner and exits.
+   A targeted regression reproduces the native body-focus condition explicitly in
+   jsdom (which does not blur disabled controls), and fails before correction:
+   **1 failed / 21 passed**, `/tmp/sgui-batch46-footer-red.log`.
+2. Both 200% cases fail visibleFocus on the Cards trigger during initial narrow resize
+   (spec line 58). The screenshot shows the large footer covering the wrapped toolbar,
+   with no usable content viewport in the fixed-height host. The owned shell allowed
+   toolbar shrinking and content collapse without an outer scroll fallback. This is
+   actual constrained-shell chrome overlap, not an engine launch or selector issue.
+
+Correction commit `4f6379e6a80ed7151a2053f1cbf4bcbe16fcf85f` changes only the owned
+shell implementation/CSS/tests. Footer-entry focus now precedes stale card repair;
+it resets the actual card-list scroll region (`data-sgui-part="grid-cards"`), focuses
+the first wrapper with preventScroll and reveals it within the shell fallback viewport.
+Shell chrome no longer shrinks over content, content retains a minimum four owned
+control heights, and the shell itself can scroll when chrome/content cannot fit.
+A native ResizeObserver reveals its existing keyboard focus by adjusting only shell
+scrollTop; it never changes active focus or host scroll. Normal roomy shells retain
+independent grid/card content scrolling. No shared grid/controller/Menu change.
+The original four browser cases and their assertions are **byte-identical**, with
+SHA-256 `a48c0fdc54777f19dbb26d0bf8e391b813175bfee1b191dea1b8b5acbfe1df0e`.
+
+Additional changed files in the final scope:
+
+- `src/components/AppDataGridShell/AppDataGridShell.tsx`
+- `src/components/AppDataGridShell/AppDataGridShell.module.css`
+- `src/components/AppDataGridShell/AppDataGridShell.test.tsx`
+
+Correction validation uses the same canonical token-owned light wrapper / Node24:
+
+- `pnpm exec vitest run src/components/AppDataGridShell/AppDataGridShell.test.tsx --maxWorkers=1`:
+  **23 passed / 1 file**, `/tmp/sgui-batch46-correction-units-2.log`. Covers the reproduced
+  footer/removal race, actual card-scroll reset, resize reveal without focus transfer,
+  outside focus ownership and observer cleanup. The initial observer test shared one
+  disconnect spy across shell/grid observers and failed its once count; it now identifies
+  the shell's own observed instance and asserts that instance disconnects once.
+  Retained `/tmp/sgui-batch46-correction-units.log`: 22 passed / 1 fixture-assertion failure.
+- `pnpm exec tsc --noEmit`: passed, `/tmp/sgui-batch46-correction-types.log`.
+- `pnpm foundations:check`: passed, `/tmp/sgui-batch46-correction-foundations.log`.
+- `git diff --check`: passed before correction commit.
+
+Correction SHA-256:
+
+- Implementation: `25746a95d0d1213599f25adf7cf0d54f1b393457338e08ab03b7b42077b659dd`
+- CSS: `a762a2ca66b3d201bfc677442665269ec482c1fbef94910ae603654f8273eae8`
+- Units: `827c756a26dd8ed99858e5f4a5785b3da67fb2d7d12ab07ec0a835f2d5dad3a5`
+
+Coordinator released wave23 freeze for bounded corrections; this worker refreezes
+source/head/report for fresh corrected candidate proof with the **unchanged focus args**.
+No unchanged retry, independent native/build/server or assertion weakening occurred.
+CSS geometry and native ResizeObserver timing remain unverified until that run.
+Source scope stays reserved; Firefox/WebKit/checkpoint and manual/device/AT/whole M-17
+acceptance remain open. No dev integration is claimed.

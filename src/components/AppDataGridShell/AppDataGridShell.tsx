@@ -100,6 +100,44 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
   });
   const entry = useRef<HTMLDivElement>(null);
   const cardFocus = useRef<{ id: string; index: number; element: HTMLElement } | null>(null);
+  const revealShellFocus = (target: HTMLElement) => {
+    const shell = entry.current?.parentElement;
+    if (!shell?.contains(target)) return;
+    const bounds = shell.getBoundingClientRect();
+    const rect = target.getBoundingClientRect();
+    // Scroll only the shell fallback viewport. Grid/card scrolling remains
+    // owned by its page-entry behavior, and host scrolling stays host-owned.
+    const top = bounds.top + shell.clientTop;
+    const bottom = top + shell.clientHeight;
+    if (rect.top < top) shell.scrollTop += rect.top - top;
+    else if (rect.bottom > bottom) shell.scrollTop += rect.bottom - bottom;
+  };
+  useEffect(() => {
+    const shell = entry.current?.parentElement;
+    if (!shell || typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(() => {
+      const active = document.activeElement;
+      if (active instanceof HTMLElement && shell.contains(active)
+        && (active.matches(":focus-visible") || active.hasAttribute("data-focus-visible"))) revealShellFocus(active);
+    });
+    observer.observe(shell);
+    return () => observer.disconnect();
+  }, []);
+  const pendingPageFocus = useRef<{ page: number; origin: Element | null } | null>(null);
+  // Footer entry takes precedence over removal repair: a newly disabled footer
+  // control may release native focus to body while the old card is removed.
+  useEffect(() => {
+    if (pendingPageFocus.current === null || pendingPageFocus.current.page !== state.paginationModel.page) return;
+    const origin = pendingPageFocus.current.origin;
+    pendingPageFocus.current = null;
+    if (document.activeElement !== origin && document.activeElement !== document.body) return;
+    const node = entry.current;
+    const scrolling = node?.querySelector<HTMLElement>("[data-sgui-part='grid-container'], [data-sgui-part='grid-cards']") ?? node;
+    if (scrolling) scrolling.scrollTop = 0;
+    const target = node?.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder']), [data-sgui-part='grid-card']") ?? node;
+    target?.focus({ preventScroll: true });
+    if (target) revealShellFocus(target);
+  }, [state.paginationModel.page]);
   useEffect(() => {
     const saved = cardFocus.current;
     const node = entry.current;
@@ -110,19 +148,6 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
     const controls = item?.querySelectorAll<HTMLElement>("button, a, input, select, textarea, [tabindex='0']");
     (saved.index >= 0 ? controls?.[saved.index] ?? item ?? node : item ?? node).focus();
   });
-  const pendingPageFocus = useRef<{ page: number; origin: Element | null } | null>(null);
-  // Footer page changes enter the new page only after the authoritative value
-  // changes. Toolbar/search and another instance keep their own focus.
-  useEffect(() => {
-    if (pendingPageFocus.current === null || pendingPageFocus.current.page !== state.paginationModel.page) return;
-    const origin = pendingPageFocus.current.origin;
-    pendingPageFocus.current = null;
-    if (document.activeElement !== origin && document.activeElement !== document.body) return;
-    const node = entry.current;
-    const scrolling = node?.querySelector<HTMLElement>("[data-sgui-part='grid-container']") ?? node;
-    if (scrolling) scrolling.scrollTop = 0;
-    (node?.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder']), [data-sgui-part='grid-card']") ?? node)?.focus({ preventScroll: true });
-  }, [state.paginationModel.page]);
   const hasCriteria = Boolean(state.searchValue || state.filterRules.length);
   return <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="data-grid-shell">
     {showResetView && <Button className={styles.resetView} variant="text" tone="neutral" density="compact" onPress={() => {
@@ -168,7 +193,7 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
         {props.errorMessage ? <OwnedGridStatus state="error" message={props.errorMessage} onRetry={props.onRetry} />
           : props.loading || props.refreshing ? <OwnedGridStatus state={processed.rows.length ? "refreshing" : "loading"} />
           : !processed.rows.length ? <OwnedGridStatus state={hasCriteria ? "noResults" : "empty"} /> : null}
-        <div className={styles.cards} aria-label={label} role="list" aria-busy={props.loading || props.refreshing || undefined}>
+        <div className={styles.cards} data-sgui-part="grid-cards" aria-label={label} role="list" aria-busy={props.loading || props.refreshing || undefined}>
           {processed.rows.map(row => <div className={styles.card} key={getOwnedGridRowId(row, getRowId)} role="listitem" tabIndex={-1}
             aria-label={getRowLabel(row)} data-grid-row={getOwnedGridRowId(row, getRowId)} data-sgui-part="grid-card">{view.cards!.renderCard(row)}</div>)}
         </div>
