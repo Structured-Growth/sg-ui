@@ -6,7 +6,8 @@ Exact baseline and inspected implementation head:
 `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818`.
 One managed isolated worktree was created and attached before edits:
 `/Users/thomashall/.codex/worktrees/batch13-control-card/sg-ui`.
-Branch: `codex/batch13-control-card`; draft PR base: `codex/dev`.
+Branch: `codex/batch13-control-card`; draft PR [#54](https://github.com/Structured-Growth/sg-ui/pull/54), base: `codex/dev`.
+Reviewed report head: `9c2777b7e8bf6b0e0dbde31eb988e87e8bdd07b5`.
 The report commit's exact final head and PR URL are supplied in the authorized
 completion message; the implementation remains the baseline above.
 
