@@ -46,11 +46,27 @@ for (const layout of ['flex', 'grid']) {
           expect(geometry.imageWidth).toBeLessThan(geometry.width);
           expect(geometry.ratio).toBeCloseTo(state === 'compact' ? 2 : 2 / 3, 2);
           widths.push(geometry.width);
-          await expect.poll(() => action.evaluate(element => {
+          const actionInsideFrame = await action.evaluate(element => {
+            const bounds = element.getBoundingClientRect();
+            const frameBounds = element.closest('article')!.getBoundingClientRect();
+            return bounds.left >= frameBounds.left && bounds.right <= frameBounds.right && bounds.top >= frameBounds.top && bounds.bottom <= frameBounds.bottom;
+          });
+          expect(actionInsideFrame, 'the action is not clipped by its frame').toBe(true);
+          const actionVisible = () => action.evaluate(element => {
             const bounds = element.getBoundingClientRect();
             const hit = document.elementFromPoint(bounds.left + bounds.width / 2, bounds.top + bounds.height / 2);
             return bounds.left >= 0 && bounds.right <= innerWidth && bounds.top >= 0 && bounds.bottom <= innerHeight && Boolean(hit && element.contains(hit));
-          }), { message: 'retained focused action stays visible and unobscured after slot/parent replacement' }).toBe(true);
+          });
+          // The host owns document scrolling. Enlarged replacement content may
+          // move an already-focused action below the viewport without refocusing it.
+          // Exercise native keyboard scrolling rather than repairing focus/DOM.
+          for (let scrolls = 0; !await actionVisible() && scrolls < 8; scrolls++) {
+            const before = await page.evaluate(() => scrollY);
+            await page.keyboard.press('PageDown');
+            await expect.poll(() => page.evaluate(() => scrollY), { message: 'native PageDown scrolls the host document' }).toBeGreaterThan(before);
+            await expect(action).toBeFocused();
+          }
+          await expect.poll(actionVisible, { message: 'retained focused action is visible and unobscured after native host scrolling' }).toBe(true);
           expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
         }
         expect(widths[1]).toBeLessThan(widths[0]!);
