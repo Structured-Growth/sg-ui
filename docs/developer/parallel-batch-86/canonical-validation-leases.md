@@ -35,21 +35,30 @@ human claims, full 4/2 capacity, legacy occupancy in both admission directions,
 owner mismatch retention, symlink/file refusal, failure cleanup and unchanged
 generic naming. They never create or modify actual global scheduler leases.
 
-## Validation status
+## Validation evidence
 
 Independent review corrected the install prefix to `slot`: canonical install
 claims are `/tmp/sgui-install-slots/slot0` and `slot1`, matching the direct caller.
-The coordinator has authorized only temporary-root canonical-helper Node 24
-fixtures under a directly claimed canonical light slot1–3. Execution is pending. No tests,
-install, global lease fixture, native/browser check or supervisor has run for
-this change. The unresolved global light slot0 owner replacement is untouched.
+The tested implementation head was
+`53ec839ee36496cf2539bf3509880052e1020d06`, clean before execution.
 
-Planned focused command, with the authorized Node 24 binary directory prepended
-to PATH:
+The coordinator authorized only temporary-root canonical-helper fixtures under a
+directly claimed canonical light slot1–3. On Node **24.21.0**, with
+`/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin` prepended to
+PATH, this command passed **4 tests, 0 failures** (exit 0):
 
 ```sh
 node --test --test-name-pattern='canonical helper' scripts/browser-validation-pool.test.mjs
 ```
+
+The gate was atomically claimed directly at
+`/tmp/sgui-light-validation-slots/slot1`, owner token
+`batch86:53ec839ee36496cf2539bf3509880052e1020d06:0530bc13-82a1-4baf-a0e4-2e50d27f8ded`.
+The same complete token was verified and released after test completion.
+All fixture acquisitions ran in unique temporary roots; global install leases
+and unresolved light slot0 were untouched. No install, browser/build/package,
+CI, native check or supervisor ran. The final evidence commit changes only this
+record after the tested implementation head. `git diff --check` passed.
 
 The coordinator owns review and integration. R-11/X-12 remain open beyond this
 bounded scheduler correction.
