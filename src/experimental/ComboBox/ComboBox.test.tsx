@@ -45,3 +45,37 @@ describe("owned combobox proof", () => {
     await user.type(input, "Changed"); expect(input.value).toBe(previous);
   });
 });
+it("uses IDs rather than labels and accepts host updates including controlled null", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  const sameLabels = [{ id: "01", label: "Same" }, { id: "1", label: "Same" }];
+  const { rerender } = render(<form data-testid="identity"><ComboBox label="Identity" name="identity" options={sameLabels} value="01" onValueChange={change} /></form>);
+  expect(new FormData(screen.getByTestId("identity") as HTMLFormElement).get("identity")).toBe("01");
+  rerender(<form data-testid="identity"><ComboBox label="Identity" name="identity" options={[{ id: "01", label: "Renamed" }, sameLabels[1]!]} value="01" onValueChange={change} /></form>);
+  expect((screen.getByRole("combobox") as HTMLInputElement).value).toBe("Renamed");
+  rerender(<form data-testid="identity"><ComboBox label="Identity" name="identity" options={sameLabels} value={null} onValueChange={change} /></form>);
+  expect((screen.getByRole("combobox") as HTMLInputElement).value).toBe("");
+  await user.click(screen.getByRole("button"));
+  await user.click(screen.getAllByRole("option", { name: "Same" })[1]!);
+  expect(change).toHaveBeenLastCalledWith("1");
+  expect(new FormData(screen.getByTestId("identity") as HTMLFormElement).get("identity")).toBe("");
+});
+it("isolates instances and resets an uncontrolled selection to its default", async () => {
+  const user = userEvent.setup();
+  render(<form data-testid="pair"><ComboBox label="First" options={options} name="first" defaultValue="science" /><ComboBox label="Second" options={options} name="second" defaultValue="math" /><button type="reset">Reset pair</button></form>);
+  await user.click(screen.getByRole("button", { name: "Show options First" }));
+  await user.click(screen.getByRole("option", { name: "Mathematics" }));
+  const form = screen.getByTestId("pair") as HTMLFormElement;
+  expect(new FormData(form).get("first")).toBe("math");
+  expect(new FormData(form).get("second")).toBe("math");
+  await user.click(screen.getByRole("button", { name: "Reset pair" }));
+  await waitFor(() => expect(new FormData(form).get("first")).toBe("science"));
+  expect(new FormData(form).get("second")).toBe("math");
+  expect(screen.getByRole("combobox", { name: "First" }).id).not.toBe(screen.getByRole("combobox", { name: "Second" }).id);
+});
+it("keeps the controlled host label when the host declines a selection request", async () => {
+ const user = userEvent.setup(); const change = vi.fn();
+ render(<ComboBox label="Controlled" options={options} value="science" onValueChange={change} />);
+ await user.click(screen.getByRole("button")); await user.click(screen.getByRole("option", { name: "Mathematics" }));
+ expect(change).toHaveBeenLastCalledWith("math");
+ expect((screen.getByRole("combobox") as HTMLInputElement).value).toBe("Science");
+});

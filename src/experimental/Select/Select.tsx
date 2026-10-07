@@ -16,7 +16,9 @@ import styles from "./Select.module.css";
 export interface SelectOption { id: string; label: string; disabled?: boolean; }
 export interface SelectProps {
   label: string;
+  /** Host-supplied options with unique, stable string IDs. Labels are presentation, not identity. */
   options: readonly SelectOption[];
+  /** Controlled selected ID; null explicitly clears selection. Keep the control mode stable for this mount. */
   value?: string | null;
   defaultValue?: string | null;
   onValueChange?: (value: string | null) => void;

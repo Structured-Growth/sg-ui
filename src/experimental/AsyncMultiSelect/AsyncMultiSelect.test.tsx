@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, expect, it, vi } from "vitest";
+import { StrictMode } from "react";
 import { act, cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AsyncMultiSelect } from "./AsyncMultiSelect";
@@ -59,4 +60,51 @@ it("respects controlled selection and read-only state with a long result list", 
   rerender(<AsyncMultiSelect label="Courses" query="" onQueryChange={() => {}} options={many} value={[many[0]!]} onValueChange={change} readOnly />);
   change.mockClear(); await user.click(screen.getByRole("option", { name: "Course 1" })); expect(change).not.toHaveBeenCalled();
   expect((screen.getByRole("searchbox") as HTMLInputElement).readOnly).toBe(true);
+});
+
+it("isolates selected records, statuses and native form values across instances", async () => {
+ const user = userEvent.setup();
+ render(<form data-testid="independent"><AsyncMultiSelect label="First courses" query="" onQueryChange={() => {}} options={options} name="first" /><AsyncMultiSelect label="Second courses" query="" onQueryChange={() => {}} options={options} name="second" defaultValue={[options[1]!]} /></form>);
+ await user.click(screen.getAllByRole("option", { name: "Science" })[0]!);
+ const form = screen.getByTestId("independent") as HTMLFormElement;
+ expect(new FormData(form).getAll("first")).toEqual(["one"]);
+ expect(new FormData(form).getAll("second")).toEqual(["two"]);
+ const inputs = screen.getAllByRole("searchbox");
+ expect(inputs[0]!.id).not.toBe(inputs[1]!.id);
+ expect(inputs[0]!.getAttribute("aria-describedby")).not.toBe(inputs[1]!.getAttribute("aria-describedby"));
+});
+it("rejects late failures through Strict Mode cleanup, retries and unmount", async () => {
+ const user = userEvent.setup();
+ const pending: { signal: AbortSignal; resolve: (results: typeof options) => void; reject: (error: Error) => void }[] = [];
+ const search = vi.fn((_query: string, signal: AbortSignal) => new Promise<typeof options>((resolve, reject) => pending.push({ signal, resolve, reject })));
+ const { unmount } = render(<StrictMode><HostSearchExample search={search} /></StrictMode>);
+ expect(pending).toHaveLength(2); expect(pending[0]!.signal.aborted).toBe(true);
+ await user.type(screen.getByRole("searchbox"), "x");
+ expect(pending[1]!.signal.aborted).toBe(true);
+ await act(async () => pending[2]!.reject(new Error("Current failure")));
+ expect(screen.getByRole("status").textContent).toBe("Search failed. Try again.");
+ await user.click(screen.getByRole("button", { name: "Retry" }));
+ expect(screen.getByRole("status").textContent).toBe("Loading options…");
+ await act(async () => pending[3]!.resolve([options[0]!]));
+ await act(async () => { pending[0]!.reject(new Error("Strict replay")); pending[1]!.reject(new Error("Stale failure")); });
+ expect(screen.getByRole("option", { name: "Science" })).toBeTruthy();
+ expect(screen.getByRole("status").textContent).toBe("1 options available");
+ await user.type(screen.getByRole("searchbox"), "y");
+ unmount(); expect(pending[4]!.signal.aborted).toBe(true);
+ await act(async () => pending[4]!.reject(new Error("After unmount")));
+});
+it("accepts controlled clear without reviving defaults and omits disabled native values", async () => {
+ const user = userEvent.setup(); const change = vi.fn();
+ const props = { label: "Controlled courses", query: "", onQueryChange: () => {}, options, name: "courses", defaultValue: [options[1]!], onValueChange: change };
+ const { rerender } = render(<form data-testid="controlled"><AsyncMultiSelect {...props} value={[options[0]!]} /></form>);
+ await user.click(screen.getByRole("button", { name: "Remove Science" }));
+ expect(change).toHaveBeenLastCalledWith([]);
+ expect(screen.getByRole("button", { name: "Remove Science" })).toBeTruthy();
+ rerender(<form data-testid="controlled"><AsyncMultiSelect {...props} value={[]} /></form>);
+ expect(screen.queryByRole("button", { name: /Remove/ })).toBeNull();
+ expect(new FormData(screen.getByTestId("controlled") as HTMLFormElement).getAll("courses")).toEqual([]);
+ rerender(<form data-testid="controlled"><AsyncMultiSelect {...props} value={[options[0]!]} disabled /></form>);
+ expect(new FormData(screen.getByTestId("controlled") as HTMLFormElement).getAll("courses")).toEqual([]);
+ change.mockClear(); await user.click(screen.getByRole("option", { name: "Mathematics" }));
+ expect(change).not.toHaveBeenCalled();
 });
