@@ -221,3 +221,28 @@ Historical failures/cancellations remain visible, not passed evidence.
 Workers/coordinator must not wait for dev GitHub checks or attempt to re-enable
 automation. Grid-clipboard PR18 completion received during this change, queued
 for ownership/evidence review after the CI policy update.
+
+
+## Connectivity recovery, defect review and batch10
+
+Git remote andGitHub read-only API connectivity verified afterlocationchange.
+DevCI/title pause pushed4758ca8; workers/coordinator retainLOCALtargeted checks and
+localoccasional checkpoints, noGitHub devcheck waits/reruns. Cancellation requested
+for activeverifieddevPR runs; historicalfailures remainvisible, notpassed.
+PR18copy lifetime/stale availability andPR28selector direction ownership/evidence
+reviewed, conflict-freehistorymerges pusheddev061a882. PR27standaloneFirefox
+diagnostic reviewed/integrated: native/Playwrightfail beforeSGUI, app-dataEPERM,
+stopunchangedretries untilenvironmentchanges. HistoricalLinuxevidence keptseparate.
+Reports: [clipboard](parallel-batch-05/grid-clipboard.md),
+[Firefox](parallel-batch-05/firefox-runtime.md),
+[selectors](parallel-batch-08/selector-direction.md).
+Native-resetPR21 andshell-statePR26reports received; reviewpending. Separate
+WebKitportal-focus historicalfailure reservedfortargetedlocalreproduction.
+
+Three newbatch10chats use revieweddev061a882 andexclusive scopes:
+
+| Task | Chat | Ownership |
+| --- | --- | --- |
+| page-header-reflow (M-04/U-19) | `01a116a4-f72f-7853-b068-47a3e2ebe9cb` | src/components/AppPageHeader/; tests/browser/batch10-page-header-reflow.spec.ts; docs/developer/parallel-batch-10/page-header-reflow.md |
+| auth-shell-reflow (M-07/U-02) | `01a116a4-fa98-7d20-a217-302eca6279e1` | src/components/AuthShell/; tests/browser/batch10-auth-shell-reflow.spec.ts; docs/developer/parallel-batch-10/auth-shell-reflow.md |
+| card-frame-reflow (M-13/U-02) | `01a116a4-fd4c-7ab3-acfa-d29891b53fef` | src/components/ClassCardFrame/; tests/browser/batch10-card-frame-reflow.spec.ts; docs/developer/parallel-batch-10/card-frame-reflow.md |
