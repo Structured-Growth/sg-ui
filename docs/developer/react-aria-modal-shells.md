@@ -24,7 +24,16 @@ callbacks. `disableEscapeKeyDown` and `disableBackdropClose` independently suppr
 implicit dismissal; the close button and host actions remain available. Escape and
 outside dismissal do not masquerade as explicit close. The controlled `open` prop
 remains authoritative. Closing restores focus to the trigger when it is still
-available; nested popovers handle their own Escape first.
+available; nested popovers handle their own Escape first. If a nested modal's
+opener was removed while it was open, one recovery frame after focus-scope and
+native inert teardown repairs lost/background focus in the surviving parent.
+It prefers that parent's initial focus destination, then its first available
+tabbable control, then the parent dialog itself. Successful host focus and focus
+in another surviving overlay are preserved. Host focus should be placed after
+inert teardown (for example in a passive effect); an attempt while the parent is
+inert is not a successful destination. Surviving child and outer openers keep their
+ordinary restoration behavior. This bounded fallback does not establish broad
+M-08 or manual assistive-technology acceptance.
 
 `title` labels the dialog and `subtitle` is its associated description. Custom
 `headerContent` should supply `aria-label`; the title is used as that label if both
