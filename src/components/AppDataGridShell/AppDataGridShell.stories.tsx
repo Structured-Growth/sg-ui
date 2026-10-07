@@ -163,3 +163,39 @@ export const ClientDatasetShrink: Story = { render: args => {
     </div>
   </div>;
 } };
+
+/** M-17/F3: a single host accepts footer requests in a resizable grid/card shell.
+ * Alt+P/E/R changes host response state without moving focus into fixture actions.
+ */
+function NativeResponsivePreview() {
+  const [state, setState] = useState<OwnedGridCriteriaState>({ paginationModel: { page: 0, pageSize: 2 },
+    sortRules: [], filterRules: [], searchValue: "", selectedRowIds: new Set(["course-1"]) });
+  const [viewMode, setViewMode] = useState<"list" | "cards">("list");
+  const [response, setResponse] = useState<"ready" | "pending" | "error">("ready");
+  const [requests, setRequests] = useState(0);
+  const dataset = rows.slice(0, 4);
+  const start = state.paginationModel.page * state.paginationModel.pageSize;
+  return <section aria-label="Responsive grid host" style={{ height: 640, display: "flex", flexDirection: "column", minWidth: 0 }}
+    onKeyDown={event => {
+      if (!event.altKey) return;
+      const next = { p: "pending", e: "error", r: "ready" }[event.key.toLowerCase()] as "pending" | "error" | "ready" | undefined;
+      if (next) { event.preventDefault(); setResponse(next); }
+    }}>
+    <Button onPress={() => {}}>Host focus start</Button>
+    <output aria-label="Responsive accepted state">Page {state.paginationModel.page}; requests {requests}; view {viewMode}</output>
+    <div style={{ flex: 1, minHeight: 0, minWidth: 0 }}>
+      <AppDataGridShell label="Responsive courses" rows={dataset.slice(start, start + state.paginationModel.pageSize)}
+        columns={columns} getRowLabel={row => row.name} mode="server" rowCount={dataset.length}
+        paginationModel={state.paginationModel} sortRules={state.sortRules} filterRules={state.filterRules}
+        searchValue={state.searchValue} pageSizeOptions={[2]} selection={{ selectedRowIds: state.selectedRowIds,
+          onSelectedRowIdsChange: selectedRowIds => setState(current => ({ ...current, selectedRowIds })) }}
+        refreshing={response === "pending"} errorMessage={response === "error" ? "Responsive host failed" : undefined}
+        onRetry={() => setResponse("pending")} onStateChange={next => { setState(next); setRequests(count => count + 1); }}
+        view={{ mode: viewMode, onModeChange: setViewMode, cards: { renderCard: row => <article>
+          <p>{row.name}</p><Button onPress={() => {}}>Open {row.name}</Button>
+        </article> } }} toolbar={{ filterFields: [{ id: "status", label: "Status", type: "enum", enumOptions: [
+          { id: "active", label: "Active" }, { id: "archived", label: "Archived" } ] }] }} />
+    </div>
+  </section>;
+}
+export const NativeResponsiveTransitions: Story = { render: () => <NativeResponsivePreview /> };
