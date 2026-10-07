@@ -105,3 +105,39 @@ TypeScript, `pnpm foundations:check`, and `pnpm tokens:check` passed. These are
 local checks of the corrected source, not a fresh Chromium pass. Exact corrected
 clean head is supplied to the coordinator for a new immutable Chromium job with
 the same six focused cases. Firefox/WebKit/manual/device/AT remain pending.
+
+
+## Wave22 candidate red evidence and second correction
+
+Coordinator tested shared candidate
+`e6270941ea8828d8868fef0798451a599a9db25f`, with this worker's owned changed files
+byte-identical to prepared head `e9d09c688bb4367a8a4369125e28f88405373602`.
+Attribution: `/tmp/sgui-batch45-candidate-source-attribution.json`.
+Source/build hashes were unchanged and candidate stayed clean. Chromium result:
+**2 passed, 4 failed, zero skipped/flaky**. Original candidate/artifacts preserved:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/`
+(root and `card-collection-native/evidence.json`, shard log, screenshots, traces).
+Lifecycle/quiet status and host pagination cases passed. Compact enlarged-input
+full visibility passed; comfortable cases stopped earlier in the normal-size
+resize loop, so their enlarged-input correction has not yet been proved.
+
+The actual shard log places comfortable failures at spec line30 (whole footer
+bottom), not the enlarged selector assertion: footer bottom `375.296875` versus
+host bottom `354`. Screenshot confirms normal-size footer clipping with a 360px
+short host. **Owned layout correction:** the new grid minimum was content-box,
+adding padding to control-height and unnecessarily forcing footer overflow.
+Grid now uses border-box so the minimum already includes existing padding. Normal
+whole-footer and focused-input visibility assertions remain unchanged.
+
+**Driver expectation correction:** compact selector had passed full visibility
+but root scrollTop was zero; moving the root is unnecessary for an already visible
+control. Removed unconditional selector must-scroll assertion. Strengthened keyboard
+reachability instead: Tab through enabled Next and Last actions, assert each full
+control lies within the host, and require positive root scrolling when the root
+actually overflows after reaching the last action. No visibility tolerance widened.
+Reorder assertions remain unreached and unproven; no speculative focus fix added.
+
+Second correction targeted checks: 7/7 collection unit cases, browser TypeScript,
+foundation and token guards passed. No TypeScript source/API changed since the
+preceding source typecheck; no unrelated full check/native/server run performed.
+Fresh coordinator Chromium proof of the corrected clean head remains pending.

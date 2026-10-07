@@ -43,7 +43,7 @@ for (const theme of ['light', 'dark']) for (const density of ['compact', 'comfor
     expect(secondBounds.y).toBeGreaterThanOrEqual(gridBounds.y - 1);
     expect(secondBounds.y + secondBounds.height).toBeLessThanOrEqual(gridBounds.y + gridBounds.height + 1);
     expect(await grid.evaluate(node => node.scrollTop)).toBeGreaterThan(0);
-    // Oversized footer chrome remains reachable through the collection's outer scroll.
+    // Footer controls remain reachable; a visible selector need not trigger outer scrolling.
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
@@ -52,7 +52,19 @@ for (const theme of ['light', 'dark']) for (const density of ['compact', 'comfor
     const collectionBounds = (await container.boundingBox())!;
     expect(selectorBounds.y).toBeGreaterThanOrEqual(collectionBounds.y - 1);
     expect(selectorBounds.y + selectorBounds.height).toBeLessThanOrEqual(collectionBounds.y + collectionBounds.height + 1);
-    expect(await page.locator('[data-sgui-part="card-collection"]').evaluate(node => node.scrollTop)).toBeGreaterThan(0);
+    for (const name of ['Next page', 'Last page']) {
+      await page.keyboard.press('Tab');
+      const action = footer.getByRole('button', { name, exact: true });
+      await expect(action).toBeFocused();
+      const bounds = (await action.boundingBox())!;
+      const host = (await container.boundingBox())!;
+      expect(bounds.y).toBeGreaterThanOrEqual(host.y - 1);
+      expect(bounds.y + bounds.height).toBeLessThanOrEqual(host.y + host.height + 1);
+    }
+    const scroll = await page.locator('[data-sgui-part="card-collection"]').evaluate(node => ({
+      top: node.scrollTop, overflow: node.scrollHeight > node.clientHeight,
+    }));
+    if (scroll.overflow) expect(scroll.top).toBeGreaterThan(0);
     // Reordering within the same rendered page retains the same keyed input and focus.
     await page.locator('html').evaluate(node => { node.style.fontSize = ''; });
     await page.getByRole('button', { name: 'Accept requests', exact: true }).click();
