@@ -193,3 +193,50 @@ it("inherits independent visual directions without replacing host queries or mou
  expect(change).not.toHaveBeenCalled(); expect(queryChange).not.toHaveBeenCalled();
  expect(screen.getAllByRole("button", { name: "Remove Science" })).toHaveLength(1);
 });
+
+
+it("keeps native busy state independent through failure, retry and host success", async () => {
+ const user = userEvent.setup();
+ const queryChange = vi.fn(); const valueChange = vi.fn(); const retry = vi.fn();
+ const view = (loading: boolean, errorMessage?: string, results = options) => <StrictMode>
+  <AsyncMultiSelect label="Pending courses" query="Host query" onQueryChange={queryChange}
+   options={results} loading={loading} errorMessage={errorMessage} onRetry={retry}
+   value={[options[1]!]} onValueChange={valueChange} description="Host description" />
+  <AsyncMultiSelect label="Independent courses" query="Other query" onQueryChange={queryChange} options={options} />
+ </StrictMode>;
+ const { rerender, unmount } = render(view(true));
+ const list = screen.getByRole("listbox", { name: "Pending courses" });
+ const independent = screen.getByRole("listbox", { name: "Independent courses" });
+ const input = screen.getByRole("searchbox", { name: "Pending courses" }) as HTMLInputElement;
+ input.focus();
+ expect(list.getAttribute("aria-busy")).toBe("true");
+ expect(independent.hasAttribute("aria-busy")).toBe(false);
+ await user.click(screen.getAllByRole("option", { name: "Science" })[0]!);
+ expect(valueChange).not.toHaveBeenCalled();
+ rerender(view(false, "Host failure"));
+ expect(list.hasAttribute("aria-busy")).toBe(false);
+ expect(screen.getAllByRole("status")[0]!.textContent).toBe("Host failure");
+ await user.click(screen.getAllByRole("option", { name: "Science" })[0]!);
+ expect(valueChange).not.toHaveBeenCalled();
+ await user.click(screen.getByRole("button", { name: "Retry" }));
+ expect(retry).toHaveBeenCalledOnce();
+ expect(list.hasAttribute("aria-busy")).toBe(false); // Retry is a host request, not local loading.
+ input.focus();
+ rerender(view(true));
+ expect(document.activeElement).toBe(input);
+ expect(list.getAttribute("aria-busy")).toBe("true");
+ rerender(view(false, undefined, [options[0]!]));
+ expect(list.hasAttribute("aria-busy")).toBe(false);
+ expect(screen.getByRole("listbox", { name: "Pending courses" })).toBe(list);
+ expect(screen.getByRole("listbox", { name: "Independent courses" })).toBe(independent);
+ expect(screen.getByRole("searchbox", { name: "Pending courses" })).toBe(input);
+ expect(document.activeElement).toBe(input);
+ expect(input.value).toBe("Host query");
+ expect(input.getAttribute("aria-describedby")!.split(" ").map(id => document.getElementById(id)?.textContent)).toContain("Host description");
+ expect(queryChange).not.toHaveBeenCalled();
+ await user.click(screen.getAllByRole("option", { name: "Science" })[0]!);
+ expect(valueChange.mock.calls.at(-1)?.[0].map((item: { id: string }) => item.id)).toEqual(["two", "one"]);
+ expect(screen.queryByRole("button", { name: "Remove Science" })).toBeNull();
+ unmount();
+ expect(list.isConnected).toBe(false);
+});
