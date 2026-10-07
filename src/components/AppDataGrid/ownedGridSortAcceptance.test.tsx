@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, render, screen, within } from "@testing-library/react";
+import { act, cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it } from "vitest";
 import { Provider } from "../../experimental/Provider/Provider";
@@ -88,4 +88,16 @@ it("applies toolbar keyboard priority as one coherent controlled snapshot with t
   expect(accepted()).toEqual(next);
   expect(requests()).toEqual([{ paginationModel: { page: 0, pageSize: 2 }, sortRules: next }]);
   expect(names()).toEqual(["Beta", "Gamma"]);
+});
+
+it.each(["{Enter}", "{Alt>}{ArrowDown}{/Alt}"])("opens the nested header menu with %s and activates descending without a draft transaction", async opener => {
+  const user = userEvent.setup(); mount();
+  act(() => (screen.getByRole("button", { name: "Sort Group" }).closest('[role="columnheader"]') as HTMLElement).focus());
+  expect(document.activeElement).toBe(screen.getByRole("button", { name: "Sort Group" }));
+  await user.keyboard(opener);
+  expect(screen.getByRole("menuitemradio", { name: "Sort Ascending" }).getAttribute("aria-checked")).toBe("true");
+  expect(requests()).toEqual([]);
+  await user.keyboard("{ArrowDown}{Enter}");
+  expect(accepted()).toEqual([{ field: "group", direction: "desc" }, rules[0]]);
+  expect(requests()).toHaveLength(1);
 });

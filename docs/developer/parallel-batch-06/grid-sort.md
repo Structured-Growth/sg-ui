@@ -68,16 +68,32 @@ test/story and report allowlist. Runtime unchanged, so central guidance was not 
 - `node /tmp/sgui-run24.mjs typecheck`: passed.
 - `node /tmp/sgui-run24.mjs foundations:check`: passed.
 - `node /tmp/sgui-run24.mjs exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- After adopting reviewed dev ancestry and correcting native test entry/opening,
+  the same six-file command passed **49 tests**, 2.78 seconds (includes inherited
+  shell acceptance cases and two new Enter/Alt+ArrowDown composed cases).
+  Source typecheck, browser typecheck and whitespace checks passed again.
 - `git diff --check`: passed.
 
 Browser evidence is pending coordinator-owned pooled validation. The idle standalone
 waiter was stopped before acquiring/building. The coordinator explicitly authorized
-merging exact reviewed infrastructure prerequisite
-`6b9da4423f1e6675c37571d5552474da25e90258` with unchanged harness/doc files;
+merging the entire already-reviewed dev ancestry in infrastructure prerequisite
+`6b9da4423f1e6675c37571d5552474da25e90258` with inherited files unchanged;
 this bootstrap is separate from the sorting source allowlist. No harness edits
 were authored here. The merged clean head is frozen for a staged fresh build,
 types and `tests/browser/batch06-grid-sort.spec.ts --project=chromium --project=webkit`.
-Record exact coordinator evidence before claiming native acceptance.
+First frozen pool run `796118fa-e194-4614-b18a-465375e33618` at
+`06899ff37df95a02b6c4e3f2cbcd23929e3dd992` passed fresh build/browser types,
+but both engine cases failed at the initial plain ArrowDown opener. Native trace
+shows the sort button focused, then grid row navigation; React Aria's grid-cell
+capture handler intentionally reserves plain arrows and permits Alt+ArrowDown.
+The browser scenarios now cover Enter and Alt+ArrowDown, retaining focused-menu,
+snapshot, rotation, priority, disabled-control and return-focus assertions.
+The additional composed regression verifies cell-first focus entry: directly
+focusing a nested header trigger can leave the collection's roving focus key on
+a body row. Entering via the header cell synchronizes its key and focuses the
+trigger. Both supported activation keys pass the targeted composed regression.
+No runtime change was required. Corrected browser evidence is pending a new
+coordinator pool run.
 
 Per the human policy update relayed by the coordinator, automatic GitHub dev checks
 are paused; no workflow files were changed or checks dispatched/waited for here.
