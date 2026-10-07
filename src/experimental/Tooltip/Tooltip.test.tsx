@@ -75,4 +75,3 @@ it("does not make a native disabled trigger focusable or show hover help", async
   fireEvent.mouseMove(document.body); await user.hover(screen.getByRole("button", {name:"Unavailable"}));
   expect(screen.queryByRole("tooltip")).toBeNull();
 });
-
