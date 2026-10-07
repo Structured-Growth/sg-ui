@@ -101,3 +101,89 @@ it("preserves surviving row identity and draft values, then focuses its field af
   await user.click(screen.getByRole("button", { name: "Apply" }));
   expect(onApply).toHaveBeenCalledWith([{ field: "score", operator: "gte", value: "42" }]);
 });
+
+it("keeps an open draft when host criteria change and reloads the latest host criteria after Cancel", async () => {
+  const user = userEvent.setup(), onApply = vi.fn();
+  const view = (value: DataToolbarFilterRule[]) => <Provider><DataToolbarFilterMenu fields={fields} value={value} onApply={onApply} /></Provider>;
+  const { rerender } = render(view([{ field: "name", operator: "contains", value: "original" }]));
+  await user.click(screen.getByRole("button", { name: "Filter 1" }));
+  const input = screen.getByLabelText("Value 1");
+  await user.clear(input);
+  await user.type(input, "local draft");
+  rerender(view([{ field: "name", operator: "equals", value: "host replacement" }]));
+  expect(screen.getByLabelText("Value 1")).toBe(input);
+  expect(input).toHaveProperty("value", "local draft");
+  await user.click(screen.getByRole("button", { name: "Cancel" }));
+  expect(onApply).not.toHaveBeenCalled();
+  await user.click(screen.getByRole("button", { name: "Filter 1" }));
+  expect(screen.getByLabelText("Value 1")).toHaveProperty("value", "host replacement");
+  await user.click(screen.getByRole("button", { name: "Apply" }));
+  expect(onApply).toHaveBeenCalledExactlyOnceWith([{ field: "name", operator: "equals", value: "host replacement" }]);
+});
+
+it("validates an existing draft against live host fields when fields disappear or change type", async () => {
+  const user = userEvent.setup(), onApply = vi.fn();
+  const value: DataToolbarFilterRule[] = [
+    { field: "name", operator: "contains", value: "draft" },
+    { field: "score", operator: "gte", value: "10" },
+    { field: "created", operator: "on", value: "2026-01-01" },
+  ];
+  const view = (nextFields: DataToolbarFilterField[]) => <Provider><DataToolbarFilterMenu fields={nextFields} value={value} onApply={onApply} /></Provider>;
+  const { rerender } = render(view(fields));
+  await user.click(screen.getByRole("button", { name: "Filter 3" }));
+  rerender(view([{ id: "score", label: "Score as text", type: "string" }, fields[3]]));
+  expect(screen.getByRole("button", { name: /Operator 1/ })).toHaveProperty("disabled", true);
+  expect(screen.getByLabelText("Value 3")).toHaveProperty("value", "2026-01-01");
+  const apply = screen.getByRole("button", { name: "Apply" });
+  apply.focus();
+  await user.keyboard("{Enter}");
+  expect(onApply).toHaveBeenCalledExactlyOnceWith([{ field: "created", operator: "on", value: "2026-01-01" }]);
+});
+
+it("retains canonical enum IDs through host option relabeling and reordering during an open draft", async () => {
+  const user = userEvent.setup(), onApply = vi.fn();
+  const value: DataToolbarFilterRule[] = [{ field: "status", operator: "is", value: "active" }];
+  const view = (nextFields: DataToolbarFilterField[]) => <Provider><DataToolbarFilterMenu fields={nextFields} value={value} onApply={onApply} /></Provider>;
+  const { rerender } = render(view(fields));
+  await user.click(screen.getByRole("button", { name: "Filter 1" }));
+  await user.click(screen.getByRole("button", { name: "Value 1" }));
+  rerender(view([{ ...fields[1], enumOptions: [{ id: "inactive", label: "Inactive renamed" }, { id: "active", label: "Active renamed" }] }]));
+  expect(screen.getByRole("checkbox", { name: "Active renamed" })).toHaveProperty("checked", true);
+  await user.click(screen.getByRole("checkbox", { name: "Inactive renamed" }));
+  await user.keyboard("{Escape}");
+  await user.click(screen.getByRole("button", { name: "Apply" }));
+  expect(onApply).toHaveBeenCalledExactlyOnceWith([{ field: "status", operator: "is", value: "active|||inactive" }]);
+});
+
+it("requests one Apply per opening and reloads controlled criteria until the host accepts them", async () => {
+  const user = userEvent.setup();
+  const { onApply, submit } = mount([{ field: "name", operator: "contains", value: "host value" }]);
+  await user.click(screen.getByRole("button", { name: "Filter 1" }));
+  await user.clear(screen.getByLabelText("Value 1"));
+  await user.type(screen.getByLabelText("Value 1"), "requested value");
+  screen.getByRole("button", { name: "Apply" }).focus();
+  await user.keyboard("{Enter}");
+  expect(onApply).toHaveBeenCalledExactlyOnceWith([{ field: "name", operator: "contains", value: "requested value" }]);
+  expect(screen.queryByRole("dialog", { name: "Filter" })).toBeNull();
+  await user.click(screen.getByRole("button", { name: "Filter 1" }));
+  expect(screen.getByLabelText("Value 1")).toHaveProperty("value", "host value");
+  screen.getByRole("button", { name: "Apply" }).focus();
+  await user.keyboard(" ");
+  expect(onApply).toHaveBeenCalledTimes(2);
+  expect(onApply).toHaveBeenLastCalledWith([{ field: "name", operator: "contains", value: "host value" }]);
+  expect(submit).not.toHaveBeenCalled();
+});
+
+it("treats All as no rule for a negated enum filter when applied with the keyboard", async () => {
+  const user = userEvent.setup();
+  const { onApply } = mount([{ field: "status", operator: "is_not", value: "inactive" }]);
+  await user.click(screen.getByRole("button", { name: "Filter 1" }));
+  await user.click(screen.getByRole("button", { name: "Value 1" }));
+  screen.getByRole("checkbox", { name: "All" }).focus();
+  await user.keyboard(" ");
+  expect(screen.getByRole("checkbox", { name: "Host inactive" })).toHaveProperty("checked", false);
+  await user.keyboard("{Escape}");
+  screen.getByRole("button", { name: "Apply" }).focus();
+  await user.keyboard("{Enter}");
+  expect(onApply).toHaveBeenCalledExactlyOnceWith([]);
+});
