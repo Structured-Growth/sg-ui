@@ -38,7 +38,7 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
   useImperativeHandle(ref, () => input.current!);
   const [internal, setInternal] = useState(defaultValue ?? "");
   const [preservedError, setPreservedError] = useState<string | undefined>();
-  const resetting = useStandaloneFormReset(input, () => {
+  useStandaloneFormReset(input, () => {
     if (value === undefined) setInternal(defaultValue ?? "");
     setPreservedError(undefined);
   }, () => {
@@ -48,17 +48,19 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
     return message ? () => setPreservedError(message) : undefined;
   });
   return (
-    <AriaTextField {...props} value={value === undefined ? internal : value} onChange={next => {
-      if (resetting.current) return;
-      setPreservedError(undefined);
-      if (value === undefined) setInternal(next);
-      onValueChange?.(next);
-    }}
+    <AriaTextField {...props} value={value === undefined ? internal : value}
       isDisabled={disabled} isReadOnly={readOnly} isRequired={required} isInvalid={preservedError ? true : invalid}
       validationBehavior="native" className={[styles.root, className].filter(Boolean).join(" ")}
       data-sgui-density={density} data-sgui-part="field">
       {label && <Label className={styles.label}>{label}</Label>}
-      <Input ref={input} form={form} inputMode={inputMode} className={[styles.input, inputClassName].filter(Boolean).join(" ")}
+      <Input ref={input} form={form} inputMode={inputMode} onChange={event => {
+        // Only native edits request host changes. Engine reset callbacks may
+        // still originate from a previously associated form.
+        const next = event.currentTarget.value;
+        setPreservedError(undefined);
+        if (value === undefined) setInternal(next);
+        onValueChange?.(next);
+      }} className={[styles.input, inputClassName].filter(Boolean).join(" ")}
         data-sgui-part="input" />
       {description && <Text slot="description" className={styles.description}>{description}</Text>}
       <FieldError className={styles.error}>{errorMessage ?? preservedError}</FieldError>

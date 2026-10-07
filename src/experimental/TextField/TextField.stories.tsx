@@ -98,3 +98,17 @@ export const PreventedValidationReset: Story = { render: () => {
     </form>
   </div>;
 } };
+
+export const LiveFormAssociation: Story = { render: () => {
+  const [form, setForm] = useState("reset-owner-a");
+  const [changes, setChanges] = useState(0);
+  const [prevent, setPrevent] = useState(false);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <Button onPress={() => setForm("reset-owner-b")}>Associate with B</Button>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
+    <form id="reset-owner-a" aria-label="Form A"><Button type="reset">Reset A</Button></form>
+    <form id="reset-owner-b" aria-label="Form B"><Button type="reset">Reset B</Button></form>
+    <TextField label="Reassociated field" form={form} name="field" defaultValue="Initial" onValueChange={() => setChanges(count => count + 1)} />
+    <output aria-label="Associated form">{form}</output><output aria-label="Change callbacks">{changes}</output>
+  </div>;
+} };

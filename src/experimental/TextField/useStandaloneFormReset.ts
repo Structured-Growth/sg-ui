@@ -7,9 +7,14 @@ export function useStandaloneFormReset(ref: RefObject<HTMLElement | null>, reset
   const resetRef = useRef(reset);
   const preserveRef = useRef(preserve);
   useNativeLayoutEffect(() => { resetRef.current = reset; preserveRef.current = preserve; });
+  const binding = useRef<{ form: HTMLFormElement | null | undefined; dispose: () => void } | null>(null);
+  // Read association after each commit: the input ref can stay stable while its
+  // form attribute changes or a host replaces the associated form element.
   useNativeLayoutEffect(() => {
     const element = ref.current;
     const form = element instanceof HTMLInputElement ? element.form : element?.closest("form");
+    if (binding.current?.form === form) return;
+    binding.current?.dispose();
     const pending = new Set<ReturnType<typeof setTimeout>>();
     const listener = (event: Event) => {
       resetting.current = true;
@@ -25,11 +30,15 @@ export function useStandaloneFormReset(ref: RefObject<HTMLElement | null>, reset
       pending.add(timer);
     };
     form?.addEventListener("reset", listener, true);
-    return () => {
+    binding.current = { form, dispose: () => {
       form?.removeEventListener("reset", listener, true);
       pending.forEach(timer => clearTimeout(timer));
       resetting.current = false;
-    };
-  }, [ref]);
+    } };
+  });
+  useNativeLayoutEffect(() => () => {
+    binding.current?.dispose();
+    binding.current = null;
+  }, []);
   return resetting;
 }

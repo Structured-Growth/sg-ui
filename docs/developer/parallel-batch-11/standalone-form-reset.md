@@ -68,3 +68,43 @@ No full check/build/consumer suite or paused GitHub CI/title run was requested.
 Firefox remains unverified due to the previously diagnosed local launch prerequisite;
 no repeat launch/install/TMPDIR attempt. Production still requires the full matrix.
 No physical-device or assistive-technology claims.
+
+## Resumed review: live form reassociation
+
+PR92/coordinator review held PR42 acceptance and identified a separate genuine
+source gap: the reset effect depended only on the stable native ref, so changing
+TextField's `form` from A to B left owned reset restoration attached to A.
+The original managed directory was absent. A new managed attached worktree at
+`/Users/thomashall/.codex/worktrees/batch11-standalone-form-reset-review/sg-ui`
+was recreated from exact PR head `9e430312b0fc8f662dcf51800be1a8982b081cec`,
+then checked out the existing `codex/batch11-standalone-form-reset` branch.
+The primary checkout was untouched.
+
+New regression tests failed before the fix for old-A reset restoration and an
+old-A pending timer surviving reassociation. The helper now checks native form
+association after each React commit, disposes the old binding and pending timers
+only when that association changes, and cleans the current binding on unmount.
+Unrelated commits keep the current pending transaction. TextField accepts changes
+from native input edit events, so a stale upstream reset callback from A cannot
+request a host edit or replace the owned value. The native input/ref is retained.
+Tests cover A cleanup, B prevention/accepted reset, pending cancellation, controlled
+host authority and continued native editing. The live-association story and browser
+case were added for the coordinator's queued native rerun.
+
+Node24 targeted validation used `/tmp/sgui-batch11-review-slotted.py`, which
+atomically leases one of four `/tmp/sgui-light-validation-slots` around each command
+and invokes `node /tmp/sgui-run24.mjs`:
+
+- `pnpm exec vitest related --run src/experimental/TextField/TextField.tsx src/experimental/DateField/DateField.tsx`: 33 files / 231 tests passed.
+- `pnpm typecheck`: passed.
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- `pnpm foundations:check`, `pnpm tokens:check`, `git diff --check`: passed.
+
+Dependencies were installed with Node24 `pnpm install --frozen-lockfile` in the
+recreated worktree. That short install preceded discovery of the current install
+slot wrapper; all validation commands used light slots. No standalone heavy build
+or browser process ran for this follow-up. Earlier six-browser-case evidence
+belongs to `462be54`, not this new follow-up. The current reassociation spec needs
+the coordinator's fresh-build queued native execution. The incomplete DateField
+segment draft defect above remains a hold; complete-date evidence does not certify
+that case or close U-18/K-06.

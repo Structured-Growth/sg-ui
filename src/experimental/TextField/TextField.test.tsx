@@ -106,3 +106,48 @@ it("preserves displayed validation when delegated reset is prevented", async () 
   await user.click(screen.getByRole("button", { name: "Prevented reset" }));
   expect(input.getAttribute("aria-invalid")).toBe("true");
 });
+
+it("moves reset ownership from form A to B without stale resets or callbacks", async () => {
+  const user = userEvent.setup(); const change = vi.fn(); const ref = createRef<HTMLInputElement>();
+  let prevent = false;
+  const field = (form: string) => <div onReset={event => { if (prevent) event.preventDefault(); }}><form id="form-a" data-testid="form-a"><button type="reset">Reset A</button></form>
+    <form id="form-b" data-testid="form-b"><button type="reset">Reset B</button></form>
+    <TextField ref={ref} label="Reassociated" form={form} name="field" defaultValue="Initial" onValueChange={change} /></div>;
+  const { rerender } = render(field("form-a"));
+  const input = screen.getByRole("textbox") as HTMLInputElement;
+  await user.clear(input); await user.type(input, "Edited");
+  rerender(field("form-b"));
+  expect(ref.current).toBe(input); expect(input.form?.id).toBe("form-b");
+  change.mockClear();
+  await user.click(screen.getByRole("button", { name: "Reset A" }));
+  expect(input.value).toBe("Edited"); expect(change).not.toHaveBeenCalled();
+  prevent = true;
+  await user.click(screen.getByRole("button", { name: "Reset B" }));
+  expect(input.value).toBe("Edited"); expect(change).not.toHaveBeenCalled();
+  prevent = false;
+  await user.click(screen.getByRole("button", { name: "Reset B" }));
+  await waitFor(() => expect(input.value).toBe("Initial")); expect(change).not.toHaveBeenCalled();
+});
+it("cancels the old form's pending reset when the input is reassociated", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  const field = (form: string) => <><form id="pending-a" data-testid="pending-a" /><form id="pending-b" />
+    <TextField label="Pending association" form={form} defaultValue="Initial" onValueChange={change} /></>;
+  const { rerender } = render(field("pending-a")); const input = screen.getByRole("textbox") as HTMLInputElement;
+  await user.type(input, " edit"); change.mockClear();
+  act(() => { (screen.getByTestId("pending-a") as HTMLFormElement).reset(); rerender(field("pending-b")); });
+  await act(async () => { await new Promise(resolve => setTimeout(resolve, 10)); });
+  expect(input.value).toBe("Initial edit"); expect(change).not.toHaveBeenCalled();
+});
+
+it("keeps reassociated controlled values and native edit callbacks host-owned", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  const field = (form: string) => <><form id="controlled-a"><button type="reset">Controlled A</button></form>
+    <form id="controlled-b"><button type="reset">Controlled B</button></form>
+    <TextField label="Controlled reassociation" form={form} value="Host" defaultValue="Default" onValueChange={change} /></>;
+  const { rerender } = render(field("controlled-a")); const input = screen.getByRole("textbox") as HTMLInputElement;
+  rerender(field("controlled-b"));
+  await user.click(screen.getByRole("button", { name: "Controlled A" }));
+  await user.click(screen.getByRole("button", { name: "Controlled B" }));
+  expect(input.value).toBe("Host"); expect(change).not.toHaveBeenCalled();
+  await user.type(input, "X"); expect(change).toHaveBeenLastCalledWith("HostX"); expect(input.value).toBe("Host");
+});

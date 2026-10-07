@@ -54,3 +54,21 @@ test('prevented text reset preserves displayed native validation; accepted reset
   await expect(input).toHaveValue('Initial');
   await expect(input).not.toHaveAttribute('aria-invalid', 'true');
 });
+
+test('live text form reassociation detaches old reset ownership and keeps callbacks silent', async ({ page }) => {
+  await page.goto('/iframe.html?id=migration-proofs-textfield--live-form-association&viewMode=story&globals=a11y.manual:!true');
+  const input = page.getByRole('textbox', { name: 'Reassociated field', exact: true });
+  await input.fill('Edited');
+  const callbacks = await page.getByLabel('Change callbacks').textContent();
+  await page.getByRole('button', { name: 'Associate with B' }).click();
+  await expect(page.getByLabel('Associated form')).toHaveText('reset-owner-b');
+  await page.getByRole('button', { name: 'Reset A', exact: true }).click();
+  await expect(input).toHaveValue('Edited');
+  await page.getByLabel('Prevent form reset').check();
+  await page.getByRole('button', { name: 'Reset B', exact: true }).click();
+  await expect(input).toHaveValue('Edited');
+  await page.getByLabel('Prevent form reset').uncheck();
+  await page.getByRole('button', { name: 'Reset B', exact: true }).click();
+  await expect(input).toHaveValue('Initial');
+  await expect(page.getByLabel('Change callbacks')).toHaveText(callbacks!);
+});
