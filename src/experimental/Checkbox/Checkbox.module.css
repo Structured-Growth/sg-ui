@@ -1,5 +1,9 @@
 @layer sgui.components {
   .root { display: inline-flex; align-items: center; gap: var(--sgui-space2); min-block-size: var(--sgui-control-height); color: var(--sgui-text); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); cursor: pointer; }
+  .content { display: flex; flex-direction: column; gap: var(--sgui-space1); }
+  .description { color: var(--sgui-text-muted); }
+  .error { color: var(--sgui-danger); }
+  .root[data-invalid] .indicator { border-color: var(--sgui-danger); }
   .indicator { display: inline-flex; align-items: center; justify-content: center; inline-size: 1.25rem; block-size: 1.25rem; border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); background: var(--sgui-surface); flex: none; }
   .root[data-selected] .indicator, .root[data-indeterminate] .indicator { background: var(--sgui-action); color: var(--sgui-on-action); }
   .root[data-focus-visible] .indicator { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }

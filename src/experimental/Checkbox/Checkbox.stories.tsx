@@ -9,3 +9,5 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 export const Mixed: Story = { args: { mixed: true } };
 export const Disabled: Story = { args: { disabled: true } };
+
+export const Invalid: Story = { args: { required: true, invalid: true, description: "Required to register.", errorMessage: "Accept the terms before submitting." } };

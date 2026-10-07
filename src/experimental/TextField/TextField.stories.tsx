@@ -1,3 +1,7 @@
+import { useState } from "react";
+import { Checkbox } from "../Checkbox/Checkbox";
+import { Switch } from "../Switch/Switch";
+import { RadioGroup } from "../RadioGroup/RadioGroup";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { TextField } from "./TextField";
 import { Button } from "../Button/Button";
@@ -27,3 +31,44 @@ export const NativeForm: Story = {
     <Button type="submit">Save</Button><Button type="reset" variant="outlined" tone="neutral">Reset</Button>
   </form>,
 };
+
+// A host-owned draft alongside native uncontrolled controls. Reset explicitly
+// restores the controlled draft; the browser/interaction engine resets defaults.
+function NativeAcceptanceForm({ acceptChanges = true }: { acceptChanges?: boolean }) {
+  const [title, setTitle] = useState("Controlled course");
+  const [approved, setApproved] = useState(true);
+  const [updates, setUpdates] = useState(true);
+  const [format, setFormat] = useState("self");
+  const [submitted, setSubmitted] = useState("No submission");
+  const options = [{ value: "self", label: "Self paced" }, { value: "locked", label: "Unavailable", disabled: true }, { value: "live", label: "Live" }];
+  return <form aria-label="Native course form" style={{ display: "grid", gap: tokens.space4 }}
+    onSubmit={event => {
+      event.preventDefault();
+      setSubmitted(JSON.stringify(Array.from(new FormData(event.currentTarget).entries())));
+    }} onReset={() => {
+      setTitle("Controlled course"); setApproved(true); setUpdates(true); setFormat("self"); setSubmitted("No submission");
+    }}>
+    <TextField label="Contact email" name="email" type="email" autoComplete="email" defaultValue="learner@example.com" required description="Use your course contact address." errorMessage="Enter a valid contact email." />
+    <Checkbox label="Accept terms" name="terms" value="accepted" required description="Required to register." errorMessage="Accept the terms before submitting." />
+    <Switch label="Course notifications" name="notifications" value="enabled" defaultChecked description="Receive course updates." />
+    <RadioGroup label="Delivery" name="delivery" options={options} required description="Choose a course format." errorMessage="Choose a delivery format." />
+    <Checkbox label="Mixed selection" name="mixed" value="selected" mixed defaultChecked />
+    <Checkbox label="Read only consent" name="readonlyConsent" value="accepted" checked readOnly />
+    <Switch label="Read only notifications" name="readonlyNotifications" value="enabled" checked readOnly />
+    <RadioGroup label="Read only delivery" name="readonlyDelivery" options={options.map(option => ({ ...option, label: `Read only ${option.label}` }))} value="self" readOnly />
+    <Checkbox label="Disabled consent" name="disabledConsent" defaultChecked disabled />
+    <Switch label="Disabled notifications" name="disabledNotifications" defaultChecked disabled />
+    <TextField label="Read only reference" name="reference" value="COURSE-42" readOnly />
+    <TextField label="Disabled reference" name="disabledReference" defaultValue="excluded" disabled />
+    <RadioGroup label="Disabled delivery" name="disabledDelivery" options={options} defaultValue="self" disabled />
+    <TextField label="Controlled title" name="controlledTitle" value={title} onValueChange={value => { if (acceptChanges) setTitle(value); }} />
+    <Checkbox label="Controlled approval" name="controlledApproval" value="approved" checked={approved} onCheckedChange={value => { if (acceptChanges) setApproved(value); }} />
+    <Switch label="Controlled updates" name="controlledUpdates" value="enabled" checked={updates} onCheckedChange={value => { if (acceptChanges) setUpdates(value); }} />
+    <RadioGroup label="Controlled delivery" name="controlledDelivery" options={options.map(option => ({ ...option, label: `Controlled ${option.label}` }))} value={format} onValueChange={value => { if (acceptChanges) setFormat(value); }} />
+    <Button type="submit">Submit course</Button>
+    <Button type="reset" variant="outlined" tone="neutral">Reset course</Button>
+    <output aria-label="Submitted form values">{submitted}</output>
+  </form>;
+}
+export const NativeAcceptance: Story = { render: () => <NativeAcceptanceForm /> };
+export const ControlledAuthority: Story = { render: () => <NativeAcceptanceForm acceptChanges={false} /> };
