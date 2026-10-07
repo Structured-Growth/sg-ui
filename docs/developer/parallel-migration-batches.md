@@ -193,3 +193,18 @@ Three new batch08 chats start from reviewed `d771320`; exclusive allowlists:
 | selector-direction (H-06/U-19) | `01a1167a-e019-7250-8363-4aa1f9ea9237` | src/experimental/Select/; src/experimental/ComboBox/; tests/browser/batch08-selector-direction.spec.ts; docs/developer/parallel-batch-08/selector-direction.md |
 | grid-retry-focus (G-15/G-16) | `01a1167a-e25f-7c62-a2b4-126127c725ab` | src/components/AppDataGrid/ownedGridInteraction.tsx; src/components/AppDataGrid/ownedGridInteraction.test.tsx; src/components/AppDataGrid/ownedGridInteraction.stories.tsx; tests/browser/batch08-grid-retry-focus.spec.ts; docs/developer/parallel-batch-08/grid-retry-focus.md |
 | due-label-composition (M-15/H-12) | `01a1167a-e64f-7ff2-83b9-8cd88b6f25de` | src/components/LearnerClassCard/; tests/browser/batch08-due-label.spec.ts; docs/developer/parallel-batch-08/due-label-composition.md |
+
+
+## Due-label composition review and batch09
+
+[PR24 report](parallel-batch-08/due-label-composition.md) reviewed: exact two-file
+test/report scope,12 composition regressions,17cardtests across3timezones plus
+type/foundation passes. No runtime defect. Full-history merge pusheddev `e372781`.
+Browser ICU/React18 packed/cross-timezone or advancing-clock hydration remainopen;
+reserve fixed-clock browser ICU slice for a later validation slot.
+Freed slot assigned to new documentation-only chat `01a1167d-8163-7ab0-a8dc-60ec2e2ebe6a`,
+baseline `e372781`, inventory-contract-wording (W19/M10/M14/M30). Exclusive files:
+`docs/developer/react-aria-inventory-contract-reconciliation.md` and
+`docs/developer/parallel-batch-09/inventory-contract-wording.md`. It proposes exact
+criteria mappings/wording without silently dropping required behavior; central
+checklists remain coordinator-owned. Maximumtenactiveworkers, targeted policy.
