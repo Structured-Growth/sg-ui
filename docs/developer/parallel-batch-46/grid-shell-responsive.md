@@ -1,9 +1,10 @@
 # M-17 responsive grid/card native transitions — F3
 
-Latest status: wave23 Chromium was **0 passed / 4 failed**. Bounded product
-corrections at `4f6379e6a80ed7151a2053f1cbf4bcbe16fcf85f` pass targeted checks;
-fresh corrected Chromium proof remains pending. The initial candidate record below
-is retained history, superseded by the diagnosis/correction section at the end.
+Latest status: wave27 Chromium was **2 passed / 2 failed**; normal-text cases
+passed and enlarged-text cases exposed an impossible first-cell fixture width.
+Fixture correction at `7d99e97293999fe67ec5d9ff2b94923a9e2b4853` passes source types
+and foundation guards; fresh corrected Chromium proof remains pending. Earlier
+candidate/product correction evidence below is retained history.
 This is the bounded F3 evidence slice from the [batch30 inventory review](../parallel-batch-30/inventory-acceptance-13-24.md).
 Whole M-17, Firefox/WebKit, manual zoom/device/assistive-technology and broad G/U/X/R/Z acceptance remain open.
 
@@ -165,3 +166,48 @@ No unchanged retry, independent native/build/server or assertion weakening occur
 CSS geometry and native ResizeObserver timing remain unverified until that run.
 Source scope stays reserved; Firefox/WebKit/checkpoint and manual/device/AT/whole M-17
 acceptance remain open. No dev integration is claimed.
+
+
+## Wave27 retained evidence and responsive fixture correction
+
+Actual tested coordinator candidate: `4987a1fe046c37f2e612d6de159aa09e1e840043`.
+Immutable run root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/afadf38b-8476-4c9b-a10e-2a78d786822d/grid-shell-responsive/`.
+Read results, shard evidence, light enlarged screenshot and trace snapshot attributes.
+Outcome **2 passed / 2 failed**, 0 skipped/flaky. Both normal theme cases passed;
+both enlarged theme cases failed the strict visible/unclipped/indicator predicate
+at spec line 101 after accepted list footer entry. Coordinator reports immutable
+clean source/build and all commands settled, no resource abort.
+Shard build digest: `101bdd11ab686d9bad4c31857100322d960ee4edfcd19068dc77c1c06aec7a3e`.
+Window: `2026-10-07T17:28:06.561Z`–`2026-10-07T17:28:26.534Z`.
+
+The remaining failure is **fixture/expectation setup**, distinct from the two prior
+product defects. The screenshot shows Course 3 with a visible focus outline; the
+assertion that the cell is focused already passed. The trace retains grid scrollTop
+7 and scrollLeft 90 at failure. The dedicated fixture reused a `minWidth: 200` first
+name column from the general grid story. At 320px with 200% root text, Storybook's
+2rem outer scope padding is 64px on each side, leaving a 192px host and approximately
+190px bordered grid viewport. A 200px cell cannot satisfy complete-cell unclipping
+inside that viewport. This is the configured horizontal grid overflow contract;
+it is not a missing outline, wrong active element or environment failure. The
+screenshot visibly clips one side of the cell outline.
+
+Correction `7d99e97293999fe67ec5d9ff2b94923a9e2b4853` changes only the dedicated
+responsive story's first name column to `minWidth: 160`, with supported `truncate:
+false` to preserve readable multiline body text. Remaining columns still require
+horizontal overflow. The first cell now has a feasible complete-focus target in
+that narrow padded host. No viewport enlargement, changed padding, synthetic
+focus, relaxed predicate, test skip/retry or production grid modification was used.
+All original four browser assertions remain byte-identical. Prior production
+correction implementation/CSS/unit hashes above remain unchanged.
+
+- Story SHA-256: `bc05725c9d9a7a128876ea8cba3d5666412d7b90f0b34a34623d8a1492294454`.
+- Spec SHA-256: `a48c0fdc54777f19dbb26d0bf8e391b813175bfee1b191dea1b8b5acbfe1df0e`.
+- Token-owned `pnpm exec tsc --noEmit`: passed, `/tmp/sgui-batch46-wave27-source-types.log`.
+- Token-owned `pnpm foundations:check`: passed, `/tmp/sgui-batch46-wave27-foundations.log`.
+- `git diff --check`: passed before fixture commit.
+
+The 23 passing shell units apply to the unchanged production correction; no
+redundant unit rerun was used to claim new native geometry proof. Source/head/report
+refrozen and reserved for the coordinator's next fresh candidate Chromium run with
+unchanged focused spec args. Whole/manual/device/AT and Firefox/WebKit remain open.

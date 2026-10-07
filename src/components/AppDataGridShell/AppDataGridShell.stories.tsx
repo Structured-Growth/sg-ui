@@ -167,6 +167,10 @@ export const ClientDatasetShrink: Story = { render: args => {
 /** M-17/F3: a single host accepts footer requests in a resizable grid/card shell.
  * Alt+P/E/R changes host response state without moving focus into fixture actions.
  */
+// The first focus target must fit the narrow host's padded viewport. Other
+// columns still exercise the grid's supported horizontal overflow contract.
+const responsiveColumns: AppDataGridColumn<Course>[] = columns.map(column => column.field === "name"
+  ? { ...column, minWidth: 160, truncate: false } : column);
 function NativeResponsivePreview() {
   const [state, setState] = useState<OwnedGridCriteriaState>({ paginationModel: { page: 0, pageSize: 2 },
     sortRules: [], filterRules: [], searchValue: "", selectedRowIds: new Set(["course-1"]) });
@@ -185,7 +189,7 @@ function NativeResponsivePreview() {
     <output aria-label="Responsive accepted state">Page {state.paginationModel.page}; requests {requests}; view {viewMode}</output>
     <div style={{ flex: 1, minHeight: 0, minWidth: 0 }}>
       <AppDataGridShell label="Responsive courses" rows={dataset.slice(start, start + state.paginationModel.pageSize)}
-        columns={columns} getRowLabel={row => row.name} mode="server" rowCount={dataset.length}
+        columns={responsiveColumns} getRowLabel={row => row.name} mode="server" rowCount={dataset.length}
         paginationModel={state.paginationModel} sortRules={state.sortRules} filterRules={state.filterRules}
         searchValue={state.searchValue} pageSizeOptions={[2]} selection={{ selectedRowIds: state.selectedRowIds,
           onSelectedRowIdsChange: selectedRowIds => setState(current => ({ ...current, selectedRowIds })) }}
