@@ -39,8 +39,15 @@ first entry after the run under the coordinator protocol.
 Each build phase additionally claims `os.tmpdir()/sgui-heavyweight-build.lock`.
 Cleanup checks exact owner tokens and removes only owned owner files/directories.
 SIGINT/SIGTERM abort owned process groups with bounded SIGKILL fallback; all sibling
-commands settle before resource release. No foreign processes, worktrees, locks or
-artifacts are cleaned. Uncatchable termination may leave claims for verified owner
+commands settle before resource release. Signal errors from exit listeners, timeout
+callbacks and final cleanup are recorded in command resource evidence and fail the
+run even if the group subsequently disappears. Only `ESRCH` from an owned negative
+process-group probe confirms disappearance; `EPERM` does not. Termination and
+settlement checks are bounded. If an owned group remains live or cannot be verified,
+command evidence records `settled: false`, admission stops and acquired leases are
+retained for coordinator verification. A bounded failed return is not completed
+cancellation. Only verified settled commands permit normal owner-token cleanup.
+No foreign processes, worktrees, locks or artifacts are cleaned. Uncatchable termination may leave claims for verified owner
 cleanup. Read-only retained build directories need owner-restored write permissions
 before later removal. Permissions and periodic hashes are guards against local
 mutation, not a hostile administrator or guaranteed detection between samples.
@@ -180,7 +187,10 @@ Storybook/type/browser commands. It covers default two-slot admission, explicit
 30/32 capacity, disjoint 32-shard concurrency, build admission 1/2/3, source/build
 mutation, selectors, budgets, queue/port/owner rejection and owned process-group
 termination. It launches no browsers or Storybook builds and does not claim the
-real heavy/browser bridge. Run it under one light slot.
+real heavy/browser bridge. Run it under one light slot. The
+[batch-51 supervisor cleanup record](parallel-batch-51/supervisor-cleanup.md)
+covers exit/timer/final-cleanup signal errors, descendant settlement, bounded
+SIGINT/SIGTERM handling and retained leases for unverifiable live groups.
 
 The existing native two-static-server fixture stays disabled unless
 `SGUI_POOL_SERVER_TESTS=1` and the actual queue/bridge window is authorized;

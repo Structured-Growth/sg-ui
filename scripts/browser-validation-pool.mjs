@@ -127,49 +127,86 @@ export function createStage(size) {
 }
 
 // Each command has an owned process group; all termination is scoped to that group.
-export async function runOwnedCommand({ cwd, env = process.env, executable, args, log, signal, terminateDelay = 3000 }) {
+// The second argument is a fixture-only signal seam, never a CLI option.
+export async function runOwnedCommand({ cwd, env = process.env, executable, args, log, signal, terminateDelay = 3000 }, fixture = {}) {
   if (signal?.aborted) throw new Error('Pool interrupted');
   const started = performance.now();
-  const samples = [];
-  let sampling = Promise.resolve();
-  let samplingActive = false;
+  const samples = [], signalErrors = [];
+  const send = fixture.kill ?? process.kill;
   const child = spawn(executable, args, { cwd, env, detached: true, stdio: ['ignore', 'pipe', 'pipe'] });
-  ownedGroups.add(child.pid);
+  if (child.pid) ownedGroups.add(child.pid);
+  let timer, deadline, sampler, stopping = false, closed = false, settled = !child.pid;
+  let text = '', result, commandError;
   const kill = kind => {
-    if (child.pid) { try { process.kill(-child.pid, kind); } catch (error) { if (error.code !== 'ESRCH') throw error; } }
+    if (!child.pid) return;
+    try { send(-child.pid, kind); }
+    catch (error) {
+      if (error.code !== 'ESRCH') signalErrors.push({ signal: kind, code: error.code, message: error.message });
+    }
   };
+  const gone = () => {
+    if (!child.pid) return true;
+    try { send(-child.pid, 0); return false; }
+    catch (error) {
+      if (error.code === 'ESRCH') return true;
+      signalErrors.push({ signal: 0, code: error.code, message: error.message });
+      return false;
+    }
+  };
+  let finish;
+  const completion = new Promise(done => { finish = done; });
+  const stop = () => {
+    if (stopping) return;
+    stopping = true;
+    kill('SIGTERM');
+    timer = setTimeout(() => kill('SIGKILL'), terminateDelay);
+    // A permission failure can leave the leader/pipes open. Return failed evidence
+    // within a bound, retaining group ownership and leases if settlement is unknown.
+    deadline = setTimeout(() => finish(), terminateDelay * 2 + 100);
+  };
+  child.once('error', error => { commandError = error; stop(); finish(); });
+  child.once('exit', stop); // Clean descendants even when the leader exits normally.
+  child.once('close', (code, childSignal) => { closed = true; result = { code, signal: childSignal }; finish(); });
+  child.stdout.on('data', chunk => { text += chunk.toString(); });
+  child.stderr.on('data', chunk => { text += chunk.toString(); });
+  signal?.addEventListener('abort', stop, { once: true });
+  if (signal?.aborted) stop();
+  let sampling = Promise.resolve(), samplingActive = false;
   const sample = () => {
     if (samplingActive) return;
     samplingActive = true;
-    sampling = sampleResources(child.pid).then(value => samples.push(value)).finally(() => { samplingActive = false; });
+    sampling = sampleResources(child.pid).then(value => samples.push(value)).catch(error => {
+      commandError ??= error;
+    }).finally(() => { samplingActive = false; });
   };
-  sample();
-  const sampler = setInterval(sample, 1000); sampler.unref();
-  let timer;
-  const stop = () => {
-    kill('SIGTERM');
-    timer ??= setTimeout(() => kill('SIGKILL'), terminateDelay);
-    timer.unref();
-  };
-  signal?.addEventListener('abort', stop, { once: true });
-  child.once('exit', stop); // Clean descendants even when the command exits normally.
-  let text = '';
-  const collect = chunk => { text += chunk.toString(); };
-  child.stdout.on('data', collect); child.stderr.on('data', collect);
-  let result;
+  sample(); sampler = setInterval(sample, 1000); sampler.unref();
   try {
-    result = await new Promise((done, reject) => {
-      child.once('error', reject);
-      child.once('close', (code, childSignal) => done({ code, signal: childSignal }));
-    });
-  } finally {
-    clearInterval(sampler);
-    clearTimeout(timer); signal?.removeEventListener('abort', stop);
+    await completion;
     kill('SIGKILL');
-    try { await sampling; sample(); await sampling; } finally { ownedGroups.delete(child.pid); }
-    await Promise.all([writeFile(log, text), writeFile(`${log}.resources.json`, JSON.stringify({ durationMs: performance.now() - started, processGroup: child.pid, samples }, null, 2))]);
+    const until = performance.now() + terminateDelay;
+    do {
+      settled = gone();
+      if (settled) break;
+      await new Promise(done => setTimeout(done, 25));
+    } while (performance.now() < until);
+  } finally {
+    clearInterval(sampler); clearTimeout(timer); clearTimeout(deadline);
+    signal?.removeEventListener('abort', stop);
+    child.removeListener('exit', stop);
+    if (!closed) { child.stdout.destroy(); child.stderr.destroy(); child.unref(); }
+    await sampling; sample(); await sampling;
+    if (settled) ownedGroups.delete(child.pid);
+    try { await Promise.all([writeFile(log, text), writeFile(`${log}.resources.json`, JSON.stringify({
+      durationMs: performance.now() - started, processGroup: child.pid, samples,
+      result, commandError: commandError?.message, signalErrors, settled,
+    }, null, 2))]); }
+    catch (error) { error.ownedCommandUnsettled = !settled; throw error; }
   }
-  if (result.code !== 0 || signal?.aborted) throw new Error(`${executable} ${args.join(' ')} failed (${result.code}/${result.signal}); see ${log}`);
+  if (commandError || signalErrors.length || !settled || result?.code !== 0 || signal?.aborted) {
+    const error = new Error(`${executable} ${args.join(' ')} failed (${result?.code}/${result?.signal}); group ${settled ? 'settled' : 'unsettled'}; ${signalErrors.map(item => `${item.signal}:${item.code}`).join(', ')}; see ${log}`);
+    error.ownedCommandUnsettled = !settled;
+    throw error;
+  }
 }
 
 // Resource samples are evidence, not an admission policy: the coordinator chooses the cap.
@@ -314,9 +351,12 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
     const start = performance.now();
     if (controller.signal.aborted) throw new Error('Snapshot interrupted before command admission');
     try { await command({ cwd: worktree, env, executable: 'pnpm', args, log, signal: controller.signal }); }
+    catch (error) { if (error.ownedCommandUnsettled) { unsettled = true; controller.abort(); } throw error; }
     finally { evidence.commands.push({ args: ['pnpm', ...args], durationMs: performance.now() - start, log }); }
   };
   let failed = false;
+  let unsettled = false;
+  const cleanup = async lease => { if (!unsettled) await releaseLease(lease); };
   try {
     await assertQueueDrained(queueFile, queueOwner);
     await mkdir(parent, { recursive: true });
@@ -354,12 +394,12 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
     assertBudget(evidence.resourcesBefore, budget);
     const heavy = await acquireLease(fixture.heavyPath ?? HEAVY_LOCK, owner);
     try { await execute(['exec', 'storybook', 'build', '--output-dir', build], join(run, 'build.log')); }
-    finally { await releaseLease(heavy); }
+    finally { await cleanup(heavy); }
     evidence.buildDigest = await digestTree(build, true);
     await checkSource();
     const light = await acquireSlot(fixture.lightRoot ?? LIGHT_ROOT, owner, 4);
     try { await execute(['exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], join(run, 'types.log')); }
-    finally { await releaseLease(light); }
+    finally { await cleanup(light); }
     await checkSource();
     for (let offset = 0; offset < shards.length && !controller.signal.aborted; offset += max) {
       await assertQueueDrained(queueFile, queueOwner); await checkSource();
@@ -396,10 +436,10 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
         }));
         if (outcomes.some(result => result.status === 'rejected')) failed = true;
       } finally {
-        const cleanup = await Promise.allSettled(leases.map(async lease => {
-          try { if (lease.portLease) await releaseLease(lease.portLease); } finally { await releaseLease(lease.slot); }
+        const cleanupResults = await Promise.allSettled(leases.map(async lease => {
+          try { if (lease.portLease) await cleanup(lease.portLease); } finally { await cleanup(lease.slot); }
         }));
-        if (cleanup.some(result => result.status === 'rejected')) throw new Error('Owner-only lease cleanup failed; foreign leases retained');
+        if (cleanupResults.some(result => result.status === 'rejected')) throw new Error('Owner-only lease cleanup failed; foreign leases retained');
       }
       await checkSource();
     }
@@ -425,6 +465,7 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
           if (evidence.resourceError) throw new Error(evidence.resourceError);
         } catch (error) { evidence.status = 'failed'; evidence.integrityError = error.message; }
         evidence.resourcesAfter = await sampleResources();
+        evidence.cleanup = unsettled ? 'leases retained: owned command unsettled' : 'owned commands settled';
         evidence.finishedAt = new Date().toISOString();
         evidence.durationMs = Date.parse(evidence.finishedAt) - Date.parse(evidence.startedAt);
         const browserTimes = evidence.sessions.flatMap(item => item.finishedAt ? [Date.parse(item.startedAt), Date.parse(item.finishedAt)] : []);
@@ -436,7 +477,7 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
       }
     } finally {
       process.off('SIGINT', onSignal); process.off('SIGTERM', onSignal);
-      await releaseLease(bridge);
+      await cleanup(bridge);
     }
     if (evidence?.status === 'failed') throw new Error(`Snapshot failed; see ${join(run, 'evidence.json')}`);
   }
@@ -482,7 +523,12 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
   let failed = false;
   const onSignal = () => { aborted = true; controller.abort(); };
   process.on('SIGINT', onSignal); process.on('SIGTERM', onSignal);
-  const command = (cwd, env, executable, args, log) => (fixture.command ?? runOwnedCommand)({ cwd, env, executable, args, log, signal: controller.signal });
+  let unsettled = false;
+  const cleanup = async lease => { if (!unsettled) await releaseLease(lease); };
+  const command = async (cwd, env, executable, args, log) => {
+    try { await (fixture.command ?? runOwnedCommand)({ cwd, env, executable, args, log, signal: controller.signal }); }
+    catch (error) { if (error.ownedCommandUnsettled) { unsettled = true; aborted = true; controller.abort(); } throw error; }
+  };
   // Defaults remain serialized builds; explicit buildMax expands only distinct source jobs.
   const admitBuild = createAdmission(buildMax);
   const admitLight = createAdmission(4);
@@ -526,7 +572,7 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
       try {
         light = await acquireSlot(fixture.lightRoot ?? LIGHT_ROOT, `${owner}:${token}`, 4);
         await command(job.worktree, env, 'pnpm', ['exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], join(run, 'types.log'));
-      } finally { try { if (light) await releaseLease(light); } finally { finishLight(); } }
+      } finally { try { if (light) await cleanup(light); } finally { finishLight(); } }
       stage.arrive(job.worktree);
       await stage.ready;
       evidence.browserStartedAt = new Date().toISOString();
@@ -550,11 +596,12 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
             evidence.finalStatus = git(job.worktree, 'status', '--porcelain');
             if (evidence.finalHead !== job.head || evidence.finalStatus) { evidence.status = 'failed'; evidence.sourceError = 'Source changed during validation'; failed = true; }
           } catch (error) { evidence.status = 'failed'; evidence.finalizationError = error.message; failed = true; }
+          evidence.cleanup = unsettled ? 'leases retained: owned command unsettled' : 'owned commands settled';
           evidence.finishedAt = new Date().toISOString();
           await writeFile(join(run, 'evidence.json'), JSON.stringify(evidence, null, 2));
           console.log(`${evidence.status}: ${join(run, 'evidence.json')}`);
         }
-      } finally { try { if (portLease) await releaseLease(portLease); } finally { await releaseLease(slot); } }
+      } finally { try { if (portLease) await cleanup(portLease); } finally { await cleanup(slot); } }
     }
   }
   try {
@@ -568,13 +615,13 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
         outcomes = await Promise.allSettled(wave.map(async job => {
           try { await runJob(job, stage); } finally { stage.arrive(job.worktree); }
         }));
-      } finally { await releaseLease(heavy); }
+      } finally { await cleanup(heavy); }
       if (outcomes.some(result => result.status === 'rejected')) failed = true;
     }
     if (failed || aborted) throw new Error('Pool validation incomplete; inspect per-job evidence');
   } finally {
     process.off('SIGINT', onSignal); process.off('SIGTERM', onSignal);
-    await releaseLease(bridge);
+    await cleanup(bridge);
   }
 }
 

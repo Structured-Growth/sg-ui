@@ -414,3 +414,120 @@ test('symlinked slot roots and owner files cannot redirect allocation or foreign
   await assert.rejects(releaseLease(lease), /refusing cleanup/);
   assert.equal(await readFile(join(foreign, 'owner'), 'utf8'), 'own');
 });
+
+// Signal failures must reach promises/evidence, never escape event or timer callbacks.
+test('exit, timeout and final cleanup signal errors remain controlled failures', async t => {
+  const root = await fixture(t);
+  for (const phase of ['exit', 'timeout', 'cleanup']) {
+    const log = join(root, `${phase}.log`); let terms = 0, kills = 0;
+    const denied = Object.assign(new Error('fixture denied'), { code: 'EPERM' });
+    const controller = new AbortController();
+    const request = { executable: process.execPath, args: ['-e', phase === 'timeout'
+      ? 'process.on("SIGTERM",()=>{}); setInterval(()=>{},1000)'
+      : 'console.log("leader done")'], log, signal: controller.signal, terminateDelay: 80 };
+    const command = runOwnedCommand(request, { kill(pid, kind) {
+      assert.ok(pid < 0);
+      if (kind === 'SIGTERM' && ++terms === 1 && phase === 'exit') throw denied;
+      if (kind === 'SIGKILL' && ++kills === 1 && phase !== 'exit') {
+        // Deny this operation after an independent owned cleanup so the fixture
+        // can prove that a signal error stays red even after verified settlement.
+        try { process.kill(pid, 'SIGKILL'); } catch (error) { if (error.code !== 'ESRCH') throw error; }
+        throw denied;
+      }
+      return process.kill(pid, kind);
+    } });
+    const timer = phase === 'timeout' ? setTimeout(() => controller.abort(), 400) : undefined;
+    try { await assert.rejects(command, /EPERM/); } finally { clearTimeout(timer); }
+    const evidence = JSON.parse(await readFile(`${log}.resources.json`, 'utf8'));
+    assert.equal(evidence.settled, true); assert.ok(evidence.signalErrors.some(item => item.code === 'EPERM'));
+  }
+});
+
+test('normal leader exit still kills and settles an owned descendant', async t => {
+  const root = await fixture(t); const log = join(root, 'descendant.log');
+  const script = 'const {spawn}=require("node:child_process"); const c=spawn(process.execPath,["-e","setInterval(()=>{},1000)"],{stdio:"inherit"}); console.log(c.pid); setTimeout(()=>process.exit(0),100);';
+  await runOwnedCommand({ executable: process.execPath, args: ['-e', script], log, terminateDelay: 100 });
+  const evidence = JSON.parse(await readFile(`${log}.resources.json`, 'utf8'));
+  assert.equal(evidence.settled, true);
+  assert.throws(() => process.kill(-evidence.processGroup, 0), { code: 'ESRCH' });
+});
+
+test('unsettled permission failure retains snapshot claims and failed evidence without foreign cleanup', async t => {
+  const { plan, runtime, worktree, root } = await snapshotFixture(t, 1);
+  const foreign = await acquireSlot(runtime.poolRoot, 'foreign', 2);
+  const other = spawn(process.execPath, ['-e', 'setInterval(()=>{},1000)']);
+  const otherClosed = new Promise(done => other.once('close', done));
+  let group;
+  t.after(async () => { other.kill(); await otherClosed; });
+  runtime.command = async request => {
+    const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), 200);
+    try {
+      await runOwnedCommand({ ...request, executable: process.execPath, args: ['-e', 'setInterval(()=>{},1000)'],
+        signal: controller.signal, terminateDelay: 50 }, { kill(pid, kind) {
+        group = -pid;
+        throw Object.assign(new Error('fixture denied live group'), { code: 'EPERM' });
+      } });
+    } finally { clearTimeout(timer); }
+  };
+  try {
+    await assert.rejects(runFrozenSnapshot(plan, {}, runtime), /Snapshot/);
+    assert.doesNotThrow(() => process.kill(-group, 0));
+    const [run] = await readdir(join(worktree, 'artifacts/browser-pool'));
+    const evidence = JSON.parse(await readFile(join(worktree, 'artifacts/browser-pool', run, 'evidence.json'), 'utf8'));
+    assert.equal(evidence.status, 'failed'); assert.match(evidence.error, /unsettled.*EPERM/);
+    assert.match(evidence.cleanup, /leases retained/);
+    assert.equal(await readFile(join(runtime.bridgePath, 'owner'), 'utf8'), evidence.owner);
+    assert.equal(await readFile(join(runtime.heavyPath, 'owner'), 'utf8'), evidence.owner);
+    assert.equal(await readFile(join(foreign.path, 'owner'), 'utf8'), 'foreign');
+    assert.doesNotThrow(() => process.kill(other.pid, 0));
+  } finally {
+    if (group) process.kill(-group, 'SIGKILL');
+    // Fixture cleanup uses exact retained owner tokens only after real settlement.
+    if (group) {
+      for (let i = 0; i < 100; i++) {
+        try { process.kill(-group, 0); } catch (error) { if (error.code === 'ESRCH') break; throw error; }
+        await new Promise(done => setTimeout(done, 10));
+      }
+      assert.throws(() => process.kill(-group, 0), { code: 'ESRCH' });
+    }
+    for (const path of [runtime.heavyPath, runtime.bridgePath]) {
+      await releaseLease({ path, owner: await readFile(join(path, 'owner'), 'utf8') });
+    }
+    await releaseLease(foreign);
+  }
+});
+
+test('SIGINT and SIGTERM supervisor handlers bound owned command cancellation', async t => {
+  const root = await fixture(t);
+  for (const kind of ['SIGINT', 'SIGTERM']) {
+    const log = join(root, `${kind}.log`);
+    const script = `import {runOwnedCommand} from ${JSON.stringify(moduleURL)};
+      const c=new AbortController(); process.on('SIGINT',()=>c.abort()); process.on('SIGTERM',()=>c.abort());
+      console.log('ready'); try { await runOwnedCommand({executable:process.execPath,args:['-e','process.on("SIGTERM",()=>{}); setInterval(()=>{},1000)'],log:process.argv[1],signal:c.signal,terminateDelay:80}); }
+      catch(error) { console.error(error.message); process.exitCode=1; }`;
+    const child = spawn(process.execPath, ['--input-type=module', '-e', script, log]);
+    let stderr = ''; child.stderr.on('data', chunk => { stderr += chunk; });
+    const closed = new Promise(done => child.once('close', code => done(code)));
+    await new Promise(done => child.stdout.once('data', done));
+    await new Promise(done => setTimeout(done, 200)); child.kill(kind);
+    const bound = setTimeout(() => child.kill('SIGKILL'), 5000);
+    try { assert.equal(await closed, 1); } finally { clearTimeout(bound); }
+    assert.match(stderr, /failed/);
+    assert.equal(JSON.parse(await readFile(`${log}.resources.json`, 'utf8')).settled, true);
+  }
+});
+
+
+test('legacy pool retains all admitted leases when command settlement is unknown', async t => {
+  const { plan, runtime, worktree } = await snapshotFixture(t, 1);
+  runtime.command = async () => { throw Object.assign(new Error('fixture unsettled'), { ownedCommandUnsettled: true }); };
+  await assert.rejects(runPool([{ worktree, head: plan.head, args: [] }], {}, runtime), /incomplete/);
+  const [run] = await readdir(join(worktree, 'artifacts/browser-pool'));
+  const evidence = JSON.parse(await readFile(join(worktree, 'artifacts/browser-pool', run, 'evidence.json'), 'utf8'));
+  assert.equal(evidence.status, 'failed'); assert.match(evidence.cleanup, /retained/);
+  assert.equal(await readFile(join(runtime.bridgePath, 'owner'), 'utf8'), evidence.owner);
+  assert.equal(await readFile(join(runtime.heavyPath, 'owner'), 'utf8'), evidence.owner);
+  const [slot] = (await readdir(runtime.poolRoot)).filter(name => name.startsWith('slot-'));
+  assert.equal(await readFile(join(runtime.poolRoot, slot, 'owner'), 'utf8'), `${evidence.owner}:${evidence.token}`);
+  assert.equal(await readFile(join(runtime.poolRoot, 'ports', String(evidence.port), 'owner'), 'utf8'), `${evidence.owner}:${evidence.token}`);
+});
