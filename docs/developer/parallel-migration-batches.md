@@ -328,3 +328,17 @@ All42 creation calls succeeded and were checked with compact snapshots. Avatar m
 ## Parallel review throughput
 
 Three batch13 reviewer reports independently assessed exact heads and exclusive scopes. Coordinator reviewed their detailed findings/source identity/whitespace and conflict-free integrated PR25/34/35/36/37/38/39/40/41 plus reviewer PR45/46/49, retaining full history. Retry has targeted72-related/8Chromium-WebKit evidence; other accepted slices are tests/docs without runtime changes. No redundant full run. Client page-shrink and API/ref decisions remain open; no broad checklist upgrades. Evidence-only PR43/44/47/48 pending coordinator review. Avatar returned direct read-only report after managed registration failure; no edits or PR. Cap50 remains for genuinely unfinished successors, resource limits unchanged.
+
+## 14:12 UTC coordination — targeted fixes and batch14
+
+Reviewed/integrated PR30 AuthShell gutters/focus (6 units/10native), PR31 frame reflow (10 related/10native), PR57 safe pagination choices (21 targeted), PR65 finite progress fallback (8 targeted). Exact allowlists/source/stories/reports and whitespace reviewed; conflict-free full-history merges pushed. Native engine limitations remain explicit; no routine fullcheck. Browser pool PR77 priority follows page-header; process tests passed, actual two-session proof and coordinator rollout review still required. No pool rollout yet.
+
+| Task | Chat | Exclusive ownership |
+| --- | --- | --- |
+| review-evidence (W-19/X-01) | `01a116b7-82e9-7852-a34c-4d796307f617` | docs/developer/parallel-batch-14/review-evidence.md |
+| review-runtime (X-01/H-16/U-13) | `01a116b7-86eb-72d2-b0d8-f437f4ca7695` | docs/developer/parallel-batch-14/review-runtime.md |
+| client-page-shrink (G-05/H-16) | `01a116b7-8ab5-7062-85e9-88f5d78abd3c` | src/components/AppDataGrid/ownedGridModel.ts; src/components/AppDataGrid/ownedGridModel.test.ts; src/components/AppDataGrid/AppDataGrid.tsx; src/components/AppDataGrid/AppDataGrid.test.tsx; src/components/AppDataGrid/AppDataGrid.stories.tsx; src/components/AppDataGridShell/; tests/browser/batch14-client-page-shrink.spec.ts; docs/developer/parallel-batch-14/client-page-shrink.md |
+| async-native-busy (H-06/X-03) | `01a116b7-8f4c-7ff1-9f6d-f5b895295abe` | src/experimental/AsyncMultiSelect/; tests/browser/batch14-async-busy.spec.ts; docs/developer/parallel-batch-14/async-native-busy.md |
+| api-guide-corrections (W-13/W-19/Z-13) | `01a116b7-9325-7901-b81b-65596d8a53f1` | docs/developer/react-aria-primitives.md; docs/developer/react-aria-layout-actions.md; docs/developer/parallel-batch-14/api-guide-corrections.md |
+
+New baseline f1e5e457ce6240022ca07d6336ea06c5b67c917c. Runtime/evidence review slots accelerate current completed PRs; proven client shrink/async busy and source-guide corrections are dependency-ready. 26active worker chats; cap50. Acceptance 67/326 (20.6%), required67/320(20.9%), delta0;31inventory rows held. ETA not reliable. Required native scopes remain reserved until actual runs.
