@@ -475,3 +475,17 @@ Reviewed/integrated PR75 exact5-file scope,10unitreported/4coordinator nativepas
 - Eighteenthsnapshotf78a8d57 FAILEDbeforebrowser:Rollupunresolvedreact-aria/useDateField, integrationnode_modulesnotrefreshedafterdirecthookdeps2b9ca35. Exacthead2a348bb cleanunchanged/nointegritybudgetissue. Environmentsetupclassification; frozenlockinstallcorrectivestatechange required beforeboundedretry. No component/capacityfailclaim.
 - Environmentcorrection: Node24frozenlockinstall root PASS/lockunchanged directreact-aria3.52.1/react-stately3.50.0linksadded; bothpublichookmodulepathsresolved. Sameclean2a348bb foursharedsnapshottrial retriedonce afteractualstatechange; failedf78evidencepreserved.
 - FourconcurrentChromiumsharedsnapshot3e32645e PASS7cases exactclean2a348bb/digestffa3359beforeafter;ONEfreshStorybook30.295s/ONEtypes0.878s;total35.695s/browserwindow3.058s. Swapused3810.94MiBunchanged. Firstactual4session/buildreuseverified, nofullmatrixor30capacityclaim; boundednext4differentworkerheads/buildMax2trial for15focusedcases authorized.
+
+## Reviewed nineteenth native wave and inventory reconciliation — 2026-10-07
+
+Integrated complete reviewed histories for logout lifetime (PR79, 4 Chromium passes), client page shrink and scroll-preserving entry (PR87, 3 passes), and native async busy state (PR86, 1 pass). Exact passed heads, immutable hashes, previous failures and classifications remain in the task reports. Final worker commits only add reports after the tested sources. Firefox/WebKit stay pending the batch checkpoint; no whole task/manual/device/AT gate closes.
+
+- logout-lifetime: `9f09d7ef0d828459337971b4cfa543e62878aba0` (PR79).
+- client-page-shrink: `bed303152f49363727d51914a84539f1e31d1726` (PR87).
+- async-native-busy: `088ce2a89bb384c1ff1424ad15c6d1e012843515` (PR86).
+- inventory-acceptance-02-12: `73bf9f9457766776a76d28ced2a81b440a46bf6f`.
+- inventory-acceptance-13-24: `257d90e114c63c3027698bd80b44385892447ecb`.
+- inventory-acceptance-25-37: `b240a7185aa5e5531218b9b879313d20568ef8f4`.
+- primitive-switch-ref: `91f280a8fc7969e41c27d2b80a8ec28bfe2f8585`.
+
+The three inventory reports retain 31 unresolved inventory rows and six prior accepted rows. Their proposed missing native scopes are successor candidates, not completed assignments. Switch guide now accurately describes HTMLLabelElement and its associated control. TimeField corrected driver head 127b3be remains queued for seven fresh Chromium cases; original 4 driver failures/3 existing passes are preserved.
