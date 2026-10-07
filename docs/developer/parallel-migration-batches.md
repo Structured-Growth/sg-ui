@@ -356,3 +356,9 @@ Next native pair selected: control-disclosure PR64 and control-button PR71. Full
 Second pool completed: Disclosure 2 Chromium/WebKit passes at c5e5bdc; Button 2 failures at d6e7707 (duplicate host reset press on Space). Fresh builds/types and unchanged hashes/heads verified. Both source freezes released; Button correction required, no integration/native acceptance for failed fix.
 
 Reviewed PR91 exact seven-file ownership, additive translated error status/token mapping, composed tests and fresh immutable coordinator native evidence: 7 units and10 Chromium/WebKit cases. Final commit25eec14 only updates report after tested27c68b2. Conflict-free full-history merge into codex/dev; no redundant full run. Catalog PR33 reports80 native passes and awaits review. Next pair Switch/RadioGroup bootstrap authorized, frozen heads awaited. Broad acceptance67/32620.6%, required67/32020.9%, delta0;31inventory rows held/unscored.
+
+## 14:35 UTC coordination — disclosure integration and correction queue
+
+Third pool: Switch0 passed/2 disabled-label actionability timeouts at4c9e719; RadioGroup5 passed/1 WebKit disabled-selection focus failure ate78dab9. Fresh builds/types passed, immutable hashes/heads verified; failed workers released for bounded corrections and scopes retained. Batch16 independent reviewer chat01a116cc-99d3-7cb1-bed1-199c57a704fc dispatched for PR42/67/63/72 with unique report-only ownership.
+
+Reviewed PR64 source ownership/focus guard,7 unit/SSR tests and2 exact-head coordinator Chromium/WebKit native passes; final headbcbcde3 report-only after testedc5e5bdc. Conflict-free full-history integration; native partial gates remain open. Next pool pair selects clean corrected grid-sort1ff1ba6 and Button0c6fc76, requiring fresh builds and focused native reruns.
