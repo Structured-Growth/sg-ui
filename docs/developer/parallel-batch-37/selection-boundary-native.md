@@ -73,7 +73,7 @@ Coordinator args:
 ["tests/browser/inventory-selection-boundary.spec.ts", "--project=chromium"]
 ```
 
-Chromium: **pending fresh immutable pool validation**. Firefox/WebKit: **pending
+Chromium: **initial fresh immutable run RED; corrected head pending**. Firefox/WebKit: **pending
 coordinated checkpoint**. No heavy build/browser server or suite was started by
 this worker; no full per-task check/Storybook, CI/title dispatch, main integration,
 publication, credentials/permissions or master-checkbox changes occurred.
@@ -83,3 +83,43 @@ only after actual execution. Fixed-position host restrictions, host document/
 selection ownership, manual physical selection/device and spoken AT review,
 and broader U/X/R/Z acceptance remain unchanged/open. Any fix outside the assigned
 source requires a separately reserved successor; no outside write is authorized.
+
+## Wave21 red evidence and bounded driver correction
+
+Coordinator tested exact clean head `9a034ce867ca9497ff003f25127dc3590d8964b3`
+under Node `v24.19.0`, Chromium, port 6305. Outcome: **3 passed / 1 failed**,
+zero skipped/flaky. Initial/final source head/status and static build hash were
+unchanged. Original evidence/artifacts remain intact:
+`artifacts/browser-pool/801a4abb-6107-4138-b9fb-28c12794262d/evidence.json`,
+adjacent `results.json`, `browser.log` and failed offscreen case `trace.zip`.
+Build digest: `803ac6e82e9b9f3694f38892c36b0c98d6ab55cc61e30f38fdf143f37f978c6a`.
+
+The nested scroll/collision, focused resize/formatting and document replacement
+cases passed. The offscreen case passed hidden-toolbar, editor-focus and exact
+300px host-scroll assertions, then failed `selectFirstLine` on its second drag
+(expected complete selected line, received empty native selection). It did not
+fail the offscreen hide/editor return assertions.
+
+Inspected browser log, error snapshot and trace calls/screencast. Trace frame
+at 3699.624ms (`...1791390892079.jpeg`) shows the original first-line selection
+still highlighted after native editor focus return and scrolling back. The second
+drag began at exactly the same selected-text start coordinates (62,299);
+subsequent frames show a caret/empty selection. The overlay's offscreen branch
+focuses the editor with `preventScroll` and saves dismissal; it does not clear
+the native range or own host selection. Retrying a drag inside already selected
+editable text is not a reliable fresh-selection driver (native selected-text
+drag behavior). No shared editor or toolbar product defect is established.
+
+Bounded **test-driver correction**, with native rerun still required: assert the
+retained full native selection after scrolling back, press native ArrowLeft,
+assert collapsed selection, editor focus and continued hidden toolbar, then
+perform the existing native mouse selection and geometry assertions. This adds
+observability and a real fresh-caret user interaction; it removes no assertion,
+injects no range/focus/host state repair and changes no runtime/story behavior.
+The exact initiating native event is not recorded in the original trace; this
+driver classification is supported by retained-selection/caret frames, not a
+claim that a recorded dragstart event proves it. The corrected run must validate
+the added retained-selection/collapse/reselection assertions before acceptance.
+
+Correction checks: browser source typecheck and `git diff --check` passed.
+No new browser/build or redundant unit run; runtime and story are unchanged.

@@ -79,6 +79,14 @@ test('offscreen selection hides actions and returns focused toolbar to editor wi
   await expect.poll(() => page.getByTestId('selection-boundary').evaluate(node => node.scrollTop)).toBe(300);
   await page.getByTestId('selection-boundary').evaluate(node => { node.scrollTop = 0; });
   await expect(toolbar(page)).toBeHidden();
+  // Offscreen dismissal returns focus, retaining the native selected text. A
+  // second drag beginning inside that selection can drag text rather than select.
+  // Start a fresh selection with a real caret gesture, not a DOM range repair.
+  await expect.poll(() => page.evaluate(() => window.getSelection()?.toString())).toBe('Document 1 selected line.');
+  await page.keyboard.press('ArrowLeft');
+  await expect.poll(() => page.evaluate(() => window.getSelection()?.isCollapsed)).toBe(true);
+  await expect(editor(page)).toBeFocused();
+  await expect(toolbar(page)).toBeHidden();
   await selectFirstLine(page);
   await expectAnchored(page);
 });
