@@ -78,6 +78,10 @@ for (const path of ['src/components/icons/index.ts', 'src/components/primitives/
 for (const file of await readdir('src/icons')) if (file.endsWith('.tsx')) await auditDependencies(resolve(`src/icons/${file}`));
 await visit('src/icons');
 await visit('src/primitives');
+await visit('src/theme');
+await auditDependencies(resolve('src/theme/index.ts'));
+await auditDependencies(resolve('src/index.ts'));
+for (const name of ['AdminDataGridOptions', 'InstructorDataGridOptions']) await auditDependencies(resolve(`src/components/${name}.ts`));
 // M-16 is split into implementation batches. Audit the owned processing/model
 // files now without claiming that the surrounding legacy catalog has migrated.
 await visit('src/components/AppDataGrid', name => name.startsWith('ownedGrid'));

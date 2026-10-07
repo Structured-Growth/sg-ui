@@ -101,8 +101,7 @@ retained for compatibility; broader renaming requires a separate migration.
 ## Adaptations and limits
 
 - Root imports and subpath entry points work without Next.js or the source
-  platform. SGUI keeps MUI as its foundation; this extraction does not replace
-  MUI's rendering implementation.
+  platform. The subsequent React Aria migration replaces the extracted renderer with owned contracts and compiled styles.
 - Links use the host navigation adapter; replace behavior is preserved. Provide
   pathname when using SideNavigation so selected/expanded menus track your router.
 - SideNavigation reads accounts through host-provided functions. Logout actions
@@ -111,14 +110,12 @@ retained for compatibility; broader renaming requires a separate migration.
 - Translation keys/default messages are retained, with an English fallback and
   host translation integration. Application translation catalogs and database
   overrides are not part of the library.
-- AppThemeProvider preserves the original light theme. Applications can use MUI
-  ThemeProvider with the exported darkTheme or a derived theme.
+- AppThemeProvider now aliases the owned Provider. Use theme="light|dark|system", density and CSS token overrides; old theme objects and typography augmentation are removed. See [theme mappings](developer/react-aria-theme.md).
 - Production type checking corrected false selection handling, optional
   navigation child arrays, and React drag events' native composedPath access.
 - Storybook uses representative navigation fixtures rather than app routes.
   The source global CSS and app-owned font loading are not imposed on consumers.
-- MUI X community behavior is retained. Licensed Pro-only grid capabilities
-  are not added by this migration.
+- The owned grid preserves the required catalog capability contract. True pinning and other deferred spreadsheet capabilities are not added by this migration.
 
 ## Adopt SGUI in the learner platform
 
@@ -190,4 +187,4 @@ with whole-directory source/transitive/declaration boundaries. See
 [icon mappings](developer/react-aria-icons.md) and
 [primitive mappings](developer/react-aria-primitives.md) for preserved names,
 owned props and deliberate breaking removals. Import `/styles.css` and provide
-Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.
+Provider or ThemeScope. The public theme is now owned; broad acceptance remains open.

@@ -51,7 +51,7 @@ owned scope, including for editor dialogs.
 - `src/components/<Component>`: component implementation, index, stories and tests.
 - `src/components/primitives` and `src/components/icons`: owned public primitive/icon
   mappings, also exposed through `src/primitives` and `src/icons` entry points.
-- `src/theme`: shared MUI tokens, light/dark themes, provider and type augmentation.
+- `src/theme`: public owned scopes; `src/foundation` owns generated tokens.
 - `src/hooks`: reusable state/pagination behavior.
 - `src/adapters`: host routing and account integration.
 - `src/i18n`: translation adapter and English fallback formatting.
@@ -71,17 +71,14 @@ outside the SGUI package to make an import work.
 
 Colocate `*.stories.tsx` and behavior tests with each component. Use representative
 fixtures and adapters in stories so the catalog runs without the learner platform.
-The unmigrated catalog uses `src/theme`; migrated components use foundation tokens
-and CSS Modules. Storybook supplies the production owned Provider alongside the
-legacy provider during the transition, so mixed compositions receive the scoped
-tokens too. Do not create a separate set of story-only tokens.
+The catalog uses foundation tokens and CSS Modules. Storybook supplies the public production Provider with theme, density, locale and direction globals. Do not create a separate set of story-only tokens.
 
-Use existing SGUI primitives and components for composed views. Base wrappers and
-themes can import MUI directly. Keep application-specific routing, persistence,
+Use existing SGUI primitives and components for composed views. Owned wrappers and
+themes must preserve the foundation interaction/presentation boundaries. Keep application-specific routing, persistence,
 authentication and supported-language policy in the consuming application.
 
 Guard browser globals for server rendering and preserve client boundaries. Keep
-module augmentation reachable from published declaration entry points. Verify
+owned declarations reachable from published entry points. Verify
 public imports with the package consumer checks after changing exports or types.
 
 ## Adopting the extracted library
@@ -129,3 +126,5 @@ with whole-directory source/transitive/declaration boundaries. See
 [primitive mappings](react-aria-primitives.md) for preserved names,
 owned props and deliberate breaking removals. Import `/styles.css` and provide
 Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.
+
+The [public theme mapping](react-aria-theme.md) records removed theme objects and preserved AppThemeProvider.

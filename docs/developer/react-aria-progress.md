@@ -3,7 +3,7 @@
 Started: 2026-10-05. Owner: Codex, local implementation for maintainer review.
 Baseline commit: `21adebd61bedfc6a1ed395fe664ff4be83896821` on `main`.
 No release tags were present and the working tree was clean before implementation.
-No implementation commit, draft PR, merge or publication has been made yet.
+At baseline no implementation commit, draft PR, merge or publication had been made. Subsequent batches are on draft PR #1; nothing is merged or published.
 
 ## First implementation milestone
 
@@ -1231,3 +1231,47 @@ M-16–M-19 implementations remain subject to their grid acceptance gates. Legac
 hooks, selective client boundaries and broad browser/accessibility/performance/
 release acceptance remain open. Next work continues these code and acceptance
 requirements; representative proofs do not close the complete matrix.
+
+## Public theme, dependency removal and M-39 presets
+
+Implemented the public `/theme` mapping and W-09 production Storybook globals on
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1). `AppThemeProvider`
+is the owned Provider under its preserved name; root and `/theme` expose Provider,
+ThemeScope and owned props. Provider forwards a native div ref for React 18.3/19,
+bridges host locale, and allows an explicit visual direction override. Removed
+old theme objects, typography augmentation and the last retired source imports.
+See [theme mappings](react-aria-theme.md). Storybook uses production tokens/scopes
+with theme, density, locale and direction controls; its host canvas supplies the
+production surface token after removal of the global baseline.
+
+Z-01 dependency removal is complete: manifests and regenerated lockfile have no
+retired direct/runtime/peer/dev/optional/transitive foundation packages. Installation
+removed 44 packages without unrelated resolution upgrades. Source root-barrel
+transitive audits and public theme declarations are included in the guards.
+Historical documentation, snapshot references and notices remain for their explicit
+Z-02–Z-06/Z-08 audit; the commercial license and notices are preserved in this batch.
+No broad final-removal acceptance is inferred from dependency removal.
+
+M-39 now exposes Course-named translated admin/instructor factories with canonical
+immutable presentation statuses, first/action column locks and fresh empty
+sort/filter defaults. Existing Class-named exports/identifiers remain; each factory
+has isolated arrays and English fallbacks. Ten tests and two controlled toolbar
+stories cover translations, canonical enum options, instance isolation and hiding/
+resetting unlocked columns. See [preset contracts](react-aria-grid-presets.md).
+
+Final validation: `pnpm check` passed 135 files/829 tests, four foundation and four
+release tests, production/story typing, ESM/declarations, all entry imports and
+consumer types. `pnpm build-storybook` passed with existing directive/sourcemap/
+chunk warnings. Fresh packed React 19.2.3 (`sgui-foundation-consumer-3k1RVD`) and
+React 18.3.1 (`sgui-foundation-consumer-a7bqej`) fixtures passed SSR/hydration-entry,
+Vite/CSS/no-retired-peer and unused-vector pruning checks using public `/theme`.
+The packed editor consumer also passes without retired peers.
+
+Native IAB checks verified live toolbar dark/compact/ar-EG auto RTL settings,
+portal language/direction/theme/density, modal focus, Escape source focus and an
+independent ltr visual override retaining ar-EG locale. The corrected dark canvas
+was visually inspected; screenshot `/tmp/sgui-owned-theme.png`. Storybook manager
+emits its upstream future mandatory PopoverProvider ariaLabel warning; no application
+errors were observed. Guidance links and diff whitespace passed. These representative
+checks do not close full browser/screen-reader/touch/zoom/performance/RSC acceptance.
+M-39, W-09 and Z-01 are newly checked; all other required gates keep their disposition.

@@ -1,6 +1,6 @@
 # Structured Growth UI (SGUI)
 
-A reusable React component library built on MUI, extracted from the learning
+A reusable React component library built on owned controls and React Aria, extracted from the learning
 platform. Includes light/dark themes, primitives and icons, page layouts,
 navigation, modals, cards, data grids, toolbars, pagination, and Lexical editors.
 The package is `@structured-growth/sg-ui`. Published versions are calculated
@@ -12,8 +12,7 @@ foundation. The [master task list](docs/developer/react-aria-master-task-list.md
 records the full migration scope, component inventory, sequencing, and acceptance
 checks. Implementation has begun with scoped tokens, compiled CSS Modules and
 experimental controls including button/field and nested dialog/form proofs. See the [execution record](docs/developer/react-aria-progress.md).
-Most catalog components and the peer installation instructions below still describe
-the extracted library. `AppInlineProgress`, `AppOperationSteps`, `EditableTitleField`
+`AppInlineProgress`, `AppOperationSteps`, `EditableTitleField`
 and the Typefaces catalog have migrated; their public prop names remain, but they
 now need the foundation stylesheet and visual scope. See the
 [owned control contracts](docs/developer/react-aria-remaining-controls.md) and
@@ -70,13 +69,13 @@ Releases are public on npm under the `@structured-growth` scope. Install SGUI
 and its peer dependencies after the first release:
 
 ```sh
-pnpm add @structured-growth/sg-ui react react-dom @mui/material@^7 @mui/icons-material@^7 @mui/x-data-grid@^8 @emotion/react @emotion/styled
+pnpm add @structured-growth/sg-ui react react-dom
 ```
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";
 import { AppButton } from "@structured-growth/sg-ui/components/AppButton";
-import { Provider } from "@structured-growth/sg-ui/experimental";
+import { Provider } from "@structured-growth/sg-ui/theme";
 
 export function Example() {
   return <Provider><AppButton>Save</AppButton></Provider>;
@@ -84,8 +83,7 @@ export function Example() {
 ```
 
 Public entry points: the package root, `/components`, `/theme`, `/hooks`,
-`/icons`, `/primitives`, `/adapters`, and `/i18n`. MUI/Emotion/React are peers so
-applications share one runtime. Lexical editor dependencies ship with SGUI.
+`/icons`, `/primitives`, `/adapters`, and `/i18n`. React and React DOM are the only peers. Lexical editor dependencies ship with SGUI.
 
 The theme references Geist, with system-font fallbacks; applications supply the
 font if desired. No application-global CSS or Tailwind requirement is imposed.
@@ -105,7 +103,7 @@ export function MigrationProof() {
 }
 ```
 
-These are proof contracts that may change during migration. Unmigrated catalog components retain their current APIs and peers. See the
+These are proof contracts that may change during migration. Public catalog components now use owned contracts. Broad acceptance remains open. See the
 [architecture and styling guide](docs/developer/react-aria-architecture.md).
 Run `pnpm test:foundation-consumer` to validate a packed Vite proof consumer.
 
@@ -114,7 +112,7 @@ resolving the unmigrated catalog:
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";
-import { Provider } from "@structured-growth/sg-ui/experimental";
+import { Provider } from "@structured-growth/sg-ui/theme";
 import { AppInlineProgress } from "@structured-growth/sg-ui/components/AppInlineProgress";
 
 export function CourseProgress() {
@@ -123,8 +121,7 @@ export function CourseProgress() {
 ```
 
 The other granular migrated paths are `/components/AppOperationSteps` and
-`/components/EditableTitleField`. The package's legacy peer requirements remain
-until the complete migration and removal audit finish. During the transition,
+`/components/EditableTitleField`. The retired foundation peer requirements have been removed. During the transition,
 wrap mixed compositions such as ContentEditorChrome in the foundation scope too.
 
 Routing uses native anchors by default. Supply `SGNavigationProvider` with
@@ -227,4 +224,8 @@ with whole-directory source/transitive/declaration boundaries. See
 [icon mappings](docs/developer/react-aria-icons.md) and
 [primitive mappings](docs/developer/react-aria-primitives.md) for preserved names,
 owned props and deliberate breaking removals. Import `/styles.css` and provide
-Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.
+Provider or ThemeScope. The public theme also uses owned scopes; broad acceptance remains open.
+
+See the [public theme migration](docs/developer/react-aria-theme.md) for scoped settings, token overrides and removed theme objects.
+
+[Grid preset factories](docs/developer/react-aria-grid-presets.md) supply host-translated labels, canonical statuses and default column locks.

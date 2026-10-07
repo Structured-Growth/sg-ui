@@ -1,4 +1,3 @@
-import "../theme/mui-typography";
 export { AppButton, type AppButtonProps } from "./AppButton";
 export { AppInlineProgress, type AppInlineProgressProps } from "./AppInlineProgress";
 export { AppOperationSteps, type AppOperationStep, type AppOperationStepStatus, type AppOperationStepsProps } from "./AppOperationSteps";
@@ -42,6 +41,9 @@ export {
 export * from "./icons";
 export * from "./primitives";
 export {
+  adminCourseStatuses,
+  createAdminCourseGridOptions,
+  createAdminPeopleGridOptions,
   adminClassesColumnOptions,
   adminClassesFilterFields,
   adminClassesSortOptions,
@@ -109,6 +111,10 @@ export { CardCollectionWithFooter, type CardCollectionWithFooterProps } from "./
 export { AppPaginationFooter, type AppPaginationFooterProps } from "./CardPaginationFooter";
 export { InstructorClassCard, type InstructorClassCardProps, type InstructorClassCardStatus } from "./InstructorClassCard";
 export {
+  instructorCourseStatuses,
+  instructorCourseLearnerStatuses,
+  createInstructorCourseGridOptions,
+  createInstructorCourseLearnersGridOptions,
   instructorClassLearnersColumnOptions,
   instructorClassLearnersFilterFields,
   instructorClassLearnersSortOptions,

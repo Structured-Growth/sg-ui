@@ -22,7 +22,7 @@ await writeFile(join(fixture, 'package.json'), JSON.stringify({
 await writeFile(join(fixture, 'index.html'), '<!doctype html><html lang="en"><meta charset="utf-8"><title>SGUI packed foundation proof</title><div id="root"></div><script type="module" src="/main.jsx"></script></html>');
 await writeFile(join(fixture, 'Proof.jsx'), `
 import React from 'react';
-import { Button, TextField, Provider, Dialog, Tabs, ComboBox, Popover, AsyncMultiSelect, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
+import { Button, TextField, Dialog, Tabs, ComboBox, Popover, AsyncMultiSelect, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
 import { ToggleButtonGroup, Tooltip, Disclosure, Navigation, NavigationItem, List, ListItem,
   TagGroup, Progress, Status, Avatar, Table, TableCaption, TableHead, TableBody, TableRow,
   TableCell, TableHeaderCell, Pagination } from '@structured-growth/sg-ui/experimental';
@@ -59,6 +59,7 @@ import { DataGridDragHandle } from '@structured-growth/sg-ui/components/AppDataG
 import { AppDataGridShell } from '@structured-growth/sg-ui/components/AppDataGridShell';
 import { LearnerClassesDataGrid } from '@structured-growth/sg-ui/components/LearnerClassesDataGrid';
 import { DataToolbar, DataToolbarSelectionMenu } from '@structured-growth/sg-ui/components/DataToolbar';
+import { Provider } from '@structured-growth/sg-ui/theme';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { AddIcon } from '@structured-growth/sg-ui/icons/AddIcon';
 import { CircularProgress, LinearProgress, Autocomplete as PublicAutocomplete, Typography as PublicTypography } from '@structured-growth/sg-ui/primitives';

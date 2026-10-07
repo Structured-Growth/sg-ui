@@ -28,14 +28,20 @@ for (const [name, entry] of Object.entries(pkg.exports)) {
   assert(Object.keys(exports).length > 0, `${name} has no exports`);
 }
 const ui = await import('../dist/index.js');
-for (const name of ['AppButton', 'AppDataGrid', 'AppModal', 'SideNavigation', 'PageRichTextEditorSection', 'lightTheme', 'darkTheme', 'SGNavigationProvider']) {
+for (const name of ['AppButton', 'AppDataGrid', 'AppModal', 'SideNavigation', 'PageRichTextEditorSection', 'AppThemeProvider', 'Provider', 'ThemeScope', 'SGNavigationProvider']) {
   assert(ui[name], `Missing ${name}`);
 }
-assert.equal(ui.lightTheme.typography.bodyAlt2.fontWeight, 500);
+for (const name of ['lightTheme', 'darkTheme', 'theme']) assert(!ui[name], `Retired theme object exported: ${name}`);
+await checkOwnedDeclarations('dist/theme');
+for (const group of ['dependencies','peerDependencies','devDependencies','optionalDependencies']) assert(!Object.keys(pkg[group] ?? {}).some(name => /^@mui\/|^@emotion\//.test(name)), `Retired package in ${group}`);
+for (const name of ['createAdminCourseGridOptions', 'createAdminPeopleGridOptions', 'createInstructorCourseGridOptions', 'createInstructorCourseLearnersGridOptions']) {
+  const preset = ui[name]();
+  assert(preset.columnOptions[0].locked && preset.columnOptions.at(-1).locked, `Missing public preset locks: ${name}`);
+}
 console.log('All package entry points import successfully.');
 
 execFileSync('pnpm', ['exec', 'tsc', '--noEmit', '--strict', '--skipLibCheck', '--jsx', 'react-jsx', '--module', 'ESNext', '--moduleResolution', 'Bundler', '--target', 'ES2022', '--esModuleInterop', 'scripts/package-consumer.tsx'], { stdio: 'inherit' });
-console.log('Consumer imports and custom typography declarations typecheck.');
+console.log('Consumer imports and owned theme/typography contracts typecheck.');
 
 const experimental = await import('../dist/experimental/index.js');
 for (const name of ['Button', 'TextField', 'ThemeScope', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'isDateOnly', 'isDateRangeAllowed', 'DateField', 'TimeField', 'dateTimeToInstant', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker',

@@ -92,7 +92,7 @@ barrels, primitive/icon reexports, `AppButtonProps`, modal styling/close types,
 `AppDataGridColumn`, grid selection/pagination types, `baseGridSx.ts`, row-drag DOM
 selectors, story decorators, test mocks, and the built-package consumer fixture.
 `scripts/build.mjs` currently prefixes every built JavaScript module with a client
-directive. `AppThemeProvider` currently installs a global baseline stylesheet.
+directive. At baseline `AppThemeProvider` installed a global stylesheet; the public provider now uses owned scopes.
 
 - [x] B-01 Capture current Git status, relevant release tags, package metadata, and public exports without discarding existing work.
 - [x] B-02 Read `AGENTS.md`, `README.md`, `docs/migration.md`, `docs/developer/component-architecture.md`, and `docs/agent-guidance-migration.md` before architecture changes.
@@ -339,11 +339,10 @@ G/U/X/R/Z acceptance remain open. Migration rows are not whole-backlog completio
 M-36/M-37 completion and B-04/I-07 evidence are recorded in [icon mappings](react-aria-icons.md),
 [primitive mappings](react-aria-primitives.md) and the execution record, on
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1). All public aliases
-resolve to owned implementations under transitive audits; legacy theme removal
-and full native acceptance remain open.
+resolve to owned implementations under transitive audits. Public theme and retired dependency removal have now landed; full native acceptance remains open. See [theme mappings](react-aria-theme.md) and [M-39 preset contracts](react-aria-grid-presets.md).
 
 - [ ] M-38 Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively.
-- [ ] M-39 Migrate `AdminDataGridOptions.ts` and `InstructorDataGridOptions.ts`, including column locks, static enums, filter/sort defaults, and translation labels.
+- [x] M-39 Migrate `AdminDataGridOptions.ts` and `InstructorDataGridOptions.ts`, including column locks, static enums, filter/sort defaults, and translation labels.
 - [ ] M-40 Migrate all grid cells: text, date, date-time, link, copyable, JSON, image, action menu, custom cell, and fallback; preserve escaping and truncation/accessibility behavior.
 - [ ] M-41 Migrate grid subheaders, empty/loading overlays, column builders, action-menu builder, toolbar option builder, and header sort menu.
 - [ ] M-42 Reconcile root and subpath barrels, `src/models.ts`, fixtures, date helpers, pagination/state hooks, and all inferred exported declaration types.
@@ -493,7 +492,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] W-06 Update the source-guidance mapping to show each retained/adapted/omitted rule and why app database/API/login policies remain outside SGUI.
 - [ ] W-07 Create one canonical component recipe: owned props, native attributes/refs, React Aria mapping, tokens/CSS, stories, behavior tests, public export, and acceptance criteria.
 - [ ] W-08 Add import/token/style rules and executable checks that prevent AI-created parallel styling systems or leakage of upstream public types.
-- [ ] W-09 Update `.storybook/preview.tsx` with production tokens/styles and theme/density/locale/direction controls; stories must not maintain a separate visual system.
+- [x] W-09 Update `.storybook/preview.tsx` with production tokens/styles and theme/density/locale/direction controls; stories must not maintain a separate visual system.
 - [ ] W-10 Retain the 33 existing story files or document deliberate replacements; add missing catalog coverage for primitives, adapters, calendars and grid helpers.
 - [ ] W-11 Update README installation to require only actual final peers and CSS imports; provide copyable root/subpath examples with host providers where needed.
 - [ ] W-12 Document tokens/themes, CSS override layers, parts/slots, density, icons, form semantics, locale/direction, date contracts, and accessibility responsibilities.
@@ -516,7 +515,7 @@ Git history is retained. Required legal attribution cannot be erased while code 
 assets remain distributed; replace that code/assets or explicitly record the
 conflict rather than silently removing notices.
 
-- [ ] Z-01 Remove every direct/runtime/peer/dev/optional retired package and any remaining transitive dependency on it; include Emotion and all grid/icon packages.
+- [x] Z-01 Remove every direct/runtime/peer/dev/optional retired package and any remaining transitive dependency on it; include Emotion and all grid/icon packages.
 - [ ] Z-02 Remove retired imports/reexports, public names/types, declaration augmentation, theme aliases, internal class selectors, mocks and story requirements.
 - [ ] Z-03 Replace/remove `src/theme/mui-typography.ts`, `baseGridSx.ts`, and any filename whose branding or purpose belongs to the retired implementation; verify all referencing files.
 - [ ] Z-04 Audit every tracked text/configuration file, including lockfile, workflows, scripts, docs, manifests, READMEs, templates and this task list, for `@mui`, case-insensitive branded names, `Mui*`, and Emotion references; inspect matches rather than hiding them with exclusions.

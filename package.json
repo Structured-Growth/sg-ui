@@ -14,7 +14,6 @@
     "THIRD_PARTY_NOTICES.md"
   ],
   "sideEffects": [
-    "./dist/theme/mui-typography.js",
     "./dist/**/*.css"
   ],
   "main": "./dist/index.js",
@@ -237,11 +236,6 @@
     "test:foundation-consumer": "pnpm build && node scripts/test-foundation-consumer.mjs"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.7",
-    "@mui/material": "^7.3.7",
-    "@mui/x-data-grid": "^8.27.0",
     "react": "^18.3.1 || ^19.0.0",
     "react-dom": "^18.3.1 || ^19.0.0"
   },
@@ -264,11 +258,6 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.7",
-    "@mui/material": "^7.3.7",
-    "@mui/x-data-grid": "^8.27.0",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/github": "^12.0.10",
     "@semantic-release/npm": "^13.2.0",

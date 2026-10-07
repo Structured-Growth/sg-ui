@@ -1,6 +1,8 @@
 // This fixture typechecks only against built package entry points.
 import { AppButton, AppModal, AppDataGrid, PageRichTextEditorSection } from '@structured-growth/sg-ui';
 import { Typography } from '@structured-growth/sg-ui/primitives';
+import { AppThemeProvider, ThemeScope as PublicThemeScope } from '@structured-growth/sg-ui/theme';
+// @ts-expect-error Theme objects are replaced by scoped settings and CSS tokens.
 import { darkTheme } from '@structured-growth/sg-ui/theme';
 import { SGNavigationProvider } from '@structured-growth/sg-ui/adapters';
 import type { AppDataGridColumn } from '@structured-growth/sg-ui/components';
@@ -68,7 +70,7 @@ export const example = <SGNavigationProvider value={{ pathname: '/', navigate: (
   <AppDataGrid label="Courses" getRowLabel={row => row.name} rows={[{ id: 'one', name: 'Example' }]} columns={columns} />
   <PageRichTextEditorSection lexicalValue={null} editorKey="example" onLexicalChange={() => {}} />
 </SGNavigationProvider>;
-export const theme = darkTheme;
+export const publicTheme = <AppThemeProvider theme="system" density="compact" dir="rtl"><PublicThemeScope theme="light" /></AppThemeProvider>;
 export const iconProof = <AddIcon label="Add course" size={20} strokeWidth={1.5} />;
 export const iconProps: IconProps = { size: '1em', color: 'currentColor' };
 export const gridProof = <DataGrid label="Courses" rows={[{ id: 'one', name: 'Science' }]}
@@ -194,3 +196,6 @@ import type { SelectChangeEvent } from '@structured-growth/sg-ui/primitives';
 export const retiredIconSize = <PublicAddIcon fontSize="small" />;
 // @ts-expect-error Activity helper uses owned options instead of positional engine font size.
 export const retiredActivitySize = PublicActivityIcon('lesson','small');
+
+import { createAdminCourseGridOptions, createInstructorCourseLearnersGridOptions, adminCourseStatuses } from "@structured-growth/sg-ui/components";
+export const publicPresets = [createAdminCourseGridOptions(), createInstructorCourseLearnersGridOptions(), adminCourseStatuses];

@@ -112,8 +112,7 @@ it useful. JavaScript/declaration maps retain the existing build behavior.
 The ordered layers are `sgui.tokens` then `sgui.components`. Unlayered consumer
 rules outrank normal library declarations; important declarations reverse layer
 priority, so avoid routine `!important`. Required normalization is scoped to
-controls. This stylesheet has no body/global reset. The existing theme provider
-still applies its legacy baseline only to existing catalog consumers.
+controls. This stylesheet has no body/global reset. The public theme provider now uses the owned scoped root without a global baseline.
 
 `ThemeScope` supports light/dark/system and independent nested density roots.
 System colors use media queries, with stable server markup and no render-time
@@ -126,7 +125,7 @@ the complete browser support matrix remain open verification tasks.
 The migrated catalog controls expose granular `/components/AppInlineProgress`,
 `/components/AppOperationSteps` and `/components/EditableTitleField` paths. They
 preserve prop names while requiring the foundation stylesheet/scope. Root and
-`/components` imports still resolve the full legacy catalog. See
+`/components` imports resolve the owned catalog. See
 [remaining controls](react-aria-remaining-controls.md) and
 [progress/avatar](react-aria-progress-avatar.md).
 
@@ -158,8 +157,7 @@ behavior checks, Storybook and packed-consumer validation. No upstream examples,
 implementation code or icon assets were copied. Adobe dependencies retain Apache
 2.0 licensing; existing commercial terms and notices remain in place.
 
-The current production foundation remains installed during the proof. Removing
-its dependencies before migrating the catalog would break consumers. Do not claim
+The catalog and public theme now resolve to owned implementations, so retired foundation dependencies have been removed. Do not claim
 the package is independent of that foundation until Z passes. No publication,
 version edit, prerelease channel or remote workflow setting is part of this change.
 
@@ -201,4 +199,6 @@ with whole-directory source/transitive/declaration boundaries. See
 [icon mappings](react-aria-icons.md) and
 [primitive mappings](react-aria-primitives.md) for preserved names,
 owned props and deliberate breaking removals. Import `/styles.css` and provide
-Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.
+Provider or ThemeScope. The public theme is owned; broad acceptance remains open.
+
+See [public theme mappings](react-aria-theme.md) for the shipped scope API and Storybook globals.
