@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Defense Against the Dark Arts' })).toBeVisible();
 });
 
-for (const [locale, absolute] of [
+for (const [locale, literalAbsolute] of [
   ['en-US', 'Due Jan 1 at 9:05 AM'],
   ['de-DE', 'Due 1. Jan. at 9:05'],
   ['ar-EG', 'Due ١ يناير at ٩:٠٥ ص'],
@@ -16,6 +16,17 @@ for (const [locale, absolute] of [
   test(`browser ICU ${locale} replaces due text while the same action retains keyboard focus`, async ({ page }) => {
     const details = page.getByRole('link', { name: 'Details', exact: true });
     await page.getByLabel('Host locale').selectOption(locale);
+    let absolute = literalAbsolute;
+    if (locale === 'de-DE') {
+      // ICU may pad a German numeric hour (Firefox: 09, Chromium/WebKit: 9).
+      // Read the browser's formatting policy independently of the card formatter,
+      // while requiring the exact local hour/minute and complete literal date.
+      const time = await page.evaluate(() => new Intl.DateTimeFormat('de-DE', {
+        hour: 'numeric', minute: '2-digit', timeZone: 'America/Chicago',
+      }).format(new Date('2026-01-01T15:05:00Z')));
+      expect(time).toMatch(/^0?9:05$/);
+      absolute = `Due 1. Jan. at ${time}`;
+    }
     await expect(page.getByText(`First: ${absolute}`, { exact: true })).toBeVisible();
     // Observe node identity and focus across host updates without moving focus to a fixture control.
     const identity = await details.elementHandle();
@@ -43,7 +54,7 @@ test('invalid host locale and failed lookup retain English browser date fallback
 });
 
 for (const destinations of ['both', 'continue only']) {
-  test(`${destinations} preserves Details route and native isolated Continue activation`, async ({ page, context }) => {
+  test(`${destinations} preserves Details route and native isolated Continue activation`, async ({ page, context, browserName }) => {
     await context.route('**/course/continue', route => route.fulfill({ contentType: 'text/html', body: '<title>Host course destination</title>' }));
     await page.getByLabel('Host destinations').selectOption(destinations);
     const details = page.getByRole('link', { name: 'Details', exact: true });
@@ -54,7 +65,14 @@ for (const destinations of ['both', 'continue only']) {
     await page.keyboard.press('Enter');
     await expect(page.getByLabel('Details requests')).toHaveText(expectedDetails);
     await expect(details).toBeFocused();
-    await page.keyboard.press('Tab');
+    // macOS WebKit's native link traversal uses Option+Tab by default.
+    const linkTab = browserName === 'webkit' && process.platform === 'darwin' ? 'Alt+Tab' : 'Tab';
+    const reverseLinkTab = browserName === 'webkit' && process.platform === 'darwin' ? 'Alt+Shift+Tab' : 'Shift+Tab';
+    await page.keyboard.press(linkTab);
+    await expect(continueLink).toBeFocused();
+    await page.keyboard.press(reverseLinkTab);
+    await expect(details).toBeFocused();
+    await page.keyboard.press(linkTab);
     await expect(continueLink).toBeFocused();
     await expect(continueLink).toHaveAttribute('href', '/course/continue');
     await expect(continueLink).toHaveAttribute('target', '_blank');
