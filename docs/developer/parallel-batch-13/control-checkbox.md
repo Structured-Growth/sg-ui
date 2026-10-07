@@ -207,3 +207,47 @@ After this correction:
 This continuation supersedes earlier pending engine selections and source-count
 summaries without erasing their failure history. Neither 2/4 nor 3/6 is claimed as
 complete native acceptance. No manual/device/AT or broad U/X/R/Z closure.
+
+## Final Chromium-first completion for provisional dev review
+
+The user subsequently approved Chromium-first native feedback, with cross-engine
+correction verification at the next checkpoint after ten integrated native changes
+or the daily full checkpoint, whichever comes first. This supersedes the six-case
+immediate selection above without turning its earlier failures into passes.
+
+Coordinator fourteenth pool used exact clean frozen
+`ee27dcf11aac93ef2063e13576772d09641278e4` and output
+`artifacts/browser-pool/77a9063e-5c98-4ad9-97d7-d76e45c513b0/`.
+Both focused Chromium cases passed: **2 passed / 0 skipped / 0 unexpected /
+0 flaky**. Actual disabled label pointers, first-legend exemption, enabled mixed
+required validity/submit, rejected controlled requests, label/input ref boundary
+and repeated prevented/accepted reset assertions were reached and passed.
+
+Exact coordinator commands:
+
+- `pnpm exec storybook build --output-dir /Users/thomashall/.codex/worktrees/batch13-control-checkbox/sg-ui/artifacts/browser-pool/77a9063e-5c98-4ad9-97d7-d76e45c513b0/storybook`
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`
+- `pnpm exec playwright test tests/browser/batch13-control-checkbox.spec.ts --project=chromium`
+
+Runtime: Node `24.21.0`, pnpm `10.29.3`, Playwright `1.63.0`, macOS `27.0.0`.
+Source tree: `0b45b114f92af076668b5a2e563e605f2f67b310`.
+Final source head equals the tested head and working tree stayed clean.
+Immutable Storybook SHA-256 before/after:
+`aaa9cf86c4df1aa451f5b31aceeb6d44bfee3604e6848d097396032f653dc830`.
+Browser execution was 2026-10-07 10:46:11–10:46:14 America/Chicago.
+Fresh immutable builds/server leases and native commands were coordinator-owned;
+this task launched no own heavy/native process. Pool release explicitly authorized
+this report-only finalization. Product/source/spec bytes remain at tested head.
+
+Review decision: the two demonstrated standalone defects are corrected, with 47
+affected unit/composed tests, type/boundary checks and both Chromium native cases
+passing. Draft PR #83 is ready for bounded provisional `codex/dev` review under the
+latest user policy; this task does not merge it. Final report-only commit/head is
+provided in the completion message.
+
+**Firefox/WebKit verification of the inherited-disabled correction remains pending
+at the batch checkpoint.** Their prior reset-authority passes are retained; their
+prior fieldset failures remain failures. No whole-engine matrix, full suite,
+manual/device/AT or broad U-04/U-18/U/X/R/Z acceptance is claimed. Reserved shared
+ref guidance, other toggle/collection reset and validation-state cancellation
+scopes remain separate follow-ups.
