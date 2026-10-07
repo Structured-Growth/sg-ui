@@ -93,7 +93,8 @@ test('real form.reset while calendar remains focused preserves prevented preview
   await trigger(page).click();
   await page.keyboard.press('Escape');
   await beginPreview(page);
-  const endpoint = page.getByRole('button', { name: /Friday, March 1, 2024/ }).and(page.locator(':not([data-outside-month])'));
+  // Selected cells share a range-summary prefix; match the cell's own date suffix.
+  const endpoint = page.getByRole('button', { name: /(?:^|, )Friday, March 1, 2024(?: selected)?$/ }).and(page.locator(':not([data-outside-month])'));
   await form(page).evaluate(node => (node as HTMLFormElement).reset());
   await expect(page.getByLabel('Reset prevention ledger')).toHaveText('[true]');
   await expect(endpoint).toBeFocused();
