@@ -44,3 +44,27 @@ function FieldsetAcceptanceForm() {
   </form>;
 }
 export const FieldsetAcceptance: Story = { render: () => <FieldsetAcceptanceForm /> };
+
+function ResetAuthorityForm() {
+  const [preventReset, setPreventReset] = useState(false);
+  const [controlled, setControlled] = useState(false);
+  const [events, setEvents] = useState<string[]>([]);
+  const record = (value: string) => setEvents(previous => [...previous, value]);
+  return <form aria-label="Checkbox reset authority" onReset={event => {
+    record(preventReset ? "reset:prevented" : "reset:accepted");
+    if (preventReset) event.preventDefault();
+    else setControlled(false);
+  }}>
+    <Checkbox label="Prevent checkbox reset" name="prevent" checked={preventReset} onCheckedChange={next => {
+      record(`policy:${next}`); setPreventReset(next);
+    }} />
+    <Checkbox label="Uncontrolled reset approval" name="uncontrolled" onCheckedChange={next => record(`uncontrolled:${next}`)} />
+    <Checkbox label="Controlled reset approval" name="controlled" checked={controlled} onCheckedChange={next => {
+      record(`controlled:${next}`); setControlled(next);
+    }} />
+    <Button onPress={() => setEvents([])}>Clear reset events</Button>
+    <Button type="reset">Reset checkboxes</Button>
+    <output aria-label="Checkbox reset events">{JSON.stringify(events)}</output>
+  </form>;
+}
+export const ResetAuthority: Story = { render: () => <ResetAuthorityForm /> };

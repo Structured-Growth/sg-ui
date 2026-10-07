@@ -1,6 +1,7 @@
 "use client";
-import { forwardRef, useId } from "react";
+import { forwardRef, useId, useImperativeHandle, useRef, useState } from "react";
 import { Checkbox as AriaCheckbox } from "react-aria-components/Checkbox";
+import { useFormReset } from "../useFormReset";
 import styles from "./Checkbox.module.css";
 export interface CheckboxProps {
   label: string;
@@ -22,7 +23,21 @@ export interface CheckboxProps {
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(function Checkbox({ label, checked, defaultChecked,
   onCheckedChange, mixed, disabled, readOnly, required, invalid, description, errorMessage, name, value, slot }, ref) {
   const labelId = useId();
-  return <AriaCheckbox ref={ref} isSelected={checked} defaultSelected={defaultChecked} onChange={onCheckedChange}
+  const root = useRef<HTMLLabelElement>(null);
+  useImperativeHandle(ref, () => root.current!, []);
+  const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
+  const selected = checked ?? internalChecked;
+  const resetting = useFormReset(root, () => {
+    if (checked === undefined) setInternalChecked(defaultChecked ?? false);
+  });
+  function change(next: boolean) {
+    // React Aria's form listener runs before delegated host onReset handlers.
+    // Reset requests are handled after cancellation is known, without edit callbacks.
+    if (resetting.current) return;
+    if (checked === undefined) setInternalChecked(next);
+    onCheckedChange?.(next);
+  }
+  return <AriaCheckbox ref={root} isSelected={selected} onChange={change}
     isIndeterminate={mixed} isDisabled={disabled} isReadOnly={readOnly} isRequired={required} isInvalid={invalid} name={name} value={value}
     slot={slot} aria-labelledby={labelId}
     aria-describedby={[description && `${labelId}-description`, errorMessage && `${labelId}-error`].filter(Boolean).join(" ") || undefined} validationBehavior="native" className={styles.root}>

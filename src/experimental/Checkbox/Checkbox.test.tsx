@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { createRef } from "react";
+import { createRef, useState } from "react";
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -12,6 +12,7 @@ it("toggles by Space, submits checked values and restores native defaults on res
   const form = screen.getByTestId("form") as HTMLFormElement;
   expect(new FormData(form).get("available")).toBe("yes");
   await user.click(screen.getByRole("button")); expect(new FormData(form).has("available")).toBe(false);
+  expect(change).toHaveBeenCalledExactlyOnceWith(true);
 });
 it("exposes mixed state and leaves controlled state with the host", async () => {
   const user = userEvent.setup(); const change = vi.fn();
@@ -83,4 +84,58 @@ it("forwards the label ref while the nested native input owns form validation", 
   expect(ref.current?.tagName).toBe("LABEL");
   expect(ref.current?.control).toBe(screen.getByRole("checkbox"));
   expect(ref.current?.control).toBeInstanceOf(HTMLInputElement);
+});
+
+it("keeps prevented native reset silent and preserves edited uncontrolled state", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  render(<form onReset={event => event.preventDefault()}>
+    <Checkbox label="Prevented approval" name="approval" onCheckedChange={change} />
+    <button type="reset">Reset</button>
+  </form>);
+  await user.click(screen.getByText("Prevented approval"));
+  expect(change).toHaveBeenCalledExactlyOnceWith(true);
+  change.mockClear();
+  await user.click(screen.getByText("Reset"));
+  await new Promise(resolve => setTimeout(resolve, 20));
+  expect(change).not.toHaveBeenCalled();
+  expect((screen.getByRole("checkbox") as HTMLInputElement).checked).toBe(true);
+});
+it("leaves controlled reset policy to delegated host onReset without value requests", async () => {
+  const user = userEvent.setup(); const events: string[] = [];
+  function Host() {
+    const [checked, setChecked] = useState(false);
+    return <form onReset={event => { events.push("reset"); event.preventDefault(); }}>
+      <Checkbox label="Controlled reset policy" checked={checked} onCheckedChange={value => {
+        events.push(`change:${value}`); setChecked(value);
+      }} /><button type="reset">Reset</button>
+    </form>;
+  }
+  render(<Host />);
+  await user.click(screen.getByText("Controlled reset policy"));
+  expect(events).toEqual(["change:true"]);
+  events.length = 0;
+  await user.click(screen.getByText("Reset"));
+  await new Promise(resolve => setTimeout(resolve, 20));
+  expect(events).toEqual(["reset"]);
+  expect((screen.getByRole("checkbox") as HTMLInputElement).checked).toBe(true);
+});
+
+it("keeps accepted controlled reset silent unless the host restores its draft", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  const { rerender } = render(<form><Checkbox label="Host approval" checked defaultChecked={false} onCheckedChange={change} /><button type="reset">Reset</button></form>);
+  await user.click(screen.getByText("Reset"));
+  await new Promise(resolve => setTimeout(resolve, 20));
+  expect(change).not.toHaveBeenCalled();
+  expect((screen.getByRole("checkbox") as HTMLInputElement).checked).toBe(true);
+  rerender(<form><Checkbox label="Host approval" checked={false} onCheckedChange={change} /><button type="reset">Reset</button></form>);
+  expect((screen.getByRole("checkbox") as HTMLInputElement).checked).toBe(false);
+});
+it("restores latest uncontrolled defaults on accepted reset without edit callbacks", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  const { rerender } = render(<form><Checkbox label="Latest approval" defaultChecked={false} onCheckedChange={change} /><button type="reset">Reset</button></form>);
+  rerender(<form><Checkbox label="Latest approval" defaultChecked onCheckedChange={change} /><button type="reset">Reset</button></form>);
+  await user.click(screen.getByText("Reset"));
+  await new Promise(resolve => setTimeout(resolve, 20));
+  expect(change).not.toHaveBeenCalled();
+  expect((screen.getByRole("checkbox") as HTMLInputElement).checked).toBe(true);
 });

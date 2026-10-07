@@ -43,3 +43,34 @@ test('mixed required inputs honor fieldset transitions and host rejection', asyn
   expect(await form.evaluate(node => (node as HTMLFormElement).checkValidity())).toBe(true);
   expect(errors).toEqual([]);
 });
+
+test('delegated prevented reset preserves in-form policy and edited values without callbacks', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/iframe.html?id=migration-proofs-checkbox--reset-authority&viewMode=story&globals=a11y.manual:!true');
+  const form = page.getByRole('form', { name: 'Checkbox reset authority' });
+  const policy = page.getByRole('checkbox', { name: 'Prevent checkbox reset', exact: true });
+  const uncontrolled = page.getByRole('checkbox', { name: 'Uncontrolled reset approval', exact: true });
+  const controlled = page.getByRole('checkbox', { name: 'Controlled reset approval', exact: true });
+  const events = page.getByLabel('Checkbox reset events');
+  for (const name of ['Prevent checkbox reset', 'Uncontrolled reset approval', 'Controlled reset approval']) {
+    await page.getByText(name, { exact: true }).click();
+  }
+  await expect(events).toHaveText('["policy:true","uncontrolled:true","controlled:true"]');
+  await page.getByRole('button', { name: 'Clear reset events' }).click();
+  await page.getByRole('button', { name: 'Reset checkboxes' }).click();
+  await expect(events).toHaveText('["reset:prevented"]');
+  for (const input of [policy, uncontrolled, controlled]) await expect(input).toBeChecked();
+  expect(await form.evaluate(node => Object.fromEntries(new FormData(node as HTMLFormElement)))).toEqual({ prevent: 'on', uncontrolled: 'on', controlled: 'on' });
+  // Repeated native reset keeps the policy in the form authoritative.
+  await page.getByRole('button', { name: 'Reset checkboxes' }).click();
+  await expect(events).toHaveText('["reset:prevented","reset:prevented"]');
+  await expect(policy).toBeChecked();
+  await page.getByText('Prevent checkbox reset', { exact: true }).click();
+  await page.getByRole('button', { name: 'Clear reset events' }).click();
+  await page.getByRole('button', { name: 'Reset checkboxes' }).click();
+  await expect(events).toHaveText('["reset:accepted"]');
+  for (const input of [policy, uncontrolled, controlled]) await expect(input).not.toBeChecked();
+  expect(await form.evaluate(node => Object.fromEntries(new FormData(node as HTMLFormElement)))).toEqual({});
+  expect(errors).toEqual([]);
+});
