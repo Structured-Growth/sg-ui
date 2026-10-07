@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AppPageTabs } from "./AppPageTabs";
 import { SGNavigationProvider } from "../../adapters/navigation";
@@ -49,4 +49,51 @@ it("reveals a focused route link inside its overflowing strip without scrolling 
   await user.tab(); expect(document.activeElement).toBe(access); expect(strip.scrollLeft).toBe(112);
   await user.tab({ shift: true }); expect(strip.scrollLeft).toBe(0);
   expect(pageScroll).not.toHaveBeenCalled();
+});
+
+it("keeps duplicate item IDs independent and leaves manual requests under host control", async () => {
+  const user = userEvent.setup();
+  const firstChange = vi.fn(); const secondChange = vi.fn();
+  const composition = (first: string) => <>
+    <AppPageTabs label="First sections" value={first} items={items} activation="manual" onChange={firstChange} />
+    <AppPageTabs label="Second sections" value="a" items={items} activation="manual" onChange={secondChange} />
+  </>;
+  const { rerender } = render(composition("a"));
+  const first = screen.getByRole("tablist", { name: "First sections" });
+  const second = screen.getByRole("tablist", { name: "Second sections" });
+  const details = within(first).getByRole("tab", { name: "Details" });
+  const access = within(first).getByRole("tab", { name: "Access" });
+  const other = within(second).getByRole("tab", { name: "Details" });
+  expect(details.id).not.toBe(other.id);
+  expect(details.getAttribute("aria-controls")).not.toBe(other.getAttribute("aria-controls"));
+  expect(screen.queryByRole("link")).toBeNull(); // href does not override tab mode.
+  await user.click(details); firstChange.mockClear();
+  await user.keyboard("{End}");
+  expect(document.activeElement).toBe(access);
+  expect(firstChange).not.toHaveBeenCalled();
+  await user.keyboard(" ");
+  expect(firstChange).toHaveBeenCalledExactlyOnceWith("b");
+  expect(details.getAttribute("aria-selected")).toBe("true");
+  expect(screen.getAllByRole("tabpanel").map(panel => panel.textContent)).toEqual(["Details content", "Details content"]);
+  rerender(composition("b"));
+  const panels = screen.getAllByRole("tabpanel");
+  expect(panels.map(panel => panel.textContent)).toEqual(["Access content", "Details content"]);
+  expect(access.getAttribute("aria-controls")).toBe(panels[0].id);
+  expect(panels[0].getAttribute("aria-labelledby")).toBe(access.id);
+  expect(other.getAttribute("aria-controls")).toBe(panels[1].id);
+  expect(secondChange).not.toHaveBeenCalled();
+  await user.keyboard("{Home}");
+  expect(document.activeElement).toBe(details);
+  expect(access.getAttribute("aria-selected")).toBe("true");
+});
+it("keeps route mode free of tab panels and tab keyboard selection", async () => {
+  const user = userEvent.setup(); const navigate = vi.fn();
+  render(<SGNavigationProvider value={{ pathname: "/details", navigate }}><AppPageTabs items={items} value="a" activation="manual" /></SGNavigationProvider>);
+  expect(screen.queryByRole("tablist")).toBeNull();
+  expect(screen.queryByRole("tabpanel")).toBeNull();
+  await user.tab(); await user.keyboard("{ArrowRight}");
+  expect(document.activeElement).toBe(screen.getByRole("link", { name: "Details" }));
+  expect(navigate).not.toHaveBeenCalled();
+  await user.tab(); await user.keyboard("{Enter}");
+  expect(navigate).toHaveBeenCalledExactlyOnceWith("/access", { replace: true });
 });
