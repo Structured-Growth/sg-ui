@@ -91,3 +91,13 @@ Include RTL and enlarged-text geometry if needed by that specific composition.
 A failing case should determine any implementation change. Scope/token/barrel
 changes would require a separate explicit allowlist; none is currently justified.
 Physical-device and spoken AT acceptance remain independent and open.
+
+## Delivery identifiers
+
+Evidence/report commit: `727c724ccdb6cf33580f56f0b3fd97140baac3d8`.
+Draft PR: [#58](https://github.com/Structured-Growth/sg-ui/pull/58), base
+`codex/dev`, attached to this chat. Final head is the subsequent report-only
+commit, recorded in the coordinator handoff. Local checks passed: 17 relative
+links, exact 2/2/3 existing case counts for Stack/ThemeScope/public primitives,
+one-file allowlist and `git diff --check`. Final delivery validation rechecks
+these links/counts plus the PR link shape and committed baseline diff.
