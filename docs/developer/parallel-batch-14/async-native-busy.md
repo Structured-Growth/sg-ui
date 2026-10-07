@@ -41,7 +41,7 @@ coverage was read and retained; no duplicate tests or AT claim was added.
 selector. The focused browser case checks native busy transitions, stale-result
 blocking, unchanged DOM handles/query, independent state and success selection.
 
-## Validation evidence and remaining work
+## Initial validation evidence and queue state
 
 Runtime: Node `v24.19.0`, pnpm `10.29.3`, Vitest `4.1.11` (host default Node
 `v26.5.0` was not used for validation). Commands use bundled Node prepended to PATH.
@@ -62,7 +62,7 @@ Light commands acquired atomic `/tmp/sgui-light-validation-slots/0`, unique owne
 and finally cleanup, limit 4; no full per-task suites. This follows the user override
 and [development validation policy](../react-aria-development-validation.md).
 
-Fresh Storybook build and focused browser run are **pending** existing priority
+At initial draft creation, fresh Storybook build and focused browser run were **pending** existing priority
 workers and pool proof/review. The worker requested coordinator queue access without
 changing `/tmp/sgui-browser-validation-priority.json` or taking the current global
 `/tmp/sgui-parallel-batch-01-validation.lock`. Do not treat this as completion.
@@ -74,7 +74,8 @@ Draft [PR #86](https://github.com/Structured-Growth/sg-ui/pull/86) targets `code
 Evidence report head before this PR-link-only commit: `5f52bfd79346a882298b16332fea8c949d146ab3`.
 Independent exact-head review remains pending. Reserve central documentation/master
 checklist changes for the coordinator; broader H-06/X-03 and production acceptance
-remain open. Browser evidence must be completed before integration acceptance.
+remain open. The native attempt and final targeted pass below supersede that initial queue state;
+coordinator exact-head review remains required before integration acceptance.
 
 
 ## Managed recovery and first native attempt
@@ -121,3 +122,42 @@ under Node 24.19.0 and canonical light slot 1, unique owner/finally cleanup.
 `git diff --check`: passed; AsyncMultiSelect source/story/test bytes unchanged
 from frozen native-attempt head. No runtime unit rerun was needed for this spec-only
 driver correction.
+
+
+## Final focused native evidence
+
+Coordinator nineteenth pool run `c1e7370f-e355-4ee4-bb4f-d868e342e835` tested exact
+clean corrected head `4306d22e9037d0b40149f855e9ad9043e59ffe9b`, source tree
+`7afd4869cd17103cb810960168082d30f5c480ed`. **Chromium: 1 passed, 0 failed,
+0 skipped, 0 flaky/unexpected.** The full test reached failure, retry, success,
+subsequent loading and selected-token preservation, physical disabled-option
+attempts, independent native busy state, native DOM identity and host query checks.
+No runtime failure occurred. This is one focused native case, not a full suite.
+
+Fresh immutable Storybook build and browser TypeScript passed under Node 24.21.0,
+pnpm 10.29.3 and Playwright 1.63.0 on macOS. Coordinator supervisor used reviewed
+scheduler `8b060aa` (four-session limit, two-build limit); this task retained its
+reviewed isolated configurable harness ancestry. Slot 3, port 6286; Playwright
+ran one worker with zero retries. No worker override was supplied.
+
+Exact commands from the pool evidence (run directory below abbreviated as RUN):
+
+- `pnpm exec storybook build --output-dir RUN/storybook`
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`
+- `pnpm exec playwright test tests/browser/batch14-async-busy.spec.ts --project=chromium`
+
+RUN is the recovery worktree's
+`artifacts/browser-pool/c1e7370f-e355-4ee4-bb4f-d868e342e835/`.
+`evidence.json`, `browser.log` and `results.json` retain exact commands/outcomes.
+Build digest before/after:
+`8809c9d614e80dcf99d3b8223c8226781cc611e68bc519838791536b2c959267`.
+Final head matched the tested head and final tracked status was clean.
+
+Only this unique report is edited after coordinator freeze release. Final
+report-only commit preserves tested source/story/unit/spec bytes (verified by
+`git diff --exit-code 4306d22e9037d0b40149f855e9ad9043e59ffe9b HEAD -- src/experimental/AsyncMultiSelect tests/browser/batch14-async-busy.spec.ts`).
+No redundant native, light or build run. Prior failed attempt and fixture-driver
+correction are retained above. Draft PR #86 awaits coordinator exact-head review
+and integration; its final report-only head is supplied in the handoff and PR.
+Firefox/WebKit remain pending the batch checkpoint. H-06/X-03, broad acceptance,
+manual/device and actual speech/AT gates remain open.
