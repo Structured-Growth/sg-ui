@@ -8,11 +8,11 @@ open. No new behavior, story or test was manufactured.
 
 - Verified baseline: `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818`.
 - Managed attached worktree: `/Users/thomashall/.codex/worktrees/batch13-control-table/sg-ui`.
-- Branch: `codex/batch13-control-table`; draft PR targets `codex/dev`.
+- Branch: `codex/batch13-control-table`; draft PR [#43](https://github.com/Structured-Growth/sg-ui/pull/43) targets `codex/dev`.
 - Exclusive write allowlist: `src/experimental/Table/`,
   `tests/browser/batch13-control-table.spec.ts`, this report.
 - Actual change: this report only. Primary checkout and all other worktrees preserved.
-- Inspected source/test head: exact baseline above. Final report commit SHA and
+- Inspected source/test head: exact baseline above. Initial report commit: `4fc123211dd2b5131c1af25c2cd8f7cb262c4767`. Final report commit SHA and
   attached PR URL are supplied to the coordinator at handoff; the final commit
   cannot include its own SHA.
 
