@@ -16,6 +16,9 @@ second equivalent lifecycle harness would duplicate the existing composed test.
 - Managed isolated worktree:
   `/Users/thomashall/.codex/worktrees/batch13-control-status/sg-ui`.
 - Branch: `codex/batch13-control-status`; draft PR base: `codex/dev`.
+- Draft PR: [PR 55](https://github.com/Structured-Growth/sg-ui/pull/55).
+- Initial evidence-report head: `3da4e48ea01b61d19a5504b75b1c49872ea5d41c`;
+  the final metadata-only documentation commit is recorded in coordinator delivery.
 - Exclusive write allowlist: `src/experimental/Status/`,
   `tests/browser/batch13-control-status.spec.ts`, and this report.
 - Actual changed file: this report only. The final documentation commit and PR
