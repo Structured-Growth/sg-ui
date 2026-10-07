@@ -43,4 +43,20 @@ describe("ContentEditorChrome", () => {
     render(<ContentEditorChrome icon={null} title="Lesson" titleReadOnly onTitleSave={vi.fn()} menuItems={[]} />);
     expect(screen.queryByRole("group")).toBeNull(); expect(screen.getByRole("button", { name: "Edit title" }).hasAttribute("disabled")).toBe(true);
   });
+  it("keeps the native menu anchor while host actions become pending, unavailable and available again", async () => {
+    const user = userEvent.setup(); const original = vi.fn(); const replacement = vi.fn();
+    const props = { icon: null, title: "Lesson", titleReadOnly: true, onTitleSave: vi.fn() };
+    const { rerender } = render(<ContentEditorChrome {...props} menuItems={[{ id: "file", label: "File", onPress: original }]} />);
+    const file = screen.getByRole("button", { name: "File" });
+    file.focus();
+    rerender(<ContentEditorChrome {...props} menuItems={[{ id: "file", label: "File", onPress: replacement, loading: true }]} />);
+    expect(screen.getByRole("button", { name: "File" })).toBe(file);
+    await user.keyboard("{Enter} "); expect(replacement).not.toHaveBeenCalled();
+    expect(screen.getByRole("progressbar", { name: "Pending" })).toBeTruthy();
+    rerender(<ContentEditorChrome {...props} menuItems={[{ id: "file", label: "File" }]} />);
+    expect(screen.queryByRole("progressbar")).toBeNull(); expect((file as HTMLButtonElement).disabled).toBe(true);
+    rerender(<ContentEditorChrome {...props} menuItems={[{ id: "file", label: "File", onPress: replacement }]} />);
+    await user.click(file); expect(replacement).toHaveBeenCalledExactlyOnceWith(file); expect(original).not.toHaveBeenCalled();
+  });
+
 });
