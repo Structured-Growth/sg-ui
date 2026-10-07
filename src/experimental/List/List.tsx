@@ -14,11 +14,11 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(function ListIt
   return <li {...props} ref={ref} className={[styles.item, className].filter(Boolean).join(" ")} data-sgui-part="list-item" />;
 });
 export interface ListItemButtonProps extends Omit<ButtonProps, "variant" | "tone"> {
-  /** Selected styling; aria-pressed communicates a toggle action to assistive technology. */
+  /** Selected styling and pressed state. When omitted, native aria-pressed is preserved. */
   selected?: boolean;
 }
 export const ListItemButton = forwardRef<HTMLButtonElement, ListItemButtonProps>(function ListItemButton({ selected, className, ...props }, ref) {
-  return <Button {...props} ref={ref} variant="text" tone="neutral" aria-pressed={selected} className={[styles.action, className].filter(Boolean).join(" ")} />;
+  return <Button {...props} ref={ref} variant="text" tone="neutral" aria-pressed={selected ?? props["aria-pressed"]} className={[styles.action, className].filter(Boolean).join(" ")} />;
 });
 export interface ListItemTextProps extends Omit<HTMLAttributes<HTMLSpanElement>, "children"> {
   primary: ReactNode;
