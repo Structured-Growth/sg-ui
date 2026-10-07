@@ -1,9 +1,11 @@
 # React Aria migration architecture decision
 
-Task references: A-01–A-19, C-01–C-07, C-21, P-01, R-01–R-06.
+Task references: A-01–A-19, C-01–C-07, C-21, P-01, R-01–R-06, W-12, W-18.
 Accepted direction: React Aria Components internally, owned contracts and compiled
-CSS Modules externally. Implementation began on 2026-10-05; the first proof does
-not replace the current component catalog. See the
+CSS Modules externally. Implementation began on 2026-10-05. The catalog, grid,
+editor, primitives, icons and public theme now use owned implementations; broad
+G/K/E/U/X/R/Z acceptance remains open. `/experimental` retains proof contracts
+and shared implementations without authorizing public catalog renames. See the
 [execution record](react-aria-progress.md) and
 [master backlog](react-aria-master-task-list.md).
 
@@ -27,21 +29,23 @@ owned scope, including for editor dialogs.
 2. Presentation uses native HTML, scoped CSS and owned props. `ThemeScope` manages
    visual settings without depending on an interaction engine or an editor.
 3. Interaction implementations selectively map owned props to React Aria. The
-   first button and field live under `src/experimental` until the proof gates pass.
+   shared button and field implementations live under `src/experimental` and also
+   back public catalog/primitives exports; their source location is not a migration gate.
 4. Compositions depend on owned primitives and host adapters. They must not import
    React Aria collection/state objects or the package root internally.
 5. Grid, editor and learning extensions depend on shared controls, never the reverse.
-   Keep the existing package while migrating; use separate subpaths before considering
+   Keep the existing package and explicit subpaths before considering
    separate packages. The specialist grid decision selects TanStack v8 row processing and React Aria
    interaction; see [grid ownership](react-aria-grid-decision.md).
    The [catalog grid contracts](react-aria-grid-contracts.md) define the required
    capability matrix, owned API mappings and state transitions for M-16–M-19.
 
-The import/token/layer check enforces the new foundation boundaries. AppInlineProgress,
-AppOperationSteps, EditableTitleField and Typefaces now enter those checks; migrated
-implementation dependencies are also audited transitively. The rest of the existing
-catalog remains outside that removal check until its components migrate; this is
-an explicit transition, not an exception to the final strict removal audit.
+The import/token/layer check enforces owned foundation and registered catalog
+boundaries, including grid/reorder, editor, icons, primitives and public theme.
+Migrated implementation dependencies are audited transitively; emitted declarations
+and package entry points have separate checks. Implementation/dependency removal
+does not close the final historical/legal-reference or exact-artifact audits.
+See the [removal audit](react-aria-removal-audit.md).
 
 React Aria supplies interactions and accessibility machinery, while SGUI owns
 appearance, composition and consumer contracts. Base UI, Ark, Radix and the other
@@ -61,8 +65,10 @@ prop type. Upstream events, state objects and date classes stay inside wrappers.
 
 For new action contracts, use `onPress: () => void` for a single normalized
 activation. Do not invoke both a native click callback and a press callback for the
-same activation. Existing `AppButton.onClick` consumers still work today; migrating
-that API will require a documented mapping and a breaking release if removed.
+same activation. `AppButton` already uses the owned `onPress()` contract and no
+longer accepts `onClick`; migrate old event handlers using the documented
+[breaking button mappings](react-aria-button.md). Native Link click cancellation
+is a separate navigation contract, not a second button activation callback.
 Action buttons default to `type="button"`; submit/reset must be explicit. Link
 actions use an owned link with the host navigation adapter, not a polymorphic
 button. The proof intentionally offers no `href` or `component` prop.
@@ -76,9 +82,11 @@ host persistence inside these controls.
 
 The initial visual vocabulary is `filled | outlined | text`,
 `primary | neutral`, and `compact | comfortable`. General density defaults to
-comfortable; legacy menus retain compact behavior until their own migration.
-Placement, dismissal reasons, selection, dates and grid models must get owned
-contracts in their respective proofs before production conversion.
+comfortable, inherited by generic Menu unless its `density` is explicit. Catalog
+menu compositions prefer compact density and set it explicitly (for example,
+DataToolbar selection menus). Do not assume a generic Menu is compact. Placement,
+dismissal, selection, date and grid contracts are owned; consult their component
+guides for supported vocabularies and remaining acceptance limits.
 
 Fields require either a visible `label` string or `aria-label` in their type.
 Icon-only buttons require an accessible name from the consumer; decorative icon
@@ -93,15 +101,16 @@ demonstrates a need. A future engine swap must retain observable tests; it will
 still require engineering work and may reveal API changes.
 
 Host routing, locale, translations, accounts, data loading, scheduling permissions
-and booking rules remain host-owned. The existing adapters are unchanged in this
-milestone. React Aria locale integration and portaled scope inheritance are
-implemented for the dialog/form proof through the optional owned `Provider`.
+and booking rules remain host-owned. Provider and ThemeScope are public owned
+scopes, also exported by `/theme`; AppThemeProvider aliases Provider. Use Provider
+for locale integration alongside visual scope and portaled scope inheritance.
 It takes the host translation locale as the interaction locale; visual scope and
 explicit token overrides are copied to body portals. Owned Link and Breadcrumbs now use the existing routing adapter. See the [proof control contracts](react-aria-proof-controls.md).
 
 ## Styles and packaging
 
-Import `@structured-growth/sg-ui/styles.css` once and wrap proof UI in `ThemeScope`.
+Import `@structured-growth/sg-ui/styles.css` once and wrap owned UI, including
+catalog compositions and dialogs, in `Provider` or `ThemeScope`.
 The build compiles CSS Module classes into deterministic, namespaced identifiers,
 emits JavaScript class maps and collects production CSS into one exported stylesheet.
 Storybook uses the same naming function and generated production tokens. Consumers
@@ -118,9 +127,12 @@ controls. This stylesheet has no body/global reset. The public theme provider no
 System colors use media queries, with stable server markup and no render-time
 browser reads. Geist is host-supplied with system fallbacks. Rem sizing, logical
 properties, focus rings, reduced motion and forced colors are included in proofs.
-Token contrast checks cover declared proof pairs, not complete accessibility
-conformance or consumer overrides. Browser zoom, screen readers, CSP, portals and
-the complete browser support matrix remain open verification tasks.
+Token contrast checks cover declared pairs, not complete accessibility
+conformance or consumer overrides. Representative native focus/scroll, portal,
+zoom, browser and SSR/hydration checks have evidence in
+[browser acceptance](react-aria-browser-acceptance.md) and
+[runtime validation](react-aria-runtime-ci.md). Full assistive-technology, physical
+device, strict CSP and broader browser/consumer acceptance remain open.
 
 The migrated catalog controls expose granular `/components/AppInlineProgress`,
 `/components/AppOperationSteps` and `/components/EditableTitleField` paths. They
@@ -161,8 +173,10 @@ behavior checks, Storybook and packed-consumer validation. No upstream examples,
 implementation code or icon assets were copied. Adobe dependencies retain Apache
 2.0 licensing; existing commercial terms and notices remain in place.
 
-The catalog and public theme now resolve to owned implementations, so retired foundation dependencies have been removed. Do not claim
-the package is independent of that foundation until Z passes. No publication,
+The catalog and public theme now resolve to owned implementations; retired runtime,
+peer and development foundation packages have been removed. Z still includes final
+historical/legal-reference and exact-artifact acceptance. See
+[public theme mappings](react-aria-theme.md) and the removal audit. No publication,
 version edit, prerelease channel or remote workflow setting is part of this change.
 
 ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundation.
@@ -174,7 +188,7 @@ InsertContentMenuControl, TextAlignMenuControl, TextColorPickerControl and
 TextStyleMenuControl now use the owned foundation and migrated-module boundaries.
 See [editor menu contracts](react-aria-editor-menus.md) for host callbacks,
 checked formatting state and the breaking semantic color preset mapping. Load
-/styles.css and provide Provider or ThemeScope. Surrounding editor migration remains open.
+/styles.css and provide Provider or ThemeScope. Broader editor acceptance remains open.
 
 RichTextFormattingToolbar now uses the owned foundation and migrated-module
 boundaries. See [formatting toolbar contracts](react-aria-formatting-toolbar.md)
@@ -196,7 +210,10 @@ U/X/R/Z acceptance gates remain open.
 
 DataToolbar (M-20), including columns, sort, filter and selection menus, now uses
 the owned foundation and migrated-module boundaries. See [data toolbar contracts](react-aria-data-toolbar.md) for controlled host state, draft menus, native styling/ref and scope requirements.
-Load `/styles.css` and provide Provider or ThemeScope. Grid migration remains open.
+Load `/styles.css` and provide Provider or ThemeScope. AppDataGrid, AppDataGridShell,
+LearnerClassesDataGrid and row reorder also use owned implementations; broad G
+acceptance remains open. See [catalog grid integration](react-aria-catalog-grid.md)
+and [reorder contracts](react-aria-grid-reorder.md).
 
 The public icons (M-36) and primitives (M-37) now use owned implementations,
 with whole-directory source/transitive/declaration boundaries. See
@@ -206,3 +223,9 @@ owned props and deliberate breaking removals. Import `/styles.css` and provide
 Provider or ThemeScope. The public theme is owned; broad acceptance remains open.
 
 See [public theme mappings](react-aria-theme.md) for the shipped scope API and Storybook globals.
+
+Use the [canonical component recipe](react-aria-component-recipe.md) for new controls
+and migrations. The [read-only adoption checklist](react-aria-adoption-checklist.md)
+provides host planning and representative integration examples; it does not authorize
+application changes or certify every host. This W-12/W-18 and A-06–A-10 documentation
+reconciliation does not close those whole tasks or broad acceptance gates.

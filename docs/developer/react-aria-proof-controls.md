@@ -1,8 +1,13 @@
 # Dialog and form interaction proof
 
-Task references: P-02, A-06–A-11, D-16, C-17, H-06, U-06–U-09.
-These contracts are available under `/experimental` while proof gates continue.
-The existing `AppModal`, `AppPageTabs` and catalog remain unchanged.
+Task references: P-02, A-06–A-11, D-16, C-17, H-06, U-06–U-09, W-12, W-18.
+These contracts remain available under `/experimental`; several also back shipped
+public owned controls. AppModal composes Dialog, AppPageTabs composes Tabs, and
+public primitives expose Provider and ComboBox. Preserved catalog names have their
+own mappings: see [modal/shell contracts](react-aria-modal-shells.md),
+[page layout](react-aria-page-layout.md) and [primitives](react-aria-primitives.md).
+The experimental surface does not add a compatibility promise or close broad gates.
+Load `/styles.css` once and provide Provider or ThemeScope for these compositions.
 
 ## Owned APIs
 
@@ -13,8 +18,11 @@ its native `dir` attribute alone does not configure the interaction engine.
 The host still owns supported locales and translations. No new application
 catalog, routing, account or data-loading policy is introduced.
 
-`Dialog` takes controlled `open`, required `title`, optional `description`,
-content, footer and `sm | md | lg` size. `onDismiss` requests that the host close
+`Dialog` takes controlled `open`, optional `title`, `aria-label` and `description`,
+content, header/footer and `xs | sm | md | lg | xl | full` size (default `md`).
+Supply a meaningful title or accessible label; the omitted-name fallback is translated
+"Dialog". Native dialog refs, class/style and declared surface/body styles support
+composition without upstream slot types. `onDismiss` requests that the host close
 the dialog. It reports `escape`, `outside`, `close-button`, or `dismiss` for a
 generic assistive dismissal. Separate flags control Escape/outside dismissal.
 Native refs on child controls and their `autoFocus` provide initial focus;
@@ -48,7 +56,9 @@ controlled/uncontrolled selection, named form participation, required/disabled/
 read-only/invalid state, descriptions and errors. Native form values are option
 IDs rather than labels. Input refs point to the native combobox input. Empty
 collections remain openable and show a translated empty message. Asynchronous
-loading and multiple selection are P-03 work, not claimed by this control.
+loading and multiple selection belong to the separate AsyncMultiSelect control,
+exported from `/experimental`; ComboBox does not claim those behaviors. See
+[remaining controls](react-aria-remaining-controls.md).
 
 ## Scope and stacking
 
@@ -59,8 +69,10 @@ not captured; style the overlay's scope directly or supply scope custom properti
 through the owned `ScopeStyle` contract. Nested provider settings take precedence.
 
 Overlay and popover layers use shared tokens at 1400 and 1410 rather than arbitrary
-maximum z-index values. The dialog header/footer remain outside the scrolling body;
-the proof tabs have a bounded root and separately scrolling panel. Modal background
+maximum z-index values. The dialog normally keeps header/footer outside the scrolling
+body; enlarged chrome can use an outer dialog scrollport to keep focused controls reachable.
+The proof tabs have a bounded root and separately scrolling panel. See
+[modal scrolling contracts](react-aria-modal-shells.md). Modal background
 interaction and document scroll locking remain owned by the interaction engine.
 No host body/global normalization is added to the stylesheet.
 
@@ -78,7 +90,10 @@ Browser checks complement tests for native event timing, popup geometry and
 scrolling. The browser caught an Escape classification problem that synchronous
 jsdom dispatch did not reproduce; its fix was rechecked with native keyboard and
 outside presses. These checks do not constitute a full screen-reader, touch,
-zoom, forced-colors, hydration or browser compatibility audit.
+zoom, forced-colors, hydration or browser compatibility audit. Later representative
+browser and packed SSR/hydration evidence is tracked in
+[browser acceptance](react-aria-browser-acceptance.md) and
+[server boundaries](react-aria-server-components.md); broader acceptance stays open.
 
 See the [execution record](react-aria-progress.md) for current counts and validation,
 and the [architecture decision](react-aria-architecture.md) for build/distribution.
@@ -97,3 +112,8 @@ receive these attributes and own equivalent behavior.
 The Link `NavigationSemantics` story supplies a local data-URL download fixture
 and reports callback ordering and the completed event's default-prevented state.
 It complements the adapter unit regressions with native browser verification.
+
+For new controls use the [canonical component recipe](react-aria-component-recipe.md).
+The [read-only adoption checklist](react-aria-adoption-checklist.md) covers host
+integration planning. This A-06–A-10/W-12/W-18 documentation slice reconciles shipped
+contracts; it does not close all proof, support-policy or accessibility requirements.
