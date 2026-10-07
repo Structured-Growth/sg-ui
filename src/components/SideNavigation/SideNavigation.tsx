@@ -1,5 +1,5 @@
 "use client";
-import { forwardRef, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
+import { forwardRef, useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type FocusEvent } from "react";
 import { usePathname, useRouter } from "../../adapters/navigation";
 import { useAccountAdapter } from "../../adapters/accounts";
 import type { AuthOrganization, StoredAuthSession } from "../../adapters/accounts";
@@ -381,6 +381,34 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
   const [accountError, setAccountError] = useState<string | null>(null);
   const menuContentRef = useRef<HTMLDivElement>(null);
   const focusAfterTransition = useRef<string | null>(null);
+  const revealFrame = useRef<number | null>(null);
+  useEffect(() => () => {
+    if (revealFrame.current !== null) window.cancelAnimationFrame(revealFrame.current);
+  }, []);
+  const revealFocusedItem = (event: FocusEvent<HTMLDivElement>) => {
+    const scrollport = event.currentTarget;
+    const control = event.target;
+    if (revealFrame.current !== null) window.cancelAnimationFrame(revealFrame.current);
+    // Native focus scrolling may run after focus dispatch. Measure its final result
+    // on the next frame, and adjust only our own vertical scrollport.
+    revealFrame.current = window.requestAnimationFrame(() => {
+      revealFrame.current = null;
+      if (!scrollport.isConnected || scrollport.ownerDocument.activeElement !== control) return;
+      const port = scrollport.getBoundingClientRect();
+      const rect = control.getBoundingClientRect();
+      if (!scrollport.clientHeight || !rect.height) return;
+      const css = window.getComputedStyle(control);
+      const outline = css.outlineStyle === "none" ? 0
+        : Math.max(0, (parseFloat(css.outlineWidth) || 0) + (parseFloat(css.outlineOffset) || 0));
+      // clientHeight excludes a horizontal scrollbar; clientTop excludes borders.
+      const top = port.top + scrollport.clientTop;
+      const bottom = top + scrollport.clientHeight;
+      const delta = rect.top - outline < top ? rect.top - outline - top
+        : rect.bottom + outline > bottom ? rect.bottom + outline - bottom : 0;
+      if (delta) scrollport.scrollTop = Math.max(0,
+        Math.min(scrollport.scrollHeight - scrollport.clientHeight, scrollport.scrollTop + delta));
+    });
+  };
   const [isSwitchingOrganization, setIsSwitchingOrganization] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const accountOperation = useRef(false);
@@ -691,7 +719,7 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
       {accountError && !isUserMenuOpen && <p role="alert" className={styles.error}>{accountError}</p>}
       <div ref={menuContentRef} className={styles.menuContent} data-direction={transitionDirection ?? undefined} onAnimationEnd={() => setTransitionDirection(null)}>
         {currentMenu.backLabel && <Button variant="text" tone="neutral" startIcon={<KeyboardArrowLeftIcon />} className={styles.back} onPress={handleBack}>{currentMenu.backLabel}</Button>}
-        <div className={styles.scroll}>{renderSections(currentMenu.sections)}{currentMenu.footerSections?.length ? <div className={styles.footer}>{renderSections(currentMenu.footerSections)}</div> : null}</div>
+        <div className={styles.scroll} data-sgui-part="side-navigation-scroll" onFocusCapture={revealFocusedItem}>{renderSections(currentMenu.sections)}{currentMenu.footerSections?.length ? <div className={styles.footer}>{renderSections(currentMenu.footerSections)}</div> : null}</div>
       </div>
     </>}
     <Button variant="text" tone="neutral" className={styles.collapse} aria-label={collapsed ? tr("expand", "Expand navigation") : tr("collapse", "Collapse navigation")} aria-expanded={!collapsed} onPress={() => setCollapsed(value => !value)}>{collapsed ? <ChevronRightIcon /> : <KeyboardArrowLeftIcon />}</Button>

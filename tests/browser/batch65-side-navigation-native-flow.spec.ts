@@ -8,34 +8,76 @@ async function keyboardReach(page: Page, target: Locator, key: string) {
   await expect(target).toBeFocused();
 }
 
-async function visibleFocus(control: Locator) {
-  await expect(control).toBeFocused();
-  await expect.poll(() => control.evaluate(element => {
+async function focusGeometry(control: Locator) {
+  return control.evaluate(element => {
+    const port = element.closest<HTMLElement>('[data-sgui-part="side-navigation-scroll"]');
     const rect = element.getBoundingClientRect();
-    const style = getComputedStyle(element);
-    const hit = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
-    if (rect.left < 0 || rect.right > innerWidth + 1 || rect.top < 0 || rect.bottom > innerHeight + 1
-      || !hit || !element.contains(hit) || style.outlineStyle === 'none' || parseFloat(style.outlineWidth) <= 0) return false;
-    for (let ancestor = element.parentElement; ancestor; ancestor = ancestor.parentElement) {
-      const css = getComputedStyle(ancestor);
-      const box = ancestor.getBoundingClientRect();
-      if (/(auto|scroll|hidden|clip)/.test(css.overflowY) && (rect.top < box.top - 1 || rect.bottom > box.bottom + 1)) return false;
-      if (/(auto|scroll|hidden|clip)/.test(css.overflowX) && (rect.left < box.left - 1 || rect.right > box.right + 1)) return false;
-    }
-    return true;
-  })).toBe(true);
+    const css = getComputedStyle(element);
+    const outline = css.outlineStyle === 'none' ? 0
+      : Math.max(0, (parseFloat(css.outlineWidth) || 0) + (parseFloat(css.outlineOffset) || 0));
+    const box = port?.getBoundingClientRect();
+    const top = box && port ? box.top + port.clientTop : null;
+    const left = box && port ? box.left + port.clientLeft : null;
+    return {
+      label: element.textContent?.trim(), focused: element === document.activeElement,
+      documentFocused: document.hasFocus(), outline,
+      control: { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right },
+      scrollport: port && top !== null && left !== null ? {
+        top, bottom: top + port.clientHeight, left, right: left + port.clientWidth,
+        clientTop: port.clientTop, clientHeight: port.clientHeight, clientWidth: port.clientWidth,
+        scrollTop: port.scrollTop, scrollLeft: port.scrollLeft, scrollHeight: port.scrollHeight,
+      } : null,
+    };
+  });
 }
 
+async function visibleFocus(control: Locator) {
+  await expect(control).toBeFocused();
+  try {
+    await expect.poll(() => control.evaluate(element => {
+      const rect = element.getBoundingClientRect();
+      const style = getComputedStyle(element);
+      const hit = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      if (rect.left < 0 || rect.right > innerWidth + 1 || rect.top < 0 || rect.bottom > innerHeight + 1
+        || !hit || !element.contains(hit) || style.outlineStyle === 'none' || parseFloat(style.outlineWidth) <= 0) return false;
+      for (let ancestor = element.parentElement; ancestor; ancestor = ancestor.parentElement) {
+        const css = getComputedStyle(ancestor);
+        const box = ancestor.getBoundingClientRect();
+        if (/(auto|scroll|hidden|clip)/.test(css.overflowY) && (rect.top < box.top - 1 || rect.bottom > box.bottom + 1)) return false;
+        if (/(auto|scroll|hidden|clip)/.test(css.overflowX) && (rect.left < box.left - 1 || rect.right > box.right + 1)) return false;
+      }
+      return true;
+    })).toBe(true);
+    // Retain the ancestor/hit/outline checks above, and measure the actual client
+    // area as well: border boxes include borders and native scrollbar space.
+    await expect.poll(async () => {
+      const geometry = await focusGeometry(control);
+      const port = geometry.scrollport;
+      return !port || (geometry.control.top - geometry.outline >= port.top - 1
+        && geometry.control.bottom + geometry.outline <= port.bottom + 1
+        && geometry.control.left - geometry.outline >= port.left - 1
+        && geometry.control.right + geometry.outline <= port.right + 1);
+    }).toBe(true);
+  } finally {
+    await test.info().attach('native focused navigation geometry', {
+      body: JSON.stringify(await focusGeometry(control), null, 2), contentType: 'application/json',
+    });
+  }
+}
+
+for (const presentation of [{ direction: 'ltr', density: 'comfortable' }, { direction: 'rtl', density: 'compact' }]) {
 for (const theme of ['light', 'dark']) {
   for (const enlarged of [false, true]) {
-    test(`catalog hierarchy keyboard flow (${theme}, ${enlarged ? '200% text' : 'normal text'})`, async ({ page, browserName }) => {
+    test(`catalog hierarchy keyboard flow (${theme}, ${enlarged ? '200% text' : 'normal text'})${presentation.direction === 'rtl' ? ' (RTL, compact)' : ''}`, async ({ page, browserName }) => {
       const diagnostics: string[] = [];
       page.on('pageerror', error => diagnostics.push(error.message));
       page.on('console', message => { if (['warning', 'error'].includes(message.type())) diagnostics.push(message.text()); });
       await page.setViewportSize({ width: 320, height: 720 });
-      await page.goto(`/iframe.html?id=navigation-sidenavigation--native-hierarchy&viewMode=story&globals=theme:${theme};a11y.manual:!true`);
+      await page.goto(`/iframe.html?id=navigation-sidenavigation--native-hierarchy&viewMode=story&globals=theme:${theme};direction:${presentation.direction};density:${presentation.density};a11y.manual:!true`);
       const navigation = page.getByRole('navigation', { name: 'Course workspace navigation' });
       await expect(navigation).toBeVisible();
+      await expect(navigation.locator('xpath=ancestor::*[@data-sgui-scope][1]')).toHaveAttribute('dir', presentation.direction);
+      await expect(navigation.locator('xpath=ancestor::*[@data-sgui-scope][1]')).toHaveAttribute('data-sgui-density', presentation.density);
       if (enlarged) await page.addStyleTag({ content: 'html { font-size: 200%; }' });
       await expect(page.getByLabel('Native navigation ref')).toHaveText('NAV');
       const tab = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
@@ -131,4 +173,5 @@ for (const theme of ['light', 'dark']) {
       expect(diagnostics).toEqual([]);
     });
   }
+}
 }
