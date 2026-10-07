@@ -69,4 +69,21 @@ describe("owned text color picker", () => {
     rerender(<TextColorPickerControl disabled onChange={vi.fn()} />);
     expect((screen.getByRole("button") as HTMLButtonElement).disabled).toBe(true);
   });
+  it.each(["disabled", "callback removed"])("discards a pending valid draft when the host becomes %s", async restriction => {
+    const user = userEvent.setup(); const onChange = vi.fn();
+    const { rerender } = render(<TextColorPickerControl value="#123456" onChange={onChange} />);
+    const trigger = screen.getByRole("button", { name: "Text color" });
+    await user.click(trigger);
+    const field = await screen.findByRole("textbox", { name: "Hex color" });
+    await user.clear(field); await user.type(field, "#abcdef");
+    rerender(<TextColorPickerControl value="#123456" disabled={restriction === "disabled"}
+      onChange={restriction === "callback removed" ? undefined : onChange} />);
+    await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+    expect(onChange).not.toHaveBeenCalled();
+    expect((trigger as HTMLButtonElement).disabled).toBe(true);
+    rerender(<TextColorPickerControl value="#123456" onChange={onChange} />);
+    await user.click(trigger);
+    expect((await screen.findByRole("textbox", { name: "Hex color" }) as HTMLInputElement).value).toBe("#123456");
+    expect(onChange).not.toHaveBeenCalled();
+  });
 });
