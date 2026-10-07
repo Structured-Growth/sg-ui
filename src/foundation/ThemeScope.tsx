@@ -38,3 +38,14 @@ export function useOverlayScope() {
   return { "data-sgui-scope": "", "data-sgui-theme": scope.theme, "data-sgui-density": scope.density,
     dir: scope.dir, lang: scope.lang, style: scope.variables };
 }
+
+/** Internal native bridge for overlays whose interaction engine replaces the visual dir prop.
+ * Keep locale-driven interactions separate from the owned visual direction override.
+ * A fresh callback reapplies the attribute on scope updates, including an open portal.
+ */
+export function useOverlayDirectionRef(localeDirection: "ltr" | "rtl") {
+  const { dir } = useContext(ScopeContext);
+  return (element: HTMLElement | null) => {
+    if (element) element.setAttribute("dir", dir ?? localeDirection);
+  };
+}
