@@ -102,3 +102,25 @@ it("clears incomplete segments on reset to an empty default without a value call
   await waitFor(() => expect(day.getAttribute("aria-valuenow")).toBeNull());
   expect(change).not.toHaveBeenCalled();
 });
+
+it("preserves an incomplete day draft and focused segment after a delegated prevented reset", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  render(<div onReset={event => event.preventDefault()}><form data-testid="incomplete-reset">
+    <DateField label="Incomplete date" name="date" onValueChange={change} />
+  </form></div>);
+  const day = screen.getByRole("spinbutton", { name: /day/ });
+  await user.click(day); await user.keyboard("28");
+  expect(day.getAttribute("aria-valuenow")).toBe("28");
+  const focused = document.activeElement;
+  const form = screen.getByTestId("incomplete-reset") as HTMLFormElement;
+  expect(new FormData(form).get("date")).toBe("");
+  expect(change).not.toHaveBeenCalled();
+  act(() => form.reset());
+  await new Promise(resolve => setTimeout(resolve, 20));
+  expect(document.activeElement).toBe(focused);
+  expect(day.getAttribute("aria-valuenow")).toBe("28");
+  expect(screen.getByRole("spinbutton", { name: /month/ }).getAttribute("aria-valuenow")).toBeNull();
+  expect(screen.getByRole("spinbutton", { name: /year/ }).getAttribute("aria-valuenow")).toBeNull();
+  expect(new FormData(form).get("date")).toBe("");
+  expect(change).not.toHaveBeenCalled();
+});
