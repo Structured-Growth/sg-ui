@@ -7,7 +7,32 @@ import { $getRoot, $isElementNode, $isTextNode, type LexicalEditor } from "lexic
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { Provider } from "../../experimental/Provider/Provider";
 import { MixedFormattingHost } from "./PageRichTextEditorSection.mixed-formatting.stories";
+import { canonicalMixedFormattingMarkup } from "../../../tests/browser/editor-mixed-formatting-history.spec";
 import { serializeEditorDocument } from "./lexical/serializeEditorDocument";
+
+// Load the exact browser comparison helper without registering Playwright cases in Vitest.
+vi.mock("@playwright/test", () => ({ expect, test: () => {} }));
+
+it("canonicalizes only empty class attributes without hiding format, style, text or metadata changes", () => {
+  const root = document.createElement("div");
+  const baseline = '<p dir="auto"><strong class="editor-text-bold" style="color: var(--sgui-action);" data-lexical-text="true">Bold</strong><span data-lexical-text="true"> plain </span></p>';
+  root.innerHTML = baseline;
+  const expected = canonicalMixedFormattingMarkup(root);
+  root.querySelector("span")!.setAttribute("class", "");
+  expect(canonicalMixedFormattingMarkup(root)).toBe(expected);
+  expect(root.querySelector("span")!.hasAttribute("class")).toBe(true);
+  for (const changed of [
+    baseline.replace('class="editor-text-bold"', 'class="editor-text-underline"'),
+    baseline.replace('<strong', '<em').replace('</strong>', '</em>'),
+    baseline.replace('var(--sgui-action)', 'var(--sgui-text)'),
+    baseline.replace('Bold', 'Changed'),
+    baseline.replace('data-lexical-text="true"', 'data-lexical-text="false"'),
+    baseline.replace('<span ', '<span class=" " '),
+  ]) {
+    root.innerHTML = changed;
+    expect(canonicalMixedFormattingMarkup(root)).not.toBe(expected);
+  }
+});
 
 let activeEditor: LexicalEditor | undefined;
 function CaptureEditor() {

@@ -73,7 +73,7 @@ Green checks:
 
 No independent Storybook build, browser run, full `pnpm check`, GitHub CI, main
 change or publication was performed. The coordinator builds and tests the admitted
-candidate once, with no rebuild during a suite. Fresh Chromium execution is pending.
+candidate once, with no rebuild during a suite. Fresh Chromium execution of the corrected comparison is pending.
 Intended native command after that build:
 
 ```sh
@@ -89,3 +89,37 @@ under this batch's allowlist.
 Related contracts: [editor section](../react-aria-editor-section.md),
 [formatting toolbar](../react-aria-formatting-toolbar.md),
 [browser acceptance](../react-aria-browser-acceptance.md).
+
+## Wave32 native outcome and bounded comparison correction
+
+Coordinator candidate `1976be5e3776fe5e44065b02f359a17751ef7284` ran the original
+six Chromium cases after its fresh shared build: light/dark Bold and Italic passed
+(4/6); light/dark Underline failed (2/6) at the raw markup equality after Undo.
+The preceding **whole JSON equality after Undo passed** in both failing cases.
+Expected and received markup differ only by the plain span's absent class attribute
+versus `class=""`. This is a DOM serialization equivalence issue in the evidence
+assertion, not a demonstrated formatting defect.
+
+The failed artifact is preserved at the coordinator's read-only location:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/6c2eaada-de28-4a40-aef8-2668b3847a47/editor-mixed-formatting/`.
+Its `browser.log`, results, screenshots and traces were not edited or replaced.
+
+The browser spec now exports a deterministic DOM comparison helper which clones
+the editor subtree and removes **only** attributes matching `[class=""]` from
+that detached clone. It returns the clone's otherwise exact innerHTML. Every
+existing before/Undo/Redo/reload markup comparison uses this helper; native
+selection input, per-character checks and whole JSON comparisons are unchanged.
+No generic attribute stripping, production changes or synthetic selection was added.
+
+A colocated regression imports that exact helper (with Playwright case registration
+mocked for Vitest), verifies absent/empty class equivalence and verifies the source
+DOM is untouched. It rejects nonempty class changes, tag changes, style changes,
+text changes, metadata changes and whitespace-only classes. The targeted Vitest
+run now passes 4/4, and `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`
+passes under the same Node 24 PATH. Correction checks used atomically acquired
+light slot0, released by this owner after completion. `git diff --check` passes.
+
+No independent native rerun or Storybook build occurred. Corrected fresh Chromium
+execution remains with the coordinator; the previous Underline failure is retained
+as red evidence, and a corrected native green outcome has not yet been claimed.
+Firefox/WebKit, manual and whole acceptance gates remain pending.
