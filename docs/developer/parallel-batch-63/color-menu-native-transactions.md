@@ -60,8 +60,38 @@ shared candidate once and runs this focused selection:
 pnpm exec playwright test tests/browser/batch63-color-menu-native-transactions.spec.ts --project=chromium
 ```
 
-Chromium runtime execution is pending coordinator validation at preparation.
+## Shared Chromium execution evidence
+
+The coordinator's wave 30 freshly built shared candidate
+`5cc976dc1b9af6ced3980ec0e93fe930a9a8237b` tested the frozen worker source head
+`d8d6181787e2ee205052c181c01b20884e942893`. These are distinct commits: the
+candidate contains other attributed scopes; the worker contains this batch alone.
+`/tmp/sgui-batch45-candidate-wave30-attribution.json` records the worker/base and
+SHA-256 digests for its four files. Before this report-only update, all four local
+files matched those attributed digests. Story, spec and unit bytes remain frozen.
+
+Root evidence is at
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/evidence.json`.
+The sibling `color-menu-native-transactions/` shard contains `evidence.json`,
+`results.json` and `browser.log`. Its immutable build digest is
+`6978ebf422790330db7d1a041dfa973e0d3f01c06362a9afbefb43719c5a6ee0`.
+
+The color shard passed **8/8 Chromium cases**, with zero skipped, unexpected or
+flaky tests, on Node `v24.19.0`/macOS. Playwright recorded 7.285 seconds; the shard
+command took 8.423 seconds. Execution ran on 2026-10-07 from
+18:11:55.427–18:12:03.850 UTC. The exact selected spec ran with
+`--project=chromium`, no grep filter and all light/dark foreground/background
+transaction/lifetime cases. Mandatory browser diagnostic assertions passed.
+
+The root wave has a failed aggregate status because the separate pointer-drop-focus
+scope failed. This color shard is green; it does not certify the whole candidate.
+The coordinator reports all owned commands settled and locks released. No worker
+rerun, build, browser server or source/test change was made for finalization.
+
 Firefox/WebKit remain at the deferred checkpoint. Physical OS chooser, manual
-device and assistive-technology gates remain unverified; this preparation does
-not close M-29's broader acceptance or E/X gates. Current-head integration/CI
-evidence belongs to the coordinator's [validation workflow](../react-aria-browser-acceptance.md).
+device and assistive-technology gates remain unverified; the color DOM/change case
+still uses explicitly synthetic events and never launches an OS chooser. This
+bounded Chromium evidence does not close M-29's broader acceptance or E/X gates.
+Current-head reviewed integration/CI evidence belongs to the coordinator's
+[validation workflow](../react-aria-browser-acceptance.md); integrate the individual
+worker history, not the whole shared candidate.
