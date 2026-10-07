@@ -1004,3 +1004,66 @@ processing/cell/layout modules, per-concern controllers, native ref and containe
 measurement/resize behavior; then public AppDataGrid/helpers integration and
 strict whole-dependency/declaration checks. Follow with M-17 shared shell, M-18
 reorder, M-19 learning composition and required remaining M/G/U/X/R/Z work.
+
+## Catalog grid interaction batch
+
+M-16 linked implementation on 2026-10-06 in draft PR #1. Internal
+`ownedGridInteraction` now registers React Aria catalog interaction, composing
+the owned processing, cells, header and status parts. Criteria and layout hooks
+independently support controlled/default pagination, ordered sort, filters,
+search, retained selection, visibility, order and widths. Callback-only concerns
+remain writable; defaults seed once and callback snapshots are isolated.
+Atomic pagination requests page/size once. Criterion transactions request page
+zero before the criterion and then emit one combined snapshot. Selection-only
+changes preserve processing dependency references.
+
+The interaction provides native container/table refs, ResizeObserver flex
+measurement, committed numeric width overrides and bounded pointer/keyboard/native
+slider resizing. Page selection changes only selectable page IDs, retaining
+off-page and previously selected disabled IDs. Nested links/menus remain separate
+from row actions and selection. Focus tracks row/field/control identity through
+sort/refresh and repairs hidden/deleted controls within their grid; empty/loading
+page entry falls back to the table. Page transitions made while focus is inside
+the grid reset vertical scroll and focus page entry. Footer/toolbar/view-trigger
+entry behavior remains the shell's later work. Layout effects use a server-safe
+effect when no document exists.
+
+The public AppDataGrid renderer/types/helpers and old parts still use the legacy
+engine. M-16 and whole-directory strict removal are not complete. Persistence,
+M-17–M-19, M-36/M-37 and broad G/U/X/R/Z gates remain open. Source/transitive,
+token/layer and emitted declaration guards cover the new internal modules and
+stories; the registered interaction requires colocated behavior tests.
+
+Validation:
+
+- Final `pnpm check`: 130 files / 686 tests, four foundation and four release
+  tests, production/story typecheck, ESM/declarations, public-entry imports and
+  consumer typing passed. Added 27 controller/layout/interaction/SSR regressions.
+  No checks weakened. `pnpm build-storybook` passed with existing module-directive,
+  sourcemap and chunk warnings.
+- Fresh packed React 19.2.3 and 18.3.1 consumers passed SSR/hydration-entry,
+  production Vite/CSS and no-retired-peer checks. Direct internal interaction SSR
+  assertions passed from both tarballs with no warnings; these do not add a public
+  component export or establish complete hydration/browser acceptance.
+- Native in-app browser proof: page selection retained one prior-page ID (11
+  selected), header ascending sort reset page two to page one without losing IDs,
+  Edit invoked only the host action and returned focus, removing that row restored
+  the next row's menu control, keyboard Status resize committed 170 and pointer
+  Course resize committed 425 without freezing Score flex. Refresh kept the
+  visible row at the same screen position. Narrow viewport rendered minimum
+  widths and horizontal scrolling (scrollLeft 407). Two independent instances
+  retained separate selections and sorting. Browser warning/error logs empty.
+  Screenshot: `/tmp/sgui-m16-interaction.png`.
+
+Local Node26.5.0/pnpm10.29.3; Node24, NextRSC, touch, screen-reader, zoom, complete
+visual/browser and workload performance matrices remain open. Native checks are
+representative interaction evidence, not whole-catalog acceptance. Prior f1c5fc7
+CI/title checks passed; new head checks are inspected separately after push.
+No merge, publication, manual version, license, workflow permission or secret
+changes.
+
+Next code batch: public AppDataGrid/helpers/cell-parts integration, persistence,
+strict whole-directory and public-entry/declaration audits; then M-17 shared
+shell, M-18 reorder, M-19 learning composition and required remaining backlog.
+Commit/push and dispatch the successor local sg-ui chat, with no overlapping
+checkout edits after dispatch.

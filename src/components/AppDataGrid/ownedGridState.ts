@@ -15,6 +15,7 @@ export type OwnedGridTransition =
   | { type: "filter"; value: readonly DataToolbarFilterRule[] }
   | { type: "page"; value: number }
   | { type: "pageSize"; value: number }
+  | { type: "pagination"; value: OwnedGridPaginationModel }
   | { type: "selection"; value: ReadonlySet<string> };
 
 export interface OwnedGridTransitionOptions<Row> {
@@ -34,6 +35,13 @@ export function transitionOwnedGridState<Row>(state: OwnedGridCriteriaState, act
     case "filter": return { ...state, paginationModel: { ...state.paginationModel, page: 0 }, filterRules: normalizeGridFilterRules(action.value, options.columns, options.filterFields) };
     case "selection": return { ...state, selectedRowIds: new Set(action.value) };
     case "pageSize": return { ...state, paginationModel: normalizeGridPagination({ page: 0, pageSize: action.value }, options.pageSizeOptions) };
+    case "pagination": {
+      // The footer supplies one atomic page/size request, never two host requests.
+      const next = transitionOwnedGridState(state, action.value.pageSize !== state.paginationModel.pageSize
+        ? { type: "pageSize", value: action.value.pageSize }
+        : { type: "page", value: action.value.page }, options);
+      return next;
+    }
     case "page": {
       const model = normalizeGridPagination({ ...state.paginationModel, page: action.value }, options.pageSizeOptions);
       if (options.rowCount !== undefined && Number.isSafeInteger(options.rowCount) && options.rowCount >= 0) {

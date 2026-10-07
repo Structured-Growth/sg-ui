@@ -14,8 +14,9 @@ transaction modules (`ownedGridModel.ts` and `ownedGridState.ts`) with a compose
 Storybook proof. Client processing covers every toolbar operator, stable
 multi-sort and page slicing; server processing preserves host input. These are
 internal building blocks, not replacement public AppDataGrid types or helpers.
-The catalog renderer, cells, interaction, persistence and shell integration are
-still pending. See the [execution record](react-aria-progress.md#catalog-grid-processing-batch).
+Internal cell/presentation and registered interaction batches now compose this
+processing. Public catalog replacement, persistence and shell integration remain
+pending. See the [execution record](react-aria-progress.md#catalog-grid-processing-batch).
 
 ## Required capability matrix
 
@@ -208,6 +209,33 @@ hasNextPage governs unknown-total forward navigation. Refresh retains rows,
 selection and focused interaction context while announcing pending state. The
 host uses request identity/cancellation to reject stale responses. Include a
 story proving out-of-order responses cannot replace the latest requested rows.
+
+## Internal interaction implementation
+
+The internal `ownedGridInteraction` is a registered React Aria interaction
+implementation with owned criteria/layout controllers, native scrolling-container
+and table refs, ResizeObserver measurement and numeric bounded column resizing.
+It composes the owned processing, cell, header and status modules; it is not yet
+the exported AppDataGrid. Load the foundation stylesheet and provide an owned
+scope for its Storybook proofs.
+
+Each criterion and layout concern supports independent controlled/default
+ownership. Callback-only concerns remain writable. Defaults seed once; callbacks
+receive isolated records/sets. Criteria transactions request pagination before
+the criterion and then emit one combined snapshot. The atomic pagination action
+handles the footer's page/size record once. Selection changes preserve processing
+dependency references. Page checkbox state counts only selectable page rows, and
+individual/page changes retain off-page and previously selected disabled IDs.
+
+The scrolling container ref points to HTMLDivElement; `tableRef` points to
+HTMLTableElement. Resizing commits only the resized column's numeric override,
+leaving untouched flex columns responsive to container measurement. Focus is
+tracked by row ID, field ID and nested control index. Refresh/sort preserves
+mounted controls; deleted/hidden controls fall back within their grid, including
+an empty grid entry. A page transition initiated while focus is inside the grid
+resets vertical scroll and focuses the first page cell or empty table entry.
+Focus held by a footer, toolbar or another grid is not stolen; the later shell
+owns those entry transitions. Reorder and persistence remain subsequent batches.
 
 ## Persistence, focus and implementation sequence
 

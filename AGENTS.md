@@ -291,3 +291,11 @@ ownedGridParts with owned helper/presentation contracts. Apply migrated boundari
 to these files and their stories too. Legacy public helpers, cell parts and the
 catalog renderer remain pending; no whole-directory completion is implied.
 See the internal cell/presentation section in the catalog grid contracts.
+
+M-16 now also includes internal ownedGridController, ownedGridLayoutController and
+the registered ownedGridInteraction with owned processing/cells/status, native
+refs, container measurement and keyboard/pointer column resizing. Apply migrated
+boundaries to these files/stories; public AppDataGrid/helpers, persistence and
+shell/reorder integration remain pending. This does not mark the AppDataGrid
+directory or M-16 complete. See the internal interaction section in the
+[catalog grid contracts](docs/developer/react-aria-grid-contracts.md).

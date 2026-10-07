@@ -329,8 +329,9 @@ M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31
 The [data toolbar contracts](react-aria-data-toolbar.md) and
 [execution evidence](react-aria-progress.md#data-toolbar) cover M-20; grid integration remains open.
 M-16 has internal [owned processing/transaction](react-aria-progress.md#catalog-grid-processing-batch) and [cell/presentation](react-aria-progress.md#catalog-grid-cell-and-presentation-batch) batches;
-its catalog renderer, cells, interactions, public types/helpers and shell integration
-remain open. Do not count the whole directory or G runtime acceptance as complete.
+its [registered interaction/controllers](react-aria-progress.md#catalog-grid-interaction-batch) batch now composes them with native refs, measurement and resizing.
+Public catalog integration of the renderer, cell parts, interaction and
+types/helpers, plus persistence and shell integration, remain open. Do not count the whole directory or G runtime acceptance as complete.
 The [editor section contracts](react-aria-editor-section.md) and
 [execution evidence](react-aria-progress.md#page-rich-text-editor-section) cover M-34.
 The [editor layout/selection contracts](react-aria-editor-layout.md) and

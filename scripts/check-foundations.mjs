@@ -9,6 +9,7 @@ const { ts } = compileTokens(source);
 const variables = new Set([...ts.matchAll(/var\((--sgui-[\w-]+)\)/g)].map(match => match[1]));
 const interactionFiles = new Set(['Button', 'TextField', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'DateField', 'TimeField', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'Menu', 'Switch', 'RadioGroup', 'Select', 'TextArea', 'ToggleButton', 'Tooltip', 'TagGroup', 'Progress']
   .map(name => `src/experimental/${name}/${name}.tsx`));
+interactionFiles.add("src/components/AppDataGrid/ownedGridInteraction.tsx");
 const componentFiles = new Set([...interactionFiles, ...['Typography', 'Box', 'Stack', 'Surface', 'Card', 'Divider', 'IconButton', 'ButtonGroup', 'SplitAction', 'Link', 'Breadcrumbs', 'List', 'Navigation', 'Disclosure', 'Collapse', 'Chip', 'Badge', 'Progress', 'Status', 'Avatar', 'Table', 'Pagination'].map(name => `src/experimental/${name}/${name}.tsx`)]);
 // Catalog components enter the same strict owned boundary as they migrate.
 const migratedDirectories = ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'Typefaces', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'AppButton', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar'];
@@ -73,7 +74,7 @@ for (const name of migratedDirectories.filter(name => name !== 'Typefaces')) {
 // M-16 is split into implementation batches. Audit the owned processing/model
 // files now without claiming that the surrounding legacy catalog has migrated.
 await visit('src/components/AppDataGrid', name => name.startsWith('ownedGrid'));
-for (const file of ['ownedGridModel.ts', 'ownedGridState.ts', 'ownedGridColumns.ts', 'ownedGridCells.tsx', 'ownedGridParts.tsx', 'ownedGridProcessing.stories.tsx', 'ownedGridCells.stories.tsx', 'ownedGridParts.stories.tsx']) {
+for (const file of ['ownedGridModel.ts', 'ownedGridState.ts', 'ownedGridController.ts', 'ownedGridLayoutController.ts', 'ownedGridInteraction.tsx', 'ownedGridInteraction.stories.tsx', 'ownedGridColumns.ts', 'ownedGridCells.tsx', 'ownedGridParts.tsx', 'ownedGridProcessing.stories.tsx', 'ownedGridCells.stories.tsx', 'ownedGridParts.stories.tsx']) {
   await auditDependencies(resolve(`src/components/AppDataGrid/${file}`));
 }
 console.log('Owned foundation import, layer and token checks pass.');

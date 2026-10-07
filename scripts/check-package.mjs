@@ -56,7 +56,7 @@ async function checkOwnedDeclarations(dir) {
 }
 await checkOwnedDeclarations('dist/experimental');
 await checkOwnedDeclarations('dist/foundation');
-for (const file of ['ownedGridModel', 'ownedGridState', 'ownedGridColumns', 'ownedGridCells', 'ownedGridParts']) {
+for (const file of ['ownedGridModel', 'ownedGridState', 'ownedGridColumns', 'ownedGridCells', 'ownedGridParts', 'ownedGridController', 'ownedGridLayoutController', 'ownedGridInteraction']) {
   const declaration = await readFile(`dist/components/AppDataGrid/${file}.d.ts`, 'utf8');
   assert(!/react-aria|@react-types|@mui|@emotion|lucide-react|@tanstack/.test(declaration), `Upstream grid model type escaped: ${file}`);
 }
