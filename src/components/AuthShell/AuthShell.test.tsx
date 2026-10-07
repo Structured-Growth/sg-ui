@@ -112,15 +112,17 @@ describe("AuthShell", () => {
     function Host() {
       const [value, setValue] = useState("");
       const updated = value.length >= 8;
-      return <div style={{ height: 300, overflow: "auto" }}><AuthShell
+      return <><AppButton>Before embedded form</AppButton><div style={{ height: 300, overflow: "auto" }}><AuthShell
         style={{ minBlockSize: "100%" }} title={updated ? "Continue entry" : "School sign in"}
         subtitle={updated ? "Updated host guidance" : "Initial host guidance"}
         footerContent={<Link href="#support">{updated ? "Updated support" : "School support"}</Link>}>
         <TextField label="School email" value={value} onValueChange={setValue} />
-      </AuthShell></div>;
+      </AuthShell></div></>;
     }
     render(<Host />);
     const field = screen.getByRole("textbox", { name: "School email" });
+    await user.tab();
+    expect(document.activeElement).toBe(screen.getByRole("button", { name: "Before embedded form" }));
     await user.tab();
     await user.keyboard("student@example.org");
     expect(screen.getByRole("textbox")).toBe(field);

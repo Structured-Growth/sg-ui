@@ -42,8 +42,26 @@ for (const theme of ['light', 'dark']) {
       const tab = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
       const backTab = browserName === 'webkit' ? 'Alt+Shift+Tab' : 'Shift+Tab';
       const email = page.getByRole('textbox', { name: 'School email', exact: true });
-      // Native Tab and typing drive focus, scroll and the host's React update.
+      // Establish entry from a real host predecessor, without focusing the field.
       await page.keyboard.press(tab);
+      await expect(page.getByRole('button', { name: 'Before embedded form', exact: true })).toBeFocused();
+      await page.keyboard.press(tab);
+      const entryFocus = await page.evaluate(() => ({
+        tag: document.activeElement?.tagName,
+        testId: document.activeElement?.getAttribute('data-testid'),
+        name: document.activeElement?.getAttribute('name'),
+      }));
+      await test.info().attach('native-entry-focus', {
+        body: JSON.stringify(entryFocus), contentType: 'application/json',
+      });
+      // Firefox includes the native scrolling host in sequential keyboard navigation.
+      // Accept only that exact intermediate stop; the next Tab must reach the email.
+      if (entryFocus.testId === 'auth-scroll-host') {
+        await expect(host).toBeFocused();
+        await singleHostScroll(page);
+        await page.keyboard.press(tab);
+      }
+      // Native Tab and typing drive focus, scroll and the host's React update.
       await wholeFocusedControl(email);
       const originalInput = await email.elementHandle();
       await page.keyboard.type('student@example.org');
