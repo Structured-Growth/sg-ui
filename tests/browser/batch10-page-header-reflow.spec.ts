@@ -40,9 +40,11 @@ for (const theme of ['light', 'dark']) {
           element.setAttribute('data-hierarchy', 'primary');
           const primary = getComputedStyle(element).backgroundColor;
           element.setAttribute('data-hierarchy', 'subpage');
-          return { contrast: (Math.max(fg,bg)+.05)/(Math.min(fg,bg)+.05), subpage, primary };
+          const primaryBg = luminance(primary);
+          return { contrast: (Math.max(fg,bg)+.05)/(Math.min(fg,bg)+.05), primaryContrast: (Math.max(fg,primaryBg)+.05)/(Math.min(fg,primaryBg)+.05), subpage, primary };
         });
         expect(colors.contrast).toBeGreaterThanOrEqual(4.5);
+        expect(colors.primaryContrast).toBeGreaterThanOrEqual(4.5);
         expect(colors.primary).not.toBe(colors.subpage);
         if (theme === 'light') expect(colors.primary).toBe('rgb(255, 255, 255)');
         const path = page.getByRole('button', { name: 'Show path', exact: true });
