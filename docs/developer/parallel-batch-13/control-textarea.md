@@ -4,7 +4,7 @@ Partial U-05/U-18 acceptance. Baseline verified before edits:
 `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818`.
 Managed worktree created and attached first:
 `/Users/thomashall/.codex/worktrees/batch13-control-textarea/sg-ui`.
-Branch: `codex/batch13-control-textarea`. Draft PR base: `codex/dev`.
+Branch: `codex/batch13-control-textarea`. Draft PR: [#74](https://github.com/Structured-Growth/sg-ui/pull/74), base `codex/dev`.
 Implementation/spec commit: `a16a0588746586b1f1b5489910ebacb6fd9061d9`.
 Final report commit is supplied in the coordinator completion message.
 
@@ -54,17 +54,34 @@ pnpm `10.29.3`; resolved Vitest reports `4.1.11`, React is `19.2.3`.
 - `pnpm exec vitest run src/experimental/TextArea/TextArea.test.tsx --maxWorkers=1`:
   1 file / 7 tests passed on implementation source. All Vitest runs used one of
   four atomic shared light slots with owner-checked cleanup in `finally`.
+  An intermediate 6-pass/1-fail run found a test-fixture JSX literal `\n`;
+  changing the controlled fixture to a JavaScript string corrected that test.
 - `pnpm foundations:check`: passed on implementation source.
-- `pnpm typecheck`: initial source passed; exact committed-source repeat pending.
-- Browser TypeScript and fresh focused native browser evidence: pending behind
-  the shared priority queue and lock; not passed or substituted with jsdom.
+- `pnpm typecheck`: passed, including repeat on implementation commit (report-only changes do not affect source).
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- Fresh focused native browser evidence: queued for the coordinator browser pool;
+  not passed or substituted with jsdom. The coordinator requested stopping this
+  task’s idle standalone waiter when its pool priority entry was added. Only our
+  idle Python waiter was terminated (exit 143); it had acquired no lock, started
+  no build/server/suite, and generated no native validation evidence. The current
+  owner and queue were untouched. No independent harness/config migration occurred.
+  Ready focused args: `tests/browser/batch13-control-textarea.spec.ts` (2 cases per
+  engine). The pool should use this exact source/spec head, a fresh build and its
+  reviewed frozen dev ancestry bootstrap when explicitly authorized.
 - `git diff --check`: passed. All changed tracked paths match the allowlist.
 
 No full `pnpm check`, broad browser/consumer suites, CI wait/rerun/dispatch,
 main/merge/publish, workflow permission or secret changes. User-authorized targeted
 validation supersedes blanket full-suite requirements for this dev task.
 
-## Limits and next scopes
+## Review status, limits and next scopes
+
+Status: incomplete pending mandatory fresh focused native evidence. The draft
+PR remains reviewable; unit/type/guard passes are not native acceptance.
+
+Ready source/spec commit remains `a16a0588746586b1f1b5489910ebacb6fd9061d9`;
+subsequent commits affect only this report. Exact clean ready/report head is
+supplied to the coordinator after committing the report.
 
 Broad U-05/U-18/U/X/R/Z acceptance remains open. This slice does not establish
 physical-device, assistive-technology, autofill/password-manager or IME behavior.
