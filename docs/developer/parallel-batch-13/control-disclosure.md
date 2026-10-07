@@ -42,3 +42,20 @@ Native browser/build validation is **queued, not passed**. The shared `/tmp/sgui
 Required follow-up: after those priorities and browser pool readiness, reserve the shared lock, build fresh static Storybook from this implementation, and run `pnpm test:browser tests/browser/batch13-control-disclosure.spec.ts` through the supported pool/browser setup. Record exact tested commit, engines and counts here. Do not integrate this focus change as natively validated before that evidence exists. If native results differ, reserve this same allowlist for the correction rather than changing shared infrastructure in this task.
 
 Broad X/U acceptance, React 18 native coverage, manual/device/AT acceptance and production/full-checkpoint acceptance remain open. GitHub dev CI/title jobs remain paused; no waits, reruns, dispatches, merges, publication or permission changes.
+
+## Coordinator-authorized shared prerequisite and freeze
+
+The coordinator explicitly authorized merging the full reviewed dev ancestry at
+`6b9da4423f1e6675c37571d5552474da25e90258` into this same worktree for the
+control-disclosure/control-button native pair. Normal `git merge --no-ff` produced
+merge commit `364aa29635e21a6e7192418c18e9e4fecabf1f53` without conflicts. Its six
+shared pool/protocol changes are inherited prerequisites, separate from this
+task's exclusive edits; no harness/config was selectively copied or edited.
+No behavior conflict resolution or additional lightweight rerun was needed.
+
+Existing dependencies were reused inside an ignored native `node_modules`
+directory with links to the primary workspace installation; no install was run.
+The following report commit freezes the head for the coordinator's fresh pool run
+of `tests/browser/batch13-control-disclosure.spec.ts` with explicit
+`--project=chromium --project=webkit`. No local build/server/browser was started.
+Native evidence remains pending until the coordinator returns the results.
