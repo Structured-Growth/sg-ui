@@ -7,6 +7,7 @@ import { SGTranslationProvider, type SGTranslationAdapter } from "../../i18n";
 import { formatIcuMessage } from "../../i18n/icu";
 import type { LearnerClass } from "../../models";
 import { LearnerClassesDataGrid } from "./LearnerClassesDataGrid";
+import { SGNavigationProvider } from "../../adapters/navigation";
 
 afterEach(cleanup);
 const rows: LearnerClass[] = Array.from({ length: 6 }, (_, index) => ({
@@ -16,6 +17,22 @@ const rows: LearnerClass[] = Array.from({ length: 6 }, (_, index) => ({
 }));
 
 describe("LearnerClassesDataGrid owned behavior", () => {
+  it("keeps delimiter-bearing course IDs in one route segment and activates Details once", async () => {
+    const navigate = vi.fn();
+    const course = { ...rows[0]!, id: "course /?#% 日本", nextActivityId: "  " };
+    render(<Provider><SGNavigationProvider value={{ pathname: "/", navigate }}>
+      <LearnerClassesDataGrid rows={[course]} />
+    </SGNavigationProvider></Provider>);
+    const href = `/sections/${encodeURIComponent(course.id)}/learner/me`;
+    expect(screen.getByRole("link", { name: course.courseName }).getAttribute("href")).toBe(href);
+    await userEvent.click(screen.getByRole("button", { name: "Actions for Course 1" }));
+    const details = screen.getByRole("menuitem", { name: "Details" });
+    expect(details.getAttribute("href")).toBe(href);
+    expect(screen.getByRole("menuitem", { name: "Continue" }).getAttribute("href"))
+      .toBe(`/content-library/activities/${encodeURIComponent(course.id)}/launch`);
+    await userEvent.click(details);
+    expect(navigate).toHaveBeenCalledExactlyOnceWith(href, { replace: undefined });
+  });
   it("updates translated headers and locale-sensitive due dates when the host adapter changes", () => {
     const dueAt = "2000-02-02T12:00:00.000Z";
     const course = { ...rows[0]!, dueAt };
