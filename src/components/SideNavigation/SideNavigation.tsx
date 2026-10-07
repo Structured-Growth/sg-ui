@@ -385,6 +385,19 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const accountOperation = useRef(false);
   const logoutOperation = useRef<object | null>(null);
+  const organizationOperation = useRef<object | null>(null);
+  useEffect(() => {
+    setIsSwitchingOrganization(false);
+    setAccountError(null);
+    return () => {
+      // Invalidate only library-owned results, never the host's pending request.
+      if (organizationOperation.current) {
+        organizationOperation.current = null;
+        accountOperation.current = false;
+      }
+    };
+  }, [onOrganizationChange, accountsEnabled, getStoredAuthSession, getStoredAuthSessions,
+    setActiveStoredAuthSession, markOrganizationSwitched, organizationStorageKey]);
   useEffect(() => {
     setIsLoggingOut(false);
     setAccountError(null);
@@ -613,8 +626,11 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
 
     accountOperation.current = true;
     setIsSwitchingOrganization(true);
+    const operation = {};
+    organizationOperation.current = operation;
     try {
       await onOrganizationChange?.(organizationId, targetAccountId);
+      if (organizationOperation.current !== operation) return;
       if (targetAccountId) {
         setActiveStoredAuthSession(targetAccountId);
         setActiveStoredAccountId(targetAccountId);
@@ -625,10 +641,15 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
       handleUserMenuClose();
       // The host owns refresh/navigation after an organization switch.
     } catch {
-      setAccountError(tr("switch.failed", "Unable to switch organization. Try again."));
+      if (organizationOperation.current === operation) {
+        setAccountError(tr("switch.failed", "Unable to switch organization. Try again."));
+      }
     } finally {
-      accountOperation.current = false;
-      setIsSwitchingOrganization(false);
+      if (organizationOperation.current === operation) {
+        organizationOperation.current = null;
+        accountOperation.current = false;
+        setIsSwitchingOrganization(false);
+      }
     }
   };
 
