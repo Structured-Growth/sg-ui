@@ -123,3 +123,12 @@ event and requires the copied bold content; it still records the enumerated
 types and retains mandatory runtime diagnostics. A new CI run must verify this
 change on Linux; local success does not repair that earlier run or establish
 Node 24 packed-browser success for the failed clipboard head.
+
+The image-lifetime head `3f9b1ed` [run 37564400501](https://github.com/Structured-Growth/sg-ui/actions/runs/37564400501)
+also failed: Node 22.12.0/all packed consumers passed; Node 24 browser results
+were 107/111. Two Linux WebKit failures repeated the clipboard enumeration issue.
+Two Firefox failures correctly rejected the PNG fixture as corrupt, with native
+image width zero and mandatory image errors. A byte audit found an invalid IDAT
+CRC in that fixture and the initial SavedRichDocument fixture. Both now use a
+generated 1×1 RGBA PNG with valid chunk CRCs and a verified decompressed scanline.
+Native image-load/error gates remain unchanged; fresh Linux CI must verify them.

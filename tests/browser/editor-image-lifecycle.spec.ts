@@ -27,7 +27,7 @@ for (const theme of ['light', 'dark']) {
       await page.getByRole('button', { name: 'Insert', exact: true }).click();
       await page.getByRole('menuitem', { name: 'Image', exact: true }).click();
       await page.getByLabel('Choose image').setInputFiles({ name: 'pixel.png', mimeType: 'image/png',
-        buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a5XkAAAAASUVORK5CYII=', 'base64') });
+        buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4z8DwHwAFAAH/iZk9HQAAAABJRU5ErkJggg==', 'base64') });
       await page.getByRole('textbox', { name: 'Image description' }).fill('Course diagram');
       await page.getByRole('dialog', { name: 'Insert Image' }).getByRole('button', { name: 'Insert', exact: true }).click();
       const image = editor.getByRole('img', { name: 'Course diagram' });

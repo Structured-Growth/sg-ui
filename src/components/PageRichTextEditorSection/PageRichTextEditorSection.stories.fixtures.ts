@@ -34,7 +34,7 @@ export const SAVED_RICH_DOCUMENT = {
       element("tablecell", [paragraph("10 minutes")], { colSpan: 1, rowSpan: 1, headerState: 0 }),
     ])]),
     element("paragraph", [{ type: "image", version: 1,
-      src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScLbtAAAAABJRU5ErkJggg==",
+      src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4z8DwHwAFAAH/iZk9HQAAAABJRU5ErkJggg==",
       altText: "Saved course illustration", width: 640, height: 480, assetId: "course-cover", assetVersionId: "cover-v2" }]),
     { type: "horizontalrule", version: 1 },
     paragraph("Edit this ending"),

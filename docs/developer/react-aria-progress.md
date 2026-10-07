@@ -1748,10 +1748,17 @@ containing the copied bold content from the same trusted event; no clipboard
 injection, retries or diagnostic exclusions were added. See the failed exact-head
 [runtime record](react-aria-runtime-ci.md); new Linux verification remains required.
 
+Image-lifetime CI also finished with two Firefox failures rejecting its PNG
+fixture and the same two WebKit clipboard assertions (107/111 passed). A chunk
+checksum audit confirmed invalid IDAT CRCs in that fixture and the first rich
+fixture. Both now contain generated checksum-valid 1×1 RGBA PNG bytes, retaining
+the native loaded-width and mandatory runtime-error assertions. This corrects
+test data, not a production image decoding policy; Linux verification is required.
+
 Final local Node 24 and exact Node 22.12.0 `pnpm check` pass 139 files/868 behavior
 tests, five foundation and four release tests, source/story typing, builds/public
 APIs and owned boundaries/token/layer guards. Fresh Storybook passes with existing
-upstream warnings. Full Chromium/WebKit passes 82/82 in 67.0 seconds with zero
+upstream warnings. Full Chromium/WebKit passes 82/82 in 73.9 seconds with zero
 skipped, unexpected or flaky cases, including eight new rich-document cases and
 16 axe scans. Fresh serial packed React 18/19 editor SSR/hydration-entry builds
 pass. Vite/Next browser consumers were not repeated; earlier independently
