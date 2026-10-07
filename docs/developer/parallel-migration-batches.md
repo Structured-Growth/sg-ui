@@ -162,3 +162,15 @@ for their individual row criteria after source/test/contract review and unchange
 implementation comparison with the tested75b7c3 snapshot. Master adds six scoring
 checkboxes for existing IDs, not new tasks. Remaining31 rows held; broad gates open.
 The accepted-count delta is evidence reconciliation, not new-feature throughput.
+
+
+## Batch07 successors
+
+New chats use reviewed dev `fbaba5b` with exclusive scopes:
+
+| Task | Chat | Ownership |
+| --- | --- | --- |
+| progress-status (M-02/M-03 bounded acceptance) | `01a11678-be5b-7b90-99d0-67b025fe8c10` | src/components/AppInlineProgress/; src/components/AppOperationSteps/; tests/browser/batch07-progress-status.spec.ts; docs/developer/parallel-batch-07/progress-status.md |
+| catalog-tabs (M-05/U-09 bounded acceptance) | `01a11678-c0d7-7f33-9a88-25e2cfe54643` | src/components/AppPageTabs/; tests/browser/batch07-catalog-tabs.spec.ts; docs/developer/parallel-batch-07/catalog-tabs.md |
+
+Acceptance checklist: 67/326 (20.6%), required 67/320 (20.9%). Six accepted-row delta is evidence reconciliation;31 inventoried rows held. ETA not reliable. Grid-busy PR19 report received, awaitingreview.
