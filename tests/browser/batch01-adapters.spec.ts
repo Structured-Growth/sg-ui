@@ -1,6 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 
+function canonicalUrl(href: string) {
+  const url = new URL(href);
+  url.searchParams.sort();
+  url.search = url.searchParams.toString();
+  return url.href;
+}
+
 test('host adapter preserves native navigation, routing, refs and external destinations', async ({ page }, info) => {
   await page.goto('/iframe.html?id=host-adapters-acceptance--routing&viewMode=story&globals=a11y.manual:!true');
   const native = page.getByRole('link', { name: 'Native fallback course' });
@@ -33,7 +40,7 @@ test('host adapter preserves native navigation, routing, refs and external desti
 
 test('custom host router Link forwards native ref focus and owns keyboard and pointer routes', async ({ page }) => {
   await page.goto('/iframe.html?id=host-adapters-acceptance--routing&viewMode=story&globals=a11y.manual:!true');
-  const storyUrl = page.url();
+  const storyUrl = canonicalUrl(page.url());
   const custom = page.getByRole('link', { name: 'Custom router course', exact: true });
   const events = page.getByLabel('Host navigation events');
   const pathname = page.getByLabel('Host pathname');
@@ -49,7 +56,7 @@ test('custom host router Link forwards native ref focus and owns keyboard and po
   await page.keyboard.press('Enter');
   await expect(pathname).toHaveText('/courses/custom');
   await expect(events).toHaveText('replace:/courses/custom');
-  await expect(page).toHaveURL(storyUrl);
+  await expect.poll(() => canonicalUrl(page.url())).toBe(storyUrl);
   await expect(custom).toBeFocused();
 
   // Change the shared host state before exercising the custom pointer path.
@@ -59,7 +66,7 @@ test('custom host router Link forwards native ref focus and owns keyboard and po
   await custom.click();
   await expect(pathname).toHaveText('/courses/custom');
   await expect(events).toHaveText('replace:/courses/custom\nreplace:/courses/one?tab=details#title\nreplace:/courses/custom');
-  await expect(page).toHaveURL(storyUrl);
+  await expect.poll(() => canonicalUrl(page.url())).toBe(storyUrl);
   await page.getByRole('button', { name: 'Focus custom router link', exact: true }).click();
   await expect(custom).toBeFocused();
 });

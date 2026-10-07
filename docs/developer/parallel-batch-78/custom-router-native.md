@@ -52,7 +52,7 @@ Install/light leases were released after their commands settled.
 
 | File | SHA-256 |
 | --- | --- |
-| `tests/browser/batch01-adapters.spec.ts` | `a662ddd5b0a1919f9fb64ef42254076144f29b8ded9f6e8819e0fe33979aa3d1` |
+| `tests/browser/batch01-adapters.spec.ts` | `a325b361529b1fd86c8e44d93fe232a89200d55c8e7f68bd05ddae3aec63af4f` |
 | `src/adapters/adapters.stories.tsx` | `2ad4f2fcfdca8745da4dbcb0df95a7b659237e2942c3daa28ef9f1f7d4eb1753` |
 | `src/adapters/Link.tsx` | `632109fad519074531c2f305903bc2304a6ab01157a89950428d702adb3c05fa` |
 | `src/adapters/navigation.tsx` | `6c961ccfaf1239ab7871c63d3593fd10dc4525dcbfec4b5965a59416c93e220e` |
@@ -81,11 +81,31 @@ The coordinator owns exact-head review, queue admission, a fresh Storybook build
 and focused Chromium supervisor execution per the
 [development policy](../react-aria-development-validation.md) and
 [parallel browser policy](../react-aria-parallel-browser-validation.md).
-Source scope stays reserved until that proof returns. Chromium is pending at this
-prepared handoff; Firefox/WebKit remain pending for the checkpoint.
+Source scope stays reserved until that proof returns. Corrected Chromium execution
+is pending at this handoff; Firefox/WebKit remain pending for the checkpoint.
+
+## First native run and fixture correction
+
+Coordinator wave 38 ran the focused Chromium case against fresh immutable
+Storybook from `85aa6acdf805b15cc047e0f1cdbe0d9163b14e02`. It failed at the first
+URL expectation (then line 52): Storybook serialized `globals=a11y.manual:!true`
+as `globals=a11y.manual%3A!true`. Ref/href, Enter, pathname and exact callback
+assertions passed before that failure; later pointer assertions were not executed.
+This is a URL serialization expectation defect, with no confirmed product defect.
+Red evidence is retained at
+`artifacts/browser-pool/28119853-73c0-4e3a-993f-212036924d68/evidence.json`
+inside this worktree. Coordinator reported exact-head/source/build attestation,
+settled commands and released owned locks.
+
+The corrected expectation canonically serializes URLSearchParams for both captured
+and current URLs, preserving origin, path, hash and every decoded query entry
+(including id, viewMode and globals). Both keyboard and pointer route guards retain
+that comparison. No query checks, route guards or assertions were removed; no
+sleeps or retries were added. Production/story bytes remain unchanged. Browser
+TypeScript, the one-case list and diff checks are rerun for the corrected handoff.
 
 Historical red evidence remains applicable only as a limitation: batch-01
 Firefox failed before loading with `Could not find profile folder`, including
 the worktree-local TMPDIR retry. The earlier Chromium/WebKit passes do not attest
 the final custom-router story. An incomplete historical Node 24 CI job is not
-inferred successful. This prepared change has no native result yet.
+inferred successful. The failed first run does not establish a native pass.
