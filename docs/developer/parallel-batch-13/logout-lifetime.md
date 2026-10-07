@@ -4,7 +4,8 @@ H-04/H-05 bounded SideNavigation slice. Baseline:
 `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818` (verified before isolation).
 Managed, attached worktree:
 `/Users/thomashall/.codex/worktrees/batch13-logout-lifetime/sg-ui`.
-Branch: `codex/batch13-logout-lifetime`; draft PR targets `codex/dev`.
+Branch: `codex/batch13-logout-lifetime`; draft [PR #79](https://github.com/Structured-Growth/sg-ui/pull/79) targets `codex/dev`.
+Implementation/tested head: `52c1173cda035c51db22e3856d1c103b698500cf`.
 
 Exclusive write allowlist: `src/components/SideNavigation/`,
 `tests/browser/batch13-logout-lifetime.spec.ts`, and this report. Account adapter,
@@ -77,3 +78,6 @@ record exact tested head, engines, counts and native focus outcome. Any required
 browser infrastructure change belongs outside this task. Adapter identity API or
 organization-switch result lifetime needs a separate allowlist/task and demonstrated
 regression. No broader source change is included here.
+
+This subsequent commit records PR/head evidence only; final report head is supplied
+in the coordinator handoff. No source changes followed the tested implementation.
