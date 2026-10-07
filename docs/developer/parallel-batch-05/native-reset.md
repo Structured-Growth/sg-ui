@@ -69,7 +69,16 @@ The following commands used the Node 24 binary directory prepended to PATH:
   Storybook. Correction `95a1f5c` uses the actual request IDs and leaves a stale
   query unresolved, then verifies its rejection and the current response after
   reset. The browser TypeScript check passed again after that correction. The
-  corrected CI outcome is supplied in the coordinator completion message.
+  completed Linux CI run [37626736273](https://github.com/Structured-Growth/sg-ui/actions/runs/37626736273)
+  at worker head `c4364dfb2761ee01be03005cb9a6c88fce79dd8a` passed all 9 native-reset
+  cases across Chromium/Firefox/WebKit. The overall run failed solely in an
+  out-of-scope WebKit `batch05-portal-direction.spec.ts` en-US focus-return case:
+  expected `en-US actions` focused, received inactive (20 browser cases passed,
+  one failed). Source/guard/unit stages also passed in that PR merge context.
+  Coordinator follow-up is required for that separate failure; it was not edited,
+  rerun or weakened here. The report-only final commit leaves tested source/specs
+  unchanged. Automatic dev CI/title checks are now paused per the human's policy
+  update at dev commit `4758ca8`; no further GitHub checks were dispatched/waited.
 
 An initial build command mistakenly continued after atomic lock acquisition
 failed; that worker-owned process was interrupted (exit 130), is not validation
