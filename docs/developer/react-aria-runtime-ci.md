@@ -68,6 +68,15 @@ This proves that commit's workflow, not later browser changes.
 | `sgui-storybook-node-24` | 11455987943 | 2026-10-21 01:56:28 |
 | `sgui-validation-node-24` | 11456047789 | 2026-10-21 01:56:29 |
 
+The subsequent [browser implementation run 37560065588](https://github.com/Structured-Growth/sg-ui/actions/runs/37560065588)
+also succeeds for exact `83b8dae2148002e79d2df331fd105c274f97ca96`: both Node
+jobs, eight packed consumers and all 45 Chromium/Firefox/WebKit tests. Seven
+unexpired artifacts include browser report `11456069764` (14 days, expires
+2026-10-21 02:10:07 UTC). Downloaded browser JSON has 45 expected, zero skipped,
+zero unexpected and zero flaky tests; [browser evidence](react-aria-browser-acceptance.md)
+records scope and smoke timings. This closes the executable R-11 gate, not the
+remaining framework/device/assistive-technology acceptance.
+
 R-11 now adds [executed browser gates](react-aria-browser-acceptance.md) after
 Storybook builds on Node 24: all three browser engines, byte-level downloads,
 keyboard/focus/editor/grid behavior, failing axe scans and a bounded performance

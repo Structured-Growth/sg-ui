@@ -206,7 +206,7 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 ## 9. Host adapters, translations, dates, and persistence
 
 - [ ] H-01 Preserve native-anchor fallback, custom router links, pathname tracking, navigation replace behavior, refs, and forwarded attributes.
-- [ ] H-02 Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests.
+- [x] H-02 Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](react-aria-browser-acceptance.md).
 - [ ] H-03 Integrate React Aria routing where needed behind the existing host adapter; avoid two competing navigation systems or a runtime Next.js dependency.
 - [ ] H-04 Preserve account/organization/logout callback boundaries; no credentials, platform fetches, or implicit session refresh enter SGUI.
 - [ ] H-05 Define pending/error handling for asynchronous host actions without duplicating requests or swallowing useful errors.
@@ -440,7 +440,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] X-09 Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient.
 - [ ] X-10 Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage.
 - [ ] X-11 Perform manual screen-reader reviews of representative dialogs, selectors, calendars, navigation, tables and editors; document platform/version and findings.
-- [ ] X-12 Enable Storybook accessibility failures in CI for applicable checks, with scoped documented exceptions and remediation ownership.
+- [x] X-12 Enable Storybook accessibility failures in CI for applicable checks, with scoped documented exceptions and remediation ownership. Twenty-four executed WCAG scans, no rule/node exceptions; [scope and remediation ownership](react-aria-browser-acceptance.md).
 - [ ] X-13 Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency.
 - [ ] X-14 Add visual regression coverage for light/dark, density, narrow/wide containers, long/pseudo-localized labels, RTL, focus/error/loading/empty/selected states.
 - [ ] X-15 Require deliberate review of screenshot changes; do not automatically accept new snapshots to silence regressions.
@@ -463,7 +463,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] R-08 Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output.
 - [ ] R-09 Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape.
 - [x] R-10 Keep the supported Node/runtime requirements explicit; reconcile development, CI, AI and release Node versions where their tool requirements differ. [Runtime matrix](react-aria-runtime-ci.md).
-- [ ] R-11 Extend `pnpm check` and CI with necessary token/CSS/import-boundary/type/API checks, browser interactions, accessibility, package consumers, and performance smoke checks.
+- [x] R-11 Extend `pnpm check` and CI with necessary token/CSS/import-boundary/type/API checks, browser interactions, accessibility, package consumers, and performance smoke checks. Both runtime jobs, eight packed consumers and 45 browser gates pass at `83b8dae2`; [runtime evidence](react-aria-runtime-ci.md). Broader framework/device budgets remain separate tasks.
 - [x] R-12 Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](react-aria-runtime-ci.md).
 - [ ] R-13 Preserve release sequencing: full required checks pass before semantic-release publishes on main, with correct concurrency and full tag history.
 - [ ] R-14 Preserve Conventional Commit PR-title validation, squash title/footer guidance, release-policy tests, and automatic patch/minor/major inference.

@@ -1479,11 +1479,23 @@ warnings. Eight fresh packed React 18.3.1/19.2.3 foundation/editor consumers acr
 both Node runtimes pass; React 19 includes Flight. Logs:
 `/tmp/sgui-browser-batch-check24.log`, `/tmp/sgui-browser-batch-check22.log`,
 `/tmp/sgui-browser-batch-consumers24.log`, `/tmp/sgui-browser-batch-consumers22.log`.
-All 201 extraction destinations/replacement paths and 276 guidance links pass.
+All 201 extraction destinations/replacement paths and 280 guidance links pass.
 Frozen install and diff whitespace are verified before commit.
 
-Four newly closed tasks (R-12, Z-03, Z-04, Z-07) bring formal closure to 89/320
-required tasks, 231 open. H-02/R-11/X-12 await the required three-engine remote
-run for this batch. Broad native/touch/screen-reader/visual/framework/performance
-gates remain open. The PR remains draft; versions, licenses and workflow
-permissions/secrets are unchanged.
+Implementation-head `83b8dae2` CI
+[37560065588](https://github.com/Structured-Growth/sg-ui/actions/runs/37560065588)
+passes both runtime jobs, all eight consumers and 45/45 Chromium/Firefox/WebKit
+tests, including 24 WCAG scans. Downloaded JSON confirms zero skipped,
+unexpected or flaky tests in 95.7 seconds. Firefox verifies actual file transfers
+and interactions on Linux. Seven unexpired 14-day artifacts include browser
+report `11456069764`, expiring 2026-10-21 02:10:07 UTC. The browser guide records
+engine-specific smoke timings. PR title validation also passes.
+
+The final output guard additionally rejects standalone retired branding; a third
+temporary negative probe confirms it, then is removed. Final Node 24 full check
+and Storybook pass in `/tmp/sgui-browser-batch-final-check24.log`.
+Seven newly closed tasks (H-02, R-11, R-12, X-12, Z-03, Z-04, Z-07) bring formal
+closure to 92/320 required tasks, 228 open (28.75%). Broad native/touch/screen-
+reader/visual/framework/performance gates remain open. The PR remains draft;
+versions, licenses and workflow permissions/secrets are unchanged. Later heads
+require independent CI inspection.

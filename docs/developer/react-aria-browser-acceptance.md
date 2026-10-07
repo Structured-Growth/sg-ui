@@ -42,6 +42,8 @@ Harness URLs set the Storybook addon's manual-scan global so the addon and
 Playwright do not launch competing axe runs in the same iframe. Playwright is the
 mandatory scan owner for these tests; its rules and violation assertions remain
 enabled.
+The read-only fixture deliberately sets its own dark scope; repeating outer
+globals checks its embedding, not a separate light read-only appearance.
 
 The first scan found a genuine keyboard-accessibility defect in the editor's
 scrollable viewport. It is now a translated named region with `tabIndex=0` and a
@@ -76,3 +78,22 @@ three-engine command remains mandatory in Linux CI; this local subset does not
 claim Firefox behavior. Full `pnpm check` passes on Node 24 and exact-minimum
 22.12.0 (138 files, 857 tests); Storybook and all eight packed foundation/editor
 React 18/19 consumers across both runtimes pass.
+
+Remote [CI run 37560065588](https://github.com/Structured-Growth/sg-ui/actions/runs/37560065588)
+passes on exact implementation commit `83b8dae2148002e79d2df331fd105c274f97ca96`:
+45/45 browser tests across Chromium, Firefox and WebKit, including 24 axe scans,
+with zero skipped, unexpected or flaky tests. The downloaded JSON report records
+95.7 seconds. Firefox executes the actual byte transfers and keyboard/focus tests;
+its Linux success does not remove the local Mac launch limitation.
+
+| CI engine | Navigation/render | Sort/render |
+| --- | --- | --- |
+| Chromium | 1,720ms | 1,987ms |
+| Firefox | 2,065ms | 2,797ms |
+| WebKit | 1,910ms | 2,246ms |
+
+These are the bounded smoke fixture's recorded timings, not consumer SLAs.
+Both runtime jobs, all eight packed consumers and title validation pass. All seven
+artifacts are unexpired. Browser artifact ID `11456069764` expires
+2026-10-21 02:10:07 UTC. Downloaded evidence is in
+`/tmp/sgui-ci-83b8dae2-artifacts`; later commits require independent CI inspection.

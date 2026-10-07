@@ -32,7 +32,7 @@ await checkClientBoundaries('src');
 // Audit every emitted implementation, stylesheet, declaration and source map,
 // including modules outside the public declaration checks below. Historical
 // documentation and preserved legal notices are reviewed separately.
-const retiredReference = /@mui\b|@emotion\b|\bMui[A-Z]\w*|\bemotion\b|\bmaterial-ui\b|mui-typography|baseGridSx/i;
+const retiredReference = /@mui\b|@emotion\b|\bmui\b|\bMui[A-Z]\w*|\bemotion\b|\bmaterial-ui\b|mui-typography|baseGridSx/i;
 async function checkRetiredOutput(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     const path = `${directory}/${entry.name}`;
