@@ -19,6 +19,8 @@ await writeFile(join(fixture, 'package.json'), JSON.stringify({
   dependencies: {
     '@structured-growth/sg-ui': `file:${join(pack, tarball)}`,
     react: reactVersion, 'react-dom': reactVersion, vite: '7.3.1',
+    typescript: '5.9.3', '@types/react': reactVersion.startsWith('18.') ? '18.3.18' : '19.3.0',
+    '@types/react-dom': reactVersion.startsWith('18.') ? '18.3.5' : '19.2.3',
     ...(reactVersion.startsWith('19.') ? { 'react-server-dom-webpack': reactVersion } : {}),
   },
 }));
@@ -168,6 +170,47 @@ await writeFile(join(fixture, '.npmrc'), 'auto-install-peers=false\n');
 execFileSync('pnpm', ['--config.auto-install-peers=false', 'install', '--ignore-scripts'], {
   cwd: fixture, stdio: 'pipe', env: { ...process.env, npm_config_auto_install_peers: 'false' },
 });
+// Resolve the API contract against installed tarball declarations and matching React types.
+await writeFile(join(fixture, 'package-consumer.tsx'), await readFile('scripts/package-consumer.tsx', 'utf8'));
+execFileSync('pnpm', ['exec', 'tsc', '--noEmit', '--strict', '--skipLibCheck', '--jsx', 'react-jsx', '--module', 'ESNext', '--moduleResolution', 'Bundler', '--target', 'ES2022', '--esModuleInterop', 'package-consumer.tsx'], { cwd: fixture, stdio: 'inherit' });
+console.log(`Packed React ${reactVersion} API contract typechecks with TypeScript 5.9.3.`);
+// Inspect module IDs rather than names surviving minification. Each import gets a
+// separate build so another control cannot mask its heavyweight dependency path.
+await writeFile(join(fixture, 'isolated.mjs'), String.raw`
+import assert from 'node:assert/strict';
+import { writeFile } from 'node:fs/promises';
+import { build } from 'vite';
+const entries = [
+  ['tokens', 'tokens'], ['theme', 'Provider'], ['primitives', 'Typography'],
+  ['icons/AddIcon', 'AddIcon'], ['hooks', 'normalizePaginationModel'],
+  ['adapters', 'SGNavigationProvider'], ['i18n', 'SGTranslationProvider'],
+  ['components/AppButton', 'AppButton'], ['components/ClassCardFrame', 'ClassCardFrame'],
+  ['components/AppDataGrid', 'AppDataGrid'],
+];
+for (const [subpath, name] of entries) {
+  await writeFile('isolated-entry.js', "import { " + name + " } from '@structured-growth/sg-ui/" + subpath + "'; export { " + name + " };\nimport '@structured-growth/sg-ui/styles.css';");
+  let checked = false;
+  const result = await build({ configFile: false, logLevel: 'error', plugins: [{
+    name: 'sgui-isolated-dependency-audit',
+    generateBundle() {
+      const modules = [...this.getModuleIds()];
+      assert(!modules.some(id => /(?:\/|@)lexical(?:\/|[-+])/.test(id)), subpath + ' resolved editor code');
+      if (subpath !== 'components/AppDataGrid') {
+        assert(!modules.some(id => /@tanstack|\/components\/AppDataGrid\//.test(id)), subpath + ' resolved grid code');
+      }
+      checked = true;
+    },
+  }], build: { write: false, lib: { entry: 'isolated-entry.js', formats: ['es'], fileName: 'isolated' } } });
+  assert(checked, subpath + ' module audit did not run');
+  // Vite emits CSS after user generateBundle hooks; inspect the final output.
+  const output = (Array.isArray(result) ? result : [result]).flatMap(build => build.output);
+  const css = output.filter(asset => asset.type === 'asset' && asset.fileName.endsWith('.css'));
+  assert.equal(css.length, 1, subpath + ' lost explicit stylesheet');
+  assert(String(css[0].source).includes('--sgui-action'), subpath + ' lost scoped tokens');
+  console.log('Packed isolated subpath passed: ' + subpath);
+}
+`);
+execFileSync(process.execPath, ['isolated.mjs'], { cwd: fixture, stdio: 'inherit' });
 execFileSync(process.execPath, ['ssr.mjs'], { cwd: fixture, stdio: 'pipe' });
 if (reactVersion.startsWith('19.')) {
   // Exercise Flight itself with React's server condition and the official directive loader.
