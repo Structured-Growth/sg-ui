@@ -102,3 +102,42 @@ Correction-only validation: `pnpm exec tsc --noEmit -p tests/browser/tsconfig.js
 and `git diff --check` passed under atomic token-owned light slot1, released after
 owner verification. Source/story/production code was unchanged in this correction;
 no unit rerun or heavy/native command occurred.
+
+## Wave22 attributed Chromium proof and final handoff
+
+**Bounded Chromium slice passed: 8/8**, zero failed/skipped/flaky. Browser execution
+ran the separately managed shared candidate
+`e6270941ea8828d8868fef0798451a599a9db25f`, **not** worker head
+`9b3ba7ecdb7e807e8641f1b683bdf9794c8ba9ab`. Coordinator source-byte attribution
+`/tmp/sgui-batch45-candidate-source-attribution.json` maps that prepared worker head
+to the candidate. This worker independently checked all three recorded SHA-256
+file digests before the report-only finalization; all matched:
+
+- Story: `0506c46997f5d8bfbf668b3e0df9147526e845fbd0d98fab4d0778ddf66f97dd`.
+- Spec: `b74946c62db8b75e7b6cf856dce4e0bd4b66a28201ac6cd2ec12861abd960565`.
+- Prepared report: `02b67c4ded622599a5ba03bfb13c08c48348b7703382ce6ee8a2231e71d972a7`.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/`.
+Read `frame-resize-native/evidence.json`, `frame-resize-native/results.json` and
+root `evidence.json`. Shard status passed; results stats expected=8, unexpected=0,
+skipped=0, flaky=0, duration 9131.874ms. Node 24.19.0; shard port6317/slot4;
+execution selection was the anchored `inventory-card-frame-resize.spec.ts` spec
+with `--project=chromium`. Fresh shared Storybook and browser types built once
+before isolated shards. Candidate initial/final head agrees, final Git status
+empty; source digest initial/final
+`d4c78b7a57d00a53a63a75fe5090b4b24c8681b532a5ba51c663a60049a2d9f0`,
+build digest initial/final
+`2a06f15980b85cd3f8eb36bc2ad8ce05693dc11aaafe52edc2c21b7ca10dc9ca`.
+The overall shared wave status is failed because other shards failed; this report
+claims only the verified eight frame cases, not a whole-candidate pass.
+
+The original Wave21 four failures remain preserved above. Corrected proof confirms
+frame-contained action, native host-scroll reachability with retained focus,
+shrink/restore, slot replacement and media ratios across both layouts/themes/text
+conditions. No product change was needed. This final commit changes this report
+only; story/spec bytes are unchanged from the attributed prepared head. No checks
+were repeated during finalization beyond report/diff and source attribution review.
+Coordinator alone reviews/integrates history. Frame source reservation can be
+released after coordinator review; Firefox/WebKit remain checkpoint pending.
+M-13 and broader manual/device/AT/zoom acceptance remain open.
