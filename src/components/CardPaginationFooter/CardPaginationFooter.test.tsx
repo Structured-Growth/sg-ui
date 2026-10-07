@@ -43,6 +43,19 @@ describe("CardPaginationFooter", () => {
     expect(screen.getByText("No pages")).toBeTruthy();
     expect(screen.getAllByRole("button").every(button => (button as HTMLButtonElement).disabled)).toBe(true);
   });
+  it("emits atomic page and size requests once while preserving controlled host values", async () => {
+    const atomic = vi.fn(); const page = vi.fn(); const size = vi.fn();
+    render(<AppPaginationFooter {...defaults} totalCount={100} page={3} pageSizeOptions={[10, 250]}
+      onPageChange={page} onPageSizeChange={size} onPaginationModelChange={atomic} />);
+    const user = userEvent.setup();
+    await user.selectOptions(screen.getByRole("combobox"), "250");
+    expect(atomic).toHaveBeenCalledExactlyOnceWith({ page: 0, pageSize: 250 });
+    expect(screen.getByText("31-40 of 100")).toBeTruthy();
+    await user.click(screen.getByRole("button", { name: "Next page" }));
+    expect(atomic).toHaveBeenLastCalledWith({ page: 4, pageSize: 10 });
+    expect(atomic).toHaveBeenCalledTimes(2);
+    expect(page).not.toHaveBeenCalled(); expect(size).not.toHaveBeenCalled();
+  });
   it("normalizes invalid numeric state and disables size and page actions", () => {
     render(<AppPaginationFooter {...defaults} page={NaN} pageSize={0} disabled />);
     expect(screen.getByText("1-15 of 15")).toBeTruthy();

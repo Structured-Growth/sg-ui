@@ -328,6 +328,9 @@ Recorded catalog completions ([draft PR #1](https://github.com/Structured-Growth
 M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31–M-33, M-26–M-30, M-21–M-23, M-25, M-34 and M-20.
 The [data toolbar contracts](react-aria-data-toolbar.md) and
 [execution evidence](react-aria-progress.md#data-toolbar) cover M-20; grid integration remains open.
+M-16 has an internal [owned processing/transaction batch](react-aria-progress.md#catalog-grid-processing-batch);
+its catalog renderer, cells, interactions, public types/helpers and shell integration
+remain open. Do not count the whole directory or G runtime acceptance as complete.
 The [editor section contracts](react-aria-editor-section.md) and
 [execution evidence](react-aria-progress.md#page-rich-text-editor-section) cover M-34.
 The [editor layout/selection contracts](react-aria-editor-layout.md) and

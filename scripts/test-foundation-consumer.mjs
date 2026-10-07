@@ -67,6 +67,8 @@ export function Proof() {
   const [filterRules,setFilterRules]=React.useState([]);
   const [viewMode,setViewMode]=React.useState('cards');
   const [tab,setTab]=React.useState('details');
+  const [gridPagination,setGridPagination]=React.useState({page:2,pageSize:10});
+  const [paginationRequests,setPaginationRequests]=React.useState(0);
   return <Provider theme="dark" style={{background:tokens.surface,padding:tokens.space4}}>
     <DataToolbar aria-label="Packed data toolbar" onRefresh={()=>setResult('Refreshed')} columnOptions={columns} onColumnOptionsChange={setColumns}
       sortOptions={[{id:'name',label:'Name'},{id:'status',label:'Status'}]} sortRules={sortRules} onSortRulesChange={rules=>{setSortRules(rules);setResult(JSON.stringify(rules));}}
@@ -111,7 +113,9 @@ export function Proof() {
         <Popover title="Help" trigger={<Button>Help</Button>}><TextField label="Note" /></Popover>
       </>},{id:'access',label:'Access',content:'Host settings'}]} />
     </AppModal>
-  <AppPaginationFooter page={0} pageSize={4} pageSizeOptions={[4,8]} totalCount={12} onPageChange={()=>{}} onPageSizeChange={()=>{}} />
+  <AppPaginationFooter label="Packed atomic pagination" page={gridPagination.page} pageSize={gridPagination.pageSize} pageSizeOptions={[10,25,250]} totalCount={67}
+    onPageChange={()=>{}} onPageSizeChange={()=>{}} onPaginationModelChange={model=>{setGridPagination(model);setPaginationRequests(count=>count+1);}} />
+  <output id="packed-pagination-result">{JSON.stringify(gridPagination)} requests:{paginationRequests}</output>
   <CardCollectionWithFooter rows={[{id:'one',label:'Science'}]} getRowId={row=>row.id} page={0} pageSize={4} pageSizeOptions={[4,8]} onPageChange={()=>{}} onPageSizeChange={()=>{}} renderCard={row=><ClassCardFrame header={row.label} body="Course details" />} />
   <InstructorClassCard className="Science" siteName="School" status="active" learnerCount={12} lastLearnerActivityLabel="Recent activity" actionLabel="Open Class" actionHref="/courses/science" />
   <LearnerClassCard courseName="Science" instructorName="Author" progressPercent={40} nextActivity="Read" dueAt="2026-10-10" referenceNow={new Date('2026-10-06T12:00:00Z')} detailsHref="/courses/science" />

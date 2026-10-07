@@ -16,6 +16,8 @@ export interface PaginationProps {
   pageSizeOptions?: readonly number[];
   /** Changing page size requests page zero before calling this callback. */
   onPageSizeChange?: (pageSize: number) => void;
+  /** When supplied, a size change requests page zero and the new size once, instead of separate callbacks. */
+  onPaginationChange?: (page: number, pageSize: number) => void;
   disabled?: boolean;
   showBoundaryButtons?: boolean;
   /** Host-translated landmark label; useful for multiple paginated views. */
@@ -25,7 +27,7 @@ export interface PaginationProps {
   style?: CSSProperties;
 }
 export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagination({ page, onPageChange,
-  pageCount, hasNextPage = false, pageSize, pageSizeOptions = [25, 50, 100], onPageSizeChange,
+  pageCount, hasNextPage = false, pageSize, pageSizeOptions = [25, 50, 100], onPageSizeChange, onPaginationChange,
   disabled = false, showBoundaryButtons = true, label, className, ...props }, ref) {
   const { t } = useTranslation();
   const sizeId = useId();
@@ -38,11 +40,12 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
     <span className={styles.summary}>{pageCount === 0 ? t("common.ui.noPages", { defaultMessage: "No pages" }) :
       pageCount === undefined ? t("common.ui.pageNumber", { defaultMessage: "Page {page}", values: { page: page + 1 } }) :
       t("common.ui.pageOfCount", { defaultMessage: "Page {page} of {count}", values: { page: page + 1, count: pageCount } })}</span>
-    {pageSize !== undefined && onPageSizeChange && <div className={styles.size}>
+    {pageSize !== undefined && (onPageSizeChange || onPaginationChange) && <div className={styles.size}>
       <label htmlFor={sizeId}>{t("common.ui.pageSize", { defaultMessage: "Rows per page" })}</label>
       <select id={sizeId} value={pageSize} disabled={disabled} className={styles.select} onChange={event => {
-        onPageChange(0);
-        onPageSizeChange(Number(event.target.value));
+        const size = Number(event.target.value);
+        if (onPaginationChange) onPaginationChange(0, size);
+        else { onPageChange(0); onPageSizeChange?.(size); }
       }}>{sizes.map(size => <option key={size} value={size}>{size}</option>)}</select>
     </div>}
     <div className={styles.actions}>

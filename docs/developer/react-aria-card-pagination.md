@@ -22,6 +22,15 @@ display the row range (zero total is `0-0 of 0`) and page count. Disabled/loadin
 navigation prevents both size selection and page actions. `label` on the footer
 and `paginationLabel` on the collection distinguish pagination landmarks.
 
+For atomic grid/server requests, `AppPaginationFooter.onPaginationModelChange`
+receives `{ page, pageSize }` once per page or size action. A size action includes
+page zero; this callback supersedes both separate callbacks when supplied. The
+required legacy callback props can be no-ops when adopting this optional path.
+The owned `Pagination.onPaginationChange(page, pageSize)` provides the same atomic
+size request; page buttons still use its `onPageChange`. Without these optional
+callbacks, the existing page-reset-before-size callback order is preserved.
+This compatible addition supports M-16 transactions without changing existing cards.
+
 **Breaking integration changes:** page-size selection now calls `onPageChange(0)`
 before `onPageSizeChange(size)`, matching owned Pagination. Hosts should no longer
 rely on the old footer's size-only callback. Buttons use translated First/Previous/

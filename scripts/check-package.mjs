@@ -56,4 +56,8 @@ async function checkOwnedDeclarations(dir) {
 }
 await checkOwnedDeclarations('dist/experimental');
 await checkOwnedDeclarations('dist/foundation');
+for (const file of ['ownedGridModel', 'ownedGridState']) {
+  const declaration = await readFile(`dist/components/AppDataGrid/${file}.d.ts`, 'utf8');
+  assert(!/react-aria|@react-types|@mui|@emotion|lucide-react|@tanstack/.test(declaration), `Upstream grid model type escaped: ${file}`);
+}
 for (const name of ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'AppButton', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar']) await checkOwnedDeclarations(`dist/components/${name}`);

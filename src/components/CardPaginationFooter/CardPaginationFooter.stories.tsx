@@ -34,6 +34,10 @@ function InteractivePreview() {
   return (
     <AppPaginationFooter
       onPageChange={setPage}
+      onPaginationModelChange={(model) => {
+        setPage(model.page);
+        setPageSize(model.pageSize);
+      }}
       onPageSizeChange={(nextSize) => {
         setPage(0);
         setPageSize(nextSize);

@@ -18,6 +18,13 @@ function Pages({ unknown = false }: { unknown?: boolean }) {
 }
 export const Default: Story = { render: () => <Pages /> };
 export const UnknownTotal: Story = { render: () => <Pages unknown /> };
+function AtomicPages() {
+  const [model, setModel] = useState({ page: 2, pageSize: 10 });
+  return <Pagination {...model} pageCount={4} pageSizeOptions={[10, 25, 250]}
+    onPageChange={page => setModel(current => ({ ...current, page }))}
+    onPaginationChange={(page, pageSize) => setModel({ page, pageSize })} />;
+}
+export const AtomicPageSize: Story = { render: () => <AtomicPages /> };
 export const Empty: Story = { args: { pageCount: 0 } };
 export const ThemesAndDensity: Story = { render: () => <div style={{ display: "grid", gap: tokens.space4 }}>
   {(["light", "dark"] as const).map(theme => <ThemeScope key={theme} theme={theme} style={{ background: tokens.surface, padding: tokens.space4 }}>

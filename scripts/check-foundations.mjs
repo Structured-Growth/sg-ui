@@ -70,4 +70,9 @@ async function auditDependencies(path) {
 for (const name of migratedDirectories.filter(name => name !== 'Typefaces')) {
   await auditDependencies(resolve(`src/components/${name}/${name}.tsx`));
 }
+// M-16 is split into implementation batches. Audit the owned processing/model
+// files now without claiming that the surrounding legacy catalog has migrated.
+for (const file of ['ownedGridModel.ts', 'ownedGridState.ts', 'ownedGridProcessing.stories.tsx']) {
+  await auditDependencies(resolve(`src/components/AppDataGrid/${file}`));
+}
 console.log('Owned foundation import, layer and token checks pass.');

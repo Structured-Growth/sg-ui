@@ -9,6 +9,14 @@ TanStack Table 8.21.3 for row processing and React Aria Components 1.21.1 for
 interaction. The [migration backlog](react-aria-master-task-list.md) remains
 authoritative for implementation and acceptance status.
 
+The first M-16 implementation batch adds internal owned row-processing and
+transaction modules (`ownedGridModel.ts` and `ownedGridState.ts`) with a composed
+Storybook proof. Client processing covers every toolbar operator, stable
+multi-sort and page slicing; server processing preserves host input. These are
+internal building blocks, not replacement public AppDataGrid types or helpers.
+The catalog renderer, cells, interaction, persistence and shell integration are
+still pending. See the [execution record](react-aria-progress.md#catalog-grid-processing-batch).
+
 ## Required capability matrix
 
 | Capability | Migration disposition | Implementation / acceptance owner |
@@ -180,6 +188,15 @@ operators, enum is/is_not with the existing delimiter, and All as no active enum
 rule. Null/invalid values, numeric comparisons, calendar-date comparison and
 case handling need explicit shared tests (G-04/G-09); the prototype's four
 operators do not satisfy parity. Equal sort values retain input order.
+The owned processing module compares numbers (including numeric strings) by
+numeric value and text case-insensitively with natural numeric ordering. Null,
+invalid numbers and invalid dates sort first ascending, last descending; ties
+retain source order. String filters are case-insensitive. Date-only strings keep
+their literal day; timezone-qualified instants and Date objects compare calendar
+days in UTC for deterministic server/client behavior. Invalid or timezone-less
+timestamps do not match date filters. Display formatting remains host-locale work
+in the cell batch. Empty/incompatible/stale filter rules are discarded before
+shared transactions, including enum All; invalid number/date operands are discarded.
 Selection survives sort/filter/page/view changes. Disabled rows cannot be newly
 selected; retained IDs remain until a host deletion/reconciliation signal or
 explicit clearing. A missing row in a server page is not proof of deletion.

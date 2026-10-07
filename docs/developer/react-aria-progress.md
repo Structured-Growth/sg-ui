@@ -882,3 +882,71 @@ split into linked type/processing/cell/interaction batches if needed, then
 M-17–M-19. Each code batch must pass required check/Storybook and relevant packed
 consumer/native evidence before commit/push and successor dispatch. G/U/X/R/Z and
 full native/touch/screenreader/zoom/performance/Node24/NextRSC gates remain open.
+
+## Catalog grid processing batch
+
+Completed on 2026-10-06: first linked M-16 implementation batch in shared
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review.
+This adds internal owned row-processing and transaction building blocks, not a
+completed catalog migration. AppDataGrid still renders MUI X and exports legacy
+types/helpers. M-16–M-19, M-36/M-37 and G/U/X/R/Z remain open.
+
+`ownedGridModel.ts` validates stable nonempty row IDs and declared unique column
+fields, normalizes custom numeric page sizes and shared sort/filter rules, and
+uses TanStack internally for stable ordered sorting and paging. Client processing
+runs search and all 19 toolbar operators before sorting/paging; server mode
+preserves supplied rows/order without processing or a second slice. Accessors
+receive original immutable row input. Numeric strings sort numerically; natural
+text is case-insensitive. Null/invalid values sort first ascending, last descending.
+Date-only values preserve their literal day; timezone-qualified instants and Date
+objects use UTC calendar comparisons. Invalid/no-zone timestamps do not match.
+
+`ownedGridState.ts` produces one criterion/page/selection snapshot, requests page
+zero before criterion callbacks and emits one combined notification. Current-page
+selection retains off-page IDs, and header state counts only unique selectable
+page IDs. Callbacks receive copies. Actual per-concern React controlled/default
+controllers, persistence, column layout, focus and shell ownership remain later
+batches; these pure helpers do not establish those acceptance gates.
+
+The Catalog grid processing Storybook proof composes real owned DataToolbar,
+Table and AppPaginationFooter. Review caught separate footer page/size requests
+producing duplicate transactions. Optional compatible
+`AppPaginationFooter.onPaginationModelChange({page,pageSize})` now supersedes the
+two legacy callbacks; `Pagination.onPaginationChange(page,pageSize)` similarly
+sends one size request. Without these optional callbacks, the existing
+page-zero-before-size order remains unchanged. See [pagination contracts](react-aria-card-pagination.md).
+
+Validation:
+
+- Final pnpm check passed 123 files / 639 tests, foundation/token/layer checks,
+  four foundation and four release tests, production/story typecheck, ESM and
+  declarations, all public imports and consumer typing. Added 34 model regressions,
+  ten transaction/selection tests, four composed toolbar/processing/footer DOM
+  tests and three atomic pagination regressions. No checks weakened.
+- Final pnpm build-storybook passed with existing directive/sourcemap/chunk warnings.
+  Model/transaction files and the proof enter transitive owned-source checks;
+  their emitted declarations are guarded against upstream types. The surrounding
+  legacy grid is deliberately not marked migrated or exempted from final removal.
+- Fresh packed React19.2.3 and React18.3.1 consumers passed no-browser-global SSR,
+  hydration entry and production Vite/CSS/no-retired-peer checks. Both native
+  consumers changed page3/size10 to page1/size250 with exactly one host request.
+  React19 then changed to size10 and activated Next with Enter; the snapshot was
+  page1/size10 (zero-based), request count3. Captured browser warnings/errors empty.
+- Native composed Storybook search from page3 yielded only Course67, page1, and
+  pagination → search → combined snapshot. Escape cleared it and restored Search
+  trigger focus. Evidence: /tmp/sgui-m16-processing-search.png and
+  /tmp/sgui-m16-packed19-pagination.png. Composed DOM tests also prove filter/sort
+  application and unchanged server rows/unknown-total forward navigation.
+
+Local Node26.5.0/pnpm10.29.3; Node24/NextRSC and broad native/touch/screen-reader/
+zoom/visual/performance gates remain open. The build still applies the transitional
+client boundary to catalog modules; no R completion is claimed. Prior91c8593
+validate and conventional-title checks passed; new head checks are inspected
+separately after push. No merge/publication/manual version/license/workflow
+permission/secret changes.
+
+Next batch: M-16 owned cells/header/status parts and helper/type mappings, then
+registered interaction/catalog integration using these shared modules. Complete
+required checks/commit/push and dispatch the next local sg-ui chat; no overlapping
+checkout edits after dispatch. Continue M-17–M-19 and M-36/M-37 plus required
+G/U/X/R/Z reconciliation until the backlog is handled.

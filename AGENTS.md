@@ -279,3 +279,9 @@ G-01–G-03 grid design review is recorded in
 parity/deferred capabilities, owned type mappings and one owner per state concern.
 Use it for M-16–M-19 implementation. These target contracts do not mean the legacy
 grid has migrated; runtime G acceptance and strict grid removal remain open.
+
+The M-16 ownedGridModel/ownedGridState modules are internal owned processing and
+transaction building blocks. Apply migrated boundaries to these files; the
+surrounding AppDataGrid directory still uses the legacy renderer/types until
+later M-16 batches land. The composed Catalog grid processing story exercises
+the owned toolbar/pagination integration without claiming catalog completion.

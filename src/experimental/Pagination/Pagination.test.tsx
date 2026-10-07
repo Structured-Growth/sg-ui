@@ -57,6 +57,22 @@ describe("owned pagination", () => {
     expect(screen.getByText("No pages")).toBeTruthy();
     expect(screen.getAllByRole("button").every(button => (button as HTMLButtonElement).disabled)).toBe(true);
   });
+  it("requests a size change atomically without duplicate legacy callbacks or local state", async () => {
+    const onPageChange = vi.fn(); const onPageSizeChange = vi.fn(); const onPaginationChange = vi.fn();
+    render(<Pagination page={3} pageCount={5} pageSize={10} pageSizeOptions={[10, 250]}
+      onPageChange={onPageChange} onPageSizeChange={onPageSizeChange} onPaginationChange={onPaginationChange} />);
+    await userEvent.setup().selectOptions(screen.getByRole("combobox", { name: "Rows per page" }), "250");
+    expect(onPaginationChange).toHaveBeenCalledExactlyOnceWith(0, 250);
+    expect(onPageChange).not.toHaveBeenCalled(); expect(onPageSizeChange).not.toHaveBeenCalled();
+    expect(screen.getByText("Page 4 of 5")).toBeTruthy();
+    expect((screen.getByRole("combobox") as HTMLSelectElement).value).toBe("10");
+  });
+  it("shows the size selector for an atomic callback alone", async () => {
+    const atomic = vi.fn();
+    render(<Pagination page={2} pageCount={4} pageSize={25} onPageChange={() => {}} onPaginationChange={atomic} />);
+    await userEvent.setup().selectOptions(screen.getByRole("combobox"), "50");
+    expect(atomic).toHaveBeenCalledExactlyOnceWith(0, 50);
+  });
   it("allows keyboard activation without submitting an enclosing form", async () => {
     const onPageChange = vi.fn();
     const onSubmit = vi.fn(event => event.preventDefault());
