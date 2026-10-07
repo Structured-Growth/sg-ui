@@ -1,6 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 
+function canonicalUrl(href: string) {
+  const url = new URL(href);
+  url.searchParams.sort();
+  url.search = url.searchParams.toString();
+  return url.href;
+}
+
 test('host adapter preserves native navigation, routing, refs and external destinations', async ({ page }, info) => {
   await page.goto('/iframe.html?id=host-adapters-acceptance--routing&viewMode=story&globals=a11y.manual:!true');
   const native = page.getByRole('link', { name: 'Native fallback course' });
@@ -17,14 +24,6 @@ test('host adapter preserves native navigation, routing, refs and external desti
   await page.getByRole('link', { name: 'Styled course' }).focus();
   await page.keyboard.press('Enter');
   await expect(events).toContainText('push:/courses/two');
-  await page.getByRole('button', { name: 'Focus custom router link' }).click();
-  const custom = page.getByRole('link', { name: 'Custom router course' });
-  await expect(custom).toBeFocused();
-  await expect(custom).toHaveAttribute('data-host', 'course');
-  await expect(custom).toHaveAttribute('aria-description', 'Host router course');
-  await expect(custom).toHaveAttribute('data-router', 'host');
-  await page.keyboard.press('Enter');
-  await expect(events).toContainText('replace:/courses/custom');
   const downloading = page.waitForEvent('download');
   await page.getByRole('link', { name: 'Download course' }).click();
   const download = await downloading;
@@ -37,6 +36,39 @@ test('host adapter preserves native navigation, routing, refs and external desti
   await page.getByRole('link', { name: 'External course', exact: true }).click();
   await expect(page).toHaveURL('https://adapter.example.test/course');
   await expect(page.getByRole('heading')).toHaveText('External course host');
+});
+
+test('custom host router Link forwards native ref focus and owns keyboard and pointer routes', async ({ page }) => {
+  await page.goto('/iframe.html?id=host-adapters-acceptance--routing&viewMode=story&globals=a11y.manual:!true');
+  const storyUrl = canonicalUrl(page.url());
+  const custom = page.getByRole('link', { name: 'Custom router course', exact: true });
+  const events = page.getByLabel('Host navigation events');
+  const pathname = page.getByLabel('Host pathname');
+  await expect(pathname).toHaveText('/courses');
+  await expect(events).toBeEmpty();
+  await expect(custom).toHaveAttribute('href', '/courses/custom');
+  await expect(custom).toHaveAttribute('data-host', 'course');
+  await expect(custom).toHaveAttribute('aria-description', 'Host router course');
+  await expect(custom).toHaveAttribute('data-router', 'host');
+
+  await page.getByRole('button', { name: 'Focus custom router link', exact: true }).click();
+  await expect(custom).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(pathname).toHaveText('/courses/custom');
+  await expect(events).toHaveText('replace:/courses/custom');
+  await expect.poll(() => canonicalUrl(page.url())).toBe(storyUrl);
+  await expect(custom).toBeFocused();
+
+  // Change the shared host state before exercising the custom pointer path.
+  await page.getByRole('link', { name: 'Replace course', exact: true }).click();
+  await expect(pathname).toHaveText('/courses/one?tab=details#title');
+  await expect(events).toHaveText('replace:/courses/custom\nreplace:/courses/one?tab=details#title');
+  await custom.click();
+  await expect(pathname).toHaveText('/courses/custom');
+  await expect(events).toHaveText('replace:/courses/custom\nreplace:/courses/one?tab=details#title\nreplace:/courses/custom');
+  await expect.poll(() => canonicalUrl(page.url())).toBe(storyUrl);
+  await page.getByRole('button', { name: 'Focus custom router link', exact: true }).click();
+  await expect(custom).toBeFocused();
 });
 
 test('host-owned account pending guard, rejection and retry retain the callback outcome', async ({ page }) => {
