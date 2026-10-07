@@ -1,59 +1,33 @@
-# Learner platform UI extraction
+# Learner platform extraction and consumer migration
 
+Task references: W-11–W-18 (bounded documentation reconciliation).
 Source: `Structured-Growth/learning-platform`, commit
 `8e63f1e16fc3d43d851908b312603a1099ca13d9`, `apps/web/src/ui`.
-The file-by-file [manifest](extraction-manifest.json) records every original shared
-UI source path and extraction destination. `present` reports current destination
-existence; migration metadata records removed or renamed destinations and their
-owned replacements. Original components, helpers, stories, and tests were copied;
-framework coupling was then adapted.
-The learner platform checkout has not been modified.
+The file-by-file [manifest](extraction-manifest.json) preserves original source
+paths and destinations. Its `present` flags and migration replacement metadata
+were reconciled in the [removal audit](developer/react-aria-removal-audit.md).
+This documentation slice does not change that manifest or the learner platform.
 
-The subsequent foundation migration has begun with scoped tokens and experimental
-button/field proofs. See the [execution record](developer/react-aria-progress.md).
-The inventory and adaptations below remain extraction provenance; they do not
-describe a completed foundation migration. Catalog migration now includes
-AppInlineProgress, AppOperationSteps, EditableTitleField and the Typefaces stories.
-These keep their public names while moving to the foundation stylesheet/scope;
-see [owned control contracts](developer/react-aria-remaining-controls.md) and
-[progress/avatar contracts](developer/react-aria-progress-avatar.md).
+Components, helpers, stories and tests were initially copied, then adapted to a
+standalone library. That extraction is provenance, not today's runtime architecture.
+The catalog, grid renderer/reorder, editor, primitives, icons and public theme now
+use owned contracts. Broad G/K/E/U/X/R/Z acceptance remains open; source and
+[execution evidence](developer/react-aria-progress.md) outrank stale planning boxes.
 
-The card collection/footer and frame/instructor/learner cards now also use the
-owned foundation. See [card pagination](developer/react-aria-card-pagination.md) and
-[card frame mappings](developer/react-aria-card-frames.md) for breaking integration
-changes, retained presentation props, routing and callbacks.
+## Source architecture and disposition
 
-AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
-foundation. See [button mappings](developer/react-aria-button.md),
-[page navigation](developer/react-aria-page-navigation.md) and
-[page layout](developer/react-aria-page-layout.md). AppButton now uses onPress,
-owned variant/tone/density and native class/style; the upstream button prop surface
-is removed. Load /styles.css and provide Provider or ThemeScope.
-
-AppModal, AuthShell, SideNavigation and AppShell now use the owned foundation.
-Apply the migrated-module boundaries to these directories. See [modal and shell
-contracts](developer/react-aria-modal-shells.md) for owned dismissal/action callbacks, native style slots,
-responsive navigation and host adapter behavior. Load /styles.css and provide an
-owned scope, including for editor dialogs.
-
-## Source architecture
-
-The learner platform is a pnpm/Turbo monorepo with a Next.js React web application,
-a separate API application, and shared API contracts. Its web UI is organized as:
-
-| Layer | Source | SGUI treatment |
-| --- | --- | --- |
-| Shared visual components | `apps/web/src/ui/components` | Copied, preserving public names |
-| MUI theme and typography | `apps/web/src/ui/theme` | Copied; augmentation shipped with types |
-| Persistent state/pagination | `apps/web/src/ui/hooks` | Copied and publicly exported |
-| Component catalog | Colocated Storybook stories | Copied into React/Vite Storybook |
-| Router links/navigation | Next.js imports in shared UI | Replaced with host navigation adapter |
-| Account operations | Auth/session imports in SideNavigation | Replaced with host account adapter |
-| Translated labels | App translation provider imports | Replaced with host translation adapter |
-| Learner grid model | Feature LearnerClass type | Local presentation model |
-| Due date formatter | Feature formatting helper | Copied with behavior tests |
-| Application screens | `apps/web/src/features` and `apps/web/app` | Remain in the learner platform |
-| API/contracts/session storage | API and app services | Remain host-owned |
+| Source concern | Extraction and current disposition |
+| --- | --- |
+| Shared components under `apps/web/src/ui/components` | Public names preserved where useful; implementations now owned |
+| Original theme/typography and primitive/icon reexports | Replaced with scopes, generated tokens, owned typography/primitives and SVG icons; augmentation removed |
+| State/pagination hooks | Public hooks retained; persistence now explicit opt-in |
+| Colocated Storybook stories | Adapted to React/Vite and production scopes; inventory growth is separate from original extraction counts |
+| Router links/navigation | Framework imports replaced by host navigation adapter |
+| Account/session operations | Replaced by host account adapter; credentials and endpoints remain host-owned |
+| Translation provider | Host translation adapter with English/defaultMessage fallback |
+| Learner grid model | Local presentation model; no API contract dependency |
+| Due-date formatting | Extracted helper with behavior coverage |
+| Application screens, API/contracts and session storage | Remain in learner platform; never library runtime dependencies |
 
 ## Component inventory
 
@@ -95,98 +69,80 @@ a separate API application, and shared API contracts. Its web UI is organized as
 - icons
 - primitives
 
-Also included: admin/instructor grid option presets, activity icons, theme
-variants, editor nodes/plugins and public MUI primitive/icon reexports.
-The component catalog has 33 story files. Existing Class-prefixed exports are
-retained for compatibility; broader renaming requires a separate migration.
 
-## Adaptations and limits
+Also extracted: admin/instructor grid presets, activity icons and editor nodes/plugins.
+New presentation APIs use Course naming; existing Class-prefixed exports remain for
+compatibility. They are not implicitly deprecated or authorized for removal.
 
-- Root imports and subpath entry points work without Next.js or the source
-  platform. The subsequent React Aria migration replaces the extracted renderer with owned contracts and compiled styles.
-- Links use the host navigation adapter; replace behavior is preserved. Provide
-  pathname when using SideNavigation so selected/expanded menus track your router.
-- SideNavigation reads accounts through host-provided functions. Logout actions
-  are disabled until SGAccountProvider is supplied. The host performs any
-  refresh/navigation required after an organization switch.
-- Translation keys/default messages are retained, with an English fallback and
-  host translation integration. Application translation catalogs and database
-  overrides are not part of the library.
-- AppThemeProvider now aliases the owned Provider. Use theme="light|dark|system", density and CSS token overrides; old theme objects and typography augmentation are removed. See [theme mappings](developer/react-aria-theme.md).
-- Production type checking corrected false selection handling, optional
-  navigation child arrays, and React drag events' native composedPath access.
-- Storybook uses representative navigation fixtures rather than app routes.
-  The source global CSS and app-owned font loading are not imposed on consumers.
-- The owned grid preserves the required catalog capability contract. True pinning and other deferred spreadsheet capabilities are not added by this migration.
+## Consumer migration mappings
 
-## Adopt SGUI in the learner platform
+Preserved component names do not imply preserved upstream props. Migrate against
+owned types and the linked component contract rather than forwarding old prop bags.
 
-After the first release, install the package and peer dependencies, then redirect
-`@ui` imports to SGUI's public exports. Connect the existing router, translations,
-and auth/session functions through the three adapters. Keep API-bound screens and
-application navigation models in the learner platform. Check visual and interaction
-parity before removing the old shared UI tree.
+| Previous integration | Owned integration and contract |
+| --- | --- |
+| Application `@ui` aliases or upstream imports | Public SGUI root/declared subpaths; relative imports inside SGUI |
+| Automatic global theme styling | Import `/styles.css` once; Provider or ThemeScope around all compositions |
+| Theme objects, palette overrides, augmentation | `theme="light\|dark\|system"`, density, generated tokens, CSS variables; [theme](developer/react-aria-theme.md) |
+| `sx`, styling callbacks, upstream slots/polymorphism | Declared native className/style/ref and documented parts; [primitives](developer/react-aria-primitives.md) |
+| Button click events/upstream variants | `onPress()`, `filled\|outlined\|text`, `primary\|neutral`, explicit submit/reset; [buttons](developer/react-aria-button.md) |
+| Typography and Stack styling | Owned variant including bodyAlt2; independent semantic `as`; Stack `gap`; [primitives](developer/react-aria-primitives.md) |
+| Icon fontSize/titleAccess/upstream SVG props | `size`, `label`, owned IconProps/native SVG ref; [icons](developer/react-aria-icons.md) |
+| Grid engine types, events, slots, sortModel | Owned columns/row accessors, ordered sortRules, one client/server mode; [grid](developer/react-aria-catalog-grid.md) |
+| Engine include/exclude selection and nested identity | Explicit string ID set and top-level getRowId; retained IDs require host reconciliation |
+| Independent shell/card/footer processing | One shared shell state owner; page zero before criteria callbacks; combined state snapshot for requests |
+| Implicit browser storage | Opt-in persistence with distinct keys per view; controlled values win; [hooks](developer/react-aria-pagination-state.md) |
+| Pinned metadata / unrestricted row dragging | Visibility locks and column order; bounded complete-page reorder with host persistence/rollback; [reorder](developer/react-aria-grid-reorder.md) |
+| Theme-driven editor formatting and engine callbacks | Named owned actions and semantic color presets; [editor menus](developer/react-aria-editor-menus.md), [toolbar](developer/react-aria-formatting-toolbar.md) |
+| Editor application services | Host save/upload callbacks and owned section lifecycle; [editor section](developer/react-aria-editor-section.md) |
+| Modal/shell dismissal events and style slots | Owned reason/action callbacks, native slots and host adapters; [modal/shell](developer/react-aria-modal-shells.md) |
+| Calendar upstream date classes | Serializable civil date/range/time values and explicit timezone conversion; [dates](developer/react-aria-calendar-contracts.md) |
 
-This task copies the reusable library into SGUI. It does not yet change the learner
-platform to consume a published package, remove original source, or extract full
-application screens into neutral templates. The user confirmed the shared UI library is the requested scope.
+The [card pagination](developer/react-aria-card-pagination.md),
+[card frames](developer/react-aria-card-frames.md),
+[page layout](developer/react-aria-page-layout.md),
+[page navigation](developer/react-aria-page-navigation.md),
+[editor dialogs](developer/react-aria-editor-dialogs.md),
+[editor layout](developer/react-aria-editor-layout.md) and
+[data toolbar](developer/react-aria-data-toolbar.md) contracts provide per-component
+breaking mappings. Translated Course-named preset factories coexist with existing
+Class exports; see [presets](developer/react-aria-grid-presets.md).
 
-## Agent guidance
+## Adoption and remaining limits
 
-The learner platform's reusable UI conventions have also been merged into SGUI's
-root AGENTS.md. See [agent guidance migration](agent-guidance-migration.md) for
-the source inventory and section-by-section decisions, and
-[component architecture](developer/component-architecture.md) for the adapted
-architecture guidance. Application-only rules remain with the learner platform.
+The [read-only adoption checklist](developer/react-aria-adoption-checklist.md) is
+planning guidance for the learner platform or another host. Application modification,
+original-source removal and production rollout require a separately authorized task.
+SGUI accepts models, data, routing, translations and account actions from the host;
+it never imports platform contracts or owns API/database/login policy.
 
-ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundation.
-Apply migrated boundaries to these directories; see [editor dialog contracts](developer/react-aria-editor-dialogs.md)
-for preset draft reset, URL protocol validation and optional host-owned image descriptions.
-Load /styles.css and provide Provider or ThemeScope.
+True grid pinning, expansion/editing and spreadsheet capabilities remain deferred.
+Reorder is restricted to a complete single-page dataset and requires host persistence
+and rollback. Advanced scheduling/recurrence and fiscal calculation are not calendar
+features; hosts can supply explicit presets. Calendar range-preview announcements,
+actual IME/device behavior, assistive-technology output and broader rich-content trust
+still need acceptance. See [browser evidence](developer/react-aria-browser-acceptance.md)
+and [calendar limits](developer/react-aria-calendar-contracts.md).
 
-InsertContentMenuControl, TextAlignMenuControl, TextColorPickerControl and
-TextStyleMenuControl now use the owned foundation and migrated-module boundaries.
-See [editor menu contracts](developer/react-aria-editor-menus.md) for host callbacks,
-checked formatting state and the breaking semantic color preset mapping. Load
-/styles.css and provide Provider or ThemeScope. Surrounding editor migration remains open.
+React 18.3/19 and representative packed Vite SSR/hydration, React Server Component
+and Next.js consumers have evidence in [server boundaries](developer/react-aria-server-components.md)
+and [runtime validation](developer/react-aria-runtime-ci.md). That does not certify
+every host/framework/device. `/experimental` contracts remain proofs; no new
+compatibility promise is made for them. Public breaking removals need documented
+migration and a breaking Conventional Commit/release marker; preserved Class/App
+names must not be renamed casually.
 
-RichTextFormattingToolbar now uses the owned foundation and migrated-module
-boundaries. See [formatting toolbar contracts](developer/react-aria-formatting-toolbar.md)
-for named formatting actions, controlled active state, selection preparation and
-callback availability. Load /styles.css and provide Provider or ThemeScope.
-See the owned editor section contract below.
+The interaction engine is private, but replacing React Aria still costs engineering:
+reimplement focus, keyboard, collections, overlays, locale and date behavior; preserve
+owned observable contracts; rerun browser/accessibility/SSR/package acceptance; and
+review dependency licenses. Engine independence does not imply automatic portability
+to another framework.
 
-FloatingTextSelectionToolbar, DocumentEditorLayout, DocumentEditorToolbar and
-ContentEditorChrome now use the owned foundation and migrated-module boundaries.
-See [editor layout and selection contracts](developer/react-aria-editor-layout.md) for host scrolling, keyboard selection access, native
-status colors and the breaking menu onPress(anchor) callback mapping. Load
-/styles.css and provide Provider or ThemeScope. Broad editor/grid acceptance gates remain open.
+Commercial terms and third-party notices remain authoritative. Local validation
+does not publish packages; Actions handles semantic-release after approved merges.
+Final legal/historical-reference and exact-artifact audits remain open. No first
+release, owner configuration or migration completion is claimed here.
 
-PageRichTextEditorSection (M-34), including its Lexical image decoration, now uses
-the owned foundation and migrated-module boundaries. See [editor section contracts](developer/react-aria-editor-section.md)
-for stylesheet/scope requirements, native styling/ref, live read-only state,
-document reset and formatting-preserving link behavior. Broad editor/grid and
-U/X/R/Z acceptance gates remain open.
-
-DataToolbar (M-20), including columns, sort, filter and selection menus, now uses
-the owned foundation and migrated-module boundaries. See [data toolbar contracts](developer/react-aria-data-toolbar.md) for controlled host state, draft menus, native styling/ref and scope requirements.
-Load `/styles.css` and provide Provider or ThemeScope. Grid migration remains open.
-
-AppDataGrid public renderer/types/helpers/parts, AppDataGridShell and
-LearnerClassesDataGrid now use the owned foundation and strict whole-directory
-boundaries. See [catalog grid integration](developer/react-aria-catalog-grid.md)
-for breaking mappings, one shared shell state owner and opt-in hydration-safe
-persistence. Load /styles.css and provide Provider or ThemeScope. M-18 reorder
-and broad G/U/X/R/Z acceptance remain open.
-
-AppDataGridRowDnd and public catalog grid row reorder now use the owned
-foundation and migrated-module boundaries. See [grid reorder contracts](developer/react-aria-grid-reorder.md)
-for the complete single-page dataset boundary, drag/Move requests, cancellation,
-source focus and host persistence/rollback ownership. Broad G/U/X/R/Z gates remain open.
-
-The public icons (M-36) and primitives (M-37) now use owned implementations,
-with whole-directory source/transitive/declaration boundaries. See
-[icon mappings](developer/react-aria-icons.md) and
-[primitive mappings](developer/react-aria-primitives.md) for preserved names,
-owned props and deliberate breaking removals. Import `/styles.css` and provide
-Provider or ThemeScope. The public theme is now owned; broad acceptance remains open.
+See [guidance provenance](agent-guidance-migration.md),
+[architecture](developer/component-architecture.md) and
+[AGENTS.md](../AGENTS.md) for retained development conventions.

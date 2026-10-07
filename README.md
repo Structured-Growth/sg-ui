@@ -1,49 +1,83 @@
 # Structured Growth UI (SGUI)
 
-A reusable React component library built on owned controls and React Aria, extracted from the learning
-platform. Includes light/dark themes, primitives and icons, page layouts,
-navigation, modals, cards, data grids, toolbars, pagination, and Lexical editors.
-The package is `@structured-growth/sg-ui`. Published versions are calculated
-automatically by semantic-release.
-
-The approved migration direction is React Aria Components, SGUI-owned APIs and
-design tokens, compiled CSS Modules, and complete removal of the existing UI
-foundation. The [master task list](docs/developer/react-aria-master-task-list.md)
-records the full migration scope, component inventory, sequencing, and acceptance
-checks. Implementation has begun with scoped tokens, compiled CSS Modules and
-experimental controls including button/field and nested dialog/form proofs. See the [execution record](docs/developer/react-aria-progress.md).
-`AppInlineProgress`, `AppOperationSteps`, `EditableTitleField`
-and the Typefaces catalog have migrated; their public prop names remain, but they
-now need the foundation stylesheet and visual scope. See the
-[owned control contracts](docs/developer/react-aria-remaining-controls.md) and
-[progress/avatar guide](docs/developer/react-aria-progress-avatar.md).
-
-CardCollectionWithFooter, AppPaginationFooter, ClassCardFrame, InstructorClassCard
-and LearnerClassCard also use the owned foundation. See the [card pagination](docs/developer/react-aria-card-pagination.md)
-and [card frame mappings](docs/developer/react-aria-card-frames.md) for styling and
-callback integration changes. Each has a granular `/components/<directory>` export.
+A reusable React library for Structured Growth, extracted from the learner platform.
+SGUI owns its public contracts, design tokens and compiled CSS Modules. React Aria
+implements interactions, TanStack processes grid rows, and Lexical powers rich text.
+The catalog, primitives, icons and public theme use the owned foundation; `/experimental`
+retains proof controls and does not replace the established App-prefixed names.
 
 **Commercial license required.** Public npm availability does not grant permission
 to use this library. Obtain a written agreement from Structured Growth before use.
 See [LICENSE](LICENSE) and [commercial licensing](docs/commercial-licensing.md).
 
-AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
-foundation. See [button mappings](docs/developer/react-aria-button.md),
-[page navigation](docs/developer/react-aria-page-navigation.md) and
-[page layout](docs/developer/react-aria-page-layout.md). AppButton now uses onPress,
-owned variant/tone/density and native class/style; the upstream button prop surface
-is removed. Load /styles.css and provide Provider or ThemeScope.
+Implementation migration is distinct from final acceptance. The
+[execution record](docs/developer/react-aria-progress.md),
+[master task list](docs/developer/react-aria-master-task-list.md) and
+[removal audit](docs/developer/react-aria-removal-audit.md) record evidence and
+remaining browser, device, assistive-technology, packaging and legal gates.
 
-AppModal, AuthShell, SideNavigation and AppShell now use the owned foundation.
-Apply the migrated-module boundaries to these directories. See [modal and shell
-contracts](docs/developer/react-aria-modal-shells.md) for owned dismissal/action callbacks, native style slots,
-responsive navigation and host adapter behavior. Load /styles.css and provide an
-owned scope, including for editor dialogs.
+## Use in an application
 
-ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundation.
-Apply migrated boundaries to these directories; see [editor dialog contracts](docs/developer/react-aria-editor-dialogs.md)
-for preset draft reset, URL protocol validation and optional host-owned image descriptions.
-Load /styles.css and provide Provider or ThemeScope.
+The package is `@structured-growth/sg-ui`, configured for public npm publication
+through Actions. Install an available published version under your commercial
+agreement, or use a validated packed artifact before publication:
+
+```sh
+pnpm add @structured-growth/sg-ui react react-dom
+```
+
+React and React DOM are the only peers, both supporting `^18.3.1 || ^19.0.0`.
+React Aria, date utilities, TanStack, Lucide and Lexical are package dependencies;
+consumers do not install them as extra peers. The package engine is Node >=22.12.0.
+
+Load the stylesheet once at the application's CSS entry and provide an owned scope:
+
+```tsx
+import "@structured-growth/sg-ui/styles.css";
+import { AppButton, Provider } from "@structured-growth/sg-ui";
+
+export function Example() {
+  return <Provider theme="system">
+    <AppButton onPress={() => console.log("Save requested")}>Save</AppButton>
+  </Provider>;
+}
+```
+
+The equivalent granular imports are:
+
+```tsx
+import "@structured-growth/sg-ui/styles.css";
+import { AppButton } from "@structured-growth/sg-ui/components/AppButton";
+import { Provider } from "@structured-growth/sg-ui/theme";
+
+export function Example() {
+  return <Provider><AppButton variant="outlined" tone="neutral">Save</AppButton></Provider>;
+}
+```
+
+`Provider` defaults to light/comfortable, bridges the host translation locale into
+interactions and propagates scope settings to overlays. `ThemeScope` supplies visual
+settings alone. `AppThemeProvider` preserves its name as an alias of Provider;
+old theme objects and typography augmentation are removed. Applications own global
+backgrounds, resets and optional Geist font loading; system fonts are the fallback.
+There is no Tailwind or runtime CSS-engine requirement.
+
+The package exports the root, `/components`, `/theme`, `/tokens`, `/styles.css`,
+`/hooks`, `/icons`, `/primitives`, `/adapters`, `/i18n`, `/experimental` and
+`/experimental/icons`, plus the component and individual icon paths declared in
+[package.json](package.json). These are explicit exports, not unrestricted source
+paths. For example, AppPaginationFooter uses `/components/CardPaginationFooter`.
+Do not import `dist` internals. Prefer granular paths for bounded module graphs;
+root imports remain supported.
+
+For an existing host, follow the [consumer migration mappings](docs/migration.md#consumer-migration-mappings)
+and [read-only adoption checklist](docs/developer/react-aria-adoption-checklist.md).
+They cover Vite and Next.js integration, adapters, controlled grid state and CSS/client
+boundaries. See [theme contracts](docs/developer/react-aria-theme.md),
+[primitives](docs/developer/react-aria-primitives.md),
+[icons](docs/developer/react-aria-icons.md) and
+[calendar contracts](docs/developer/react-aria-calendar-contracts.md) for detailed
+settings, styling, form, date and accessibility responsibilities.
 
 ## Development
 
@@ -71,100 +105,6 @@ performance smoke workload through `pnpm test:browser`.
 `pnpm test:hydration-consumer` executes packed React 18/19 Vite SSR and hydration
 in browsers; `pnpm test:next-consumer` builds and runs a clean packed Next.js App
 Router production consumer. See [server boundaries](docs/developer/react-aria-server-components.md).
-
-## Use in an application
-
-Releases are public on npm under the `@structured-growth` scope. Install SGUI
-and its peer dependencies after the first release:
-
-```sh
-pnpm add @structured-growth/sg-ui react react-dom
-```
-
-```tsx
-import "@structured-growth/sg-ui/styles.css";
-import { AppButton } from "@structured-growth/sg-ui/components/AppButton";
-import { Provider } from "@structured-growth/sg-ui/theme";
-
-export function Example() {
-  return <Provider><AppButton>Save</AppButton></Provider>;
-}
-```
-
-Public entry points: the package root, `/components`, `/theme`, `/hooks`,
-`/icons`, `/primitives`, `/adapters`, and `/i18n`. React and React DOM are the only peers. Lexical editor dependencies ship with SGUI.
-
-The theme references Geist, with system-font fallbacks; applications supply the
-font if desired. No application-global CSS or Tailwind requirement is imposed.
-
-To review the migration proofs, import the compiled stylesheet once and use the
-experimental controls inside their visual scope:
-
-```tsx
-import "@structured-growth/sg-ui/styles.css";
-import { Button, TextField, ThemeScope } from "@structured-growth/sg-ui/experimental";
-
-export function MigrationProof() {
-  return <ThemeScope theme="system" density="comfortable">
-    <TextField label="Course name" name="course" />
-    <Button onPress={() => {}}>Save</Button>
-  </ThemeScope>;
-}
-```
-
-These are proof contracts that may change during migration. Public catalog components now use owned contracts. Broad acceptance remains open. See the
-[architecture and styling guide](docs/developer/react-aria-architecture.md).
-Run `pnpm test:foundation-consumer` to validate a packed Vite proof consumer.
-
-Catalog controls also have granular subpaths so a consumer can bound imports
-to the requested controls:
-
-```tsx
-import "@structured-growth/sg-ui/styles.css";
-import { Provider } from "@structured-growth/sg-ui/theme";
-import { AppInlineProgress } from "@structured-growth/sg-ui/components/AppInlineProgress";
-
-export function CourseProgress() {
-  return <Provider><AppInlineProgress value={40} /></Provider>;
-}
-```
-
-The other granular migrated paths are `/components/AppOperationSteps` and
-`/components/EditableTitleField`. The retired foundation peer requirements have been removed. During the transition,
-wrap mixed compositions such as ContentEditorChrome in the foundation scope too.
-
-Routing uses native anchors by default. Supply `SGNavigationProvider` with
-`pathname` and `navigate` for your router, plus an optional custom `Link`.
-`navigate` accepts an optional `{ replace }` argument. Next.js integration belongs
-in the consumer:
-
-```tsx
-"use client";
-import { usePathname, useRouter } from "next/navigation";
-import { SGNavigationProvider } from "@structured-growth/sg-ui/adapters";
-import type { ReactNode } from "react";
-
-export function UIRouter({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
-  const router = useRouter();
-  return <SGNavigationProvider value={{
-    pathname,
-    navigate: (href, options) => options?.replace ? router.replace(href) : router.push(href),
-  }}>{children}</SGNavigationProvider>;
-}
-```
-
-Translation defaults are English with variable interpolation. Use
-`SGTranslationProvider` to connect an application's translation engine and
-namespace loading. Use `SGAccountProvider` for navigation account operations;
-SGUI never stores credentials or calls platform authentication endpoints.
-The host handles refresh/navigation after organization changes.
-
-Pagination and state hooks use explicit opt-in local/session persistence and accept
-arbitrary page sizes. See [hook mappings](docs/developer/react-aria-pagination-state.md)
-for configuration, hydration and breaking persistence defaults. See
-[server component boundaries](docs/developer/react-aria-server-components.md) for
-server rendering and selective client entry points.
 
 ## AI coding and releases
 
@@ -194,53 +134,6 @@ version. Releases require configured npm credentials or trusted publishing.
 AI-generated changes remain draft PRs for review; merging a release-worthy change
 to main triggers publication automatically.
 
-InsertContentMenuControl, TextAlignMenuControl, TextColorPickerControl and
-TextStyleMenuControl now use the owned foundation and migrated-module boundaries.
-See [editor menu contracts](docs/developer/react-aria-editor-menus.md) for host callbacks,
-checked formatting state and the breaking semantic color preset mapping. Load
-/styles.css and provide Provider or ThemeScope. Surrounding editor migration remains open.
 
-RichTextFormattingToolbar now uses the owned foundation and migrated-module
-boundaries. See [formatting toolbar contracts](docs/developer/react-aria-formatting-toolbar.md)
-for named formatting actions, controlled active state, selection preparation and
-callback availability. Load /styles.css and provide Provider or ThemeScope.
-See the owned editor section contract below.
-
-FloatingTextSelectionToolbar, DocumentEditorLayout, DocumentEditorToolbar and
-ContentEditorChrome now use the owned foundation and migrated-module boundaries.
-See [editor layout and selection contracts](docs/developer/react-aria-editor-layout.md) for host scrolling, keyboard selection access, native
-status colors and the breaking menu onPress(anchor) callback mapping. Load
-/styles.css and provide Provider or ThemeScope. Broad editor/grid acceptance gates remain open.
-
-PageRichTextEditorSection (M-34), including its Lexical image decoration, now uses
-the owned foundation and migrated-module boundaries. See [editor section contracts](docs/developer/react-aria-editor-section.md)
-for stylesheet/scope requirements, native styling/ref, live read-only state,
-document reset and formatting-preserving link behavior. Broad editor/grid and
-U/X/R/Z acceptance gates remain open.
-
-DataToolbar (M-20), including columns, sort, filter and selection menus, now uses
-the owned foundation and migrated-module boundaries. See [data toolbar contracts](docs/developer/react-aria-data-toolbar.md) for controlled host state, draft menus, native styling/ref and scope requirements.
-Load `/styles.css` and provide Provider or ThemeScope. Grid migration remains open.
-
-AppDataGrid public renderer/types/helpers/parts, AppDataGridShell and
-LearnerClassesDataGrid now use the owned foundation and strict whole-directory
-boundaries. See [catalog grid integration](docs/developer/react-aria-catalog-grid.md)
-for breaking mappings, one shared shell state owner and opt-in hydration-safe
-persistence. Load /styles.css and provide Provider or ThemeScope.
-Broad G/U/X/R/Z acceptance remains open.
-
-AppDataGridRowDnd and public catalog grid row reorder now use the owned
-foundation and migrated-module boundaries. See [grid reorder contracts](docs/developer/react-aria-grid-reorder.md)
-for the complete single-page dataset boundary, drag/Move requests, cancellation,
-source focus and host persistence/rollback ownership. Broad G/U/X/R/Z gates remain open.
-
-The public icons (M-36) and primitives (M-37) now use owned implementations,
-with whole-directory source/transitive/declaration boundaries. See
-[icon mappings](docs/developer/react-aria-icons.md) and
-[primitive mappings](docs/developer/react-aria-primitives.md) for preserved names,
-owned props and deliberate breaking removals. Import `/styles.css` and provide
-Provider or ThemeScope. The public theme also uses owned scopes; broad acceptance remains open.
-
-See the [public theme migration](docs/developer/react-aria-theme.md) for scoped settings, token overrides and removed theme objects.
-
-[Grid preset factories](docs/developer/react-aria-grid-presets.md) supply host-translated labels, canonical statuses and default column locks.
+For library development, use the [component architecture](docs/developer/component-architecture.md)
+and [canonical component recipe](docs/developer/react-aria-component-recipe.md).
