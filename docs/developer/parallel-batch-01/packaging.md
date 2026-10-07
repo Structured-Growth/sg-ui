@@ -5,6 +5,12 @@ Base: `9f153642e827a14033d646cf0160730c0793bdfc`.
 Chat: `01a11652-2110-7621-8552-18c7c7929030`.
 Worktree: `/Users/thomashall/.codex/worktrees/batch-01-packaging/sg-ui`.
 Branch: `codex/batch-01-packaging`.
+Implementation/evidence commit: `6ec39e6` (the subsequent report-only commit records
+this review identity).
+Draft PR: [#10](https://github.com/Structured-Growth/sg-ui/pull/10), targeting
+`codex/dev` for coordinator consolidation; never merged or published by this chat.
+The shared validation lock was released after all four corrected consumers passed;
+this chat will not reacquire before the coordinator's integration turn.
 
 ## Exact acceptance slice
 
