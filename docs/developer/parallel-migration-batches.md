@@ -572,3 +572,12 @@ Five exclusive new cross-engine follow-ups (classification required, not assumed
 - Batch55 link-webkit-selection: chat01a11761-c591-71a1-aca9-9ddee4f6b541, scope src/components/LinkUrlModal/; tests/browser/inventory-link-modal.spec.ts; docs/developer/parallel-batch-55/link-webkit-selection.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
 - Batch56 toolbar-firefox-search-focus: chat01a11761-c8e9-78d3-b79c-d4bee3ce34bb, scope src/components/DataToolbar/; tests/browser/inventory-toolbar-composition.spec.ts; docs/developer/parallel-batch-56/toolbar-firefox-search-focus.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
 - Batch57 auth-firefox-keyboard-entry: chat01a11761-cbee-7f00-b4f9-c85ba499bf56, scope src/components/AuthShell/; tests/browser/inventory-auth-embedded-host.spec.ts; docs/developer/parallel-batch-57/auth-firefox-keyboard-entry.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
+
+## Wave27 focused handoff — 2026-10-07
+
+Eight isolated sessions shared one fresh build at testing-only candidate `4987a1fe046c37f2e612d6de159aa09e1e840043`: six complete green suites, 38 cases. Two held scopes retain enlarged-text grid visibility and replacement drag focus failures; no whole candidate merge. Source/build digests remained identical, clean final head, owned commands settled. Build 34.021s; total 56.828s, peak load 5.849, peak aggregate process RSS20.947GiB, swap delta0. Evidence: `artifacts/browser-pool/afadf38b-8476-4c9b-a10e-2a78d786822d/evidence.json` in managed batch45 candidate.
+
+- Batch36 `card-collection-native`: `cfce31bd49c25b0816403e381178404547102550` reviewed and individually integrated; complete scoped Chromium proof, report-only final delta.
+- Batch42 `editor-chrome-native`: `b306430acbbf827f42fa8581222209c82870a4c9` reviewed and individually integrated; complete scoped Chromium proof, report-only final delta.
+- Batch52 `dialog-removed-opener`: `2f96e20345396865ccc7cba96d102533c03ece26` reviewed and individually integrated; complete scoped Chromium proof, report-only final delta.
+- Batch58 snapshot-case-filters NEW chat `01a11767-eb62-74d0-8f22-eb02e504ec9f`: exclusive scheduler/tests/parallel guide/unique report; add fail-closed per-shard focused-case selection, independent review before deployment.
