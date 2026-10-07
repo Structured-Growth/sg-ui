@@ -650,3 +650,11 @@ Wave32 candidate `1976be5e3776fe5e44065b02f359a17751ef7284`, token6c2eaada-de28-
 - Reviewed individual history batch70 final `606f29e42b3c06affc794b2d6bea3aec01cd1861` integrated; finalreport-onlydelta/sourcehashes and actualnativeproof verified, deferredFW/manualgates retained.
 
 Batch59 actual keyboard-visible collection cell-key regression diagnosis and scoped correction remains active, preserving strict other-control/hostfocus guards. No repeated unchanged native runs. Fullcheckpoint remainsdue2026-10-08T12:58:08.454467Z; newproductionbehaviorcheckpointcounter7.
+
+## Wave33 and independent intent review — 2026-10-07
+
+Wave33 candidate `2b9a4397791daa23afe7562049e45b85e626f0a0`, token `f4cf964e-a2ef-4b80-bc1d-e189e8f4a67e`: four Chromium Bold/Italic cases passed; two Underline cases failed solely on HTML attribute serialization order after exact saved JSON equality passed. One underlying test expectation issue remains owned by batch72; source/build/head immutable, owned commands settled and leases released. No dev acceptance or whole-row closure. Earlier failures retained.
+
+Batch75 `inventory-contract-intent`, NEW chat `01a117ae-2017-7092-9ecf-2a80e4073152`, exact baseline `39c2275b0f7a873a48eceb1c663ab0bd0016a7e7`. Isolated managed worktree before edits; exclusive write scope `docs/developer/parallel-batch-75/inventory-contract-intent.md`. M-10/M-14/M-30 source/contracts/master/history read-only; propose source-grounded row intent and preserve real unmet gates, no new APIs or automatic acceptance. Coordinator alone updates acceptance after review.
+
+Historical evidence reconciliation raised eight existing documented component stages to 93/219 (42.5%), 42 pending and84 unscored; parent acceptance remains73/326. Historical proof is not current-head full-matrix acceptance.
