@@ -18,18 +18,37 @@ for (const theme of ['light', 'dark']) {
       await page.goto(`${story};theme:${theme}`);
       await expect(page.getByRole('grid', { name: 'Native learner courses' })).toBeVisible();
     });
-    test.afterEach(async ({ page }) => {
+    test.afterEach(async ({ page }, testInfo) => {
+      if (testInfo.status !== testInfo.expectedStatus) {
+        await testInfo.attach('native-focus-owner', { contentType: 'application/json', body: JSON.stringify(await page.evaluate(() => ({
+          documentFocused: document.hasFocus(), tag: document.activeElement?.tagName,
+          label: document.activeElement?.getAttribute('aria-label'),
+          role: document.activeElement?.getAttribute('role'), html: document.activeElement?.outerHTML.slice(0, 1200),
+        }))) });
+      }
       expect(runtimeErrors.get(page), 'learner fixture runtime errors').toEqual([]);
     });
 
     test('course link and keyboard Details route once; dismissal returns focus', async ({ page }) => {
       const link = page.getByRole('link', { name: 'Route laboratory', exact: true });
       await expect(link).toHaveAttribute('href', detailsHref);
-      await link.focus();
+      // Enter through the grid's native focus model. Programmatic child focus
+      // skips its pointer focused-key update when keyboard focus is visible.
+      const row = page.getByRole('row').filter({ has: link });
+      const idCell = row.locator('[data-grid-field="id"]');
+      await idCell.click();
+      await expect(idCell).toBeFocused();
+      await page.keyboard.press('ArrowRight');
+      await expect(link).toBeFocused();
       await page.keyboard.press('Enter');
       await expect(page.getByLabel('Learner routes')).toHaveText(`1: ${detailsHref}`);
       const trigger = page.getByRole('button', { name: 'Actions for Route laboratory', exact: true });
-      await trigger.focus();
+      // A native pointer entry establishes the actions cell's collection key;
+      // close it before exercising keyboard open/activation and restoration.
+      await trigger.click();
+      await expect(page.getByRole('menu')).toBeVisible();
+      await page.keyboard.press('Escape');
+      await expect(trigger).toBeFocused();
       await page.keyboard.press('Enter');
       const details = page.getByRole('menuitem', { name: 'Details', exact: true });
       await expect(details).toHaveAttribute('href', detailsHref);
@@ -50,21 +69,26 @@ for (const theme of ['light', 'dark']) {
       await context.route('**/content-library/activities/**/launch', route => route.fulfill({ contentType: 'text/html', body: '<title>Host launch fixture</title><p>Launch accepted</p>' }));
       for (const [name, id] of [['Route laboratory', 'activity /?#% 日本'], ['Fallback laboratory', 'fallback /?#% 日本']]) {
         const trigger = page.getByRole('button', { name: `Actions for ${name}`, exact: true });
-        await trigger.focus();
+        await trigger.click();
+        await expect(page.getByRole('menu')).toBeVisible();
+        await page.keyboard.press('Escape');
+        await expect(trigger).toBeFocused();
         await page.keyboard.press('Enter');
+        await expect(page.getByRole('menuitem', { name: 'Details', exact: true })).toBeFocused();
         await page.keyboard.press('ArrowDown');
         const launch = page.getByRole('menuitem', { name: 'Continue', exact: true });
         await expect(launch).toBeFocused();
         const href = `/content-library/activities/${encodeURIComponent(id)}/launch`;
         await expect(launch).toHaveAttribute('href', href);
         await expect(launch).toHaveAttribute('target', '_blank');
-        const popupPromise = context.waitForEvent('page');
+        const popupPromise = page.waitForEvent('popup');
         await page.keyboard.press('Enter');
         const popup = await popupPromise;
         await popup.waitForLoadState();
         expect(new URL(popup.url()).pathname).toBe(href);
         expect(await popup.evaluate(() => window.opener === null)).toBe(true);
         await popup.close();
+        await page.bringToFront();
         await expect(page.getByRole('menu')).toHaveCount(0);
         await expect(trigger).toBeFocused();
         await expect(page.getByLabel('Learner routes')).toHaveText('0: none');

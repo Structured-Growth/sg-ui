@@ -77,3 +77,48 @@ or copied scheduler configuration is used. Source reservation remains held until
 that fresh proof completes. Firefox/WebKit remain batch-checkpoint pending.
 No full `pnpm check`, Storybook build, packed-consumer or broad/manual/device/AT
 acceptance is claimed by this task. M-19 remains HOLD and broader G gates stay open.
+
+## Wave21 Chromium red evidence and bounded driver correction
+
+Coordinator wave21 tested clean exact head
+`f38dc0315a13dbb542f5ee2dbf0853148e28f022` with unchanged initial/final build digest.
+Chromium: **4 passed / 4 failed**, zero skipped/flaky. The live-locale and
+controlled request cases passed in both themes. Initial source remains unchanged
+through the correction below, including the proven encoded-ID product fix.
+
+Preserved evidence directory:
+`artifacts/browser-pool/241329c9-c672-4540-8835-b874d397fe2c/`, including
+`evidence.json`, `results.json`, `browser.log` and per-case traces/screenshots/
+error contexts. These ignored local artifacts are not checked-in CI artifacts.
+
+Distinct failed points were light course-link Enter leaving routes `0: none`,
+dark Details dismissal not focusing the trigger, light Continue dismissal not
+focusing the trigger, and dark Continue absent at the focus assertion. The dark
+Continue snapshot showed the fallback row focused/selected before menu entry,
+while the light link trace showed the course row selected by Enter. Read-only
+inspection of React Aria `useGridCell` confirms that programmatic child focus
+while keyboard focus is visible intentionally skips the pointer focused-key
+update. Initial tests used `locator.focus()` from outside the grid, then dispatched
+Enter before asserting the actual child focus; Continue sent ArrowDown before
+asserting initial menu-item focus. Those are confirmed driver readiness gaps;
+whether they explain all restoration failures remains provisional pending rerun.
+No shared Grid/Menu product defect is established, and neither source is edited.
+
+Spec correction enters the ID cell by real pointer, then ArrowRight with asserted
+link focus before Enter. Menu tests establish native pointer collection entry,
+Escape with asserted trigger restoration, then keyboard Enter with asserted
+Details focus before ArrowDown. Popup wait now belongs to the actual launching
+page (`page.waitForEvent('popup')`), and the source page is brought to the foreground
+after popup close before asserting trigger restoration. All route-count, encoded
+URL, null-opener, callback and focus-return assertions remain; no forced click,
+synthetic event, inserted sleep, app-focus mutation or production change is used.
+Failures now attach read-only actual `document.activeElement`/`document.hasFocus`
+diagnostics, so a residual restoration failure can be classified precisely and
+reserved for an exclusive shared-source successor if required.
+
+Node24.21.0 focused browser TypeScript passed after the spec edit; no unchanged
+unit/source check rerun was needed for this spec/report-only correction.
+`git diff --check` passed. Atomic owned light slot0 was released. A new clean
+committed head is handed to the coordinator for fresh immutable Chromium proof;
+this is a changed-driver validation, not an unchanged retry. Source scope remains
+reserved, M-19 HOLD, and Firefox/WebKit remain checkpoint pending.
