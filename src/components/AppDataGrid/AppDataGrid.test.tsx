@@ -66,3 +66,50 @@ it("offers an opt-in live reset without replacing the native container ref", asy
   expect(screen.getByRole("checkbox", { name: "Select Course 1" })).toBeTruthy();
   expect((screen.getByRole("checkbox", { name: "Select Course 1" }) as HTMLInputElement).checked).toBe(false);
 });
+
+it.each([false, true])("keeps a shrunk client page coherent with host acceptance=%s", async accept => {
+  const dataset = Array.from({ length: 41 }, (_, index) => ({ id: String(index + 1), name: `Shrink course ${index + 1}`, score: index }));
+  const page = vi.fn(); const combined = vi.fn(); const selected = vi.fn(); const order: string[] = [];
+  const config = { ...base, rows: dataset, pageSizeOptions: [10], paginationModel: { page: 3, pageSize: 10 },
+    rowCount: 1, hasNextPage: false,
+    selection: { defaultSelectedRowIds: new Set(["41"]), onSelectedRowIdsChange: selected },
+    onPaginationModelChange: (value: { page: number; pageSize: number }) => { order.push("page"); page(value); },
+    onStateChange: (value: unknown) => { order.push("state"); combined(value); } };
+  const { rerender } = render(<AppDataGrid {...config} />);
+  expect(screen.getByText("Shrink course 31")).toBeTruthy();
+  rerender(<AppDataGrid {...config} rows={dataset.slice(0, 11)} />);
+  expect(screen.getByText("Shrink course 11")).toBeTruthy();
+  expect(screen.getByText("11-11 of 11")).toBeTruthy();
+  expect(screen.getByRole("button", { name: "Next page" }).hasAttribute("disabled")).toBe(true);
+  expect(page).not.toHaveBeenCalled(); expect(combined).not.toHaveBeenCalled();
+  await userEvent.click(screen.getByRole("button", { name: "Previous page" }));
+  expect(page).toHaveBeenCalledExactlyOnceWith({ page: 0, pageSize: 10 });
+  expect(order).toEqual(["page", "state"]);
+  expect(combined.mock.calls[0][0]).toMatchObject({ paginationModel: { page: 0, pageSize: 10 }, selectedRowIds: new Set(["41"]) });
+  expect(screen.getByText("Shrink course 11")).toBeTruthy();
+  rerender(<AppDataGrid {...config} rows={dataset.slice(0, 11)} paginationModel={{ page: accept ? 0 : 3, pageSize: 10 }} />);
+  expect(screen.getByText(accept ? "Shrink course 1" : "Shrink course 11")).toBeTruthy();
+  expect(combined).toHaveBeenCalledTimes(1);
+  expect(selected).not.toHaveBeenCalled();
+  rerender(<AppDataGrid {...config} rows={[]} />);
+  expect(screen.getByText("0-0 of 0")).toBeTruthy();
+  expect(combined).toHaveBeenCalledTimes(1);
+  rerender(<AppDataGrid {...config} />);
+  expect(screen.getByText("Shrink course 31")).toBeTruthy();
+});
+
+it("uses the complete client total for callback-only page requests despite server hints", async () => {
+  const page = vi.fn(); const combined = vi.fn();
+  const config = { ...base, pageSizeOptions: [1], defaultPaginationModel: { page: 0, pageSize: 1 },
+    rowCount: 0, hasNextPage: false, onPaginationModelChange: page, onStateChange: combined };
+  const { rerender } = render(<AppDataGrid {...config} />);
+  await userEvent.click(screen.getByRole("button", { name: "Last page" }));
+  expect(page).toHaveBeenCalledExactlyOnceWith({ page: base.rows.length - 1, pageSize: 1 });
+  expect(screen.getByText(base.rows.at(-1)!.name)).toBeTruthy();
+  rerender(<AppDataGrid {...config} rows={base.rows.slice(0, 2)} />);
+  expect(screen.getByText(base.rows[1]!.name)).toBeTruthy();
+  expect(page).toHaveBeenCalledTimes(1);
+  await userEvent.click(screen.getByRole("button", { name: "Previous page" }));
+  expect(screen.getByText(base.rows[0]!.name)).toBeTruthy();
+  expect(combined).toHaveBeenCalledTimes(2);
+});

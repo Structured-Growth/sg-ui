@@ -65,3 +65,28 @@ export const BrowserPerformance: Story = { args: {
   rows: Array.from({ length: 1000 }, (_, index) => ({ id: `course-${index + 1}`, name: `Course ${index + 1}`, score: index % 11, status: index % 3 ? "Published" : "Draft" })),
   defaultPaginationModel: { page: 0, pageSize: 250 },
 } };
+
+/** Dataset replacement changes display only; the host can accept or reject navigation. */
+export const ClientDatasetShrink: Story = { render: args => {
+  const [count, setCount] = useState(41);
+  const [paginationModel, setPagination] = useState({ page: 3, pageSize: 10 });
+  const [accept, setAccept] = useState(false);
+  const [requests, setRequests] = useState(0);
+  const [lastRequest, setLastRequest] = useState("No request");
+  return <div style={{ display: "flex", flexDirection: "column", height: 480, gap: 8 }}>
+    <div style={{ display: "flex", gap: 8 }}>
+      <Button onPress={() => setCount(11)}>Shrink to 11 rows</Button>
+      <Button onPress={() => setCount(0)}>Empty dataset</Button>
+      <Button onPress={() => setCount(41)}>Restore 41 rows</Button>
+      <Button aria-pressed={accept} onPress={() => setAccept(value => !value)}>Accept navigation</Button>
+    </div>
+    <span role="status" aria-label="Host pagination">Requested page {paginationModel.page}, requests {requests}</span>
+    <span role="status" aria-label="Last pagination request">{lastRequest}</span>
+    <div style={{ height: 240, minHeight: 0 }}>
+      <AppDataGrid {...args} rows={rows.slice(0, count)} paginationModel={paginationModel} pageSizeOptions={[10]}
+        selection={{ defaultSelectedRowIds: new Set(["course-41"]) }} 
+        onPaginationModelChange={value => { setLastRequest(`Page ${value.page}, size ${value.pageSize}`); if (accept) setPagination(value); }}
+        onStateChange={() => setRequests(value => value + 1)} />
+    </div>
+  </div>;
+} };

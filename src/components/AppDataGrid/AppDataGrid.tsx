@@ -12,6 +12,7 @@ import { OwnedGridStatus } from "./ownedGridParts";
 import { Button } from "../../experimental/Button/Button";
 import { useTranslation } from "../../i18n";
 import { createOwnedGridResetState, type AppDataGridViewState } from "./ownedGridReset";
+import { transitionOwnedGridState, type OwnedGridTransition } from "./ownedGridState";
 import styles from "./AppDataGrid.module.css";
 
 /** Owned catalog grid. Host rows and server work remain outside this component. */
@@ -35,14 +36,21 @@ function Grid<RowModel>(props: ComposedGridProps<RowModel> & { persist?: ReturnT
   const { t } = useTranslation();
   const config = typeof selection === "object" ? selection : undefined;
   const { state, dispatch: localDispatch } = useOwnedGridController({ ...interaction,
+    rowCount: props.mode === "server" ? props.rowCount : undefined, hasNextPage: props.mode === "server" ? props.hasNextPage : undefined,
     selectedRowIds: config?.selectedRowIds, defaultSelectedRowIds: config?.defaultSelectedRowIds,
     onSelectedRowIdsChange: config?.onSelectedRowIdsChange });
   const { layout, setVisibility, setOrder, setWidths } = useOwnedGridLayoutController(interaction);
   useEffect(() => { persist?.({ ...state, columnVisibilityModel: layout.visibility, columnOrder: layout.order, columnWidths: layout.widths }); }, [persist, state, layout]);
-  const dispatch = props.dispatchTransition ?? localDispatch;
+  const requestedDispatch = props.dispatchTransition ?? localDispatch;
   const processed = useMemo(() => processingResult ?? processOwnedGridRows({ ...interaction, ...state }),
     [processingResult, props.rows, props.columns, props.getRowId, props.mode, props.rowCount, props.hasNextPage, props.filterFields,
       state.paginationModel, state.sortRules, state.filterRules, state.searchValue]);
+  const dispatch = (action: OwnedGridTransition) => {
+    if (props.mode !== "server" && (action.type === "page" || action.type === "pageSize" || action.type === "pagination")) {
+      const next = transitionOwnedGridState(state, action, { columns: props.columns, pageSizeOptions: props.pageSizeOptions, rowCount: processed.rowCount });
+      requestedDispatch({ type: "pagination", value: next.paginationModel });
+    } else requestedDispatch(action);
+  };
   const root = useRef<HTMLDivElement>(null);
   const pendingFocus = useRef<{ page: number; origin: Element | null } | null>(null);
   useEffect(() => {

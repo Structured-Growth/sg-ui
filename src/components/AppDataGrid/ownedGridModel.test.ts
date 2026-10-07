@@ -36,6 +36,24 @@ describe("owned catalog row processing", () => {
     expect(rows.map(row => row.id)).toEqual(["a", "b", "c", "d"]);
     expect(result.rows[0]).toBe(rows[0]);
   });
+  it.each([11, 10, 0])("clamps the client slice for %i remaining rows while retaining requested criteria", count => {
+    const input = Array.from({ length: 41 }, (_, id) => ({ ...rows[0]!, id }));
+    const paginationModel = Object.freeze({ page: 3, pageSize: 10 });
+    const result = process({ rows: input.slice(0, count), paginationModel, rowCount: 999, hasNextPage: true });
+    expect(result.rowIds).toEqual(count === 11 ? ["10"] : input.slice(0, count).map(row => String(row.id)));
+    expect(result.rowCount).toBe(count);
+    expect(result.canNextPage).toBe(false);
+    expect(result.paginationModel).toEqual(paginationModel);
+    expect(process({ rows: input, paginationModel }).rowIds).toEqual(input.slice(30, 40).map(row => String(row.id)));
+  });
+  it("bounds the display after filtering and sorting without changing the host request", () => {
+    const result = process({ paginationModel: { page: 3, pageSize: 1 }, searchValue: "alpha",
+      sortRules: [{ field: "score", direction: "desc" }] });
+    expect(result.rowIds).toEqual(["d"]);
+    expect(result.rowCount).toBe(2);
+    expect(result.canNextPage).toBe(false);
+    expect(result.paginationModel.page).toBe(3);
+  });
   it("ignores incomplete, missing-field and incompatible operator rules; All has no rule", () => {
     expect(process({ filterRules: [
       { field: "missing", operator: "contains", value: "none" }, { field: "name", operator: "gt", value: "5" },
@@ -141,7 +159,7 @@ describe("owned catalog row processing", () => {
     const result = process({ rows: input, filterRules: [{ field: "date", operator, value: "2024-02-29" }],
       sortRules: [{ field: "date", direction: "asc" }], paginationModel: { page: 1, pageSize: 1 } });
     expect(result.processedRows.map(row => row.id)).toEqual(expected);
-    expect(result.rowIds).toEqual(expected.slice(1, 2));
+    expect(result.rowIds).toEqual(expected.slice(Math.min(1, expected.length - 1), Math.min(1, expected.length - 1) + 1));
     expect(result.rowCount).toBe(expected.length);
   });
   it("distinguishes blank text from literal null text before natural descending sort and a later page", () => {
