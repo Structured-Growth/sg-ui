@@ -156,3 +156,54 @@ state cancellation, externally associated forms, autofill, physical-device and
 assistive-technology acceptance remain open. This report claims checked state,
 callback ordering and host policy only, pending native verification. No broad
 U-04/U-18/U/X/R/Z gate is closed.
+
+## Thirteenth pool: concrete inherited disabled-state defect
+
+After the driver correction, coordinator pool
+`artifacts/browser-pool/4fd3f406-a030-4159-b9b1-22465e4f07b5/` ran both cases in
+Chromium, Firefox and WebKit at clean frozen
+`19f6c0ec37c84b04001fe6c335a3bfa9fe612a10`: **3 passed / 3 failed**. All three
+reset-authority cases passed. All three fieldset cases reached the new actual
+checked-state assertion and received `true` instead of `false` after physical
+mouse presses on disabled labels. The snapshot also showed one controlled host
+request. This is a product failure, not a launch or actionability failure. Firefox
+launched normally and executed both cases. The six-case assignment is incomplete.
+
+Exact results, browser log, trace pointer records and snapshot were inspected;
+two physical `mouseClick` commands reached the disabled label bounds. Node
+`24.21.0`, pnpm `10.29.3`, Playwright `1.63.0`. Final head/clean status matched the
+frozen source. Build SHA-256 before/after:
+`0c14752c4ffc8537494dbaa43b632f0db6301a5f990d82e45734915a57cf995e`.
+
+Regression-first direct label-press unit test at prior source: 1 file / 12 tests,
+**11 passed / 1 failed**, with `onCheckedChange(true)` unexpectedly invoked for the
+fieldset-disabled input. The existing user-event fieldset test did not dispatch
+this press because user-event skips disabled descendants. Direct jsdom mouse
+press events exercise the handler; they are not native-browser evidence. The
+existing native physical-mouse case is retained as the genuine failed regression.
+
+Correction source commit: `cc5df6f4e8e9c47d6d301b028626082e25ec62ed`.
+Standalone checked requests now inspect the nested native input's `:disabled`
+state before mutating local state or notifying the host. This covers disabled
+fieldset inheritance using native semantics, including the enabled first-legend
+exception. A unit positive case and `FieldsetAcceptance` legend checkbox preserve
+that exception. Collection context/selection mapping and reset/ref behavior are
+unchanged. No shared helper, prop or stylesheet changed. The browser assertions
+remain intact, with additional first-legend enabled/checked checks; no assertion
+relaxation, force clicks or synthetic browser input.
+
+After this correction:
+
+- `pnpm exec vitest run src/experimental/Checkbox/Checkbox.test.tsx src/components/primitives/primitives.test.tsx src/components/AppDataGrid/AppDataGrid.test.tsx src/experimental/DataGrid/DataGrid.test.tsx src/components/AppDataGrid/ownedGridInteraction.test.tsx --maxWorkers=1`:
+  **5 files / 47 passed**, including 12 Checkbox cases. Same owner-checked global
+  light-slot policy. Log: `/tmp/sgui-checkbox-fieldset-affected.log`.
+- `pnpm typecheck`, `pnpm foundations:check`,
+  `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`, `git diff --check`: passed.
+- Fresh complete coordinator native rerun remains **required/queued** at the next
+  clean frozen head. Same spec, now all three restored engines:
+  `tests/browser/batch13-control-checkbox.spec.ts --project=chromium --project=firefox --project=webkit`,
+  two cases per engine / six expected. No unchanged rerun or own build/server.
+
+This continuation supersedes earlier pending engine selections and source-count
+summaries without erasing their failure history. Neither 2/4 nor 3/6 is claimed as
+complete native acceptance. No manual/device/AT or broad U/X/R/Z closure.
