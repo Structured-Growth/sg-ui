@@ -108,3 +108,9 @@ permission, licensing, translation, host-authority or source change.
 - Final-head declaration/packed API and complete release-marker reconciliation,
   broad G/E/U/X/R/Z and manual/device/AT acceptance remain outstanding. Coordinator
   reviews this exact delivery head; conflict resolutions need affected validation.
+
+
+Delivery: corrected guide/evidence commit
+`7f947a262f2d5edff67d11dab65fb05a8dc2d115`; draft PR
+[#85](https://github.com/Structured-Growth/sg-ui/pull/85), base `codex/dev`, attached
+to this chat. Final report-only delivery head is supplied to the coordinator.
