@@ -58,7 +58,7 @@ The ArrowRight assertion only proves focus remains in the grid; it does not prov
 a particular cell transition. This is adequate for the disappearing-trigger slice,
 with existing grid navigation coverage preserved.
 
-Worker evidence in [the exact report](../parallel-batch-08/grid-retry-focus.md):
+Worker evidence in [the exact report](https://github.com/Structured-Growth/sg-ui/blob/15bfb533e9c49c00453cf4fc6f3af7dc810c404a/docs/developer/parallel-batch-08/grid-retry-focus.md):
 
 - Runtime Node 24.21.0, pnpm 10.29.3, React 19.2.3, RAC 1.21.1,
   Vitest 4.1.11, Playwright 1.63.0, macOS arm64.
@@ -90,7 +90,7 @@ Source inspection confirms the report's gap: client processing uses the requeste
 page, while footer normalization may display a smaller page after dataset shrink.
 The task introduces no runtime defect and appropriately reserves the missing fix.
 
-[Worker report](../parallel-batch-11/grid-page-shrink.md) records Node 24.21.0,
+[Worker report](https://github.com/Structured-Growth/sg-ui/blob/8f79df3284a9786eb513b626ffe5daaee37e3a3e/docs/developer/parallel-batch-11/grid-page-shrink.md) records Node 24.21.0,
 pnpm 10.29.3, Vitest 4.1.11, React 19.2.3; frozen install passed without manifest
 changes. Commands via `node /tmp/sgui-run24.mjs`:
 
@@ -114,7 +114,7 @@ and keyboard All for a negated enum. Assertions inspect real payloads and draft
 input identity; they complement existing nested Escape, row identity/focus and
 shell transaction tests. No runtime changes or new native timing claims occur.
 
-[Worker report](../parallel-batch-11/filter-draft-transactions.md) records Node
+[Worker report](https://github.com/Structured-Growth/sg-ui/blob/194816039ab573938f32f25d826c7f93b65d3487/docs/developer/parallel-batch-11/filter-draft-transactions.md) records Node
 24.21.0, pnpm 10.29.3, Vitest 4.1.11; frozen install and typecheck passed.
 `pnpm exec vitest run src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx src/components/DataToolbar/filterRuleValue.test.ts src/components/DataToolbar/DataToolbar.test.tsx`
 passed 18 tests / 3 files, including five additions. Git confirms full tested
@@ -143,6 +143,9 @@ No shared validation lock or install/light slot was acquired or changed.
 - `git -C <worker-worktree> status --short` and `rev-parse HEAD`:
   all three clean final heads confirmed.
 - `rg` over retained Retry browser/Storybook logs: outcomes corroborated.
+- Report links target exact worker commits because those reports are absent from
+  this review baseline. Git objects confirm each linked report path exists.
+  Final report whitespace and exclusive-path checks passed.
 
 This evaluates exact worker patches, not conflict resolution on a future combined
 head. Coordinator must review any integration conflict and run affected checks if
