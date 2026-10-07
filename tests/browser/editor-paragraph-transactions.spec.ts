@@ -7,8 +7,13 @@ async function saved(page: Page): Promise<SavedDocument> {
 }
 async function selectTarget(page: Page) {
   const editor = page.getByRole('textbox', { name: 'Paragraph transaction document', exact: true });
-  await editor.locator('p').first().click();
-  await page.keyboard.press('Home');
+  // Click the rendered text, not the full-width paragraph's empty center.
+  await editor.locator('p').first().locator('strong').click();
+  await expect(editor).toBeFocused();
+  // Native macOS Home is not a caret-to-line-start contract. Use document
+  // navigation for the browser host (Storybook's device user agent may differ).
+  await page.keyboard.press(process.platform === 'darwin' ? 'Meta+ArrowUp' : 'Control+Home');
+  await expect.poll(() => selection(page)).toEqual({ text: '', anchor: 0, focus: 0, target: true });
   await page.keyboard.press('ArrowRight');
   await page.keyboard.press('ArrowRight');
   for (let index = 0; index < 6; index++) await page.keyboard.press('Shift+ArrowRight');
@@ -17,7 +22,7 @@ async function selectTarget(page: Page) {
   return editor;
 }
 async function selection(page: Page) {
-  // Observation only: all selection setup above uses trusted native keyboard events.
+  // Observation only: selection setup uses trusted native pointer/keyboard events.
   return page.getByRole('textbox', { name: 'Paragraph transaction document', exact: true }).evaluate(root => {
     const selection = window.getSelection();
     const paragraph = root.querySelector('p')!;
