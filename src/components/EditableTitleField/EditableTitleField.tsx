@@ -51,7 +51,7 @@ export function EditableTitleField({ title, placeholder, onSave, variant = "h4",
     setIsEditing(false);
   };
   const save = async () => {
-    if (!editing.current || saving.current) return;
+    if (!editing.current || saving.current || readOnly) return;
     const next = draft.trim();
     if (!next || next === title) {
       setDraft(title);
@@ -89,7 +89,7 @@ export function EditableTitleField({ title, placeholder, onSave, variant = "h4",
       aria-label={t("common.ui.documentTitle", { defaultMessage: "Document title" })}
       onBlur={() => { void save(); }}
       onValueChange={(value) => { setDraft(value); setFailed(false); }}
-      readOnly={isSaving} value={draft} invalid={failed}
+      readOnly={isSaving || readOnly} value={draft} invalid={failed}
       errorMessage={failed ? t("common.ui.titleSaveFailed", { defaultMessage: "Could not save title. Try again." }) : undefined}
       description={isSaving ? t("common.ui.savingTitle", { defaultMessage: "Saving title…" }) : undefined} /> : <>
       <Typography as={variant} variant={variant}>{title || placeholder || t("common.ui.untitledDocument", { defaultMessage: "Untitled document" })}</Typography>
