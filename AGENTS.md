@@ -358,3 +358,9 @@ DateRangeSelector exposes visible preset descriptions and keyboard-focused date
 availability explanations while preserving complete localized date labels. Its
 private native-ref bridge preserves existing description references; do not replace
 date labels with decorations or hover-only titles. See [calendar contracts](docs/developer/react-aria-calendar-contracts.md). K-17 remains open for range-preview and assistive-technology acceptance.
+
+PageRichTextEditorSection has a keyboard focus stop in read-only mode; scoped
+Ctrl/Command+A selects its document for native Copy without selecting host content.
+Editable keyboard commands remain with Lexical. See [editor contracts](docs/developer/react-aria-editor-section.md)
+and [native clipboard browser gates](docs/developer/react-aria-browser-acceptance.md).
+E-05 remains open for actual IME/device and assistive-technology acceptance.

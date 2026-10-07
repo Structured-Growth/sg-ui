@@ -5,12 +5,11 @@ JSON document model, editorKey, tool presets/control overrides, change callback
 and host image upload contract. It now uses owned controls and token CSS Modules
 throughout its composition, including image decoration. Import `/styles.css` once
 and provide Provider or ThemeScope. The granular
-`@structured-growth/sg-ui/components/PageRichTextEditorSection` entry avoids the
-unmigrated catalog. Root and `/components` still include legacy components.
+`@structured-growth/sg-ui/components/PageRichTextEditorSection` entry bounds editor imports. Root and `/components` resolve the owned catalog.
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";
-import { Provider } from "@structured-growth/sg-ui/experimental";
+import { Provider } from "@structured-growth/sg-ui/theme";
 import { PageRichTextEditorSection } from "@structured-growth/sg-ui/components/PageRichTextEditorSection";
 
 export function CourseEditor({ value, onChange }) {
@@ -63,3 +62,19 @@ See [dialogs](react-aria-editor-dialogs.md), [formatting toolbar](react-aria-for
 SSR/hydration/Vite consumers of the full section with strict retired-peer guards.
 Full browser/touch/assistive-technology, visual, performance and release gates
 remain open; this component migration does not complete U/X/R/Z.
+
+## Native clipboard and editing (E-05 partial)
+
+The ClipboardEditing story provides browser-native plain and rich source fields,
+a live read-only toggle, the host callback JSON and a saved-document reload through
+`editorKey`. Lexical owns paste, inline keyboard formatting and undo/redo; hosts
+receive the same serialized node model through `onLexicalChange`. Read-only content
+has its own keyboard focus stop. Ctrl/Command+A selects only that document;
+native Copy remains available while edits are prevented. Editable commands continue
+through Lexical. Clipboard permissions
+and browser security policy remain with the browser/host; SGUI does not request
+permission or replace native clipboard behavior.
+
+See [browser acceptance](react-aria-browser-acceptance.md) for executed native
+transfer evidence. Actual IME composition, physical-device clipboard and live
+assistive-technology acceptance remain open; this batch does not close E-05.

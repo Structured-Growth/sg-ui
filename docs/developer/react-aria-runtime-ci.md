@@ -93,3 +93,13 @@ smoke workload. Runtime errors/warnings also fail. Browser execution is a separa
 `pnpm test:browser` command because it reads built Storybook; `pnpm check` retains
 source, behavior, boundary, token/CSS, build, API and package checks. Next.js and
 the broad native/assistive-technology matrix remain separately tracked.
+
+The server-fix head `b63ec58becedd246052c3a1e81acf590a97940d1` independently
+passes [run 37562921075](https://github.com/Structured-Growth/sg-ui/actions/runs/37562921075).
+Both runtimes pass check, Storybook and four packed consumers each. The downloaded
+Storybook JSON records 81/81 across all three engines in 158.0 seconds, with zero
+skipped, unexpected or flaky tests. Packed React 18/19 Vite and Next production
+JSON independently records SSR, hydration and interactions passing in Chromium,
+Firefox and WebKit with empty diagnostic arrays. Seven artifacts are unexpired;
+browser artifact ID is `11458031025`. Evidence: `/tmp/sgui-ci-b63-browser`. This
+validates the server fix and preceding display batch, not later calendar/clipboard heads.

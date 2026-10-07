@@ -1031,7 +1031,23 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
             <RichTextPlugin
               ErrorBoundary={LexicalErrorBoundary}
               contentEditable={(
-                <ContentEditable className={styles.editable} aria-label={accessibleName ?? t("editor.document", { defaultMessage: "Document" })} />
+                <ContentEditable className={styles.editable} tabIndex={0}
+                  aria-label={accessibleName ?? t("editor.document", { defaultMessage: "Document" })}
+                  onKeyDown={(event) => {
+                    // A non-editable div has no native scoped Select All behavior.
+                    // Keep copying local to the focused read-only document; Lexical
+                    // retains all keyboard handling while the document is editable.
+                    if (!readOnly || event.target !== event.currentTarget || event.isDefaultPrevented()
+                      || event.nativeEvent.isComposing || event.altKey || event.shiftKey
+                      || !(event.ctrlKey || event.metaKey) || event.key.toLowerCase() !== "a") return;
+                    const selection = event.currentTarget.ownerDocument.getSelection();
+                    if (!selection) return;
+                    const range = event.currentTarget.ownerDocument.createRange();
+                    range.selectNodeContents(event.currentTarget);
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    event.preventDefault();
+                  }} />
               )}
               placeholder={(
                 readOnly ? null : (

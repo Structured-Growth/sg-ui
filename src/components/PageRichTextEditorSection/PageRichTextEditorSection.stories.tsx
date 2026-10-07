@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Provider } from "../../experimental/Provider/Provider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection";
+import { AppButton } from "../AppButton/AppButton";
 
 const meta = {
   title: "Editors/PageRichTextEditorSection",
@@ -150,3 +151,25 @@ export const BasePreset: Story = {
 };
 
 export const DarkReadOnly: Story = { args: { lexicalValue: INITIAL_DOC, readOnly: true, "aria-label": "Read-only course content" }, decorators: [(Story) => <Provider theme="dark" style={{height:320}}><Story /></Provider>] };
+
+/** Native source fields intentionally exercise the browser's clipboard formats. */
+export const ClipboardEditing: Story = {
+  render: () => {
+    const [value, setValue] = useState<unknown>(null);
+    const [seed, setSeed] = useState<unknown>(null);
+    const [revision, setRevision] = useState(0);
+    const [readOnly, setReadOnly] = useState(false);
+    return <Provider>
+      <label>Plain clipboard source<textarea aria-label="Plain clipboard source" defaultValue={'First course line\nSecond course line'} /></label>
+      <div role="textbox" aria-label="Rich clipboard source" aria-multiline="true" contentEditable suppressContentEditableWarning>
+        <p><strong>Bold course</strong> and <em>italic lesson</em></p><p>Second paragraph</p>
+      </div>
+      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
+      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</AppButton>
+      <PageRichTextEditorSection lexicalValue={seed} editorKey={`clipboard-${revision}`} onLexicalChange={setValue}
+        readOnly={readOnly} aria-label="Clipboard document" toolPreset="full" style={{ height: 360 }} />
+      <pre aria-label="Saved document">{JSON.stringify(value)}</pre>
+      <label>Copy destination<textarea aria-label="Copy destination" /></label>
+    </Provider>;
+  },
+};

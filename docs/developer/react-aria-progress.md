@@ -1651,3 +1651,38 @@ Evidence: `/tmp/sgui-calendar-final-check-storybook.log`,
 `/tmp/sgui-calendar-final-check22.log`, `/tmp/sgui-calendar-final-browser.log`,
 `/tmp/sgui-calendar-final-browser-results.json` and
 `/tmp/sgui-calendar-final-consumers.log`. Current-head CI is independently required.
+
+## Native editor clipboard and read-only document selection (E-05/X-09 partial)
+
+Native clipboard gates now copy browser source fields into the actual Lexical
+editor, requiring trusted copy/paste events and plain/HTML MIME transfers. Plain
+multiline paste, native undo/redo, rich bold/italic serialization, a host-owned
+saved-document reload, ordinary formatting/typing and read-only edit rejection
+execute in both themes. No synthetic clipboard payload or permissions bypass is
+used. The ClipboardEditing story makes the host callback and reload observable.
+
+The document-only copy assertion exposed the read-only root's missing keyboard
+focus: Select All copied host content. The root now takes Tab focus and scopes
+unmodified Ctrl/Command+A to its own read-only contents, preserving native Copy.
+Editable commands remain with Lexical; composition and unrelated/modified keys
+are not intercepted. Colocated tests cover both modifier keys and read-only focus.
+Native selection gestures have a 25ms key hold so selectionchange reaches Lexical
+before the next formatting command; a zero-duration burst exposed pending native
+selection timing and is not claimed as resolved engine behavior.
+
+Actual IME composition, OS clipboard permission prompts, physical devices and
+live assistive technology remain open. E-05/X-09 remain unchecked; formal closure
+stays 94/320 required tasks (226 open, 29.38%).
+
+Final local validation: Node 24 and exact-minimum Node 22.12.0 `pnpm check`
+pass 138 files/863 behavior tests, five foundation and four release tests, source/
+story typing, ESM/declarations/public imports and owned boundary/token/layer guards.
+Fresh Storybook passes with existing upstream warnings. Full Chromium/WebKit
+passes 70/70 in 58.7 seconds, with zero skipped, unexpected or flaky tests and
+mandatory diagnostics. Eight new clipboard cases pass, alongside 16 axe scans.
+Fresh serial Node 24 packed React 18/19 editor SSR/hydration-entry builds and
+foundation Vite SSR/hydration browser consumers (React 19 Flight) pass; both local
+engines report no browser diagnostics. Firefox remains mandatory in Linux CI and
+retains its documented local launch limitation. Evidence: `/tmp/sgui-clipboard-final-check-storybook.log`,
+`/tmp/sgui-clipboard-final-check22.log`, `/tmp/sgui-clipboard-final-browser.log`,
+`/tmp/sgui-clipboard-final-browser-results.json` and `/tmp/sgui-clipboard-final-consumers.log`.
