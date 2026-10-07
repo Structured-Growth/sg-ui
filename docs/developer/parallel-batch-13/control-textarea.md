@@ -94,3 +94,28 @@ Another bounded follow-up can cover live form-owner replacement and reset-time
 native validation state; neither is claimed by these cases. Shared central
 contracts may document silent accepted textarea resets/latest defaults and
 prevented draft preservation only after native evidence is recorded.
+
+## Separately authorized browser-pool prerequisite
+
+On coordinator instruction, normal full-ancestry merge
+`9c672298cc504b92c0d1435d3a12311a543b2cb9` merged reviewed prerequisite
+`6b9da4423f1e6675c37571d5552474da25e90258` into the same reserved worktree.
+Parents are the prior task head `2c2e927c696ab4f9fbc0a6c87ed947345e7350d2`
+and that exact reviewed prerequisite. The merge completed without conflicts;
+TextArea implementation, stories, unit tests and focused browser spec are
+unchanged. No behavior-changing conflict resolution or additional checks were
+needed. No build, browser run or server was started.
+
+The prerequisite adds/updates six shared harness/guidance files through its
+reviewed ancestry: `playwright.config.ts`, `scripts/browser-validation-pool.mjs`,
+`scripts/browser-validation-pool.test.mjs`, `scripts/serve-browser-storybook.mjs`,
+`docs/developer/parallel-batch-12/browser-pool.md` and
+`docs/developer/react-aria-parallel-browser-validation.md`. These are separate
+explicitly authorized shared prerequisite changes, not exclusive task edits.
+No harness/config copying, history graft, ours merge, reversion or new worktree.
+
+Frozen clean HEAD after this report-only commit is supplied in the coordinator
+message. Ready focused args are
+`tests/browser/batch13-control-textarea.spec.ts --project=chromium --project=webkit`.
+The worktree stays frozen until coordinator pool release. Mandatory native evidence
+remains queued; Firefox and manual/device/assistive-technology gates are unverified.
