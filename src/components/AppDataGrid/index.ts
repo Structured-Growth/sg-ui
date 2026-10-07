@@ -16,3 +16,5 @@ export type {
   AppDataGridSortRule,
 } from "./types";
 export type { AppGridRowId, AppGridRowSelectionModel, AppGridColumnVisibilityModel, AppGridPaginationModel } from "./types";
+
+export type { AppDataGridViewState } from "./ownedGridReset";

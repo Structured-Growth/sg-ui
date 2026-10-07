@@ -54,3 +54,8 @@ function ServerPreview() {
     toolbar={{ showFilterButton: false, showSortButton: false }} />;
 }
 export const ServerLatestRequestWins: Story = { render: () => <ServerPreview /> };
+
+/** Stored state seeds the view once. Reset restores these declared defaults live. */
+export const ResetPersistedView: Story = { args: { ...SharedListAndCards.args, showResetView: true,
+  persistence: { key: "storybook-course-reset" }, defaultColumnWidths: { status: 150 },
+  defaultSortRules: [{ field: "name", direction: "asc" }] } };

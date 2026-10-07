@@ -128,3 +128,7 @@ owned props and deliberate breaking removals. Import `/styles.css` and provide
 Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.
 
 The [public theme mapping](react-aria-theme.md) records removed theme objects and preserved AppThemeProvider.
+
+See [pagination/state hook contracts](react-aria-pagination-state.md) for explicit
+persistence and configurable sizes, and [server/client packaging](react-aria-server-components.md)
+for source-owned client boundaries and packed React Server Component evidence.

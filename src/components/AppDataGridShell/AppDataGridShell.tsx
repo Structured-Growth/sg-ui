@@ -9,6 +9,9 @@ import { useOwnedGridLayoutController } from "../AppDataGrid/ownedGridLayoutCont
 import { getOwnedGridRowId, normalizeGridPageSizeOptions, processOwnedGridRows } from "../AppDataGrid/ownedGridModel";
 import { OwnedGridStatus } from "../AppDataGrid/ownedGridParts";
 import { useOwnedGridPersistence, type OwnedGridPersistedState, type OwnedGridPersistenceConfig } from "../AppDataGrid/ownedGridPersistence";
+import { Button } from "../../experimental/Button/Button";
+import { useTranslation } from "../../i18n";
+import { createOwnedGridResetState } from "../AppDataGrid/ownedGridReset";
 import styles from "./AppDataGridShell.module.css";
 
 /** Criteria are owned by the shell. Toolbar callbacks observe those transactions. */
@@ -40,10 +43,11 @@ export type AppDataGridShellProps<RowModel> = Omit<AppDataGridProps<RowModel>, "
 };
 
 function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props }: AppDataGridShellProps<RowModel> & {
-  shellRef: Ref<HTMLDivElement>; persisted: { defaults: OwnedGridPersistedState; persist: (state: OwnedGridPersistedState) => void };
+  shellRef: Ref<HTMLDivElement>; persisted: { defaults: OwnedGridPersistedState; persist: (state: OwnedGridPersistedState) => void; reset: (state?: OwnedGridPersistedState) => void };
 }) {
   const { toolbar, view, selection = true, mode = "client", className, style, hideFooter, footer,
-    rows, columns, getRowId, getRowLabel, label, ...gridProps } = props;
+    rows, columns, getRowId, getRowLabel, label, showResetView, onResetView, ...gridProps } = props;
+  const { t } = useTranslation();
   const selectionConfig = typeof selection === "object" ? selection : undefined;
   const filterFields = props.filterFields ?? toolbar?.filterFields;
   const defaults = persistence.defaults;
@@ -111,6 +115,21 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
   }, [state.paginationModel.page]);
   const hasCriteria = Boolean(state.searchValue || state.filterRules.length);
   return <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="data-grid-shell">
+    {showResetView && <Button className={styles.resetView} variant="text" tone="neutral" density="compact" onPress={() => {
+      const next = createOwnedGridResetState({ ...props, filterFields }, view?.defaultMode ?? "list");
+      persistence.reset(next);
+      setVisibility(next.columnVisibilityModel); setOrder(next.columnOrder); setWidths(next.columnWidths);
+      if (view?.mode === undefined) setLocalView(next.viewMode!);
+      view?.onModeChange?.(next.viewMode!);
+      toolbar?.onColumnOptionsChange?.(next.columnOrder.map(field => {
+        const column = columns.find(candidate => candidate.field === field)!;
+        const hostOption = toolbar?.baseColumnOptions?.find(option => option.id === field);
+        return { id: field, label: hostOption?.label ?? column.headerName ?? field, visible: next.columnVisibilityModel[field]!,
+          locked: layout.lockedFields.includes(field) };
+      }));
+      dispatch({ type: "reset", value: next });
+      onResetView?.(next);
+    }}>{t("common.ui.grid.resetView", { defaultMessage: "Reset view" })}</Button>}
     {toolbar?.show !== false && <DataToolbar {...toolbar} mode={mode}
       selectedCount={toolbar?.showSelectedCount === false ? undefined : state.selectedRowIds.size}
       leftContentWhenSelected={state.selectedRowIds.size ? toolbar?.leftContentWhenSelected : undefined}

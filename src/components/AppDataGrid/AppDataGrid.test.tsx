@@ -53,3 +53,16 @@ describe("AppDataGrid owned public composition", () => {
     expect(onStateChange).toHaveBeenCalledTimes(1); expect(onStateChange.mock.calls[0][0].paginationModel).toEqual({ page: 0, pageSize: 250 });
   });
 });
+
+it("offers an opt-in live reset without replacing the native container ref", async () => {
+  const user = userEvent.setup(); const state = vi.fn(); const ref = createRef<HTMLDivElement>();
+  const reset = vi.fn(value => { value.searchValue = "callback mutation"; value.selectedRowIds.add("mutated"); value.columnOrder.reverse(); });
+  render(<AppDataGrid {...base} ref={ref} showResetView defaultSearchValue="Course" defaultPaginationModel={{ page: 1, pageSize: 5 }}
+    selection={{ defaultSelectedRowIds: new Set(["a"]) }} onResetView={reset} onStateChange={state} />);
+  await user.click(screen.getByRole("button", { name: "Reset view" }));
+  expect(reset).toHaveBeenCalledTimes(1); expect(state).toHaveBeenCalledTimes(1);
+  expect(state.mock.calls[0]![0]).toMatchObject({ paginationModel: { page: 0, pageSize: 5 }, searchValue: "Course", selectedRowIds: new Set() });
+  expect(ref.current?.tagName).toBe("DIV");
+  expect(screen.getByRole("checkbox", { name: "Select Course 1" })).toBeTruthy();
+  expect((screen.getByRole("checkbox", { name: "Select Course 1" }) as HTMLInputElement).checked).toBe(false);
+});

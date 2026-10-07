@@ -135,3 +135,62 @@ it("repairs disappearing card action focus without taking focus from another vie
   rerender(<AppDataGridShell {...props} rows={rows.slice(2)} pageSizeOptions={[25]} defaultPaginationModel={{ page: 0, pageSize: 25 }} view={view} />);
   expect(document.activeElement).toBe(input);
 });
+
+it("resets the live persisted view atomically to declared defaults and clears selection", async () => {
+  const user = userEvent.setup(); const state = vi.fn(); const reset = vi.fn();
+  const values = new Map<string, string>([["sgui:grid:reset-courses:v1", JSON.stringify({ version: 1, state: {
+    paginationModel: { page: 2, pageSize: 1 }, searchValue: "History", viewMode: "cards",
+    sortRules: [{ field: "score", direction: "desc" }], columnOrder: ["score", "name"], columnWidths: { score: 240 },
+    columnVisibilityModel: { score: false },
+  } })], ["page:reset-courses:viewMode", JSON.stringify("cards")]]);
+  const storage = { getItem: (key: string) => values.get(key) ?? null,
+    setItem: (key: string, value: string) => { values.set(key, value); }, removeItem: (key: string) => { values.delete(key); } };
+  const { unmount } = render(<AppDataGridShell {...props} showResetView persistence={{ key: "reset-courses", storage }}
+    selection={{ defaultSelectedRowIds: new Set(["off-page"]) }} defaultColumnWidths={{ score: 120 }}
+    defaultSortRules={[{ field: "name", direction: "asc" }]} onStateChange={state} onResetView={reset} />);
+  expect(screen.getByText("1 selected")).toBeTruthy();
+  await user.click(screen.getByRole("button", { name: "Reset view" }));
+  expect(state).toHaveBeenCalledTimes(1);
+  expect(reset).toHaveBeenCalledTimes(1);
+  expect(reset.mock.calls[0]![0]).toMatchObject({ paginationModel: { page: 0, pageSize: 1 },
+    searchValue: "", sortRules: [{ field: "name", direction: "asc" }], filterRules: [], selectedRowIds: new Set(),
+    columnOrder: ["name", "score"], columnVisibilityModel: { name: true, score: true }, columnWidths: { score: 120 }, viewMode: "list" });
+  expect(screen.queryByText("1 selected")).toBeNull();
+  expect(screen.getByRole("checkbox", { name: "Select History" })).toBeTruthy();
+  expect(document.activeElement).toBe(screen.getByRole("button", { name: "Reset view" }));
+  expect(values.has("page:reset-courses:viewMode")).toBe(false);
+  expect(JSON.parse(values.get("sgui:grid:reset-courses:v1")!).state).toMatchObject({ paginationModel: { page: 0, pageSize: 1 }, searchValue: "", viewMode: "list", columnWidths: { score: 120 } });
+  unmount();
+  render(<AppDataGridShell {...props} persistence={{ key: "reset-courses", storage }} />);
+  expect(screen.getByRole("grid", { name: "Courses" })).toBeTruthy();
+  expect(screen.getByRole("checkbox", { name: "Select History" })).toBeTruthy();
+});
+
+it("requests every controlled reset concern once and keeps reset persistence until the host accepts", async () => {
+  const user = userEvent.setup(); const pagination = vi.fn(); const sort = vi.fn(); const filter = vi.fn();
+  const search = vi.fn(); const selection = vi.fn(); const visibility = vi.fn(); const order = vi.fn(); const widths = vi.fn(); const view = vi.fn(); const state = vi.fn();
+  let saved: string | null = null;
+  const storage = { getItem: () => saved, setItem: (_key: string, value: string) => { saved = value; }, removeItem: () => { saved = null; } };
+  const controlled = { paginationModel: { page: 2, pageSize: 2 }, searchValue: "Science", sortRules: [{ field: "score", direction: "desc" as const }],
+    filterRules: [{ field: "score", operator: "gte", value: "0" }], columnVisibilityModel: { score: false }, columnOrder: ["score", "name"], columnWidths: { score: 220 },
+    selection: { selectedRowIds: new Set(["a"]), onSelectedRowIdsChange: selection }, view: { ...props.view, mode: "cards" as const, onModeChange: view } };
+  const common = { ...props, showResetView: true, persistence: { key: "controlled-reset", storage },
+    onPaginationModelChange: pagination, onSortRulesChange: sort, onFilterRulesChange: filter, onSearchChange: search,
+    onColumnVisibilityModelChange: visibility, onColumnOrderChange: order, onColumnWidthsChange: widths, onStateChange: state };
+  const { rerender } = render(<AppDataGridShell {...common} {...controlled} />);
+  await user.click(screen.getByRole("button", { name: "Reset view" }));
+  expect(pagination).toHaveBeenCalledExactlyOnceWith({ page: 0, pageSize: 1 });
+  expect(sort).toHaveBeenCalledExactlyOnceWith([]); expect(filter).toHaveBeenCalledExactlyOnceWith([]);
+  expect(search).toHaveBeenCalledExactlyOnceWith(""); expect(selection).toHaveBeenCalledExactlyOnceWith(new Set());
+  expect(visibility).toHaveBeenCalledExactlyOnceWith({ name: true, score: true });
+  expect(order).toHaveBeenCalledExactlyOnceWith(["name", "score"]); expect(widths).toHaveBeenCalledExactlyOnceWith({});
+  expect(view).toHaveBeenCalledExactlyOnceWith("list"); expect(state).toHaveBeenCalledTimes(1);
+  expect(screen.getByText("1 selected")).toBeTruthy();
+  rerender(<AppDataGridShell {...common} {...controlled} label="Rerendered courses" />);
+  expect(JSON.parse(saved!).state).toMatchObject({ paginationModel: { page: 0, pageSize: 1 }, searchValue: "", viewMode: "list" });
+  rerender(<AppDataGridShell {...common} paginationModel={{ page: 0, pageSize: 1 }} searchValue="" sortRules={[]} filterRules={[]}
+    columnVisibilityModel={{ name: true, score: true }} columnOrder={["name", "score"]} columnWidths={{}}
+    selection={{ selectedRowIds: new Set(), onSelectedRowIdsChange: selection }} view={{ ...props.view, mode: "list", onModeChange: view }} />);
+  expect(screen.getByRole("grid", { name: "Courses" })).toBeTruthy();
+  expect(screen.queryByText("1 selected")).toBeNull();
+});

@@ -1275,3 +1275,82 @@ emits its upstream future mandatory PopoverProvider ariaLabel warning; no applic
 errors were observed. Guidance links and diff whitespace passed. These representative
 checks do not close full browser/screen-reader/touch/zoom/performance/RSC acceptance.
 M-39, W-09 and Z-01 are newly checked; all other required gates keep their disposition.
+
+## Public hook reconciliation, view reset and selective client boundaries
+
+This batch on [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1)
+closes M-42, H-13–H-15, G-22 and R-02 with implementation and consumer evidence.
+Public pagination accepts arbitrary positive safe integers, or a host-defined
+choice policy. Both state hooks are memory-only by default; local/session storage
+requires explicit configuration and distinct keys. Versioned migration, validation,
+blocked/quota storage fallback, key changes and cross-tab notifications remain
+owned. Live validation/migration/version changes apply to cached and blocked
+snapshots; absent or malformed storage never migrates the initial default.
+Thirty real-hook tests include SSR-to-hydration restoration without recoverable
+errors. The pure normalization helper remains server-importable. See
+[hook mappings](react-aria-pagination-state.md).
+
+Root/subpath reconciliation exposes LearnerClassesDataGridProps through all three
+public entries and adds built consumer typing for learner models/grid props,
+reset snapshots, hook options and setters. Models, type-only representative
+fixtures and the shared date helper use owned contracts; eleven existing date
+helper tests pass. Package guards now explicitly audit root/model/utility
+public declarations alongside the existing catalog/hook/adapter/theme audits.
+SideNavigation explicitly retains its existing local organization preference.
+The persistence default change is documented as breaking.
+
+AppDataGrid and AppDataGridShell offer an optional Reset view action. It restores
+declared criteria, page zero, layout and view defaults and clears retained
+selection. One complete onResetView snapshot supports atomic controlled host
+acceptance; existing callbacks retain their authority. Reset saves validated defaults,
+removes legacy keys, and suppresses the unchanged pre-reset controlled snapshot.
+A changed host snapshot or later interaction resumes persistence, including when
+the host accepts an alternative. Four reset regressions plus persistence tests
+cover remount, controlled requests, mutation isolation and native refs. See
+[grid reset contract](react-aria-catalog-grid.md).
+
+The build no longer adds client directives by directory. Source implementations
+own the boundary, with explicit directives added to two Lexical plugins using
+client hooks. A package guard checks source/output fidelity and React client API
+imports. A fresh packed React 19.2.3 fixture executes the official Flight renderer
+under the react-server condition: Box/Typography/Table/ClassCardFrame/AuthShell/
+AppShell and pagination normalization execute on the server, while Provider and
+AppButton serialize as client references. The disposable fixture's loader converts
+Node module bytes to text and resolves relative source-map URLs for the official
+loader; it preserves maps and directives. No package dependency was added. See
+[server/client packaging](react-aria-server-components.md). Broader framework
+and barrel-weight acceptance remains open under R-04/R-08 and related gates.
+
+H-02 implementation fixes download="" interception while preserving explicit
+false routing, click-before-navigation ordering, cancellation, modifier clicks
+and targets. Six adapter regressions and a native Link story cover these cases.
+IAB verified completed defaultPrevented state for empty/named downloads, native
+external links and modifier/target behavior; no extra router callback fired.
+Its download-event wait timed out, so completed file-transfer/browser-matrix
+verification remains open and H-02 is not checked off. Generated target tabs
+were closed. No browser warning/error logs were observed.
+
+Previous-head CI 37558029271 failed one EditableTitleField focus assertion while
+all other 828 tests passed. The assertion now waits for the post-commit focus
+effect, preserving the expected focus requirement. An added async-save regression
+also verifies source focus restoration and preservation of later host focus.
+The title checks on that head passed; next-head CI must be evaluated separately.
+
+Final local validation: pnpm check passes 136 files/847 tests, four foundation
+and four release tests, production/story typing, build, entry imports, source/
+transitive/token/layer/declaration guards and consumer typing. Final Storybook
+build passes with existing directive/sourcemap/chunk warnings. Fresh packed
+React 19.2.3 (sgui-foundation-consumer-HAEjRw) passes Flight, ordinary SSR,
+hydration-entry Vite/CSS/no-retired-peer/pruning; React 18.3.1
+(sgui-foundation-consumer-0UJqKd) passes its SSR/Vite/CSS/pruning path. Native IAB
+reset checks vary selection, page, card view, search and size 250, then verify
+keyboard reset returns list/page zero/size 10/empty selection/search, retains reset
+focus and persists defaults after reload. Screenshot: /tmp/sgui-reset-view.png.
+139 local guidance links and diff whitespace pass. The static localhost:6148
+server remains available; browser tabs are closed.
+
+Six newly closed required tasks bring formal closure to 81/320 (239 open),
+including many partially implemented gates. This is a task count rather than an
+equal-effort estimate. M-40/M-41/M-43 and broad G/U/X/R/Z acceptance still require
+concrete reconciliation and evidence. The PR remains draft; publication, merging,
+manual version changes, licensing and workflow permissions/secrets are untouched.

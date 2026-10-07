@@ -55,10 +55,10 @@ export function useOwnedGridController<Row>(options: OwnedGridControllerOptions<
     const paginationChanged = owned.paginationModel.page !== next.paginationModel.page || owned.paginationModel.pageSize !== next.paginationModel.pageSize;
     const committed: OwnedGridCriteriaState = {
       paginationModel: current.paginationModel === undefined && paginationChanged ? { ...next.paginationModel } : owned.paginationModel,
-      sortRules: current.sortRules === undefined && action.type === "sort" ? next.sortRules.map(rule => ({ ...rule })) : owned.sortRules,
-      filterRules: current.filterRules === undefined && action.type === "filter" ? next.filterRules.map(rule => ({ ...rule })) : owned.filterRules,
+      sortRules: current.sortRules === undefined && (action.type === "sort" || action.type === "reset") ? next.sortRules.map(rule => ({ ...rule })) : owned.sortRules,
+      filterRules: current.filterRules === undefined && (action.type === "filter" || action.type === "reset") ? next.filterRules.map(rule => ({ ...rule })) : owned.filterRules,
       searchValue: current.searchValue === undefined ? next.searchValue : owned.searchValue,
-      selectedRowIds: current.selectedRowIds === undefined && action.type === "selection" ? new Set(next.selectedRowIds) : owned.selectedRowIds,
+      selectedRowIds: current.selectedRowIds === undefined && (action.type === "selection" || action.type === "reset") ? new Set(next.selectedRowIds) : owned.selectedRowIds,
     };
     localRef.current = committed;
     setLocal(committed);

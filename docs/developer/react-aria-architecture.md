@@ -129,9 +129,13 @@ preserve prop names while requiring the foundation stylesheet/scope. Root and
 [remaining controls](react-aria-remaining-controls.md) and
 [progress/avatar](react-aria-progress-avatar.md).
 
-The pure `/tokens` entry has no client directive. New interactive implementations
-declare their own client boundaries. The build temporarily retains its legacy
-boundary handling for the old catalog; R-01–R-04 are not complete.
+The build preserves source client directives without adding any. Interactive
+implementations and context providers declare their own boundaries; barrels,
+tokens, models and eligible presentation modules remain server-compatible.
+The package check verifies source/output directive fidelity and requires explicit
+boundaries for React client APIs. See [server and client packaging](react-aria-server-components.md)
+for the packed Flight proof and consumer composition rules. Other R acceptance
+requirements remain separately tracked.
 
 The owned boundary additionally covers CardCollectionWithFooter, CardPaginationFooter,
 ClassCardFrame, InstructorClassCard and LearnerClassCard, with granular component

@@ -68,8 +68,30 @@ values win over restored defaults. A persistent grid initially renders a loading
 status on server and first client render, then mounts with restored defaults.
 Storage failure falls back safely. Legacy list/cards page, visibility and view
 keys are validated; list pagination takes precedence. Retired sort/filter models
-are rejected. The internal persistence reset removes versioned and legacy keys;
-a public reset-view control remains a follow-up acceptance item.
+are rejected. Pass `showResetView` to offer a translated Reset view button on either the grid or
+shell. Reset applies the currently declared `default*` props, not the saved state:
+page zero with the default page size (25 when omitted), default sort/filter/search,
+default visibility/order/widths, and the shell's `view.defaultMode` (list when
+omitted). Selection clears, including retained off-page IDs. Column locks and
+validation still apply. One action updates locally owned concerns together and
+requests controlled concerns through their existing callbacks. Pagination is
+requested first among criteria callbacks, followed by sort, filter, search and
+selection, then one `onStateChange` criteria snapshot. Layout/view callbacks also
+receive defaults, and `onResetView` receives one complete `AppDataGridViewState`
+including layout and optional shell view mode. Host-controlled values stay visible
+until accepted; use the complete reset snapshot when coordinating all concerns.
+The reset button retains focus. Reset remains available when the toolbar is hidden.
+
+Reset removes versioned and legacy keys and saves the validated requested defaults
+under the version-one envelope, so old restored values cannot revive on remount.
+Automatic persistence suppresses the unchanged pre-reset snapshot so a rejected
+controlled request cannot immediately overwrite the saved defaults. It resumes
+when the resolved persisted snapshot changes, including a host-accepted alternative
+or a subsequent user action. Accept `onResetView` as one complete snapshot for
+atomic controlled updates; hosts that accept individual concerns asynchronously
+own any intermediate partial snapshots.
+Storage errors never block the live reset. Reset does not mutate rows, clear host
+errors or cancel host work; server consumers handle their one combined request.
 
 Row drag integration is temporarily absent from the migrated renderer while
 M-18 now integrates bounded pointer/touch/keyboard/Move requests and cancellation.

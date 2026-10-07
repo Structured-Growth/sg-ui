@@ -151,6 +151,12 @@ namespace loading. Use `SGAccountProvider` for navigation account operations;
 SGUI never stores credentials or calls platform authentication endpoints.
 The host handles refresh/navigation after organization changes.
 
+Pagination and state hooks use explicit opt-in local/session persistence and accept
+arbitrary page sizes. See [hook mappings](docs/developer/react-aria-pagination-state.md)
+for configuration, hydration and breaking persistence defaults. See
+[server component boundaries](docs/developer/react-aria-server-components.md) for
+server rendering and selective client entry points.
+
 ## AI coding and releases
 
 [AGENTS.md](AGENTS.md) defines the library's development conventions, including

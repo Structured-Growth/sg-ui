@@ -82,3 +82,18 @@ zoom, forced-colors, hydration or browser compatibility audit.
 
 See the [execution record](react-aria-progress.md) for current counts and validation,
 and the [architecture decision](react-aria-architecture.md) for build/distribution.
+
+## Link navigation and native downloads
+
+The owned Link (also exported from `/primitives`) defaults absolute/protocol-relative
+URLs to native navigation; `external` can override that choice. Internal links
+use the navigation adapter. Native `onClick` runs before the adapter and may cancel
+navigation. Only an unmodified primary click with no target or `_self` is routed.
+Other targets and modifier clicks preserve browser behavior. `download=""`, a
+filename, or `download={true}` preserve native downloads; `download={false}` and
+an omitted download attribute permit routing. Host custom Link implementations
+receive these attributes and own equivalent behavior.
+
+The Link `NavigationSemantics` story supplies a local data-URL download fixture
+and reports callback ordering and the completed event's default-prevented state.
+It complements the adapter unit regressions with native browser verification.

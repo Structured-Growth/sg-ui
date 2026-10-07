@@ -17,6 +17,7 @@ await writeFile(join(fixture, 'package.json'), JSON.stringify({
   dependencies: {
     '@structured-growth/sg-ui': `file:${join(pack, tarball)}`,
     react: reactVersion, 'react-dom': reactVersion, vite: '7.3.1',
+    ...(reactVersion.startsWith('19.') ? { 'react-server-dom-webpack': reactVersion } : {}),
   },
 }));
 await writeFile(join(fixture, 'index.html'), '<!doctype html><html lang="en"><meta charset="utf-8"><title>SGUI packed foundation proof</title><div id="root"></div><script type="module" src="/main.jsx"></script></html>');
@@ -165,6 +166,73 @@ execFileSync('pnpm', ['--config.auto-install-peers=false', 'install', '--ignore-
   cwd: fixture, stdio: 'pipe', env: { ...process.env, npm_config_auto_install_peers: 'false' },
 });
 execFileSync(process.execPath, ['ssr.mjs'], { cwd: fixture, stdio: 'pipe' });
+if (reactVersion.startsWith('19.')) {
+  // Exercise Flight itself with React's server condition and the official directive loader.
+  // Ordinary renderToString alone cannot prove a module is a Server Component.
+  await writeFile(join(fixture, 'rsc.mjs'), `
+import assert from 'node:assert/strict';
+import React from 'react';
+import { PassThrough } from 'node:stream';
+import { renderToPipeableStream } from 'react-server-dom-webpack/server.node';
+import { tokens } from '@structured-growth/sg-ui/tokens';
+import { normalizePaginationModel } from '@structured-growth/sg-ui/hooks';
+import { Box, Typography, Table, TableBody, TableRow, TableCell } from '@structured-growth/sg-ui/primitives';
+import { ClassCardFrame } from '@structured-growth/sg-ui/components/ClassCardFrame';
+import { AuthShell } from '@structured-growth/sg-ui/components/AuthShell';
+import { AppShell } from '@structured-growth/sg-ui/components/AppShell';
+import { AppButton } from '@structured-growth/sg-ui/components/AppButton';
+import { Provider } from '@structured-growth/sg-ui/theme';
+assert.equal(typeof window, 'undefined');
+assert.equal(React.useState, undefined, 'Fixture must run the React server condition');
+assert.deepEqual(normalizePaginationModel({ page: 2, pageSize: 37 }), { page: 2, pageSize: 37 });
+for (const component of [Box, Typography, Table, ClassCardFrame, AuthShell, AppShell]) {
+  assert.notEqual(component.$$typeof, Symbol.for('react.client.reference'), 'Presentation became a client reference');
+}
+for (const component of [AppButton, Provider]) {
+  assert.equal(component.$$typeof, Symbol.for('react.client.reference'), 'Interaction lost its client boundary');
+}
+const manifest = {};
+for (const [component, id] of [[AppButton, 'packed-app-button'], [Provider, 'packed-provider']]) {
+  const module = component.$$id.slice(0, component.$$id.lastIndexOf('#'));
+  manifest[module] = { id, chunks: [], name: '*' };
+}
+const el = React.createElement;
+const tree = el(Provider, { theme: 'dark' },
+  el(AppShell, { navigation: el('nav', null, 'Server navigation') },
+    el(AuthShell, { title: 'Packed server shell' },
+      el(ClassCardFrame, {
+        header: el(Typography, { as: 'h2' }, 'Server course card'),
+        body: el(Box, { padding: 2, style: { color: tokens.text } },
+          el(Table, null, el(TableBody, null, el(TableRow, null, el(TableCell, null, 'Server table cell'))))),
+        footer: el(AppButton, null, 'Client action'),
+      }))));
+const output = new PassThrough();
+let flight = '';
+const errors = [];
+output.on('data', chunk => { flight += chunk; });
+const done = new Promise((resolve, reject) => { output.on('end', resolve); output.on('error', reject); });
+renderToPipeableStream(tree, manifest, { onError(error) { errors.push(error); } }).pipe(output);
+await done;
+assert.equal(errors.length, 0, errors.map(error => error.stack).join('\\n'));
+for (const text of ['Server course card', 'Server table cell', 'class-card-frame', 'auth-shell', 'packed-app-button', 'packed-provider']) {
+  assert(flight.includes(text), 'Flight lost ' + text);
+}
+console.log('Packed React Server Components Flight renders presentation and preserves interaction references.');
+`);
+  // Adapt Node module bytes and relative map URLs to the official loader's input contract.
+  await writeFile(join(fixture, 'rsc-source-loader.mjs'), `export async function load(url, context, nextLoad) {
+    const result = await nextLoad(url, context);
+    if (result.format !== 'module' || result.source == null) return result;
+    const source = typeof result.source === 'string' ? result.source : Buffer.from(result.source).toString('utf8');
+    return { ...result, source: source.replace(/(sourceMappingURL=)([^\\s]+)/g, (_, prefix, map) => prefix + new URL(map, url).href) };
+  }`);
+  await writeFile(join(fixture, 'rsc-register.mjs'), `import { register } from 'node:module';
+    register('./rsc-source-loader.mjs', import.meta.url);
+    register('react-server-dom-webpack/node-loader', import.meta.url);
+  `);
+  execFileSync(process.execPath, ['--conditions=react-server', '--import', './rsc-register.mjs', 'rsc.mjs'], { cwd: fixture, stdio: 'pipe' });
+  console.log('Packed React Server Components Flight proof passed.');
+}
 execFileSync('pnpm', ['exec', 'vite', 'build'], { cwd: fixture, stdio: 'pipe' });
 const assets = join(fixture, 'dist/assets');
 const files = await readdir(assets);

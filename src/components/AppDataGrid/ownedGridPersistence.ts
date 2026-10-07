@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { DataToolbarFilterField, DataToolbarFilterRule } from "../DataToolbar/DataToolbar";
 import { normalizeOwnedGridLayout, type OwnedGridPresentationColumn } from "./ownedGridColumns";
 import { normalizeGridFilterRules, normalizeGridPagination, normalizeGridSortRules, type OwnedGridPageSizeOption, type OwnedGridPaginationModel, type OwnedGridSortRule } from "./ownedGridModel";
@@ -98,19 +98,35 @@ export function useOwnedGridPersistence<Row>(options: OwnedGridPersistenceOption
   useEffect(() => {
     if (initialOptions.persistence?.key.trim()) setRestoration({ defaults: readOwnedGridPersistence(initialOptions), ready: true });
   }, [initialOptions]);
+  const lastObserved = useRef<string | undefined>(undefined);
+  const pendingReset = useRef<{ previous: string | undefined; desired: string } | undefined>(undefined);
   const persist = useCallback((snapshot: OwnedGridPersistedState) => {
+    const normalized = normalizeOwnedGridPersistedState(snapshot, options);
+    const signature = JSON.stringify(normalized);
+    lastObserved.current = signature;
+    if (pendingReset.current !== undefined) {
+      if (pendingReset.current.previous === signature && pendingReset.current.desired !== signature) return;
+      // A changed resolved snapshot is a host acceptance (possibly an alternative)
+      // or a new interaction, so persistence resumes without an indefinite gate.
+      pendingReset.current = undefined;
+    }
     const config = initialOptions.persistence;
     const storage = storageFor(config);
     if (!config || !storage) return;
-    try { storage.setItem(ownedGridPersistenceKey(config.key), JSON.stringify({ version: 1, state: normalizeOwnedGridPersistedState(snapshot, options) })); } catch { /* Persistence never blocks an interaction. */ }
+    try { storage.setItem(ownedGridPersistenceKey(config.key), JSON.stringify({ version: 1, state: normalized })); } catch { /* Persistence never blocks an interaction. */ }
   }, [initialOptions, options]);
-  const reset = useCallback(() => {
+  const reset = useCallback((snapshot?: OwnedGridPersistedState) => {
+    const normalized = snapshot === undefined ? undefined : normalizeOwnedGridPersistedState(snapshot, options);
+    pendingReset.current = normalized === undefined ? undefined : { previous: lastObserved.current, desired: JSON.stringify(normalized) };
     const config = initialOptions.persistence;
     const storage = storageFor(config);
     if (!config || !storage) return;
     for (const key of [ownedGridPersistenceKey(config.key), ...legacyKeys(config.key)]) {
       try { storage.removeItem(key); } catch { /* A blocked key must not prevent clearing other keys. */ }
     }
-  }, [initialOptions]);
+    if (normalized !== undefined) {
+      try { storage.setItem(ownedGridPersistenceKey(config.key), JSON.stringify({ version: 1, state: normalized })); } catch { /* Reset remains usable without storage. */ }
+    }
+  }, [initialOptions, options]);
   return { ...restoration, persist, reset };
 }

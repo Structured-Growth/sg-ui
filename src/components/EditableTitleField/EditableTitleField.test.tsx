@@ -14,12 +14,25 @@ it("saves a trimmed title on Enter once, preserving native focus on the edit but
  const user = userEvent.setup(); const onSave = vi.fn(); render(<EditableTitleField title="Old title" onSave={onSave} />);
  await edit(user, " New title "); await user.keyboard("{Enter}");
  expect(onSave).toHaveBeenCalledExactlyOnceWith("New title"); expect(screen.queryByRole("textbox")).toBeNull();
- expect(document.activeElement).toBe(screen.getByRole("button", { name: "Edit title" }));
+ await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Edit title" })));
 });
 it("saves on blur and retains focus on the next host control", async () => {
  const user = userEvent.setup(); const onSave = vi.fn(); render(<><EditableTitleField title="Old" onSave={onSave} /><button>Next</button></>);
  await edit(user, "New"); await user.tab(); expect(onSave).toHaveBeenCalledExactlyOnceWith("New");
  expect(document.activeElement).toBe(screen.getByRole("button", { name: "Next" }));
+});
+it("restores focus after an asynchronous Enter save unless the host moved focus", async () => {
+ let resolve!: () => void;
+ const onSave = vi.fn(() => new Promise<void>(done => { resolve = done; }));
+ const user = userEvent.setup(); render(<><EditableTitleField title="Old" onSave={onSave} /><button>Next</button></>);
+ await edit(user, "New"); await user.keyboard("{Enter}");
+ await act(async () => { resolve(); });
+ await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Edit title" })));
+ await edit(user, "Another title"); await user.keyboard("{Enter}");
+ await user.click(screen.getByRole("button", { name: "Next" }));
+ await act(async () => { resolve(); });
+ expect(document.activeElement).toBe(screen.getByRole("button", { name: "Next" }));
+ expect(onSave).toHaveBeenCalledTimes(2);
 });
 it("cancels on Escape without a blur save and starts a fresh draft from the latest host title", async () => {
  const user = userEvent.setup(); const onSave = vi.fn(); const view = render(<EditableTitleField title="Old" onSave={onSave} />);

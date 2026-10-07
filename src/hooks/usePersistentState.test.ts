@@ -101,7 +101,7 @@ describe("usePersistentState", () => {
     const { storage, windowStub, getDispatchCount } = createWindowStub({ key: JSON.stringify({ count: 1 }) });
     vi.stubGlobal("window", windowStub as unknown as Window);
 
-    const [value, setValue] = usePersistentState("key", { count: 0 });
+    const [value, setValue] = usePersistentState("key", { count: 0 }, { storage: "local" });
     expect(value).toEqual({ count: 1 });
 
     setValue((previous) => ({ count: previous.count + 1 }));
@@ -116,7 +116,7 @@ describe("usePersistentState", () => {
     const { windowStub } = createWindowStub({ broken: "{invalid-json" });
     vi.stubGlobal("window", windowStub as unknown as Window);
 
-    const [value] = usePersistentState("broken", { safe: true });
+    const [value] = usePersistentState("broken", { safe: true }, { storage: "local" });
     expect(value).toEqual({ safe: true });
   });
 
@@ -136,7 +136,7 @@ describe("usePersistentState", () => {
       return third;
     });
 
-    const [value] = usePersistentState("key", { count: 0 });
+    const [value] = usePersistentState("key", { count: 0 }, { storage: "local" });
     expect(value).toEqual({ count: 0 });
   });
 
@@ -153,7 +153,7 @@ describe("usePersistentState", () => {
       return second;
     });
 
-    const [value] = usePersistentState("key", { count: 0 });
+    const [value] = usePersistentState("key", { count: 0 }, { storage: "local" });
     expect(value).toEqual({ count: 5 });
   });
 
@@ -171,7 +171,7 @@ describe("usePersistentState", () => {
       return getSnapshot();
     });
 
-    usePersistentState("key", { count: 0 });
+    usePersistentState("key", { count: 0 }, { storage: "local" });
     expect(subscriber).toHaveBeenCalledTimes(2);
   });
 
@@ -179,7 +179,7 @@ describe("usePersistentState", () => {
     const { storage, windowStub } = createWindowStub();
     vi.stubGlobal("window", windowStub as unknown as Window);
 
-    const [, setValue] = usePersistentState("missing", { count: 4 });
+    const [, setValue] = usePersistentState("missing", { count: 4 }, { storage: "local" });
     setValue((previous) => ({ count: previous.count + 1 }));
     expect(storage.missing).toBe(JSON.stringify({ count: 5 }));
   });
@@ -188,7 +188,7 @@ describe("usePersistentState", () => {
     const { storage, windowStub } = createWindowStub({ bad: "{bad-json" });
     vi.stubGlobal("window", windowStub as unknown as Window);
 
-    const [, setValue] = usePersistentState("bad", { count: 10 });
+    const [, setValue] = usePersistentState("bad", { count: 10 }, { storage: "local" });
     setValue((previous) => ({ count: previous.count + 2 }));
     expect(storage.bad).toBe(JSON.stringify({ count: 12 }));
   });

@@ -1,3 +1,4 @@
+"use client";
 import { $isHorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import {

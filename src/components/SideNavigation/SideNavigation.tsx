@@ -352,6 +352,7 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
   const [activeOrganizationId, setActiveOrganizationId] = usePersistentState<string>(
     organizationStorageKey ?? "sgui:active-organization",
     activeStoredSession?.activeOrgId ?? model.user.defaultOrganizationId ?? organizations[0]?.id ?? "default-organization",
+    { storage: "local" },
   );
   const activeOrganization = useMemo(
     () => organizations.find((organization) => organization.id === activeOrganizationId) ?? organizations[0],

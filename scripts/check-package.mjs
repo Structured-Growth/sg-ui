@@ -1,6 +1,34 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { readFile, readdir } from 'node:fs/promises';
+import ts from 'typescript';
+
+// Directives belong to source implementations, never to a build-time directory rule.
+async function checkClientBoundaries(directory) {
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const path = `${directory}/${entry.name}`;
+    if (entry.isDirectory() && path !== 'src/fixtures') await checkClientBoundaries(path);
+    else if (/\.tsx?$/.test(path) && !/\.(test|stories)\./.test(path) && !path.endsWith('.d.ts')) {
+      const source = await readFile(path, 'utf8');
+      const sourceFile = ts.createSourceFile(path, source, ts.ScriptTarget.Latest, true);
+      const client = sourceFile.statements.some(statement => ts.isExpressionStatement(statement)
+        && ts.isStringLiteral(statement.expression) && statement.expression.text === 'use client');
+      const output = await readFile(path.replace(/^src\//, 'dist/').replace(/\.tsx?$/, '.js'), 'utf8');
+      assert.equal(/^['"]use client['"];/.test(output), client, `Build changed source client boundary: ${path}`);
+      for (const statement of sourceFile.statements) {
+        if (!ts.isImportDeclaration(statement) || statement.importClause?.isTypeOnly
+          || statement.moduleSpecifier.text !== 'react') continue;
+        const imports = statement.importClause?.namedBindings;
+        if (imports && ts.isNamedImports(imports)) {
+          const clientOnly = imports.elements.some(element => !element.isTypeOnly
+            && /^(createContext|useContext|useState|useReducer|useEffect|useLayoutEffect|useInsertionEffect|useRef|useSyncExternalStore|useImperativeHandle)$/.test((element.propertyName ?? element.name).text));
+          assert(!clientOnly || client, `React client API requires explicit source directive: ${path}`);
+        }
+      }
+    }
+  }
+}
+await checkClientBoundaries('src');
 const pkg = JSON.parse(await readFile('package.json', 'utf8'));
 for (const [name, entry] of Object.entries(pkg.exports)) {
   if (name === './package.json') continue;
@@ -76,3 +104,7 @@ for (const name of ['Box','Stack','Typography','TextField','CircularProgress','C
 for (const name of ['MuiLink','FormControlLabel','MenuItem']) assert(!primitives[name], `Retired primitive still exported: ${name}`);
 
 for (const directory of ['dist/adapters', 'dist/hooks', 'dist/i18n']) await checkOwnedDeclarations(directory);
+for (const file of ['dist/index.d.ts', 'dist/models.d.ts']) {
+  assert(!/react-aria|@react-types|@mui|@emotion|lucide-react|@tanstack/.test(await readFile(file, 'utf8')), `Upstream public type escaped: ${file}`);
+}
+await checkOwnedDeclarations('dist/utils');

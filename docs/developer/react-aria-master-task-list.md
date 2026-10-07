@@ -217,9 +217,9 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 - [ ] H-10 Define serializable owned date-only, local date-time, and zoned instant contracts; do not collapse all values into JavaScript `Date` or leak date-library classes casually.
 - [ ] H-11 Specify time zones, daylight-saving transitions, locale calendar display, parsing, invalid inputs, serialization, and round-trip behavior.
 - [ ] H-12 Preserve due-date formatting and missing/invalid value fallbacks; test midnight, timezone, and localization boundaries.
-- [ ] H-13 Make persistence opt-in/configurable with distinct keys per view; document ownership, schema versioning, migration/reset, and sensitive-data restrictions.
-- [ ] H-14 Validate stored data and support SSR, blocked storage, quota failures, malformed JSON, key changes, cross-tab updates, and a working in-memory fallback.
-- [ ] H-15 Remove the pagination helper's inherited page-size cap unless it is deliberately part of SGUI policy; define supported sizes through owned configuration and test normalization.
+- [x] H-13 Make persistence opt-in/configurable with distinct keys per view; document ownership, schema versioning, migration/reset, and sensitive-data restrictions. [Hook contracts](react-aria-pagination-state.md) and [grid persistence/reset](react-aria-catalog-grid.md).
+- [x] H-14 Validate stored data and support SSR, blocked storage, quota failures, malformed JSON, key changes, cross-tab updates, and a working in-memory fallback. Real hook, live-settings and hydration regressions; [contracts](react-aria-pagination-state.md).
+- [x] H-15 Remove the pagination helper's inherited page-size cap unless it is deliberately part of SGUI policy; define supported sizes through owned configuration and test normalization. [Configured sizes](react-aria-pagination-state.md).
 - [ ] H-16 Ensure filters/page-size changes reset or clamp pages coherently, including unknown row counts and disappearing rows.
 - [ ] H-17 Preserve independent view state for tabs/card/grid views; avoid leaking selection, sort, or filter state between unrelated instances.
 
@@ -333,8 +333,8 @@ persistence, with the M-17 shared shell and M-19 learner composition integrated.
 See [catalog integration](react-aria-catalog-grid.md) and the
 [execution record](react-aria-progress.md#catalog-grid-public-integration-batch).
 M-18 now has the owned handle/helper and public bounded reorder integration; see
-[reorder contracts](react-aria-grid-reorder.md). Public reset-view and broad
-G/U/X/R/Z acceptance remain open. Migration rows are not whole-backlog completion markers.
+[reorder contracts](react-aria-grid-reorder.md). Public reset-view now ships under
+G-22; broad G/U/X/R/Z acceptance remains open. Migration rows are not whole-backlog completion markers.
 
 M-36/M-37 completion and B-04/I-07 evidence are recorded in [icon mappings](react-aria-icons.md),
 [primitive mappings](react-aria-primitives.md) and the execution record, on
@@ -345,7 +345,7 @@ resolve to owned implementations under transitive audits. Public theme and retir
 - [x] M-39 Migrate `AdminDataGridOptions.ts` and `InstructorDataGridOptions.ts`, including column locks, static enums, filter/sort defaults, and translation labels.
 - [ ] M-40 Migrate all grid cells: text, date, date-time, link, copyable, JSON, image, action menu, custom cell, and fallback; preserve escaping and truncation/accessibility behavior.
 - [ ] M-41 Migrate grid subheaders, empty/loading overlays, column builders, action-menu builder, toolbar option builder, and header sort menu.
-- [ ] M-42 Reconcile root and subpath barrels, `src/models.ts`, fixtures, date helpers, pagination/state hooks, and all inferred exported declaration types.
+- [x] M-42 Reconcile root and subpath barrels, `src/models.ts`, fixtures, date helpers, pagination/state hooks, and all inferred exported declaration types. Owned model/fixture/date audit, public learner-grid prop export and built consumer typing; [hook mappings](react-aria-pagination-state.md).
 - [ ] M-43 Update stories importing third-party layout primitives and tests mocking retired modules; behavioral replacements must render real owned components where practical.
 - [ ] M-44 Document deliberate UX improvements separately from parity changes; retain regression fixtures for legacy use cases.
 
@@ -378,7 +378,7 @@ styling, performance, and implementation effort together.
 - [ ] G-19 Define virtualization responsibilities and row/column overscan only where needed; test variable content, dynamic measurements, focus, screen-reader position metadata, and pinned columns.
 - [ ] G-20 Benchmark large row/column counts and frequent updates, including selection and text input; compare production builds against the baseline.
 - [ ] G-21 Preserve link adapter semantics, visible focus, copy success/error feedback, escaped JSON/text, date localization, and image fallback behavior in cells.
-- [ ] G-22 Test view-state persistence and schema migration for retired grid models; restore defensively and offer reset-to-defaults.
+- [x] G-22 Test view-state persistence and schema migration for retired grid models; restore defensively and offer reset-to-defaults. Public live reset with controlled callbacks, stale snapshot suppression, remount and native focus evidence; [contract](react-aria-catalog-grid.md).
 - [ ] G-23 Add grouped headers, expandable rows, or inline editing only if part of the chosen requirement matrix; define edit/commit/cancel/validation contracts before adding them.
 - [ ] G-24 [Future] Record export/import, aggregation/pivoting, tree data, range selection, clipboard paste, formulas, undo, and spreadsheet navigation as separate features unless explicitly selected.
 - [ ] G-25 If combining TanStack and React Aria, prototype the integration and map row models/state/events deliberately; avoid two selection/sort models and unsupported virtualization assumptions.
@@ -454,7 +454,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 ## 17. Packaging, builds, GitHub Actions, AI work, and releases
 
 - [ ] R-01 Update the build to emit compiled CSS/assets and correct ESM/declarations; verify relative extensions and package consumer resolution.
-- [ ] R-02 Remove blanket client-directive injection; preserve directives for interactive components and keep eligible presentation/token modules server-compatible.
+- [x] R-02 Remove blanket client-directive injection; preserve directives for interactive components and keep eligible presentation/token modules server-compatible. Source/output guard and packed React 19 Flight evidence; [server/client packaging](react-aria-server-components.md).
 - [ ] R-03 Design root and granular entry points for core, theme/tokens/styles, primitives, icons, hooks, adapters, i18n, grid, editor and learning compositions.
 - [ ] R-04 Ensure barrels do not accidentally pull interactive/heavyweight dependencies into presentation-only imports or make server consumers import all editors.
 - [ ] R-05 Update `files`, `exports`, `types`, and `sideEffects` for CSS and new output; remove the old augmentation entry and ensure required CSS survives bundlers.

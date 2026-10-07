@@ -16,7 +16,8 @@ export type OwnedGridTransition =
   | { type: "page"; value: number }
   | { type: "pageSize"; value: number }
   | { type: "pagination"; value: OwnedGridPaginationModel }
-  | { type: "selection"; value: ReadonlySet<string> };
+  | { type: "selection"; value: ReadonlySet<string> }
+  | { type: "reset"; value: OwnedGridCriteriaState };
 
 export interface OwnedGridTransitionOptions<Row> {
   columns: readonly OwnedGridColumn<Row>[];
@@ -30,6 +31,10 @@ export interface OwnedGridTransitionOptions<Row> {
 /** Produces one complete next snapshot without mutating input or controlled slices. */
 export function transitionOwnedGridState<Row>(state: OwnedGridCriteriaState, action: OwnedGridTransition, options: OwnedGridTransitionOptions<Row>): OwnedGridCriteriaState {
   switch (action.type) {
+    case "reset": return { paginationModel: normalizeGridPagination({ ...action.value.paginationModel, page: 0 }, options.pageSizeOptions),
+      sortRules: normalizeGridSortRules(action.value.sortRules, options.columns),
+      filterRules: normalizeGridFilterRules(action.value.filterRules, options.columns, options.filterFields),
+      searchValue: action.value.searchValue, selectedRowIds: new Set() };
     case "search": return { ...state, paginationModel: { ...state.paginationModel, page: 0 }, searchValue: action.value };
     case "sort": return { ...state, paginationModel: { ...state.paginationModel, page: 0 }, sortRules: normalizeGridSortRules(action.value, options.columns) };
     case "filter": return { ...state, paginationModel: { ...state.paginationModel, page: 0 }, filterRules: normalizeGridFilterRules(action.value, options.columns, options.filterFields) };
@@ -65,10 +70,16 @@ export interface OwnedGridChangeCallbacks {
 
 /** Slice requests precede a single combined notification for host server requests. */
 export function notifyOwnedGridTransition(previous: OwnedGridCriteriaState, next: OwnedGridCriteriaState, action: OwnedGridTransition, callbacks: OwnedGridChangeCallbacks): void {
-  if (previous.paginationModel.page !== next.paginationModel.page || previous.paginationModel.pageSize !== next.paginationModel.pageSize) {
+  if (action.type === "reset" || previous.paginationModel.page !== next.paginationModel.page || previous.paginationModel.pageSize !== next.paginationModel.pageSize) {
     callbacks.onPaginationModelChange?.({ ...next.paginationModel });
   }
   switch (action.type) {
+    case "reset":
+      callbacks.onSortRulesChange?.(next.sortRules.map(rule => ({ ...rule })));
+      callbacks.onFilterRulesChange?.(next.filterRules.map(rule => ({ ...rule })));
+      callbacks.onSearchChange?.(next.searchValue);
+      callbacks.onSelectedRowIdsChange?.(new Set(next.selectedRowIds));
+      break;
     case "search": callbacks.onSearchChange?.(next.searchValue); break;
     case "sort": callbacks.onSortRulesChange?.(next.sortRules.map(rule => ({ ...rule }))); break;
     case "filter": callbacks.onFilterRulesChange?.(next.filterRules.map(rule => ({ ...rule }))); break;

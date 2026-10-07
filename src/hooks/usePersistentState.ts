@@ -3,8 +3,14 @@ import { useCallback, useRef, useSyncExternalStore } from "react";
 
 const CHANGE_EVENT = "persistent-state-change";
 // Browser-scoped fallback: never share a request's state through a server module cache.
-const browserFallbacks = new WeakMap<object, Map<string, unknown>>();
+type SavedState = { value: unknown; version?: number; absent?: true };
+const browserFallbacks = new WeakMap<object, Map<string, SavedState>>();
+const equivalent = (left: unknown, right: unknown) => {
+  if (Object.is(left, right)) return true;
+  try { return JSON.stringify(left) === JSON.stringify(right); } catch { return false; }
+};
 export interface PersistentStateOptions<T> {
+  /** Defaults to false: each hook instance owns memory-only state. */
   storage?: "local" | "session" | false;
   validate?: (value: unknown) => value is T;
   /** Omit for the existing raw JSON format. Set for a versioned envelope. */
@@ -12,12 +18,14 @@ export interface PersistentStateOptions<T> {
   migrate?: (value: unknown, previousVersion: number | undefined) => T | undefined;
 }
 
-export function usePersistentState<T>(key: string, initialValue: T, options: PersistentStateOptions<T> = {}) {
-  const storageKind = options.storage ?? "local";
+export function usePersistentState<T>(storageKey: string | undefined, initialValue: T, options: PersistentStateOptions<T> = {}) {
+  const storageKind = options.storage ?? false;
+  if (storageKind !== false && !storageKey?.trim()) throw new TypeError("Persistent state requires a nonempty key when storage is enabled");
+  const key = storageKey ?? "";
   const scopeKey = `${storageKind}:${key}`;
   const initial = useRef({ key: scopeKey, value: initialValue });
   const local = useRef<{ value: T } | undefined>(undefined);
-  const cache = useRef<{ key: string; raw: string | null; version?: number; value: T } | undefined>(undefined);
+  const cache = useRef<{ key: string; raw?: string | null; source: SavedState; version?: number; migrate?: PersistentStateOptions<T>["migrate"]; candidate: unknown } | undefined>(undefined);
   const settings = useRef(options);
   settings.current = options;
   if (initial.current.key !== scopeKey) {
@@ -52,33 +60,45 @@ export function usePersistentState<T>(key: string, initialValue: T, options: Per
   const storage = () => storageKind === false ? undefined : storageKind === "local" ? window.localStorage : window.sessionStorage;
   const valid = (candidate: unknown): candidate is T => !settings.current.validate || settings.current.validate(candidate);
 
+  const resolveSaved = (source: SavedState, raw?: string | null): T => {
+    const previous = cache.current;
+    const { version, migrate } = settings.current;
+    if (previous?.key === scopeKey && previous.source === source && previous.version === version && previous.migrate === migrate) {
+      return previous.candidate !== undefined && valid(previous.candidate) ? previous.candidate : initial.current.value;
+    }
+    let candidate = source.value;
+    if (!source.absent && version !== undefined && version !== source.version) {
+      try { candidate = migrate?.(candidate, source.version); } catch { candidate = undefined; }
+    }
+    // Persisted JSON migration functions may return equivalent new objects each render.
+    // Retain the previous snapshot identity so useSyncExternalStore stays stable.
+    if (previous?.key === scopeKey && equivalent(previous.candidate, candidate)) candidate = previous.candidate;
+    cache.current = { key: scopeKey, raw, source, version, migrate, candidate };
+    return candidate !== undefined && valid(candidate) ? candidate : initial.current.value;
+  };
   const getSnapshot = useCallback((): T => {
     if (typeof window === "undefined") return initial.current.value;
-    if (storageKind === false) return local.current ? local.current.value : initial.current.value;
-    if (fallback().has(scopeKey)) {
-      const candidate = fallback().get(scopeKey);
+    if (storageKind === false) {
+      const candidate = local.current ? local.current.value : initial.current.value;
       return valid(candidate) ? candidate : initial.current.value;
     }
+    const savedFallback = fallback().get(scopeKey);
+    if (savedFallback) return resolveSaved(savedFallback);
     let raw: string | null;
-    try { raw = storage()!.getItem(key); } catch { return cache.current?.value ?? initial.current.value; }
-    const version = settings.current.version;
-    if (cache.current?.key === scopeKey && cache.current.raw === raw && cache.current.version === version) {
-      return valid(cache.current.value) ? cache.current.value : initial.current.value;
+    try { raw = storage()!.getItem(key); } catch {
+      return cache.current?.key === scopeKey ? resolveSaved(cache.current.source, cache.current.raw) : initial.current.value;
     }
-    let value = initial.current.value;
+    if (cache.current?.key === scopeKey && cache.current.raw === raw) return resolveSaved(cache.current.source, raw);
+    let source: SavedState = { value: initial.current.value, absent: true };
     if (raw !== null) {
       try {
         const parsed: unknown = JSON.parse(raw);
         const envelope = parsed !== null && typeof parsed === "object" && "__sguiPersistent" in parsed && parsed.__sguiPersistent === true
           ? parsed as { version?: number; value?: unknown } : undefined;
-        const previousVersion = envelope?.version;
-        let candidate = envelope ? envelope.value : parsed;
-        if (version !== undefined && version !== previousVersion) candidate = settings.current.migrate?.(candidate, previousVersion);
-        if (valid(candidate) && (candidate !== undefined || version === previousVersion)) value = candidate as T;
-      } catch { /* Malformed JSON or a rejected migration keeps a stable default snapshot. */ }
+        source = envelope ? { value: envelope.value, version: envelope.version } : { value: parsed };
+      } catch { /* Malformed JSON keeps a stable default snapshot. */ }
     }
-    cache.current = { key: scopeKey, raw, version, value };
-    return value;
+    return resolveSaved(source, raw);
   }, [key, scopeKey, storageKind]);
 
   const subscribe = useCallback((callback: () => void) => {
@@ -122,11 +142,11 @@ export function usePersistentState<T>(key: string, initialValue: T, options: Per
       const previous = storage()!.getItem(key);
       if (previous !== raw) storage()!.setItem(key, raw);
       fallback().delete(scopeKey);
-      cache.current = { key: scopeKey, raw, version, value: resolved };
+      cache.current = { key: scopeKey, raw, version, source: { value: resolved, version }, migrate: settings.current.migrate, candidate: resolved };
       if (previous === raw) return;
     } catch {
       // Preserve changes even when reads/writes, quotas or serialization fail.
-      fallback().set(scopeKey, resolved);
+      fallback().set(scopeKey, { value: resolved, version });
     }
     window.dispatchEvent(new CustomEvent(CHANGE_EVENT, { detail: { key, storage: storageKind } }));
   }, [getSnapshot, key, scopeKey, storageKind]);

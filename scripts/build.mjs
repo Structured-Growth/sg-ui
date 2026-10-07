@@ -18,8 +18,6 @@ async function visit(dir) {
         const suffix = specifier.endsWith('.module.css') ? '.js' : existsSync(`${parent}/${specifier}.js`) ? '.js' : existsSync(`${parent}/${specifier}/index.js`) ? '/index.js' : '';
         return `${prefix}${quote}${specifier}${suffix}${quote}`;
       });
-      // Preserve legacy boundaries during migration. Owned modules declare their own boundaries.
-      if (path.endsWith('.js') && !path.startsWith('dist/foundation/') && !path.startsWith('dist/experimental/') && !code.startsWith('"use client"')) code = '"use client";\n' + code;
       await writeFile(path, code);
     }
   }

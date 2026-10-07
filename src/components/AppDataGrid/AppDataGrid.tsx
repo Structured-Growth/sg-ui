@@ -9,6 +9,9 @@ import { AppPaginationFooter } from "../CardPaginationFooter";
 import { useOwnedGridLayoutController } from "./ownedGridLayoutController";
 import { useOwnedGridPersistence, type OwnedGridPersistenceConfig } from "./ownedGridPersistence";
 import { OwnedGridStatus } from "./ownedGridParts";
+import { Button } from "../../experimental/Button/Button";
+import { useTranslation } from "../../i18n";
+import { createOwnedGridResetState, type AppDataGridViewState } from "./ownedGridReset";
 import styles from "./AppDataGrid.module.css";
 
 /** Owned catalog grid. Host rows and server work remain outside this component. */
@@ -19,12 +22,17 @@ export type AppDataGridProps<RowModel> = Omit<OwnedGridInteractionProps<RowModel
   /** Optional per-view persistence key. */
   storageKey?: string;
   persistence?: OwnedGridPersistenceConfig;
+  /** Offer an accessible reset action. Defaults to false. */
+  showResetView?: boolean;
+  /** One complete requested snapshot, including controlled concerns. */
+  onResetView?: (state: AppDataGridViewState) => void;
 };
 
 type ComposedGridProps<RowModel> = AppDataGridProps<RowModel> & Pick<OwnedGridInteractionProps<RowModel>, "processingResult" | "dispatchTransition">;
 
-function Grid<RowModel>(props: ComposedGridProps<RowModel> & { persist?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["persist"] }, ref: Ref<HTMLDivElement>) {
-  const { selection = true, hideFooter = false, processingResult, storageKey: _storageKey, persistence: _persistence, persist, ...interaction } = props;
+function Grid<RowModel>(props: ComposedGridProps<RowModel> & { persist?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["persist"]; resetPersistence?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["reset"]; resetDefaults?: AppDataGridProps<RowModel> }, ref: Ref<HTMLDivElement>) {
+  const { selection = true, hideFooter = false, processingResult, storageKey: _storageKey, persistence: _persistence, persist, resetPersistence, resetDefaults, showResetView, onResetView, ...interaction } = props;
+  const { t } = useTranslation();
   const config = typeof selection === "object" ? selection : undefined;
   const { state, dispatch: localDispatch } = useOwnedGridController({ ...interaction,
     selectedRowIds: config?.selectedRowIds, defaultSelectedRowIds: config?.defaultSelectedRowIds,
@@ -48,6 +56,13 @@ function Grid<RowModel>(props: ComposedGridProps<RowModel> & { persist?: ReturnT
   }, [state.paginationModel.page]);
   const options = normalizeGridPageSizeOptions(props.pageSizeOptions).map(option => option.value);
   return <div ref={root} className={styles.root} data-sgui-part="data-grid">
+    {showResetView && <Button className={styles.resetView} variant="text" tone="neutral" density="compact" onPress={() => {
+      const next = createOwnedGridResetState(resetDefaults ?? props);
+      resetPersistence?.(next);
+      setVisibility(next.columnVisibilityModel); setOrder(next.columnOrder); setWidths(next.columnWidths);
+      dispatch({ type: "reset", value: next });
+      onResetView?.(next);
+    }}>{t("common.ui.grid.resetView", { defaultMessage: "Reset view" })}</Button>}
     <OwnedGridInteraction {...interaction} ref={ref} processingResult={processed} dispatchTransition={dispatch} {...state}
       selection={selection !== false} isRowSelectable={config?.isRowSelectable}
       selectPageLabel={config?.selectAllLabel} selectNoneLabel={config?.selectNoneLabel}
@@ -71,12 +86,13 @@ function Grid<RowModel>(props: ComposedGridProps<RowModel> & { persist?: ReturnT
 
 export const ComposedAppDataGrid = forwardRef(Grid) as <RowModel>(props: ComposedGridProps<RowModel> & {
   ref?: Ref<HTMLDivElement>; persist?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["persist"];
+  resetPersistence?: ReturnType<typeof useOwnedGridPersistence<RowModel>>["reset"]; resetDefaults?: AppDataGridProps<RowModel>;
 }) => ReactElement;
 function PersistentGrid<RowModel>(props: AppDataGridProps<RowModel>, ref: Ref<HTMLDivElement>) {
   const persistence = useOwnedGridPersistence({ ...props, persistence: props.persistence ?? (props.storageKey ? { key: props.storageKey } : undefined) });
   if (!persistence.ready) return <OwnedGridStatus state="loading" />;
   const restored = persistence.defaults;
-  return <ComposedAppDataGrid {...props} ref={ref} persist={persistence.persist}
+  return <ComposedAppDataGrid {...props} ref={ref} persist={persistence.persist} resetPersistence={persistence.reset} resetDefaults={props}
     defaultPaginationModel={restored.paginationModel ?? props.defaultPaginationModel}
     defaultSortRules={restored.sortRules ?? props.defaultSortRules}
     defaultFilterRules={restored.filterRules ?? props.defaultFilterRules}

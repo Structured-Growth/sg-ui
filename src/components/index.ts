@@ -123,7 +123,7 @@ export {
   instructorClassesSortOptions,
 } from "./InstructorDataGridOptions";
 export { LearnerClassCard, type LearnerClassCardProps } from "./LearnerClassCard";
-export { LearnerClassesDataGrid, learnerClassesColumnOptions, learnerClassesSortOptions } from "./LearnerClassesDataGrid";
+export { LearnerClassesDataGrid, learnerClassesColumnOptions, learnerClassesSortOptions, type LearnerClassesDataGridProps } from "./LearnerClassesDataGrid";
 export {
   SideNavigation,
   type SideNavChildBehavior,

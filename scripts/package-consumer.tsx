@@ -199,3 +199,26 @@ export const retiredActivitySize = PublicActivityIcon('lesson','small');
 
 import { createAdminCourseGridOptions, createInstructorCourseLearnersGridOptions, adminCourseStatuses } from "@structured-growth/sg-ui/components";
 export const publicPresets = [createAdminCourseGridOptions(), createInstructorCourseLearnersGridOptions(), adminCourseStatuses];
+
+import type { LearnerClass, LearnerClassesDataGridProps as RootLearnerGridProps } from "@structured-growth/sg-ui";
+import type { LearnerClassesDataGridProps as CatalogLearnerGridProps } from "@structured-growth/sg-ui/components";
+import type { LearnerClassesDataGridProps } from "@structured-growth/sg-ui/components/LearnerClassesDataGrid";
+import { normalizePaginationModel, usePersistentPaginationModel, usePersistentState,
+  type PaginationModel, type PersistentPaginationModelOptions } from "@structured-growth/sg-ui/hooks";
+import type { AppDataGridViewState } from "@structured-growth/sg-ui/components/AppDataGrid";
+const learner: LearnerClass = { id: "course-one", courseName: "Science", instructorName: "Author", siteName: "Campus",
+  progressPercent: 40, nextActivity: "Read", dueAt: "2026-10-10" };
+export const learnerGridProps: LearnerClassesDataGridProps = { rows: [learner], showResetView: true,
+  onResetView: (state: AppDataGridViewState) => { const page: number = state.paginationModel.page; console.log(page); } };
+export const rootLearnerGridProps: RootLearnerGridProps = learnerGridProps;
+export const catalogLearnerGridProps: CatalogLearnerGridProps = learnerGridProps;
+const paginationOptions: PersistentPaginationModelOptions = { storage: "session", version: 2,
+  pageSizeOptions: [10, 75, 250], migrate: () => ({ page: 0, pageSize: 75 }) };
+export const normalizedPublicPagination: PaginationModel = normalizePaginationModel({ page: 3, pageSize: 250 });
+export function PublicHookConsumer() {
+  const [pagination, setPagination] = usePersistentPaginationModel("consumer-courses", { page: 0, pageSize: 10 }, paginationOptions);
+  const [draft, setDraft] = usePersistentState<{ label: string }>(undefined, { label: "Course" });
+  return <button onClick={() => { setPagination(previous => ({ ...previous, pageSize: 250 })); setDraft({ label: "Updated" }); }}>
+    {pagination.pageSize} {draft.label}
+  </button>;
+}

@@ -319,3 +319,15 @@ Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.
 The public `/theme` now exports owned Provider/ThemeScope and AppThemeProvider (the same Provider under its preserved name). Theme objects and upstream typography augmentation are removed. Storybook uses production scopes and theme/density/locale/direction globals. See [theme mappings](docs/developer/react-aria-theme.md). No retired runtime/peer/dev foundation packages remain. Broad acceptance and final literal-reference audits remain open.
 
 M-39 admin/instructor presets now expose translated Course-named factories, canonical status constants, first/action column locks and empty criteria defaults. Existing Class-named exports remain. See [preset contracts](docs/developer/react-aria-grid-presets.md).
+
+Pagination/state hooks now use explicit opt-in local/session persistence; page sizes
+accept positive safe integers unless the host supplies choices. See
+[hook contracts](docs/developer/react-aria-pagination-state.md). Preserve source
+client directives only for modules that need client APIs; the build no longer
+injects them into every module. See [server boundaries](docs/developer/react-aria-server-components.md).
+
+AppDataGrid and AppDataGridShell offer opt-in `showResetView` with one complete
+`onResetView` snapshot. Reset uses declared defaults, page zero and empty selection;
+controlled hosts accept the request. See the [catalog grid contract](docs/developer/react-aria-catalog-grid.md)
+for callback and persisted-state behavior. LearnerClassesDataGridProps is exported
+through the root, component barrel and granular entry point.

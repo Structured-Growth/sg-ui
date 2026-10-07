@@ -120,3 +120,16 @@ describe("owned grid optional persistence", () => {
     expect(getItem).not.toHaveBeenCalled();
   });
 });
+
+it("saves reset defaults, suppresses an unchanged rejected snapshot, and resumes for an alternative", () => {
+  const { options, values } = fixture();
+  const { result } = renderHook(() => useOwnedGridPersistence(options));
+  const resetState = { paginationModel: { page: 0, pageSize: 10 }, searchValue: "", sortRules: [], filterRules: [] };
+  const previous = { ...resetState, searchValue: "stale controlled search" };
+  act(() => result.current.persist(previous));
+  act(() => result.current.reset(resetState));
+  act(() => result.current.persist(previous));
+  expect(JSON.parse(values.get(ownedGridPersistenceKey("courses"))!).state).toEqual(resetState);
+  act(() => result.current.persist({ ...previous, searchValue: "next interaction or host alternative" }));
+  expect(JSON.parse(values.get(ownedGridPersistenceKey("courses"))!).state.searchValue).toBe("next interaction or host alternative");
+});
