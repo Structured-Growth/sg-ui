@@ -10,3 +10,12 @@ const meta = { title: "Migration proofs/Popover", component: Popover, tags: ["au
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
+
+// Keep a draft open, then scroll this ancestor with a trackpad or the scrollbar.
+export const ScrollHost: Story = {
+  render: args => <div style={{ blockSize: 320, overflow: "auto", border: "1px solid var(--sgui-border)" }}>
+    <div style={{ paddingBlockStart: 140, paddingInline: 24, blockSize: 760 }}>
+      <Popover {...args}><TextField label="Note" autoFocus defaultValue="Unsaved course note" /></Popover>
+    </div>
+  </div>,
+};
