@@ -1,0 +1,46 @@
+// @vitest-environment jsdom
+import { cleanup, render, screen, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { afterEach, expect, it } from "vitest";
+import { AppOperationStepsNativeStateFixture } from "./AppOperationStepsNativeState.stories.fixture";
+afterEach(cleanup);
+
+it("keeps ordered noninteractive steps and host milestone identity while collections and progress change", async () => {
+  const user = userEvent.setup();
+  render(<AppOperationStepsNativeStateFixture />);
+  const list = screen.getByRole("list");
+  const first = within(list).getAllByRole("listitem")[0];
+  const region = screen.getByRole("status");
+  expect(list.tagName).toBe("OL");
+  expect(within(list).queryByRole("button")).toBeNull();
+  expect(within(list).queryByRole("tab")).toBeNull();
+  await user.click(screen.getByRole("button", { name: "Start operation" }));
+  expect(screen.getByRole("button", { name: "Start operation" })).toBe(document.activeElement);
+  expect(screen.getByRole("progressbar", { name: "Prepare the course materials for the learner review session" }).hasAttribute("aria-valuenow")).toBe(false);
+  await user.click(screen.getByRole("button", { name: "Advance progress" }));
+  await user.keyboard("{Enter}");
+  expect(screen.getByRole("progressbar", { name: "Progress", exact: true }).getAttribute("aria-valuenow")).toBe("50");
+  expect(region.textContent).toBe("");
+  expect(within(list).getAllByRole("listitem")[0]).toBe(first);
+  await user.click(screen.getByRole("button", { name: "Show single" }));
+  expect(within(list).getAllByRole("listitem")).toHaveLength(1);
+  expect(within(list).getByRole("listitem")).toBe(first);
+  await user.click(screen.getByRole("button", { name: "Show empty" }));
+  expect(within(list).queryByRole("listitem")).toBeNull();
+  await user.click(screen.getByRole("button", { name: "Show multiple" }));
+  expect(within(list).getAllByRole("listitem").map(item => item.getAttribute("data-status"))).toEqual(["in_progress", "pending", "pending"]);
+  await user.click(screen.getByRole("button", { name: "Complete operation" }));
+  expect(region.textContent).toBe("Course operation completed");
+  expect(screen.getByRole("progressbar", { name: "Progress", exact: true }).getAttribute("aria-valuenow")).toBe("100");
+  expect(within(list).queryByRole("progressbar")).toBeNull();
+  await user.click(screen.getByRole("button", { name: "Fail operation" }));
+  expect(within(list).getAllByRole("listitem").every(item => item.textContent?.endsWith(": Error"))).toBe(true);
+  expect(region.textContent).toBe("Course operation failed; review the materials and retry");
+  expect(screen.getByRole("status")).toBe(region);
+  expect(region.getAttribute("aria-live")).toBe("polite");
+  expect(region.getAttribute("aria-atomic")).toBe("true");
+  await user.click(screen.getByRole("button", { name: "Reset operation" }));
+  expect(region.textContent).toBe("");
+  expect(screen.getByTestId("host-callbacks").textContent).toBe("Host requests: 9");
+  expect(list.querySelector('[aria-live], [tabindex], button, a')).toBeNull();
+});

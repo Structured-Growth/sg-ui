@@ -1,3 +1,4 @@
+import { AppOperationStepsNativeStateFixture } from "./AppOperationStepsNativeState.stories.fixture";
 import { useState } from "react";
 import { AppButton } from "../AppButton/AppButton";
 import { AppInlineProgress } from "../AppInlineProgress/AppInlineProgress";
@@ -58,3 +59,9 @@ function HostTransitions() {
   </Stack>;
 }
 export const Transitions: Story = { args: { steps: [] }, render: () => <HostTransitions /> };
+
+/** Mutable collection, quiet percentage ticks and persistent host milestone region. */
+export const NativeStateTransitions: Story = {
+  args: { steps: [] },
+  render: () => <AppOperationStepsNativeStateFixture />,
+};
