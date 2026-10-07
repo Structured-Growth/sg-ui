@@ -1,3 +1,4 @@
+import { serializeEditorDocument } from "./lexical/serializeEditorDocument";
 // @vitest-environment jsdom
 import { useEffect } from "react";
 import { afterAll, beforeAll, afterEach, describe, expect, it, vi } from "vitest";
@@ -57,10 +58,31 @@ async function openImageDialog(user: ReturnType<typeof userEvent.setup>) {
   await user.click(screen.getByRole("menuitem", { name: "Image", exact: true }));
 }
 function serializedChildren() {
-  return activeEditor!.getEditorState().toJSON().root.children[0] as unknown as { children: { type: string; url?: string; text?: string; children?: { text: string }[]; target?: string; rel?: string }[] };
+  return serializeEditorDocument(activeEditor!.getEditorState().toJSON()).root.children[0] as unknown as { children: { type: string; url?: string; text?: string; children?: { text: string }[]; target?: string; rel?: string }[] };
 }
 
 describe("editor dialog host contracts", () => {
+  it("rejects an unsupported host image address without insertion and retains the file and description for retry", async () => {
+    const user = userEvent.setup();
+    const upload = vi.fn().mockResolvedValueOnce({ assetId: "bad", assetVersionId: "v1", src: "javascript:alert(1)" })
+      .mockResolvedValueOnce({ assetId: "good", assetVersionId: "v2", src: "/cover.png" });
+    mount(upload); await selectText(); await openImageDialog(user);
+    const file = new File(["image"], "cover.png", { type: "image/png" });
+    await user.upload(screen.getByLabelText("Choose image"), file);
+    await user.type(screen.getByRole("textbox", { name: "Image description" }), "Course cover");
+    await user.click(within(screen.getByRole("dialog")).getByRole("button", { name: "Insert", exact: true }));
+    await waitFor(() => expect(screen.getByRole("alert").textContent).toBe("The uploaded image address is not supported. Try again."));
+    expect(screen.getByText("cover.png")).toBeTruthy();
+    expect((screen.getByRole("textbox", { name: "Image description" }) as HTMLInputElement).value).toBe("Course cover");
+    expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).not.toContain('"type":"image"');
+    await user.click(within(screen.getByRole("dialog")).getByRole("button", { name: "Insert", exact: true }));
+    await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+    expect(upload).toHaveBeenNthCalledWith(1, file);
+    expect(upload).toHaveBeenNthCalledWith(2, file);
+    expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain('"altText":"Course cover"');
+    expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain('"src":"/cover.png"');
+  });
+
   it("retains local image URLs for read-only and undo, then releases them on document reset and unmount", async () => {
     const create = vi.fn().mockReturnValueOnce("blob:dialog-preview").mockReturnValueOnce("blob:document-image").mockReturnValueOnce("blob:second-preview").mockReturnValueOnce("blob:second-image");
     const revoke = vi.fn();
@@ -72,7 +94,7 @@ describe("editor dialog host contracts", () => {
       await selectText(); await openImageDialog(user);
       await user.upload(screen.getByLabelText("Choose image"), new File(["image"], "local.png", { type: "image/png" }));
       await user.click(within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }));
-      await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("blob:document-image"));
+      await waitFor(() => expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain("blob:document-image"));
       await waitFor(() => expect(revoke).toHaveBeenCalledWith("blob:dialog-preview"));
       view.rerender(<Provider><PageRichTextEditorSection {...props} readOnly /></Provider>);
       expect(revoke).not.toHaveBeenCalledWith("blob:document-image");
@@ -81,7 +103,7 @@ describe("editor dialog host contracts", () => {
       await selectText(); await openImageDialog(user);
       await user.upload(screen.getByLabelText("Choose image"), new File(["image"], "second.png", { type: "image/png" }));
       await user.click(within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }));
-      await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("blob:second-image"));
+      await waitFor(() => expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain("blob:second-image"));
       view.unmount();
       expect(revoke.mock.calls.filter(([url]) => url === "blob:document-image")).toHaveLength(1);
       expect(revoke.mock.calls.filter(([url]) => url === "blob:second-image")).toHaveLength(1);
@@ -98,7 +120,7 @@ describe("editor dialog host contracts", () => {
       await selectText(); await openImageDialog(user);
       await user.upload(screen.getByLabelText("Choose image"), new File(["image"], "host.png", { type: "image/png" }));
       await user.click(within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }));
-      await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("blob:host-owned"));
+      await waitFor(() => expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain("blob:host-owned"));
       cleanup();
       expect(revoke).not.toHaveBeenCalledWith("blob:host-owned");
     } finally { vi.unstubAllGlobals(); }
@@ -115,7 +137,7 @@ describe("editor dialog host contracts", () => {
     expect(link.children?.[0].text).toBe("Course guide");
     expect(link.target).toBe(entered.startsWith("www.") ? "_blank" : null);
     expect(link.rel).toBe(entered.startsWith("www.") ? "noopener noreferrer" : null);
-    expect(change).toHaveBeenCalledWith(activeEditor!.getEditorState().toJSON());
+    expect(change).toHaveBeenCalledWith(serializeEditorDocument(activeEditor!.getEditorState().toJSON()));
     await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
     // Selecting the real link exercises the existing-node edit and unlink paths.
     await selectText(); await user.click(screen.getByRole("button", { name: "Edit link" }));
@@ -136,7 +158,7 @@ describe("editor dialog host contracts", () => {
     await user.click(screen.getByRole("button", { name: "Apply" }));
     await waitFor(() => expect(serializedChildren().children.every(node => node.type !== "link")).toBe(true));
     expect(serializedChildren().children.map(node => node.text).join("")).toBe("Edited course guide");
-    expect(change).toHaveBeenCalledWith(activeEditor!.getEditorState().toJSON());
+    expect(change).toHaveBeenCalledWith(serializeEditorDocument(activeEditor!.getEditorState().toJSON()));
   });
 
   it.each(["A diagram of a course", ""])("persists an explicit image description %j including decorative empty text", async description => {
@@ -148,8 +170,8 @@ describe("editor dialog host contracts", () => {
     if (description) await user.type(screen.getByRole("textbox", { name: "Image description" }), description);
     await user.click(within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }));
     await waitFor(() => expect(upload).toHaveBeenCalledExactlyOnceWith(file));
-    await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain('"type":"image"'));
-    const output = activeEditor!.getEditorState().toJSON();
+    await waitFor(() => expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain('"type":"image"'));
+    const output = serializeEditorDocument(activeEditor!.getEditorState().toJSON());
     const serializedImage = JSON.stringify(output).match(/"altText":"([^"]*)"/);
     expect(serializedImage?.[1]).toBe(description);
     expect(JSON.stringify(output)).toContain('"assetId":"asset-42"');
@@ -180,7 +202,7 @@ describe("editor dialog host contracts", () => {
     expect(screen.getByText("new.png")).toBeTruthy();
     expect(screen.queryByText("Old upload failed")).toBeNull();
     expect((within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }) as HTMLButtonElement).disabled).toBe(false);
-    expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).not.toContain('"type":"image"');
+    expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).not.toContain('"type":"image"');
   });
 
 });
@@ -189,18 +211,18 @@ it("applies semantic color tokens and clears foreground/background through the r
   const user = userEvent.setup(); const change = mount();
   await selectText(); await user.click(screen.getByRole("button", {name:"Text color"}));
   await user.click(await screen.findByRole("button", {name:"Primary",exact:true}));
-  await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("color: var(--sgui-action)"));
+  await waitFor(() => expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain("color: var(--sgui-action)"));
   if (screen.queryByRole("dialog", {name:"Text color"})) await user.keyboard("{Escape}");
   await selectText(); await user.click(screen.getByRole("button", {name:"Text color"}));
   await user.click(await screen.findByRole("button", {name:"Clear",exact:true}));
-  await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).not.toContain("color:"));
+  await waitFor(() => expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).not.toContain("color:"));
   if (screen.queryByRole("dialog", {name:"Text color"})) await user.keyboard("{Escape}");
   await selectText(); await user.click(screen.getByRole("button", {name:"Background color"}));
   await user.click(await screen.findByRole("button", {name:"Subtle surface",exact:true}));
-  await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("background-color: var(--sgui-surface-subtle)"));
+  await waitFor(() => expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain("background-color: var(--sgui-surface-subtle)"));
   if (screen.queryByRole("dialog", {name:"Background color"})) await user.keyboard("{Escape}");
   await selectText(); await user.click(screen.getByRole("button", {name:"Background color"}));
   await user.click(await screen.findByRole("button", {name:"Clear",exact:true}));
-  await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).not.toContain("background-color:"));
-  expect(change).toHaveBeenCalledWith(activeEditor!.getEditorState().toJSON());
+  await waitFor(() => expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).not.toContain("background-color:"));
+  expect(change).toHaveBeenCalledWith(serializeEditorDocument(activeEditor!.getEditorState().toJSON()));
 });

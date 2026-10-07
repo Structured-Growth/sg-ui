@@ -24,6 +24,8 @@ import {
 } from "lexical";
 import { $patchStyleText, $setBlocksType } from "@lexical/selection";
 import { $createHeadingNode, $isHeadingNode } from "@lexical/rich-text";
+import { serializeEditorDocument } from "./lexical/serializeEditorDocument";
+import { normalizeLinkUrl } from "../LinkUrlModal/linkUrlPolicy";
 import { $createLinkNode, $isLinkNode, $toggleLink, LinkNode } from "@lexical/link";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
@@ -40,6 +42,7 @@ import { LinkUrlModal } from "../LinkUrlModal";
 import { EXPERIENCE_EDITOR_NODES, EXPERIENCE_EDITOR_THEME } from "./lexical/editorConfig";
 import { ExperienceEditorPlugins } from "./lexical/ExperienceEditorPlugins";
 import { INSERT_IMAGE_COMMAND } from "./lexical/ImageInsertPlugin";
+import { isAllowedImageSource } from "./lexical/imageSourcePolicy";
 import {
   RichTextFormattingToolbar,
   type AlignOption,
@@ -117,11 +120,7 @@ function headingValueFromMarker(marker: string | null): HeadingValue {
 }
 
 function normalizeUrlForStorage(rawUrl: string): string {
-  const trimmed = rawUrl.trim();
-  if (trimmed.startsWith("www.")) {
-    return `https://${trimmed}`;
-  }
-  return trimmed;
+  return normalizeLinkUrl(rawUrl.trim()) ?? "about:blank";
 }
 
 function isExternalUrl(url: string): boolean {
@@ -1068,7 +1067,7 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
                 )
               )}
             />
-            <ExperienceEditorPlugins onChange={onLexicalChange} />
+            <ExperienceEditorPlugins onChange={value => onLexicalChange(serializeEditorDocument(value))} />
           </LexicalComposer>
         </div>
       </div>
@@ -1125,6 +1124,9 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
             if (imageUploadSessionRef.current !== uploadSession) {
               if (localUrl && localImageUrlsRef.current.delete(localUrl)) URL.revokeObjectURL(localUrl);
               return;
+            }
+            if (!isAllowedImageSource(uploaded.src)) {
+              throw new Error(t("editor.imageSourceRejected", { defaultMessage: "The uploaded image address is not supported. Try again." }));
             }
             dispatchInsertCommand(INSERT_IMAGE_COMMAND, {
               src: uploaded.src,

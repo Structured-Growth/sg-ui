@@ -8,6 +8,25 @@ const element = (type: string, children: unknown[], extra = {}) => ({
 });
 const paragraph = (value: string) => element("paragraph", [text(value)]);
 
+export const IMAGE_POLICY_PIXEL = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4z8DwHwAFAAH/iZk9HQAAAABJRU5ErkJggg==";
+export const SAVED_IMAGE_SOURCE_DOCUMENT = {
+  root: element("root", [
+    ...[
+      ["Relative illustration", "/image-policy-pixel.png"],
+      ["Web illustration", "https://images.example.org/image-policy-pixel.png"],
+      ["Embedded illustration", IMAGE_POLICY_PIXEL],
+      ["Embedded SVG illustration", "data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20width=%221%22%20height=%221%22%3E%3Cscript%3Ealert('unsafe-svg')%3C/script%3E%3Crect%20width=%221%22%20height=%221%22%20fill=%22red%22/%3E%3C/svg%3E"],
+      ["Rejected script image", "javascript:alert('unsafe-image')"],
+      ["Rejected HTML image", "data:text/html,%3Cscript%3Ealert(1)%3C/script%3E"],
+      ["Rejected network image", "//images.example.org/rejected-image-policy.png"],
+      ["Rejected file image", "file:///private/image-policy.png"],
+      ["", "data:text/html,decorative"],
+    ].map(([altText, src]) => element("paragraph", [{ type: "image", version: 1, src, altText,
+      width: 640, height: 480, assetId: "host-image", assetVersionId: "host-version" }], { textFormat: 0, textStyle: "" })),
+    { ...paragraph("Edit image document"), textFormat: 0, textStyle: "" },
+  ]),
+};
+
 export const SAVED_RICH_DOCUMENT = {
   root: element("root", [
     element("heading", [text("Saved course guide")], { tag: "h2" }),
@@ -38,5 +57,21 @@ export const SAVED_RICH_DOCUMENT = {
       altText: "Saved course illustration", width: 640, height: 480, assetId: "course-cover", assetVersionId: "cover-v2" }]),
     { type: "horizontalrule", version: 1 },
     paragraph("Edit this ending"),
+  ]),
+};
+
+export const SAVED_LINK_DOCUMENT = {
+  root: element("root", [
+    ...[
+      ["Relative guide", "/link-policy-destination"],
+      ["Web guide", "www.example.org/guide"],
+      ["Rejected script", "javascript:alert('unsafe-link')"],
+      ["Rejected data", "data:text/html,unsafe"],
+      ["Rejected network path", "//example.org/guide"],
+      ["Rejected scheme", "sms:123"],
+    ].map(([label, url]) => element("paragraph", [element("link", [text(label, 3)], {
+      url, target: "_blank", rel: "author", title: label,
+    })])),
+    paragraph("Edit link document"),
   ]),
 };

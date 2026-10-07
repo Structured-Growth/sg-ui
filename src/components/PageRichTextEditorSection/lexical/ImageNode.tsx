@@ -1,6 +1,9 @@
 import type { JSX } from "react";
 import type { LexicalEditor, NodeKey, SerializedLexicalNode, Spread } from "lexical";
 import { DecoratorNode, $applyNodeReplacement } from "lexical";
+import { Typography } from "../../../experimental/Typography/Typography";
+import { useTranslation } from "../../../i18n";
+import { isAllowedImageSource } from "./imageSourcePolicy";
 import styles from "./ImageNode.module.css";
 
 export type SerializedImageNode = Spread<{
@@ -29,9 +32,14 @@ type ImageComponentProps = {
 };
 
 function ImageComponent({ altText, src }: ImageComponentProps) {
+  const { t } = useTranslation();
   return (
     <div className={styles.root} data-sgui-part="editor-image">
-      <img alt={altText} src={src} className={styles.image} />
+      {isAllowedImageSource(src) ? <img alt={altText} src={src} className={styles.image} /> :
+        <Typography as="span" variant="body2" tone="muted" data-sgui-part="editor-image-unavailable"
+          role={altText ? "img" : undefined} aria-label={altText || undefined} aria-hidden={altText ? undefined : true}>
+          {t("editor.imageUnavailable", { defaultMessage: "Image unavailable" })}
+        </Typography>}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { serializeEditorDocument } from "./lexical/serializeEditorDocument";
 // @vitest-environment jsdom
 import { useEffect } from "react";
 import { afterAll, beforeAll, afterEach, describe, expect, it, vi } from "vitest";
@@ -63,15 +64,15 @@ describe("floating formatting with the real Lexical host", () => {
   it("applies pointer formatting and Alt F10 keyboard formatting to the selected text", async () => {
     const user = userEvent.setup(); const change = mount(); let floating = await selectText();
     await user.click(floating.getByRole("button", { name: "Bold" }));
-    await waitFor(() => expect(JSON.stringify(editor!.getEditorState().toJSON())).toContain('"format":1'));
+    await waitFor(() => expect(JSON.stringify(serializeEditorDocument(editor!.getEditorState().toJSON()))).toContain('"format":1'));
     expect(text()).toBe("Guide");
     floating = await selectText();
     fireEvent.keyDown(editor!.getRootElement()!, { key: "F10", altKey: true });
     expect(document.activeElement).toBe(floating.getByRole("button", { name: "Bold" }));
     await user.keyboard("{Tab}{Enter}");
-    await waitFor(() => expect(JSON.stringify(editor!.getEditorState().toJSON())).toContain('"format":3'));
+    await waitFor(() => expect(JSON.stringify(serializeEditorDocument(editor!.getEditorState().toJSON()))).toContain('"format":3'));
     expect(text()).toBe("Guide");
-    expect(change).toHaveBeenCalledWith(editor!.getEditorState().toJSON());
+    expect(change).toHaveBeenCalledWith(serializeEditorDocument(editor!.getEditorState().toJSON()));
   });
   it("prepares selected link text before pointer focus and commits the host dialog with Enter", async () => {
     const user = userEvent.setup(); const change = mount(); const floating = await selectText();
@@ -79,8 +80,8 @@ describe("floating formatting with the real Lexical host", () => {
     expect((screen.getByRole("textbox", { name: "Display Text" }) as HTMLInputElement).value).toBe("Guide");
     await user.type(screen.getByRole("textbox", { name: "URL" }), "/courses/guide");
     await user.keyboard("{Enter}");
-    await waitFor(() => expect(JSON.stringify(editor!.getEditorState().toJSON())).toContain('"url":"/courses/guide"'));
+    await waitFor(() => expect(JSON.stringify(serializeEditorDocument(editor!.getEditorState().toJSON()))).toContain('"url":"/courses/guide"'));
     expect(text()).toBe("Guide");
-    expect(change).toHaveBeenCalledWith(editor!.getEditorState().toJSON());
+    expect(change).toHaveBeenCalledWith(serializeEditorDocument(editor!.getEditorState().toJSON()));
   });
 });

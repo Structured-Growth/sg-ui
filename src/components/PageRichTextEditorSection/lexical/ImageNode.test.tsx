@@ -7,6 +7,35 @@ import { $createImageNode, $isImageNode, ImageNode, type SerializedImageNode } f
 const makeEditor = () => createEditor({ namespace: "image-node-test", nodes: [ImageNode], onError: error => { throw error; } });
 
 describe("ImageNode in a real Lexical editor", () => {
+  it.each(["javascript:alert(1)", "data:text/html,unsafe", "//example.com/image.png", "file:///private/image.png", ""])(
+    "renders rejected source %s without an img request and preserves saved metadata", src => {
+      const editor = makeEditor();
+      const payload = { src, altText: "Host illustration", width: 400, height: 300, assetId: "asset", assetVersionId: "v1" };
+      editor.update(() => {
+        const node = $createImageNode(payload);
+        $getRoot().append($createParagraphNode().append(node));
+        const markup = renderToStaticMarkup(node.decorate(editor));
+        expect(markup).not.toContain("<img");
+        expect(markup).toContain('role="img" aria-label="Host illustration"');
+        expect(markup).toContain("Image unavailable");
+        expect(node.exportJSON()).toEqual({ type: "image", version: 1, ...payload });
+      }, { discrete: true });
+      const restored = editor.parseEditorState(JSON.stringify(editor.getEditorState().toJSON()));
+      restored.read(() => expect($getRoot().getFirstChildOrThrow().getChildren()[0].exportJSON()).toEqual({ type: "image", version: 1, ...payload }));
+    });
+
+  it("keeps a rejected decorative image out of the accessibility tree", () => {
+    const editor = makeEditor();
+    editor.update(() => {
+      const node = $createImageNode({ src: "data:text/html,unsafe", altText: "" });
+      $getRoot().append($createParagraphNode().append(node));
+      const markup = renderToStaticMarkup(node.decorate(editor));
+      expect(markup).toContain('aria-hidden="true"');
+      expect(markup).not.toContain('role="img"');
+      expect(markup).not.toContain("<img");
+    }, { discrete: true });
+  });
+
   it("exports image metadata and preserves it when Lexical clones the node", () => {
     const editor = makeEditor();
     editor.update(() => {

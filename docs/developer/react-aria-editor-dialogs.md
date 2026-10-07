@@ -64,6 +64,9 @@ must inspect the actual contents and enforce its own type, size and asset policy
 The integrated editor ignores late upload success/error after cancellation,
 reopening or unmount, so it cannot insert a stale image or close the next dialog.
 The host upload itself may still finish and owns any cleanup of created assets.
+The integrated editor also validates returned image addresses before insertion;
+unsupported addresses report an error and retain the file/description for retry.
+See the [image source policy](react-aria-editor-section.md#image-source-policy-e-06e-07-partial).
 
 Existing-link editing now replaces child text atomically and selects the new text.
 Calling Lexical's clear on a LinkNode removed the link itself when its last child

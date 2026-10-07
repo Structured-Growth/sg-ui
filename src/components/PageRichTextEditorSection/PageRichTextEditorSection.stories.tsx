@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Provider } from "../../experimental/Provider/Provider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection";
 import { AppButton } from "../AppButton/AppButton";
-import { SAVED_RICH_DOCUMENT } from "./PageRichTextEditorSection.stories.fixtures";
+import { IMAGE_POLICY_PIXEL, SAVED_IMAGE_SOURCE_DOCUMENT, SAVED_LINK_DOCUMENT, SAVED_RICH_DOCUMENT } from "./PageRichTextEditorSection.stories.fixtures";
 
 const meta = {
   title: "Editors/PageRichTextEditorSection",
@@ -206,6 +206,50 @@ export const ClipboardEditing: Story = {
         readOnly={readOnly} aria-label="Clipboard document" toolPreset="full" style={{ height: 360 }} />
       <pre aria-label="Saved document">{JSON.stringify(value)}</pre>
       <label>Copy destination<textarea aria-label="Copy destination" /></label>
+    </Provider>;
+  },
+};
+
+/** Saved and pasted destinations share the browser policy; host JSON retains its schema. */
+export const LinkDestinations: Story = {
+  render: () => {
+    const [value, setValue] = useState<unknown>(SAVED_LINK_DOCUMENT);
+    const [seed, setSeed] = useState<unknown>(SAVED_LINK_DOCUMENT);
+    const [revision, setRevision] = useState(0);
+    const [readOnly, setReadOnly] = useState(false);
+    return <Provider>
+      <div role="textbox" aria-label="Link clipboard source" contentEditable suppressContentEditableWarning>
+        <p><a href="/link-policy-destination"><strong>Pasted guide</strong></a></p>
+        <p><a href="javascript:alert('unsafe-paste')"><em>Pasted rejected script</em></a></p>
+      </div>
+      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
+      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</AppButton>
+      <PageRichTextEditorSection lexicalValue={seed} editorKey={`links-${revision}`} onLexicalChange={setValue}
+        readOnly={readOnly} aria-label="Link document" toolPreset="full" style={{ height: 360 }} />
+      <pre aria-label="Saved link JSON">{JSON.stringify(value)}</pre>
+    </Provider>;
+  },
+};
+
+/** Saved sources preserve host JSON; new uploads require a supported address. */
+export const ImageSources: Story = {
+  render: () => {
+    const [value, setValue] = useState<unknown>(SAVED_IMAGE_SOURCE_DOCUMENT);
+    const [seed, setSeed] = useState<unknown>(SAVED_IMAGE_SOURCE_DOCUMENT);
+    const [revision, setRevision] = useState(0);
+    const [readOnly, setReadOnly] = useState(false);
+    const [attempt, setAttempt] = useState(0);
+    return <Provider>
+      <p>The first host upload returns an unsupported address. Retry with the same file and description.</p>
+      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
+      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</AppButton>
+      <PageRichTextEditorSection lexicalValue={seed} editorKey={`image-sources-${revision}`} onLexicalChange={setValue}
+        readOnly={readOnly} aria-label="Image source document" toolPreset="full" style={{ height: 360 }}
+        onUploadImage={async () => {
+          setAttempt(current => current + 1);
+          return { assetId: "uploaded-image", assetVersionId: "upload-v1", src: attempt === 0 ? "javascript:alert('unsafe-upload')" : IMAGE_POLICY_PIXEL };
+        }} />
+      <pre aria-label="Saved image source JSON">{JSON.stringify(value)}</pre>
     </Provider>;
   },
 };

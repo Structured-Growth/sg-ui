@@ -50,7 +50,7 @@ Link creation with unchanged display text wraps existing selected runs and retai
 format/style. URL changes retain existing link children; unlinking retains their
 format/style. An explicit replacement display text is inserted as new text.
 External URLs retain `_blank` and `noopener noreferrer`; relative URLs remain
-local. URL validation remains owned by LinkUrlModal. Image callbacks and asset
+local. The shared owned destination policy below also governs saved/pasted links. Image callbacks and asset
 metadata, columns/table presets, rule insertion, heading/body roles and JSON
 serialization retain their existing contracts. Missing upload callbacks retain
 local preview behavior; hosts own uploaded files and persistence. The section
@@ -104,3 +104,59 @@ rendering; native list continuation/exit and rule deletion/undo use actual keys.
 This representative fixture does not close all E-02/E-04 node/plugin, command,
 selection, history, merge-table and consumer-document combinations. Link/image
 trust boundaries remain separately open under E-06/E-07.
+
+## Link destination policy (E-06/E-07 partial)
+
+The dialog, saved/pasted link renderer and activation use one owned policy:
+HTTP/HTTPS, nonempty mailto/tel destinations and document/root-relative paths,
+queries and fragments are accepted. `www.` becomes HTTPS in the editor. Network
+paths (`//`), backslashes, control/space characters, malformed HTTP destinations
+and other schemes are rejected. LinkUrlModal hosts can further restrict schemes
+and relative paths; its callback still returns the trimmed host value.
+
+Saved and pasted rejected links render with `href="about:blank"`; clicking or
+middle-clicking them does not open a destination. Accepted links preserve the
+existing new-tab activation in both editable and read-only modes, including
+modifier and middle clicks, with `noopener,noreferrer`. A noncollapsed editor
+selection suppresses activation. Host-canceled clicks remain canceled.
+
+The internal owned link replacement preserves selected children, formatting,
+URL, title, target and rel. `onLexicalChange` continues to emit the saved `link`
+node type, and accepts existing saved documents through `editorKey` reload.
+Rejected original URLs remain in host JSON for fidelity; the host must apply its
+own destination policy when rendering that JSON elsewhere. This is a link policy,
+not arbitrary rich-content sanitization. Image sources, document styles, host
+upload validation and full rich-content trust acceptance remain open.
+
+The LinkDestinations story exposes saved/pasted destinations and host reload.
+Native browser gates exercise blocked saved activation, isolated ordinary/modifier/
+middle activation, rich clipboard paste and public JSON preservation in both themes.
+
+## Image source policy (E-06/E-07 partial)
+
+Saved image decoration and new upload results use the same owned source policy:
+HTTP/HTTPS addresses, relative paths/queries/fragments, nonempty blob URLs and
+encoded `data:image/<subtype>` payloads are accepted. Data payloads may include
+MIME parameters and base64 encoding; raw spaces/control characters must be encoded.
+Network paths (`//`), backslashes, whitespace/control characters, malformed HTTP
+addresses, empty data/blob payloads and other schemes/data MIME types are rejected.
+This policy validates address syntax and context, not decoded image bytes,
+reachability, asset authorization or redirects. Browser image decoding and the
+host's CSP still apply. SVG data remains an image element, never inline SVG/HTML.
+
+**Changed rendering:** rejected saved sources produce a translated visible
+"Image unavailable" placeholder without an `img` or resource request. Meaningful
+alt text remains its accessible name; decorative empty alt remains hidden from
+assistive technology. The original source, alt text, dimensions and asset metadata
+still round-trip in JSON. Hosts rendering saved JSON elsewhere must apply their
+own source policy. Rejected new host upload addresses leave the dialog, file and
+description available for retry and never insert a node. Host-owned URLs are
+still never revoked by the section.
+
+The ImageSources story demonstrates saved accepted/rejected sources, document
+reload, read-only rendering and a rejected host upload followed by retry. Unit
+tests cover the policy, node serialization and integrated retry. Browser gates
+require accepted PNGs to decode, rejected sources to create no resource request,
+unchanged saved metadata after reload, and successful retry with the original
+description. E-06/E-07 remain open for file/content validation, upload cancellation
+matrix, author styles and broader rich-content acceptance.

@@ -1766,3 +1766,84 @@ successful CI is recorded separately. Firefox remains mandatory in Linux CI.
 Evidence: `/tmp/sgui-rich-final-check-storybook.log`, `/tmp/sgui-rich-check22.log`,
 `/tmp/sgui-rich-final-browser.log`, `/tmp/sgui-rich-final-browser-results.json`
 and `/tmp/sgui-rich-consumers.log`.
+
+## Shared editor link destinations (E-06/E-07 partial)
+
+Continued the unfinished link-policy batch with one owned destination policy for
+LinkUrlModal, saved/pasted Lexical links and browser activation. The owned node
+replacement accepts existing saved `link` documents, preserves rich children and
+URL/title/target/rel metadata, and emits the existing public `link` JSON schema.
+Unsafe/malformed destinations render as `about:blank` and activation is canceled;
+accepted ordinary, modifier and middle activation retains the existing new-tab
+behavior while isolating the opener. Noncollapsed selection and host-canceled
+clicks suppress activation. Dialog host restrictions remain supported.
+
+Added the LinkDestinations story and native light/dark browser cases for saved
+rejected destinations, ordinary/modifier/middle opener isolation, host save/reload
+and native rich link paste. Chromium clipboard converts relative href attributes
+to absolute destinations, while WebKit preserves their relative spelling; the
+paste test verifies the exact resolved native href property across both. It does
+not alter clipboard contents or bypass browser diagnostics.
+
+The [link contract](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial)
+records accepted destinations and host responsibilities. Rejected original URLs
+remain in host JSON for fidelity; external host renderers must apply their own
+policy. Image sources, upload/file validation, document styles and broader
+rich-content trust acceptance remain open. E-06/E-07 remain unchecked; this batch
+does not change formal task closure.
+
+Local Node 24 validation: `pnpm check` passes 142 files/914 behavior tests,
+foundation/release guards, source/story typing, ESM/declarations and package imports.
+Fresh `pnpm build-storybook` passes with existing upstream warnings. Full
+Chromium/WebKit passes 90/90 in 74.9 seconds, with zero skipped,
+unexpected or flaky cases, including eight new link cases and 16 axe scans.
+Fresh serial packed React 18.3.1/19.2.3 editor SSR/hydration-entry builds pass.
+Firefox and exact-minimum Node 22.12 were not rerun in this batch; Firefox retains
+its documented local launch limitation and remains required in Linux CI.
+Vite/Next browser consumers and remote CI were not rerun. Evidence:
+`/tmp/sgui-links-final-check.log`, `/tmp/sgui-links-storybook.log`,
+`/tmp/sgui-links-final-browser.log`, `/tmp/sgui-links-final-browser-results.json`
+and `/tmp/sgui-links-consumers.log`.
+
+## Saved and uploaded image source policy (E-06/E-07 partial)
+
+Owner: Codex. Status: implemented and locally verified, pending review on
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1). This continuation
+also carries forward the completed, previously uncommitted shared link-policy
+batch above. Formal closure remains 94/320 required tasks; E-06/E-07 stay open.
+
+Image decoration and new upload results now share an owned source policy for
+HTTP/HTTPS, relative paths/queries/fragments, nonempty blob URLs and encoded
+image MIME data. Unsupported schemes, network paths, malformed HTTP destinations,
+empty blob/data payloads and non-image data are rejected. Saved rejected images
+render translated placeholders without resource requests, preserve meaningful
+alt names/decorative semantics, and retain original source/dimensions/asset JSON.
+Rejected new upload results leave the same file and description available for
+retry. Host URL ownership and local undo/document URL lifetimes remain unchanged.
+The [image source contract](react-aria-editor-section.md#image-source-policy-e-06e-07-partial)
+states the syntax/context boundary; image bytes, asset authorization, redirects,
+upload cancellation matrix and broader rich-content/style acceptance remain open.
+
+ImageSources demonstrates saved reload/read-only and host rejection/retry. Native
+light/dark browser cases require relative/web/data PNG and encoded SVG to decode,
+an SVG script to remain inert in its img context, rejected addresses to produce
+no request, saved metadata to remain unchanged and retry to retain description.
+The fixture includes Lexical's native paragraph fields for exact JSON comparison;
+resource counts target owned image decorations because WebKit inserts empty
+Lexical linebreak-helper images outside them. Diagnostics, no-request checks and
+complete JSON assertions remain mandatory.
+
+Local Node 24 `pnpm check` passes 143 files/960 behavior tests, foundation/release
+tests, source/story typing, build/declarations/public imports and owned guards.
+Final story typecheck and fresh `pnpm build-storybook` pass with existing upstream
+warnings. The full Chromium/WebKit suite passes 98/98 in 78.2 seconds, with zero
+skipped, unexpected or flaky cases, including eight image-source cases and
+16 axe scans. Fresh serial packed React 18.3.1/19.2.3 editor SSR/hydration-entry
+builds pass. Exact-minimum Node 22.12, local Firefox and packed Vite/Next browser
+consumers were not repeated for this slice; independent current-head CI remains
+required. Evidence: `/tmp/sgui-image-policy-check.log`,
+`/tmp/sgui-image-policy-final-typecheck.log`,
+`/tmp/sgui-image-policy-final-storybook.log`,
+`/tmp/sgui-image-policy-complete-browser.log`,
+`/tmp/sgui-image-policy-complete-browser-results.json` and
+`/tmp/sgui-image-policy-consumers.log`. Guidance links and whitespace checks pass.

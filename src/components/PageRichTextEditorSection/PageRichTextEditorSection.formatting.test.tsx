@@ -1,3 +1,4 @@
+import { serializeEditorDocument } from "./lexical/serializeEditorDocument";
 // @vitest-environment jsdom
 import { createRef, useEffect } from "react";
 import { afterAll, beforeAll, afterEach, describe, expect, it, vi } from "vitest";
@@ -61,20 +62,20 @@ function mount(upload?: (file: File) => Promise<{ assetId: string; assetVersionI
   return change;
 }
 function serializedChildren() {
-  return activeEditor!.getEditorState().toJSON().root.children[0] as unknown as { children: { type: string; url?: string; text?: string; children?: { text: string; format: number; style: string }[]; target?: string; rel?: string }[] };
+  return serializeEditorDocument(activeEditor!.getEditorState().toJSON()).root.children[0] as unknown as { children: { type: string; url?: string; text?: string; children?: { text: string; format: number; style: string }[]; target?: string; rel?: string }[] };
 }
 
 describe("owned formatting with the real Lexical host", () => {
   it("formats selected text, headings and font family through the real toolbar and serializes changes", async () => {
     const user=userEvent.setup(); const change=mount(); await selectText();
     await user.click(screen.getByRole("button",{name:"Bold"}));
-    await waitFor(()=>expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain('"format":1'));
+    await waitFor(()=>expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain('"format":1'));
     expect(screen.getByRole("button",{name:"Bold"}).getAttribute("aria-pressed")).toBe("true");
     await selectText(); await user.click(screen.getByRole("button",{name:/Font family/})); await user.keyboard("{ArrowDown}{Enter}");
-    await waitFor(()=>expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain('font-family: Georgia'));
+    await waitFor(()=>expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain('font-family: Georgia'));
     await selectText(); await user.click(screen.getByRole("button",{name:/Text style heading/})); await user.click(screen.getByRole("option",{name:"Heading 2"}));
-    await waitFor(()=>expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain('"tag":"h2"'));
-    expect($getText()).toBe("Guide"); expect(change).toHaveBeenCalledWith(activeEditor!.getEditorState().toJSON());
+    await waitFor(()=>expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).toContain('"tag":"h2"'));
+    expect($getText()).toBe("Guide"); expect(change).toHaveBeenCalledWith(serializeEditorDocument(activeEditor!.getEditorState().toJSON()));
   });
   it("preserves differently formatted runs when linking, changing the URL and unlinking", async () => {
     const user = userEvent.setup(); const change = vi.fn();
@@ -111,7 +112,7 @@ describe("owned formatting with the real Lexical host", () => {
     await user.keyboard("{Enter}");
     await waitFor(() => expect(serializedChildren().children).toEqual(runs));
     expect($getText()).toBe("Guide notes");
-    expect(change).toHaveBeenCalledWith(activeEditor!.getEditorState().toJSON());
+    expect(change).toHaveBeenCalledWith(serializeEditorDocument(activeEditor!.getEditorState().toJSON()));
   });
   it("keeps toolbar updates usable with a document-root caret", async () => {
     mount();
@@ -126,10 +127,10 @@ describe("owned formatting with the real Lexical host", () => {
     mount();
     await selectText();
     await act(async () => { expect(activeEditor!.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined)).toBe(true); });
-    await waitFor(() => expect(activeEditor!.getEditorState().toJSON().root.children[0].type).toBe("list"));
+    await waitFor(() => expect(serializeEditorDocument(activeEditor!.getEditorState().toJSON()).root.children[0].type).toBe("list"));
     expect(screen.getByRole("listitem").textContent).toBe("Guide");
     await act(async () => { expect(activeEditor!.dispatchCommand(REMOVE_LIST_COMMAND, undefined)).toBe(true); });
-    await waitFor(() => expect(activeEditor!.getEditorState().toJSON().root.children[0].type).toBe("paragraph"));
+    await waitFor(() => expect(serializeEditorDocument(activeEditor!.getEditorState().toJSON()).root.children[0].type).toBe("paragraph"));
     expect($getText()).toBe("Guide");
   });
   it("round-trips registered document nodes and host image metadata across document reload", async () => {
@@ -153,12 +154,12 @@ describe("owned formatting with the real Lexical host", () => {
         );
       }, { discrete: true });
     });
-    const saved = activeEditor!.getEditorState().toJSON();
+    const saved = serializeEditorDocument(activeEditor!.getEditorState().toJSON());
     await waitFor(() => expect(change).toHaveBeenCalledWith(saved));
     const firstEditor = activeEditor!;
     rendered.rerender(<Provider><PageRichTextEditorSection lexicalValue={saved} editorKey="nodes-reloaded" readOnly onLexicalChange={change} /></Provider>);
     await waitFor(() => expect(activeEditor).not.toBe(firstEditor));
-    expect(activeEditor!.getEditorState().toJSON()).toEqual(saved);
+    expect(serializeEditorDocument(activeEditor!.getEditorState().toJSON())).toEqual(saved);
     expect(screen.getByRole("heading", { name: "Heading", level: 2 })).toBeTruthy();
     expect(screen.getByRole("link", { name: "Guide" }).getAttribute("href")).toBe("/courses/guide");
     expect(screen.getByRole("table")).toBeTruthy();
@@ -224,7 +225,7 @@ describe("owned formatting with the real Lexical host", () => {
     await selectText(); screen.getByRole("button",{name:"Edit link"}).focus(); await user.keyboard("{Enter}");
     await user.clear(screen.getByRole("textbox",{name:"URL"})); await user.keyboard("{Enter}");
     await waitFor(()=>expect(serializedChildren().children.every(node=>node.type!=="link")).toBe(true));
-    expect($getText()).toBe("Guide"); expect(change).toHaveBeenCalledWith(activeEditor!.getEditorState().toJSON());
+    expect($getText()).toBe("Guide"); expect(change).toHaveBeenCalledWith(serializeEditorDocument(activeEditor!.getEditorState().toJSON()));
   });
 });
 function $getText() { return activeEditor!.getEditorState().read(()=>$getRoot().getTextContent()); }

@@ -311,3 +311,48 @@ in Linux CI despite its documented local launch limitation. Evidence:
 `/tmp/sgui-rich-final-check-storybook.log`, `/tmp/sgui-rich-check22.log`,
 `/tmp/sgui-rich-final-browser.log`, `/tmp/sgui-rich-final-browser-results.json`
 and `/tmp/sgui-rich-consumers.log`.
+
+## Shared editor link destinations (E-06/E-07 partial)
+
+`tests/browser/editor-links.spec.ts` exercises actual saved/pasted links in both
+themes. Rejected schemes and network paths render inert; ordinary and middle
+clicks open no destination. Accepted ordinary/modifier/middle activation opens
+an actual tab with a null opener in editable and read-only modes. Native clipboard
+copy/paste preserves bold/italic children, applies the same destination policy,
+and reloads through host callback JSON. Chromium and WebKit differ in whether
+copied relative href attributes become absolute; the exact resolved destination
+must match in both. Public JSON keeps the saved `link` schema and metadata.
+These cases complement the clipboard and saved-rich-document suites, without
+closing broader image/upload, rich-content, device or assistive-technology gates.
+
+## Saved and uploaded image addresses (E-06/E-07 partial)
+
+`tests/browser/editor-image-sources.spec.ts` uses ImageSources in both themes.
+Relative/web/data PNGs and encoded SVG must actually decode; script inside SVG
+must remain inert in an image context. Rejected saved sources render named
+placeholders without img requests, decorative fallback remains hidden, and the
+complete host JSON survives editable/read-only reload. A rejected host upload
+retains its file/description, and retry inserts a loaded image with asset metadata.
+The owned image-part selector distinguishes resource images from Lexical's empty
+WebKit linebreak helpers. No runtime diagnostic or request assertion is disabled.
+
+Final local Chromium/WebKit validation passes 98/98 in 78.2 seconds, including
+eight image-source cases and 16 axe scans, with zero skipped/unexpected/flaky tests.
+Fresh Storybook/typecheck, Node 24 full checks (143 files/960 behavior tests) and
+packed React 18/19 editor SSR/hydration-entry builds pass. Current-head Linux
+Firefox and the wider consumer/device/trust matrix remain independently required.
+See the [image contract](react-aria-editor-section.md#image-source-policy-e-06e-07-partial)
+and [execution record](react-aria-progress.md#saved-and-uploaded-image-source-policy-e-06e-07-partial).
+
+Local Node 24 validation: `pnpm check` passes 142 files/914 behavior tests,
+foundation/release guards, source/story typing, ESM/declarations and package imports.
+Fresh `pnpm build-storybook` passes with existing upstream warnings. Full
+Chromium/WebKit passes 90/90 in 74.9 seconds, with zero skipped,
+unexpected or flaky cases, including eight new link cases and 16 axe scans.
+Fresh serial packed React 18.3.1/19.2.3 editor SSR/hydration-entry builds pass.
+Firefox and exact-minimum Node 22.12 were not rerun in this batch; Firefox retains
+its documented local launch limitation and remains required in Linux CI.
+Vite/Next browser consumers and remote CI were not rerun. Evidence:
+`/tmp/sgui-links-final-check.log`, `/tmp/sgui-links-storybook.log`,
+`/tmp/sgui-links-final-browser.log`, `/tmp/sgui-links-final-browser-results.json`
+and `/tmp/sgui-links-consumers.log`.

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { AppModal } from "../AppModal";
 import { TextField } from "../../experimental/TextField/TextField";
 import { useTranslation } from "../../i18n";
+import { DEFAULT_LINK_PROTOCOLS, normalizeLinkUrl } from "./linkUrlPolicy";
 import styles from "./LinkUrlModal.module.css";
 
 export type LinkUrlModalProps = {
@@ -19,27 +20,8 @@ export type LinkUrlModalProps = {
   allowRelativeUrls?: boolean;
 };
 
-const defaultProtocols = ["http", "https", "mailto", "tel"] as const;
-
-function isAcceptedUrl(value: string, protocols: LinkUrlModalProps["allowedProtocols"], allowRelative: boolean) {
-  // Reject characters that browsers may strip or reinterpret before identifying a scheme.
-  if (/[\u0000-\u0020\u007f\\]/.test(value) || value.startsWith("//")) return false;
-  const scheme = /^([a-z][a-z\d+.-]*):/i.exec(value)?.[1]?.toLowerCase();
-  if (scheme && (!defaultProtocols.some(protocol => protocol === scheme) || !protocols?.some(protocol => protocol === scheme))) return false;
-  if (!scheme && !value.startsWith("www.") && !allowRelative) return false;
-  if (value.startsWith("www.") && !protocols?.includes("https")) return false;
-  try {
-    const parsed = new URL(value.startsWith("www.") ? `https://${value}` : value, "https://sgui.invalid/");
-    if (scheme === "http" || scheme === "https") return /^https?:\/\//i.test(value) && Boolean(parsed.hostname);
-    if (scheme === "mailto" || scheme === "tel") return parsed.pathname.length > 0;
-    return Boolean(parsed.hostname);
-  } catch {
-    return false;
-  }
-}
-
 export function LinkUrlModal({ open, initialDisplayText = "", initialUrl = "", onClose, onSubmit,
-  title, allowedProtocols = defaultProtocols, allowRelativeUrls = true }: LinkUrlModalProps) {
+  title, allowedProtocols = DEFAULT_LINK_PROTOCOLS, allowRelativeUrls = true }: LinkUrlModalProps) {
   const { t } = useTranslation();
   const [displayText, setDisplayText] = useState(initialDisplayText);
   const [url, setUrl] = useState(initialUrl);
@@ -59,7 +41,7 @@ export function LinkUrlModal({ open, initialDisplayText = "", initialUrl = "", o
   const apply = () => {
     if (submitted.current) return;
     const trimmed = url.trim();
-    if (trimmed && !isAcceptedUrl(trimmed, allowedProtocols, allowRelativeUrls)) {
+    if (trimmed && !normalizeLinkUrl(trimmed, allowedProtocols, allowRelativeUrls)) {
       setInvalid(true);
       urlInput.current?.focus();
       return;

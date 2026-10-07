@@ -377,3 +377,17 @@ interactions. Root-level caret selections after decorator deletion are valid;
 toolbar reads must not require a top-level parent. See the [saved rich-document
 contract](docs/developer/react-aria-editor-section.md#saved-rich-documents-e-02e-04-partial).
 E-02/E-04 remain open beyond representative JSON/native list/rule coverage.
+
+PageRichTextEditorSection shares the owned link destination policy with LinkUrlModal.
+Saved/pasted links preserve host JSON and rich children; rejected destinations
+render inert and accepted new-tab activation isolates the opener. See the
+[link destination contract](docs/developer/react-aria-editor-section.md#link-destination-policy-e-06e-07-partial).
+E-06/E-07 remain open for image/upload and broader rich-content trust acceptance.
+
+PageRichTextEditorSection applies an owned image source policy to saved decoration
+and new upload results. Rejected saved addresses render translated placeholders
+without image requests while retaining host JSON/alt/asset metadata; rejected new
+uploads remain retryable. See the [image source contract](docs/developer/react-aria-editor-section.md#image-source-policy-e-06e-07-partial).
+Image MIME syntax is not content or asset authorization validation. SVG data stays
+in an img context; never render it as inline markup. Host uploads and their URLs
+remain host-owned. E-06/E-07 broad acceptance remains open.
