@@ -1,6 +1,49 @@
 import { expect, test, type Locator, type Page } from '@playwright/test';
 
-async function keyboardReach(page: Page, target: Locator, key: string) {
+async function keyboardReach(page: Page, target: Locator, key: string, drilldown?: { scrollport: Locator; name: string }) {
+  if (drilldown) {
+    const samples: Array<Record<string, unknown>> = [];
+    const sample = async (presses: number) => {
+      const focused = await page.evaluate(() => {
+        const element = document.activeElement;
+        return {
+          tag: element?.tagName, id: element?.id, role: element?.getAttribute('role'),
+          label: element?.getAttribute('aria-label'), text: element?.textContent?.trim(),
+          part: element?.getAttribute('data-sgui-part'),
+          tabIndex: element instanceof HTMLElement ? element.tabIndex : null,
+          documentFocused: document.hasFocus(),
+          scrollTop: element instanceof HTMLElement ? element.scrollTop : null,
+          clientHeight: element instanceof HTMLElement ? element.clientHeight : null,
+          scrollHeight: element instanceof HTMLElement ? element.scrollHeight : null,
+        };
+      });
+      const state = {
+        presses, key, ...focused,
+        targetFocused: await target.evaluate(element => element === document.activeElement),
+        scrollportFocused: await drilldown.scrollport.evaluate(element => element === document.activeElement),
+      };
+      samples.push(state);
+      return state;
+    };
+    try {
+      await sample(0);
+      // An overflowing Firefox scrollport can be a native sequential stop
+      // between Back and People. Permit only that stop, never another control
+      // or a wrap through the page, in either traversal direction.
+      for (let presses = 1; presses <= 2; presses++) {
+        await page.keyboard.press(key);
+        const state = await sample(presses);
+        if (state.targetFocused) break;
+        expect(state.scrollportFocused, `${drilldown.name}: unexpected native focus stop`).toBe(true);
+      }
+      await expect(target).toBeFocused();
+    } finally {
+      await test.info().attach(drilldown.name, {
+        body: JSON.stringify(samples, null, 2), contentType: 'application/json',
+      });
+    }
+    return;
+  }
   for (let count = 0; count < 24; count++) {
     if (await target.evaluate(element => element === document.activeElement)) return;
     await page.keyboard.press(key);
@@ -136,14 +179,15 @@ for (const theme of ['light', 'dark']) {
       // The catalog puts focus on its Back control in the new menu.
       await visibleFocus(settings);
       const people = navigation.getByRole('link', { name: 'People', exact: true });
-      await page.keyboard.press(tab);
+      const scrollport = navigation.locator('[data-sgui-part="side-navigation-scroll"]');
+      await keyboardReach(page, people, tab, { scrollport, name: 'native Back to People focus order' });
       await visibleFocus(people);
       await page.keyboard.press('Enter');
       await expect(people).toHaveAttribute('aria-current', 'page');
       await expect(page.getByLabel('Host current route')).toHaveText('/settings/people');
       await expect(page.getByLabel('Host route requests')).toHaveText('["/courses/active","/settings","/settings/people"]');
       await expect(page.getByLabel('Host item selections')).toHaveText('["active","people"]');
-      await page.keyboard.press(backTab);
+      await keyboardReach(page, settings, backTab, { scrollport, name: 'native People to Back focus order' });
       await visibleFocus(settings);
       await page.keyboard.press('Enter');
       await expect(people).toHaveCount(0);
