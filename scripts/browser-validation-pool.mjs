@@ -1,11 +1,23 @@
-import { spawn, execFileSync } from 'node:child_process';
+import { spawn, execFile, execFileSync } from 'node:child_process';
 import { randomUUID, createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile, readdir, lstat, realpath, unlink, rmdir, chmod } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { createServer } from 'node:net';
 import { resolve, join, relative, isAbsolute } from 'node:path';
-import { tmpdir, platform, release } from 'node:os';
+import { tmpdir, platform, release, cpus, loadavg, freemem, totalmem } from 'node:os';
 import { fileURLToPath } from 'node:url';
+import { promisify } from 'node:util';
+const execAsync = promisify(execFile);
+const ownedGroups = new Set();
+export const LIGHT_ROOT = '/tmp/sgui-light-validation-slots';
+export const INSTALL_ROOT = '/tmp/sgui-install-slots';
+// The loopback port namespace supplies the hard bound, not an arbitrary hardware target.
+export const MAX_SESSIONS = 65535 - 1024 + 1;
+export function validateLimit(max) {
+  if (!Number.isInteger(max) || max < 1 || max > MAX_SESSIONS) throw new Error('Session limit must fit the valid loopback port namespace');
+}
+export const acquireLightSlot = owner => acquireSlot(LIGHT_ROOT, owner, 4);
+export const acquireInstallSlot = owner => acquireSlot(INSTALL_ROOT, owner, 2);
 
 export const LEGACY_LOCK = '/tmp/sgui-parallel-batch-01-validation.lock';
 export const POOL_ROOT = join(tmpdir(), 'sgui-browser-validation-pool-v1');
@@ -19,6 +31,7 @@ export async function acquireLease(path, owner) {
   return { path, owner };
 }
 export async function releaseLease(lease) {
+  if (!(await lstat(lease.path)).isDirectory() || !(await lstat(join(lease.path, 'owner'))).isFile()) throw new Error(`Non-regular lease; refusing cleanup: ${lease.path}`);
   if ((await readFile(join(lease.path, 'owner'), 'utf8')) !== lease.owner) {
     throw new Error(`Owner mismatch; refusing cleanup: ${lease.path}`);
   }
@@ -26,8 +39,9 @@ export async function releaseLease(lease) {
   await rmdir(lease.path);
 }
 export async function acquireSlot(root, owner, max = 2) {
-  if (!Number.isInteger(max) || max < 1 || max > 2) throw new Error('Session limit must be 1 or 2');
+  validateLimit(max);
   await mkdir(root, { recursive: true });
+  if (!(await lstat(root)).isDirectory()) throw new Error('Lease root must be a regular directory');
   for (let slot = 0; slot < max; slot++) {
     try { return { ...await acquireLease(join(root, `slot-${slot}`), owner), slot }; }
     catch (error) { if (error.code !== 'EEXIST') throw error; }
@@ -78,17 +92,34 @@ export async function digestTree(root, freeze = false) {
   if (freeze) await chmod(root, 0o555);
   return hash.digest('hex');
 }
-const git = (cwd, ...args) => execFileSync('git', args, { cwd, encoding: 'utf8' }).trim();
+const git = (cwd, ...args) => execFileSync('git', args, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 const version = (cwd, command, args) => execFileSync(command, args, { cwd, encoding: 'utf8' }).trim();
 
 export function validateSelection(args) {
   if (!Array.isArray(args) || args.some(arg => typeof arg !== 'string')) throw new Error('Each job needs Playwright args (use [] for full matrix)');
-  const overrides = /^--(?:config|output|reporter|workers|web-server|retries|list|ui|debug|pass-with-no-tests|ignore-snapshots|update-snapshots)(?:=|$)/;
+  const overrides = /^--(?:config|output|reporter|workers|web-server|retries|list|ui|debug|pass-with-no-tests|ignore-snapshots|update-snapshots|repeat-each|shard|no-deps|max-failures|last-failed|only-changed|test-list|timeout|fully-parallel|forbid-only)(?:=|$)/;
   if (args.some(arg => overrides.test(arg) || /^-[cj]/.test(arg))) throw new Error('Plan cannot override harness configuration or weaken tests');
 }
 
+// In-supervisor stage admission; the outer heavyweight lease excludes all foreign builds.
+export function createAdmission(limit) {
+  validateLimit(limit);
+  let active = 0; const waiting = [];
+  return async function admit() {
+    if (active >= limit) await new Promise(done => waiting.push(done));
+    else active++;
+    let released = false;
+    return () => {
+      if (released) throw new Error('Admission already released');
+      released = true;
+      const next = waiting.shift();
+      if (next) next(); else active--;
+    };
+  };
+}
+
 export function createStage(size) {
-  if (!Number.isInteger(size) || size < 1 || size > 2) throw new Error('Invalid staging size');
+  validateLimit(size);
   const arrivals = new Set();
   let done;
   const ready = new Promise(resolveReady => { done = resolveReady; });
@@ -98,10 +129,22 @@ export function createStage(size) {
 // Each command has an owned process group; all termination is scoped to that group.
 export async function runOwnedCommand({ cwd, env = process.env, executable, args, log, signal, terminateDelay = 3000 }) {
   if (signal?.aborted) throw new Error('Pool interrupted');
+  const started = performance.now();
+  const samples = [];
+  let sampling = Promise.resolve();
+  let samplingActive = false;
   const child = spawn(executable, args, { cwd, env, detached: true, stdio: ['ignore', 'pipe', 'pipe'] });
+  ownedGroups.add(child.pid);
   const kill = kind => {
     if (child.pid) { try { process.kill(-child.pid, kind); } catch (error) { if (error.code !== 'ESRCH') throw error; } }
   };
+  const sample = () => {
+    if (samplingActive) return;
+    samplingActive = true;
+    sampling = sampleResources(child.pid).then(value => samples.push(value)).finally(() => { samplingActive = false; });
+  };
+  sample();
+  const sampler = setInterval(sample, 1000); sampler.unref();
   let timer;
   const stop = () => {
     kill('SIGTERM');
@@ -120,18 +163,297 @@ export async function runOwnedCommand({ cwd, env = process.env, executable, args
       child.once('close', (code, childSignal) => done({ code, signal: childSignal }));
     });
   } finally {
+    clearInterval(sampler);
     clearTimeout(timer); signal?.removeEventListener('abort', stop);
     kill('SIGKILL');
-    await writeFile(log, text);
+    try { await sampling; sample(); await sampling; } finally { ownedGroups.delete(child.pid); }
+    await Promise.all([writeFile(log, text), writeFile(`${log}.resources.json`, JSON.stringify({ durationMs: performance.now() - started, processGroup: child.pid, samples }, null, 2))]);
   }
   if (result.code !== 0 || signal?.aborted) throw new Error(`${executable} ${args.join(' ')} failed (${result.code}/${result.signal}); see ${log}`);
 }
 
-export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-priority.json', queueOwner, max = 2, firstPort = 6273, output = 'artifacts/browser-pool' } = {}) {
-  if (!Array.isArray(plan) || plan.length === 0) throw new Error('Plan must be a nonempty JSON array');
-  if (!Number.isInteger(max) || max < 1 || max > 2) throw new Error('Session limit must be 1 or 2');
-  if (queueFile !== '/tmp/sgui-browser-validation-priority.json') throw new Error('Use the existing legacy priority queue; substitute queues are forbidden');
+// Resource samples are evidence, not an admission policy: the coordinator chooses the cap.
+export async function sampleResources(processGroup) {
+  const cpu = cpus();
+  const result = { at: new Date().toISOString(), logicalCPUs: cpu.length, load: loadavg(),
+    freeMemoryBytes: freemem(), totalMemoryBytes: totalmem(), supervisorRSSBytes: process.memoryUsage().rss,
+    cpuTimes: cpu.reduce((sum, core) => {
+      for (const [key, value] of Object.entries(core.times)) sum[key] = (sum[key] ?? 0) + value;
+      return sum;
+    }, {}) };
+  const capture = async (key, executable, args) => {
+    try { result[key] = (await execAsync(executable, args, { timeout: 2000, maxBuffer: 4 * 1024 * 1024 })).stdout.trim(); }
+    catch (error) { result[key] = { unavailable: error.message }; }
+  };
+  await capture('processes', 'ps', ['-axo', 'pid=,pgid=,rss=,%cpu=']);
+  if (typeof result.processes === 'string') {
+    const rows = result.processes.split('\n').map(line => line.trim().split(/\s+/).map(Number));
+    const owned = rows.filter(row => processGroup === undefined ? ownedGroups.has(row[1]) : row[1] === processGroup);
+    result.ownedProcesses = owned.map(([pid, pgid, rssKiB, cpuPercent]) => ({ pid, pgid, rssKiB, cpuPercent }));
+    result.ownedRSSBytes = owned.reduce((sum, row) => sum + row[2] * 1024, 0);
+    result.systemRSSBytes = rows.reduce((sum, row) => sum + row[2] * 1024, 0);
+    delete result.processes;
+  }
+  if (platform() === 'darwin') {
+    await Promise.all([capture('memoryPressure', 'memory_pressure', ['-Q']), capture('swap', 'sysctl', ['vm.swapusage']), capture('vmStatistics', 'vm_stat', [])]);
+  } else if (platform() === 'linux') {
+    for (const [key, path] of [['memoryPressure', '/proc/pressure/memory'], ['swap', '/proc/meminfo']]) {
+      try { result[key] = await readFile(path, 'utf8'); } catch (error) { result[key] = { unavailable: error.message }; }
+    }
+  } else { result.memoryPressure = result.swap = { unavailable: 'Unsupported platform' }; }
+  if (typeof result.swap === 'string' && platform() === 'darwin') {
+    const used = result.swap.match(/used\s*=\s*([\d.]+)([MG])/);
+    if (used) result.swapUsedBytes = Number(used[1]) * (used[2] === 'G' ? 1073741824 : 1048576);
+  }
+  if (typeof result.vmStatistics === 'string') {
+    result.swapCounters = Object.fromEntries(['Swapins', 'Swapouts'].map(key => [key, Number(result.vmStatistics.match(new RegExp(`${key}:\\s*(\\d+)`))?.[1] ?? NaN)]));
+  }
+  return result;
+}
+export function validateBudget(budget) {
+  exactKeys(budget, ['minFreeMemoryBytes', 'maxLoad1', 'maxSystemRSSBytes']);
+  if (Object.values(budget).some(value => !Number.isFinite(value) || value <= 0)) throw new Error('Resource budgets must be positive finite numbers');
+}
+export function assertBudget(sample, budget) {
+  validateBudget(budget);
+  if (budget.minFreeMemoryBytes && sample.freeMemoryBytes < budget.minFreeMemoryBytes) throw new Error('Resource budget: free memory below floor');
+  if (budget.maxLoad1 && sample.load[0] > budget.maxLoad1) throw new Error('Resource budget: load above ceiling');
+  if (budget.maxSystemRSSBytes && (!Number.isFinite(sample.systemRSSBytes) || sample.systemRSSBytes > budget.maxSystemRSSBytes)) throw new Error('Resource budget: system RSS above ceiling or unavailable');
+}
+
+export async function acquirePortLease(root, port, owner) {
+  await mkdir(root, { recursive: true });
+  if (!(await lstat(root)).isDirectory()) throw new Error('Lease root must be a regular directory');
+  await mkdir(join(root, 'ports'), { recursive: true });
+  if (!(await lstat(join(root, 'ports'))).isDirectory()) throw new Error('Port lease root must be a regular directory');
+  const lease = await acquireLease(join(root, 'ports', String(port)), owner);
+  try { await assertPortFree(port); return lease; }
+  catch (error) { await releaseLease(lease); throw error; }
+}
+export function assertSource(worktree, head) {
+  if (!/^[a-f0-9]{40}$/.test(head ?? '') || git(worktree, 'rev-parse', 'HEAD') !== head) throw new Error('Head mismatch');
+  if (git(worktree, 'status', '--porcelain', '--untracked-files=normal')) throw new Error('Source changed or dirty; commit changes before validation');
+}
+export async function sourceDigest(worktree) {
+  const hash = createHash('sha256');
+  const files = execFileSync('git', ['ls-files', '-z'], { cwd: worktree, encoding: 'utf8' }).split('\0').filter(Boolean);
+  for (const file of files) {
+    const path = join(worktree, file);
+    const stat = await lstat(path);
+    if (!stat.isFile()) throw new Error(`Non-regular source: ${file}`);
+    hash.update(file); hash.update('\0'); hash.update(await readFile(path));
+  }
+  return hash.digest('hex');
+}
+function exactKeys(value, allowed) {
+  if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !allowed.includes(key))) throw new Error('Ambiguous snapshot plan or override fields');
+}
+export async function prepareSnapshot(plan, output) {
+  exactKeys(plan, ['mode', 'worktree', 'head', 'shards']);
+  if (plan.mode !== 'snapshot') throw new Error('Expected snapshot mode');
+  const worktree = await realpath(plan.worktree);
+  if (git(worktree, 'rev-parse', '--show-toplevel') !== worktree) throw new Error('Use an exact worktree root');
+  assertSource(worktree, plan.head);
+  const config = await readFile(join(worktree, 'playwright.config.ts'), 'utf8');
+  if (!/workers:\s*1\s*,/.test(config) || !/retries:\s*0\s*,/.test(config) || !/reuseExistingServer:\s*false/.test(config) ||
+      !config.includes('SGUI_BROWSER_PORT') || !config.includes('SGUI_BROWSER_RESULTS_FILE')) throw new Error('Snapshot requires reviewed one-worker zero-retry isolated harness');
+  if (!Array.isArray(plan.shards) || !plan.shards.length) throw new Error('Snapshot needs nonempty focused shards');
+  const seen = new Set(); const ids = new Set();
+  const shards = [];
+  for (const shard of plan.shards) {
+    exactKeys(shard, ['id', 'specs', 'project']);
+    if (!/^[a-z0-9][a-z0-9-]{0,63}$/.test(shard.id ?? '') || ids.has(shard.id)) throw new Error('Shard IDs must be unique');
+    ids.add(shard.id);
+    const projects = Array.isArray(shard.project) ? shard.project : [shard.project];
+    if (!projects.length || new Set(projects).size !== projects.length || projects.some(project => !['chromium', 'firefox', 'webkit'].includes(project))) throw new Error('Each shard needs explicit unique engines');
+    if (!Array.isArray(shard.specs) || !shard.specs.length) throw new Error('Each shard needs exact spec files');
+    for (const spec of shard.specs) {
+      if (typeof spec !== 'string' || !/^tests\/browser\/[a-zA-Z0-9_-]+\.spec\.ts$/.test(spec)) throw new Error('Use exact top-level browser spec paths; patterns/flags are forbidden');
+      if (seen.has(spec)) throw new Error(`Overlapping spec assignment: ${spec}`);
+      seen.add(spec);
+      const path = ownedPath(worktree, spec);
+      if (await realpath(path) !== path || !(await lstat(path)).isFile()) throw new Error('Spec must be a regular tracked source file');
+      git(worktree, 'ls-files', '--error-unmatch', spec);
+    }
+    // Playwright treats positional selectors as regexes. Anchor and escape the exact path.
+    const args = [...shard.specs.map(spec => `(?:^|/)${spec.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`), ...projects.map(project => `--project=${project}`)];
+    shards.push({ ...shard, args });
+  }
+  const parent = ownedPath(worktree, output);
+  let cursor = parent;
+  while (!existsSync(cursor)) cursor = resolve(cursor, '..');
+  if (await realpath(cursor) !== cursor) throw new Error('Output ancestors must not be symlinks');
+  try { git(worktree, 'check-ignore', parent); } catch { throw new Error('Output must be gitignored inside its worktree'); }
+  return { worktree, head: plan.head, parent, shards, sourceDigest: await sourceDigest(worktree) };
+}
+
+// Third argument is a fixture-only dependency seam; the CLI never exposes resource substitutions.
+export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-validation-priority.json', queueOwner, max = 2, firstPort = 6273, output = 'artifacts/browser-pool', budget = {} } = {}, fixture = {}) {
+  validateLimit(max);
+  validateBudget(budget);
+  if (!fixture.queueFile && queueFile !== '/tmp/sgui-browser-validation-priority.json') throw new Error('Use the existing legacy priority queue; substitute queues are forbidden');
   if (queueOwner && !/^[a-f0-9-]{36}$/.test(queueOwner)) throw new Error('Queue owner must be an exact chat ID');
+  if (!Number.isInteger(firstPort) || firstPort < 1024 || firstPort + max - 1 > 65535) throw new Error('Invalid pool port range');
+  const prepared = await prepareSnapshot(plan, output);
+  const { worktree, head, parent, shards } = prepared;
+  queueFile = fixture.queueFile ?? queueFile;
+  const poolRoot = fixture.poolRoot ?? POOL_ROOT;
+  const owner = `browser-snapshot:${process.pid}:${randomUUID()}`;
+  await assertQueueDrained(queueFile, queueOwner);
+  const bridge = await acquireLease(fixture.bridgePath ?? LEGACY_LOCK, owner);
+  const controller = new AbortController();
+  const onSignal = () => controller.abort();
+  process.on('SIGINT', onSignal); process.on('SIGTERM', onSignal);
+  let run, evidence, monitor, monitoring = Promise.resolve(), monitoringActive = false;
+  const checkSource = async () => {
+    assertSource(worktree, head);
+    if (await sourceDigest(worktree) !== prepared.sourceDigest) throw new Error('Source bytes changed during snapshot validation');
+  };
+  const command = fixture.command ?? runOwnedCommand;
+  const execute = async (args, log, env = process.env) => {
+    const start = performance.now();
+    if (controller.signal.aborted) throw new Error('Snapshot interrupted before command admission');
+    try { await command({ cwd: worktree, env, executable: 'pnpm', args, log, signal: controller.signal }); }
+    finally { evidence.commands.push({ args: ['pnpm', ...args], durationMs: performance.now() - start, log }); }
+  };
+  let failed = false;
+  try {
+    await assertQueueDrained(queueFile, queueOwner);
+    await mkdir(parent, { recursive: true });
+    run = join(parent, randomUUID()); await mkdir(run);
+    await writeFile(join(run, 'owner'), owner, { flag: 'wx' }); // Retained evidence/output ownership.
+    const build = join(run, 'storybook');
+    evidence = { mode: 'snapshot', owner, queueOwner, worktree, head, sourceTree: git(worktree, 'rev-parse', 'HEAD^{tree}'),
+      sourceDigest: prepared.sourceDigest, max, firstPort, budget, build, startedAt: new Date().toISOString(), node: process.version,
+      nodeExecutable: process.execPath, platform: platform(), osRelease: release(), commands: [], sessions: [], status: 'running',
+      packageLockDigest: createHash('sha256').update(await readFile(join(worktree, 'pnpm-lock.yaml'))).digest('hex'),
+      harnessDigest: createHash('sha256').update(await readFile(fileURLToPath(import.meta.url))).digest('hex'),
+      resourceSamples: [], resourcesBefore: await sampleResources(), configuredProjects: ['chromium', 'firefox', 'webkit'] };
+    await writeFile(join(run, 'evidence.json'), JSON.stringify(evidence, null, 2));
+    evidence.pnpm = fixture.versions?.pnpm ?? version(worktree, 'pnpm', ['--version']);
+    evidence.playwright = fixture.versions?.playwright ?? version(worktree, 'pnpm', ['exec', 'playwright', '--version']);
+    monitor = setInterval(() => {
+      if (monitoringActive) return;
+      monitoringActive = true;
+      monitoring = (async () => {
+        await assertQueueDrained(queueFile, queueOwner);
+        await checkSource();
+        if (evidence.buildDigest && await digestTree(evidence.build) !== evidence.buildDigest) {
+          throw new Error('Static build changed during snapshot validation');
+        }
+        const sample = await sampleResources();
+        evidence.resourceSamples.push(sample);
+        assertBudget(sample, budget);
+      })().catch(error => {
+        if (error.message.startsWith('Resource budget:')) evidence.resourceError ??= error.message;
+        else evidence.integrityError ??= error.message;
+        controller.abort();
+      }).finally(() => { monitoringActive = false; });
+    }, 1000); monitor.unref();
+    await checkSource();
+    assertBudget(evidence.resourcesBefore, budget);
+    const heavy = await acquireLease(fixture.heavyPath ?? HEAVY_LOCK, owner);
+    try { await execute(['exec', 'storybook', 'build', '--output-dir', build], join(run, 'build.log')); }
+    finally { await releaseLease(heavy); }
+    evidence.buildDigest = await digestTree(build, true);
+    await checkSource();
+    const light = await acquireSlot(fixture.lightRoot ?? LIGHT_ROOT, owner, 4);
+    try { await execute(['exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], join(run, 'types.log')); }
+    finally { await releaseLease(light); }
+    await checkSource();
+    for (let offset = 0; offset < shards.length && !controller.signal.aborted; offset += max) {
+      await assertQueueDrained(queueFile, queueOwner); await checkSource();
+      assertBudget(await sampleResources(), budget);
+      if (await digestTree(build) !== evidence.buildDigest) throw new Error('Static build changed before wave');
+      // Admit all wave resources before launching any command; occupied foreign resources fail closed.
+      const leases = [];
+      try {
+        for (const shard of shards.slice(offset, offset + max)) {
+          const token = `${owner}:${shard.id}`;
+          const slot = await acquireSlot(poolRoot, token, max);
+          const lease = { slot }; leases.push(lease);
+          lease.port = firstPort + slot.slot;
+          lease.portLease = await acquirePortLease(poolRoot, lease.port, token);
+          lease.session = join(run, shard.id); await mkdir(lease.session);
+          await writeFile(join(lease.session, 'owner'), token, { flag: 'wx' });
+          lease.shard = shard;
+        }
+        const outcomes = await Promise.allSettled(leases.map(async lease => {
+          const { shard, port, slot, session } = lease;
+          const env = { ...process.env, SGUI_BROWSER_PORT: String(port), SGUI_BROWSER_BASE_URL: `http://127.0.0.1:${port}`,
+            SGUI_BROWSER_STORYBOOK_DIR: build, SGUI_BROWSER_OUTPUT_DIR: join(session, 'traces'), SGUI_BROWSER_REPORT_DIR: join(session, 'report'),
+            SGUI_BROWSER_RESULTS_FILE: join(session, 'results.json'), SGUI_BROWSER_IMMUTABLE: '1', CI: '1' };
+          const item = { id: shard.id, specs: shard.specs, project: shard.project, slot: slot.slot, port, session, buildDigest: evidence.buildDigest,
+            startedAt: new Date().toISOString(), status: 'running' };
+          evidence.sessions.push(item);
+          try {
+            await execute(['exec', 'playwright', 'test', ...shard.args], join(session, 'browser.log'), env);
+            const results = JSON.parse(await readFile(env.SGUI_BROWSER_RESULTS_FILE, 'utf8'));
+            if (!(results.stats?.expected > 0) || results.stats.unexpected !== 0 || results.stats.flaky !== 0 || results.stats.skipped !== 0) throw new Error('Missing, empty, skipped, flaky or failing shard results');
+            item.count = results.stats.expected; item.status = 'passed';
+          } catch (error) { item.status = 'failed'; item.error = error.message; throw error; }
+          finally { item.finishedAt = new Date().toISOString(); await writeFile(join(session, 'evidence.json'), JSON.stringify(item, null, 2)); }
+        }));
+        if (outcomes.some(result => result.status === 'rejected')) failed = true;
+      } finally {
+        const cleanup = await Promise.allSettled(leases.map(async lease => {
+          try { if (lease.portLease) await releaseLease(lease.portLease); } finally { await releaseLease(lease.slot); }
+        }));
+        if (cleanup.some(result => result.status === 'rejected')) throw new Error('Owner-only lease cleanup failed; foreign leases retained');
+      }
+      await checkSource();
+    }
+    if (failed || controller.signal.aborted) throw new Error('Snapshot validation incomplete; inspect session evidence');
+    evidence.status = 'passed';
+  } catch (error) {
+    if (evidence) { evidence.status = 'failed'; evidence.error = error.message; }
+    throw error;
+  } finally {
+    clearInterval(monitor); await monitoring;
+    try {
+      if (evidence) {
+        try {
+          evidence.finalHead = git(worktree, 'rev-parse', 'HEAD');
+          evidence.finalStatus = git(worktree, 'status', '--porcelain', '--untracked-files=normal');
+          evidence.finalSourceDigest = await sourceDigest(worktree);
+          await checkSource();
+          if (evidence.buildDigest) {
+            evidence.finalBuildDigest = await digestTree(evidence.build);
+            if (evidence.finalBuildDigest !== evidence.buildDigest) throw new Error('Static build changed during validation');
+          }
+          if (evidence.integrityError) throw new Error(evidence.integrityError);
+          if (evidence.resourceError) throw new Error(evidence.resourceError);
+        } catch (error) { evidence.status = 'failed'; evidence.integrityError = error.message; }
+        evidence.resourcesAfter = await sampleResources();
+        evidence.finishedAt = new Date().toISOString();
+        evidence.durationMs = Date.parse(evidence.finishedAt) - Date.parse(evidence.startedAt);
+        const browserTimes = evidence.sessions.flatMap(item => item.finishedAt ? [Date.parse(item.startedAt), Date.parse(item.finishedAt)] : []);
+        evidence.browserWindowMs = browserTimes.length ? Math.max(...browserTimes) - Math.min(...browserTimes) : 0;
+        evidence.passedCases = evidence.sessions.reduce((sum, item) => sum + (item.status === 'passed' ? item.count : 0), 0);
+        evidence.passedCasesPerBrowserSecond = evidence.browserWindowMs ? evidence.passedCases * 1000 / evidence.browserWindowMs : 0;
+        await writeFile(join(run, 'evidence.json'), JSON.stringify(evidence, null, 2));
+        console.log(`${evidence.status}: ${join(run, 'evidence.json')}`);
+      }
+    } finally {
+      process.off('SIGINT', onSignal); process.off('SIGTERM', onSignal);
+      await releaseLease(bridge);
+    }
+    if (evidence?.status === 'failed') throw new Error(`Snapshot failed; see ${join(run, 'evidence.json')}`);
+  }
+  return run;
+}
+
+export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-priority.json', queueOwner, max = 2, firstPort = 6273, output = 'artifacts/browser-pool', budget = {}, buildMax = 1 } = {}, fixture = {}) {
+  validateLimit(buildMax);
+  if (plan?.mode === 'snapshot' && buildMax !== 1) throw new Error('Snapshot builds exactly once; build-max is only for distinct worktrees');
+  if (plan?.mode === 'snapshot') return runFrozenSnapshot(plan, { queueFile, queueOwner, max, firstPort, output, budget }, fixture);
+  if (Object.keys(budget).length) throw new Error('Resource budget options require snapshot mode');
+  if (!Array.isArray(plan) || plan.length === 0) throw new Error('Plan must be a nonempty JSON array');
+  validateLimit(max);
+  if (!fixture.queueFile && queueFile !== '/tmp/sgui-browser-validation-priority.json') throw new Error('Use the existing legacy priority queue; substitute queues are forbidden');
+  if (queueOwner && !/^[a-f0-9-]{36}$/.test(queueOwner)) throw new Error('Queue owner must be an exact chat ID');
+  queueFile = fixture.queueFile ?? queueFile;
+  const poolRoot = fixture.poolRoot ?? POOL_ROOT;
   const jobs = [];
   for (const entry of plan) {
     const worktree = await realpath(entry.worktree);
@@ -142,11 +464,11 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
     const config = await readFile(join(worktree, 'playwright.config.ts'), 'utf8');
     if (!config.includes('SGUI_BROWSER_PORT') || !config.includes('SGUI_BROWSER_RESULTS_FILE')) throw new Error('Each worktree must contain the reviewed configurable browser harness');
     const parent = ownedPath(worktree, output);
-    try { git(worktree, 'check-ignore', parent); } catch { throw new Error('Output must be gitignored inside its worktree'); }
     // Reject symlinked existing output ancestors, including artifacts from another checkout.
     let cursor = parent;
     while (!existsSync(cursor)) cursor = resolve(cursor, '..');
     if (await realpath(cursor) !== cursor) throw new Error('Output ancestors must not be symlinks');
+    try { git(worktree, 'check-ignore', parent); } catch { throw new Error('Output must be gitignored inside its worktree'); }
     jobs.push({ ...entry, worktree, parent });
   }
   if (new Set(jobs.map(job => job.worktree)).size !== jobs.length) throw new Error('Only one job per worktree per pool run');
@@ -154,25 +476,29 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
   if (!Number.isInteger(firstPort) || firstPort < 1024 || firstPort + max - 1 > 65535) throw new Error('Invalid pool port range');
   const owner = `browser-pool:${process.pid}:${randomUUID()}`;
   // Compatibility bridge: excludes all legacy heavy/browser workers throughout this opt-in run.
-  const bridge = await acquireLease(LEGACY_LOCK, owner);
+  const bridge = await acquireLease(fixture.bridgePath ?? LEGACY_LOCK, owner);
   const controller = new AbortController();
   let aborted = false;
   let failed = false;
   const onSignal = () => { aborted = true; controller.abort(); };
   process.on('SIGINT', onSignal); process.on('SIGTERM', onSignal);
-  const command = (cwd, env, executable, args, log) => runOwnedCommand({ cwd, env, executable, args, log, signal: controller.signal });
-  // Each wave stages its builds/types first, then admits at most two browsers together.
-  let buildTail = Promise.resolve();
+  const command = (cwd, env, executable, args, log) => (fixture.command ?? runOwnedCommand)({ cwd, env, executable, args, log, signal: controller.signal });
+  // Defaults remain serialized builds; explicit buildMax expands only distinct source jobs.
+  const admitBuild = createAdmission(buildMax);
+  const admitLight = createAdmission(4);
   async function runJob(job, stage) {
     const token = randomUUID();
-    const slot = await acquireSlot(POOL_ROOT, `${owner}:${token}`, max);
+    const slot = await acquireSlot(poolRoot, `${owner}:${token}`, max);
     let evidence;
     let run;
+    let portLease;
     try {
       const port = firstPort + slot.slot;
+      portLease = await acquirePortLease(poolRoot, port, slot.owner);
       await mkdir(job.parent, { recursive: true });
       run = join(job.parent, token);
       await mkdir(run); // Fresh output, never reuse artifacts or another worktree's server.
+      await writeFile(join(run, 'owner'), slot.owner, { flag: 'wx' });
       const build = join(run, 'storybook');
       const env = { ...process.env, SGUI_BROWSER_PORT: String(port), SGUI_BROWSER_BASE_URL: `http://127.0.0.1:${port}`,
         SGUI_BROWSER_STORYBOOK_DIR: build, SGUI_BROWSER_OUTPUT_DIR: join(run, 'traces'),
@@ -180,27 +506,27 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
       evidence = { owner, queueOwner, token, worktree: job.worktree, head: job.head, sourceTree: git(job.worktree, 'rev-parse', 'HEAD^{tree}'),
         startedAt: new Date().toISOString(), node: process.version, nodeExecutable: process.execPath, platform: platform(), osRelease: release(),
         slot: slot.slot, port, baseURL: env.SGUI_BROWSER_BASE_URL, build, outputs: { run, report: env.SGUI_BROWSER_REPORT_DIR, results: env.SGUI_BROWSER_RESULTS_FILE, traces: env.SGUI_BROWSER_OUTPUT_DIR },
-        configuredProjects: ['chromium', 'firefox', 'webkit'], selection: job.args,
+        configuredProjects: ['chromium', 'firefox', 'webkit'], selection: job.args, max, buildMax,
         packageLockDigest: createHash('sha256').update(await readFile(join(job.worktree, 'pnpm-lock.yaml'))).digest('hex'),
         harnessDigest: createHash('sha256').update(await readFile(fileURLToPath(import.meta.url))).digest('hex'),
         commands: [['pnpm', 'exec', 'storybook', 'build', '--output-dir', build], ['pnpm', 'exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], ['pnpm', 'exec', 'playwright', 'test', ...job.args]], status: 'running' };
       await writeFile(join(run, 'evidence.json'), JSON.stringify(evidence, null, 2));
       await assertQueueDrained(queueFile, queueOwner);
       await assertPortFree(port);
-      evidence.pnpm = version(job.worktree, 'pnpm', ['--version']);
-      evidence.playwright = version(job.worktree, 'pnpm', ['exec', 'playwright', '--version']);
-      const prior = buildTail;
-      let finish;
-      buildTail = new Promise(done => { finish = done; });
-      await prior;
-      let heavy;
+      evidence.pnpm = fixture.versions?.pnpm ?? version(job.worktree, 'pnpm', ['--version']);
+      evidence.playwright = fixture.versions?.playwright ?? version(job.worktree, 'pnpm', ['exec', 'playwright', '--version']);
+      const finishBuild = await admitBuild();
       try {
-        heavy = await acquireLease(HEAVY_LOCK, `${owner}:${token}`);
         await command(job.worktree, env, 'pnpm', ['exec', 'storybook', 'build', '--output-dir', build], join(run, 'build.log'));
         evidence.buildDigest = await digestTree(build, true);
-      } finally { try { if (heavy) await releaseLease(heavy); } finally { finish(); } }
+      } finally { finishBuild(); }
       if (git(job.worktree, 'rev-parse', 'HEAD') !== job.head || git(job.worktree, 'status', '--porcelain')) throw new Error('Source changed during build');
-      await command(job.worktree, env, 'pnpm', ['exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], join(run, 'types.log'));
+      const finishLight = await admitLight();
+      let light;
+      try {
+        light = await acquireSlot(fixture.lightRoot ?? LIGHT_ROOT, `${owner}:${token}`, 4);
+        await command(job.worktree, env, 'pnpm', ['exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], join(run, 'types.log'));
+      } finally { try { if (light) await releaseLease(light); } finally { finishLight(); } }
       stage.arrive(job.worktree);
       await stage.ready;
       evidence.browserStartedAt = new Date().toISOString();
@@ -228,7 +554,7 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
           await writeFile(join(run, 'evidence.json'), JSON.stringify(evidence, null, 2));
           console.log(`${evidence.status}: ${join(run, 'evidence.json')}`);
         }
-      } finally { await releaseLease(slot); }
+      } finally { try { if (portLease) await releaseLease(portLease); } finally { await releaseLease(slot); } }
     }
   }
   try {
@@ -236,9 +562,13 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
     for (let offset = 0; !aborted && offset < jobs.length; offset += max) {
       const wave = jobs.slice(offset, offset + max);
       const stage = createStage(wave.length);
-      const outcomes = await Promise.allSettled(wave.map(async job => {
-        try { await runJob(job, stage); } finally { stage.arrive(job.worktree); }
-      }));
+      const heavy = await acquireLease(fixture.heavyPath ?? HEAVY_LOCK, owner);
+      let outcomes;
+      try {
+        outcomes = await Promise.allSettled(wave.map(async job => {
+          try { await runJob(job, stage); } finally { stage.arrive(job.worktree); }
+        }));
+      } finally { await releaseLease(heavy); }
       if (outcomes.some(result => result.status === 'rejected')) failed = true;
     }
     if (failed || aborted) throw new Error('Pool validation incomplete; inspect per-job evidence');
@@ -251,17 +581,17 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   if (args.includes('--help')) {
-    console.log('node scripts/browser-validation-pool.mjs --plan <json> --queue-file <absolute legacy queue> [--owner <first priority chat ID>] [--max 1|2] [--first-port 6273] [--output artifacts/browser-pool]');
+    console.log('node scripts/browser-validation-pool.mjs --plan <json> --queue-file <absolute legacy queue> [--owner <first priority chat ID>] [--max <sessions>] [--first-port 6273] [--output artifacts/browser-pool] [--build-max <distinct worktree builds>] [--min-free-mib <MiB>] [--max-load <1m load>] [--max-system-rss-mib <MiB>]');
   } else {
     const options = {};
-    const allowed = new Set(['--plan', '--queue-file', '--owner', '--max', '--first-port', '--output']);
+    const allowed = new Set(['--plan', '--queue-file', '--owner', '--max', '--first-port', '--output', '--min-free-mib', '--max-load', '--max-system-rss-mib', '--build-max']);
     for (let i = 0; i < args.length; i += 2) {
       if (!allowed.has(args[i]) || !args[i + 1] || options[args[i]]) throw new Error('Invalid arguments; see --help');
       options[args[i]] = args[i + 1];
     }
     try {
       const plan = JSON.parse(await readFile(options['--plan'], 'utf8'));
-      await runPool(plan, { queueFile: options['--queue-file'], queueOwner: options['--owner'], max: Number(options['--max'] ?? 2), firstPort: Number(options['--first-port'] ?? 6273), output: options['--output'] ?? 'artifacts/browser-pool' });
+      await runPool(plan, { queueFile: options['--queue-file'], queueOwner: options['--owner'], max: Number(options['--max'] ?? 2), firstPort: Number(options['--first-port'] ?? 6273), output: options['--output'] ?? 'artifacts/browser-pool', buildMax: Number(options['--build-max'] ?? 1), budget: Object.fromEntries([['minFreeMemoryBytes', options['--min-free-mib'] && Number(options['--min-free-mib']) * 1048576], ['maxLoad1', options['--max-load'] && Number(options['--max-load'])], ['maxSystemRSSBytes', options['--max-system-rss-mib'] && Number(options['--max-system-rss-mib']) * 1048576]].filter(([, value]) => value !== undefined)) });
     } catch (error) { console.error(error.message); process.exitCode = 1; }
   }
 }

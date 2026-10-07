@@ -1,168 +1,191 @@
-# Opt-in local browser validation pool
+# Opt-in hardware-scaled browser validation
 
-This harness implements the bounded browser scheduling slice of R-11/X-12. It
-follows the [development validation policy](react-aria-development-validation.md)
-and [browser acceptance requirements](react-aria-browser-acceptance.md). Adoption
-requires coordinator review; existing workers continue their current queue and
-lock protocol. This does not close native, device or assistive-technology gates.
-The [batch evidence](parallel-batch-12/browser-pool.md) records tested scope and
-unrun prerequisites.
+This harness implements a bounded R-11/X-12 scheduling slice. Follow the
+[development validation policy](react-aria-development-validation.md) and
+[browser acceptance requirements](react-aria-browser-acceptance.md). The
+[batch-23 implementation evidence](parallel-batch-23/hardware-scaled-browser-validation.md)
+distinguishes fixtures from an authorized live trial. Coordinator review and an
+exact-head queue window precede adoption. Existing workers keep their two-session
+scheduling until that review. This does not close broad native/device/AT gates.
 
-## Existing commands and configurable paths
+## Compatibility and admission
 
-`pnpm test:browser` retains one worker, zero retries, Chromium/Firefox/WebKit and
-`reuseExistingServer: false`. Defaults remain port 6173, `storybook-static`,
-`artifacts/browser-report`, `artifacts/browser-results.json` and
-`artifacts/browser-traces`. CI and full checkpoints still require every engine.
-An explicit targeted `--project` selection is partial evidence, never a full gate.
+`pnpm test:browser` and its config retain one Playwright worker, zero retries,
+`reuseExistingServer: false`, default port 6173 and all three projects. The pool
+still defaults to two sessions and one Storybook build at a time. `--max N` is an
+explicit session upper bound, including 30 and higher; it must fit the integer
+loopback port range 1024–65535 starting at `--first-port` (default 6273). Actual
+concurrency cannot exceed distinct ready jobs/shards. No retries, duplicate tests,
+automatic cap increases or stale-lock reclamation inflate throughput.
 
-| Environment variable | Meaning |
-| --- | --- |
-| `SGUI_BROWSER_PORT` | Loopback port, integer 1024–65535; default 6173 |
-| `SGUI_BROWSER_BASE_URL` | Optional matching `http://127.0.0.1:<port>` origin |
-| `SGUI_BROWSER_STORYBOOK_DIR` | Static server build directory |
-| `SGUI_BROWSER_REPORT_DIR` | HTML report directory |
-| `SGUI_BROWSER_RESULTS_FILE` | JSON results file |
-| `SGUI_BROWSER_OUTPUT_DIR` | Trace/screenshot output directory |
-| `SGUI_BROWSER_IMMUTABLE=1` | Snapshot all static bytes before listening |
+Each slot uses atomic `mkdir` under `os.tmpdir()/sgui-browser-validation-pool-v1`.
+Ports have separate atomic `ports/<port>` leases and a native loopback bind check.
+An occupied port fails without adopting or stopping its listener. Each run has a
+fresh UUID directory and owner file; snapshot sessions have unique shard directories
+and owner files. Outputs must be gitignored inside the exact source worktree.
+Symlinked ancestors, escaped paths, dirty tracked/untracked source and incorrect
+40-character heads fail closed. Normal ignored installation/generated artifacts
+are allowed; they do not substitute for a fresh Storybook build.
 
-Both config and server reject mismatched/non-loopback URLs. An occupied port
-fails; neither Playwright nor the server reuses or stops an existing listener.
-Changing a port requires changing the optional base URL to match, or omitting it.
+The supervisor reads `/tmp/sgui-browser-validation-priority.json` without writing
+it, then atomically claims `/tmp/sgui-parallel-batch-01-validation.lock` for its
+entire run. Recognized empty queues are an empty file, `[]`, or `{ "queue": [] }`.
+An authorized `--owner <exact chat ID>` must be the first existing queue entry;
+following entries stay queued. Eligibility is rechecked after bridge acquisition
+and before waves/jobs; snapshot monitoring also checks it during execution. Missing,
+invalid, substituted or ineligible queues fail. The caller removes only its own
+first entry after the run under the coordinator protocol.
 
-## Reviewed local invocation
+Each build phase additionally claims `os.tmpdir()/sgui-heavyweight-build.lock`.
+Cleanup checks exact owner tokens and removes only owned owner files/directories.
+SIGINT/SIGTERM abort owned process groups with bounded SIGKILL fallback; all sibling
+commands settle before resource release. No foreign processes, worktrees, locks or
+artifacts are cleaned. Uncatchable termination may leave claims for verified owner
+cleanup. Read-only retained build directories need owner-restored write permissions
+before later removal. Permissions and periodic hashes are guards against local
+mutation, not a hostile administrator or guaranteed detection between samples.
 
-Commit each worktree's changes first and install its dependencies with
-`pnpm install --frozen-lockfile`. Each participating worktree must contain this
-reviewed configurable harness. Use the required Node runtime (Node 24 for a full
-checkpoint); the harness records the actual runtime rather than choosing one.
-No files or configuration are copied into other worktrees automatically.
+## One clean frozen snapshot
 
-Create a plan outside tracked source, for example `/tmp/sgui-browser-plan.json`:
+Snapshot mode builds Storybook and typechecks browser sources **once** from the
+reviewed committed head. Every session serves the same read-only tree with
+`SGUI_BROWSER_IMMUTABLE=1`, which snapshots static bytes before listening. It is
+an opt-in alternative to repeated multi-worktree setup, not reuse of old artifacts.
+
+Create an external plan such as `/tmp/sgui-browser-snapshot.json`:
 
 ```json
-[
-  {
-    "worktree": "/absolute/first/worktree",
-    "head": "<exact 40-character committed HEAD>",
-    "args": ["tests/browser/batch01-forms.spec.ts", "--project=chromium"]
-  },
-  {
-    "worktree": "/absolute/second/worktree",
-    "head": "<exact 40-character committed HEAD>",
-    "args": ["tests/browser/batch01-dialogs.spec.ts", "--project=webkit"]
-  }
-]
+{
+  "mode": "snapshot",
+  "worktree": "/absolute/reviewed/worktree",
+  "head": "<exact 40-character reviewed committed HEAD>",
+  "shards": [
+    { "id": "forms", "specs": ["tests/browser/batch01-forms.spec.ts"], "project": "chromium" },
+    { "id": "dialogs", "specs": ["tests/browser/batch01-dialogs.spec.ts"], "project": "chromium" }
+  ]
+}
 ```
 
-After coordinator review, and only once the existing priority queue is empty and
-its owner releases the legacy lock:
+A shard ID is unique lowercase alphanumeric/hyphen text. Each spec must be an
+exact regular tracked top-level `tests/browser/<name>.spec.ts` path. Each file can
+appear in only one shard, including across projects. Patterns, line filters,
+extra fields and arbitrary Playwright arguments are rejected. Positional selectors
+are escaped and anchored because Playwright interprets them as regular expressions.
+A shard may use `"project": ["chromium", "firefox", "webkit"]` for an authorized
+checkpoint without assigning that spec to multiple sessions. Projects must be
+explicit, supported and unique. Separate files can contain similar scenarios;
+coordinator review remains responsible for behavioral duplication and useful scope.
+
+After exact-head review and queue authorization:
 
 ```sh
 node scripts/browser-validation-pool.mjs \
-  --plan /tmp/sgui-browser-plan.json \
+  --plan /tmp/sgui-browser-snapshot.json \
   --queue-file /tmp/sgui-browser-validation-priority.json \
-  --max 2 --first-port 6273 --output artifacts/browser-pool
+  --max 4 --first-port 6273 --output artifacts/browser-pool
 ```
 
-Use `args: []` for the complete browser matrix. Routing, reports, workers, retries,
-interactive modes and list-only overrides are rejected in plans. The output parent
-must be gitignored inside the exact worktree; symlinked output ancestors and
-repeated worktree jobs are rejected. Slots select `first-port + slot` and create
-exclusive UUID output directories. There is no waiting queue or automatic retry;
-occupied resources fail with a prerequisite error.
+All slot/port/output claims for a wave precede browser launch. If any resource is
+occupied, none of that wave launches. Source HEAD/status/bytes and build digest
+are checked around setup/waves, periodically during execution, and at completion.
+Observed mutation aborts owned commands and remains failed even if source is later
+restored. Empty/missing JSON results, skipped/flaky/unexpected cases and command
+failures remain red. Evidence retains partial successes and failure reasons.
+Never rebuild the shared directory or edit its source during a run.
 
-## Locks, build lifetime and cleanup
+## Distinct worktree path and stage limits
 
-The existing `/tmp/sgui-browser-validation-priority.json` is read only. Recognized
-empty forms are an empty file, `[]` or an object with `queue: []`. Missing,
-unrecognized or nonempty queues fail closed by default. A coordinator-authorized
-priority worker can pass `--owner <exact chat ID>` only when that chat is the
-existing first queue entry and preceding workers have drained. Following entries
-remain queued. The harness never inserts, reorders or removes entries; after
-validation the listed caller removes only its own first entry, preserving the
-rest, as required by the coordinator's protocol. Substitute queues are rejected.
+The existing JSON array plan remains supported:
 
-The supervisor atomically claims
-`/tmp/sgui-parallel-batch-01-validation.lock` for its whole run, only after preceding queue
-entries drain. This compatibility bridge excludes all unchanged legacy heavy and
-browser workers, without migrating them or modifying an occupied lock. Queue
-state is checked again after claiming the bridge and before every job. One
-supervisor can run at a time; its jobs run concurrently. Existing queued owners
-must finish and release their own lock before any trial/adoption.
+```json
+[
+  { "worktree": "/absolute/first/worktree", "head": "<exact committed HEAD>", "args": ["tests/browser/batch01-forms.spec.ts", "--project=chromium"] },
+  { "worktree": "/absolute/second/worktree", "head": "<exact committed HEAD>", "args": ["tests/browser/batch01-dialogs.spec.ts", "--project=chromium"] }
+]
+```
 
-Browser slots use atomic `mkdir` leases under
-`os.tmpdir()/sgui-browser-validation-pool-v1/slot-0` and `slot-1`. The initial hard
-cap is two; `--max 1` lowers it. Slot ownership covers the whole job including its
-build. Heavy Storybook builds additionally claim
-`os.tmpdir()/sgui-heavyweight-build.lock` and serialize within the supervisor. Each wave stages up to two builds and browser
-typechecks before launching their browser commands together; the next wave starts
-after both previous jobs settle. This prevents a short first session from finishing
-before the second worktree's build is ready, and avoids heavyweight build/browser
-CPU competition within the pool. Future
-heavy-only callers must honor both the coordinator's legacy compatibility policy
-and the separate heavy lock. This change does not deploy that protocol to them.
+Only one job per worktree is allowed here. Each gets a fresh independent build.
+`args: []` requests the full matrix; existing focused `--grep` and `--project`
+selections remain available. Configuration/output/worker/retry overrides,
+repeat/shard/timeout/early-exit controls and weakened modes are rejected.
 
-Every job builds fresh static Storybook directly into its own UUID directory,
-records its SHA-256 tree digest and makes files/directories read only. The server
-snapshots those bytes before listening. Never rebuild that directory while tests
-run. A final digest and HEAD/working-tree check reject mutated evidence even if
-tests pass. Permissions are a local guard, not protection against an owner who
-explicitly changes them. Retained builds can be removed after review by their
-owner; first restore write permission on their directories as needed.
+`--build-max N` independently tunes simultaneous **distinct worktree builds**;
+default 1 preserves serialized setup. One supervisor owns the heavy lock for the
+whole wave, so it can admit several internal builders without racing unchanged
+external heavy callers. It retains the compatibility bridge throughout. Types
+stage through four internal admissions and atomic `/tmp/sgui-light-validation-slots`
+leases. Browser commands wait for all builds/types to settle, avoiding competition
+with builds within a wave. Holding the heavy lock through the browser wave is
+conservative; external callers already remain excluded by the bridge.
+Snapshot mode rejects `--build-max` other than 1 because it has exactly one build.
 
-Each lease has a unique owner token. Cleanup verifies that exact token, removes
-only its own owner file and directory, and never reclaims a stale claim. SIGINT or
-SIGTERM terminates only child process groups spawned by this supervisor, with
-bounded SIGKILL fallback, before releasing leases. Uncatchable termination can
-leave stale locks. Coordinator inspection and verified owner cleanup are required;
-there is no PID-based automatic recovery or broad process termination.
+Exported `acquireLightSlot(owner)` and `acquireInstallSlot(owner)` helpers use the
+existing four `/tmp/sgui-light-validation-slots` and two `/tmp/sgui-install-slots`
+claims. The harness never installs dependencies. Use `pnpm install --frozen-lockfile`
+under an owned installation slot when needed. These helper exports do not migrate
+other callers or expand their limits; resource occupancy fails instead of stealing
+claims. Expansion of light/install stages needs measured benefit and coordinated
+caller rollout in a separately owned scheduler task.
 
-## Evidence and targeted checks
+## Hardware evidence and resource budgets
 
-Each job retains `evidence.json`, `build.log`, `types.log`, `browser.log`, JSON/HTML
-results and traces in its own worktree. Evidence records exact committed HEAD and
-source tree, final HEAD/status, selected tests/engines, configured engine matrix,
-commands, Node executable/version, OS, pnpm/Playwright versions, lockfile/harness
-hashes, job and browser-command timestamps, slot/port, output paths and before/after build digest. Failure
-and interruption remain failures. An infrastructure failure is not a product pass;
-no unchanged Firefox retries are scheduled. All promises settle before bridge
-cleanup, including failures in sibling jobs.
+Every real command writes `<log>.resources.json` with elapsed time, one-second
+samples plus start/end samples: CPU times, logical CPU count, load, free/total
+physical memory, supervisor RSS, owned process-group RSS/CPU and system aggregate
+RSS. macOS records `memory_pressure -Q`, `vm_stat` swap counters and
+`sysctl vm.swapusage`; Linux records memory pressure and meminfo. Unsupported or
+failed probes retain explicit unavailable values. macOS swap-used bytes and
+swap-in/out counters permit before/after deltas. Historical swap usage alone is
+not evidence of current swapping. Process `%cpu` is the OS-reported value; CPU-time
+deltas supply interval machine utilization. Aggregate RSS includes shared pages
+multiple times and must not be interpreted as physical memory consumption.
+
+Snapshot evidence also records periodic aggregate owned-group/system samples,
+source/build/lockfile/harness attestations, runtime/tool versions, stage commands,
+session intervals/counts and cases per browser-window second. That throughput
+includes startup and wave gaps; it is not assertion-only timing. Retain all red
+logs/results/traces. A resource failure is infrastructure evidence, not a product pass.
+
+Snapshot mode accepts optional positive finite budget arguments:
+
+- `--min-free-mib N`: minimum OS-reported **unused physical** memory, not macOS's reclaimability percentage.
+- `--max-load N`: maximum one-minute load average; it is lagging evidence, not instantaneous CPU utilization.
+- `--max-system-rss-mib N`: maximum aggregate process RSS; unavailable RSS fails closed if this budget is required.
+
+Budgets are checked before setup and waves and during periodic monitoring. A breach
+halts admission/aborts owned work and leaves failed evidence. They are opt-in
+operational bounds, not calibrated defaults. These budget flags are rejected for
+the legacy array path rather than silently ignored. Choose budgets from active
+measurements and reserve capacity for user applications; never terminate them.
+
+Coordinator ramp: start with useful disjoint Chromium work at 2, then 4/8/16/30
+and higher only while ready work exists and aggregate throughput improves. Measure
+setup separately, peak owned RSS, CPU/load, pressure and **swap deltas**, plus focus/
+actionability failures. Stop expansion when useful work is exhausted or throughput
+stalls/pressure rises; ten CPUs and 24 GiB do not certify any session count. Test
+independent necessary builds at 1/2/3 after review. Do not repeat unchanged passing
+selections merely to create load. Local native loops are Chromium-first; Firefox/
+WebKit stay pending until ten newly integrated native slices or the daily checkpoint,
+unless a specific engine defect calls for earlier testing. Dev GitHub CI remains
+paused per the development policy.
+
+## Fixture validation and adoption limits
 
 ```sh
 node --test scripts/browser-validation-pool.test.mjs
-pnpm exec tsc --noEmit -p tests/browser/tsconfig.json
-pnpm exec playwright test --list
 ```
 
-These checks launch only owned Node fixtures, with temporary leases outside the
-real pool. They do not launch browsers, build Storybook or claim the legacy lock.
-The configurable two-server integration fixture is skipped by default. After the
-same queue/lock prerequisites and coordinator review, opt in with:
+Under Node 24 this uses temporary Git/source/output/lease fixtures and fake
+Storybook/type/browser commands. It covers default two-slot admission, explicit
+30/32 capacity, disjoint 32-shard concurrency, build admission 1/2/3, source/build
+mutation, selectors, budgets, queue/port/owner rejection and owned process-group
+termination. It launches no browsers or Storybook builds and does not claim the
+real heavy/browser bridge. Run it under one light slot.
 
-```sh
-SGUI_POOL_SERVER_TESTS=1 node --test scripts/browser-validation-pool.test.mjs
-```
-
-That fixture claims the actual legacy bridge and binds only its own ports
-6473/6474. A two-worktree focused real-browser trial is a separate required adoption
-check using the plan above. Do not claim concurrent browser success from atomic
-slot tests or from server fixtures. Keep occasional full checkpoints and manual
-acceptance separate from this bounded harness validation.
-
-For the two-session adoption proof, select one small existing case per worktree
-using explicit `--grep` and `--project=chromium`, with fresh committed heads. Keep
-the generated evidence for both jobs and verify their browser command intervals
-overlap, both results pass, ports/UUID paths differ and final build hashes match.
-Record exact commands, selected case counts and heads. That trial proves bounded
-parallel Chromium scheduling only; it does not establish Firefox/WebKit or any
-manual/device/AT acceptance. Do not create extra worktrees or deploy the patch to
-existing workers as part of this task; the coordinator owns the reviewed trial.
-
-For an authorized first-entry proof, the gated server fixture also accepts
-`SGUI_POOL_OWNER=<exact chat ID>`. Both paths still acquire the legacy lock
-atomically, never adopt an existing owner, and recheck queue eligibility. The
-batch-12 proof uses one managed worktree plus an owned ignored local Git snapshot
-clone for its second source root; it does not create another managed worktree or
-modify another worker. Each source root has the same committed head and a separate
-fresh build/output tree.
+The existing native two-static-server fixture stays disabled unless
+`SGUI_POOL_SERVER_TESTS=1` and the actual queue/bridge window is authorized;
+`SGUI_POOL_OWNER` supports a first-entry authorized caller. Its ports are 6473/6474.
+Prior two-session proof is historical evidence in
+[batch 12](parallel-batch-12/browser-pool.md). Higher-cap fixtures are not live
+capacity proof. A reviewed committed implementation and authorized fresh snapshot
+trial are still required before rollout; preserve old scheduling until then.
