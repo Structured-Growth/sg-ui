@@ -63,7 +63,7 @@ The native spec attaches `heading-event-order` and asserts `option-enter`,
 add `availability-restored`, then `delivery-checkpoint`, with zero requests.
 The current-owner request and invalidation expectations are unchanged. Composed
 unit fixture tests establish the revised ordering in jsdom; revised native
-ordering still requires the coordinator's fresh run.
+ordering passed the coordinator's wave 37 Chromium run below.
 
 ## Wave 36 ordering correction
 
@@ -95,7 +95,7 @@ Original RED/GREEN logs remain untouched. New correction logs:
 - `/tmp/batch77-correction-foundations.log`: passed, SHA-256
   `a0de0b851645f6e4651d60af286c5294a4ea3a55c34fa0bf5392cd6b81499dc6`.
 
-## Pending coordinator validation
+## Coordinator Chromium validation and remaining gates
 
 No independent Storybook build, browser suite, full `pnpm check`, CI dispatch,
 rerun, wait, or workflow modification was performed. The coordinator owns review
@@ -107,7 +107,8 @@ real focus and keyboard actions and checks one current/original request for
 accepted scenarios or zero for invalidated scenarios, explicit host commit and
 delivery checkpoints, retained controlled Normal heading, unchanged document
 text, editor focus on accepted delivery, disabled states and unmount. Native
-results for the corrected fixture remain pending. Physical-device and manual AT acceptance remain deferred.
+Chromium results for the corrected fixture passed in wave 37. Firefox/WebKit,
+physical-device and manual AT acceptance remain pending.
 
 ## Original wave 36 SHA-256 inputs
 
@@ -134,3 +135,29 @@ Evidence log SHA-256:
 | `src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.test.tsx` | `62d73ec2a0f8fe5795a6141dace68c3a4913cbb0cf3d9fe755c2e22202b181c4` |
 | `src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.stories.tsx` | `6015cf3746d89b7a178903dec849dc92a7b605b44064ac4fa5065e1218b4a07b` |
 | `tests/browser/batch77-document-heading-lifetime.spec.ts` | `330690105e937a656b460e795088a314a18e5f4fdbc31093fc82a43b9722d37a` |
+
+## Wave 37: corrected native Chromium result
+
+The coordinator ran all 14 corrected heading cases successfully at exact frozen
+head `6f78eb7a3e3629e05124e1dc583cb39c4e3e20d3`, immutable token
+`ed7cf403-d807-4833-9f0e-ef272cb2c603`. Evidence:
+`artifacts/browser-pool/ed7cf403-d807-4833-9f0e-ef272cb2c603/evidence.json`
+in the batch 77 managed worktree. Both restoration scenarios passed in light and
+dark, including the close-before-host-commit event traces and zero-request
+assertions. The prior wave 36 failures remain recorded above; they are not
+recounted as corrected successes.
+
+Evidence reports 40.063 seconds total and a 5.871-second browser window, 14
+Chromium passes, no error, empty final Git status, and `owned commands settled`
+cleanup. Swap stayed at 3,612,344,320 bytes before/after. The initial/final head, source digest and build digest match:
+
+- Head: `6f78eb7a3e3629e05124e1dc583cb39c4e3e20d3`.
+- Source digest: `7a89939a48a0ebeee0e0ccbd18cf3f0a7429c81674b5f02ea9729e7f34e82596`.
+- Build digest: `dc2767a57425635adaa0f50e71e5b8e530cb1e15de5a0fa33fe6b0d79c501f33`.
+
+The four executable source/test/story/spec hashes were reverified unchanged
+against the corrected frozen table after the coordinator run. No additional
+worker tests, builds or native runs were performed. This final update changes
+only this report. Firefox/WebKit, physical-device and manual assistive-technology
+validation, full M-22/H-05 and broader acceptance remain open. Coordinator owns
+integration and dev acceptance.
