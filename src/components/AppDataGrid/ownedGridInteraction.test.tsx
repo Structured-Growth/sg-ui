@@ -310,3 +310,50 @@ it("initializes empty pending tables before forwarding their native ref and avoi
   expect(table.hasAttribute("aria-busy")).toBe(false);
   expect(screen.getAllByText("No rows available")).toHaveLength(1);
 });
+
+
+it.each([false, true])("repairs disappearing Retry to its native grid entry with empty rows=%s", async (empty) => {
+  const ref = createRef<HTMLDivElement>(); const retry = vi.fn(); const selection = vi.fn();
+  const view = (error = true, pending = false, callback: (() => void) | null = retry) =>
+    <OwnedGridInteraction {...props} rows={empty ? [] : rows} ref={ref}
+      errorMessage={error ? "Host failed" : undefined} refreshing={pending} onRetry={callback ?? undefined}
+      selectedRowIds={new Set(["a", "off-page"])} onSelectedRowIdsChange={selection} />;
+  const { rerender } = render(view());
+  const grid = screen.getByRole("grid", { name: "Courses" });
+  const cell = empty ? null : within(grid).getByRole("rowheader", { name: "Science" });
+  for (const transition of ["pending", "success", "callback removed"] as const) {
+    rerender(view());
+    act(() => screen.getByRole("button", { name: "Retry" }).focus());
+    ref.current!.scrollTop = 100; ref.current!.scrollLeft = 80;
+    const entry = cell ?? within(grid).getByRole("button", { name: "Sort Name" });
+    const nativeFocus = vi.spyOn(entry, "focus");
+    rerender(view(transition === "callback removed", transition === "pending", transition === "callback removed" ? null : retry));
+    await waitFor(() => expect(document.activeElement).toBe(entry));
+    expect(nativeFocus).toHaveBeenLastCalledWith({ preventScroll: true });
+    nativeFocus.mockRestore();
+    expect([ref.current!.scrollTop, ref.current!.scrollLeft]).toEqual([100, 80]);
+    if (cell) expect(within(grid).getByRole("rowheader", { name: "Science" })).toBe(cell);
+  }
+  expect(retry).not.toHaveBeenCalled();
+  expect(selection).not.toHaveBeenCalled();
+});
+
+it.each([false, true])("ends Retry focus ownership on deliberate host/independent focus with empty rows=%s", (empty) => {
+  const view = (error = true) => <>
+    <button>Host action</button>
+    <OwnedGridInteraction {...props} rows={empty ? [] : rows} errorMessage={error ? "Host failed" : undefined} onRetry={() => {}} />
+    <OwnedGridInteraction {...props} label="Independent courses" />
+  </>;
+  const { rerender } = render(view());
+  const other = within(screen.getByRole("grid", { name: "Independent courses" })).getByRole("rowheader", { name: "Science" });
+  for (const target of [screen.getByRole("button", { name: "Host action" }), other]) {
+    rerender(view());
+    act(() => screen.getByRole("button", { name: "Retry" }).focus());
+    act(() => target.focus());
+    rerender(view(false));
+    expect(document.activeElement).toBe(target);
+    act(() => target.blur());
+    rerender(view(false));
+    expect(document.activeElement).toBe(document.body);
+  }
+});
