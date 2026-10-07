@@ -1,9 +1,10 @@
 # Batch 20 DateField incomplete reset — owned interaction fix
 
-Tasks U-18/K-06: targeted unit evidence now covers prevented incomplete draft
-preservation. Native browser cases are prepared but **not executed** here. Whole
-U/K acceptance, browser/device/assistive-technology gates and coordinator
-integration remain open. No passing browser or full-suite claim is made.
+Tasks U-18/K-06: targeted unit evidence and **two Chromium native passes** cover
+prevented incomplete draft preservation. Firefox and WebKit are explicitly pending
+the batch checkpoint. Whole U-18/K-06 acceptance, physical-device/IME and
+assistive-technology gates remain open; coordinator alone integrates. No
+full-suite or whole-calendar acceptance is claimed.
 
 ## Exact scope and provenance
 
@@ -21,6 +22,14 @@ edits; branch `codex/batch20-datefield-incomplete-reset`.
   or rewritten.
 - Implementation/source/spec head:
   `17390103b5939bb8a69fb084731af0a167167258`.
+- Coordinator-authorized guard prerequisite:
+  `e32b665136d5b81a81cc03809de82559cc8fc17a`.
+- Conflict-free normal full-history guard merge and native tested head:
+  `94820b7166ca4198a441896f6f23183120e4e8d1`, parents previous report head
+  `ff40670951f576850d329cffa8df7eb3b14560ec` and that exact guard prerequisite.
+  Its Menu/Firefox/guard/report ancestor changes are common prerequisite history;
+  no scripts/configuration were copied and no exclusive DateField source/spec
+  changed. Zero DateField delta from `ff40670` was checked directly.
 - Final report-only head is supplied separately in the coordinator handoff.
 
 Exclusive task writes: `src/experimental/DateField/` implementation, tests and
@@ -28,8 +37,9 @@ stories; `tests/browser/batch20-datefield-incomplete-reset.spec.ts`; this report
 The prerequisite's package/lockfile and guidance changes are a separate reviewed
 common dependency, not task-owned edits. Shared TextField/reset helper, composite
 DatePicker/range controls, source/declaration guards and all central guidance
-remain unchanged by the exclusive implementation. Coordinator owns the separately
-reserved react-stately boundary-guard follow-up before facade acceptance.
+remain unchanged by the exclusive implementation. The separately
+reserved react-stately boundary guard was reviewed and integrated by the
+coordinator; its actual source guard also passed in this merged worktree.
 
 ## Red-first evidence and resulting behavior
 
@@ -96,9 +106,9 @@ last reset, and checks programmatic/native focus, incomplete segments, native
 required validity, displayed error retention, empty submission and callback
 silence. It includes accepted draft/error clearing in the same transaction.
 It does not intercept submit, manufacture reset events or simulate prevention in
-an engine handler. **Both native cases are unexecuted**; the coordinator must
-build fresh Storybook and run the focused spec at the frozen final head. No
-Storybook build may occur during a suite run.
+an engine handler. Both native cases passed in the coordinator pool described
+below, against fresh static Storybook at the exact frozen source head. Storybook
+was not rebuilt during the suite.
 
 ## Validation actually run
 
@@ -136,7 +146,57 @@ checks were not weakened. No unchanged test retry or check changes were made.
 No full check/build/packed consumer suite, Storybook build/server, browser/native
 launch, CI/title dispatch or publication ran here. The separate dependency/import/dedup proof belongs to the prerequisite worker;
 the related experimental SSR unit test passed here. No packed SSR/hydration
-consumer run is claimed. Coordinator review, guard
-follow-up and fresh native evidence are required before bounded integration.
-Native timing, Firefox, physical devices/IME and assistive technology remain
-unverified. Follow [development validation](../react-aria-development-validation.md).
+consumer run is claimed. Coordinator reviewed the facade and guard before this Chromium run.
+Firefox/WebKit checkpoint coverage, physical devices/IME and assistive technology
+remain pending; these two cases do not close broad U-18/K-06. Follow [development validation](../react-aria-development-validation.md).
+
+
+## Coordinator Chromium evidence and final report-only handoff
+
+The sixteenth coordinator pool completed and released this source worktree for
+report-only editing. Unique evidence token:
+`6bcbea06-3fb3-47a5-b5fa-1a31c98583f0`.
+Local artifact root:
+`artifacts/browser-pool/6bcbea06-3fb3-47a5-b5fa-1a31c98583f0/` in the managed
+worktree above. This worker read `evidence.json`, `results.json`, `browser.log`,
+the successful build log tail and empty typecheck log; it did not launch an
+unchanged rerun.
+
+Initial/final tested HEAD:
+`94820b7166ca4198a441896f6f23183120e4e8d1`.
+Recorded source tree `018628794e694ed26c20e32a63682eb875214c0e` matches Git.
+Initial/final build digest is identical:
+`bb99d335ed10fc26290614a3e3ccfeb7c987d2b8a6c4b78e062a97a525d2401e`.
+Final Git status is empty. Runtime: Node `v24.21.0`, pnpm `10.29.3`, Playwright
+`1.63.0`, macOS; pool slot 0, port 6273. Queue owner was coordinator chat
+`01a1164f-41db-7f30-aaf9-f20133b6566f`; execution/lease ownership remained with the
+pool, not this DateField worker.
+
+Exact coordinator commands:
+
+- `pnpm exec storybook build --output-dir /Users/thomashall/.codex/worktrees/datefield-incomplete-reset/sg-ui/artifacts/browser-pool/6bcbea06-3fb3-47a5-b5fa-1a31c98583f0/storybook`: passed, `build.log`.
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed, `types.log`.
+- `pnpm exec playwright test tests/browser/batch20-datefield-incomplete-reset.spec.ts --project=chromium`: **2 passed**, `browser.log` and `results.json`.
+
+The expected two titles cover uncontrolled empty and controlled-null incomplete
+reset. JSON/browser log agree: 2 expected, 0 skipped, 0 flaky, 0 unexpected and
+empty run errors. Chromium certifies the retained day draft/native required
+validity/displayed error/focus/callback/submission and accepted-clearing assertions
+in this exact spec, not other engine/device/AT behavior.
+
+After the authorized guard merge, this worker ran only actual source foundation
+guards, source and browser types, and whitespace checks: all passed. Unique logs
+are `/tmp/sgui-batch20-datefield-guard-prerequisite-foundations.log`,
+`/tmp/sgui-batch20-datefield-guard-prerequisite-types.log` and
+`/tmp/sgui-batch20-datefield-guard-prerequisite-browser-types.log`.
+The unchanged 36 related tests were not rerun. The coordinator reports four
+independent guard fixtures passed in its prerequisite review; this worker's
+claim is the actual merged source guard and types it ran, not re-execution of
+those fixtures or packed declaration consumers.
+
+[Draft PR #94](https://github.com/Structured-Growth/sg-ui/pull/94) targets
+`codex/dev`. This final change edits only this reserved report and PR evidence;
+source/spec remain byte-for-byte equal to the tested head. No unchanged tests,
+builds or native launches were performed during finalization. Firefox/WebKit are
+explicitly deferred to the batch checkpoint. Broad U-18/K-06, actual device/IME
+and assistive-technology acceptance remain open.
