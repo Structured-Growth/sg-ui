@@ -67,6 +67,7 @@ test('pending pointer descriptions are cancelled with the old trigger lifetime',
     if (action.startsWith('Replace')) {
       const replacement = page.getByRole('button', { name: 'Action 1', exact: true });
       await expect(replacement).not.toHaveAttribute('aria-describedby');
+      await page.keyboard.press('Tab');
       await replacement.focus();
       await expect(page.getByRole('tooltip')).toHaveText('Help for action 1');
     }
