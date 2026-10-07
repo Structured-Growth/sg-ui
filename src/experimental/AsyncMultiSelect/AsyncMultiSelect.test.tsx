@@ -108,3 +108,43 @@ it("accepts controlled clear without reviving defaults and omits disabled native
  change.mockClear(); await user.click(screen.getByRole("option", { name: "Mathematics" }));
  expect(change).not.toHaveBeenCalled();
 });
+
+for (const controlled of [false, true]) {
+ it(`honors prevented reset and silently preserves ${controlled ? "controlled selection" : "latest defaults"} in StrictMode`, async () => {
+  const user = userEvent.setup(); const change = vi.fn(); const queryChange = vi.fn();
+  const props = { label: "Reset courses", name: "courses", query: "Science", onQueryChange: queryChange, options, defaultValue: [options[1]!], onValueChange: change };
+  const { rerender } = render(<StrictMode><form data-testid="reset" onReset={event => event.preventDefault()}>
+   <AsyncMultiSelect {...props} value={controlled ? [options[0]!] : undefined} />
+  </form></StrictMode>);
+  if (!controlled) await user.click(screen.getByRole("button", { name: "Remove Mathematics" }));
+  const form = screen.getByTestId("reset") as HTMLFormElement; change.mockClear();
+  await act(async () => { form.reset(); await new Promise(resolve => setTimeout(resolve, 10)); });
+  expect(new FormData(form).getAll("courses")).toEqual(controlled ? ["one"] : []);
+  expect(screen.getByRole("searchbox")).toHaveProperty("value", "Science");
+  expect(change).not.toHaveBeenCalled(); expect(queryChange).not.toHaveBeenCalled();
+  rerender(<StrictMode><form data-testid="reset"><AsyncMultiSelect {...props}
+   defaultValue={[options[0]!]} value={controlled ? [] : undefined} /></form></StrictMode>);
+  await act(async () => { form.reset(); await new Promise(resolve => setTimeout(resolve, 10)); });
+  expect(new FormData(form).getAll("courses")).toEqual(controlled ? [] : ["one"]);
+  expect(screen.getByRole("searchbox")).toHaveProperty("value", "Science");
+  expect(change).not.toHaveBeenCalled(); expect(queryChange).not.toHaveBeenCalled();
+ });
+}
+it("reset clears selection without changing the host query or reviving stale request selections", async () => {
+ const user = userEvent.setup();
+ const pending: { signal: AbortSignal; resolve: (results: typeof options) => void }[] = [];
+ const search = vi.fn((_query: string, signal: AbortSignal) => new Promise<typeof options>(resolve => pending.push({ signal, resolve })));
+ const { unmount } = render(<StrictMode><form data-testid="search-reset"><HostSearchExample search={search} /></form></StrictMode>);
+ await act(async () => pending[1]!.resolve([options[0]!]));
+ await user.click(screen.getByRole("option", { name: "Science" }));
+ await user.type(screen.getByRole("searchbox"), "x");
+ await act(async () => { (screen.getByTestId("search-reset") as HTMLFormElement).reset(); await new Promise(resolve => setTimeout(resolve, 10)); });
+ expect(search).toHaveBeenCalledTimes(3); expect(pending[1]!.signal.aborted).toBe(true);
+ expect(pending[2]!.signal.aborted).toBe(false); expect(screen.getByRole("searchbox")).toHaveProperty("value", "x");
+ await act(async () => { pending[0]!.resolve([options[0]!]); pending[2]!.resolve([options[1]!]); });
+ expect(screen.queryByRole("option", { name: "Science" })).toBeNull();
+ expect(screen.getByRole("option", { name: "Mathematics" })).toBeTruthy();
+ expect(screen.queryByRole("button", { name: /Remove/ })).toBeNull();
+ unmount(); expect(pending[2]!.signal.aborted).toBe(true);
+ await act(async () => pending[2]!.resolve([options[0]!]));
+});

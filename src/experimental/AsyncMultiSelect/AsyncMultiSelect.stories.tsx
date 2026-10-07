@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { StrictMode, useEffect, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { AsyncMultiSelect, type MultiSelectOption } from "./AsyncMultiSelect";
 import { Button } from "../Button/Button";
@@ -60,3 +60,22 @@ export const Independent: Story = { render: () => <form>
  <AsyncMultiSelect label="First courses" name="first" query="" onQueryChange={() => {}} options={[{ id: "01", label: "Science" }, { id: "locked", label: "Archived", disabled: true }, { id: "1", label: "Mathematics" }]} />
  <AsyncMultiSelect label="Second courses" name="second" query="" onQueryChange={() => {}} options={[{ id: "01", label: "Science" }, { id: "1", label: "Mathematics" }]} defaultValue={[{ id: "1", label: "Mathematics" }]} />
  </form> };
+
+function NativeResetExample() {
+ const [prevent, setPrevent] = useState(false);
+ const [query, setQuery] = useState("Course");
+ const [changes, setChanges] = useState(0);
+ const [queryChanges, setQueryChanges] = useState(0);
+ const options = courses.slice(0, 2);
+ return <StrictMode><label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
+  <form onReset={event => { if (prevent) event.preventDefault(); }}>
+   <AsyncMultiSelect label="Reset courses" name="courses" options={options} defaultValue={[options[0]!]} query={query}
+    onQueryChange={next => { setQuery(next); setQueryChanges(count => count + 1); }} onValueChange={() => setChanges(count => count + 1)} />
+   <AsyncMultiSelect label="Controlled courses" name="controlledCourses" options={options} value={[options[1]!]} defaultValue={[options[0]!]}
+    query="Controlled" onQueryChange={() => setQueryChanges(count => count + 1)} onValueChange={() => setChanges(count => count + 1)} />
+   <button type="reset">Reset courses</button>
+  </form><output aria-label="Selection changes">{changes}</output><output aria-label="Query changes">{queryChanges}</output>
+ </StrictMode>;
+}
+export const NativeFormReset: Story = { render: () => <NativeResetExample /> };
+export const NativeSearchReset: Story = { render: () => <StrictMode><form><RaceExample /><button type="reset">Reset search selection</button></form></StrictMode> };
