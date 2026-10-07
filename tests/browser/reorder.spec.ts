@@ -116,13 +116,13 @@ test('multiple selection and sorting disable native reorder without emitting hos
   expect(errors, 'browser runtime errors').toEqual([]);
 });
 
-test('touchscreen non-drag Move alternative commits and rolls back with trusted touch input', async ({ browser }, info) => {
+test('touchscreen non-drag Move alternative commits and rolls back with trusted touch input', async ({ browser, baseURL }, info) => {
   // Touch emulation verifies the alternative, not physical-device long-press dragging.
-  const context = await browser.newContext({ hasTouch: true, viewport: { width: 390, height: 844 } });
+  const context = await browser.newContext({ baseURL, hasTouch: true, viewport: { width: 390, height: 844 } });
   try {
     const page = await context.newPage();
     const errors = await observe(page);
-    await page.goto(`http://127.0.0.1:6173${storyUrl}`);
+    await page.goto(storyUrl);
     await expect(names(page)).toHaveText(initial);
     await page.getByRole('button', { name: 'Move Course 1 down', exact: true }).tap();
     await expect(page.getByRole('status').filter({ hasText: 'Order saved.' })).toBeVisible();
