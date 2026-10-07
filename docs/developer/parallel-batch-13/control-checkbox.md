@@ -10,7 +10,9 @@ Managed worktree created and attached before edits:
 `/Users/thomashall/.codex/worktrees/batch13-control-checkbox/sg-ui`.
 Branch: `codex/batch13-control-checkbox`. Draft PR base: `codex/dev`.
 Coverage commit: `797a1fa5ecd27f259915d9f5479e3e6d562fe44a`.
-Report final head and draft PR: recorded after validation in final coordinator message.
+Draft PR: [#83](https://github.com/Structured-Growth/sg-ui/pull/83), base `codex/dev`.
+Report commit: `dabc649` (subsequent report-only updates have their final head in the
+coordinator message; a commit cannot contain its own hash).
 
 Exclusive write allowlist:
 
@@ -55,12 +57,15 @@ Runtime: bundled Node `24.19.0`, pnpm `10.29.3`, React `19.2.3`.
 - `pnpm typecheck`: passed.
 - `pnpm foundations:check`: passed owned import/layer/token boundaries.
 - `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
-- Focused native execution: queued behind shared priority work, not passed.
+- Focused native execution: queued for coordinator browser-pool pairing, not passed.
+  No native build/suite has run from this task. The earlier serialized attempts
+  returned occupied/priority-queued without acquiring or launching anything.
 - `git diff --check`: passed before coverage commit.
 
 Browser/build ownership follows `/tmp/sgui-parallel-batch-01-validation.lock` and
 `/tmp/sgui-browser-validation-priority.json`. The priority queue is honored; queued
-checks are not passes. No other owner is stopped or removed. No full `pnpm check`,
+checks are not passes. No other owner is stopped or removed. On coordinator pool approval, standalone
+validation attempts stopped; coordinator pairing now owns native dispatch. No full `pnpm check`,
 full browser suite, consumer build or GitHub CI/title run is requested for this slice.
 
 ## Review and reserved follow-ups
