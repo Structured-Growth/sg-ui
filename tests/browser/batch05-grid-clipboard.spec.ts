@@ -17,10 +17,20 @@ async function open(page: Page, theme = 'light') {
 const text = '<img src=x onerror="alert(1)"> & "quoted"\nSecond line';
 const json = JSON.stringify({ html: '<script>alert("quoted")</script>', text: 'First\nSecond & third' });
 
+function clipboardOrigin(page: Page) {
+  const url = new URL(page.url());
+  const port = Number(url.port);
+  if (url.protocol !== 'http:' || url.hostname !== '127.0.0.1' ||
+      url.username || url.password || !Number.isInteger(port) || port < 1024 || port > 65535) {
+    throw new Error('Clipboard permissions require the loaded Storybook loopback origin');
+  }
+  return url.origin;
+}
+
 for (const theme of ['light', 'dark']) {
   test(`native keyboard copy preserves focus, selection and escaped text/JSON: ${theme}`, async ({ page, context, browserName }) => {
-    if (browserName === 'chromium') await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: 'http://127.0.0.1:6173' });
     const grid = await open(page, theme);
+    if (browserName === 'chromium') await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: clipboardOrigin(page) });
     const destination = page.getByRole('textbox', { name: 'Clipboard destination' });
     for (const [rowId, key, payload] of [['text', 'Enter', text], ['json', 'Space', json]] as const) {
       const cell = grid.locator(`tbody [data-grid-row="${rowId}"][data-grid-field="value"]`);
@@ -50,10 +60,11 @@ for (const theme of ['light', 'dark']) {
 
 test('native denied clipboard write announces error and keeps keyboard focus', async ({ page, context, browserName }) => {
   test.skip(browserName !== 'chromium', 'CDP denial is Chromium-only; deterministic rejection is tested on every engine.');
+  const grid = await open(page);
+  const origin = clipboardOrigin(page);
   const session = await context.newCDPSession(page);
   const { targetInfo } = await session.send('Target.getTargetInfo');
-  await session.send('Browser.setPermission', { permission: { name: 'clipboard-write' }, setting: 'denied', origin: 'http://127.0.0.1:6173', browserContextId: targetInfo.browserContextId });
-  const grid = await open(page);
+  await session.send('Browser.setPermission', { permission: { name: 'clipboard-write' }, setting: 'denied', origin, browserContextId: targetInfo.browserContextId });
   const cell = grid.locator('tbody [data-grid-row="text"][data-grid-field="value"]');
   await grid.locator('tbody [data-grid-row="text"][data-grid-field="name"]').focus();
   await page.keyboard.press('ArrowRight');
