@@ -1,6 +1,8 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { readFile, readdir } from 'node:fs/promises';
+import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import ts from 'typescript';
 
 // Directives belong to source implementations, never to a build-time directory rule.
@@ -123,3 +125,33 @@ for (const file of ['dist/index.d.ts', 'dist/models.d.ts']) {
   assert(!/react-aria|@react-types|@mui|@emotion|lucide-react|@tanstack/.test(await readFile(file, 'utf8')), `Upstream public type escaped: ${file}`);
 }
 await checkOwnedDeclarations('dist/utils');
+
+// Inspect the actual distributable, not only self-referenced checkout exports.
+const packedAudit = await mkdtemp(join(tmpdir(), 'sgui-package-audit-'));
+try {
+  execFileSync('pnpm', ['pack', '--pack-destination', packedAudit], { stdio: 'pipe' });
+  const tarballs = (await readdir(packedAudit)).filter(name => name.endsWith('.tgz'));
+  assert.equal(tarballs.length, 1, 'Expected one package tarball');
+  execFileSync('tar', ['-xzf', join(packedAudit, tarballs[0]), '-C', packedAudit]);
+  const packedRoot = join(packedAudit, 'package');
+  const packedPackage = JSON.parse(await readFile(join(packedRoot, 'package.json'), 'utf8'));
+  assert.deepEqual(packedPackage.exports, pkg.exports, 'Pack changed public export conditions');
+  assert.deepEqual(packedPackage.sideEffects, pkg.sideEffects, 'Pack changed CSS side effects');
+  async function comparePacked(directory) {
+    for (const entry of await readdir(directory, { withFileTypes: true })) {
+      const path = `${directory}/${entry.name}`;
+      if (entry.isDirectory()) await comparePacked(path);
+      else assert.deepEqual(await readFile(join(packedRoot, path)), await readFile(path), `Packed output missing or stale: ${path}`);
+    }
+  }
+  await comparePacked('dist');
+  await checkRetiredOutput(join(packedRoot, 'dist'));
+  for (const name of ['LICENSE', 'THIRD_PARTY_NOTICES.md', 'README.md']) {
+    assert.deepEqual(await readFile(join(packedRoot, name)), await readFile(name), `Pack lost or changed ${name}`);
+  }
+  const topLevel = await readdir(packedRoot);
+  assert(topLevel.every(name => ['dist', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'README.md', 'package.json'].includes(name)), 'Unexpected source/configuration shipped');
+  console.log('Packed JS, declarations, CSS, maps and assets match the fresh build; exports and notices are retained.');
+} finally {
+  await rm(packedAudit, { recursive: true, force: true });
+}
