@@ -371,3 +371,9 @@ editorKey replacement/unmount. Never revoke host-returned URLs. Local previews
 are temporary; durable saved images require host upload URLs. See the
 [editor contracts](docs/developer/react-aria-editor-section.md). E-06 remains open
 for the wider URL/protocol and upload validation acceptance.
+
+PageRichTextEditorSection registers saved code-highlight nodes and Lexical list
+interactions. Root-level caret selections after decorator deletion are valid;
+toolbar reads must not require a top-level parent. See the [saved rich-document
+contract](docs/developer/react-aria-editor-section.md#saved-rich-documents-e-02e-04-partial).
+E-02/E-04 remain open beyond representative JSON/native list/rule coverage.

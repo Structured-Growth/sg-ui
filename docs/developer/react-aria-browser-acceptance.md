@@ -277,3 +277,32 @@ CI. Firefox stays mandatory in CI despite its local launch limitation. Evidence:
 `/tmp/sgui-image-check-storybook.log`, `/tmp/sgui-image-check22.log`,
 `/tmp/sgui-image-browser.log`, `/tmp/sgui-image-browser-results.json` and
 `/tmp/sgui-image-consumers.log`.
+
+## Saved rich-document interactions (E-02/E-04 partial)
+
+`tests/browser/editor-rich-document.spec.ts` uses host JSON through the public
+editor and actual native keys. It checks rich-node rendering and loaded image
+alt/asset metadata, edits before and after host reload, compares unchanged
+serialized nodes and repeats read-only rendering/reload. Native Enter continues
+and exits saved lists; native rule deletion and Undo retain the document. These
+gates exposed missing CodeHighlightNode/ListPlugin registration and a toolbar
+exception on valid document-root caret selections, now fixed. See the
+[editor contract](react-aria-editor-section.md#saved-rich-documents-e-02e-04-partial)
+for the representative fixture and remaining E-02/E-04 matrix.
+
+The clipboard gate now also records actual HTML/plain bytes from the trusted
+native event. HTML transfer requires the copied bold markup, so Linux WebKit's
+empty `clipboardData.types` enumeration cannot substitute for transfer evidence.
+No synthetic event/data, clipboard write or browser diagnostic exclusion was
+introduced. The prior failing Linux run remains failed; a new CI run must verify
+the corrected assertion. See [runtime evidence](react-aria-runtime-ci.md).
+
+Final local checks pass on Node 24 and exact Node 22.12.0 (139 files/868 behavior
+tests), and fresh Storybook builds. Full Chromium/WebKit passes 82/82 in 67.0
+seconds, zero skipped/unexpected/flaky, with 16 axe scans and eight new rich-node
+cases. Fresh serial packed React 18/19 editor SSR/hydration-entry builds pass;
+Vite/Next browsers were not repeated for this batch. Firefox remains mandatory
+in Linux CI despite its documented local launch limitation. Evidence:
+`/tmp/sgui-rich-final-check-storybook.log`, `/tmp/sgui-rich-check22.log`,
+`/tmp/sgui-rich-final-browser.log`, `/tmp/sgui-rich-final-browser-results.json`
+and `/tmp/sgui-rich-consumers.log`.

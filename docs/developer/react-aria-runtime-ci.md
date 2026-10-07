@@ -112,3 +112,14 @@ unexpected or flaky tests. Packed React 18/19 Vite and Next production JSON reco
 SSR, hydration and interactions passing in each engine with empty diagnostics.
 Seven artifacts are unexpired; browser artifact ID is `11457514859`. Evidence:
 `/tmp/sgui-ci-calendar-browser`. This verifies the calendar batch, not later heads.
+
+The clipboard head `5829608` [run 37564009791](https://github.com/Structured-Growth/sg-ui/actions/runs/37564009791)
+completed with failure. Node 22.12.0 passed all checks and packed consumers.
+Node 24 passed check/Storybook and 103/105 browser cases; both failures were
+Linux WebKit rich-paste event assertions. Native rich formatting, JSON reload,
+keyboard bold and typing had passed, but `clipboardData.types` enumerated an
+empty array. The gate now reads actual `text/html` bytes from the trusted native
+event and requires the copied bold content; it still records the enumerated
+types and retains mandatory runtime diagnostics. A new CI run must verify this
+change on Linux; local success does not repair that earlier run or establish
+Node 24 packed-browser success for the failed clipboard head.

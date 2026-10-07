@@ -1718,3 +1718,44 @@ its launch limitation and remains mandatory in Linux CI. Evidence:
 `/tmp/sgui-image-check-storybook.log`, `/tmp/sgui-image-check22.log`,
 `/tmp/sgui-image-browser.log`, `/tmp/sgui-image-browser-results.json` and
 `/tmp/sgui-image-consumers.log`. Guidance links (111) and whitespace checks pass.
+
+## Saved rich-document interactions (E-02/E-04 partial)
+
+Registered CodeHighlightNode so saved highlighted code can reload rather than
+silently failing initial parse; added the real Lexical ListPlugin so saved lists
+continue and exit through native Enter. The rich-document browser gate exposed a
+separate production error: rule deletion places a valid range caret on the root,
+but ToolbarBridge called `getTopLevelElementOrThrow()`. Reading the optional
+top-level element preserves toolbar updates and native Undo after deletion.
+Colocated regressions exercise the registered JSON configuration, list commands
+and root caret. The SavedRichDocument story supplies a host-save/reload flow.
+
+Native Chromium/WebKit cases cover all inline formats, author color/body marker,
+alignment/indentation, link attributes, numbered/bullet lists, quote, highlighted
+multiline code, table header/cell/background, loaded image/alt/dimensions/asset
+metadata and rules. Editing before and after `editorKey` reload compares all
+unchanged serialized nodes; read-only reload retains rendering. Native Enter
+continues/exits lists; rule deletion/Undo and host reload retain list edits.
+The fixture is representative: E-02/E-04 remain unchecked for their complete
+node/plugin, selection/history, table and consumer-document matrix. E-06/E-07
+link/image trust boundaries are separately open. Formal closure stays 94/320
+required tasks (226 open, 29.38%).
+
+The preceding clipboard CI completed with two Linux WebKit failures because the
+trusted HTML paste event enumerated no MIME types despite passing rich rendering,
+serialization and subsequent editing. Observation now requires actual HTML bytes
+containing the copied bold content from the same trusted event; no clipboard
+injection, retries or diagnostic exclusions were added. See the failed exact-head
+[runtime record](react-aria-runtime-ci.md); new Linux verification remains required.
+
+Final local Node 24 and exact Node 22.12.0 `pnpm check` pass 139 files/868 behavior
+tests, five foundation and four release tests, source/story typing, builds/public
+APIs and owned boundaries/token/layer guards. Fresh Storybook passes with existing
+upstream warnings. Full Chromium/WebKit passes 82/82 in 67.0 seconds with zero
+skipped, unexpected or flaky cases, including eight new rich-document cases and
+16 axe scans. Fresh serial packed React 18/19 editor SSR/hydration-entry builds
+pass. Vite/Next browser consumers were not repeated; earlier independently
+successful CI is recorded separately. Firefox remains mandatory in Linux CI.
+Evidence: `/tmp/sgui-rich-final-check-storybook.log`, `/tmp/sgui-rich-check22.log`,
+`/tmp/sgui-rich-final-browser.log`, `/tmp/sgui-rich-final-browser-results.json`
+and `/tmp/sgui-rich-consumers.log`.

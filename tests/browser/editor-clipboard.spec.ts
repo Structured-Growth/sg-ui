@@ -15,11 +15,12 @@ async function setup(page: Page, theme: string) {
   await expect(editor).toBeVisible();
   // Observe real browser events without dispatching or changing clipboard data.
   await page.evaluate(() => {
-    const events: { type: string; trusted: boolean; types: string[] }[] = [];
+    const events: { type: string; trusted: boolean; types: string[]; html: string; plain: string }[] = [];
     (window as unknown as { clipboardEvents: typeof events }).clipboardEvents = events;
     for (const type of ['copy', 'paste']) document.addEventListener(type, event => {
       const clipboard = event as ClipboardEvent;
-      events.push({ type, trusted: event.isTrusted, types: Array.from(clipboard.clipboardData?.types ?? []) });
+      events.push({ type, trusted: event.isTrusted, types: Array.from(clipboard.clipboardData?.types ?? []),
+        html: clipboard.clipboardData?.getData('text/html') ?? '', plain: clipboard.clipboardData?.getData('text/plain') ?? '' });
     }, true);
   });
   return editor;
@@ -103,8 +104,11 @@ for (const theme of ['light', 'dark']) {
     await page.keyboard.press('ArrowRight');
     await page.keyboard.type('!');
     await expect(editor).toContainText('Second paragraph!');
-    const events = await page.evaluate(() => (window as unknown as { clipboardEvents: { type: string; trusted: boolean; types: string[] }[] }).clipboardEvents);
-    expect(events).toEqual(expect.arrayContaining([expect.objectContaining({ type: 'paste', trusted: true, types: expect.arrayContaining(['text/html']) })]));
+    const events = await page.evaluate(() => (window as unknown as { clipboardEvents: { type: string; trusted: boolean; types: string[]; html: string }[] }).clipboardEvents);
+    // Linux WebKit can deliver native HTML while exposing an empty types list.
+    // Require actual HTML bytes from that same trusted transfer, not enumeration.
+    expect(events).toEqual(expect.arrayContaining([expect.objectContaining({ type: 'paste', trusted: true,
+      html: expect.stringMatching(/<(?:b|strong)[^>]*>Bold course<\/(?:b|strong)>/) })]));
     expect(events.every(event => event.trusted)).toBe(true);
     await info.attach('native-clipboard-events', { body: JSON.stringify(events), contentType: 'application/json' });
   });

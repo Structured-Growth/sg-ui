@@ -1,4 +1,4 @@
-import { CodeNode } from "@lexical/code";
+import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { LinkNode } from "@lexical/link";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
@@ -13,6 +13,7 @@ export const EXPERIENCE_EDITOR_NODES = [
   ListItemNode,
   LinkNode,
   CodeNode,
+  CodeHighlightNode,
   ImageNode,
   HorizontalRuleNode,
   TableNode,

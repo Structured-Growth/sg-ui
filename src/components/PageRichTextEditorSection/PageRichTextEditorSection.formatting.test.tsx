@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 import { $createParagraphNode, $createTextNode, $getRoot, $isElementNode, $isTextNode, type LexicalEditor } from "lexical";
 import { $createHeadingNode, $createQuoteNode } from "@lexical/rich-text";
 import { $createCodeNode } from "@lexical/code";
-import { $createListNode, $createListItemNode } from "@lexical/list";
+import { $createListNode, $createListItemNode, INSERT_ORDERED_LIST_COMMAND, REMOVE_LIST_COMMAND } from "@lexical/list";
 import { $createLinkNode } from "@lexical/link";
 import { $createTableNodeWithDimensions } from "@lexical/table";
 import { $createHorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
@@ -112,6 +112,25 @@ describe("owned formatting with the real Lexical host", () => {
     await waitFor(() => expect(serializedChildren().children).toEqual(runs));
     expect($getText()).toBe("Guide notes");
     expect(change).toHaveBeenCalledWith(activeEditor!.getEditorState().toJSON());
+  });
+  it("keeps toolbar updates usable with a document-root caret", async () => {
+    mount();
+    await waitFor(() => expect(activeEditor).toBeTruthy());
+    await act(async () => {
+      activeEditor!.update(() => { $getRoot().select(1, 1); }, { discrete: true });
+    });
+    expect(screen.getByRole("button", { name: "Normal Text style heading" })).toBeTruthy();
+    expect($getText()).toBe("Guide");
+  });
+  it("handles list insertion and removal commands through the real experience plugins", async () => {
+    mount();
+    await selectText();
+    await act(async () => { expect(activeEditor!.dispatchCommand(INSERT_ORDERED_LIST_COMMAND, undefined)).toBe(true); });
+    await waitFor(() => expect(activeEditor!.getEditorState().toJSON().root.children[0].type).toBe("list"));
+    expect(screen.getByRole("listitem").textContent).toBe("Guide");
+    await act(async () => { expect(activeEditor!.dispatchCommand(REMOVE_LIST_COMMAND, undefined)).toBe(true); });
+    await waitFor(() => expect(activeEditor!.getEditorState().toJSON().root.children[0].type).toBe("paragraph"));
+    expect($getText()).toBe("Guide");
   });
   it("round-trips registered document nodes and host image metadata across document reload", async () => {
     const change = vi.fn();

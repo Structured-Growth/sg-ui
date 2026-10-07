@@ -84,3 +84,23 @@ permission or replace native clipboard behavior.
 See [browser acceptance](react-aria-browser-acceptance.md) for executed native
 transfer evidence. Actual IME composition, physical-device clipboard and live
 assistive-technology acceptance remain open; this batch does not close E-05.
+
+## Saved rich documents (E-02/E-04 partial)
+
+The registered editor configuration accepts saved `code-highlight` children in
+code blocks as well as ordinary text. Their token metadata survives JSON reload;
+this does not enable a new syntax-highlighting service. The experience plugins
+include Lexical list interactions, so native Enter continues a saved list and
+Enter on an empty item returns to a paragraph. A valid caret on the document
+root (for example after deleting a selected rule) keeps toolbar updates usable.
+
+The SavedRichDocument story saves `onLexicalChange` JSON and reloads it with a new
+`editorKey`. Colocated and browser checks cover headings, quotes, numbered/bullet
+lists, highlighted code, table cells/header/background, paragraph alignment and
+indentation, author colors/body-role markers, inline formats, link attributes,
+image alt/dimensions/asset IDs and horizontal rules. Browser cases edit before and
+after reload and compare unchanged serialized nodes, then repeat read-only
+rendering; native list continuation/exit and rule deletion/undo use actual keys.
+This representative fixture does not close all E-02/E-04 node/plugin, command,
+selection, history, merge-table and consumer-document combinations. Link/image
+trust boundaries remain separately open under E-06/E-07.

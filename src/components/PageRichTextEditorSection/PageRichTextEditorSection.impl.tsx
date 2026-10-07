@@ -259,7 +259,9 @@ function ToolbarBridge({
           });
 
           const anchorNode = selection.anchor.getNode();
-          const topLevel = anchorNode.getTopLevelElementOrThrow();
+          // Deleting a selected decorator can place the caret on the root.
+          // A root range is valid, but has no top-level parent to inspect.
+          const topLevel = anchorNode.getTopLevelElement();
           const heading = $isHeadingNode(topLevel)
             ? (topLevel.getTag() === "h1"
                 ? "Heading 1"

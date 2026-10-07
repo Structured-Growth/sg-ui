@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Provider } from "../../experimental/Provider/Provider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection";
 import { AppButton } from "../AppButton/AppButton";
+import { SAVED_RICH_DOCUMENT } from "./PageRichTextEditorSection.stories.fixtures";
 
 const meta = {
   title: "Editors/PageRichTextEditorSection",
@@ -151,6 +152,23 @@ export const BasePreset: Story = {
 };
 
 export const DarkReadOnly: Story = { args: { lexicalValue: INITIAL_DOC, readOnly: true, "aria-label": "Read-only course content" }, decorators: [(Story) => <Provider theme="dark" style={{height:320}}><Story /></Provider>] };
+
+/** The host saves callback JSON and supplies it with a new document key. */
+export const SavedRichDocument: Story = {
+  render: () => {
+    const [value, setValue] = useState<unknown>(SAVED_RICH_DOCUMENT);
+    const [seed, setSeed] = useState<unknown>(SAVED_RICH_DOCUMENT);
+    const [revision, setRevision] = useState(0);
+    const [readOnly, setReadOnly] = useState(false);
+    return <Provider>
+      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
+      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</AppButton>
+      <PageRichTextEditorSection lexicalValue={seed} editorKey={`rich-${revision}`} onLexicalChange={setValue}
+        readOnly={readOnly} aria-label="Saved rich document" toolPreset="full" style={{ height: 520 }} />
+      <pre aria-label="Saved rich JSON">{JSON.stringify(value)}</pre>
+    </Provider>;
+  },
+};
 
 /** Local images are temporary; a durable saved document needs a host upload. */
 export const LocalImageLifecycle: Story = {
