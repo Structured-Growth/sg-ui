@@ -213,12 +213,20 @@ entry document and keep examples aligned with SGUI's public exports and adapters
 
 ## Validation and changes
 
-Run pnpm install --frozen-lockfile when dependencies are needed. For code, dependency
-or build/release changes, run pnpm check and pnpm build-storybook before completing
-the task. For guidance/documentation-only changes, verify relevant links, paths and
-consistency without introducing code or unrelated tests. Behavior tests run with
-Vitest; package smoke checks import every built public entry point.
-Do not weaken checks to make a task pass. Explain any unverified behavior.
+Run pnpm install --frozen-lockfile when dependencies are needed. During the
+user-authorized pre-production migration into `codex/dev`, use targeted validation
+per task: meaningful affected unit/composed tests, type/import/token guards relevant
+to the change, and focused browser or packed-consumer checks when behavior requires
+them. Update affected stories; build fresh Storybook only when needed for those
+checks. Neither each task PR nor each dev integration requires `pnpm check`, a
+Storybook build or the entire browser/consumer matrix. See
+[development validation policy](docs/developer/react-aria-development-validation.md).
+The coordinator runs an occasional full checkpoint (initially daily while new code
+lands), records the exact tested head and creates bounded follow-up tasks for
+failures. Broaden checks when a concrete regression warrants it. Full validation
+remains required before production/main acceptance. Guidance-only changes verify
+links, paths and consistency without unrelated UI tests. Never skip failing targeted
+checks, weaken assertions or claim unverified behavior passed.
 
 Use Conventional Commit messages and PR titles: fix: for fixes, feat: for compatible
 features, and a ! marker or BREAKING CHANGE: footer for breaking changes. Document

@@ -26,7 +26,10 @@ engine is Node >=22.12.0; React/React DOM peers are 18.3.1 or 19. CI validates t
 exact Node 22.12.0 minimum and the Node 24 line.
 
 [CI](../.github/workflows/ci.yml) runs on `pull_request`, pushes to `main` and
-`workflow_call`; it has no documentation path exclusion. Both matrix jobs install
+`workflow_call`. Dev-targeted PRs use the targeted job described in the
+[development validation policy](developer/react-aria-development-validation.md),
+including documentation-only whitespace checks. Other PRs, main pushes and reusable
+calls retain the full matrix. Both full matrix jobs install
 the frozen lockfile, run `pnpm check` and `pnpm build-storybook`, then serially run
 packed foundation and editor consumers with React 18.3 and 19. The React 19
 foundation consumer includes Flight. Node 24 additionally installs Chromium,
@@ -121,8 +124,8 @@ has not verified actual default-token PR behavior for this repository (R-23/R-27
 | Change scope | Evidence to provide before completion |
 | --- | --- |
 | Documentation/template guidance only | Relevant links/anchors, paths, commands, exports/example contracts, issue-form structure and `git diff --check`; no unrelated UI tests or local builds |
-| Component/API/style/behavior | `pnpm check`, `pnpm build-storybook`, changed-state stories and meaningful colocated tests; composed/browser checks when native timing, focus, scrolling or positioning matters |
-| Dependency/build/release/workflow | `pnpm check`, `pnpm build-storybook` plus affected runtime, packed consumer, release-policy and workflow evidence; owner prerequisites and publication effects explicitly reviewed |
+| Component/API/style/behavior | For pre-production dev: affected unit/composed tests, relevant type/foundation/token guards and changed-state stories; focused browser checks with fresh Storybook for native timing/focus/scrolling/positioning |
+| Dependency/build/release/workflow | For pre-production dev: affected build/runtime/packed-consumer/release-policy/workflow checks; full runs at occasional checkpoints and before production; owner prerequisites and publication effects explicitly reviewed |
 
 Run `pnpm install --frozen-lockfile` when dependencies are needed. Documentation-only
 local validation does not skip configured PR CI. Record commands, results, exact

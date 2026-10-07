@@ -83,9 +83,26 @@ permissions and secrets remain read-only; no workflow dispatch, approval or publ
 
 The user requested consolidation for continued development on `codex/dev`.
 Integration worktree: `/Users/thomashall/.codex/worktrees/dev-integration/sg-ui`.
-Current PR heads #1–#7 are incorporated with full-history merge commits. Original
+Completed PR heads #1–#11 are incorporated with full-history merge commits. Original
 task branches remain available; worker validation and later report commits can continue.
 The primary checkout's image-upload validation patch and its new browser test were
 copied without editing the original checkout. Unrelated `.obsidian` metadata is excluded.
 New assignments use the verified dev head; completed older-base assignments are
 reviewed and integrated on dev. Main and publication remain unchanged.
+
+
+## Validation policy update — 2026-10-07
+
+User explicitly replaced per-task/per-integration full validation with targeted
+checks and occasional full runs. Follow the [development validation policy](react-aria-development-validation.md).
+Initial cadence: one checkpoint per 24 hours while new code lands; concrete
+regressions may justify earlier broader checks. Checkpoint failures become bounded
+repair tasks. Preserve full production/main acceptance and manual/device/AT gates.
+
+Existing evidence before this policy change: combined head `ac8a864` passed Node 24
+`pnpm check` (148 files/1031 tests), Storybook, React 18/19 packed foundation consumers
+and 26 Chromium/WebKit form/dialog/adapter/image cases. Head `75b7c3f` including
+selectors passed check (148 files/1038 tests), Storybook and 10 selector browser cases
+in Chromium/WebKit. Firefox profile creation failed before behavior ran; those
+passes do not establish the complete browser or consumer matrix. No additional
+full run is required for this documentation/CI-selection change.

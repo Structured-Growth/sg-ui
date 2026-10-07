@@ -38,7 +38,7 @@ body:
     id: evidence
     attributes:
       label: Stories and validation evidence
-      description: Identify relevant stories/tests or reproduction links and planned checks. Guidance-only work verifies links/paths/commands/exports and form structure; code/build changes run pnpm check and pnpm build-storybook plus relevant behavior/consumer checks. Record results in the PR.
+      description: Identify relevant stories/tests or reproduction links and planned checks. Guidance-only work verifies links/paths/commands/exports and form structure; pre-production dev tasks use targeted tests and relevant guards/browser/build/consumer checks. Full validation occurs at occasional coordinator checkpoints and before production. Record results in the PR.
   - type: textarea
     id: remaining-gates
     attributes:
