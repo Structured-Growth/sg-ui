@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useEffect, useRef, type CSSProperties, type ReactNode } from "react";
+import { forwardRef, useEffect, useLayoutEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { Button } from "../../experimental/Button/Button";
 import { Select } from "../../experimental/Select/Select";
 import { AddIcon } from "../../experimental/icons/AddIcon";
@@ -40,6 +40,8 @@ export type DocumentEditorToolbarProps = {
   style?: CSSProperties;
   "aria-label"?: string;
 };
+// Keep server rendering effect-free while updating delivery ownership at commit.
+const useCommittedEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 const headings = ["normal", "h1", "h2", "h3", "h4", "h5"] as const;
 
 export const DocumentEditorToolbar = forwardRef<HTMLDivElement, DocumentEditorToolbarProps>(function DocumentEditorToolbar({
@@ -49,7 +51,20 @@ export const DocumentEditorToolbar = forwardRef<HTMLDivElement, DocumentEditorTo
 }, ref) {
   const { t } = useTranslation();
   const pendingChanges = useRef(new Set<ReturnType<typeof setTimeout>>());
-  useEffect(() => () => { pendingChanges.current.forEach(clearTimeout); pendingChanges.current.clear(); }, []);
+  const headingOwner = useRef({ canEdit, onHeadingChange });
+  useCommittedEffect(() => {
+    headingOwner.current = { canEdit, onHeadingChange };
+    // Availability loss invalidates the original transaction, even if the host
+    // re-enables editing or installs a callback before its delivery turn.
+    if (!canEdit || !onHeadingChange) {
+      pendingChanges.current.forEach(clearTimeout);
+      pendingChanges.current.clear();
+    }
+  }, [canEdit, onHeadingChange]);
+  useCommittedEffect(() => () => {
+    pendingChanges.current.forEach(clearTimeout);
+    pendingChanges.current.clear();
+  }, []);
   const label = (id: string, fallback: string) => t(`common.ui.editor.${id}`, { defaultMessage: fallback });
   const action = (name: string, id: string, icon: ReactNode, callback?: () => void, disabled = false, active?: boolean) =>
     <Button aria-label={label(id, name)} aria-pressed={active} className={styles.action} variant="text" tone="neutral" density="compact" startIcon={icon} disabled={disabled || !callback} onPress={callback} />;
@@ -64,10 +79,15 @@ export const DocumentEditorToolbar = forwardRef<HTMLDivElement, DocumentEditorTo
       <Select className={styles.heading} label={label("heading", "Text style heading")} value={headingValue} disabled={!canEdit || !onHeadingChange}
         options={headings.map((id, index) => ({ id, label: label(`documentHeading${index}`, index === 0 ? "Normal" : `H${index}`) }))}
         onValueChange={value => {
-          if (value === null || !headings.includes(value as typeof headings[number])) return;
+          if (!headingOwner.current.canEdit || !headingOwner.current.onHeadingChange || value === null || !headings.includes(value as typeof headings[number])) return;
           // Let the select finish native Enter handling and restore focus before
           // host commands refocus contenteditable and edit its selection.
-          const timer = setTimeout(() => { pendingChanges.current.delete(timer); onHeadingChange?.(value as typeof headings[number]); }, 0);
+          const timer = setTimeout(() => {
+            // A cleared transaction must never revive after availability returns.
+            if (!pendingChanges.current.delete(timer)) return;
+            const owner = headingOwner.current;
+            if (owner.canEdit) owner.onHeadingChange?.(value as typeof headings[number]);
+          }, 0);
           pendingChanges.current.add(timer);
         }} />
       <div className={styles.group}>
