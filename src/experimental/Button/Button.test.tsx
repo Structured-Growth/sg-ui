@@ -43,4 +43,35 @@ describe("owned button proof", () => {
     await user.click(screen.getByText("Save"));
     expect(submit).toHaveBeenCalledTimes(1);
   });
+  it("suppresses native reset while pending and restores the latest host press on completion", async () => {
+    const reset = vi.fn();
+    const firstPress = vi.fn();
+    const latestPress = vi.fn();
+    const ref = createRef<HTMLButtonElement>();
+    const user = userEvent.setup();
+    const form = (loading: boolean, onPress: () => void) => <form onReset={reset}>
+      <input aria-label="Course title" defaultValue="Original course" />
+      <Button ref={ref} type="reset" loading={loading} onPress={onPress}>Reset course</Button>
+    </form>;
+    const { rerender } = render(form(false, firstPress));
+    const button = ref.current!;
+    await user.type(screen.getByRole("textbox"), " draft");
+    button.focus();
+    rerender(form(true, latestPress));
+    expect(ref.current).toBe(button);
+    expect(document.activeElement).toBe(button);
+    await user.click(button);
+    await user.keyboard("{Enter} ");
+    expect(reset).not.toHaveBeenCalled();
+    expect(firstPress).not.toHaveBeenCalled();
+    expect(latestPress).not.toHaveBeenCalled();
+    expect((screen.getByRole("textbox") as HTMLInputElement).value).toBe("Original course draft");
+    rerender(form(false, latestPress));
+    await user.click(button);
+    expect(latestPress).toHaveBeenCalledTimes(1);
+    expect(firstPress).not.toHaveBeenCalled();
+    expect(reset).toHaveBeenCalledTimes(1);
+    expect((screen.getByRole("textbox") as HTMLInputElement).value).toBe("Original course");
+  });
+
 });

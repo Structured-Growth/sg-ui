@@ -28,7 +28,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
 ) {
   const { t } = useTranslation();
   return (
-    <AriaButton {...props} ref={ref} type={type} isDisabled={disabled} isPending={loading}
+    <AriaButton {...props} ref={ref}
+      // Pending reset buttons must suppress the native default as well as the press callback.
+      type={loading && type === "reset" ? "button" : type} isDisabled={disabled} isPending={loading}
       onPress={onPress} className={[styles.root, className].filter(Boolean).join(" ")}
       data-variant={variant} data-tone={tone} data-sgui-density={density} data-sgui-part="button">
       {loading ? <ProgressBar isIndeterminate className={styles.spinner}

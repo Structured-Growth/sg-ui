@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from "./Button";
 import { ThemeScope } from "../../foundation/ThemeScope";
@@ -24,3 +25,33 @@ export const ThemesAndDensity: Story = {
 export const LongLabelAndRTL: Story = {
   render: () => <ThemeScope dir="rtl" style={{ maxWidth: "15rem" }}><Button>حفظ التغييرات في اسم الدورة التدريبية</Button></ThemeScope>,
 };
+
+/** Host-owned pending/disabled transitions and native form event ordering. */
+export const NativeFormTransitions: Story = {
+  render: () => <NativeFormTransitionsExample />,
+};
+
+function NativeFormTransitionsExample() {
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+  const [revision, setRevision] = useState(1);
+  const [events, setEvents] = useState<string[]>([]);
+  const record = (event: string) => setEvents(previous => [...previous, event]);
+  return <div style={{ display: "grid", gap: tokens.space2 }}>
+    <div style={{ display: "flex", gap: tokens.space2 }}>
+      <Button onPress={() => setLoading(value => !value)}>Toggle pending</Button>
+      <Button onPress={() => setDisabled(value => !value)}>Toggle disabled</Button>
+      <Button onPress={() => setRevision(value => value + 1)}>Replace host press</Button>
+    </div>
+    <form aria-label="Button native form" onSubmit={event => {
+      event.preventDefault(); record("submit");
+    }} onReset={() => record("reset")}>
+      <label>Course title <input name="title" defaultValue="Original course" /></label>
+      <Button type="submit" loading={loading} disabled={disabled}
+        onPress={() => record(`submit press ${revision}`)}>Submit course</Button>
+      <Button type="reset" loading={loading} disabled={disabled}
+        onPress={() => record(`reset press ${revision}`)}>Reset course</Button>
+    </form>
+    <output aria-label="Button events">{events.join(" | ") || "No events"}</output>
+  </div>;
+}
