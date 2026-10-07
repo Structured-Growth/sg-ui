@@ -379,3 +379,90 @@ it("shares the clamped client slice and retained selection with cards while reje
   await userEvent.click(screen.getByRole("button", { name: "List" }));
   expect(screen.getByRole("checkbox", { name: "Select Card course 10" })).toBeTruthy();
 });
+
+it("accepted card footer entry wins over stale card-action repair after a disabled origin releases focus", async () => {
+  const user = userEvent.setup(); const request = vi.fn();
+  const config = { ...props, mode: "server" as const, pageSizeOptions: [1], rowCount: 3,
+    view: { defaultMode: "cards" as const, cards: { renderCard: (row: Course) => <button>Open {row.name}</button> } },
+    onStateChange: request };
+  const { rerender } = render(<AppDataGridShell {...config} rows={[rows[1]!]} paginationModel={{ page: 1, pageSize: 1 }} />);
+  await user.click(screen.getByRole("button", { name: "Open Mathematics" }));
+  const previous = screen.getByRole("button", { name: "Previous page" });
+  await user.click(previous);
+  expect(request).toHaveBeenCalledExactlyOnceWith(expect.objectContaining({ paginationModel: { page: 0, pageSize: 1 } }));
+  // Chromium releases focus from the newly disabled Previous button. jsdom
+  // does not implement that native behavior, so reproduce its body-focus state.
+  previous.blur();
+  const scrolling = screen.getByRole("list", { name: "Courses" });
+  scrolling.scrollTop = 28;
+  rerender(<AppDataGridShell {...config} rows={[rows[0]!]} paginationModel={{ page: 0, pageSize: 1 }} />);
+  expect(document.activeElement).toBe(screen.getByRole("listitem", { name: "Science" }));
+  expect(scrolling.scrollTop).toBe(0);
+});
+
+it("reveals owned keyboard focus on shell resize and leaves outside focus and scrolling alone", async () => {
+  const observers: { callback: ResizeObserverCallback; observe: ReturnType<typeof vi.fn>; disconnect: ReturnType<typeof vi.fn> }[] = [];
+  vi.stubGlobal("ResizeObserver", class {
+    observe = vi.fn(); disconnect = vi.fn(); unobserve = vi.fn();
+    constructor(readonly callback: ResizeObserverCallback) { observers.push(this); }
+  });
+  try {
+    const user = userEvent.setup(); const ref = createRef<HTMLDivElement>();
+    const { unmount } = render(<><button>Outside shell</button><AppDataGridShell {...props} ref={ref} /></>);
+    const shell = ref.current!;
+    const ownObserver = observers.find(observer => observer.observe.mock.calls.some(([target]) => target === shell))!;
+    expect(ownObserver).toBeDefined();
+    vi.spyOn(shell, "getBoundingClientRect").mockReturnValue({ top: 100, bottom: 300 } as DOMRect);
+    Object.defineProperty(shell, "clientHeight", { configurable: true, value: 200 });
+    const cards = screen.getByRole("button", { name: "Cards" });
+    vi.spyOn(cards, "getBoundingClientRect").mockReturnValue({ top: 350, bottom: 390 } as DOMRect);
+    for (let count = 0; count < 20 && document.activeElement !== cards; count++) await user.tab();
+    expect(document.activeElement).toBe(cards);
+    ownObserver.callback([], {} as ResizeObserver);
+    expect(shell.scrollTop).toBe(90);
+    expect(document.activeElement).toBe(cards);
+    await user.click(screen.getByRole("button", { name: "Outside shell" }));
+    ownObserver.callback([], {} as ResizeObserver);
+    expect(shell.scrollTop).toBe(90);
+    expect(document.activeElement).toBe(screen.getByRole("button", { name: "Outside shell" }));
+    unmount();
+    expect(ownObserver.disconnect).toHaveBeenCalledOnce();
+  } finally { vi.unstubAllGlobals(); }
+});
+
+it("reserves card space alongside live wrapped status and reveals focus when content resizes", async () => {
+  const observers: { callback: ResizeObserverCallback; observe: ReturnType<typeof vi.fn>; disconnect: ReturnType<typeof vi.fn> }[] = [];
+  vi.stubGlobal("ResizeObserver", class {
+    observe = vi.fn(); disconnect = vi.fn(); unobserve = vi.fn();
+    constructor(readonly callback: ResizeObserverCallback) { observers.push(this); }
+  });
+  let statusHeight = 152;
+  vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(function (this: HTMLElement) {
+    return { top: 0, bottom: statusHeight, height: this.dataset.sguiPart === "status" ? statusHeight : 0 } as DOMRect;
+  });
+  try {
+    const ref = createRef<HTMLDivElement>();
+    const config = { ...props, ref, view: { defaultMode: "cards" as const,
+      cards: { renderCard: (row: Course) => <button>Open {row.name}</button> } } };
+    const { rerender } = render(<AppDataGridShell {...config} />);
+    const card = screen.getByRole("listitem", { name: "Science" });
+    const content = screen.getByRole("list", { name: "Courses" }).parentElement!;
+    const shellObserver = observers.find(observer => observer.observe.mock.calls.some(([target]) => target === ref.current))!;
+    // The accepted footer-entry target is a programmatic wrapper focus stop.
+    card.focus();
+    rerender(<AppDataGridShell {...config} refreshing />);
+    expect(document.activeElement).toBe(card);
+    expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 152px)");
+    expect(shellObserver.observe).toHaveBeenCalledWith(content);
+    const status = screen.getByRole("status");
+    const statusObserver = observers.find(observer => observer.observe.mock.calls.some(([target]) => target === status))!;
+    statusHeight = 208;
+    const { act } = await import("@testing-library/react");
+    act(() => statusObserver.callback([], {} as ResizeObserver));
+    expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 208px)");
+    rerender(<AppDataGridShell {...config} />);
+    expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 0px)");
+    expect(statusObserver.disconnect).toHaveBeenCalledOnce();
+    expect(document.activeElement).toBe(card);
+  } finally { vi.unstubAllGlobals(); }
+});
