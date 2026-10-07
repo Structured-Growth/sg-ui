@@ -11,6 +11,10 @@ for (const theme of ['light', 'dark']) {
     page.on('console', message => { if (['error', 'warning'].includes(message.type())) diagnostics.push(message.text()); });
     await page.goto(`/iframe.html?id=editors-pagerichtexteditorsection--table-history&viewMode=story&globals=theme:${theme};a11y.manual:!true`);
     const editor = page.getByRole('textbox', { name: 'Table history document', exact: true });
+    await expect(editor).toBeVisible();
+    await expect(editor).toHaveAttribute('contenteditable', 'true');
+    const toolbar = page.getByRole('group', { name: 'Text formatting', exact: true });
+    await expect(toolbar).toBeVisible();
     await editor.click();
     await page.keyboard.type('Course introduction');
     await page.keyboard.press('Enter');
@@ -35,11 +39,20 @@ for (const theme of ['light', 'dark']) {
     expect(table.children[0].children).toHaveLength(2);
     expect(table.colWidths).toBeUndefined();
     // A native range inside cell one must survive pointer focus on the toolbar.
-    await cells.nth(0).click();
-    await page.keyboard.press('Home');
+    // Remain in the table plugin's keyboard path instead of clicking blank cell space.
+    await page.keyboard.press('Shift+Tab');
+    await expect.poll(() => cells.nth(0).evaluate(node => {
+      const selection = window.getSelection();
+      return Boolean(selection?.anchorNode && node.contains(selection.anchorNode));
+    })).toBe(true);
+    for (let i = 0; i < 'First lesson'.length; i++) await page.keyboard.press('ArrowLeft');
+    await expect.poll(() => cells.nth(0).evaluate(node => {
+      const selection = window.getSelection();
+      return Boolean(selection?.anchorNode && node.contains(selection.anchorNode) && selection.anchorOffset === 0);
+    })).toBe(true);
     for (let i = 0; i < 5; i++) await page.keyboard.press('Shift+ArrowRight');
     await expect.poll(() => page.evaluate(() => window.getSelection()?.toString())).toBe('First');
-    await page.getByRole('button', { name: 'Bold', exact: true }).click();
+    await toolbar.getByRole('button', { name: 'Bold', exact: true }).click();
     await expect(cells.nth(0).locator('strong, b')).toHaveText('First');
     const formatted = await saved(page);
     expect(formatted).not.toEqual(before);
@@ -53,7 +66,11 @@ for (const theme of ['light', 'dark']) {
     await expect(editor).toContainText('Course introduction');
     await expect.poll(() => saved(page)).toEqual(formatted);
     // Require the replacement editor to emit its own edit, then exercise its new history.
-    await cells.nth(1).click();
+    await cells.nth(1).getByText('Second lesson', { exact: true }).click();
+    await expect.poll(() => cells.nth(1).evaluate(node => {
+      const selection = window.getSelection();
+      return Boolean(selection?.anchorNode && node.contains(selection.anchorNode));
+    })).toBe(true);
     await page.keyboard.press('End');
     await page.keyboard.type('!');
     await expect(cells.nth(1)).toHaveText('Second lesson!');

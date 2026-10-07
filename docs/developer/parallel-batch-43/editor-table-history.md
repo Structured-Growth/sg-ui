@@ -68,3 +68,33 @@ multi-cell/mixed selection, insertion Undo grouping, every command or host
 composition. IME, physical devices, assistive technology and E-06/E-07 trust/upload
 acceptance are unclaimed. No master checklist, release, workflow or acceptance
 status was changed.
+
+## Wave 22 retained failures and bounded correction
+
+Coordinator built candidate `e6270941ea8828d8868fef0798451a599a9db25f` once
+and verified byte identity of all worker-owned files to `586c9b65c3b22d45d89b773a979635a99e43ee53`.
+Wave 22 session `400c7da0-2b1c-447c-8101-fbd7237b63c5` ran this spec in
+Chromium: **0 passed / 2 failed**, zero skipped/flaky. Candidate source/build
+hashes stayed unchanged. Retained evidence and browser log:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/editor-table-history/`.
+
+- Light: unscoped Bold locator matched both Text formatting and Selection formatting
+  toolbars. **Confirmed test-driver defect**, no command was activated.
+- Dark: cell-center pointer click followed by Home/Shift+ArrowRight selected `Co`
+  from the introduction instead of `First`. **Selection driver failure**; no
+  product correction is justified by this outcome. Cell content and twoEqual JSON
+  had already passed. Exact physical pointer hit-test cause remains unclassified.
+
+Bounded correction scopes Bold to the actual Text formatting group, checks editor
+and toolbar readiness, returns from second to first cell through native Shift+Tab,
+moves left by the known cell-text length from the previous-cell end, and asserts
+the native caret belongs to cell one at offset zero before extending
+selection. Post-reload cell activation targets its visible text and verifies cell
+caret ownership. No selection is assigned through DOM/Lexical APIs in the browser
+spec; the actual keyboard/plugin/toolbar behavior and full JSON history assertions
+remain intact. No product source changed. Corrected Chromium proof remains pending
+coordinator rerun; original red evidence remains preserved.
+
+Corrected-spec `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json` passed under
+an owned light slot on Node 24.19.0; `git diff --check` passed. Unit/story/product
+source is unchanged since its recorded pass.
