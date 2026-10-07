@@ -107,3 +107,37 @@ function FocusRetentionExample() {
   </div>;
 }
 export const FocusRetention: Story = { render: () => <FocusRetentionExample /> };
+
+
+/** G-15/G-16: retained rows through a host-owned request/retry cycle. */
+function BusyLifecycleExample() {
+  const [phase, setPhase] = useState<"ready" | "loading" | "refreshing" | "error">("ready");
+  const [revision, setRevision] = useState(0);
+  const [retries, setRetries] = useState(0);
+  const columns: OwnedGridPresentationColumn<RecordRow>[] = [
+    { field: "name", headerName: "Course", width: 300 },
+    { field: "score", headerName: "Score", width: 300 },
+    { field: "status", headerName: "Status", width: 300 },
+  ];
+  return <div data-revision={revision} data-retries={retries} onKeyDownCapture={event => {
+    if (!event.altKey) return;
+    switch (event.key.toLowerCase()) {
+      case "l": setPhase("loading"); break;
+      case "r": setPhase("refreshing"); break;
+      case "e": setPhase("error"); break;
+      case "s": setPhase("ready"); break;
+      case "u": setRevision(value => value + 1); break;
+      default: return;
+    }
+    event.preventDefault(); event.stopPropagation();
+  }}>
+    <p>Host shortcuts: Alt+L load retained rows, Alt+R refresh, Alt+E fail, Alt+S succeed, Alt+U unrelated render. Retry starts a host pending request.</p>
+    <OwnedGridInteraction label="Busy courses" rows={records} columns={columns} getRowLabel={row => row.name}
+      loading={phase === "loading"} refreshing={phase === "refreshing"} errorMessage={phase === "error" ? "Course request failed" : undefined}
+      onRetry={() => { setRetries(value => value + 1); setPhase("refreshing"); }}
+      style={{ maxHeight: 240, maxWidth: 460 }} />
+    <OwnedGridInteraction label="Independent busy courses" rows={records} columns={columns} getRowLabel={row => row.name}
+      style={{ maxHeight: 240, maxWidth: 460 }} />
+  </div>;
+}
+export const BusyLifecycle: Story = { render: () => <BusyLifecycleExample /> };
