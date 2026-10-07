@@ -48,4 +48,30 @@ describe("AuthShell", () => {
     expect(navigate).toHaveBeenCalledExactlyOnceWith("/help", { replace: undefined });
     expect(submit).toHaveBeenCalledTimes(1);
   });
+
+  it("preserves native focus and independent host forms when shell sections change", async () => {
+    const user = userEvent.setup();
+    const submit = vi.fn(); const footerSubmit = vi.fn();
+    const content = <form aria-label="Host form" onSubmit={event => { event.preventDefault(); submit(); }}>
+      <TextField label="School name" /><AppButton type="submit">Continue</AppButton>
+    </form>;
+    const footer = <form aria-label="Host support" onSubmit={event => { event.preventDefault(); footerSubmit(); }}>
+      <AppButton type="submit">Request support</AppButton>
+    </form>;
+    const { rerender } = render(<AuthShell title="Continue">{content}</AuthShell>);
+    const input = screen.getByRole("textbox", { name: "School name" });
+    await user.type(input, "School with a long name");
+    rerender(<AuthShell title="A longer heading" subtitle="Host information" footerContent={footer}>{content}</AuthShell>);
+    expect(screen.getByRole("textbox")).toBe(input);
+    expect(document.activeElement).toBe(input);
+    expect((input as HTMLInputElement).value).toBe("School with a long name");
+    await user.keyboard("{Enter}");
+    expect(submit).toHaveBeenCalledTimes(1);
+    expect(footerSubmit).not.toHaveBeenCalled();
+    await user.tab(); await user.tab(); await user.keyboard("{Enter}");
+    expect(footerSubmit).toHaveBeenCalledTimes(1);
+    expect(submit).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole("form", { name: "Host support" }).closest('[data-sgui-part="auth-shell-footer"]')).not.toBeNull();
+  });
+
 });
