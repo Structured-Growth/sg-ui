@@ -1,76 +1,13 @@
 name: CI
 on:
   pull_request:
+    branches-ignore: [codex/dev]
   push:
     branches: [main]
   workflow_call:
 permissions:
   contents: read
 jobs:
-  targeted-dev:
-    name: Targeted development validation
-    if: github.event_name == 'pull_request' && github.base_ref == 'codex/dev'
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-          cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - name: Select and validate changed development code
-        shell: bash
-        env:
-          TASK_BASE_SHA: ${{ github.event.pull_request.base.sha }}
-        run: |
-          set -euo pipefail
-          git diff --check "$TASK_BASE_SHA"...HEAD
-          sources=()
-          tests=()
-          browser=()
-          code=false
-          while IFS= read -r -d '' path; do
-            case "$path" in
-              src/*|scripts/*|package.json|pnpm-lock.yaml|tsconfig*|.storybook/*) code=true ;;
-            esac
-            [[ -f "$path" ]] || continue
-            case "$path" in
-              src/*.test.ts|src/*.test.tsx) tests+=("$path") ;;
-              src/*.ts|src/*.tsx) sources+=("$path") ;;
-              tests/browser/*.spec.ts) browser+=("$path") ;;
-            esac
-          done < <(git diff --name-only --diff-filter=ACMRD -z "$TASK_BASE_SHA"...HEAD)
-          if "$code"; then
-            pnpm typecheck
-            pnpm foundations:check
-            pnpm tokens:check
-          fi
-          if (( ${#sources[@]} )); then
-            pnpm exec vitest related --run --passWithNoTests "${sources[@]}"
-          fi
-          if (( ${#tests[@]} )); then
-            pnpm exec vitest run "${tests[@]}"
-          fi
-          if (( ${#browser[@]} )); then
-            pnpm build-storybook
-            pnpm exec playwright install --with-deps chromium firefox webkit
-            pnpm test:browser "${browser[@]}"
-          fi
-      - name: Upload targeted browser evidence
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: sgui-dev-browser
-          path: |
-            artifacts/browser-report/
-            artifacts/browser-traces/
-            artifacts/browser-results.json
-          if-no-files-found: ignore
-          retention-days: 14
   validate:
     name: Validate Node ${{ matrix.node }}
     if: github.event_name != 'pull_request' || github.base_ref != 'codex/dev'

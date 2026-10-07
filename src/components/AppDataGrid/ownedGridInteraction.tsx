@@ -23,6 +23,12 @@ import styles from "./ownedGridInteraction.module.css";
 
 const useBrowserLayoutEffect = typeof document === "undefined" ? useEffect : useLayoutEffect;
 
+function syncNativeBusy(node: HTMLTableElement | null, busy: boolean) {
+  if (!node) return;
+  if (busy && node.getAttribute("aria-busy") !== "true") node.setAttribute("aria-busy", "true");
+  else if (!busy && node.hasAttribute("aria-busy")) node.removeAttribute("aria-busy");
+}
+
 /** Internal catalog interaction; public AppDataGrid integration lands separately. */
 export interface OwnedGridInteractionProps<RowModel> extends OwnedGridControllerOptions<RowModel>, OwnedGridLayoutControllerOptions<RowModel> {
   dispatchTransition?: (action: OwnedGridTransition) => void;
@@ -64,6 +70,9 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const visible = layout.order.map(field => columns.find(column => column.field === field)!).filter(column => layout.visibility[column.field]);
   const container = useRef<HTMLDivElement | null>(null);
   const table = useRef<HTMLTableElement | null>(null);
+  const busy = !!(loading || refreshing);
+  const currentBusy = useRef(busy);
+  currentBusy.current = busy;
   const [availableWidth, setAvailableWidth] = useState(0);
   const resizing = useRef<string | null>(null);
   const reorderWidth = props.rowDrag?.handleColumnWidth ?? 144;
@@ -85,8 +94,15 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const setTable = useCallback((node: HTMLDivElement | HTMLTableElement | null) => {
     const native = node as HTMLTableElement | null;
     table.current = native;
+    // React Aria Table filters aria-busy. Keep the owned state on its native
+    // element, including replacement tables, before exposing the host ref.
+    syncNativeBusy(native, currentBusy.current);
     if (typeof tableRef === "function") tableRef(native); else if (tableRef) tableRef.current = native;
   }, [tableRef]);
+  useBrowserLayoutEffect(() => {
+    // Reassert after each commit without recreating the collection or ref.
+    syncNativeBusy(table.current, busy);
+  });
   useBrowserLayoutEffect(() => {
     const node = container.current;
     if (!node) return;
@@ -227,7 +243,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     {/* React Aria requires a stable hook surface within each Table instance.
         Recreate only when the host enables/disables reorder, retaining the outer
         container and repairing its focused cell in the layout effect above. */}
-    <Table key={props.rowDrag ? "reorder" : "ordinary"} ref={setTable} dragAndDropHooks={props.rowDrag ? dragAndDropHooks : undefined} aria-label={label} aria-busy={loading || refreshing || undefined} className={styles.table}
+    <Table key={props.rowDrag ? "reorder" : "ordinary"} ref={setTable} dragAndDropHooks={props.rowDrag ? dragAndDropHooks : undefined} aria-label={label} className={styles.table}
       sortDescriptor={state.sortRules[0] ? { column: state.sortRules[0].field, direction: state.sortRules[0].direction === "asc" ? "ascending" : "descending" } : undefined}
       onSortChange={sort => dispatch({ type: "sort", value: changeOwnedGridHeaderSort(state.sortRules, String(sort.column), sort.direction === "ascending" ? "asc" : "desc") })}
       selectionMode={selection ? "multiple" : "none"} selectionBehavior="toggle"

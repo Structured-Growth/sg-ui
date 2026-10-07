@@ -2,7 +2,8 @@
 import { useId, type ReactElement, type ReactNode } from "react";
 import { MenuTrigger, Menu as AriaMenu, MenuItem as AriaMenuItem, MenuSection } from "react-aria-components/Menu";
 import { Popover } from "react-aria-components/Popover";
-import { useOverlayScope } from "../../foundation/ThemeScope";
+import { useLocale } from "react-aria-components/I18nProvider";
+import { useOverlayScope, useOverlayDirectionRef } from "../../foundation/ThemeScope";
 import type { Density } from "../../foundation/ThemeScope";
 import type { ButtonProps } from "../Button/Button";
 import { useNavigationAdapter } from "../../adapters/navigation";
@@ -25,6 +26,8 @@ export interface MenuProps {
 export function Menu({ trigger, label, density, selectionMode = "multiple", errorMessage, items, onAction, open, defaultOpen, onOpenChange, placement = "bottom start" }: MenuProps) {
   const { navigate } = useNavigationAdapter();
   const scope = useOverlayScope();
+  const { direction } = useLocale();
+  const directionRef = useOverlayDirectionRef(direction);
   const labelId = useId();
   const errorId = useId();
   const groups: MenuItem[][] = [];
@@ -44,7 +47,7 @@ export function Menu({ trigger, label, density, selectionMode = "multiple", erro
     {item.shortcut && <span className={styles.shortcut} aria-hidden="true">{item.shortcut}</span>}
   </AriaMenuItem>;
   return <MenuTrigger isOpen={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
-    {trigger}<Popover {...scope} data-sgui-density={density ?? scope["data-sgui-density"]} placement={placement} className={styles.popover}>
+    {trigger}<Popover {...scope} ref={directionRef} data-sgui-density={density ?? scope["data-sgui-density"]} placement={placement} className={styles.popover}>
       <span id={labelId} className={styles.label}>{label}</span>
       {errorMessage && <p id={errorId} role="alert" className={styles.error}>{errorMessage}</p>}
       <AriaMenu aria-labelledby={labelId} aria-describedby={errorMessage ? errorId : undefined} onAction={key => onAction?.(String(key))} className={styles.menu} data-shortcuts={items.some(item => item.shortcut) || undefined}>

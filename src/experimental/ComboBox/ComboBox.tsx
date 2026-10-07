@@ -10,7 +10,8 @@ import { ListBox, ListBoxItem } from "react-aria-components/ListBox";
 import { Button } from "../Button/Button";
 import { KeyboardArrowDownIcon } from "../icons/KeyboardArrowDownIcon";
 import { useTranslation } from "../../i18n";
-import { useOverlayScope } from "../../foundation/ThemeScope";
+import { useLocale } from "react-aria-components/I18nProvider";
+import { useOverlayScope, useOverlayDirectionRef } from "../../foundation/ThemeScope";
 import field from "../TextField/TextField.module.css";
 import styles from "./ComboBox.module.css";
 
@@ -42,6 +43,8 @@ export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function Com
 ) {
   const { t } = useTranslation();
   const scope = useOverlayScope();
+  const { direction } = useLocale();
+  const directionRef = useOverlayDirectionRef(direction);
   return <AriaComboBox defaultItems={options} selectedKey={value} defaultSelectedKey={defaultValue} allowsEmptyCollection
     onSelectionChange={key => onValueChange?.(key === null ? null : String(key))}
     disabledKeys={options.filter(option => option.disabled).map(option => option.id)}
@@ -56,7 +59,7 @@ export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function Com
     </div>
     {description && <Text slot="description" className={field.description}>{description}</Text>}
     <FieldError className={field.error}>{errorMessage}</FieldError>
-    <Popover {...scope} className={styles.popover}>
+    <Popover {...scope} ref={directionRef} className={styles.popover}>
       <ListBox<ComboBoxOption> className={styles.list} renderEmptyState={() => t("common.ui.noOptions", { defaultMessage: "No options found" })}>
         {option => <ListBoxItem id={option.id} textValue={option.label} className={styles.option}>{option.label}</ListBoxItem>}
       </ListBox>

@@ -35,14 +35,14 @@ export function AsyncMultiSelect({ label, options, value, defaultValue = [], onV
   const selected = value ?? internal;
   const input = useRef<HTMLInputElement>(null);
   const statusId = useId();
-  useFormReset(input, () => { if (value === undefined) setInternal(defaultValue); });
+  const resetting = useFormReset(input, () => { if (value === undefined) setInternal(defaultValue); });
   function change(next: MultiSelectOption[]) {
     if (disabled || readOnly) return;
     if (value === undefined) setInternal(next);
     onValueChange?.(next);
   }
   return <div className={styles.root} data-disabled={disabled || undefined}>
-    <TextField ref={input} label={label} type="search" value={query} onValueChange={onQueryChange}
+    <TextField ref={input} label={label} type="search" value={query} onValueChange={next => { if (!resetting.current) onQueryChange(next); }}
       disabled={disabled} readOnly={readOnly} description={description} aria-describedby={statusId} />
     <div className={styles.tokens} aria-label={t("common.ui.selectedOptions", { defaultMessage: "Selected options" })}>
       {selected.map(option => <Button key={option.id} variant="outlined" tone="neutral" disabled={disabled || readOnly}

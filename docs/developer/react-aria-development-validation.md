@@ -38,11 +38,13 @@ reports separate from the full-checkpoint cadence.
 
 ## GitHub and production acceptance
 
-PRs targeting `codex/dev` run a targeted Node 24 job: source type/foundation/token
-guards, related unit tests, explicitly changed tests and changed browser specs.
-Documentation-only dev PRs run whitespace checks. Browser specs use a fresh
-Storybook and all three engines. Relevant additional worker evidence remains
-required for behavior/build/consumer changes beyond automatic selection.
+The user paused automatic GitHub CI and PR-title runs for PRs targeting `codex/dev`
+on 2026-10-07. Both workflows exclude that base branch at the event trigger. Dev
+pushes already do not trigger CI. Workers continue targeted local tests and provide
+reviewable evidence; coordinator integrations do not wait for GitHub checks.
+Occasional full checkpoints run locally under the shared validation lock. Existing
+failed/cancelled runs remain historical evidence, not a successful validation.
+Restore dev automation only when the user requests it.
 Production-bound PRs, main pushes and reusable release CI retain the full matrix.
 Workflow permissions, secrets and publication behavior are unchanged. The separate
 manual AI proposal workflow retains its existing built-in validation; it is not the

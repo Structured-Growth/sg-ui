@@ -1,3 +1,4 @@
+import { SelectorDirectionStory } from "../Select/SelectorDirectionStory";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { ComboBox } from "./ComboBox";
@@ -21,3 +22,5 @@ export const Independent: Story = { render: () => {
  const options = [{ id: "science", label: "Science" }, { id: "archived", label: "Archived", disabled: true }, { id: "math", label: "Mathematics" }];
  return <form><ComboBox label="First category" name="first" options={options} defaultValue="science" /><ComboBox label="Second category" name="second" options={options} value={value} onValueChange={setValue} /></form>;
 } };
+
+export const ExplicitPortalDirections: Story = { render: () => <SelectorDirectionStory kind="combo" /> };
