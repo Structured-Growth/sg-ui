@@ -6,7 +6,7 @@ async function openCollection(page: Page, theme = 'light', density = 'comfortabl
 }
 
 for (const theme of ['light', 'dark']) for (const density of ['compact', 'comfortable']) {
-  test(`M-11 container resize preserves keyed drafts, focus and scroll (${theme}, ${density})`, async ({ page }) => {
+  test(`M-11 container resize preserves keyed drafts, focus and scroll (${theme}, ${density})`, async ({ page }, info) => {
     await page.setViewportSize({ width: 1280, height: 900 });
     await openCollection(page, theme, density);
     const container = page.getByTestId('collection-container');
@@ -38,6 +38,29 @@ for (const theme of ['light', 'dark']) for (const density of ['compact', 'comfor
     await page.keyboard.press('Tab');
     await expect(page.getByRole('textbox', { name: 'Note for Course 2', exact: true })).toBeFocused();
     const second = page.getByRole('textbox', { name: 'Note for Course 2', exact: true });
+    // Observe the real native scroll result before asserting it; never round fractional bounds.
+    const geometry = await second.evaluate(node => {
+      const grid = node.closest('[data-sgui-part="card-collection-grid"]') as HTMLElement;
+      const collection = grid.closest('[data-sgui-part="card-collection"]') as HTMLElement;
+      const rect = (element: Element) => {
+        const { top, right, bottom, left, width, height } = element.getBoundingClientRect();
+        return { top, right, bottom, left, width, height };
+      };
+      const inputStyle = getComputedStyle(node);
+      const focusInset = parseFloat(inputStyle.outlineWidth) + parseFloat(inputStyle.outlineOffset);
+      return {
+        focused: document.activeElement === node, documentFocused: document.hasFocus(),
+        input: rect(node), grid: rect(grid), collection: rect(collection),
+        gridClientHeight: grid.clientHeight, gridScrollTop: grid.scrollTop,
+        gridScrollHeight: grid.scrollHeight, collectionScrollTop: collection.scrollTop,
+        gridMinBlockSize: getComputedStyle(grid).minBlockSize, focusInset,
+      };
+    });
+    await info.attach('enlarged-text-native-containment', {
+      body: JSON.stringify(geometry, null, 2), contentType: 'application/json',
+    });
+    // Both density and text-height branches need room around the complete focused control.
+    expect(geometry.grid.height).toBeGreaterThanOrEqual(geometry.input.height + 2 * geometry.focusInset);
     const secondBounds = (await second.boundingBox())!;
     const gridBounds = (await grid.boundingBox())!;
     expect(secondBounds.y).toBeGreaterThanOrEqual(gridBounds.y - 1);
