@@ -10,8 +10,8 @@ close broad U/X/R/Z gates or edit central acceptance decisions.
 - Verified clean pinned baseline: `fbaba5b424816be7f386b919113d0b664546bff7`.
 - Implementation commit: `6ecea99`; focused acceptance-test head: `777364f519410a9ba85959f53c1ab331a86589ce`.
 - Final report commit and PR are recorded in the PR/coordinator completion report.
-- Only the two owned component directories, the batch browser spec and this report
-  are changed. Primary and other worktrees remain untouched.
+- Original task changes are confined to the two owned component directories,
+  the batch browser spec and this report. Primary and other worktrees remain untouched.
 
 The [inventory reconciliation](../react-aria-migration-inventory-acceptance.md)
 held both rows. The original implementation and
@@ -21,6 +21,24 @@ primitive loading reduced motion; this batch adds catalog/composed cases rather
 than duplicating the primitive suite. The inventory's existing M-03 evidence
 mentioned error visuals, but the actual pinned source/contract only supported
 pending, in_progress and completed. Error support was a demonstrated missing state.
+
+## Reviewed infrastructure prerequisite
+
+Before native execution, the coordinator explicitly authorized adopting the full
+already-reviewed codex/dev ancestry contained in exact
+`6b9da4423f1e6675c37571d5552474da25e90258`, rather than only its six harness/doc
+files. Normal history-preserving merge `521d87eecec17fdb617ebf21e0a321d14b2ced2d`
+completed without conflicts. Inherited dev/harness files were not independently
+edited. Original source ownership remains unchanged; compare this task to the
+reviewed prerequisite to distinguish its seven-file contribution from inherited
+ancestry. No main merge/publication occurred.
+
+The coordinator runs the first approved two-worker pool session: fresh sequential
+build/type staging followed by isolated immutable browser ports/outputs, maximum
+two sessions. This worker stopped only its own idle standalone waiter, starts no
+build/browser/server, and freezes the clean supplied head until pool evidence
+arrives. The pool's exact head/runtime/commands/results belong to the subsequent
+execution record, not the earlier unit-test head.
 
 ## Implementation and consumer contract
 
