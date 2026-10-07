@@ -5,7 +5,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { Menu } from "./Menu";
 import { Button } from "../Button/Button";
 import { Provider } from "../Provider/Provider";
-afterEach(cleanup);
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 const items = [{ id: "edit", label: "Edit" }, { id: "locked", label: "Unavailable", disabled: true }, { id: "delete", label: "Delete", tone: "danger" as const }];
 it("gives the committed first enabled item native focus after programmatic Alt+ArrowDown entry", async () => {
   const user = userEvent.setup();
@@ -15,6 +15,57 @@ it("gives the committed first enabled item native focus after programmatic Alt+A
   const first = screen.getByRole("menuitem", { name: "Edit" });
   await waitFor(() => expect(first.getAttribute("data-focused")).toBe("true"));
   await waitFor(() => expect(document.activeElement).toBe(first));
+});
+it.each(["ArrowDown", "ArrowUp"])("reconciles container focus to the committed %s strategy without choosing disabled endpoints", async key => {
+  const user = userEvent.setup();
+  render(<Menu label="Reconciled actions" items={[{ id: "blocked-first", label: "Blocked first", disabled: true }, ...items, { id: "blocked-last", label: "Blocked last", disabled: true }]} trigger={<Button>Reconcile</Button>} />);
+  await user.tab(); await user.keyboard(`{${key}}`);
+  const expected = screen.getByRole("menuitem", { name: key === "ArrowUp" ? "Delete" : "Edit" });
+  await waitFor(() => expect(document.activeElement).toBe(expected));
+  // Reproduce the native mismatch: the collection is focused after its item
+  // has already committed focused state. jsdom's ordinary Alt entry misses it.
+  act(() => screen.getByRole("menu").focus());
+  expect(document.activeElement).toBe(screen.getByRole("menu"));
+  expect(expected.getAttribute("data-focused")).toBe("true");
+  await waitFor(() => expect(document.activeElement).toBe(expected));
+});
+it("does not reclaim focus moved outside the menu before deferred reconciliation", async () => {
+  const user = userEvent.setup();
+  render(<Menu label="Local actions" items={items} trigger={<Button>Local</Button>} />);
+  await user.tab(); await user.keyboard("{ArrowDown}");
+  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("menuitem", { name: "Edit" })));
+  // A focus stop elsewhere in this overlay stays inside upstream containment,
+  // while being outside the owned menu collection's reconciliation boundary.
+  const outside = document.createElement("button");
+  outside.textContent = "Other overlay control";
+  screen.getByRole("menu").parentElement!.append(outside);
+  act(() => { screen.getByRole("menu").focus(); outside.focus(); });
+  expect(document.activeElement).toBe(outside);
+  await act(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  expect(document.activeElement).toBe(outside);
+});
+it("discards deferred reconciliation after the menu lifetime ends", async () => {
+  const user = userEvent.setup();
+  const { unmount } = render(<Menu label="Old actions" items={items} trigger={<Button>Old</Button>} />);
+  await user.tab(); await user.keyboard("{ArrowDown}");
+  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("menuitem", { name: "Edit" })));
+  act(() => screen.getByRole("menu").focus());
+  unmount();
+  render(<Menu label="New actions" items={items} trigger={<Button>New</Button>} />);
+  const current = screen.getByRole("button", { name: "New" });
+  act(() => current.focus());
+  await act(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  expect(document.activeElement).toBe(current);
+  expect(screen.queryByRole("menu")).toBeNull();
+});
+it.each([{ items: [] }, { items: [{ id: "blocked", label: "Blocked", disabled: true }] }])("keeps container focus when there is no enabled committed item: $items", async ({ items: unavailable }) => {
+  const user = userEvent.setup();
+  render(<Menu label="Unavailable actions" items={unavailable} trigger={<Button>Unavailable actions</Button>} />);
+  await user.tab(); await user.keyboard("{ArrowDown}");
+  const menu = screen.getByRole("menu");
+  await act(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  expect(document.activeElement).toBe(menu);
+  expect(menu.querySelector('[data-focused="true"]')).toBeNull();
 });
 it("skips disabled commands, activates once, closes and returns focus", async () => {
   const action = vi.fn(); const user = userEvent.setup();
