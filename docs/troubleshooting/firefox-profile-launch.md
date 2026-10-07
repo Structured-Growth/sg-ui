@@ -74,3 +74,19 @@ Linux evidence; it does not validate the batch-05 head, macOS launch behavior,
 physical devices, or assistive technologies. The
 [batch-05 completion report](../developer/parallel-batch-05/firefox-runtime.md)
 records the current local diagnostic and its limits.
+
+## Batch-05 local result (2026-10-07)
+
+On macOS 27.0.1 (build 26A434, Darwin 27.0.0), Node 24.21.0,
+Playwright 1.63.0 and bundled Firefox build 1543, both probes failed immediately
+with `Could not find profile folder`. The existing canonical profile passed a
+Node write/read-path check, but both Firefox profile directories stayed empty.
+The native process exited 1 without a signal or timeout and created no screenshot.
+Listing the shared Firefox app-data directory returned `EPERM`.
+
+This reproduces the failure without SGUI, Storybook, a test runner, or Playwright's
+automation protocol in the native probe. Together with the access denial it
+supports the upstream app-data restriction hypothesis; it does not prove the sole
+OS-level cause. The environment prerequisite above remains unresolved. No
+permissions or browser settings were changed, and no product suite ran. Both
+temporary profiles and this diagnostic's lock were removed after the launch.
