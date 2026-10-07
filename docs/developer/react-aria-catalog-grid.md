@@ -104,3 +104,7 @@ True pinning, expansion, editing and spreadsheet features remain deferred per
 The M-18 [reorder contracts](react-aria-grid-reorder.md) cover the public rowDrag
 configuration and owned handle/helper. List mode uses the same state/identity
 owner as selection and processing; cards mode has no reorder control.
+
+Cell columns support `truncate: false` for multiline wrapping; the default remains
+ellipsis with complete accessible text. See [cell and helper acceptance](react-aria-grid-cell-acceptance.md)
+for M-40/M-41 behavior evidence and the supported public helper surface.

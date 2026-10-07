@@ -343,10 +343,10 @@ resolve to owned implementations under transitive audits. Public theme and retir
 
 - [ ] M-38 Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively.
 - [x] M-39 Migrate `AdminDataGridOptions.ts` and `InstructorDataGridOptions.ts`, including column locks, static enums, filter/sort defaults, and translation labels.
-- [ ] M-40 Migrate all grid cells: text, date, date-time, link, copyable, JSON, image, action menu, custom cell, and fallback; preserve escaping and truncation/accessibility behavior.
-- [ ] M-41 Migrate grid subheaders, empty/loading overlays, column builders, action-menu builder, toolbar option builder, and header sort menu.
+- [x] M-40 Migrate all grid cells: text, date, date-time, link, copyable, JSON, image, action menu, custom cell, and fallback; preserve escaping and truncation/accessibility behavior. [Cell evidence](react-aria-grid-cell-acceptance.md).
+- [x] M-41 Migrate grid subheaders, empty/loading overlays, column builders, action-menu builder, toolbar option builder, and header sort menu. [Helper evidence](react-aria-grid-cell-acceptance.md#m-41-helper-and-part-coverage).
 - [x] M-42 Reconcile root and subpath barrels, `src/models.ts`, fixtures, date helpers, pagination/state hooks, and all inferred exported declaration types. Owned model/fixture/date audit, public learner-grid prop export and built consumer typing; [hook mappings](react-aria-pagination-state.md).
-- [ ] M-43 Update stories importing third-party layout primitives and tests mocking retired modules; behavioral replacements must render real owned components where practical.
+- [x] M-43 Update stories importing third-party layout primitives and tests mocking retired modules; behavioral replacements must render real owned components where practical.
 - [ ] M-44 Document deliberate UX improvements separately from parity changes; retain regression fixtures for legacy use cases.
 
 ## 13. Advanced table and grid work
@@ -462,7 +462,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] R-07 Regenerate the lockfile through the package manager and inspect resolved transitive dependencies, overrides, patched dependencies and optional packages.
 - [ ] R-08 Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output.
 - [ ] R-09 Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape.
-- [ ] R-10 Keep the supported Node/runtime requirements explicit; reconcile development, CI, AI and release Node versions where their tool requirements differ.
+- [x] R-10 Keep the supported Node/runtime requirements explicit; reconcile development, CI, AI and release Node versions where their tool requirements differ. [Runtime matrix](react-aria-runtime-ci.md).
 - [ ] R-11 Extend `pnpm check` and CI with necessary token/CSS/import-boundary/type/API checks, browser interactions, accessibility, package consumers, and performance smoke checks.
 - [ ] R-12 Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results.
 - [ ] R-13 Preserve release sequencing: full required checks pass before semantic-release publishes on main, with correct concurrency and full tag history.

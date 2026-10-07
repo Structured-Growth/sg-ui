@@ -73,6 +73,11 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const pageSelection = getOwnedGridPageSelection(state.selectedRowIds, selectable);
   const focus = useRef<{ rowId?: string; field?: string; index: number; element: HTMLElement } | null>(null);
   const previousPage = useRef(state.paginationModel.page);
+  const previousReorderEnabled = useRef(!!props.rowDrag);
+  const reorderFocusFrame = useRef<number | null>(null);
+  useEffect(() => () => {
+    if (reorderFocusFrame.current !== null) cancelAnimationFrame(reorderFocusFrame.current);
+  }, []);
   const setContainer = useCallback((node: HTMLDivElement | null) => {
     container.current = node;
     if (typeof forwardedRef === "function") forwardedRef(node); else if (forwardedRef) forwardedRef.current = node;
@@ -95,6 +100,8 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   useBrowserLayoutEffect(() => {
     const pageChanged = previousPage.current !== state.paginationModel.page;
     previousPage.current = state.paginationModel.page;
+    const reorderChanged = previousReorderEnabled.current !== !!props.rowDrag;
+    previousReorderEnabled.current = !!props.rowDrag;
     const saved = focus.current;
     const node = container.current;
     if (!saved || !node) return;
@@ -104,12 +111,24 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       node.scrollTop = 0;
       (node.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder'])") ?? table.current)?.focus();
     } else if (!saved.element.isConnected || (saved.element instanceof HTMLButtonElement && saved.element.disabled)) {
-      const cells = [...node.querySelectorAll<HTMLElement>("[data-grid-field]")];
-      const cell = cells.find(cell => cell.dataset.gridRow === saved.rowId && cell.dataset.gridField === saved.field) ??
-        cells.find(cell => cell.dataset.gridRow === saved.rowId) ?? cells.find(cell => cell.dataset.gridField === saved.field) ?? table.current;
-      const controls = cell?.querySelectorAll<HTMLElement>("button, a, input, [role='slider']");
-      const control = saved.index >= 0 ? controls?.[saved.index] : undefined;
-      (control instanceof HTMLButtonElement && control.disabled ? cell?.querySelector<HTMLElement>("button:not(:disabled)") ?? cell : control ?? cell)?.focus();
+      const restore = () => {
+        if (!node.isConnected || (document.activeElement !== document.body && !node.contains(document.activeElement))) return;
+        const cells = [...node.querySelectorAll<HTMLElement>("[data-grid-field]")];
+        const cell = cells.find(cell => cell.dataset.gridRow === saved.rowId && cell.dataset.gridField === saved.field) ??
+          cells.find(cell => cell.dataset.gridRow === saved.rowId) ?? cells.find(cell => cell.dataset.gridField === saved.field) ?? table.current;
+        const controls = cell?.querySelectorAll<HTMLElement>("button, a, input, [role='slider']");
+        const control = saved.index >= 0 ? controls?.[saved.index] : undefined;
+        (control instanceof HTMLButtonElement && control.disabled ? cell?.querySelector<HTMLElement>("button:not(:disabled)") ?? cell : control ?? cell)?.focus();
+      };
+      restore();
+      // A newly mounted React Aria collection reconciles focus after commit.
+      if (reorderChanged) {
+        if (reorderFocusFrame.current !== null) cancelAnimationFrame(reorderFocusFrame.current);
+        reorderFocusFrame.current = requestAnimationFrame(() => {
+          reorderFocusFrame.current = null;
+          restore();
+        });
+      }
     }
   });
   // Only complete, unprocessed client collections have an unambiguous host order.
@@ -198,7 +217,10 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       if (field && typeof width === "number") setWidths({ ...layout.widths, [field]: width });
     }} onResizeEnd={() => { resizing.current = null; }}>
     {status && !noRows && <OwnedGridStatus state={status} message={errorMessage} onRetry={onRetry} />}
-    <Table ref={setTable} dragAndDropHooks={dragAndDropHooks} aria-label={label} aria-busy={loading || refreshing || undefined} className={styles.table}
+    {/* React Aria requires a stable hook surface within each Table instance.
+        Recreate only when the host enables/disables reorder, retaining the outer
+        container and repairing its focused cell in the layout effect above. */}
+    <Table key={props.rowDrag ? "reorder" : "ordinary"} ref={setTable} dragAndDropHooks={props.rowDrag ? dragAndDropHooks : undefined} aria-label={label} aria-busy={loading || refreshing || undefined} className={styles.table}
       sortDescriptor={state.sortRules[0] ? { column: state.sortRules[0].field, direction: state.sortRules[0].direction === "asc" ? "ascending" : "descending" } : undefined}
       onSortChange={sort => dispatch({ type: "sort", value: changeOwnedGridHeaderSort(state.sortRules, String(sort.column), sort.direction === "ascending" ? "asc" : "desc") })}
       selectionMode={selection ? "multiple" : "none"} selectionBehavior="toggle"

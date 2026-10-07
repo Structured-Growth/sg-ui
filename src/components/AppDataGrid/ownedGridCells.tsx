@@ -25,6 +25,8 @@ export interface OwnedGridCellProps<Row> {
   timeZone?: string;
   formatDate?: (date: Date, context: OwnedGridDateFormatContext) => string;
   rowLabel?: string;
+  /** Ellipsize text by default; false preserves line breaks and wraps long values. */
+  truncate?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -66,7 +68,7 @@ export function formatOwnedGridDate(value: unknown, context: Omit<OwnedGridDateF
   } catch { return fallbackText; }
 }
 
-function CopyCell({ text, unavailable }: { text: string; unavailable: boolean }) {
+function CopyCell({ text, unavailable, textClassName }: { text: string; unavailable: boolean; textClassName: string }) {
   const { t } = useTranslation();
   const [feedback, setFeedback] = useState<"success" | "error" | null>(null);
   const [pending, setPending] = useState(false);
@@ -89,7 +91,7 @@ function CopyCell({ text, unavailable }: { text: string; unavailable: boolean })
       if (generation.current === current) setFeedback("error");
     } finally { if (generation.current === current) setPending(false); }
   };
-  return <><span className={styles.text} title={text}>{text}</span>
+  return <><span className={textClassName} title={text}>{text}</span>
     <IconButton label={t("common.ui.common.copy", { defaultMessage: "Copy" })} density="compact"
       disabled={unavailable} loading={pending} onPress={() => { void copy(); }}><ContentCopyIcon /></IconButton>
     <span className={styles.visuallyHidden} role="status" aria-live="polite" aria-atomic="true">
@@ -118,24 +120,25 @@ function MenuCell<Row>({ row, actions, rowLabel }: { row: Row; actions: readonly
     }} />;
 }
 
-function Cell<Row>({ row, column, value, locale, timeZone, formatDate, rowLabel, className, style }: OwnedGridCellProps<Row>, ref: Ref<HTMLDivElement>) {
+function Cell<Row>({ row, column, value, locale, timeZone, formatDate, rowLabel, truncate = column.truncate ?? true, className, style }: OwnedGridCellProps<Row>, ref: Ref<HTMLDivElement>) {
   const translation = useTranslation();
   const fallback = column.fallbackText ?? "—";
   const type = column.cellType ?? "text";
+  const textClassName = truncate ? styles.text : styles.wrappedText;
   const text = column.formatValue ? ownedGridText(column.formatValue(value, row), fallback) : type === "json" ? ownedGridJson(value, fallback) :
     type === "date" || type === "dateTime" ? formatOwnedGridDate(value, { locale: locale ?? translation.locale, timeZone, cellType: type }, fallback, formatDate) : ownedGridText(value, fallback);
   let content;
   if (type === "custom") content = column.renderCustomCell?.(row) ?? fallback;
   else if (type === "image") content = <ImageCell src={column.getImageSrc?.(row)} alt={rowLabel ?? ""} fallbackText={fallback} />;
   else if (type === "menu") content = <MenuCell row={row} rowLabel={rowLabel} actions={column.getMenuActions?.(row) ?? []} />;
-  else if (type === "copyable") content = <CopyCell text={text} unavailable={value === null || value === undefined || value === ""} />;
+  else if (type === "copyable") content = <CopyCell text={text} textClassName={textClassName} unavailable={value === null || value === undefined || value === ""} />;
   else if (type === "link") {
     const link = column.getLink?.(row);
-    content = link?.href ? <Link href={link.href} target={link.target} rel={link.rel} underline="none" className={styles.text} title={link.abbr ?? link.label ?? text}>
-      {link.label ?? text}</Link> : <span className={styles.text}>{text}</span>;
-  } else content = <span className={styles.text} title={text}>{text}</span>;
+    content = link?.href ? <Link href={link.href} target={link.target} rel={link.rel} underline="none" className={textClassName} title={link.abbr ?? link.label ?? text}>
+      {link.label ?? text}</Link> : <span className={textClassName} title={text}>{text}</span>;
+  } else content = <span className={textClassName} title={text}>{text}</span>;
   return <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style}
-    data-sgui-part="grid-cell-content" data-cell-type={type}>{content}</div>;
+    data-sgui-part="grid-cell-content" data-cell-type={type} data-truncate={truncate}>{content}</div>;
 }
 
 /** Internal presentation proof; no retired engine params enter this boundary. */

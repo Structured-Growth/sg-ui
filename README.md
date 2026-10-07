@@ -47,7 +47,9 @@ Load /styles.css and provide Provider or ThemeScope.
 
 ## Development
 
-Use Node 24 (see `.nvmrc`) and pnpm 10.29.3:
+Use Node 24 (see `.nvmrc`) and pnpm 10.29.3. The supported consumer minimum is
+Node 22.12.0; [runtime and CI validation](docs/developer/react-aria-runtime-ci.md)
+documents the runtime matrix, packed React consumers and retained artifacts:
 
 ```sh
 pnpm install --frozen-lockfile

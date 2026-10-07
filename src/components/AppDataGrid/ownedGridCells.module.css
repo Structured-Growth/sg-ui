@@ -1,6 +1,7 @@
 @layer sgui.components {
   .root { display: flex; align-items: center; gap: var(--sgui-space2); min-inline-size: 0; block-size: 100%; color: var(--sgui-text); font-family: var(--sgui-font-family); font-size: var(--sgui-body-size); line-height: var(--sgui-body-line-height); }
   .text { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .wrappedText { min-inline-size: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
   .fallback { color: var(--sgui-text-muted); }
   .image { inline-size: 2rem; block-size: 2rem; object-fit: cover; border-radius: var(--sgui-field-radius); }
   .visuallyHidden { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

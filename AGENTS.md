@@ -331,3 +331,11 @@ AppDataGrid and AppDataGridShell offer opt-in `showResetView` with one complete
 controlled hosts accept the request. See the [catalog grid contract](docs/developer/react-aria-catalog-grid.md)
 for callback and persisted-state behavior. LearnerClassesDataGridProps is exported
 through the root, component barrel and granular entry point.
+
+Grid cell/helper migration tasks M-40/M-41 are reconciled in
+[the cell acceptance record](docs/developer/react-aria-grid-cell-acceptance.md).
+Public grid columns support `truncate: false` for multiline content; default
+ellipsis preserves complete accessible text. Ordinary grids omit drag hooks;
+toggling reorder retains the outer container and repairs lost grid focus.
+See [runtime and CI validation](docs/developer/react-aria-runtime-ci.md) for
+Node 22.12/24 and packed React 18/19 consumer checks. Broad acceptance remains open.

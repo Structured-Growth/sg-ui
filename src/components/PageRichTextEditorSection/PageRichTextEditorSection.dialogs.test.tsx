@@ -1,11 +1,10 @@
 // @vitest-environment jsdom
 import { useEffect } from "react";
-import { afterEach, describe, expect, it, vi } from "vitest";
-import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
+import { afterAll, beforeAll, afterEach, describe, expect, it, vi } from "vitest";
+import { act, cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { $getRoot, $isElementNode, $isTextNode, type LexicalEditor } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { TextColorPickerControl } from "../TextColorPickerControl";
 import { Provider } from "../../experimental/Provider/Provider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection.impl";
 
@@ -16,16 +15,10 @@ function CaptureEditor() {
   return null;
 }
 
-// Isolate the dialogs from formatting/menu migration while retaining the real
-// host callbacks, Lexical engine, insertion plugins and serialized change output.
-vi.mock("../RichTextFormattingToolbar", () => ({
-  RichTextFormattingToolbar: (props: { onLink: () => void; onLinkMouseDown: () => void; onInsertImage: () => void; textColorValue?: string; backgroundColorValue?: string; onTextColorChange?: (value:string)=>void; onBackgroundColorChange?: (value:string)=>void }) => <>
-    <button onMouseDown={event => { event.preventDefault(); props.onLinkMouseDown(); }} onClick={props.onLink}>Edit link</button>
-    <button onMouseDown={event => event.preventDefault()} onClick={props.onInsertImage}>Add image</button>
-    <TextColorPickerControl value={props.textColorValue} onChange={props.onTextColorChange} />
-    <TextColorPickerControl mode="background" value={props.backgroundColorValue} onChange={props.onBackgroundColorChange} />
-  </>,
-}));
+// jsdom lacks caret geometry; native scrolling remains a browser acceptance check.
+const originalRangeRect = Range.prototype.getBoundingClientRect;
+beforeAll(() => { Range.prototype.getBoundingClientRect = () => new DOMRect(0, 0, 0, 0); });
+afterAll(() => { if (originalRangeRect) Range.prototype.getBoundingClientRect = originalRangeRect; else delete (Range.prototype as Partial<Range>).getBoundingClientRect; });
 vi.mock("@lexical/react/LexicalComposer", async () => {
   const actual = await vi.importActual<typeof import("@lexical/react/LexicalComposer")>("@lexical/react/LexicalComposer");
   return { LexicalComposer: (props: import("react").ComponentProps<typeof actual.LexicalComposer>) => <actual.LexicalComposer {...props} initialConfig={{ ...props.initialConfig, onError: error => { throw error; } }} /> };
@@ -56,8 +49,12 @@ async function selectText() {
 }
 function mount(upload?: (file: File) => Promise<{ assetId: string; assetVersionId: string; src: string; altText?: string }>) {
   const change = vi.fn();
-  render(<Provider><PageRichTextEditorSection lexicalValue={initial} editorKey="dialogs" onLexicalChange={change} onUploadImage={upload} /></Provider>);
+  render(<Provider><PageRichTextEditorSection lexicalValue={initial} editorKey="dialogs" toolPreset="full" onLexicalChange={change} onUploadImage={upload} /></Provider>);
   return change;
+}
+async function openImageDialog(user: ReturnType<typeof userEvent.setup>) {
+  await user.click(screen.getByRole("button", { name: "Insert", exact: true }));
+  await user.click(screen.getByRole("menuitem", { name: "Image", exact: true }));
 }
 function serializedChildren() {
   return activeEditor!.getEditorState().toJSON().root.children[0] as unknown as { children: { type: string; url?: string; text?: string; children?: { text: string }[]; target?: string; rel?: string }[] };
@@ -103,11 +100,11 @@ describe("editor dialog host contracts", () => {
   it.each(["A diagram of a course", ""])("persists an explicit image description %j including decorative empty text", async description => {
     const user = userEvent.setup(); const uploaded = { assetId: "asset-42", assetVersionId: "version-3", src: "https://cdn.example.org/image.png", altText: "Host fallback description" };
     const upload = vi.fn(async (_file: File) => uploaded); const change = mount(upload);
-    await selectText(); await user.click(screen.getByRole("button", { name: "Add image" }));
+    await selectText(); await openImageDialog(user);
     const file = new File(["image"], "diagram.png", { type: "image/png" });
     await user.upload(screen.getByLabelText("Choose image"), file);
     if (description) await user.type(screen.getByRole("textbox", { name: "Image description" }), description);
-    await user.click(screen.getByRole("button", { name: "Insert" }));
+    await user.click(within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }));
     await waitFor(() => expect(upload).toHaveBeenCalledExactlyOnceWith(file));
     await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain('"type":"image"'));
     const output = activeEditor!.getEditorState().toJSON();
@@ -125,13 +122,13 @@ describe("editor dialog host contracts", () => {
       resolveUpload = resolve; rejectUpload = reject;
     }));
     mount(upload); await selectText();
-    await user.click(screen.getByRole("button", { name: "Add image" }));
+    await openImageDialog(user);
     await user.upload(screen.getByLabelText("Choose image"), new File(["old"], "old.png", { type: "image/png" }));
-    await user.click(screen.getByRole("button", { name: "Insert" }));
+    await user.click(within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }));
     expect(upload).toHaveBeenCalledTimes(1);
     await user.click(screen.getByRole("button", { name: "Cancel" }));
     await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
-    await user.click(screen.getByRole("button", { name: "Add image" }));
+    await openImageDialog(user);
     await user.upload(screen.getByLabelText("Choose image"), new File(["new"], "new.png", { type: "image/png" }));
     await act(async () => {
       if (outcome === "resolve") resolveUpload({ assetId: "old-asset", assetVersionId: "old-version", src: "https://cdn.example.org/old.png" });
@@ -140,7 +137,7 @@ describe("editor dialog host contracts", () => {
     expect(screen.getByRole("dialog", { name: "Insert Image" })).toBeTruthy();
     expect(screen.getByText("new.png")).toBeTruthy();
     expect(screen.queryByText("Old upload failed")).toBeNull();
-    expect((screen.getByRole("button", { name: "Insert" }) as HTMLButtonElement).disabled).toBe(false);
+    expect((within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }) as HTMLButtonElement).disabled).toBe(false);
     expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).not.toContain('"type":"image"');
   });
 

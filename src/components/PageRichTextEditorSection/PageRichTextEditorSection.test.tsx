@@ -1,14 +1,9 @@
-import { describe, expect, it, vi } from "vitest";
-
-const implementation = vi.hoisted(() => vi.fn(() => null));
-vi.mock("./PageRichTextEditorSection.impl", () => ({
-  PageRichTextEditorSection: implementation,
-}));
-
+import { describe, expect, it } from "vitest";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection";
+import { PageRichTextEditorSection as implementation } from "./PageRichTextEditorSection.impl";
 
 describe("PageRichTextEditorSection public export", () => {
-  it("preserves the implementation reference including native ref support", () => {
+  it("preserves the real implementation reference including native ref support", () => {
     expect(PageRichTextEditorSection).toBe(implementation);
   });
 });

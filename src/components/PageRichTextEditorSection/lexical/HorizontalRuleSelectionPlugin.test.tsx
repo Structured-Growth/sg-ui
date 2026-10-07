@@ -1,121 +1,63 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import {
-  COMMAND_PRIORITY_EDITOR,
-  KEY_BACKSPACE_COMMAND,
-  KEY_DELETE_COMMAND,
-} from "lexical";
+// @vitest-environment jsdom
+import { useEffect } from "react";
+import { afterEach, describe, expect, it } from "vitest";
+import { act, cleanup, render } from "@testing-library/react";
+import { LexicalComposer } from "@lexical/react/LexicalComposer";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { $createHorizontalRuleNode, HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
+import { $createNodeSelection, $createParagraphNode, $createTextNode, $getRoot, $setSelection, KEY_BACKSPACE_COMMAND, KEY_DELETE_COMMAND, type LexicalEditor } from "lexical";
 import { HorizontalRuleSelectionPlugin } from "./HorizontalRuleSelectionPlugin";
 
-const {
-  registerCommand,
-  commandHandlers,
-  getSelectionMock,
-  isNodeSelectionMock,
-  isHorizontalRuleNodeMock,
-} = vi.hoisted(() => {
-  const handlers = new Map<symbol, () => boolean>();
-  return {
-    registerCommand: vi.fn((command: symbol, handler: () => boolean) => {
-      handlers.set(command, handler);
-      return () => undefined;
-    }),
-    commandHandlers: handlers,
-    getSelectionMock: vi.fn(),
-    isNodeSelectionMock: vi.fn(),
-    isHorizontalRuleNodeMock: vi.fn((node: { type?: string }) => node.type === "hr"),
-  };
-});
+afterEach(cleanup);
+function mount() {
+  let editor!: LexicalEditor;
+  function CaptureEditor() {
+    const [current] = useLexicalComposerContext();
+    useEffect(() => { editor = current; }, [current]);
+    return null;
+  }
+  const view = render(<LexicalComposer initialConfig={{ namespace: "rule-selection-test", nodes: [HorizontalRuleNode], onError: error => { throw error; } }}>
+    <CaptureEditor /><HorizontalRuleSelectionPlugin />
+  </LexicalComposer>);
+  return { editor, ...view };
+}
 
-vi.mock("react", async () => {
-  const actual = await vi.importActual<typeof import("react")>("react");
-  return {
-    ...actual,
-    useEffect: (effect: () => void | (() => void)) => {
-      effect();
-    },
-  };
-});
-
-vi.mock("@lexical/react/LexicalComposerContext", () => ({
-  useLexicalComposerContext: () => [{ registerCommand }],
-}));
-
-vi.mock("@lexical/react/LexicalHorizontalRuleNode", () => ({
-  $isHorizontalRuleNode: (node: unknown) => isHorizontalRuleNodeMock(node),
-}));
-
-vi.mock("lexical", async () => {
-  const actual = await vi.importActual<typeof import("lexical")>("lexical");
-  return {
-    ...actual,
-    $getSelection: () => getSelectionMock(),
-    $isNodeSelection: (selection: unknown) => isNodeSelectionMock(selection),
-  };
-});
-
-describe("HorizontalRuleSelectionPlugin", () => {
-  beforeEach(() => {
-    registerCommand.mockClear();
-    commandHandlers.clear();
-    getSelectionMock.mockReset();
-    isNodeSelectionMock.mockReset();
-    isHorizontalRuleNodeMock.mockClear();
+describe("HorizontalRuleSelectionPlugin with real Lexical selections", () => {
+  it.each([KEY_BACKSPACE_COMMAND, KEY_DELETE_COMMAND])("deletes selected rules while retaining selected paragraphs", async command => {
+    const { editor } = mount();
+    await act(async () => editor.update(() => {
+      const paragraph = $createParagraphNode().append($createTextNode("Keep me"));
+      const first = $createHorizontalRuleNode(); const second = $createHorizontalRuleNode();
+      $getRoot().clear().append(paragraph, first, second);
+      const selection = $createNodeSelection();
+      for (const node of [paragraph, first, second]) selection.add(node.getKey());
+      $setSelection(selection);
+    }, { discrete: true }));
+    await act(async () => { expect(editor.dispatchCommand(command, new KeyboardEvent("keydown"))).toBe(true); });
+    expect(editor.getEditorState().toJSON().root.children).toEqual([expect.objectContaining({ type: "paragraph", children: [expect.objectContaining({ text: "Keep me" })] })]);
   });
 
-  it("registers backspace and delete handlers with editor priority", () => {
-    const element = HorizontalRuleSelectionPlugin();
-    expect(element).toBeNull();
-    expect(registerCommand).toHaveBeenCalledTimes(2);
-    expect(registerCommand).toHaveBeenNthCalledWith(
-      1,
-      KEY_BACKSPACE_COMMAND,
-      expect.any(Function),
-      COMMAND_PRIORITY_EDITOR,
-    );
-    expect(registerCommand).toHaveBeenNthCalledWith(
-      2,
-      KEY_DELETE_COMMAND,
-      expect.any(Function),
-      COMMAND_PRIORITY_EDITOR,
-    );
+  it.each(["none", "range", "paragraph"] as const)("leaves %s selection for another command handler", async kind => {
+    const { editor } = mount();
+    await act(async () => editor.update(() => {
+      const text = $createTextNode("Keep me"); const paragraph = $createParagraphNode().append(text);
+      $getRoot().clear().append(paragraph, $createHorizontalRuleNode());
+      if (kind === "range") text.select(0, 4);
+      else {
+        const selection = kind === "paragraph" ? $createNodeSelection() : null;
+        selection?.add(paragraph.getKey()); $setSelection(selection);
+      }
+    }, { discrete: true }));
+    const before = editor.getEditorState().toJSON();
+    for (const command of [KEY_BACKSPACE_COMMAND, KEY_DELETE_COMMAND]) {
+      await act(async () => { expect(editor.dispatchCommand(command, new KeyboardEvent("keydown"))).toBe(false); });
+      expect(editor.getEditorState().toJSON()).toEqual(before);
+    }
   });
 
-  it("returns false when selection is not a node selection", () => {
-    HorizontalRuleSelectionPlugin();
-    const backspaceHandler = commandHandlers.get(KEY_BACKSPACE_COMMAND);
-    isNodeSelectionMock.mockReturnValue(false);
-    getSelectionMock.mockReturnValue({ kind: "range" });
-
-    expect(backspaceHandler?.()).toBe(false);
-  });
-
-  it("returns false when node selection has no horizontal rule nodes", () => {
-    HorizontalRuleSelectionPlugin();
-    const deleteHandler = commandHandlers.get(KEY_DELETE_COMMAND);
-    isNodeSelectionMock.mockReturnValue(true);
-    getSelectionMock.mockReturnValue({
-      getNodes: () => [{ type: "paragraph" }],
-    });
-
-    expect(deleteHandler?.()).toBe(false);
-  });
-
-  it("removes selected horizontal rule nodes and returns true", () => {
-    HorizontalRuleSelectionPlugin();
-    const deleteHandler = commandHandlers.get(KEY_DELETE_COMMAND);
-    const removeFirst = vi.fn();
-    const removeSecond = vi.fn();
-    isNodeSelectionMock.mockReturnValue(true);
-    getSelectionMock.mockReturnValue({
-      getNodes: () => [
-        { type: "paragraph", remove: vi.fn() },
-        { type: "hr", remove: removeFirst },
-        { type: "hr", remove: removeSecond },
-      ],
-    });
-
-    expect(deleteHandler?.()).toBe(true);
-    expect(removeFirst).toHaveBeenCalledTimes(1);
-    expect(removeSecond).toHaveBeenCalledTimes(1);
+  it("unregisters both keyboard commands on unmount", () => {
+    const { editor, unmount } = mount(); unmount();
+    expect(editor.dispatchCommand(KEY_BACKSPACE_COMMAND, new KeyboardEvent("keydown"))).toBe(false);
+    expect(editor.dispatchCommand(KEY_DELETE_COMMAND, new KeyboardEvent("keydown"))).toBe(false);
   });
 });

@@ -1354,3 +1354,71 @@ including many partially implemented gates. This is a task count rather than an
 equal-effort estimate. M-40/M-41/M-43 and broad G/U/X/R/Z acceptance still require
 concrete reconciliation and evidence. The PR remains draft; publication, merging,
 manual version changes, licensing and workflow permissions/secrets are untouched.
+
+## Real owned behavior tests, grid cells and runtime CI
+
+This batch on [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1)
+reconciles M-40/M-41 and closes M-43/R-10 with concrete code and tests.
+[Cell/helper acceptance](react-aria-grid-cell-acceptance.md) maps every required
+cell and helper to its implementation and behavior assertions. The audit found
+`TextTableCell` discarded its truncation option. Shared text presentation now
+preserves multiline content with `truncate={false}`; the supported public grid
+column also exposes this option. Default ellipsis and full accessible text remain.
+New public-grid tests compose all cell types, verify independent nested actions
+and original row callbacks, and distinguish raw accessor sorting from formatting.
+
+M-43 removes React hook mocks and synthetic Lexical node/command implementations.
+Real mounted subscriptions cover synchronization, identity, removal, notifications,
+cleanup and SSR snapshots. Real Lexical editors serialize/default/import/clone
+image nodes, handle image insertion and horizontal-rule selection/deletion, and
+unregister plugin commands on unmount. Learner grid tests mount the owned grid with
+host translation and locale changes, menus, launch links, server passthrough and
+client pagination/sort callbacks. Dialog integration tests use the real formatting
+toolbar and Insert → Image menu. Remaining test wrappers capture the real editor
+and make errors fail; floating toolbar isolation is covered by separate composed
+floating tests. No story/test imports or mocks use the retired foundation.
+
+The real grid tests exposed an upstream drag warning for grids without `rowDrag`.
+They now omit drag hooks. The table instance changes only when reorder availability
+changes, retaining the outer container and owned state. Lost grid focus is repaired
+after collection reconciliation, survives an unrelated render and preserves later
+host focus. The host reorder story includes an owned availability toggle. Unit
+assertions do not claim pointer/touch reorder or browser focus-timing acceptance.
+
+[Runtimes and CI artifacts](react-aria-runtime-ci.md) distinguish the Node 22.12.0
+consumer minimum from Node 24 development/AI/release tools. CI tests both runtimes,
+serially installs packed React 18.3.1 and 19.2.3 foundation/editor consumers and
+retains matrix-specific package, Storybook and validation-log artifacts for 14 days.
+Workflow permissions and secrets are unchanged. R-11 remains partial because
+browser interaction, accessibility failure policy, performance smoke and host
+framework acceptance still require executable coverage. R-12 awaits exact-head
+remote artifact evidence for this workflow change.
+
+Previous-head `dd93c2c` CI [37558672846](https://github.com/Structured-Growth/sg-ui/actions/runs/37558672846)
+passed `pnpm check`, Storybook, packing and uploaded the unexpired `sgui-build`
+artifact. This verifies that head's EditableTitleField focus regression, not the
+new batch. PR title checks also passed for that head.
+
+Final local Node 24 and exact-minimum Node 22.12.0 `pnpm check` both pass
+137 files/855 tests, four foundation and four release tests, production/story
+typing, source/transitive/declaration/token/CSS guards, build, public entry imports
+and consumer typing. The final Node 24 Storybook build passes with the existing
+upstream directive/sourcemap/chunk warnings. Final Node 22.12 packed React 18/19
+foundation and editor consumers all pass; React 19 includes the official Flight
+proof. Earlier Node 24 packed consumers also passed during this batch. Log files:
+`/tmp/sgui-acceptance-final24.log`, `/tmp/sgui-acceptance-final22.log` and
+`/tmp/sgui-acceptance-consumers24.log`. No repository dependencies changed.
+
+Native IAB checks confirm actual nowrap/ellipsis and multiline wrapping in a
+fixed-width source-wrapper story and the supported public grid column, including
+dark rendering. See the cell acceptance record for widths/heights. Keyboard host
+reorder toggling removes/restores all five handles and preserves source toggle
+focus; no browser warning/error logs occur. Screenshots:
+`/tmp/sgui-cell-wrapping.png`, `/tmp/sgui-reorder-toggle.png`. Temporary tab closed.
+This does not verify a host toggle while focus is inside the grid, pointer/touch
+reorder, screen-reader behavior or the complete native timing matrix.
+
+158 relevant local guidance links and diff whitespace pass. Four newly closed
+required tasks bring recorded closure to 85/320 (235 open); this count is not an
+engineering-effort estimate. Broad G/U/X/R/Z gates and R-12 exact-head remote
+artifact verification remain open. The PR stays draft.

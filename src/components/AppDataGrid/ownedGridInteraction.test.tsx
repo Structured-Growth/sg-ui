@@ -135,3 +135,40 @@ it("moves focus to the native grid entry when a requested page is still loading"
   expect(document.activeElement).toBe(screen.getByRole("grid", { name: "Courses" }));
   expect(screen.getByText("Loading rows")).toBeTruthy();
 });
+
+it("omits drag hooks without reorder and preserves header focus when host toggles reorder", async () => {
+  const warn = vi.spyOn(console, "warn");
+  const containerRef = createRef<HTMLDivElement>(); const tableRef = createRef<HTMLTableElement>();
+  const reorder = { onReorder: vi.fn() };
+  try {
+    const { rerender } = render(<OwnedGridInteraction {...props} ref={containerRef} tableRef={tableRef} />);
+    const container = containerRef.current; const ordinaryTable = tableRef.current;
+    const sortButton = screen.getByRole("button", { name: "Sort Score" });
+    act(() => sortButton.focus());
+    rerender(<OwnedGridInteraction {...props} ref={containerRef} tableRef={tableRef} rowDrag={reorder} />);
+    expect(containerRef.current).toBe(container);
+    expect(tableRef.current).not.toBe(ordinaryTable);
+    // An unrelated host render before the collection settles must not cancel repair.
+    const enabledTable = tableRef.current;
+    rerender(<OwnedGridInteraction {...props} ref={containerRef} tableRef={tableRef} rowDrag={{ ...reorder }} />);
+    expect(tableRef.current).toBe(enabledTable);
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Sort Score" })));
+    expect(screen.getByRole("button", { name: "Reorder Science" })).toBeTruthy();
+    const reorderTable = tableRef.current;
+    rerender(<OwnedGridInteraction {...props} ref={containerRef} tableRef={tableRef} rowDrag={{ ...reorder }} />);
+    expect(tableRef.current).toBe(reorderTable);
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Sort Score" })));
+    rerender(<OwnedGridInteraction {...props} ref={containerRef} tableRef={tableRef} />);
+    expect(containerRef.current).toBe(container);
+    expect(screen.queryByRole("button", { name: "Reorder Science" })).toBeNull();
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Sort Score" })));
+    const outside = document.createElement("button"); outside.textContent = "Host action"; document.body.append(outside);
+    try {
+      rerender(<OwnedGridInteraction {...props} ref={containerRef} tableRef={tableRef} rowDrag={reorder} />);
+      act(() => outside.focus());
+      await act(async () => { await new Promise<void>(resolve => requestAnimationFrame(() => resolve())); });
+      expect(document.activeElement).toBe(outside);
+    } finally { outside.remove(); }
+    expect(warn.mock.calls.filter(([message]) => /Drag hooks|Drop hooks|Draggable items/.test(String(message)))).toEqual([]);
+  } finally { warn.mockRestore(); }
+});

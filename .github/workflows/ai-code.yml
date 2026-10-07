@@ -23,7 +23,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Prepare task
@@ -49,6 +49,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: ai-proposal
+          retention-days: 14
+          if-no-files-found: error
           path: |
             ${{ runner.temp }}/sgui.patch
             ${{ runner.temp }}/sgui-summary.md
@@ -82,7 +84,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Read Conventional Commit title

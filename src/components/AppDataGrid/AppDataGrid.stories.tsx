@@ -3,6 +3,7 @@ import { useState } from "react";
 import { AppDataGrid } from "./AppDataGrid";
 import { createActionMenuColumn } from "./createActionMenuColumn";
 import { Provider } from "../../experimental/Provider/Provider";
+import { Button } from "../../experimental/Button/Button";
 
 type Course = { id: string; name: string; score: number; status: string };
 const rows: Course[] = Array.from({ length: 58 }, (_, index) => ({ id: `course-${index + 1}`, name: `Course ${index + 1}`, score: index % 11, status: index % 3 ? "Published" : "Draft" }));
@@ -32,12 +33,14 @@ function HostReorder() {
   const [pending, setPending] = useState(false);
   const [failNext, setFailNext] = useState(false);
   const [status, setStatus] = useState("Ready");
+  const [reorderEnabled, setReorderEnabled] = useState(true);
   return <>
+    <Button variant="outlined" tone="neutral" aria-pressed={reorderEnabled} onPress={() => setReorderEnabled(value => !value)}>Enable row reorder</Button>
     <button type="button" onClick={() => setFailNext(value => !value)} aria-pressed={failNext}>Reject next move</button>
     <p role="status">{status}</p>
     <AppDataGrid rows={courses} columns={columns} label="Reorder courses" getRowLabel={row => row.name}
       defaultPaginationModel={{ page: 0, pageSize: 10 }} pageSizeOptions={[10]} refreshing={pending}
-      rowDrag={{ onReorder: ({ sourceRowId, targetRowId, position }) => {
+      rowDrag={reorderEnabled ? { onReorder: ({ sourceRowId, targetRowId, position }) => {
         if (pending) return;
         const previous = courses;
         const source = previous.find(row => row.id === sourceRowId)!;
@@ -51,7 +54,7 @@ function HostReorder() {
           else setStatus("Order saved.");
           setPending(false);
         }, 600);
-      } }} />
+      } } : undefined} />
   </>;
 }
 export const HostOwnedReorder: Story = { render: () => <HostReorder /> };

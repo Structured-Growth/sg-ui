@@ -22,6 +22,8 @@ export type OwnedGridPresentationColumn<Row> = OwnedGridColumn<Row> & {
   getImageSrc?: (row: Row) => string | null | undefined;
   getMenuActions?: (row: Row) => readonly OwnedGridMenuAction<Row>[];
   fallbackText?: string;
+  /** False wraps display text and preserves line breaks instead of ellipsizing. */
+  truncate?: boolean;
   locked?: boolean;
   width?: number;
   minWidth?: number;

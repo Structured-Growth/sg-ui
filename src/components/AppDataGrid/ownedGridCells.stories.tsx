@@ -5,6 +5,8 @@ import { SGNavigationProvider } from "../../adapters/navigation";
 import { Button } from "../../experimental/Button/Button";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeaderCell, TableRow } from "../../experimental/Table/Table";
 import { OwnedGridCell } from "./ownedGridCells";
+import { TextTableCell } from "./components/table-cell/TextTableCell";
+import { AppDataGrid } from "./AppDataGrid";
 import type { OwnedGridPresentationColumn } from "./ownedGridColumns";
 
 type ExampleRow = { id: string; text: string | null; date: string; dateTime: string; copy: string; json: unknown; image?: string; custom: string };
@@ -44,3 +46,15 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const AllCellTypes: Story = { render: () => <CellsExample /> };
 export const HostLocale: Story = { render: () => <CellsExample locale="de-DE" /> };
+export const PublicTextWrapping: Story = { render: () => {
+  const value = "A complete course description with a preserved second line.\nhttps://example.com/an-unbroken-path-that-must-fit-inside-its-cell";
+  return <div style={{ width: 240 }}><Table style={{ width: "100%", tableLayout: "fixed" }}><TableCaption>Public text truncation</TableCaption>
+    <TableHead><TableRow><TableHeaderCell>Display</TableHeaderCell></TableRow></TableHead>
+    <TableBody><TableRow><TableCell><TextTableCell value={value} title="Truncated description" /></TableCell></TableRow>
+      <TableRow><TableCell><TextTableCell value={value} truncate={false} title="Complete description" /></TableCell></TableRow></TableBody>
+  </Table></div>;
+} };
+export const ColumnTextWrapping: Story = { render: () => <div style={{ height: 360 }}><AppDataGrid
+  rows={[{ id: "one", description: "First line\nA complete long description that wraps within the declared column width." }]}
+  label="Wrapped course descriptions" getRowLabel={() => "Course description"} selection={false}
+  columns={[{ field: "description", headerName: "Description", width: 240, truncate: false }]} /></div> };
