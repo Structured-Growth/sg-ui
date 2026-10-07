@@ -181,3 +181,50 @@ function LogoutLifetimeExample(args: React.ComponentProps<typeof SideNavigation>
     </Box>
   </SGNavigationProvider>;
 }
+
+/** Catalog hierarchy with observable host routing and native navigation focus. */
+export const NativeHierarchy: Story = {
+  render: () => <NativeHierarchyExample />,
+};
+
+const hierarchyModel: SideNavigationModel = {
+  user: model.user,
+  rootMenu: {
+    id: "native-root",
+    sections: [{ id: "workspace", title: "Workspace", items: [
+      { id: "overview", label: "Overview", href: "/overview" },
+      { id: "courses", label: "Courses", childBehavior: "expand", children: [
+        { id: "active", label: "Active courses", href: "/courses/active" },
+        { id: "archived", label: "Archived courses", href: "/courses/archived" },
+        ...Array.from({ length: 5 }, (_, index) => ({ id: `collection-${index}`, label: `Course collection ${index + 1}`, href: `/collections/${index + 1}` })),
+      ] },
+    ] }],
+    footerSections: [{ id: "administration", title: "Administration", items: [
+      { id: "settings", label: "Settings", href: "/settings", childBehavior: "drilldown", children: [
+        { id: "people", label: "People", href: "/settings/people" },
+        { id: "billing", label: "Billing", href: "/settings/billing" },
+      ] },
+    ] }],
+  },
+};
+
+function NativeHierarchyExample() {
+  const [pathname, setPathname] = useState("/overview");
+  const [routes, setRoutes] = useState<string[]>([]);
+  const [selections, setSelections] = useState<string[]>([]);
+  const [rootRef, setRootRef] = useState("Waiting");
+  return <SGNavigationProvider value={{ pathname, navigate: href => {
+    setRoutes(current => [...current, href]);
+    setPathname(href);
+  } }}>
+    <Box style={{ display: "flex", height: "65dvh", minWidth: 0 }}>
+      <SideNavigation model={hierarchyModel} aria-label="Course workspace navigation"
+        ref={node => { if (node) setRootRef(node.tagName); }}
+        onItemSelect={id => setSelections(current => [...current, id])} />
+    </Box>
+    <Text aria-label="Host current route">{pathname}</Text>
+    <Text aria-label="Host route requests">{JSON.stringify(routes)}</Text>
+    <Text aria-label="Host item selections">{JSON.stringify(selections)}</Text>
+    <Text aria-label="Native navigation ref">{rootRef}</Text>
+  </SGNavigationProvider>;
+}
