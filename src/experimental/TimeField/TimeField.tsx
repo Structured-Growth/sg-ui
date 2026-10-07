@@ -1,10 +1,11 @@
 "use client";
-import { forwardRef, useState } from "react";
+import { forwardRef, useCallback, useRef, useState } from "react";
 import { parseTime } from "@internationalized/date";
 import { TimeField as AriaTimeField, DateInput, DateSegment } from "react-aria-components/TimeField";
 import { Label } from "react-aria-components/Label";
 import { Text } from "react-aria-components/Text";
 import { FieldError } from "react-aria-components/FieldError";
+import { useFormReset } from "../useFormReset";
 import { useTranslation } from "../../i18n";
 import field from "../TextField/TextField.module.css";
 import styles from "../DateField/DateField.module.css";
@@ -34,10 +35,21 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function Tim
     try { return parseTime(raw); } catch { return null; }
   };
   const [invalidDefault, setInvalidDefault] = useState(() => Boolean(defaultValue && !safeParse(defaultValue)));
+  const root = useRef<HTMLDivElement | null>(null);
+  const nativeRef = useCallback((node: HTMLDivElement | null) => {
+    root.current = node;
+    if (typeof ref === "function") return ref(node);
+    if (ref) ref.current = node;
+  }, [ref]);
+  // Restore owned parse feedback alongside the interaction engine's default.
+  // The shared helper waits for delegated host reset prevention.
+  useFormReset(root, () => {
+    if (value === undefined) setInvalidDefault(Boolean(defaultValue && !safeParse(defaultValue)));
+  });
   const parsedValue = value === undefined ? undefined : safeParse(value);
   const invalidInput = value === undefined ? invalidDefault : Boolean(value && !parsedValue);
   const invalidBounds = Boolean((min && !safeParse(min)) || (max && !safeParse(max)));
-  return <AriaTimeField ref={ref} value={parsedValue}
+  return <AriaTimeField ref={nativeRef} value={parsedValue}
     defaultValue={safeParse(defaultValue) ?? undefined} onChange={time => { setInvalidDefault(false); onValueChange?.(time?.toString() ?? null); }}
     minValue={safeParse(min) ?? undefined} maxValue={safeParse(max) ?? undefined} name={name}
     granularity="second" hourCycle={hourCycle} isInvalid={invalid || invalidInput || invalidBounds} isRequired={required} isDisabled={disabled} isReadOnly={readOnly}
