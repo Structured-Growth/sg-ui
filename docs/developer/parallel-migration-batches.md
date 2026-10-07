@@ -581,3 +581,10 @@ Eight isolated sessions shared one fresh build at testing-only candidate `4987a1
 - Batch42 `editor-chrome-native`: `b306430acbbf827f42fa8581222209c82870a4c9` reviewed and individually integrated; complete scoped Chromium proof, report-only final delta.
 - Batch52 `dialog-removed-opener`: `2f96e20345396865ccc7cba96d102533c03ece26` reviewed and individually integrated; complete scoped Chromium proof, report-only final delta.
 - Batch58 snapshot-case-filters NEW chat `01a11767-eb62-74d0-8f22-eb02e504ec9f`: exclusive scheduler/tests/parallel guide/unique report; add fail-closed per-shard focused-case selection, independent review before deployment.
+
+## Post-wave27 reconciliation and successor — 2026-10-07
+
+- Whole inventory row M-13 accepted after independent criterion review: missing5caseFirefox explicit-width matrix passed; frame source/spec bytes equal reviewed dev352dc49. Original10C/W plus F1 8C/16F/W proof closes row-specific holds. Broad/manual/device/AT gates remain open. Canonical criterion record is react-aria-migration-inventory-acceptance.md#m-13-criterion-reconciliation-2026-10-07.
+- Batch40 finalhead1a51ee185a0d04ca9241845025fe2511b43d1975 and batch43 finalhead2b8e14a053dd724b84c0d02ca8724e5d210244d6 report-only deltas reviewed; full histories integrated/pushed to352dc49 after separately reviewed Dialog52 dependency. Fresh scoped Chromium12/2cases, crossmatrixpending.
+- Batch59 pointer-drop-focus NEWchat01a11771-a166-7cb2-85ad-4b38f9c6c715: exactbase352dc493f64520f544b489d656d30972ea63727b, isolated managed worktreebeforeedits, exclusive ownedGridInteraction.tsx plus unique drop-focus unit/report. Batch48 story/specremainreserved. Confirmed source-controlfocusdefect; delayedAria reconciliation mechanism inferred until regression.
+- Batch56/57 strict keyboard-driver fixture corrections independently reviewed and admitted to fresh Chromium/Firefox; nativepending. Batch58 case-filter infrastructure38Nodefixturespass1gatedskip reported; exact frozen source and independent deployment reviewpending.
