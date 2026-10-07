@@ -79,3 +79,27 @@ function NativeResetExample() {
 }
 export const NativeFormReset: Story = { render: () => <NativeResetExample /> };
 export const NativeSearchReset: Story = { render: () => <StrictMode><form><RaceExample /><button type="reset">Reset search selection</button></form></StrictMode> };
+
+
+function NativeBusyExample() {
+ const [state, setState] = useState<"loading" | "error" | "success">("loading");
+ const [query, setQuery] = useState("Host query");
+ const [changes, setChanges] = useState(0);
+ const [queryChanges, setQueryChanges] = useState(0);
+ const results = [{ id: "stale", label: "Retained result" }];
+ return <>
+  <AsyncMultiSelect label="Pending courses" query={query} onQueryChange={next => { setQuery(next); setQueryChanges(count => count + 1); }}
+   options={state === "success" ? [{ id: "current", label: "Current result" }] : results}
+   loading={state === "loading"} errorMessage={state === "error" ? "Host search failed" : undefined}
+   onRetry={() => setState("loading")} onValueChange={() => setChanges(count => count + 1)}
+   description="The host controls loading, errors, retry and results." />
+  <AsyncMultiSelect label="Independent courses" query="Independent query" onQueryChange={() => {}}
+   options={[{ id: "independent", label: "Independent result" }]} />
+  <Button onPress={() => setState("error")}>Fail host search</Button>
+  <Button onPress={() => setState("success")}>Resolve host search</Button>
+  <Button onPress={() => setState("loading")}>Start host search</Button>
+  <output aria-label="Selection changes">{changes}</output>
+  <output aria-label="Query changes">{queryChanges}</output>
+ </>;
+}
+export const NativeBusyLifecycle: Story = { render: () => <StrictMode><NativeBusyExample /></StrictMode> };

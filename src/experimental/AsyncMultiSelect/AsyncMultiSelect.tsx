@@ -1,5 +1,5 @@
 "use client";
-import { useId, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { ListBox, ListBoxItem } from "react-aria-components/ListBox";
 import { TextField } from "../TextField/TextField";
 import { Button } from "../Button/Button";
@@ -35,6 +35,13 @@ export function AsyncMultiSelect({ label, options, value, defaultValue = [], onV
   const selected = value ?? internal;
   const input = useRef<HTMLInputElement>(null);
   const statusId = useId();
+  const list = useRef<HTMLDivElement>(null);
+  // The pinned ListBox filters aria-busy. Bridge only this owned state onto its
+  // native element without replacing the interaction ref or remounting the list.
+  useEffect(() => {
+    if (loading) list.current?.setAttribute("aria-busy", "true");
+    else list.current?.removeAttribute("aria-busy");
+  }, [loading]);
   const resetting = useFormReset(input, () => { if (value === undefined) setInternal(defaultValue); });
   function change(next: MultiSelectOption[]) {
     if (disabled || readOnly) return;
@@ -58,7 +65,7 @@ export function AsyncMultiSelect({ label, options, value, defaultValue = [], onV
     </div>
     {errorMessage && onRetry && <Button variant="outlined" tone="neutral" disabled={disabled} onPress={onRetry}>
       {t("common.ui.retry", { defaultMessage: "Retry" })}</Button>}
-    <ListBox<MultiSelectOption> aria-label={label} aria-busy={loading || undefined} items={options}
+    <ListBox<MultiSelectOption> ref={list} aria-label={label} aria-busy={loading || undefined} items={options}
       selectionMode="multiple" selectionBehavior="toggle" selectedKeys={selected.map(option => option.id)}
       disabledKeys={options.filter(option => disabled || readOnly || option.disabled || loading || errorMessage).map(option => option.id)}
       onSelectionChange={keys => {
