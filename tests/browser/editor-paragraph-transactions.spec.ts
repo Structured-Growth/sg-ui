@@ -62,7 +62,10 @@ for (const theme of ['light', 'dark']) {
       await expect(menu.getByRole(label === 'Center Align' ? 'menuitemradio' : 'menuitem', { name: label, exact: true })).toBeFocused();
       await page.keyboard.press('Enter');
       await expect(menu).toHaveCount(0);
-      await expect(trigger).toBeFocused();
+      // The composed editor owns final focus: its Lexical command reconciles
+      // the native range into contenteditable after the menu closes. Trigger
+      // restoration is the standalone menu contract, not this command's owner.
+      await expect(editor).toBeFocused();
       const next = expected(indent);
       await assertDocument(next);
       await expect.poll(() => selection(page)).toEqual({ text: 'rget p', anchor: 2, focus: 8, target: true });
