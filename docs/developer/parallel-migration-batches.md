@@ -136,3 +136,17 @@ isolated managed worktree before editing and owns the report
 | inventory-evidence | W-19/Z-10/Z-15 M-01–M-37 reconciliation | `01a11673-d972-7d91-ae69-c05815612438` | docs/developer/react-aria-migration-inventory-acceptance.md |
 
 Checkpoint: 61/326 (18.7%) all tasks; 61/320 (19.1%) required. 37 inventory rows need whole-task status reconciliation; batch-05 audit owns the evidence. Delta 0 accepted tasks; ETA not reliable.
+
+
+## Batch 05 processing completion and batch 06 successor
+
+[Processing report](parallel-batch-05/grid-processing.md) at `22d92ac` reviewed:
+only the owned model test/report changed,13 meaningful boundary regressions added,
+51 targeted tests/typecheck/foundation guards passed on Node24. No runtime defect.
+PR15 integrated via full-history merge on dev `e80a269`; broadG04/G08 remain open.
+Freed slot assigned to new chat `01a11676-7962-72f2-b412-d239071ca71f`, grid-sort
+(G08/U17), baseline `e80a269`. Exclusive ownership: ownedGridParts implementation/test,
+new ownedGridSortAcceptance story/test, header sort menu test, DataToolbarSortMenu
+implementation/test/CSS, batch06-grid-sort browser spec and unique batch06 report.
+Other grid interaction/cell/shell/model and experimental overlay files remain read-only.
+Targeted validation applies; maximum ten active chats retained.
