@@ -98,3 +98,27 @@ coordinator rerun; original red evidence remains preserved.
 Corrected-spec `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json` passed under
 an owned light slot on Node 24.19.0; `git diff --check` passed. Unit/story/product
 source is unchanged since its recorded pass.
+
+## Wave 23 retained endpoint failure and correction
+
+Actual tested candidate `c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`, session
+`16f6feff-4479-4f37-8c96-451b694ba457`: **0 passed / 2 failed**, zero skipped/flaky.
+Source/build hashes unchanged; attribution is retained at
+`/tmp/sgui-batch45-candidate-wave23-attribution.json`. Browser log/traces/results:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457/editor-table-history/`.
+Both cases passed insertion, cell typing/navigation, selected Bold, exact JSON
+Undo/Redo and host reload, then inserted `!` at the clicked midpoint after `End`:
+`Second! lesson` versus expected `Second lesson!`. Classification: **test-driver
+endpoint assumption**, one underlying issue across two theme cases. No confirmed
+product defect and no implementation correction.
+
+Corrected post-reload navigation uses the actual table plugin's native Shift+Tab
+then Tab to return to second-cell end; a read-only DOM assertion requires a
+collapsed text caret in that cell at its complete text length before typing.
+It replaces only the platform-dependent End assumption, retaining exact content,
+JSON Undo/Redo and native selection guards. No browser-side selection mutation.
+Corrected browser typecheck and diff check passed; native rerun remains pending.
+
+The coordinator also reported an earlier **pre-browser environment failure**:
+child PATH error, cleanup EPERM and verified recovery of owned dead leases. That
+attempt is not native proof. The actual Wave 23 child used Node 24.19.0.
