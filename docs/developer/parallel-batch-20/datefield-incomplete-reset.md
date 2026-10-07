@@ -115,7 +115,7 @@ source/spec files are identical to `1739010` and the final docs-only head.
   **1 failure / 9 passes**, log above.
 - `pnpm exec vitest related --run src/experimental/DateField/DateField.tsx`:
   **5 files / 36 tests passed**, including DatePicker, DateRangePicker,
-  DateRangeSelector and AsyncMultiSelect consumers. Log
+  DateRangeSelector and the experimental SSR test. Log
   `/tmp/sgui-batch20-datefield-related-final.log`.
 - `pnpm typecheck`: passed, log
   `/tmp/sgui-batch20-datefield-final-source-types.log`.
@@ -134,8 +134,9 @@ original multi-digit `28` draft and exact controlled-null preservation/clearing;
 checks were not weakened. No unchanged test retry or check changes were made.
 
 No full check/build/packed consumer suite, Storybook build/server, browser/native
-launch, CI/title dispatch or publication ran here. Dependency/SSR proof belongs
-to the prerequisite worker, not DateField behavior. Coordinator review, guard
+launch, CI/title dispatch or publication ran here. The separate dependency/import/dedup proof belongs to the prerequisite worker;
+the related experimental SSR unit test passed here. No packed SSR/hydration
+consumer run is claimed. Coordinator review, guard
 follow-up and fresh native evidence are required before bounded integration.
 Native timing, Firefox, physical devices/IME and assistive technology remain
 unverified. Follow [development validation](../react-aria-development-validation.md).
