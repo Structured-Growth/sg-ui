@@ -14,13 +14,13 @@ for (const control of ['heading', 'fontFamily'] as const) {
       await page.keyboard.press('Enter');
       await expect(page.getByLabel('Command owner')).toHaveText('Current owner');
       if (mode === 'replace') {
-        await expect(page.getByRole('status')).toHaveText(`Current owner: ${control === 'heading' ? 'Heading 1' : 'Georgia'}`);
+        await expect(page.getByRole('status', { name: '', exact: true })).toHaveText(`Current owner: ${control === 'heading' ? 'Heading 1' : 'Georgia'}`);
         await expect(page.getByRole('textbox', { name: 'Host editor' })).toBeFocused();
       } else {
         await expect(trigger).toBeDisabled();
         // Cross a task boundary so a stale queued callback cannot hide behind an early assertion.
         await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 30)));
-        await expect(page.getByRole('status')).toHaveText('Waiting for a request');
+        await expect(page.getByRole('status', { name: '', exact: true })).toHaveText('Waiting for a request');
       }
       await expect(page.getByRole('textbox', { name: 'Host editor' })).toHaveText('Guide');
       await expect(trigger).toContainText(control === 'heading' ? 'Normal' : 'Arial');
