@@ -105,8 +105,8 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 - [ ] B-09 Audit focus removal, hover-only triggers, drag-only interactions, labels, contrast, and sticky content; document findings without claiming a conformance audit from source inspection alone.
 - [ ] B-10 Measure production consumer bundles, CSS, editor/grid imports, initial render, and interactive updates with reproducible fixtures.
 - [ ] B-11 Record browser, React, TypeScript, Node, bundler, SSR, and React Server Component support promises separately; maintain current React 18.3/19 support unless evidence justifies a documented change.
-- [ ] B-12 Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move.
-- [ ] B-13 Inventory storage keys, persisted schema shapes, locale/date behavior, and error states that consumers rely on.
+- [x] B-12 Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move.
+- [x] B-13 Inventory storage keys, persisted schema shapes, locale/date behavior, and error states that consumers rely on.
 - [x] B-14 Keep the learner platform unchanged; collect reference behavior and source provenance read-only.
 
 ## 4. Architecture, public API ownership, and replaceability
@@ -125,9 +125,9 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 - [x] A-12 Preserve useful existing `App*` exports where possible; do not invent a wholesale `SG*` rename merely because examples used that prefix.
 - [ ] A-13 Replace explicitly branded public exports such as `MuiLink`; document their owned replacement and migration since the final API must contain no retired branding.
 - [x] A-14 Preserve Class-prefixed compatibility names when possible; use Course naming for new learning APIs and document intentional removals as breaking.
-- [ ] A-15 Create old-to-new API mappings for theme objects, typography, styling props, modal callbacks, selection, columns, and pagination.
+- [x] A-15 Create old-to-new API mappings for theme objects, typography, styling props, modal callbacks, selection, columns, and pagination.
 - [ ] A-16 Keep replacement implementations swappable behind observable behavior tests; do not promise a later rewrite will be cost-free or entirely nonbreaking.
-- [ ] A-17 Define extension points for advanced components without placing backend scheduling, booking, permission, or account logic inside UI controls.
+- [x] A-17 Define extension points for advanced components without placing backend scheduling, booking, permission, or account logic inside UI controls.
 - [ ] A-18 Keep heavyweight modules out of basic-control dependency paths; decide which require separate subpaths versus separate packages.
 - [x] A-19 Document package dependency placement, supported versions, upgrade policy, and deduplication requirements for React Aria and date utilities.
 - [ ] A-20 [Future] Document how tokens/CSS and framework-independent models could be shared with other frameworks; require separate wrappers, tests, and support policy before claiming such support.
@@ -152,14 +152,14 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 - [ ] D-04 Define semantic colors for surfaces, raised/overlay surfaces, text, borders, separators, primary/neutral/destructive actions, selected/hover/pressed states, validation, and focus.
 - [ ] D-05 Define coordinated light/dark themes; validate readable states rather than mechanically inverting colors.
 - [ ] D-06 Define a consistent spacing, sizing, radius, elevation, border, icon, and motion scale; reconcile the current differing button/card radii intentionally.
-- [ ] D-07 Define heading, body, label, caption, table, and code typography roles, including a replacement for `bodyAlt2`; consumers must not need module augmentation.
-- [ ] D-08 Document semantic HTML independently of typography appearance; visual heading size must not determine document heading level.
+- [x] D-07 Define heading, body, label, caption, table, and code typography roles, including a replacement for `bodyAlt2`; consumers must not need module augmentation.
+- [x] D-08 Document semantic HTML independently of typography appearance; visual heading size must not determine document heading level.
 - [ ] D-09 Use rem-based text sizing and layouts that tolerate zoom, text spacing changes, long labels, and font substitution.
-- [ ] D-10 Retain a deliberate Geist/system font strategy; do not download fonts at runtime or require a licensed asset without documenting it.
-- [ ] D-11 Define compact and comfortable density, independently of brand/color theme; preserve legacy compact menus through an explicit compatibility default while documenting the new general default.
+- [x] D-10 Retain a deliberate Geist/system font strategy; do not download fonts at runtime or require a licensed asset without documenting it.
+- [x] D-11 Define compact and comfortable density, independently of brand/color theme; preserve legacy compact menus through an explicit compatibility default while documenting the new general default.
 - [ ] D-12 Make important touch controls comfortably operable; density must not erase minimum hit areas or keyboard focus indicators.
-- [ ] D-13 Define neutral split actions with shared border/divider and readable theme-aware primary text; define filled emphasis for contexts that genuinely need it.
-- [ ] D-14 Define primary/subpage surface hierarchy, card hierarchy, and overlay elevation through semantic tokens.
+- [x] D-13 Define neutral split actions with shared border/divider and readable theme-aware primary text; define filled emphasis for contexts that genuinely need it.
+- [x] D-14 Define primary/subpage surface hierarchy, card hierarchy, and overlay elevation through semantic tokens.
 - [ ] D-15 Design complete hover, focus, pressed, selected, disabled, read-only, invalid, pending, empty, loading, and error states; never rely on color alone for meaning.
 - [ ] D-16 Define scoped theme/density roots and nested overrides; ensure portaled overlays receive the correct scope and variables.
 - [ ] D-17 Specify explicit light/dark/system settings, initial server theme, `color-scheme`, and hydration behavior without unwanted flashes or browser-global assumptions.
@@ -213,8 +213,8 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 - [ ] H-06 Connect host locale/direction settings to React Aria internationalization; avoid different locales in controls, SGUI strings, and date formatting.
 - [ ] H-07 Preserve translation keys, mandatory `defaultMessage`, interpolation values, namespace awareness, and deterministic English fallback.
 - [ ] H-08 Validate ICU variables, pluralization, selection counts, date/number formatting, long labels, RTL, and pseudo-localized stories.
-- [ ] H-09 Keep supported-language policy, database overrides, caching/invalidation, audit metadata, and diagnostic logging host-owned.
-- [ ] H-10 Define serializable owned date-only, local date-time, and zoned instant contracts; do not collapse all values into JavaScript `Date` or leak date-library classes casually.
+- [x] H-09 Keep supported-language policy, database overrides, caching/invalidation, audit metadata, and diagnostic logging host-owned.
+- [x] H-10 Define serializable owned date-only, local date-time, and zoned instant contracts; do not collapse all values into JavaScript `Date` or leak date-library classes casually.
 - [ ] H-11 Specify time zones, daylight-saving transitions, locale calendar display, parsing, invalid inputs, serialization, and round-trip behavior.
 - [ ] H-12 Preserve due-date formatting and missing/invalid value fallbacks; test midnight, timezone, and localization boundaries.
 - [x] H-13 Make persistence opt-in/configurable with distinct keys per view; document ownership, schema versioning, migration/reset, and sensitive-data restrictions. [Hook contracts](react-aria-pagination-state.md) and [grid persistence/reset](react-aria-catalog-grid.md).
@@ -235,7 +235,7 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 - [ ] P-08 Set reproducible performance budgets from baseline and representative consumer hardware; do not invent universal speed or size rankings.
 - [x] P-09 [Decision] Record the grid engine and which layer owns data state, rendering, focus, virtualization, and drag; assign one authoritative owner for each state domain.
 - [x] P-10 [Decision] Keep React Aria as the primary foundation unless a demonstrated blocker warrants a recorded exception; no second general primitive system is added speculatively.
-- [ ] P-11 Document prototype outcomes, API changes, limitations, and accessibility gaps; do not call prototype completion a production feature release.
+- [x] P-11 Document prototype outcomes, API changes, limitations, and accessibility gaps; do not call prototype completion a production feature release.
 
 ## 11. Owned replacement primitives and interaction standards
 
