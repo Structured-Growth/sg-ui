@@ -90,3 +90,34 @@ fresh-browser slot. Broad native/device/AT acceptance remains independently open
 The stale opening catalog-status sentence in `react-aria-layout-actions.md` is
 outside this allowlist; a coordinator documentation task may reconcile only that
 sentence against the current architecture and public primitive migration record.
+
+## Review handoff
+
+Audit report commit: `d5beeb3` (full SHA available from Git).
+Draft PR: [#51](https://github.com/Structured-Growth/sg-ui/pull/51), attached to this
+chat, targeting `codex/dev`. A subsequent report-only commit records this identity;
+the exact final head is supplied to the coordinator through the authorized chat
+handoff and verified against the PR head.
+
+Validation commands:
+
+```sh
+python3 - <<'PY'
+from pathlib import Path
+import re
+p = Path('docs/developer/parallel-batch-13/control-box.md')
+links = re.findall(r'\]\(([^)]+)\)', p.read_text())
+local = [link for link in links if not link.startswith('https://')]
+for link in local:
+    assert (p.parent / link).resolve().is_file(), link
+print(f'PASS: {len(local)} local file links resolve')
+PY
+git diff --check
+git diff --name-only b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818
+gh pr view 51 --json baseRefName,headRefName,headRefOid,isDraft,url,files
+```
+
+Counts: 10 local links, one changed documentation file, two existing Box test
+cases inspected, zero new tests, zero runtime test executions and zero product
+changes. `git diff --check` and the exact allowlist audit pass. PR verification
+confirms the requested base/head and draft state; no GitHub CI wait is involved.
