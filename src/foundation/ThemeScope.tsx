@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, forwardRef, useContext, type CSSProperties, type HTMLAttributes } from "react";
+import { createContext, forwardRef, useCallback, useContext, type CSSProperties, type HTMLAttributes } from "react";
 import styles from "./ThemeScope.module.css";
 
 export type ColorTheme = "light" | "dark" | "system";
@@ -41,11 +41,11 @@ export function useOverlayScope() {
 
 /** Internal native bridge for overlays whose interaction engine replaces the visual dir prop.
  * Keep locale-driven interactions separate from the owned visual direction override.
- * A fresh callback reapplies the attribute on scope updates, including an open portal.
+ * Keep the ref stable during child updates so nested overlay focus is not reset.
  */
 export function useOverlayDirectionRef(localeDirection: "ltr" | "rtl") {
   const { dir } = useContext(ScopeContext);
-  return (element: HTMLElement | null) => {
+  return useCallback((element: HTMLElement | null) => {
     if (element) element.setAttribute("dir", dir ?? localeDirection);
-  };
+  }, [dir, localeDirection]);
 }
