@@ -6,7 +6,7 @@ close broad U/X/R/Z gates or edit central acceptance decisions.
 ## Ownership and provenance
 
 - Attached managed worktree: `/Users/thomashall/.codex/worktrees/batch07-progress-status/sg-ui`.
-- Branch: `codex/batch07-progress-status`; PR targets `codex/dev` and remains draft.
+- Branch: `codex/batch07-progress-status`; [draft PR #91](https://github.com/Structured-Growth/sg-ui/pull/91) targets `codex/dev`.
 - Verified clean pinned baseline: `fbaba5b424816be7f386b919113d0b664546bff7`.
 - Implementation commit: `6ecea99`; focused acceptance-test head: `777364f519410a9ba85959f53c1ab331a86589ce`.
 - Final report commit and PR are recorded in the PR/coordinator completion report.
