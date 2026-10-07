@@ -1,0 +1,115 @@
+// @vitest-environment jsdom
+import { StrictMode } from "react";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { afterEach, expect, it, vi } from "vitest";
+import { OwnedGridInteraction } from "./ownedGridInteraction";
+
+// Keep the real collection/controls. Expose only the interaction boundary so
+// jsdom can reproduce the independently observed post-drag collection focus.
+const drag = vi.hoisted(() => ({ current: null as null | {
+  onDragStart: (event: { keys: Set<string> }) => void;
+  onDragEnd: () => void;
+  onReorder: (event: { keys: Set<string>; target: { key: string; dropPosition: "after" } }) => void;
+} }));
+vi.mock("react-aria-components/useDragAndDrop", async importOriginal => {
+  type Options = { isDisabled?: boolean } & Partial<NonNullable<typeof drag.current>>;
+  const original = await importOriginal<{ useDragAndDrop: (options: Options) => unknown }>();
+  return { ...original, useDragAndDrop: (options: Options) => {
+    if (!options.isDisabled) drag.current = options as unknown as NonNullable<typeof drag.current>;
+    return original.useDragAndDrop(options);
+  } };
+});
+afterEach(() => { cleanup(); drag.current = null; vi.restoreAllMocks(); });
+const rows = [{ id: "a", name: "Science" }, { id: "b", name: "Mathematics" }, { id: "c", name: "History" }];
+const getRowId = (row: typeof rows[number]) => row.id;
+const props = { label: "Courses", rows, getRowId, getRowLabel: (row: typeof rows[number]) => row.name,
+  columns: [{ field: "name", headerName: "Name" }], defaultPaginationModel: { page: 0, pageSize: 25 } };
+const settle = () => act(async () => { await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))); });
+function start() {
+  const handle = screen.getByRole("button", { name: "Reorder Mathematics" });
+  const row = handle.closest("tr")!;
+  act(() => { handle.focus(); drag.current!.onDragStart({ keys: new Set(["b"]) }); });
+  return { handle, row };
+}
+function end() { act(() => drag.current!.onDragEnd()); }
+
+it.each(["dataset", "identity"])("restores the preserved source handle after late collection focus for a stale %s drop", async replacement => {
+  const onReorder = vi.fn();
+  const view = (changed: boolean) => <OwnedGridInteraction {...props} rowDrag={{ onReorder }}
+    rows={changed && replacement === "dataset" ? rows.map(row => ({ ...row })) : rows}
+    getRowId={changed && replacement === "identity" ? row => row.id : getRowId} />;
+  const { rerender } = render(view(false));
+  const { handle, row } = start();
+  rerender(view(true));
+  act(() => drag.current!.onReorder({ keys: new Set(["b"]), target: { key: "c", dropPosition: "after" } }));
+  end();
+  await settle();
+  expect(document.activeElement).toBe(handle);
+  // The native red showed the source TR replacing handle focus after the first
+  // repair. This is an explicit collection-boundary regression, not native proof.
+  act(() => row.focus());
+  await settle();
+  expect(document.activeElement).toBe(handle);
+  expect(onReorder).not.toHaveBeenCalled();
+  expect([...document.querySelectorAll("tbody tr[data-grid-row]")].map(row => (row as HTMLElement).dataset.gridRow)).toEqual(["a", "b", "c"]);
+});
+
+it("preserves successful requests and cancellation while repairing late source-row focus", async () => {
+  const onReorder = vi.fn(); render(<OwnedGridInteraction {...props} rowDrag={{ onReorder }} />);
+  const { handle, row } = start();
+  act(() => drag.current!.onReorder({ keys: new Set(["b"]), target: { key: "c", dropPosition: "after" } }));
+  end(); await settle(); act(() => row.focus()); await settle();
+  expect(document.activeElement).toBe(handle);
+  expect(onReorder).toHaveBeenCalledOnce();
+  start(); end(); await settle();
+  expect(document.activeElement).toBe(handle);
+  expect(onReorder).toHaveBeenCalledOnce();
+});
+
+it.each(["external focus", "independent grid", "pointer", "keyboard"])("ends drop focus ownership after %s even if collection focus subsequently returns", async reason => {
+  render(<><button>Host action</button><OwnedGridInteraction {...props} label="Independent courses" /><OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} /></>);
+  const { row } = start(); end(); await settle();
+  if (reason === "external focus" || reason === "independent grid") {
+    const outside = reason === "external focus" ? screen.getByRole("button", { name: "Host action" }) : screen.getByRole("grid", { name: "Independent courses" });
+    act(() => { outside.focus(); outside.blur(); });
+  } else if (reason === "pointer") fireEvent.pointerDown(row);
+  else fireEvent.keyDown(row, { key: "ArrowDown" });
+  act(() => row.focus()); await settle();
+  expect(document.activeElement).toBe(row);
+});
+
+it.each(["rows", "identity", "disabled", "removed"])("does not run a stale repair after post-drop %s change", async change => {
+  const onReorder = vi.fn();
+  const view = (changed: boolean) => <OwnedGridInteraction {...props} rowDrag={{ onReorder }}
+    rows={changed && change === "removed" ? rows.filter(row => row.id !== "b") : changed && change === "rows" ? rows.map(row => ({ ...row })) : rows}
+    getRowId={changed && change === "identity" ? row => row.id : getRowId} refreshing={changed && change === "disabled"} />;
+  const { rerender } = render(view(false));
+  const { handle, row } = start(); end(); await settle();
+  rerender(view(true));
+  const focusHandle = vi.spyOn(handle, "focus");
+  if (row.isConnected) act(() => row.focus());
+  await settle();
+  expect(focusHandle).not.toHaveBeenCalled();
+});
+
+it("cancels owned pending work on Strict Mode unmount", async () => {
+  const { unmount } = render(<StrictMode><OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} /></StrictMode>);
+  const { handle } = start(); end();
+  const focusHandle = vi.spyOn(handle, "focus");
+  const cancel = vi.spyOn(window, "cancelAnimationFrame");
+  unmount(); await settle();
+  expect(cancel).toHaveBeenCalled();
+  expect(focusHandle).not.toHaveBeenCalled();
+});
+
+it("does not revive ownership when host focus leaves during the drag and is then removed", async () => {
+  const outside = document.createElement("button"); document.body.append(outside);
+  try {
+    render(<OwnedGridInteraction {...props} rowDrag={{ onReorder: vi.fn() }} />);
+    const { handle } = start();
+    act(() => { outside.focus(); outside.remove(); });
+    const focusHandle = vi.spyOn(handle, "focus");
+    end(); await settle();
+    expect(focusHandle).not.toHaveBeenCalled();
+  } finally { outside.remove(); }
+});
