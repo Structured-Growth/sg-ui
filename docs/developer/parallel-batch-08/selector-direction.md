@@ -94,7 +94,7 @@ Local logs are `/tmp/sgui-batch08-selector-{install,baseline,unit,unit-final,
 unit-direction,related,guards,storybook,browser}.log`; browser artifacts live in
 this worktree's ignored `artifacts/` directory.
 
-Draft PR against `codex/dev`: pending creation.
+Draft PR against `codex/dev`: [#28](https://github.com/Structured-Growth/sg-ui/pull/28).
 
 ## Limits and next bounded task
 
