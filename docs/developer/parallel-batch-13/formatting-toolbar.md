@@ -5,7 +5,8 @@
 - Verified baseline: `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818`.
 - Exactly one managed, attached worktree: `/Users/thomashall/.codex/worktrees/batch13-formatting-toolbar/sg-ui`.
 - Branch: `codex/batch13-formatting-toolbar`; draft [PR #72](https://github.com/Structured-Growth/sg-ui/pull/72), base `codex/dev`.
-- Implementation/tested head: `1226f53ebcc1aca9e8593dd13464dc80edecce09`.
+- Implementation/unit-tested head: `1226f53ebcc1aca9e8593dd13464dc80edecce09`.
+- Fresh static Storybook source head: `1e93e1c1ff5dff3df029465c8d30ab1a6dca70bd`; final native spec head: `7967dfc9a885497807894efd74e419b5cd81305a`. The intervening commit changes only browser-test result selectors; implementation/story bytes remain identical.
 - Exclusive write allowlist: `src/components/RichTextFormattingToolbar/`, `tests/browser/batch13-formatting-toolbar.spec.ts`, this report. All other components, contracts, barrels, configuration and workflows remained read-only. No public API or breaking mapping changed.
 
 ## Finding and change
@@ -35,11 +36,14 @@ Atomic install slot0 and light-validation slot1 were claimed under the shared sl
 
 Six focused Playwright cases are checked in for heading/font Enter selection while the host replaces/removes/disables callbacks. They assert current-owner delivery or rejection, retained controlled chooser values, unchanged host text and accepted-command editor focus.
 
-Fresh Storybook/browser execution is **pending** approved browser scheduling. The existing heavy lock and `/tmp/sgui-browser-validation-priority.json` queue were respected; no other worker lock was removed or stolen, no process was stopped, and no independent browser pool bypass or unchanged Firefox retry was attempted. These native tests have only passed typechecking; queued work is not a browser pass. Do not integrate this native-timing change until focused fresh browser evidence is added.
+`pnpm build-storybook` passed freshly at `1e93e1c1ff5dff3df029465c8d30ab1a6dca70bd` with existing module-directive/sourcemap/large-chunk warnings. After the priority queue emptied, the legacy lock was atomically claimed with exact chat owner `01a116b2-1308-7332-a5e6-c85bd6cccf25`. Coordinator rollout instructions then explicitly allowed this already-active build/suite to finish normally. No new browser pool/config was copied or independently merged.
 
-Per the [development validation policy](../react-aria-development-validation.md), no full `pnpm check`, whole Storybook suite or GitHub CI/title workflow was run or dispatched. No merge, main change, publication, version, credentials, permissions, secrets or license modification occurred.
+`pnpm exec playwright test tests/browser/batch13-formatting-toolbar.spec.ts --project=chromium --project=webkit --workers=1`: initial attempt had 12 failures solely from an ambiguous unnamed `getByRole('status')` assertion also matching the toolbar font-size output. The test locator was narrowed to the unnamed host result, browser-test typechecking passed again, and the same focused command passed **12/12** (6 Chromium + 6 WebKit) in 5.8 seconds at `7967dfc9a885497807894efd74e419b5cd81305a`. Product/story source did not change; the original fresh static build was reused without rebuilding during either suite.
+
+Native evidence covers chooser Enter, host replacement before deferred delivery, unavailable request rejection, retained controlled values, unchanged contenteditable text and accepted-command focus. The suite captured no page errors. Results are in worktree-local ignored `artifacts/browser-results.json` / `artifacts/browser-report/`. The fixed-port server completed under Playwright; only the matching own legacy lock was released after completion. No other worker lock or process was touched. Firefox was not attempted because the existing unchanged environment prerequisite remains unresolved; no reinstall/launch retry was made.
+Per the [development validation policy](../react-aria-development-validation.md), no full `pnpm check`, whole browser matrix or GitHub CI/title workflow was run or dispatched. No merge, main change, publication, version, credentials, permissions, secrets or license modification occurred.
 
 ## Follow-up scope
 
-1. Under approved shared browser scheduling, build fresh Storybook at the implementation head and run only `tests/browser/batch13-formatting-toolbar.spec.ts`; record commands, engines, counts and tested head here. Repair any demonstrated native defect within this same allowlist.
+1. Once the Firefox environment prerequisite is repaired, run the same focused spec through the approved browser harness on Firefox; do not treat the two-engine result as the complete browser matrix.
 2. E-03/E-04 wider editor command/selection matrix and manual/device/assistive-technology gates remain open. Individual menu controls remain outside this task's write scope; any demonstrated issue there requires its own exact component/test/story allowlist.
