@@ -548,3 +548,10 @@ Exact testing candidate `c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`, token `16f6f
 Pre-browser attempt5c1b7168 stopped for coordinator childPATH runtime error. Shutdown exposed uncaught owned process-group EPERM; verified supervisor98595 and child98795/98819 dead, exact own token441e8a09 leases only recovered, artifacts retained. Corrected childPATH Node24.19 pool above settled normally. Batch51 unique chat01a11751-7f0c-7e42-8a1d-18a671108afa exclusively owns poolimplementation/tests/guide+unique report for controlled cleanup failure handling; no native/runtime acceptance from aborted attempt. No foreign leases/processes touched.
 
 Acceptance-checklist67/32620.6%, required67/32020.9%, delta0,31heldinventory rows. Partial passing slices never close whole rows; ETA unreliable.
+
+
+## Hardware limit and checkpoint continuation — 17:08 UTC
+
+Reviewed final report-only link19502f8/toolbar2008724/Authbe15951/Dialog6d6e3ea histories integrated and normally pusheddev e53920e. Dialog nativebehavior count reaches10, triggering accumulated20spec Firefox/WebKit checkpoint. Max16 actual sessions hit sampled load25.518 on10CPU and swap3514.94→4181.00MiB, crossing configuredload18. All owned commands settled/leasesreleased; source/build stayedimmutable. Treat interrupted15 specs and4not-admitted specs as incomplete environment evidence, not product failures. Async busy alone completed2F/W cases,0unexpected/skipped/flaky; exclude alreadygreen selection from continuation. Reduce cross-engine concurrency to8, preserve original failedproof08ccbec5-51ef-43e2-90a2-b631526bfc36.
+
+Independent review approved batch51 scheduler498ca447:34Node24 fixtures pass1explicit gatedskip, exact-owned-group ESRCH settlement, EPERMneverabsence/pass, eventerror controlled evidence, unresolvedleasesretained/foreignownershipprotected. Integrated after devfreeze released; bounded actual checkpoint continuation verifies deployedcleanup. Sevenpending? Nativeworkers6 remainreserved; no main/CI/publish or acceptanceupgrade.
