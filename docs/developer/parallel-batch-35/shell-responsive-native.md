@@ -33,8 +33,8 @@ host focus with visible outline and hit-tested geometry inside main.
 
 ## Targeted local evidence
 
-Run against the implementation/spec bytes in the first commit containing this
-report, Node `v26.5.0`, pnpm `10.29.3`. Dependencies installed with
+Run against the implementation/spec bytes committed as
+`2ee06dbabe4c0d889e53cf6fbe7843c9f668f23e`, Node `v26.5.0`, pnpm `10.29.3`. Dependencies installed with
 `pnpm install --frozen-lockfile` after two busy-slot admission attempts; those
 attempts did not run an installation. Install and light checks used atomic UUID
 ownership under the canonical `/tmp/sgui-install-slots/slot0..slot1` and
@@ -55,12 +55,31 @@ No worker heavy build or browser server was started. Per
 
 Focused Chromium selector:
 `pnpm exec playwright test tests/browser/inventory-shell-responsive.spec.ts --project=chromium --workers=1`.
-Coordinator must run it against a fresh immutable Storybook from the exact
-committed handoff head. **Chromium pending, not passed** at initial handoff.
-Assigned source remains reserved pending actual native proof and any corrections.
-Firefox/WebKit are **pending** coordinated checkpoints; no cross-engine pass is
-inferred. Native failures must retain their original evidence and be classified
-as product, fixture/driver/expectation, environment or unclassified.
+Initial handoff recorded Chromium as pending. Coordinator wave21 subsequently
+built a fresh immutable Storybook and ran that focused spec at exact head
+`2ee06dbabe4c0d889e53cf6fbe7843c9f668f23e`: **6 passed, 0 failed, 0 skipped,
+0 flaky**, one worker, no retries, 7.5 seconds. This worker read actual
+`evidence.json`, `results.json` and `browser.log`; every named case has a passed
+result with retry zero and no errors. No product/test-driver failure occurred in
+this run; harmless NO_COLOR/FORCE_COLOR log warnings did not affect execution.
+
+Evidence directory (retained ignored artifacts):
+`/Users/thomashall/.codex/worktrees/batch35-shell-responsive/sg-ui/artifacts/browser-pool/f38ab73f-dc1d-404d-a719-4cea113f97df/`.
+It contains evidence/results JSON, build/type/browser logs, HTML report and trace
+output location. Trace retention is failure-only; no failure trace is claimed.
+Runtime: Node `v24.19.0`, pnpm `10.29.3`, Playwright `1.63.0`, darwin OS release
+`27.0.0`, pool slot3 / loopback port6306. Fresh Storybook build, browser TypeScript
+check and focused Chromium command all completed. Browser execution occurred
+2026-10-07 11:34:47–11:34:56 America/Chicago (16:34:47–16:34:56 UTC).
+Initial/final HEAD match and final source status is clean. Initial/final build
+digest both equal
+`47e402ffd329fd4b8edcdbba1ebfceb0cc9435b5d7393f0f5b00af4429ab842b`.
+
+Coordinator released the freeze for this report-only finalization after locks
+were released. Source, story, unit tests and native spec remain unchanged from
+the tested head; no rerun was started. This bounded Chromium slice is ready for
+coordinator review/integration and release of its source reservation. Firefox/WebKit
+are **pending** coordinated checkpoints; no cross-engine pass is inferred.
 
 Root text scaling is not browser chrome zoom. Actual device, manual display/zoom,
 assistive-technology speech, the full navigation/account matrix, wider host-specific
