@@ -36,3 +36,43 @@ it("suppresses the description when disabled", async () => {
   render(<Tooltip disabled trigger={<Button>Refresh</Button>} content="Refresh courses" delay={0} />);
   await user.tab(); await user.hover(screen.getByRole("button")); expect(screen.queryByRole("tooltip")).toBeNull();
 });
+it("does not transfer an open description to a replacement trigger", async () => {
+  const user = userEvent.setup();
+  const { rerender } = render(<Tooltip trigger={<Button key="original">Original</Button>} content="Original help" delay={0} closeDelay={0} />);
+  await user.tab(); await screen.findByRole("tooltip");
+  rerender(<Tooltip trigger={<Button key="replacement">Replacement</Button>} content="Replacement help" delay={0} closeDelay={0} />);
+  await waitFor(() => expect(screen.queryByRole("tooltip")).toBeNull());
+  expect(screen.getByRole("button").getAttribute("aria-describedby")).toBeNull();
+  await user.tab(); expect(await screen.findByRole("tooltip")).toHaveProperty("textContent", "Replacement help");
+});
+it("keeps independent scope descriptions and clears the removed portal ref", async () => {
+  const user = userEvent.setup(); const ref = createRef<HTMLDivElement>();
+  const { rerender } = render(<>
+    <ThemeScope key="first" theme="dark" dir="rtl" lang="en-US"><Tooltip ref={ref} trigger={<Button>First</Button>} content="First help" /></ThemeScope>
+    <ThemeScope key="second" theme="light" dir="ltr" lang="ar-EG"><Tooltip trigger={<Button>Second</Button>} content="Second help" /></ThemeScope>
+  </>);
+  await user.tab(); const first = await screen.findByRole("tooltip");
+  expect(first.dir).toBe("rtl"); expect(first.lang).toBe("en-US");
+  rerender(<ThemeScope key="second" theme="light" dir="ltr" lang="ar-EG"><Tooltip trigger={<Button>Second</Button>} content="Second help" /></ThemeScope>);
+  await waitFor(() => expect(screen.queryByRole("tooltip")).toBeNull()); expect(ref.current).toBeNull();
+  await user.tab(); const second = await screen.findByRole("tooltip");
+  expect(second.dir).toBe("ltr"); expect(second.lang).toBe("ar-EG");
+});
+it("retains an open description for ordinary trigger updates and host-controlled replacement", async () => {
+  const user = userEvent.setup();
+  const { rerender } = render(<Tooltip trigger={<Button key="same">Refresh</Button>} content="Old help" />);
+  await user.tab(); const tooltip = await screen.findByRole("tooltip"); const button = screen.getByRole("button");
+  rerender(<Tooltip trigger={<Button key="same">Refresh courses</Button>} content="Updated help" />);
+  expect(screen.getByRole("button")).toBe(button); expect(screen.getByRole("tooltip")).toBe(tooltip);
+  expect(tooltip.textContent).toBe("Updated help"); expect(document.activeElement).toBe(button);
+  rerender(<Tooltip open trigger={<Button key="controlled">Controlled</Button>} content="Host help" />);
+  expect(await screen.findByRole("tooltip")).toHaveProperty("textContent", "Host help");
+});
+it("does not make a native disabled trigger focusable or show hover help", async () => {
+  const user = userEvent.setup();
+  render(<><Tooltip trigger={<Button disabled>Unavailable</Button>} content="Help" delay={0} /><Button>Next</Button></>);
+  await user.tab(); expect(document.activeElement).toBe(screen.getByRole("button", {name:"Next"}));
+  fireEvent.mouseMove(document.body); await user.hover(screen.getByRole("button", {name:"Unavailable"}));
+  expect(screen.queryByRole("tooltip")).toBeNull();
+});
+
