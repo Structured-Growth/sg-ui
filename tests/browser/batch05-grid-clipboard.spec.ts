@@ -50,7 +50,8 @@ for (const theme of ['light', 'dark']) {
 test('native denied clipboard write announces error and keeps keyboard focus', async ({ page, context, browserName }) => {
   test.skip(browserName !== 'chromium', 'CDP denial is Chromium-only; deterministic rejection is tested on every engine.');
   const session = await context.newCDPSession(page);
-  await session.send('Browser.setPermission', { permission: { name: 'clipboard-write' }, setting: 'denied', origin: 'http://127.0.0.1:6173' });
+  const { targetInfo } = await session.send('Target.getTargetInfo');
+  await session.send('Browser.setPermission', { permission: { name: 'clipboard-write' }, setting: 'denied', origin: 'http://127.0.0.1:6173', browserContextId: targetInfo.browserContextId });
   const grid = await open(page);
   const cell = grid.locator('tbody [data-grid-row="0"][data-grid-field="value"]');
   await grid.locator('tbody [data-grid-row="0"][data-grid-field="name"]').focus();
