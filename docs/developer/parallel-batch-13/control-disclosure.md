@@ -4,9 +4,9 @@
 
 - Baseline: `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818` (verified immediately after managed worktree creation, before edits).
 - Attached managed worktree: `/Users/thomashall/.codex/worktrees/batch13-control-disclosure/sg-ui`.
-- Branch: `codex/batch13-control-disclosure`; draft PR targets `codex/dev`.
+- Branch: `codex/batch13-control-disclosure`; draft [PR #64](https://github.com/Structured-Growth/sg-ui/pull/64) targets `codex/dev`.
 - Exclusive source allowlist: `src/experimental/Disclosure/`, `tests/browser/batch13-control-disclosure.spec.ts`, this report. Shared guides, contracts, checklists, barrels, configuration and workflows remain unchanged.
-- Implementation commit: `2170e9c3c3951666c78cf49761b0ebd27ad71707`. Report commits are listed in the branch/PR history.
+- Implementation commit: `2170e9c3c3951666c78cf49761b0ebd27ad71707`. Initial report commit: `6d0e8da`. This PR-link update is listed in branch/PR history.
 - Assignment mentions U-09/X-16. The master list assigns U-09 to Tabs; the existing disclosure contract is U-11. This change supplies bounded U-11/X-16 composition/focus evidence without editing or closing either checklist.
 
 ## Existing evidence and demonstrated defect
