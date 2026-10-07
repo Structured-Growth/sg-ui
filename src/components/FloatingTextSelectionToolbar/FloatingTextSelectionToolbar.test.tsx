@@ -8,7 +8,7 @@ import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
-import { $createParagraphNode, $createTextNode, $getRoot, $isTextNode, type LexicalEditor } from "lexical";
+import { $createParagraphNode, $createTextNode, $getRoot, $isTextNode, $getSelection, type LexicalEditor } from "lexical";
 import { Provider } from "../../experimental/Provider/Provider";
 import { FloatingTextSelectionToolbar, type FloatingTextSelectionToolbarProps } from "./FloatingTextSelectionToolbar";
 let editor: LexicalEditor;
@@ -66,6 +66,40 @@ describe("floating selection formatting", () => {
     expect(toolbar.style.left).toBe("100px"); fireEvent.keyDown(editor.getRootElement()!,{key:"F10",altKey:true}); selectionRect=new DOMRect(1000,40,20,20); fireEvent(window,new Event("resize"));
     expect(Number.parseFloat(toolbar.style.left)).toBeLessThanOrEqual(window.innerWidth-12-240);
     selectionRect=new DOMRect(100,-100,90,20); fireEvent.scroll(document); expect(screen.queryByRole("group",{name:"Selection formatting"})).toBeNull();
+  });
+  it("preserves every ancestor offset when native offscreen focus ignores preventScroll", async () => {
+    const { container } = mount(); await select();
+    const root = editor.getRootElement()!;
+    const host = root.parentElement!;
+    container.scrollTop = 45; container.scrollLeft = -20;
+    host.scrollTop = 300; host.scrollLeft = 25;
+    root.scrollTop = 10;
+    fireEvent.keyDown(root, { key: "F10", altKey: true });
+    expect(document.activeElement).toBe(screen.getByRole("button", { name: "Bold" }));
+    const selectionBefore = editor.getEditorState().read(() => $getSelection()?.clone());
+    const nativeFocus = root.focus.bind(root);
+    const focus = vi.spyOn(root, "focus").mockImplementation(options => {
+      nativeFocus(options);
+      // Model the captured WebKit synchronous reveal, including nested axes.
+      host.scrollTop = 0; host.scrollLeft = 0;
+      container.scrollTop = 0; container.scrollLeft = 0;
+      root.scrollTop = 0;
+    });
+    try {
+      selectionRect = new DOMRect(100, -100, 90, 20);
+      fireEvent.scroll(host);
+      expect(focus).toHaveBeenCalledExactlyOnceWith({ preventScroll: true });
+      expect(document.activeElement).toBe(root);
+      expect(host.scrollTop).toBe(300); expect(host.scrollLeft).toBe(25);
+      expect(container.scrollTop).toBe(45); expect(container.scrollLeft).toBe(-20);
+      expect(root.scrollTop).toBe(10);
+      expect(editor.getEditorState().read(() => $getSelection()?.is(selectionBefore!))).toBe(true);
+      expect(screen.queryByRole("group", { name: "Selection formatting" })).toBeNull();
+      selectionRect = new DOMRect(100, 120, 90, 20);
+      fireEvent.scroll(host);
+      expect(screen.queryByRole("group", { name: "Selection formatting" })).toBeNull();
+      expect(focus).toHaveBeenCalledTimes(1);
+    } finally { focus.mockRestore(); }
   });
   it("dismisses with Escape/outside pointer/window blur, removes listeners and cleans up listeners", async () => {
     const user=userEvent.setup(); const {unmount}=mount(); await select();
