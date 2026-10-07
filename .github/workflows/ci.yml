@@ -35,6 +35,12 @@ jobs:
         run: pnpm check 2>&1 | tee artifacts/logs/check.txt
       - name: Build Storybook
         run: pnpm build-storybook 2>&1 | tee artifacts/logs/storybook.txt
+      - name: Install browser engines
+        if: matrix.node == '24'
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Browser interactions, accessibility and performance smoke
+        if: matrix.node == '24'
+        run: pnpm test:browser 2>&1 | tee artifacts/logs/browser.txt
       # Do not rebuild dist while these fixtures pack it. Vite SSR also shares a
       # port, so React versions and foundation/editor fixtures run serially.
       - name: Packed React 18.3 foundation consumer
@@ -60,6 +66,17 @@ jobs:
           name: sgui-storybook-node-${{ matrix.node }}
           path: storybook-static/
           if-no-files-found: error
+          retention-days: 14
+      - name: Upload browser evidence
+        if: always() && matrix.node == '24'
+        uses: actions/upload-artifact@v4
+        with:
+          name: sgui-browser-node-24
+          path: |
+            artifacts/browser-report/
+            artifacts/browser-traces/
+            artifacts/browser-results.json
+          if-no-files-found: warn
           retention-days: 14
       - name: Upload validation results
         if: always()

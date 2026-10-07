@@ -2,9 +2,11 @@
 
 Source: `Structured-Growth/learning-platform`, commit
 `8e63f1e16fc3d43d851908b312603a1099ca13d9`, `apps/web/src/ui`.
-The file-by-file [manifest](extraction-manifest.json) confirms every shared UI
-source file has a destination in this library. Original components, helpers,
-stories, and tests were copied; framework coupling was then adapted.
+The file-by-file [manifest](extraction-manifest.json) records every original shared
+UI source path and extraction destination. `present` reports current destination
+existence; migration metadata records removed or renamed destinations and their
+owned replacements. Original components, helpers, stories, and tests were copied;
+framework coupling was then adapted.
 The learner platform checkout has not been modified.
 
 The subsequent foundation migration has begun with scoped tokens and experimental

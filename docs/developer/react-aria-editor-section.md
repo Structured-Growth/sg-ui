@@ -31,7 +31,10 @@ editor-viewport and editor-image part hooks. `aria-label` names the editable
 textbox; the default Document name, placeholder and generic upload error use the
 host translation adapter with English fallbacks.
 
-The toolbar remains outside a single scrolling viewport. Give the section a
+The toolbar remains outside a single scrolling viewport. The viewport is a named,
+keyboard-focusable region with a visible focus outline, including in read-only
+mode; native PageDown scrolling is covered by the browser acceptance suite.
+Give the section a
 bounded height or a zero-minimum flex parent. ContentEditable and its placeholder
 share a positioned document container. Narrow tables scroll within the viewport;
 formatting controls wrap. The floating toolbar keeps its documented Alt+F10,

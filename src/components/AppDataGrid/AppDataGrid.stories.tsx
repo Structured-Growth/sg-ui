@@ -59,3 +59,9 @@ function HostReorder() {
 }
 export const HostOwnedReorder: Story = { render: () => <HostReorder /> };
 export const ReorderUnavailableWhileSorted: Story = { args: { rows: rows.slice(0, 5), sortRules: [{ field: "name", direction: "asc" }], rowDrag: { onReorder: () => {} } } };
+
+/** Bounded browser smoke workload; timings are recorded, not a cross-hardware SLA. */
+export const BrowserPerformance: Story = { args: {
+  rows: Array.from({ length: 1000 }, (_, index) => ({ id: `course-${index + 1}`, name: `Course ${index + 1}`, score: index % 11, status: index % 3 ? "Published" : "Draft" })),
+  defaultPaginationModel: { page: 0, pageSize: 250 },
+} };

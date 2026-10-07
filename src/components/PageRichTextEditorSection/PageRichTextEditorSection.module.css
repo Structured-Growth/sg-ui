@@ -32,6 +32,7 @@
     font-size: var(--sgui-body1-size);
     line-height: var(--sgui-body1-line-height);
   }
+  .viewport:focus-visible,
   .editable:focus-visible {
     outline: var(--sgui-focus-width) solid var(--sgui-focus);
     outline-offset: var(--sgui-focus-offset);

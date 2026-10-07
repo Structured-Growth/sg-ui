@@ -65,6 +65,10 @@ GitHub Actions runs these checks and builds the package and Storybook on PRs and
 main. Local builds are for validation; official build artifacts and releases
 come from Actions.
 
+The [browser acceptance suite](docs/developer/react-aria-browser-acceptance.md)
+executes built Storybook interactions, accessibility failures and a bounded
+performance smoke workload through `pnpm test:browser`.
+
 ## Use in an application
 
 Releases are public on npm under the `@structured-growth` scope. Install SGUI
@@ -109,8 +113,8 @@ These are proof contracts that may change during migration. Public catalog compo
 [architecture and styling guide](docs/developer/react-aria-architecture.md).
 Run `pnpm test:foundation-consumer` to validate a packed Vite proof consumer.
 
-Migrated catalog controls also have granular subpaths so a consumer can avoid
-resolving the unmigrated catalog:
+Catalog controls also have granular subpaths so a consumer can bound imports
+to the requested controls:
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";

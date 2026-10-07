@@ -1000,7 +1000,8 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
         disableContainerPadding
         />
       )}
-      <div ref={editorViewportRef} className={styles.viewport} data-sgui-part="editor-viewport">
+      <div ref={editorViewportRef} className={styles.viewport} data-sgui-part="editor-viewport"
+        role="region" tabIndex={0} aria-label={t("editor.documentScrollRegion", { defaultMessage: "Document scroll region" })}>
         <div className={styles.document}>
           <LexicalComposer
             key={editorKey}

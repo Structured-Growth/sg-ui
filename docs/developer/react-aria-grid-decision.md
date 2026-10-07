@@ -7,7 +7,7 @@ enhancements and deferred features. Runtime G acceptance remains open.
 
 Use TanStack Table 8.21.3 for row processing and React Aria Components 1.21.1 for
 interaction. SGUI owns the columns, state and callbacks. The implementation is
-currently experimental and does not replace the catalog grid yet. Version 8 is
+now used by the public catalog grid as well as the experimental proof. Version 8 is
 deliberately pinned to the documented v8 row-model API; this is not a claim that
 it is the latest major. Evaluate major upgrades separately against these tests.
 

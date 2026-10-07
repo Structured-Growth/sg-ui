@@ -339,3 +339,12 @@ ellipsis preserves complete accessible text. Ordinary grids omit drag hooks;
 toggling reorder retains the outer container and repairs lost grid focus.
 See [runtime and CI validation](docs/developer/react-aria-runtime-ci.md) for
 Node 22.12/24 and packed React 18/19 consumer checks. Broad acceptance remains open.
+
+R-11/X-12 browser gates run against freshly built static Storybook with
+`pnpm test:browser`; CI requires Chromium, Firefox and WebKit on Node 24.
+See [browser acceptance](docs/developer/react-aria-browser-acceptance.md) for
+download bytes, axe failure ownership, native focus/scroll and performance smoke
+coverage. Never rebuild Storybook during a suite run. Broad native/device and
+assistive-technology acceptance remains open. The
+[removal audit](docs/developer/react-aria-removal-audit.md) distinguishes emitted
+implementation guards from preserved historical/legal references.

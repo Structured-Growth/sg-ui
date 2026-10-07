@@ -49,3 +49,6 @@ imports and augmentation consumers were eliminated. Packed checks must confirm
 React 18.3/19 consumers install without those peers. This closes dependency
 removal, not full accessibility, screen-reader, browser, performance or final
 historical-reference acceptance.
+
+See the [classified removal audit](react-aria-removal-audit.md) for source/output
+guards, reconciled extraction destinations and remaining historical/legal text.

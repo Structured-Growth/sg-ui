@@ -464,7 +464,7 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] R-09 Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape.
 - [x] R-10 Keep the supported Node/runtime requirements explicit; reconcile development, CI, AI and release Node versions where their tool requirements differ. [Runtime matrix](react-aria-runtime-ci.md).
 - [ ] R-11 Extend `pnpm check` and CI with necessary token/CSS/import-boundary/type/API checks, browser interactions, accessibility, package consumers, and performance smoke checks.
-- [ ] R-12 Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results.
+- [x] R-12 Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](react-aria-runtime-ci.md).
 - [ ] R-13 Preserve release sequencing: full required checks pass before semantic-release publishes on main, with correct concurrency and full tag history.
 - [ ] R-14 Preserve Conventional Commit PR-title validation, squash title/footer guidance, release-policy tests, and automatic patch/minor/major inference.
 - [ ] R-15 Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy.
@@ -517,11 +517,11 @@ conflict rather than silently removing notices.
 
 - [x] Z-01 Remove every direct/runtime/peer/dev/optional retired package and any remaining transitive dependency on it; include Emotion and all grid/icon packages.
 - [ ] Z-02 Remove retired imports/reexports, public names/types, declaration augmentation, theme aliases, internal class selectors, mocks and story requirements.
-- [ ] Z-03 Replace/remove `src/theme/mui-typography.ts`, `baseGridSx.ts`, and any filename whose branding or purpose belongs to the retired implementation; verify all referencing files.
-- [ ] Z-04 Audit every tracked text/configuration file, including lockfile, workflows, scripts, docs, manifests, READMEs, templates and this task list, for `@mui`, case-insensitive branded names, `Mui*`, and Emotion references; inspect matches rather than hiding them with exclusions.
+- [x] Z-03 Replace/remove `src/theme/mui-typography.ts`, `baseGridSx.ts`, and any filename whose branding or purpose belongs to the retired implementation; verify all referencing files. Physical removal and extraction destination/replacement reconciliation: [removal audit](react-aria-removal-audit.md).
+- [x] Z-04 Audit every tracked text/configuration file, including lockfile, workflows, scripts, docs, manifests, READMEs, templates and this task list, for `@mui`, case-insensitive branded names, `Mui*`, and Emotion references; inspect matches rather than hiding them with exclusions. [Classified audit](react-aria-removal-audit.md); historical/legal reconciliation remains Z-05/Z-06.
 - [ ] Z-05 Rewrite historical manifest entries/document explanations where necessary for literal-reference removal while retaining source repository/commit provenance; do not rewrite Git history or invent provenance.
 - [ ] Z-06 Remove obsolete notices only after confirming no associated source/assets remain in package or catalog; final third-party notices match shipped work.
-- [ ] Z-07 Delete/rebuild generated dist, Storybook and package output during verification; no stale artifact may pass as migrated source.
+- [x] Z-07 Delete/rebuild generated dist, Storybook and package output during verification; no stale artifact may pass as migrated source. Fresh build, executed static stories and eight new packed consumers in the [browser batch record](react-aria-progress.md#executable-browser-gates-and-removal-audit).
 - [ ] Z-08 Audit packed JavaScript, declarations, CSS, source maps, assets, README and notices for retired references and transitive code; ensure the release tarball has no old requirement.
 - [ ] Z-09 Verify a clean consumer can install and use core, grid, editor and date components without installing any retired package or styling runtime.
 - [ ] Z-10 Verify all current components/primitives/icons/helpers/presets/hooks/adapters are migrated or intentionally removed with a documented owned replacement and release impact.

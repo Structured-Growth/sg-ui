@@ -22,6 +22,8 @@ function NavigationSemanticsExample() {
       <Link href="#course" onClick={event => observe("route", event)}>Router course</Link>
       <Link href={file} external={false} download="" onClick={event => observe("empty-download", event)}>Download with empty filename</Link>
       <Link href={file} external={false} download="course.txt" onClick={event => observe("named-download", event)}>Download named file</Link>
+      <Link href={file} external={false} download onClick={event => observe("boolean-download", event)}>Download boolean file</Link>
+      <Link href="#false-download" download={false} onClick={event => observe("false-download", event)}>Route with download false</Link>
       <Link href="#cancel" onClick={event => observe("cancel", event, true)}>Cancel navigation</Link>
       <Link href="#target" target="_blank" onClick={event => observe("target", event)}>New tab course</Link>
       <Link href="#external" external onClick={event => observe("external", event)}>Native external link</Link>

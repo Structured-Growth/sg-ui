@@ -3,8 +3,9 @@
 Tasks: G-01–G-03 design review; implementation dependencies M-16–M-19,
 G-04–G-23 and G-25–G-29. Recorded 2026-10-06 for
 [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1).
-These are implementation requirements, not shipped catalog APIs. AppDataGrid
-still uses MUI X. The [engine decision](react-aria-grid-decision.md) selects
+These requirements now underpin the owned public catalog APIs. The
+[public integration guide](react-aria-catalog-grid.md) records shipped mappings;
+broad runtime acceptance remains open. The [engine decision](react-aria-grid-decision.md) selects
 TanStack Table 8.21.3 for row processing and React Aria Components 1.21.1 for
 interaction. The [migration backlog](react-aria-master-task-list.md) remains
 authoritative for implementation and acceptance status.

@@ -1422,3 +1422,68 @@ reorder, screen-reader behavior or the complete native timing matrix.
 required tasks bring recorded closure to 85/320 (235 open); this count is not an
 engineering-effort estimate. Broad G/U/X/R/Z gates and R-12 exact-head remote
 artifact verification remain open. The PR stays draft.
+
+## Executable browser gates and removal audit
+
+R-11/X-12 now have a real Playwright gate against built static Storybook,
+requiring Chromium/Firefox/WebKit in the Node 24 CI job. See
+[browser acceptance](react-aria-browser-acceptance.md) for scope and failure policy.
+Saved downloads verify exact bytes for empty/named/boolean attributes; explicit
+false routing, click ordering, cancellation, modifier/target/external behavior
+execute natively. Keyboard tests cover nested Escape focus, grid cell navigation,
+selection/menu/sort, real Lexical selection and Alt+F10 formatting, native
+read-only scrolling and host Move requests/source focus/rollback. No pointer or
+touch drag claim is added.
+
+The first axe run found a real keyboard-accessibility defect in the editor's
+scrollable viewport. It now exposes a translated named region, keyboard tab stop
+and token-based focus outline in editable/read-only modes. Two colocated tests
+preserve focus access and the following editable tab stop. Native PageDown and
+light/dark scans pass. The harness is the sole mandatory axe scan owner, avoiding
+competing addon runs without disabled rules or node exclusions. All WCAG-tagged
+violations, browser runtime errors and warnings fail; no retry/skip hides them.
+
+Final local Chromium/WebKit run passes 30/30 tests including 16 axe scans in
+23.7 seconds. The 1,000-row/250-render smoke observes navigation/render then
+sort/render at 454/640ms in Chromium and 479/677ms in WebKit; its generous total
+15-second threshold detects hangs, not a hardware performance guarantee.
+Full Firefox remains required in Linux CI. Local Firefox exits before navigation
+with a profile error consistent with the reported macOS app-data restriction;
+it is not counted as a browser success. No OS permissions were changed.
+Logs and reports: `/tmp/sgui-browser-final.log`, `artifacts/browser-results.json`.
+CI retains `sgui-browser-node-24` plus browser logs for 14 days.
+
+The [classified removal audit](react-aria-removal-audit.md) inspects every tracked
+file, including hidden configuration, historical snapshots, manifests, guards,
+lockfile and protected legal files. Six extraction destinations now have truthful
+existence/removal/rename and owned replacement metadata, retaining source paths,
+repository and commit. Z-03/Z-04 are reconciled; historical/legal literal work
+remains open. A recursive package guard rejects retired references in every
+emitted JS/declaration/CSS/JSON/map/SVG/HTML/text module, beyond public declaration
+checks. Temporary probes prove it rejects a source-map reference and filename;
+the probes were removed. Fresh dist/Storybook and eight new packed consumers
+establish Z-07. LICENSE/notices are preserved and final Z-08 remains open.
+
+R-12 closes with exact `c78a24e` CI
+[37559276148](https://github.com/Structured-Growth/sg-ui/actions/runs/37559276148)
+success: both Node targets, all four consumers per target, package/Storybook
+uploads and six unexpired 14-day artifacts. Downloaded logs and the official
+Node 24 tarball confirm the result. Its only retired text is protected legal
+content. [Runtime evidence](react-aria-runtime-ci.md) records IDs and expiration.
+This validates the prior commit rather than later browser changes.
+
+Final local full checks on Node 24 and exact-minimum Node 22.12.0 pass 138 files /
+857 tests, four foundation/four release tests, typing, build, public APIs and all
+owned boundary/output guards. Storybook rebuild passes existing upstream build
+warnings. Eight fresh packed React 18.3.1/19.2.3 foundation/editor consumers across
+both Node runtimes pass; React 19 includes Flight. Logs:
+`/tmp/sgui-browser-batch-check24.log`, `/tmp/sgui-browser-batch-check22.log`,
+`/tmp/sgui-browser-batch-consumers24.log`, `/tmp/sgui-browser-batch-consumers22.log`.
+All 201 extraction destinations/replacement paths and 276 guidance links pass.
+Frozen install and diff whitespace are verified before commit.
+
+Four newly closed tasks (R-12, Z-03, Z-04, Z-07) bring formal closure to 89/320
+required tasks, 231 open. H-02/R-11/X-12 await the required three-engine remote
+run for this batch. Broad native/touch/screen-reader/visual/framework/performance
+gates remain open. The PR remains draft; versions, licenses and workflow
+permissions/secrets are unchanged.

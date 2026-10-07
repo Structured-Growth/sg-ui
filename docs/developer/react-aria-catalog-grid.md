@@ -2,8 +2,8 @@
 
 M-16 public renderer/helpers/parts, M-17 shell and M-19 learner composition now
 use owned contracts. Load `@structured-growth/sg-ui/styles.css` and wrap grids in
-`Provider` or `ThemeScope`. Import their granular component entry points to avoid
-the remaining legacy catalog. Broad G/U/X/R/Z acceptance remains
+`Provider` or `ThemeScope`. Granular component entry points bound consumer imports
+to the requested controls. Broad G/U/X/R/Z acceptance remains
 open; this integration does not certify the complete migration.
 
 ```tsx
@@ -93,8 +93,7 @@ own any intermediate partial snapshots.
 Storage errors never block the live reset. Reset does not mutate rows, clear host
 errors or cancel host work; server consumers handle their one combined request.
 
-Row drag integration is temporarily absent from the migrated renderer while
-M-18 now integrates bounded pointer/touch/keyboard/Move requests and cancellation.
+M-18 integrates bounded pointer/touch/keyboard/Move requests and cancellation.
 See [reorder contracts](react-aria-grid-reorder.md) for the public rowDrag mapping.
 True pinning, expansion, editing and spreadsheet features remain deferred per
 [catalog contracts](react-aria-grid-contracts.md).

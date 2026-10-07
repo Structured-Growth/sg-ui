@@ -41,6 +41,7 @@ R-12 artifacts are emitted separately for each runtime, with an explicit
 | `sgui-package-node-22.12.0`, `sgui-package-node-24` | Official CI-built package tarball | All validation steps pass |
 | `sgui-storybook-node-22.12.0`, `sgui-storybook-node-24` | Static Storybook output | All validation steps pass |
 | `sgui-validation-node-22.12.0`, `sgui-validation-node-24` | Node/pnpm versions and complete check, Storybook and consumer logs | Always, including failure |
+| `sgui-browser-node-24` | Browser JSON/HTML results, axe results, smoke timings, failure traces/screenshots and saved downloads | Always after browser execution, including failure |
 | `ai-proposal` | Proposed patch and summary from the manual AI workflow | Implementation job succeeds |
 
 The validation job has a 30-minute limit. The job explicitly selects GitHub Actions' bash runner, which
@@ -51,7 +52,26 @@ Artifact URLs and exact commit/run conclusions are available from the Actions
 run that produced them; local success is not a claim that a new CI run passed.
 The AI workflow retains draft PR creation and its existing permissions.
 
-This extends the package consumer portion of R-11. Browser interactions,
-automated accessibility failure policy, performance smoke checks and the
-Next.js integration matrix remain separate open acceptance work. These workflows
-do not claim that those checks run merely because Storybook builds successfully.
+R-12 remote evidence: [CI run 37559276148](https://github.com/Structured-Growth/sg-ui/actions/runs/37559276148)
+completed successfully for exact commit `c78a24eb8d5b538833f3a0aca58e428f970b642c`.
+Both Node 22.12.0 and Node 24 jobs passed check, Storybook, all four packed
+consumers and uploads. API inspection confirmed all six artifacts unexpired;
+validation logs and the Node 24 official package were also downloaded for review.
+This proves that commit's workflow, not later browser changes.
+
+| Artifact | Actions artifact ID | Expiration (UTC) |
+| --- | --- | --- |
+| `sgui-package-node-22.12.0` | 11456077801 | 2026-10-21 01:56:55 |
+| `sgui-storybook-node-22.12.0` | 11455873405 | 2026-10-21 01:56:56 |
+| `sgui-validation-node-22.12.0` | 11456117638 | 2026-10-21 01:56:58 |
+| `sgui-package-node-24` | 11455963120 | 2026-10-21 01:56:27 |
+| `sgui-storybook-node-24` | 11455987943 | 2026-10-21 01:56:28 |
+| `sgui-validation-node-24` | 11456047789 | 2026-10-21 01:56:29 |
+
+R-11 now adds [executed browser gates](react-aria-browser-acceptance.md) after
+Storybook builds on Node 24: all three browser engines, byte-level downloads,
+keyboard/focus/editor/grid behavior, failing axe scans and a bounded performance
+smoke workload. Runtime errors/warnings also fail. Browser execution is a separate
+`pnpm test:browser` command because it reads built Storybook; `pnpm check` retains
+source, behavior, boundary, token/CSS, build, API and package checks. Next.js and
+the broad native/assistive-technology matrix remain separately tracked.
