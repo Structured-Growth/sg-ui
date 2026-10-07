@@ -332,7 +332,7 @@ tasks. The initial six rows were reviewed against source/tests/contracts and
 unchanged implementations from the combined `75b7c3f` check (148 files/1038 tests).
 Later upgrades record their own exact reviewed heads and row-specific evidence.
 Acceptance is limited to the individual inventory row; broader U/X/R/Z and
-manual/device/AT gates remain open. The other 29 inventory rows remain held.
+manual/device/AT gates remain open. The other 27 inventory rows remain held.
 
 - [x] M-01 AppButton individual inventory-row acceptance: owned props/variants/tones, native form behavior and press mapping.
 - [x] M-12 CardPaginationFooter individual inventory-row acceptance: pagination labels/counts, disabled boundaries and unknown totals.
@@ -342,6 +342,9 @@ manual/device/AT gates remain open. The other 29 inventory rows remain held.
 - [x] M-36 icons individual inventory-row acceptance: public/direct icon mappings and activity-type behavior.
 - [x] M-21 DocumentEditorLayout individual inventory-row acceptance: tokenized chrome regions, host scroll ownership and live slot replacement with retained native focus/scroll; see the [criterion record](react-aria-migration-inventory-acceptance.md#m-21-criterion-reconciliation-2026-10-07).
 - [x] M-13 ClassCardFrame individual inventory-row acceptance: owned surface/spacing, responsive image/content slots, width constants and native style/state; see the [criterion record](react-aria-migration-inventory-acceptance.md#m-13-criterion-reconciliation-2026-10-07).
+
+- [x] M-04 AppPageHeader individual inventory-row acceptance: owned hierarchy, breadcrumbs/actions/metadata and native wrapping; see the [criterion review](parallel-batch-60/page-navigation-evidence.md).
+- [x] M-05 AppPageTabs individual inventory-row acceptance: owned tab/route contracts, controlled keyboard/density/overflow matrix and independent panels; see the [criterion review](parallel-batch-60/page-navigation-evidence.md).
 
 Recorded catalog completions ([draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review): M-02, M-03, M-24,
 M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31–M-33, M-26–M-30, M-21–M-23, M-25, M-34 and M-20, M-36 and M-37.

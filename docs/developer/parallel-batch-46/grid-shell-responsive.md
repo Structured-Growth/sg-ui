@@ -1,10 +1,11 @@
 # M-17 responsive grid/card native transitions — F3
 
-Latest status: wave28's two affected enlarged-text Chromium cases passed the
-previous failure point, then failed pending-card clipping at line 115. Product
-correction `cb68e10a7169f4ed20220c6bdf499a860d472460` passes 24 shell units, source
-types and foundation guards; fresh corrected Chromium proof remains pending.
-All earlier candidate/failure/correction records below are retained history.
+Latest status: **all four focused Chromium cases passed in wave29**, with no
+retries, skips or flaky cases. Exact tested candidate:
+`f87c8d336932ea70ad3ab9eaea5e4e6b77bc40ec`; exact attributed worker head:
+`5a229b259c7ce61d09ec6de2c8dc08302b1202fd`. This report-only finalization preserves
+all prior red evidence and unchanged implementation/story/spec/unit bytes.
+Coordinator review/provisional integration and cross-engine/manual gates remain separate.
 This is the bounded F3 evidence slice from the [batch30 inventory review](../parallel-batch-30/inventory-acceptance-13-24.md).
 Whole M-17, Firefox/WebKit, manual zoom/device/assistive-technology and broad G/U/X/R/Z acceptance remain open.
 
@@ -277,3 +278,82 @@ layout changed, all four cases are affected for the next focused Chromium select
 No unchanged native rerun, independent native/build/server, assertions weakened,
 GitHub/production action or scope expansion occurred. Whole/manual/device/AT and
 Firefox/WebKit remain open; geometry/native timing remains pending fresh proof.
+
+
+## Final wave29 focused Chromium proof
+
+All **4 Chromium cases passed**, 0 unexpected failures, 0 skipped, 0 flaky and
+retry index 0 for every result. Read actual root/shard `evidence.json`, `results.json`
+and worker attribution directly; no new build/tests/browser/server ran during
+report finalization.
+
+Actual tested candidate: `f87c8d336932ea70ad3ab9eaea5e4e6b77bc40ec` in
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui`.
+Immutable run root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/693cd1a1-28f1-4986-b345-258b4621c480/`.
+Scoped evidence/log/results under `grid-shell-responsive/`. The coordinator built
+fresh Storybook once, typechecked browser sources once and ran five disjoint
+shards; the other 50 passing cases are root evidence, not additional M-17 acceptance.
+
+Actual command selection:
+`pnpm exec playwright test (?:^|/)tests/browser/inventory-grid-shell-responsive\.spec\.ts$ --project=chromium`.
+No grep filter: all four existing strict scenarios executed.
+
+| Exact scenario suffix | Result |
+| --- | --- |
+| `(light, normal text)` | Passed, retry 0 |
+| `(light, 200% text)` | Passed, retry 0 |
+| `(dark, normal text)` | Passed, retry 0 |
+| `(dark, 200% text)` | Passed, retry 0 |
+
+These certify the bounded native composition: same-live-host width transitions,
+keyboard view-trigger focus/indicators, accepted footer focus, one toolbar/footer
+and retained selection, list/card pending/error state, native Retry, complete card
+focus through pending status insertion and later widening. The original strict
+focus/outline/hit-test/clipping assertions passed after the owned product and
+responsive fixture corrections; none were removed, softened, skipped or injected
+with browser focus/selection.
+
+Shard session: `2026-10-07T18:02:43.488Z`–`2026-10-07T18:02:52.265Z`.
+Playwright result duration: 7853.578ms. Node `24.19.0`, pnpm `10.29.3`, Playwright
+`1.63.0`; port 6554. Root finished `2026-10-07T18:03:13.863Z`, cleanup states
+`owned commands settled` and final owned process list is empty.
+
+Root source HEAD/final HEAD both equal the actual tested candidate; final tracked
+status is empty. Source digest before/after:
+`6464ca63b43a916374529d26fd88b7cdefcd4efb82b0bcd2014618c1d9bbfe38`.
+Build digest before/after and shard digest all match:
+`d6a2c0f07f33e5ca842a98dbf9fe0f0f86b9700add97fdda68c4bcb87c9859f8`.
+
+Worker attribution `/tmp/sgui-batch45-candidate-wave29-attribution.json` records
+worker head `5a229b259c7ce61d09ec6de2c8dc08302b1202fd`, original exact base
+`0186aff866d1b0b568817631f3d0da83ee0d49e3` and all six owned changed paths.
+Current worker hashes were recomputed and match candidate attribution:
+
+| Frozen file | SHA-256 |
+| --- | --- |
+| Shell implementation | `017c31eb1f3624b4723e4253fc8c127ec13d3dad1d98aaa3f67a4a82b2001395` |
+| Shell CSS | `8e887d61bfce69cc3a2abae2b3bc61a08c750dc9a45466b61ce50ce7f8768420` |
+| Shell units | `38b6b8906bd5805374818d51dab0557a4b80932e359e64170846fcb8bc1a27ee` |
+| Responsive story | `bc05725c9d9a7a128876ea8cba3d5666412d7b90f0b34a34623d8a1492294454` |
+| Original strict native spec | `a48c0fdc54777f19dbb26d0bf8e391b813175bfee1b191dea1b8b5acbfe1df0e` |
+
+The old attributed report hash `396acb826697d7632da00fcdd7d99d5792d1dce725dff0620c943b816fb4ec45`
+belongs to the pre-proof report at that worker head. Only this report changes in
+finalization. The next report-only commit is not itself the tested candidate;
+unchanged source/spec hashes provide exact attribution.
+
+Wave23 0/4, wave27 2/4 and wave28 0/2 selected-case reds remain preserved above
+with their immutable artifacts and distinct product/fixture/environment diagnoses.
+Unit regression reds also remain recorded. No unchanged retries or replacement of
+historical red evidence occurred. Latest corrected full shell units remain 24
+passed, source/browser types and guards are recorded targeted evidence.
+
+Coordinator alone performs exact-head review and individual provisional dev
+integration. This worker has not merged/pushed dev, integrated the whole testing
+candidate, created production acceptance or run GitHub CI/title/publication actions.
+The bounded F3 Chromium proof is complete; **Firefox/WebKit for this new spec,
+manual browser zoom/reflow, physical devices, assistive technology and whole M-17 /
+broad G/U/X/R/Z acceptance remain open**. Automated 200% root text is not manual
+browser zoom or screen-reader evidence. Source/story/spec/tests remain frozen at
+the attributed bytes; only this unique report is finalized for coordinator delivery.
