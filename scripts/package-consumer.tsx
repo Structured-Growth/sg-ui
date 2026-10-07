@@ -159,3 +159,7 @@ export const ownedFloating = <FloatingTextSelectionToolbar ref={createRef<HTMLDi
 import { PageRichTextEditorSection as OwnedPageEditor, type PageRichTextEditorSectionProps } from "@structured-growth/sg-ui/components/PageRichTextEditorSection";
 const ownedPageProps: PageRichTextEditorSectionProps = {lexicalValue:null,editorKey:"owned",onLexicalChange:()=>{},"aria-label":"Course content",className:"host-editor",style:{height:400}};
 export const ownedPageEditor = <Provider><OwnedPageEditor {...ownedPageProps} /></Provider>;
+
+import { DataToolbar as OwnedDataToolbar, type DataToolbarProps } from "@structured-growth/sg-ui/components/DataToolbar";
+const ownedToolbarProps: DataToolbarProps = {searchValue:"course",onSearchValueChange:()=>{},viewMode:"list",onViewModeChange:()=>{},selectedCount:2,className:"host-toolbar",style:{maxWidth:600}};
+export const ownedDataToolbar = <Provider><OwnedDataToolbar {...ownedToolbarProps} /></Provider>;

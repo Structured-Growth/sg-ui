@@ -1,5 +1,3 @@
-import type { GridValidRowModel } from "@mui/x-data-grid";
-import type { AppGridColumnVisibilityModel } from "../AppDataGrid";
 import type { DataToolbarColumnOption } from "./components/DataToolbarColumnsMenu";
 
 type BaseColumnOption = {
@@ -16,14 +14,14 @@ const toLabel = (id: string): string =>
     .trim()
     .replace(/^./, (first) => first.toUpperCase());
 
-export const buildDataToolbarColumnOptions = <RowModel extends GridValidRowModel>({
+export const buildDataToolbarColumnOptions = <RowModel extends object>({
   baseOptions,
   columnVisibilityModel,
   rows,
   includeInferredFields = false,
 }: {
   baseOptions: readonly BaseColumnOption[];
-  columnVisibilityModel: AppGridColumnVisibilityModel;
+  columnVisibilityModel: Readonly<Record<string, boolean>>;
   rows: readonly RowModel[];
   includeInferredFields?: boolean;
 }): DataToolbarColumnOption[] => {

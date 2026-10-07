@@ -185,6 +185,10 @@
     "./components/PageRichTextEditorSection": {
       "types": "./dist/components/PageRichTextEditorSection/index.d.ts",
       "import": "./dist/components/PageRichTextEditorSection/index.js"
+    },
+    "./components/DataToolbar": {
+      "types": "./dist/components/DataToolbar/index.d.ts",
+      "import": "./dist/components/DataToolbar/index.js"
     }
   },
   "repository": {

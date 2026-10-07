@@ -1,19 +1,13 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import ViewColumnIcon from "@mui/icons-material/ViewColumn";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
-import Divider from "@mui/material/Divider";
-import InputBase from "@mui/material/InputBase";
-import Paper from "@mui/material/Paper";
-import Popover from "@mui/material/Popover";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+import { useMemo, useState } from "react";
+import { Button } from "../../../experimental/Button/Button";
+import { Checkbox } from "../../../experimental/Checkbox/Checkbox";
+import { Popover } from "../../../experimental/Popover/Popover";
+import { TextField } from "../../../experimental/TextField/TextField";
+import { ViewColumnIcon } from "../../../experimental/icons/ViewColumnIcon";
 import { useTranslation } from "../../../i18n";
-import { toLabelKey } from "../../../i18n/labelKey";
+import styles from "./DataToolbarColumnsMenu.module.css";
 
 export type DataToolbarColumnOption = {
   id: string;
@@ -27,138 +21,32 @@ type DataToolbarColumnsMenuProps = {
   onChange: (nextOptions: DataToolbarColumnOption[]) => void;
 };
 
-const toolbarButtonSx = {
-  borderColor: "divider",
-  color: "text.secondary",
-  px: 1.25,
-  py: 0.25,
-  textTransform: "none",
-};
-
-const compactOptionRowSx = {
-  justifyContent: "flex-start",
-  minHeight: 30,
-  px: 0.75,
-  textTransform: "none",
-};
-
 export function DataToolbarColumnsMenu({ options, onChange }: DataToolbarColumnsMenuProps) {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+  const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const { t, useNamespace } = useTranslation();
   useNamespace("common.ui");
   const tr = (key: string, defaultMessage: string) => t(key, { defaultMessage, namespace: "common.ui" });
-  const trLabel = useCallback(
-    (label: string) => t(toLabelKey("common.ui.label", label), { defaultMessage: label, namespace: "common.ui" }),
-    [t],
-  );
-
-  const isOpen = Boolean(anchorEl);
-
+  const columnsLabel = tr("common.ui.toolbar.columns", "Columns");
+  const searchLabel = tr("common.ui.toolbar.search", "Search");
   const filteredOptions = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
-    if (!normalizedQuery) {
-      return options;
-    }
+    return normalizedQuery ? options.filter(option => option.label.toLowerCase().includes(normalizedQuery)) : options;
+  }, [options, query]);
 
-    return options.filter((option) => trLabel(option.label).toLowerCase().includes(normalizedQuery));
-  }, [options, query, trLabel]);
-
-  const handleToggle = (id: string) => {
-    onChange(
-      options.map((option) =>
-        option.id === id
-          ? {
-              ...option,
-              visible: option.locked ? true : !option.visible,
-            }
-          : option,
-      ),
-    );
-  };
-
-  const handleReset = () => {
-    onChange(
-      options.map((option) => ({
-        ...option,
-        visible: true,
-      })),
-    );
-  };
-
-  return (
-    <>
-      <Button
-        onClick={(event) => {
-          setAnchorEl(event.currentTarget);
-        }}
-        size="small"
-        startIcon={<ViewColumnIcon fontSize="small" />}
-        sx={toolbarButtonSx}
-        variant="outlined"
-      >
-        {tr("common.ui.toolbar.columns", "Columns")}
-      </Button>
-      <Popover
-        anchorEl={anchorEl}
-        anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
-        disableScrollLock
-        onClose={() => {
-          setAnchorEl(null);
-          setQuery("");
-        }}
-        open={isOpen}
-        transformOrigin={{ horizontal: "left", vertical: "top" }}
-      >
-        <Box sx={{ width: 320 }}>
-          <Box sx={{ p: 1.5 }}>
-            <Paper sx={{ alignItems: "center", display: "flex", px: 1, py: 0.25 }} variant="outlined">
-              <SearchIcon color="action" fontSize="small" />
-              <InputBase
-                onChange={(event) => {
-                  setQuery(event.target.value);
-                }}
-                placeholder={tr("common.ui.toolbar.search", "Search")}
-                sx={{ fontSize: 13, ml: 0.75, width: "100%" }}
-                value={query}
-              />
-            </Paper>
-          </Box>
-
-          <Divider />
-
-          <Stack spacing={0.25} sx={{ maxHeight: 280, overflowY: "auto", p: 1 }}>
-            {filteredOptions.map((option) => (
-              <Button
-                disabled={option.locked}
-                key={option.id}
-                onClick={() => {
-                  handleToggle(option.id);
-                }}
-                sx={compactOptionRowSx}
-              >
-                <Checkbox checked={option.visible} disabled={option.locked} size="small" sx={{ mr: 0.75, p: 0.25 }} />
-                <Typography color="text.primary" sx={{ fontSize: 13 }}>
-                  {trLabel(option.label)}
-                </Typography>
-              </Button>
-            ))}
-            {filteredOptions.length === 0 ? (
-              <Typography color="text.secondary" sx={{ fontSize: 13, px: 1.25, py: 0.75 }}>
-                {tr("common.ui.columns.noMatching", "No matching columns")}
-              </Typography>
-            ) : null}
-          </Stack>
-
-          <Divider />
-
-          <Box sx={{ p: 1 }}>
-            <Button fullWidth onClick={handleReset} size="small" variant="outlined">
-              {tr("common.ui.common.reset", "Reset")}
-            </Button>
-          </Box>
-        </Box>
-      </Popover>
-    </>
-  );
+  return <Popover title={columnsLabel} open={open} onOpenChange={next => {
+    setOpen(next);
+    if (!next) setQuery("");
+  }} trigger={<Button variant="outlined" tone="neutral" density="compact" startIcon={<ViewColumnIcon />}>{columnsLabel}</Button>}>
+    <div className={styles.body} data-sgui-density="compact">
+      <TextField type="search" aria-label={searchLabel} placeholder={searchLabel} value={query} onValueChange={setQuery} density="compact" />
+      <div className={styles.options}>
+        {filteredOptions.map(option => <Checkbox key={option.id} label={option.label} checked={option.visible} disabled={option.locked}
+          onCheckedChange={visible => onChange(options.map(item => item.id === option.id ? { ...item, visible: item.locked ? true : visible } : item))} />)}
+        {filteredOptions.length === 0 && <p className={styles.empty}>{tr("common.ui.columns.noMatching", "No matching columns")}</p>}
+      </div>
+      <Button variant="outlined" tone="neutral" density="compact" className={styles.reset}
+        onPress={() => onChange(options.map(option => ({ ...option, visible: true })))}>{tr("common.ui.common.reset", "Reset")}</Button>
+    </div>
+  </Popover>;
 }

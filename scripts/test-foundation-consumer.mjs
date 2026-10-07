@@ -54,6 +54,7 @@ import { RichTextFormattingToolbar } from '@structured-growth/sg-ui/components/R
 import { DocumentEditorLayout } from '@structured-growth/sg-ui/components/DocumentEditorLayout';
 import { DocumentEditorToolbar } from '@structured-growth/sg-ui/components/DocumentEditorToolbar';
 import { ContentEditorChrome } from '@structured-growth/sg-ui/components/ContentEditorChrome';
+import { DataToolbar, DataToolbarSelectionMenu } from '@structured-growth/sg-ui/components/DataToolbar';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
 export function Proof() {
@@ -61,8 +62,18 @@ export function Proof() {
   const [editorDialog,setEditorDialog]=React.useState(null);
   const [result,setResult]=React.useState('No editor changes');
   const [page,setPage]=React.useState('one');
+  const [columns,setColumns]=React.useState([{id:'name',label:'Name',visible:true,locked:true},{id:'status',label:'Status',visible:true}]);
+  const [sortRules,setSortRules]=React.useState([{field:'name',direction:'asc'}]);
+  const [filterRules,setFilterRules]=React.useState([]);
+  const [viewMode,setViewMode]=React.useState('cards');
   const [tab,setTab]=React.useState('details');
   return <Provider theme="dark" style={{background:tokens.surface,padding:tokens.space4}}>
+    <DataToolbar aria-label="Packed data toolbar" onRefresh={()=>setResult('Refreshed')} columnOptions={columns} onColumnOptionsChange={setColumns}
+      sortOptions={[{id:'name',label:'Name'},{id:'status',label:'Status'}]} sortRules={sortRules} onSortRulesChange={rules=>{setSortRules(rules);setResult(JSON.stringify(rules));}}
+      filterFields={[{id:'name',label:'Name',type:'string'},{id:'status',label:'Status',type:'enum',enumOptions:[{id:'active',label:'Active'},{id:'paused',label:'Paused'}]}]}
+      filterRules={filterRules} onFilterRulesChange={rules=>{setFilterRules(rules);setResult(JSON.stringify(rules));}}
+      viewMode={viewMode} onViewModeChange={setViewMode} selectedCount={2}
+      leftContent={<DataToolbarSelectionMenu options={[{id:'page',label:'Current page'},{id:'none',label:'Select none'}]} selectionState="some" onToggleSelection={()=>setResult('Toggle page')} onSelectOption={setResult} />} />
     <Button onPress={()=>setEditorDialog('columns')}>Choose columns</Button><Button onPress={()=>setEditorDialog('link')}>Edit link</Button><Button onPress={()=>setEditorDialog('image')}>Upload image</Button>
     <InsertContentMenuControl onInsertColumnsLayout={()=>setEditorDialog('columns')} onInsertImage={()=>setEditorDialog('image')} onInsertHorizontalRule={()=>setResult('Horizontal rule')} />
     <TextAlignMenuControl value="start" onChange={setResult} onIndent={()=>setResult('Indent')} onOutdent={()=>setResult('Outdent')} />

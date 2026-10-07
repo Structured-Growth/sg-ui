@@ -785,3 +785,65 @@ remains Node26.5.0; Node24 and the full browser/touch/screenreader/zoom/visual/p
 NextRSC matrix are open. M-16–M-20/M-36–M-37, M-38 reconciliation and broad
 U/X/R/Z gates remain open. No merge/publication/version/licensing/workflow-permission
 or secret changes. Next batch: grid migration following the G matrix and dependencies.
+
+## Data toolbar
+
+Completed on 2026-10-06: M-20, in shared [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review.
+See [data toolbar contracts](react-aria-data-toolbar.md). DataToolbar and all four
+menus now use owned controls, native markup and token CSS Modules. The whole
+directory enters strict import/layer/token and recursive declaration guards.
+Granular export, public consumer typing and packed fixture coverage were added.
+The column-options builder no longer imports retired grid row/visibility types.
+Host runtime labels render literally; library strings retain translated fallbacks.
+
+Search/view/refresh/column/sort/filter/selection callbacks stay host-owned. Search
+supports controlled or local text with callback observation, named focusable input,
+clear/Escape focus return. Missing handlers disable actions. Optional selectedCount
+announces selection. Columns remain controlled with visibility locks and reset.
+Sort/filter draft identities retain controls across edits/removal; add, move,
+remove and reset focus the appropriate owned field after activation completes.
+Sort Apply/count excludes stale fields, invalid directions and duplicates. Filter
+operators/enum delimiter semantics remain; All applies no enum rule, stale values
+on no-value operators clear, and nested pickers preserve drafts and scope.
+
+Validation of final source:
+
+- pnpm check passed 120 Vitest files / 588 tests, four foundation and four release
+  checks, production/story typecheck, source/token/layer guards, ESM/declarations,
+  all public entry imports and consumer typing. Mocked React/tree tests were
+  replaced with 24 actual Provider DOM interaction tests across the toolbar/menus;
+  existing pure helper tests remain. No checks weakened.
+- pnpm build-storybook passed with existing directive/sourcemap/large chunk warnings.
+- Final packed React19.2.3 and React18.3.1 consumers passed no-browser-global SSR,
+  hydration entry and production Vite builds, one compiled stylesheet, no retired
+  foundation/editor bundle and no automatically installed retired peers.
+- Native React19 keyboard columns Space toggled Status while Name stayed locked;
+  Escape returned Columns focus. Search accepted text and Escape closed it.
+  Selection menu Down/Enter requested none and returned Selection options focus.
+  Enum Status keyboard choice, two Space toggles and nested Escape retained the
+  parent; Apply emitted active|||paused with no internal draft metadata.
+- Native testing caught Add becoming disabled and boundary moves dropping focus.
+  Deferred owned Select refs repair this; final packed React19 and React18 Add
+  focused the new Column2 and Move up focused the moved Column1. Final React19
+  removal of last filter row returned Columns1 focus. Regression covers surviving
+  field/input identity, edited values and clean callback payload.
+- Desktop HTML drag attempts did not reorder in IAB or Chrome. Replaced with
+  pointer capture, movement threshold and owned row refs/rects; commit only on
+  matching pointer release and clean up cancellation/lost capture/dismiss/unmount.
+  Final source Chrome React19 pointer moved Status before Name; Apply emitted that
+  order. Final packed React18 pointer moved Name before Status and retained moved
+  field focus. Pointer release/cancel tests restore scoped geometry mocks. Touch
+  hardware/browser matrix remains open; Move buttons are the non-drag alternative.
+- Final narrow dark320x700 toolbar client/scroll widths257/257; filter and sort
+  dialogs273/273, sort height315. Toolbar surface rgb30,41,59 and text226,232,240.
+  Final packed native captured warnings/errors empty. Viewport overrides reset.
+  Evidence: /tmp/sgui-m20-final-narrow.jpg and /tmp/sgui-m20-chrome-pointer.jpg.
+
+Local Node26.5.0/pnpm10.29.3. Broad browser/touch/screen-reader/zoom/visual,
+performance, Node24 and NextRSC gates remain open. M-16–M-19/M-36–M-38 and
+G/U/X/R/Z integration/acceptance remain open. In particular, page reset, client
+processing, server requests, persistence and grid focus/reorder remain grid work.
+No merge/publication/manual version/license/workflow permission/secret changes.
+Next dependency batch: G capability/state contract review and M-16 AppDataGrid,
+then M-17–M-19 as dependencies allow. Complete checks/commit/push before dispatching
+the next local sg-ui chat; do not overlap checkout edits after dispatch.

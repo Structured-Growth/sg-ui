@@ -1,0 +1,6 @@
+@layer sgui.components {
+  .root { display: flex; align-items: center; gap: var(--sgui-space1); }
+  .checkbox > label > span:last-child { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .trigger { padding-inline: 0; min-inline-size: var(--sgui-control-height); }
+  .trigger svg { inline-size: 1rem; block-size: 1rem; }
+}

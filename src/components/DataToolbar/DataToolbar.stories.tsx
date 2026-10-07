@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
-import Box from "@mui/material/Box";
+import { Provider } from "../../experimental/Provider/Provider";
+import { SplitAction } from "../../experimental/SplitAction/SplitAction";
 import {
   DataToolbar,
   type DataToolbarFilterRule,
@@ -11,6 +12,7 @@ const meta = {
   title: "Data Display/DataToolbar",
   component: DataToolbar,
   tags: ["autodocs"],
+  decorators: [(Story) => <Provider><Story /></Provider>],
 } satisfies Meta<typeof DataToolbar>;
 
 export default meta;
@@ -52,8 +54,10 @@ function TableOnlyPreview() {
   ];
 
   return (
-    <Box sx={{ border: 1, borderColor: "divider" }}>
+    <div>
       <DataToolbar
+        leftContent={<SplitAction label="New course" items={[{id:"import",label:"Import courses"}]} onPress={() => {}} onAction={() => {}} />}
+        onRefresh={() => {}}
         columnOptions={options}
         onColumnOptionsChange={setOptions}
         onFilterRulesChange={setFilterRules}
@@ -64,10 +68,13 @@ function TableOnlyPreview() {
         sortOptions={sortOptions}
         sortRules={sortRules}
       />
-    </Box>
+    </div>
   );
 }
 
 export const ConfiguredToolbar: Story = {
   render: () => <TableOnlyPreview />,
 };
+
+export const SelectedCards: Story = { args: { selectedCount: 3, leftContentWhenSelected: "Selected course actions", viewMode: "cards", onViewModeChange: () => {}, onRefresh: () => {} } };
+export const DarkToolbar: Story = { render: () => <Provider theme="dark"><TableOnlyPreview /></Provider> };
