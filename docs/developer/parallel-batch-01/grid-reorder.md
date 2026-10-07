@@ -42,6 +42,8 @@ Suggested next bounded assignment: physical touch and screen-reader review of dr
 
 Implementation commit: `4fbab81aa4b992e6dff475b98ec0f3a4d06b9a5d`.
 
-Draft PR: [#13](https://github.com/Structured-Growth/sg-ui/pull/13), based on `feat/react-aria-owned-foundation-cards` (the assigned baseline). No merge/publish. Coordinator consolidation destination is `codex/dev`, not `main`.
+Draft PR: [#13](https://github.com/Structured-Growth/sg-ui/pull/13). It was created against `feat/react-aria-owned-foundation-cards` (the assigned baseline) and now targets `codex/dev` for coordinator consolidation. No merge/publish.
+
+Integration limitation: the current dev branch has different ancestry, so GitHub currently displays the broader foundation migration in the PR diff. The task delta is exactly six owned files against `9f153642`; `4fbab81` is the isolated implementation commit. Coordinator should reconcile history or cherry-pick the task commits onto dev before merge/review. The original assigned baseline/worktree were preserved.
 
 This report is committed separately after the implementation; the draft PR head and coordinator completion message identify its final commit.
