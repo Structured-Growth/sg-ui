@@ -539,3 +539,36 @@ Verified base 0186aff866d1b0b568817631f3d0da83ee0d49e3. Five completed scopes re
 - Batch50 dialog-header-reflow: chat 01a1174b-0b94-7ad3-bf87-23367269c0ea; exclusive src/experimental/Dialog/Dialog.module.css; src/experimental/Dialog/Dialog.stories.tsx; src/experimental/Dialog/Dialog.test.tsx; tests/browser/batch50-dialog-header-reflow.spec.ts; docs/developer/parallel-batch-50/dialog-header-reflow.md; managed worktree before edits, targeted local evidence then coordinator immutable Chromium.
 
 Batch50 owns confirmed shared Dialog header reflow only; batch40 retains AppModal diagnostic focus ownership. Whole task gates unchanged.
+
+
+## Wave23 corrected/new shared snapshot — 2026-10-07 17:03 UTC
+
+Exact testing candidate `c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`, token `16f6feff-4479-4f37-8c96-451b694ba457` in batch45 candidate worktree; attribution `/tmp/sgui-batch45-candidate-wave23-attribution.json`. Ten disjoint sessions, one fresh build29.525s/types pass, total72.845s. Source/head/build immutable. Overall31 cases pass/20fail; four complete green suites (link4, toolbar4, embeddedAuth4, Dialog8) await report-onlyfinal commits. Six failed suites remain reserved: collection4pass/2fail, modal6pass/6fail, chrome0/4, table0/2, gridshell0/4, pointer1/2. Original modal header320x320/200% cases now pass with exclusively owned Dialog CSS fix; six removed-opener focus failures still require actual diagnostic classification. Normal GitHub pushes failed twice with server InternalServerError; gitls-remote/ghread succeed, all reviewed commits preserved locally.
+
+Pre-browser attempt5c1b7168 stopped for coordinator childPATH runtime error. Shutdown exposed uncaught owned process-group EPERM; verified supervisor98595 and child98795/98819 dead, exact own token441e8a09 leases only recovered, artifacts retained. Corrected childPATH Node24.19 pool above settled normally. Batch51 unique chat01a11751-7f0c-7e42-8a1d-18a671108afa exclusively owns poolimplementation/tests/guide+unique report for controlled cleanup failure handling; no native/runtime acceptance from aborted attempt. No foreign leases/processes touched.
+
+Acceptance-checklist67/32620.6%, required67/32020.9%, delta0,31heldinventory rows. Partial passing slices never close whole rows; ETA unreliable.
+
+
+## Hardware limit and checkpoint continuation — 17:08 UTC
+
+Reviewed final report-only link19502f8/toolbar2008724/Authbe15951/Dialog6d6e3ea histories integrated and normally pusheddev e53920e. Dialog nativebehavior count reaches10, triggering accumulated20spec Firefox/WebKit checkpoint. Max16 actual sessions hit sampled load25.518 on10CPU and swap3514.94→4181.00MiB, crossing configuredload18. All owned commands settled/leasesreleased; source/build stayedimmutable. Treat interrupted15 specs and4not-admitted specs as incomplete environment evidence, not product failures. Async busy alone completed2F/W cases,0unexpected/skipped/flaky; exclude alreadygreen selection from continuation. Reduce cross-engine concurrency to8, preserve original failedproof08ccbec5-51ef-43e2-90a2-b631526bfc36.
+
+Independent review approved batch51 scheduler498ca447:34Node24 fixtures pass1explicit gatedskip, exact-owned-group ESRCH settlement, EPERMneverabsence/pass, eventerror controlled evidence, unresolvedleasesretained/foreignownershipprotected. Integrated after devfreeze released; bounded actual checkpoint continuation verifies deployedcleanup. Sevenpending? Nativeworkers6 remainreserved; no main/CI/publish or acceptanceupgrade.
+
+
+## Completed cross-engine checkpoint and M-21 acceptance — 17:20 UTC
+
+Wave25 completed9suites48F/Wcases before conservative load18 guard stopped laterwave at19.18; swap4093→4069MiB. Onlycompletedshards upgraded, interrupted/unadmitted scopes retained. Adjusted guard24, same max8, and ran remaining10specs only. Wave26 token62606ae5-219b-4fc7-816f-fb51691ea5fd atcleanreviewed4966580 finished alltests:102pass12fail, fivefullsuitesgreen/fiveheld. No resourceabort, peakload11.333/sampleRSS22.943GiB/swap4061→4045MiB; immutablehead/source/build and deployedscheduler-ownedcleanupsettled. Together checkpoint recorded152greenF/Wcases (2initial+48+102); fivefailed scopes retain actualred. Tenintegratednativebehavior slices allsupportedengines checked, intervalcounterreset0; failures remain explicit followup backlog, not acceptance.
+
+WholeM21 independently criterion-reviewed and accepted: ownedtokenizedregions+fiveunitSSR/ref/orderingtests, F6a exacthostscroll/focus/identity4Chromium plus8F/Wnativecases. Canonical inventoryrecord/mastercheckbox updated once, globaleditor/manual/device/ATgates remainopen. M13 remainsheld only for originalbatch10 fiveFirefox width/style/optional/dynamic-width cases; newF1 fullengineproof doesnot replace that exactmissingAPI evidence. No newimplementationtask needed for those unchanged existing cases.
+
+Batch52 dialogremovedopener chat01a1175c-59e0-7481-9bde-f089249f55da exclusively owns Dialog.tsx/test/newnative/modalcontractparagraph+uniquereport; independentlyadmittedcc6f92f for freshnative, composed with batch40 passivehostfixture2a9ba67. No publicAPI or broadfocuscompletion claim; rapidreopen/parentunmount coverage unverified.
+
+Five exclusive new cross-engine follow-ups (classification required, not assumed product defects):
+
+- Batch53 selection-webkit-scroll: chat01a11761-bfd2-78f2-a448-4b98230d9d0a, scope src/components/FloatingTextSelectionToolbar/; tests/browser/inventory-selection-boundary.spec.ts; docs/developer/parallel-batch-53/selection-webkit-scroll.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
+- Batch54 learner-card-engine-parity: chat01a11761-c2b7-7980-972d-0029aca08914, scope src/components/LearnerClassCard/; tests/browser/inventory-learner-card.spec.ts; docs/developer/parallel-batch-54/learner-card-engine-parity.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
+- Batch55 link-webkit-selection: chat01a11761-c591-71a1-aca9-9ddee4f6b541, scope src/components/LinkUrlModal/; tests/browser/inventory-link-modal.spec.ts; docs/developer/parallel-batch-55/link-webkit-selection.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
+- Batch56 toolbar-firefox-search-focus: chat01a11761-c8e9-78d3-b79c-d4bee3ce34bb, scope src/components/DataToolbar/; tests/browser/inventory-toolbar-composition.spec.ts; docs/developer/parallel-batch-56/toolbar-firefox-search-focus.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.
+- Batch57 auth-firefox-keyboard-entry: chat01a11761-cbee-7f00-b4f9-c85ba499bf56, scope src/components/AuthShell/; tests/browser/inventory-auth-embedded-host.spec.ts; docs/developer/parallel-batch-57/auth-firefox-keyboard-entry.md; exactreviewedbase4966580, managedworktreebeforeedits, targetedlocal+freshChromium/affectedengineproof.

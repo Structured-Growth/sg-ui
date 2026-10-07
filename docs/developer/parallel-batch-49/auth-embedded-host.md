@@ -46,7 +46,7 @@ Installation uses an atomic owned slot under `/tmp/sgui-install-slots`; lightwei
 checks use atomic owned slots under `/tmp/sgui-light-validation-slots`, with one
 Vitest worker. Coordinator exclusively owns the fresh build/browser pool.
 
-## Native evidence pending
+## Native evidence preparation (historical)
 
 Focused arguments: `tests/browser/inventory-auth-embedded-host.spec.ts --project=chromium`.
 Source/head/report freeze precedes coordinator execution against a fresh reviewed
@@ -73,3 +73,41 @@ identity/value retention and exactly-once submission assertions are preserved.
 This is driver/expectation evidence, not a runtime product regression or browser
 failure. Production code remains unchanged. Browser/source TypeScript validation
 passed after the correction under an owned light slot; no native/build run occurs in this worktree.
+
+## Wave 23 verified focused Chromium evidence
+
+On 2026-10-07 the coordinator built and ran the frozen shared testing candidate
+`c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05` from
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui`.
+The tested worker contribution was `65473cd8936d9e4eae42eaf583b4adfbdb2059eb`;
+the candidate, rather than the isolated worker head, is the actual browser-tested
+head. The worker independently read the root/shard evidence and results, then
+verified SHA256 hashes for all four owned files against both candidate and worker
+bytes and `/tmp/sgui-batch45-candidate-wave23-attribution.json`.
+
+Focused Chromium result: **4 passed, 0 failed, 0 skipped, 0 flaky**; Playwright
+result duration 6546.011 ms. The fresh immutable Storybook build and source remained
+unchanged through execution, with matching initial/final attestations:
+
+- Source digest: `b6047a36c2eb6749f427c775e1f0c716225a303dd276fd272da6608de5efcc56`.
+- Build digest: `1afdb63861962fc7858ba9c42ec5a7e7e5dcc9b89d4f02fad7d6d9ddead899ca`.
+- Story SHA256: `5ddd6ad64bdfb869d00a671f926af62a07cc127ac5d487ddd416a6bb422b2252`.
+- Unit SHA256: `28ce1976097ed050d5f1fd8da96b77c6c4e2006d19a67e4646cdd3ca345bc000`.
+- Spec SHA256: `b4a06b6816c13dfbd956ec3d2197008dc042785720df05093fda03713f52a213`.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457`.
+Its `evidence.json` records candidate/build/source/runtime attribution; the
+`auth-embedded-host/evidence.json`, `results.json`, `browser.log` and adjacent
+resources/report/traces preserve this focused result. Actual runtime was Node
+`v24.19.0` at the supported bundled path, pnpm `10.29.3`, Playwright `1.63.0`.
+The selected shard executed this spec on Chromium under the coordinator pool.
+
+The overall wave failed in six other shards; this report claims only the green
+AuthShell slice. The pre-admission expectation finding and installation wrapper
+error above remain preserved. No AuthShell production defect was demonstrated,
+and production code is unchanged. The final commit changes only this report,
+retaining the tested story/unit/spec bytes. This enables coordinator review for
+provisional integration; it does not establish dev acceptance or whole M-07
+completion. Firefox/WebKit checkpoint, actual zoom/device/AT and broad U/X/R/Z
+acceptance remain pending. No worker integration/push/merge/publication occurred.
