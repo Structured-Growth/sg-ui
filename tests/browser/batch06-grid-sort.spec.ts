@@ -15,10 +15,13 @@ test('keyboard header promotion and toolbar clear keep controlled sorting and na
   await expect(group).toBeFocused();
   await expect(page.getByLabel('Accepted sorting')).toHaveText('[{"field":"group","direction":"desc"},{"field":"score","direction":"asc"}]');
   await expect(grid.locator('tbody [data-grid-field="name"]')).toHaveText(['Delta', 'Alpha']);
+  await expect(grid.locator('[data-direction="desc"]')).toHaveCSS('transform', 'matrix(-1, 0, 0, -1, 0, 0)');
   const sort = page.getByRole('group', { name: 'Data toolbar' }).getByRole('button', { name: /^Sort/ });
   await sort.focus(); await page.keyboard.press('Enter');
   await expect(page.getByRole('button', { name: /Column 1/ })).toContainText('Group');
   await expect(page.getByRole('button', { name: /Column 2/ })).toContainText('Score');
+  await expect(page.getByRole('button', { name: 'Move sort rule up 1', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: 'Move sort rule down 2', exact: true })).toBeDisabled();
   const up = page.getByRole('button', { name: 'Move sort rule up 2', exact: true });
   await up.focus(); await page.keyboard.press('Enter');
   await expect(page.getByRole('button', { name: /Column 1/ })).toBeFocused();
