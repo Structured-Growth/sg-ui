@@ -5,6 +5,8 @@ import { AppButton } from "../AppButton";
 import { AppPageTabs } from "../AppPageTabs";
 import { TextField } from "../../experimental/TextField/TextField";
 import { Popover } from "../../experimental/Popover/Popover";
+import { Menu } from "../../experimental/Menu/Menu";
+import { ComboBox } from "../../experimental/ComboBox/ComboBox";
 import { Provider } from "../../experimental/Provider/Provider";
 const meta = { title: "Overlays/AppModal", component: AppModal, tags: ["autodocs"], args: { open: false, children: null } } satisfies Meta<typeof AppModal>;
 export default meta;
@@ -38,3 +40,30 @@ export const CustomSections: Story = { render: () => <Preview custom /> };
 export const TextReflow: Story = { render: () => <Preview tabs />, parameters: { docs: { description: { story: "Tab through all twenty fields at narrow widths and with enlarged text. The panel scrolls independently when it fits; constrained dialog chrome falls back to scrolling the whole dialog." } } } };
 
 export const ActionFocus: Story = { render: () => <Preview tabs autoFocusAction /> };
+
+function NestedOverlaysPreview() {
+  const [open, setOpen] = useState(false);
+  const [childOpen, setChildOpen] = useState(false);
+  const [events, setEvents] = useState<string[]>([]);
+  const record = (value: string) => setEvents(previous => [...previous, value]);
+  return <Provider theme="dark" density="compact">
+    <AppButton onPress={() => setOpen(true)}>Open parent</AppButton>
+    <p role="status">Dismissals: {events.join(", ") || "None"}</p>
+    <AppModal open={open} title="Parent settings" subtitle="Host-owned settings" size="md" showCloseButton
+      onClose={reason => { record(`parent:${reason}`); setOpen(false); }}>
+      <TextField label="Parent name" autoFocus />
+      <Menu label="Settings actions" trigger={<AppButton>Open actions</AppButton>}
+        items={[{ id: "review", label: "Review settings" }]} onAction={() => record("menu:review")} />
+      <ComboBox label="Category" options={[{ id: "science", label: "Science" }, { id: "math", label: "Mathematics" }]} />
+      <AppButton onPress={() => setChildOpen(true)}>Open child</AppButton>
+      <AppModal open={childOpen} title="Child settings" size="sm" showCloseButton
+        onClose={reason => { record(`child:${reason}`); setChildOpen(false); }}>
+        <TextField label="Child name" autoFocus />
+        <Popover title="Child guidance" trigger={<AppButton>Open guidance</AppButton>}>
+          <TextField label="Guidance note" autoFocus />
+        </Popover>
+      </AppModal>
+    </AppModal>
+  </Provider>;
+}
+export const NestedOverlays: Story = { globals: { locale: "ar-EG", direction: "auto" }, render: () => <NestedOverlaysPreview /> };

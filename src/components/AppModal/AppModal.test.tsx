@@ -20,7 +20,36 @@ function Fixture({ close, locked = false }: {close: (reason: AppModalCloseReason
         {id:"access",label:"Access",content:<Popover title="Help" trigger={<AppButton>Help</AppButton>}><TextField label="Note" autoFocus /></Popover>}]} />
     </AppModal></Provider>;
 }
+function NestedModalFixture({ close }: { close: (reason: string) => void }) {
+  const [open, setOpen] = useState(false);
+  const [childOpen, setChildOpen] = useState(false);
+  return <Provider><AppButton onPress={() => setOpen(true)}>Open parent</AppButton>
+    <AppModal open={open} title="Parent" onClose={reason => { close(`parent:${reason}`); setOpen(false); }}>
+      <TextField label="Parent name" autoFocus />
+      <AppButton onPress={() => setChildOpen(true)}>Open child</AppButton>
+      <AppModal open={childOpen} title="Child" onClose={reason => { close(`child:${reason}`); setChildOpen(false); }}>
+        <TextField label="Child name" autoFocus />
+      </AppModal>
+    </AppModal>
+  </Provider>;
+}
 describe("AppModal owned contract", () => {
+  it("dismisses the top modal once and restores each surviving trigger", async () => {
+    const user = userEvent.setup(); const close = vi.fn();
+    render(<NestedModalFixture close={close} />);
+    const parentTrigger = screen.getByRole("button", { name: "Open parent" });
+    await user.click(parentTrigger);
+    const childTrigger = screen.getByRole("button", { name: "Open child" });
+    await user.click(childTrigger);
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("textbox", { name: "Child name" })));
+    await user.keyboard("{Escape}");
+    expect(close.mock.calls).toEqual([["child:escape"]]);
+    await waitFor(() => expect(document.activeElement).toBe(childTrigger));
+    expect(screen.getByRole("dialog", { name: "Parent" })).toBeTruthy();
+    await user.keyboard("{Escape}");
+    expect(close.mock.calls).toEqual([["child:escape"], ["parent:escape"]]);
+    await waitFor(() => expect(document.activeElement).toBe(parentTrigger));
+  });
   it("traps focus, labels its content, and restores the trigger with an owned Escape reason", async () => {
     const user=userEvent.setup();const close=vi.fn();render(<Fixture close={close} />);
     const trigger=screen.getByRole("button",{name:"Open"});await user.click(trigger);
