@@ -88,13 +88,40 @@ because the report cannot embed its own commit hash. Pool plan arguments:
 ["tests/browser/batch15-persistent-recovery.spec.ts", "--project=chromium"]
 ```
 
-Status: prepared, committed and frozen for a coordinator-supervised fresh build,
-browser typecheck and focused native run using the approved maximum-two pool.
-Required native validation remains queued; no browser execution/pass is claimed
-by this preparation report. The existing queue and other workers are preserved.
-Do not mutate this worktree while its pool run is active. After the coordinator
-supplies evidence, record exact tested head, engine, case results and immutable
-build hash before treating native evidence as complete.
+The coordinator completed the approved maximum-two pool run on 2026-10-07.
+The worktree was frozen throughout the run and explicitly unfrozen afterward.
+Native Chromium outcome: **2 passed, 0 skipped, 0 unexpected, 0 flaky, 0 runner
+errors**, one worker, zero retries. Both proposed cases above executed successfully.
+Fresh Storybook build and browser typecheck passed before native execution.
+
+- Exact tested/final head: `fd9358e46c60c86367d070e739ae7c81f3264742`.
+- Source tree: `367f7c2a6e502e3da8ec80d2c896df3eb7693c1a`.
+- Engine: Chromium only, Playwright 1.63.0, Node 24.21.0, pnpm 10.29.3.
+- Pool slot 1, port 6274, coordinator queue owner
+  `01a1164f-41db-7f30-aaf9-f20133b6566f`.
+- Browser command interval: `2026-10-07T14:45:29.262Z` through
+  `2026-10-07T14:45:31.614Z`.
+- Before/after immutable Storybook SHA-256:
+  `7e2cb61c7f8cd1291c2c4e6d8262a4c9b04a2e1dcd3747402621bf59f1014b37`.
+- Final tested working-tree status was clean; final head and build digest matched.
+
+Coordinator commands, retained in evidence: `pnpm exec storybook build --output-dir
+<run>/storybook`, `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`, and
+`pnpm exec playwright test tests/browser/batch15-persistent-recovery.spec.ts
+--project=chromium`.
+
+Retained evidence root:
+`/Users/thomashall/.codex/worktrees/batch15-persistent-recovery/sg-ui/artifacts/browser-pool/b70cfcee-4e30-4f07-af8c-69e88cf1d915`.
+Read and independently asserted `evidence.json` and `results.json`; build/types/
+browser logs, immutable Storybook and reports are retained in the same root.
+No artifacts were deleted or browser checks rerun. This report update changes no
+story/spec bytes from the tested head; final report-only clean head is supplied
+in the coordinator completion message.
+
+This completes the reserved changed-state story and focused Chromium native
+storage evidence for PR80. Firefox/WebKit were configured but not selected or
+executed. Broad H-16/X-16, real capacity, manual/device/assistive-technology and
+whole-browser-matrix acceptance remain open.
 
 No full suites, full checkpoint, packed-consumer runs, GitHub CI/title dispatch,
 unchanged Firefox retry, merge/main push, publication, permissions/secrets change,
