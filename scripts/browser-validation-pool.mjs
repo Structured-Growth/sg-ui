@@ -285,6 +285,64 @@ export async function sourceDigest(worktree) {
 function exactKeys(value, allowed) {
   if (!value || typeof value !== 'object' || Array.isArray(value) || Object.keys(value).some(key => !allowed.includes(key))) throw new Error('Ambiguous snapshot plan or override fields');
 }
+// Bounded fixed-width regex grammar: no repetition, groups, classes or backreferences.
+// This admits title literals/alternatives without executing arbitrary backtracking patterns.
+export function validateCaseFilter(value) {
+  if (typeof value !== 'string' || !value.trim() || value.startsWith('-') || value.length > 512 || /[\x00-\x1f\x7f]/.test(value)) throw new Error('Invalid focused case regex');
+  let alternatives = 1;
+  for (let i = 0; i < value.length; i++) {
+    const char = value[i];
+    if (char === '\\') {
+      const escaped = value[++i];
+      if (!escaped || /[a-zA-Z0-9]/.test(escaped)) throw new Error('Focused case regex permits escaped punctuation only');
+    } else if ('*+?{}()[]'.includes(char)) throw new Error('Focused case regex forbids repetition, groups and classes');
+    else if (char === '|' && ++alternatives > 8) throw new Error('Focused case regex permits at most eight alternatives');
+  }
+  let regex;
+  try { regex = new RegExp(value); } catch { throw new Error('Malformed focused case regex'); }
+  if (regex.test('') || value.split(/(?<!\\)\|/).some(part => !part.trim())) throw new Error('Focused case regex must not select empty text');
+  return regex;
+}
+
+export function snapshotCases(results, shard, worktree) {
+  const stats = results?.stats;
+  if (!Number.isSafeInteger(stats?.expected) || stats.expected < 1 || stats.unexpected !== 0 || stats.flaky !== 0 || stats.skipped !== 0) throw new Error('Missing, empty, skipped, flaky or failing shard results');
+  if (results.config?.rootDir !== join(worktree, 'tests/browser') || !Array.isArray(results.errors) || results.errors.length) throw new Error('Missing or invalid shard report root/errors');
+  const projects = Array.isArray(shard.project) ? shard.project : [shard.project];
+  const regex = shard.grep === undefined ? undefined : validateCaseFilter(shard.grep);
+  const cases = [], identities = new Set(), covered = new Set();
+  const fail = () => { throw new Error('Incomplete or out-of-selection shard case results'); };
+  function walk(suites, titles = []) {
+    if (!Array.isArray(suites)) fail();
+    for (const suite of suites) {
+      const path = [...titles, suite.title];
+      if (typeof suite.title !== 'string' || !Array.isArray(suite.specs) || (suite.suites !== undefined && !Array.isArray(suite.suites))) fail();
+      for (const spec of suite.specs) {
+        if (typeof spec.title !== 'string' || !Array.isArray(spec.tests) || !spec.tests.length) fail();
+        if (typeof spec.file !== 'string' || !Array.isArray(spec.tags) || spec.tags.some(tag => typeof tag !== 'string')) fail();
+        const file = relative(worktree, resolve(results.config.rootDir, spec.file));
+        if (!shard.specs.includes(file)) fail();
+        for (const test of spec.tests) {
+          // JSON flattens tag provenance and cannot reconstruct tag placement.
+          // Focused title attestation therefore fails closed for tagged cases.
+          if (regex && spec.tags.length) throw new Error('Focused case attestation requires untagged cases');
+          const title = [test.projectName, ...path.filter(Boolean), spec.title].join(' ');
+          if (!projects.includes(test.projectName) || (regex && !regex.test(` ${title}`)) || test.status !== 'expected' ||
+              !Array.isArray(test.results) || test.results.length !== 1 || test.results[0].status !== 'passed' || test.results[0].retry !== 0) fail();
+          const identity = JSON.stringify([file, spec.id, test.projectName]);
+          if (typeof spec.id !== 'string' || !spec.id || identities.has(identity)) fail();
+          identities.add(identity); covered.add(JSON.stringify([file, test.projectName]));
+          cases.push({ file, id: spec.id, project: test.projectName, title });
+        }
+      }
+      walk(suite.suites ?? [], path);
+    }
+  }
+  walk(results.suites);
+  if (cases.length !== stats.expected || shard.specs.some(file => projects.some(project => !covered.has(JSON.stringify([file, project]))))) fail();
+  return cases;
+}
+
 export async function prepareSnapshot(plan, output) {
   exactKeys(plan, ['mode', 'worktree', 'head', 'shards']);
   if (plan.mode !== 'snapshot') throw new Error('Expected snapshot mode');
@@ -298,7 +356,8 @@ export async function prepareSnapshot(plan, output) {
   const seen = new Set(); const ids = new Set();
   const shards = [];
   for (const shard of plan.shards) {
-    exactKeys(shard, ['id', 'specs', 'project']);
+    exactKeys(shard, ['id', 'specs', 'project', 'grep']);
+    if (Object.hasOwn(shard, 'grep')) validateCaseFilter(shard.grep);
     if (!/^[a-z0-9][a-z0-9-]{0,63}$/.test(shard.id ?? '') || ids.has(shard.id)) throw new Error('Shard IDs must be unique');
     ids.add(shard.id);
     const projects = Array.isArray(shard.project) ? shard.project : [shard.project];
@@ -314,6 +373,7 @@ export async function prepareSnapshot(plan, output) {
     }
     // Playwright treats positional selectors as regexes. Anchor and escape the exact path.
     const args = [...shard.specs.map(spec => `(?:^|/)${spec.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`), ...projects.map(project => `--project=${project}`)];
+    if (shard.grep !== undefined) args.push('--grep', shard.grep);
     shards.push({ ...shard, args });
   }
   const parent = ownedPath(worktree, output);
@@ -423,14 +483,14 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
           const env = { ...process.env, SGUI_BROWSER_PORT: String(port), SGUI_BROWSER_BASE_URL: `http://127.0.0.1:${port}`,
             SGUI_BROWSER_STORYBOOK_DIR: build, SGUI_BROWSER_OUTPUT_DIR: join(session, 'traces'), SGUI_BROWSER_REPORT_DIR: join(session, 'report'),
             SGUI_BROWSER_RESULTS_FILE: join(session, 'results.json'), SGUI_BROWSER_IMMUTABLE: '1', CI: '1' };
-          const item = { id: shard.id, specs: shard.specs, project: shard.project, slot: slot.slot, port, session, buildDigest: evidence.buildDigest,
+          const item = { id: shard.id, specs: shard.specs, project: shard.project, grep: shard.grep ?? null, selectionArgs: shard.args, slot: slot.slot, port, session, buildDigest: evidence.buildDigest,
             startedAt: new Date().toISOString(), status: 'running' };
           evidence.sessions.push(item);
           try {
             await execute(['exec', 'playwright', 'test', ...shard.args], join(session, 'browser.log'), env);
             const results = JSON.parse(await readFile(env.SGUI_BROWSER_RESULTS_FILE, 'utf8'));
-            if (!(results.stats?.expected > 0) || results.stats.unexpected !== 0 || results.stats.flaky !== 0 || results.stats.skipped !== 0) throw new Error('Missing, empty, skipped, flaky or failing shard results');
-            item.count = results.stats.expected; item.status = 'passed';
+            item.cases = snapshotCases(results, shard, worktree);
+            item.count = item.cases.length; item.status = 'passed';
           } catch (error) { item.status = 'failed'; item.error = error.message; throw error; }
           finally { item.finishedAt = new Date().toISOString(); await writeFile(join(session, 'evidence.json'), JSON.stringify(item, null, 2)); }
         }));
