@@ -3,6 +3,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { DataGrid } from "./DataGrid";
+import { Button } from "../Button/Button";
 import { defaultGridState, type GridColumn } from "./types";
 import { compareGridValues, filterGridRows } from "./row-processing";
 afterEach(cleanup);
@@ -79,4 +80,33 @@ it("locks the first column, hides optional columns and exposes non-drag reorderi
   expect(reorder).toHaveBeenCalledExactlyOnceWith("a", "b", "after");
   await user.click(screen.getByRole("button", { name: "Sort Name" }));
   expect((screen.getByRole("button", { name: "Move Science a down" }) as HTMLButtonElement).disabled).toBe(true);
+});
+
+it("isolates overlapping row keys and nested cell actions between independent grids", async () => {
+  const user = userEvent.setup();
+  const firstChange = vi.fn(); const secondChange = vi.fn(); const action = vi.fn();
+  const interactiveColumns: GridColumn<Item>[] = [
+    columns[0]!,
+    { ...columns[1]!, renderCell: row => <Button onPress={() => action(row.id)}>Inspect {row.name} {row.id}</Button> },
+  ];
+  render(<>
+    <DataGrid {...props} label="First courses" columns={interactiveColumns} onStateChange={firstChange} />
+    <DataGrid {...props} label="Second courses" columns={interactiveColumns} onStateChange={secondChange} />
+  </>);
+  const first = within(screen.getByRole("grid", { name: "First courses" }));
+  const second = within(screen.getByRole("grid", { name: "Second courses" }));
+  await user.click(first.getByRole("checkbox", { name: "Select Science a" }));
+  expect(firstChange.mock.calls.at(-1)?.[0].selectedIds).toEqual(["a"]);
+  expect(secondChange).not.toHaveBeenCalled();
+  expect((second.getByRole("checkbox", { name: "Select Science a" }) as HTMLInputElement).checked).toBe(false);
+  firstChange.mockClear();
+  await user.click(first.getByRole("button", { name: "Inspect Science a" }));
+  await user.click(second.getByRole("button", { name: "Inspect Science a" }));
+  expect(action.mock.calls).toEqual([["a"], ["a"]]);
+  expect(firstChange).not.toHaveBeenCalled();
+  expect(secondChange).not.toHaveBeenCalled();
+  await user.click(second.getByRole("checkbox", { name: "Select Mathematics b" }));
+  expect(secondChange.mock.calls.at(-1)?.[0].selectedIds).toEqual(["b"]);
+  expect((first.getByRole("checkbox", { name: "Select Science a" }) as HTMLInputElement).checked).toBe(true);
+  expect((first.getByRole("checkbox", { name: "Select Mathematics b" }) as HTMLInputElement).checked).toBe(false);
 });
