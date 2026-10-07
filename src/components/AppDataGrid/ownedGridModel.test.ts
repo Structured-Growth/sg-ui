@@ -111,4 +111,77 @@ describe("owned catalog row processing", () => {
     expect(normalizeGridFilterRules([{ field: "name", operator: "is_empty", value: "discard" }, { field: "status", operator: "is", value: "" },
       { field: "date", operator: "on", value: "2024-02-30" }, { field: "name", operator: "eq", value: "2" }], columns)).toEqual([{ field: "name", operator: "is_empty", value: "" }]);
   });
+  it.each<DataToolbarFilterOperator>(["eq", "neq", "gt", "gte", "lt", "lte"])("excludes invalid numeric rows from %s before sorting and pagination", operator => {
+    const invalid = [null, undefined, "", " ", true, false, NaN, Infinity, -Infinity, "bad", {}, []];
+    const input = [...invalid, -2, "0", 2].map((score, id) => ({ ...rows[0]!, id, score }));
+    const expected: Partial<Record<DataToolbarFilterOperator, string[]>> = {
+      eq: ["13"], neq: ["14", "12"], gt: ["14"], gte: ["14", "13"], lt: ["12"], lte: ["13", "12"],
+    };
+    const result = process({ rows: input, filterRules: [{ field: "score", operator, value: "0" }],
+      sortRules: [{ field: "score", direction: "desc" }], paginationModel: { page: 0, pageSize: 1 } });
+    expect(result.processedRows.map(row => String(row.id))).toEqual(expected[operator]);
+    expect(result.rowIds).toEqual(expected[operator]!.slice(0, 1));
+    expect(result.rowCount).toBe(expected[operator]!.length);
+    expect(result.canNextPage).toBe(expected[operator]!.length > 1);
+  });
+  it.each<[DataToolbarFilterOperator, string[]]>([
+    ["on", ["day", "previous-offset", "date-object"]],
+    ["before", ["previous"]], ["after", ["next-offset"]],
+    ["on_or_before", ["previous", "day", "previous-offset", "date-object"]],
+    ["on_or_after", ["day", "previous-offset", "date-object", "next-offset"]],
+  ])("filters UTC calendar boundaries with %s before instant sorting and paging", (operator, expected) => {
+    const input = [
+      { id: "next-offset", date: "2024-02-29T23:30:00-02:00" },
+      { id: "invalid", date: "2023-02-29" }, { id: "null", date: null },
+      { id: "previous-offset", date: "2024-03-01T00:30:00+14:00" },
+      { id: "date-object", date: new Date("2024-02-29T23:59:59.999Z") },
+      { id: "day", date: "2024-02-29" }, { id: "previous", date: "2024-02-28" },
+      { id: "invalid-object", date: new Date("bad") }, { id: "local", date: "2024-02-29T12:00:00" },
+    ].map(row => ({ ...rows[0]!, ...row }));
+    const result = process({ rows: input, filterRules: [{ field: "date", operator, value: "2024-02-29" }],
+      sortRules: [{ field: "date", direction: "asc" }], paginationModel: { page: 1, pageSize: 1 } });
+    expect(result.processedRows.map(row => row.id)).toEqual(expected);
+    expect(result.rowIds).toEqual(expected.slice(1, 2));
+    expect(result.rowCount).toBe(expected.length);
+  });
+  it("distinguishes blank text from literal null text before natural descending sort and a later page", () => {
+    const input = [null, "", "  ", "Item 2", "ITEM 10", "item 2", "null"].map((name, id) => ({ ...rows[0]!, id, name }));
+    const result = process({ rows: input, filterRules: [{ field: "name", operator: "is_not_empty", value: "" },
+      { field: "name", operator: "contains", value: " ITEM " }], sortRules: [{ field: "name", direction: "desc" }],
+      paginationModel: { page: 1, pageSize: 1 } });
+    expect(result.processedRows.map(row => row.id)).toEqual([4, 3, 5]);
+    expect(result.rowIds).toEqual(["3"]);
+    expect(process({ rows: input, filterRules: [{ field: "name", operator: "is_empty", value: "" }] }).rowIds).toEqual(["0", "1", "2"]);
+    expect(process({ rows: input, filterRules: [{ field: "name", operator: "equals", value: "null" }] }).rowIds).toEqual(["6"]);
+  });
+  it("retains full multi-sort ties and host identities with frozen rows, criteria, columns and dates", () => {
+    const date = Object.freeze(new Date("2024-02-29T12:00:00Z"));
+    const input = Object.freeze([
+      Object.freeze({ ...rows[0]!, id: "invalid-high", score: NaN, name: "Zulu", date }),
+      Object.freeze({ ...rows[0]!, id: "tie-first", score: "2", name: "item 2", date }),
+      Object.freeze({ ...rows[0]!, id: "high", score: 10, name: "Beta", date }),
+      Object.freeze({ ...rows[0]!, id: "invalid-low", score: null, name: "Alpha", date }),
+      Object.freeze({ ...rows[0]!, id: "tie-second", score: 2, name: "ITEM 2", date }),
+      Object.freeze({ ...rows[0]!, id: "secondary", score: 2, name: "item 10", date }),
+    ]);
+    const frozenColumns = Object.freeze(columns.map(column => Object.freeze({ ...column })));
+    const sortRules = Object.freeze([Object.freeze({ field: "score", direction: "desc" as const }),
+      Object.freeze({ field: "name", direction: "asc" as const })]);
+    const filterRules = Object.freeze([Object.freeze({ field: "date", operator: "on" as const, value: "2024-02-29" })]);
+    const paginationModel = Object.freeze({ page: 1, pageSize: 2 });
+    const before = date.getTime();
+    const result = process({ rows: input, columns: frozenColumns, sortRules, filterRules, paginationModel });
+    expect(result.processedRows.map(row => row.id)).toEqual(["high", "tie-first", "tie-second", "secondary", "invalid-low", "invalid-high"]);
+    expect(result.rowIds).toEqual(["tie-second", "secondary"]);
+    expect(result.rows[0]).toBe(input[4]);
+    expect(result.processedRows.every(row => input.includes(row))).toBe(true);
+    expect(input.map(row => row.id)).toEqual(["invalid-high", "tie-first", "high", "invalid-low", "tie-second", "secondary"]);
+    expect(date.getTime()).toBe(before);
+    expect(result.paginationModel).not.toBe(paginationModel);
+    const server = process({ rows: input, columns: frozenColumns, sortRules, filterRules, paginationModel, mode: "server", searchValue: "missing" });
+    expect(server.rows).toEqual(input);
+    expect(server.rows).not.toBe(input);
+    expect(server.rows[0]).toBe(input[0]);
+  });
+
 });
