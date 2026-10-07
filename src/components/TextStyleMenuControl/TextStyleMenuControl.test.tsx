@@ -76,3 +76,37 @@ it("forwards labels and fallback messages to the host translation adapter in a s
   expect(screen.getByRole("menuitem", { name: "Translated Highlight" })).toBeDefined();
   expect(t).toHaveBeenCalledWith("common.ui.editor.clearFormatting", { defaultMessage: "Clear Formatting" });
 });
+
+it("uses replacement callbacks and controlled checked state in an already open menu", async () => {
+  const user = userEvent.setup();
+  const original = vi.fn(); const replacement = vi.fn();
+  const { rerender } = render(<TextStyleMenuControl activeStyles={[]} onHighlight={original} />);
+  await user.tab(); await user.keyboard("{ArrowDown}");
+  const highlight = screen.getByRole("menuitemcheckbox", { name: "Highlight" });
+  expect(document.activeElement).toBe(highlight);
+  rerender(<TextStyleMenuControl activeStyles={["highlight"]} onHighlight={replacement} />);
+  expect(highlight.getAttribute("aria-checked")).toBe("true");
+  await user.keyboard("{Enter}");
+  expect(original).not.toHaveBeenCalled();
+  expect(replacement).toHaveBeenCalledTimes(1);
+  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Text style" })));
+  await user.keyboard("{ArrowDown}");
+  // A request does not change the checked state until the host accepts it.
+  expect(screen.getByRole("menuitemcheckbox", { name: "Highlight" }).getAttribute("aria-checked")).toBe("true");
+});
+
+it("removes live callback availability and skips newly unavailable commands", async () => {
+  const user = userEvent.setup();
+  const highlight = vi.fn(); const clear = vi.fn(); const superscript = vi.fn();
+  const { rerender } = render(<TextStyleMenuControl activeStyles={["highlight"]} onSuperscript={superscript} onHighlight={highlight} onClearFormatting={clear} />);
+  await user.tab(); await user.keyboard("{ArrowDown}");
+  rerender(<TextStyleMenuControl activeStyles={["superscript"]} onSuperscript={superscript} />);
+  expect(screen.getByRole("menuitemcheckbox", { name: "Highlight" }).getAttribute("aria-disabled")).toBe("true");
+  expect(screen.getByRole("menuitem", { name: "Clear Formatting" }).getAttribute("aria-disabled")).toBe("true");
+  expect(screen.getByRole("menuitemcheckbox", { name: /^Superscript/ }).getAttribute("aria-checked")).toBe("true");
+  await user.keyboard("{End}");
+  expect(document.activeElement).toBe(screen.getByRole("menuitemcheckbox", { name: /^Superscript/ }));
+  await user.keyboard("{Enter}");
+  expect(superscript).toHaveBeenCalledTimes(1);
+  expect(highlight).not.toHaveBeenCalled(); expect(clear).not.toHaveBeenCalled();
+});
