@@ -1,5 +1,6 @@
 "use client";
-import { createContext, useContext, type AnchorHTMLAttributes, type ComponentType, type ReactNode, type RefAttributes } from "react";
+import { useContext, type AnchorHTMLAttributes, type ComponentType, type ReactNode, type RefAttributes } from "react";
+import { NavigationContext } from "./navigationContext";
 export type SGLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & RefAttributes<HTMLAnchorElement> & { href: string; replace?: boolean };
 export type SGNavigationAdapter = {
   pathname: string;
@@ -10,10 +11,10 @@ const defaultAdapter: SGNavigationAdapter = {
   pathname: "/",
   navigate: (href, options) => { if (typeof window !== "undefined") { if (options?.replace) window.location.replace(href); else window.location.assign(href); } },
 };
-const NavigationContext = createContext(defaultAdapter);
+
 export function SGNavigationProvider({ value, children }: { value: SGNavigationAdapter; children: ReactNode }) {
   return <NavigationContext.Provider value={value}>{children}</NavigationContext.Provider>;
 }
-export const useNavigationAdapter = () => useContext(NavigationContext);
+export const useNavigationAdapter = () => useContext(NavigationContext) ?? defaultAdapter;
 export const usePathname = () => useNavigationAdapter().pathname;
 export const useRouter = () => ({ push: useNavigationAdapter().navigate });
