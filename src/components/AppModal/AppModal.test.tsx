@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { createRef, useLayoutEffect, useRef, useState } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { renderToString } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
@@ -40,7 +40,7 @@ describe("AppModal owned contract", () => {
       const [child, setChild] = useState(false);
       const [removed, setRemoved] = useState(false);
       const destination = useRef<HTMLInputElement>(null);
-      useLayoutEffect(() => { if (removed && !child) destination.current?.focus(); }, [removed, child]);
+      useEffect(() => { if (removed && !child) destination.current?.focus(); }, [removed, child]);
       return <Provider><AppButton onPress={() => setOpen(true)}>Open recovery</AppButton>
         <AppModal open={open} title="Parent recovery" onClose={() => setOpen(false)}>
           <TextField label="Fallback" autoFocus /><TextField label="Destination" ref={destination} />
