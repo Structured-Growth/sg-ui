@@ -1686,3 +1686,35 @@ engines report no browser diagnostics. Firefox remains mandatory in Linux CI and
 retains its documented local launch limitation. Evidence: `/tmp/sgui-clipboard-final-check-storybook.log`,
 `/tmp/sgui-clipboard-final-check22.log`, `/tmp/sgui-clipboard-final-browser.log`,
 `/tmp/sgui-clipboard-final-browser-results.json` and `/tmp/sgui-clipboard-final-consumers.log`.
+
+## Local editor image resource ownership (E-06 partial)
+
+The integrated editor previously allocated local insertion object URLs without
+releasing them. PageRichTextEditorSection now tracks only its own URLs, releases
+them on document-key replacement/unmount, and discards failed/stale local
+insertions. URLs survive read-only changes and deleted content so native undo can
+restore the image. Host upload URLs remain host-owned, including blob URLs. Dialog
+preview allocation/release stays independent. The LocalImageLifecycle story makes
+replacement, read-only and unmount behavior reviewable; native browser tests use
+real PNG files, loaded-image checks, undo/redo and observed balanced URL lifetimes.
+Colocated regressions cover lifecycle cleanup and host ownership. Local blob URLs
+remain temporary; durable saved documents require host upload asset addresses.
+
+E-06 remains unchecked for the wider URL/protocol, file/content validation and
+host upload acceptance. E-02/E-04/E-07 rich-document and trust-boundary coverage
+also remains open. Formal closure stays 94/320 required tasks (226 open, 29.38%).
+
+Final local validation: Node 24 and exact-minimum Node 22.12.0 `pnpm check`
+pass 138 files/865 behavior tests, five foundation and four release tests, source/
+story typing, ESM/declarations/public imports and owned boundary/token/layer guards.
+Fresh Storybook passes with existing upstream warnings. Full Chromium/WebKit
+passes 74/74 in 66.2 seconds, with zero skipped, unexpected or flaky tests and
+mandatory diagnostics; four new image lifecycle cases pass alongside 16 axe scans.
+Fresh serial Node 24 packed React 18/19 editor SSR/hydration-entry builds pass.
+Packed Vite/Next browser consumers were not repeated for this resource-only batch;
+calendar-head CI independently passes all three engines and all eight consumers,
+as recorded in [runtime evidence](react-aria-runtime-ci.md). Local Firefox retains
+its launch limitation and remains mandatory in Linux CI. Evidence:
+`/tmp/sgui-image-check-storybook.log`, `/tmp/sgui-image-check22.log`,
+`/tmp/sgui-image-browser.log`, `/tmp/sgui-image-browser-results.json` and
+`/tmp/sgui-image-consumers.log`. Guidance links (111) and whitespace checks pass.

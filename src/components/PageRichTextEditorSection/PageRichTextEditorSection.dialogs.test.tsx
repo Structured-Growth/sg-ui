@@ -61,6 +61,48 @@ function serializedChildren() {
 }
 
 describe("editor dialog host contracts", () => {
+  it("retains local image URLs for read-only and undo, then releases them on document reset and unmount", async () => {
+    const create = vi.fn().mockReturnValueOnce("blob:dialog-preview").mockReturnValueOnce("blob:document-image").mockReturnValueOnce("blob:second-preview").mockReturnValueOnce("blob:second-image");
+    const revoke = vi.fn();
+    vi.stubGlobal("URL", class extends URL { static createObjectURL = create; static revokeObjectURL = revoke; });
+    const user = userEvent.setup();
+    const props = { lexicalValue: initial, editorKey: "first", toolPreset: "full" as const, onLexicalChange: vi.fn() };
+    const view = render(<Provider><PageRichTextEditorSection {...props} /></Provider>);
+    try {
+      await selectText(); await openImageDialog(user);
+      await user.upload(screen.getByLabelText("Choose image"), new File(["image"], "local.png", { type: "image/png" }));
+      await user.click(within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }));
+      await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("blob:document-image"));
+      await waitFor(() => expect(revoke).toHaveBeenCalledWith("blob:dialog-preview"));
+      view.rerender(<Provider><PageRichTextEditorSection {...props} readOnly /></Provider>);
+      expect(revoke).not.toHaveBeenCalledWith("blob:document-image");
+      view.rerender(<Provider><PageRichTextEditorSection {...props} editorKey="second" /></Provider>);
+      expect(revoke).toHaveBeenCalledWith("blob:document-image");
+      await selectText(); await openImageDialog(user);
+      await user.upload(screen.getByLabelText("Choose image"), new File(["image"], "second.png", { type: "image/png" }));
+      await user.click(within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }));
+      await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("blob:second-image"));
+      view.unmount();
+      expect(revoke.mock.calls.filter(([url]) => url === "blob:document-image")).toHaveLength(1);
+      expect(revoke.mock.calls.filter(([url]) => url === "blob:second-image")).toHaveLength(1);
+      expect(create).toHaveBeenCalledTimes(4);
+    } finally { vi.unstubAllGlobals(); }
+  });
+
+  it("never releases host-owned image URLs", async () => {
+    const revoke = vi.fn();
+    vi.stubGlobal("URL", class extends URL { static createObjectURL = vi.fn(() => "blob:host-preview"); static revokeObjectURL = revoke; });
+    const user = userEvent.setup();
+    try {
+      mount(async () => ({ assetId: "host", assetVersionId: "v1", src: "blob:host-owned" }));
+      await selectText(); await openImageDialog(user);
+      await user.upload(screen.getByLabelText("Choose image"), new File(["image"], "host.png", { type: "image/png" }));
+      await user.click(within(screen.getByRole("dialog", { name: "Insert Image" })).getByRole("button", { name: "Insert" }));
+      await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("blob:host-owned"));
+      cleanup();
+      expect(revoke).not.toHaveBeenCalledWith("blob:host-owned");
+    } finally { vi.unstubAllGlobals(); }
+  });
   it.each([["/courses/guide", "/courses/guide"], ["www.example.org/guide", "https://www.example.org/guide"]])("stores accepted %s as %s in actual Lexical output", async (entered, stored) => {
     const user = userEvent.setup(); const change = mount();
     await selectText(); await user.click(screen.getByRole("button", { name: "Edit link" }));

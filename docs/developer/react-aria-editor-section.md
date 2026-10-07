@@ -53,7 +53,13 @@ External URLs retain `_blank` and `noopener noreferrer`; relative URLs remain
 local. URL validation remains owned by LinkUrlModal. Image callbacks and asset
 metadata, columns/table presets, rule insertion, heading/body roles and JSON
 serialization retain their existing contracts. Missing upload callbacks retain
-local preview behavior; hosts own uploaded files and persistence.
+local preview behavior; hosts own uploaded files and persistence. The section
+owns only the object URLs it creates for those local insertions. It retains them
+through read-only changes and undo/redo, including temporarily deleted images,
+then revokes them on `editorKey` replacement or unmount. Dialog previews have a
+separate shorter lifetime. Host-returned URLs (including blob URLs) are never
+revoked by the section. Local blob URLs are temporary, not durable asset addresses;
+use `onUploadImage` before saving a document that must survive reload or replacement.
 
 See [dialogs](react-aria-editor-dialogs.md), [formatting toolbar](react-aria-formatting-toolbar.md),
 [layout and selection](react-aria-editor-layout.md) and

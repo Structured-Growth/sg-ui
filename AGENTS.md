@@ -364,3 +364,10 @@ Ctrl/Command+A selects its document for native Copy without selecting host conte
 Editable keyboard commands remain with Lexical. See [editor contracts](docs/developer/react-aria-editor-section.md)
 and [native clipboard browser gates](docs/developer/react-aria-browser-acceptance.md).
 E-05 remains open for actual IME/device and assistive-technology acceptance.
+
+PageRichTextEditorSection owns local insertion object URLs through the current
+document lifetime, retaining them for undo/read-only and releasing them on
+editorKey replacement/unmount. Never revoke host-returned URLs. Local previews
+are temporary; durable saved images require host upload URLs. See the
+[editor contracts](docs/developer/react-aria-editor-section.md). E-06 remains open
+for the wider URL/protocol and upload validation acceptance.

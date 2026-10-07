@@ -152,6 +152,24 @@ export const BasePreset: Story = {
 
 export const DarkReadOnly: Story = { args: { lexicalValue: INITIAL_DOC, readOnly: true, "aria-label": "Read-only course content" }, decorators: [(Story) => <Provider theme="dark" style={{height:320}}><Story /></Provider>] };
 
+/** Local images are temporary; a durable saved document needs a host upload. */
+export const LocalImageLifecycle: Story = {
+  render: () => {
+    const [revision, setRevision] = useState(0);
+    const [readOnly, setReadOnly] = useState(false);
+    const [mounted, setMounted] = useState(true);
+    const [value, setValue] = useState<unknown>(null);
+    return <Provider>
+      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
+      <AppButton onPress={() => { setReadOnly(false); setRevision(current => current + 1); }}>New document</AppButton>
+      <AppButton onPress={() => setMounted(current => !current)}>{mounted ? 'Close editor' : 'Open editor'}</AppButton>
+      {mounted && <PageRichTextEditorSection lexicalValue={null} editorKey={`local-image-${revision}`} onLexicalChange={setValue}
+        readOnly={readOnly} aria-label="Local image document" toolPreset="full" style={{ height: 360 }} />}
+      <pre aria-label="Saved image document">{JSON.stringify(value)}</pre>
+    </Provider>;
+  },
+};
+
 /** Native source fields intentionally exercise the browser's clipboard formats. */
 export const ClipboardEditing: Story = {
   render: () => {

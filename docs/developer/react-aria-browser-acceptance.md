@@ -254,3 +254,26 @@ engines report no browser diagnostics. Firefox remains mandatory in Linux CI and
 retains its documented local launch limitation. Evidence: `/tmp/sgui-clipboard-final-check-storybook.log`,
 `/tmp/sgui-clipboard-final-check22.log`, `/tmp/sgui-clipboard-final-browser.log`,
 `/tmp/sgui-clipboard-final-browser-results.json` and `/tmp/sgui-clipboard-final-consumers.log`.
+
+## Local editor image lifetimes (E-06 partial)
+
+`tests/browser/editor-image-lifecycle.spec.ts` inserts actual PNG files through
+ImageUploadModal into Lexical, requires the native image to load, and observes
+native object-URL allocation/revocation without replacing their behavior. Native
+undo/redo restores a loaded image. Read-only changes retain its URL; replacing the
+document and unmounting release each editor URL exactly once. Modal preview URLs
+have independent balanced lifetimes. Light/dark cases retain mandatory browser
+warning/error checks. Colocated tests also require that host-returned blob URLs
+are never revoked by the section. These cases cover local resource ownership;
+they do not close E-06's protocol, content-validation and wider upload acceptance.
+
+Final local validation: fresh Storybook and Node 24/exact Node 22.12.0 checks
+pass (138 files/865 behavior tests). Full Chromium/WebKit passes 74/74 in 66.2
+seconds, with zero skipped, unexpected or flaky tests, 16 axe scans and four new
+image lifecycle cases. Fresh serial packed React 18/19 editor SSR/hydration-entry
+builds pass. Vite/Next browser consumers were not repeated for this batch; see
+[runtime evidence](react-aria-runtime-ci.md) for independently successful calendar
+CI. Firefox stays mandatory in CI despite its local launch limitation. Evidence:
+`/tmp/sgui-image-check-storybook.log`, `/tmp/sgui-image-check22.log`,
+`/tmp/sgui-image-browser.log`, `/tmp/sgui-image-browser-results.json` and
+`/tmp/sgui-image-consumers.log`.

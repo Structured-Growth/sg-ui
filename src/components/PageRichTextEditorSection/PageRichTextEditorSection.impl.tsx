@@ -366,6 +366,15 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
   const [imageUploadError, setImageUploadError] = useState<string | null>(null);
   const [imageUploading, setImageUploading] = useState(false);
   const imageUploadSessionRef = useRef(0);
+  const localImageUrlsRef = useRef(new Set<string>());
+  useEffect(() => {
+    const urls = localImageUrlsRef.current;
+    // Retain removed images for native undo until this document is replaced.
+    return () => {
+      for (const url of urls) URL.revokeObjectURL(url);
+      urls.clear();
+    };
+  }, [editorKey]);
   useEffect(() => () => { imageUploadSessionRef.current += 1; }, []);
 
   useEffect(() => {
@@ -1093,20 +1102,28 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
         }}
         onSubmit={async (file, altText) => {
           const uploadSession = imageUploadSessionRef.current;
+          let localUrl: string | undefined;
           try {
             setImageUploading(true);
             setImageUploadError(null);
+            if (!onUploadImage) {
+              localUrl = URL.createObjectURL(file);
+              localImageUrlsRef.current.add(localUrl);
+            }
             const uploaded = onUploadImage
               ? await onUploadImage(file)
               : {
                   assetId: "local-preview",
                   assetVersionId: "local-preview-v1",
-                  src: URL.createObjectURL(file),
+                  src: localUrl!,
                   altText: file.name,
                   width: null,
                   height: null,
                 };
-            if (imageUploadSessionRef.current !== uploadSession) return;
+            if (imageUploadSessionRef.current !== uploadSession) {
+              if (localUrl && localImageUrlsRef.current.delete(localUrl)) URL.revokeObjectURL(localUrl);
+              return;
+            }
             dispatchInsertCommand(INSERT_IMAGE_COMMAND, {
               src: uploaded.src,
               altText: altText ?? uploaded.altText ?? file.name,
@@ -1117,6 +1134,7 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
             });
             setImageUploadModalOpen(false);
           } catch (error) {
+            if (localUrl && localImageUrlsRef.current.delete(localUrl)) URL.revokeObjectURL(localUrl);
             if (imageUploadSessionRef.current === uploadSession) {
               setImageUploadError(error instanceof Error ? error.message : t("editor.imageUploadFailed", { defaultMessage: "Image upload failed." }));
             }

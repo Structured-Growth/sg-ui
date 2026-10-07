@@ -103,3 +103,12 @@ JSON independently records SSR, hydration and interactions passing in Chromium,
 Firefox and WebKit with empty diagnostic arrays. Seven artifacts are unexpired;
 browser artifact ID is `11458031025`. Evidence: `/tmp/sgui-ci-b63-browser`. This
 validates the server fix and preceding display batch, not later calendar/clipboard heads.
+
+The calendar head `d59653ec848d22a97104441ac068c77530610537` passes
+[run 37563448002](https://github.com/Structured-Growth/sg-ui/actions/runs/37563448002):
+both runtime jobs and all eight packed consumers. Downloaded browser JSON records
+93/93 across Chromium, Firefox and WebKit in 159.9 seconds, with zero skipped,
+unexpected or flaky tests. Packed React 18/19 Vite and Next production JSON records
+SSR, hydration and interactions passing in each engine with empty diagnostics.
+Seven artifacts are unexpired; browser artifact ID is `11457514859`. Evidence:
+`/tmp/sgui-ci-calendar-browser`. This verifies the calendar batch, not later heads.
