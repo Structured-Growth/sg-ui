@@ -9,7 +9,8 @@ import { ListBox, ListBoxItem } from "react-aria-components/ListBox";
 import { Button } from "../Button/Button";
 import { KeyboardArrowDownIcon } from "../icons/KeyboardArrowDownIcon";
 import { useTranslation } from "../../i18n";
-import { useOverlayScope } from "../../foundation/ThemeScope";
+import { useLocale } from "react-aria-components/I18nProvider";
+import { useOverlayScope, useOverlayDirectionRef } from "../../foundation/ThemeScope";
 import field from "../TextField/TextField.module.css";
 import list from "../ComboBox/ComboBox.module.css";
 import styles from "./Select.module.css";
@@ -34,6 +35,8 @@ export interface SelectProps {
 }
 export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select({ label, options, value, defaultValue, onValueChange, name, placeholder, description, required, disabled, readOnly, invalid, errorMessage, className }, ref) {
   const { t } = useTranslation(); const scope = useOverlayScope();
+  const { direction } = useLocale();
+  const directionRef = useOverlayDirectionRef(direction);
   return <AriaSelect selectedKey={value} defaultSelectedKey={defaultValue} onSelectionChange={key => onValueChange?.(key === null ? null : String(key))}
     disabledKeys={options.filter(option => option.disabled).map(option => option.id)}
     name={name} isRequired={required} isDisabled={disabled} isInvalid={invalid} validationBehavior="native"
@@ -48,7 +51,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
       {options.length === 0 && t("common.ui.noOptions", { defaultMessage: "No options found" })}
     </Text>}
     <FieldError className={field.error}>{errorMessage}</FieldError>
-    <Popover {...scope} className={list.popover}>
+    <Popover {...scope} ref={directionRef} className={list.popover}>
       <ListBox items={options} disabledKeys={options.filter(option => option.disabled).map(option => option.id)} className={list.list}
         renderEmptyState={() => t("common.ui.noOptions", { defaultMessage: "No options found" })}>
         {option => <ListBoxItem id={option.id} textValue={option.label} isDisabled={option.disabled} className={list.option}>{option.label}</ListBoxItem>}
