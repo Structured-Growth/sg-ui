@@ -96,10 +96,10 @@ Final targeted log: `/tmp/sgui-batch17-menu-targeted.log`.
 Existing native-link unit cases emit jsdom's navigation-not-implemented diagnostic;
 their assertions pass. No warning/error suppression was introduced.
 
-## Corrected native validation pending
+## Corrected native validation
 
-No worker build, browser or server was launched. Source/report will remain frozen
-while the coordinator runs the corrected clean head. Exact supervisor spec args:
+No worker build, browser or server was launched. The coordinator ran the frozen
+corrected clean head with these unchanged supervisor spec args:
 
 ```text
 tests/browser/batch17-menu-autofocus.spec.ts --project=chromium --project=webkit
@@ -107,8 +107,20 @@ tests/browser/batch17-menu-autofocus.spec.ts --project=chromium --project=webkit
 
 The supervisor owns its one-worker setting and max-two-session pool. The native
 spec is unchanged from the demonstrated baseline; no focus assertion was relaxed.
-Corrected native success must be recorded before this fix is accepted. Grid owner
-adoption and its retained sort-opener assertions require a separate composed run.
+The fresh corrected run at exact `f567db7eaaaf3ec68b84b4f8b5377276aa25c3ab`
+passed **all 6 Chromium/WebKit cases**, with zero skipped, flaky or unexpected
+tests and no retries. The original Chromium programmatic Alt+ArrowDown native
+focus assertion now passes. The worker independently read `evidence.json` and
+`results.json`, verifying the unchanged initial/final head and build digest.
+Result duration: 4.34 seconds.
+
+Evidence directory:
+`artifacts/browser-pool/370477b2-b048-4f5b-af22-a83aa688941f/`.
+Build digest:
+`ae13d34c6b503bdbf792c80d8446efdc862d44368660c5a9007f2f3525a0447b`.
+The coordinator released the freeze for this report-only update. No source,
+fixture or assertion changed after the tested head. Grid owner adoption and its
+retained sort-opener assertions still require a separate composed run.
 
 Firefox, physical devices, OS/browser-menu interception, assistive technology,
 React 18 packed consumers, SSR/hydration/browser consumers and broad manual gates
