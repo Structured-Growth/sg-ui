@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { createRef } from "react";
 import { afterEach, expect, it, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ToggleButton, ToggleButtonGroup } from "./ToggleButton";
 import { Provider } from "../Provider/Provider";
@@ -50,4 +50,44 @@ it("respects RTL arrows, vertical orientation and group disabled state", async (
   await user.tab(); await user.keyboard("{ArrowDown}"); expect(document.activeElement).toBe(screen.getByRole("radio", {name:"Cards"}));
   cleanup(); render(<ToggleButtonGroup label="View" options={options} disabled onSelectionChange={change} />);
   await user.click(screen.getByRole("radio", {name:"Grid"})); expect(change).not.toHaveBeenCalled();
+});
+it("cancels a held Space when the parent fieldset becomes disabled", async () => {
+  const user = userEvent.setup(); const change = vi.fn(); const press = vi.fn();
+  const view = (disabled: boolean) => <fieldset disabled={disabled}><ToggleButton selected={false} onSelectedChange={change} onPress={press}>Bold</ToggleButton></fieldset>;
+  const {rerender} = render(view(false));
+  await user.tab();
+  await user.keyboard("[Space>]");
+  rerender(view(true));
+  await user.keyboard("[/Space]");
+  expect(change).not.toHaveBeenCalled();
+  expect(press).not.toHaveBeenCalled();
+  expect(screen.getByRole("button", {name: "Bold"}).getAttribute("aria-pressed")).toBe("false");
+});
+it("keeps repeated option IDs independent across controlled and uncontrolled groups", async () => {
+  const user = userEvent.setup(); const leftChange = vi.fn(); const rightChange = vi.fn();
+  const view = (ids: string[]) => <><ToggleButtonGroup label="Primary view" options={options} selectedIds={ids} onSelectionChange={leftChange} /><ToggleButtonGroup label="Secondary view" options={options} defaultSelectedIds={["grid"]} onSelectionChange={rightChange} /></>;
+  const {rerender} = render(view(["grid"]));
+  const left = within(screen.getByRole("radiogroup", {name: "Primary view"})).getAllByRole("radio") as HTMLButtonElement[];
+  const right = within(screen.getByRole("radiogroup", {name: "Secondary view"})).getAllByRole("radio") as HTMLButtonElement[];
+  await user.click(left[2]);
+  expect(leftChange).toHaveBeenCalledExactlyOnceWith(["cards"]);
+  expect(left[0].getAttribute("aria-checked")).toBe("true");
+  expect(rightChange).not.toHaveBeenCalled();
+  rerender(view(["cards"]));
+  expect(left[2].getAttribute("aria-checked")).toBe("true");
+  expect(right[0].getAttribute("aria-checked")).toBe("true");
+  await user.click(right[2]);
+  expect(rightChange).toHaveBeenCalledExactlyOnceWith(["cards"]);
+  expect(leftChange).toHaveBeenCalledTimes(1);
+  expect(right[2].getAttribute("aria-checked")).toBe("true");
+  expect([...left, ...right].every(button => button.type === "button")).toBe(true);
+});
+it("honors disabled fieldsets while preserving the first legend's enabled action", async () => {
+  const user = userEvent.setup(); const blocked = vi.fn(); const legendChange = vi.fn();
+  render(<fieldset disabled><legend><ToggleButton onSelectedChange={legendChange}>Legend action</ToggleButton></legend><ToggleButton onSelectedChange={blocked}>Disabled action</ToggleButton><ToggleButtonGroup label="Disabled view" options={options} onSelectionChange={blocked} /></fieldset>);
+  await user.click(screen.getByRole("button", {name:"Disabled action"}));
+  await user.click(screen.getByRole("radio", {name:"Cards"}));
+  expect(blocked).not.toHaveBeenCalled();
+  await user.click(screen.getByRole("button", {name:"Legend action"}));
+  expect(legendChange).toHaveBeenCalledExactlyOnceWith(true);
 });
