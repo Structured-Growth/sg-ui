@@ -56,29 +56,71 @@ Node `v24.19.0`, pnpm `10.29.3`.
 Tested spec SHA-256:
 `91e108dcb3bd96c1963bc153bd0ffec8a1a586e2b9a31ffb2f273f708e932cdd`.
 
-## Frozen handoff and acceptance limits
+## Coordinator native proof and final handoff
 
-Coordinator `01a1164f-41db-7f30-aaf9-f20133b6566f` must independently review the
-committed patch and run fresh actual Chromium against a nondefault pooled port.
-Required selection arguments:
+Coordinator `01a1164f-41db-7f30-aaf9-f20133b6566f` reviewed the prepared patch and
+ran fresh actual Chromium against a nondefault pooled port in wave 31.
+The reviewed worker head was `f66d8bdac4ae83a07bf37baefdfe4b367e238b92`;
+the actual testing-only candidate was
+`1a378accd909a471e653fe4e27fe9457c9531049`, not the worker head.
+`/tmp/sgui-batch45-candidate-wave31-attribution.json` records batch 71's reviewed
+head, baseline and file digests. Direct byte comparison confirmed the candidate
+and worker spec both retain the tested SHA-256 above.
+
+Whole-file selection:
 `tests/browser/batch05-grid-clipboard.spec.ts --project=chromium`, with no grep,
-retries or duplicated suite. The complete file has four Chromium cases: light and
-dark native copy/paste, native CDP denied write, and controlled rejection/cleanup.
-An appropriate snapshot shard is:
+retries or duplicated suite. Actual selector arguments were
+`(?:^|/)tests/browser/batch05-grid-clipboard\.spec\.ts$` and
+`--project=chromium`. The coordinator's shard was:
 
 ```json
 {
-  "id": "batch71-clipboard-pooled-origin",
+  "id": "clipboard-pooled-origin",
   "specs": ["tests/browser/batch05-grid-clipboard.spec.ts"],
   "project": "chromium"
 }
 ```
 
-Native results are **pending**, not inferred from the driver fixture or typecheck.
+All four cases passed on actual `http://127.0.0.1:6674`, slot 1: native text/JSON
+copy and paste in light/dark themes, native CDP denied write with focus retention,
+and controlled rejection/cleanup. The native denial result is distinct from the
+mocked rejection case. Playwright reported four passed in 22.3 seconds; the command
+duration was 23.079 seconds. Runtime: Node `v24.19.0`, pnpm `10.29.3`, Playwright
+`1.63.0`, Chromium. This bounded proof confirms the pooled-origin driver correction.
+
+Retained coordinator evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/7c82140b-3a18-4b19-aca5-9a5f0720af5f/`.
+Its `evidence.json` records a fresh shared Storybook build (33.077 seconds), one
+browser-source typecheck (1.201 seconds), four disjoint Chromium sessions and 21
+total passing cases. Batch 71 accounts for four of those cases. The clipboard
+session's `browser.log`, `results.json`, `browser.log.resources.json`, and
+`evidence.json` are under `clipboard-pooled-origin/`. Command resources record
+exit code 0, no signal errors and `settled: true`. Aggregate evidence records
+`cleanup: "owned commands settled"`; coordinator reported owned leases released.
+
+Provenance SHA-256:
+
+- Aggregate `evidence.json`:
+  `5cb3d884baa20acc27afbaef230469ebabddf30d48f6c10a0dc32c69f5c1b59c`
+- Clipboard `browser.log`:
+  `fbfdd6062ce9860d607120c069eac23c6e53463f7ee1b524127ee4975380210a`
+- Clipboard `results.json`:
+  `ee06a0868f42aa2e5f76325ea54430f714f4758ba956b63b14065df071c18593`
+- Shared build digest (initial and final):
+  `ec6eca4336c63f839bde0508a026992dd9110b342f6072e714a5eaf6f14cde75`
+- Candidate source digest (initial and final):
+  `d693faa54cb1419030282fe955d89f92f44f941cea24db640f3c519c60ae73ce`
+
+Candidate final HEAD remained the tested SHA and final status was empty. Only this
+unique report changed after the coordinator command settled; source/story/unit/spec
+bytes were preserved. No redundant validation ran. Final report-only commit and
+clean status accompany the completion handoff; coordinator integrates reviewed
+individual history, never the whole testing candidate.
+
 Firefox/WebKit, manual/device/assistive-technology work and whole G-21/R-11
-acceptance remain pending. No independent browser, build, server, full check,
+acceptance remain pending. No independent worker browser, build, server, full check,
 GitHub CI, main integration, publication, secrets or workflow changes ran.
 The bounded authorization supersedes full check/build requirements for this
 driver-only slice. Primary checkout and other workers, including batch 68's
 `reorder.spec.ts`, were preserved. Final clean commit SHA accompanies the authorized
-coordinator completion report; this worktree is frozen pending coordinator review.
+coordinator completion report; this worktree is frozen pending final delta review.
