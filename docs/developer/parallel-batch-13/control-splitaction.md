@@ -12,7 +12,9 @@ Managed worktree created and attached before edits:
 Branch: `codex/batch13-control-splitaction`; draft PR base: `codex/dev`.
 Draft PR: [#63](https://github.com/Structured-Growth/sg-ui/pull/63).
 Implementation/test/story commit: `ed5bb11ca8a76c55597202c9cce1706fe16004fc`.
-The report is committed separately; use branch history for its final report commit.
+Initial report commit: `f5f824e99edd6e7a17b6ac031b0adcc337b6f4c3`.
+The final native-evidence report commit is the subsequent docs commit on this PR;
+its exact hash is also sent to the coordinator on completion.
 
 Exclusive write allowlist:
 
@@ -67,6 +69,8 @@ Initial tools ran on Node 26.5.0; final affected unit tests ran on bundled Node
   15 tests passed across 2 files (8 SplitAction, 7 Menu).
 - `pnpm typecheck`, `pnpm foundations:check`, `pnpm tokens:check`, and
   `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- Final source and browser `node_modules/typescript/bin/tsc --noEmit` checks
+  (browser check with `-p tests/browser/tsconfig.json`) also passed under Node 24.19.0.
 - `git diff --check`: passed.
 
 Each Vitest run acquired one atomic slot beneath
@@ -75,11 +79,30 @@ released only its own slot in finally. Existing Menu native-link tests emit jsdo
 known navigation-not-implemented diagnostic; tests pass, and native routing is not
 inferred from that run.
 
-Fresh focused browser validation is **queued, not passed**. The existing global
-lock and nonempty priority queue remain authoritative. No other owner's lock or
-server was removed/stopped; no independent browser-pool migration or Firefox
-launch retries occurred. This draft must not integrate until fresh focused native
-evidence is recorded here.
+Fresh focused native evidence on exact head
+`f5f824e99edd6e7a17b6ac031b0adcc337b6f4c3`, using Node 24.19.0:
+
+- `pnpm build-storybook`: passed, with existing Vite directive/sourcemap/chunk-size
+  warnings; the generated build was not rebuilt during tests.
+- `pnpm exec playwright test tests/browser/batch13-control-splitaction.spec.ts --project=chromium --project=webkit`:
+  **8 passed**, four cases in each engine. Native keyboard opening, focus before
+  blocking, secondary dismissal, suppression, recovery, callback replacement,
+  anchor identity, activation return focus and unmount/portal lifetime verified.
+
+After bounded waits, the priority queue drained and this chat acquired the atomic
+`/tmp/sgui-parallel-batch-01-validation.lock`, recording owner
+`01a116b0-d56e-7cb3-bb2b-03c9aff27c42`. Own-owner-checked finally cleanup released
+only this chat's lock after the build and suite. Other owners/servers were untouched.
+The baseline serial harness was used after the reserved browser-pool trial; no
+pool/config rollout was independently performed. Firefox was deliberately not
+relaunched because its unchanged local profile prerequisite has separate ownership;
+**Firefox assertions remain unverified**, not passed or a product failure.
+
+Logs: `/tmp/sgui-batch13-control-splitaction-storybook.log` and
+`/tmp/sgui-batch13-control-splitaction-browser.log`. Ignored HTML/JSON/traces are
+under this worktree's `artifacts/`; the fresh static build is `storybook-static/`.
+The local dependency symlink was removed after validation, leaving a clean tracked
+checkout. This is focused evidence, not whole-gate acceptance.
 
 No per-task full check, full browser/consumer matrix or GitHub CI/title run is
 claimed. No manual/device/assistive-technology gate is closed.
@@ -87,7 +110,8 @@ claimed. No manual/device/assistive-technology gate is closed.
 ## Review and reserved follow-ups
 
 Review decision: the demonstrated blocking fix is bounded and API-compatible;
-native validation remains an integration prerequisite. Reserve a separate task
+affected unit/guard and Chromium/WebKit native checks pass. Suitable for coordinator
+review/integration, with Firefox and broader gates explicitly open. Reserve a separate task
 for host focus fallback when the entire focused SplitAction is removed: the new
 removal case checks portal lifetime and subsequent usable keyboard access, not a
 prescribed fallback-focus policy. Physical touch, spoken pending announcements,
