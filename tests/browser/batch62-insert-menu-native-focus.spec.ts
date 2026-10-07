@@ -1,9 +1,24 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Locator, type Page } from '@playwright/test';
 
 // Host statuses remain in the DOM while a modal hides its background from AT.
 // Their text proves request delivery only; it does not prove spoken announcements.
 const story = '/iframe.html?id=editors-insertcontentmenucontrol--native-insertion-handoff&viewMode=story&globals=a11y.manual:!true';
 
+async function clickVisibleCenter(page: Page, target: Locator) {
+  await expect(target).toBeVisible();
+  const bounds = await target.boundingBox();
+  expect(bounds).not.toBeNull();
+  expect(bounds!.width).toBeGreaterThan(0);
+  expect(bounds!.height).toBeGreaterThan(0);
+  const point = { x: bounds!.x + bounds!.width / 2, y: bounds!.y + bounds!.height / 2 };
+  expect(await target.evaluate((element, center) => {
+    const hit = element.ownerDocument.elementFromPoint(center.x, center.y);
+    return hit === element || (hit !== null && element.contains(hit));
+  }, point)).toBe(true);
+  await page.mouse.click(point.x, point.y);
+}
+
+// Programmatic trigger focus establishes setup; keyboard presses perform menu entry.
 test.beforeEach(async ({ page }) => { await page.goto(story); });
 
 for (const [command, navigation] of [
@@ -79,8 +94,10 @@ test('unavailable insertion commands skip native entry, Escape cancels and disab
     await expect(trigger).toBeFocused();
   }
   await trigger.click();
-  await page.getByRole('menuitem', { name: 'Image', exact: true }).click({ force: true });
+  await clickVisibleCenter(page, page.getByRole('menuitem', { name: 'Image', exact: true }));
   await expect(page.getByRole('menu')).toBeVisible();
+  await expect(page.locator('[role="status"][aria-label="Host insertion requests"]')).toHaveText('No insertion requests');
+  await expect(page.locator('[role="status"][aria-label="Host form submissions"]')).toHaveText('0');
   await page.keyboard.press('Escape');
   await expect(trigger).toBeFocused();
   await page.getByRole('button', { name: 'Toggle insertion disabled' }).click();
@@ -88,7 +105,7 @@ test('unavailable insertion commands skip native entry, Escape cancels and disab
   // Real keyboard tabbing bypasses the disabled trigger, and pointer input cannot open it.
   await page.keyboard.press('Tab');
   await expect(trigger).not.toBeFocused();
-  await trigger.click({ force: true });
+  await clickVisibleCenter(page, trigger);
   await expect(page.locator('[role="menu"]')).toHaveCount(0);
   await expect(page.locator('[role="status"][aria-label="Host insertion requests"]')).toHaveText('No insertion requests');
   await expect(page.locator('[role="status"][aria-label="Host form submissions"]')).toHaveText('0');

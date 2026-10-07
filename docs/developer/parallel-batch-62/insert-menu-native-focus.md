@@ -67,3 +67,15 @@ hidden while Dialog is open. No spoken assistive-technology result is claimed.
 Firefox/WebKit await the shared checkpoint. Physical-device and AT acceptance,
 whole M-27/broad editor gates and production acceptance remain open. Coordinator
 alone reviews, accepts and integrates this prepared slice.
+
+## Independent admission correction
+
+The coordinator held the prepared pointer cases because forced locator clicks
+bypass normal hit actionability. Both the unavailable Image item and disabled
+trigger now require visibility, positive bounds, and a center `elementFromPoint`
+hit belonging to the target or a descendant before real `page.mouse.click` input.
+The menu-open, no-request and form-safety assertions remain; unavailable-item
+request/form assertions also run immediately after its pointer click. Programmatic
+trigger focus is setup only; native keyboard presses perform the menu entry.
+Browser TypeScript and diff checks passed after this bounded spec/report correction.
+No independent native run was performed; shared Chromium admission remains pending.
