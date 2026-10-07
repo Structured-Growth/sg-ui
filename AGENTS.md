@@ -397,3 +397,10 @@ after document reset, read-only changes and unmount, plus clean dialog reopening
 Cancellation invalidates UI results; hosts still own network abort and asset cleanup.
 See the [upload lifetime contract](docs/developer/react-aria-editor-section.md#host-upload-lifetime-e-06-partial).
 E-06/E-07 broad acceptance remains open.
+
+ImageUploadModal shares nonempty-file and MIME/extension presentation checks across
+picker/drop selection. Rejected selections release their preview and retain the
+description for correction. Metadata acceptance is not byte decoding, size or
+asset authorization; the host owns those policies. See the [file presentation
+contract](docs/developer/react-aria-editor-dialogs.md#file-presentation-validation-e-06-partial).
+E-06 broader acceptance remains open.

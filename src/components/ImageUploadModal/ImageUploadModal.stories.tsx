@@ -49,3 +49,20 @@ export const HostUploadAndDescription: Story = {
 export const HostUploadingError: Story = {
   args: { open: true, uploading: true, errorMessage: "The host could not upload this image.", onClose: () => {}, onSubmit: () => {} },
 };
+
+export const FileValidation: Story = {
+  args: { open: false, enableAltText: true, onClose: () => {}, onSubmit: () => {} },
+  render: () => {
+    const [open, setOpen] = useState(false);
+    const [received, setReceived] = useState("");
+    return <>
+      <AppButton variant="outlined" onPress={() => setOpen(true)}>Validate image file</AppButton>
+      <Typography variant="body2">Choose a nonempty image. The host inspects file contents and applies its upload policy.</Typography>
+      <Typography variant="body2" aria-label="Received image file">{received || "No submission"}</Typography>
+      <ImageUploadModal open={open} enableAltText onClose={() => setOpen(false)} onSubmit={(file, description) => {
+        setReceived(`${file.name}; ${file.type || "no MIME"}; ${description || "decorative"}`);
+        setOpen(false);
+      }} />
+    </>;
+  },
+};

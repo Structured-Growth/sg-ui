@@ -114,7 +114,7 @@ describe("ImageUploadModal preview and cancellation lifecycle", () => {
     const { unmount } = render(<Provider><ImageUploadModal open onClose={vi.fn()} onSubmit={vi.fn()} /></Provider>);
     const zone = screen.getByText("Drag and drop an image here").parentElement!;
     fireEvent.drop(zone, { dataTransfer: { files: [new File(["text"], "notes.txt", { type: "text/plain" })] } });
-    expect(screen.getByRole("alert").textContent).toBe("Choose an image file.");
+    expect(screen.getByRole("alert").textContent).toBe("Choose a nonempty image file.");
     expect(create).not.toHaveBeenCalled();
     expect((screen.getByRole("button", {name:"Insert"}) as HTMLButtonElement).disabled).toBe(true);
     const first = new File(["image"], "first.png", { type: "image/png" });
@@ -171,5 +171,48 @@ describe("ImageUploadModal preview and cancellation lifecycle", () => {
     await user.click(screen.getByRole("button", { name: "Insert" }));
     expect(submit).toHaveBeenCalledTimes(2);
     expect(screen.queryByRole("alert")).toBeNull();
+  });
+});
+
+
+describe("ImageUploadModal presentation file validation (E-06)", () => {
+  it.each([
+    ["empty.png", "image/png", ""],
+    ["missing-subtype.png", "image/", "bytes"],
+    ["wildcard.png", "image/*", "bytes"],
+    ["parameter.png", "image/png;charset=utf-8", "bytes"],
+    ["mismatched.png", "text/plain", "bytes"],
+    ["unknown.svg", "", "bytes"],
+  ])("rejects %s without preview or host submission and permits correction", async (name, type, bytes) => {
+    const user = userEvent.setup({ applyAccept: false });
+    const submit = vi.fn(); const create = vi.fn(() => "blob:corrected"); const revoke = vi.fn();
+    vi.stubGlobal("URL", class extends URL { static createObjectURL = create; static revokeObjectURL = revoke; });
+    render(<Provider><ImageUploadModal open enableAltText onClose={vi.fn()} onSubmit={submit} /></Provider>);
+    await user.type(screen.getByRole("textbox", { name: "Image description" }), "Retained description");
+    await user.upload(screen.getByLabelText("Choose image"), new File([bytes], name, { type }));
+    expect(screen.getByRole("alert").textContent).toBe("Choose a nonempty image file.");
+    expect(create).not.toHaveBeenCalled();
+    expect((screen.getByLabelText("Choose image") as HTMLInputElement).value).toBe("");
+    await user.click(screen.getByRole("button", { name: "Insert" }));
+    expect(submit).not.toHaveBeenCalled();
+    const valid = new File(["host inspects these bytes"], "corrected.PNG");
+    fireEvent.drop(screen.getByText("Drag and drop an image here").parentElement!, { dataTransfer: { files: [valid] } });
+    expect(screen.queryByRole("alert")).toBeNull();
+    await user.click(screen.getByRole("button", { name: "Insert" }));
+    expect(submit).toHaveBeenCalledExactlyOnceWith(valid, "Retained description");
+  });
+
+  it("rejects an invalid drop after a valid selection and releases its preview", async () => {
+    const user = userEvent.setup(); const submit = vi.fn(); const revoke = vi.fn();
+    vi.stubGlobal("URL", class extends URL { static createObjectURL = vi.fn(() => "blob:valid"); static revokeObjectURL = revoke; });
+    render(<Provider><ImageUploadModal open onClose={vi.fn()} onSubmit={submit} /></Provider>);
+    await user.upload(screen.getByLabelText("Choose image"), new File(["bytes"], "cover.svg", { type: "image/svg+xml" }));
+    fireEvent.drop(screen.getByText("Drag and drop an image here").parentElement!, {
+      dataTransfer: { files: [new File([], "empty.gif", { type: "image/gif" })] },
+    });
+    expect(screen.queryByRole("img")).toBeNull();
+    expect(revoke).toHaveBeenCalledExactlyOnceWith("blob:valid");
+    await user.click(screen.getByRole("button", { name: "Insert" }));
+    expect(submit).not.toHaveBeenCalled();
   });
 });

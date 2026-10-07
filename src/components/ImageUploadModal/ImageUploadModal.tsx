@@ -53,7 +53,10 @@ export function ImageUploadModal({ open, uploading = false, errorMessage = null,
   const close = () => { reset(); onClose(); };
   const select = (file: File | null) => {
     if (busy) return;
-    if (file && !(file.type.startsWith("image/") || (!file.type && /\.(jpe?g|png|webp|avif|gif)$/i.test(file.name)))) {
+    // MIME/extension metadata is a picker check; the host validates bytes and asset policy.
+    const imageMetadata = file && (/^image\/[a-z0-9][a-z0-9!#$&^_.+-]*$/i.test(file.type)
+      || (!file.type && /\.(jpe?g|png|webp|avif|gif)$/i.test(file.name)));
+    if (file && (file.size === 0 || !imageMetadata)) {
       setSelectedFile(null); setInvalidFile(true); setFailed(false);
       if (inputRef.current) inputRef.current.value = "";
       return;
@@ -108,7 +111,7 @@ export function ImageUploadModal({ open, uploading = false, errorMessage = null,
         description={t("common.ui.imageDescriptionHint", { defaultMessage: "Describe the image for readers who cannot see it. Leave empty for a decorative image." })}
         value={altText} onValueChange={setAltText} disabled={busy} />}
       {(errorMessage || failed || invalidFile) && <Typography role="alert" tone="danger" variant="body2">
-        {errorMessage || (invalidFile ? t("common.ui.imageFileRequired", { defaultMessage: "Choose an image file." }) : t("common.ui.imageUploadFailed", { defaultMessage: "Image upload failed. Try again." }))}
+        {errorMessage || (invalidFile ? t("common.ui.imageFileRequired", { defaultMessage: "Choose a nonempty image file." }) : t("common.ui.imageUploadFailed", { defaultMessage: "Image upload failed. Try again." }))}
       </Typography>}
     </div>
   </AppModal>;
