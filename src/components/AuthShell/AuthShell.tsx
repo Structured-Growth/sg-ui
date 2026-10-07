@@ -1,5 +1,7 @@
+"use client";
 import { forwardRef, type CSSProperties, type ReactNode } from "react";
 import { Typography } from "../../experimental/Typography/Typography";
+import { revealFocusedControl } from "./revealFocusedControl";
 import styles from "./AuthShell.module.css";
 
 export type AuthShellProps = {
@@ -16,7 +18,7 @@ export const AuthShell = forwardRef<HTMLDivElement, AuthShellProps>(function Aut
   { title, subtitle, children, footerContent, className, style }, ref,
 ) {
   return (
-    <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="auth-shell">
+    <div ref={ref} onFocusCapture={revealFocusedControl} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="auth-shell">
       <div className={styles.panel} data-sgui-part="auth-shell-panel">
         <header className={styles.header}>
           <Typography as="h1" variant="h1">{title}</Typography>
