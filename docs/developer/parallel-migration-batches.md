@@ -390,3 +390,15 @@ Batch17 shared Menu native modifier autofocus worker dispatched NEW chat01a116de
 Seventh pool: Editable-title4Chromium/WebKit passes atd6a964f; Textarea4failures ata23f3b3: preventednative reset losesdraft plus unsupported description-order assumption. Freshbuild/type/sourcehash/heads verified. Workers released; Textarea correctionheld, title reportpending. Reviewed old completed PR33/32 exact scopes/stories/tests/native evidence and report-only final deltas: catalog80 C/W andheader24 C/W; no newruntimefix claimed, broadmanual/Firefoxheld.
 
 Integrated test/story/report-only PR33 catalogtabs (80focused C/W) and PR32 pageheaderreflow (24C/W), exact ownership/tested-source/report-only deltas and limits reviewed. No product defect claimed. Menu worker froze test-only baseline06af8a6 for coordinator native reproduction before fix; no jsdompass inferred as native proof. Upcoming corrected reset e1c922c/RadioGroupd2b1ccf pair ready. Acceptance67/32620.6%, required67/32020.9%, delta0,31inventory held; ETA unreliable.
+
+## 15:03 UTC coordination — corrected native passes and title integration
+
+Editable-title finalreport30377c9 pendingreview after4nativepasses. Tooltip originalmanagedcheckoutmissing (ENOENT); authorized exactsource managedrecovery fromd264c57, no foreignmetadata cleanup/primaryedits; native stillqueued. Eighth corrected reset/RadioGroup frozenpair starting. Integration sourcefrozen.
+
+Textarea worker trace found in-form controlled policyCheckbox reset changed host prevention state before delegated handler; isolates hostpolicy outside form, retaining assertions and ID descriptions. Checkbox existing exclusiveworker explicitly resumed for independent reset-contract reproduction, no productdefect assumed untilverified. Eighth reset/RadioGroup poolrunning session20513.
+
+Tooltip managedrecovery succeeded at batch13-control-tooltip-3440, exact d264c57 restored, authorized normalprerequisite9470f80/report-only eab46dc readyfrozen; primary/foreignworktrees untouched. Native remains required.
+
+Eighth corrected pool: RadioGroup6 and reset/formassociation8 Chromium/WebKit passes atd2b1ccf/e1c922c respectively. Freshbuild/type/immutablehead/hashes verified; sourcefreeze released, finalreports/source reviews awaited. PreventedpartialDateField hold unaffected. Reviewed titlePR75 exact5-file allowlist, two-line liveReadOnlyguard/nativefield mapping,10unitreported/4coordinator nativepasses atd6a964f; final30377c9report-only readyintegration.
+
+Reviewed/integrated PR75 exact5-file scope,10unitreported/4coordinator nativepasses and report-only30377c9delta; small readOnly saveguard/nativefield mapping. Eighthreset8/RadioGroup6 C/Wpasses confirmed, finalreport/source reviews stillpending; preventedpartialDateField hold remains. Next nativepair sharedMenu test-onlybaseline06af8a6 and correctedSwitchfdcb9b7. Acceptance67/32620.6%, required67/32020.9%, delta0,31inventory held.
