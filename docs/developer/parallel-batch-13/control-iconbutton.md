@@ -49,7 +49,9 @@ run. They are additional regression protection, not a claimed red/green fix.
 - Test commit/tested code: `2c326a094fffa8177d98f31e1dc7e687358e2f9b`.
 - The report-only commit is discoverable with
   `git log -1 --format=%H -- docs/developer/parallel-batch-13/control-iconbutton.md`.
-- Draft PR: pending creation; the URL will be added in a report-only update.
+- Draft PR: [#61](https://github.com/Structured-Growth/sg-ui/pull/61).
+- Initial report commit: `e407315` (report-only); final report-link commit is
+  discoverable with the command above and supplied to the coordinator.
 
 ## Local validation
 
