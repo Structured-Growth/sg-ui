@@ -123,3 +123,32 @@ No independent native rerun or Storybook build occurred. Corrected fresh Chromiu
 execution remains with the coordinator; the previous Underline failure is retained
 as red evidence, and a corrected native green outcome has not yet been claimed.
 Firefox/WebKit, manual and whole acceptance gates remain pending.
+
+## Wave33 attribute-order correction
+
+Coordinator candidate `2b9a4397791daa23afe7562049e45b85e626f0a0`, token
+`f4cf964e-a2ef-4b80-bc1d-e189e8f4a67e`, again passed the four Bold/Italic cases.
+Both Underline cases passed the original empty-class/Undo comparison and reached
+line 71, where the reloaded markup's equivalent attribute ordering failed raw
+serialization equality: the plain span had `class` before `data-lexical-text`
+instead of after it. Whole saved JSON equality immediately before it passed.
+This remained an expectation issue; production was not changed.
+
+The wave33 failed evidence under the coordinator's candidate
+`artifacts/browser-pool/f4cf964e-a2ef-4b80-bc1d-e189e8f4a67e/editor-mixed-formatting/`
+was read only and remains retained. The comparison helper now sorts each cloned
+element's attributes by exact name, reattaching the same Attr objects and retaining
+every exact name/value. Empty `class=""` remains the sole omitted attribute.
+Element order, tags, text, style strings, nonempty class strings and metadata remain
+exact. The original editor DOM is unchanged; native selection and JSON checks are
+unchanged. Class tokens and style declarations are not reordered or normalized.
+
+The helper regression was extended **before** the helper change: targeted Vitest
+was red (1 helper failure, 3 editor tests passed) on reversed equivalent attribute
+order. After implementation it is green (4/4). Negative checks additionally reject
+renamed/removed attributes, added metadata and nested structural changes, alongside
+all previous format/style/text/value checks. Browser TypeScript checking and
+`git diff --check` pass under Node 24. Light slot0 was atomically acquired and
+owner-released after the checks. No independent build/native run occurred.
+Fresh corrected Chromium proof remains pending with the coordinator, as do
+Firefox/WebKit, manual and whole acceptance gates.

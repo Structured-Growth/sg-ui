@@ -13,7 +13,7 @@ import { serializeEditorDocument } from "./lexical/serializeEditorDocument";
 // Load the exact browser comparison helper without registering Playwright cases in Vitest.
 vi.mock("@playwright/test", () => ({ expect, test: () => {} }));
 
-it("canonicalizes only empty class attributes without hiding format, style, text or metadata changes", () => {
+it("canonicalizes empty classes and attribute order while retaining structure and exact values", () => {
   const root = document.createElement("div");
   const baseline = '<p dir="auto"><strong class="editor-text-bold" style="color: var(--sgui-action);" data-lexical-text="true">Bold</strong><span data-lexical-text="true"> plain </span></p>';
   root.innerHTML = baseline;
@@ -21,6 +21,11 @@ it("canonicalizes only empty class attributes without hiding format, style, text
   root.querySelector("span")!.setAttribute("class", "");
   expect(canonicalMixedFormattingMarkup(root)).toBe(expected);
   expect(root.querySelector("span")!.hasAttribute("class")).toBe(true);
+  root.innerHTML = baseline.replace('class="editor-text-bold" style="color: var(--sgui-action);" data-lexical-text="true"',
+    'data-lexical-text="true" style="color: var(--sgui-action);" class="editor-text-bold"');
+  const originalMarkup = root.innerHTML;
+  expect(canonicalMixedFormattingMarkup(root)).toBe(expected);
+  expect(root.innerHTML).toBe(originalMarkup);
   for (const changed of [
     baseline.replace('class="editor-text-bold"', 'class="editor-text-underline"'),
     baseline.replace('<strong', '<em').replace('</strong>', '</em>'),
@@ -28,6 +33,10 @@ it("canonicalizes only empty class attributes without hiding format, style, text
     baseline.replace('Bold', 'Changed'),
     baseline.replace('data-lexical-text="true"', 'data-lexical-text="false"'),
     baseline.replace('<span ', '<span class=" " '),
+    baseline.replace('data-lexical-text="true"', 'data-lexical-other="true"'),
+    baseline.replace('data-lexical-text="true"', ''),
+    baseline.replace('<p dir="auto">', '<p dir="auto" data-extra="true">'),
+    baseline.replace('Bold</strong>', 'Bold<span>nested</span></strong>'),
   ]) {
     root.innerHTML = changed;
     expect(canonicalMixedFormattingMarkup(root)).not.toBe(expected);

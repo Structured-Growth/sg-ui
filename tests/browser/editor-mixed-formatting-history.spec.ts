@@ -1,10 +1,17 @@
 import { expect, test, type Page } from '@playwright/test';
 
 // History reconciliation can leave class="" on otherwise identical text spans.
-// Normalize only that exact attribute on a detached clone; all other markup stays exact.
+// Normalize that exact attribute and attribute order on a detached clone.
+// Attribute names/values, element structure and text otherwise stay exact.
 export function canonicalMixedFormattingMarkup(root: HTMLElement): string {
   const clone = root.cloneNode(true) as HTMLElement;
-  for (const node of clone.querySelectorAll('[class=""]')) node.removeAttribute('class');
+  for (const node of clone.querySelectorAll('*')) {
+    if (node.getAttribute('class') === '') node.removeAttribute('class');
+    const attributes = [...node.attributes].sort((left, right) =>
+      left.name < right.name ? -1 : left.name > right.name ? 1 : 0);
+    for (const attribute of attributes) node.removeAttributeNode(attribute);
+    for (const attribute of attributes) node.setAttributeNode(attribute);
+  }
   return clone.innerHTML;
 }
 
