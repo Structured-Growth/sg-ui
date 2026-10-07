@@ -17,3 +17,22 @@ it("keeps attached anchor interactions and accessible names", () => {
   expect(screen.getByRole("button", { name: "Notifications" })).toBeTruthy();
   expect(screen.getByText("4").getAttribute("data-sgui-part")).toBe("badge-content");
 });
+it("exposes a host-named overflow badge without replacing its anchor name", () => {
+  const { rerender } = render(<Badge content="999+" aria-label="1,234 unread messages">
+    <button aria-label="Open inbox">Inbox</button>
+  </Badge>);
+  expect(screen.getByRole("group", { name: "1,234 unread messages" })).toBeTruthy();
+  expect(screen.getByRole("button", { name: "Open inbox" })).toBeTruthy();
+  rerender(<><span id="badge-label">No unread messages</span>
+    <Badge content={0} aria-labelledby="badge-label" />
+  </>);
+  expect(screen.getByRole("group", { name: "No unread messages" })).toBeTruthy();
+});
+it("keeps decorative badges hidden and returns unnamed content to plain text", () => {
+  const { rerender } = render(<Badge content="99+" aria-label="Unread messages" aria-hidden />);
+  expect(screen.queryByRole("group")).toBeNull();
+  expect(screen.getByText("99+").closest('[aria-hidden="true"]')).toBeTruthy();
+  rerender(<Badge content={99} />);
+  expect(screen.queryByRole("group")).toBeNull();
+  expect(screen.getByText("99")).toBeTruthy();
+});
