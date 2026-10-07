@@ -41,9 +41,15 @@ maximum or unavailable day is disabled. Typed start/end segments and calendar
 selection share one draft. Partial/reversed/unavailable drafts cannot Apply.
 Controlled parent changes replace a draft only when serialized endpoints change.
 After activating the first endpoint, a visible translated `date-range-preview`
-status follows the interaction engine's highlighted range, including reverse and
-cross-month keyboard navigation. The complete localized date-cell labels remain
-intact. The first activation moves focus to the nearest available endpoint; arrows
+follows the interaction engine's highlighted range, including reverse and
+cross-month keyboard navigation. A translated visible context paragraph distinguishes
+the first activated anchor, the focused endpoint and the unchanged draft. Both
+paragraphs describe only the currently focused date cell while the calendar has
+interaction focus; moving focus removes the preview references from the prior cell.
+The preview adds no extra live-status announcement on each arrow; the interaction
+engine's announcements and existing draft/availability statuses remain unchanged.
+The complete localized date-cell names remain intact. The first activation moves
+focus to the nearest available endpoint; arrows
 then adjust the preview. Apply is disabled until the second endpoint is activated,
 so an unfinished selection cannot accidentally commit the previous draft.
 Cancel, Clear, presets, typed edits, changed committed host values and native reset
@@ -51,6 +57,11 @@ invalidate the pending anchor. Leaving the calendar cancels an unfinished previe
 without synthesizing a second endpoint or changing the draft. A preview is
 neither a draft commit nor submitted
 form data; after completing both endpoints, Apply still controls the commit.
+Completion and the existing anchor invalidation paths remove the preview/context
+paragraphs and their focused-cell associations. Replacing a controlled host value
+with the same serialized endpoints preserves the pending selection. At unavailable
+boundaries, the context describes the interaction engine's constrained focused
+endpoint; it does not imply that an unavailable endpoint can be selected.
 
 `DatePicker` commits single-date field/calendar changes immediately. Its name
 participates in native form data. `DateRangePicker` opens the advanced selector,
@@ -82,8 +93,11 @@ has a visible localized heading. Preset descriptions are visible paragraphs, lin
 to their buttons with `aria-describedby`, including disabled presets. Unavailable
 date buttons retain their complete localized date labels and receive host-supplied
 reason descriptions through a private native-ref bridge after mounting. The bridge
-preserves other description references and removes only its own reference when
-availability changes. It is needed because the interaction component filters
+merges availability and focused-preview description IDs with existing references
+and removes only its owned IDs when those associations change, preserving unrelated
+IDs at each attachment/cleanup. This does not promise persistence of arbitrary
+post-mount native attribute mutations across interaction-engine rerenders. It is
+needed because the interaction component filters
 labelable ARIA props. No public prop or callback changes.
 
 Calendar focus exposes the focused unavailable date and reason in a visible status
@@ -93,7 +107,14 @@ and touch alternative for reviewing all supplied dates. Host messages stay
 host-owned. Draft endpoints remain a separate status and only Apply commits.
 
 These changes address availability, preset access and visible keyboard range
-preview in K-17. Native browser regressions in
+preview in K-17. The [batch61 focused-endpoint evidence](parallel-batch-61/keyboard-range-preview.md)
+records source/unit coverage and a fresh Chromium light/dark shard passing 2/2 in
+[`batch61-keyboard-range-preview.spec.ts`](../../tests/browser/batch61-keyboard-range-preview.spec.ts).
+That shard covers focused association/removal, constrained unavailable traversal,
+unchanged committed form data and Cancel; it does not establish spoken output or
+announcement timing. Firefox/WebKit, actual assistive-technology/manual acceptance
+and the broader locale/calendar/device/touch matrix remain pending for this slice.
+Native browser regressions in
 `tests/browser/batch01-calendar.spec.ts` exercise leap-day/month-boundary previews,
 unavailable interior dates, draft/Apply/Cancel/Clear/reset form transactions and
 picker Escape/focus return. The same civil endpoints are exercised in Chicago and
