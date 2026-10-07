@@ -34,6 +34,9 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(function Che
     // React Aria's form listener runs before delegated host onReset handlers.
     // Reset requests are handled after cancellation is known, without edit callbacks.
     if (resetting.current) return;
+    // Label press handling can run even when a fieldset disables the input.
+    // Native :disabled includes fieldset inheritance and its first-legend exception.
+    if (root.current?.control?.matches(":disabled")) return;
     if (checked === undefined) setInternalChecked(next);
     onCheckedChange?.(next);
   }

@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { createRef, useState } from "react";
 import { afterEach, expect, it, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Checkbox } from "./Checkbox";
 afterEach(cleanup);
@@ -138,4 +138,26 @@ it("restores latest uncontrolled defaults on accepted reset without edit callbac
   await new Promise(resolve => setTimeout(resolve, 20));
   expect(change).not.toHaveBeenCalled();
   expect((screen.getByRole("checkbox") as HTMLInputElement).checked).toBe(true);
+});
+
+it("rejects label press requests inherited from a disabled fieldset but permits its first legend", () => {
+  const disabledChange = vi.fn(); const legendChange = vi.fn();
+  render(<form><fieldset disabled>
+    <legend><Checkbox label="Legend exemption" onCheckedChange={legendChange} /></legend>
+    <Checkbox label="Inherited disabled approval" name="disabled" onCheckedChange={disabledChange} />
+  </fieldset></form>);
+  // user-event skips the disabled ancestor before dispatch. Exercise the label
+  // press handler directly here; the separate browser regression uses physical mouse.
+  function press(label: string) {
+    const target = screen.getByText(label);
+    fireEvent.mouseDown(target, { button: 0, detail: 1 });
+    fireEvent.mouseUp(target, { button: 0, detail: 1 });
+    fireEvent.click(target, { button: 0, detail: 1 });
+  }
+  press("Inherited disabled approval");
+  expect(disabledChange).not.toHaveBeenCalled();
+  expect((screen.getByRole("checkbox", { name: "Inherited disabled approval" }) as HTMLInputElement).checked).toBe(false);
+  press("Legend exemption");
+  expect(legendChange).toHaveBeenCalledExactlyOnceWith(true);
+  expect((screen.getByRole("checkbox", { name: "Legend exemption" }) as HTMLInputElement).checked).toBe(true);
 });

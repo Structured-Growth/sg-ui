@@ -9,6 +9,10 @@ test('mixed required inputs honor fieldset transitions and host rejection', asyn
   const granted = page.getByRole('checkbox', { name: 'Mixed granted approval', exact: true });
   const rejected = page.getByRole('checkbox', { name: 'Host rejected approval', exact: true });
   await expect(approval).toBeDisabled();
+  const legendOption = page.getByRole('checkbox', { name: 'Legend option', exact: true });
+  await expect(legendOption).toBeEnabled();
+  await page.getByText('Legend option', { exact: true }).click();
+  await expect(legendOption).toBeChecked();
   // Locator.click waits for enabled state; these pointers intentionally target
   // disabled fieldset labels. Send actual mouse events to their visible bounds.
   for (const name of ['Mixed required approval', 'Host rejected approval']) {

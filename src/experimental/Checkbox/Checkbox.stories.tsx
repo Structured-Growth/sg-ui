@@ -27,7 +27,7 @@ function FieldsetAcceptanceForm() {
     setSubmitted(JSON.stringify(Object.fromEntries(new FormData(event.currentTarget))));
   }}>
     <fieldset disabled={disabled}>
-      <legend>Required approvals</legend>
+      <legend>Required approvals <Checkbox label="Legend option" /></legend>
       <Checkbox ref={labelRef} label="Mixed required approval" name="approval" value="yes" required mixed
         description="Mixed presentation does not grant approval." errorMessage="Check approval to submit." />
       <Checkbox label="Mixed granted approval" name="granted" value="yes" required mixed defaultChecked />
