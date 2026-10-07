@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { Provider } from "../../experimental/Provider/Provider";
+import { DataToolbarSelectionMenu } from "./components/DataToolbarSelectionMenu";
 import { SplitAction } from "../../experimental/SplitAction/SplitAction";
 import {
   DataToolbar,
@@ -78,3 +79,40 @@ export const ConfiguredToolbar: Story = {
 
 export const SelectedCards: Story = { args: { selectedCount: 3, leftContentWhenSelected: "Selected course actions", viewMode: "cards", onViewModeChange: () => {}, onRefresh: () => {} } };
 export const DarkToolbar: Story = { render: () => <Provider theme="dark"><TableOnlyPreview /></Provider> };
+
+/** Host fixture: requests are observable; the host deliberately rejects view changes. */
+export function NativeCompositionPreview({ rtl = false }: { rtl?: boolean }) {
+  const [count, setCount] = useState(2);
+  const [search, setSearch] = useState("");
+  const [events, setEvents] = useState<string[]>([]);
+  const [options, setOptions] = useState([
+    { id: "course", label: "Course", visible: true, locked: true },
+    { id: "status", label: "Status", visible: true },
+    { id: "actions", label: "Actions", visible: true, locked: true },
+  ]);
+  const record = (event: string) => setEvents(previous => [...previous, event]);
+  const selection = <DataToolbarSelectionMenu
+    options={[{ id: "page", label: "Select current page" }, { id: "none", label: "Clear selection" }]}
+    selectionState={count === 0 ? "none" : count === 5 ? "all" : "some"}
+    onToggleSelection={() => { record("toggle"); setCount(count === 5 ? 0 : 5); }}
+    onSelectOption={id => { record(`selection:${id}`); setCount(id === "page" ? 5 : 0); }} />;
+  return <Provider dir={rtl ? "rtl" : "ltr"}>
+    <form aria-label="Toolbar host" onSubmit={event => { event.preventDefault(); record("submit"); }}>
+      <DataToolbar aria-label="Native course toolbar" selectedCount={count}
+        leftContent={selection} leftContentWhenSelected={count > 0 ? selection : undefined}
+        showRefreshButton={false} showSortButton={false} showFilterButton={false}
+        searchValue={search} onSearchValueChange={value => { record(`search:${value}`); setSearch(value); }}
+        viewMode="cards" onViewModeChange={value => record(`view:${value}`)}
+        columnOptions={options} onColumnOptionsChange={next => {
+          record(`columns:${next.filter(option => option.visible).map(option => option.id).join(",")}`);
+          setOptions(next);
+        }} />
+      <output aria-label="Host callbacks">{JSON.stringify(events)}</output>
+      <output aria-label="Host search">{JSON.stringify(search)}</output>
+      <output aria-label="Visible host columns">{options.filter(option => option.visible).map(option => option.id).join(",")}</output>
+    </form>
+  </Provider>;
+}
+
+export const NativeComposition: Story = { render: () => <NativeCompositionPreview /> };
+export const NativeCompositionRtl: Story = { render: () => <NativeCompositionPreview rtl /> };
