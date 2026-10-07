@@ -256,7 +256,9 @@
     "@tanstack/react-table": "8.21.3",
     "lexical": "^0.41.0",
     "lucide-react": "1.52.0",
-    "react-aria-components": "1.21.1"
+    "react-aria": "3.52.1",
+    "react-aria-components": "1.21.1",
+    "react-stately": "3.50.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

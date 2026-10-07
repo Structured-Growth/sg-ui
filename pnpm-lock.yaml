@@ -47,9 +47,15 @@ importers:
       lucide-react:
         specifier: 1.52.0
         version: 1.52.0(@types/react@19.3.0)(react@19.2.3)
+      react-aria:
+        specifier: 3.52.1
+        version: 3.52.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react-aria-components:
         specifier: 1.21.1
         version: 1.21.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      react-stately:
+        specifier: 3.50.0
+        version: 3.50.0(react@19.2.3)
     devDependencies:
       '@axe-core/playwright':
         specifier: ^4.13.0
