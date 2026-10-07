@@ -71,3 +71,22 @@ Firefox/WebKit remain batch-checkpoint pending. M-22/M-23 whole-row acceptance,
 broader E/G/U/X/R/Z, manual/device/AT and selection/overlay trust boundaries remain
 open. Any shared Menu/Select issue requires an exclusively reserved successor;
 no shared implementation is writable in this slice.
+
+
+## Pre-admission fixture correction
+
+Original prepared head `06a3eef74c829538c7c83d7196e0066943ba6a26` is preserved.
+Coordinator independent read-only review identified a deterministic fixture
+precondition mismatch before native pool admission: each state-loop iteration
+physically clicks Zoom in, which leaves focus there, while the next virtual host
+update expected editor focus without first establishing it. Classification:
+fixture/expectation defect found by inspection; no native failure or product
+focus-restoration defect is claimed.
+
+The corrected spec explicitly focuses the editor and verifies settled focus before
+**each** host prop update. It retains real Zoom activation, value and callback-count
+assertions, and explicitly verifies that Zoom retains focus after its click. This
+does not add product focus restoration. Only this report and the owned browser spec
+changed. Targeted browser TypeScript checking passed again under the matching-owned
+light slot lease; log `/tmp/sgui-editor-chrome42-browser-types-correction.log`.
+Fresh Chromium remains coordinator-pending, with the same focused args.

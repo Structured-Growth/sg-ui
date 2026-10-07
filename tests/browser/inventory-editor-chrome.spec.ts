@@ -69,6 +69,10 @@ for (const theme of ['light', 'dark']) {
       await expect(requests).toHaveText('{"file":2,"menu":1,"heading":1,"bold":1,"zoom":0}');
 
       for (const state of ['read-only', 'pending', 'unavailable']) {
+        // The preceding Zoom click intentionally leaves focus on Zoom. Each
+        // replacement case starts with the editor focused, as its own precondition.
+        await editor.focus();
+        await settledFocus(page, editor);
         // Virtual host update leaves native editor focus in place while props
         // change; no fixture interaction substitutes for library controls.
         await page.getByRole('button', { name: `Use ${state}`, exact: true }).evaluate((node: HTMLButtonElement) => node.click());
@@ -81,7 +85,9 @@ for (const theme of ['light', 'dark']) {
         await expect(bold).toHaveAttribute('aria-pressed', 'true');
         await expect(page.getByRole('button', { name: 'Edit title' })).toBeDisabled();
         await expect(page.getByRole('progressbar', { name: 'Pending' })).toHaveCount(state === 'pending' ? 1 : 0);
-        await page.getByRole('button', { name: 'Zoom in', exact: true }).click();
+        const zoomIn = page.getByRole('button', { name: 'Zoom in', exact: true });
+        await zoomIn.click();
+        await settledFocus(page, zoomIn);
         await expect(page.getByLabel('Zoom', { exact: true })).toHaveText(`${state === 'read-only' ? 110 : state === 'pending' ? 120 : 130}%`);
       }
       await expect(requests).toHaveText('{"file":2,"menu":1,"heading":1,"bold":1,"zoom":3}');
