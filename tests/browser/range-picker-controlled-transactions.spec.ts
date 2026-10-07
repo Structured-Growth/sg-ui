@@ -6,7 +6,7 @@ const march = { start: '2024-03-01', end: '2024-03-31' };
 const trigger = (page: Page) => page.getByRole('button', { name: 'Choose Reporting dates', exact: true });
 const draft = (page: Page) => page.locator('[data-sgui-part="date-range-draft"]');
 const preview = (page: Page) => page.locator('[data-sgui-part="date-range-preview"]');
-const requests = (page: Page) => page.getByLabel('Range requests');
+const requests = (page: Page) => page.getByLabel('Range requests', { exact: true });
 const form = (page: Page) => page.locator('form[aria-label="Controlled range form"]');
 const endpoints = (page: Page) => form(page).evaluate(node => {
   const data = new FormData(node as HTMLFormElement);
