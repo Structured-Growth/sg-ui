@@ -106,10 +106,12 @@ test('static digest detects byte changes, rejects symlinks and freezes the build
 test('two configurable static servers preserve independent immutable bytes', { skip: process.env.SGUI_POOL_SERVER_TESTS !== '1' }, async t => {
   await assertQueueDrained('/tmp/sgui-browser-validation-priority.json', process.env.SGUI_POOL_OWNER);
   const bridge = await acquireLease(LEGACY_LOCK, `pool-server-test:${process.pid}`);
-  t.after(() => releaseLease(bridge));
-  const root = await fixture(t);
   const servers = [];
-  t.after(async () => { for (const server of servers) await new Promise(done => server.close(done)); });
+  t.after(async () => {
+    try { for (const server of servers) await new Promise(done => server.close(done)); }
+    finally { await releaseLease(bridge); }
+  });
+  const root = await fixture(t);
   for (let i = 0; i < 2; i++) {
     const dir = join(root, String(i)); await mkdir(dir); await writeFile(join(dir, 'iframe.html'), `server-${i}`);
     const port = 6473 + i;
