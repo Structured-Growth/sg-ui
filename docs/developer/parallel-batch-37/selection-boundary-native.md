@@ -73,7 +73,7 @@ Coordinator args:
 ["tests/browser/inventory-selection-boundary.spec.ts", "--project=chromium"]
 ```
 
-Chromium: **initial fresh immutable run RED; corrected head pending**. Firefox/WebKit: **pending
+Chromium: **initial run RED; corrected candidate shard 4 passed** (see wave22 below). Firefox/WebKit: **pending
 coordinated checkpoint**. No heavy build/browser server or suite was started by
 this worker; no full per-task check/Storybook, CI/title dispatch, main integration,
 publication, credentials/permissions or master-checkbox changes occurred.
@@ -123,3 +123,52 @@ the added retained-selection/collapse/reselection assertions before acceptance.
 
 Correction checks: browser source typecheck and `git diff --check` passed.
 No new browser/build or redundant unit run; runtime and story are unchanged.
+
+## Wave22 corrected candidate proof and final report-only handoff
+
+Actual browser-tested head: **candidate
+`e6270941ea8828d8868fef0798451a599a9db25f`**, managed worktree
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui`.
+The browser did **not** run worker head
+`ed89b21e6c7fada9e86a1ec0a24258e1124f561d` directly.
+Coordinator source-byte attribution in
+`/tmp/sgui-batch45-candidate-source-attribution.json` identifies that worker head,
+its baseline and all three allowed changed files as byte-identical in the
+candidate. Attributed SHA-256 bytes:
+
+| Worker file | SHA-256 in tested candidate |
+| --- | --- |
+| `src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx` | `145337424cf0bcef31511610588630e6c1afc36d03b60136d89ed470fb8b1a6a` |
+| `tests/browser/inventory-selection-boundary.spec.ts` | `ed35068d0264543d1b14b923ab6d409f4837877d2076f8926a06ebe8084dbe66` |
+| This report before finalization | `e0a0d8940f188615ca12453a804967c3013b6cf3b785f7fa3c5649aaa97247b9` |
+
+Read shard/root evidence and shard `results.json` after coordinator release.
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5`.
+Shard: `selection-boundary-native/evidence.json`, adjacent results/browser log.
+Node `v24.19.0`, Chromium, slot 3, port 6316. Fresh Storybook build and browser
+typecheck ran once for the shared candidate, followed by isolated disjoint shards.
+Executed command:
+
+```sh
+pnpm exec playwright test '(?:^|/)tests/browser/inventory-selection-boundary\.spec\.ts$' --project=chromium
+```
+
+**All four scoped Chromium cases passed**, each retry 0; results record
+expected 4, unexpected 0, skipped 0, flaky 0. The added retained native selection,
+ArrowLeft collapse, editor focus, hidden toolbar and fresh mouse reselection
+assertions passed, supporting the bounded driver correction. No product fix
+was needed. The original wave21 red run remains red and retained.
+
+Candidate initial/final head is the same, final status empty, and source digest
+unchanged:
+`d4c78b7a57d00a53a63a75fe5090b4b24c8681b532a5ba51c663a60049a2d9f0`.
+Initial/final build digest and shard digest are identical:
+`2a06f15980b85cd3f8eb36bc2ad8ce05693dc11aaafe52edc2c21b7ca10dc9ca`.
+The root supervisor status is **failed** due to other shards; this report claims
+only the passing four-case selection shard, not whole-candidate acceptance.
+
+Final change is this report only; source/spec remain the attributed tested bytes.
+No repeated tests/builds after coordinator release. Coordinator alone reviews
+and integrates history. Firefox/WebKit checkpoint, real device/physical selection,
+AT and whole M-25 acceptance remain pending/open; no master row is upgraded.

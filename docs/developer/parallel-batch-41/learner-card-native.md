@@ -48,11 +48,44 @@ and finally released only matching leases.
 - `pnpm foundations:check`: passed.
 - `pnpm tokens:check`: passed.
 
-Fresh Chromium is pending the coordinator's immutable pool. Exact selection:
-`tests/browser/inventory-learner-card.spec.ts --project=chromium` (7 cases).
-No independent heavy/browser run, full check, Storybook build, consumer matrix,
-GitHub CI/title dispatch or publication was performed. Source/spec/report are frozen
-at the handoff commit during coordinator validation; native failures must retain
-underlying product/fixture/environment/unclassified attribution before correction.
-Firefox/WebKit remain checkpoint-owned; broad/manual/device/AT acceptance remains
-held. Unit/type/guard passes alone are not native or whole-inventory acceptance.
+## Fresh Chromium result and final report-only handoff
+
+Wave22 ran on the separately managed shared test candidate
+`e6270941ea8828d8868fef0798451a599a9db25f`, **not the worker head**.
+Coordinator built fresh static Storybook and browser types once under Node
+`v24.19.0`, then ran ten disjoint Chromium shards (supervisor maximum 16).
+This shard used slot 6, port 6319, and the exact command selection:
+`pnpm exec playwright test '(?:^|/)tests/browser/inventory-learner-card\.spec\.ts$' --project=chromium`.
+Observed result: **7 passed, 0 unexpected, 0 skipped, 0 flaky**, no result errors.
+Session ran 2026-10-07 16:45:02.782–16:45:10.689 UTC. Browser build digest:
+`2a06f15980b85cd3f8eb36bc2ad8ce05693dc11aaafe52edc2c21b7ca10dc9ca`.
+Coordinator reports clean candidate and unchanged source/build hashes after the wave.
+
+Read evidence and actual result statistics:
+- [Shard evidence](/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/learner-card-native/evidence.json)
+- [Results](/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/learner-card-native/results.json)
+- [Pool evidence](/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/evidence.json)
+- [Source attribution](/tmp/sgui-batch45-candidate-source-attribution.json)
+
+The attribution records worker head `632a64320b4fff039df69840a7aa3df7d00d61ec`
+and exact owned-file byte equivalence to the candidate. Independently read/hash
+verified before this final report-only edit:
+
+| Owned file | SHA-256 at prepared worker/candidate |
+| --- | --- |
+| LearnerClassCard.stories.tsx | `1b4922964b9d31a546947f152130162dd09191d7dd2cae6631a5c40f51baf66c` |
+| inventory-learner-card.spec.ts | `877e802f9cb8795274abfef0ae23a639e574653f19ba5361e59a194f75e76206` |
+| This report before final result update | `cb2a908cf1aad18c5c0a335d2013cbd7a8c63ef88da450e01015394de43b5542` |
+
+Source/spec stayed frozen during validation and remain unchanged in this handoff.
+The report update occurs after the coordinator released the freeze. No repeated
+checks or independent heavy/browser run followed this documentation-only update.
+Initial TS2322 fixture failure above and earlier coordinator snapshots remain
+historical red evidence; the fresh seven-case pass does not relabel them as passing.
+No product failure was observed in this shard.
+
+Coordinator alone reviews/integrates the worker history; shared candidate validation
+is not dev integration or whole-row acceptance. No independent full check, Storybook
+build, consumer matrix, GitHub CI/title dispatch or publication was performed.
+Firefox/WebKit remain checkpoint-owned. Broader status attribution and
+manual/device/AT acceptance remain held; M-15 is not newly accepted.

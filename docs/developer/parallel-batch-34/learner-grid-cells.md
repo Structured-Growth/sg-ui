@@ -122,3 +122,61 @@ unit/source check rerun was needed for this spec/report-only correction.
 committed head is handed to the coordinator for fresh immutable Chromium proof;
 this is a changed-driver validation, not an unchanged retry. Source scope remains
 reserved, M-19 HOLD, and Firefox/WebKit remain checkpoint pending.
+
+## Final focused Chromium proof and handoff
+
+Coordinator wave22 executed the separately managed shared candidate
+**`e6270941ea8828d8868fef0798451a599a9db25f`**, not worker head
+`6544c172268916d24d0f3576c9acaa85bd62706d`. Fresh static Storybook and browser
+TypeScript were built/checked once before ten disjoint shards under Node24.
+The learner shard ran on slot1/port6314 with focused command:
+
+```sh
+pnpm exec playwright test '(?:^|/)tests/browser/inventory-learner-grid-cells\.spec\.ts$' --project=chromium
+```
+
+**Learner result: 8 passed / 0 failed, zero skipped/flaky**, including all four
+cases in both themes. Playwright results show `expected: 8`, `unexpected: 0`,
+`skipped: 0`, `flaky: 0`, duration 8544.912ms. Shard supervisor duration was
+9967.320667ms (2026-10-07 16:45:02.775Z–16:45:12.742Z).
+The root session is **failed** due to other shards; this report claims only the
+learner shard's pass, not a successful entire wave.
+
+Evidence is retained in the candidate worktree:
+
+- `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/learner-grid-cells/evidence.json`
+- Adjacent `results.json` and `browser.log`, plus root `evidence.json`.
+- Exact attribution file `/tmp/sgui-batch45-candidate-source-attribution.json`.
+
+Root initial/final heads are both the candidate SHA above; initial/final build
+SHA256 is unchanged:
+`2a06f15980b85cd3f8eb36bc2ad8ce05693dc11aaafe52edc2c21b7ca10dc9ca`.
+The worker independently read the shard/root/results/attribution evidence and
+verified SHA256 of all five attributed worker files against both its prepared
+head and the candidate checkout. Relevant tested file digests:
+
+| File | SHA256 |
+| --- | --- |
+| LearnerClassesDataGrid.tsx | `825d8a1d9de34de220997e0afe1ccefc63e03f72366af7cf58c9b37489db1c99` |
+| LearnerClassesDataGrid.test.tsx | `f243555780278fa41b7536f0cc1c4b980669f34c7241ee70d583a84eb7ac2edd` |
+| LearnerClassesDataGrid.native.stories.tsx | `498605566cf8b7f9a17373138e8fd0e7019d19b9022301fd32c90edcb47d5fb1` |
+| inventory-learner-grid-cells.spec.ts | `e96f5cae1ae3dbde14f06f4406ff0d34c0efe29182ea973f3605be40b7a3b935` |
+
+The correction changes only driver/report; runtime and fixture are byte-unchanged
+from wave21. All former failing route and focus assertions pass after native entry,
+readiness and foreground ownership corrections. Wave21's four native failures are
+therefore resolved as driver entry/readiness/ownership failures for this bounded
+composition, with original red evidence preserved. They do not establish a shared
+Grid/Menu product defect or environment capacity failure. The separate raw-ID
+routing product defect remains proven by the original unit red and corrected
+unit/native destinations.
+
+Coordinator released the freeze for **report-only** finalization. No source,
+story, unit or spec bytes changed after prepared head `6544c17`; no tests/builds
+were rerun for this evidence-only edit. Final documentation whitespace/scope checks
+pass. This completes the assigned Chromium-first slice and releases its source
+reservation for coordinator review/integration. Only the coordinator integrates
+history into `codex/dev`; no worker dev/main push or publication occurred.
+Firefox/WebKit remain checkpoint pending; M-19 and broad G/manual/device/AT
+acceptance remain open. The browser proof supplies provisional development
+integration evidence, not whole-row acceptance.

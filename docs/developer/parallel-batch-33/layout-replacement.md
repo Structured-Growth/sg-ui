@@ -103,3 +103,47 @@ independent heavy/native execution or unchanged browser retry occurred. Correcte
 clean head is submitted for a fresh coordinator Chromium run; normal-text native
 replacement proof remains pending until that run passes. Firefox/WebKit and all
 broader acceptance limits remain open.
+
+## Final focused Chromium evidence: wave22 candidate
+
+**Four passed, zero failed/skipped/flaky**, Chromium, Node `v24.19.0`.
+Actual tested head is the coordinator's separate clean shared candidate
+`e6270941ea8828d8868fef0798451a599a9db25f`, not worker head
+`bcb33fe172095afe87b93068feb46ebbfe275bb2`. Coordinator composed ten disjoint
+allowlists, built fresh Storybook and browser types once, then ran isolated
+focused shards. Exact layout selection:
+`pnpm exec playwright test '(?:^|/)tests/browser/inventory-layout-replacement\.spec\.ts$' --project=chromium`.
+
+Read and verified layout evidence/results:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/layout-replacement/evidence.json`
+and adjacent `results.json`, `browser.log` and geometry attachments. Root snapshot
+provenance is the adjacent parent `evidence.json`. Initial/final candidate heads
+are identical, final Git status is clean, and source/build digests remain:
+
+- Source: `d4c78b7a57d00a53a63a75fe5090b4b24c8681b532a5ba51c663a60049a2d9f0`.
+- Storybook: `2a06f15980b85cd3f8eb36bc2ad8ce05693dc11aaafe52edc2c21b7ca10dc9ca`.
+
+Coordinator attribution at `/tmp/sgui-batch45-candidate-source-attribution.json`
+maps worker `bcb33fe172095afe87b93068feb46ebbfe275bb2` to the candidate. Before
+this report-only finalization, independently compared all four worker-owned files
+against the recorded SHA-256 byte digests; all match. The source/spec digests are:
+
+- Story: `69ca7f3d749159ff2ff61949cd64cdeef29a1c684028e1449edc17c158693446`.
+- Colocated tests: `04fb3d114e7b88b1e16548f0bf842775bf91bb035c50623e4c714a6623ccb399`.
+- Native spec: `984917df042c4efa7c8ff63fd51bc5e2c64510667ebc1d30fe6fbc342695feb6`.
+
+Both normal-text themes retain exactly `1829` scrollTop and focused action top
+`39.5` CSS pixels below host top through draft/review/absent/draft. Both enlarged
+text themes retain exactly `6541` and `40.0625` respectively. All node/ref identity,
+slot replacement, visible focus bounds, scroll ownership, keyboard traversal and
+stationary-header wheel assertions pass. This confirms the initial wheel rounding
+correction without hiding slot-change drift. Original wave21 red artifacts remain
+preserved. No product defect or production correction is claimed.
+
+The root wave22 snapshot status is failed because other disjoint shards failed;
+this report claims only the successful layout shard, not a whole wave/full suite
+pass. Finalization edits this report only; source/spec remain byte-identical to the
+prepared attribution. No repeated runtime checks or independent heavy execution.
+F6a is ready for coordinator review and provisional integration; coordinator alone
+integrates worker history and releases source reservation. Firefox/WebKit checkpoint,
+M-21 whole-row, manual/device/zoom/AT and broader acceptance remain open.
