@@ -383,6 +383,19 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
   const [isSwitchingOrganization, setIsSwitchingOrganization] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const accountOperation = useRef(false);
+  const logoutOperation = useRef<object | null>(null);
+  useEffect(() => {
+    setIsLoggingOut(false);
+    setAccountError(null);
+    return () => {
+      // Invalidate shell results only. The host still owns its pending request.
+      if (logoutOperation.current) {
+        logoutOperation.current = null;
+        accountOperation.current = false;
+      }
+    };
+  }, [accountsEnabled, logoutAccount, logoutAllAccounts, getStoredAuthSession, getStoredAuthSessions]);
+
   const derivedMenuStack = useMemo(() => buildMenuStack(model.rootMenu, pathname), [model.rootMenu, pathname]);
   const menuStack = overridePathname === pathname && menuStackOverride ? menuStackOverride : derivedMenuStack;
   const effectiveExpanded = useMemo(
@@ -510,9 +523,12 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
     accountOperation.current = true;
     setAccountError(null);
     setIsLoggingOut(true);
+    const operation = {};
+    logoutOperation.current = operation;
     const wasActiveAccount = activeStoredSession?.accountId === accountId;
     try {
       await logoutAccount(accountId);
+      if (logoutOperation.current !== operation) return;
       refreshStoredSessions();
       handleUserMenuClose();
       const remainingSessions = getStoredAuthSessions();
@@ -533,9 +549,16 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
 
         router.push(`/login/select-organization?next=${encodeURIComponent(pathname)}`);
       }
+    } catch {
+      if (logoutOperation.current === operation) {
+        setAccountError(tr("user.logoutFailed", "Unable to log out. Try again."));
+      }
     } finally {
-      accountOperation.current = false;
-      setIsLoggingOut(false);
+      if (logoutOperation.current === operation) {
+        logoutOperation.current = null;
+        accountOperation.current = false;
+        setIsLoggingOut(false);
+      }
     }
   };
 
@@ -547,14 +570,24 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
     setIsLoggingOut(true);
     accountOperation.current = true;
     setAccountError(null);
+    const operation = {};
+    logoutOperation.current = operation;
     try {
       await logoutAllAccounts();
+      if (logoutOperation.current !== operation) return;
       refreshStoredSessions();
       handleUserMenuClose();
       router.push(`/login?next=${encodeURIComponent(pathname)}`);
+    } catch {
+      if (logoutOperation.current === operation) {
+        setAccountError(tr("user.logoutFailed", "Unable to log out. Try again."));
+      }
     } finally {
-      accountOperation.current = false;
-      setIsLoggingOut(false);
+      if (logoutOperation.current === operation) {
+        logoutOperation.current = null;
+        accountOperation.current = false;
+        setIsLoggingOut(false);
+      }
     }
   };
 
@@ -617,9 +650,9 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
   }
   addAction({ id: "add", label: tr("user.addAccount", "Add account"), icon: <AddIcon />, disabled: !accountsEnabled || isSwitchingOrganization || isLoggingOut }, handleOpenAddAccount);
   for (const [index, group] of switchAccountGroups.entries()) {
-    addAction({ id: `logout-${index}`, label: hasMultipleAccounts ? `${tr("user.logout", "Logout")} (${group.email || group.displayName})` : tr("user.logout", "Logout"), icon: <LogoutIcon />, disabled: !accountsEnabled || isLoggingOut || isSwitchingOrganization }, () => void handleLogoutAccount(group.accountId).catch(() => setAccountError(tr("user.logoutFailed", "Unable to log out. Try again."))));
+    addAction({ id: `logout-${index}`, label: hasMultipleAccounts ? `${tr("user.logout", "Logout")} (${group.email || group.displayName})` : tr("user.logout", "Logout"), icon: <LogoutIcon />, disabled: !accountsEnabled || isLoggingOut || isSwitchingOrganization }, () => void handleLogoutAccount(group.accountId));
   }
-  if (hasMultipleAccounts) addAction({ id: "logout-all", label: tr("user.logoutAllAccounts", "Log out of all accounts"), disabled: !accountsEnabled || isLoggingOut || isSwitchingOrganization }, () => void handleLogoutAll().catch(() => setAccountError(tr("user.logoutFailed", "Unable to log out. Try again."))));
+  if (hasMultipleAccounts) addAction({ id: "logout-all", label: tr("user.logoutAllAccounts", "Log out of all accounts"), disabled: !accountsEnabled || isLoggingOut || isSwitchingOrganization }, () => void handleLogoutAll());
   const renderSections = (sections: SideNavSection[]) => sections.map(section => <section key={section.id} className={styles.section} aria-label={section.title}>
     {section.title && <h2 className={styles.sectionTitle}>{section.title}</h2>}
     <NavItems items={section.items} pathname={pathname} expanded={effectiveExpanded} onToggle={handleToggle} onDrilldown={handleDrilldown} onItemSelect={onItemSelect} resolveIcon={resolveIcon} onNavigate={router.push} />
