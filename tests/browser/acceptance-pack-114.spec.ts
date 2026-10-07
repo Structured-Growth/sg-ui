@@ -1,15 +1,16 @@
 import { test, expect, type Page } from '@playwright/test';
 
-async function tabTo(page: Page, target: ReturnType<Page['getByRole']>) {
+async function tabTo(page: Page, target: ReturnType<Page['getByRole']>, recordFocus?: (gesture: string) => Promise<void>) {
   for (let index = 0; index < 100; index++) {
     await page.keyboard.press('Tab');
+    await recordFocus?.(`Tab ${index + 1}`);
     if (await target.evaluate(element => element === document.activeElement)) return;
   }
   throw new Error('Native Tab did not reach the requested control');
 }
 
 // G-12 evidence gap: existing deterministic fixture, no source/story changes.
-test('batch114 native column resize commits only its field and host keyboard order keeps actions last', async ({ page }) => {
+test('batch114 native column resize commits only its field and host keyboard order keeps actions last', async ({ page }, testInfo) => {
   const diagnostics: string[] = [];
   page.on('pageerror', error => diagnostics.push(error.message));
   page.on('console', message => {
@@ -26,10 +27,36 @@ test('batch114 native column resize commits only its field and host keyboard ord
   // starts inside it; a saturated initial width cannot establish an increase.
   expect(before).toBeGreaterThan(100);
   expect(before).toBeLessThan(240);
-  // The grid is a roving Tab stop. Native horizontal arrows traverse the
-  // selection header's children, then each data header's sort/resizer pair.
+  // Fresh forward Tab entry focuses the first body row, not a header child.
+  // ArrowUp enters the selection header; horizontal arrows then traverse
+  // its children and each data header's sort/resizer pair.
+  let focusSample = 0;
+  const recordFocus = async (gesture: string) => {
+    const active = await page.evaluate(() => {
+      const element = document.activeElement;
+      return element ? {
+        tag: element.tagName,
+        id: element.id,
+        role: element.getAttribute('role'),
+        label: element.getAttribute('aria-label'),
+        text: element.textContent?.trim().slice(0, 160),
+        tabIndex: element.getAttribute('tabindex'),
+        field: element.closest('[data-grid-field]')?.getAttribute('data-grid-field'),
+        row: element.closest('[data-grid-row]')?.getAttribute('data-grid-row'),
+      } : null;
+    });
+    await testInfo.attach(`native-focus-${focusSample++}`, {
+      body: JSON.stringify({ gesture, active }, null, 2),
+      contentType: 'application/json',
+    });
+  };
+  await recordFocus('initial before native Tab');
+  const firstRow = grid.locator('tbody [data-sgui-part="grid-row"]').first();
+  await tabTo(page, firstRow, recordFocus);
+  await expect(firstRow).toBeFocused();
   const selectPage = grid.getByRole('checkbox', { name: 'Select page', exact: true });
-  await tabTo(page, selectPage);
+  await page.keyboard.press('ArrowUp');
+  await recordFocus('ArrowUp from first body row');
   await expect(selectPage).toBeFocused();
   for (const target of [
     grid.getByRole('button', { name: 'Selection actions', exact: true }),
@@ -39,6 +66,7 @@ test('batch114 native column resize commits only its field and host keyboard ord
     score,
   ]) {
     await page.keyboard.press('ArrowRight');
+    await recordFocus('ArrowRight within headers');
     await expect(target).toBeFocused();
   }
   await page.keyboard.press('Enter');
