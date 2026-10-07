@@ -79,7 +79,7 @@ function EmbeddedScrollingForm() {
   const [email, setEmail] = useState("");
   const [submissions, setSubmissions] = useState(0);
   const updated = email.length >= 8;
-  return <div data-testid="auth-host-clip" style={{ margin: 24, maxInlineSize: 320, blockSize: 352, overflow: "hidden" }}>
+  return <><AppButton>Before embedded form</AppButton><div data-testid="auth-host-clip" style={{ margin: 24, maxInlineSize: 320, blockSize: 352, overflow: "hidden" }}>
     <div data-testid="auth-scroll-host" style={{ blockSize: 300, overflow: "auto" }}>
       <AuthShell style={{ minBlockSize: "100%" }} title={updated ? "Continue entry" : "School sign in"}
         subtitle={updated ? "Your host updated this form." : "Your host manages this form."}
@@ -96,7 +96,7 @@ function EmbeddedScrollingForm() {
         </form>
       </AuthShell>
     </div>
-  </div>;
+  </div></>;
 }
 
 export const EmbeddedScrollingHost: Story = {
