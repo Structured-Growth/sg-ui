@@ -73,12 +73,12 @@ native Paste into the month segment. It records trusted paste event/plain data,
 actual FormData and callback ledger in `native-date-paste-observation`. It classifies
 acceptance only if the complete civil date and callback agree; ignored paste must
 preserve the existing civil value. No ClipboardEvent mock, engine setter or
-synthetic input is substituted. **Paste support has not been observed yet.**
+synthetic input is substituted. At worker freeze, paste support was unobserved; the settled Chromium observation
+is recorded below.
 
 No independent Storybook build, browser run, full check or GitHub CI was run, per
-the bounded batch instruction. Coordinator owns a fresh candidate Storybook build
-and Chromium admission after read-only review. Intended native invocation against
-that fresh candidate:
+the bounded batch instruction. Coordinator performed the fresh candidate Storybook build and Chromium admission
+after read-only review (see settled evidence below). Prepared native invocation:
 
 ```sh
 pnpm exec playwright test tests/browser/datepicker-native-transactions.spec.ts --project=chromium
@@ -86,7 +86,75 @@ pnpm exec playwright test tests/browser/datepicker-native-transactions.spec.ts -
 
 Use the coordinator's allocated `SGUI_BROWSER_PORT` and matching
 `SGUI_BROWSER_BASE_URL`, plus its result/report/output paths, rather than a reused
-server or guessed running artifact. Firefox/WebKit checkpoint, clipboard behavior,
-physical device/assistive technology/manual acceptance, `pnpm check`, Storybook
-build and broad K/U gates remain pending. If the native run proves a bug in a
+server or guessed running artifact. Firefox/WebKit checkpoint, broader clipboard behavior, physical device/assistive
+technology/manual acceptance, full `pnpm check` and broad K/U gates remain pending. If the native run proves a bug in a
 read-only dependency, reserve a separate correction; do not expand this batch.
+
+
+## Settled coordinator wave31 evidence
+
+On October 7, 2026, the coordinator ran the exact whole DatePicker shard on testing
+candidate `1a378accd909a471e653fe4e27fe9457c9531049`. This is a shared testing candidate,
+not the worker commit. Worker source/story/unit/spec freeze was
+`149cae23af015e3a25d7bc67f673b9aaa3a8377e`; this final amendment changes only this
+report. The candidate is not approved for whole-candidate integration.
+
+**Chromium: 6 passed, 0 skipped, 0 unexpected, 0 flaky; no result errors.** All
+six cases above passed, including both browser timezones. The spec's page-error
+assertion passed for every case. Playwright reported 4.680426 seconds; the pooled
+command elapsed 5.501006417 seconds, from `2026-10-07T18:31:57.690Z` to
+`2026-10-07T18:32:03.191Z`. The four-session wave passed 21 cases total, of which
+only six belong to this batch.
+
+Runtime: Node `v24.19.0` at the requested Node executable, pnpm `10.29.3`,
+Playwright `1.63.0`, Darwin `27.0.0`. DatePicker used pool slot2 on nondefault
+port **6675**, matching origin `http://127.0.0.1:6675`. Exact selection arguments:
+
+```text
+pnpm exec playwright test (?:^|/)tests/browser/datepicker-native-transactions\.spec\.ts$ --project=chromium
+```
+
+The fresh Storybook build was produced once in the evidence root's `storybook`
+directory, then shared unchanged across the four disjoint sessions. Candidate
+head, source digest and build digest were identical before/after; final candidate
+status was clean. Evidence records owned commands settled and no owned processes
+remaining; the coordinator reports leases released. No worker rerun/build occurred.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/7c82140b-3a18-4b19-aca5-9a5f0720af5f`.
+Relevant evidence/logs, relative to that root:
+
+- `evidence.json`: whole-wave command/build/runtime/immutability evidence.
+- `build.log` and `types.log`: fresh build and browser TypeScript commands.
+- `datepicker-native-transactions/evidence.json`: selected six cases and port.
+- `datepicker-native-transactions/browser.log`: six individual passes.
+- `datepicker-native-transactions/results.json`: result stats and paste attachment.
+- `datepicker-native-transactions/report/index.html`: native HTML report.
+
+Worker attribution: `/tmp/sgui-batch45-candidate-wave31-attribution.json`.
+SHA-256 provenance:
+
+| Artifact | Digest |
+| --- | --- |
+| Candidate source | `d693faa54cb1419030282fe955d89f92f44f941cea24db640f3c519c60ae73ce` |
+| Fresh shared build | `ec6eca4336c63f839bde0508a026992dd9110b342f6072e714a5eaf6f14cde75` |
+| Worker story | `cfea6cdbcbaeb9ecee332b576eaad7daa37868f7279ca9b5176ecffb68444e24` |
+| Worker unit test | `1497cafa75ed858aa950f44ab2cded15f5213481ffc82bfc2d480de783ca1998` |
+| Worker browser spec | `aafd60a8142736ad64e183140a184271e68e2dd11ab5650705677b48b828ca7a` |
+| Native results JSON | `8af7b9c7f1d600703f52aabfe25372e4b394fa2e025c8816eb6633a588fef60d` |
+
+### Actual native paste observation
+
+The `native-date-paste-observation` JSON attachment records:
+
+```json
+{"events":[{"trusted":true,"plain":"02/29/2024"}],"value":"2024-02-28","ledger":"[]","supported":false}
+```
+
+Thus native keyboard Copy/Paste delivered trusted full-date text to the month
+segment, but this tested Chromium/en-US field retained its previous civil date
+and emitted no callback. This is an **ignored full-date paste observation**, not a
+successful paste-commit or general paste-support claim. No mocked clipboard/input
+was used. Other paste formats, locales, engines and devices remain unverified.
+Firefox/WebKit, manual/assistive technology/device coverage and whole K/U gates
+remain pending; coordinator integration is conditional on individual delta review.
