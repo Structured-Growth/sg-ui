@@ -71,6 +71,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const root = useRef<HTMLDivElement | null>(null);
   const statusNode = useRef<HTMLDivElement | null>(null);
   const statusFocus = useRef<HTMLElement | null>(null);
+  const statusScroll = useRef<{ entry: HTMLElement; node: HTMLDivElement; top: number; left: number } | null>(null);
   const container = useRef<HTMLDivElement | null>(null);
   const table = useRef<HTMLTableElement | null>(null);
   const busy = !!(loading || refreshing);
@@ -118,33 +119,32 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   }, []);
   useBrowserLayoutEffect(() => {
     const saved = statusFocus.current;
-    if (!saved) return;
-    let repairedEntry: HTMLElement | null = null;
-    let scroll: { top: number; left: number } | null = null;
+    if (!saved && !statusScroll.current) return;
     const preserveScroll = () => {
-      const node = container.current;
+      const scroll = statusScroll.current;
       // React Aria also scrolls its active cell after focus reconciliation.
       // Retain this interaction's scroll only while it still owns that entry.
-      if (!node?.isConnected || !scroll || !repairedEntry?.contains(document.activeElement)) return;
-      node.scrollTop = scroll.top;
-      node.scrollLeft = scroll.left;
+      if (!scroll?.node.isConnected || !scroll.entry.contains(document.activeElement)) return;
+      scroll.node.scrollTop = scroll.top;
+      scroll.node.scrollLeft = scroll.left;
     };
     const restore = () => {
       // Empty-state content may commit after its parent collection. Recheck
       // ownership after that commit, including any deliberate host focus move.
-      if (statusFocus.current !== saved || saved.isConnected) return;
+      if (!saved || statusFocus.current !== saved || saved.isConnected) return;
       statusFocus.current = null;
       const node = container.current;
       if (document.activeElement !== document.body || !node?.isConnected) return;
       const bodyCell = node.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder'])");
       const header = node.querySelector<HTMLElement>("thead [data-grid-field]");
-      repairedEntry = bodyCell ?? header?.querySelector<HTMLElement>("button:not(:disabled), [role='slider']") ?? header ?? table.current;
-      scroll = { top: node.scrollTop, left: node.scrollLeft };
-      repairedEntry?.focus({ preventScroll: true });
+      const entry = bodyCell ?? header?.querySelector<HTMLElement>("button:not(:disabled), [role='slider']") ?? header ?? table.current;
+      if (!entry) return;
+      statusScroll.current = { entry, node, top: node.scrollTop, left: node.scrollLeft };
+      entry.focus({ preventScroll: true });
       preserveScroll();
     };
     restore();
-    const frame = requestAnimationFrame(() => { restore(); preserveScroll(); });
+    const frame = requestAnimationFrame(() => { restore(); preserveScroll(); statusScroll.current = null; });
     return () => cancelAnimationFrame(frame);
   });
   useBrowserLayoutEffect(() => {
@@ -262,9 +262,11 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       if (event.relatedTarget instanceof Node && !root.current?.contains(event.relatedTarget)) {
         focus.current = null;
         statusFocus.current = null;
+        statusScroll.current = null;
       }
     }} onFocusCapture={event => {
       const element = event.target as HTMLElement;
+      if (!statusScroll.current?.entry.contains(element)) statusScroll.current = null;
       statusFocus.current = statusNode.current?.contains(element) ? element : null;
       if (statusFocus.current) { focus.current = null; return; }
       if (!container.current?.contains(element)) return;
