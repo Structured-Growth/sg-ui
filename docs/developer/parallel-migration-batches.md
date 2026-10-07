@@ -658,3 +658,15 @@ Wave33 candidate `2b9a4397791daa23afe7562049e45b85e626f0a0`, token `f4cf964e-a2e
 Batch75 `inventory-contract-intent`, NEW chat `01a117ae-2017-7092-9ecf-2a80e4073152`, exact baseline `39c2275b0f7a873a48eceb1c663ab0bd0016a7e7`. Isolated managed worktree before edits; exclusive write scope `docs/developer/parallel-batch-75/inventory-contract-intent.md`. M-10/M-14/M-30 source/contracts/master/history read-only; propose source-grounded row intent and preserve real unmet gates, no new APIs or automatic acceptance. Coordinator alone updates acceptance after review.
 
 Historical evidence reconciliation raised eight existing documented component stages to 93/219 (42.5%), 42 pending and84 unscored; parent acceptance remains73/326. Historical proof is not current-head full-matrix acceptance.
+
+## Wave34 native success and successor work — 2026-10-07
+
+Exact frozen testing candidate `12db3601e7fa0707c7c8d43f6e04c7fabf3c52ae`, pool `46471bab-1194-490a-bbc4-86adfcbb76e7`: all17actual Chromium cases passed (invalidation3, reorder5, grid focus3, editor6). One fresh build/typecheck;44.299s total,9.638s browser window,peakload4.727,swapdelta0. Head/source/build immutable and owned cleanup verified. Individually reviewed final report-only histories48 `75980139cd5a4063356ebe500278977f46fdbf16`,59 `00d97cbc200c7d1a29e5329fa5e809b6da895297`,72 `f2fc61e4dadf0b2fb93eb15ee62f657ca58ffa11` integrated; executable byte hashes match attribution. Prior reds retained; FW checkpoint pending; counter8 production native behavior slices. Batch48 final report needed new managed checkout because original attached checkout was absent; no foreign cleanup performed.
+
+Batch75 report `0396523` integrated. M10/M14/M30 owner intent clarification pending: preserved APIs versus additional master feature requirements. No disputed clause automatically waived.
+
+NEW batch76 chat `01a117b3-ce02-71c1-a07b-88c91ad38ec6`, baseline `036473472ffeee4e5d504d5ca76bc1431d187693`: exclusive new ExperiencePageNavigator native-transactions story/unit, tests/browser/page-navigator-native-transactions.spec.ts and unique parallel-batch-76 report. Preserved authoring native focus/reorder evidence gap; production read-only.
+
+NEW batch77 chat `01a117b4-d15c-70d2-821a-f0f44a633405`, same baseline: exclusive DocumentEditorToolbar.tsx, new heading-lifetime unit/story, tests/browser/batch77-document-heading-lifetime.spec.ts and unique parallel-batch-77 report. Reproduce queued stale heading callback/read-only ownership defect; targeted correction and Chromium proof before integration. Both require isolated managed worktree before edits, disjoint ownership, shared coordinator native validation and paused devCI.
+
+Component evidence reconciliation now120/219 (54.8%),42pending57unscored, from additional27historical scopes; parent73/326 unchanged. Exact historical heads/log hashes and artifact retention limits remain in generated report, not current-head full-suite claims.
