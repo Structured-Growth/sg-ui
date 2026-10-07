@@ -156,8 +156,10 @@ the generated evidence for both jobs and verify their browser command intervals
 overlap, both results pass, ports/UUID paths differ and final build hashes match.
 Record exact commands, selected case counts and heads. That trial proves bounded
 parallel Chromium scheduling only; it does not establish Firefox/WebKit or any
-manual/device/AT acceptance. Do not create extra worktrees or deploy the patch to
-existing workers as part of this task; the coordinator owns the reviewed trial.
+manual/device/AT acceptance. The coordinator owns selecting participants and reviewing adoption. The initial
+live proof was separately authorized and used the managed checkout plus an owned
+disposable source snapshot; its results are in the batch evidence. General
+deployment to existing workers requires coordinator review.
 
 For an authorized first-entry proof, the gated server fixture also accepts
 `SGUI_POOL_OWNER=<exact chat ID>`. Both paths still acquire the legacy lock
