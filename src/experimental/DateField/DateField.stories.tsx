@@ -37,3 +37,21 @@ function StandaloneResetForm() {
   </div>;
 }
 export const StandaloneReset: Story = { render: () => <StandaloneResetForm /> };
+
+function IncompleteResetForm({ controlled = false }: { controlled?: boolean }) {
+  const [prevent, setPrevent] = useState(true);
+  const [changes, setChanges] = useState(0);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent incomplete reset</label>
+    <form aria-label="Incomplete date reset form">
+      <DateField label="Incomplete date" name="date" required errorMessage="Complete the course date" value={controlled ? null : undefined}
+        onValueChange={() => setChanges(count => count + 1)} description="Enter a day while leaving month and year empty." />
+      <Button type="submit">Validate draft</Button>
+      <Button type="reset">Reset draft</Button>
+      <output aria-label="Draft change callbacks">{changes}</output>
+    </form>
+  </div>;
+}
+/** U-18/K-06 incomplete-draft transactions, with native validation. */
+export const IncompletePreventedReset: Story = { render: () => <IncompleteResetForm /> };
+export const ControlledNullIncompleteReset: Story = { render: () => <IncompleteResetForm controlled /> };
