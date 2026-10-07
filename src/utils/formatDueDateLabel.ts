@@ -7,6 +7,15 @@ type FormatDueDateLabelOptions = {
   t?: DueDateLabelTranslator;
 };
 
+const resolveLocale = (locale: string) => {
+  try {
+    const canonical = Intl.getCanonicalLocales(locale)[0];
+    return canonical && Intl.DateTimeFormat.supportedLocalesOf(canonical).length ? canonical : "en-US";
+  } catch {
+    return "en-US";
+  }
+};
+
 const formatDate = (value: Date, locale: string) =>
   new Intl.DateTimeFormat(locale, {
     month: "short",
@@ -57,7 +66,7 @@ export const formatDueDateLabel = (
   nowInput: unknown = new Date(),
   options: FormatDueDateLabelOptions = {},
 ) => {
-  const locale = options.locale ?? "en-US";
+  const locale = resolveLocale(options.locale ?? "en-US");
   const t = (key: string, defaultMessage: string, values?: Record<string, string | number>) =>
     options.t ? options.t(key, defaultMessage, values) : interpolate(defaultMessage, values);
 

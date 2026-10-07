@@ -162,3 +162,87 @@ for their individual row criteria after source/test/contract review and unchange
 implementation comparison with the tested75b7c3 snapshot. Master adds six scoring
 checkboxes for existing IDs, not new tasks. Remaining31 rows held; broad gates open.
 The accepted-count delta is evidence reconciliation, not new-feature throughput.
+
+
+## Batch07 successors
+
+New chats use reviewed dev `fbaba5b` with exclusive scopes:
+
+| Task | Chat | Ownership |
+| --- | --- | --- |
+| progress-status (M-02/M-03 bounded acceptance) | `01a11678-be5b-7b90-99d0-67b025fe8c10` | src/components/AppInlineProgress/; src/components/AppOperationSteps/; tests/browser/batch07-progress-status.spec.ts; docs/developer/parallel-batch-07/progress-status.md |
+| catalog-tabs (M-05/U-09 bounded acceptance) | `01a11678-c0d7-7f33-9a88-25e2cfe54643` | src/components/AppPageTabs/; tests/browser/batch07-catalog-tabs.spec.ts; docs/developer/parallel-batch-07/catalog-tabs.md |
+
+Acceptance checklist: 67/326 (20.6%), required 67/320 (20.9%). Six accepted-row delta is evidence reconciliation;31 inventoried rows held. ETA not reliable. Grid-busy PR19 report received, awaitingreview.
+
+
+## Batch05 defect reviews and batch08 successors
+
+Portal direction(PR22), nativegrid busy(PR19) anddue locale fallback(PR20)
+file ownership/source/targeted evidence reviewed; conflict-free history-preserving
+merges pusheddev `d771320`. Reports: [direction](parallel-batch-05/portal-direction.md),
+[busy](parallel-batch-05/grid-busy.md), [due dates](parallel-batch-05/due-date.md).
+366related direction tests,68busy tests and59due tests per4timezones passed;
+direction/busy focused Chromium-WebKit cases passed,Firefox launch remainedblocked.
+No whole-task acceptance increase or full integration rerun inferred.
+
+Three new batch08 chats start from reviewed `d771320`; exclusive allowlists:
+
+| Task | Chat | Ownership |
+| --- | --- | --- |
+| selector-direction (H-06/U-19) | `01a1167a-e019-7250-8363-4aa1f9ea9237` | src/experimental/Select/; src/experimental/ComboBox/; tests/browser/batch08-selector-direction.spec.ts; docs/developer/parallel-batch-08/selector-direction.md |
+| grid-retry-focus (G-15/G-16) | `01a1167a-e25f-7c62-a2b4-126127c725ab` | src/components/AppDataGrid/ownedGridInteraction.tsx; src/components/AppDataGrid/ownedGridInteraction.test.tsx; src/components/AppDataGrid/ownedGridInteraction.stories.tsx; tests/browser/batch08-grid-retry-focus.spec.ts; docs/developer/parallel-batch-08/grid-retry-focus.md |
+| due-label-composition (M-15/H-12) | `01a1167a-e64f-7ff2-83b9-8cd88b6f25de` | src/components/LearnerClassCard/; tests/browser/batch08-due-label.spec.ts; docs/developer/parallel-batch-08/due-label-composition.md |
+
+
+## Due-label composition review and batch09
+
+[PR24 report](parallel-batch-08/due-label-composition.md) reviewed: exact two-file
+test/report scope,12 composition regressions,17cardtests across3timezones plus
+type/foundation passes. No runtime defect. Full-history merge pusheddev `e372781`.
+Browser ICU/React18 packed/cross-timezone or advancing-clock hydration remainopen;
+reserve fixed-clock browser ICU slice for a later validation slot.
+Freed slot assigned to new documentation-only chat `01a1167d-8163-7ab0-a8dc-60ec2e2ebe6a`,
+baseline `e372781`, inventory-contract-wording (W19/M10/M14/M30). Exclusive files:
+`docs/developer/react-aria-inventory-contract-reconciliation.md` and
+`docs/developer/parallel-batch-09/inventory-contract-wording.md`. It proposes exact
+criteria mappings/wording without silently dropping required behavior; central
+checklists remain coordinator-owned. Maximumtenactiveworkers, targeted policy.
+
+
+## Automatic development CI pause — 2026-10-07
+
+User requested holding GitHub CI while consolidating development. CI andPR-title
+workflows exclude codex/dev PR base at trigger;dev pushes already excluded.
+Targeted local worker evidence and occasional local full checkpoints continue.
+Production-bound/main/reusable release validation and permissions are preserved.
+Cancel only queued/running CI/title pull-request runs verified to targetcodex/dev.
+Historical failures/cancellations remain visible, not passed evidence.
+Workers/coordinator must not wait for dev GitHub checks or attempt to re-enable
+automation. Grid-clipboard PR18 completion received during this change, queued
+for ownership/evidence review after the CI policy update.
+
+
+## Connectivity recovery, defect review and batch10
+
+Git remote andGitHub read-only API connectivity verified afterlocationchange.
+DevCI/title pause pushed4758ca8; workers/coordinator retainLOCALtargeted checks and
+localoccasional checkpoints, noGitHub devcheck waits/reruns. Cancellation requested
+for activeverifieddevPR runs; historicalfailures remainvisible, notpassed.
+PR18copy lifetime/stale availability andPR28selector direction ownership/evidence
+reviewed, conflict-freehistorymerges pusheddev061a882. PR27standaloneFirefox
+diagnostic reviewed/integrated: native/Playwrightfail beforeSGUI, app-dataEPERM,
+stopunchangedretries untilenvironmentchanges. HistoricalLinuxevidence keptseparate.
+Reports: [clipboard](parallel-batch-05/grid-clipboard.md),
+[Firefox](parallel-batch-05/firefox-runtime.md),
+[selectors](parallel-batch-08/selector-direction.md).
+Native-resetPR21 andshell-statePR26reports received; reviewpending. Separate
+WebKitportal-focus historicalfailure reservedfortargetedlocalreproduction.
+
+Three newbatch10chats use revieweddev061a882 andexclusive scopes:
+
+| Task | Chat | Ownership |
+| --- | --- | --- |
+| page-header-reflow (M-04/U-19) | `01a116a4-f72f-7853-b068-47a3e2ebe9cb` | src/components/AppPageHeader/; tests/browser/batch10-page-header-reflow.spec.ts; docs/developer/parallel-batch-10/page-header-reflow.md |
+| auth-shell-reflow (M-07/U-02) | `01a116a4-fa98-7d20-a217-302eca6279e1` | src/components/AuthShell/; tests/browser/batch10-auth-shell-reflow.spec.ts; docs/developer/parallel-batch-10/auth-shell-reflow.md |
+| card-frame-reflow (M-13/U-02) | `01a116a4-fd4c-7ab3-acfa-d29891b53fef` | src/components/ClassCardFrame/; tests/browser/batch10-card-frame-reflow.spec.ts; docs/developer/parallel-batch-10/card-frame-reflow.md |

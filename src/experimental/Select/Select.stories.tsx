@@ -1,3 +1,4 @@
+import { SelectorDirectionStory } from "../Select/SelectorDirectionStory";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { Select } from "./Select";
@@ -14,3 +15,5 @@ export const Independent: Story = { render: () => {
  const options = [{ id: "draft", label: "Draft" }, { id: "locked", label: "Unavailable", disabled: true }, { id: "active", label: "Active" }];
  return <form><Select label="First status" name="first" options={options} defaultValue="draft" /><Select label="Second status" name="second" options={options} value={value} onValueChange={setValue} /></form>;
 } };
+
+export const ExplicitPortalDirections: Story = { render: () => <SelectorDirectionStory kind="select" /> };

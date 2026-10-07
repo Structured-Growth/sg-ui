@@ -19,8 +19,8 @@ export function DatePicker({ value, defaultValue = null, onValueChange, unavaila
   const [open, setOpen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
   const unavailableReason = unavailable?.find(day => day.date === selected)?.reason;
-  useFormReset(root, () => { if (value === undefined) setInternal(defaultValue); setOpen(false); });
-  function change(date: string | null) { if (value === undefined) setInternal(date); onValueChange?.(date); }
+  const resetting = useFormReset(root, () => { if (value === undefined) setInternal(defaultValue); setOpen(false); });
+  function change(date: string | null) { if (resetting.current) return; if (value === undefined) setInternal(date); onValueChange?.(date); }
   return <div ref={root} className={styles.root}>
     <DateField {...props} value={selected} onValueChange={change} invalid={props.invalid || !!unavailableReason} errorMessage={unavailableReason ?? props.errorMessage} />
     <Popover title={props.label} open={open} onOpenChange={setOpen} trigger={<Button variant="outlined" tone="neutral" disabled={props.disabled || props.readOnly}

@@ -73,22 +73,37 @@ function CopyCell({ text, unavailable, textClassName }: { text: string; unavaila
   const [feedback, setFeedback] = useState<"success" | "error" | null>(null);
   const [pending, setPending] = useState(false);
   const generation = useRef(0);
+  const feedbackTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const clearFeedbackTimer = () => {
+    clearTimeout(feedbackTimer.current);
+    feedbackTimer.current = undefined;
+  };
   useEffect(() => {
     generation.current += 1;
+    clearFeedbackTimer();
     setFeedback(null);
     setPending(false);
-    return () => { generation.current += 1; };
-  }, [text]);
+    return () => { generation.current += 1; clearFeedbackTimer(); };
+  }, [text, unavailable]);
   const copy = async () => {
-    const current = generation.current;
+    const current = ++generation.current;
+    clearFeedbackTimer();
+    const announce = (result: "success" | "error") => {
+      if (generation.current !== current) return;
+      setFeedback(result);
+      feedbackTimer.current = setTimeout(() => {
+        if (generation.current === current) setFeedback(null);
+        feedbackTimer.current = undefined;
+      }, 3000);
+    };
     setFeedback(null);
     setPending(true);
     try {
       if (typeof navigator === "undefined" || !navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
       await navigator.clipboard.writeText(text);
-      if (generation.current === current) setFeedback("success");
+      announce("success");
     } catch {
-      if (generation.current === current) setFeedback("error");
+      announce("error");
     } finally { if (generation.current === current) setPending(false); }
   };
   return <><span className={textClassName} title={text}>{text}</span>

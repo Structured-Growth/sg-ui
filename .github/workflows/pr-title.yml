@@ -1,6 +1,7 @@
 name: PR title
 on:
   pull_request:
+    branches-ignore: [codex/dev]
     types: [opened, edited, synchronize, reopened, ready_for_review]
 permissions:
   contents: read

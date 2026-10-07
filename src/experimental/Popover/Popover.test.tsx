@@ -7,6 +7,7 @@ import { Popover } from "./Popover";
 import { Button } from "../Button/Button";
 import { TextField } from "../TextField/TextField";
 import { ThemeScope } from "../../foundation/ThemeScope";
+import { Menu } from "../Menu/Menu";
 import { Provider } from "../Provider/Provider";
 import { SGTranslationProvider } from "../../i18n";
 afterEach(cleanup);
@@ -54,4 +55,35 @@ describe("owned popover proof", () => {
     rerender(<Popover title="Course note" open={false} onOpenChange={change} trigger={<Button>Edit note</Button>}>Content</Popover>);
     await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
   });
+});
+
+it("preserves explicit visual direction through a nested menu portal without replacing English locale", async () => {
+  const user = userEvent.setup();
+  const content = (dir?: "ltr" | "rtl") => <SGTranslationProvider value={{ locale: "en-US", t: (_key, options) => options.defaultMessage, useNamespace: () => {} }}>
+    <Provider dir={dir} theme="dark" density="compact" style={{ "--sgui-surface": "#123456", margin: "99px" }}>
+      <ThemeScope><Popover title="Settings" trigger={<Button>Settings</Button>}>
+        <Menu label="Nested actions" trigger={<Button>Actions</Button>} items={[{ id: "review", label: "Review" }]} />
+      </Popover></ThemeScope>
+    </Provider>
+  </SGTranslationProvider>;
+  const { rerender } = render(content("rtl"));
+  await user.click(screen.getByRole("button", { name: "Settings" }));
+  const popover = screen.getByRole("dialog").closest("[data-sgui-scope]") as HTMLElement;
+  expect(popover.getAttribute("dir")).toBe("rtl");
+  await user.click(screen.getByRole("button", { name: "Actions" }));
+  const menu = screen.getByRole("menu").closest("[data-sgui-scope]") as HTMLElement;
+  expect(menu.getAttribute("dir")).toBe("rtl");
+  for (const scope of [popover, menu]) {
+    expect(scope.getAttribute("lang")).toBe("en-US");
+    expect(scope.getAttribute("data-sgui-theme")).toBe("dark");
+    expect(scope.getAttribute("data-sgui-density")).toBe("compact");
+    expect(scope.style.getPropertyValue("--sgui-surface")).toBe("#123456");
+    expect(scope.style.margin).toBe("");
+  }
+  rerender(content());
+  expect(menu.getAttribute("dir")).toBe("ltr");
+  expect(popover.getAttribute("dir")).toBe("ltr");
+  await user.keyboard("{Escape}");
+  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Actions" })));
+  expect(screen.getByRole("dialog")).toBeTruthy();
 });
