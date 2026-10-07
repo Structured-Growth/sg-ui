@@ -47,13 +47,13 @@ export function PointerReorderInvalidationFixture() {
     <p role="status" aria-label="Replacement state">Revision {revision}; last {lastReplacement}; armed {replacement ?? "none"}</p>
     <p role="status" aria-label="Source requests">Source requests: {sourceRequests}</p>
     <p role="status" aria-label="Other requests">Other requests: {otherRequests}</p>
-    <div role="region" aria-label="Source grid" style={{ height: 360 }}>
+    <div role="region" aria-label="Source grid" style={{ height: 480 }}>
       <AppDataGrid rows={rows} columns={columns} label="Source courses" getRowLabel={row => row.name}
         getRowId={identityChanged ? replacementIdentity : originalIdentity}
         defaultPaginationModel={{ page: 0, pageSize: 10 }} pageSizeOptions={[10]}
         rowDrag={{ onReorder: () => setSourceRequests(current => current + 1) }} />
     </div>
-    <div role="region" aria-label="Other grid" style={{ height: 360 }}>
+    <div role="region" aria-label="Other grid" style={{ height: 480 }}>
       <AppDataGrid rows={otherRows} columns={columns} label="Other courses" getRowLabel={row => row.name}
         getRowId={originalIdentity} defaultPaginationModel={{ page: 0, pageSize: 10 }} pageSizeOptions={[10]}
         rowDrag={{ onReorder: () => setOtherRequests(current => current + 1) }} />

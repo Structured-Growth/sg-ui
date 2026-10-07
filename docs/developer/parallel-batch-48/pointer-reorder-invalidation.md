@@ -57,7 +57,7 @@ repository harness; owned leases were released after commands settled.
 | `pnpm foundations:check` | Passed owned import/layer/token guard. |
 | `git diff --check` | Passed. |
 
-## Frozen source attribution and native handoff
+## Initial frozen source attribution and native handoff
 
 SHA-256 of the three executable files:
 
@@ -69,11 +69,11 @@ SHA-256 of the three executable files:
 
 Ready focus arguments:
 `tests/browser/inventory-pointer-reorder-invalidation.spec.ts --project=chromium`.
-Fresh native validation is **pending** the coordinator's reviewed testing-only
+At initial handoff, fresh native validation was **pending** the coordinator's reviewed testing-only
 candidate and immutable fresh Storybook pool. No independent build, server or
 browser suite ran. The exact frozen commit is supplied in the coordinator handoff;
 this report will receive a report-only follow-up after native evidence arrives.
-No tested candidate or dev acceptance is claimed yet.
+The next section records the subsequent tested candidate; no dev acceptance is claimed.
 
 Firefox/WebKit await the batch checkpoint. Physical-device long-press drag,
 spoken AT, host production network races and broad M-18/G/U/X/R/Z acceptance remain
@@ -82,3 +82,60 @@ publication, workflow permission/secret/version change or broad acceptance closu
 Historical red evidence remains intact; any native failure must be classified as
 product, fixture/driver/expectation, environment or unclassified, with retained
 logs and a reserved successor for production defects.
+
+## Wave 23 red evidence and bounded driver correction
+
+Coordinator tested candidate `c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`
+in `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui`,
+attributing these four owned files to worker `a841946586e88375c0206442524aef3c79aff318`
+via `/tmp/sgui-batch45-candidate-wave23-attribution.json`. Fresh immutable build
+SHA-256: `1afdb63861962fc7858ba9c42ec5a7e7e5dcc9b89d4f02fad7d6d9ddead899ca`.
+Evidence directory:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457/pointer-reorder-invalidation`.
+`evidence.json`, `results.json`, `browser.log`, screenshots, attached native logs
+and both failing traces remain untouched. Result: **1 passed, 2 failed**, zero
+skipped/flaky. All sessions settled and owned leases released; source/build bytes
+unchanged, per coordinator attestation. This testing-only candidate is not dev
+acceptance.
+
+Both replacement cases passed revision, trusted start/end, zero requests in both
+grids, unchanged orders, cleared drag indicators/attributes and source focus.
+They failed the required `dragstart, drop, dragend` sequence because no `drop`
+arrived. Read-only trace/screenshot diagnosis identifies **fixture/driver geometry**:
+the 360px frame clipped row 4 below the grid's scroll container. The dataset trace
+released at `(333, 652.5)`, in the pagination footer, after transiently entering
+`course-4` then leaving the table (native log grid became null). The screenshot
+shows only source rows 1–3 fully visible. The identity case has the same path and
+failure. This is not evidence that replacement legally cancels an otherwise valid
+native drop. No production defect is established by these failed cases.
+
+The cross-grid case passed but shared the clipped-row driver; it established
+trusted entry into the other collection and safe outside release, not release on
+the intended other-grid row. Its green outcome is retained with that scope limit.
+
+Correction enlarges both reserved fixture frames to 480px and the browser viewport
+to 1500px tall. Before and after pointer movement, read-only `elementFromPoint`
+assertions now require the precise intended `course-4` row and table at the actual
+release point. Required trusted start/drop/end assertions and all zero-stale,
+order, cleanup and focus assertions remain unchanged. No synthetic focus/selection,
+forced drop, permissive alternative event sequence or product edits were added.
+
+After correction, an owned light slot on Node 24.19.0 ran:
+
+- `pnpm exec vitest run src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx --maxWorkers=1`: 3/3 pass, 1.42 seconds.
+- `pnpm exec tsc --noEmit`: pass.
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: pass.
+- `pnpm foundations:check`: pass.
+- `git diff --check`: pass.
+
+Revised executable SHA-256: story
+`73d78ef89bb557bf4941bbd8c248f4cc3427f3f10217bf488e93059a4013bea3`,
+native spec `ec608c320db9275f4b7f9228805e30f013a22e9b8d1c95076a1097c357502915`;
+composed test hash unchanged. Fresh coordinator Chromium proof of these changed
+bytes remains pending; original reds have not been relabeled as a pass.
+
+Coordinator separately reports an earlier pre-browser PATH error and cleanup
+EPERM, with retained evidence and verified owner recovery of dead owned leases.
+No browser proof is attributed to that environment failure. Actual wave 23 child
+PATH used Node 24.19.0 correctly. This worker did not release any coordinator or
+foreign lease. Cross-engine/device/AT and broad acceptance limits remain as above.

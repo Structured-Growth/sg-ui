@@ -22,7 +22,7 @@ async function observe(page: Page) {
         row: target?.closest('[data-grid-row]')?.getAttribute('data-grid-row') ?? null });
     }, true);
   });
-  await page.setViewportSize({ width: 1200, height: 1100 });
+  await page.setViewportSize({ width: 1200, height: 1500 });
   await page.goto(storyUrl);
   for (const name of ['Source', 'Other'] as const) await expect(order(page, name)).toHaveText(initial(name));
   return errors;
@@ -42,13 +42,23 @@ async function beginDrag(page: Page) {
   ]);
 }
 
-async function moveTo(page: Page, target: Locator, after = false) {
+async function moveTo(page: Page, target: Locator, after = false, expectedGrid?: 'Source courses' | 'Other courses') {
   const box = (await target.boundingBox())!;
   const x = box.x + Math.min(300, box.width / 2);
   const y = box.y + (after ? box.height - 2 : box.height / 2);
+  const hit = (probeY = y) => page.evaluate(({ x, y }) => {
+    const element = document.elementFromPoint(x, y);
+    return { grid: element?.closest('table[aria-label]')?.getAttribute('aria-label') ?? null,
+      row: element?.closest('tr[data-grid-row]')?.getAttribute('data-grid-row') ?? null };
+  }, { x, y: probeY });
+  // boundingBox includes clipped rows. Prove that this actual release point
+  // hits the intended visible row, rather than a footer or an outside surface.
+  if (expectedGrid) expect(await hit()).toEqual({ grid: expectedGrid, row: 'course-4' });
   await page.mouse.move(x, y, { steps: 10 });
   // A second native movement delivers dragover before mouseup.
   await page.mouse.move(x, y + (after ? -1 : 1));
+  // Recheck after drag affordances render; no focus or DOM state is changed.
+  if (expectedGrid) expect(await hit(y + (after ? -1 : 1))).toEqual({ grid: expectedGrid, row: 'course-4' });
 }
 
 async function expectCancelled(page: Page) {
@@ -69,7 +79,7 @@ for (const kind of ['dataset', 'identity'] as const) {
     await moveTo(page, page.getByRole('region', { name: 'Host replacement strip', exact: true }));
     await expect(page.getByRole('status', { name: 'Replacement state', exact: true }))
       .toHaveText(`Revision 1; last ${kind}; armed none`);
-    await moveTo(page, region(page, 'Source').locator('tr[data-grid-row="course-4"]'), true);
+    await moveTo(page, region(page, 'Source').locator('tr[data-grid-row="course-4"]'), true, 'Source courses');
     await page.mouse.up();
     await info.attach('trusted-pointer-events', { body: JSON.stringify(await events(page)), contentType: 'application/json' });
     await expectCancelled(page);
@@ -84,7 +94,7 @@ for (const kind of ['dataset', 'identity'] as const) {
 test('F7 trusted pointer release over another grid cancels with colliding row IDs and no stale move', async ({ page }, info) => {
   const errors = await observe(page);
   await beginDrag(page);
-  await moveTo(page, region(page, 'Other').locator('tr[data-grid-row="course-4"]'), true);
+  await moveTo(page, region(page, 'Other').locator('tr[data-grid-row="course-4"]'), true, 'Other courses');
   await expect.poll(async () => (await events(page)).some(event => event.type === 'dragenter' && event.grid === 'Other courses' && event.trusted)).toBe(true);
   await page.mouse.up();
   await info.attach('trusted-cross-grid-events', { body: JSON.stringify(await events(page)), contentType: 'application/json' });
