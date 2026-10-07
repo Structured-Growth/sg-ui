@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { SideNavigation, type SideNavigationModel } from "./SideNavigation";
@@ -61,3 +61,55 @@ it("guards concurrent async account operations and returns focus on success", as
   await user.click(trigger); await user.click(screen.getByRole("menuitem", { name: "Another School" })); await user.click(screen.getByRole("menuitem", { name: "Another School" })); expect(change).toHaveBeenCalledTimes(1);
   finish(); await waitFor(() => expect(screen.queryByRole("menu")).toBeNull()); await waitFor(() => expect(document.activeElement).toBe(trigger));
 });
+
+for (const action of ["account", "all"] as const) {
+  for (const outcome of ["success", "rejection"] as const) {
+    for (const boundary of ["replacement", "removal", "unmount"] as const) {
+      it(`ignores late ${action} logout ${outcome} after adapter ${boundary}`, async () => {
+        let resolve!: () => void;
+        let reject!: (error: Error) => void;
+        const pending = new Promise<void>((yes, no) => { resolve = yes; reject = no; });
+        const oldHost = accounts();
+        const sessions = [
+          { accountId: "a", email: "a@example.com", organizations: [{ id: "org-1", name: "Hogwarts" }] },
+          { accountId: "b", email: "b@example.com", organizations: [{ id: "org-2", name: "Another School" }] },
+        ];
+        oldHost.getStoredAuthSessions = vi.fn(() => sessions);
+        oldHost.logoutAccount = vi.fn(() => pending);
+        oldHost.logoutAllAccounts = vi.fn(() => pending);
+        const nextHost = accounts();
+        let finishNext!: () => void;
+        nextHost.logoutAccount = vi.fn(() => new Promise<void>(yes => { finishNext = yes; }));
+        const navigate = vi.fn();
+        const view = (host?: SGAccountAdapter) => {
+          const content = <SideNavigation model={model} />;
+          return <Provider><SGNavigationProvider value={{ pathname: "/course", navigate }}>
+            {host ? <SGAccountProvider value={host}>{content}</SGAccountProvider> : content}
+          </SGNavigationProvider></Provider>;
+        };
+        const rendered = render(view(oldHost));
+        const user = userEvent.setup();
+        await user.click(screen.getByRole("button", { name: "Harry Potter Hogwarts" }));
+        await user.click(screen.getByRole("menuitem", { name: action === "all" ? "Log out of all accounts" : "Logout (a@example.com)" }));
+        if (boundary === "unmount") rendered.unmount();
+        else {
+          rendered.rerender(view(boundary === "replacement" ? nextHost : undefined));
+          if (boundary === "removal") await user.click(screen.getByRole("button", { name: "Harry Potter Hogwarts" }));
+          await waitFor(() => expect(screen.getByRole("menuitem", { name: "Logout" }).getAttribute("aria-disabled")).toBe(boundary === "replacement" ? null : "true"));
+          if (boundary === "replacement") await user.click(screen.getByRole("menuitem", { name: "Logout" }));
+        }
+        const readsBeforeCompletion = vi.mocked(oldHost.getStoredAuthSessions).mock.calls.length;
+        await act(async () => { if (outcome === "success") resolve(); else reject(new Error("late failure")); await pending.catch(() => {}); });
+        expect(navigate).not.toHaveBeenCalled();
+        expect(oldHost.getStoredAuthSessions).toHaveBeenCalledTimes(readsBeforeCompletion);
+        expect(screen.queryByRole("alert")).toBeNull();
+        if (boundary === "replacement") {
+          expect(screen.getByRole("menu")).toBeTruthy();
+          expect(screen.getByRole("menuitem", { name: "Logout" }).getAttribute("aria-disabled")).toBe("true");
+          await act(async () => finishNext());
+          await waitFor(() => expect(navigate).toHaveBeenCalledExactlyOnceWith("/login?next=%2Fcourse"));
+        }
+      });
+    }
+  }
+}

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { SGNavigationProvider } from "../../adapters";
+import { useMemo, useRef, useState } from "react";
+import { SGAccountProvider, type SGAccountAdapter, SGNavigationProvider } from "../../adapters";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { ApartmentIcon } from "../../experimental/icons";
 import { AssignmentTurnedInIcon } from "../../experimental/icons";
@@ -10,6 +10,7 @@ import { DashboardIcon } from "../../experimental/icons";
 import { DescriptionIcon } from "../../experimental/icons";
 import { GroupIcon } from "../../experimental/icons";
 import { PaidIcon } from "../../experimental/icons";
+import { Button } from "../../experimental/Button/Button";
 import { Box } from "../../experimental/Box/Box";
 import { Typography as Text } from "../../experimental/Typography/Typography";
 import { SideNavigation, type SideNavigationModel } from "./SideNavigation";
@@ -136,5 +137,47 @@ function HostRoutingExample(args: React.ComponentProps<typeof SideNavigation>) {
       <Text as="h1" variant="h4">Host application</Text>
       <Text>{pathname}</Text>
     </Box></Box>
+  </SGNavigationProvider>;
+}
+
+/** Host requests continue independently; obsolete results cannot change the new shell. */
+export const LogoutLifetime: Story = {
+  render: (args) => <LogoutLifetimeExample {...args} />,
+};
+
+function LogoutLifetimeExample(args: React.ComponentProps<typeof SideNavigation>) {
+  const [generation, setGeneration] = useState(0);
+  const [provided, setProvided] = useState(true);
+  const [mounted, setMounted] = useState(true);
+  const [requests, setRequests] = useState(0);
+  const [navigation, setNavigation] = useState("None");
+  const pending = useRef<Array<{ resolve: () => void; reject: (error: Error) => void }>>([]);
+  const host = useMemo<SGAccountAdapter>(() => {
+    let sessions = [
+      { accountId: `a-${generation}`, email: "a@example.com", organizations: [{ id: "org-tulsa", name: "Tulsa Public Schools" }] },
+      { accountId: `b-${generation}`, email: "b@example.com", organizations: [{ id: "org-charter", name: "Charter Network" }] },
+    ];
+    const logout = () => new Promise<void>((resolve, reject) => {
+      pending.current.push({ resolve, reject });
+      setRequests(count => count + 1);
+    }).then(() => { sessions = []; });
+    return { getStoredAuthSessions: () => sessions, getStoredAuthSession: () => sessions[0],
+      setActiveStoredAuthSession: () => {}, markOrganizationSwitched: () => {}, logoutAccount: logout, logoutAllAccounts: logout };
+  }, [generation]);
+  const content = mounted ? <SideNavigation {...args} /> : null;
+  return <SGNavigationProvider value={{ pathname: "/courses", navigate: setNavigation }}>
+    <Box style={{ display: "flex", minHeight: "100dvh" }}>
+      {provided ? <SGAccountProvider value={host}>{content}</SGAccountProvider> : content}
+      <Box style={{ padding: "var(--sgui-space4)" }}>
+        <Text as="h1" variant="h4">Host logout lifetime</Text>
+        <Button onPress={() => setGeneration(value => value + 1)}>Replace account adapter</Button>
+        <Button onPress={() => setProvided(value => !value)}>Toggle account adapter</Button>
+        <Button onPress={() => setMounted(value => !value)}>Toggle navigation</Button>
+        <Button onPress={() => pending.current.shift()?.resolve()}>Complete oldest logout</Button>
+        <Button onPress={() => pending.current.shift()?.reject(new Error("Host failure"))}>Reject oldest logout</Button>
+        <Text aria-label="Host logout requests">{requests}</Text>
+        <Text aria-label="Host navigation result">{navigation}</Text>
+      </Box>
+    </Box>
   </SGNavigationProvider>;
 }
