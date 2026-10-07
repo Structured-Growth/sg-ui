@@ -65,13 +65,50 @@ density heights, no horizontal overflow, surviving visible host focus, and exact
 one callback per keyboard action. Axe violations and runtime errors/warnings fail;
 no sleeps, timing delays, skipped rules or engine exceptions are used.
 
-**Native execution is pending coordinator validation.** The strict geometry/focus
-assertions may identify a real owned defect; this worker did not speculate or
-change runtime styles without native evidence. Any confirmed repair must stay
-within the exclusive component paths and retain a meaningful regression.
+## Settled wave 29 native evidence
 
-Firefox/WebKit are deferred coordinator checkpoints; known launcher/engine issues
-remain owned elsewhere. Physical devices, actual browser chrome zoom, manual
+The coordinator's wave 29 passed all **four assigned Chromium cases**, with zero
+skips, unexpected failures or flaky cases, no retries, and an empty top-level
+Playwright errors array. Actual tested candidate:
+`f87c8d336932ea70ad3ab9eaea5e4e6b77bc40ec`, not the standalone worker head.
+The worker's source/test/story/report bytes at
+`53ab1a69f7a10a073e483ec7fc5ac704a265e6f0` were attributed to that candidate in
+`/tmp/sgui-batch45-candidate-wave29-attribution.json`. All five original file
+SHA-256 values were independently rechecked against the frozen worker before this
+report-only update; all matched. No source/spec/test/story changed after execution.
+
+Cases: `mutable progress/ordered steps survive native reflow: light/compact`,
+`light/comfortable`, `dark/compact`, and `dark/comfortable`. Each case includes
+the entire transition and computed-state sequence described above. Strict
+geometry/focus assertions passed, so no runtime repair was warranted.
+
+Retained run root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/693cd1a1-28f1-4986-b345-258b4621c480`.
+The `progress-steps-native-state/` shard retains `evidence.json`, `results.json`,
+`browser.log`, report and traces directory. Its Chromium slot was 2, port 6555;
+results duration was 5.715 seconds, October 7, 2026 at 1:02 p.m. America/Chicago.
+Runtime: Node `24.19.0`, pnpm `10.29.3`, Playwright `1.63.0`, Darwin `27.0.0`.
+
+The root manifest records one fresh Storybook build and browser typecheck before
+five distinct shards. Root totals are 54 passed cases, including other workers'
+separately attributed slices; those are not this worker's acceptance evidence.
+Original/final candidate HEAD match, final git status is clean, and original/final
+source and build digests match:
+
+- Source: `6464ca63b43a916374529d26fd88b7cdefcd4efb82b0bcd2014618c1d9bbfe38`.
+- Static build: `d6a2c0f07f33e5ca842a98dbf9fe0f0f86b9700add97fdda68c4bcb87c9859f8`.
+
+Owned commands settled before the coordinator authorized this report-only edit.
+No worker independent native build/server/test was launched. This batch has no
+retained red native attempt: its first attributed focused run passed. Historical
+failures, launcher limitations and earlier batch evidence remain in their own
+reports; this result does not erase or claim to rerun them. Candidate composition
+and a green wave do not imply codex/dev integration or whole-row acceptance;
+coordinator alone integrates the worker commits individually.
+
+Firefox/WebKit execution of this new spec remains a deferred coordinator checkpoint.
+Passing Firefox cases for other specs in this wave do not establish progress/steps
+coverage in that engine. Physical devices, actual browser chrome zoom, manual
 visual review and spoken assistive-technology announcements remain held. DOM
 live-region updates never prove actual screen-reader speech. This report closes
 no broad U/X/R/Z or whole-row acceptance gate. GitHub dev CI/title workflows remain
