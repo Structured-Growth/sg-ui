@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useState } from "react";
+import { useState, type ComponentProps } from "react";
 import { MenuBookIcon as BookIcon } from "../../experimental/icons/MenuBookIcon";
 import { PeopleIcon } from "../../experimental/icons/PeopleIcon";
 import { BuildIcon as TuneIcon } from "../../experimental/icons/BuildIcon";
@@ -51,3 +51,24 @@ export const Compact: Story = {
 
 export const Overflow: Story = { decorators: [(Story) => <div style={{ width: 260 }}><Story /></div>] };
 export const Disabled: Story = { args: { items: items.map(item => ({ ...item, disabled: item.id === "learners" })) } };
+
+// M-05/U-09: catalog wrapper acceptance, independent controlled instances.
+const acceptanceItems = [
+  { id: "details", label: "Details", href: "/details", content: "Course details" },
+  { id: "locked", label: "Unavailable", href: "/locked", disabled: true, content: "Unavailable" },
+  { id: "access", label: "Access", href: "/access", content: "Course access" },
+  { id: "content", label: "Content", content: "Course content" },
+  { id: "publishing", label: "Publishing", content: "Course publishing" },
+  { id: "history", label: "History", href: "/history", content: "Course history" },
+];
+function CatalogKeyboardPreview({ activation, density }: Pick<ComponentProps<typeof AppPageTabs>, "activation" | "density">) {
+  const [first, setFirst] = useState("details");
+  const [second, setSecond] = useState("details");
+  return <div style={{ inlineSize: "min(100%, 18rem)" }}>
+    <AppPageTabs label="Course sections" items={acceptanceItems} value={first} onChange={setFirst} activation={activation} density={density} />
+    <AppPageTabs label="Independent sections" items={acceptanceItems} value={second} onChange={setSecond} activation={activation} density={density} />
+  </div>;
+}
+export const NativeKeyboard: Story = {
+  render: args => <CatalogKeyboardPreview activation={args.activation} density={args.density} />,
+};
