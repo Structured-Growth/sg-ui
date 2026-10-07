@@ -35,7 +35,7 @@ also documented in [layout/actions](react-aria-layout-actions.md),
 | Divider / DividerProps | Native divider; horizontal/vertical orientation and native ref |
 | Chip / ChipProps | Passive presentation span with native `HTMLSpanElement` ref; label content is children. No `onRemove`; removable tokens use TagGroup from `/experimental` |
 | LinearProgress / LinearProgressProps | Named Progress with fixed linear presentation; value bounds/valueText and native div ref |
-| Switch / SwitchProps | Own label, boolean checked/default/change values, native input ref |
+| Switch / SwitchProps | Own label, boolean checked/default/change values, native `HTMLLabelElement` ref |
 | List / ListProps | Native ul with native ref |
 | ListItem / ListItemProps | Native li; selection belongs to its nested control |
 | ListItemButton / ListItemButtonProps | Owned onPress button; selected state, native button ref |
@@ -47,6 +47,11 @@ also documented in [layout/actions](react-aria-layout-actions.md),
 | TableCell / TableCellProps | Native td with spans/headers/alignment; use new TableHeaderCell for native th/scope |
 | Collapse / CollapseProps | `expanded` replaces `in`; retains state in hidden content by default, optional unmountOnCollapse; transition-engine props removed |
 | Tooltip / TooltipProps | Explicit owned button trigger and plain text `content`; controlled/default visibility and delays |
+
+The Switch ref points to its wrapping native label. Obtain the associated input
+through `switchRef.current?.control`; narrow it with `instanceof HTMLInputElement`
+before reading `checked` or calling `focus()`. The forwarded label itself does not
+expose input state or provide the input focus target.
 
 Additional public exports include Button, Provider, ThemeScope, Progress, ComboBox,
 Link, ListItemIcon, TableFoot, TableHeaderCell and TableCaption, plus their owned
