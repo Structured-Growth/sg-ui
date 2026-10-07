@@ -1,14 +1,17 @@
-# F2 learner-card native due/action evidence
+# M-15 F2 learner-card native due/action evidence
 
 Reviewed base: `3c31ee6daae917ad82fbd2bd882c203f381d75dd`.
 Managed isolated worktree created and attached before writes:
 `/Users/thomashall/.codex/worktrees/batch41-learner-card-native/sg-ui`.
 Branch: `codex/batch41-learner-card-native`. Date: 2026-10-07.
 
-The assignment labels this M-14 F2. The [batch-30 review](../parallel-batch-30/inventory-acceptance-13-24.md)
-labels LearnerClassCard M-15 and InstructorClassCard M-14. This evidence follows
-F2's existing learner due/actions scope; neither row is newly accepted. Status
-and original broader owner/API menu/date intent attribution remain held.
+The coordinator confirmed LearnerClassCard is **M-15**; M-14 is
+InstructorClassCard, as recorded in the [batch-30 review](../parallel-batch-30/inventory-acceptance-13-24.md).
+The initial assignment's M-14 label was a typo. This evidence follows M-15 F2's
+existing learner due/actions scope; neither row is newly accepted. The broader
+status criterion attribution and original owner/API menu/date intent remain held.
+The prepared source/spec head is `ba658c54aa51f1f676afe3d3e3b5c05b9f91bbec`;
+this follow-up corrects report attribution only and changes no native cases.
 
 ## Bounded additions
 
