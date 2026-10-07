@@ -136,7 +136,7 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 
 - [ ] L-01 Verify the selected versions' actual licenses, including React Aria Components, hooks/state/date utilities, icon assets, grid engine, editor packages, and transitive distributed code.
 - [ ] L-02 Preserve Apache 2.0 licenses and applicable notices; record modifications where required if upstream code is copied or changed rather than merely depended on.
-- [ ] L-03 Preserve SGUI's commercial-license requirement and distinguish SGUI-owned work from upstream open-source work; do not impose exclusive SGUI terms on independently licensed dependencies.
+- [x] L-03 Preserve SGUI's commercial-license requirement and distinguish SGUI-owned work from upstream open-source work; do not impose exclusive SGUI terms on independently licensed dependencies.
 - [ ] L-04 Refresh `THIRD_PARTY_NOTICES.md` from the final shipped dependency and asset inventory; remove a retired notice only after its code/assets are no longer distributed.
 - [ ] L-05 Avoid replacing icon imports with copied assets that retain the retired dependency or its licensing obligations unnoticed.
 - [ ] L-06 Record grid Community/Enterprise and redistribution implications before selecting an engine; no paid feature dependency is silently assumed.
@@ -172,7 +172,7 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 
 - [x] C-01 Add a build pipeline that compiles colocated CSS Modules and emits browser-ready CSS with source maps where appropriate.
 - [x] C-02 Choose/document stylesheet entry points and import order; provide a basic installation example that requires no consumer Tailwind/PostCSS configuration.
-- [ ] C-03 Use CSS variables for themes and dynamic values, variant/state attributes for predictable states, and supported part hooks for customization.
+- [x] C-03 Use CSS variables for themes and dynamic values, variant/state attributes for predictable states, and supported part hooks for customization.
 - [ ] C-04 Replace `sx`, `paperSx`, theme callbacks, object-style overrides, and retired DOM selectors with owned contracts and component styles; map each removed public styling prop.
 - [x] C-05 Define a named, namespaced library cascade layer and low-specificity selectors; document unlayered consumer override behavior and important-declaration caveats.
 - [x] C-06 Make a global reset optional; scope necessary component normalization and do not change host body, links, buttons, or typography merely by importing SGUI.
@@ -417,7 +417,7 @@ The calendar prototype is required to validate the foundation. Product-specific
 advanced features need a concrete requirement; this list does not silently commit
 to a full booking backend or scheduling product.
 
-- [ ] K-01 Define the initial advanced-selector requirements and success examples: date-only, date/time, range, presets, unavailable dates, clear, and explicit Apply/Cancel.
+- [x] K-01 Define the initial advanced-selector requirements and success examples: date-only, date/time, range, presets, unavailable dates, clear, and explicit Apply/Cancel.
 - [ ] K-02 Implement owned date field, calendar, date picker, range calendar, range picker, and time field building blocks needed by those requirements.
 - [ ] K-03 Define selection versus focused date versus visible month separately; support controlled/default state and predictable clear/reset behavior.
 - [ ] K-04 Support minimum/maximum, unavailable-date explanations, validation, required/optional input, and host-supplied availability without fetching business data.
@@ -432,7 +432,7 @@ to a full booking backend or scheduling product.
 - [ ] K-13 [Future] Define recurrence UI separately: frequency, intervals, days, count/until, exceptions, preview, and explicit host-owned recurrence processing.
 - [ ] K-14 [Future] Evaluate a resource/week/day scheduler separately from date selection: overlapping events, time slots, capacity, drag/resize, keyboard alternatives, and virtualization.
 - [ ] K-15 [Future] Define appointment/course-session/booking compositions through data/callbacks and generic models; availability computation, conflicts, reservations, permissions, and persistence stay host-owned.
-- [ ] K-16 Publish feature limits honestly; React Aria provides useful building blocks, not a complete recurrence or resource-scheduling engine.
+- [x] K-16 Publish feature limits honestly; React Aria provides useful building blocks, not a complete recurrence or resource-scheduling engine.
 - [ ] K-17 Define keyboard and non-hover access to availability explanations, range previews, and preset descriptions; rich date-cell decorations must not replace meaningful date labels.
 
 ## 15. Editors and optional domain extensions
