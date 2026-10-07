@@ -131,8 +131,37 @@ or weakened TimeField assertion is used. Source and stories are byte-unchanged
 from the initially tested head. Browser TypeScript and foundation boundaries
 passed under light slots, with logs `/tmp/sgui-b25-label-browser-types.log` and
 `/tmp/sgui-b25-label-guards.log`; diff whitespace passed. Only spec/report changed.
-Corrected native acceptance is pending the coordinator's seven-case selection:
+The coordinator's seven-case selection for the corrected spec is:
 
 ```sh
 pnpm test:browser tests/browser/batch25-timefield-reset.spec.ts tests/browser/batch13-control-timefield.spec.ts --project=chromium
 ```
+
+
+## Corrected coordinator Chromium evidence
+
+Released pool token `3efb9bc7-b53a-48b1-88f3-de88ce5585a4` passed at exact clean
+head `127b3be83872b15babf5e6a4931b9b7c29db8529`, using bundled Node 24.19.0,
+pnpm 10.29.3 and Playwright 1.63.0. Read the actual `evidence.json`, final
+`browser.log` and `results.json`: fresh Storybook build and browser typecheck
+passed; all **7 Chromium cases passed**, expected 7 / skipped 0 / unexpected 0 /
+flaky 0. The final head/status are unchanged and clean. Initial/final immutable
+build digest is `5a18d5c738e3515d5f32e29cc8af6d885bed63e64f9833953f053c4308ded68e`.
+The browser log contains terminal NO_COLOR/FORCE_COLOR notices; all retained
+runtime error/warning assertions passed.
+
+The four new native cases establish prevented complete/incomplete draft
+preservation, controlled-null handling, silent accepted clearing/reset to latest
+default, required validation preservation/reset, FormData and native focus.
+The three existing cases establish parse-feedback reset and en-US/de-DE host
+replacement/wrapping/read-only/disabled parity on the new rendering path. This
+is focused Chromium evidence, not native RED or the broader acceptance matrix.
+Firefox/WebKit checkpoint, physical devices/IME and assistive technology remain
+pending. No repeated worker validation or independent native run was launched.
+
+Preserved local successful evidence is under
+`artifacts/browser-pool/3efb9bc7-b53a-48b1-88f3-de88ce5585a4/`; the earlier
+four-failure/three-pass pool proof remains intact in its separate token directory.
+After release, only this report changed from the clean native-tested head.
+The final evidence commit is supplied in the completion message; coordinator
+alone reviews/integrates. No whole-task/manual gate is upgraded by this report.
