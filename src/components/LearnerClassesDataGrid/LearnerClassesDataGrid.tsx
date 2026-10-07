@@ -1,29 +1,15 @@
 "use client";
 
-import Link from "../../adapters/Link";
 import { useCallback, useMemo } from "react";
-import type { GridColumnVisibilityModel, GridPaginationModel, GridSortModel } from "@mui/x-data-grid";
-import MuiLink from "@mui/material/Link";
 import type { LearnerClass } from "../../models";
 import { useTranslation } from "../../i18n";
-import type { DataGridInteractionMode } from "../DataToolbar";
 import { AppDataGrid, createActionMenuColumn } from "../AppDataGrid";
 import { formatDueDateLabel } from "../LearnerClassCard";
-import type { AppDataGridColumn, AppDataGridSortRule } from "../AppDataGrid/types";
+import type { AppDataGridColumn } from "../AppDataGrid/types";
 
-type LearnerClassesDataGridProps = {
-  rows: LearnerClass[];
-  storageKey: string;
-  mode?: DataGridInteractionMode;
-  columnVisibilityModel?: GridColumnVisibilityModel;
-  sortModel?: GridSortModel;
-  paginationMode?: "client" | "server";
-  paginationModel?: GridPaginationModel;
-  onPaginationModelChange?: (model: GridPaginationModel) => void;
-  pageSizeOptions?: number[];
-  rowCount?: number;
-  sortRules?: AppDataGridSortRule[];
-  onSortRulesChange?: (nextRules: AppDataGridSortRule[]) => void;
+export type LearnerClassesDataGridProps = Omit<import("../AppDataGrid").AppDataGridProps<LearnerClass>, "columns" | "label" | "getRowLabel"> & {
+  label?: string;
+  getRowLabel?: (row: LearnerClass) => string;
 };
 
 const buildLearnerLaunchHref = (row: LearnerClass): string =>
@@ -36,21 +22,15 @@ const buildColumns = (
   {
     field: "id",
     headerName: tr("table.columns.classId", "Section ID"),
-    headerClassName: "dg-first-col",
-    cellClassName: "dg-first-col",
     width: 120,
   },
   {
     field: "courseName",
     headerName: tr("table.columns.name", "Name"),
-    cellType: "custom",
+    cellType: "link",
     flex: 1,
     minWidth: 230,
-    renderCustomCell: (row) => (
-      <MuiLink component={Link} href={`/sections/${row.id}/learner/me`} sx={{ color: "primary.main", fontWeight: 500, textDecoration: "none" }}>
-        {row.courseName}
-      </MuiLink>
-    ),
+    getLink: row => ({ href: `/sections/${row.id}/learner/me` }),
   },
   {
     field: "siteName",
@@ -63,7 +43,7 @@ const buildColumns = (
     headerName: tr("table.columns.due", "Due"),
     flex: 1,
     minWidth: 220,
-    valueFormatter: (value) => formatDueDateLabel(String(value), undefined, { locale, t: tr }),
+    formatValue: (value) => formatDueDateLabel(String(value), undefined, { locale, t: tr }),
   },
   createActionMenuColumn<LearnerClass>({
     headerName: tr("table.columns.actions", "Actions"),
@@ -94,20 +74,7 @@ export const learnerClassesSortOptions = [
   { id: "dueAt", label: "Due" },
 ] as const;
 
-export function LearnerClassesDataGrid({
-  rows,
-  storageKey,
-  mode = "client",
-  columnVisibilityModel,
-  sortModel,
-  paginationMode,
-  paginationModel,
-  onPaginationModelChange,
-  pageSizeOptions,
-  rowCount,
-  sortRules,
-  onSortRulesChange,
-}: LearnerClassesDataGridProps) {
+export function LearnerClassesDataGrid({ label, getRowLabel = row => row.courseName, ...props }: LearnerClassesDataGridProps) {
   const { locale, t, useNamespace } = useTranslation();
   useNamespace("sections.learner");
   const tr = useCallback(
@@ -116,30 +83,6 @@ export function LearnerClassesDataGrid({
     [t],
   );
   const columns = useMemo(() => buildColumns(tr, locale), [locale, tr]);
-
-  return (
-    <AppDataGrid
-      columnVisibilityModel={columnVisibilityModel}
-      columns={columns}
-      mode={mode}
-      paginationMode={paginationMode}
-      paginationModel={paginationModel}
-      onPaginationModelChange={onPaginationModelChange}
-      pageSizeOptions={pageSizeOptions}
-      onSortRulesChange={onSortRulesChange}
-      rowCount={rowCount}
-      rows={rows}
-      sortModel={sortModel}
-      sortRules={sortRules}
-      storageKey={storageKey}
-      sx={{
-        "& .dg-first-col": {
-          pl: 3,
-        },
-        "& .dg-last-col": {
-          pr: 3,
-        },
-      }}
-    />
-  );
+  return <AppDataGrid {...props} columns={columns} getRowLabel={getRowLabel}
+    label={label ?? tr("table.label", "Courses")} />;
 }

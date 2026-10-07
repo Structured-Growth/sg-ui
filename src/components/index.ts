@@ -68,7 +68,6 @@ export {
   type AppGridRowId,
   type AppGridRowSelectionModel,
   type AppGridPaginationModel,
-  type AppGridSortModel,
   RowSubHeader,
   type RowSubHeaderProps,
 } from "./AppDataGrid";

@@ -3,21 +3,27 @@
 import { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement, type Ref } from "react";
 import { Table, TableHeader, Column, TableBody, Row, Cell, ResizableTableContainer, ColumnResizer } from "react-aria-components/Table";
 import { CheckboxContext } from "react-aria-components/Checkbox";
+import { Menu } from "../../experimental/Menu/Menu";
+import { Button } from "../../experimental/Button/Button";
+import { ArrowDropDownIcon } from "../../experimental/icons";
 import { Checkbox } from "../../experimental/Checkbox/Checkbox";
 import { useTranslation } from "../../i18n";
 import { changeOwnedGridHeaderSort, measureOwnedGridWidths, type OwnedGridPresentationColumn } from "./ownedGridColumns";
-import { getOwnedGridCellValue, getOwnedGridRowId, processOwnedGridRows } from "./ownedGridModel";
+import { getOwnedGridCellValue, getOwnedGridRowId, processOwnedGridRows, type OwnedGridProcessingResult } from "./ownedGridModel";
 import { getOwnedGridPageSelection, selectOwnedGridPage } from "./ownedGridState";
 import { useOwnedGridController, type OwnedGridControllerOptions } from "./ownedGridController";
 import { useOwnedGridLayoutController, type OwnedGridLayoutControllerOptions } from "./ownedGridLayoutController";
 import { OwnedGridCell, type OwnedGridCellProps } from "./ownedGridCells";
 import { OwnedGridHeaderSortMenu, OwnedGridStatus } from "./ownedGridParts";
+import type { OwnedGridTransition } from "./ownedGridState";
 import styles from "./ownedGridInteraction.module.css";
 
 const useBrowserLayoutEffect = typeof document === "undefined" ? useEffect : useLayoutEffect;
 
 /** Internal catalog interaction; public AppDataGrid integration lands separately. */
 export interface OwnedGridInteractionProps<RowModel> extends OwnedGridControllerOptions<RowModel>, OwnedGridLayoutControllerOptions<RowModel> {
+  dispatchTransition?: (action: OwnedGridTransition) => void;
+  processingResult?: OwnedGridProcessingResult<RowModel>;
   label: string;
   rows: readonly RowModel[];
   columns: readonly OwnedGridPresentationColumn<RowModel>[];
@@ -25,6 +31,8 @@ export interface OwnedGridInteractionProps<RowModel> extends OwnedGridController
   getRowLabel: (row: RowModel) => string;
   mode?: "client" | "server";
   selection?: boolean;
+  selectPageLabel?: string;
+  selectNoneLabel?: string;
   isRowSelectable?: (row: RowModel) => boolean;
   onRowAction?: (row: RowModel) => void;
   loading?: boolean;
@@ -44,16 +52,17 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const { label, rows, columns, getRowId, getRowLabel, mode = "client", selection = true, isRowSelectable,
     onRowAction, loading, refreshing, errorMessage, onRetry, locale, timeZone, formatDate, className, style, tableRef } = props;
   const { t } = useTranslation();
-  const { state, dispatch } = useOwnedGridController(props);
+  const { state, dispatch: localDispatch } = useOwnedGridController(props);
+  const dispatch = props.dispatchTransition ?? localDispatch;
   const { layout, setWidths } = useOwnedGridLayoutController(props);
-  const processed = useMemo(() => processOwnedGridRows({ ...props, mode, ...state }),
-    [rows, columns, getRowId, mode, props.rowCount, props.hasNextPage, props.filterFields, state.paginationModel, state.sortRules, state.filterRules, state.searchValue]);
+  const processed = useMemo(() => props.processingResult ?? processOwnedGridRows({ ...props, mode, ...state }),
+    [props.processingResult, rows, columns, getRowId, mode, props.rowCount, props.hasNextPage, props.filterFields, state.paginationModel, state.sortRules, state.filterRules, state.searchValue]);
   const visible = layout.order.map(field => columns.find(column => column.field === field)!).filter(column => layout.visibility[column.field]);
   const container = useRef<HTMLDivElement | null>(null);
   const table = useRef<HTMLTableElement | null>(null);
   const [availableWidth, setAvailableWidth] = useState(0);
   const resizing = useRef<string | null>(null);
-  const measured = measureOwnedGridWidths(visible, availableWidth - (selection ? 48 : 0), layout.widths);
+  const measured = measureOwnedGridWidths(visible, availableWidth - (selection ? 80 : 0), layout.widths);
   const pageRows = processed.rows.map(row => ({ id: getOwnedGridRowId(row, getRowId), original: row }));
   const selectable = pageRows.filter(row => isRowSelectable?.(row.original) !== false).map(row => row.id);
   const pageSelection = getOwnedGridPageSelection(state.selectedRowIds, selectable);
@@ -88,7 +97,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     if (document.activeElement !== document.body && !node.contains(document.activeElement)) return;
     if (pageChanged) {
       node.scrollTop = 0;
-      (node.querySelector<HTMLElement>("tbody [data-grid-field]") ?? table.current)?.focus();
+      (node.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection'])") ?? table.current)?.focus();
     } else if (!saved.element.isConnected) {
       const cells = [...node.querySelectorAll<HTMLElement>("[data-grid-field]")];
       const cell = cells.find(cell => cell.dataset.gridRow === saved.rowId && cell.dataset.gridField === saved.field) ??
@@ -100,7 +109,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const noRows = pageRows.length === 0;
   const status = errorMessage !== undefined ? "error" : loading && noRows ? "loading" : refreshing || loading ? "refreshing" :
     noRows ? (state.searchValue || state.filterRules.length ? "noResults" : "empty") : undefined;
-  return <div onFocusCapture={event => {
+  return <div className={styles.root} onFocusCapture={event => {
       const element = event.target as HTMLElement;
       if (!container.current?.contains(element)) return;
       const cell = element.closest<HTMLElement>("[data-grid-field]");
@@ -130,9 +139,14 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
         if (row) onRowAction(row.original);
       } : undefined}>
       <TableHeader>
-        {selection && <Column id="__selection" width={48} minWidth={48} maxWidth={48} textValue={t("common.ui.grid.selection", { defaultMessage: "Selection" })} className={[styles.header, styles.selection].join(" ")}>
-          <CheckboxContext.Provider value={null}><Checkbox label={t("common.ui.selectPage", { defaultMessage: "Select page" })} checked={pageSelection === "all"} mixed={pageSelection === "some"}
+        {selection && <Column id="__selection" width={80} minWidth={80} maxWidth={80} textValue={t("common.ui.grid.selection", { defaultMessage: "Selection" })} className={[styles.header, styles.selection].join(" ")}>
+          <div className={styles.selectionControls}><CheckboxContext.Provider value={null}><Checkbox label={t("common.ui.selectPage", { defaultMessage: "Select page" })} checked={pageSelection === "all"} mixed={pageSelection === "some"}
             disabled={!selectable.length} onCheckedChange={checked => dispatch({ type: "selection", value: selectOwnedGridPage(state.selectedRowIds, selectable, checked) })} /></CheckboxContext.Provider>
+          <Menu label={t("common.ui.grid.selectionActions", { defaultMessage: "Selection actions" })}
+            trigger={<Button variant="text" density="compact" aria-label={t("common.ui.grid.selectionActions", { defaultMessage: "Selection actions" })}><ArrowDropDownIcon /></Button>}
+            items={[{ id: "page", label: props.selectPageLabel ?? t("common.ui.selectPage", { defaultMessage: "Select page" }), disabled: !selectable.length },
+              { id: "none", label: props.selectNoneLabel ?? t("common.ui.selectNone", { defaultMessage: "None" }) }]}
+            onAction={id => dispatch({ type: "selection", value: id === "page" ? selectOwnedGridPage(state.selectedRowIds, selectable, true) : new Set() })} /></div>
         </Column>}
         {visible.map((column, index) => {
           const direction = state.sortRules.find(rule => rule.field === column.field)?.direction;

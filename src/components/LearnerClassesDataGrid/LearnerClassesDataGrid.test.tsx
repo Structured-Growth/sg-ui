@@ -57,12 +57,12 @@ describe("LearnerClassesDataGrid", () => {
     expect(useNamespace).toHaveBeenCalledWith("sections.learner");
 
     const nameColumn = columns.find((column) => column.field === "courseName");
-    const nameCell = nameColumn.renderCustomCell(rows[0]);
-    expect(nameCell.props.href).toBe("/sections/c1/learner/me");
-    expect(nameCell.props.children).toBe("Course");
+    expect(nameColumn.cellType).toBe("link");
+    expect(nameColumn.getLink(rows[0]).href).toBe("/sections/c1/learner/me");
+    expect(element.props.getRowLabel(rows[0])).toBe("Course");
 
     const dueColumn = columns.find((column) => column.field === "dueAt");
-    expect(dueColumn.valueFormatter(rows[0].dueAt)).toBe("Due soon");
+    expect(dueColumn.formatValue(rows[0].dueAt)).toBe("Due soon");
     expect(formatDueDateLabel).toHaveBeenCalledWith(
       rows[0].dueAt,
       undefined,
@@ -84,7 +84,6 @@ describe("LearnerClassesDataGrid", () => {
       rows: [],
       storageKey: "learner.table",
       mode: "server",
-      paginationMode: "server",
       paginationModel: { page: 2, pageSize: 50 },
       onPaginationModelChange,
       pageSizeOptions: [25, 50],
@@ -94,7 +93,6 @@ describe("LearnerClassesDataGrid", () => {
     }) as any;
 
     expect(element.props.mode).toBe("server");
-    expect(element.props.paginationMode).toBe("server");
     expect(element.props.paginationModel).toEqual({ page: 2, pageSize: 50 });
     expect(element.props.rowCount).toBe(300);
     expect(element.props.storageKey).toBe("learner.table");

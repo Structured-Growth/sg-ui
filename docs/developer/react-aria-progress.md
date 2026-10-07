@@ -1067,3 +1067,70 @@ strict whole-directory and public-entry/declaration audits; then M-17 shared
 shell, M-18 reorder, M-19 learning composition and required remaining backlog.
 Commit/push and dispatch the successor local sg-ui chat, with no overlapping
 checkout edits after dispatch.
+
+## Catalog grid public integration batch
+
+Implemented on 2026-10-06 for draft PR #1: M-16 public AppDataGrid renderer,
+owned public types/helpers and old cell/header/status paths now compose the
+registered owned interaction. Whole AppDataGrid, AppDataGridShell and
+LearnerClassesDataGrid directories and their transitive source/declarations enter
+the strict audit. Granular public entries are added for all three. This is code
+integration, not an internal proof-only batch.
+
+M-17 shell now owns one set of criteria/layout/selection, shares a single processed
+result between list/cards and passes transactions directly to the interaction.
+Header/footer/toolbar changes produce one combined host snapshot; page resets
+precede criteria callbacks. Boolean selection is counted, off-page IDs survive,
+and None clears all retained IDs. Footer navigation enters the accepted page's
+first text cell/card; view changes preserve trigger focus and deleted card actions
+repair focus by stable identity without taking focus from another instance.
+Server rows pass through unchanged in both views, including unknown totals.
+
+M-19 learner grid removes retired rendering/typing/styling in favor of owned
+link/date/action columns and grid state. Existing Class-prefixed names remain.
+Breaking mappings, scope/style requirements and retained/deferred features are in
+[catalog integration](react-aria-catalog-grid.md).
+
+Optional versioned persistence validates current fields, criteria, page sizes,
+layout/order/widths and view mode; legacy list pagination wins over cards. It never
+persists selection, host rows or pending/errors. Controlled values remain
+authoritative. Persistence gates controller mounting until a client effect
+restores defaults, so SSR and initial hydration match. Malformed/blocked storage
+falls back safely. Colocated tests cover real persisted SSR-to-hydration with no
+recoverable errors. Public reset-view UI remains open (the internal storage reset
+is implemented).
+
+Required verification: repository check, Storybook build, strict public-entry and
+declaration checks, clean packed React 18/19 SSR/Vite/CSS consumers and representative
+native public grid/shell interactions. Final evidence is recorded below after the
+checks complete. Existing jsdom navigation/scroll limitations and Storybook
+use-client/sourcemap/chunk warnings remain informational.
+
+M-16/M-17/M-19 integration is shipped on the draft branch, but broad G/U/X/R/Z
+acceptance remains open. M-18 row reorder is the next required code batch; the
+public renderer deliberately omits rowDrag until bounded pointer/touch/keyboard,
+Move controls and cancellation are implemented. The retired exported DnD module
+still needs strict migration. M-36/M-37 foundation removal, M-38 reconciliation,
+public reset, G workload/performance and browser/touch/SR/zoom/visual/Node24/NextRSC
+matrix remain required. No whole-backlog completion, merge or publication is claimed.
+
+Final batch evidence: `pnpm check` passed 130 test files / 680 tests, four
+foundation and four release-policy tests, typing, ESM/declarations, public-entry
+imports and built consumer typing. `pnpm build-storybook` passed. Packed
+React 19.2.3 and 18.3.1 SSR/hydration-entry/Vite/CSS consumers passed; final React19
+fixture is `/var/folders/vp/bckxx0097z9gb5q8_d1chsvh0000gn/T/sgui-foundation-consumer-zMj6rZ`
+and React18 fixture is `.../sgui-foundation-consumer-xuPd8T`. These fixture builds
+are separate from the real persisted hydration tests; they do not prove the full
+hydration/browser acceptance matrix. 169 local documentation links and diff
+whitespace checks passed.
+
+Native in-app browser public proofs: standalone page 2 entered Course11/name
+with scrollTop0; selecting Course1 then page2/select-page announced 11 selected;
+Score ascending reset page1 with aria-sort ascending and retained IDs; None
+cleared selection. Shared shell selected Course1, switched page2 to cards showing
+Course11–20, retained `1 selected` and kept Cards trigger focus. Switching back
+kept List trigger focus; next footer page entered Course21/name. Native narrow
+543px surface retained horizontal overflow and vertical container scrolling.
+Warning/error logs were empty. Screenshot: `/tmp/sgui-public-grid-shell.png`.
+Representative evidence only; touch, screen-reader, zoom, visual/performance and
+full browser matrices remain open.

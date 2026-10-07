@@ -65,7 +65,7 @@ export const example = <SGNavigationProvider value={{ pathname: '/', navigate: (
   <AppButton>Save</AppButton>
   <Typography variant="bodyAlt2">Custom typography</Typography>
   <AppModal open={false} title="Example" onClose={() => {}}>Content</AppModal>
-  <AppDataGrid rows={[{ id: 'one', name: 'Example' }]} columns={columns} />
+  <AppDataGrid label="Courses" getRowLabel={row => row.name} rows={[{ id: 'one', name: 'Example' }]} columns={columns} />
   <PageRichTextEditorSection lexicalValue={null} editorKey="example" onLexicalChange={() => {}} />
 </SGNavigationProvider>;
 export const theme = darkTheme;
@@ -163,3 +163,6 @@ export const ownedPageEditor = <Provider><OwnedPageEditor {...ownedPageProps} />
 import { DataToolbar as OwnedDataToolbar, type DataToolbarProps } from "@structured-growth/sg-ui/components/DataToolbar";
 const ownedToolbarProps: DataToolbarProps = {searchValue:"course",onSearchValueChange:()=>{},viewMode:"list",onViewModeChange:()=>{},selectedCount:2,className:"host-toolbar",style:{maxWidth:600}};
 export const ownedDataToolbar = <Provider><OwnedDataToolbar {...ownedToolbarProps} /></Provider>;
+
+// @ts-expect-error Retired sort model is not an owned grid prop.
+export const retiredGridSort = <AppDataGrid label="Courses" rows={[]} columns={[]} getRowLabel={() => ""} sortModel={[]} />;

@@ -292,3 +292,10 @@ controls announce translated success/failure; image failures show fallback; link
 and menu actions preserve native target/rel and host routing. Menu items support
 pending/disabled state and one `onPress(row)` callback. Status parts distinguish
 initial loading, retained-row refresh, empty, no results and retryable host errors.
+
+## Public integration status
+
+The public renderer/helpers/parts, shared shell and learner grid now use these owned
+contracts. Earlier internal-batch sections record historical scope. See
+[catalog integration](react-aria-catalog-grid.md) for the shipped API mappings and
+remaining reorder/reset and broad acceptance gates.

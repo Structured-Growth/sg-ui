@@ -81,17 +81,17 @@ it("remeasures flex allocation while preserving a committed width override", () 
   try {
     const flexible = columns.map(column => ({ ...column, width: undefined, maxWidth: undefined, flex: 1 }));
     const { rerender } = render(<OwnedGridInteraction {...props} columns={flexible} />);
-    expect(screen.getByRole("columnheader", { name: /Name/ }).style.width).toBe("476px");
+    expect(screen.getByRole("columnheader", { name: /Name/ }).style.width).toBe("460px");
     size.mockReturnValue(600);
     act(() => {
       for (const observer of observers.filter(entry => entry.target?.getAttribute("data-sgui-part") === "grid-container")) {
         observer.callback([{ target: observer.target, contentRect: { width: 600, height: 300 } } as ResizeObserverEntry], {} as ResizeObserver);
       }
     });
-    expect(screen.getByRole("columnheader", { name: /Name/ }).style.width).toBe("276px");
+    expect(screen.getByRole("columnheader", { name: /Name/ }).style.width).toBe("260px");
     rerender(<OwnedGridInteraction {...props} columns={flexible} columnWidths={{ name: 300 }} />);
     expect(screen.getByRole("columnheader", { name: /Name/ }).style.width).toBe("300px");
-    expect(screen.getByRole("columnheader", { name: /Score/ }).style.width).toBe("252px");
+    expect(screen.getByRole("columnheader", { name: /Score/ }).style.width).toBe("220px");
   } finally { cleanup(); size.mockRestore(); vi.unstubAllGlobals(); }
 });
 it("nested menu activation does not activate or select its row and restores trigger focus", async () => {

@@ -209,3 +209,10 @@ U/X/R/Z acceptance gates remain open.
 DataToolbar (M-20), including columns, sort, filter and selection menus, now uses
 the owned foundation and migrated-module boundaries. See [data toolbar contracts](docs/developer/react-aria-data-toolbar.md) for controlled host state, draft menus, native styling/ref and scope requirements.
 Load `/styles.css` and provide Provider or ThemeScope. Grid migration remains open.
+
+AppDataGrid public renderer/types/helpers/parts, AppDataGridShell and
+LearnerClassesDataGrid now use the owned foundation and strict whole-directory
+boundaries. See [catalog grid integration](docs/developer/react-aria-catalog-grid.md)
+for breaking mappings, one shared shell state owner and opt-in hydration-safe
+persistence. Load /styles.css and provide Provider or ThemeScope. M-18 reorder
+and broad G/U/X/R/Z acceptance remain open.

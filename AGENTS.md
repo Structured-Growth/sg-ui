@@ -299,3 +299,10 @@ boundaries to these files/stories; public AppDataGrid/helpers, persistence and
 shell/reorder integration remain pending. This does not mark the AppDataGrid
 directory or M-16 complete. See the internal interaction section in the
 [catalog grid contracts](docs/developer/react-aria-grid-contracts.md).
+
+AppDataGrid public renderer/types/helpers/parts, AppDataGridShell and
+LearnerClassesDataGrid now use the owned foundation and strict whole-directory
+boundaries. See [catalog grid integration](docs/developer/react-aria-catalog-grid.md)
+for breaking mappings, one shared shell state owner and opt-in hydration-safe
+persistence. Load /styles.css and provide Provider or ThemeScope. M-18 reorder
+and broad G/U/X/R/Z acceptance remain open.

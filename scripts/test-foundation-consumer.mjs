@@ -54,6 +54,9 @@ import { RichTextFormattingToolbar } from '@structured-growth/sg-ui/components/R
 import { DocumentEditorLayout } from '@structured-growth/sg-ui/components/DocumentEditorLayout';
 import { DocumentEditorToolbar } from '@structured-growth/sg-ui/components/DocumentEditorToolbar';
 import { ContentEditorChrome } from '@structured-growth/sg-ui/components/ContentEditorChrome';
+import { AppDataGrid } from '@structured-growth/sg-ui/components/AppDataGrid';
+import { AppDataGridShell } from '@structured-growth/sg-ui/components/AppDataGridShell';
+import { LearnerClassesDataGrid } from '@structured-growth/sg-ui/components/LearnerClassesDataGrid';
 import { DataToolbar, DataToolbarSelectionMenu } from '@structured-growth/sg-ui/components/DataToolbar';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
@@ -70,6 +73,9 @@ export function Proof() {
   const [gridPagination,setGridPagination]=React.useState({page:2,pageSize:10});
   const [paginationRequests,setPaginationRequests]=React.useState(0);
   return <Provider theme="dark" style={{background:tokens.surface,padding:tokens.space4}}>
+    <AppDataGrid label="Packed courses" rows={[{id:'one',name:'Science'}]} columns={[{field:'name',headerName:'Course'}]} getRowLabel={row=>row.name} />
+    <AppDataGridShell label="Packed shell" rows={[{id:'two',name:'Mathematics'}]} columns={[{field:'name',headerName:'Course'}]} getRowLabel={row=>row.name} view={{cards:{renderCard:row=><article>{row.name}</article>}}} />
+    <LearnerClassesDataGrid rows={[]} />
     <DataToolbar aria-label="Packed data toolbar" onRefresh={()=>setResult('Refreshed')} columnOptions={columns} onColumnOptionsChange={setColumns}
       sortOptions={[{id:'name',label:'Name'},{id:'status',label:'Status'}]} sortRules={sortRules} onSortRulesChange={rules=>{setSortRules(rules);setResult(JSON.stringify(rules));}}
       filterFields={[{id:'name',label:'Name',type:'string'},{id:'status',label:'Status',type:'enum',enumOptions:[{id:'active',label:'Active'},{id:'paused',label:'Paused'}]}]}

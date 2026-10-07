@@ -328,27 +328,12 @@ Recorded catalog completions ([draft PR #1](https://github.com/Structured-Growth
 M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31–M-33, M-26–M-30, M-21–M-23, M-25, M-34 and M-20.
 The [data toolbar contracts](react-aria-data-toolbar.md) and
 [execution evidence](react-aria-progress.md#data-toolbar) cover M-20; grid integration remains open.
-M-16 has internal [owned processing/transaction](react-aria-progress.md#catalog-grid-processing-batch) and [cell/presentation](react-aria-progress.md#catalog-grid-cell-and-presentation-batch) batches;
-its [registered interaction/controllers](react-aria-progress.md#catalog-grid-interaction-batch) batch now composes them with native refs, measurement and resizing.
-Public catalog integration of the renderer, cell parts, interaction and
-types/helpers, plus persistence and shell integration, remain open. Do not count the whole directory or G runtime acceptance as complete.
-The [editor section contracts](react-aria-editor-section.md) and
-[execution evidence](react-aria-progress.md#page-rich-text-editor-section) cover M-34.
-The [editor layout/selection contracts](react-aria-editor-layout.md) and
-[execution evidence](react-aria-progress.md#editor-layout-and-floating-selection) cover M-21–M-23/M-25.
-The [editor menu contracts](react-aria-editor-menus.md) and
-[execution record](react-aria-progress.md#editor-menu-controls) cover M-27–M-30.
-The [formatting toolbar contract](react-aria-formatting-toolbar.md) and
-[execution record](react-aria-progress.md#rich-text-formatting-toolbar) cover M-26
-with colocated/composed tests, package validation and native timing/focus evidence.
-The [editor dialog record](react-aria-progress.md#editor-dialogs) and
-[dialog contracts](react-aria-editor-dialogs.md) cover the latest batch.
-The [modal/shell record](react-aria-progress.md#modal-and-application-shells) and
-[consumer mappings](react-aria-modal-shells.md) cover the latest batch.
-The [page/action migration record](react-aria-progress.md#page-actions-and-navigation) records the new batch. The [card migration record](react-aria-progress.md#card-pagination-and-course-cards)
-links the new card batch evidence. The [execution record](react-aria-progress.md#owned-controls-and-first-catalog-migrations)
-links implementation, stories, tests and consumer evidence. The other rows remain
-open; M-38 is the final reconciliation of every catalog row, not a completion claim.
+M-16 now has the public owned renderer/helpers/parts and optional validated
+persistence, with the M-17 shared shell and M-19 learner composition integrated.
+See [catalog integration](react-aria-catalog-grid.md) and the
+[execution record](react-aria-progress.md#catalog-grid-public-integration-batch).
+M-18 reorder, public reset-view and broad G/U/X/R/Z acceptance remain open; the
+migration rows are not whole-backlog completion markers.
 
 - [ ] M-38 Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively.
 - [ ] M-39 Migrate `AdminDataGridOptions.ts` and `InstructorDataGridOptions.ts`, including column locks, static enums, filter/sort defaults, and translation labels.

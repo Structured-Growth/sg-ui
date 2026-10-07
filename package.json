@@ -189,6 +189,18 @@
     "./components/DataToolbar": {
       "types": "./dist/components/DataToolbar/index.d.ts",
       "import": "./dist/components/DataToolbar/index.js"
+    },
+    "./components/AppDataGrid": {
+      "types": "./dist/components/AppDataGrid/index.d.ts",
+      "import": "./dist/components/AppDataGrid/index.js"
+    },
+    "./components/AppDataGridShell": {
+      "types": "./dist/components/AppDataGridShell/index.d.ts",
+      "import": "./dist/components/AppDataGridShell/index.js"
+    },
+    "./components/LearnerClassesDataGrid": {
+      "types": "./dist/components/LearnerClassesDataGrid/index.d.ts",
+      "import": "./dist/components/LearnerClassesDataGrid/index.js"
     }
   },
   "repository": {
