@@ -144,7 +144,13 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       preserveScroll();
     };
     restore();
-    const frame = requestAnimationFrame(() => { restore(); preserveScroll(); statusScroll.current = null; });
+    let frame = requestAnimationFrame(() => {
+      restore();
+      preserveScroll();
+      // React Aria schedules its keyboard scroll in a passive-effect frame,
+      // after this layout effect's frame. Repair after that native scroll too.
+      frame = requestAnimationFrame(() => { preserveScroll(); statusScroll.current = null; });
+    });
     return () => cancelAnimationFrame(frame);
   });
   useBrowserLayoutEffect(() => {
