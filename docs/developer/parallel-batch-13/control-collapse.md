@@ -72,6 +72,10 @@ Report validation: Python checked relative link targets, existing test counts,
 the source facts described above and the exclusive changed-file list;
 `git diff --check` checked whitespace. Exact delivery head and draft PR are
 reported to the coordinator after commit to avoid a self-referential commit SHA.
+Evidence commit: `d9f113a` (assigned baseline plus this report).
+Draft PR: [#44](https://github.com/Structured-Growth/sg-ui/pull/44), base
+`codex/dev`, attached to this chat. The final report delivery commit follows
+the evidence commit; its exact SHA is sent in the coordinator handoff.
 
 Runtime queried: Node `v26.5.0`, pnpm `10.29.3`, Python version recorded in the
 validation output. Zero installs, test suites, builds, Storybook builds or fresh
