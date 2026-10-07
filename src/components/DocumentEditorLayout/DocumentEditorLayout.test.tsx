@@ -48,6 +48,28 @@ describe("DocumentEditorLayout", () => {
     expect(document.activeElement).toBe(screen.getByRole("textbox", { name: "Document text" }));
   });
 
+  it("retains the focused host node and its refs through slot addition and replacement", () => {
+    const layoutRef = createRef<HTMLDivElement>();
+    const hostRef = createRef<HTMLDivElement>();
+    const content = <div ref={hostRef} style={{ overflow: "auto" }}><button>Host content action</button></div>;
+    const view = render(<DocumentEditorLayout ref={layoutRef} title="Editor">{content}</DocumentEditorLayout>);
+    const originalLayout = layoutRef.current;
+    const originalHost = hostRef.current!;
+    const action = screen.getByRole("button", { name: "Host content action" });
+    action.focus();
+    originalHost.scrollTop = 180;
+    for (const mode of ["Draft", "Review", undefined, "Draft"]) {
+      view.rerender(<DocumentEditorLayout ref={layoutRef} title="Editor"
+        headerRight={mode && <button key={mode}>{mode} action</button>}
+        menuBar={mode && <span key={mode}>{mode} menu</span>}
+        toolbar={mode && <button key={mode}>{mode} toolbar</button>}>{content}</DocumentEditorLayout>);
+      expect(layoutRef.current).toBe(originalLayout);
+      expect(hostRef.current).toBe(originalHost);
+      expect(document.activeElement).toBe(action);
+      expect(originalHost.scrollTop).toBe(180);
+    }
+  });
+
   it("renders its slots without browser globals during server rendering", () => {
     expect(renderToString(<DocumentEditorLayout title="Document" menuBar="File" toolbar="Tools">Draft</DocumentEditorLayout>)).toContain('data-sgui-part="document-editor-content"');
   });
