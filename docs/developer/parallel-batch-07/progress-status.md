@@ -35,9 +35,9 @@ ancestry. No main merge/publication occurred.
 
 The coordinator runs the first approved two-worker pool session: fresh sequential
 build/type staging followed by isolated immutable browser ports/outputs, maximum
-two sessions. This worker stopped only its own idle standalone waiter, starts no
-build/browser/server, and freezes the clean supplied head until pool evidence
-arrives. The pool's exact head/runtime/commands/results belong to the subsequent
+two sessions. This worker stopped only its own idle standalone waiter and started no
+build/browser/server. The clean supplied head remained frozen during the pool;
+the coordinator unfroze it only after confirming exact-head native evidence. The pool's exact head/runtime/commands/results belong to the subsequent
 execution record, not the earlier unit-test head.
 
 ## Implementation and consumer contract
@@ -90,13 +90,38 @@ At `777364f519410a9ba85959f53c1ab331a86589ce`:
 - `pnpm tokens:check`: passed.
 - `git diff --check`: passed.
 
-Focused native validation is recorded below after execution. Build/browser processes
+At frozen pool head `27c68b2d335743057c0e33741e3941828a8eb0d2`, the affected unit
+command above passed again (2 files / 7 cases); the worktree stayed clean. The
+coordinator then ran the approved pool, Node `24.21.0`, pnpm `10.29.3`,
+Playwright `1.63.0`, macOS/Darwin `27.0.0`, isolated slot 1 / port 6274:
+
+1. `pnpm exec storybook build --output-dir <run>/storybook`: passed fresh build.
+2. `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+3. `pnpm exec playwright test tests/browser/batch07-progress-status.spec.ts --project=chromium --project=webkit`: passed all 10 cases, zero failures/skips/flaky cases; no top-level errors.
+
+Exact run directory: `/Users/thomashall/.codex/worktrees/batch07-progress-status/sg-ui/artifacts/browser-pool/2f22bce2-9ec0-4e2d-a83c-98318a5a2414`.
+Local `evidence.json` and `results.json` record the complete commands/paths/runtime.
+The pool's original/final head both equal the frozen head above; final git status
+is clean. Original/final build digest both equal
+`42b3b9c90d877c86556d538e9c4afe599293f0af42afb528fb809c87d746e7f3`.
+Source tree: `3408ce8c9b15f8a892819e4ca15c4228eb18d4ec`. Build staging preceded
+parallel native sessions; no concurrent rebuild changed the served bytes. The
+coordinator explicitly confirmed the run and released the freeze. Subsequent
+worker changes only complete this report; the unchanged suite is not rerun.
+
+Firefox was not selected or retried: its assigned diagnosis/local launcher
+limitation remains separate. The native result is Chromium/WebKit evidence, not
+a three-engine/full-suite pass. Physical devices, actual browser chrome zoom,
+manual visual review and spoken AT remain unverified.
+
+Prior standalone attempts: Build/browser processes
 serialize through atomic `/tmp/sgui-parallel-batch-01-validation.lock` and an owner
 file containing chat `01a11678-be5b-7b90-99d0-67b025fe8c10`; cleanup checks the owner
 before releasing. The first ten-minute lock wait expired without a build/test; the second waiter
 was stopped after verifying its own process/worktree and that it owned no lock,
-to honor the coordinator priority queue. The resumed waiter checks that queue
-before acquisition and never mutates it. These are scheduling outcomes, not
+to honor the coordinator priority queue. The resumed waiter checked that queue
+before acquisition and never mutated it; it was stopped while idle when the
+coordinator selected the pool. No standalone build/browser was executed. These are scheduling outcomes, not
 browser test failures.
 No other worker is interrupted, no suite sees a concurrent
 Storybook rebuild, and no browser engine/assertion is weakened. Firefox launch
@@ -107,6 +132,7 @@ request or wait for GitHub dev checks.
 
 ## Remaining acceptance and coordinator suggestions
 
+The demonstrated implementation/native slices now pass in Chromium/WebKit.
 Keep whole-row decisions held until the missing engine/manual evidence is assessed
 against the intended row criteria. Broad display/device/AT acceptance remains open;
 DOM milestone tests cannot close a spoken announcement requirement. Suggested next
