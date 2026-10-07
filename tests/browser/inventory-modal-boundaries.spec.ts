@@ -10,10 +10,12 @@ async function visibleFocus(control: Locator) {
   await expect.poll(() => control.evaluate(element => {
     const rect = element.getBoundingClientRect();
     const hit = document.elementFromPoint(rect.left + rect.width / 2, rect.top + rect.height / 2);
-    return rect.width > 0 && rect.height > 0 && rect.left >= 0 && rect.right <= innerWidth + 1
+    const visible = rect.width > 0 && rect.height > 0 && rect.left >= 0 && rect.right <= innerWidth + 1
       && rect.top >= 0 && rect.bottom <= innerHeight + 1
       && Boolean(hit && (element.contains(hit) || hit.contains(element)));
-  })).toBe(true);
+    return { visible, rect: rect.toJSON(), viewport: { width: innerWidth, height: innerHeight },
+      hit: hit?.outerHTML.slice(0, 300), active: document.activeElement?.outerHTML.slice(0, 500) };
+  })).toMatchObject({ visible: true });
 }
 
 for (const dismissal of ['escape', 'outside', 'close-button'] as const) {
@@ -35,6 +37,14 @@ for (const dismissal of ['escape', 'outside', 'close-button'] as const) {
       const parent = page.getByRole('dialog', { name: 'Recovery parent', exact: true });
       await expect(parent).toBeVisible();
       const destination = page.getByRole('textbox', { name: hostFocus ? 'Host destination' : 'Parent fallback', exact: true });
+      await test.info().attach('dismissal-focus-diagnostic', { contentType: 'application/json', body: JSON.stringify(await page.evaluate(async () => {
+        const snapshot = () => ({ active: document.activeElement?.outerHTML,
+          dialogs: [...document.querySelectorAll('[role="dialog"]')].map(element => ({ html: element.outerHTML,
+            inertAncestor: element.closest('[inert]')?.outerHTML.slice(0, 500) })) });
+        const immediate = snapshot();
+        await new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+        return { immediate, deferred: snapshot() };
+      }), null, 2) });
       await visibleFocus(destination);
       // Wait past the deferred restoration frame and ensure it did not steal host focus.
       await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));

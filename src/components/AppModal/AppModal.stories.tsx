@@ -76,7 +76,13 @@ function RemovedOpenerPreview() {
   const [reason, setReason] = useState("");
   const destination = useRef<HTMLInputElement>(null);
   useLayoutEffect(() => {
-    if (!childOpen && hostFocus) destination.current?.focus();
+    if (!childOpen && hostFocus && destination.current) {
+      const input = destination.current;
+      const inert = Boolean(input.closest("[inert]"));
+      input.focus();
+      input.dataset.hostFocusAttempt = JSON.stringify({ inert, succeeded: document.activeElement === input,
+        active: document.activeElement?.outerHTML.slice(0, 500) });
+    }
   }, [childOpen, hostFocus]);
   return <Provider>
     <AppButton onPress={() => setOpen(true)}>Open recovery parent</AppButton>
