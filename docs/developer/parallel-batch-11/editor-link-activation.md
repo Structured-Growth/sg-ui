@@ -2,7 +2,10 @@
 
 Baseline: `d0fcc6298004ad23d1a75480b216b39142e6df96`, verified before edits in
 `/Users/thomashall/.codex/worktrees/batch11-editor-link-activation/sg-ui`.
-Branch: `codex/batch11-editor-link-activation`; draft PR targets `codex/dev`.
+Branch: `codex/batch11-editor-link-activation`; draft [PR #39](https://github.com/Structured-Growth/sg-ui/pull/39) targets `codex/dev`.
+Test/evidence commit: `9a27c56e213fb4686fde8f9a835b210c2f3396c2`; the final
+report-only commit adds this PR/head record. Implementation head remains the baseline.
+Final branch head is included in the coordinator completion message.
 
 ## Audit result and exclusive changes
 
