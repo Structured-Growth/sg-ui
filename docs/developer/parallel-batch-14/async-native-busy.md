@@ -75,3 +75,49 @@ Evidence report head before this PR-link-only commit: `5f52bfd79346a882298b16332
 Independent exact-head review remains pending. Reserve central documentation/master
 checklist changes for the coordinator; broader H-06/X-03 and production acceptance
 remain open. Browser evidence must be completed before integration acceptance.
+
+
+## Managed recovery and first native attempt
+
+The original managed directory was absent. Coordinator authorized one managed
+recovery from saved exact head `526d7dbd9179e49220ab43b1638308376cd8ebce` into
+`/Users/thomashall/.codex/worktrees/batch14-async-native-busy-recovery/sg-ui`.
+Creation/attachment succeeded. A normal history merge of reviewed harness
+`6b9da4423f1e6675c37571d5552474da25e90258` produced clean frozen head
+`426828bfe0d12e75b180a4fe9d5bec426f3b8aba`. Own component/spec/report bytes were
+unchanged before/after the merge. Frozen install used Node 24.19.0, canonical
+install slot 0 with unique owner/finally cleanup; lockfile unchanged.
+
+Coordinator pool attempt `e661d689-6787-4915-bfa6-65807798042e` ran at that
+exact frozen head using Node 24.21.0, pnpm 10.29.3, Playwright 1.63.0, slot 1,
+port 6274. Fresh Storybook build and browser TypeScript passed. Selection:
+`tests/browser/batch14-async-busy.spec.ts --project=chromium`, pool worker count 1,
+no worker override. Build digest before/after was identical:
+`51b2b17bc724b9901f0ba3208cd38d2b24f75162e23709171ea38c8c128f5001`.
+Evidence/log/trace live under this recovery worktree's
+`artifacts/browser-pool/e661d689-6787-4915-bfa6-65807798042e/`.
+
+**Outcome: 1 failed, 0 passed.** Initial native pending busy and independent
+nonbusy assertions passed. At original spec line 14, `locator.click()` resolved
+the retained option with `aria-disabled="true"` and waited for enabled actionability
+until the 30-second timeout. Trace and error context confirm no mouse gesture was
+dispatched. Failure/retry/success assertions were not reached. This is a fixture
+driver mistake, not an observed product or harness environment failure; no focus
+or shared overlay regression is demonstrated by this run.
+
+The scoped correction uses an actual `page.mouse.click` at the visible option's
+bounds, after asserting disabled state and hit-testing that the coordinate belongs
+to that option. It retains the selection-change assertions and explicitly verifies
+busy state after each attempted disabled interaction. No forced locator click,
+synthetic event or weakened assertion; runtime and story are unchanged. The same
+physical pointer check is applied in loading and error states. Fresh coordinator
+native evidence remains required on the corrected head. Firefox/WebKit checkpoint,
+manual/device/AT and broad acceptance remain pending; no unchanged retry or own
+heavy/browser run was launched. No shared Menu/Popover/ComboBox prerequisite is
+needed for this demonstrated driver error.
+
+Corrected spec `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed
+under Node 24.19.0 and canonical light slot 1, unique owner/finally cleanup.
+`git diff --check`: passed; AsyncMultiSelect source/story/test bytes unchanged
+from frozen native-attempt head. No runtime unit rerun was needed for this spec-only
+driver correction.

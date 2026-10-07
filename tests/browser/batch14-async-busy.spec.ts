@@ -1,4 +1,17 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Locator, type Page } from '@playwright/test';
+
+// locator.click waits for aria-disabled options to become enabled. A real mouse
+// gesture is needed to verify the control itself ignores a disabled result.
+async function clickDisabledOption(page: Page, option: Locator) {
+  await expect(option).toBeVisible();
+  await expect(option).toHaveAttribute('aria-disabled', 'true');
+  await option.scrollIntoViewIfNeeded();
+  const bounds = await option.boundingBox();
+  expect(bounds).not.toBeNull();
+  const point = { x: bounds!.x + bounds!.width / 2, y: bounds!.y + bounds!.height / 2 };
+  expect(await option.evaluate((node, coordinates) => node.contains(document.elementFromPoint(coordinates.x, coordinates.y)), point)).toBe(true);
+  await page.mouse.click(point.x, point.y);
+}
 
 test('AsyncMultiSelect forwards native busy state through host failure, retry and success independently', async ({ page }) => {
   const errors: string[] = [];
@@ -11,13 +24,15 @@ test('AsyncMultiSelect forwards native busy state through host failure, retry an
   await expect(other).not.toHaveAttribute('aria-busy');
   const nativeList = await pending.elementHandle();
   const nativeInput = await input.elementHandle();
-  await page.getByRole('option', { name: 'Retained result', exact: true }).click();
+  await clickDisabledOption(page, page.getByRole('option', { name: 'Retained result', exact: true }));
   await expect(page.getByLabel('Selection changes')).toHaveText('0');
+  await expect(pending).toHaveAttribute('aria-busy', 'true');
   await page.getByRole('button', { name: 'Fail host search', exact: true }).click();
   await expect(pending).not.toHaveAttribute('aria-busy');
   await expect(page.getByRole('status').first()).toHaveText('Host search failed');
-  await page.getByRole('option', { name: 'Retained result', exact: true }).click();
+  await clickDisabledOption(page, page.getByRole('option', { name: 'Retained result', exact: true }));
   await expect(page.getByLabel('Selection changes')).toHaveText('0');
+  await expect(pending).not.toHaveAttribute('aria-busy');
   await page.getByRole('button', { name: 'Retry', exact: true }).click();
   await expect(pending).toHaveAttribute('aria-busy', 'true');
   await expect(other).not.toHaveAttribute('aria-busy');
