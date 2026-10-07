@@ -21,9 +21,9 @@ also documented in [layout/actions](react-aria-layout-actions.md),
 | Box / BoxProps | Native container with bounded `as`, token `padding`, native ref; CSS/native style for layout |
 | Stack / StackProps | `gap`, `direction`, `align`, `justify`, `wrap`, `responsive`; `spacing` becomes `gap` |
 | Typography / TypographyProps | Separate semantic `as` and visual `variant`, including `bodyAlt2`; `tone` and `noWrap` |
-| TextField / TextFieldProps | Required label, string `value`/`defaultValue`/`onValueChange`, native input ref; multiline uses TextArea from the owned control catalog |
+| TextField / TextFieldProps | Naming requires `label` or `aria-label`, string `value`/`defaultValue`/`onValueChange`, native input ref; multiline uses TextArea from the owned control catalog |
 | CircularProgress / CircularProgressProps | Named Progress with fixed circular presentation; omitted value is indeterminate, numeric value is determinate |
-| Checkbox / CheckboxProps | Own `label`, `checked`/`defaultChecked`/`onCheckedChange`, mixed state, native input ref |
+| Checkbox / CheckboxProps | Own `label`, `checked`/`defaultChecked`/`onCheckedChange`, mixed state, native `HTMLLabelElement` ref |
 | FormControlLabel / FormControlLabelProps | Removed; pass `label` to Checkbox/Switch; RadioGroup owns option labels |
 | IconButton / IconButtonProps | Required `label`, `onPress`, owned density/tone/variant, native button ref |
 | MuiLink / MuiLinkProps | Removed; use exported Link / LinkProps with native anchor ref and host navigation adapter |
@@ -33,7 +33,7 @@ also documented in [layout/actions](react-aria-layout-actions.md),
 | SelectChangeEvent | Removed; callbacks receive `string` or `null` |
 | Autocomplete / AutocompleteProps | Alias of owned ComboBox / ComboBoxProps; readonly `{id,label,disabled?}` options and selected string IDs; native input ref. Free-solo, multiple values and arbitrary renderers are removed; use TextField or AsyncMultiSelect for those workflows |
 | Divider / DividerProps | Native divider; horizontal/vertical orientation and native ref |
-| Chip / ChipProps | Owned presentation and optional named `onRemove`; label content is children |
+| Chip / ChipProps | Passive presentation span with native `HTMLSpanElement` ref; label content is children. No `onRemove`; removable tokens use TagGroup from `/experimental` |
 | LinearProgress / LinearProgressProps | Named Progress with fixed linear presentation; value bounds/valueText and native div ref |
 | Switch / SwitchProps | Own label, boolean checked/default/change values, native input ref |
 | List / ListProps | Native ul with native ref |
