@@ -165,3 +165,21 @@ describe("owned sort rule menu", () => {
     expect(screen.getByRole("button", { name: /^Sort/ }).textContent).toBe("Sort");
   });
 });
+
+it("activates direction, removal and Apply by keyboard without committing the draft early", async () => {
+  const user = userEvent.setup(); const onApply = vi.fn();
+  render(menu([...initial, { field: "status", direction: "asc" }], onApply)); await open(user);
+  screen.getByRole("button", { name: /Order 2/ }).focus();
+  await user.keyboard("{Enter}");
+  await user.keyboard("{End}{Enter}");
+  expect(screen.getByRole("button", { name: /Order 2/ }).textContent).toContain("Descending");
+  screen.getByRole("button", { name: "Remove sort rule 1" }).focus();
+  await user.keyboard("{Enter}");
+  expect(onApply).not.toHaveBeenCalled();
+  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: /Column 1/ })));
+  expect(screen.getByRole("button", { name: "Remove sort rule 1" })).toHaveProperty("disabled", true);
+  expect(screen.getByRole("button", { name: "Move sort rule up 1" })).toHaveProperty("disabled", true);
+  expect(screen.getByRole("button", { name: "Move sort rule down 1" })).toHaveProperty("disabled", true);
+  screen.getByRole("button", { name: "Apply" }).focus(); await user.keyboard("{Enter}");
+  expect(onApply).toHaveBeenCalledExactlyOnceWith([{ field: "status", direction: "desc" }]);
+});
