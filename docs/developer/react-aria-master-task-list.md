@@ -324,6 +324,22 @@ Checklist IDs cover all 37 current directories, including catalog-only directori
 | M-36 | icons | Complete direct/public icon mapping and activity-type behavior |
 | M-37 | primitives | Replace every reexport with an owned implementation/type or documented removal |
 
+
+Inventory whole-row acceptance reconciled 2026-10-07 from
+[the inventory evidence record](react-aria-migration-inventory-acceptance.md).
+These checkbox entries score the same stable IDs as the table above, not extra
+tasks. Coordinator reviewed row criteria/source/tests/contracts and confirmed these
+implementations unchanged from the combined `75b7c3f` check (148 files/1038 tests).
+Acceptance is limited to the individual inventory row; broader U/X/R/Z and
+manual/device/AT gates remain open. The other 31 inventory rows remain held.
+
+- [x] M-01 AppButton individual inventory-row acceptance: owned props/variants/tones, native form behavior and press mapping.
+- [x] M-12 CardPaginationFooter individual inventory-row acceptance: pagination labels/counts, disabled boundaries and unknown totals.
+- [x] M-24 EditableTitleField individual inventory-row acceptance: controlled edit/commit/cancel, keyboard/blur and validation.
+- [x] M-31 ColumnsLayoutModal individual inventory-row acceptance: presets, selected state, validation and Apply/Cancel.
+- [x] M-35 Typefaces individual inventory-row acceptance: story-only foundation typography/token catalog.
+- [x] M-36 icons individual inventory-row acceptance: public/direct icon mappings and activity-type behavior.
+
 Recorded catalog completions ([draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review): M-02, M-03, M-24,
 M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31–M-33, M-26–M-30, M-21–M-23, M-25, M-34 and M-20, M-36 and M-37.
 The [data toolbar contracts](react-aria-data-toolbar.md) and

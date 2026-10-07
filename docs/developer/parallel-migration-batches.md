@@ -150,3 +150,15 @@ new ownedGridSortAcceptance story/test, header sort menu test, DataToolbarSortMe
 implementation/test/CSS, batch06-grid-sort browser spec and unique batch06 report.
 Other grid interaction/cell/shell/model and experimental overlay files remain read-only.
 Targeted validation applies; maximum ten active chats retained.
+
+
+## Tabs and inventory completion review
+
+PR16 tabs report/source ownership reviewed and merged: horizontal/RTL native
+activation/overflow coverage,18 related tests and16 Chromium/WebKit cases passed;
+Firefox/vertical/device/AT remain unverified. PR17 inventory audit/report reviewed:
+37 rows,136 links and two-file scope verified; six recommendations accepted only
+for their individual row criteria after source/test/contract review and unchanged
+implementation comparison with the tested75b7c3 snapshot. Master adds six scoring
+checkboxes for existing IDs, not new tasks. Remaining31 rows held; broad gates open.
+The accepted-count delta is evidence reconciliation, not new-feature throughput.
