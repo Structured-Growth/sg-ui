@@ -49,6 +49,7 @@ try {
   process.exit(2);
 }
 let root;
+let retainRoot = false;
 try {
   await writeFile(join(lock, 'owner'), owner);
   root = await mkdtemp(join(tmpdir(), 'sgui-firefox-diagnostic-'));
@@ -78,31 +79,49 @@ try {
     const child = spawn(executable, nativeArgs, { detached: true, stdio: ['ignore', 'pipe', 'pipe'] });
     let output = '';
     let timedOut = false;
+    const cleanupErrors = [];
     const collect = chunk => { output = (output + chunk.toString()).slice(-12000); };
     child.stdout.on('data', collect);
     child.stderr.on('data', collect);
     // Signal only this owned process group, never other workers or user browsers.
-    const kill = () => { try { process.kill(-child.pid, 'SIGKILL'); } catch (error) { if (error.code !== 'ESRCH') throw error; } };
-    const timer = setTimeout(() => { timedOut = true; kill(); }, 10000);
+    const kill = phase => {
+      try {
+        process.kill(-child.pid, 'SIGKILL');
+        return true;
+      } catch (error) {
+        if (error.code === 'ESRCH') return true;
+        cleanupErrors.push({ phase, code: error.code, error: error.message });
+        return false;
+      }
+    };
+    const result = (code, signal) => ({ name: 'native-explicit-profile', args: nativeArgs, code, signal, timedOut, output, cleanupErrors });
+    const timer = setTimeout(() => {
+      timedOut = true;
+      // A failed signal may never produce close. Report the failure without
+      // deleting a profile that the owned child may still be using.
+      if (!kill('timeout')) complete({ ...result(null, null), childMayStillBeRunning: true });
+    }, 10000);
     child.once('error', error => { clearTimeout(timer); reject(error); });
     child.once('exit', () => {
       clearTimeout(timer);
-      kill();
+      kill('exit');
     });
     child.once('close', (code, signal) => {
-      complete({ name: 'native-explicit-profile', args: nativeArgs, code, signal, timedOut, output });
+      complete(result(code, signal));
     });
   });
   try { await access(screenshot); native.screenshotCreated = true; } catch { native.screenshotCreated = false; }
-  native.status = native.code === 0 && native.screenshotCreated ? 'page-captured' : 'failed';
+  native.status = !native.timedOut && native.code === 0 && native.screenshotCreated ? 'page-captured' : 'failed';
   report.probes.push(native);
+  retainRoot = native.childMayStillBeRunning === true;
+  if (retainRoot) report.retainedTemporaryRoot = root;
   report.nativeProfileEntries = (await readdir(nativeProfile)).length;
-  report.resolved = report.probes.every(probe => probe.status !== 'failed');
+  report.resolved = report.probes.every(probe => probe.status !== 'failed' && !probe.cleanupErrors?.length);
   console.log(JSON.stringify(report, null, 2));
   if (!report.resolved) process.exitCode = 1;
 } finally {
   try {
-    if (root) await rm(root, { recursive: true, force: true });
+    if (root && !retainRoot) await rm(root, { recursive: true, force: true });
   } finally {
     // Shared policy requires Python cleanup that verifies the exact owner first.
     const cleanup = spawnSync('python3', ['-c',
