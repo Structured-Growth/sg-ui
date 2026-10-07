@@ -4,6 +4,44 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { RadioGroup } from "./RadioGroup";
 afterEach(cleanup);
+it.each(["removed", "disabled"])("keeps an enabled Tab entry after the selected option is %s without requesting a host change", async transition => {
+ const change = vi.fn(); const user = userEvent.setup();
+ const available = [{ value: "self", label: "Self paced" }, { value: "live", label: "Live" }];
+ const view = (items: typeof available) => <><button>Before group</button><RadioGroup label="Delivery" name="delivery" options={items} value="self" onValueChange={change} required /><button>After group</button></>;
+ const { rerender } = render(view(available));
+ rerender(view(transition === "removed" ? available.slice(1) : available.map(option => ({ ...option, disabled: option.value === "self" }))));
+ await user.click(screen.getByRole("button", { name: "Before group" })); await user.tab();
+ expect(document.activeElement).toBe(screen.getByRole("radio", { name: "Live" }));
+ expect(change).not.toHaveBeenCalled();
+ await user.keyboard(" "); expect(change).toHaveBeenCalledExactlyOnceWith("live");
+});
+it("retains an uncontrolled removed selection for restoration and keeps group names independent", async () => {
+ const change = vi.fn(); const user = userEvent.setup();
+ const view = (remove: boolean) => <form><button type="button">Before delivery</button>
+  <RadioGroup label="Delivery" name="delivery" options={remove ? options.slice(2) : options} defaultValue="self" onValueChange={change} required />
+  <RadioGroup label="Backup" name="backup" options={[{ value: "self", label: "Backup self" }, { value: "live", label: "Backup live" }]} defaultValue="self" />
+ </form>;
+ const { rerender, container } = render(view(false)); rerender(view(true));
+ expect(new FormData(container.querySelector("form")!).get("delivery")).toBeNull();
+ expect(new FormData(container.querySelector("form")!).get("backup")).toBe("self");
+ await user.click(screen.getByRole("button", { name: "Before delivery" })); await user.tab();
+ expect(document.activeElement).toBe(screen.getByRole("radio", { name: "Live" }));
+ rerender(view(false));
+ expect((screen.getByRole("radio", { name: "Self paced" }) as HTMLInputElement).checked).toBe(true);
+ expect(new FormData(container.querySelector("form")!).get("delivery")).toBe("self");
+ expect(change).not.toHaveBeenCalled();
+});
+it("honors an explicit controlled empty value after reset and leaves required validity native", async () => {
+ const user = userEvent.setup(); const change = vi.fn();
+ const view = (value: string | null) => <form><RadioGroup label="Delivery" name="delivery" options={options} value={value} onValueChange={change} required /><button type="reset">Reset</button></form>;
+ const { rerender, container } = render(view("live")); await user.click(screen.getByRole("button"));
+ expect((screen.getByRole("radio", { name: "Live" }) as HTMLInputElement).checked).toBe(true);
+ rerender(view(null));
+ expect(container.querySelector("form")!.checkValidity()).toBe(false);
+ expect(new FormData(container.querySelector("form")!).has("delivery")).toBe(false);
+ rerender(view("self"));
+ expect(container.querySelector("form")!.checkValidity()).toBe(true);
+});
 const options = [{ value: "self", label: "Self paced" }, { value: "locked", label: "Unavailable", disabled: true }, { value: "live", label: "Live" }];
 it("supports arrow selection, disabled skipping, native submission and reset", async () => {
  const change = vi.fn(); const user = userEvent.setup(); const { container } = render(<form><RadioGroup label="Delivery" name="delivery" options={options} defaultValue="self" onValueChange={change} /><button type="reset">Reset</button></form>);
