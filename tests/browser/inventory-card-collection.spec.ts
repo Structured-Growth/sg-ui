@@ -43,6 +43,16 @@ for (const theme of ['light', 'dark']) for (const density of ['compact', 'comfor
     expect(secondBounds.y).toBeGreaterThanOrEqual(gridBounds.y - 1);
     expect(secondBounds.y + secondBounds.height).toBeLessThanOrEqual(gridBounds.y + gridBounds.height + 1);
     expect(await grid.evaluate(node => node.scrollTop)).toBeGreaterThan(0);
+    // Oversized footer chrome remains reachable through the collection's outer scroll.
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await expect(footer.getByRole('combobox')).toBeFocused();
+    const selectorBounds = (await footer.getByRole('combobox').boundingBox())!;
+    const collectionBounds = (await container.boundingBox())!;
+    expect(selectorBounds.y).toBeGreaterThanOrEqual(collectionBounds.y - 1);
+    expect(selectorBounds.y + selectorBounds.height).toBeLessThanOrEqual(collectionBounds.y + collectionBounds.height + 1);
+    expect(await page.locator('[data-sgui-part="card-collection"]').evaluate(node => node.scrollTop)).toBeGreaterThan(0);
     // Reordering within the same rendered page retains the same keyed input and focus.
     await page.locator('html').evaluate(node => { node.style.fontSize = ''; });
     await page.getByRole('button', { name: 'Accept requests', exact: true }).click();
@@ -71,8 +81,13 @@ test('M-11 loading/empty/ready replacement keeps one collection and footer', asy
     await page.getByRole('button', { name: `Show ${state}`, exact: true }).click();
     await expect(root.locator('[aria-busy]')).toHaveAttribute('aria-busy', String(state === 'loading'));
     await expect(root.getByRole('textbox')).toHaveCount(state === 'ready' ? 4 : 0);
-    await expect(root.getByRole('status')).toHaveCount(state === 'ready' ? 0 : 1);
-    if (state !== 'ready') await expect(root.getByRole('status')).toHaveText(state === 'loading' ? 'Loading courses' : 'No courses');
+    await expect(root.locator('[data-sgui-part="status"]')).toHaveCount(state === 'ready' ? 0 : 1);
+    if (state !== 'ready') {
+      const status = root.locator('[data-sgui-part="status"]');
+      await expect(status).toHaveText(state === 'loading' ? 'Loading courses' : 'No courses');
+      await expect(status).toHaveAttribute('aria-live', 'off');
+      await expect(status).not.toHaveAttribute('role');
+    }
     for (const button of await footer.getByRole('button').all()) {
       if (state !== 'ready') await expect(button).toBeDisabled();
     }

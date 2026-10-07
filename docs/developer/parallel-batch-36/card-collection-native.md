@@ -12,7 +12,8 @@ Read root AGENTS.md and [development validation](../react-aria-development-valid
 [batch13 collection evidence](../parallel-batch-13/card-collection.md), and
 [card pagination contract](../react-aria-card-pagination.md). M-11 remains held;
 M-12 standalone footer acceptance and grid reset/shrink evidence are not repeated.
-No architecture/API/style/product change was justified by inspected evidence.
+No architecture or API change was made. Wave21 subsequently demonstrated the
+constrained enlarged-text viewport defect recorded below.
 
 ## Added composition evidence
 
@@ -45,8 +46,8 @@ was changed. Token-owned light slot3 serialized the following commands:
 - `pnpm typecheck`: **passed**.
 - `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: **passed**.
 
-Only test/story/report changes land, so no additional foundation/token/build guard
-is required by the targeted policy. No full check, Storybook build, browser server,
+Initial head contained only test/story/report changes. The subsequent owned CSS
+correction also passed foundation/token guards as recorded below. No full check, Storybook build, browser server,
 CI/title dispatch, consumer suite, merge or publication was started by this worker.
 Slots are released only after matching this worker's owner token.
 
@@ -63,3 +64,44 @@ fixture/driver/expectation, or environment cause before correction. No current
 native failure is established. Spoken AT, physical-device behavior, browser chrome
 zoom, and broad M/U/X/R/Z acceptance remain unverified. No master checkbox or
 whole-row acceptance is upgraded by this patch.
+
+
+## Wave21 red evidence and bounded correction
+
+Coordinator immutable pool tested exact head
+`93a14b7ad35dce4bcfb331f1fdc62e070fa1fc34` on Node `v24.19.0`, Chromium:
+**1 passed, 5 failed, zero skips/flaky**. Build/initial/final head remained unchanged.
+Preserved artifacts under this worktree:
+`artifacts/browser-pool/d58bbd20-e98c-401d-bbdf-f528f2101090/`
+(`evidence.json`, `browser.log`, `results.json`, screenshots and traces).
+
+Two underlying issues, not five independent bugs:
+
+1. **Product/layout:** all four theme/density cases failed the full focused-input
+   visibility assertion after native Tab at 200% root sizing. Comfortable input
+   top was `272.5625` against grid top `285`; compact was `162.75` against `165`.
+   The screenshot shows a tall wrapped footer and only a narrow card strip. The
+   grid could shrink below a native input's height; scrolling/anchoring cannot
+   fully reveal an input larger than its viewport. The owned collection CSS now
+   keeps at least one control-height of grid content (plus existing padding) and
+   allows the root to scroll when footer chrome exceeds the constrained host.
+   Shared footer source remains read-only. Full-input visibility assertions are
+   retained unchanged; additional native Tab assertions require the footer size
+   selector to be fully visible via the root scroll, which must actually move.
+2. **Test expectation:** the state case assumed Status always has `role=status`.
+   Source and the native role tree show the default `announcement=off` quiet
+   status presentation, with no role; it is neither a progressbar nor a live
+   region. The selector now uses the owned status part and still checks exactly
+   one replacement, translated text, `aria-live=off`, and absent role. No product
+   announcement change was made or spoken behavior claimed.
+
+Pagination host rejection/acceptance passed in wave21. Reorder assertions were
+not reached in the four red cases; their native outcome is still pending, along
+with validation of the viewport correction. No tolerance was widened, no criteria
+were dropped, and no independent browser/build/server run was started.
+
+Correction targeted validation: 7/7 collection unit cases, source and browser
+TypeScript, `pnpm foundations:check`, and `pnpm tokens:check` passed. These are
+local checks of the corrected source, not a fresh Chromium pass. Exact corrected
+clean head is supplied to the coordinator for a new immutable Chromium job with
+the same six focused cases. Firefox/WebKit/manual/device/AT remain pending.
