@@ -99,3 +99,5 @@ for this fix.
 Coordinator-only guidance follow-up: link this report from progress acceptance
 and retain the U-13 versus assigned U-11 distinction. Shared guides/checklists
 were read-only here. One completion handoff to the coordinator is authorized.
+
+Draft PR: [#65](https://github.com/Structured-Growth/sg-ui/pull/65), base `codex/dev`.
