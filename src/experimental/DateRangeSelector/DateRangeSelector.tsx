@@ -35,6 +35,8 @@ export function DateRangeSelector({ label, value, defaultValue = null, onValueCh
   unavailable = [], presets = [], months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
   const descriptionId = useId();
+  const previewId = `${descriptionId}-preview`;
+  const previewContextId = `${descriptionId}-preview-context`;
   const [focusedDate, setFocusedDate] = useState<DateOnly | undefined>(defaultFocusedDate);
   const focusedReason = unavailable.find(day => day.date === focusedDate)?.reason;
   const [internal, setInternal] = useState<DateRange | null>(defaultValue);
@@ -97,7 +99,8 @@ export function DateRangeSelector({ label, value, defaultValue = null, onValueCh
           <CalendarGridBody>{date => {
             const dateOnly = toCalendar(date, new GregorianCalendar()).toString();
             const reason = unavailable.find(day => day.date === dateOnly)?.reason;
-            return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${dateOnly}-${index}`} />;
+            return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${dateOnly}-${index}`}
+              previewIds={state.anchorDate && state.isFocused && state.focusedDate.compare(date) === 0 ? [previewId, previewContextId] : []} />;
           }}</CalendarGridBody>
         </CalendarGrid></div>)}
       </div>
@@ -106,12 +109,21 @@ export function DateRangeSelector({ label, value, defaultValue = null, onValueCh
       <summary>{t("common.ui.unavailableDates", { defaultMessage: "Unavailable dates" })}</summary>
       <ul>{unavailable.map(day => <li key={day.date}>{day.date}: {day.reason}</li>)}</ul>
     </details>}
-    {state.anchorDate && <p className={styles.summary} role="status" data-sgui-part="date-range-preview">
+    {state.anchorDate && <>
+    <p id={previewId} className={styles.summary} data-sgui-part="date-range-preview">
       {t("common.ui.dateRangePreview", { defaultMessage: "Range preview: {start} – {end}. Choose an end date to finish.", values: {
         start: toCalendar(state.highlightedRange?.start ?? state.anchorDate, new GregorianCalendar()).toString(),
         end: toCalendar(state.highlightedRange?.end ?? state.anchorDate, new GregorianCalendar()).toString(),
       } })}
-    </p>}
+    </p>
+    <p id={previewContextId} className={styles.previewContext} data-sgui-part="date-range-preview-context">
+      {t("common.ui.dateRangePreviewContext", { defaultMessage: "Anchor: {anchor}. Focused endpoint: {endpoint}. Draft: {draft}. Apply commits the draft.", values: {
+        anchor: toCalendar(state.anchorDate, new GregorianCalendar()).toString(),
+        endpoint: toCalendar(state.focusedDate, new GregorianCalendar()).toString(),
+        draft: draft ? `${draft.start} – ${draft.end}` : t("common.ui.noDates", { defaultMessage: "No dates selected" }),
+      } })}
+    </p>
+    </>}
     <p className={styles.summary} role="status" data-sgui-part="date-range-draft">{draft ? `${draft.start} – ${draft.end}` : t("common.ui.noDates", { defaultMessage: "No dates selected" })}</p>
     {!allowed && <p className={styles.summary}>{t("common.ui.invalidDateRange", { defaultMessage: "Choose an available date range." })}</p>}
     <ButtonContext.Provider value={null}>
@@ -132,16 +144,19 @@ export function DateRangeSelector({ label, value, defaultValue = null, onValueCh
 }
 
 // CalendarCell filters labelable ARIA props. Keep its native interaction and full
-// date label, and attach only the owned reason after its button has mounted.
-function DescribedCalendarCell({ date, reason, reasonId }: { date: ReturnType<typeof parseDate>; reason?: string; reasonId: string }) {
+// date label, and append only owned descriptions after its button has mounted.
+// Preview descriptions follow the actual focused endpoint rather than every cell;
+// no extra live region repeats each arrow alongside the engine announcements.
+function DescribedCalendarCell({ date, reason, reasonId, previewIds }: { date: ReturnType<typeof parseDate>; reason?: string; reasonId: string; previewIds: string[] }) {
   const ref = useRef<HTMLTableCellElement>(null);
   useEffect(() => {
     const button = ref.current?.firstElementChild;
-    if (!reason || !button) return;
+    const ownedIds = [...(reason ? [reasonId] : []), ...previewIds];
+    if (!ownedIds.length || !button) return;
     const existing = button.getAttribute("aria-describedby")?.split(/\s+/).filter(Boolean) ?? [];
-    button.setAttribute("aria-describedby", [...new Set([...existing, reasonId])].join(" "));
+    button.setAttribute("aria-describedby", [...new Set([...existing, ...ownedIds])].join(" "));
     return () => {
-      const remaining = button.getAttribute("aria-describedby")?.split(/\s+/).filter(id => id && id !== reasonId) ?? [];
+      const remaining = button.getAttribute("aria-describedby")?.split(/\s+/).filter(id => id && !ownedIds.includes(id)) ?? [];
       if (remaining.length) button.setAttribute("aria-describedby", remaining.join(" "));
       else button.removeAttribute("aria-describedby");
     };

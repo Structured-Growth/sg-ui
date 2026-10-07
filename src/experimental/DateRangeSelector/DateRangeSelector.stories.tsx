@@ -40,3 +40,18 @@ export const KeyboardRangePreview: Story = { args: { defaultValue: { start: "202
     <output aria-label="Submitted dates">{submitted}</output>
   </form>;
 } };
+export const FocusedEndpointPreview: Story = {
+  args: { defaultFocusedDate: "2024-02-28", presets: [], months: 2,
+    unavailable: [{ date: "2024-03-01", reason: "No remaining capacity" }], name: "range" },
+  render: args => {
+    const [value, setValue] = useState({ start: "2024-02-28", end: "2024-02-29" });
+    const [commits, setCommits] = useState(0);
+    return <form>
+      <p>Use arrows to focus March 1 and read its availability. Return to February 28 and press Enter to anchor a range. The focused endpoint describes the preview, anchor and unchanged draft. The unavailable March 1 boundary stops the preview at February 29. Cancel discards it; choosing both endpoints still needs Apply.</p>
+      <DateRangeSelector {...args} value={value} onValueChange={next => { if (next) setValue(next); setCommits(count => count + 1); }} />
+      <Button variant="outlined" tone="neutral" onPress={() => setValue({ start: "2024-02-20", end: "2024-02-21" })}>Replace committed dates</Button>
+      <output aria-label="Committed preview dates">{value.start} – {value.end}</output>
+      <output aria-label="Range commit count">{commits}</output>
+    </form>;
+  },
+};
