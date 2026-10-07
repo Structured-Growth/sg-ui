@@ -139,3 +139,59 @@ EPERM, with retained evidence and verified owner recovery of dead owned leases.
 No browser proof is attributed to that environment failure. Actual wave 23 child
 PATH used Node 24.19.0 correctly. This worker did not release any coordinator or
 foreign lease. Cross-engine/device/AT and broad acceptance limits remain as above.
+
+## Wave 27 — valid native drops reveal source-control focus defect
+
+The corrected worker implementation is `64f0edd8277bb8939cd2a5e51c4c0b9722dfa4c5`.
+Actual coordinator testing-only candidate:
+`4987a1fe046c37f2e612d6de159aa09e1e840043`. The three executable file hashes
+match the corrected hashes above. Fresh immutable Storybook digest:
+`101bdd11ab686d9bad4c31857100322d960ee4edfcd19068dc77c1c06aec7a3e`.
+Retained evidence directory:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/afadf38b-8476-4c9b-a10e-2a78d786822d/pointer-reorder-invalidation/`.
+The coordinator attests clean/immutable source and build, all commands settled.
+This worker only inspected evidence and production/dependency source read-only.
+
+Result: **1 passed, 2 failed**, zero skipped/flaky. Cross-grid release now reaches
+the actual visible other-grid row and passes zero requests, unchanged order,
+cleared drag affordances and source-handle focus. Each replacement case proves
+revision change and visible source-grid target hit, and records trusted native
+`dragstart` on source `course-2`, `drop` on source `course-4`, then `dragend` on
+source `course-2`. Both pass zero-stale requests, unchanged host orders and cleanup.
+Both fail only the strict source-handle focus assertion (line 71) for five seconds.
+The sequence assertions after that focus assertion were not reached, although the
+attached native logs independently contain the complete trusted sequence.
+
+Classification: **product source-control focus restoration defect**. The retained
+screenshots show the source row outlined; post-drop trace DOM moves `data-focused`
+from the enabled source handle to `TR[data-grid-row="course-2"]`. The fixture and
+driver never focus or select another control after beginning the drag, and no
+host/other-grid focus ownership change appears. Exact `document.activeElement`
+was not explicitly captured by the original telemetry; the final row destination
+is supported by the screenshot/DOM attributes, rather than a direct activeElement
+dump. Do not claim direct telemetry or a fully observed event-loop causal chain.
+
+Read-only code identifies a likely scheduling race: ownedGridInteraction's
+`onDragEnd` restores the handle in a single animation frame, while React Aria
+`useDroppableCollection` schedules `updateFocusAfterDrop` after 50ms. Its internal
+reorder branch promotes a cell focused key to the parent source row and marks the
+collection focused. A rejected stale request causes no host commit to trigger the
+separate pending-reorder focus repair. That later collection repair can override
+the early handle restoration. This causal mechanism is an inference from the
+retained state and code; any successor must validate the corrected timing natively.
+
+Reported requested successor production scope to the coordinator:
+`src/components/AppDataGrid/ownedGridInteraction.tsx`, plus a separately reserved
+colocated regression test. Existing production files and existing interaction/
+reorder tests remain read-only in batch 48. A fix needs owned scheduled-cleanup and
+outside-focus/unmount guards; simply taking focus after an arbitrary timeout must
+not steal a deliberate host or other-grid focus move. The strict source-control
+assertion remains unchanged. Read-only focusin/activeElement diagnostics in this
+reserved spec can supply exact ownership/timing if requested for the successor.
+
+All wave 23 and wave 27 reds/logs/traces/screenshots remain intact. No unchanged
+native retry, assertion weakening, product edit, integration or dev acceptance
+occurred. Source scope stays reserved pending the coordinator's exclusive successor
+and fresh changed-source proof. Cross-engine/device/AT and broad acceptance remain
+open. This report-only update records the actual failed proof, not a completed F7
+acceptance slice.
