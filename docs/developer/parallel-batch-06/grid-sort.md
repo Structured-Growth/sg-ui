@@ -6,8 +6,9 @@ Bounded G-08/U-17 header/toolbar acceptance slice. Baseline verified clean at
 `e80a26937fca3af3dfc11a18767a8599bf823d0e` before creating branch
 `codex/batch06-grid-sort` in the managed attached worktree
 `/Users/thomashall/.codex/worktrees/batch06-grid-sort/sg-ui`.
-Primary and other worktrees were preserved. No sorting transaction or processing defect was reproduced. A shared Menu native
-autofocus defect is reserved below; public APIs and host control remain unchanged.
+Primary and other worktrees were preserved. No sorting transaction or processing
+defect was reproduced. The shared Menu autofocus prerequisite resolved the native
+failure recorded below; public sorting APIs and host control remain unchanged.
 
 Changed files:
 
@@ -20,7 +21,11 @@ Changed files:
 
 Implementation/test heads: `bf8369ea3bd5e0dc7ac0eda298b3be1b25e95ba5`
 (unit/composed/story/browser scenarios) and `3b83b3eff1df09b031c3863901d5289d9a3cb0ef` (additional native indicator
-rotation and disabled priority browser assertions). The final reporting commit
+rotation and disabled priority browser assertions). Corrected strict test entry
+and both activation-key cases landed at `1ff1ba6e92c32958703e2091daf71f6bcc68c9af`;
+unchanged assertion diagnostics landed at `3154be8bb6399da67d867912e3563d3003d45104`.
+The coordinator merged the reviewed Menu prerequisite at native-tested final
+implementation head `816c9b9b0eeb1936c979057dd19834fc93f5b441`. The final reporting commit
 can be resolved with `git log -1 --format=%H -- docs/developer/parallel-batch-06/grid-sort.md`.
 Draft PR [#23](https://github.com/Structured-Growth/sg-ui/pull/23) targets `codex/dev`.
 
@@ -74,7 +79,7 @@ test/story and report allowlist. Runtime unchanged, so central guidance was not 
   Source typecheck, browser typecheck and whitespace checks passed again.
 - `git diff --check`: passed.
 
-Browser evidence is pending coordinator-owned pooled validation. The idle standalone
+The following historical failures preceded the passing coordinator run recorded below. The idle standalone
 waiter was stopped before acquiring/building. The coordinator explicitly authorized
 merging the entire already-reviewed dev ancestry in infrastructure prerequisite
 `6b9da4423f1e6675c37571d5552474da25e90258` with inherited files unchanged;
@@ -92,7 +97,7 @@ The additional composed regression verifies cell-first focus entry: directly
 focusing a nested header trigger can leave the collection's roving focus key on
 a body row. Entering via the header cell synchronizes its key and focuses the
 trigger. Both supported activation keys pass the targeted composed regression.
-No runtime change was required. Corrected pool `7a3d2ac9-c7ff-46a7-9606-8c81cfc1a419` at
+No grid runtime change was required. Corrected pool `7a3d2ac9-c7ff-46a7-9606-8c81cfc1a419` at
 `1ff1ba6e92c32958703e2091daf71f6bcc68c9af` passed fresh build/types and three
 of four cases: Enter in both engines and WebKit Alt+ArrowDown. Chromium Alt opened
 the correct menu with selected/focused state and visible focus ring but failed
@@ -121,15 +126,58 @@ regressions/fixture are outside this sorting allowlist. Investigate an owned
 native-ref reconciliation when a newly opened menu still has container focus
 and its enabled focused item exists, preserving first/last strategy and never
 stealing focus outside the overlay. No shared Menu/runtime/harness edits were
-made here. Native acceptance and source integration remain held pending that
-reserved repair; **49 unit/composed tests pass, native 3/4 is incomplete**.
+made here. This historical dependency hold is resolved by the reviewed shared
+Menu prerequisite below; the failing assertion was preserved throughout.
+
+## Reviewed prerequisite and final Chromium evidence
+
+The coordinator reviewed and integrated exact prerequisite
+`d8b6c49cebc49185650dda3168db733073318e4f`, including Menu implementation
+`588952a` and native-tested `f567db7`. Its independent six Chromium/WebKit cases
+passed, including actual first-item focus for the original Chromium Alt opener.
+These reviewed shared changes and their dev ancestry are a common prerequisite,
+separate from this task's six-file source/story/test/report contribution.
+
+After this chat's filesystem policy changed, its authorized merge failed while
+creating `.git/worktrees/sg-ui24/ORIG_HEAD.lock`. The coordinator applied the same
+normal full-history merge conflict-free in the same managed worktree. It verified
+all original task/source/spec/report bytes remained identical and froze clean head
+`816c9b9b0eeb1936c979057dd19834fc93f5b441` for native validation. No primary checkout
+edit, permission bypass, shared source edit or worker-owned build/server was used.
+
+Under the latest human Chromium-first policy, coordinator pool
+`c11a6b95-bd57-4ead-bdfe-7b5740fdd1ba` tested that exact clean head:
+
+- Fresh `pnpm exec storybook build --output-dir <token>/storybook`: passed.
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- `pnpm exec playwright test tests/browser/batch06-grid-sort.spec.ts --project=chromium`:
+  **2 passed**, no skipped, flaky or unexpected cases. Strict Enter and Alt+ArrowDown
+  assertions verify actual first-item focus, secondary promotion, coherent controlled
+  sort snapshots, rendered direction rotation, toolbar priority/disabled controls,
+  cancellation/reset focus and clear-all processed row order.
+- Runtime: Node 24.21.0, pnpm 10.29.3, Playwright 1.63.0, macOS Darwin 27.0.0.
+- Frozen source tree: `14bec792efcf52834a8dac30387a900ffcd31853`.
+- Port 6274 / isolated slot 1; final head and clean status unchanged.
+- Build SHA-256 before/after browser run:
+  `896d1238473c92e30805b32d16bc07bc15a6468186b2062e5ca529a1a7d29b9d`.
+- Exact machine evidence, results and logs remain under
+  `artifacts/browser-pool/c11a6b95-bd57-4ead-bdfe-7b5740fdd1ba/` in this worktree.
+
+This provides bounded Chromium evidence for provisional dev review/integration.
+The retained corrected composed grid spec has not yet run on Firefox/WebKit after
+adopting the Menu prerequisite. Those engines are deferred to the explicit checkpoint
+after ten integrated native changes or the daily full checkpoint, whichever comes
+first. The independent Menu matrix is not a composed grid matrix pass. No further
+unchanged worker browser/heavy run was needed. Final report-only application/commit
+and PR description update are coordinator-owned while worker writes remain blocked.
 
 Per the human policy update relayed by the coordinator, automatic GitHub dev checks
 are paused; no workflow files were changed or checks dispatched/waited for here.
 
 Full check, complete browser suite and packed-consumer matrices were intentionally
-not run under the targeted development policy. Firefox macOS launch is an existing
-unresolved environment limitation and was not retried unchanged. Physical touch,
+not run under the targeted development policy. Firefox launch has been restored by
+separate reviewed work; corrected composed Firefox/WebKit evidence remains pending
+the explicit checkpoint, rather than being claimed from that runtime recovery. Physical touch,
 device and assistive-technology acceptance remain unverified. Broad G-08/U-17 and
 G/U/X/R/Z gates remain open.
 
@@ -137,5 +185,6 @@ G/U/X/R/Z gates remain open.
 
 Audit multi-sort semantics with representative screen readers, including discovery
 of secondary direction/priority and clear-sort announcements. Keep physical touch
-sort-menu activation as a separate device acceptance task. First resolve the reserved shared Menu virtual-modifier autofocus defect above;
-then run the unchanged sort browser assertions before integrating this source slice.
+sort-menu activation as a separate device acceptance task. At the next explicit
+checkpoint, run the retained corrected composed grid spec on Firefox and WebKit;
+keep broad G-08/U-17 and G/U/X/R/Z acceptance open.
