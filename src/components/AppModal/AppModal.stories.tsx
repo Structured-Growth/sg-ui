@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import { AppModal } from "./AppModal";
 import { AppButton } from "../AppButton";
 import { AppPageTabs } from "../AppPageTabs";
@@ -67,3 +67,50 @@ function NestedOverlaysPreview() {
   </Provider>;
 }
 export const NestedOverlays: Story = { globals: { locale: "ar-EG", direction: "auto" }, render: () => <NestedOverlaysPreview /> };
+
+function RemovedOpenerPreview() {
+  const [open, setOpen] = useState(false);
+  const [childOpen, setChildOpen] = useState(false);
+  const [openerPresent, setOpenerPresent] = useState(true);
+  const [hostFocus, setHostFocus] = useState(false);
+  const [reason, setReason] = useState("");
+  const destination = useRef<HTMLInputElement>(null);
+  useLayoutEffect(() => {
+    if (!childOpen && hostFocus) destination.current?.focus();
+  }, [childOpen, hostFocus]);
+  return <Provider>
+    <AppButton onPress={() => setOpen(true)}>Open recovery parent</AppButton>
+    <p role="status">Child dismissal: {reason || "None"}</p>
+    <AppModal open={open} title="Recovery parent" onClose={() => setOpen(false)}>
+      <TextField label="Parent fallback" autoFocus />
+      <TextField label="Host destination" ref={destination} />
+      {openerPresent && <AppButton onPress={() => setChildOpen(true)}>Open removable child</AppButton>}
+      <AppModal open={childOpen} title="Recovery child" showCloseButton onClose={value => { setReason(value); setChildOpen(false); }}>
+        <TextField label="Child input" autoFocus />
+        <AppButton onPress={() => setOpenerPresent(false)}>Remove child opener</AppButton>
+        <AppButton onPress={() => { setOpenerPresent(false); setHostFocus(true); }}>Remove opener and choose host destination</AppButton>
+      </AppModal>
+    </AppModal>
+  </Provider>;
+}
+/** Removal happens while the child is open, after its focus scope captured the opener. */
+export const RemovedOpener: Story = { render: () => <RemovedOpenerPreview /> };
+
+function CustomChromePreview({ size }: { size: "md" | "lg" }) {
+  const [open, setOpen] = useState(false);
+  const [tab, setTab] = useState("details");
+  return <Provider>
+    <AppButton onPress={() => setOpen(true)}>Open custom {size} modal</AppButton>
+    <AppModal open={open} aria-label="Custom chrome settings" size={size} heightMode={size} showCloseButton
+      onClose={() => setOpen(false)}
+      headerContent={<><p>Course settings with host supplied header details</p><AppButton variant="outlined">Header help</AppButton></>}
+      footerContent={<><AppButton variant="text" onPress={() => setOpen(false)}>Custom cancel</AppButton><AppButton>Custom save</AppButton></>}>
+      <AppPageTabs label="Custom settings sections" value={tab} onChange={setTab} items={[
+        { id: "details", label: "Details", content: <>{Array.from({ length: 12 }, (_, index) => <TextField key={index} label={`Custom field ${index + 1}`} autoFocus={index === 0} />)}</> },
+        { id: "access", label: "Access", content: <TextField label="Custom permission" /> },
+      ]} />
+    </AppModal>
+  </Provider>;
+}
+export const MediumCustomChrome: Story = { render: () => <CustomChromePreview size="md" /> };
+export const LargeCustomChrome: Story = { render: () => <CustomChromePreview size="lg" /> };
