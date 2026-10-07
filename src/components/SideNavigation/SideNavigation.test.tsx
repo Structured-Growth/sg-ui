@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { useState } from "react";
 import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
@@ -113,3 +114,37 @@ for (const action of ["account", "all"] as const) {
     }
   }
 }
+
+it.each(["/settings/people", "/people"])("retains a drilled menu with accepted host routes and restores its parent (%s)", async childHref => {
+  const navigate = vi.fn();
+  const branchModel: SideNavigationModel = { ...model, rootMenu: { id: "root", sections: [{ id: "main", items: [
+    { id: "settings", label: "Settings", href: "/settings", childBehavior: "drilldown", children: [{ id: "people", label: "People", href: childHref }] },
+    { id: "home", label: "Home", href: "/home" },
+  ] }] } };
+  function Host() {
+    const [pathname, setPathname] = useState("/home");
+    return <Provider><SGNavigationProvider value={{ pathname, navigate: href => { navigate(href); setPathname(href); } }}>
+      <SideNavigation model={branchModel} />
+    </SGNavigationProvider></Provider>;
+  }
+  render(<Host />);
+  const user = userEvent.setup();
+  screen.getByRole("button", { name: "Settings" }).focus();
+  await user.keyboard("{Enter}");
+  expect(navigate).toHaveBeenCalledExactlyOnceWith("/settings");
+  expect(screen.getByRole("link", { name: "People" })).toBeTruthy();
+  expect(document.activeElement).toBe(screen.getByRole("button", { name: "Settings" }));
+  await user.keyboard("{Enter}");
+  expect(screen.queryByRole("link", { name: "People" })).toBeNull();
+  expect(document.activeElement).toBe(screen.getByRole("button", { name: "Settings" }));
+  expect(navigate).toHaveBeenCalledTimes(1);
+  await user.keyboard("{Enter}");
+  expect(screen.getByRole("link", { name: "People" })).toBeTruthy();
+  await user.tab(); await user.keyboard("{Enter}");
+  expect(screen.getByRole("link", { name: "People" }).getAttribute("aria-current")).toBe("page");
+  expect(navigate).toHaveBeenNthCalledWith(3, childHref);
+  await user.tab({ shift: true }); await user.keyboard("{Enter}");
+  expect(screen.getByRole("link", { name: "Home" })).toBeTruthy();
+  expect(navigate).toHaveBeenCalledTimes(childHref === "/people" ? 4 : 3);
+  if (childHref === "/people") expect(navigate).toHaveBeenLastCalledWith("/settings");
+});

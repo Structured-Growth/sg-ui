@@ -375,6 +375,7 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
   const [transitionDirection, setTransitionDirection] = useState<"forward" | "back" | null>(null);
   const [menuStackOverride, setMenuStackOverride] = useState<SideNavMenu[] | null>(null);
   const [overridePathname, setOverridePathname] = useState<string | null>(null);
+  const [overrideDestination, setOverrideDestination] = useState<string | null>(null);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [accountError, setAccountError] = useState<string | null>(null);
@@ -397,7 +398,9 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
   }, [accountsEnabled, logoutAccount, logoutAllAccounts, getStoredAuthSession, getStoredAuthSessions]);
 
   const derivedMenuStack = useMemo(() => buildMenuStack(model.rootMenu, pathname), [model.rootMenu, pathname]);
-  const menuStack = overridePathname === pathname && menuStackOverride ? menuStackOverride : derivedMenuStack;
+  // Keep the explicit hierarchy while the host accepts the requested branch route.
+  const overrideMatchesPath = overridePathname === pathname || overrideDestination === pathname;
+  const menuStack = overrideMatchesPath && menuStackOverride ? menuStackOverride : derivedMenuStack;
   const effectiveExpanded = useMemo(
     () =>
       new Set([
@@ -468,9 +471,10 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
     focusAfterTransition.current = "first";
     setTransitionDirection("forward");
     setOverridePathname(pathname);
+    setOverrideDestination(item.href ?? findFirstHref(childItems) ?? pathname);
     setMenuStackOverride((currentOverride) => {
       const sourceStack =
-        overridePathname === pathname && currentOverride ? currentOverride : derivedMenuStack;
+        overrideMatchesPath && currentOverride ? currentOverride : derivedMenuStack;
       const nextMenu: SideNavMenu = {
         id: `${item.id}-submenu`,
         backLabel: item.label,
@@ -498,6 +502,7 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(funct
     focusAfterTransition.current = currentMenu.backLabel ?? "first";
     setTransitionDirection("back");
     setOverridePathname(pathname);
+    setOverrideDestination(parentHref && !pathMatchesHref(parentHref, pathname) ? parentHref : pathname);
     setMenuStackOverride(menuStack.slice(0, -1));
 
     if (parentHref && !pathMatchesHref(parentHref, pathname)) {
