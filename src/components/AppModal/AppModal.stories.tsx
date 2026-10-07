@@ -80,8 +80,8 @@ function RemovedOpenerPreview() {
   }, [childOpen, hostFocus]);
   return <Provider>
     <AppButton onPress={() => setOpen(true)}>Open recovery parent</AppButton>
-    <p role="status">Child dismissal: {reason || "None"}</p>
     <AppModal open={open} title="Recovery parent" onClose={() => setOpen(false)}>
+      <p role="status">Child dismissal: {reason || "None"}</p>
       <TextField label="Parent fallback" autoFocus />
       <TextField label="Host destination" ref={destination} />
       {openerPresent && <AppButton onPress={() => setChildOpen(true)}>Open removable child</AppButton>}

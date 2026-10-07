@@ -65,3 +65,19 @@ expectation, environment or unclassified; a genuine shared Dialog/Modal fix need
 an exclusively reserved successor, not edits in this scope. Firefox/WebKit await
 batch checkpoint. Broad/manual/device/AT and whole M-08 acceptance remain held.
 Coordinator alone integrates and updates acceptance records.
+
+## Pre-admission fixture correction
+
+Coordinator read-only review identified that the dismissal status was outside
+the parent modal while the spec queried its accessible status role with that
+parent still open. Modal accessibility correctly hides such background content.
+Moved the fixture status into the surviving parent dialog; control focus,
+visibility and restoration assertions are unchanged. This is a fixture mismatch
+found before browser admission, not an observed native or product failure.
+
+Node 24.21.0 targeted `pnpm typecheck` and browser-spec TypeScript check passed
+again after this story-only correction. Logs:
+`/tmp/sgui-b40-modal-correction-types-{0..1}.log`. Matching light slot lease was
+released. No install, build, heavy or native run was performed. The corrected
+clean handoff replaces `5d2828786cfe7c0ae954f2c96bdd06049def54ed`; native execution
+remains pending with the same twelve cases and focused Chromium arguments.
