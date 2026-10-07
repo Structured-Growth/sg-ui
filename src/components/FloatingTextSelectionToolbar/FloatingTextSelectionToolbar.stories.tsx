@@ -54,4 +54,7 @@ function NestedBoundaryExample() {
     </div>
   </ThemeScope>;
 }
-export const NestedHostBoundary: Story = { render: () => <NestedBoundaryExample /> };
+export const NestedHostBoundary: Story = {
+  parameters: { docs: { description: { story: "Select the first line and focus Bold with Alt+F10, then scroll the inner host until the selection is offscreen. Actions dismiss and focus returns to the editor while both host scroll positions and the selected text are preserved, including in WebKit." } } },
+  render: () => <NestedBoundaryExample />,
+};
