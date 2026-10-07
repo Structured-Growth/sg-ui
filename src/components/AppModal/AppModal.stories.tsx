@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AppModal } from "./AppModal";
 import { AppButton } from "../AppButton";
 import { AppPageTabs } from "../AppPageTabs";
@@ -75,7 +75,7 @@ function RemovedOpenerPreview() {
   const [hostFocus, setHostFocus] = useState(false);
   const [reason, setReason] = useState("");
   const destination = useRef<HTMLInputElement>(null);
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!childOpen && hostFocus && destination.current) {
       const input = destination.current;
       const inert = Boolean(input.closest("[inert]"));

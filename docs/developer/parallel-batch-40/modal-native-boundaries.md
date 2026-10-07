@@ -127,3 +127,45 @@ Node24 source/browser type checks passed for the diagnostic revision; logs
 `/tmp/sgui-b40-modal-diagnostic-types-{0..1}.log`. Own light-slot lease released.
 Original red artifacts remain intact. Whole M-08, Firefox/WebKit, manual/device/AT
 remain held; this diagnostic handoff does not claim a correction or acceptance.
+
+## Wave23 telemetry and host fixture correction
+
+Actual coordinator candidate `c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`:
+**6 Chromium passed / 6 failed, zero skipped/flaky**. Source/build hashes were
+unchanged, sessions settled and owned leases released. Attribution:
+`/tmp/sgui-batch45-candidate-wave23-attribution.json`. Evidence:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457/modal-native-boundaries/`.
+All six custom-chrome cases pass with the separately reviewed shared Dialog CSS
+candidate correction; this confirms the prior header-layout cause. That shared
+fix is not part of this worker's source head. The earlier pre-browser attempt
+stopped for Node PATH error; retained cleanup EPERM/dead leases were separately
+recovered by the coordinator and provide no native evidence. Actual wave23 child
+PATH used Node24.19.
+
+Dismissal attachments show `body` as activeElement immediately and after two
+frames in every failed removed-opener case; the surviving parent is non-inert at
+both samples. In all three host-destination cases, the host-focus attempt records
+`inert: true, succeeded: false`. That is a confirmed **fixture host-effect timing
+failure**, not evidence that the library stole successfully placed host focus.
+Changed the story and equivalent composed unit fixture from layout effect to
+passive effect, after removal's passive cleanup. The host still chooses the same
+destination once; tests never focus it, do not wait for success to refocus, and
+all restoration/visibility/containment assertions remain intact. Existing attempt
+telemetry stays to verify the new native ordering rather than assume a fix pass.
+
+The three unassisted cases have no host focus attempt and still remain on `body`
+with an operable, non-inert parent after child dismissal. This is concrete missing
+native removed-opener recovery, not an acceptable accessible-control fallback.
+The current public guide promises restoration to an available opener only; it
+has no declared removed-opener input choice. The batch's requested recovery proof
+remains held. Shared FocusScope walks the connected outer trigger (inert while
+the parent remains open) before ancestor first-focusable fallback and returns
+after attempting focus. Reserve a bounded shared Dialog recovery owner to
+establish the exact fallback contract and correct this demonstrated native
+failure; do not add a generic AppModal focus override or silently accept body.
+
+Node24 targeted AppModal/Dialog units (12 tests), source/browser types and diff
+checks passed for the host-effect revision. Logs:
+`/tmp/sgui-b40-modal-host-effect-{0..2}.log`. No heavy/native rerun occurred here.
+The new frozen head is offered for coordinator correction proof, ideally composed
+with the separately owned shared fallback fix; original wave22/23 reds remain.
