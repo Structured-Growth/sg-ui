@@ -70,6 +70,8 @@ No unchanged Firefox retry, full check/consumer matrix, paused CI/title run,
 merge/main/publication or physical-device/manual/AT gate closure.
 
 Implementation head: `0c463a6428806a7dd4a0c9905aa5c388a8434e1b`. Targeted commands ran on the identical implementation tree before commit. Final report head is the draft PR head; later report-only commits do not change tested implementation.
+Draft [PR #86](https://github.com/Structured-Growth/sg-ui/pull/86) targets `codex/dev`.
+Evidence report head before this PR-link-only commit: `5f52bfd79346a882298b16332fea8c949d146ab3`.
 Independent exact-head review remains pending. Reserve central documentation/master
 checklist changes for the coordinator; broader H-06/X-03 and production acceptance
 remain open. Browser evidence must be completed before integration acceptance.
