@@ -34,8 +34,8 @@ implementation edits. No copied harness/config, graft, new worktree or special
 merge strategy. `git merge-base --is-ancestor` confirms the reviewed prerequisite;
 the Checkbox directory, assigned browser spec and report are identical to premerge
 `778fc0c` before this report-only update. No resolution changed behavior, so no
-redundant affected-light rerun was required. The next reported clean head is frozen
-for coordinator pool selection until explicit release.
+redundant affected-light rerun was required. The merged head was frozen for coordinator pool selection, then explicitly
+released for the bounded browser-spec correction described below.
  Task implementation contains no shared guide, barrel, configuration, dependency,
 workflow or other module edits; the authorized common prerequisite merge is
 tracked separately above. The existing `useFormReset` helper was read and reused, not changed.
@@ -113,10 +113,27 @@ Runtime: bundled Node `24.19.0`, pnpm `10.29.3`, React `19.2.3`.
 - `pnpm foundations:check`: passed after final source correction.
 - `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed after correction.
 - `git diff --check`: passed.
-- Mandatory fresh native evidence: **queued for coordinator browser-pool pairing**.
+- Coordinator eleventh pool at exact frozen `3f820c96ce6749c3b64942b4523d41736cf63903`:
+  **2 passed / 2 failed**, Chromium/WebKit. Both reset-authority cases passed;
+  both fieldset cases timed out at their first disabled-label `locator.click`,
+  before fieldset-transition/validation assertions ran. This is incomplete native
+  acceptance, not a 4-case pass. Results, browser log, both trace archives and
+  snapshots were inspected. The trace confirms actionability waited for enabled
+  state and no click was dispatched. Correction uses visible label bounding boxes
+  and physical `page.mouse.click`, retaining zero host requests, unchanged checked
+  value and the full original behavior assertions. Browser TypeScript and
+  `git diff --check` pass after this spec/report-only correction; no runtime
+  source changed, so no redundant unit rerun. No force click, synthetic input,
+  product change, timeout increase or assertion relaxation.
+  Pool output: `artifacts/browser-pool/0738f900-1719-4117-8102-75ef06aac921/`.
+  Runtime: Node `24.21.0`, pnpm `10.29.3`, Playwright `1.63.0`, macOS `27.0.0`.
+  Final head was unchanged and working tree clean. Immutable build SHA-256 before
+  and after was `0cf3c4c7ca1410a9971cf8bffc10d925d6649815fb97850d1ec61aed53a1b012`.
+- Mandatory complete fresh native evidence after driver correction: **queued**.
   Spec: `tests/browser/batch13-control-checkbox.spec.ts`, two cases; requested
   Chromium/WebKit args `--project=chromium --project=webkit` (four expected cases).
-  No fresh build/suite has run from this task. The initial standalone acquisition
+  Fresh pool build/suite above was coordinator-owned; no standalone build/server
+  was launched by this task. The initial standalone acquisition
   attempts returned occupied/priority-queued without acquiring or launching.
 
 Browser/build ownership honors `/tmp/sgui-parallel-batch-01-validation.lock` and

@@ -9,8 +9,17 @@ test('mixed required inputs honor fieldset transitions and host rejection', asyn
   const granted = page.getByRole('checkbox', { name: 'Mixed granted approval', exact: true });
   const rejected = page.getByRole('checkbox', { name: 'Host rejected approval', exact: true });
   await expect(approval).toBeDisabled();
-  await page.getByText('Mixed required approval', { exact: true }).click();
-  await page.getByText('Host rejected approval', { exact: true }).click();
+  // Locator.click waits for enabled state; these pointers intentionally target
+  // disabled fieldset labels. Send actual mouse events to their visible bounds.
+  for (const name of ['Mixed required approval', 'Host rejected approval']) {
+    const label = page.getByText(name, { exact: true });
+    await expect(label).toBeVisible();
+    await label.scrollIntoViewIfNeeded();
+    const box = await label.boundingBox();
+    expect(box).not.toBeNull();
+    await page.mouse.click(box!.x + box!.width / 2, box!.y + box!.height / 2);
+  }
+  expect(await approval.evaluate(node => (node as HTMLInputElement).checked)).toBe(false);
   await expect(page.getByLabel('Rejected requests')).toHaveText('0');
   await page.getByRole('button', { name: 'Submit approvals' }).click();
   await expect(page.getByLabel('Submitted approvals')).toHaveText('{}');
