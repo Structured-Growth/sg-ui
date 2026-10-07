@@ -61,18 +61,27 @@ test('AsyncMultiSelect native reset preserves prevented/controlled values and em
 
 test('native reset does not restart host searches or let late requests restore selected records', async ({ page }) => {
   await story(page, 'asyncmultiselect--native-search-reset');
-  // StrictMode starts an aborted request 0 and current request 1.
-  await page.getByRole('button', { name: 'Resolve request 1', exact: true }).click();
+  const requests = page.getByRole('button', { name: /^Resolve request / });
+  const requestId = async () => Number((await requests.last().textContent())!.match(/(\d+)$/)![1]);
+  // Production Storybook does not replay StrictMode effects. Use the actual
+  // request controls, and leave an old query unresolved to prove rejection.
+  const initial = await requestId();
+  await page.getByRole('button', { name: `Resolve request ${initial}`, exact: true }).click();
   await page.getByRole('option', { name: 'Result initial', exact: true }).click();
   await page.getByRole('searchbox').fill('x');
-  await expect(page.getByRole('button', { name: 'Resolve request 2', exact: true })).toBeVisible();
+  await expect(requests.last()).not.toHaveText(`Resolve request ${initial}`);
+  const stale = await requestId();
+  await page.getByRole('searchbox').fill('y');
+  await expect(requests.last()).not.toHaveText(`Resolve request ${stale}`);
+  const current = await requestId();
+  const requestCount = await requests.count();
   await page.getByRole('button', { name: 'Reset search selection', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Remove Result initial', exact: true })).toHaveCount(0);
-  await expect(page.getByRole('searchbox')).toHaveValue('x');
-  await expect(page.getByRole('button', { name: 'Resolve request 3', exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Reject request 0', exact: true }).click();
-  await page.getByRole('button', { name: 'Resolve request 2', exact: true }).click();
-  await expect(page.getByRole('option', { name: 'Result x', exact: true })).toBeVisible();
+  await expect(page.getByRole('searchbox')).toHaveValue('y');
+  await expect(requests).toHaveCount(requestCount);
+  await page.getByRole('button', { name: `Reject request ${stale}`, exact: true }).click();
+  await page.getByRole('button', { name: `Resolve request ${current}`, exact: true }).click();
+  await expect(page.getByRole('option', { name: 'Result y', exact: true })).toBeVisible();
   await expect(page.getByRole('status')).toHaveText('1 options available');
   await expect(page.getByRole('button', { name: /Remove Result/ })).toHaveCount(0);
 });
