@@ -66,6 +66,7 @@ export {
   type AppDataGridSelectionState,
   type AppDataGridSortDirection,
   type AppDataGridSortRule,
+  type AppDataGridViewState,
   type AppGridColumnVisibilityModel,
   type AppGridRowId,
   type AppGridRowSelectionModel,
