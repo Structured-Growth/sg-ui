@@ -121,7 +121,7 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
     const node = entry.current;
     const scrolling = node?.querySelector<HTMLElement>("[data-sgui-part='grid-container']") ?? node;
     if (scrolling) scrolling.scrollTop = 0;
-    (node?.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder']), [data-sgui-part='grid-card']") ?? node)?.focus();
+    (node?.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder']), [data-sgui-part='grid-card']") ?? node)?.focus({ preventScroll: true });
   }, [state.paginationModel.page]);
   const hasCriteria = Boolean(state.searchValue || state.filterRules.length);
   return <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="data-grid-shell">

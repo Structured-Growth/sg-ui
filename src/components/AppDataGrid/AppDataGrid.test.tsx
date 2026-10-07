@@ -6,7 +6,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { AppDataGrid } from "./AppDataGrid";
 import { Provider } from "../../experimental/Provider/Provider";
 
-afterEach(cleanup);
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 const rows = Array.from({ length: 12 }, (_, index) => ({ id: index + 1, name: `Course ${index + 1}`, score: 12 - index }));
 const columns = [{ field: "name", headerName: "Course" }, { field: "score", headerName: "Score" }];
 const base = { rows, columns, label: "Courses", getRowLabel: (row: typeof rows[number]) => row.name,
@@ -70,6 +70,12 @@ it("offers an opt-in live reset without replacing the native container ref", asy
 it.each([false, true])("keeps a shrunk client page coherent with host acceptance=%s", async accept => {
   const dataset = Array.from({ length: 41 }, (_, index) => ({ id: String(index + 1), name: `Shrink course ${index + 1}`, score: index }));
   const page = vi.fn(); const combined = vi.fn(); const selected = vi.fn(); const order: string[] = [];
+  const focusOptions: Array<FocusOptions | undefined> = [];
+  const originalFocus = HTMLElement.prototype.focus;
+  const focusSpy = vi.spyOn(HTMLElement.prototype, "focus").mockImplementation(function (this: HTMLElement, options) {
+    if (this.dataset.gridField === "name") focusOptions.push(options);
+    originalFocus.call(this, options);
+  });
   const config = { ...base, rows: dataset, pageSizeOptions: [10], paginationModel: { page: 3, pageSize: 10 },
     rowCount: 1, hasNextPage: false,
     selection: { defaultSelectedRowIds: new Set(["41"]), onSelectedRowIdsChange: selected },
@@ -89,6 +95,14 @@ it.each([false, true])("keeps a shrunk client page coherent with host acceptance
   expect(screen.getByText("Shrink course 11")).toBeTruthy();
   rerender(<AppDataGrid {...config} rows={dataset.slice(0, 11)} paginationModel={{ page: accept ? 0 : 3, pageSize: 10 }} />);
   expect(screen.getByText(accept ? "Shrink course 1" : "Shrink course 11")).toBeTruthy();
+  if (accept) {
+    expect(document.activeElement?.getAttribute("data-grid-field")).toBe("name");
+    expect(focusOptions.length).toBeGreaterThan(0);
+    // The first call is the owned footer-entry focus; React Aria may then
+    // refocus with its own scroll-preserving fallback in jsdom.
+    expect(focusOptions[0]).toEqual({ preventScroll: true });
+  }
+  focusSpy.mockRestore();
   expect(combined).toHaveBeenCalledTimes(1);
   expect(selected).not.toHaveBeenCalled();
   rerender(<AppDataGrid {...config} rows={[]} />);
