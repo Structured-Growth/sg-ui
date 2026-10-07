@@ -4,7 +4,7 @@ Use this when a configured check is absent or local validation is reading stale
 output. [GitHub setup](../github-setup.md) distinguishes the actual workflow gates
 from the [runtime evidence](../developer/react-aria-runtime-ci.md) recorded for
 specific commits. Documentation-only work verifies guidance without unrelated
-local UI runs. Dev PRs use targeted CI; production-bound CI retains the full matrix.
+local UI runs. Automatic dev PR CI/title runs are paused; production-bound CI retains the full matrix.
 See the [development validation policy](../developer/react-aria-development-validation.md).
 
 ## Missing AI draft-PR checks
@@ -23,7 +23,8 @@ behavior remains unverified by this guidance.
 Full CI display names are **Validate Node 22.12.0** and **Validate Node 24**;
 `validate` is their source job ID. The title job is **conventional-title**. Confirm
 contexts from a real run, particularly reusable release caller prefixes. Dev PRs
-use **Targeted development validation** instead.
+have no required automatic checks during the user-authorized pause; retain local
+targeted evidence and do not interpret missing/cancelled runs as passes.
 
 ## Browser server missing output or port in use
 

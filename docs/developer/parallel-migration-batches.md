@@ -208,3 +208,16 @@ baseline `e372781`, inventory-contract-wording (W19/M10/M14/M30). Exclusive file
 `docs/developer/parallel-batch-09/inventory-contract-wording.md`. It proposes exact
 criteria mappings/wording without silently dropping required behavior; central
 checklists remain coordinator-owned. Maximumtenactiveworkers, targeted policy.
+
+
+## Automatic development CI pause — 2026-10-07
+
+User requested holding GitHub CI while consolidating development. CI andPR-title
+workflows exclude codex/dev PR base at trigger;dev pushes already excluded.
+Targeted local worker evidence and occasional local full checkpoints continue.
+Production-bound/main/reusable release validation and permissions are preserved.
+Cancel only queued/running CI/title pull-request runs verified to targetcodex/dev.
+Historical failures/cancellations remain visible, not passed evidence.
+Workers/coordinator must not wait for dev GitHub checks or attempt to re-enable
+automation. Grid-clipboard PR18 completion received during this change, queued
+for ownership/evidence review after the CI policy update.
