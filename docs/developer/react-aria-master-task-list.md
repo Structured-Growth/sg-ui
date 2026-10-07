@@ -345,6 +345,8 @@ manual/device/AT gates remain open. The other 27 inventory rows remain held.
 
 - [x] M-04 AppPageHeader individual inventory-row acceptance: owned hierarchy, breadcrumbs/actions/metadata and native wrapping; see the [criterion review](parallel-batch-60/page-navigation-evidence.md).
 - [x] M-05 AppPageTabs individual inventory-row acceptance: owned tab/route contracts, controlled keyboard/density/overflow matrix and independent panels; see the [criterion review](parallel-batch-60/page-navigation-evidence.md).
+- [x] M-06 AppShell individual inventory-row acceptance: landmark/layout semantics, responsive navigation and main reflow; see the [criterion record](react-aria-migration-inventory-acceptance.md#m-06-criterion-reconciliation-2026-10-07).
+- [x] M-19 LearnerClassesDataGrid individual inventory-row acceptance: owned model/columns, localized date/link/action cells and controlled host state; see the [criterion record](react-aria-migration-inventory-acceptance.md#m-19-criterion-reconciliation-2026-10-07).
 
 Recorded catalog completions ([draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review): M-02, M-03, M-24,
 M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31–M-33, M-26–M-30, M-21–M-23, M-25, M-34 and M-20, M-36 and M-37.
