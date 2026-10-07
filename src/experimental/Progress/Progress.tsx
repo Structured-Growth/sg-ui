@@ -26,8 +26,13 @@ export type ProgressProps = ProgressOptions & (
 export const Progress = forwardRef<HTMLDivElement, ProgressProps>(function Progress(
   { label, value, minValue = 0, maxValue = 100, valueText, variant = "linear", className, ...props }, ref,
 ) {
-  const minimum = Number.isFinite(minValue) ? minValue : 0;
-  const maximum = Number.isFinite(maxValue) && maxValue > minimum ? maxValue : minimum + 100;
+  let minimum = Number.isFinite(minValue) ? minValue : 0;
+  let maximum = Number.isFinite(maxValue) && maxValue > minimum ? maxValue : minimum + 100;
+  // At extreme magnitudes, adding 100 may round back to the minimum.
+  if (!Number.isFinite(maximum) || maximum <= minimum) {
+    minimum = 0;
+    maximum = 100;
+  }
   const indeterminate = value === undefined || !Number.isFinite(value);
   const current = indeterminate ? undefined : Math.min(maximum, Math.max(minimum, value!));
   const percentage = current === undefined ? 0 : (current - minimum) / (maximum - minimum) * 100;
