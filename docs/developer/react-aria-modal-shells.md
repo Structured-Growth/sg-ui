@@ -108,3 +108,37 @@ ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundat
 Apply migrated boundaries to these directories; see [editor dialog contracts](react-aria-editor-dialogs.md)
 for preset draft reset, URL protocol validation and optional host-owned image descriptions.
 Load /styles.css and provide Provider or ThemeScope.
+
+## Nested dialog acceptance (U-08/U-19/X-04/X-05, partial)
+
+The `NestedOverlays` AppModal story composes two controlled modals, a child
+popover, a menu and a combobox using the existing owned primitives. The host
+keeps each modal's open state and records dismissal requests. Escape closes
+only the top overlay: guidance returns focus to its child trigger, child modal
+returns focus to its parent trigger, and parent modal returns focus to the
+original page trigger. A pointer outside the child dismisses only that child;
+the parent's explicit Close retains the `close-button` reason. Menu and
+combobox Escape leave their containing modal open. The menu portal inherits
+dark theme, compact density and Arabic locale/RTL direction at 320 CSS pixels.
+
+The exclusive browser regression file is
+[`batch01-dialogs.spec.ts`](../../tests/browser/batch01-dialogs.spec.ts).
+It also exercises the existing sticky-tab stories at a 640 × 320 CSS-pixel
+viewport with 200% root text and increased line/letter/word spacing in both
+themes. Native Tab traverses every field and footer action; focused controls
+must fit the viewport and pass center-point hit testing, and the surface must
+avoid horizontal overflow. Existing broader tab-panel clipping and stationary
+chrome checks remain in
+[`display-preferences.spec.ts`](../../tests/browser/display-preferences.spec.ts).
+
+These automated checks are a bounded acceptance slice. Root text scaling and
+CSS viewport sizing do not operate browser chrome zoom. Actual device/browser
+zoom, assistive-technology behavior, every overlay placement and focus recovery
+when a host removes a trigger remain separate acceptance work. This record does
+not close the broad U/X gates or extend editor-dialog acceptance.
+
+The first batch run also exposed a separate scope issue: with an English host
+locale, `Provider dir="rtl"` reaches the modal but the menu's portaled root uses
+`dir="ltr"`. Locale-driven Arabic direction is tested here. Explicit direction
+overrides across other primitives need a central fix and regression coverage;
+that issue is outside this dialog batch's write ownership.
