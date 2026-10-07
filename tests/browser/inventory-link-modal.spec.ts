@@ -8,9 +8,11 @@ async function selectRichFragment(page: Page) {
   const first = await fragment.locator('strong').boundingBox();
   const last = await fragment.locator('em').boundingBox();
   if (!first || !last) throw new Error('Host rich fragment is not visible');
-  await page.mouse.move(first.x, first.y + first.height / 2);
+  // Start in paragraph whitespace, outside the draggable native link. Starting
+  // on its first glyph requests link dragging rather than text selection.
+  await page.mouse.move(last.x + last.width + 4, last.y + last.height / 2);
   await page.mouse.down();
-  await page.mouse.move(last.x + last.width + 1, last.y + last.height / 2, { steps: 12 });
+  await page.mouse.move(first.x + 1, first.y + first.height / 2, { steps: 12 });
   await page.mouse.up();
   await expect.poll(() => page.evaluate(() => window.getSelection()?.toString())).toBe('Course guide');
 }
