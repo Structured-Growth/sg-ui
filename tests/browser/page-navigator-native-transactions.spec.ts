@@ -1,0 +1,199 @@
+import { expect, test, type Locator, type Page } from '@playwright/test';
+
+type NativeDrag = { type: string; trusted: boolean; title: string | null; source: string | null };
+const story = '/iframe.html?id=navigation-experiencepagenavigator-native-transactions--controlled-host&viewMode=story&globals=a11y.manual:!true';
+const order = (page: Page) => page.getByLabel('Host page order');
+const requests = (page: Page) => page.getByLabel('Host requests');
+const actions = (page: Page, title: string) => page.getByRole('button', { name: `Actions for ${title}`, exact: true });
+const row = (page: Page, title: string) => actions(page, title).locator('xpath=ancestor::li');
+
+async function reach(page: Page, target: Locator, browserName: string) {
+  const tab = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
+  for (let i = 0; i < 24; i++) {
+    if (await target.evaluate(element => element === document.activeElement)) return;
+    await page.keyboard.press(tab);
+  }
+  await expect(target).toBeFocused();
+}
+async function openActions(page: Page, title: string, browserName: string) {
+  await reach(page, actions(page, title), browserName);
+  await page.keyboard.press('ArrowDown');
+  await expect(page.getByRole('menu')).toBeVisible();
+}
+async function command(page: Page, name: string) {
+  const item = page.getByRole('menuitem', { name, exact: true });
+  await expect(item).not.toHaveAttribute('aria-disabled', 'true');
+  for (let i = 0; i < 8; i++) {
+    if (await item.evaluate(element => element === document.activeElement)) break;
+    await page.keyboard.press('ArrowDown');
+  }
+  await expect(item).toBeFocused();
+  await page.keyboard.press('Enter');
+}
+async function start(page: Page, theme: string) {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  page.on('console', message => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
+  await page.goto(`${story};theme:${theme}`);
+  await expect(order(page)).toHaveText('["intro","lesson","summary"]');
+  return errors;
+}
+
+for (const theme of ['light', 'dark']) {
+  test(`keyboard rename saves once and Escape returns to its action trigger (${theme})`, async ({ page, browserName }) => {
+    const errors = await start(page, theme);
+    await openActions(page, 'Introduction', browserName);
+    await command(page, 'Edit Page Name');
+    const field = page.getByRole('textbox', { name: 'Page Name' });
+    await expect(field).toBeFocused();
+    await expect(page.getByRole('dialog').locator('xpath=ancestor::*[@data-sgui-theme][1]')).toHaveAttribute('data-sgui-theme', theme);
+    await page.keyboard.press('ControlOrMeta+A');
+    await page.keyboard.type('  Renamed intro  ');
+    await reach(page, page.getByRole('button', { name: 'Save', exact: true }), browserName);
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    await expect(actions(page, 'Renamed intro')).toBeFocused();
+    await expect(requests(page)).toHaveText('[["rename","intro","Renamed intro"]]');
+    await expect(page.getByRole('button', { name: 'Renamed intro Page 1 • Active' })).toHaveAttribute('aria-current', 'page');
+    await openActions(page, 'Renamed intro', browserName);
+    await command(page, 'Edit Page Name');
+    await expect(field).toBeFocused();
+    await page.keyboard.press('ControlOrMeta+A'); await page.keyboard.type('Discard this');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    await expect(actions(page, 'Renamed intro')).toBeFocused();
+    await expect(requests(page)).toHaveText('[["rename","intro","Renamed intro"]]');
+    expect(errors).toEqual([]);
+  });
+
+  test(`host removal focuses the next then previous survivor without selecting it (${theme})`, async ({ page, browserName }) => {
+    const errors = await start(page, theme);
+    await openActions(page, 'Lesson', browserName); await command(page, 'Remove');
+    await expect(order(page)).toHaveText('["intro","summary"]');
+    await expect(page.getByRole('button', { name: 'Summary Page 2', exact: true })).toBeFocused();
+    await openActions(page, 'Summary', browserName); await command(page, 'Remove');
+    await expect(order(page)).toHaveText('["intro"]');
+    await expect(page.getByRole('button', { name: 'Introduction Page 1 • Active' })).toBeFocused();
+    await expect(requests(page)).toHaveText('[["remove","lesson"],["remove","summary"]]');
+    await openActions(page, 'Introduction', browserName);
+    for (const name of ['Remove', 'Move up', 'Move down']) await expect(page.getByRole('menuitem', { name, exact: true })).toHaveAttribute('aria-disabled', 'true');
+    await page.keyboard.press('Escape'); await expect(actions(page, 'Introduction')).toBeFocused();
+    await expect(requests(page)).toHaveText('[["remove","lesson"],["remove","summary"]]');
+    expect(errors).toEqual([]);
+  });
+
+  test(`keyboard Move boundaries respect accepted and rejected host order (${theme})`, async ({ page, browserName }) => {
+    const errors = await start(page, theme);
+    await openActions(page, 'Summary', browserName);
+    await expect(page.getByRole('menuitem', { name: 'Move down' })).toHaveAttribute('aria-disabled', 'true');
+    await page.keyboard.press('Escape');
+    await reach(page, page.getByRole('button', { name: 'Reject next reorder', exact: true }), browserName);
+    await page.keyboard.press('Enter'); await expect(page.getByLabel('Host reject next')).toHaveText('true');
+    await openActions(page, 'Introduction', browserName);
+    await expect(page.getByRole('menuitem', { name: 'Move up' })).toHaveAttribute('aria-disabled', 'true');
+    await command(page, 'Move down');
+    await expect(actions(page, 'Introduction')).toBeFocused();
+    await expect(order(page)).toHaveText('["intro","lesson","summary"]');
+    await expect(requests(page)).toHaveText('[["reorder","intro","lesson"]]');
+    await openActions(page, 'Introduction', browserName); await command(page, 'Move down');
+    await expect(actions(page, 'Introduction')).toBeFocused();
+    await expect(order(page)).toHaveText('["lesson","intro","summary"]');
+    await openActions(page, 'Introduction', browserName); await command(page, 'Move up');
+    await expect(actions(page, 'Introduction')).toBeFocused();
+    await expect(order(page)).toHaveText('["intro","lesson","summary"]');
+    await expect(requests(page)).toHaveText('[["reorder","intro","lesson"],["reorder","intro","lesson"],["reorder","intro","lesson"]]');
+    expect(errors).toEqual([]);
+  });
+
+  test(`live read-only and removed-page changes during rename suppress stale writes (${theme})`, async ({ page, browserName }) => {
+    const errors = await start(page, theme);
+    await openActions(page, 'Introduction', browserName); await command(page, 'Edit Page Name');
+    const field = page.getByRole('textbox', { name: 'Page Name' });
+    await expect(field).toBeFocused();
+    await page.keyboard.press('ControlOrMeta+A'); await page.keyboard.type('Unsaved');
+    await page.keyboard.press('Alt+r');
+    await expect(page.getByLabel('Host read-only')).toHaveText('true');
+    await expect(field).toHaveAttribute('readonly', '');
+    await expect(page.getByRole('button', { name: 'Save', exact: true })).toBeDisabled();
+    await page.keyboard.press('Enter'); await page.keyboard.press('Escape');
+    await expect(requests(page)).toHaveText('[]');
+    await expect(actions(page, 'Introduction')).toBeDisabled();
+    await expect(page.getByRole('button', { name: 'Add', exact: true })).toBeDisabled();
+    await expect(row(page, 'Introduction')).toHaveAttribute('draggable', 'false');
+    const lesson = page.getByRole('button', { name: 'Lesson Page 2', exact: true });
+    await reach(page, lesson, browserName); await page.keyboard.press('Enter');
+    await expect(requests(page)).toHaveText('[["select","lesson"]]');
+    await expect(page.getByRole('button', { name: 'Lesson Page 2 • Active' })).toHaveAttribute('aria-current', 'page');
+    await page.keyboard.press('Alt+r');
+    await openActions(page, 'Introduction', browserName);
+    await page.keyboard.press('Alt+r');
+    await expect(page.getByLabel('Host read-only')).toHaveText('true');
+    for (const name of ['Edit Page Name', 'Remove', 'Move up', 'Move down']) {
+      await expect(page.getByRole('menuitem', { name, exact: true })).toHaveAttribute('aria-disabled', 'true');
+    }
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('menu')).toHaveCount(0);
+    await expect(requests(page)).toHaveText('[["select","lesson"]]');
+    await page.keyboard.press('Alt+r');
+    await openActions(page, 'Introduction', browserName); await command(page, 'Edit Page Name');
+    await expect(field).toBeFocused(); await page.keyboard.press('Alt+x');
+    await expect(order(page)).toHaveText('["lesson","summary"]');
+    await page.keyboard.press('ControlOrMeta+A'); await page.keyboard.type('Removed page');
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    await expect(requests(page)).toHaveText('[["select","lesson"]]');
+    expect(errors).toEqual([]);
+  });
+}
+
+async function observeDrag(page: Page) {
+  await page.addInitScript(() => {
+    const events: NativeDrag[] = [];
+    Object.assign(window, { navigatorNativeDrag: events });
+    for (const type of ['dragstart', 'drop', 'dragend']) document.addEventListener(type, event => {
+      const drag = event as DragEvent;
+      events.push({ type, trusted: event.isTrusted, title: (event.target as Element).closest('li')?.querySelector('button')?.textContent ?? null,
+        source: type === 'drop' ? drag.dataTransfer?.getData('text/page-key') ?? null : null });
+    }, true);
+  });
+}
+const dragEvents = (page: Page) => page.evaluate(() => (window as unknown as { navigatorNativeDrag: NativeDrag[] }).navigatorNativeDrag);
+async function beginDrag(page: Page) {
+  const box = (await row(page, 'Introduction').boundingBox())!;
+  // The left decorative handle belongs to the native draggable li, outside its buttons.
+  await page.mouse.move(box.x + 16, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(box.x + 36, box.y + box.height / 2, { steps: 5 });
+  await expect.poll(async () => (await dragEvents(page)).filter(event => event.type === 'dragstart').map(event => event.trusted)).toEqual([true]);
+}
+async function drop(page: Page, title: string) {
+  const box = (await row(page, title).boundingBox())!;
+  await page.mouse.move(box.x + 16, box.y + box.height / 2, { steps: 10 });
+  await page.mouse.move(box.x + 17, box.y + box.height / 2);
+  await page.mouse.up();
+}
+for (const scenario of ['accepted', 'self', 'removed source'] as const) {
+  test(`first native mouse drag: ${scenario}`, async ({ page }, info) => {
+    await observeDrag(page); const errors = await start(page, 'light');
+    if (scenario === 'removed source') {
+      await page.getByRole('button', { name: 'Remove source on native drag start', exact: true }).click();
+      await expect(page.getByLabel('Host remove on drag')).toHaveText('true');
+    }
+    await beginDrag(page);
+    if (scenario === 'removed source') await expect(order(page)).toHaveText('["lesson","summary"]');
+    await drop(page, scenario === 'self' ? 'Introduction' : 'Summary');
+    if (scenario === 'removed source') {
+      // Removing the drag source can cancel the platform drag; no drop is required.
+      await expect(requests(page)).toHaveText('[]');
+      await expect(order(page)).toHaveText('["lesson","summary"]');
+    } else {
+      await expect.poll(async () => (await dragEvents(page)).filter(event => event.type === 'drop').map(event => [event.trusted, event.source])).toEqual([[true, 'intro']]);
+      await expect(requests(page)).toHaveText(scenario === 'self' ? '[]' : '[["reorder","intro","summary"]]');
+      await expect(order(page)).toHaveText(scenario === 'self' ? '["intro","lesson","summary"]' : '["lesson","summary","intro"]');
+    }
+    const native = await dragEvents(page);
+    expect(native.every(event => event.trusted)).toBe(true);
+    await info.attach('navigator-native-drag-events', { body: JSON.stringify(native), contentType: 'application/json' });
+    expect(errors).toEqual([]);
+  });
+}
