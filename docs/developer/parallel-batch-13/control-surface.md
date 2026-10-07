@@ -15,8 +15,11 @@ A-08/U-02 and broad U/X/R/Z, manual, physical-device and AT acceptance remain op
   `tests/browser/batch13-control-surface.spec.ts`, and this report.
 - Only this report changed. Source, stories, tests, APIs, exports, shared guidance,
   dependencies and workflows are unchanged. Primary/other worktrees are preserved.
-- The report commit and draft PR identify the final documentation head; all source
+- Initial report head: `142e674e31fcd5437993762e172194a4f35b74d9`; the final
+  metadata commit contains this record and is the draft PR branch head. All source
   evidence below is at the exact baseline above.
+- Draft PR: [#48](https://github.com/Structured-Growth/sg-ui/pull/48), attached to
+  this chat, targeting `codex/dev`.
 
 ## Existing evidence and findings
 
