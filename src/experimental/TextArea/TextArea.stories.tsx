@@ -21,8 +21,8 @@ function NativeResetExample() {
   const [invalid, setInvalid] = useState(false);
   const ref = useRef<HTMLTextAreaElement>(null);
   return <Stack gap={3}>
+    <Checkbox label="Prevent reset" checked={preventReset} onCheckedChange={setPreventReset} />
     <form id="textarea-host-form" onReset={event => { if (preventReset) event.preventDefault(); }}>
-      <Checkbox label="Prevent reset" checked={preventReset} onCheckedChange={setPreventReset} />
       <Button type="reset">Reset summaries</Button>
     </form>
     <p id="textarea-host-help">Host guidance</p>

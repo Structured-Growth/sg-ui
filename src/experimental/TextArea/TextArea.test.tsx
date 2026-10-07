@@ -4,6 +4,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { TextArea } from "./TextArea";
+import { NativeReset } from "./TextArea.stories";
 afterEach(cleanup);
 it("preserves multiline values, native refs/submission and reset", async () => {
  const ref = createRef<HTMLTextAreaElement>(); const user = userEvent.setup(); const change = vi.fn(); const { container } = render(<form><TextArea ref={ref} label="Description" name="description" defaultValue="First line" onValueChange={change} rows={6} /><button type="reset">Reset</button></form>);
@@ -62,4 +63,21 @@ it("keeps external and field descriptions while validation changes", () => {
  expect(described()).toContain("Host guidance"); expect(described()).toContain("Multiline guidance"); expect(described()).toContain("Add a summary");
  rerender(view(false)); expect(described()).toContain("Host guidance"); expect(described()).toContain("Multiline guidance"); expect(described()).not.toContain("Add a summary");
  expect(input.getAttribute("aria-invalid")).not.toBe("true");
+});
+
+it("keeps the reset prevention policy outside the form it controls", async () => {
+ const user = userEvent.setup();
+ render(NativeReset.render!({}, {} as never));
+ const policy = screen.getByRole("checkbox", { name: "Prevent reset" }) as HTMLInputElement;
+ // A reset must not reset the host policy before delegated prevention runs.
+ expect(policy.form).toBeNull();
+ const draft = screen.getByRole("textbox", { name: "Draft summary" });
+ await user.clear(draft); await user.type(draft, "Edited\ndraft");
+ await user.click(screen.getByRole("button", { name: "Replace default" }));
+ const changes = screen.getByLabelText("Value changes").textContent;
+ await user.click(screen.getByText("Prevent reset", { exact: true }));
+ await user.click(screen.getByRole("button", { name: "Reset summaries" }));
+ await new Promise(resolve => setTimeout(resolve, 20));
+ expect(policy.checked).toBe(true); expect(draft).toHaveProperty("value", "Edited\ndraft");
+ expect(screen.getByLabelText("Value changes").textContent).toBe(changes);
 });

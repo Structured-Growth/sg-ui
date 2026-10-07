@@ -119,3 +119,50 @@ message. Ready focused args are
 `tests/browser/batch13-control-textarea.spec.ts --project=chromium --project=webkit`.
 The worktree stays frozen until coordinator pool release. Mandatory native evidence
 remains queued; Firefox and manual/device/assistive-technology gates are unverified.
+
+## First pool failures and bounded correction
+
+The coordinator ran the frozen `a23f3b3a8052af282929c2b044bb6ad599c39612`
+with Node `24.21.0`, pnpm `10.29.3`, Playwright `1.63.0`, slot 1 / port 6274.
+Evidence directory (inside this same worktree):
+`artifacts/browser-pool/5e8665a7-ca8d-4957-a73f-5dbf92d359fe`.
+Commands were a fresh `pnpm exec storybook build --output-dir <evidence>/storybook`,
+`pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`, then
+`pnpm exec playwright test tests/browser/batch13-control-textarea.spec.ts --project=chromium --project=webkit`.
+Build/types passed; all 4 native cases failed. Initial and final build digest were
+both `d4a691a83b1c9e2cb04f27a9e3a37eaaf42cd4ec9e605e38187306166d9a299f`;
+HEAD/status stayed unchanged/clean. This is failed evidence, not native acceptance.
+
+Diagnosis changed the initial attribution: the native trace shows the prevention
+Checkbox checked after call@21, then unchecked immediately after reset call@23.
+The story placed that host reset-policy control inside the reset form. Its upstream
+`useToggle` form reset calls `state.setSelected(defaultSelected)`, potentially
+changing the host's policy before delegated prevention. Therefore this fixture
+failure does not establish that TextArea ignores an actually prevented event.
+The scoped correction moves only that story policy outside the reset form, as
+prior native-reset stories do; no additional TextArea implementation change.
+Checkbox implementation remains read-only, with a separate native reset callback/
+prevention task reserved. No behavior assertion is bypassed: the native spec still
+requires the edited draft and callback count to remain unchanged, and now also
+checks the policy's native form association is null and its checked state survives.
+
+A meaningful new composed story regression first failed on the policy's native
+form association: 1 failed / 7 passed. After the story correction, the slot-bound
+`pnpm exec vitest run src/experimental/TextArea/TextArea.test.tsx --maxWorkers=1`
+passed 1 file / 8 tests. `pnpm typecheck` and
+`pnpm exec tsc --noEmit -p tests/browser/tsconfig.json` passed using the same
+Node 24 runtime and owned light-slot cleanup. `git diff --check` passed.
+
+The other two native failures were unsupported description-order expectations:
+both engines produced `Multiline guidance Add a summary Host guidance` while the
+spec expected host guidance first. The corrected spec checks every complete
+accessible description, the exact three associated ID/text references, preserved
+host/field references after validation clears, removed error description, and the
+unchanged exact accessible name. It requires no particular concatenation order;
+no content, association or naming assertion was removed.
+
+The correction is confined to the allowed story, colocated test, browser spec and
+this report. Its exact clean committed HEAD is sent to the coordinator for a fresh
+focused rerun with the same 2 cases per engine. No own build, browser or server was
+started. Native acceptance remains incomplete pending that rerun; Firefox and
+manual/device/assistive-technology gates remain unverified.
