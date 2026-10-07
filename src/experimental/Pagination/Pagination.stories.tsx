@@ -32,3 +32,10 @@ export const ThemesAndDensity: Story = { render: () => <div style={{ display: "g
   </ThemeScope>)}
 </div> };
 export const NarrowAndRTL: Story = { render: () => <ThemeScope dir="rtl" style={{ maxWidth: "20rem" }}><Pages /></ThemeScope> };
+
+/** A host may reject size requests; invalid suggested sizes are never offered. */
+export const SafeSizesWithHostRejection: Story = {
+  args: { page: 2, pageCount: undefined, hasNextPage: true, pageSize: 10,
+    pageSizeOptions: [250, Number.MAX_SAFE_INTEGER + 1, 0, -1, 1.5, 250, Number.MAX_SAFE_INTEGER],
+    onPageSizeChange: () => {} },
+};
