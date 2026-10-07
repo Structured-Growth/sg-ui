@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { parseDate, toCalendarDate, toCalendar, GregorianCalendar } from "@internationalized/date";
 import { RangeCalendar, CalendarHeading, CalendarGrid, CalendarGridHeader, CalendarHeaderCell,
   CalendarGridBody, CalendarCell } from "react-aria-components/RangeCalendar";
@@ -32,6 +32,9 @@ export interface DateRangeSelectorProps {
 export function DateRangeSelector({ label, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets = [], months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
+  const descriptionId = useId();
+  const [focusedDate, setFocusedDate] = useState<DateOnly | undefined>(defaultFocusedDate);
+  const focusedReason = unavailable.find(day => day.date === focusedDate)?.reason;
   const [internal, setInternal] = useState<DateRange | null>(defaultValue);
   const committed = value === undefined ? internal : value;
   const [previous, setPrevious] = useState(committed);
@@ -51,13 +54,17 @@ export function DateRangeSelector({ label, value, defaultValue = null, onValueCh
         onValueChange={end => setDraft({ start: draft?.start ?? "", end: end ?? "" })} min={min} max={max} disabled={disabled} readOnly={readOnly} required={required} />
     </div>
     {presets.length > 0 && <div className={styles.presets} aria-label={t("common.ui.datePresets", { defaultMessage: "Date presets" })}>
-      {presets.map(preset => <Button key={preset.id} variant="outlined" tone="neutral" title={preset.description}
+      {presets.map((preset, index) => <div key={preset.id} className={styles.preset}>
+        <Button variant="outlined" tone="neutral" aria-describedby={preset.description ? `${descriptionId}-preset-${index}` : undefined}
         disabled={disabled || readOnly || !isDateRangeAllowed(preset.value, { min, max, unavailable })}
-        onPress={() => setDraft(preset.value)}>{preset.label}</Button>)}
+        onPress={() => setDraft(preset.value)}>{preset.label}</Button>
+        {preset.description && <p id={`${descriptionId}-preset-${index}`} className={styles.presetDescription}>{preset.description}</p>}
+      </div>)}
     </div>}
     <RangeCalendar aria-label={label} value={calendarValue} visibleDuration={{ months }} pageBehavior="single" selectionAlignment="start"
       defaultFocusedValue={defaultFocusedDate && isDateOnly(defaultFocusedDate) ? parseDate(defaultFocusedDate) : undefined} firstDayOfWeek={firstDayOfWeek}
       minValue={min && isDateOnly(min) ? parseDate(min) : undefined} maxValue={max && isDateOnly(max) ? parseDate(max) : undefined}
+      onFocusChange={date => setFocusedDate(toCalendar(toCalendarDate(date), new GregorianCalendar()).toString())}
       isDisabled={disabled} isReadOnly={readOnly} isInvalid={!allowed}
       isDateUnavailable={date => unavailable.some(day => day.date === toCalendar(toCalendarDate(date), new GregorianCalendar()).toString())}
       onChange={range => setDraft(range ? {
@@ -75,12 +82,14 @@ export function DateRangeSelector({ label, value, defaultValue = null, onValueCh
           <CalendarGrid offset={{ months: index }} weekdayStyle="short" className={styles.grid}>
           <CalendarGridHeader>{day => <CalendarHeaderCell className={styles.weekday}>{day}</CalendarHeaderCell>}</CalendarGridHeader>
           <CalendarGridBody>{date => {
-            const reason = unavailable.find(day => day.date === toCalendar(date, new GregorianCalendar()).toString())?.reason;
-            return <CalendarCell date={date} className={styles.cell}>{({ formattedDate }) => <span title={reason}>{formattedDate}</span>}</CalendarCell>;
+            const dateOnly = toCalendar(date, new GregorianCalendar()).toString();
+            const reason = unavailable.find(day => day.date === dateOnly)?.reason;
+            return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${dateOnly}-${index}`} />;
           }}</CalendarGridBody>
         </CalendarGrid></div>)}
       </div>
     </RangeCalendar>
+    {focusedReason && <p className={styles.summary} role="status" data-sgui-part="date-availability">{focusedDate}: {focusedReason}</p>}
     {unavailable.length > 0 && <details className={styles.availability}>
       <summary>{t("common.ui.unavailableDates", { defaultMessage: "Unavailable dates" })}</summary>
       <ul>{unavailable.map(day => <li key={day.date}>{day.date}: {day.reason}</li>)}</ul>
@@ -98,4 +107,25 @@ export function DateRangeSelector({ label, value, defaultValue = null, onValueCh
     {name && <><input type="hidden" name={`${name}.start`} value={committed?.start ?? ""} disabled={disabled} />
       <input type="hidden" name={`${name}.end`} value={committed?.end ?? ""} disabled={disabled} /></>}
   </div>;
+}
+
+// CalendarCell filters labelable ARIA props. Keep its native interaction and full
+// date label, and attach only the owned reason after its button has mounted.
+function DescribedCalendarCell({ date, reason, reasonId }: { date: ReturnType<typeof parseDate>; reason?: string; reasonId: string }) {
+  const ref = useRef<HTMLTableCellElement>(null);
+  useEffect(() => {
+    const button = ref.current?.firstElementChild;
+    if (!reason || !button) return;
+    const existing = button.getAttribute("aria-describedby")?.split(/\s+/).filter(Boolean) ?? [];
+    button.setAttribute("aria-describedby", [...new Set([...existing, reasonId])].join(" "));
+    return () => {
+      const remaining = button.getAttribute("aria-describedby")?.split(/\s+/).filter(id => id && id !== reasonId) ?? [];
+      if (remaining.length) button.setAttribute("aria-describedby", remaining.join(" "));
+      else button.removeAttribute("aria-describedby");
+    };
+  });
+  return <CalendarCell ref={ref} date={date} className={styles.cell}>
+    {({ formattedDate }) => <><span>{formattedDate}</span>
+      {reason && <span id={reasonId} className={styles.visuallyHidden}>{reason}</span>}</>}
+  </CalendarCell>;
 }

@@ -193,3 +193,29 @@ initial footer action focus under enlarged chrome, with zero skipped, unexpected
 or flaky tests. Header/body/footer use the same scoped visibility repair. Results:
 `artifacts/browser-results.json`, `/tmp/sgui-display-complete-browser-results.json`
 and `/tmp/sgui-display-complete-browser.log`.
+
+## Calendar explanations (K-17 partial)
+
+`tests/browser/calendar.spec.ts` exercises visible preset descriptions, disabled
+preset explanation access, accessible description references and native keyboard
+activation in both themes. Enter on an available preset changes the draft before
+Apply commits to the host. Tab/ArrowRight reaches an unavailable day, retains its
+complete date name, exposes its reason and cannot select or commit it. Enter/Space
+opens and closes the native availability disclosure with focus retained. Browser
+runtime warnings/errors remain mandatory failures. This covers availability and
+preset access; intermediate range previews and live screen-reader announcements
+remain open under K-17.
+
+Final local validation: Node 24 and exact-minimum Node 22.12.0 `pnpm check`
+pass 138 files/861 behavior tests, five foundation and four release tests, source/
+story typing, ESM/declarations/public imports and owned boundary/token/layer guards.
+Fresh Storybook builds with existing upstream warnings. The complete local
+Chromium/WebKit suite passes 62/62 in 53.9 seconds, with zero skipped, unexpected
+or flaky tests and mandatory diagnostics; eight cases cover the new calendar
+behavior. Fresh serial packed React 18/19 Vite SSR/browser (React 19 Flight) and
+Next 16.4.0 production/browser pass both local engines with no browser diagnostics.
+Local Firefox retains its documented launch limitation and remains mandatory in CI.
+Evidence: `/tmp/sgui-calendar-final-check-storybook.log`,
+`/tmp/sgui-calendar-final-check22.log`, `/tmp/sgui-calendar-final-browser.log`,
+`/tmp/sgui-calendar-final-browser-results.json` and
+`/tmp/sgui-calendar-final-consumers.log`. Current-head CI is independently required.

@@ -1,6 +1,6 @@
 # Calendar proof contracts and limits
 
-Tasks: P-04/P-05, H-10/H-11, K-01/K-10/K-12/K-16. The controls are experimental;
+Tasks: P-04/P-05, H-10/H-11, K-01/K-10/K-12/K-16, with partial K-17 evidence. The controls are experimental;
 this is proof evidence, not completion of the production calendar/browser gates.
 
 ## Serializable values
@@ -58,8 +58,24 @@ must enforce a required committed range in its final submission validation.
 The initial scope includes single/arbitrary multiple civil dates, civil ranges,
 local datetime/time fields, presets, unavailable days and explicit range Apply/
 Cancel. A two-month display stacks in a narrow container. Each displayed month
-has a visible localized heading. Availability explanations are also in a native
-disclosure so they are reachable by keyboard rather than relying on hover titles.
+has a visible localized heading. Preset descriptions are visible paragraphs, linked
+to their buttons with `aria-describedby`, including disabled presets. Unavailable
+date buttons retain their complete localized date labels and receive host-supplied
+reason descriptions through a private native-ref bridge after mounting. The bridge
+preserves other description references and removes only its own reference when
+availability changes. It is needed because the interaction component filters
+labelable ARIA props. No public prop or callback changes.
+
+Calendar focus exposes the focused unavailable date and reason in a visible status
+message. Arrow navigation changes focus without selecting a range; unavailable
+dates cannot be activated. The native availability disclosure remains a keyboard
+and touch alternative for reviewing all supplied dates. Host messages stay
+host-owned. Draft endpoints remain a separate status and only Apply commits.
+
+These changes address availability and preset access in K-17. Intermediate range
+preview/anchor announcements, live screen-reader output and the full locale/device
+matrix still need acceptance, so K-17 stays open. Descriptions on date buttons
+attach after hydration; the visible descriptions and disclosure are server-rendered.
 
 Comparison periods, computed fiscal rules, month/year-only selectors, recurrence,
 resource scheduling and booking persistence are deferred. Hosts may supply a

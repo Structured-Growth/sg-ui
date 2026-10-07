@@ -353,3 +353,8 @@ coverage. Never rebuild Storybook during a suite run. Broad native/device and
 assistive-technology acceptance remains open. The
 [removal audit](docs/developer/react-aria-removal-audit.md) distinguishes emitted
 implementation guards from preserved historical/legal references.
+
+DateRangeSelector exposes visible preset descriptions and keyboard-focused date
+availability explanations while preserving complete localized date labels. Its
+private native-ref bridge preserves existing description references; do not replace
+date labels with decorations or hover-only titles. See [calendar contracts](docs/developer/react-aria-calendar-contracts.md). K-17 remains open for range-preview and assistive-technology acceptance.

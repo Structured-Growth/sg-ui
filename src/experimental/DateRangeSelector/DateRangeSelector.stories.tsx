@@ -14,7 +14,13 @@ const meta = { title: "Migration proofs/DateRangeSelector", component: DateRange
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Reporting: Story = {};
-export const Availability: Story = { args: { label: "Booking dates", unavailable: [{ date: "2024-02-15", reason: "No remaining capacity" }], required: true } };
+export const Availability: Story = { args: { label: "Booking dates", defaultFocusedDate: "2024-02-14", presets: [
+  { id: "february", label: "February reporting period", description: "Includes the unavailable capacity date.", value: { start: "2024-02-01", end: "2024-02-29" } },
+  { id: "early", label: "Early February", description: "First two weeks, before capacity closes.", value: { start: "2024-02-01", end: "2024-02-14" } },
+], unavailable: [{ date: "2024-02-15", reason: "No remaining capacity" }], required: true }, render: args => {
+  const [value, setValue] = useState<import("./date-contract").DateRange | null>(null);
+  return <><DateRangeSelector {...args} value={value} onValueChange={setValue} /><output aria-label="Committed booking dates">{value ? `${value.start} – ${value.end}` : "No committed dates"}</output></>;
+} };
 export const LocaleAndTimezone: Story = { render: args => {
   const [locale, setLocale] = useState("ar-EG");
   return <><label>Host locale <select value={locale} onChange={event => setLocale(event.target.value)}><option value="ar-EG">Arabic</option><option value="de-DE">German</option><option value="en-US">English</option></select></label>

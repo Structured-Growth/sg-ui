@@ -1619,3 +1619,35 @@ enlarged chrome. Results are in `artifacts/browser-results.json` and
 `/tmp/sgui-display-complete-browser-results.json`; the log is
 `/tmp/sgui-display-complete-browser.log`. Header, body and footer share the same
 scoped visibility repair. The PR remains draft; later heads need independent CI.
+
+## Calendar explanations without hover (K-17 partial)
+
+DateRangeSelector now shows host preset descriptions as visible paragraphs with
+button description references, including disabled presets. Keyboard focus on an
+unavailable date exposes its ISO date and host reason in a visible status. A private
+native-ref bridge attaches the reason to the actual date button while preserving
+its complete localized date label and existing description references. It cleans
+up only its own reference when host availability changes. Native disclosure access,
+separate draft endpoints and Apply/Cancel ownership remain. No public API changed.
+
+The Availability story now demonstrates disabled/available preset explanations and
+a host-controlled committed output. Colocated regressions cover descriptions,
+keyboard focus without selection, full labels and changed/removed host reasons.
+Native browser gates cover light/dark preset activation and delayed commit, Arrow
+focus on unavailable dates and keyboard disclosure toggling. K-17 stays unchecked
+for intermediate range previews, assistive technology and the remaining matrix;
+formal closure remains 94/320 required tasks (226 open, 29.38%).
+
+Final local validation: Node 24 and exact-minimum Node 22.12.0 `pnpm check`
+pass 138 files/861 behavior tests, five foundation and four release tests, source/
+story typing, ESM/declarations/public imports and owned boundary/token/layer guards.
+Fresh Storybook builds with existing upstream warnings. The complete local
+Chromium/WebKit suite passes 62/62 in 53.9 seconds, with zero skipped, unexpected
+or flaky tests and mandatory diagnostics; eight cases cover the new calendar
+behavior. Fresh serial packed React 18/19 Vite SSR/browser (React 19 Flight) and
+Next 16.4.0 production/browser pass both local engines with no browser diagnostics.
+Local Firefox retains its documented launch limitation and remains mandatory in CI.
+Evidence: `/tmp/sgui-calendar-final-check-storybook.log`,
+`/tmp/sgui-calendar-final-check22.log`, `/tmp/sgui-calendar-final-browser.log`,
+`/tmp/sgui-calendar-final-browser-results.json` and
+`/tmp/sgui-calendar-final-consumers.log`. Current-head CI is independently required.
