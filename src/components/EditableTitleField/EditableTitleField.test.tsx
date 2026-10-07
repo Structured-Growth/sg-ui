@@ -73,3 +73,18 @@ it("supports title pointer entry and ignores composing Enter events", async () =
  await user.click(screen.getByRole("heading")); const input = screen.getByRole("textbox"); await user.clear(input); await user.type(input, "新");
  fireEvent.keyDown(input, { key: "Enter", isComposing: true }); expect(onSave).not.toHaveBeenCalled(); expect(screen.getByRole("textbox")).toBeDefined();
 });
+
+it("honors host read-only changes after rejection without losing the draft or requesting another save", async () => {
+ const user = userEvent.setup(); const onSave = vi.fn().mockRejectedValue(new Error("Failure"));
+ const view = render(<><EditableTitleField title="Old" onSave={onSave} /><button>Next</button></>);
+ const input = await edit(user, "Retry draft"); await user.keyboard("{Enter}");
+ await screen.findByText("Could not save title. Try again.");
+ view.rerender(<><EditableTitleField title="Host title" readOnly onSave={onSave} /><button>Next</button></>);
+ expect((input as HTMLInputElement).readOnly).toBe(true);
+ await user.type(input, " forbidden"); await user.keyboard("{Enter}"); await user.tab();
+ expect((input as HTMLInputElement).value).toBe("Retry draft"); expect(onSave).toHaveBeenCalledTimes(1);
+ await user.click(input); await user.keyboard("{Escape}");
+ expect(screen.queryByRole("textbox")).toBeNull();
+ expect(screen.getByRole("heading", { name: "Host title" })).toBeDefined();
+ expect(onSave).toHaveBeenCalledTimes(1);
+});
