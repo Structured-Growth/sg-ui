@@ -33,7 +33,7 @@ remain incomplete. Track partial attempts, so a persistent environment failure
 creates a repair task rather than endless immediate reruns.
 
 Create bounded, exclusively owned follow-up tasks for actionable failures. Widen
-checks sooner when a concrete regression warrants it. Keep the ten-minute progress
+checks sooner when a concrete regression warrants it. Keep the five-minute progress
 reports separate from the full-checkpoint cadence.
 
 ## GitHub and production acceptance

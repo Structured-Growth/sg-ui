@@ -246,3 +246,139 @@ Three newbatch10chats use revieweddev061a882 andexclusive scopes:
 | page-header-reflow (M-04/U-19) | `01a116a4-f72f-7853-b068-47a3e2ebe9cb` | src/components/AppPageHeader/; tests/browser/batch10-page-header-reflow.spec.ts; docs/developer/parallel-batch-10/page-header-reflow.md |
 | auth-shell-reflow (M-07/U-02) | `01a116a4-fa98-7d20-a217-302eca6279e1` | src/components/AuthShell/; tests/browser/batch10-auth-shell-reflow.spec.ts; docs/developer/parallel-batch-10/auth-shell-reflow.md |
 | card-frame-reflow (M-13/U-02) | `01a116a4-fd4c-7ab3-acfa-d29891b53fef` | src/components/ClassCardFrame/; tests/browser/batch10-card-frame-reflow.spec.ts; docs/developer/parallel-batch-10/card-frame-reflow.md |
+
+
+## Concurrency expansion and batch11
+
+User authorized increasing concurrency above10. Current cap16; browsers retain the existing lock/priority queue until a reviewed isolated-port slot pool is available. Targeted local checks and paused dev GitHub CI continue. Reviewed PR21 native reset, PR26 composed grid shell and PR29 contract wording merged and pushed at `d0fcc6298004ad23d1a75480b216b39142e6df96`. Runtime/native evidence accepted as bounded slices only; M10/M14/M30 owner criteria decisions remain open.
+
+Nine new chats use that verified baseline and exclusive allowlists:
+
+| Task | Chat | Ownership |
+| --- | --- | --- |
+| async-direction (H-06/U-19) | `01a116aa-47a8-7ac0-a7b1-031fc11b4a1b` | src/experimental/AsyncMultiSelect/; tests/browser/batch11-async-direction.spec.ts; docs/developer/parallel-batch-11/async-direction.md |
+| standalone-form-reset (U-18/K-06) | `01a116aa-4ad8-7a43-9bad-fbd7ab927463` | src/experimental/TextField/; src/experimental/DateField/; tests/browser/batch11-standalone-reset.spec.ts; docs/developer/parallel-batch-11/standalone-form-reset.md |
+| grid-page-shrink (G-05/H-16) | `01a116aa-4e1c-7150-8ef2-ca9dbef2a3a4` | src/components/AppDataGrid/ownedGridController.ts; src/components/AppDataGrid/ownedGridController.test.ts; src/components/AppDataGrid/ownedGridState.ts; src/components/AppDataGrid/ownedGridState.test.ts; src/components/AppDataGrid/ownedGridPageShrink.test.tsx; docs/developer/parallel-batch-11/grid-page-shrink.md |
+| filter-draft-transactions (G-09/U-07) | `01a116aa-514d-7f53-89d8-93e3882da963` | src/components/DataToolbar/components/DataToolbarFilterMenu.tsx; src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx; src/components/DataToolbar/components/DataToolbarFilterMenu.module.css; src/components/DataToolbar/filterRuleValue.ts; src/components/DataToolbar/filterRuleValue.test.ts; docs/developer/parallel-batch-11/filter-draft-transactions.md |
+| account-action-lifetime (H-04/H-05) | `01a116aa-5554-7eb1-8466-64cfa41a40e6` | src/adapters/accounts.tsx; src/adapters/accounts.test.tsx; src/adapters/accounts.stories.tsx; docs/developer/parallel-batch-11/account-action-lifetime.md |
+| icu-parser-boundaries (H-08) | `01a116aa-587d-71d2-bc80-6d9009dfab9f` | src/i18n/icu.ts; src/i18n/icu.test.ts; docs/developer/parallel-batch-11/icu-parser-boundaries.md |
+| editor-serialization (E-02/E-07) | `01a116aa-5bc3-7341-b095-6b2e95cba18b` | src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts; src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts; docs/developer/parallel-batch-11/editor-serialization.md |
+| editor-link-activation (E-07) | `01a116aa-5f39-7342-92d7-a46180801075` | src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx; src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts; src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts; src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts; docs/developer/parallel-batch-11/editor-link-activation.md |
+| public-api-reconciliation (Z-13/W-13) | `01a116aa-6384-7da2-8008-98ff10422683` | docs/developer/react-aria-public-api-reconciliation.md; docs/developer/parallel-batch-11/public-api-reconciliation.md |
+
+Completion reports received for grid-retry-focus and batch11 serialization, filters, ICU, account lifetime and page shrink; they await exact diff/evidence review. No broad checklist items closed. Acceptance remains67/326 (20.6%), required67/320 (20.9%), delta0;31 inventory rows held. ETA not reliable.
+
+## Batch12 browser parallelism
+
+New chat `01a116ad-fb4d-7891-9b4b-359e6ab91ea0` owns only playwright.config.ts, scripts/serve-browser-storybook.mjs, scripts/browser-validation-pool.mjs, scripts/browser-validation-pool.test.mjs, docs/developer/react-aria-parallel-browser-validation.md and its unique parallel-batch-12/browser-pool.md report. Baseline d0fcc6298004ad23d1a75480b216b39142e6df96. Goal: opt-in isolated ports/output, atomic two-browser slot pool and separate build exclusion, preserving defaults and current active queue. No rollout before targeted isolation/cleanup checks and coordinator review.
+
+PR39 link activation, PR40 async direction and PR41 API audit reports also received, pending diff/evidence review. API/ref/export decisions and client page-shrink/async busy findings reserved; no broad task upgraded.
+
+## User-authorized cap50 and velocity batch13
+
+User explicitly requested all speedups and up to50 parallel chats. Cap50 supersedes earlier10/16 limits. New42 chats (three read-only reviewers,39 focused source/evidence assignments) start at reviewed b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818 in isolated managed worktrees before edits. No duplicate/made-up work: inspect existing evidence first and return evidence-only if already adequate. Reviewers own only reports and cannot integrate; coordinator alone merges reviewed heads into dev. Four targeted test process slots (/tmp/sgui-light-validation-slots), two install slots (/tmp/sgui-install-slots), atomic ownership/finally cleanup. Heavy builds/browser keep current lock and priority queue until batch12 pool reviewed/proved; then initial two isolated browser sessions, separate build capacity. Full checkpoints remain occasional local; GitHub dev CI paused.
+
+| Task | Chat | Exclusive ownership |
+| --- | --- | --- |
+| review-1 (X-01/W-19/Z-13 bounded integration review) | `01a116b0-b23c-7ed0-ba3b-8fac40c17d87` | docs/developer/parallel-batch-13/review-1.md |
+| review-2 (X-01/W-19/Z-13 bounded integration review) | `01a116b0-b4a6-7c51-aa9f-2ffc1bb983a7` | docs/developer/parallel-batch-13/review-2.md |
+| review-3 (X-01/W-19/Z-13 bounded integration review) | `01a116b0-b863-7142-9eb6-a9efde3511e3` | docs/developer/parallel-batch-13/review-3.md |
+| control-checkbox (U-04/U-18) | `01a116b0-bbae-72b2-b8c6-40bc5a6e4e46` | src/experimental/Checkbox/; tests/browser/batch13-control-checkbox.spec.ts; docs/developer/parallel-batch-13/control-checkbox.md |
+| control-switch (U-04/U-18) | `01a116b0-bf3f-70a1-be5e-8d7c6021ad17` | src/experimental/Switch/; tests/browser/batch13-control-switch.spec.ts; docs/developer/parallel-batch-13/control-switch.md |
+| control-radiogroup (U-04/U-18) | `01a116b0-c37a-7932-a49f-f357c539b09a` | src/experimental/RadioGroup/; tests/browser/batch13-control-radiogroup.spec.ts; docs/developer/parallel-batch-13/control-radiogroup.md |
+| control-textarea (U-05/U-18) | `01a116b0-c76a-7571-9862-cfc832f897de` | src/experimental/TextArea/; tests/browser/batch13-control-textarea.spec.ts; docs/developer/parallel-batch-13/control-textarea.md |
+| control-timefield (K-07/K-08) | `01a116b0-caec-72b0-91f8-c4cee4ee0df7` | src/experimental/TimeField/; tests/browser/batch13-control-timefield.spec.ts; docs/developer/parallel-batch-13/control-timefield.md |
+| control-togglebutton (U-03/X-16) | `01a116b0-ce26-7e71-b2e7-700346f058db` | src/experimental/ToggleButton/; tests/browser/batch13-control-togglebutton.spec.ts; docs/developer/parallel-batch-13/control-togglebutton.md |
+| control-buttongroup (U-03/X-07) | `01a116b0-d21e-7892-9c33-cb45049f8f87` | src/experimental/ButtonGroup/; tests/browser/batch13-control-buttongroup.spec.ts; docs/developer/parallel-batch-13/control-buttongroup.md |
+| control-splitaction (U-03/X-04) | `01a116b0-d56e-7cb3-bb2b-03c9aff27c42` | src/experimental/SplitAction/; tests/browser/batch13-control-splitaction.spec.ts; docs/developer/parallel-batch-13/control-splitaction.md |
+| control-iconbutton (U-03/X-03) | `01a116b0-d9dd-7090-ba93-0d2db675a766` | src/experimental/IconButton/; tests/browser/batch13-control-iconbutton.spec.ts; docs/developer/parallel-batch-13/control-iconbutton.md |
+| control-tooltip (U-08/X-04) | `01a116b0-de67-7b53-adbc-fd67abbbc9e6` | src/experimental/Tooltip/; tests/browser/batch13-control-tooltip.spec.ts; docs/developer/parallel-batch-13/control-tooltip.md |
+| control-disclosure (U-09/X-16) | `01a116b0-e286-7290-864b-a63bf8695c9e` | src/experimental/Disclosure/; tests/browser/batch13-control-disclosure.spec.ts; docs/developer/parallel-batch-13/control-disclosure.md |
+| control-collapse (U-02/X-06) | `01a116b1-2f4f-74f1-86c2-f66f53acf91b` | src/experimental/Collapse/; tests/browser/batch13-control-collapse.spec.ts; docs/developer/parallel-batch-13/control-collapse.md |
+| control-taggroup (U-06/X-04) | `01a116b1-3320-7210-84f9-c74de9c9bcd7` | src/experimental/TagGroup/; tests/browser/batch13-control-taggroup.spec.ts; docs/developer/parallel-batch-13/control-taggroup.md |
+| control-breadcrumbs (U-10/X-03) | `01a116b1-37e6-7043-a1ce-41f991628c56` | src/experimental/Breadcrumbs/; tests/browser/batch13-control-breadcrumbs.spec.ts; docs/developer/parallel-batch-13/control-breadcrumbs.md |
+| control-navigation (U-10/H-03) | `01a116b1-3e5f-7452-922f-4f580b00b84b` | src/experimental/Navigation/; tests/browser/batch13-control-navigation.spec.ts; docs/developer/parallel-batch-13/control-navigation.md |
+| control-pagination (U-17/G-05) | `01a116b1-4545-7dd1-a57f-437edba7de83` | src/experimental/Pagination/; tests/browser/batch13-control-pagination.spec.ts; docs/developer/parallel-batch-13/control-pagination.md |
+| control-table (U-17/X-16) | `01a116b1-4a3b-7c12-bea1-f2646b278b8f` | src/experimental/Table/; tests/browser/batch13-control-table.spec.ts; docs/developer/parallel-batch-13/control-table.md |
+| control-datagrid (U-17/X-16) | `01a116b1-50a4-7aa2-8791-8d4e6d347ac9` | src/experimental/DataGrid/; tests/browser/batch13-control-datagrid.spec.ts; docs/developer/parallel-batch-13/control-datagrid.md |
+| control-progress (U-11/X-03) | `01a116b1-580a-7722-8683-e9a092fc879d` | src/experimental/Progress/; tests/browser/batch13-control-progress.spec.ts; docs/developer/parallel-batch-13/control-progress.md |
+| control-avatar (U-02/X-03) | `01a116b1-5fde-7061-94ba-52bc35739d62` | src/experimental/Avatar/; tests/browser/batch13-control-avatar.spec.ts; docs/developer/parallel-batch-13/control-avatar.md |
+| control-badge (U-02/X-03) | `01a116b1-6d5d-7db2-bba0-df9dd885a693` | src/experimental/Badge/; tests/browser/batch13-control-badge.spec.ts; docs/developer/parallel-batch-13/control-badge.md |
+| control-chip (U-06/X-04) | `01a116b1-78ed-7b22-bc17-18d289ccbc55` | src/experimental/Chip/; tests/browser/batch13-control-chip.spec.ts; docs/developer/parallel-batch-13/control-chip.md |
+| control-list (U-02/X-03) | `01a116b1-827e-7122-9899-b49bdf6f7678` | src/experimental/List/; tests/browser/batch13-control-list.spec.ts; docs/developer/parallel-batch-13/control-list.md |
+| control-typography (A-08/U-02) | `01a116b1-8b6b-7b42-9acb-834ef8c3b493` | src/experimental/Typography/; tests/browser/batch13-control-typography.spec.ts; docs/developer/parallel-batch-13/control-typography.md |
+| control-surface (A-08/U-02) | `01a116b1-90b2-77f2-9537-002527ba56b4` | src/experimental/Surface/; tests/browser/batch13-control-surface.spec.ts; docs/developer/parallel-batch-13/control-surface.md |
+| control-card (U-02/X-03) | `01a116b1-c7e5-7d71-abc0-d82a219ff96e` | src/experimental/Card/; tests/browser/batch13-control-card.spec.ts; docs/developer/parallel-batch-13/control-card.md |
+| control-box (U-02/A-08) | `01a116b1-ce2e-7f40-836b-cf951f174928` | src/experimental/Box/; tests/browser/batch13-control-box.spec.ts; docs/developer/parallel-batch-13/control-box.md |
+| control-stack (U-02/A-08) | `01a116b1-d4df-7472-b331-78279d595959` | src/experimental/Stack/; tests/browser/batch13-control-stack.spec.ts; docs/developer/parallel-batch-13/control-stack.md |
+| control-button (U-03/U-18) | `01a116b1-dab9-7872-bc20-f4d8cb27ddaa` | src/experimental/Button/; tests/browser/batch13-control-button.spec.ts; docs/developer/parallel-batch-13/control-button.md |
+| control-link (U-10/H-03) | `01a116b1-e07e-7db1-88b4-bb930301ef82` | src/experimental/Link/; tests/browser/batch13-control-link.spec.ts; docs/developer/parallel-batch-13/control-link.md |
+| control-status (U-11/X-03) | `01a116b1-e56b-7491-ba0b-a635f4bf0845` | src/experimental/Status/; tests/browser/batch13-control-status.spec.ts; docs/developer/parallel-batch-13/control-status.md |
+| editable-title (M-11/U-05) | `01a116b1-edae-7382-b118-adce6f93c8fc` | src/components/EditableTitleField/; tests/browser/batch13-editable-title.spec.ts; docs/developer/parallel-batch-13/editable-title.md |
+| page-navigator (M-06/U-10) | `01a116b1-f50d-72f3-87e9-4e96aca0161f` | src/components/ExperiencePageNavigator/; tests/browser/batch13-page-navigator.spec.ts; docs/developer/parallel-batch-13/page-navigator.md |
+| card-collection (M-12/U-17) | `01a116b1-fbae-73a2-a8a2-4b9b0eb6c470` | src/components/CardCollectionWithFooter/; tests/browser/batch13-card-collection.spec.ts; docs/developer/parallel-batch-13/card-collection.md |
+| columns-dialog (E-03/U-08) | `01a116b2-03f5-72b2-92be-18c2f502dd09` | src/components/ColumnsLayoutModal/; tests/browser/batch13-columns-dialog.spec.ts; docs/developer/parallel-batch-13/columns-dialog.md |
+| editor-layout (E-03/X-05) | `01a116b2-0d9a-72f0-b4a5-4cdff6f43dec` | src/components/DocumentEditorLayout/; tests/browser/batch13-editor-layout.spec.ts; docs/developer/parallel-batch-13/editor-layout.md |
+| formatting-toolbar (E-03/E-04) | `01a116b2-1308-7332-a5e6-c85bd6cccf25` | src/components/RichTextFormattingToolbar/; tests/browser/batch13-formatting-toolbar.spec.ts; docs/developer/parallel-batch-13/formatting-toolbar.md |
+| logout-lifetime (H-04/H-05) | `01a116b2-1e9e-7153-a892-263b970d2428` | src/components/SideNavigation/; tests/browser/batch13-logout-lifetime.spec.ts; docs/developer/parallel-batch-13/logout-lifetime.md |
+| persistent-state (H-16/X-16) | `01a116b2-32b6-7831-b74e-5ac137d0e516` | src/hooks/usePersistentState.ts; src/hooks/usePersistentState.test.ts; src/hooks/usePersistentState.behavior.test.tsx; src/hooks/usePersistentState.ssr.test.tsx; tests/browser/batch13-persistent-state.spec.ts; docs/developer/parallel-batch-13/persistent-state.md |
+
+All42 creation calls succeeded and were checked with compact snapshots. Avatar managed registration failed; detached checkout remains unedited, read-only report requested. Partial source audits do not close whole task IDs. Acceptance67/32620.6%, required67/32020.9%, delta0,31inventory rows held; ETA not reliable.
+
+## Parallel review throughput
+
+Three batch13 reviewer reports independently assessed exact heads and exclusive scopes. Coordinator reviewed their detailed findings/source identity/whitespace and conflict-free integrated PR25/34/35/36/37/38/39/40/41 plus reviewer PR45/46/49, retaining full history. Retry has targeted72-related/8Chromium-WebKit evidence; other accepted slices are tests/docs without runtime changes. No redundant full run. Client page-shrink and API/ref decisions remain open; no broad checklist upgrades. Evidence-only PR43/44/47/48 pending coordinator review. Avatar returned direct read-only report after managed registration failure; no edits or PR. Cap50 remains for genuinely unfinished successors, resource limits unchanged.
+
+## 14:12 UTC coordination — targeted fixes and batch14
+
+Reviewed/integrated PR30 AuthShell gutters/focus (6 units/10native), PR31 frame reflow (10 related/10native), PR57 safe pagination choices (21 targeted), PR65 finite progress fallback (8 targeted). Exact allowlists/source/stories/reports and whitespace reviewed; conflict-free full-history merges pushed. Native engine limitations remain explicit; no routine fullcheck. Browser pool PR77 priority follows page-header; process tests passed, actual two-session proof and coordinator rollout review still required. No pool rollout yet.
+
+| Task | Chat | Exclusive ownership |
+| --- | --- | --- |
+| review-evidence (W-19/X-01) | `01a116b7-82e9-7852-a34c-4d796307f617` | docs/developer/parallel-batch-14/review-evidence.md |
+| review-runtime (X-01/H-16/U-13) | `01a116b7-86eb-72d2-b0d8-f437f4ca7695` | docs/developer/parallel-batch-14/review-runtime.md |
+| client-page-shrink (G-05/H-16) | `01a116b7-8ab5-7062-85e9-88f5d78abd3c` | src/components/AppDataGrid/ownedGridModel.ts; src/components/AppDataGrid/ownedGridModel.test.ts; src/components/AppDataGrid/AppDataGrid.tsx; src/components/AppDataGrid/AppDataGrid.test.tsx; src/components/AppDataGrid/AppDataGrid.stories.tsx; src/components/AppDataGridShell/; tests/browser/batch14-client-page-shrink.spec.ts; docs/developer/parallel-batch-14/client-page-shrink.md |
+| async-native-busy (H-06/X-03) | `01a116b7-8f4c-7ff1-9f6d-f5b895295abe` | src/experimental/AsyncMultiSelect/; tests/browser/batch14-async-busy.spec.ts; docs/developer/parallel-batch-14/async-native-busy.md |
+| api-guide-corrections (W-13/W-19/Z-13) | `01a116b7-9325-7901-b81b-65596d8a53f1` | docs/developer/react-aria-primitives.md; docs/developer/react-aria-layout-actions.md; docs/developer/parallel-batch-14/api-guide-corrections.md |
+
+New baseline f1e5e457ce6240022ca07d6336ea06c5b67c917c. Runtime/evidence review slots accelerate current completed PRs; proven client shrink/async busy and source-guide corrections are dependency-ready. 26active worker chats; cap50. Acceptance 67/326 (20.6%), required67/320(20.9%), delta0;31inventory rows held. ETA not reliable. Required native scopes remain reserved until actual runs.
+
+## 14:29 UTC coordination — native pool outcomes and progress integration
+
+18 exact reviewed test/docs-only contributions plusreview PR88 integrated; Badge/List/persistence source fixes and APIguide PR85 plusreview89 integrated; proof-verified pool exact6b9 with concurrent Chromium1.794s, finalproof report4d7 integrated. Final report6eb9474 pending docs-only delta review. Firstfrozen grid-sort06899ff/progress27c68b2 pair supervisor exec69632 waits current formatting owner, then staged fresh builds/native suites. Integration checkout frozen until supervisor finishes; update ledger then. Persistent recovery story/native reserved in NEW batch15 chat01a116bd-31fa-74e3-9460-6d8ed4f78720. All broad gates remain open.
+
+User changed coordination/progress cadence from10minutes to5minutes; automation updated ACTIVE FREQ=MINUTELY INTERVAL=5. Cap50 and dependency-ready exclusive dispatch/resource limits unchanged. Apply this ledger entry after integration pool session releases source freeze.
+
+First coordinated two-worker browser pool completed: progress/status 10 Chromium/WebKit passes at 27c68b2; grid-sort 2 failures at 06899ff (expected Sort Ascending menuitemradio missing). Fresh builds/types and immutable head/digests verified; both workers unfrozen, grid scope retained for diagnosis. Legacy/build leases released; no combined pass or Firefox acceptance claimed.
+
+Next native pair selected: control-disclosure PR64 and control-button PR71. Full reviewed ancestry bootstrap at 6b9da44 authorized separately from exclusive task edits; clean frozen heads awaited. No native acceptance yet.
+
+Second pool completed: Disclosure 2 Chromium/WebKit passes at c5e5bdc; Button 2 failures at d6e7707 (duplicate host reset press on Space). Fresh builds/types and unchanged hashes/heads verified. Both source freezes released; Button correction required, no integration/native acceptance for failed fix.
+
+Reviewed PR91 exact seven-file ownership, additive translated error status/token mapping, composed tests and fresh immutable coordinator native evidence: 7 units and10 Chromium/WebKit cases. Final commit25eec14 only updates report after tested27c68b2. Conflict-free full-history merge into codex/dev; no redundant full run. Catalog PR33 reports80 native passes and awaits review. Next pair Switch/RadioGroup bootstrap authorized, frozen heads awaited. Broad acceptance67/32620.6%, required67/32020.9%, delta0;31inventory rows held/unscored.
+
+## 14:35 UTC coordination — disclosure integration and correction queue
+
+Third pool: Switch0 passed/2 disabled-label actionability timeouts at4c9e719; RadioGroup5 passed/1 WebKit disabled-selection focus failure ate78dab9. Fresh builds/types passed, immutable hashes/heads verified; failed workers released for bounded corrections and scopes retained. Batch16 independent reviewer chat01a116cc-99d3-7cb1-bed1-199c57a704fc dispatched for PR42/67/63/72 with unique report-only ownership.
+
+Reviewed PR64 source ownership/focus guard,7 unit/SSR tests and2 exact-head coordinator Chromium/WebKit native passes; final headbcbcde3 report-only after testedc5e5bdc. Conflict-free full-history integration; native partial gates remain open. Next pool pair selects clean corrected grid-sort1ff1ba6 and Button0c6fc76, requiring fresh builds and focused native reruns.
+
+## 14:41 UTC coordination — three reviewed fixes and corrected Button evidence
+
+Fourth pool: corrected Button2 Chromium/WebKit passes at0c6fc76; grid-sort3passes/1 ChromiumAlt+ArrowDown focus failure at1ff1ba6. Fresh builds/types/immutable hashes verified; returned exact evidence to owners, grid correction retained. PR92 independently reviewed PR42/67/63/72; coordinator source review recommends only bounded67/63/72 integration, reset42 remains held for incompleteDateField draft/form association gaps.
+
+Integrated exact independently/coordinator reviewed PR67 TimeField parse feedback (7 units/6native), PR63 SplitAction availability (15units/8native), PR72 deferred formatting callbacks (14units/12native) and unique reviewer PR92. Source ownership, final report-only deltas and limitations reviewed; conflict-free full-history merges. Toolbar evidence is Node26, not supported-runtime certification. PR42 held for partialDateField reset and form reassociation gaps. Corrected Button2pass finalreport2c7a3c awaits source review. Acceptance67/32620.6%, required67/32020.9%, delta0,31inventory held; next pair Switch/persistent-recovery ready exactheads.
+
+## 14:46 UTC coordination — Button integration and disabled-label regression
+
+Fifth focused pool running Switch correctedea68126 plus persistent-recoveryfd9358e, exact clean frozen heads verified and reviewed harness ancestry retained. Grid-sort proposes changed diagnostic focus history to distinguish browser document activation contention from real element focus transfer; no product/harness change accepted or pool expansion authorized.
+
+Fifth pool: persistence recovery2 Chromium passes atfd9358e; Switch2 failures atea68126 now actual disabled-label hostcallback leakage after driver correction. Fresh build/types/digests/heads verified; worker released for source correction, scope held. Grid-sort changed diagnostic3154be8 next isolated max1 run to distinguish document activation contention from actual focus transfer; do not expand browserpool.
+
+Reviewed/integrated PR71 exact source/5-file ownership,10 affected units and2 corrected coordinator native passes at0c6fc76; final2c7a3c report-only. Switch disabled-label host callback leak now confirmed by both engines, scope retained for fix. PR42 resumed for newly identified form reassociation defect without assuming partialDateField reset acceptance. Editable-title/Textarea common prerequisite bootstrap authorized for upcoming pair. Grid-sort next diagnostic runs isolated to assess document activation contention. Whole task percentage unchanged.
+
+## 14:51 UTC coordination — persistence coverage and focus diagnosis
+
+Isolated grid-sort diagnostic at3154be8:3passes/1ChromiumAlt failure; decoded attachment document.hasFocus=true, actual activeElement is menu container. Browser-pool contention ruled out; source correction required, no pool expansion/harness change. Persistent recoveryPR90 exact3-file story/spec/report scope reviewed,2Chromium fresh coordinator passes verified; final report-only4cdfb07 ready for integration.
+
+Integrated PR90 exact story/spec/report-only contribution,2Chromium native passes and final report-only4cdfb07 verified. No new runtimefix claimed. PR42 returned new association fixc118239 (231 related reported), managed checkout recreated from prior exacthead; approved harness bootstrap/native pending and partialDateField hold preserved. Next pair Editable-title d6a964f/Textarea a23f3b3 already frozen and awaiting verification. Acceptance67/32620.6%, required67/32020.9%, delta0,31inventory held; no ETA.

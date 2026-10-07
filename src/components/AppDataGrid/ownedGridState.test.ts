@@ -39,6 +39,28 @@ describe("owned grid transactions", () => {
     expect(transitionOwnedGridState(initial(), { type: "page", value: 4 }, { ...options, hasNextPage: false }).paginationModel.page).toBe(3);
     expect(transitionOwnedGridState(initial(), { type: "page", value: 2 }, { ...options, hasNextPage: false }).paginationModel.page).toBe(2);
   });
+  it.each([
+    { rowCount: 0, requested: 3, expected: 0 },
+    { rowCount: 10, requested: 3, expected: 0 },
+    { rowCount: 11, requested: 3, expected: 1 },
+    { rowCount: 30, requested: 3, expected: 2 },
+    { rowCount: 31, requested: 3, expected: 3 },
+    { rowCount: -1, requested: 4, expected: 4 },
+    { rowCount: NaN, requested: 4, expected: 4 },
+    { rowCount: 1.5, requested: 4, expected: 4 },
+  ])("atomically bounds page requests for total $rowCount", ({ rowCount, requested, expected }) => {
+    const previous = initial();
+    const action = { type: "pagination", value: { page: requested, pageSize: 10 } } as const;
+    const next = transitionOwnedGridState(previous, action, { ...options, rowCount, hasNextPage: true });
+    const calls: string[] = [];
+    notifyOwnedGridTransition(previous, next, action, {
+      onPaginationModelChange: model => { calls.push("page"); expect(model).toEqual({ page: expected, pageSize: 10 }); },
+      onStateChange: snapshot => { calls.push("combined"); expect(snapshot).toEqual({ ...previous, paginationModel: { page: expected, pageSize: 10 } }); },
+    });
+    expect(calls).toEqual(expected === previous.paginationModel.page ? ["combined"] : ["page", "combined"]);
+    expect(previous.paginationModel).toEqual({ page: 3, pageSize: 10 });
+    expect(next.selectedRowIds).toEqual(new Set(["off-page", "a"]));
+  });
   it("isolates callbacks from the transaction snapshot", () => {
     const previous = initial();
     const action = { type: "sort", value: [{ field: "name", direction: "asc" }] } as const;

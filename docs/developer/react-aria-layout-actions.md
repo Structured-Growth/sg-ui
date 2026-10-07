@@ -1,9 +1,11 @@
 # Owned layout and action primitives
 
-U-01–U-03 and U-05 are being implemented under the experimental entry point.
-These APIs are available for proof compositions; most of the existing catalog still
-awaits migration. Import the package stylesheet once and use `Provider` or `ThemeScope`
-to provide scoped tokens.
+U-01–U-03 and U-05 have owned implementations; public primitive mappings and
+package routes are recorded in [primitive mappings](react-aria-primitives.md) and
+[API reconciliation](react-aria-public-api-reconciliation.md). Catalog components
+also use the owned foundation; implementation availability does not close the
+remaining broad acceptance gates. Import the package stylesheet once and use
+`Provider` or `ThemeScope` to provide scoped tokens.
 
 `Typography` separates the visual `variant` from the semantic `as` element. All
 existing typography roles, including `bodyAlt2`, have shared token metrics. A

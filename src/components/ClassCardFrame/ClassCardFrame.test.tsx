@@ -23,3 +23,27 @@ it("supports native root and slot styling and server markup", () => {
   expect(screen.getByText("Action").style.padding).toBe("10px");
   expect(renderToString(<ClassCardFrame header="Title" body="Body" />)).toContain('data-sgui-part="class-card-frame"');
 });
+
+it("updates width on the same frame and lets host native style take precedence", () => {
+  const { rerender } = render(<ClassCardFrame header="Title" body="Body" width={360} />);
+  const frame = screen.getByRole("article");
+  expect(frame.style.maxInlineSize).toBe("360px");
+  rerender(<ClassCardFrame header="Title" body="Body" width={500} />);
+  expect(screen.getByRole("article")).toBe(frame);
+  expect(frame.style.maxInlineSize).toBe("500px");
+  rerender(<ClassCardFrame header="Title" body="Body" width={500} style={{ maxInlineSize: 280 }} />);
+  expect(frame.style.maxInlineSize).toBe("280px");
+  rerender(<ClassCardFrame header="Title" body="Body" />);
+  expect(frame.style.maxInlineSize).toBe("420px");
+});
+it("preserves image attributes, arbitrary slot content and falsy footer omission", () => {
+  const { rerender, container } = render(<ClassCardFrame header={null}
+    body={<img src="/host-course.png" alt="Host course image" width={1200} height={600} />} footer={false} />);
+  expect(screen.getByRole("img", { name: "Host course image" }).getAttribute("src")).toBe("/host-course.png");
+  expect(screen.getByRole("img").getAttribute("width")).toBe("1200");
+  expect(container.querySelector('[data-sgui-part="class-card-header"]')).not.toBeNull();
+  expect(container.querySelector('[data-sgui-part="class-card-footer"]')).toBeNull();
+  rerender(<ClassCardFrame header={null} body={null} footer={0} />);
+  expect(container.querySelector('[data-sgui-part="class-card-body"]')?.textContent).toBe("");
+  expect(container.querySelector('[data-sgui-part="class-card-footer"]')).toBeNull();
+});

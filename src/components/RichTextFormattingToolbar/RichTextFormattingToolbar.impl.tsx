@@ -169,6 +169,8 @@ export const RichTextFormattingToolbar = forwardRef<HTMLDivElement, RichTextForm
   disableContainerPadding = false,
 }, ref) {
   const { t } = useTranslation();
+  const selectionHandlers = useRef({ onHeadingChange, onFontFamilyChange, disabledControls, disabledControlSets });
+  useEffect(() => { selectionHandlers.current = { onHeadingChange, onFontFamilyChange, disabledControls, disabledControlSets }; });
   const pendingChanges = useRef(new Set<ReturnType<typeof setTimeout>>());
   useEffect(() => () => { pendingChanges.current.forEach(clearTimeout); pendingChanges.current.clear(); }, []);
   // Finish the select event and its focus restoration before a host command can
@@ -192,10 +194,16 @@ export const RichTextFormattingToolbar = forwardRef<HTMLDivElement, RichTextForm
     {!isHidden("heading", "heading") && <Select className={styles.select} label={label("heading", "Text style heading")}
       value={headingValue} disabled={isDisabled("heading", "heading") || !onHeadingChange}
       options={headings.map((id, index) => ({ id, label: label(`headingOption${index}`, id) }))}
-      onValueChange={value => { if (value !== null && headings.includes(value as RichTextHeadingValue)) requestSelectionChange(() => onHeadingChange?.(value as RichTextHeadingValue)); }} />}
+      onValueChange={value => { if (value !== null && headings.includes(value as RichTextHeadingValue)) requestSelectionChange(() => {
+        const current = selectionHandlers.current;
+        if (!current.disabledControls?.heading && !current.disabledControlSets?.heading) current.onHeadingChange?.(value as RichTextHeadingValue);
+      }); }} />}
     {showFontFamilySelector && !isHidden("fontFamily", "fontFamily") && <Select className={styles.select} label={label("fontFamily", "Font family")}
       value={fontFamilyValue} disabled={isDisabled("fontFamily", "fontFamily") || !onFontFamilyChange}
-      options={["Arial", "Georgia", "Times New Roman"].map(id => ({ id, label: id }))} onValueChange={value => { if (value !== null) requestSelectionChange(() => onFontFamilyChange?.(value)); }} />}
+      options={["Arial", "Georgia", "Times New Roman"].map(id => ({ id, label: id }))} onValueChange={value => { if (value !== null) requestSelectionChange(() => {
+        const current = selectionHandlers.current;
+        if (!current.disabledControls?.fontFamily && !current.disabledControlSets?.fontFamily) current.onFontFamilyChange?.(value);
+      }); }} />}
     {showFontSizeControls && (!isHidden("fontSizeDecrease", "fontSize") || !isHidden("fontSizeIncrease", "fontSize")) && <div className={styles.group}>
       {action("fontSizeDecrease", "fontSize", "Decrease font size", <RemoveIcon />, onFontSizeDecrease)}
       <output className={styles.fontSize} aria-label={label("fontSize", "Font size")}>{fontSizeValue}</output>

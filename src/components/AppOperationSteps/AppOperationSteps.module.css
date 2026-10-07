@@ -5,6 +5,7 @@
   .icon { display: inline-flex; inline-size: var(--sgui-space4); block-size: var(--sgui-space4); flex: none; color: var(--sgui-text-muted); }
   .icon svg { inline-size: 100%; block-size: 100%; }
   .step[data-status="completed"] .icon { color: var(--sgui-action); }
+  .step[data-status="error"] .icon { color: var(--sgui-danger); }
   .spinner { flex: none; }
   .spinner svg { inline-size: var(--sgui-space4); block-size: var(--sgui-space4); }
   .srOnly { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

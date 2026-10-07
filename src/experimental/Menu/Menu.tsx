@@ -1,5 +1,5 @@
 "use client";
-import { useId, type ReactElement, type ReactNode } from "react";
+import { useCallback, useId, useRef, type ReactElement, type ReactNode } from "react";
 import { MenuTrigger, Menu as AriaMenu, MenuItem as AriaMenuItem, MenuSection } from "react-aria-components/Menu";
 import { Popover } from "react-aria-components/Popover";
 import { useLocale } from "react-aria-components/I18nProvider";
@@ -30,6 +30,35 @@ export function Menu({ trigger, label, density, selectionMode = "multiple", erro
   const directionRef = useOverlayDirectionRef(direction);
   const labelId = useId();
   const errorId = useId();
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const removeFocusListener = useRef<(() => void) | null>(null);
+  const setMenuRef = useCallback((node: HTMLDivElement | null) => {
+    removeFocusListener.current?.();
+    removeFocusListener.current = null;
+    menuRef.current = node;
+    const view = node?.ownerDocument.defaultView;
+    if (!node || !view) return;
+    let frame: number | null = null;
+    let active = true;
+    const reconcileContainerFocus = () => {
+      if (frame !== null) view.cancelAnimationFrame(frame);
+      // Virtual/programmatic entry can defer item focus until after collection
+      // autofocus. Follow the committed Aria strategy, rather than picking first.
+      frame = view.requestAnimationFrame(() => {
+        frame = null;
+        if (!active || menuRef.current !== node || !node.isConnected || node.ownerDocument.activeElement !== node) return;
+        const item = node.querySelector<HTMLElement>('[role^="menuitem"][data-focused="true"][tabindex="0"]:not([aria-disabled="true"])');
+        if (item?.closest('[role="menu"]') === node) item.focus({ preventScroll: true });
+      });
+    };
+    // Native focus does not bubble: only collection focus schedules a repair.
+    node.addEventListener("focus", reconcileContainerFocus);
+    removeFocusListener.current = () => {
+      active = false;
+      node.removeEventListener("focus", reconcileContainerFocus);
+      if (frame !== null) view.cancelAnimationFrame(frame);
+    };
+  }, []);
   const groups: MenuItem[][] = [];
   for (const item of items) {
     const group = groups[groups.length - 1];
@@ -50,7 +79,7 @@ export function Menu({ trigger, label, density, selectionMode = "multiple", erro
     {trigger}<Popover {...scope} ref={directionRef} data-sgui-density={density ?? scope["data-sgui-density"]} placement={placement} className={styles.popover}>
       <span id={labelId} className={styles.label}>{label}</span>
       {errorMessage && <p id={errorId} role="alert" className={styles.error}>{errorMessage}</p>}
-      <AriaMenu aria-labelledby={labelId} aria-describedby={errorMessage ? errorId : undefined} onAction={key => onAction?.(String(key))} className={styles.menu} data-shortcuts={items.some(item => item.shortcut) || undefined}>
+      <AriaMenu ref={setMenuRef} aria-labelledby={labelId} aria-describedby={errorMessage ? errorId : undefined} onAction={key => onAction?.(String(key))} className={styles.menu} data-shortcuts={items.some(item => item.shortcut) || undefined}>
         {groups.map((group, index) => <MenuSection key={group[0].id} items={group}
           selectionMode={group[0].selected === undefined ? "none" : selectionMode}
           selectedKeys={group.filter(item => item.selected).map(item => item.id)}

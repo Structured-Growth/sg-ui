@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { createRef } from "react";
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { RichTextFormattingToolbar } from "./RichTextFormattingToolbar";
@@ -39,6 +39,30 @@ describe("RichTextFormattingToolbar", () => {
     await waitFor(()=>expect(change).toHaveBeenCalledExactlyOnceWith("Georgia"));
     expect(document.activeElement).toBe(screen.getByRole("textbox",{name:"Host editor"}));
     expect((screen.getByRole("textbox",{name:"Host editor"}) as HTMLInputElement).value).toBe("Guide");
+  });
+  it.each(["heading", "fontFamily"] as const)("uses the current %s callback after deferred selection", async control => {
+    const user = userEvent.setup(); const previous = vi.fn(); const current = vi.fn();
+    const props = control === "heading" ? { onHeadingChange: previous } : { onFontFamilyChange: previous };
+    const { rerender } = render(<RichTextFormattingToolbar {...props} />);
+    await user.click(screen.getByRole("button", { name: control === "heading" ? /Text style heading/ : /Font family/ }));
+    fireEvent.click(screen.getByRole("option", { name: control === "heading" ? "Heading 3" : "Georgia" }));
+    expect(previous).not.toHaveBeenCalled();
+    rerender(<RichTextFormattingToolbar {...(control === "heading" ? { onHeadingChange: current } : { onFontFamilyChange: current })} />);
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)); });
+    expect(previous).not.toHaveBeenCalled();
+    expect(current).toHaveBeenCalledExactlyOnceWith(control === "heading" ? "Heading 3" : "Georgia");
+  });
+  it.each(["missing", "control", "set"] as const)("drops a queued chooser request when availability becomes %s", async availability => {
+    const user = userEvent.setup(); const change = vi.fn();
+    const { rerender } = render(<RichTextFormattingToolbar onHeadingChange={change} />);
+    await user.click(screen.getByRole("button", { name: /Text style heading/ }));
+    fireEvent.click(screen.getByRole("option", { name: "Heading 3" }));
+    expect(change).not.toHaveBeenCalled();
+    rerender(<RichTextFormattingToolbar onHeadingChange={availability === "missing" ? undefined : change}
+      disabledControls={{ heading: availability === "control" }} disabledControlSets={{ heading: availability === "set" }} />);
+    await act(async () => { await new Promise(resolve => setTimeout(resolve, 20)); });
+    expect(change).not.toHaveBeenCalled();
+    expect((screen.getByRole("button", { name: /Text style heading/ }) as HTMLButtonElement).disabled).toBe(true);
   });
   it("preserves pointer link preparation and makes keyboard activation independent of it", async () => {
     const user=userEvent.setup(); const prepare=vi.fn(); const link=vi.fn();

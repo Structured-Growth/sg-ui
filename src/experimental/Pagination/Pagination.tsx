@@ -13,6 +13,7 @@ export interface PaginationProps {
   /** Used only when pageCount is unknown. */
   hasNextPage?: boolean;
   pageSize?: number;
+  /** Suggested positive safe integer sizes; invalid values and duplicates are ignored. */
   pageSizeOptions?: readonly number[];
   /** Changing page size requests page zero before calling this callback. */
   onPageSizeChange?: (pageSize: number) => void;
@@ -34,7 +35,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
   const previous = !disabled && page > 0;
   const next = !disabled && (pageCount === undefined ? hasNextPage : page + 1 < pageCount);
   const sizes = [...new Set([...pageSizeOptions, ...(pageSize === undefined ? [] : [pageSize])])]
-    .filter(size => Number.isInteger(size) && size > 0).sort((a, b) => a - b);
+    .filter(size => Number.isSafeInteger(size) && size > 0).sort((a, b) => a - b);
   return <nav {...props} ref={ref} aria-label={label ?? t("common.ui.pagination", { defaultMessage: "Pagination" })}
     className={[styles.root, className].filter(Boolean).join(" ")} data-sgui-part="pagination">
     <span className={styles.summary}>{pageCount === 0 ? t("common.ui.noPages", { defaultMessage: "No pages" }) :

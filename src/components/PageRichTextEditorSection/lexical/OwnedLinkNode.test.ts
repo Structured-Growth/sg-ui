@@ -8,6 +8,34 @@ import { OwnedLinkNode } from "./OwnedLinkNode";
 
 const config = { namespace: "owned-link-test", nodes: EXPERIENCE_EDITOR_NODES, onError: (error: Error) => { throw error; } };
 describe("owned link destinations", () => {
+  it("updates the existing anchor through accepted, rejected and normalized destinations without changing rich children", () => {
+    const root = document.createElement("div");
+    const editor = createEditor(config);
+    editor.setRootElement(root);
+    editor.update(() => {
+      $getRoot().append($createParagraphNode().append(
+        $createLinkNode("/guide", { title: "Guide", target: "_blank", rel: "author" })
+          .append($createTextNode("Rich guide").setFormat("bold"))));
+    }, { discrete: true });
+    const anchor = root.querySelector("a")!;
+    const richChild = anchor.firstChild;
+    for (const [url, destination] of [["javascript:alert(1)", "about:blank"], ["www.example.org/guide", "https://www.example.org/guide"], ["/restored", "/restored"]]) {
+      editor.update(() => {
+        $getRoot().getFirstChildOrThrow<import("lexical").ElementNode>().getFirstChild<OwnedLinkNode>()!.setURL(url);
+      }, { discrete: true });
+      expect(root.querySelector("a")).toBe(anchor);
+      expect(anchor.firstChild).toBe(richChild);
+      expect(anchor.getAttribute("href")).toBe(destination);
+      expect(anchor.getAttribute("target")).toBe("_blank");
+      expect(anchor.getAttribute("rel")).toBe("author");
+      expect(anchor.getAttribute("title")).toBe("Guide");
+      expect(serializeEditorDocument(editor.getEditorState().toJSON()).root.children[0]).toMatchObject({
+        children: [expect.objectContaining({ type: "link", url, children: [expect.objectContaining({ text: "Rich guide", format: 1 })] })],
+      });
+    }
+    editor.setRootElement(null);
+  });
+
   it.each([['courses/guide', 'courses/guide'], ['?view=details', '?view=details'], ['#section', '#section'], ['/guide', '/guide'],
     ['www.example.org', 'https://www.example.org'], ['https://example.org', 'https://example.org'],
     ['mailto:teacher@example.org', 'mailto:teacher@example.org'], ['tel:+15551234567', 'tel:+15551234567'],

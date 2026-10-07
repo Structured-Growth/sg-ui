@@ -3,6 +3,9 @@ import { afterEach, expect, it, vi } from "vitest";
 import { StrictMode } from "react";
 import { act, cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { ThemeScope } from "../../foundation/ThemeScope";
+import { Provider } from "../Provider/Provider";
+import { SGTranslationProvider, formatIcuMessage } from "../../i18n";
 import { AsyncMultiSelect } from "./AsyncMultiSelect";
 import { HostSearchExample } from "./AsyncMultiSelect.stories";
 afterEach(cleanup);
@@ -147,4 +150,46 @@ it("reset clears selection without changing the host query or reviving stale req
  expect(screen.queryByRole("button", { name: /Remove/ })).toBeNull();
  unmount(); expect(pending[2]!.signal.aborted).toBe(true);
  await act(async () => pending[2]!.resolve([options[0]!]));
+});
+
+
+it("inherits independent visual directions without replacing host queries or mounted results", async () => {
+ const user = userEvent.setup(); const queryChange = vi.fn(); const change = vi.fn();
+ function Pair({ reverse = false, loading = false, revision = 0 }) {
+  return <>{["en-US", "ar-EG"].map(locale => <SGTranslationProvider key={locale}
+   value={{ locale, t: (_key, options) => formatIcuMessage(options.defaultMessage, locale, options.values), useNamespace: () => {} }}>
+   <Provider dir={reverse ? (locale === "en-US" ? "ltr" : "rtl") : (locale === "en-US" ? "rtl" : "ltr")}>
+    <ThemeScope data-testid={locale}>
+     <AsyncMultiSelect label={locale} query="Host query" onQueryChange={queryChange} options={options}
+      defaultValue={[options[0]!]} onValueChange={change} loading={loading} description={`Revision ${revision}`} />
+    </ThemeScope>
+   </Provider>
+  </SGTranslationProvider>)}</>;
+ }
+ const { rerender } = render(<Pair />);
+ const inputs = screen.getAllByRole("searchbox"); const lists = screen.getAllByRole("listbox");
+ for (const [index, locale] of ["en-US", "ar-EG"].entries()) {
+  const scope = screen.getByTestId(locale);
+  expect(scope.getAttribute("dir")).toBe(index === 0 ? "rtl" : "ltr");
+  expect(scope.getAttribute("lang")).toBe(locale);
+  // Inline descendants inherit the visual scope; none replaces it with a locale-derived dir.
+  expect(lists[index]!.closest("[dir]")).toBe(scope);
+  expect(inputs[index]!.closest("[dir]")).toBe(scope);
+ }
+ await user.click(screen.getAllByRole("button", { name: "Remove Science" })[0]!);
+ expect(document.activeElement).toBe(inputs[0]);
+ expect(screen.getAllByRole("button", { name: "Remove Science" })).toHaveLength(1);
+ change.mockClear();
+ rerender(<Pair reverse loading revision={1} />);
+ for (const [index, locale] of ["en-US", "ar-EG"].entries()) {
+  expect(screen.getAllByRole("searchbox")[index]).toBe(inputs[index]);
+  expect(screen.getAllByRole("listbox")[index]).toBe(lists[index]);
+  expect(inputs[index]).toHaveProperty("value", "Host query");
+  expect(screen.getByTestId(locale).getAttribute("dir")).toBe(index === 0 ? "ltr" : "rtl");
+  expect(screen.getAllByRole("status")[index]!.textContent).toBe("Loading options…");
+ }
+ expect(document.activeElement).toBe(inputs[0]);
+ await user.click(screen.getAllByRole("option", { name: "Mathematics" })[0]!);
+ expect(change).not.toHaveBeenCalled(); expect(queryChange).not.toHaveBeenCalled();
+ expect(screen.getAllByRole("button", { name: "Remove Science" })).toHaveLength(1);
 });

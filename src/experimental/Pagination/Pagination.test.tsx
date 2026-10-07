@@ -73,6 +73,20 @@ describe("owned pagination", () => {
     await userEvent.setup().selectOptions(screen.getByRole("combobox"), "50");
     expect(atomic).toHaveBeenCalledExactlyOnceWith(0, 50);
   });
+  it("offers only positive safe sizes and preserves rejected unknown-total requests", async () => {
+    const calls: string[] = [];
+    render(<Pagination page={2} hasNextPage pageSize={10}
+      pageSizeOptions={[250, Number.MAX_SAFE_INTEGER + 1, 0, -1, 1.5, Infinity, NaN, 250, Number.MAX_SAFE_INTEGER]}
+      onPageChange={page => calls.push(`page:${page}`)}
+      onPageSizeChange={size => calls.push(`size:${size}`)} />);
+    const select = screen.getByRole("combobox", { name: "Rows per page" }) as HTMLSelectElement;
+    expect(Array.from(select.options, option => option.value)).toEqual(["10", "250", String(Number.MAX_SAFE_INTEGER)]);
+    await userEvent.setup().selectOptions(select, "250");
+    expect(calls).toEqual(["page:0", "size:250"]);
+    expect(select.value).toBe("10");
+    expect(screen.getByText("Page 3")).toBeTruthy();
+    expect(screen.queryByRole("button", { name: "Last page" })).toBeNull();
+  });
   it("allows keyboard activation without submitting an enclosing form", async () => {
     const onPageChange = vi.fn();
     const onSubmit = vi.fn(event => event.preventDefault());

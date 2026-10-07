@@ -141,9 +141,10 @@ export function usePersistentState<T>(storageKey: string | undefined, initialVal
       if (raw === undefined) throw new TypeError("Value cannot be serialized as JSON");
       const previous = storage()!.getItem(key);
       if (previous !== raw) storage()!.setItem(key, raw);
-      fallback().delete(scopeKey);
+      const removedFallback = fallback().delete(scopeKey);
       cache.current = { key: scopeKey, raw, version, source: { value: resolved, version }, migrate: settings.current.migrate, candidate: resolved };
-      if (previous === raw) return;
+      // Retiring a quota fallback changes live snapshots even if saved JSON matches.
+      if (previous === raw && !removedFallback) return;
     } catch {
       // Preserve changes even when reads/writes, quotas or serialization fail.
       fallback().set(scopeKey, { value: resolved, version });

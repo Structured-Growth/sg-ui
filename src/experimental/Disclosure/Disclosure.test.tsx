@@ -20,14 +20,52 @@ it("toggles a named linked panel using keyboard and excludes collapsed children 
 });
 it("keeps controlled expansion authoritative and restores focus when the host collapses focused content", async () => {
   const user = userEvent.setup(); const onExpandedChange = vi.fn();
-  const view = render(<Disclosure label="Details" expanded onExpandedChange={onExpandedChange} unmountOnCollapse><input aria-label="Note" /></Disclosure>);
+  const childRef = createRef<HTMLInputElement>();
+  const view = render(<Disclosure label="Details" expanded onExpandedChange={onExpandedChange} unmountOnCollapse><input ref={childRef} aria-label="Note" /></Disclosure>);
+  const original = childRef.current;
   await user.click(screen.getByRole("button")); expect(onExpandedChange).toHaveBeenCalledWith(false); expect(screen.getByRole("region")).toBeDefined();
   await user.click(screen.getByRole("textbox"));
   view.rerender(<Disclosure label="Details" expanded={false} onExpandedChange={onExpandedChange} unmountOnCollapse><input aria-label="Note" /></Disclosure>);
   expect(screen.queryByRole("textbox", { hidden: true })).toBeNull(); expect(document.activeElement).toBe(screen.getByRole("button"));
+  expect(childRef.current).toBeNull();
+  view.rerender(<Disclosure label="Details" expanded onExpandedChange={onExpandedChange} unmountOnCollapse><input ref={childRef} aria-label="Note" /></Disclosure>);
+  expect(childRef.current).not.toBeNull(); expect(childRef.current).not.toBe(original);
 });
 it("keeps independent state and disables expansion requests", async () => {
   render(<><Disclosure label="One" defaultExpanded><input aria-label="Retained" defaultValue="Saved" /></Disclosure><Disclosure label="Two" disabled>Hidden</Disclosure></>);
   await userEvent.click(screen.getByRole("button", { name: "One" })); expect(screen.getByRole("textbox", { hidden: true }).getAttribute("value")).toBe("Saved");
   await userEvent.click(screen.getByRole("button", { name: "Two" })); expect(screen.getByRole("button", { name: "Two" }).getAttribute("aria-expanded")).toBe("false");
+});
+it("preserves outside focus after a focused child is removed before host collapse", async () => {
+  const user = userEvent.setup();
+  const contentRef = createRef<HTMLInputElement>();
+  const rootRef = createRef<HTMLDivElement>();
+  const example = (expanded: boolean, showInput: boolean) => <><Disclosure ref={rootRef} label="Details" expanded={expanded} unmountOnCollapse>{showInput && <input ref={contentRef} aria-label="Temporary draft" />}</Disclosure><button>Host action</button></>;
+  const view = render(example(true, true));
+  await user.click(screen.getByRole("textbox"));
+  view.rerender(example(true, false));
+  expect(contentRef.current).toBeNull();
+  await user.click(screen.getByRole("button", { name: "Host action" }));
+  view.rerender(example(false, false));
+  expect(document.activeElement).toBe(screen.getByRole("button", { name: "Host action" }));
+  expect(rootRef.current).not.toBeNull();
+  view.unmount();
+  expect(rootRef.current).toBeNull();
+});
+it("keeps nested requests independent, heading semantics and child ref lifetime host-owned", async () => {
+  const user = userEvent.setup(); const childRef = createRef<HTMLInputElement>();
+  const request = vi.fn();
+  const view = render(<Disclosure label="Course" defaultExpanded><h2>Course outline</h2><Disclosure label="Lesson" expanded onExpandedChange={request} unmountOnCollapse><h3>Lesson notes</h3><input ref={childRef} aria-label="Nested note" /></Disclosure></Disclosure>);
+  const child = childRef.current;
+  await user.click(screen.getByRole("button", { name: "Lesson" }));
+  expect(request).toHaveBeenCalledExactlyOnceWith(false);
+  expect(childRef.current).toBe(child);
+  expect(screen.getByRole("heading", { name: "Course outline", level: 2 })).toBeDefined();
+  expect(screen.getByRole("heading", { name: "Lesson notes", level: 3 })).toBeDefined();
+  expect(screen.getByRole("button", { name: "Course" }).getAttribute("aria-expanded")).toBe("true");
+  await user.click(screen.getByRole("button", { name: "Course" }));
+  expect(request).toHaveBeenCalledTimes(1);
+  await user.click(screen.getByRole("button", { name: "Course" }));
+  expect(childRef.current).toBe(child);
+  view.unmount(); expect(childRef.current).toBeNull();
 });

@@ -1,5 +1,7 @@
 @layer sgui.components {
-  .root { inline-size: 100%; box-sizing: border-box; overflow: hidden; }
+  .root { inline-size: 100%; box-sizing: border-box; min-inline-size: 0; overflow: hidden; }
+  .header, .body, .footer { min-inline-size: 0; overflow-wrap: anywhere; }
+  .header img, .body img, .footer img { max-inline-size: 100%; block-size: auto; }
   .header, .body { padding: var(--sgui-space4); }
   .header, .footer { background: var(--sgui-surface-subtle); }
   .footer { padding: var(--sgui-space2) var(--sgui-space3); }

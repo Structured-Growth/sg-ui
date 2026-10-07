@@ -31,6 +31,31 @@ it("retains updates after a quota failure even if an old stored value is readabl
   const { result } = renderHook(() => usePersistentState("quota-view", { count: 0 }, { storage: "local", validate: isCount }));
   act(() => result.current[1]({ count: 5 })); expect(result.current[0]).toEqual({ count: 5 });
 });
+it.each(["local", "session"] as const)("synchronizes %s fallback recovery when the requested value already matches saved JSON", storage => {
+  const store = storage === "local" ? window.localStorage : window.sessionStorage;
+  store.setItem("recovered-view", "3");
+  const first = renderHook(() => usePersistentState("recovered-view", 0, { storage }));
+  const second = renderHook(() => usePersistentState("recovered-view", 0, { storage }));
+  const independent = renderHook(() => usePersistentState("independent-view", 0, { storage }));
+  const memory = renderHook(() => usePersistentState("recovered-view", 0));
+  const write = vi.spyOn(window.Storage.prototype, "setItem").mockImplementation(() => { throw new Error("Quota"); });
+  act(() => first.result.current[1](5));
+  expect(first.result.current[0]).toBe(5);
+  expect(second.result.current[0]).toBe(5);
+  write.mockRestore();
+  const recoveredWrite = vi.spyOn(window.Storage.prototype, "setItem");
+  act(() => first.result.current[1](3));
+  expect(first.result.current[0]).toBe(3);
+  expect(second.result.current[0]).toBe(3);
+  expect(independent.result.current[0]).toBe(0);
+  expect(memory.result.current[0]).toBe(0);
+  expect(store.getItem("recovered-view")).toBe("3");
+  expect(recoveredWrite).not.toHaveBeenCalled();
+  act(() => second.result.current[1](previous => previous + 1));
+  expect(first.result.current[0]).toBe(4);
+  expect(second.result.current[0]).toBe(4);
+  expect(store.getItem("recovered-view")).toBe("4");
+});
 it("rejects malformed stored shapes, supports explicit migration and writes versioned values", () => {
   window.localStorage.setItem("schema-view", '{"count":"wrong"}');
   const { result } = renderHook(() => usePersistentState("schema-view", { count: 0 }, { storage: "local", version: 2, validate: isCount,
