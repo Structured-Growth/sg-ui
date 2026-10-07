@@ -81,8 +81,10 @@ Commands included `git rev-parse HEAD`, `git status --short`,
 `rg`/`cat`/`sed` inspection, `node --version`, `python3 --version`, `gh --version`,
 Python link/anchor/count validation, `git diff --check` and an exact allowlist audit.
 Validation ran on the assigned baseline plus this report, then on the committed
-report head. Delivery commit, final exact head and attached draft PR are sent to
-the coordinator to avoid embedding a self-referential final commit hash.
+report head. Inspection report commit: `3a4fa3a87d56400f6e8c7fbbcf1ec72aa8797a6b`.
+Attached draft PR: [#53](https://github.com/Structured-Growth/sg-ui/pull/53),
+base `codex/dev`. Final exact head is sent to the coordinator to avoid embedding
+a self-referential final commit hash.
 No GitHub checks were dispatched, rerun, awaited or re-enabled; no merge,
 publication, permissions, secrets, licensing or shared guidance change occurred.
 
