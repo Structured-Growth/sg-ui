@@ -1,1 +1,1 @@
-export { FloatingTextSelectionToolbar } from "./FloatingTextSelectionToolbar";
+export { FloatingTextSelectionToolbar, type FloatingTextSelectionToolbarProps } from "./FloatingTextSelectionToolbar";

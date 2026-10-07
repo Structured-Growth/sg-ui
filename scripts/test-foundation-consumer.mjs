@@ -51,6 +51,9 @@ import { TextAlignMenuControl } from '@structured-growth/sg-ui/components/TextAl
 import { TextColorPickerControl } from '@structured-growth/sg-ui/components/TextColorPickerControl';
 import { TextStyleMenuControl } from '@structured-growth/sg-ui/components/TextStyleMenuControl';
 import { RichTextFormattingToolbar } from '@structured-growth/sg-ui/components/RichTextFormattingToolbar';
+import { DocumentEditorLayout } from '@structured-growth/sg-ui/components/DocumentEditorLayout';
+import { DocumentEditorToolbar } from '@structured-growth/sg-ui/components/DocumentEditorToolbar';
+import { ContentEditorChrome } from '@structured-growth/sg-ui/components/ContentEditorChrome';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
 export function Proof() {
@@ -66,6 +69,8 @@ export function Proof() {
     <TextStyleMenuControl activeStyles={['highlight']} onHighlight={()=>setResult('Highlight')} onClearFormatting={()=>setResult('Clear formatting')} />
     <TextColorPickerControl value="#123456" onChange={setResult} />
     <RichTextFormattingToolbar aria-label="Packed formatting" headingValue="Normal" onHeadingChange={setResult} fontFamilyValue="Arial" onFontFamilyChange={setResult} boldActive="mixed" onBold={()=>setResult('Bold')} onItalic={()=>setResult('Italic')} onLink={()=>setResult('Toolbar link')} onTextColorChange={setResult} onInsertColumnsLayout={()=>setEditorDialog('columns')} />
+    <ContentEditorChrome title="Packed document" icon={null} onTitleSave={setResult} menuItems={[{id:'file',label:'File',onPress:anchor=>setResult(anchor.textContent)}]} />
+    <DocumentEditorLayout title="Packed layout" toolbar={<DocumentEditorToolbar canEdit headingValue="normal" onHeadingChange={setResult} onZoomIn={()=>setResult('Zoom in')} actions={{bold:{active:true,onClick:()=>setResult('Document Bold')},italic:{active:false,onClick:()=>setResult('Document Italic')},bulletList:{active:false},orderedList:{active:false}}} />}><p>Host content</p></DocumentEditorLayout>
     <p role="status">{result}</p>
     <ColumnsLayoutModal open={editorDialog==='columns'} onClose={()=>setEditorDialog(null)} onSubmit={preset=>{setResult(preset);setEditorDialog(null);}} />
     <LinkUrlModal open={editorDialog==='link'} initialDisplayText="Course guide" onClose={()=>setEditorDialog(null)} onSubmit={payload=>{setResult(JSON.stringify(payload));setEditorDialog(null);}} />

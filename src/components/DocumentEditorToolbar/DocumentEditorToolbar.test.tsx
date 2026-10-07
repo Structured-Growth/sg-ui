@@ -1,197 +1,68 @@
-import { describe, expect, it, vi } from "vitest";
+// @vitest-environment jsdom
+import { createRef } from "react";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { DocumentEditorToolbar } from "./DocumentEditorToolbar";
+import { SGTranslationProvider } from "../../i18n";
 
-const collectNodes = (node: any, predicate: (candidate: any) => boolean, found: any[] = []) => {
-  if (!node || typeof node !== "object") {
-    return found;
-  }
-
-  if (predicate(node)) {
-    found.push(node);
-  }
-
-  const children = node?.props?.children;
-  if (Array.isArray(children)) {
-    children.forEach((child) => collectNodes(child, predicate, found));
-  } else {
-    collectNodes(children, predicate, found);
-  }
-
-  return found;
-};
-
+afterEach(cleanup);
 const createProps = () => ({
-  canEdit: true,
-  headingValue: "normal" as const,
-  onHeadingChange: vi.fn(),
-  actions: {
-    bold: { active: false, onClick: vi.fn() },
-    italic: { active: true, onClick: vi.fn() },
-    bulletList: { active: false, onClick: vi.fn() },
-    orderedList: { active: true, onClick: vi.fn() },
-  },
+  canEdit: true, headingValue: "normal" as const, onHeadingChange: vi.fn(),
+  actions: { bold: {active:false,onClick:vi.fn()}, italic: {active:true,onClick:vi.fn()}, bulletList:{active:false,onClick:vi.fn()}, orderedList:{active:true,onClick:vi.fn()} },
 });
-
 describe("DocumentEditorToolbar", () => {
-  it("wires heading, formatting, and zoom actions", () => {
-    const onHeadingChange = vi.fn();
-    const onZoomOut = vi.fn();
-    const onZoomIn = vi.fn();
-    const onBold = vi.fn();
-    const onItalic = vi.fn();
-    const onBullet = vi.fn();
-    const onOrdered = vi.fn();
-
-    const element = DocumentEditorToolbar({
-      canEdit: true,
-      headingValue: "normal",
-      onHeadingChange,
-      onZoomOut,
-      onZoomIn,
-      actions: {
-        bold: { active: false, onClick: onBold },
-        italic: { active: true, onClick: onItalic },
-        bulletList: { active: false, onClick: onBullet },
-        orderedList: { active: true, onClick: onOrdered },
-      },
-      statusLabel: "Saved",
-    }) as any;
-
-    const clickableNodes = collectNodes(element, (candidate) => typeof candidate?.props?.onClick === "function");
-    const headingSelect = collectNodes(element, (candidate) => typeof candidate?.props?.onChange === "function")[0];
-
-    clickableNodes.find((node) => node.props.onClick === onZoomOut)?.props.onClick();
-    clickableNodes.find((node) => node.props.onClick === onZoomIn)?.props.onClick();
-    headingSelect.props.onChange({ target: { value: "h2" } });
-    clickableNodes.find((node) => node.props.onClick === onBold)?.props.onClick();
-    clickableNodes.find((node) => node.props.onClick === onItalic)?.props.onClick();
-    clickableNodes.find((node) => node.props.onClick === onBullet)?.props.onClick();
-    clickableNodes.find((node) => node.props.onClick === onOrdered)?.props.onClick();
-
-    expect(onZoomOut).toHaveBeenCalled();
-    expect(onZoomIn).toHaveBeenCalled();
-    expect(onHeadingChange).toHaveBeenCalledWith("h2");
-    expect(onBold).toHaveBeenCalled();
-    expect(onItalic).toHaveBeenCalled();
-    expect(onBullet).toHaveBeenCalled();
-    expect(onOrdered).toHaveBeenCalled();
-    const statusNode = collectNodes(element, (candidate) => candidate?.props?.children === "Saved")[0];
-    expect(statusNode).toBeTruthy();
+  it("names actions and activates once by pointer and keyboard with controlled pressed states", async () => {
+    const user=userEvent.setup(); const props=createProps(); const zoomIn=vi.fn(); const zoomOut=vi.fn(); const submit=vi.fn();
+    render(<form onSubmit={submit}><DocumentEditorToolbar {...props} onZoomIn={zoomIn} onZoomOut={zoomOut} zoomValue={125} /></form>);
+    for (const name of ["Bold","Italic","Bulleted list","Numbered list","Zoom in","Zoom out"]) await user.click(screen.getByRole("button",{name}));
+    Object.values(props.actions).forEach(action=>expect(action.onClick).toHaveBeenCalledTimes(1));
+    expect(zoomIn).toHaveBeenCalledTimes(1); expect(zoomOut).toHaveBeenCalledTimes(1); expect(screen.getByLabelText("Zoom").textContent).toBe("125%");
+    expect(screen.getByRole("button",{name:"Italic"}).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button",{name:"Bold"}).getAttribute("aria-pressed")).toBe("false");
+    screen.getByRole("button",{name:"Bold"}).focus(); await user.keyboard(" "); expect(props.actions.bold.onClick).toHaveBeenCalledTimes(2);
+    screen.getByRole("button",{name:"Italic"}).focus(); await user.keyboard("{Enter}"); expect(props.actions.italic.onClick).toHaveBeenCalledTimes(2);
+    expect(submit).not.toHaveBeenCalled();
   });
-
-  it("renders right slot instead of status text when provided", () => {
-    const element = DocumentEditorToolbar({
-      ...createProps(),
-      statusLabel: "Saved",
-      rightSlot: "Custom slot",
-    }) as any;
-
-    const rootChildren = element.props.children as any[];
-    const statusNode = collectNodes(element, (candidate) => candidate?.props?.children === "Saved")[0];
-
-    expect(rootChildren[1]).toBe("Custom slot");
-    expect(statusNode).toBeFalsy();
+  it("requests heading once while retaining the host's controlled value and select focus", async () => {
+    const user=userEvent.setup(); const props=createProps(); render(<DocumentEditorToolbar {...props} />);
+    const trigger=screen.getByRole("button",{name:/Text style heading/}); await user.click(trigger); await user.click(screen.getByRole("option",{name:"H2"}));
+    await waitFor(()=>expect(props.onHeadingChange).toHaveBeenCalledExactlyOnceWith("h2"));
+    expect(trigger.textContent).toContain("Normal"); await waitFor(()=>expect(document.activeElement).toBe(trigger));
   });
-
-  it("renders no status element when statusLabel is not provided", () => {
-    const element = DocumentEditorToolbar({
-      ...createProps(),
-    }) as any;
-
-    const statusNode = collectNodes(element, (candidate) => candidate?.props?.children === "Saved")[0];
-    expect(statusNode).toBeFalsy();
+  it("finishes keyboard selection before the host refocuses contenteditable", async () => {
+    const user=userEvent.setup(); const change=vi.fn(()=>screen.getByRole("textbox",{name:"Host editor"}).focus());
+    render(<><DocumentEditorToolbar {...createProps()} onHeadingChange={change} /><div contentEditable role="textbox" aria-label="Host editor" suppressContentEditableWarning>Document text</div></>);
+    await user.click(screen.getByRole("button",{name:/Text style heading/})); await user.keyboard("{ArrowDown}");
+    const option=screen.getByRole("option",{name:"H1"}); fireEvent.keyDown(option,{key:"Enter",code:"Enter"}); expect(change).not.toHaveBeenCalled();
+    fireEvent.keyUp(option,{key:"Enter",code:"Enter"}); await waitFor(()=>expect(change).toHaveBeenCalledExactlyOnceWith("h1"));
+    expect(document.activeElement).toBe(screen.getByRole("textbox",{name:"Host editor"})); expect(screen.getByRole("textbox").textContent).toBe("Document text");
   });
-
-  it("uses explicit status color when provided", () => {
-    const element = DocumentEditorToolbar({
-      ...createProps(),
-      statusLabel: "Saved",
-      statusColor: "success.main",
-    }) as any;
-
-    const statusNode = collectNodes(element, (candidate) => candidate?.props?.children === "Saved")[0];
-    expect(statusNode.props.color).toBe("success.main");
+  it("disables editing without disabling available zoom and retains unavailable placeholders", async () => {
+    const user=userEvent.setup(); const props=createProps(); const zoom=vi.fn(); render(<DocumentEditorToolbar {...props} canEdit={false} onZoomIn={zoom} showCustomComponentAction />);
+    for (const name of ["Bold","Italic","Bulleted list","Numbered list","Align left","Align center","Align right","Justify","Custom component","Zoom out"]) {
+      const button=screen.getByRole("button",{name}) as HTMLButtonElement; expect(button.disabled).toBe(true); await user.click(button);
+    }
+    expect((screen.getByRole("button",{name:/Text style heading/}) as HTMLButtonElement).disabled).toBe(true);
+    Object.values(props.actions).forEach(action=>expect(action.onClick).not.toHaveBeenCalled());
+    await user.click(screen.getByRole("button",{name:"Zoom in"})); expect(zoom).toHaveBeenCalledTimes(1);
   });
-
-  it("hides optional control groups when their toggles are false", () => {
-    const element = DocumentEditorToolbar({
-      ...createProps(),
-      showZoomControls: false,
-      showAlignmentControls: false,
-      showCustomComponentAction: false,
-    }) as any;
-
-    const hasZoomLabel = collectNodes(element, (candidate) => candidate?.props?.children === "100%").length > 0;
-    const hasCustomButton = collectNodes(element, (candidate) => candidate?.props?.children === "Custom component").length > 0;
-
-    expect(hasZoomLabel).toBe(false);
-    expect(hasCustomButton).toBe(false);
+  it("disables commands whose host callbacks are absent", () => {
+    render(<DocumentEditorToolbar {...createProps()} onHeadingChange={undefined} actions={{bold:{active:true},italic:{active:false},bulletList:{active:false},orderedList:{active:false}}} />);
+    for (const name of ["Bold","Italic","Bulleted list","Numbered list"]) expect((screen.getByRole("button",{name}) as HTMLButtonElement).disabled).toBe(true);
+    expect((screen.getByRole("button",{name:/Text style heading/}) as HTMLButtonElement).disabled).toBe(true);
   });
-
-  it("applies active formatting colors and renders custom component action", () => {
-    const element = DocumentEditorToolbar({
-      ...createProps(),
-      actions: {
-        bold: { active: true, onClick: vi.fn() },
-        italic: { active: false, onClick: vi.fn() },
-        bulletList: { active: true, onClick: vi.fn() },
-        orderedList: { active: false, onClick: vi.fn() },
-      },
-      showCustomComponentAction: true,
-    }) as any;
-
-    const customButton = collectNodes(element, (candidate) => candidate?.props?.children === "Custom component")[0];
-    const primaryButtons = collectNodes(element, (candidate) => candidate?.props?.color === "primary");
-
-    expect(primaryButtons.length).toBeGreaterThanOrEqual(2);
-    expect(customButton).toBeTruthy();
+  it("honors optional groups, status color and right slot precedence", () => {
+    const {rerender}=render(<DocumentEditorToolbar {...createProps()} showZoomControls={false} showAlignmentControls={false} statusLabel="Saved" statusColor="var(--sgui-action)" />);
+    expect(screen.queryByRole("button",{name:"Zoom in"})).toBeNull(); expect(screen.queryByRole("button",{name:"Align left"})).toBeNull(); expect(screen.getByText("Saved").style.color).toBe("var(--sgui-action)");
+    rerender(<DocumentEditorToolbar {...createProps()} statusLabel="Saved" rightSlot={<span>Host status</span>} />);
+    expect(screen.queryByText("Saved")).toBeNull(); expect(screen.getByText("Host status")).toBeTruthy();
+    rerender(<DocumentEditorToolbar {...createProps()} />); expect(screen.queryByText("Host status")).toBeNull();
   });
-
-  it("shows disabled zoom controls when zoom handlers are missing", () => {
-    const element = DocumentEditorToolbar({
-      ...createProps(),
-      showZoomControls: true,
-    }) as any;
-
-    const zoomButtons = collectNodes(
-      element,
-      (candidate) => candidate?.props?.size === "small" && typeof candidate?.props?.disabled === "boolean" && candidate?.props?.onClick === undefined,
-    );
-
-    expect(zoomButtons.length).toBeGreaterThanOrEqual(2);
-    expect(zoomButtons[0].props.disabled).toBe(true);
-    expect(zoomButtons[1].props.disabled).toBe(true);
-  });
-
-  it("disables editing controls when canEdit is false", () => {
-    const onHeadingChange = vi.fn();
-    const onBold = vi.fn();
-    const onItalic = vi.fn();
-    const onBullet = vi.fn();
-    const onOrdered = vi.fn();
-
-    const element = DocumentEditorToolbar({
-      ...createProps(),
-      canEdit: false,
-      onHeadingChange,
-      actions: {
-        bold: { active: false, onClick: onBold },
-        italic: { active: false, onClick: onItalic },
-        bulletList: { active: false, onClick: onBullet },
-        orderedList: { active: false, onClick: onOrdered },
-      },
-    }) as any;
-
-    const selectNode = collectNodes(element, (candidate) => typeof candidate?.props?.onChange === "function")[0];
-    const controlButtons = collectNodes(
-      element,
-      (candidate) => candidate?.props?.size === "small" && typeof candidate?.props?.onClick === "function",
-    ).filter((node) => [onBold, onItalic, onBullet, onOrdered].includes(node.props.onClick));
-
-    expect(selectNode.props.disabled).toBe(true);
-    expect(controlButtons.length).toBe(4);
-    controlButtons.forEach((button) => {
-      expect(button.props.disabled).toBe(true);
-    });
+  it("forwards native root props and translates owned labels", () => {
+    const ref=createRef<HTMLDivElement>(); const t=vi.fn((_key,options)=>`Translated ${options.defaultMessage}`);
+    render(<SGTranslationProvider value={{t,useNamespace:()=>{}}}><DocumentEditorToolbar {...createProps()} ref={ref} className="host-toolbar" style={{marginInline:2}} /></SGTranslationProvider>);
+    expect(ref.current).toBe(screen.getByRole("group",{name:"Translated Document editing"})); expect(ref.current?.classList.contains("host-toolbar")).toBe(true);
+    expect(screen.getByRole("button",{name:"Translated Bold"})).toBeTruthy(); expect(ref.current?.style.marginInline).toBe("2px");
   });
 });

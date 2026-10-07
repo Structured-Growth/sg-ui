@@ -1,0 +1,13 @@
+@layer sgui.components {
+  .root { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sgui-space2); min-inline-size: 0; color: var(--sgui-text); background: var(--sgui-surface); font-family: var(--sgui-font-family); }
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sgui-space2); padding: var(--sgui-space1) var(--sgui-space2); border-radius: var(--sgui-control-radius); background: var(--sgui-surface-subtle); min-inline-size: 0; max-inline-size: 100%; box-sizing: border-box; }
+  .group { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sgui-space1); min-inline-size: 0; }
+  .action { padding-inline: var(--sgui-space1); gap: 0; }
+  .action[aria-pressed="true"] { color: var(--sgui-action); background: var(--sgui-surface); }
+  .heading { flex: 0 1 6rem; min-inline-size: 0; max-inline-size: 100%; }
+  .heading > span:first-of-type { position: absolute; inline-size: 1px; block-size: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .zoom { min-inline-size: 3.75rem; text-align: center; font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .status, .slot { min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; }
+  .status { color: var(--sgui-text-muted); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  @media (forced-colors: active) { .action[aria-pressed="true"] { border-color: Highlight; } }
+}

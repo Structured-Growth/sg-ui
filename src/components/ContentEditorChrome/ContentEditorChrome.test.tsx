@@ -1,57 +1,46 @@
-import { describe, expect, it, vi } from "vitest";
+// @vitest-environment jsdom
+import { createRef, useState } from "react";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { ContentEditorChrome } from "./ContentEditorChrome";
-
-vi.mock("../EditableTitleField", () => ({
-  EditableTitleField: (props: unknown) => ({ type: "EditableTitleField", props }),
-}));
-
+afterEach(cleanup);
 describe("ContentEditorChrome", () => {
-  it("renders title editor, right slot, and menu items", () => {
-    const onTitleSave = vi.fn();
-    const onFileClick = vi.fn();
-    const onEditClick = vi.fn();
-    const element = ContentEditorChrome({
-      icon: "doc-icon",
-      title: "Untitled document",
-      onTitleSave,
-      rightSlot: "status-chip",
-      menuItems: [
-        { id: "file", label: "File", onClick: onFileClick },
-        { id: "edit", label: "Edit", onClick: onEditClick },
-      ],
-    }) as any;
-
-    const rootStack = element.props.children;
-    const [iconCol, contentCol] = rootStack.props.children as any[];
-    expect(iconCol.props.children).toBe("doc-icon");
-
-    const [headerRow, menuRow] = contentCol.props.children as any[];
-    const [titleEditor, rightSlot] = headerRow.props.children as any[];
-    expect(titleEditor.type.name).toBe("EditableTitleField");
-    expect(titleEditor.props.title).toBe("Untitled document");
-    expect(titleEditor.props.variant).toBe("h4");
-    expect(titleEditor.props.onSave).toBe(onTitleSave);
-    expect(rightSlot).toBe("status-chip");
-
-    const menuButtons = menuRow.props.children as any[];
-    expect(menuButtons).toHaveLength(2);
-    const nativeClick = { type: "click", currentTarget: { id: "file-menu-anchor" } };
-    menuButtons[0].props.onClick(nativeClick);
-    menuButtons[1].props.onClick({ type: "click" });
-    expect(onFileClick).toHaveBeenCalledWith(nativeClick);
-    expect(onFileClick).toHaveBeenCalledTimes(1);
-    expect(onEditClick).toHaveBeenCalledTimes(1);
+  it("preserves native refs, title and slots, with a labelled action group", () => {
+    const ref = createRef<HTMLDivElement>();
+    render(<ContentEditorChrome ref={ref} id="chrome" className="host" style={{ margin: 3 }} aria-label="Course document" icon={<span>Document icon</span>} title="Lesson" onTitleSave={vi.fn()} rightSlot={<span>Draft</span>} menuItems={[{ id: "file", label: "File", onPress: vi.fn(), "aria-haspopup": "menu", "aria-expanded": false, "aria-controls": "file-menu" }]} />);
+    expect(ref.current?.id).toBe("chrome"); expect(ref.current?.classList.contains("host")).toBe(true);
+    expect(ref.current?.getAttribute("aria-label")).toBe("Course document");
+    expect(screen.getByRole("heading", { level: 4 }).textContent).toBe("Lesson");
+    expect(screen.getByText("Document icon").parentElement?.getAttribute("aria-hidden")).toBe("true");
+    expect(screen.getByText("Draft")).toBeTruthy(); expect(screen.getByRole("group", { name: "Document actions" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "File" }).getAttribute("aria-controls")).toBe("file-menu");
   });
-
-  it("supports empty menu and no right slot", () => {
-    const element = ContentEditorChrome({
-      icon: "doc-icon",
-      title: "Doc",
-      onTitleSave: vi.fn(),
-      menuItems: [],
-    }) as any;
-
-    const menuRow = element.props.children.props.children[1].props.children[1];
-    expect(menuRow.props.children).toEqual([]);
+  it("activates once by pointer, Enter and Space with a native menu anchor without submitting a form", async () => {
+    const onPress = vi.fn(); const submit = vi.fn(); const user = userEvent.setup();
+    render(<form onSubmit={event => { event.preventDefault(); submit(); }}><ContentEditorChrome icon={null} title="Lesson" titleReadOnly onTitleSave={vi.fn()} menuItems={[{ id: "file", label: "File", onPress }]} /></form>);
+    const button = screen.getByRole("button", { name: "File" });
+    await user.click(button); expect(onPress).toHaveBeenCalledExactlyOnceWith(button);
+    await user.keyboard("{Enter}"); await user.keyboard(" "); expect(onPress).toHaveBeenCalledTimes(3);
+    expect(onPress.mock.calls.every(([anchor]) => anchor === button)).toBe(true); expect(submit).not.toHaveBeenCalled();
+  });
+  it("blocks disabled, loading and unavailable actions while announcing pending state", async () => {
+    const press = vi.fn(); const user = userEvent.setup();
+    render(<ContentEditorChrome icon={null} title="Lesson" onTitleSave={vi.fn()} menuItems={[{ id: "disabled", label: "Disabled", onPress: press, disabled: true }, { id: "loading", label: "Loading", onPress: press, loading: true }, { id: "unavailable", label: "Unavailable" }]} />);
+    for (const name of ["Disabled", "Loading", "Unavailable"]) { const button = screen.getByRole("button", { name }); await user.click(button); button.focus(); await user.keyboard("{Enter} "); }
+    expect(press).not.toHaveBeenCalled(); expect(screen.getByRole("progressbar", { name: "Pending" })).toBeTruthy();
+  });
+  it("composes the real title editor, saving once and restoring keyboard focus", async () => {
+    const save = vi.fn(); const user = userEvent.setup();
+    function Host() { const [title, setTitle] = useState("Lesson"); return <ContentEditorChrome icon={null} title={title} onTitleSave={next => { save(next); setTitle(next); }} menuItems={[]} />; }
+    render(<Host />); await user.tab(); await user.keyboard("{Enter}");
+    const input = screen.getByRole("textbox", { name: "Document title" }); await user.clear(input); await user.type(input, "Updated{Enter}");
+    await waitFor(() => expect(screen.getByRole("heading").textContent).toBe("Updated")); expect(save).toHaveBeenCalledExactlyOnceWith("Updated");
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Edit title" })));
+    expect(screen.queryByRole("group")).toBeNull();
+  });
+  it("supports a read-only title and no icon or action row", async () => {
+    render(<ContentEditorChrome icon={null} title="Lesson" titleReadOnly onTitleSave={vi.fn()} menuItems={[]} />);
+    expect(screen.queryByRole("group")).toBeNull(); expect(screen.getByRole("button", { name: "Edit title" }).hasAttribute("disabled")).toBe(true);
   });
 });

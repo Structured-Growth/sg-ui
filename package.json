@@ -165,6 +165,22 @@
     "./components/RichTextFormattingToolbar": {
       "types": "./dist/components/RichTextFormattingToolbar/index.d.ts",
       "import": "./dist/components/RichTextFormattingToolbar/index.js"
+    },
+    "./components/FloatingTextSelectionToolbar": {
+      "types": "./dist/components/FloatingTextSelectionToolbar/index.d.ts",
+      "import": "./dist/components/FloatingTextSelectionToolbar/index.js"
+    },
+    "./components/DocumentEditorLayout": {
+      "types": "./dist/components/DocumentEditorLayout/index.d.ts",
+      "import": "./dist/components/DocumentEditorLayout/index.js"
+    },
+    "./components/DocumentEditorToolbar": {
+      "types": "./dist/components/DocumentEditorToolbar/index.d.ts",
+      "import": "./dist/components/DocumentEditorToolbar/index.js"
+    },
+    "./components/ContentEditorChrome": {
+      "types": "./dist/components/ContentEditorChrome/index.d.ts",
+      "import": "./dist/components/ContentEditorChrome/index.js"
     }
   },
   "repository": {

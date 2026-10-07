@@ -337,8 +337,8 @@ Library-owned labels retain translation defaults; host titles remain host-owned.
 Dependent legacy editor/upload/modal stories and compositions now use AppButton's
 owned props. Their menu anchors use native refs rather than event objects and DOM
 regressions verify focus/activation. ContentEditorChrome keeps a legacy Button
-internally to preserve its existing MouseEvent callback contract until M-17; it
-is explicitly unmigrated. This is not evidence of complete editor/legacy removal.
+internally at that milestone to preserve its MouseEvent callback contract until
+M-23; it was explicitly unmigrated then. This is not evidence of complete editor/legacy removal.
 
 Validation:
 
@@ -643,3 +643,88 @@ M-25, M-21–M-23, M-34, grid and broad U/X/R/Z gates remain open.
 No merge, publication, version, licensing or workflow permission changes are
 authorized. The next dependency batch is M-25, followed by M-21–M-23/M-34 as
 dependencies allow. Complete checks/commit/push before the successor local chat.
+
+## Editor layout and floating selection
+
+Completed on 2026-10-06: M-21–M-23 and M-25, in shared
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
+`feat/react-aria-owned-foundation-cards`. See the
+[editor layout/selection contracts](react-aria-editor-layout.md).
+
+DocumentEditorLayout keeps title/menu/toolbar/content slots and host-owned scrolling.
+DocumentEditorToolbar preserves heading/zoom/format callbacks and controlled state,
+adds translated accessible action names and disabled unavailable controls, and defers
+heading requests until select handling completes. ContentEditorChrome adds owned
+normalised actions with native button anchors, loading/disabled/menu semantics and
+responsive title editing. Its breaking menu callback mapping is onClick(event) to
+onPress(anchor); DocumentEditorToolbar statusColor now uses native CSS colors/tokens.
+All four directories enter strict transitive source/declaration guards, granular
+exports and consumer typing fixtures. No checks were weakened.
+
+FloatingTextSelectionToolbar composes owned buttons/icons with saved Lexical
+selection, translated names, active pressed state and disabled unavailable link.
+Alt+F10 enters its keyboard group; Escape returns editor focus. Native hidden
+semantics remove dismissed controls from tab navigation. Commands run after the
+activation event, restore selected nodes and suppress work when read-only or
+unmounted. Position clamps to viewport/boundary intersection and tracks scroll,
+resize and measured wrapping. Review caught a focused-toolbar scroll early-return;
+the corrected implementation keeps selection state while continuing geometry updates
+and hides offscreen selections with editor focus return. The existing fixed-position
+scope rendering requires hosts to avoid transformed containing blocks.
+
+Validation:
+
+- Final `pnpm check`: 120 Vitest files / 595 tests passed, four foundation and four
+  release tests, production/story typecheck, import/token/layer checks, ESM/declarations,
+  all public entry imports and consumer typings passed. jsdom printed its unsupported
+  window.scrollBy/navigation diagnostics; native scroll behavior was verified below.
+- Final `pnpm build-storybook`: passed with existing directive/sourcemap/large-chunk
+  warnings. Native dark-story inspection caught host text inheriting dark foreground
+  over a light background; the story now supplies the same owned surface/text tokens.
+- Four DocumentEditorLayout tests cover slots/title semantics/ref/style and live
+  child interactions; seven DocumentEditorToolbar tests cover commands, pressed and
+  unavailable/read-only state, controlled select timing, groups/translations/styles;
+  five ContentEditorChrome tests cover native anchors, pointer/Enter/Space/form safety,
+  disabled/loading, title editing and slots. Six floating tests use real Lexical
+  engine/commands and cover pointer/keyboard selection, link preparation, focus timing,
+  scroll/resize/clamping, dismissal, editable state and unmount cancellation.
+- Two actual PageRichTextEditorSection composed tests use the real floating toolbar,
+  editor engine/plugins and JSON output: selected Guide becomes bold/italic through
+  pointer and Alt+F10/Enter, text remains intact, and floating link preparation plus
+  URL Enter commits /courses/guide. Geometry shims are scoped/restored for jsdom;
+  native behavior is verified independently.
+- Packed React18.3.1 / React19.2.3 basic consumers passed no-browser-global SSR,
+  production Vite build, one stylesheet, no retired peers and no editor bundle.
+  Separate `test-editor-consumer.mjs` tarball fixtures include all four granular
+  components and the real Lexical engine; both passed SSR/Vite, one stylesheet and
+  no retired foundation bundle or automatically installed retired peers. Their
+  installation explicitly overrides inherited peer auto-install environment values.
+- Native production packed React19 Alt+F10/Enter applied Bold only to selected
+  paragraph1 and returned Packed document focus with all15 paragraphs intact.
+  Heading ArrowDown/Enter requested h1 once while controlled Normal remained and
+  trigger focus returned. React18 Alt+F10/Tab/Space applied Italic only to paragraph2,
+  kept all15 paragraphs and returned editor focus. Captured warning/error logs were
+  empty on both hydrated consumers.
+- Final production native standalone selected paragraph2, Alt+F10/Enter applied
+  Bold and preserved all12 paragraphs. Scrolling while Bold had focus hid an
+  offscreen selection and returned Document focus. DocumentEditorLayout host scroll
+  moved to301.5px while header top stayed17px. Chrome File Enter returned native
+  BUTTON anchor; title Enter saved Native document title and returned Edit title
+  focus. DocumentEditorToolbar Space pressed Bold, zoom increased100% to110%, and
+  ArrowDown/Enter selected controlled H1 with trigger focus. Captured logs were empty.
+- At260x600, dark DocumentEditorToolbar width/scrollWidth212px and height200px;
+  chrome width/scrollWidth228px and height261px; floating width222px (220px inner),
+  left22/right244px and height42px. Controls/text were readable and did not overflow.
+  Floating surface resolved rgb(15,23,42). Viewport override reset after checks.
+- Final production real PageRichTextEditorSection selected Lorem, Alt+F10/Enter
+  applied Bold only to Lorem, floating pointer Edit link opened with display text
+  Lorem, and URL Enter stored /courses/native with editor focus and document text
+  intact. Captured logs were empty. Host link insertion reconstructs text styling;
+  broader editor semantics remain part of M-34, not completion of that row.
+
+Local Node26.5.0 / pnpm10.29.3. Full browser/touch/screen-reader/zoom/visual,
+performance, Node24 and Next.js/RSC gates remain open. These representative native
+checks do not complete broad acceptance. M-34, grid/catalog M-16–M-20/M-36–M-37
+and general U/X/R/Z gates remain open. No merge/publication/manual version/licensing
+or workflow permission/secret changes. Next dependency batch: M-34
+PageRichTextEditorSection; complete checks/commit/push before successor dispatch.

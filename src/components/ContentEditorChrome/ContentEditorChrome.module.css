@@ -1,0 +1,13 @@
+@layer sgui.components {
+  .root { display: flex; align-items: stretch; gap: var(--sgui-space3); flex-shrink: 0; min-inline-size: 0; box-sizing: border-box; padding: var(--sgui-space3) var(--sgui-space4); background: var(--sgui-surface-subtle); color: var(--sgui-text); border-block-end: 1px solid var(--sgui-divider); font-family: var(--sgui-font-family); }
+  .icon { display: flex; align-items: center; flex: 0 0 auto; min-inline-size: 2.75rem; color: var(--sgui-action); }
+  .content { flex: 1; min-inline-size: 0; }
+  .header { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sgui-space2) var(--sgui-space4); }
+  .title { flex: 1 1 15rem; min-inline-size: 0; overflow-wrap: anywhere; }
+  .title > div { max-inline-size: 100%; box-sizing: border-box; }
+  .title h4 { min-inline-size: 0; overflow-wrap: anywhere; }
+  .right { min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sgui-space1); margin-block-start: var(--sgui-space2); }
+  .action { min-inline-size: 0; max-inline-size: 100%; padding-inline: var(--sgui-space3); }
+  .action > span { white-space: normal; overflow-wrap: anywhere; }
+}

@@ -12,7 +12,7 @@ export {
   type AppPageHeaderProps,
 } from "./AppPageHeader";
 export { AppPageTabs, type AppPageTabItem, type AppPageTabsProps } from "./AppPageTabs";
-export { DocumentEditorLayout } from "./DocumentEditorLayout";
+export { DocumentEditorLayout, type DocumentEditorLayoutProps } from "./DocumentEditorLayout";
 export { DocumentEditorToolbar, type DocumentEditorToolbarProps } from "./DocumentEditorToolbar";
 export {
   ColumnsLayoutModal,
@@ -25,7 +25,7 @@ export {
   type ContentEditorChromeProps,
 } from "./ContentEditorChrome";
 export { EditableTitleField, type EditableTitleFieldProps } from "./EditableTitleField";
-export { FloatingTextSelectionToolbar } from "./FloatingTextSelectionToolbar";
+export { FloatingTextSelectionToolbar, type FloatingTextSelectionToolbarProps } from "./FloatingTextSelectionToolbar";
 export { InsertContentMenuControl, type InsertContentMenuControlProps } from "./InsertContentMenuControl";
 export { LinkUrlModal, type LinkUrlModalProps } from "./LinkUrlModal";
 export { ImageUploadModal, type ImageUploadModalProps } from "./ImageUploadModal";

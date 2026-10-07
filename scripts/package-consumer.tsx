@@ -146,3 +146,12 @@ export const editorMenus = <Provider><InsertContentMenuControl onInsertImage={()
 
 import { RichTextFormattingToolbar } from '@structured-growth/sg-ui/components/RichTextFormattingToolbar';
 export const ownedFormatting = <RichTextFormattingToolbar ref={createRef<HTMLDivElement>()} boldActive="mixed" activeTextStyles={['highlight']} canIndent={false} style={{marginInline:2}} onHeadingChange={value=>{const heading: import('@structured-growth/sg-ui/components/RichTextFormattingToolbar').RichTextHeadingValue=value; console.log(heading);}} />;
+
+import { DocumentEditorLayout } from '@structured-growth/sg-ui/components/DocumentEditorLayout';
+import { DocumentEditorToolbar } from '@structured-growth/sg-ui/components/DocumentEditorToolbar';
+import { ContentEditorChrome } from '@structured-growth/sg-ui/components/ContentEditorChrome';
+import { FloatingTextSelectionToolbar } from '@structured-growth/sg-ui/components/FloatingTextSelectionToolbar';
+export const ownedEditorLayout = <DocumentEditorLayout ref={createRef<HTMLDivElement>()} title="Document" style={{height:400}}><p>Content</p></DocumentEditorLayout>;
+export const ownedDocumentToolbar = <DocumentEditorToolbar ref={createRef<HTMLDivElement>()} canEdit headingValue="h2" onHeadingChange={value=>{const heading: 'normal'|'h1'|'h2'|'h3'|'h4'|'h5'=value; console.log(heading);}} actions={{bold:{active:true},italic:{active:false},bulletList:{active:false},orderedList:{active:false}}} />;
+export const ownedChrome = <ContentEditorChrome ref={createRef<HTMLDivElement>()} icon={null} title="Document" onTitleSave={()=>{}} menuItems={[{id:'file',label:'File',onPress:anchor=>{const element:HTMLButtonElement=anchor; console.log(element);},'aria-haspopup':'menu',loading:false}]} />;
+export const ownedFloating = <FloatingTextSelectionToolbar ref={createRef<HTMLDivElement>()} className="host" style={{margin:2}} onRequestLink={()=>{}} />;
