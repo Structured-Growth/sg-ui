@@ -4,8 +4,8 @@
 native refs. Import `@structured-growth/sg-ui/styles.css` once and provide
 `Provider` or `ThemeScope`; `Provider` also carries locale into overlays. The
 public barrel imports implementations directly, so `/primitives` does not load
-legacy theme code or the experimental grid proof. Its source dependencies and
-emitted declarations are audited transitively.
+retired theme implementations or the experimental grid proof. Its source dependencies
+and emitted declarations are audited transitively.
 
 These are breaking mappings from the extracted primitive reexports. Names remain
 where useful; none accepts the inherited MUI prop surface, `sx`, theme callbacks,
@@ -27,7 +27,7 @@ also documented in [layout/actions](react-aria-layout-actions.md),
 | FormControlLabel / FormControlLabelProps | Removed; pass `label` to Checkbox/Switch; RadioGroup owns option labels |
 | IconButton / IconButtonProps | Required `label`, `onPress`, owned density/tone/variant, native button ref |
 | MuiLink / MuiLinkProps | Removed; use exported Link / LinkProps with native anchor ref and host navigation adapter |
-| Menu / MenuProps | Named trigger plus owned `items`, `onAction(id)`, controlled/default open state; compact default |
+| Menu / MenuProps | Named trigger plus owned `items`, `onAction(id)`, controlled/default open state; inherits scope density unless explicit |
 | MenuItem / MenuItemProps | Item component/props removed; MenuItem is now an owned item-record type, passed in Menu.items |
 | Select / SelectProps | Named control, string option IDs, `value`/`defaultValue`/`onValueChange`, native button ref |
 | SelectChangeEvent | Removed; callbacks receive `string` or `null` |
@@ -52,7 +52,10 @@ Additional public exports include Button, Provider, ThemeScope, Progress, ComboB
 Link, ListItemIcon, TableFoot, TableHeaderCell and TableCaption, plus their owned
 types. Existing experimental paths remain for compatibility with the migration
 proof; they share the same implementations. Public aliases are not a second
-interaction/state owner.
+interaction/state owner. Generic Menu inherits the nearest scope density (comfortable
+at the default root); pass `density="compact"` when compact presentation is needed.
+Catalog compositions such as DataToolbar selection menus explicitly request compact
+density. This composition convention is not the generic Menu default.
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";
@@ -75,5 +78,13 @@ activation and source focus, autocomplete refs, static table semantics and
 collapse state retention. Progress wrapper tests cover names, bounded values,
 indeterminate state, fixed presentation and SSR. The package fixture rejects
 retired props/types and unnamed progress. Full native accessibility/browser
-matrix acceptance remains open; this batch does not remove the legacy `/theme`
-entry or retire package peers by itself.
+matrix acceptance remains open. The public `/theme` now exposes owned Provider,
+ThemeScope and AppThemeProvider; retired foundation runtime/peer/dev packages are
+removed. See [theme mappings](react-aria-theme.md) and the
+[removal audit](react-aria-removal-audit.md) for the distinction between shipped
+removal and remaining historical/legal and artifact acceptance.
+
+For implementation follow the [canonical component recipe](react-aria-component-recipe.md);
+for host planning use the [read-only adoption checklist](react-aria-adoption-checklist.md).
+This W-12/W-18 and A-06–A-10 documentation slice does not establish a new support
+policy or close the broad accessibility/compatibility gates.
