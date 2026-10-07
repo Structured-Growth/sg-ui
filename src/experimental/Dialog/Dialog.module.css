@@ -5,12 +5,14 @@
   .modal[data-size="xs"] { inline-size: min(100%, 22rem); }
   .modal[data-size="xl"] { inline-size: 96vw; block-size: 92dvh; }
   .modal[data-size="full"] { inline-size: 100vw; block-size: 100dvh; max-block-size: 100dvh; border-radius: 0; }
-  .heading { min-inline-size: 0; overflow-wrap: anywhere; }
+  .heading { flex: 1 1 16rem; min-inline-size: 0; max-inline-size: 100%; overflow-wrap: anywhere; }
   .modal[data-size="sm"] { inline-size: min(100%, 28rem); }
   .modal[data-size="lg"] { inline-size: min(100%, 56rem); }
   .dialog { display: flex; flex-direction: column; max-block-size: inherit; block-size: 100%; min-block-size: 0; overflow: auto; font-family: var(--sgui-font-family); font-size: var(--sgui-body-size); line-height: var(--sgui-body-line-height); }
   .dialog:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: calc(-1 * var(--sgui-focus-width)); }
-  .header { display: flex; flex: none; align-items: flex-start; justify-content: space-between; gap: var(--sgui-space4); padding: var(--sgui-space4); border-block-end: 1px solid var(--sgui-divider); }
+  .header { display: flex; flex-wrap: wrap; flex: none; align-items: flex-start; justify-content: space-between; gap: var(--sgui-space4); padding: var(--sgui-space4); border-block-end: 1px solid var(--sgui-divider); }
+  /* Keep custom chrome at a usable width before moving Close to its own row. */
+  .header > button { flex: none; max-inline-size: 100%; margin-inline-start: auto; }
   .title { margin: 0; font-size: var(--sgui-heading-size); line-height: var(--sgui-heading-line-height); font-weight: var(--sgui-action-weight); }
   .description { color: var(--sgui-text-muted); font-size: var(--sgui-label-size); }
   .body { flex: 1 1 auto; min-block-size: 0; overflow: auto; padding: var(--sgui-space4); }
