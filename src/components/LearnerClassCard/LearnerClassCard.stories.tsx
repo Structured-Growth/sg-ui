@@ -1,3 +1,7 @@
+import { useState } from "react";
+import { Button } from "../../experimental/Button/Button";
+import { SGNavigationProvider } from "../../adapters/navigation";
+import { SGTranslationProvider, formatIcuMessage } from "../../i18n";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Stack } from "../../experimental/Stack/Stack";
 import { ThemeScope } from "../../foundation/ThemeScope";
@@ -63,3 +67,41 @@ export const NarrowLongNames: Story = {
 };
 
 export const Dark: Story = { args: { ...baseArgs, dueAt: offsetDays(5) }, render: args => <ThemeScope theme="dark"><LearnerClassCard {...args} /></ThemeScope> };
+
+// Explicit UTC instants; the native test declares the browser timezone and clock.
+const nativeNow = new Date("2026-01-02T18:00:00Z");
+function NativeDueActionsExample() {
+  const [locale, setLocale] = useState("en-US");
+  const [translation, setTranslation] = useState("first");
+  const [dueAt, setDueAt] = useState("2026-01-01T15:05:00Z");
+  const [destinations, setDestinations] = useState("both");
+  const [requests, setRequests] = useState<string[]>([]);
+  const [continues, setContinues] = useState(0);
+  return <Stack gap={4}>
+    <label>Host locale <select value={locale} onChange={event => setLocale(event.target.value)}>
+      {["en-US", "de-DE", "ar-EG", "bad_locale"].map(value => <option key={value}>{value}</option>)}
+    </select></label>
+    <label>Host destinations <select value={destinations} onChange={event => setDestinations(event.target.value)}>
+      {["both", "continue only", "none"].map(value => <option key={value}>{value}</option>)}
+    </select></label>
+    <Button onPress={() => setTranslation("replacement")}>Replace translation</Button>
+    <Button onPress={() => setTranslation("fallback")}>Use lookup fallback</Button>
+    <Button onPress={() => setDueAt("invalid")}>Use invalid due date</Button>
+    <Button onPress={() => setDueAt("2026-01-02T18:25:00Z")}>Use imminent due date</Button>
+    <SGNavigationProvider value={{ pathname: "/", navigate: href => setRequests(previous => [...previous, href]) }}>
+      <SGTranslationProvider value={{ locale, useNamespace: () => {}, t: (key, options) => {
+        if (translation === "fallback") return "[[missing_translation]]";
+        const message = key.startsWith("due.") ? `${translation === "first" ? "First" : "Replacement"}: ${options.defaultMessage}` : options.defaultMessage;
+        return formatIcuMessage(message, locale === "bad_locale" ? "en-US" : locale, options.values);
+      } }}>
+        <LearnerClassCard {...baseArgs} referenceNow={nativeNow} dueAt={dueAt}
+          detailsHref={destinations === "both" ? "/course/details" : undefined}
+          continueHref={destinations !== "none" ? "/course/continue" : undefined}
+          onContinue={() => setContinues(previous => previous + 1)} />
+      </SGTranslationProvider>
+    </SGNavigationProvider>
+    <output aria-label="Details requests">{requests.join(" → ") || "No request"}</output>
+    <output aria-label="Continue requests">{continues}</output>
+  </Stack>;
+}
+export const NativeDueActions: Story = { args: { ...baseArgs, dueAt: "2026-01-01T15:05:00Z", referenceNow: nativeNow }, render: () => <NativeDueActionsExample /> };
