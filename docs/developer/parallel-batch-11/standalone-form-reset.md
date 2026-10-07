@@ -18,6 +18,11 @@ TextField's displayed native error when reset is prevented. The transaction uses
 macrotask because browsers can checkpoint microtasks between native listeners, and
 cleans pending timers on unmount. Forwarded refs remain native.
 
+Implementation commit: `83900ba78c6cf3a5c1492a602bb5b3d79085cc67`.
+Final source/test head and fresh-browser tested head:
+`462be545fbaa6968dc52e856097de954a92ea8b8`.
+Draft PR: [#42](https://github.com/Structured-Growth/sg-ui/pull/42).
+
 Coverage adds controlled/uncontrolled callback silence, delegated prevention,
 programmatic reset, current TextField defaults/external form association, invalid
 DateField default restoration, and accepted empty-date incomplete-draft clearing.
@@ -50,7 +55,14 @@ binary to PATH before invoking pnpm). Dependencies installed with
 - `pnpm typecheck`: passed.
 - `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
 - `pnpm foundations:check`, `pnpm tokens:check`, `git diff --check`: passed.
-- Fresh Storybook and focused Chromium/WebKit native cases: waiting for the shared priority queue and lock.
+- `pnpm build-storybook`: passed on fresh tested head `462be545fbaa6968dc52e856097de954a92ea8b8`; log `/tmp/sgui-batch11-standalone-storybook.log`.
+- `pnpm exec playwright test tests/browser/batch11-standalone-reset.spec.ts --project=chromium --project=webkit`: passed, 6 tests (3 per engine); log `/tmp/sgui-batch11-standalone-browser.log`.
+
+Heavy validation honored the priority queue, atomically acquired the shared lock
+with this chat ID as owner, and released only its matching lock and first queue
+entry after the suite ended. Storybook was not rebuilt during the suite. Visible
+complete-date segments were asserted alongside native FormData. The final docs-only
+commit does not change the tested source.
 
 No full check/build/consumer suite or paused GitHub CI/title run was requested.
 Firefox remains unverified due to the previously diagnosed local launch prerequisite;
