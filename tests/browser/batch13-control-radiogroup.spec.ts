@@ -23,12 +23,22 @@ for (const transition of ['Remove', 'Disable']) {
     await expect(page.getByLabel('Delivery requests')).toHaveText('0');
     await page.getByRole('button', { name: 'Before delivery', exact: true }).click();
     await page.keyboard.press('Tab');
+    await test.info().attach('native-radio-tab-state', { body: JSON.stringify(await page.getByRole('form').evaluate(form => ({
+      activeElement: document.activeElement?.outerHTML,
+      radios: Array.from(form.querySelectorAll('input[type="radio"]'), node => {
+        const input = node as HTMLInputElement;
+        return { value: input.value, name: input.name, checked: input.checked, disabled: input.disabled, tabIndex: input.tabIndex };
+      }),
+      values: Object.fromEntries(new FormData(form as HTMLFormElement)),
+    })), null, 2), contentType: 'application/json' });
     const live = page.getByRole('radio', { name: 'Live', exact: true });
     await expect(live).toBeFocused();
     await expect(live).not.toBeChecked();
     await expect(page.getByLabel('Delivery requests')).toHaveText('0');
+    expect(await page.getByRole('form').evaluate(form => (form as HTMLFormElement).checkValidity())).toBe(false);
     await page.getByRole('button', { name: 'Restore options' }).click();
     await expect(page.getByRole('radio', { name: 'Self paced', exact: true })).toBeChecked();
+    await expect(page.getByRole('radio', { name: 'Self paced', exact: true })).toHaveAttribute('name', 'delivery');
     await action.click();
     await page.getByRole('button', { name: 'Before delivery', exact: true }).click();
     await page.keyboard.press('Tab');

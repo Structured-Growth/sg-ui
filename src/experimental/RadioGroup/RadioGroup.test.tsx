@@ -4,6 +4,37 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { RadioGroup } from "./RadioGroup";
 afterEach(cleanup);
+it("requires an enabled choice when the host selection is disabled and restores the latest form name on enabling", () => {
+ const change = vi.fn();
+ const view = (disabled: boolean, name: string) => <form><RadioGroup label="Delivery" name={name} value="self" required onValueChange={change}
+  options={[{ value: "self", label: "Self paced", disabled }, { value: "live", label: "Live" }]} /></form>;
+ const { container, rerender } = render(view(true, "delivery"));
+ const form = container.querySelector("form")!;
+ expect((screen.getByRole("radio", { name: "Self paced" }) as HTMLInputElement).checked).toBe(true);
+ expect(form.checkValidity()).toBe(false);
+ expect(new FormData(form).has("delivery")).toBe(false);
+ rerender(view(true, "currentDelivery"));
+ rerender(view(false, "currentDelivery"));
+ expect(form.checkValidity()).toBe(true);
+ expect(Object.fromEntries(new FormData(form))).toEqual({ currentDelivery: "self" });
+ expect(change).not.toHaveBeenCalled();
+});
+it("keeps generated names independent and stable through option changes", () => {
+ const view = (disabled: boolean) => <form>
+  <RadioGroup label="First" value="self" options={[{ value: "self", label: "First self", disabled }, { value: "live", label: "First live" }]} />
+  <RadioGroup label="Second" value="self" options={[{ value: "self", label: "Second self" }, { value: "live", label: "Second live" }]} />
+ </form>;
+ const { container, rerender } = render(view(false));
+ const first = screen.getByRole("radio", { name: "First self" }) as HTMLInputElement;
+ const second = screen.getByRole("radio", { name: "Second self" }) as HTMLInputElement;
+ const names = [first.name, second.name];
+ expect(names[0]).toBeTruthy(); expect(names[1]).toBeTruthy(); expect(names[0]).not.toBe(names[1]);
+ rerender(view(true));
+ expect(Object.fromEntries(new FormData(container.querySelector("form")!))).toEqual({ [names[1]]: "self" });
+ rerender(view(false));
+ expect([first.name, second.name]).toEqual(names);
+ expect(Object.fromEntries(new FormData(container.querySelector("form")!))).toEqual({ [names[0]]: "self", [names[1]]: "self" });
+});
 it.each(["removed", "disabled"])("keeps an enabled Tab entry after the selected option is %s without requesting a host change", async transition => {
  const change = vi.fn(); const user = userEvent.setup();
  const available = [{ value: "self", label: "Self paced" }, { value: "live", label: "Live" }];
