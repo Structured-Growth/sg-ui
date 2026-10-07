@@ -68,6 +68,9 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const processed = useMemo(() => props.processingResult ?? processOwnedGridRows({ ...props, mode, ...state }),
     [props.processingResult, rows, columns, getRowId, mode, props.rowCount, props.hasNextPage, props.filterFields, state.paginationModel, state.sortRules, state.filterRules, state.searchValue]);
   const visible = layout.order.map(field => columns.find(column => column.field === field)!).filter(column => layout.visibility[column.field]);
+  const root = useRef<HTMLDivElement | null>(null);
+  const statusNode = useRef<HTMLDivElement | null>(null);
+  const statusFocus = useRef<HTMLElement | null>(null);
   const container = useRef<HTMLDivElement | null>(null);
   const table = useRef<HTMLTableElement | null>(null);
   const busy = !!(loading || refreshing);
@@ -113,6 +116,23 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
+  useBrowserLayoutEffect(() => {
+    const saved = statusFocus.current;
+    if (!saved) return;
+    const restore = () => {
+      // Empty-state content may commit after its parent collection. Recheck
+      // ownership after that commit, including any deliberate host focus move.
+      if (statusFocus.current !== saved || saved.isConnected) return;
+      statusFocus.current = null;
+      if (document.activeElement !== document.body || !container.current?.isConnected) return;
+      const entry = container.current.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder'])") ??
+        container.current.querySelector<HTMLElement>("thead [data-grid-field]") ?? table.current;
+      entry?.focus({ preventScroll: true });
+    };
+    restore();
+    const frame = requestAnimationFrame(restore);
+    return () => cancelAnimationFrame(frame);
+  });
   useBrowserLayoutEffect(() => {
     const pageChanged = previousPage.current.page !== state.paginationModel.page || previousPage.current.pageSize !== state.paginationModel.pageSize;
     previousPage.current = state.paginationModel;
@@ -222,17 +242,22 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const noRows = pageRows.length === 0;
   const status = errorMessage !== undefined ? "error" : loading && noRows ? "loading" : refreshing || loading ? "refreshing" :
     noRows ? (state.searchValue || state.filterRules.length ? "noResults" : "empty") : undefined;
-  return <div className={styles.root} onBlurCapture={event => {
+  return <div ref={root} className={styles.root} onBlurCapture={event => {
       // A deliberate move to a host control or another grid ends our ownership.
       // A removed focused node has no related target and still needs repair.
-      if (event.relatedTarget instanceof Node && !container.current?.contains(event.relatedTarget)) focus.current = null;
+      if (event.relatedTarget instanceof Node && !root.current?.contains(event.relatedTarget)) {
+        focus.current = null;
+        statusFocus.current = null;
+      }
     }} onFocusCapture={event => {
       const element = event.target as HTMLElement;
+      statusFocus.current = statusNode.current?.contains(element) ? element : null;
+      if (statusFocus.current) { focus.current = null; return; }
       if (!container.current?.contains(element)) return;
       const cell = element.closest<HTMLElement>("[data-grid-field]");
       focus.current = { rowId: cell?.dataset.gridRow, field: cell?.dataset.gridField, element,
         index: cell ? [...cell.querySelectorAll("button, a, input, [role='slider']")].indexOf(element) : -1 };
-    }}>{status && !noRows && <OwnedGridStatus state={status} message={errorMessage} onRetry={onRetry} />}
+    }}>{status && !noRows && <OwnedGridStatus ref={statusNode} state={status} message={errorMessage} onRetry={onRetry} />}
     <ResizableTableContainer ref={setContainer} className={[styles.container, className].filter(Boolean).join(" ")} style={style}
     data-sgui-part="grid-container" onResize={widths => {
       const active = table.current?.contains(document.activeElement) ? (document.activeElement as HTMLElement)?.closest<HTMLElement>("[data-grid-field]")?.dataset.gridField : undefined;
@@ -285,7 +310,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
         })}
 
       </TableHeader>
-      <TableBody items={pageRows} dependencies={[visible, state.selectedRowIds, locale, timeZone, formatDate, getRowLabel, props.rowDrag, canReorder]} renderEmptyState={() => <OwnedGridStatus state={status ?? "empty"} message={errorMessage} onRetry={onRetry} />}>
+      <TableBody items={pageRows} dependencies={[visible, state.selectedRowIds, locale, timeZone, formatDate, getRowLabel, props.rowDrag, canReorder]} renderEmptyState={() => <OwnedGridStatus ref={statusNode} state={status ?? "empty"} message={errorMessage} onRetry={onRetry} />}>
         {row => <Row id={row.id} textValue={getRowLabel(row.original)} className={styles.row} data-sgui-part="grid-row" data-grid-row={row.id}>
           {selection && <Cell className={[styles.cell, styles.selection].join(" ")} data-grid-field="__selection" data-grid-row={row.id}>
             <Checkbox slot="selection" label={t("common.ui.selectRow", { defaultMessage: "Select {label}", values: { label: getRowLabel(row.original) } })} />

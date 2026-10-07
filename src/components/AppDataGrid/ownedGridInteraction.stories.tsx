@@ -141,3 +141,39 @@ function BusyLifecycleExample() {
   </div>;
 }
 export const BusyLifecycle: Story = { render: () => <BusyLifecycleExample /> };
+
+
+/** G-15/G-16: focused Retry removal for retained and empty host collections. */
+function RetryFocusExample() {
+  const [phase, setPhase] = useState<"error" | "pending" | "success">("error");
+  const [empty, setEmpty] = useState(false);
+  const [retryAvailable, setRetryAvailable] = useState(true);
+  const [requests, setRequests] = useState(0);
+  const columns: OwnedGridPresentationColumn<RecordRow>[] = [
+    { field: "name", headerName: "Course", width: 300 },
+    { field: "score", headerName: "Score", width: 300 },
+    { field: "status", headerName: "Status", width: 300 },
+  ];
+  return <div data-retry-requests={requests} onKeyDownCapture={event => {
+    if (!event.altKey) return;
+    switch (event.key.toLowerCase()) {
+      case "e": setPhase("error"); setRetryAvailable(true); break;
+      case "s": setPhase("success"); break;
+      case "p": setPhase("pending"); break;
+      case "n": setEmpty(value => !value); break;
+      case "x": setRetryAvailable(false); break;
+      default: return;
+    }
+    event.preventDefault(); event.stopPropagation();
+  }}>
+    <p>Host shortcuts: Alt+E fail, Alt+P pending, Alt+S succeed, Alt+N toggle empty rows, Alt+X remove Retry callback. Retry requests pending; the host chooses success.</p>
+    <Button>Host action</Button>
+    <OwnedGridInteraction label="Retry courses" rows={empty ? [] : records} columns={columns} getRowLabel={row => row.name}
+      refreshing={phase === "pending"} errorMessage={phase === "error" ? "Course request failed" : undefined}
+      onRetry={retryAvailable ? () => { setRequests(value => value + 1); setPhase("pending"); } : undefined}
+      defaultSelectedRowIds={new Set(["1", "off-page"])} style={{ maxHeight: 240, maxWidth: 460 }} />
+    <OwnedGridInteraction label="Independent retry courses" rows={records} columns={columns} getRowLabel={row => row.name}
+      style={{ maxHeight: 240, maxWidth: 460 }} />
+  </div>;
+}
+export const RetryFocus: Story = { render: () => <RetryFocusExample /> };
