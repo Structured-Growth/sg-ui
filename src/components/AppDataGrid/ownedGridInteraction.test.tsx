@@ -325,7 +325,7 @@ it.each([false, true])("repairs disappearing Retry to its native grid entry with
     rerender(view());
     act(() => screen.getByRole("button", { name: "Retry" }).focus());
     ref.current!.scrollTop = 100; ref.current!.scrollLeft = 80;
-    const entry = cell ?? within(grid).getByRole("columnheader", { name: /Name/ });
+    const entry = cell ?? within(grid).getByRole("button", { name: "Sort Name" });
     const nativeFocus = vi.spyOn(entry, "focus");
     rerender(view(transition === "callback removed", transition === "pending", transition === "callback removed" ? null : retry));
     await waitFor(() => expect(document.activeElement).toBe(entry));

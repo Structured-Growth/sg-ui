@@ -19,7 +19,7 @@ for (const empty of [false, true]) {
     await open(page, empty);
     const table = grid(page);
     const container = table.locator('..');
-    const entry = empty ? table.locator('thead [data-grid-field="name"]') : table.locator('tbody [data-grid-row="0"][data-grid-field="name"]');
+    const entry = empty ? table.getByRole('button', { name: 'Sort Course', exact: true }) : table.locator('tbody [data-grid-row="0"][data-grid-field="name"]');
     await entry.evaluate(node => node.setAttribute('data-identity', 'original'));
     for (const transition of ['retry', 'pending', 'success', 'callback removed']) {
       await page.getByRole('button', { name: 'Host action', exact: true }).focus();

@@ -119,18 +119,32 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   useBrowserLayoutEffect(() => {
     const saved = statusFocus.current;
     if (!saved) return;
+    let repairedEntry: HTMLElement | null = null;
+    let scroll: { top: number; left: number } | null = null;
+    const preserveScroll = () => {
+      const node = container.current;
+      // React Aria also scrolls its active cell after focus reconciliation.
+      // Retain this interaction's scroll only while it still owns that entry.
+      if (!node?.isConnected || !scroll || !repairedEntry?.contains(document.activeElement)) return;
+      node.scrollTop = scroll.top;
+      node.scrollLeft = scroll.left;
+    };
     const restore = () => {
       // Empty-state content may commit after its parent collection. Recheck
       // ownership after that commit, including any deliberate host focus move.
       if (statusFocus.current !== saved || saved.isConnected) return;
       statusFocus.current = null;
-      if (document.activeElement !== document.body || !container.current?.isConnected) return;
-      const entry = container.current.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder'])") ??
-        container.current.querySelector<HTMLElement>("thead [data-grid-field]") ?? table.current;
-      entry?.focus({ preventScroll: true });
+      const node = container.current;
+      if (document.activeElement !== document.body || !node?.isConnected) return;
+      const bodyCell = node.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder'])");
+      const header = node.querySelector<HTMLElement>("thead [data-grid-field]");
+      repairedEntry = bodyCell ?? header?.querySelector<HTMLElement>("button:not(:disabled), [role='slider']") ?? header ?? table.current;
+      scroll = { top: node.scrollTop, left: node.scrollLeft };
+      repairedEntry?.focus({ preventScroll: true });
+      preserveScroll();
     };
     restore();
-    const frame = requestAnimationFrame(restore);
+    const frame = requestAnimationFrame(() => { restore(); preserveScroll(); });
     return () => cancelAnimationFrame(frame);
   });
   useBrowserLayoutEffect(() => {
