@@ -54,9 +54,19 @@ git diff --name-only e372781c2b1ceca630cda6fc7a989af2d6c05c33 HEAD
 
 Additional read-only `rg`, `cat`, `sed` and Python checks inspect source,
 exports, guides, inventory and execution records. Delivery commit/PR identifiers
-are recorded below after creation; final report commit SHA is sent to the
+are recorded below; final report commit SHA is sent to the
 coordinator to avoid a self-referential hash. Draft PR is attached to this chat;
 no merge or publication is authorized.
+
+Implementation commit: `8588eba40a112ff29badb8364c3ca8890983a942`.
+Draft PR: [#29](https://github.com/Structured-Growth/sg-ui/pull/29), base `codex/dev`.
+Local Python validation passed all 35 relative links/anchors across the two files,
+public exported type names and exact toolbar callback names, and the exact
+two-file allowlist. `git diff --check` passed. Initial validation ran on the
+assigned baseline plus uncommitted documents; final report-only validation runs
+on the implementation commit plus this delivery update. Final pushed head is
+reported to the coordinator; historical runtime evidence remains independently
+attributed.
 
 Coordinator's human-authorized policy update pauses automatic GitHub CI and
 PR-title runs for dev PRs (`4758ca8` on dev). Local documentation validation
