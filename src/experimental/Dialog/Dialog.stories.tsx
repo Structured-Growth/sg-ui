@@ -50,3 +50,27 @@ const meta = { title: "Migration proofs/Dialog", component: Dialog, tags: ["auto
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const NestedForm: Story = { args: { open: false, title: "Create course", children: null, onDismiss: () => {} }, render: () => <NestedFormProof /> };
+
+function HeaderReflowProof({ size }: { size: "md" | "lg" }) {
+  const [open, setOpen] = useState(false);
+  const [help, setHelp] = useState(false);
+  const [dismissal, setDismissal] = useState("");
+  return <Provider>
+    <Button onPress={() => setOpen(true)}>Open header reflow</Button>
+    <p role="status">{dismissal || "Ready"}</p>
+    <Dialog open={open} aria-label="Custom chrome settings" size={size}
+      surfaceStyle={{ height: size === "md" ? "68dvh" : "80dvh" }}
+      bodyStyle={{ minBlockSize: "calc(var(--sgui-control-height) + 2 * var(--sgui-space4))" }}
+      header={<><h2>Course settings with host supplied header details</h2>
+        <Button variant="outlined" onPress={() => setHelp(value => !value)}>Header help</Button>
+        {help && <p>Host supplied guidance</p>}</>}
+      footer={<div style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-end", gap: tokens.space2, inlineSize: "100%" }}><Button variant="outlined" tone="neutral">Cancel</Button><Button>Save</Button></div>}
+      onDismiss={reason => { setDismissal(reason); setOpen(false); }}>
+      <div style={{ display: "grid", gap: tokens.space4 }}>
+        {Array.from({ length: 12 }, (_, index) => <TextField key={index} autoFocus={index === 0} label={`Custom field ${index + 1}`} />)}
+      </div>
+    </Dialog>
+  </Provider>;
+}
+export const MediumHeaderReflow: Story = { args: { open: false, children: null, onDismiss: () => {} }, render: () => <HeaderReflowProof size="md" /> };
+export const LargeHeaderReflow: Story = { args: { open: false, children: null, onDismiss: () => {} }, render: () => <HeaderReflowProof size="lg" /> };
