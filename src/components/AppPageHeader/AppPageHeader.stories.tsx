@@ -83,3 +83,30 @@ export const ActionButtons: Story = {
 
 export const Primary: Story = { args: { title: "Courses", hierarchy: "primary" } };
 export const Narrow: Story = { ...DetailStyle, decorators: [(Story) => <div style={{ width: 260 }}><Story /></div>] };
+
+
+// Host labels deliberately include long words and several independently focusable actions.
+export const ReflowActions: Story = {
+  args: {
+    title: "International interdisciplinary course planning and learner collaboration",
+    description: "Plan accessible learning experiences across organizations and teaching teams.",
+    breadcrumbs: [
+      { label: "InternationalOrganizationWithAnUnbrokenHostLabel", href: "#organization" },
+      { label: "Shared content library", href: "#library" },
+      { label: "Professional development courses", href: "#courses" },
+      { label: "Current interdisciplinary course planning workspace" },
+    ],
+    metaItems: [
+      { icon: <GroupIcon />, label: "InternationalLearnerCollaborationNetworkWithAnUnbrokenHostLabel" },
+      { icon: <SchoolIcon />, label: "North campus teaching and learning community" },
+    ],
+    actionButtons: <><AppButton tone="neutral" variant="outlined">AddCourseToAnotherSectionWithAnUnbrokenHostLabel</AppButton><AppButton tone="neutral" variant="outlined">Review learner participation</AppButton></>,
+  },
+};
+export const ReflowMenu: Story = {
+  args: {
+    ...ReflowActions.args,
+    actionButtons: undefined,
+    moreMenuItems: [{ label: "Unavailable action", disabled: true }, { label: "Review course details" }, { label: "Archive course", danger: true }],
+  },
+};
