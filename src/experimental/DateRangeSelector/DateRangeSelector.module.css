@@ -19,6 +19,7 @@
   .cell[data-hovered]:not([data-selected]) { background: var(--sgui-surface-subtle); }
   .cell[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
   .cell[data-disabled], .cell[data-unavailable] { color: var(--sgui-text-muted); text-decoration: line-through; cursor: default; }
+  .previewContext { margin-block: 0 var(--sgui-space2); color: var(--sgui-text-muted); }
   .summary { margin-block: var(--sgui-space2); }
   .actions { justify-content: flex-end; }
   .availability { margin-block-start: var(--sgui-space2); }
