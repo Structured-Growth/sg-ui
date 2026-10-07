@@ -6,8 +6,8 @@ Bounded G-08/U-17 header/toolbar acceptance slice. Baseline verified clean at
 `e80a26937fca3af3dfc11a18767a8599bf823d0e` before creating branch
 `codex/batch06-grid-sort` in the managed attached worktree
 `/Users/thomashall/.codex/worktrees/batch06-grid-sort/sg-ui`.
-Primary and other worktrees were preserved. No runtime defect was reproduced;
-public APIs, processing and host control remain unchanged.
+Primary and other worktrees were preserved. No sorting transaction or processing defect was reproduced. A shared Menu native
+autofocus defect is reserved below; public APIs and host control remain unchanged.
 
 Changed files:
 
@@ -99,7 +99,30 @@ the correct menu with selected/focused state and visible focus ring but failed
 Playwright's native focus assertion. Since that assertion requires both active
 node identity and document activation, the next diagnostic spec captures native
 focus/key events, activeElement and document.hasFocus() without weakening any
-assertion. Native evidence remains incomplete.
+assertion. Isolated max-one diagnostic pool `2d971b9e-d544-419f-85b3-03d74c00b974` at
+`3154be8bb6399da67d867912e3563d3003d45104` again passed fresh build/types and
+three of four native cases. The failing Chromium attachment records
+`document.hasFocus() === true` and native activeElement `role="menu"`, with
+focusin/out history ending on the menu container; there is no native item focus
+although React Aria's item reports focused state. Pool contention/document
+deactivation are ruled out for this isolated reproduction.
+
+Source inspection indicates a virtual-modality autofocus timing issue: programmatic
+header entry establishes virtual modality. React Aria ignores Alt-modified events
+for changing modality on Chromium's non-Mac Desktop Chrome user agent, while
+Enter/WebKit's Mac user agent switch to keyboard. Its virtual focusSafely defers
+item focus and declines to override an intervening focus target; menu-container
+focus can leave collection focused-key state ahead of native item focus.
+The unchanged native assertion retains this edge; replacing it with a state flag
+or only testing Enter/real keyboard entry would lose coverage.
+
+Reserved with the coordinator: `src/experimental/Menu/Menu.tsx` and colocated
+regressions/fixture are outside this sorting allowlist. Investigate an owned
+native-ref reconciliation when a newly opened menu still has container focus
+and its enabled focused item exists, preserving first/last strategy and never
+stealing focus outside the overlay. No shared Menu/runtime/harness edits were
+made here. Native acceptance and source integration remain held pending that
+reserved repair; **49 unit/composed tests pass, native 3/4 is incomplete**.
 
 Per the human policy update relayed by the coordinator, automatic GitHub dev checks
 are paused; no workflow files were changed or checks dispatched/waited for here.
@@ -114,5 +137,5 @@ G/U/X/R/Z gates remain open.
 
 Audit multi-sort semantics with representative screen readers, including discovery
 of secondary direction/priority and clear-sort announcements. Keep physical touch
-sort-menu activation as a separate device acceptance task. No out-of-scope runtime
-fix was reserved.
+sort-menu activation as a separate device acceptance task. First resolve the reserved shared Menu virtual-modifier autofocus defect above;
+then run the unchanged sort browser assertions before integrating this source slice.
