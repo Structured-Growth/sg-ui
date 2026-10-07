@@ -76,10 +76,13 @@ Each command acquired an atomic global install slot (2 slots) or light slot
 
 ## Coordinator-owned native and heavy validation
 
-No browser, server, build, native session, CI, merge, push, publication or manual
-acceptance was launched here. Per explicit delegation, `pnpm check`, fresh
-`pnpm build-storybook` and native RED/GREEN are coordinator-owned prerequisites.
-Unit/jsdom evidence is not native acceptance.
+The worker launched no browser, server, build, native session, CI, merge, push,
+publication or manual acceptance. Fresh Storybook and targeted native validation
+are coordinator-owned. The human's targeted validation policy does not require
+per-task `pnpm check`; a full check is not an acceptance prerequisite. Native RED
+is not claimed and the coordinator does not request an additional RED browser
+build unless a new diagnostic warrants it. Unit/jsdom evidence is not native
+acceptance.
 
 The four retained native cases are prepared for Chromium first:
 
@@ -87,9 +90,8 @@ The four retained native cases are prepared for Chromium first:
 pnpm test:browser tests/browser/batch25-timefield-reset.spec.ts --project=chromium
 ```
 
-Build RED head and GREEN head separately in immutable snapshots; never replace
-source or rebuild while a suite runs. The RED head supplies the same stories/spec
-with the baseline product implementation. Assertions cover partial/uncontrolled
+The RED head remains preserved for diagnostics. Run the selected GREEN head in
+an immutable snapshot; never replace source or rebuild while a suite runs. Assertions cover partial/uncontrolled
 and controlled-null clocks, submitted required validation, delegated prevention,
 button/programmatic reset, FormData, callback counts, latest defaults and native
 focus. GREEN should also include existing `batch13-control-timefield.spec.ts`
@@ -98,3 +100,39 @@ for migrated rendering parity. Firefox/WebKit run at the coordinator's checkpoin
 Physical devices, IME/paste/autofill, broader locale/AT and form-tree reassociation
 are not certified by this bounded evidence. TimeField has no public form prop;
 no shared helper reassociation contract was changed.
+
+
+## First coordinator native run and driver correction
+
+The released coordinator pool token `0de69d01-c339-4d90-9d5e-6ed73ebb7fcd`
+records clean head `19a72ca85ca99b6c632cc99e9cedb94f08d57940`, Node 24.21.0,
+a successful fresh Storybook build, unchanged initial/final build digest, and
+seven selected Chromium cases. Final `browser.log` records **four failures and
+three passes** (the initial coordinator preview described three failures).
+The three existing batch13 parity cases passed. All four new batch25 cases
+reached `locator.uncheck()` on the visually hidden policy Checkbox input and
+timed out because the visible decorative indicator intercepted pointer events.
+The preserved contexts/snapshots establish the preceding prevention/host-state
+assertions were reached; later accepted-reset assertions were not proved.
+These failures identify a test driver target problem, not four TimeField product
+defects or a browser-capacity failure.
+
+Local immutable failure evidence is retained under
+`artifacts/browser-pool/0de69d01-c339-4d90-9d5e-6ed73ebb7fcd/`:
+`evidence.json`, `results.json`, `browser.log`, report and per-case traces,
+screenshots and `error-context.md`. These ignored files are local evidence;
+no claim is made that they are checked-in or Actions artifacts.
+
+After the coordinator released the pool, spec-only correction commit
+`c11c8770b0817b5860379ed0ecd9fdf7127132e9` uses a real click on the visible
+associated `Prevent clock reset` label, with checked/unchecked assertions
+before/after. No force click, synthetic event, DOM state mutation, fixture hiding
+or weakened TimeField assertion is used. Source and stories are byte-unchanged
+from the initially tested head. Browser TypeScript and foundation boundaries
+passed under light slots, with logs `/tmp/sgui-b25-label-browser-types.log` and
+`/tmp/sgui-b25-label-guards.log`; diff whitespace passed. Only spec/report changed.
+Corrected native acceptance is pending the coordinator's seven-case selection:
+
+```sh
+pnpm test:browser tests/browser/batch25-timefield-reset.spec.ts tests/browser/batch13-control-timefield.spec.ts --project=chromium
+```
