@@ -18,6 +18,7 @@ export interface CheckboxProps {
   value?: string;
   slot?: "selection";
 }
+/** The forwarded ref targets the label; its native `control` owns focus and form validation. */
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(function Checkbox({ label, checked, defaultChecked,
   onCheckedChange, mixed, disabled, readOnly, required, invalid, description, errorMessage, name, value, slot }, ref) {
   const labelId = useId();

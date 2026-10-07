@@ -1,4 +1,5 @@
 // @vitest-environment jsdom
+import { createRef } from "react";
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -17,7 +18,7 @@ it("exposes mixed state and leaves controlled state with the host", async () => 
   render(<Checkbox label="All rows" checked={false} mixed onCheckedChange={change} />);
   const checkbox = screen.getByRole("checkbox") as HTMLInputElement;
   expect(checkbox.indeterminate).toBe(true);
-  await user.click(checkbox); expect(change).toHaveBeenCalledExactlyOnceWith(true); expect(checkbox.checked).toBe(false);
+  await user.click(checkbox); expect(change).toHaveBeenCalledExactlyOnceWith(true); expect(checkbox.checked).toBe(false); expect(checkbox.indeterminate).toBe(true);
 });
 it("prevents disabled and read-only edits", async () => {
   const user = userEvent.setup(); const change = vi.fn();
@@ -53,4 +54,33 @@ it("omits disabled checked values and serializes mixed state by checked value", 
   expect(values.get("mixedChecked")).toBe("yes");
   expect(values.has("mixedUnchecked")).toBe(false);
   expect(values.has("disabled")).toBe(false);
+});
+
+it("honors disabled fieldset inheritance for label requests and required validation", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  const { rerender } = render(<form data-testid="fieldset-form"><fieldset disabled>
+    <Checkbox label="Required approval" name="approval" required mixed onCheckedChange={change} />
+  </fieldset></form>);
+  const form = screen.getByTestId("fieldset-form") as HTMLFormElement;
+  const input = screen.getByRole("checkbox") as HTMLInputElement;
+  await user.click(screen.getByText("Required approval"));
+  expect(change).not.toHaveBeenCalled();
+  expect(input.checked).toBe(false);
+  expect(form.checkValidity()).toBe(true);
+  expect(new FormData(form).has("approval")).toBe(false);
+  rerender(<form data-testid="fieldset-form"><fieldset>
+    <Checkbox label="Required approval" name="approval" required mixed onCheckedChange={change} />
+  </fieldset></form>);
+  expect(form.checkValidity()).toBe(false);
+  await user.click(screen.getByText("Required approval"));
+  expect(change).toHaveBeenCalledExactlyOnceWith(true);
+  expect(form.checkValidity()).toBe(true);
+  expect(new FormData(form).get("approval")).toBe("on");
+});
+it("forwards the label ref while the nested native input owns form validation", () => {
+  const ref = createRef<HTMLLabelElement>();
+  render(<Checkbox ref={ref} label="Approval" required />);
+  expect(ref.current?.tagName).toBe("LABEL");
+  expect(ref.current?.control).toBe(screen.getByRole("checkbox"));
+  expect(ref.current?.control).toBeInstanceOf(HTMLInputElement);
 });
