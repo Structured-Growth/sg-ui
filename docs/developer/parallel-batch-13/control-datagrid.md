@@ -5,6 +5,7 @@
 Baseline: `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818` (verified before edits).
 Managed attached worktree: `/Users/thomashall/.codex/worktrees/batch13-control-datagrid/sg-ui`.
 Branch: `codex/batch13-control-datagrid`; PR base: `codex/dev`.
+Draft PR: [#62](https://github.com/Structured-Growth/sg-ui/pull/62).
 Tested implementation/test head: `f20a9d511437af478b715dd37f0268c25e671d96`.
 The report commit follows that head and changes documentation only.
 
