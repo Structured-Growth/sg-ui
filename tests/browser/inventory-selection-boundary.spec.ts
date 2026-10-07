@@ -3,6 +3,36 @@ import { expect, test, type Page } from '@playwright/test';
 const toolbar = (page: Page) => page.getByRole('group', { name: 'Selection formatting', exact: true });
 const editor = (page: Page) => page.getByRole('textbox', { name: 'Boundary document', exact: true });
 
+// Observe native calls/events without changing their arguments or result.
+// Retain this evidence on failure so focus scrolling can be separated from setup.
+async function observeSelectionScroll(page: Page) {
+  await page.evaluate(() => {
+    const boundary = document.querySelector<HTMLElement>('[data-testid="selection-boundary"]')!;
+    const events: unknown[] = [];
+    const describe = (node: EventTarget | null) => node instanceof HTMLElement
+      ? node.getAttribute('aria-label') ?? node.dataset.testid ?? node.tagName : null;
+    const record = (kind: string, target: EventTarget | null, detail?: unknown) => {
+      events.push({ kind, time: performance.now(), target: describe(target),
+        active: describe(document.activeElement), scrollTop: boundary.scrollTop,
+        outerScrollTop: document.querySelector('[data-testid="selection-outer-scroll"]')!.scrollTop,
+        selected: window.getSelection()?.toString(), collapsed: window.getSelection()?.isCollapsed,
+        detail });
+    };
+    const focus = HTMLElement.prototype.focus;
+    HTMLElement.prototype.focus = function(options?: FocusOptions) {
+      record('focus-call', this, { options, stack: new Error().stack });
+      focus.call(this, options);
+      record('focus-return', this);
+    };
+    for (const kind of ['focus', 'blur', 'scroll', 'selectionchange']) {
+      document.addEventListener(kind, event => record(kind, event.target), true);
+    }
+    record('installed', boundary);
+    // The page is disposed after this test; no production hook or state repair.
+    Object.assign(window, { selectionScrollEvidence: events });
+  });
+}
+
 async function selectFirstLine(page: Page, version = 1) {
   // Measure only; the native mouse gesture creates the range and Lexical selection.
   const rect = await editor(page).locator('p').first().evaluate(node => {
@@ -69,26 +99,34 @@ test('viewport resize with a focused action clamps and wraps without losing sele
   await expect(editor(page).locator('p').nth(1)).toHaveText('Host document paragraph 1.');
 });
 
-test('offscreen selection hides actions and returns focused toolbar to editor without host scroll repair', async ({ page }) => {
-  await selectFirstLine(page);
-  await page.keyboard.press('Alt+F10');
-  await expect(toolbar(page).getByRole('button', { name: 'Bold', exact: true })).toBeFocused();
-  await page.getByTestId('selection-boundary').evaluate(node => { node.scrollTop = 300; });
-  await expect(toolbar(page)).toBeHidden();
-  await expect(editor(page)).toBeFocused();
-  await expect.poll(() => page.getByTestId('selection-boundary').evaluate(node => node.scrollTop)).toBe(300);
-  await page.getByTestId('selection-boundary').evaluate(node => { node.scrollTop = 0; });
-  await expect(toolbar(page)).toBeHidden();
-  // Offscreen dismissal returns focus, retaining the native selected text. A
-  // second drag beginning inside that selection can drag text rather than select.
-  // Start a fresh selection with a real caret gesture, not a DOM range repair.
-  await expect.poll(() => page.evaluate(() => window.getSelection()?.toString())).toBe('Document 1 selected line.');
-  await page.keyboard.press('ArrowLeft');
-  await expect.poll(() => page.evaluate(() => window.getSelection()?.isCollapsed)).toBe(true);
-  await expect(editor(page)).toBeFocused();
-  await expect(toolbar(page)).toBeHidden();
-  await selectFirstLine(page);
-  await expectAnchored(page);
+test('offscreen selection hides actions and returns focused toolbar to editor without host scroll repair', async ({ page }, testInfo) => {
+  await observeSelectionScroll(page);
+  try {
+    await selectFirstLine(page);
+    await page.keyboard.press('Alt+F10');
+    await expect(toolbar(page).getByRole('button', { name: 'Bold', exact: true })).toBeFocused();
+    await page.getByTestId('selection-boundary').evaluate(node => { node.scrollTop = 300; });
+    await expect(toolbar(page)).toBeHidden();
+    await expect(editor(page)).toBeFocused();
+    await expect.poll(() => page.getByTestId('selection-boundary').evaluate(node => node.scrollTop)).toBe(300);
+    await page.getByTestId('selection-boundary').evaluate(node => { node.scrollTop = 0; });
+    await expect(toolbar(page)).toBeHidden();
+    // Offscreen dismissal returns focus, retaining the native selected text. A
+    // second drag beginning inside that selection can drag text rather than select.
+    // Start a fresh selection with a real caret gesture, not a DOM range repair.
+    await expect.poll(() => page.evaluate(() => window.getSelection()?.toString())).toBe('Document 1 selected line.');
+    await page.keyboard.press('ArrowLeft');
+    await expect.poll(() => page.evaluate(() => window.getSelection()?.isCollapsed)).toBe(true);
+    await expect(editor(page)).toBeFocused();
+    await expect(toolbar(page)).toBeHidden();
+    await selectFirstLine(page);
+    await expectAnchored(page);
+  } finally {
+    const evidence = await page.evaluate(() => Reflect.get(window, 'selectionScrollEvidence'));
+    await testInfo.attach('native-selection-scroll-sequence', {
+      body: JSON.stringify(evidence, null, 2), contentType: 'application/json',
+    });
+  }
 });
 
 test('host replacement clears the detached document selection and fresh actions target only new nodes', async ({ page }) => {
