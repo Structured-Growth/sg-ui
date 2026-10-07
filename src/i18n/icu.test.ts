@@ -31,6 +31,23 @@ describe("owned ICU fallback", () => {
     expect(formatIcuMessage(message, "en-US", { kind: "unknown" })).toBe("Unknown");
     expect(formatIcuMessage("{n, plural, other {# {kind, select, yes {#} other {no}} {m, plural, other {#}} #}}", "en-US", { n: 5, m: 3, kind: "yes" })).toBe("5 5 3 5");
   });
+  it("keeps nested offsets local and restores the enclosing count across selects and siblings", () => {
+    const message = "{n, plural, offset:1 other {# {kind, select, yes {# {m, plural, offset:2 =4 {exact #} other {inner #}} #} other {unused}} #}} / {n, plural, offset:3 other {#}} / #";
+    expect(formatIcuMessage(message, "en-US", { n: 6, m: 4, kind: "yes" })).toBe("5 5 exact 2 5 5 / 3 / #");
+    expect(formatIcuMessage(message, "en-US", { n: 6, m: 5, kind: "yes" })).toBe("5 5 inner 3 5 5 / 3 / #");
+    expect(extractIcuVariables(message)).toEqual(["kind", "m", "n"]);
+  });
+  it("deduplicates repeated names across formatting types and inactive nested branches", () => {
+    const message = "{name} {n, number} {kind, select, yes {{n, plural, other {{name} {hidden}}}} other {{n, selectordinal, other {{name}}}}} {name}";
+    expect(extractIcuVariables(message)).toEqual(["hidden", "kind", "n", "name"]);
+    expect(validateIcuVariables(message, "{hidden} {kind} {name} {n}")).toEqual({ missing: [], extra: [] });
+    expect(formatIcuMessage(message, "en-US", { name: "Ada", n: 2, kind: "no" })).toBe("Ada 2 Ada Ada");
+  });
+  it("keeps quoted closing braces and doubled apostrophes inside a branch literal", () => {
+    const message = "{n, plural, other {'}' '{it''s # {hidden}}' #}} ''{name}''";
+    expect(formatIcuMessage(message, "en-US", { n: 2, name: "Ada" })).toBe("} {it's # {hidden}} 2 'Ada'");
+    expect(extractIcuVariables(message)).toEqual(["n", "name"]);
+  });
   it("supports ICU apostrophes and literal syntax without extracting quoted arguments", () => {
     const message = "Don't change '{hidden}' and ''{name}'' {n, plural, other {'#' #}}";
     expect(formatIcuMessage(message, "en-US", { name: "Ada", n: 2 })).toBe("Don't change {hidden} and 'Ada' # 2");
@@ -57,6 +74,23 @@ describe("owned ICU fallback", () => {
   ])("rejects malformed/unsupported messages without partial interpolation: %s", message => {
     expect(formatIcuMessage(message, "en-US", { name: "Ada", n: 2 })).toBe(message);
     expect(() => extractIcuVariables(message)).toThrow(SyntaxError);
+  });
+  it.each([
+    "Before {name} {kind, select, yes {OK} other {{n, unknown}}}",
+    "Before {name} {kind, select, yes {OK} other {{n, plural, one {one}}}}",
+    "Before {name} {kind, select, yes {OK} other {{n, plural, other {open}}}",
+    "Before {name} {n, plural, offset:9007199254740992 other {#}}",
+    "Before {name} {n, plural, =1 {first} =1.0 {duplicate} other {#}}",
+    "Before {name} {kind, select, yes {OK} other {'{unclosed}}",
+  ])("rejects invalid nested syntax and numeric boundaries without partial interpolation: %s", message => {
+    expect(formatIcuMessage(message, "en-US", { name: "Ada", kind: "yes", n: 2 })).toBe(message);
+    expect(() => extractIcuVariables(message)).toThrow(SyntaxError);
+    expect(() => validateIcuVariables("{name}", message)).toThrow(SyntaxError);
+  });
+  it("accepts exactly 50 nested branch levels", () => {
+    const message = "{n, select, other {".repeat(50) + "{name}" + "}}".repeat(50);
+    expect(extractIcuVariables(message)).toEqual(["n", "name"]);
+    expect(formatIcuMessage(message, "en-US", { n: "other", name: "Ada" })).toBe("Ada");
   });
   it.each([undefined, null, "2", NaN, Infinity])("preserves the message for invalid plural input %s", n => {
     expect(formatIcuMessage(selection, "en-US", { count: n })).toBe(selection);
