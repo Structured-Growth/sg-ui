@@ -81,3 +81,49 @@ again after this story-only correction. Logs:
 released. No install, build, heavy or native run was performed. The corrected
 clean handoff replaces `5d2828786cfe7c0ae954f2c96bdd06049def54ed`; native execution
 remains pending with the same twelve cases and focused Chromium arguments.
+
+## Wave22 red evidence and bounded diagnosis
+
+Coordinator candidate `e6270941ea8828d8868fef0798451a599a9db25f` freshly built
+once on Node24; worker prepared files at `c306eb47d4a1ff5cd960ab4f760e3304ff72a740`
+were byte-identical per `/tmp/sgui-batch45-candidate-source-attribution.json`.
+Chromium wave22: **4 passed, 8 failed, 0 skipped/flaky**. Candidate source/build
+hashes remained unchanged. Evidence is preserved at
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/modal-native-boundaries/`.
+The shard build digest is
+`2a06f15980b85cd3f8eb36bc2ad8ce05693dc11aaafe52edc2c21b7ca10dc9ca`.
+
+The four passing cases are medium/large 320x640 normal text and 640x320 short
+enlarged text (not four normal-text cases). Both combined 320x320 enlarged cases
+pass initial/body/footer focus but fail complete visibility of **Header help**
+after keyboard wrap. Screenshots show its label squeezed into a vertical column,
+taller than the dialog viewport. Trace shows it focused and the outer dialog
+scrolled; complete-control visibility cannot be recovered by scrolling a control
+that exceeds its scrollport. Shared Dialog's header keeps custom content and
+close action side by side without wrapping; Button's owned label allows
+anywhere wrapping. This is a reproduced product layout defect in shared header
+composition, outside this worker's runtime ownership. Reserve shared Dialog
+header reflow for an exclusive successor; do not resize the case or weaken bounds.
+
+All six removed-opener cases fail the expected parent input focus after child
+dismissal. Current trace snapshots do not expose definitive activeElement after
+dismissal. No contract-valid fallback or shared focus defect is conclusively
+classified yet. The host uses a layout effect to focus the destination while
+child removal commits; native inert teardown timing may reject that attempt
+(jsdom has no equivalent native inert behavior). Focus-scope restoration also
+walks ancestor restore targets before ancestor first-focusable fallback. These
+are source-grounded hypotheses, not observed activeElement evidence.
+
+Prepared a bounded diagnostic revision without changing any focus targets,
+dismissal timing, viewport or behavioral assertions: captures immediate and
+two-frame deferred activeElement/dialog/inert state after dismissal; records
+whether the existing host focus attempt encountered inert and succeeded; returns
+focus-control geometry/viewport/hit-test details on failed visibility polls.
+This materially changes diagnostic evidence, not an unchanged retry. Request the
+coordinator's focused diagnostic admission with the same Chromium args. No local
+browser/heavy run or shared source change occurred.
+
+Node24 source/browser type checks passed for the diagnostic revision; logs
+`/tmp/sgui-b40-modal-diagnostic-types-{0..1}.log`. Own light-slot lease released.
+Original red artifacts remain intact. Whole M-08, Firefox/WebKit, manual/device/AT
+remain held; this diagnostic handoff does not claim a correction or acceptance.
