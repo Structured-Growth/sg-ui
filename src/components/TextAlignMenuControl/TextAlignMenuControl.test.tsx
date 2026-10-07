@@ -67,4 +67,27 @@ describe("TextAlignMenuControl", () => {
     expect(screen.getByRole("menuitemradio", { name: "Translated Start Align" }).querySelector('[data-align="start"]')).toBeTruthy();
     expect(t).toHaveBeenCalledWith("common.ui.editor.align.start", { defaultMessage: "Start Align" });
   });
+  for (const dir of ["ltr", "rtl"] as const) {
+    it(`${dir} replaces the checked host value while open without issuing a command`, async () => {
+      const user = userEvent.setup(); const onChange = vi.fn(); const onOutdent = vi.fn();
+      const control = (value: "start" | "end") => <Provider dir={dir}>
+        <TextAlignMenuControl value={value} onChange={onChange} onOutdent={onOutdent} canOutdent={false} />
+      </Provider>;
+      const { rerender } = render(control("start"));
+      const trigger = screen.getByRole("button", { name: "Start Align" });
+      trigger.focus(); await user.keyboard("{ArrowDown}");
+      rerender(control("end"));
+      expect(screen.getByRole("menuitemradio", { name: "Start Align" }).getAttribute("aria-checked")).toBe("false");
+      const end = screen.getByRole("menuitemradio", { name: "End Align" });
+      expect(end.getAttribute("aria-checked")).toBe("true");
+      expect(screen.getAllByRole("menuitemradio").filter(item => item.getAttribute("aria-checked") === "true")).toHaveLength(1);
+      await user.keyboard("{End}"); expect(document.activeElement).toBe(end);
+      await user.keyboard("{ArrowDown}"); expect(document.activeElement).toBe(screen.getByRole("menuitemradio", { name: "Left Align" }));
+      await user.keyboard("{ArrowUp}"); expect(document.activeElement).toBe(end);
+      await user.keyboard("{Escape}"); await waitFor(() => expect(document.activeElement).toBe(trigger));
+      expect(trigger.getAttribute("aria-label")).toBe("End Align");
+      expect(onChange).not.toHaveBeenCalled(); expect(onOutdent).not.toHaveBeenCalled();
+    });
+  }
+
 });
