@@ -152,3 +152,50 @@ all previous format/style/text/value checks. Browser TypeScript checking and
 owner-released after the checks. No independent build/native run occurred.
 Fresh corrected Chromium proof remains pending with the coordinator, as do
 Firefox/WebKit, manual and whole acceptance gates.
+
+## Final wave34 Chromium proof
+
+This section supersedes the historical pending Chromium status above. The
+coordinator's testing-only candidate was exactly
+`12db3601e7fa0707c7c8d43f6e04c7fabf3c52ae`; its worker attribution records batch72
+source head `24bd3b9ba9fa7c9fd78421bdbe67e9379b29b171` and baseline
+`2d6f357d10b2a65bc988aba6280e69f92f3b1147`. Attribution was read from
+`/tmp/sgui-batch45-candidate-wave34-attribution.json`. SHA-256 digests for all four
+worker files matched that record before this report-only finalization. Executable,
+story, test and spec source remain frozen at the tested worker head.
+
+Actual evidence:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/46471bab-1194-490a-bbc4-86adfcbb76e7/evidence.json`.
+The `editor-mixed-formatting` session used Chromium, slot3, port6806, no grep,
+and the exact anchored spec selection:
+
+```sh
+pnpm exec playwright test '(?:^|/)tests/browser/editor-mixed-formatting-history\.spec\.ts$' --project=chromium
+```
+
+All **six actual batch72 cases passed**: Bold, Italic and Underline in both light
+and dark themes. This establishes the bounded native keyboard cross-run selection,
+real inline toolbar actions and checked state, exact text/format/style preservation,
+Undo/Redo, saved JSON reload and fresh document lifetime behavior described above.
+These are actual recorded cases, not discovery counts or inferred suite coverage.
+Batch72 claims these six editor cases only. The shared candidate also passed three
+pointer invalidation, five existing reorder and three batch01 grid cases (17 total);
+their ownership remains with their respective scopes.
+
+The coordinator ran one fresh Storybook build and browser typecheck for the shared
+candidate. Node was `v24.19.0`, pnpm `10.29.3`, Playwright `1.63.0`; all sessions
+used build digest `867868632be1585f81d0a8d3b00088e917f6d69e4e561cae22ae6b9698d97933`.
+Evidence verifies unchanged source digest, build digest and candidate HEAD,
+empty final status and `owned commands settled` cleanup. Coordinator reported
+released leases. Total duration was 44.299 seconds, browser window 9.638 seconds;
+reported peak load was 4.727 and swap-used delta zero. The final report edit does
+not change the tested executable artifact. No further build, native run or CI was
+performed by this worker.
+
+Earlier wave32/wave33 failures and artifacts remain retained as expectation-error
+red evidence. Their empty-class and attribute-order equivalence corrections are
+covered by the meaningful local helper regression; no production fix is claimed.
+This report is ready for individual history integration. Firefox/WebKit checkpoints,
+physical-device/IME and assistive-technology/manual acceptance, full shared checks
+and broad M-26/E-04/E/U/X/R/Z gates remain open. No whole E-04, dev acceptance,
+publication or release claim follows from this bounded Chromium proof.
