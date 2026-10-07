@@ -1,10 +1,10 @@
 # M-17 responsive grid/card native transitions — F3
 
-Latest status: wave27 Chromium was **2 passed / 2 failed**; normal-text cases
-passed and enlarged-text cases exposed an impossible first-cell fixture width.
-Fixture correction at `7d99e97293999fe67ec5d9ff2b94923a9e2b4853` passes source types
-and foundation guards; fresh corrected Chromium proof remains pending. Earlier
-candidate/product correction evidence below is retained history.
+Latest status: wave28's two affected enlarged-text Chromium cases passed the
+previous failure point, then failed pending-card clipping at line 115. Product
+correction `cb68e10a7169f4ed20220c6bdf499a860d472460` passes 24 shell units, source
+types and foundation guards; fresh corrected Chromium proof remains pending.
+All earlier candidate/failure/correction records below are retained history.
 This is the bounded F3 evidence slice from the [batch30 inventory review](../parallel-batch-30/inventory-acceptance-13-24.md).
 Whole M-17, Firefox/WebKit, manual zoom/device/assistive-technology and broad G/U/X/R/Z acceptance remain open.
 
@@ -211,3 +211,69 @@ The 23 passing shell units apply to the unchanged production correction; no
 redundant unit rerun was used to claim new native geometry proof. Source/head/report
 refrozen and reserved for the coordinator's next fresh candidate Chromium run with
 unchanged focused spec args. Whole/manual/device/AT and Firefox/WebKit remain open.
+
+
+## Wave28 downstream pending-card failure and correction
+
+Actual tested candidate: `24f9b4abb6ae39675b5bdf9abe8c9764a14a059e`.
+Immutable run root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/ccfdb3fe-1f4a-4199-9564-3a8b2dbf6fc3/grid-shell-responsive/`.
+Selection was the existing spec, Chromium, exact affected-case `--grep "200% text"`;
+**0 passed / 2 failed**, 0 skipped/flaky in the executed selection. The normal-text
+cases were outside this run; their prior wave27 pass remains historical evidence.
+Read shard results/evidence, light screenshot and retained frame snapshots. The
+coordinator confirms clean immutable source/build, settled commands and no resource
+abort. Digest `de160daed84eb81439957ab5fe4a760f5405a517f60cdb66a0111167dda23248`;
+window `2026-10-07T17:45:23.692Z`–`2026-10-07T17:45:39.992Z`.
+
+The narrower first-cell fixture now passes line 101. Both enlarged cases reach
+accepted cards page zero and pass complete wrapper focus visibility at line 112.
+After Alt+P inserts refreshing status, the **same focused wrapper** fails complete
+visibility at line 115. The screenshot shows Course 1's outline and label, with
+its button/remainder clipped at the footer; trace retains the same `course-1`
+wrapper and `aria-busy="true"` card list. Focus/outline are preserved; the status
+reduces the available card viewport. This is a **product layout defect**, distinct
+from the resolved first-cell fixture mismatch. The shell's four-control-height
+content minimum previously covered status plus cards together, so a wrapped
+status could consume most of the minimum. Observing only the outer shell also
+missed internal content resizing when its viewport size stayed fixed.
+
+Correction `cb68e10a7169f4ed20220c6bdf499a860d472460` stays inside the original shell
+allowlist. The card content minimum now adds the actual owned status block height
+to the four-control-height card reservation. A native status ref/ResizeObserver
+measures current wrapping and responds to resizing, with cleanup when status is
+removed/replaced; it never changes host state. Status cannot shrink over the cards.
+The existing shell focus observer now also observes content size, so inserting or
+resizing status reveals its already focused card by scrolling the shell. Active
+focus is unchanged; host scrolling and shared grid/controller/Menu remain untouched.
+
+A targeted new regression verifies the measured reservation through pending status,
+status resize/removal, content observation, cleanup and retained wrapper focus. A
+selected regression against the previous implementation fails at missing 152px
+status reservation (`/tmp/sgui-batch46-wave28-regression-red.log`, 1 failed; other
+23 units intentionally unselected). This is diagnostic regression proof, not an
+acceptance run with skipped cases. Final complete shell unit run has **24 passed /
+1 file**, 0 skips, `/tmp/sgui-batch46-wave28-units-final.log`. An earlier corrected
+complete run also passed 24 (`/tmp/sgui-batch46-wave28-units.log`).
+
+Token-owned Node24 targeted commands:
+
+- `pnpm exec vitest run src/components/AppDataGridShell/AppDataGridShell.test.tsx --maxWorkers=1`: 24 passed.
+- `pnpm exec tsc --noEmit`: passed, `/tmp/sgui-batch46-wave28-types.log`.
+- `pnpm foundations:check`: passed, `/tmp/sgui-batch46-wave28-foundations.log`.
+- `git diff --check`: passed before correction commit.
+
+New frozen SHA-256 values:
+
+- Implementation: `017c31eb1f3624b4723e4253fc8c127ec13d3dad1d98aaa3f67a4a82b2001395`.
+- CSS: `8e887d61bfce69cc3a2abae2b3bc61a08c750dc9a45466b61ce50ce7f8768420`.
+- Units: `38b6b8906bd5805374818d51dab0557a4b80932e359e64170846fcb8bc1a27ee`.
+- Story unchanged: `bc05725c9d9a7a128876ea8cba3d5666412d7b90f0b34a34623d8a1492294454`.
+- Strict spec unchanged: `a48c0fdc54777f19dbb26d0bf8e391b813175bfee1b191dea1b8b5acbfe1df0e`.
+
+Source/head/report refrozen for fresh coordinator proof. Because production status
+layout changed, all four cases are affected for the next focused Chromium selection:
+`tests/browser/inventory-grid-shell-responsive.spec.ts --project=chromium`.
+No unchanged native rerun, independent native/build/server, assertions weakened,
+GitHub/production action or scope expansion occurred. Whole/manual/device/AT and
+Firefox/WebKit remain open; geometry/native timing remains pending fresh proof.
