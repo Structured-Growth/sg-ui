@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 for (const theme of ['light', 'dark']) {
   for (const enlarged of [false, true]) {
-    test(`frame image and content slots reflow: ${theme}, ${enlarged ? '200% text' : '320px'}`, async ({ page }) => {
+    test(`frame image and content slots reflow: ${theme}, ${enlarged ? '200% text' : '320px'}`, async ({ page }, info) => {
       const errors: string[] = [];
       page.on('pageerror', error => errors.push(error.message));
       await page.setViewportSize({ width: enlarged ? 640 : 320, height: 720 });
@@ -40,6 +40,7 @@ for (const theme of ['light', 'dark']) {
       await expect(page.getByTestId('case-no-footer').locator('[data-sgui-part="class-card-footer"]')).toHaveCount(0);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
       expect(errors).toEqual([]);
+      await info.attach('representative-frame', { body: await page.getByTestId('case-default').getByRole('article').screenshot(), contentType: 'image/png' });
     });
   }
 }
@@ -54,5 +55,10 @@ test('width changes retain native frame identity and image ratio', async ({ page
     await page.getByRole('button', { name: label, exact: true }).click();
     expect(await frame.evaluate((element, prior) => element === prior, original)).toBe(true);
     expect((await frame.boundingBox())!.width).toBeCloseTo(width, 0);
+    const image = frame.getByRole('img', { name: 'Course illustration' });
+    await expect.poll(() => image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
+    const bounds = (await image.boundingBox())!;
+    expect(bounds.width / bounds.height).toBeCloseTo(2, 1);
+    expect(bounds.width).toBeLessThan(width);
   }
 });
