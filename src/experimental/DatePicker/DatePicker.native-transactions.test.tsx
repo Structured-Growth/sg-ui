@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, expect, it } from "vitest";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { NativeTransactionForm } from "./DatePicker.native-transactions.stories";
 
@@ -21,6 +21,29 @@ it("keeps a partial keyboard draft out of civil callbacks and form data until al
   }
   expect(data()).toBe("2024-02-29");
   expect(screen.getByLabelText("Date requests").textContent).toBe('["0020-02-29","2024-02-29"]');
+});
+
+it("recovers a displayed required error before the first corrected submit gesture", async () => {
+  const user = userEvent.setup();
+  render(<NativeTransactionForm empty />);
+  await user.click(screen.getByRole("spinbutton", { name: /day/ }));
+  await user.keyboard("29");
+  const form = screen.getByRole("form", { name: "Date transaction form" }) as HTMLFormElement;
+  act(() => { expect(form.checkValidity()).toBe(false); });
+  await screen.findByText("Enter a complete course date within the booking window");
+  for (const [name, text] of [[/month/, "02"], [/year/, "2024"]] as const) {
+    await user.click(screen.getByRole("spinbutton", { name }));
+    await user.keyboard(text);
+  }
+  // No blur or extra submission clears the error. A host button must not move
+  // because the first corrected pointerdown blurs the last edited segment.
+  expect(document.activeElement).toBe(screen.getByRole("spinbutton", { name: /year/ }));
+  await waitFor(() => expect(screen.queryByText("Enter a complete course date within the booking window")).toBeNull());
+  expect(data()).toBe("2024-02-29");
+  expect((form.elements.namedItem("date") as HTMLInputElement).validity.valid).toBe(true);
+  expect(screen.getByLabelText("Date requests").textContent).toBe('["0020-02-29","2024-02-29"]');
+  await user.click(screen.getByRole("button", { name: "Submit course date" }));
+  expect(screen.getByLabelText("Submitted course date").textContent).toBe("2024-02-29");
 });
 
 it("reopens the calendar at the typed leap day then commits a cross-month date to the segments", async () => {

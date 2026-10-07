@@ -17,30 +17,77 @@ const requests = (page: Page) => page.getByLabel('Date requests');
 const trigger = (page: Page) => page.getByRole('button', { name: 'Choose Course date', exact: true });
 const day = (page: Page) => form(page).getByRole('spinbutton', { name: /day/ });
 
-test('partial keyboard segments survive blur without a civil commit and block native required submission', async ({ page }) => {
+test('partial keyboard segments survive blur without a civil commit and block native required submission', async ({ page }, info) => {
   await story(page, 'partial-required-edit');
-  await day(page).click();
-  await page.keyboard.type('29');
-  await page.getByRole('button', { name: 'Leave date field' }).click();
-  await expect(day(page)).toHaveAttribute('aria-valuenow', '29');
-  expect(await civil(page)).toBe('');
-  await expect(requests(page)).toHaveText('[]');
-  await page.getByRole('button', { name: 'Submit course date' }).click();
-  await expect(page.getByLabel('Submitted course date')).toHaveText('Not submitted');
-  expect(await form(page).evaluate(node => {
-    const input = (node as HTMLFormElement).elements.namedItem('date');
-    return input instanceof HTMLInputElement && input.validity.valueMissing;
-  })).toBe(true);
-  await expect(day(page)).toHaveAttribute('aria-invalid', 'true');
-  await expect(form(page).getByText('Enter a complete course date within the booking window')).toBeVisible();
-  for (const [name, text] of [[/month/, '02'], [/year/, '2024']] as const) {
-    await form(page).getByRole('spinbutton', { name }).click();
-    await page.keyboard.type(text);
+  // Observe actual native events and validity without invoking validation, moving
+  // focus or retrying the corrected submit. Retain evidence even on failure.
+  await form(page).evaluate(node => {
+    const host = node as HTMLFormElement;
+    const events: unknown[] = [];
+    (window as unknown as { dateSubmitEvents: unknown[] }).dateSubmitEvents = events;
+    for (const type of ['pointerdown', 'pointerup', 'click', 'invalid', 'submit']) {
+      host.addEventListener(type, event => {
+        const input = host.elements.namedItem('date') as HTMLInputElement;
+        const button = host.querySelector('button[type="submit"]')!;
+        const bounds = button.getBoundingClientRect();
+        events.push({ type, trusted: event.isTrusted,
+          target: event.target instanceof HTMLElement ? event.target.textContent : null,
+          value: input.value, valid: input.validity.valid,
+          valueMissing: input.validity.valueMissing, customError: input.validity.customError,
+          message: input.validationMessage, submitTop: bounds.top, submitBottom: bounds.bottom });
+      }, true);
+    }
+  });
+  try {
+    await day(page).click();
+    await page.keyboard.type('29');
+    await page.getByRole('button', { name: 'Leave date field' }).click();
+    await expect(day(page)).toHaveAttribute('aria-valuenow', '29');
+    expect(await civil(page)).toBe('');
+    await expect(requests(page)).toHaveText('[]');
+    await page.getByRole('button', { name: 'Submit course date' }).click();
+    await expect(page.getByLabel('Submitted course date')).toHaveText('Not submitted');
+    expect(await form(page).evaluate(node => {
+      const input = (node as HTMLFormElement).elements.namedItem('date');
+      return input instanceof HTMLInputElement && input.validity.valueMissing;
+    })).toBe(true);
+    await expect(day(page)).toHaveAttribute('aria-invalid', 'true');
+    await expect(form(page).getByText('Enter a complete course date within the booking window')).toBeVisible();
+    for (const [name, text] of [[/month/, '02'], [/year/, '2024']] as const) {
+      await form(page).getByRole('spinbutton', { name }).click();
+      await page.keyboard.type(text);
+    }
+    expect(await civil(page)).toBe('2024-02-29');
+    await expect(requests(page)).toHaveText('["0020-02-29","2024-02-29"]');
+    // Recovery occurs while the year is still focused, before pointerdown can
+    // remove the error row and move the submit target during the gesture.
+    await expect(form(page).getByRole('spinbutton', { name: /year/ })).toBeFocused();
+    await expect(form(page).getByText('Enter a complete course date within the booking window')).toHaveCount(0);
+    expect(await form(page).evaluate(node => {
+      const input = (node as HTMLFormElement).elements.namedItem('date') as HTMLInputElement;
+      return { valid: input.validity.valid, customError: input.validity.customError, valueMissing: input.validity.valueMissing };
+    })).toEqual({ valid: true, customError: false, valueMissing: false });
+    await page.getByRole('button', { name: 'Submit course date' }).click();
+    await expect(page.getByLabel('Submitted course date')).toHaveText('2024-02-29');
+    await expect(requests(page)).toHaveText('["0020-02-29","2024-02-29"]');
+    await expect(day(page)).not.toHaveAttribute('aria-invalid', 'true');
+    const events = await page.evaluate(() => (window as unknown as { dateSubmitEvents: {
+      type: string; trusted: boolean; target: string; submitTop: number; submitBottom: number;
+    }[] }).dateSubmitEvents);
+    expect(events.filter(event => event.type === 'submit')).toEqual([expect.objectContaining({ trusted: true })]);
+    const gesture = events.filter(event => event.type === 'pointerdown' || event.type === 'pointerup').slice(-2);
+    expect(gesture).toEqual([
+      expect.objectContaining({ type: 'pointerdown', trusted: true, target: 'Submit course date' }),
+      expect.objectContaining({ type: 'pointerup', trusted: true, target: 'Submit course date' }),
+    ]);
+    expect(gesture[1].submitTop).toBe(gesture[0].submitTop);
+    expect(gesture[1].submitBottom).toBe(gesture[0].submitBottom);
+  } finally {
+    await info.attach('first-corrected-submit-native-events', {
+      body: JSON.stringify(await page.evaluate(() => (window as unknown as { dateSubmitEvents: unknown[] }).dateSubmitEvents)),
+      contentType: 'application/json',
+    });
   }
-  await page.getByRole('button', { name: 'Submit course date' }).click();
-  await expect(page.getByLabel('Submitted course date')).toHaveText('2024-02-29');
-  await expect(requests(page)).toHaveText('["0020-02-29","2024-02-29"]');
-  await expect(day(page)).not.toHaveAttribute('aria-invalid', 'true');
 });
 
 test('a complete out-of-window segment edit commits a civil request but fails native validation', async ({ page }) => {
