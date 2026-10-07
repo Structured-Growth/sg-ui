@@ -57,7 +57,11 @@ import { AppPageTabs } from "@structured-growth/sg-ui/components/AppPageTabs";
 
 A direct AppPageTabs child fills the body with a stationary tab strip and an
 independently scrolling selected panel. The header/footer remain outside that
-scroll area. Ordinary body content scrolls within the body. The editor link,
+scroll area. When enlarged text or a short viewport leaves insufficient space
+for the chrome and a usable panel, the dialog itself scrolls. The panel's minimum
+space follows control/spacing tokens; initial focus below the visible dialog is
+scrolled into view. Nested portaled focus does not move the outer dialog.
+Ordinary body content scrolls within the body. The editor link,
 image and column-layout modals now map the owned props, while their remaining
 legacy bodies await their own migration tasks.
 

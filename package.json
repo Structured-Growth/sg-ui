@@ -231,7 +231,7 @@
     "test:release": "node --test scripts/release-policy.test.mjs",
     "tokens:generate": "node scripts/tokens.mjs",
     "tokens:check": "node scripts/tokens.mjs --check",
-    "test:foundations": "node --test scripts/tokens.test.mjs scripts/css-modules.test.mjs",
+    "test:foundations": "node --test scripts/tokens.test.mjs scripts/css-modules.test.mjs scripts/packed-browser.test.mjs",
     "foundations:check": "node scripts/check-foundations.mjs",
     "test:foundation-consumer": "pnpm build && node scripts/test-foundation-consumer.mjs",
     "test:hydration-consumer": "pnpm build && node scripts/test-foundation-consumer.mjs --react18 --browser && node scripts/test-foundation-consumer.mjs --browser",

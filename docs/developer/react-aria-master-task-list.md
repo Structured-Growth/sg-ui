@@ -434,7 +434,9 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] X-03 Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics.
 - [ ] X-04 Verify initial focus, return focus, focus after removal/reorder/update, trapped focus in modals, and nested-overlay dismissal ordering.
 - [ ] X-05 Ensure sticky headers/footers do not obscure focused controls; verify zoom/reflow/text-spacing behavior and scroll padding where needed.
+  Representative tabbed-modal native focus/reflow/text-spacing gates and a production scroll fallback now execute; full catalog/browser zoom acceptance remains open. See [display preference evidence](react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).
 - [ ] X-06 Verify text/non-text contrast, visible focus, high contrast/forced colors, reduced motion, and state meaning beyond color.
+  Representative system focus-color and loading-motion gates now execute with engine capability evidence; the complete contrast/state matrix remains open. See [display preference evidence](react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).
 - [ ] X-07 Verify target size/spacing against WCAG requirements and aim for comfortable primary touch targets; test coarse-pointer use rather than shrinking every hit area with density.
 - [ ] X-08 Provide both keyboard and single-pointer non-drag alternatives for drag operations where required; keyboard support alone does not satisfy every dragging requirement.
 - [ ] X-09 Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient.

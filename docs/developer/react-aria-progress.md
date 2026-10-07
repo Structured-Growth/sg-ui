@@ -1565,3 +1565,57 @@ Previous final guard head `7f03a351` independently passes CI
 on both runtimes, all eight consumers and 45/45 Linux browser tests. Downloaded
 JSON confirms zero skipped/unexpected/flaky results; all seven artifacts remain
 unexpired. This is previous-head evidence, not validation of this later batch.
+
+## Native modal reflow and display preferences
+
+X-05/X-06 gain executable representative gates, while their broad checkboxes stay
+open. Public AppModal's light/dark tabbed stories execute all twenty fields and
+footer actions with native Tab at 320px and with 200% text plus spacing overrides.
+The suite requires the complete focused control inside its panel/viewport and
+uncovered at its center, stable header/footer positions where space permits,
+action callbacks, native tab switching and nested portal/return focus.
+
+Two real defects are fixed: fixed-height chrome could squeeze the tab panel away
+under enlarged text, and suppressed initial scrolling/WebKit caret-only scrolling
+could leave focused fields clipped. A token-sized panel minimum and outer dialog
+scroll fallback keep content/actions reachable. Focus visibility checks run after
+layout/restoration against intersecting scrollports, stop when focus changes or
+content unmounts, and ignore nested portaled focus. The TextReflow story and
+[modal contract](react-aria-modal-shells.md) document this behavior.
+
+Browser preferences stop linear/circular/button loading animations while keeping
+pending/indeterminate semantics. Every configured engine must apply forced-color
+emulation; system Highlight focus outlines and disabled/pending meaning are checked.
+Chromium and WebKit both report the active query. Actual chrome zoom, physical
+high-contrast settings, assistive technology and full catalog contrast/state
+acceptance remain open. Root text scaling/effective reflow are scoped accurately
+in the [browser guide](react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).
+
+Prior exact head `1a6c3d51` CI
+[37561495918](https://github.com/Structured-Growth/sg-ui/actions/runs/37561495918)
+passes Node 22.12.0's check/Storybook/four packed consumers and Node 24's check,
+Storybook and 60/60 Linux Chromium/Firefox/WebKit tests, with no skipped,
+unexpected or flaky tests (downloaded JSON, 134.4 seconds). Its overall conclusion
+is failure: the new Node 24 packed React 18 step crashed while serving a missing
+request because it sent 200 headers before reading the file and then sent 404
+headers. The helper now reads first; a new foundation Node regression verifies
+missing/malformed requests, path boundaries, subsequent availability and exact
+bytes. Vite fixtures declare an empty data favicon; browser diagnostic assertions
+remain mandatory. No packed Firefox/Next CI success is inferred from that run.
+
+Final local frozen install and full checks pass on Node 24 and exact-minimum
+22.12.0: 138 files/858 behavior tests, five foundation and four release tests,
+source/story typing, build, public APIs and owned import/token/layer/output guards.
+Storybook builds with existing upstream warnings. Fresh serial packed React 18/19
+Vite SSR/browser/Flight and Next 16.4.0 production/browser consumers pass Chromium
+and WebKit, with zero browser warnings/errors. Logs: `/tmp/sgui-display-complete-check24.log`,
+`/tmp/sgui-display-complete-check22.log`, `/tmp/sgui-display-complete-storybook.log` and
+`/tmp/sgui-display-complete-consumers.log`. Firefox retains its local Mac launch
+limitation and remains required in CI. Formal closure stays 94/320 (226 open).
+
+The final Chromium/WebKit browser suite passes 54/54 in 48.8 seconds, with zero
+skipped, unexpected or flaky tests, including initial footer action focus under
+enlarged chrome. Results are in `artifacts/browser-results.json` and
+`/tmp/sgui-display-complete-browser-results.json`; the log is
+`/tmp/sgui-display-complete-browser.log`. Header, body and footer share the same
+scoped visibility repair. The PR remains draft; later heads need independent CI.

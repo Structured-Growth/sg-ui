@@ -165,6 +165,8 @@ control; importing guidance is not an instruction to change all legacy behavior.
   must not show "Step 1 of 1".
 - For forms with multiple sections, use AppModal with a column body and a sticky
   AppPageTabs header inside its content. Scroll the selected tab content independently.
+- Preserve a usable tab panel with enlarged text; when fixed dialog chrome cannot
+  fit, allow the whole dialog to scroll and keep initial/native keyboard focus visible.
 - Choose modal size based on complexity, for example md for a medium tabbed form.
 - Preserve the page-header hierarchy: white for a first-level header and grey for
   a second-level/sub-page header in the light theme. Express the corresponding

@@ -47,3 +47,11 @@ directory ([upstream issue](https://github.com/microsoft/playwright/issues/42768
 report this local limitation without skipping Firefox in CI or granting OS
 permissions. This is
 not a mobile/touch, assistive technology, zoom or Next.js integration matrix.
+
+Display-preference gates exercise native modal focus at 320px and enlarged text
+with text spacing, nested portal focus, action callbacks and return focus. The
+suite verifies complete control visibility, reduced-motion loading semantics and
+system focus colors under forced-color emulation. Every engine must report the
+active media query; capability evidence remains attached. Effective reflow
+and root text scaling do not establish actual browser chrome zoom or physical
+high-contrast settings. See the [scoped evidence](../../docs/developer/react-aria-browser-acceptance.md#display-preferences-and-modal-reflow-x-05x-06-partial).

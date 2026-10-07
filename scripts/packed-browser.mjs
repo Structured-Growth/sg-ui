@@ -11,8 +11,9 @@ export async function staticConsumer(root, verify) {
       const pathname = new URL(request.url, 'http://localhost').pathname;
       const file = resolve(root, `.${pathname === '/' ? '/index.html' : decodeURIComponent(pathname)}`);
       if (!file.startsWith(`${resolve(root)}${sep}`)) { response.writeHead(403).end(); return; }
+      const body = await readFile(file);
       response.writeHead(200, { 'Content-Type': ({ '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css' })[extname(file)] ?? 'application/octet-stream' });
-      response.end(await readFile(file));
+      response.end(body);
     } catch { response.writeHead(404).end(); }
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));

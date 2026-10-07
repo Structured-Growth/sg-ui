@@ -8,7 +8,7 @@
   .heading { min-inline-size: 0; overflow-wrap: anywhere; }
   .modal[data-size="sm"] { inline-size: min(100%, 28rem); }
   .modal[data-size="lg"] { inline-size: min(100%, 56rem); }
-  .dialog { display: flex; flex-direction: column; max-block-size: inherit; block-size: 100%; min-block-size: 0; font-family: var(--sgui-font-family); font-size: var(--sgui-body-size); line-height: var(--sgui-body-line-height); }
+  .dialog { display: flex; flex-direction: column; max-block-size: inherit; block-size: 100%; min-block-size: 0; overflow: auto; font-family: var(--sgui-font-family); font-size: var(--sgui-body-size); line-height: var(--sgui-body-line-height); }
   .dialog:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: calc(-1 * var(--sgui-focus-width)); }
   .header { display: flex; flex: none; align-items: flex-start; justify-content: space-between; gap: var(--sgui-space4); padding: var(--sgui-space4); border-block-end: 1px solid var(--sgui-divider); }
   .title { margin: 0; font-size: var(--sgui-heading-size); line-height: var(--sgui-heading-line-height); font-weight: var(--sgui-action-weight); }

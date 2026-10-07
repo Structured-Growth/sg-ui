@@ -22,7 +22,7 @@ await writeFile(join(fixture, 'package.json'), JSON.stringify({
     ...(reactVersion.startsWith('19.') ? { 'react-server-dom-webpack': reactVersion } : {}),
   },
 }));
-await writeFile(join(fixture, 'index.html'), '<!doctype html><html lang="en"><meta charset="utf-8"><title>SGUI packed foundation proof</title><div id="root"></div><script type="module" src="/main.jsx"></script></html>');
+await writeFile(join(fixture, 'index.html'), '<!doctype html><html lang="en"><meta charset="utf-8"><link rel="icon" href="data:,"><title>SGUI packed foundation proof</title><div id="root"></div><script type="module" src="/main.jsx"></script></html>');
 await writeFile(join(fixture, 'Proof.jsx'), `
 import React from 'react';
 import { Button, TextField, Dialog, Tabs, ComboBox, Popover, AsyncMultiSelect, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
@@ -161,7 +161,7 @@ try {
   const { Proof } = await server.ssrLoadModule('/Proof.jsx');
   const html = renderToString(React.createElement(Proof));
   assert(html.includes('Course name') && html.includes('Reporting dates'), 'SSR lost controls');
-  await writeFile('index.html', '<!doctype html><html lang="en"><meta charset="utf-8"><title>SGUI packed React ${reactVersion} hydration proof</title><div id="root">' + html + '</div><script type="module" src="/main.jsx"></script></html>');
+  await writeFile('index.html', '<!doctype html><html lang="en"><meta charset="utf-8"><link rel="icon" href="data:,"><title>SGUI packed React ${reactVersion} hydration proof</title><div id="root">' + html + '</div><script type="module" src="/main.jsx"></script></html>');
 } finally { await server.close(); }
 `);
 await writeFile(join(fixture, '.npmrc'), 'auto-install-peers=false\n');

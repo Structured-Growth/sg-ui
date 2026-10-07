@@ -143,3 +143,53 @@ Both runtime jobs, all eight packed consumers and title validation pass. All sev
 artifacts are unexpired. Browser artifact ID `11456069764` expires
 2026-10-21 02:10:07 UTC. Downloaded evidence is in
 `/tmp/sgui-ci-83b8dae2-artifacts`; later commits require independent CI inspection.
+
+## Display preferences and modal reflow (X-05/X-06 partial)
+
+`tests/browser/display-preferences.spec.ts` runs the public tabbed AppModal in
+light/dark at 320 CSS pixels and with 200% root text plus line/letter/word/paragraph
+spacing overrides. Native Tab traverses all twenty fields and both footer actions;
+geometry and hit testing require the complete focused control inside the viewport
+and its panel, without another element covering its center. Header/footer positions
+stay stationary where the layout fits. Native tab switching, a nested portaled
+field, action callbacks and Escape restoration are also checked. No corrective
+layout CSS or synthetic scroll is injected into the tests.
+
+The tests exposed two production defects. Enlarged chrome could squeeze the panel
+out of a fixed-height modal, hiding fields and actions. A token-sized minimum panel
+and outer dialog scroll fallback keep them reachable. Initial focus can suppress
+native scrolling, and WebKit can expose only an input's caret during Tab navigation.
+The owned dialog now checks the focused control against intersecting scrollports
+after focus restoration/layout and scrolls it fully into view when needed. Deferred
+work stops if focus moved or the element unmounted; nested portaled focus stays
+local to its own dialog. See [modal contracts](react-aria-modal-shells.md).
+
+Reduced-motion tests switch the browser preference and check that linear/circular
+loading and button spinners stop animating while indeterminate/pending semantics
+remain. Forced-color tests record each engine's actual media-query capability,
+require every configured engine to apply the emulated preference, use system
+Highlight focus outlines and preserve accessible disabled/pending indications.
+An unsupported media query fails instead of silently certifying ordinary focus.
+These checks use production styles rather than a test palette.
+
+A 320px layout corresponds to the effective width of 1280px at 400% zoom; root font
+scaling verifies text resizing. Neither operation drives browser chrome zoom.
+Actual browser zoom, physical high-contrast settings, the complete catalog contrast
+and state matrix, assistive technology and device acceptance remain open. X-05 and
+X-06 stay unchecked; formal closure remains 94/320 required tasks.
+
+The prior implementation head `1a6c3d51` passes both runtime checks and the Linux
+three-engine Storybook suite, but its Node 24 packed React 18 browser step fails:
+[run 37561495918](https://github.com/Structured-Growth/sg-ui/actions/runs/37561495918).
+The fixture server wrote 200 headers before an asynchronous file read and then
+attempted 404 headers for a missing request. It now reads first; a Node regression
+requires missing/malformed paths to return 404, outside paths 403 and subsequent
+valid requests to retain exact bytes. The clean Vite HTML declares an empty data
+favicon. Browser errors remain mandatory failures. That failed run is not evidence
+of passing packed Firefox/Next hydration.
+
+Final local Chromium/WebKit execution passes 54/54 in 48.8 seconds, including
+initial footer action focus under enlarged chrome, with zero skipped, unexpected
+or flaky tests. Header/body/footer use the same scoped visibility repair. Results:
+`artifacts/browser-results.json`, `/tmp/sgui-display-complete-browser-results.json`
+and `/tmp/sgui-display-complete-browser.log`.
