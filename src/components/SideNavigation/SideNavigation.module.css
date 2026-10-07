@@ -9,7 +9,7 @@
   .menuContent { display: flex; flex-direction: column; flex: 1; min-block-size: 0; border-block-start: 1px solid var(--sgui-divider); }
   .menuContent[data-direction="forward"] { animation: forward var(--sgui-motion-duration) ease-out; }
   .menuContent[data-direction="back"] { animation: back var(--sgui-motion-duration) ease-out; }
-  .scroll { flex: 1; min-block-size: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--sgui-space3); }
+  .scroll { flex: 1; min-block-size: 0; overflow-y: auto; overscroll-behavior: contain; scroll-padding-block: var(--sgui-space3); padding: var(--sgui-space3); }
   .section { margin-block-end: var(--sgui-space4); }
   .sectionTitle { margin: 0; padding: var(--sgui-space2); color: var(--sgui-text-muted); font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
   .list { margin: 0; padding: 0; list-style: none; }

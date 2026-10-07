@@ -7,7 +7,7 @@ import { SideNavigation, type SideNavigationModel } from "./SideNavigation";
 import { SGNavigationProvider } from "../../adapters/navigation";
 import { SGAccountProvider, type SGAccountAdapter } from "../../adapters/accounts";
 import { Provider } from "../../experimental/Provider/Provider";
-afterEach(() => { cleanup(); localStorage.clear(); });
+afterEach(() => { cleanup(); localStorage.clear(); vi.restoreAllMocks(); });
 const model: SideNavigationModel = {
   user: { initials: "HP", name: "Harry Potter", organization: "Hogwarts", email: "harry@example.com", defaultOrganizationId: "org-1", organizations: [{ id: "org-1", name: "Hogwarts", role: "Member", billingScopeLabel: "Billing" }, { id: "org-2", name: "Another School", role: "Member", billingScopeLabel: "Billing" }] },
   rootMenu: { id: "root", sections: [{ id: "main", title: "Workspace", items: [{ id: "courses", label: "Courses", defaultExpanded: true, children: [{ id: "course", label: "Course", href: "/course" }] }, { id: "admin", label: "Admin", childBehavior: "drilldown", children: [{ id: "people", label: "People", href: "/people" }] }] }] },
@@ -147,4 +147,85 @@ it.each(["/settings/people", "/people"])("retains a drilled menu with accepted h
   expect(screen.getByRole("link", { name: "Home" })).toBeTruthy();
   expect(navigate).toHaveBeenCalledTimes(childHref === "/people" ? 4 : 3);
   if (childHref === "/people") expect(navigate).toHaveBeenLastCalledWith("/settings");
+});
+
+// JSDOM supplies no layout/native focus scrolling. These measurements model a
+// bordered scrollport after the browser has performed its own focus scroll.
+function measuredFocusPort(controlTop: number, initialScroll = 130) {
+  const frames = new Map<number, FrameRequestCallback>();
+  let nextFrame = 0;
+  vi.spyOn(window, "requestAnimationFrame").mockImplementation(callback => {
+    frames.set(++nextFrame, callback);
+    return nextFrame;
+  });
+  const cancel = vi.spyOn(window, "cancelAnimationFrame").mockImplementation(id => { frames.delete(id); });
+  setup();
+  const port = screen.getByRole("navigation").querySelector<HTMLElement>('[data-sgui-part="side-navigation-scroll"]')!;
+  const control = screen.getByRole("link", { name: "Course" });
+  Object.defineProperties(port, {
+    clientTop: { configurable: true, value: 2 },
+    clientHeight: { configurable: true, value: 200 },
+    scrollHeight: { configurable: true, value: 600 },
+  });
+  port.scrollTop = initialScroll;
+  port.scrollLeft = -15; // RTL horizontal position must remain host/browser-owned.
+  vi.spyOn(port, "getBoundingClientRect").mockReturnValue({ top: 100, bottom: 320, height: 220 } as DOMRect);
+  vi.spyOn(control, "getBoundingClientRect").mockImplementation(() => ({
+    top: controlTop - (port.scrollTop - initialScroll),
+    bottom: controlTop + 40 - (port.scrollTop - initialScroll), height: 40,
+  } as DOMRect));
+  control.style.outlineStyle = "solid";
+  control.style.outlineWidth = "2px";
+  control.style.outlineOffset = "2px";
+  const flush = () => act(() => {
+    const pending = [...frames.values()];
+    frames.clear();
+    for (const callback of pending) callback(0);
+  });
+  return { port, control, flush, cancel };
+}
+
+it.each([
+  { top: 280, expectedScroll: 152 },
+  { top: 80, expectedScroll: 104 },
+  { top: 160, expectedScroll: 130 },
+])("reveals the whole focused control and outline inside the client scrollport ($top)", ({ top, expectedScroll }) => {
+  const { port, control, flush } = measuredFocusPort(top);
+  control.focus();
+  expect(port.scrollTop).toBe(130); // Wait until native focus scrolling has settled.
+  flush();
+  expect(port.scrollTop).toBe(expectedScroll);
+  expect(port.scrollLeft).toBe(-15);
+  expect(document.activeElement).toBe(control);
+});
+
+it("measures the current native scroll result and clamps the repair to owned scroll bounds", () => {
+  const { port, control, flush } = measuredFocusPort(350, 390);
+  control.focus();
+  // Simulate native scrolling that happens after focus dispatch, before the frame.
+  port.scrollTop = 395;
+  flush();
+  expect(port.scrollTop).toBe(400);
+  expect(document.activeElement).toBe(control);
+});
+
+it("does not repair scroll or reclaim focus after focus moves to the host", () => {
+  const { port, control, flush } = measuredFocusPort(280);
+  const host = document.createElement("button");
+  document.body.append(host);
+  try {
+    control.focus();
+    host.focus();
+    flush();
+    expect(port.scrollTop).toBe(130);
+    expect(document.activeElement).toBe(host);
+  } finally { host.remove(); }
+});
+
+it("cancels the pending visibility measurement on unmount", () => {
+  const { control, flush, cancel } = measuredFocusPort(280);
+  control.focus();
+  cleanup();
+  expect(cancel).toHaveBeenCalled();
+  flush();
 });
