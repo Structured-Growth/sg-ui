@@ -13,6 +13,17 @@ function Removable() {
   return <TagGroup label="Topics" items={tags} onRemove={ids => setTags(current => current.filter(item => !ids.includes(item.id)))} />;
 }
 describe("owned tag group", () => {
+  it("updates removal availability without replacing host items", async () => {
+    const onRemove = vi.fn();
+    const { rerender } = render(<TagGroup label="Topics" items={items} />);
+    expect(screen.queryByRole("button")).toBeNull();
+    rerender(<TagGroup label="Topics" items={items} onRemove={onRemove} />);
+    await userEvent.setup().click(screen.getByRole("button", { name: "Remove Beta" }));
+    expect(onRemove).toHaveBeenCalledExactlyOnceWith(["b"]);
+    expect(screen.getByText("Beta")).toBeTruthy();
+    rerender(<TagGroup label="Topics" items={items} />);
+    expect(screen.queryByRole("button")).toBeNull();
+  });
   it("removes tokens by keyboard and focuses the next, previous, then empty list", async () => {
     const user = userEvent.setup();
     render(<Removable />);
