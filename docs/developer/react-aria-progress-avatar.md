@@ -65,11 +65,14 @@ remain pixels; CSS string widths remain supported. The default bar is 3.75rem
 accessible name through the existing translation adapter.
 
 `AppOperationSteps` preserves its public `title`, `subtitle` and `steps` props and
-all three status values (`pending`, `in_progress`, `completed`). It renders an
+the existing status values (`pending`, `in_progress`, `completed`) and adds `error`. It renders an
 ordered list, gives each step translated status text, and uses the owned circular
 loading indicator for active work. It creates no live region and no step-count
-labels. Pending/completed icons are decorative. The completed check uses the
-shared action token because the current foundation has no success token.
+labels. Pending/completed/error icons are decorative. The completed check uses the
+shared action token; the error icon and label use the shared danger token. Hosts
+own milestone announcements. [Focused progress/status evidence](parallel-batch-07/progress-status.md)
+records 10 Chromium/WebKit passes at the frozen commit; Firefox and spoken AT
+acceptance remain open.
 
 Use `/components/AppInlineProgress` or `/components/AppOperationSteps` for granular
 imports that avoid resolving the unmigrated catalog and its peers.

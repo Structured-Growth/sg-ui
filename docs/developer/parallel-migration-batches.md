@@ -342,3 +342,17 @@ Reviewed/integrated PR30 AuthShell gutters/focus (6 units/10native), PR31 frame 
 | api-guide-corrections (W-13/W-19/Z-13) | `01a116b7-9325-7901-b81b-65596d8a53f1` | docs/developer/react-aria-primitives.md; docs/developer/react-aria-layout-actions.md; docs/developer/parallel-batch-14/api-guide-corrections.md |
 
 New baseline f1e5e457ce6240022ca07d6336ea06c5b67c917c. Runtime/evidence review slots accelerate current completed PRs; proven client shrink/async busy and source-guide corrections are dependency-ready. 26active worker chats; cap50. Acceptance 67/326 (20.6%), required67/320(20.9%), delta0;31inventory rows held. ETA not reliable. Required native scopes remain reserved until actual runs.
+
+## 14:29 UTC coordination — native pool outcomes and progress integration
+
+18 exact reviewed test/docs-only contributions plusreview PR88 integrated; Badge/List/persistence source fixes and APIguide PR85 plusreview89 integrated; proof-verified pool exact6b9 with concurrent Chromium1.794s, finalproof report4d7 integrated. Final report6eb9474 pending docs-only delta review. Firstfrozen grid-sort06899ff/progress27c68b2 pair supervisor exec69632 waits current formatting owner, then staged fresh builds/native suites. Integration checkout frozen until supervisor finishes; update ledger then. Persistent recovery story/native reserved in NEW batch15 chat01a116bd-31fa-74e3-9460-6d8ed4f78720. All broad gates remain open.
+
+User changed coordination/progress cadence from10minutes to5minutes; automation updated ACTIVE FREQ=MINUTELY INTERVAL=5. Cap50 and dependency-ready exclusive dispatch/resource limits unchanged. Apply this ledger entry after integration pool session releases source freeze.
+
+First coordinated two-worker browser pool completed: progress/status 10 Chromium/WebKit passes at 27c68b2; grid-sort 2 failures at 06899ff (expected Sort Ascending menuitemradio missing). Fresh builds/types and immutable head/digests verified; both workers unfrozen, grid scope retained for diagnosis. Legacy/build leases released; no combined pass or Firefox acceptance claimed.
+
+Next native pair selected: control-disclosure PR64 and control-button PR71. Full reviewed ancestry bootstrap at 6b9da44 authorized separately from exclusive task edits; clean frozen heads awaited. No native acceptance yet.
+
+Second pool completed: Disclosure 2 Chromium/WebKit passes at c5e5bdc; Button 2 failures at d6e7707 (duplicate host reset press on Space). Fresh builds/types and unchanged hashes/heads verified. Both source freezes released; Button correction required, no integration/native acceptance for failed fix.
+
+Reviewed PR91 exact seven-file ownership, additive translated error status/token mapping, composed tests and fresh immutable coordinator native evidence: 7 units and10 Chromium/WebKit cases. Final commit25eec14 only updates report after tested27c68b2. Conflict-free full-history merge into codex/dev; no redundant full run. Catalog PR33 reports80 native passes and awaits review. Next pair Switch/RadioGroup bootstrap authorized, frozen heads awaited. Broad acceptance67/32620.6%, required67/32020.9%, delta0;31inventory rows held/unscored.
