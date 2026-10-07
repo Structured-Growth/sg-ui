@@ -539,3 +539,12 @@ Verified base 0186aff866d1b0b568817631f3d0da83ee0d49e3. Five completed scopes re
 - Batch50 dialog-header-reflow: chat 01a1174b-0b94-7ad3-bf87-23367269c0ea; exclusive src/experimental/Dialog/Dialog.module.css; src/experimental/Dialog/Dialog.stories.tsx; src/experimental/Dialog/Dialog.test.tsx; tests/browser/batch50-dialog-header-reflow.spec.ts; docs/developer/parallel-batch-50/dialog-header-reflow.md; managed worktree before edits, targeted local evidence then coordinator immutable Chromium.
 
 Batch50 owns confirmed shared Dialog header reflow only; batch40 retains AppModal diagnostic focus ownership. Whole task gates unchanged.
+
+
+## Wave23 corrected/new shared snapshot — 2026-10-07 17:03 UTC
+
+Exact testing candidate `c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`, token `16f6feff-4479-4f37-8c96-451b694ba457` in batch45 candidate worktree; attribution `/tmp/sgui-batch45-candidate-wave23-attribution.json`. Ten disjoint sessions, one fresh build29.525s/types pass, total72.845s. Source/head/build immutable. Overall31 cases pass/20fail; four complete green suites (link4, toolbar4, embeddedAuth4, Dialog8) await report-onlyfinal commits. Six failed suites remain reserved: collection4pass/2fail, modal6pass/6fail, chrome0/4, table0/2, gridshell0/4, pointer1/2. Original modal header320x320/200% cases now pass with exclusively owned Dialog CSS fix; six removed-opener focus failures still require actual diagnostic classification. Normal GitHub pushes failed twice with server InternalServerError; gitls-remote/ghread succeed, all reviewed commits preserved locally.
+
+Pre-browser attempt5c1b7168 stopped for coordinator childPATH runtime error. Shutdown exposed uncaught owned process-group EPERM; verified supervisor98595 and child98795/98819 dead, exact own token441e8a09 leases only recovered, artifacts retained. Corrected childPATH Node24.19 pool above settled normally. Batch51 unique chat01a11751-7f0c-7e42-8a1d-18a671108afa exclusively owns poolimplementation/tests/guide+unique report for controlled cleanup failure handling; no native/runtime acceptance from aborted attempt. No foreign leases/processes touched.
+
+Acceptance-checklist67/32620.6%, required67/32020.9%, delta0,31heldinventory rows. Partial passing slices never close whole rows; ETA unreliable.
