@@ -28,7 +28,9 @@ export const LongText: Story = { args: { rows: [{ id: "long", label: "Averylongu
 export const CourseCards: Story = { args: { renderCard: row => <LearnerClassCard courseName={(row as typeof rows[number]).label} instructorName="Course author" progressPercent={40} nextActivity="Read the introduction" dueAt="2026-10-10" referenceNow={new Date("2026-10-06T12:00:00Z")} /> } };
 
 /** M-11: one host owns rows and pagination; requests can be deliberately withheld. */
-export const NativeCollection: Story = { render: args => {
+export const NativeCollection: Story = {
+  parameters: { docs: { description: { story: "Resize the host and enlarge browser text in both densities. Native Tab between card notes must reveal the complete control; oversized pagination remains reachable through the collection scrollport. Comfortable density also reserves focus space when its control height exceeds the text metrics." } } },
+  render: args => {
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(4);
   const [accept, setAccept] = useState(false);
