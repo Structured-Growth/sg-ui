@@ -82,8 +82,8 @@ Targeted development validation follows
 
 Public group semantics/ref/disabled-child ownership were already satisfied; retain
 the existing contract. Review the vertical corner correction and new composed
-evidence as a bounded fix. Native correction validation remains required before
-calling this slice verified. Shared browser-pool adoption/configuration is
+evidence as a bounded fix. Corrected Chromium evidence is recorded below;
+Firefox/WebKit correction verification remains pending. Shared browser-pool adoption/configuration is
 coordinator-owned; only the explicit ancestry bootstrap below was authorized here.
 Physical coarse-pointer and assistive-technology checks remain
 separate open acceptance work.
@@ -141,5 +141,37 @@ worker-owned native/build run. Trace inspection found:
 
 These are fixture/spec corrections; the vertical-corner product CSS is unchanged.
 Correction checks: Node 24.21.0 source/story typecheck and browser-spec typecheck
-passed, as did the foundation import/layer/token guard and whitespace check. Fresh
-three-engine native correction evidence remains required and queued.
+passed, as did the foundation import/layer/token guard and whitespace check.
+
+## Corrected Chromium evidence and final handoff
+
+The coordinator's sixteenth pool run tested exact frozen source/report head
+`6037f1b5313766d39a832e0af8a461ce9e3eef59` with token
+`0c5ac786-8f5c-42ef-af94-b5cf8ddf413f`. It rebuilt fresh immutable Storybook,
+typechecked browser tests, then ran:
+
+`pnpm exec playwright test tests/browser/batch13-control-buttongroup.spec.ts --project=chromium`
+
+Result: **2 Chromium cases passed**, zero skipped, flaky or unexpected outcomes.
+The corner/density case covers both orientations, LTR/RTL and both densities;
+the nested-action case checks forward/reverse native Tab, disabled skipping and
+absence of arrow-navigation behavior. This verifies the bounded corrected
+Chromium slice; it does not replace the failed earlier three-engine run.
+
+Node 24.21.0, pnpm 10.29.3, Playwright 1.63.0, macOS 27.0.0; pool slot 1,
+isolated port 6274. Before/after build digest:
+`d8f520ecd500a80a054d47cb90ad716dacfeb6ef21edb0998077beb37f29daf1`.
+Final head matched, source stayed clean and immutable build bytes were unchanged.
+Evidence remains under `artifacts/browser-pool/0c5ac786-8f5c-42ef-af94-b5cf8ddf413f/`
+(`evidence.json`, `build.log`, `types.log`, `browser.log`, `results.json`).
+
+The coordinator released the freeze for this report-only finalization. No source,
+story or spec changed after the tested head, and no unchanged checks were rerun.
+Final report-only commit/head is supplied in the coordinator handoff and PR history.
+
+Precise remaining checkpoint scope: run the same two corrected cases in Firefox
+and WebKit (four cases), including rendered collection readiness, inherited RTL
+density scopes and macOS WebKit's forward/reverse Option-Tab link access. Those
+corrected-engine outcomes are explicitly pending the batch checkpoint; the old
+Firefox/WebKit failures remain failed history. Broad U/X/manual/device/coarse-pointer
+and assistive-technology acceptance remains open. No whole gate was closed.
