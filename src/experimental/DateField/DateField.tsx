@@ -92,6 +92,11 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(function Dat
       const next = date ? toCalendar(date, new GregorianCalendar()).toString() : null;
       if (value === undefined) setInternal(next);
       setInvalidDefault(false); onValueChange?.(next);
+      // Refresh a displayed error after an edit request. Validation commits on
+      // the next render against the accepted value, including a rejecting host.
+      // Waiting for blur can remove the error row during a submit pointer gesture
+      // and move the host's button between pointerdown and pointerup.
+      if (state.displayValidation.isInvalid) state.commitValidation();
     },
   });
   // The field hook's setValue/resetValidation calls are native reset requests.

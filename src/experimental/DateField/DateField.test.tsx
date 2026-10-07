@@ -27,6 +27,27 @@ it("reports controlled date edits without replacing the host value and associate
   const descriptions = day.getAttribute("aria-describedby")!.split(" ").map(id => document.getElementById(id)?.textContent).join(" ");
   expect(descriptions).toContain("Date only"); expect(descriptions).toContain("Choose an available day");
 });
+
+it("keeps a displayed bounds error when a controlled host rejects a correcting edit", async () => {
+  const user = userEvent.setup(); const change = vi.fn(); const submit = vi.fn();
+  render(<form data-testid="rejected-correction" onSubmit={event => { event.preventDefault(); submit(); }}>
+    <DateField label="Host date" name="date" value="2024-02-27" min="2024-02-28"
+      required onValueChange={change} errorMessage="Choose a date in the window" />
+    <button type="submit">Submit host date</button>
+  </form>);
+  const form = screen.getByTestId("rejected-correction") as HTMLFormElement;
+  act(() => { expect(form.checkValidity()).toBe(false); });
+  await screen.findByText("Choose a date in the window");
+  await user.click(screen.getByRole("spinbutton", { name: /day/ }));
+  await user.keyboard("{ArrowUp}");
+  expect(change).toHaveBeenLastCalledWith("2024-02-28");
+  expect(new FormData(form).get("date")).toBe("2024-02-27");
+  expect(screen.getByText("Choose a date in the window")).toBeDefined();
+  expect((form.elements.namedItem("date") as HTMLInputElement).validity.valid).toBe(false);
+  await user.click(screen.getByRole("button", { name: "Submit host date" }));
+  expect(submit).not.toHaveBeenCalled();
+  expect(screen.getByRole("spinbutton", { name: /day/ }).getAttribute("aria-invalid")).toBe("true");
+});
 it("keeps read-only fields unchanged and serializes local datetime independently of timezone", async () => {
   const user = userEvent.setup(); const change = vi.fn();
   render(<form data-testid="form"><DateField label="Starts" kind="datetime" value="2024-11-03T01:30:00" name="start" readOnly onValueChange={change} /></form>);
