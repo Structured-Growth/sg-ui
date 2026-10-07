@@ -17,6 +17,9 @@ test('joined groups round outer ends in both orientations and inherit density', 
       for (const orientation of ['horizontal', 'vertical']) {
         const group = page.getByRole('group', { name: `${dir} ${density} ${orientation}` });
         const buttons = group.getByRole('button');
+        await expect(buttons).toHaveCount(3);
+        await expect(buttons.nth(2)).toBeVisible();
+        await expect(group).toHaveCSS('direction', dir);
         const geometry = await buttons.evaluateAll(elements => elements.map(element => {
           const css = getComputedStyle(element);
           return { corners: [css.borderTopLeftRadius, css.borderTopRightRadius, css.borderBottomRightRadius, css.borderBottomLeftRadius], height: element.getBoundingClientRect().height };
@@ -36,16 +39,31 @@ test('joined groups round outer ends in both orientations and inherit density', 
   }
 });
 
-test('nested children remain independent native Tab stops without arrow navigation', async ({ page }) => {
+test('nested children remain independent native Tab stops without arrow navigation', async ({ page, browserName }) => {
   await page.goto('/iframe.html?id=migration-proofs-buttongroup--nested-actions&viewMode=story&globals=a11y.manual:!true');
   const group = page.getByRole('group', { name: 'Nested course actions' });
+  await expect(group).toBeVisible();
   await expect(group).not.toHaveAttribute('tabindex');
   await page.getByRole('button', { name: 'Before group', exact: true }).focus();
-  for (const name of ['Create', 'Archive', 'Course details', 'After group']) {
+  for (const name of ['Create', 'Archive']) {
     await page.keyboard.press('Tab');
-    await expect(page.getByRole(name === 'Course details' ? 'link' : 'button', { name, exact: true })).toBeFocused();
+    await expect(group.getByRole('button', { name, exact: true })).toBeFocused();
   }
-  await page.keyboard.press('Shift+Tab');
+  // macOS WebKit's default Tab policy visits form controls; Option-Tab includes links.
+  // Characterize that policy, then require the link in the native all-items traversal.
+  // https://support.apple.com/en-gb/guide/safari/cpsh003/mac
+  const macWebKit = browserName === 'webkit' && process.platform === 'darwin';
+  if (macWebKit) {
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button', { name: 'After group', exact: true })).toBeFocused();
+    await page.keyboard.press('Shift+Tab');
+    await expect(group.getByRole('button', { name: 'Archive', exact: true })).toBeFocused();
+  }
+  await page.keyboard.press(macWebKit ? 'Alt+Tab' : 'Tab');
+  await expect(page.getByRole('link', { name: 'Course details' })).toBeFocused();
+  await page.keyboard.press(macWebKit ? 'Alt+Tab' : 'Tab');
+  await expect(page.getByRole('button', { name: 'After group', exact: true })).toBeFocused();
+  await page.keyboard.press(macWebKit ? 'Alt+Shift+Tab' : 'Shift+Tab');
   await expect(page.getByRole('link', { name: 'Course details' })).toBeFocused();
   await group.getByRole('button', { name: 'Create', exact: true }).focus();
   await page.keyboard.press('ArrowRight');

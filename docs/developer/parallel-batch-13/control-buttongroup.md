@@ -21,8 +21,9 @@ Exclusive tracked write allowlist:
 - `tests/browser/batch13-control-buttongroup.spec.ts`
 - `docs/developer/parallel-batch-13/control-buttongroup.md`
 
-No shared implementation, barrels, configuration, workflows, licensing, dependencies
-or acceptance checklists changed. Existing dependency files were reused through
+No task-authored shared implementation, barrels, configuration, workflows, licensing,
+dependencies or acceptance checklists changed. The separately authorized common
+prerequisite is recorded below. Existing dependency files were reused through
 ignored worktree-local links; no install was required or run.
 
 ## Existing evidence and bounded change
@@ -65,14 +66,15 @@ Vitest 4.1.11; Playwright 1.63.0 from the existing dependency directory.
 - `node scripts/tokens.mjs --check`: passed.
 - `git diff --check`: passed.
 
-Focused fresh Storybook/native validation is pending the shared priority queue
-and reviewed harness path. No native pass or baseline native failure is claimed
-from source inspection or jsdom. `/tmp/sgui-parallel-batch-01-validation.lock` and
+The original task head had native validation pending the shared priority queue
+and reviewed harness path. No baseline native failure is claimed from source
+inspection or jsdom. `/tmp/sgui-parallel-batch-01-validation.lock` and
 `/tmp/sgui-browser-validation-priority.json` were read only; no other owner's lease
-or queued task was removed. No unchanged Firefox launch was attempted.
+or queued task was removed. No unchanged Firefox launch retry was attempted.
 
-No full `pnpm check`, whole Storybook/browser matrix, packed consumer matrix,
-GitHub CI/title wait/rerun/dispatch, merge, main change or publishing was performed.
+The worker ran no full `pnpm check`, Storybook build, browser suite or packed consumer
+matrix. No GitHub CI/title wait/rerun/dispatch, integration merge, main change or
+publishing was performed.
 Targeted development validation follows
 [the authorized policy](../react-aria-development-validation.md).
 
@@ -80,8 +82,64 @@ Targeted development validation follows
 
 Public group semantics/ref/disabled-child ownership were already satisfied; retain
 the existing contract. Review the vertical corner correction and new composed
-evidence as a bounded fix. Native validation remains required before calling this
-slice verified. Shared browser-pool adoption/configuration is coordinator-owned
-and outside this allowlist; do not import its harness patch into this task without
-a reserved scope. Physical coarse-pointer and assistive-technology checks remain
+evidence as a bounded fix. Native correction validation remains required before
+calling this slice verified. Shared browser-pool adoption/configuration is
+coordinator-owned; only the explicit ancestry bootstrap below was authorized here.
+Physical coarse-pointer and assistive-technology checks remain
 separate open acceptance work.
+
+## Authorized common prerequisite and failed native run
+
+The coordinator explicitly authorized a normal full-ancestry merge of reviewed
+`6b9da4423f1e6675c37571d5552474da25e90258` in the same original managed worktree.
+Conflict-free merge/frozen head: `92cd135d1233f3cac4a82d7fa7dac48ec23fb262`.
+Its other parent is task/report head `144d2b960d62d8fe5faf30cf99b4da4a7b45cf07`.
+`git diff --exit-code` confirmed source, spec and report were byte-for-byte retained.
+This common prerequisite brought six harness/guidance files through the reviewed
+ancestry; it is separate from the task-authored allowlist. No copied harness,
+special merge, additional worktree, install or repeated light checks were used.
+Two push attempts were rejected with GitHub internal server errors; read-only
+remote verification still returned the previous PR head. The local frozen head
+was used for native validation.
+
+Coordinator pool run `d54fae3e-7c3b-49a1-b65e-63315aa4dd5e` built fresh immutable
+Storybook, typechecked browser tests and ran:
+
+`pnpm exec playwright test tests/browser/batch13-control-buttongroup.spec.ts
+--project=chromium --project=firefox --project=webkit`
+
+Exact tested head: `92cd135d1233f3cac4a82d7fa7dac48ec23fb262`; Node 24.21.0,
+pnpm 10.29.3, Playwright 1.63.0, macOS 27.0.0, isolated port 6273.
+Build digest before/after:
+`6b8bd105b659107d54c3499e9937a5386bb64c75de63f0e9a40ff9065e2ef34d`.
+Final head matched and source was clean. Result: **2 passed, 4 failed**, no accepted
+full slice. Chromium/Firefox nested native Tab passed; layout failed in all three
+engines and WebKit's nested native Tab case failed.
+Evidence remains under `artifacts/browser-pool/d54fae3e-7c3b-49a1-b65e-63315aa4dd5e/`
+(`evidence.json`, `browser.log`, `results.json`, failure screenshots and traces).
+Firefox launch was restored by the user's permission/restart before this run;
+its actual nested-focus pass is recorded rather than inferring behavior from launch.
+
+The coordinator released the source freeze for bounded corrections, with no
+worker-owned native/build run. Trace inspection found:
+
+- Chromium's RTL-labeled group had ancestor directions `ltr, ltr, rtl, ltr`:
+  the nested density `Provider` explicitly reintroduced its locale's LTR direction.
+  The fixture now uses density-only `ThemeScope`, preserving the outer Provider's
+  explicit direction; browser assertions also require computed direction.
+- Firefox/WebKit sampled the button collection before Storybook's asynchronous
+  render (zero buttons). The spec now waits for exactly three buttons and the last
+  button to be visible before the same geometry assertions.
+- WebKit's screenshot showed native focus on "After group" after ordinary Tab
+  from "Archive", while the native link remained present. This matches macOS
+  Safari's documented default Tab/Option-Tab distinction. The spec preserves and
+  checks that ordinary control traversal, then requires the link in both forward
+  and reverse native Option-Tab traversal. Chromium/Firefox and non-macOS WebKit
+  still require the original ordinary Tab link order. No control is removed,
+  forced focused into the asserted sequence or omitted by an arbitrary skip.
+  See [Apple's native shortcut contract](https://support.apple.com/en-gb/guide/safari/cpsh003/mac).
+
+These are fixture/spec corrections; the vertical-corner product CSS is unchanged.
+Correction checks: Node 24.21.0 source/story typecheck and browser-spec typecheck
+passed, as did the foundation import/layer/token guard and whitespace check. Fresh
+three-engine native correction evidence remains required and queued.
