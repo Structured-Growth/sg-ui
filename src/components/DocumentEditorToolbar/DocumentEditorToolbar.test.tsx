@@ -65,4 +65,21 @@ describe("DocumentEditorToolbar", () => {
     expect(ref.current).toBe(screen.getByRole("group",{name:"Translated Document editing"})); expect(ref.current?.classList.contains("host-toolbar")).toBe(true);
     expect(screen.getByRole("button",{name:"Translated Bold"})).toBeTruthy(); expect(ref.current?.style.marginInline).toBe("2px");
   });
+  it("uses replacement host callbacks and controlled formatting across live read-only and unavailable states", async () => {
+    const user = userEvent.setup(); const props = createProps(); const replacement = vi.fn();
+    const { rerender } = render(<DocumentEditorToolbar {...props} />);
+    const bold = screen.getByRole("button", { name: "Bold" });
+    bold.focus();
+    rerender(<DocumentEditorToolbar {...props} canEdit={false} actions={{ ...props.actions, bold: { active: true, onClick: replacement } }} />);
+    expect(screen.getByRole("button", { name: "Bold" })).toBe(bold);
+    expect(bold.getAttribute("aria-pressed")).toBe("true");
+    await user.keyboard("{Enter} "); expect(replacement).not.toHaveBeenCalled();
+    rerender(<DocumentEditorToolbar {...props} actions={{ ...props.actions, bold: { active: true } }} showZoomControls={false} showAlignmentControls={false} />);
+    expect((bold as HTMLButtonElement).disabled).toBe(true);
+    rerender(<DocumentEditorToolbar {...props} actions={{ ...props.actions, bold: { active: true, onClick: replacement } }} />);
+    await user.click(bold); expect(replacement).toHaveBeenCalledTimes(1);
+    expect(props.actions.bold.onClick).not.toHaveBeenCalled();
+    expect(bold.getAttribute("aria-pressed")).toBe("true");
+  });
+
 });
