@@ -10,7 +10,6 @@ for (const theme of ['light', 'dark']) {
     await input.fill('Retry draft'); await input.press('Enter');
     await expect(input).toHaveAttribute('aria-invalid', 'true');
     await expect(input).toHaveAccessibleDescription('Could not save title. Try again.');
-    await page.getByRole('button', { name: 'Make title read-only' }).click();
     await expect(input).toHaveAttribute('readonly', '');
     await expect(input).toBeFocused();
     await input.press('End'); await input.press('x'); await input.press('Enter');

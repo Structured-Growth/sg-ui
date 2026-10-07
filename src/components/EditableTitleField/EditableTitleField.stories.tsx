@@ -20,11 +20,12 @@ function HostReadOnlyExample() {
   return <Box padding={2}>
     <EditableTitleField title="Page title" readOnly={readOnly} onSave={async () => {
       setAttempts(count => count + 1);
+      setReadOnly(true);
       throw new Error("Host persistence failed");
     }} />
-    <span onMouseDown={event => event.preventDefault()}><Button onPress={() => setReadOnly(value => !value)}>
+    <Button onPress={() => setReadOnly(value => !value)}>
       {readOnly ? "Allow title editing" : "Make title read-only"}
-    </Button></span>
+    </Button>
     <Button>Next host control</Button>
     <output aria-label="Save attempts">{attempts}</output>
   </Box>;
