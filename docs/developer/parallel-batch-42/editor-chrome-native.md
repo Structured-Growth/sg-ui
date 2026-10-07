@@ -90,3 +90,37 @@ does not add product focus restoration. Only this report and the owned browser s
 changed. Targeted browser TypeScript checking passed again under the matching-owned
 light slot lease; log `/tmp/sgui-editor-chrome42-browser-types-correction.log`.
 Fresh Chromium remains coordinator-pending, with the same focused args.
+
+
+## Wave22 red evidence and owned correction
+
+Coordinator tested prepared head `4e8d24484fba51f2bbc5d86622cc7be3f4f43b2b`
+as byte-identical owned files in clean shared candidate
+`e6270941ea8828d8868fef0798451a599a9db25f`. Fresh Storybook was built once by the
+coordinator; runtime Node24, Chromium shard editor-chrome-native, port6320.
+Observed **0 passed / 4 failed / 0 skipped / 0 flaky**. All four stopped at the same
+first-item focus assertion after File opened the controlled Menu; subsequent
+return-focus/state/geometry assertions did not execute. Original candidate,
+source/build hashes and artifacts remain preserved. Attribution:
+`/tmp/sgui-batch45-candidate-source-attribution.json`. Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/`;
+shard `editor-chrome-native/evidence.json`, `browser.log` and retained traces.
+
+Trace DOM records a visible menu container with tabindex0 and an item with
+tabindex-1/no committed item. Installed Menu-trigger implementation inspection
+shows that trigger Enter/ArrowDown sets first-item strategy; external controlled
+open changes bypass that trigger path. The fixture's Chrome File callback only
+sets open=true. Classification: fixture/expectation defect (unestablished native
+keyboard-entry strategy), not demonstrated shared Menu or toolbar/chrome product
+regression. No shared implementation is changed.
+
+The corrected owned spec first asserts settled native menu-container focus, then
+sends native ArrowDown before asserting first-item focus and native Enter action.
+All host editor-return assertions, request counts, dismissal and remaining live
+state/geometry checks are retained. This tests actual native keyboard entry rather
+than programmatically focusing an item or weakening focus requirements. Source
+story remains unchanged. Browser TypeScript checking passed again under an owned
+light lease, log `/tmp/sgui-editor-chrome42-browser-types-wave22-correction.log`.
+The corrected head awaits coordinator fresh native validation; the original wave22
+failure remains red and is not represented as a pass. No independent heavy/native
+run or unchanged retry occurred.

@@ -56,6 +56,10 @@ for (const theme of ['light', 'dark']) {
       await expect(menu).toBeVisible();
       await expect(page.getByTestId('host-anchor')).toHaveText('BUTTON:File');
       await expect(file).toHaveAttribute('aria-expanded', 'true');
+      // External controlled opening enters the menu container with no trigger
+      // focus strategy. Native ArrowDown establishes first-item keyboard entry.
+      await settledFocus(page, menu);
+      await page.keyboard.press('ArrowDown');
       await expect(page.getByRole('menuitem', { name: 'Return to editor' })).toBeFocused();
       await page.keyboard.press('Enter');
       await expect(menu).toHaveCount(0);
