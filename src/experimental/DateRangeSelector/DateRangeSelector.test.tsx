@@ -188,3 +188,51 @@ it("cancels an unfinished range on leaving the calendar without inventing an end
   expect(screen.getByRole("status").textContent).toContain("2024-02-28 – 2024-02-29");
   expect(change).not.toHaveBeenCalled();
 });
+it("associates only the focused preview endpoint, keeping anchor, reverse preview and committed draft distinct", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  const { container } = render(<form data-testid="form"><DateRangeSelector label="Dates" months={2} defaultValue={initial}
+    defaultFocusedDate={initial.start} name="dates" onValueChange={change} /></form>);
+  const day = (name: RegExp) => screen.getAllByRole("button", { name }).find(button => !button.hasAttribute("data-outside-month"))!;
+  const descriptions = (button: HTMLElement) => (button.getAttribute("aria-describedby") ?? "").split(/\s+/).map(id => document.getElementById(id)?.textContent).filter(Boolean).join(" ");
+  const anchor = day(/Wednesday, February 28, 2024/);
+  anchor.focus(); await user.keyboard("{Enter}{ArrowLeft}{ArrowLeft}");
+  const endpoint = day(/Tuesday, February 27, 2024/);
+  expect(document.activeElement).toBe(endpoint);
+  expect(descriptions(endpoint)).toContain("Range preview: 2024-02-27 – 2024-02-28");
+  expect(descriptions(endpoint)).toContain("Anchor: 2024-02-28. Focused endpoint: 2024-02-27. Draft: 2024-02-28 – 2024-02-29.");
+  expect(descriptions(anchor)).not.toContain("Range preview:");
+  expect(container.querySelector('[data-sgui-part="date-range-preview"]')?.hasAttribute("role")).toBe(false);
+  expect(new FormData(screen.getByTestId("form") as HTMLFormElement).get("dates.end")).toBe(initial.end);
+  await user.keyboard("{ArrowRight}");
+  expect(descriptions(endpoint)).not.toContain("Range preview:");
+  expect(descriptions(anchor)).toContain("Focused endpoint: 2024-02-28");
+  await user.keyboard("{Enter}");
+  expect(screen.queryByText(/Anchor:/)).toBeNull();
+  expect(descriptions(anchor)).not.toContain("Range preview:");
+  expect(screen.getByText("2024-02-28 – 2024-02-28", { selector: "p" })).toBeTruthy();
+  expect(change).not.toHaveBeenCalled();
+  await user.click(screen.getByRole("button", { name: "Cancel" }));
+  expect(screen.getByRole("status").textContent).toBe("2024-02-28 – 2024-02-29");
+});
+it("uses the constrained endpoint at unavailable boundaries and removes preview descriptions on Cancel and host replacement", async () => {
+  const user = userEvent.setup(); const change = vi.fn();
+  const props = { label: "Dates", months: 1 as const, value: initial, defaultFocusedDate: initial.start,
+    unavailable: [{ date: "2024-03-01", reason: "Closed" }], onValueChange: change };
+  const { rerender } = render(<DateRangeSelector {...props} />);
+  const anchor = screen.getByRole("button", { name: /Wednesday, February 28, 2024/ });
+  anchor.focus(); await user.keyboard("{Enter}{ArrowRight}");
+  const endpoint = screen.getByRole("button", { name: /Thursday, February 29, 2024/ });
+  expect(document.activeElement).toBe(endpoint);
+  expect(screen.getByText(/Anchor: 2024-02-28. Focused endpoint: 2024-02-29/)).toBeTruthy();
+  expect((screen.getByRole("button", { name: "Apply" }) as HTMLButtonElement).disabled).toBe(true);
+  rerender(<DateRangeSelector {...props} value={{ ...initial }} />);
+  expect(screen.getByText(/Anchor: 2024-02-28/)).toBeTruthy();
+  await user.click(screen.getByRole("button", { name: "Cancel" }));
+  expect(screen.queryByText(/Anchor:/)).toBeNull();
+  expect(endpoint.getAttribute("aria-describedby") ?? "").not.toContain("preview");
+  anchor.focus(); await user.keyboard("{Enter}");
+  rerender(<DateRangeSelector {...props} value={{ start: "2024-02-20", end: "2024-02-21" }} />);
+  expect(screen.queryByText(/Anchor:/)).toBeNull();
+  expect(screen.getByRole("status").textContent).toBe("2024-02-20 – 2024-02-21");
+  expect(change).not.toHaveBeenCalled();
+});
