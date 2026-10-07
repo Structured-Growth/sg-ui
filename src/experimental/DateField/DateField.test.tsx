@@ -60,6 +60,7 @@ it("honors delegated reset prevention and restores uncontrolled defaults without
   change.mockClear();
   await user.click(screen.getByRole("button", { name: "Reset field" }));
   expect(new FormData(form).get("field")).toBe("2024-02-29");
+  expect(screen.getByRole("spinbutton", { name: /day/ }).getAttribute("aria-valuenow")).toBe("29");
   expect(change).not.toHaveBeenCalled();
   prevent = false;
   await user.click(screen.getByRole("button", { name: "Reset field" }));
@@ -72,6 +73,7 @@ it("keeps controlled reset values authoritative without edit callbacks", async (
     value="2024-02-29" defaultValue="2024-02-28" onValueChange={change} /><button type="reset">Reset field</button></form>);
   await user.click(screen.getByRole("button", { name: "Reset field" }));
   expect(new FormData(screen.getByTestId("controlled-reset-form") as HTMLFormElement).get("field")).toBe("2024-02-29");
+  expect(screen.getByRole("spinbutton", { name: /day/ }).getAttribute("aria-valuenow")).toBe("29");
   expect(change).not.toHaveBeenCalled();
 });
 

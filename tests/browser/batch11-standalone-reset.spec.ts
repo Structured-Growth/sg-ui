@@ -16,6 +16,8 @@ for (const field of ['textfield', 'datefield']) {
       await page.keyboard.press('ArrowUp');
     }
     await expect.poll(() => values(page)).toEqual({ uncontrolled: edited, controlled });
+    const day = field === 'datefield' ? page.getByRole('group', { name: 'Uncontrolled field', exact: true }).getByRole('spinbutton', { name: /day/ }) : null;
+    const controlledDay = field === 'datefield' ? page.getByRole('group', { name: 'Controlled field', exact: true }).getByRole('spinbutton', { name: /day/ }) : null;
     const callbacks = await page.getByLabel('Change callbacks').textContent();
     await page.getByLabel('Prevent form reset').check();
     await page.getByRole('button', { name: 'Reset fields' }).click();
@@ -23,13 +25,18 @@ for (const field of ['textfield', 'datefield']) {
     await page.locator('form').evaluate(form => (form as HTMLFormElement).reset());
     await expect.poll(() => values(page)).toEqual({ uncontrolled: edited, controlled });
     await expect(page.getByLabel('Change callbacks')).toHaveText(callbacks!);
+    if (controlledDay) await expect(controlledDay).toHaveAttribute('aria-valuenow', '10');
+    if (day) await expect(day).toHaveAttribute('aria-valuenow', '29');
     await page.getByLabel('Prevent form reset').uncheck();
     await page.getByRole('button', { name: 'Reset fields' }).click();
     await expect.poll(() => values(page)).toEqual({ uncontrolled: initial, controlled });
     await expect(page.getByLabel('Change callbacks')).toHaveText(callbacks!);
+    if (controlledDay) await expect(controlledDay).toHaveAttribute('aria-valuenow', '10');
     await page.locator('form').evaluate(form => (form as HTMLFormElement).reset());
     await expect.poll(() => values(page)).toEqual({ uncontrolled: initial, controlled });
     await expect(page.getByLabel('Change callbacks')).toHaveText(callbacks!);
+    if (controlledDay) await expect(controlledDay).toHaveAttribute('aria-valuenow', '10');
+    if (day) await expect(day).toHaveAttribute('aria-valuenow', '28');
     expect(errors).toEqual([]);
   });
 }
