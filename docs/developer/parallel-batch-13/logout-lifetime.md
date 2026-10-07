@@ -81,3 +81,47 @@ regression. No broader source change is included here.
 
 This subsequent commit records PR/head evidence only; final report head is supplied
 in the coordinator handoff. No source changes followed the tested implementation.
+
+
+## Recovery and first native pool diagnosis
+
+The original managed worktree path became unavailable before the prerequisite
+merge. The coordinator authorized one API-created/attached recovery at
+`/Users/thomashall/.codex/worktrees/batch13-logout-lifetime-recovery/sg-ui`, from
+retained `0790d106682e7ef907c51a460e024e7c7027dfc2`. A normal full-history merge
+of reviewed `6b9da4423f1e6675c37571d5552474da25e90258` produced clean frozen
+head `6b3ff72bfe87d6168625539f50b066b9ee05909b`. Task source/spec bytes were
+unchanged. One frozen install passed under an owned atomic install slot on Node
+24.21.0; no worker build/server/browser launched.
+
+The coordinator's Chromium pool run at that exact head failed all four cases
+at the same incorrect disabled-item focus assertion. This is one test expectation
+issue, not four product bugs or a lifetime acceptance pass. The completion and
+trigger restoration assertions following that point were not reached. Evidence:
+`artifacts/browser-pool/5c85af33-6b31-4ebb-a0f3-719df89d74b8/` in the recovery
+worktree. Initial/final head and clean status match; immutable build SHA-256 is
+`9273b92b032039f9add7f02f8de2d5d5864b417be82da6ab346180e5debd21cf`.
+
+Read-only inspection of browser.log, error context, trace snapshots, installed
+React Aria 3.52.1 and reviewed Menu `d8b6c49cebc49185650dda3168db733073318e4f`
+explains the failure. `useSelectableItem` removes tabIndex and clears the focused
+key when that item becomes disabled; `useSelectableCollection` moves native focus
+to the collection when the key becomes null. Trace snapshots show the disabled
+logout losing focused/tabindex state and the menu changing to tabindex 0 before
+the late-result focus assertion. The reviewed Menu reconciliation deliberately
+excludes disabled items and requires an enabled committed focused key; its virtual
+entry fix cannot restore a now-disabled logout action and is not needed here.
+
+The corrected spec retains concrete native focus assertions: after starting the
+replacement request it requires focus on the menu, uses real ArrowDown to reach
+the enabled Manage Profile item, and requires that item's native focus to remain
+after obsolete success/rejection. Pending-state, no-navigation/no-alert, menu
+visibility, newer-request completion and trigger restoration assertions are retained.
+Only the spec and this evidence record changed; no product/shared Menu source was
+changed. The corrected native run remains pending coordinator execution. Firefox
+and WebKit are explicitly deferred to the batch checkpoint under the latest policy;
+no broad native/device/AT gate closes.
+
+Changed-spec `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json` passed on
+Node 24.21.0 under one atomic owned light-validation slot; `git diff --check`
+passed. No unchanged unit suite or browser run was repeated by the worker.

@@ -18,12 +18,18 @@ for (const action of ['account', 'all']) {
       await logout.focus();
       await page.keyboard.press('Enter');
       await expect(page.getByLabel('Host logout requests')).toHaveText('2');
+      // Disabling the focused action clears its Aria focus key. Native focus
+      // recovers to the menu; keyboard entry can reach the enabled profile action.
+      await expect(page.getByRole('menu')).toBeFocused();
+      await page.keyboard.press('ArrowDown');
+      const profile = page.getByRole('menuitem', { name: 'Manage Profile', exact: true });
+      await expect(profile).toBeFocused();
       await page.getByRole('button', { name: outcome === 'success' ? 'Complete oldest logout' : 'Reject oldest logout' }).evaluate((button: HTMLButtonElement) => button.click());
       await expect(page.getByLabel('Host navigation result')).toHaveText('None');
       await expect(page.getByRole('alert')).toHaveCount(0);
       await expect(page.getByRole('menu')).toBeVisible();
       await expect(logout).toHaveAttribute('aria-disabled', 'true');
-      await expect(logout).toBeFocused();
+      await expect(profile).toBeFocused();
       await page.getByRole('button', { name: 'Complete oldest logout' }).evaluate((button: HTMLButtonElement) => button.click());
       await expect(page.getByLabel('Host navigation result')).toHaveText('/login?next=%2Fcourses');
       await expect(page.getByRole('menu')).toHaveCount(0);
