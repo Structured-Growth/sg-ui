@@ -129,3 +129,8 @@ records Strict Mode evidence; `7c9e156` and `d264c5715cf9aa3f6acb10db3635843c39f
 make browser focus checks enter keyboard modality explicitly. Recovery documentation
 is committed after the prerequisite merge; the exact clean frozen head is sent to
 the coordinator and preserved for its pool evidence.
+
+Recovery dependencies: `pnpm install --frozen-lockfile` passed on Node 24.19.0 /
+pnpm 10.29.3 using one atomic `/tmp/sgui-install-slots` lease with this owner token;
+owner-checked finally/trap released only its own lease. No tracked dependency
+changes. Log: `/tmp/sgui-batch13-tooltip-recovery-install.log`.
