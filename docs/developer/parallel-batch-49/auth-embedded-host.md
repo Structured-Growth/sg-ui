@@ -58,3 +58,18 @@ Firefox/WebKit are intentionally deferred to the batch checkpoint. Actual browse
 zoom, physical devices and assistive technology remain unverified. This does not
 close M-07 or broad U/X/R/Z acceptance. No full check, independent build/server/
 native run, GitHub CI/title operation, dev integration, merge or publication ran.
+
+## Pre-admission driver correction
+
+Coordinator independent review of preparation head
+`9e940fe60c96d3016fe7a07367da2747c0fb98d4` found an expectation defect before any
+native execution: `singleHostScroll` required positive host scroll after every
+focus, including an already wholly visible email control. AuthShell correctly
+reveals only clipped controls. The corrected spec keeps stationary shell/content/
+clip/document checks on every traversal step, and proves actual host movement
+between initial position and the lower footer, then reverse movement back to the
+email. Whole-control bounds, hit testing, focus outline, native typing, element
+identity/value retention and exactly-once submission assertions are preserved.
+This is driver/expectation evidence, not a runtime product regression or browser
+failure. Production code remains unchanged. Browser/source TypeScript validation
+passed after the correction under an owned light slot; no native/build run occurs in this worktree.

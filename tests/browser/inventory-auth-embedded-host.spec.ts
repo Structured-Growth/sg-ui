@@ -23,7 +23,7 @@ async function singleHostScroll(page: Page) {
     const shell = document.querySelector('[data-sgui-part="auth-shell"]')!;
     const content = document.querySelector('[data-sgui-part="auth-shell-content"]')!;
     const clip = document.querySelector('[data-testid="auth-host-clip"]')!;
-    return host.scrollTop > 0 && host.scrollWidth <= host.clientWidth + 1
+    return host.scrollWidth <= host.clientWidth + 1
       && shell.scrollTop === 0 && content.scrollTop === 0 && content.scrollLeft === 0
       && clip.scrollTop === 0 && scrollY === 0 && scrollX === 0
       && document.documentElement.scrollWidth <= innerWidth + 1;
@@ -37,6 +37,7 @@ for (const theme of ['light', 'dark']) {
       await page.goto(`/iframe.html?id=layout-authshell--embedded-scrolling-host&viewMode=story&globals=theme:${theme};a11y.manual:!true`);
       const host = page.getByTestId('auth-scroll-host');
       await expect(host).toBeVisible();
+      const initialHostScroll = await host.evaluate(element => element.scrollTop);
       if (enlarged) await page.addStyleTag({ content: 'html { font-size: 200%; } [data-sgui-part="auth-shell"] * { line-height: 1.5 !important; letter-spacing: .12em !important; word-spacing: .16em !important; }' });
       const tab = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
       const backTab = browserName === 'webkit' ? 'Alt+Shift+Tab' : 'Shift+Tab';
@@ -68,12 +69,16 @@ for (const theme of ['light', 'dark']) {
       await page.keyboard.press(tab);
       await wholeFocusedControl(page.getByRole('link', { name: 'Updated support', exact: true }));
       await singleHostScroll(page);
+      // The lower footer requires actual movement, while visible controls need none.
+      const footerHostScroll = await host.evaluate(element => element.scrollTop);
+      expect(footerHostScroll).toBeGreaterThan(initialHostScroll);
       // Reverse native traversal must reveal whole controls as the same host scrolls back.
       for (const control of [page.getByRole('button', { name: 'Continue', exact: true }), page.getByRole('textbox', { name: 'Host reference' }), page.getByRole('textbox', { name: 'School name' }), email]) {
         await page.keyboard.press(backTab);
         await wholeFocusedControl(control);
         await singleHostScroll(page);
       }
+      expect(await host.evaluate(element => element.scrollTop)).toBeLessThan(footerHostScroll);
       await expect(email).toHaveValue('student@example.org');
       await expect(page.getByRole('status')).toHaveText('Host submissions: 1');
     });
