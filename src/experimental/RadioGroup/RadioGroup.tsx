@@ -1,10 +1,11 @@
 "use client";
-import { forwardRef, useContext, useLayoutEffect, useRef, type CSSProperties } from "react";
+import { forwardRef, useContext, useEffect, useLayoutEffect, useRef, type CSSProperties } from "react";
 import { RadioGroup as AriaRadioGroup, Radio, RadioGroupStateContext } from "react-aria-components/RadioGroup";
 import { Label } from "react-aria-components/Label";
 import { Text } from "react-aria-components/Text";
 import { FieldError } from "react-aria-components/FieldError";
 import styles from "./RadioGroup.module.css";
+const useOptionsLayoutEffect = typeof document === "undefined" ? useEffect : useLayoutEffect;
 export interface RadioOption { value: string; label: string; disabled?: boolean; }
 export interface RadioGroupProps {
   label: string;
@@ -26,7 +27,7 @@ export interface RadioGroupProps {
 function RadioOptions({ options, orientation }: { options: readonly RadioOption[]; orientation: "horizontal" | "vertical" }) {
   const ref = useRef<HTMLDivElement>(null);
   const state = useContext(RadioGroupStateContext);
-  useLayoutEffect(() => {
+  useOptionsLayoutEffect(() => {
     const inputs = Array.from(ref.current?.querySelectorAll<HTMLInputElement>('input[type="radio"]:not(:disabled)') ?? []);
     // React Aria's roving entry follows the selected value even when its option
     // disappears or becomes disabled. Repair only native Tab entry; do not select
