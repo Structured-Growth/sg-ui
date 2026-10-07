@@ -67,7 +67,8 @@ Local logs: `/tmp/batch13-control-button-install.log`,
 `/tmp/batch13-control-button-before.log`, `/tmp/batch13-control-button-after.log`.
 These are local evidence, not GitHub Actions artifacts.
 
-Required fresh Storybook/focused browser execution remains **queued, not passed**.
+At the initial report head, required fresh Storybook/focused browser execution was **queued, not passed**.
+The completed coordinator runs and correction are recorded below.
 No build/browser lock acquired and no pool bypass attempted. Existing
 `/tmp/sgui-parallel-batch-01-validation.lock` owner and
 `/tmp/sgui-browser-validation-priority.json` are respected; the new pool remains
@@ -77,7 +78,7 @@ check, full browser/consumer matrix, GitHub dispatch/wait or merges performed.
 
 ## Remaining exact scope
 
-Required continuation: build fresh Storybook and execute only
+Original required continuation (now completed below): build fresh Storybook and execute only
 `tests/browser/batch13-control-button.spec.ts` under the approved shared
 lock/pool protocol, then record actual native results and update this report.
 No integration/native acceptance claim until that evidence is reviewed.
@@ -129,5 +130,48 @@ Repair validation (same Node 24/pnpm runtime):
 Vitest used atomic owner-matching light-slot acquisition/release with maxWorkers1;
 no standalone build/server/browser run or unchanged Firefox retry was started.
 Repair logs: `/tmp/batch13-control-button-native-before.log` and
-`/tmp/batch13-control-button-native-after.log`. Required coordinator focused
-Chromium/WebKit rerun remains queued and native acceptance incomplete.
+`/tmp/batch13-control-button-native-after.log`. At the repair report head, the required coordinator focused
+Chromium/WebKit rerun remained queued and native acceptance incomplete. The
+completed rerun is recorded below.
+
+## Final focused native evidence
+
+Coordinator-authorized corrected pool run passed at exact clean frozen source
+head `0c6fc7664e1faffee0071ac55e48390603bfd748`. The final report-only commit does
+not change that tested source/spec/story. Coordinator released the worktree after
+completion; no unchanged test reruns were performed.
+
+Evidence directory in this worktree:
+`artifacts/browser-pool/eff31a65-03c7-4663-877e-9bca8a541041/`.
+`evidence.json` records exact commands, head, runtime, immutable digests and clean
+final source; `results.json` records 2 expected passes, 0 unexpected failures,
+0 skips, 0 flakes and no runtime errors.
+
+- `pnpm exec storybook build --output-dir <evidence-directory>/storybook`: passed,
+  freshly built before the suite.
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- `pnpm exec playwright test tests/browser/batch13-control-button.spec.ts --project=chromium --project=webkit`:
+  2 passed (one per engine). Pending reset preserves the native form draft and
+  focused button, pending submit does not activate, disabled native controls block
+  activation, and re-enabled Space reset/Enter submit each deliver the replacement
+  host callback once before the native form event.
+
+Runtime: Node `24.21.0`, pnpm `10.29.3`, Playwright `1.63.0`, Darwin `27.0.0`.
+Coordinator queue owner: `01a1164f-41db-7f30-aaf9-f20133b6566f`.
+Pool owner: `browser-pool:24380:0f8a800c-a77c-4fa2-a176-fe5a5179aa37`.
+Pool slot1, isolated port6274. Builds followed the existing heavy-validation lock;
+coordinator owned the pool, and this worker started no independent build/server.
+Static digest before/after suite:
+`d79bd94c3c93c0dbcf60cd5d84f5599e6881d595f25295f494c5009282b095ec`.
+Source/head/static digest remained unchanged throughout the browser run.
+
+Firefox was not selected because its documented local runtime prerequisite
+remains blocked; no unchanged launch retries occurred. This is focused local
+Chromium/WebKit evidence, not the complete engine matrix, production acceptance,
+physical-device, screen-reader or broad U-18/U/X/R/Z completion.
+
+The bounded task's mandatory focused native continuation is complete. Shared
+button documentation remains a separately reserved follow-up outside the exclusive
+allowlist. No merges into dev/main, publication or GitHub CI actions were performed
+by this worker; the normal reviewed prerequisite merge is the only inherited
+shared change.
