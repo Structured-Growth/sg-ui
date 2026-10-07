@@ -43,3 +43,24 @@ it("keeps circular progress semantics and handles invalid bounds without non-fin
   expect(progress.getAttribute("aria-valuenow")).toBeNull();
   expect(progress.querySelector("svg")?.getAttribute("aria-hidden")).toBe("true");
 });
+
+it.each(["linear", "circular"] as const)("recovers an increasing range after loading with unrepresentable %s bounds", (variant) => {
+  const { rerender } = render(<Progress label="Import" variant={variant} />);
+  const progress = screen.getByRole("progressbar", { name: "Import" });
+  for (const minimum of [Number.MAX_VALUE, -Number.MAX_VALUE]) {
+    rerender(<Progress label="Import" variant={variant} minValue={minimum} maxValue={minimum} value={50} valueText="Half complete" />);
+    expect(progress.getAttribute("aria-valuemin")).toBe("0");
+    expect(progress.getAttribute("aria-valuemax")).toBe("100");
+    expect(progress.getAttribute("aria-valuenow")).toBe("50");
+    expect(progress.getAttribute("aria-valuetext")).toBe("Half complete");
+    expect(progress.hasAttribute("data-indeterminate")).toBe(false);
+    if (variant === "circular") {
+      expect(progress.querySelector("circle[pathLength]")?.getAttribute("stroke-dasharray")).toBe("50 100");
+    } else {
+      expect((progress.querySelector("[aria-hidden] span") as HTMLElement).style.inlineSize).toBe("50%");
+    }
+    rerender(<Progress label="Import" variant={variant} />);
+    expect(progress.getAttribute("aria-valuenow")).toBeNull();
+    expect(progress.hasAttribute("data-indeterminate")).toBe(true);
+  }
+});

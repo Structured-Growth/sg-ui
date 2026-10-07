@@ -10,3 +10,7 @@ export const Determinate: Story = {};
 export const Loading: Story = { args: { value: undefined, label: "Loading courses" } };
 export const FileCount: Story = { args: { value: 3, maxValue: 10, valueText: "3 of 10 files" } };
 export const CircularLoading: Story = { args: { value: undefined, label: "Loading courses", variant: "circular" } };
+
+export const UnrepresentableInvalidRange: Story = {
+  args: { label: "Course import", minValue: Number.MAX_VALUE, maxValue: Number.MAX_VALUE, value: 50, valueText: "Half complete" },
+};
