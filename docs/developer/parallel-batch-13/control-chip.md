@@ -110,3 +110,8 @@ this avoids embedding a self-referential commit hash. No merge or publication.
 This inspection does not close U-06, X-04, manual/device/assistive-technology or
 any broad acceptance gate. The requested interactive combination remains
 unverified because it is absent from the current owned Chip API.
+
+Delivery: evidence commit `0d3d0d412663da9aab1cd736fa548d09cef2288c`, draft PR [#56](https://github.com/Structured-Growth/sg-ui/pull/56),
+base `codex/dev`, attached to this chat. Local validation passed 11 relative
+links/anchors plus baseline/source/count and report-only allowlist assertions.
+`git diff --check` passed. Final report-only delivery commit is reported separately.
