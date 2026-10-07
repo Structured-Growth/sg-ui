@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Dialog, type DialogDismissReason } from "./Dialog";
 import { Button } from "../Button/Button";
@@ -87,5 +87,95 @@ describe("owned nested dialog proof", () => {
     const dialog = await screen.findByRole("dialog", { name: "Course settings" });
     fireEvent.click(dialog.parentElement!.querySelector('button[aria-label="Dismiss"]')!);
     expect(dismissed).toHaveBeenLastCalledWith("dismiss");
+  });
+});
+
+function RecoveryFixture({ hostFocus = false, remove = true, removePreferred = false, handoff = false }: { hostFocus?: boolean; remove?: boolean; removePreferred?: boolean; handoff?: boolean }) {
+  const [open, setOpen] = useState(false);
+  const [childOpen, setChildOpen] = useState(false);
+  const [present, setPresent] = useState(true);
+  const [otherOpen, setOtherOpen] = useState(false);
+  const destination = useRef<HTMLInputElement>(null);
+  const chooseHost = useRef(false);
+  useEffect(() => {
+    if (!childOpen && chooseHost.current) destination.current?.focus();
+  }, [childOpen]);
+  return <Provider>
+    <Button onPress={() => setOpen(true)}>Open parent</Button>
+    <Dialog open={open} title="Parent" onDismiss={() => setOpen(false)}>
+      {(present || !removePreferred) && <TextField label="Parent fallback" autoFocus />}
+      <TextField label="Host destination" ref={destination} />
+      {present && <Button onPress={() => setChildOpen(true)}>Open child</Button>}
+      <Dialog open={childOpen} title="Child" onDismiss={() => { setChildOpen(false); if (handoff) setOtherOpen(true); }}>
+        <TextField label="Child input" autoFocus />
+        <Button onPress={() => { if (remove) setPresent(false); chooseHost.current = hostFocus; }}>Prepare dismissal</Button>
+      </Dialog>
+    </Dialog>
+    <Dialog open={otherOpen} title="Other modal" onDismiss={() => setOtherOpen(false)}>
+      <TextField label="Other modal destination" autoFocus />
+    </Dialog>
+  </Provider>;
+}
+
+describe("removed child opener recovery", () => {
+  for (const dismissal of ["escape", "outside", "close-button"] as const) {
+    for (const hostFocus of [false, true]) {
+      it(`${dismissal}: ${hostFocus ? "preserves host focus" : "returns to the parent's initial focus"}`, async () => {
+        const user = userEvent.setup();
+        render(<RecoveryFixture hostFocus={hostFocus} />);
+        const outer = screen.getByRole("button", { name: "Open parent" });
+        await user.click(outer);
+        await user.click(screen.getByRole("button", { name: "Open child" }));
+        await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("textbox", { name: "Child input" })));
+        await user.click(screen.getByRole("button", { name: "Prepare dismissal" }));
+        const child = screen.getByRole("dialog", { name: "Child" });
+        if (dismissal === "escape") await user.keyboard("{Escape}");
+        else if (dismissal === "outside") await user.click(child.closest('[data-sgui-part="dialog-overlay"]')!);
+        else await user.click(within(child).getByRole("button", { name: "Close" }));
+        await waitFor(() => expect(screen.queryByRole("dialog", { name: "Child" })).toBeNull());
+        const destination = screen.getByRole("textbox", { name: hostFocus ? "Host destination" : "Parent fallback" });
+        await waitFor(() => expect(document.activeElement).toBe(destination));
+        await act(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+        expect(document.activeElement).toBe(destination);
+        await user.tab();
+        expect(screen.getByRole("dialog", { name: "Parent" }).contains(document.activeElement)).toBe(true);
+        await user.keyboard("{Escape}");
+        await waitFor(() => expect(document.activeElement).toBe(outer));
+      });
+    }
+  }
+  it("preserves focus in another modal opened by the host during dismissal", async () => {
+    const user = userEvent.setup();
+    render(<RecoveryFixture handoff />);
+    await user.click(screen.getByRole("button", { name: "Open parent" }));
+    await user.click(screen.getByRole("button", { name: "Open child" }));
+    await user.click(screen.getByRole("button", { name: "Prepare dismissal" }));
+    await user.keyboard("{Escape}");
+    const destination = screen.getByRole("textbox", { name: "Other modal destination" });
+    await waitFor(() => expect(document.activeElement).toBe(destination));
+    await act(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+    expect(document.activeElement).toBe(destination);
+  });
+  it("uses the parent's first tabbable control when its initial destination was also removed", async () => {
+    const user = userEvent.setup();
+    render(<RecoveryFixture removePreferred />);
+    await user.click(screen.getByRole("button", { name: "Open parent" }));
+    await user.click(screen.getByRole("button", { name: "Open child" }));
+    await user.click(screen.getByRole("button", { name: "Prepare dismissal" }));
+    await user.keyboard("{Escape}");
+    const parent = screen.getByRole("dialog", { name: "Parent" });
+    await waitFor(() => expect(document.activeElement).toBe(within(parent).getByRole("button", { name: "Close" })));
+  });
+  it("retains the surviving child opener and then the outer opener", async () => {
+    const user = userEvent.setup();
+    render(<RecoveryFixture remove={false} />);
+    const outer = screen.getByRole("button", { name: "Open parent" });
+    await user.click(outer);
+    const childTrigger = screen.getByRole("button", { name: "Open child" });
+    await user.click(childTrigger);
+    await user.keyboard("{Escape}");
+    await waitFor(() => expect(document.activeElement).toBe(childTrigger));
+    await user.keyboard("{Escape}");
+    await waitFor(() => expect(document.activeElement).toBe(outer));
   });
 });
