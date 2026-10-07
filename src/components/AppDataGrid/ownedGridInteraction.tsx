@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement, type Ref } from "react";
-import { Table, TableHeader, Column, TableBody, Row, Cell, ResizableTableContainer, ColumnResizer } from "react-aria-components/Table";
+import { Table, TableHeader, Column, TableBody, Row, Cell, ResizableTableContainer, ColumnResizer, type TableRenderProps } from "react-aria-components/Table";
 import { useDragAndDrop, DropIndicator } from "react-aria-components/useDragAndDrop";
 import { DataGridDragHandle } from "../AppDataGridRowDnd/DataGridDragHandle";
 import type { AppDataGridRowDragConfig } from "./types";
@@ -74,6 +74,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const statusScroll = useRef<{ entry: HTMLElement; node: HTMLDivElement; top: number; left: number } | null>(null);
   const container = useRef<HTMLDivElement | null>(null);
   const table = useRef<HTMLTableElement | null>(null);
+  const tableState = useRef<TableRenderProps["state"] | null>(null);
   const busy = !!(loading || refreshing);
   const currentBusy = useRef(busy);
   currentBusy.current = busy;
@@ -196,7 +197,9 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     rows.length <= state.paginationModel.pageSize && processed.rowCount === rows.length && state.selectedRowIds.size <= 1;
   const currentReorder = useRef({ rows, canReorder, rowDrag: props.rowDrag, getRowId });
   currentReorder.current = { rows, canReorder, rowDrag: props.rowDrag, getRowId };
-  const dragSource = useRef<{ id: string; rows: readonly RowModel[]; getRowId: typeof getRowId } | null>(null);
+  const dragSource = useRef<{ id: string; rows: readonly RowModel[]; getRowId: typeof getRowId; handle: HTMLButtonElement | null } | null>(null);
+  const cancelDropFocus = useRef<(() => void) | null>(null);
+  useBrowserLayoutEffect(() => () => cancelDropFocus.current?.(), [rows, getRowId, canReorder]);
   const [reorderAnnouncement, setReorderAnnouncement] = useState("");
   const pendingReorderFocus = useRef<{ id: string; label: string | null; rows: readonly RowModel[]; changed?: boolean } | null>(null);
   useEffect(() => {
@@ -236,9 +239,12 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     getAllowedDropOperations: () => ["move"],
     getDropOperation: target => target.type === "item" && target.dropPosition !== "on" ? "move" : "cancel",
     onDragStart: event => {
+      cancelDropFocus.current?.();
       const id = event.keys.size === 1 ? String([...event.keys][0]) : "";
       const source = rows.find(row => getOwnedGridRowId(row, getRowId) === id);
-      dragSource.current = canReorder && source !== undefined && props.rowDrag?.isRowDraggable?.(source) !== false ? { id, rows, getRowId } : null;
+      const cell = [...(container.current?.querySelectorAll<HTMLElement>("[data-grid-field='__reorder']") ?? [])].find(cell => cell.dataset.gridRow === id);
+      const handle = cell?.querySelector<HTMLButtonElement>("[data-sgui-part='grid-drag-handle']") ?? null;
+      dragSource.current = canReorder && source !== undefined && props.rowDrag?.isRowDraggable?.(source) !== false ? { id, rows, getRowId, handle } : null;
     },
     onReorder: event => {
       const saved = dragSource.current;
@@ -246,16 +252,73 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       if (saved && saved.rows === currentReorder.current.rows && saved.getRowId === currentReorder.current.getRowId && event.keys.size === 1 && event.keys.has(saved.id) && event.target.dropPosition !== "on")
         requestReorder(saved.id, String(event.target.key), event.target.dropPosition);
     },
-    onDragEnd: () => {
+    onDragEnd: event => {
       const saved = dragSource.current;
       dragSource.current = null;
-      if (!saved) return;
-      requestAnimationFrame(() => {
-        const node = container.current;
-        if (!node || (document.activeElement !== document.body && !node.contains(document.activeElement))) return;
-        const cell = [...node.querySelectorAll<HTMLElement>("[data-grid-field='__reorder']")].find(cell => cell.dataset.gridRow === saved.id);
-        (cell?.querySelector<HTMLElement>("[data-sgui-part='grid-drag-handle']:not(:disabled)") ?? cell)?.focus();
-      });
+      cancelDropFocus.current?.();
+      const node = container.current;
+      const handle = saved?.handle;
+      const sourceRow = handle?.closest<HTMLElement>("tr[data-grid-row]");
+      if (!saved || !node || !handle?.isConnected || handle.disabled || !sourceRow || sourceRow.dataset.gridRow !== saved.id || !node.contains(handle) ||
+        (document.activeElement !== document.body && !node.contains(document.activeElement))) return;
+      const snapshot = currentReorder.current;
+      let frame: number | null = null;
+      const sourceCell = handle.closest("[data-grid-field]");
+      // Keyboard cancellation restores the drag handle, then the collection
+      // may briefly reconcile to its one selected row. Admit only that exact
+      // native row entry before our first repair, never its controls or cells.
+      const selectedId = event.dropOperation === "cancel" && state.selectedRowIds.size === 1 ? [...state.selectedRowIds][0] : undefined;
+      const cancellationRow = selectedId === undefined ? null : [...node.querySelectorAll<HTMLElement>("tr[data-grid-row]")].find(row => row.dataset.gridRow === selectedId);
+      const entry = document.activeElement;
+      const dropEntry = entry instanceof HTMLElement && node.contains(entry) && entry.getAttribute("aria-roledescription") === "drop indicator";
+      if (entry !== document.body && entry !== handle && entry !== sourceRow && entry !== sourceCell && entry !== cancellationRow && !dropEntry) return;
+      let initial = true;
+      if (event.dropOperation === "cancel" && dropEntry) {
+        // Keyboard-visible nested focus preserves the previous collection cell
+        // key. Align that internal key before DragManager restores/replays the
+        // source handle, without focusing a cell or changing selected rows.
+        const interaction = tableState.current;
+        const column = interaction?.collection.columns.find(column => column.key === "__reorder");
+        const cell = column ? [...(interaction?.collection.getChildren?.(saved.id) ?? [])].find(cell => cell.index === column.index) : undefined;
+        if (cell) interaction?.selectionManager.setFocusedKey(cell.key);
+      }
+      const cancel = () => {
+        if (frame !== null) cancelAnimationFrame(frame);
+        frame = null;
+        document.removeEventListener("focusin", onFocus, true);
+        document.removeEventListener("pointerdown", cancel, true);
+        document.removeEventListener("keydown", cancel, true);
+        if (cancelDropFocus.current === cancel) cancelDropFocus.current = null;
+      };
+      const schedule = () => {
+        if (frame !== null) cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          frame = null;
+          const current = currentReorder.current;
+          if (!node.isConnected || !handle.isConnected || handle.disabled || !current.canReorder ||
+            current.rows !== snapshot.rows || current.getRowId !== snapshot.getRowId || !sourceRow.contains(handle) || sourceRow.dataset.gridRow !== saved.id) { cancel(); return; }
+          // Restore only our source entry. A host/other control owns any other
+          // focus, including a deliberate move followed by removal to body.
+          const active = document.activeElement;
+          const ownsEntry = active === document.body || active === sourceRow || active === sourceCell || (initial && active === cancellationRow);
+          initial = false;
+          if (ownsEntry) handle.focus({ preventScroll: true });
+          else if (active !== handle) cancel();
+        });
+      };
+      const onFocus = (event: FocusEvent) => {
+        if (event.target === handle) return;
+        // React Aria may reconcile the internal drop to the source TR after
+        // our initial frame. Follow that observed native focus event, rather
+        // than guessing the dependency's delayed reconciliation interval.
+        if (event.target === sourceRow || event.target === sourceCell || (initial && event.target === cancellationRow)) schedule();
+        else cancel();
+      };
+      cancelDropFocus.current = cancel;
+      document.addEventListener("focusin", onFocus, true);
+      document.addEventListener("pointerdown", cancel, true);
+      document.addEventListener("keydown", cancel, true);
+      schedule();
     },
     renderDropIndicator: target => <DropIndicator target={target} className={styles.dropIndicator} />,
   });
@@ -266,6 +329,8 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       // A deliberate move to a host control or another grid ends our ownership.
       // A removed focused node has no related target and still needs repair.
       if (event.relatedTarget instanceof Node && !root.current?.contains(event.relatedTarget)) {
+        cancelDropFocus.current?.();
+        if (dragSource.current) dragSource.current.handle = null;
         focus.current = null;
         statusFocus.current = null;
         statusScroll.current = null;
@@ -290,7 +355,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     {/* React Aria requires a stable hook surface within each Table instance.
         Recreate only when the host enables/disables reorder, retaining the outer
         container and repairing its focused cell in the layout effect above. */}
-    <Table key={props.rowDrag ? "reorder" : "ordinary"} ref={setTable} dragAndDropHooks={props.rowDrag ? dragAndDropHooks : undefined} aria-label={label} className={styles.table}
+    <Table key={props.rowDrag ? "reorder" : "ordinary"} ref={setTable} dragAndDropHooks={props.rowDrag ? dragAndDropHooks : undefined} aria-label={label} className={({ state: interaction }) => { tableState.current = interaction; return styles.table; }}
       sortDescriptor={state.sortRules[0] ? { column: state.sortRules[0].field, direction: state.sortRules[0].direction === "asc" ? "ascending" : "descending" } : undefined}
       onSortChange={sort => dispatch({ type: "sort", value: changeOwnedGridHeaderSort(state.sortRules, String(sort.column), sort.direction === "ascending" ? "asc" : "desc") })}
       selectionMode={selection ? "multiple" : "none"} selectionBehavior="toggle"
