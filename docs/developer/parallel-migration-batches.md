@@ -174,3 +174,22 @@ New chats use reviewed dev `fbaba5b` with exclusive scopes:
 | catalog-tabs (M-05/U-09 bounded acceptance) | `01a11678-c0d7-7f33-9a88-25e2cfe54643` | src/components/AppPageTabs/; tests/browser/batch07-catalog-tabs.spec.ts; docs/developer/parallel-batch-07/catalog-tabs.md |
 
 Acceptance checklist: 67/326 (20.6%), required 67/320 (20.9%). Six accepted-row delta is evidence reconciliation;31 inventoried rows held. ETA not reliable. Grid-busy PR19 report received, awaitingreview.
+
+
+## Batch05 defect reviews and batch08 successors
+
+Portal direction(PR22), nativegrid busy(PR19) anddue locale fallback(PR20)
+file ownership/source/targeted evidence reviewed; conflict-free history-preserving
+merges pusheddev `d771320`. Reports: [direction](parallel-batch-05/portal-direction.md),
+[busy](parallel-batch-05/grid-busy.md), [due dates](parallel-batch-05/due-date.md).
+366related direction tests,68busy tests and59due tests per4timezones passed;
+direction/busy focused Chromium-WebKit cases passed,Firefox launch remainedblocked.
+No whole-task acceptance increase or full integration rerun inferred.
+
+Three new batch08 chats start from reviewed `d771320`; exclusive allowlists:
+
+| Task | Chat | Ownership |
+| --- | --- | --- |
+| selector-direction (H-06/U-19) | `01a1167a-e019-7250-8363-4aa1f9ea9237` | src/experimental/Select/; src/experimental/ComboBox/; tests/browser/batch08-selector-direction.spec.ts; docs/developer/parallel-batch-08/selector-direction.md |
+| grid-retry-focus (G-15/G-16) | `01a1167a-e25f-7c62-a2b4-126127c725ab` | src/components/AppDataGrid/ownedGridInteraction.tsx; src/components/AppDataGrid/ownedGridInteraction.test.tsx; src/components/AppDataGrid/ownedGridInteraction.stories.tsx; tests/browser/batch08-grid-retry-focus.spec.ts; docs/developer/parallel-batch-08/grid-retry-focus.md |
+| due-label-composition (M-15/H-12) | `01a1167a-e64f-7ff2-83b9-8cd88b6f25de` | src/components/LearnerClassCard/; tests/browser/batch08-due-label.spec.ts; docs/developer/parallel-batch-08/due-label-composition.md |

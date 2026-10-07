@@ -424,3 +424,16 @@ reset prevention. Accepted grid page-size/page entry resets both scroll axes;
 refresh repair preserves scroll and outside focus ownership. Native drag previews
 clean up on dragend/cancellation and drag-image errors. These are partial slices;
 broad K/G/U/X/R/Z and device/assistive-technology gates remain open.
+
+
+Owned Menu/Popover portals preserve explicit visual direction using a stable
+native-ref bridge; interaction locale remains authoritative for keyboard/placement.
+See [direction evidence](docs/developer/parallel-batch-05/portal-direction.md).
+Owned grid tables synchronize native aria-busy before host refs and after commits;
+DOM status sources do not establish spoken AT acceptance. See
+[busy evidence](docs/developer/parallel-batch-05/grid-busy.md). Due-label formatting
+canonicalizes supported locales and explicitly falls back to en-US for malformed,
+empty or unsupported locale input. Locale does not set timezone; hosts coordinate
+reference clock and SSR/hydration timezone. See
+[due-date contract](docs/developer/react-aria-due-date-acceptance.md).
+Broad H/G/U/X/R/Z acceptance remains open.
