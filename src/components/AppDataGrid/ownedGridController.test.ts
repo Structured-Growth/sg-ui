@@ -124,4 +124,45 @@ describe("owned grid concern controllers", () => {
     rerender({ ...props, pageSizeOptions: [250], paginationModel: { page: 0, pageSize: 250 } });
     expect(result.current.state.paginationModel.pageSize).toBe(250);
   });
+
+  it("uses the latest known total for requests without accepting controlled pagination", () => {
+    const onPaginationModelChange = vi.fn(); const onStateChange = vi.fn();
+    const props: OwnedGridControllerOptions<{ name: string }> = {
+      ...base, paginationModel: { page: 3, pageSize: 10 }, rowCount: 41,
+      onPaginationModelChange, onStateChange,
+    };
+    const { result, rerender } = renderHook(options => useOwnedGridController(options), { initialProps: props });
+    rerender({ ...props, rowCount: 11 });
+    expect(onStateChange).not.toHaveBeenCalled();
+    act(() => result.current.dispatch({ type: "pagination", value: { page: 99, pageSize: 10 } }));
+    expect(onPaginationModelChange).toHaveBeenCalledExactlyOnceWith({ page: 1, pageSize: 10 });
+    expect(onStateChange).toHaveBeenCalledExactlyOnceWith(expect.objectContaining({ paginationModel: { page: 1, pageSize: 10 } }));
+    expect(result.current.state.paginationModel).toEqual(props.paginationModel);
+    rerender({ ...props, rowCount: 0 });
+    expect(onPaginationModelChange).toHaveBeenCalledTimes(1);
+    act(() => result.current.dispatch({ type: "page", value: 2 }));
+    expect(onPaginationModelChange).toHaveBeenLastCalledWith({ page: 0, pageSize: 10 });
+    expect(result.current.state.paginationModel).toEqual(props.paginationModel);
+    rerender({ ...props, rowCount: 0, paginationModel: { page: 0, pageSize: 10 } });
+    expect(result.current.state.paginationModel).toEqual({ page: 0, pageSize: 10 });
+    expect(onStateChange).toHaveBeenCalledTimes(2);
+  });
+
+  it("commits callback-only page requests after total shrink and permits navigation when total becomes unknown", () => {
+    const onStateChange = vi.fn();
+    const props: OwnedGridControllerOptions<{ name: string }> = {
+      ...base, defaultPaginationModel: { page: 3, pageSize: 10 }, rowCount: 41, onStateChange,
+    };
+    const { result, rerender } = renderHook(options => useOwnedGridController(options), { initialProps: props });
+    rerender({ ...props, rowCount: 11 });
+    expect(result.current.state.paginationModel.page).toBe(3);
+    expect(onStateChange).not.toHaveBeenCalled();
+    act(() => result.current.dispatch({ type: "page", value: 3 }));
+    expect(result.current.state.paginationModel.page).toBe(1);
+    rerender({ ...props, rowCount: undefined, hasNextPage: true });
+    act(() => result.current.dispatch({ type: "page", value: 2 }));
+    expect(result.current.state.paginationModel.page).toBe(2);
+    expect(onStateChange).toHaveBeenCalledTimes(2);
+  });
+
 });
