@@ -49,11 +49,34 @@ atomic directory creation and released only after matching this task's ownership
 Temporary harness/logs are `/tmp/batch27-selector-boundary-check.mjs`,
 `/tmp/batch27-selector-boundary.log` and `/tmp/batch27-selector-typecheck.log`.
 
-No full package build/check, `pnpm check`, Storybook build or native/browser suite
-was run: this task explicitly reserves heavy validation for the coordinator's
-authorized queue. A fresh full package check is still needed to establish emitted
-artifact acceptance and discover any later package failures; no such failures are
-claimed absent. No behavior test was added for the single directive.
+No behavior test was added for the single directive.
+
+## Authorized fresh package validation
+
+After the initial clean commit, the coordinator authorized exactly one fresh
+`pnpm build` followed by `pnpm test:package`, with source frozen at
+`983bd79b582f872fa888dfdf87296b1189ca5991` in this same attached worktree.
+Both commands passed on Node `24.21.0`. The complete package guard reported
+successful entry-point imports and consumer owned-contract typechecking; it
+reported no remaining package failures.
+
+The run verified a clean checkout and exact HEAD before and after validation,
+acquired the legacy and heavyweight locks atomically, and rechecked first queue
+eligibility before execution. Owner: `01a1171b-5634-7320-9904-ee224b5695f8`.
+Locks were `/tmp/sgui-parallel-batch-01-validation.lock` and the canonical exported
+`HEAVY_LOCK`, `/var/folders/vp/bckxx0097z9gb5q8_d1chsvh0000gn/T/sgui-heavyweight-build.lock`.
+The run released only its matching owned leases and its own first priority entry,
+preserving the queue's remaining entries and metadata.
+
+Validation ran from `2026-10-07T16:08:04.627Z` to
+`2026-10-07T16:08:11.505Z`. Individual logs and exact-head evidence:
+`/tmp/batch27-selector-package-build.log`,
+`/tmp/batch27-selector-package-check.log`,
+`/tmp/batch27-selector-package-evidence.json`. This report was finalized afterward;
+the source remains identical to the checked commit.
+
+No `pnpm check`, Storybook build or native/browser suite was run under this bounded
+authorization. Broad acceptance gates remain open.
 
 The primary image-upload edits and other workers' checkouts were untouched. No
 integration, CI, main, publishing, workflow permissions or secrets were changed.
