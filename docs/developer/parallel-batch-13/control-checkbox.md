@@ -23,8 +23,22 @@ Reset fix: `776f11025d72f4944c6f2754f43ae4b9bdea1c7d`.
 Collection-authority correction and tested source head:
 `968e0687dcac7502a162fea824dcf07a918ad212`.
 Final report head is supplied in the coordinator message; it cannot contain its
-own hash. No shared guide, barrel, configuration, dependency, workflow or other
-module edits. The existing `useFormReset` helper was read and reused, not changed.
+own hash.
+
+The coordinator explicitly authorized a common browser-pool prerequisite outside
+this task's source allowlist: normal full-ancestry merge of reviewed
+`6b9da4423f1e6675c37571d5552474da25e90258` into this same worktree.
+Merge commit: `861ca6f448bdb90e803092f714bf2b03790b1c5f` (ort, no conflicts).
+This imports the reviewed harness/configuration/guidance as ancestry, not task
+implementation edits. No copied harness/config, graft, new worktree or special
+merge strategy. `git merge-base --is-ancestor` confirms the reviewed prerequisite;
+the Checkbox directory, assigned browser spec and report are identical to premerge
+`778fc0c` before this report-only update. No resolution changed behavior, so no
+redundant affected-light rerun was required. The next reported clean head is frozen
+for coordinator pool selection until explicit release.
+ Task implementation contains no shared guide, barrel, configuration, dependency,
+workflow or other module edits; the authorized common prerequisite merge is
+tracked separately above. The existing `useFormReset` helper was read and reused, not changed.
 
 ## Contract, demonstrated defect and final behavior
 
