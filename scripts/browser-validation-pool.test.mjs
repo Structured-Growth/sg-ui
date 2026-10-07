@@ -24,7 +24,7 @@ function claimProcess(root, owner) {
 }
 const canonicalHelpers = [
   { name: 'light', acquire: acquireLightSlot, prefix: 'slot', max: 4 },
-  { name: 'install', acquire: acquireInstallSlot, prefix: 'installslot', max: 2 },
+  { name: 'install', acquire: acquireInstallSlot, prefix: 'slot', max: 2 },
 ];
 function canonicalClaimProcess(root, name, owner) {
   const script = `import {acquireLightSlot,acquireInstallSlot} from ${JSON.stringify(moduleURL)};

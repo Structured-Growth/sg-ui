@@ -8,7 +8,7 @@ is claimed.
 The exported `acquireLightSlot` and `acquireInstallSlot` helpers previously used
 `slot-N`, separate from the human scheduler's canonical directories. They now
 atomically claim `/tmp/sgui-light-validation-slots/slot0` through `slot3` and
-`/tmp/sgui-install-slots/installslot0` through `installslot1`, respectively.
+`/tmp/sgui-install-slots/slot0` through `slot1`, respectively.
 Canonical occupancy, including ownerless, file and symlink claims, is never
 reclaimed. Occupied slots are skipped; full capacity rejects admission.
 
@@ -37,8 +37,10 @@ generic naming. They never create or modify actual global scheduler leases.
 
 ## Validation status
 
-Code and fixtures are prepared. Execution is pending coordinator light-window
-authorization because the coordinator is running a frozen snapshot. No tests,
+Independent review corrected the install prefix to `slot`: canonical install
+claims are `/tmp/sgui-install-slots/slot0` and `slot1`, matching the direct caller.
+The coordinator has authorized only temporary-root canonical-helper Node 24
+fixtures under a directly claimed canonical light slot1–3. Execution is pending. No tests,
 install, global lease fixture, native/browser check or supervisor has run for
 this change. The unresolved global light slot0 owner replacement is untouched.
 

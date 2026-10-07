@@ -18,7 +18,7 @@ export function validateLimit(max) {
 }
 // The optional root is a fixture-only seam; production callers use canonical roots.
 export const acquireLightSlot = (owner, fixture = {}) => acquireCanonicalSlot(fixture.root ?? LIGHT_ROOT, owner, 4, 'slot');
-export const acquireInstallSlot = (owner, fixture = {}) => acquireCanonicalSlot(fixture.root ?? INSTALL_ROOT, owner, 2, 'installslot');
+export const acquireInstallSlot = (owner, fixture = {}) => acquireCanonicalSlot(fixture.root ?? INSTALL_ROOT, owner, 2, 'slot');
 
 export const LEGACY_LOCK = '/tmp/sgui-parallel-batch-01-validation.lock';
 export const POOL_ROOT = join(tmpdir(), 'sgui-browser-validation-pool-v1');
