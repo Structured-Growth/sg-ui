@@ -324,3 +324,7 @@ User explicitly requested all speedups and up to50 parallel chats. Cap50 superse
 | persistent-state (H-16/X-16) | `01a116b2-32b6-7831-b74e-5ac137d0e516` | src/hooks/usePersistentState.ts; src/hooks/usePersistentState.test.ts; src/hooks/usePersistentState.behavior.test.tsx; src/hooks/usePersistentState.ssr.test.tsx; tests/browser/batch13-persistent-state.spec.ts; docs/developer/parallel-batch-13/persistent-state.md |
 
 All42 creation calls succeeded and were checked with compact snapshots. Avatar managed registration failed; detached checkout remains unedited, read-only report requested. Partial source audits do not close whole task IDs. Acceptance67/32620.6%, required67/32020.9%, delta0,31inventory rows held; ETA not reliable.
+
+## Parallel review throughput
+
+Three batch13 reviewer reports independently assessed exact heads and exclusive scopes. Coordinator reviewed their detailed findings/source identity/whitespace and conflict-free integrated PR25/34/35/36/37/38/39/40/41 plus reviewer PR45/46/49, retaining full history. Retry has targeted72-related/8Chromium-WebKit evidence; other accepted slices are tests/docs without runtime changes. No redundant full run. Client page-shrink and API/ref decisions remain open; no broad checklist upgrades. Evidence-only PR43/44/47/48 pending coordinator review. Avatar returned direct read-only report after managed registration failure; no edits or PR. Cap50 remains for genuinely unfinished successors, resource limits unchanged.
