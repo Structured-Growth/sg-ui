@@ -7,6 +7,11 @@
   `/Users/thomashall/.codex/worktrees/batch13-control-switch/sg-ui`.
 - Branch: `codex/batch13-control-switch`; draft PR base: `codex/dev`.
 - Implementation/test/story commit: `f561607b78b81e983ed2c5e713ddff3479e4aa2d`.
+- Initial evidence commit: `dc013e549bb69eef0cee38edcc4ba12bd0dfbf86`.
+- Physical native-driver correction: `ea68126868498a410af90202a9328c177b7d9ff2`.
+- Fieldset correction/unit composition and final native-tested source:
+  `fdcb9b7faa90520bd925be0ffa1be109e8a60861`.
+  Final report-only commit is recorded in PR history and the completion message.
 - Exclusive allowlist: `src/experimental/Switch/`,
   `tests/browser/batch13-control-switch.spec.ts`, this report.
 - Draft PR: [#84](https://github.com/Structured-Growth/sg-ui/pull/84).
@@ -15,9 +20,8 @@
   `4c9e7190e51a98194d6f2f6248984449a5255d1a` with no conflicts. Its six shared
   harness/config/docs files are prerequisite ancestry, not exclusive task edits.
   No harness copies, history rewriting or independent pool migration.
-- Native evidence: first frozen pool run failed in test actionability; the
-  corrected driver then exposed a native fieldset host-request leak in both
-  engines. A second product correction is ready for a fresh focused rerun.
+- Native evidence: final fresh focused pool passed both engines after preserving
+  the first actionability failure and meaningful red fieldset regression below.
 
 ## Evidence selection and correction
 
@@ -57,12 +61,15 @@ activate; its jsdom result is not claimed as native pointer evidence.
 
 Runtime: initial Node `v26.5.0`; canonical targeted checks also passed on existing
 Node `v24.21.0`, pnpm `10.29.3`, React `19.2.3`, Vitest `4.1.11`.
+Native pool: Darwin `27.0.0`, Playwright `1.63.0`. Its exact Node executable is
+recorded in the retained `evidence.json`; no new runtime was installed.
 No Node 22, packed React 18, device or assistive-technology acceptance is claimed.
 
 - `pnpm install --frozen-lockfile`: passed, own atomic install slot1;
   `/tmp/sgui-batch13-switch-install.log`. Initial slot attempts queued (exit75).
 - `pnpm exec vitest run src/experimental/Switch/Switch.test.tsx --maxWorkers=1`:
-  latest 1 file / 6 tests passed after both product corrections. Used an available atomic global light slot with
+  final 1 file / 6 tests passed after both product corrections. Used an available
+  atomic global light slot with
   owner `batch13-control-switch-01a116b0` and owner-checked cleanup. Occupied
   attempts were queued, never reported as successful runs.
 - `pnpm typecheck`: passed after final implementation.
@@ -77,7 +84,7 @@ No Node 22, packed React 18, device or assistive-technology acceptance is claime
   After coordinator unfroze the worktree, the spec changed only the input driver:
   real `page.mouse.click` at the visible label's bounding-box center. Disabled,
   zero-request and omitted-FormData assertions remain. No forced or synthetic
-  click, test skip or assertion weakening. Focused fresh rerun remains pending.
+  click, test skip or assertion weakening.
   Evidence: `artifacts/browser-pool/408ab40a-5e45-497c-a0f8-72cb7ab05639/`
   (`evidence.json`, `build.log`, `types.log`, `browser.log`, results and traces).
   First/final static digest matched
@@ -92,7 +99,34 @@ No Node 22, packed React 18, device or assistive-technology acceptance is claime
   Evidence: `artifacts/browser-pool/82d4e086-f5e8-4a27-9006-11dd2d666fb1/`.
   This is a product regression, not a successful native pass. After coordinator
   release, the owned native `:disabled` callback guard and unit exception case
-  were added; affected unit/type/foundation checks passed. Third fresh pool pending.
+  were added; affected unit/type/foundation checks passed.
+- Final third pool: fresh Storybook/types passed; **2 passed**, 0 failed/skipped/
+  flaky (one focused case each in Chromium/WebKit). Exact frozen source head
+  `fdcb9b7faa90520bd925be0ffa1be109e8a60861`, tree
+  `b369de300ef8e87a55d45df3d8d1822ac7d3cd0c`; final head/status stayed clean.
+  First/final digest matched
+  `479bfcd6df3a7c1ebfafc6f1c810a87219b29a6844accb275ac40b301c57a431`.
+  Evidence: `artifacts/browser-pool/badca55a-4638-4860-b514-d2dbc19f60e7/`
+  (`evidence.json`, `results.json`, build/type/browser logs and HTML report).
+  All physical disabled-label, disabled omission, independent name, controlled
+  rejection, prevented reset, re-enable and accepted-reset assertions were reached.
+  The coordinator independently verified source/digest/count invariants and released
+  the frozen worktree after the supervisor finished. Only this report changed after
+  that tested head; no additional native/build rerun was required.
+
+Exact final native commands (executed by the coordinator's reviewed pool):
+
+```sh
+pnpm exec storybook build --output-dir /Users/thomashall/.codex/worktrees/batch13-control-switch/sg-ui/artifacts/browser-pool/badca55a-4638-4860-b514-d2dbc19f60e7/storybook
+pnpm exec tsc --noEmit -p tests/browser/tsconfig.json
+pnpm exec playwright test tests/browser/batch13-control-switch.spec.ts --project=chromium --project=webkit
+```
+
+The final session used slot 1 / loopback port 6274 and immutable UUID build/report
+paths. No rebuild during a suite, shared queue edits or other-owner cleanup.
+An exploratory jsdom `fireEvent.click` driver could not activate even its enabled
+legend target; it was replaced with `userEvent` for the exception unit composition.
+That driver failure is not treated as product or native evidence.
 
 Per [development validation policy](../react-aria-development-validation.md),
 no full `pnpm check`, full browser suite or consumer matrix runs per task.
@@ -101,8 +135,10 @@ to workflow permissions, secrets, main, publishing, versions or licensing.
 
 ## Review boundaries and follow-ups
 
-This is a compatible correction to native reset cancellation, not a completed
-U-04/U-18 gate. Browser evidence must finish before integration approval.
+Review decision: this bounded compatible reset/fieldset correction is ready for
+coordinator review and integration into `codex/dev`; it does not complete U-04/U-18.
+Firefox was not retried or verified by this slice. Native fieldset legend pointer
+behavior, physical touch/device and actual AT remain unverified.
 Broad native/autofill, physical device and AT acceptance remain open.
 
 Reserved next-task scopes requiring broader ownership:
