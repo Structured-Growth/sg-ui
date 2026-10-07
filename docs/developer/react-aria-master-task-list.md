@@ -446,7 +446,7 @@ to a full booking backend or scheduling product.
 - [ ] E-07 Review rich-content rendering and trust boundaries; do not render arbitrary HTML or unsafe links merely because they arrived in a presentation model. Saved/pasted link destinations are governed by the [owned policy](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial), and image decoration by the [image source policy](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); broader rich-content acceptance remains open.
 - [ ] E-08 Put editor-only dependencies behind a granular import boundary and assess whether separate packages are required to avoid mandatory installation weight.
 - [ ] E-09 Put learner/instructor cards, course grids, activity mappings, and admin/instructor presets in a documented learning extension boundary without copying app screens.
-- [ ] E-10 Keep generic layout/controls independent of course-specific models; document naming compatibility and module migration.
+- [x] E-10 Keep generic layout/controls independent of course-specific models; document naming compatibility and module migration.
 
 ## 16. Accessibility, interaction, and verification
 
@@ -496,11 +496,11 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [ ] R-15 Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy.
 - [ ] R-16 Plan a coherent migration branch/PR sequence so incomplete migration commits do not accidentally publish incompatible intermediate APIs; use documented prerelease policy only if deliberately configured.
 - [ ] R-17 Verify npm scope ownership, public access, trusted-publishing/token setup, GitHub release/tag permissions, provenance requirements, and commercial notices before publication.
-- [ ] R-18 Keep local builds for validation only; do not publish locally, edit tracked versions manually, add changesets, or claim owner configuration is already done.
+- [x] R-18 Keep local builds for validation only; do not publish locally, edit tracked versions manually, add changesets, or claim owner configuration is already done.
 - [ ] R-19 Keep the AI workflow task scope and patch allowlist aligned; architecture/package/workflow/agent changes currently require ordinary maintainer PRs rather than the component-only AI path.
 - [ ] R-20 Add task IDs, owned API requirements, story/behavior criteria, and validation evidence to AI task templates and generated PR expectations.
 - [ ] R-21 Preserve minimal workflow permissions, trusted/untrusted input separation, credential isolation, separate validation, and draft-PR review; never auto-merge AI proposals.
-- [ ] R-22 Document the existing manual Actions AI trigger; an issue/label trigger is a separate decision, not already implemented or implied by the issue template.
+- [x] R-22 Document the existing manual Actions AI trigger; an issue/label trigger is a separate decision, not already implemented or implied by the issue template.
 - [ ] R-23 Verify AI-created draft PR validation even when default-token PR creation does not trigger another workflow; do not rely on absent CI events.
 - [ ] R-24 Update workflow timeouts/artifact handling as browser checks expand; cache by lockfile and avoid stale build outputs masking missing CSS or dependencies.
 - [ ] R-25 Pin/review workflow dependencies according to repository policy and validate proposed workflow changes without weakening protections to make checks pass.
@@ -524,8 +524,8 @@ responsibilities. Automated checks help but do not establish complete conformanc
 - [x] W-12 Document tokens/themes, CSS override layers, parts/slots, density, icons, form semantics, locale/direction, date contracts, and accessibility responsibilities.
 - [x] W-13 Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults.
 - [x] W-14 Provide representative Vite and Next.js host examples without importing framework APIs into the library; document SSR/client and CSS loading boundaries.
-- [ ] W-15 Provide a read-only learner-platform adoption checklist; modifying that application remains a separate implementation task.
-- [ ] W-16 Update `docs/migration.md` and the extraction manifest to preserve useful provenance and account for moves/deletions; do not misrepresent the original extraction as the final architecture.
+- [x] W-15 Provide a read-only learner-platform adoption checklist; modifying that application remains a separate implementation task.
+- [x] W-16 Update `docs/migration.md` and the extraction manifest to preserve useful provenance and account for moves/deletions; do not misrepresent the original extraction as the final architecture.
 - [ ] W-17 Update component architecture, GitHub setup, commercial licensing, package fixtures, issue/PR templates, and troubleshooting for final behavior.
 - [ ] W-18 Document known limitations, deferred features, support policy, deprecated names, release impact, and the cost/responsibility of eventually replacing React Aria.
 - [ ] W-19 Check all local doc links, exported example types, referenced file paths, and commands; docs-only updates do not require unrelated UI tests.
