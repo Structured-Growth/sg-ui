@@ -65,3 +65,46 @@ attribution. Candidate/head/artifact evidence will be recorded after that result
 in a report-only commit. Source scope remains reserved until fresh Chromium proof.
 Firefox/WebKit are intentionally deferred to the batch checkpoint. Whole M-20,
 broad native/manual/device/AT and cross-engine acceptance remain open.
+
+
+## Verified wave23 Chromium result
+
+The pending handoff above is historical; fresh proof completed on 2026-10-07.
+The coordinator built and tested candidate
+`c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05` in the managed shared candidate
+worktree, rather than worker source head
+`3fc8bf2627f2c17f09fddabefb7d1dbd00bb384c`.
+
+Independently read the root/shard evidence, raw results and browser log. All four
+Chromium cases passed, with zero unexpected, skipped or flaky cases and no global
+errors. Root evidence records bundled Node `v24.19.0`, one fresh shared Storybook
+build, browser typecheck and the exact anchored spec command:
+`pnpm exec playwright test '(?:^|/)tests/browser/inventory-toolbar-composition\.spec\.ts$' --project=chromium`.
+The coordinator supplied the supported child PATH; no worker native command ran.
+
+- Immutable candidate source digest:
+  `b6047a36c2eb6749f427c775e1f0c716225a303dd276fd272da6608de5efcc56`.
+- Immutable build digest:
+  `1afdb63861962fc7858ba9c42ec5a7e7e5dcc9b89d4f02fad7d6d9ddead899ca`.
+- Root evidence:
+  `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457/evidence.json`.
+- Shard evidence and adjacent raw results/log:
+  `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457/toolbar-native-composition/evidence.json`.
+- Attribution: `/tmp/sgui-batch45-candidate-wave23-attribution.json`.
+
+SHA256 independently matches local frozen files, candidate Git bytes and the
+attribution for all four owned files (including this report before this append):
+
+| File | Tested SHA256 |
+| --- | --- |
+| DataToolbar.stories.tsx | `3d90e662a24baba6146c0b3000feea8b05cd91fd8b4789b6c49f16ad94a5e864` |
+| DataToolbar.native-composition.test.tsx | `79abf153495ee3b9baeda39e9d30524a7f6ccec6a435ca33497cc6b050eaae88` |
+| inventory-toolbar-composition.spec.ts | `de176dcfcca8a3190d108233fa8388cae83d7348e640f5f683bac70a0b1d2e33` |
+| Initial report | `bd4f0296dfffdd616f254ced84b82e06ce6129664c1305a7511a1f8ddb2151ae` |
+
+Overall wave23 failed six other shards; their preserved red evidence does not
+become a passing candidate or accepted dev snapshot. This report claims only the
+four green toolbar cases. No underlying toolbar product defect was demonstrated.
+Source/spec bytes remain unchanged; only this appended evidence changes in the
+final commit. Firefox/WebKit, manual/device/AT and whole M-20/broad acceptance
+remain pending. Coordinator retains integration and acceptance ownership.
