@@ -44,3 +44,12 @@ ContentEditorChrome continues to use its legacy button internally for its existi
 MouseEvent-based menu callback contract, which can supply an anchor to the host.
 That composition remains unmigrated; its later migration must explicitly map this
 contract. Other AppButton consumers use the owned action API in this batch.
+
+## Native form activation ordering
+
+Pending reset buttons suppress the native reset default. Submit/reset buttons
+deliver the owned `onPress` once from native click capture, before the form default
+action; ordinary buttons retain React Aria press handling. Pointer, Enter and Space
+ordering and current host callbacks are covered by [focused button evidence](parallel-batch-13/control-button.md).
+The corrected frozen commit passed both Chromium/WebKit cases. Firefox, physical
+touch and spoken assistive-technology acceptance remain separate.
