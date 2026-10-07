@@ -102,3 +102,47 @@ Corrected spec discovery under Node24 and an admitted/released light lease:
 passed, exactly four cases. This parses/discovers tests without launching browsers
 or a server. Whitespace/clean-head checks passed; source/story unchanged, so the
 previous units/types/guards remain attributed to original prepared content.
+
+## Final wave23 focused Chromium evidence
+
+Fresh coordinator candidate **`c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`**
+passed this slice: **4 Chromium cases passed; 0 failed/skipped/flaky**, light and
+dark. Actual browser runtime: Node `v24.19.0` with supported child PATH, pnpm
+`10.29.3`, Playwright `1.63.0`. This is candidate execution, not direct execution
+of worker head `d7ecbe9c5b08ddab45147e0ce82f78de8f74e5c9`.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457/`.
+Read `link-modal-native/evidence.json`, `results.json`, `browser.log` and root
+`evidence.json` independently. Session was slot 4 / port 6337; list log names all
+four expected cases and reports `4 passed (7.0s)`. Results statistics confirm 4
+expected, 0 unexpected, 0 skipped, 0 flaky. The overall wave failed six other
+shards; no overall wave success or dev integration is claimed.
+
+Independently recomputed source and build hashes using read-only `sourceDigest`
+and `digestTree` from the candidate harness under Node `v24.19.0`:
+
+- Source SHA256:
+  `b6047a36c2eb6749f427c775e1f0c716225a303dd276fd272da6608de5efcc56`.
+- Static Storybook SHA256:
+  `1afdb63861962fc7858ba9c42ec5a7e7e5dcc9b89d4f02fad7d6d9ddead899ca`.
+
+Both match recorded initial/final hashes. Initial/final candidate heads match and
+recorded final Git status is clean. Re-read
+`/tmp/sgui-batch45-candidate-wave23-attribution.json`; independently compared
+`git show` bytes at candidate versus corrected worker head and current worker
+files. All three owned files were byte-identical before this report-only update,
+and their SHA256 values match the attribution. The tested story and spec retain:
+
+- `src/components/LinkUrlModal/LinkUrlModal.stories.tsx`:
+  `2cfdf150f79fde630cb98b6d9887cb458f9f6ba80f74b8ba0dfe965693459db5`.
+- `tests/browser/inventory-link-modal.spec.ts`:
+  `90fafa594df32595dbb399e7987ee31e466993438232c2176b28625e9db139b0`.
+
+The backwards native drag correction resolved the initial fixture/driver failure;
+all original selection/callback/rich-child/return-focus assertions then passed.
+The original wave22 0/4 red snapshot/logs/traces above remain preserved. No runtime
+product defect or fix is asserted. Only this report changes after the successful
+snapshot; no additional browser/build/heavy validation was run independently.
+Firefox/WebKit, actual Lexical edit/unlink, whole M-33 and broader security,
+manual/device/AT/E/U/X/R/Z acceptance remain pending. Coordinator alone integrates.
