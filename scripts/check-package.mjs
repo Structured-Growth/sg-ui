@@ -4,12 +4,13 @@ import { readFile, readdir } from 'node:fs/promises';
 const pkg = JSON.parse(await readFile('package.json', 'utf8'));
 for (const [name, entry] of Object.entries(pkg.exports)) {
   if (name === './package.json') continue;
-  if (name === './experimental/icons/*Icon') {
-    const files = (await readdir('dist/experimental/icons')).filter(file => /^[A-Z].*Icon\.js$/.test(file));
+  if (name === './experimental/icons/*Icon' || name === './icons/*Icon') {
+    const directory = name.startsWith('./experimental/') ? 'dist/experimental/icons' : 'dist/icons';
+    const files = (await readdir(directory)).filter(file => /^[A-Z].*Icon\.js$/.test(file));
     assert(files.length > 0, 'Individual icon modules are missing');
     for (const file of files) {
-      await readFile(`dist/experimental/icons/${file.replace(/\.js$/, '.d.ts')}`, 'utf8');
-      const icon = await import(new URL(`../dist/experimental/icons/${file}`, import.meta.url));
+      await readFile(`${directory}/${file.replace(/\.js$/, '.d.ts')}`, 'utf8');
+      const icon = await import(new URL(`../${directory}/${file}`, import.meta.url));
       assert(icon[file.replace(/\.js$/, '')], `Missing icon export ${file}`);
     }
     continue;
@@ -60,4 +61,12 @@ for (const file of ['ownedGridModel', 'ownedGridState', 'ownedGridColumns', 'own
   const declaration = await readFile(`dist/components/AppDataGrid/${file}.d.ts`, 'utf8');
   assert(!/react-aria|@react-types|@mui|@emotion|lucide-react|@tanstack/.test(declaration), `Upstream grid model type escaped: ${file}`);
 }
-for (const name of ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'AppButton', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar', 'AppDataGrid', 'AppDataGridShell', 'LearnerClassesDataGrid', 'AppDataGridRowDnd']) await checkOwnedDeclarations(`dist/components/${name}`);
+for (const name of ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'AppButton', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar', 'AppDataGrid', 'AppDataGridShell', 'LearnerClassesDataGrid', 'AppDataGridRowDnd', 'icons', 'primitives']) await checkOwnedDeclarations(`dist/components/${name}`);
+
+await checkOwnedDeclarations('dist/icons');
+await checkOwnedDeclarations('dist/primitives');
+const primitives = await import('../dist/primitives/index.js');
+for (const name of ['Box','Stack','Typography','TextField','CircularProgress','Checkbox','IconButton','Link','Menu','Select','Autocomplete','Divider','Chip','LinearProgress','Switch','List','ListItem','ListItemButton','ListItemText','Table','TableHead','TableBody','TableRow','TableCell','Collapse','Tooltip']) assert(primitives[name], `Missing owned public primitive ${name}`);
+for (const name of ['MuiLink','FormControlLabel','MenuItem']) assert(!primitives[name], `Retired primitive still exported: ${name}`);
+
+for (const directory of ['dist/adapters', 'dist/hooks', 'dist/i18n']) await checkOwnedDeclarations(directory);

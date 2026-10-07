@@ -195,3 +195,10 @@ U/X/R/Z acceptance gates remain open.
 DataToolbar (M-20), including columns, sort, filter and selection menus, now uses
 the owned foundation and migrated-module boundaries. See [data toolbar contracts](react-aria-data-toolbar.md) for controlled host state, draft menus, native styling/ref and scope requirements.
 Load `/styles.css` and provide Provider or ThemeScope. Grid migration remains open.
+
+The public icons (M-36) and primitives (M-37) now use owned implementations,
+with whole-directory source/transitive/declaration boundaries. See
+[icon mappings](react-aria-icons.md) and
+[primitive mappings](react-aria-primitives.md) for preserved names,
+owned props and deliberate breaking removals. Import `/styles.css` and provide
+Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.

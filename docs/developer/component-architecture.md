@@ -49,8 +49,8 @@ owned scope, including for editor dialogs.
 ## Source layout
 
 - `src/components/<Component>`: component implementation, index, stories and tests.
-- `src/components/primitives` and `src/components/icons`: MUI primitive/icon wrappers
-  and reexports, also exposed through `src/primitives` and `src/icons` entry points.
+- `src/components/primitives` and `src/components/icons`: owned public primitive/icon
+  mappings, also exposed through `src/primitives` and `src/icons` entry points.
 - `src/theme`: shared MUI tokens, light/dark themes, provider and type augmentation.
 - `src/hooks`: reusable state/pagination behavior.
 - `src/adapters`: host routing and account integration.
@@ -122,3 +122,10 @@ the owned foundation and migrated-module boundaries. See [editor section contrac
 for stylesheet/scope requirements, native styling/ref, live read-only state,
 document reset and formatting-preserving link behavior. Broad editor/grid and
 U/X/R/Z acceptance gates remain open.
+
+The public icons (M-36) and primitives (M-37) now use owned implementations,
+with whole-directory source/transitive/declaration boundaries. See
+[icon mappings](react-aria-icons.md) and
+[primitive mappings](react-aria-primitives.md) for preserved names,
+owned props and deliberate breaking removals. Import `/styles.css` and provide
+Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.

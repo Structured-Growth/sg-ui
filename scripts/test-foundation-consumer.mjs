@@ -60,7 +60,8 @@ import { AppDataGridShell } from '@structured-growth/sg-ui/components/AppDataGri
 import { LearnerClassesDataGrid } from '@structured-growth/sg-ui/components/LearnerClassesDataGrid';
 import { DataToolbar, DataToolbarSelectionMenu } from '@structured-growth/sg-ui/components/DataToolbar';
 import { tokens } from '@structured-growth/sg-ui/tokens';
-import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
+import { AddIcon } from '@structured-growth/sg-ui/icons/AddIcon';
+import { CircularProgress, LinearProgress, Autocomplete as PublicAutocomplete, Typography as PublicTypography } from '@structured-growth/sg-ui/primitives';
 export function Proof() {
   const [open,setOpen]=React.useState(false);
   const [editorDialog,setEditorDialog]=React.useState(null);
@@ -78,6 +79,9 @@ export function Proof() {
     <AppDataGridShell label="Packed shell" rows={[{id:'two',name:'Mathematics'}]} columns={[{field:'name',headerName:'Course'}]} getRowLabel={row=>row.name} view={{cards:{renderCard:row=><article>{row.name}</article>}}} />
     <LearnerClassesDataGrid rows={[]} />
     <DataGridDragHandle label="Packed reorder handle" />
+    <PublicTypography as="h2" variant="bodyAlt2">Public primitives</PublicTypography>
+    <CircularProgress aria-label="Packed circular loading" /><LinearProgress label="Packed upload" value={40} />
+    <PublicAutocomplete label="Packed category" options={[{id:"science",label:"Science"}]} />
     <DataToolbar aria-label="Packed data toolbar" onRefresh={()=>setResult('Refreshed')} columnOptions={columns} onColumnOptionsChange={setColumns}
       sortOptions={[{id:'name',label:'Name'},{id:'status',label:'Status'}]} sortRules={sortRules} onSortRulesChange={rules=>{setSortRules(rules);setResult(JSON.stringify(rules));}}
       filterFields={[{id:'name',label:'Name',type:'string'},{id:'status',label:'Status',type:'enum',enumOptions:[{id:'active',label:'Active'},{id:'paused',label:'Paused'}]}]}
@@ -143,6 +147,9 @@ import { writeFile } from 'node:fs/promises';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createServer } from 'vite';
+import { getActivityTypeIcon } from '@structured-growth/sg-ui/icons';
+assert(renderToString(getActivityTypeIcon('lesson', {size:18})).includes('width="18"'), 'Packed public activity mapping failed SSR');
+assert.equal(renderToString(getActivityTypeIcon('custom', {fallback:'Host icon'})), 'Host icon');
 assert.equal(typeof window, 'undefined'); assert.equal(typeof document, 'undefined');
 const server = await createServer({ server: { middlewareMode: true }, appType: 'custom' });
 try {

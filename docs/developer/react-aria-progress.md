@@ -1183,3 +1183,51 @@ The next code batch continues M-36/M-37 and the required remaining gates.
 M-36/M-37, public reset-view, M-38 reconciliation and broad G/U/X/R/Z gates
 remain open. Implementation evidence does not close full touch-device,
 screen-reader, browser, zoom, visual, performance, Node24 or NextRSC matrices.
+
+## Public icons and primitives (M-36/M-37)
+
+The public icon catalog now shares the owned vector implementations: all 49
+extracted barrel names remain, and all 95 directly used/mapped icons are available
+through `/icons` and individual `/icons/<Name>Icon` paths. Activity aliases,
+case-insensitive matching, default fallback and host override/fallback options
+use the owned size/options contract. Public tests cover every vector, native SVG
+refs, decorative/meaningful names and RTL. The complete mapping tables close
+B-04, and activity implementation/tests close I-07. See
+[icon mappings](react-aria-icons.md).
+
+Every extracted primitive reexport now maps to a real owned implementation or
+an explicit documented removal. Public CircularProgress and LinearProgress
+wrappers preserve the required accessible-name union and fix their presentation.
+Autocomplete shares owned ComboBox; branded links, external label wrapper,
+engine selection event and item component are removed with replacements.
+Table headers now use explicit native TableHeaderCell semantics. `/primitives`
+no longer imports typography augmentation or legacy theme. Public barrel and
+individual icon dependency roots, complete component/public declaration directories
+and shared adapter/hook/i18n declarations join strict audit coverage. See
+[primitive mappings](react-aria-primitives.md).
+
+Validation: pnpm check passed 135 files / 819 tests, four foundation and four
+release tests, production/story typing, ESM/declarations, public import/type checks
+and source/transitive/token/layer guards. The new batch adds 110 public icon tests
+and five progress/composed primitive tests. pnpm build-storybook passed with
+existing directive/sourcemap/chunk warnings. Fresh packed React 19.2.3
+(`sgui-foundation-consumer-AkETpt`) and React 18.3.1
+(`sgui-foundation-consumer-apK2L2`) passed SSR/hydration-entry, production Vite/CSS,
+no-retired-peer and unused-vector pruning checks. Packed activity behavior is
+checked separately in SSR so the basic client proof continues to reject unused
+activity vectors. Native IAB checked public menu keyboard activation, Escape
+source-trigger focus return, native field/checkbox reset and named determinate/
+indeterminate progress. Runtime warning/error logs were empty; screenshot:
+`/tmp/sgui-m36-m37-public-primitives.jpg`. 136 local documentation paths and diff
+whitespace passed.
+
+This batch updates [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1).
+The master list contains 326 unique task IDs: 320 required and six explicitly
+future items. 39 checklist items plus 33 recorded catalog completions make 72
+required items closed; 248 remain formally open, including partially implemented
+work. This count is closure status, not an equal-effort completion estimate.
+M-16–M-19 implementations remain subject to their grid acceptance gates. Legacy
+`/theme`, Storybook decorator and package peer removal, public grid reset, presets/
+hooks, selective client boundaries and broad browser/accessibility/performance/
+release acceptance remain open. Next work continues these code and acceptance
+requirements; representative proofs do not close the complete matrix.

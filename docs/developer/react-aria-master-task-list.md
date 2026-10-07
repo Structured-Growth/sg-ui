@@ -97,7 +97,7 @@ directive. `AppThemeProvider` currently installs a global baseline stylesheet.
 - [x] B-01 Capture current Git status, relevant release tags, package metadata, and public exports without discarding existing work.
 - [x] B-02 Read `AGENTS.md`, `README.md`, `docs/migration.md`, `docs/developer/component-architecture.md`, and `docs/agent-guidance-migration.md` before architecture changes.
 - [ ] B-03 Inventory dependency imports, transitive dependencies, public declarations, class names, DOM assumptions, augmentation, and generated artifacts; include hidden configuration files.
-- [ ] B-04 Inventory all primitive exports and all icons, including direct icon imports that are not present in the public icon barrel.
+- [x] B-04 Inventory all primitive exports and all icons, including direct icon imports that are not present in the public icon barrel.
 - [ ] B-05 Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking.
 - [x] B-06 Baseline existing unit/package/release-policy checks and Storybook build; record pre-existing failures separately.
 - [ ] B-07 Capture representative screenshots and browser interactions for light/dark UI, compact/comfortable controls, editors, navigation, modals, and grids.
@@ -200,7 +200,7 @@ directive. `AppThemeProvider` currently installs a global baseline stylesheet.
 - [x] I-04 Keep icons individually importable; avoid pulling an entire icon catalog into basic components.
 - [ ] I-05 Establish consistent optical size, weight, alignment, RTL mirroring policy, and theme contrast.
 - [x] I-06 Make decorative icons hidden from assistive technology and require meaningful names at the appropriate control level.
-- [ ] I-07 Replace the activity-type icon map while preserving known/unknown fallbacks and consumer override options.
+- [x] I-07 Replace the activity-type icon map while preserving known/unknown fallbacks and consumer override options.
 - [ ] I-08 Add icon catalog, accessibility, and bundle checks; update notices for all shipped vector assets.
 
 ## 9. Host adapters, translations, dates, and persistence
@@ -325,7 +325,7 @@ Checklist IDs cover all 37 current directories, including catalog-only directori
 | M-37 | primitives | Replace every reexport with an owned implementation/type or documented removal |
 
 Recorded catalog completions ([draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review): M-02, M-03, M-24,
-M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31–M-33, M-26–M-30, M-21–M-23, M-25, M-34 and M-20.
+M-35, M-11, M-12, M-13, M-14, M-15, M-01, M-04, M-05, M-10, M-06–M-09 and M-31–M-33, M-26–M-30, M-21–M-23, M-25, M-34 and M-20, M-36 and M-37.
 The [data toolbar contracts](react-aria-data-toolbar.md) and
 [execution evidence](react-aria-progress.md#data-toolbar) cover M-20; grid integration remains open.
 M-16 now has the public owned renderer/helpers/parts and optional validated
@@ -335,6 +335,12 @@ See [catalog integration](react-aria-catalog-grid.md) and the
 M-18 now has the owned handle/helper and public bounded reorder integration; see
 [reorder contracts](react-aria-grid-reorder.md). Public reset-view and broad
 G/U/X/R/Z acceptance remain open. Migration rows are not whole-backlog completion markers.
+
+M-36/M-37 completion and B-04/I-07 evidence are recorded in [icon mappings](react-aria-icons.md),
+[primitive mappings](react-aria-primitives.md) and the execution record, on
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1). All public aliases
+resolve to owned implementations under transitive audits; legacy theme removal
+and full native acceptance remain open.
 
 - [ ] M-38 Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively.
 - [ ] M-39 Migrate `AdminDataGridOptions.ts` and `InstructorDataGridOptions.ts`, including column locks, static enums, filter/sort defaults, and translation labels.

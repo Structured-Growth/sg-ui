@@ -166,3 +166,31 @@ export const ownedDataToolbar = <Provider><OwnedDataToolbar {...ownedToolbarProp
 
 // @ts-expect-error Retired sort model is not an owned grid prop.
 export const retiredGridSort = <AppDataGrid label="Courses" rows={[]} columns={[]} getRowLabel={() => ""} sortModel={[]} />;
+
+import { CircularProgress, LinearProgress, Autocomplete as PublicAutocomplete, Menu as PublicMenu, Button as PublicButton, Checkbox as PublicCheckbox, Link as PublicLink, Table as PublicTable, TableHead as PublicTableHead, TableHeaderCell as PublicTableHeaderCell, TableRow as PublicTableRow } from '@structured-growth/sg-ui/primitives';
+import { AddIcon as PublicAddIcon } from '@structured-growth/sg-ui/icons/AddIcon';
+import { getActivityTypeIcon as PublicActivityIcon, type IconProps as PublicIconProps } from '@structured-growth/sg-ui/icons';
+export const publicIconProps: PublicIconProps = {size:20,label:'Add'};
+export const publicPrimitiveProof = <Provider><PublicAutocomplete label="Category" options={[{id:'science',label:'Science'}]} />
+<PublicCheckbox label="Publish" /><CircularProgress aria-label="Loading" ref={createRef<HTMLDivElement>()} />
+<LinearProgress label="Upload" value={40} /><PublicLink href="/courses">Courses</PublicLink>
+<PublicMenu label="Actions" trigger={<PublicButton>Actions</PublicButton>} items={[{id:'edit',label:'Edit'}]} />
+<PublicTable><PublicTableHead><PublicTableRow><PublicTableHeaderCell>Course</PublicTableHeaderCell></PublicTableRow></PublicTableHead></PublicTable>
+<PublicAddIcon ref={createRef<SVGSVGElement>()} label="Add course" />{PublicActivityIcon('lesson',{size:18})}</Provider>;
+// @ts-expect-error Public circular progress requires an accessible name.
+export const unnamedPublicProgress = <CircularProgress />;
+// @ts-expect-error Public primitive fields exclude retired style props.
+export const retiredPublicField = <PublicAutocomplete label="Category" options={[]} sx={{padding:2}} />;
+import { MenuItem as RetiredMenuItem } from '@structured-growth/sg-ui/primitives';
+// @ts-expect-error Public menu takes owned item records, no item component remains.
+export const retiredMenuItem = <RetiredMenuItem />;
+// @ts-expect-error Public links use the owned name.
+import { MuiLink } from '@structured-growth/sg-ui/primitives';
+// @ts-expect-error Checkbox owns its label; external engine label wrapper is removed.
+import { FormControlLabel } from '@structured-growth/sg-ui/primitives';
+// @ts-expect-error Selection callbacks expose values, not engine events.
+import type { SelectChangeEvent } from '@structured-growth/sg-ui/primitives';
+// @ts-expect-error Public icons expose owned sizing.
+export const retiredIconSize = <PublicAddIcon fontSize="small" />;
+// @ts-expect-error Activity helper uses owned options instead of positional engine font size.
+export const retiredActivitySize = PublicActivityIcon('lesson','small');

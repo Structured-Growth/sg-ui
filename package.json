@@ -205,6 +205,10 @@
     "./components/AppDataGridRowDnd": {
       "types": "./dist/components/AppDataGridRowDnd/index.d.ts",
       "import": "./dist/components/AppDataGridRowDnd/index.js"
+    },
+    "./icons/*Icon": {
+      "types": "./dist/icons/*Icon.d.ts",
+      "import": "./dist/icons/*Icon.js"
     }
   },
   "repository": {
