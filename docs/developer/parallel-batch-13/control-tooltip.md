@@ -83,9 +83,34 @@ Logs: `/tmp/sgui-batch13-tooltip-baseline-final.log`,
 
 ## Native evidence
 
-Pending shared priority queue and global lock; this section will be updated after
-a fresh Storybook build and focused browser execution. No jsdom result establishes
-native timing, positioning, focus or assistive-technology acceptance.
+Coordinator-supervised tenth pool pair passed against exact clean frozen head
+`eab46dce334ffaa58298f5cec8b4d1efcd127cef` in the recovered managed worktree.
+This worker independently read `evidence.json`, browser/type logs and JSON results
+before this report-only update. **4 passed**: both focused cases in Chromium and
+WebKit, zero skips, flakes or unexpected results. Firefox was not selected or retried;
+its permission prerequisite and manual/device/AT acceptance remain open.
+
+Runtime: Node **24.21.0**, pnpm **10.29.3**, Playwright **1.63.0**, macOS/Darwin
+27.0.0. Pool owner `browser-pool:44639:0f882594-354c-49e8-9618-cedbd73dfeb3`,
+coordinator queue owner `01a1164f-41db-7f30-aaf9-f20133b6566f`, slot1, port6274.
+This worker ran no build/browser/server; the coordinator staged these commands:
+
+- `pnpm exec storybook build --output-dir /Users/thomashall/.codex/worktrees/batch13-control-tooltip-3440/sg-ui/artifacts/browser-pool/2e7ab30a-7239-44bb-b228-546ecb3013b5/storybook`: passed.
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- `pnpm exec playwright test tests/browser/batch13-control-tooltip.spec.ts --project=chromium --project=webkit`: **4 passed**.
+
+Evidence token: `2e7ab30a-7239-44bb-b228-546ecb3013b5`. Retained evidence, build/type/browser
+logs, JSON results, HTML report and traces are under that UUID in the recovered
+worktree's ignored `artifacts/browser-pool/` directory. Browser interval:
+2026-10-07 10:15:33–10:16:09 America/Chicago. Initial/final head matched; final
+working-tree status was clean. Initial/final immutable build SHA-256 matched:
+`1421ec782a6ee9f6fe56339133c386784e9ba9537f2e53ecdbf6a3b5d5975f8e`.
+No rebuild or source/report/head mutation occurred during either pooled job.
+
+Native assertions cover keyboard description and Escape focus, detached/replaced
+portal cleanup, independent theme/direction/language/token scopes, disabled native
+button Tab/hover behavior, and pending hover notification invalidation. This is
+focused browser evidence, not a complete matrix or spoken AT acceptance.
 
 ## Limits and follow-up scope
 
@@ -134,3 +159,13 @@ Recovery dependencies: `pnpm install --frozen-lockfile` passed on Node 24.19.0 /
 pnpm 10.29.3 using one atomic `/tmp/sgui-install-slots` lease with this owner token;
 owner-checked finally/trap released only its own lease. No tracked dependency
 changes. Log: `/tmp/sgui-batch13-tooltip-recovery-install.log`.
+
+
+## Final completion checkpoint
+
+The coordinator released the worktree after both pooled jobs settled and authorized
+only report finalization. This final commit changes this report alone; no additional
+native/build job was run. GitHub push service errors are an external checkpoint:
+keep the local report commit for coordinator integration and do not repeatedly retry.
+Draft PR #82 remains attached; its pushed tested head is the frozen pool head above.
+The exact final local report commit is sent to the coordinator separately.
