@@ -64,8 +64,43 @@ pnpm exec playwright test tests/browser/batch65-side-navigation-native-flow.spec
 ```
 
 Story ID: `navigation-sidenavigation--native-hierarchy`.
-Firefox/WebKit are deferred checkpoints, not established evidence. Browser runtime
-results, packed consumers and current-head CI remain unverified here. Actual
+Firefox/WebKit are deferred checkpoints, not established evidence. Packed consumers and current-head CI remain unverified here; the coordinator
+Chromium result is recorded below. Actual
 browser chrome zoom, physical-device input, spoken assistive technology and broader
 M-09/U/X acceptance remain open. This report makes no completion-checkbox claim;
 coordinator alone owns integration and acceptance reconciliation.
+
+
+## Coordinator Chromium evidence (2026-10-07)
+
+Frozen worker source head: `9531c1fe3af95b99f4b4ee441f81618c96471d54`.
+Actual tested combined candidate: `5cc976dc1b9af6ced3980ec0e93fe930a9a8237b`
+(wave30), in the coordinator's `batch45-shared-native-candidate/sg-ui` worktree.
+The attribution record `/tmp/sgui-batch45-candidate-wave30-attribution.json`
+identifies this worker head and five file SHA-256 digests; all five matched the
+frozen worker files when this evidence was reviewed. This report-only follow-up
+preserves every implementation, story, unit-test and browser-spec byte.
+
+The fresh immutable Storybook snapshot used build digest
+`6978ebf422790330db7d1a041dfa973e0d3f01c06362a9afbefb43719c5a6ee0`.
+Root evidence records matching initial/final candidate head, source digest and
+build digest, plus settled owned commands. The exclusive Chromium shard passed
+**4/4**: light/normal, light/200% text, dark/normal and dark/200% text. Playwright
+reports 6.804 seconds, zero skipped, unexpected or flaky cases. The browser
+command used the anchored selection
+`(?:^|/)tests/browser/batch65-side-navigation-native-flow\.spec\.ts$`
+with `--project=chromium`; no test filter omitted any of the four cases.
+
+Evidence files:
+
+- Root: `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/evidence.json`.
+- Shard: `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/side-navigation-native-flow/evidence.json`.
+- Results/log: that shard's `results.json` and `browser.log`.
+
+The root snapshot failed in the separate pointer-drop-focus scope; its overall
+run is not a passing aggregate. This SideNavigation shard is independently green.
+No redundant build, browser run or server was started for this report update.
+Firefox/WebKit, actual browser chrome zoom, physical-device input, spoken assistive
+technology and broader M-09/U/X gates remain pending. Coordinator alone integrates
+this reviewed worker history and reconciles acceptance; the combined candidate is
+not an integration commit for this slice.
