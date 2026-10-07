@@ -237,3 +237,58 @@ The coordinator separately owns the touchscreen driver correction. Source/report
 are frozen again at the successor commit in the completion handoff. No independent
 browser/build/server/fullcheck, dev integration, GitHub dispatch or broad acceptance
 closure occurred. Firefox/WebKit, device/AT and M-18/G/U/X/R/Z limits remain open.
+
+## Wave 34 — settled Chromium proof and report-only finalization
+
+Coordinator's independent correction admission passed. Testing-only candidate
+`12db3601e7fa0707c7c8d43f6e04c7fabf3c52ae` in
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui` tested
+worker executable HEAD `c7634ceb77453b0566814cf78196f875a819c65a`.
+Exact attribution is retained in `/tmp/sgui-batch45-candidate-wave34-attribution.json`:
+batch 59's baseline is `352dc493f64520f544b489d656d30972ea63727b`, and both executable
+hashes match this worktree and the preceding handoff. Batch 48 fixture/spec attribution
+is worker `573f31b68b742a2edfc43af1bdd92231900c6b65`; its executable hashes remain the
+corrected batch 48 hashes recorded earlier. Batch 72 attribution is worker
+`24bd3b9ba9fa7c9fd78421bdbe67e9379b29b171`; its separate editor suite is concurrent
+snapshot context, not work or acceptance owned by this batch.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/46471bab-1194-490a-bbc4-86adfcbb76e7/`.
+Read-only inspection verified the root `evidence.json` and each individual
+`results.json`. The root records identical initial/final candidate HEAD,
+source digest `96336b42b6263065483d14b25e5d7193e86d4d864f544b9b135f2b864eb5b110`,
+and build digest `867868632be1585f81d0a8d3b00088e917f6d69e4e561cae22ae6b9698d97933`;
+final git status is empty and owned commands settled. Coordinator attests that
+leases were released. One fresh Storybook build and browser typecheck preceded
+four disjoint Chromium sessions, all using that immutable build. Total 44.299s;
+browser window 9.638s. Coordinator reports peak load 4.727 and unchanged swap-used
+bytes. Node 24.19.0, pnpm 10.29.3 and Playwright 1.63.0 are recorded in the evidence.
+
+| Session / scope | Actual Chromium result |
+| --- | --- |
+| `pointer-reorder-invalidation` — batch 48 unchanged dataset/identity replacement and cross-grid release spec | **3/3 pass**: trusted invalidated drops emit no stale requests, clear affordances and restore the source handle; colliding-ID cross-grid cancellation preserves ownership. |
+| `grid-reorder-regression` — existing `reorder.spec.ts` | **5/5 pass**: first-gesture native before/after drop focus, outside cancellation and rollback, selection/sort boundaries, and emulated-touch Move commit/rollback. Coordinator's separately owned driver correction is part of the tested candidate. |
+| `grid-pointer-focus` — existing `batch01-grid-reorder.spec.ts` | **3/3 pass**: Strict Mode selected-row keyboard cancellation, source focus/no requests across remount, keyboard Move pending/commit/failure rollback, and pointer Move disabled-action fallback. This verifies the wave 30 cancellation successor natively. |
+| `editor-mixed-formatting` — separate batch 72 scope | **6/6 pass**: light/dark Bold, Italic and Underline native mixed-run history and reload. Included only to identify the complete shared snapshot outcome. |
+
+Combined snapshot: **17 expected passes**, zero skipped, unexpected or flaky cases.
+Batch 59's affected grid proof is **11/11**, including the required batch 48 trusted
+pointer invalidation proof and unchanged existing focus regressions. Source/report
+remained frozen throughout the active run; this worker ran no independent build,
+server, browser or CI command. All prior wave 23/27/30 native failures, classifications
+and local diagnostic/red/green evidence remain intact. Fresh success applies to the
+changed wave 34 candidate; it does not relabel earlier failed candidates as green.
+
+This report-only follow-up leaves both executable hashes unchanged:
+`2d55999e42473069c6128ee569eb0629126768c067f317164ac15c617c38535d` (interaction),
+`3c2e41a441f2f15b44db9dbfdab276caf0547be6e48518f993e8c50a4302a9c1` (regression).
+The final report-only HEAD is supplied in the coordinator completion handoff.
+No further native/build/type/test/CI execution is needed for this prose update.
+
+Ready for coordinator review and individual full-history integration; this worker
+has not integrated into `codex/dev`. Firefox/WebKit await the batch checkpoint.
+Native same-grid pre-frame host focus transfer choices have targeted unit evidence,
+not an additional trusted native case in this run. Physical-device long-press,
+spoken assistive-technology output and broader host/device acceptance remain
+unverified. No M-18/G/U/X/R/Z whole-gate completion, production acceptance,
+main merge, push/publication or permissions/secrets change is claimed.
