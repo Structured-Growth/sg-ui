@@ -3,19 +3,34 @@
 ## Review location and ownership
 
 Verified baseline: `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818`.
-Managed attached worktree: `/Users/thomashall/.codex/worktrees/batch13-control-link/sg-ui`.
+Original managed worktree: `/Users/thomashall/.codex/worktrees/batch13-control-link/sg-ui` (later missing after app restart).
+Attached recovery worktree: `/Users/thomashall/.codex/worktrees/batch13-control-link-recovery/sg-ui`.
 Branch: `codex/batch13-control-link`; draft base: `codex/dev`.
 Implementation/tested source head: `6cb5a34b2690dbbdf4f0da3c1b9f0a844357a55a`.
 Draft PR: [#68](https://github.com/Structured-Growth/sg-ui/pull/68).
-Final report-only commit/head is included in the coordinator handoff; no source
-changes follow the tested implementation.
+Native-tested frozen head: `b9e981ffea6ea6ab0d77125172d480242b2645c7`.
+Final report-only commit/head is included in the coordinator handoff; no Link source
+or spec changes follow the tested implementation.
 
 Exclusive write allowlist:
 - `src/experimental/Link/`
 - `tests/browser/batch13-control-link.spec.ts`
 - `docs/developer/parallel-batch-13/control-link.md`
 
-No other tracked paths changed; primary and other worktrees remain preserved.
+Task edits remain inside that allowlist. Separately authorized common prerequisite:
+normal conflict-free full-history merge of reviewed
+`6b9da4423f1e6675c37571d5552474da25e90258`, producing `b9e981ffea6ea6ab0d77125172d480242b2645c7`.
+Its six harness/config/docs files are shared prerequisite ancestry, not Link task
+edits. Primary and other worktrees remain preserved.
+
+The original checkout was confirmed missing before mutation. The coordinator
+authorized exactly one managed recovery via create_worktree at retained/pushed
+`6e15c6b50a098602f97f775ea1633bd5a5469744`; the returned replacement was attached
+and the retained task branch selected. No foreign metadata pruning, manual
+checkout recreation or primary copying occurred. Link source, spec and report
+were byte-for-byte unchanged by recovery/prerequisite merge. One authorized
+frozen-lock install in the replacement made dependencies ready (Node 24.21.0);
+no tracked dependency changes resulted.
 
 ## Demonstrated defect and fix
 
@@ -57,10 +72,31 @@ Commands (same source tree as implementation head):
 - `git diff --check`: PASS; report relative links resolve.
 
 jsdom logs its pre-existing unsupported native navigation diagnostic in existing
-Link tests; that is not browser evidence. Native browser result: **QUEUED / NOT
-RUN**. Fresh Storybook build and focused spec execution must use the approved
-browser pool after isolation review; the coordinator was notified. No Firefox
-retry, heavy build, full suite, consumer matrix or GitHub CI dispatch was run.
+Link tests; those logs are not browser evidence. The initial native check was
+queued until the reviewed pool and recovery prerequisites were ready. The
+coordinator then ran a fresh immutable Storybook build and the existing focused
+spec at clean head `b9e981ffea6ea6ab0d77125172d480242b2645c7`.
+
+Verified retained artifacts under
+`artifacts/browser-pool/dd10086b-dd74-4279-ab72-13b99912f3f7/`:
+- `evidence.json`: status passed; final head unchanged, final status clean.
+- `results.json`: 3 expected passes (Chromium/Firefox/WebKit, 1 each), 0 skipped,
+  0 unexpected, 0 flaky, all retry 0.
+- Node 24.21.0, pnpm 10.29.3, Playwright 1.63.0, darwin OS release 27.0.0.
+- Pool slot 1, isolated port 6274; browser interval 2026-10-07 10:38:04.882–
+  10:38:09.659 America/Chicago (15:38 UTC).
+- Before/after immutable build SHA-256:
+  `98b3b8042b14b35dceca84cd57c29fdc200e427e6129959a7170ebc405b0da14`.
+
+Coordinator pool commands:
+- `pnpm exec storybook build --output-dir <worktree>/artifacts/browser-pool/dd10086b-dd74-4279-ab72-13b99912f3f7/storybook`
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`
+- `pnpm exec playwright test tests/browser/batch13-control-link.spec.ts --project=chromium --project=firefox --project=webkit`
+
+Native assertions confirm href/target/rel forwarding, host-ref focus, nested text
+pointer and Enter new-tab activation, null opener and no host navigate callback.
+No additional heavy/native run was launched by this worker; no unchanged Firefox
+retry, full suite, consumer matrix or GitHub CI dispatch was performed.
 
 Install used atomic mkdir under `/tmp/sgui-install-slots` (2-slot limit).
 Targeted validations used atomic mkdir under `/tmp/sgui-light-validation-slots`
@@ -78,12 +114,11 @@ native anchor attributes and exposes no owned disabled prop; aria-disabled alone
 does not suppress native activation. No new disabled API or upstream public types
 were manufactured in this slice.
 
-Required next validation: at implementation head (plus this report-only commit),
-approved pool builds fresh Storybook and runs
-`pnpm exec playwright test tests/browser/batch13-control-link.spec.ts` on the
-approved engines. Record exact runtime/head/counts; queued is not passed. Retain
-shared lock `/tmp/sgui-parallel-batch-01-validation.lock` and yield to
-`/tmp/sgui-browser-validation-priority.json` according to pool policy.
+Required focused native validation is now complete for this bounded case. The
+coordinator verified the exact frozen head/digest and released source freeze;
+this final report-only commit does not change the native-tested source or spec.
+Final source review and integration remain coordinator-owned; no merge into dev,
+main or publication was performed by this worker.
 
 Broader source follow-up, if separately assigned: `src/adapters/Link.tsx` and
 `src/adapters/navigation.test.tsx` for native mixed-case `_SELF` routing ownership;
