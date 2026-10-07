@@ -25,16 +25,27 @@ async function open(page: Page) {
 }
 const firstGrid = (page: Page) => page.getByRole('grid', { name: 'Focus courses', exact: true });
 
+async function enterReview(page: Page, grid: ReturnType<typeof firstGrid>, row: number) {
+  // Enter through a grid cell so the collection owns the keyboard focus key.
+  // Direct DOM focus on an off-entry child bypasses React Aria's roving entry.
+  await grid.locator(`tbody [data-grid-row="${row - 1}"][data-grid-field="name"]`).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(grid.getByRole('button', { name: `Inspect Course ${row}`, exact: true })).toBeFocused();
+  await page.keyboard.press('ArrowRight');
+  await expect(grid.getByRole('button', { name: `Review Course ${row}`, exact: true })).toBeFocused();
+}
+
+
 test('refresh retains stable nested focus and both native scroll axes', async ({ page }) => {
   await open(page);
   const grid = firstGrid(page);
   const review = grid.getByRole('button', { name: 'Review Course 8', exact: true });
-  await review.focus();
+  await enterReview(page, grid, 8);
   const container = grid.locator('..');
   await container.evaluate(node => { node.scrollTop = 240; node.scrollLeft = 160; });
   const before = await container.evaluate(node => [node.scrollTop, node.scrollLeft]);
   await page.keyboard.press('Alt+r');
-  await expect(grid).toHaveAttribute('aria-busy', 'true');
+  await expect(page.getByText('Refreshing rows', { exact: true })).toBeVisible();
   await expect(review).toBeFocused();
   await expect.poll(() => container.evaluate(node => [node.scrollTop, node.scrollLeft])).toEqual(before);
   await page.keyboard.press('Enter');
@@ -45,8 +56,10 @@ test('refresh retains stable nested focus and both native scroll axes', async ({
 test('hidden columns, deleted focused rows and empty results retain a grid entry', async ({ page }) => {
   await open(page);
   const grid = firstGrid(page);
-  await grid.getByRole('button', { name: 'Review Course 8', exact: true }).focus();
+  await enterReview(page, grid, 8);
   await page.keyboard.press('Alt+h');
+  await expect(grid.getByRole('columnheader', { name: /Score/ })).toHaveCount(0);
+  await expect(grid.getByRole('button', { name: 'Review Course 8', exact: true })).toHaveCount(0);
   await expect.poll(() => grid.locator('[data-grid-row="7"]').evaluateAll(nodes => nodes.some(node => node.contains(document.activeElement)))).toBe(true);
   const cell = grid.locator('tbody [data-grid-row="7"][data-grid-field="status"]');
   await cell.focus();
@@ -75,8 +88,9 @@ test('another grid and a host action keep focus when the first grid changes', as
   await open(page);
   const other = page.getByRole('grid', { name: 'Independent focus courses', exact: true });
   const review = other.getByRole('button', { name: 'Review Course 2', exact: true });
-  await review.focus();
+  await enterReview(page, other, 2);
   await page.keyboard.press('Alt+e');
+  await expect(firstGrid(page).getByText('No rows available', { exact: true })).toBeVisible();
   await expect(review).toBeFocused();
   await page.getByRole('button', { name: 'Host action', exact: true }).focus();
   await page.keyboard.press('Alt+p');
