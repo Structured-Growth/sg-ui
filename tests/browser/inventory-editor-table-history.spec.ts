@@ -71,7 +71,15 @@ for (const theme of ['light', 'dark']) {
       const selection = window.getSelection();
       return Boolean(selection?.anchorNode && node.contains(selection.anchorNode));
     })).toBe(true);
-    await page.keyboard.press('End');
+    // The table plugin selects the adjacent cell end; End is platform-dependent.
+    await page.keyboard.press('Shift+Tab');
+    await page.keyboard.press('Tab');
+    await expect.poll(() => cells.nth(1).evaluate(node => {
+      const selection = window.getSelection();
+      return Boolean(selection?.isCollapsed && selection.anchorNode?.nodeType === Node.TEXT_NODE &&
+        node.contains(selection.anchorNode) && selection.anchorNode.textContent === 'Second lesson' &&
+        selection.anchorOffset === 'Second lesson'.length);
+    })).toBe(true);
     await page.keyboard.type('!');
     await expect(cells.nth(1)).toHaveText('Second lesson!');
     const afterReload = await saved(page);
