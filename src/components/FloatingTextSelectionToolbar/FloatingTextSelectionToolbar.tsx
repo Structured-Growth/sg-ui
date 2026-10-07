@@ -26,6 +26,22 @@ export type FloatingTextSelectionToolbarProps = {
   "aria-label"?: string;
 };
 
+// WebKit can reveal a retained contenteditable selection during native focus even
+// with preventScroll. Preserve the host's exact offsets across that synchronous
+// call; never clear/recreate its range or chase later host scroll events.
+function focusEditorWithoutScroll(root: HTMLElement | null) {
+  if (!root) return;
+  const offsets: { element: HTMLElement; top: number; left: number }[] = [];
+  for (let element: HTMLElement | null = root; element; element = element.parentElement) {
+    offsets.push({ element, top: element.scrollTop, left: element.scrollLeft });
+  }
+  root.focus({ preventScroll: true });
+  for (const { element, top, left } of offsets) {
+    if (element.scrollTop !== top) element.scrollTop = top;
+    if (element.scrollLeft !== left) element.scrollLeft = left;
+  }
+}
+
 /** Lexical owns document state; this overlay only requests commands for its saved selection. */
 export const FloatingTextSelectionToolbar = forwardRef<HTMLDivElement, FloatingTextSelectionToolbarProps>(function FloatingTextSelectionToolbar({
   boundaryRef, onRequestLink, onRequestLinkMouseDown, className, style, "aria-label": ariaLabel,
@@ -87,7 +103,7 @@ export const FloatingTextSelectionToolbar = forwardRef<HTMLDivElement, FloatingT
         if ((!rect.width && !rect.height) || bounds.right <= bounds.left || bounds.bottom <= bounds.top ||
           rect.bottom < bounds.top || rect.top > bounds.bottom || rect.right < bounds.left || rect.left > bounds.right) {
           setVisible(false);
-          if (focused) { dismissedSelection.current = selection.clone(); editor.getRootElement()?.focus({ preventScroll: true }); }
+          if (focused) { dismissedSelection.current = selection.clone(); focusEditorWithoutScroll(root); }
           return;
         }
         savedSelection.current = selection.clone();
