@@ -285,3 +285,9 @@ transaction building blocks. Apply migrated boundaries to these files; the
 surrounding AppDataGrid directory still uses the legacy renderer/types until
 later M-16 batches land. The composed Catalog grid processing story exercises
 the owned toolbar/pagination integration without claiming catalog completion.
+
+The next M-16 internal batch adds ownedGridColumns, ownedGridCells and
+ownedGridParts with owned helper/presentation contracts. Apply migrated boundaries
+to these files and their stories too. Legacy public helpers, cell parts and the
+catalog renderer remain pending; no whole-directory completion is implied.
+See the internal cell/presentation section in the catalog grid contracts.

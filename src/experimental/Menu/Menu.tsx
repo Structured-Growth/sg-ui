@@ -7,7 +7,7 @@ import type { Density } from "../../foundation/ThemeScope";
 import type { ButtonProps } from "../Button/Button";
 import { useNavigationAdapter } from "../../adapters/navigation";
 import styles from "./Menu.module.css";
-export interface MenuItem { id: string; label: string; icon?: ReactNode; disabled?: boolean; href?: string; replace?: boolean; tone?: "default" | "danger"; selected?: boolean; shortcut?: string; separatorBefore?: boolean; }
+export interface MenuItem { id: string; label: string; icon?: ReactNode; disabled?: boolean; href?: string; target?: "_blank" | "_self" | "_parent" | "_top"; rel?: string; replace?: boolean; tone?: "default" | "danger"; selected?: boolean; shortcut?: string; separatorBefore?: boolean; }
 export interface MenuProps {
   trigger: ReactElement<ButtonProps>;
   label: string;
@@ -33,8 +33,9 @@ export function Menu({ trigger, label, density, selectionMode = "multiple", erro
     if (!group || item.separatorBefore || (group[0].selected === undefined) !== (item.selected === undefined)) groups.push([item]);
     else group.push(item);
   }
-  const renderItem = (item: MenuItem) => <AriaMenuItem id={item.id} textValue={item.label} href={item.href} onClick={event => {
-    if (item.href && !/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(item.href) && !event.defaultPrevented && event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+  const renderItem = (item: MenuItem) => <AriaMenuItem id={item.id} textValue={item.label} href={item.href} target={item.target}
+    rel={item.target === "_blank" ? [...new Set([...(item.rel?.split(/\s+/).filter(Boolean) ?? []), "noopener", "noreferrer"])].join(" ") : item.rel} onClick={event => {
+    if (item.href && (!item.target || item.target === "_self") && !/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(item.href) && !event.defaultPrevented && event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
       event.preventDefault(); navigate(item.href, { replace: item.replace });
     }
   }} isDisabled={item.disabled} data-tone={item.tone} className={styles.item}>

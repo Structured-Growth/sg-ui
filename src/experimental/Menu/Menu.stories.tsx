@@ -8,3 +8,4 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const RetryableActionError: Story = { args: { defaultOpen: true, errorMessage: "Unable to complete this action. Try again." } };
+export const LinkTargets: Story = { args: { items: [{ id: "course", label: "Open course", href: "/courses/1" }, { id: "reference", label: "Open reference in a new tab", href: "https://example.com", target: "_blank", rel: "help" }] } };

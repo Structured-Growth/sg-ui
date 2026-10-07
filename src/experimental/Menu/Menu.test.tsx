@@ -62,3 +62,16 @@ it("exposes host-controlled selected choices alongside plain commands", async ()
   await user.click(screen.getByRole("menuitemradio", {name:"Right"})); expect(action).toHaveBeenCalledExactlyOnceWith("right");
   expect(screen.queryByRole("menu")).toBeNull();
 });
+it("preserves target and rel for native link actions without routing other browsing contexts", async () => {
+  const { SGNavigationProvider } = await import("../../adapters/navigation");
+  const { fireEvent } = await import("@testing-library/react");
+  const navigate = vi.fn(); const user = userEvent.setup();
+  render(<SGNavigationProvider value={{ pathname: "/", navigate }}><Menu label="Link targets" items={[{ id: "new", label: "New tab", href: "/course", target: "_blank", rel: "author" }, { id: "parent", label: "Parent", href: "#parent", target: "_parent", rel: "help" }]} trigger={<Button>Targets</Button>} /></SGNavigationProvider>);
+  await user.click(screen.getByRole("button", { name: "Targets" }));
+  const link = screen.getByRole("menuitem", { name: "New tab" });
+  expect(link.getAttribute("target")).toBe("_blank"); expect(link.getAttribute("rel")).toBe("author noopener noreferrer");
+  fireEvent.click(link); expect(navigate).not.toHaveBeenCalled();
+  if (!screen.queryByRole("menu")) await user.click(screen.getByRole("button", { name: "Targets" }));
+  const parent = screen.getByRole("menuitem", { name: "Parent" });
+  expect(parent.getAttribute("rel")).toBe("help"); fireEvent.click(parent); expect(navigate).not.toHaveBeenCalled();
+});

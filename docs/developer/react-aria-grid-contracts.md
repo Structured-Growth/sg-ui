@@ -238,3 +238,29 @@ tests/stories, pnpm check, build-storybook and relevant packed/native evidence.
 Do not weaken registered interaction guards or claim broad G/U/X/R/Z acceptance
 from the existing representative proofs. No legacy foundation removal before
 G-27 and the remaining catalog consumers pass.
+
+## Internal cell and presentation batch
+
+M-16 now has internal `ownedGridColumns`, `ownedGridCells` and `ownedGridParts`
+modules. They are preparatory implementations; the exported catalog helpers and
+renderer still use the retired engine. Do not import these internal paths from a
+consumer application. The next integration batch will map the public names to
+these contracts with the breaking consumer documentation.
+
+The column builder validates declared field IDs and positive finite sizing,
+without enumerating host row keys. Layout normalization locks the first text/link/
+copyable field and menu fields, puts menu fields last, discards stale fields, and
+clamps committed widths. Bounded weighted flex allocation preserves numeric
+width overrides and returns minimum widths when the container must scroll.
+Header sort changes promote the chosen field to priority one in the same ordered
+sort rules. Container measurement and pointer/keyboard resizing remain pending.
+
+Cell display callbacks receive original generic rows and raw values. `formatValue`
+returns display text; `renderCustomCell` is the ReactNode escape hatch. Display
+formatting never replaces the processing accessor. Date display accepts host
+locale/time zone and a formatter; date-only input uses UTC calendar fields so it
+cannot shift day. JSON is escaped content with fallback for cyclic values. Copy
+controls announce translated success/failure; image failures show fallback; link
+and menu actions preserve native target/rel and host routing. Menu items support
+pending/disabled state and one `onPress(row)` callback. Status parts distinguish
+initial loading, retained-row refresh, empty, no results and retryable host errors.

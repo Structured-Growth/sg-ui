@@ -15,11 +15,11 @@ const migratedDirectories = ['AppInlineProgress', 'AppOperationSteps', 'Editable
 for (const name of migratedDirectories.filter(name => name !== 'Typefaces')) {
   componentFiles.add(`src/components/${name}/${name}.tsx`);
 }
-async function visit(dir) {
+async function visit(dir, accept = () => true) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const path = `${dir}/${entry.name}`;
-    if (entry.isDirectory()) await visit(path);
-    else if (/\.(tsx?|css)$/.test(path)) {
+    if (entry.isDirectory()) await visit(path, accept);
+    else if (accept(entry.name) && /\.(tsx?|css)$/.test(path)) {
       const code = await readFile(path, 'utf8');
       assert(!/@mui|@emotion|Mui[A-Z]|\bsx[=:]/.test(code), `Retired styling/foundation in ${path}`);
       assert(!/from\s+["'](?:@structured-growth\/sg-ui|\.\.\/index|\.\.\/\.\.\/index)["']/.test(code), `Internal root import in ${path}`);
@@ -72,7 +72,8 @@ for (const name of migratedDirectories.filter(name => name !== 'Typefaces')) {
 }
 // M-16 is split into implementation batches. Audit the owned processing/model
 // files now without claiming that the surrounding legacy catalog has migrated.
-for (const file of ['ownedGridModel.ts', 'ownedGridState.ts', 'ownedGridProcessing.stories.tsx']) {
+await visit('src/components/AppDataGrid', name => name.startsWith('ownedGrid'));
+for (const file of ['ownedGridModel.ts', 'ownedGridState.ts', 'ownedGridColumns.ts', 'ownedGridCells.tsx', 'ownedGridParts.tsx', 'ownedGridProcessing.stories.tsx', 'ownedGridCells.stories.tsx', 'ownedGridParts.stories.tsx']) {
   await auditDependencies(resolve(`src/components/AppDataGrid/${file}`));
 }
 console.log('Owned foundation import, layer and token checks pass.');

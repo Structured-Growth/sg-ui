@@ -950,3 +950,57 @@ registered interaction/catalog integration using these shared modules. Complete
 required checks/commit/push and dispatch the next local sg-ui chat; no overlapping
 checkout edits after dispatch. Continue M-17–M-19 and M-36/M-37 plus required
 G/U/X/R/Z reconciliation until the backlog is handled.
+
+## Catalog grid cell and presentation batch
+
+M-16 linked implementation on 2026-10-06 in draft PR #1. Internal
+`ownedGridColumns`, `ownedGridCells` and `ownedGridParts` now implement all nine
+cell presentations, header sort choices, host row subheaders and status states.
+The exported AppDataGrid renderer, types, cell parts and helper functions still
+use the retired engine; M-16 is not complete. No public entry point was added for
+these preparatory modules.
+
+Column definitions use unconstrained generic rows and owned callbacks, validate
+fields and sizing, normalize visibility/order/committed widths, and allocate
+bounded weighted flex widths. Layout locks the first text/link/copyable column
+and menu columns and puts actions last. Header choices update the canonical
+ordered rules. Container measurement, resizing and registered catalog interaction
+remain pending.
+
+Cells keep raw processing values separate from display text, host locale/time
+zone/formatter support, literal date-only days, escaped JSON/cyclic fallback,
+image error fallback and translated clipboard result announcements. Async copy
+completion is ignored after a value change/unmount. Menu actions preserve host
+row identity, unavailable/pending state and single activation; owned Menu now
+supports native target/rel, adds safe new-tab rel values and routes same-context
+relative links through the host adapter. Status parts distinguish initial loading,
+refresh beside retained rows, empty, no results and host retryable errors. Row
+subheader title editing has a keyboard action in addition to double click.
+
+Strict source/transitive/CSS-token and built-declaration checks include these
+internal modules and stories without exempting the surrounding legacy renderer.
+Tests and Storybook examples are colocated. Broad grid acceptance, M-17–M-19,
+M-36/M-37 and G/U/X/R/Z remain open.
+
+Validation: `pnpm check` passed 126 files / 659 tests, including 20 new
+column/cell/part/menu regressions; four foundation tests and four release tests,
+typecheck/build/package entry imports and declaration guards passed.
+`pnpm build-storybook` passed with existing module-directive/sourcemap and chunk
+warnings. Fresh packed React 19.2.3 and 18.3.1 fixtures passed SSR/hydration-entry,
+Vite/CSS and no-retired-peer checks. Both tarballs also passed direct internal
+cell/status/column SSR assertions (these are internal tests, not new public exports).
+
+Chrome native evidence: pending menu action skipped with ArrowDown; Enter on
+Open course called host navigation and restored the row trigger; native copy
+announced Copied. Header ascending choice set aria-sort; Retry restored Refreshing
+rows while retaining the displayed course; keyboard Edit title updated the host
+section title. German host locale rendered 6. Okt. for date-only and 5. Okt. for
+the Los Angeles instant. Browser warning/error logs were empty. Screenshot:
+`/tmp/sgui-m16-owned-cells.png`. This is representative cell/part evidence, not
+full catalog grid focus/scroll, touch, screen-reader, zoom or performance acceptance.
+
+Next implementation: registered React Aria catalog interaction with the owned
+processing/cell/layout modules, per-concern controllers, native ref and container
+measurement/resize behavior; then public AppDataGrid/helpers integration and
+strict whole-dependency/declaration checks. Follow with M-17 shared shell, M-18
+reorder, M-19 learning composition and required remaining M/G/U/X/R/Z work.
