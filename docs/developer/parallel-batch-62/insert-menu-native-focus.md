@@ -1,4 +1,4 @@
-# M-27 insertion menu native focus evidence preparation
+# M-27 insertion menu native focus evidence
 
 Base: `fc4f9fca9be4aaace869f0944baccaeed921e5b8`.
 Worktree: `/Users/thomashall/.codex/worktrees/batch62-insert-menu-native-focus/sg-ui`.
@@ -54,9 +54,10 @@ pnpm exec playwright test tests/browser/batch62-insert-menu-native-focus.spec.ts
 ```
 
 Story ID: `editors-insertcontentmenucontrol--native-insertion-handoff`.
-The coordinator composes the attributed shared candidate and builds Storybook
-once before this run. No worker Storybook build, browser/server, full check or CI
-run was performed. Chromium is **pending**, not reported as passed.
+The coordinator composed the attributed shared candidate and built Storybook
+once before the run. No worker Storybook build, browser/server, full check or CI
+run was performed. The five focused Chromium cases **passed**; see the exact
+candidate attribution and outcomes below.
 
 The cases assert native keyboard activation for all three commands, one delivery,
 no form submission, dialog initial focus and return on Escape/host completion,
@@ -78,4 +79,52 @@ The menu-open, no-request and form-safety assertions remain; unavailable-item
 request/form assertions also run immediately after its pointer click. Programmatic
 trigger focus is setup only; native keyboard presses perform the menu entry.
 Browser TypeScript and diff checks passed after this bounded spec/report correction.
-No independent native run was performed; shared Chromium admission remains pending.
+No independent native run was performed. The subsequent shared Chromium run
+passed all five cases with these corrected pointer assertions.
+
+## Wave30 executed Chromium evidence
+
+On 2026-10-07, the coordinator tested candidate
+`5cc976dc1b9af6ced3980ec0e93fe930a9a8237b` with Node `v24.19.0`.
+The attributed worker source head was
+`a059ff9a1abf55193a8ba82d68f4e500d871ddc5`, containing prepared commit
+`4bedee6c2b03fb8ae9477f3c6851b9d0a3920e19` and its bounded pointer correction.
+The worker head is not the tested candidate head. All five worker file digests
+matched the wave30 attribution before this report-only finalization; source,
+story, spec and unit files remain byte-identical.
+
+Evidence files (local coordinator artifacts):
+
+- Root: `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/evidence.json`.
+- Shard: `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/insert-menu-native-focus`.
+- Attribution: `/tmp/sgui-batch45-candidate-wave30-attribution.json`.
+
+The shard ran on Chromium, slot2/port6615, from
+`2026-10-07T18:11:55.426Z` to `2026-10-07T18:12:01.549Z` (13:11–13:12 CDT).
+Its recorded build digest is
+`6978ebf422790330db7d1a041dfa973e0d3f01c06362a9afbefb43719c5a6ee0`.
+Exact scoped selection:
+
+```sh
+pnpm exec playwright test '(?:^|/)tests/browser/batch62-insert-menu-native-focus\.spec\.ts$' --project=chromium
+```
+
+All five selected cases passed, with no failed/skipped case in this shard:
+
+1. Native Image command: one request, safe host form, host dialog focus and Escape return.
+2. Native Horizontal Rule command: one request, safe host form and trigger focus return.
+3. Native Columns Layout command: one request, safe host form, host dialog focus and completion return.
+4. Open-menu callback replacement and current availability on native entry.
+5. Unavailable-command entry skips, Escape cancellation and verified disabled pointer/tab behavior.
+
+The shared root outcome was failed because the unrelated `pointer-drop-focus`
+shard failed; that outcome is preserved and is not represented as a full candidate
+pass. This insertion shard passed completely. Root cleanup records `owned commands
+settled`; the coordinator confirms immutable source/build and released locks.
+No redundant validation/build was run during report finalization.
+
+This closes the bounded missing Chromium insertion-command/focus evidence gap.
+Firefox/WebKit remain pending at the shared checkpoint. Physical-device behavior,
+spoken assistive-technology output, whole M-27/broad editor gates and production
+acceptance remain open. Only the individual reviewed worker history is eligible
+for coordinator integration; the whole shared candidate is not this deliverable.
