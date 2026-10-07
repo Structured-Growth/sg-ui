@@ -105,7 +105,14 @@ for (const { width, rtl } of [{ width: 360, rtl: false }, { width: 320, rtl: tru
       await page.keyboard.press('Escape');
       await expect(columns).toBeFocused();
       const clear = page.getByRole('button', { name: 'Clear and close search', exact: true });
-      await tabTo(page, clear);
+      // Clear precedes Columns in DOM order. Stay within the document rather
+      // than assuming forward Tab wraps through browser chrome in every engine.
+      await page.keyboard.press('Shift+Tab');
+      await expect(clear).toBeFocused();
+      await page.keyboard.press('Shift+Tab');
+      await expect(input).toBeFocused();
+      await page.keyboard.press('Tab');
+      await expect(clear).toBeFocused();
       await page.keyboard.press('Enter');
       await expect(search).toBeFocused();
       await expect(input).toHaveCount(0);
