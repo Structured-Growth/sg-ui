@@ -45,7 +45,7 @@ controlled authority, native ref focus and validation descriptions. Added tests
 also exercise native attributes and combined host/field/error descriptions.
 Host labels and validation text remain host supplied.
 
-## Validation
+## Initial validation and queued readiness
 
 Frozen install passed under an owned atomic install slot, using system Node
 `26.5.0`, pnpm `10.29.3`. A subsequent runtime selection used Node `24.21.0`,
@@ -76,8 +76,9 @@ validation supersedes blanket full-suite requirements for this dev task.
 
 ## Review status, limits and next scopes
 
-Status: incomplete pending mandatory fresh focused native evidence. The draft
-PR remains reviewable; unit/type/guard passes are not native acceptance.
+Status: the bounded task is complete with the final focused Chromium/WebKit
+evidence below. The earlier queued and failed records are retained as history;
+unit/type/guard passes alone were not native acceptance. Broad gates remain open.
 
 Ready source/spec commit remains `a16a0588746586b1f1b5489910ebacb6fd9061d9`;
 subsequent commits affect only this report. Exact clean ready/report head is
@@ -166,3 +167,42 @@ this report. Its exact clean committed HEAD is sent to the coordinator for a fre
 focused rerun with the same 2 cases per engine. No own build, browser or server was
 started. Native acceptance remains incomplete pending that rerun; Firefox and
 manual/device/assistive-technology gates remain unverified.
+
+## Final focused native evidence and completion
+
+The coordinator released the worktree after the tenth supervisor completed.
+Fresh pooled evidence independently inspected here:
+`artifacts/browser-pool/06da65b7-ddad-45ea-91d2-c463aac09d60`.
+Exact tested clean source/report head:
+`719836343fc38902e1c9a21107bc4e6bc83cf14b`.
+Source tree: `99ad6a5a2433520c87ad718fe30e8687ac94b47d`.
+Runtime: Node `24.21.0`, pnpm `10.29.3`, Playwright `1.63.0`, macOS `27.0.0`.
+Pool owner: `browser-pool:44639:0f882594-354c-49e8-9618-cedbd73dfeb3`,
+coordinator queue owner `01a1164f-41db-7f30-aaf9-f20133b6566f`, slot 0 / port 6273.
+
+- `pnpm exec storybook build --output-dir <evidence>/storybook`: fresh build passed.
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- `pnpm exec playwright test tests/browser/batch13-control-textarea.spec.ts --project=chromium --project=webkit`:
+  4 passed (2 per engine), zero skipped/flaky/unexpected cases. The native cases
+  verify actual reset clicks preserve the prevented draft and callback count,
+  accepted reset silently restores the latest default and controlled host value,
+  complete external FormData, native ref focus/attributes and complete validation
+  description associations with the original accessible name.
+- First/final immutable build digest:
+  `4eb09922e12a59b9810aa5e4b3f56371841b69dc66c6a0d647c9f694bee3905a`.
+  Final HEAD equals tested HEAD and final working-tree status is empty.
+
+The correction is validated without a further TextArea implementation change.
+The final native result plus 8 passing colocated tests, source/browser typechecks,
+foundation guard and diff checks support this bounded U-05/U-18 slice. No full
+suite, Firefox, physical-device, manual AT, IME or autofill acceptance is claimed.
+The separately reserved Checkbox reset-policy callback/prevention audit remains
+necessary; this task corrected its own contaminated story rather than editing
+another control. Broad acceptance gates remain open.
+
+This completion commit changes only this report. No further build/browser/server
+or other heavy job was started. The coordinator reports GitHub InternalServerError
+on pushes and requests preserving local commits without repeated retries; this
+report remains local, with its exact final head sent to the coordinator. The draft
+PR still contains the tested source head `7198363`. The user-planned app restart
+for Firefox permissions is a preserved prerequisite, not a tested outcome.
