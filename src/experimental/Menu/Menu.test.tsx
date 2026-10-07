@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { Menu } from "./Menu";
@@ -7,6 +7,15 @@ import { Button } from "../Button/Button";
 import { Provider } from "../Provider/Provider";
 afterEach(cleanup);
 const items = [{ id: "edit", label: "Edit" }, { id: "locked", label: "Unavailable", disabled: true }, { id: "delete", label: "Delete", tone: "danger" as const }];
+it("gives the committed first enabled item native focus after programmatic Alt+ArrowDown entry", async () => {
+  const user = userEvent.setup();
+  render(<Menu label="Virtual entry" items={[{ id: "blocked", label: "Blocked first", disabled: true }, ...items]} trigger={<Button>Virtual actions</Button>} />);
+  act(() => screen.getByRole("button", { name: "Virtual actions" }).focus());
+  await user.keyboard("{Alt>}{ArrowDown}{/Alt}");
+  const first = screen.getByRole("menuitem", { name: "Edit" });
+  await waitFor(() => expect(first.getAttribute("data-focused")).toBe("true"));
+  await waitFor(() => expect(document.activeElement).toBe(first));
+});
 it("skips disabled commands, activates once, closes and returns focus", async () => {
   const action = vi.fn(); const user = userEvent.setup();
   render(<Menu label="Course actions" items={items} onAction={action} trigger={<Button>Actions</Button>} />);
