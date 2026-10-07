@@ -44,7 +44,9 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(function Switch(
     };
   }, [checked, defaultChecked]);
   return <AriaSwitch ref={root} aria-labelledby={id} aria-describedby={description ? id + "-description" : undefined} isSelected={checked ?? selected} onChange={next => {
-    if (resetting.current) return;
+    // Label presses can reach React Aria even when an ancestor fieldset disables
+    // the input. Native :disabled also respects the first-legend exception.
+    if (resetting.current || root.current?.querySelector("input")?.matches(":disabled")) return;
     if (checked === undefined) setSelected(next);
     onCheckedChange?.(next);
   }}

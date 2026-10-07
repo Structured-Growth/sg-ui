@@ -25,6 +25,21 @@ it("does not request changes through the label of a native disabled fieldset", a
  expect(change).not.toHaveBeenCalled();
  expect((screen.getByRole("switch") as HTMLInputElement).checked).toBe(true);
 });
+it("allows the native fieldset legend exception and re-enabled label activation", async () => {
+ const change = vi.fn(); const user = userEvent.setup();
+ const { rerender } = render(<fieldset disabled>
+  <legend><Switch label="Legend updates" onCheckedChange={change} /></legend>
+  <Switch label="Paused updates" onCheckedChange={change} />
+ </fieldset>);
+ expect(screen.getByRole("switch", { name: "Paused updates" }).matches(":disabled")).toBe(true);
+ expect(screen.getByRole("switch", { name: "Legend updates" }).matches(":disabled")).toBe(false);
+ await user.click(screen.getByText("Legend updates"));
+ expect(change).toHaveBeenCalledExactlyOnceWith(true);
+ change.mockClear();
+ rerender(<fieldset><legend><Switch label="Legend updates" onCheckedChange={change} /></legend><Switch label="Paused updates" onCheckedChange={change} /></fieldset>);
+ await user.click(screen.getByText("Paused updates"));
+ expect(change).toHaveBeenCalledExactlyOnceWith(true);
+});
 it("preserves independent names and a controlled rejection through prevented reset", async () => {
  const change = vi.fn(); const user = userEvent.setup();
  const { container } = render(<form onReset={event => event.preventDefault()}>
