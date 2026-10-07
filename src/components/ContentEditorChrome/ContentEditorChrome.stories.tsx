@@ -75,8 +75,8 @@ export function NativeEditorChromeHost() {
       suppressContentEditableWarning style={{ minHeight: 100, padding: tokens.space2, border: `1px solid ${tokens.divider}`, overflowWrap: "anywhere" }}>
       Host document text stays in this unchanged native node.
     </div>
-    <output data-testid="host-requests">{JSON.stringify(requests)}</output>
-    <output data-testid="host-anchor">{anchor}</output>
+    <output data-testid="host-requests" style={{ display: "block", overflowWrap: "anywhere" }}>{JSON.stringify(requests)}</output>
+    <output data-testid="host-anchor" style={{ display: "block", overflowWrap: "anywhere" }}>{anchor}</output>
   </div>;
 }
 export const NativeHostComposition: Story = { render: () => <NativeEditorChromeHost /> };

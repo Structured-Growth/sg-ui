@@ -124,3 +124,41 @@ light lease, log `/tmp/sgui-editor-chrome42-browser-types-wave22-correction.log`
 The corrected head awaits coordinator fresh native validation; the original wave22
 failure remains red and is not represented as a pass. No independent heavy/native
 run or unchanged retry occurred.
+
+
+## Wave23 red evidence and host diagnostic reflow correction
+
+Coordinator executed corrected owned files from `cc325b2ee53bce541ed9923658dbf4971f8803ed`
+in clean actual candidate `c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`, with unchanged
+source/build hashes. Attribution `/tmp/sgui-batch45-candidate-wave23-attribution.json`.
+Observed **0 passed / 4 failed / 0 skipped / 0 flaky**. All four now pass native
+menu entry/action/dismissal and editor return, live replacements, zoom/pressed/count
+checks, every unobscured-focus assertion and both component-wrap assertions. They
+fail at spec line111, document-wide `documentElement.scrollWidth <= innerWidth + 1`,
+not at the focus visibility helper. This is partial assertion evidence, not a
+passing native case or acceptance.
+
+Preserved wave23 artifacts:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457/editor-chrome-native/`.
+Inspected browser.log, error context and light320 failure screenshot. The screenshot
+shows the fixture's raw JSON request-count output continuing horizontally past the
+viewport, while chrome/toolbar/editor fit. Those host diagnostic outputs were
+inline unbroken JSON text with no wrapping style. Classification: host fixture
+layout defect, not a demonstrated product chrome/toolbar overflow or scroll-owner
+defect. The page/document owns scrolling; no library or fixture scroll container
+was introduced. The earlier pre-browser PATH/cleanup failure is separate environment
+evidence reported by the coordinator, not native proof; actual child Node24.19
+PATH was corrected for this observed wave23 run. Dead lease recovery remains
+coordinator-owned.
+
+The bounded correction makes both host diagnostic outputs block elements with
+native overflowWrap:anywhere. Their exact text/count assertions remain, and the
+spec retains all visibility/component/document overflow assertions. Added a native
+geometry JSON attachment before the global assertion to record viewport/document
+width and each direct host child's bounds/scrollWidth on the next run. No clipping,
+hiding diagnostics, global overflow suppression or product style change occurred.
+Source/story typecheck and browser TypeScript checking passed under an owned light
+lease; logs `/tmp/sgui-editor-chrome42-types-wave23-correction.log` and
+`/tmp/sgui-editor-chrome42-browser-types-wave23-correction.log`.
+Corrected native execution remains coordinator-pending. Original reds are preserved;
+no independent heavy/browser run or unchanged retry occurred.

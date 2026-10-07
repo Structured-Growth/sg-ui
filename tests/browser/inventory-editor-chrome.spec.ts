@@ -108,6 +108,10 @@ for (const theme of ['light', 'dark']) {
       for (const part of ['content-editor-chrome', 'document-editor-toolbar']) {
         expect(await host.locator(`[data-sgui-part="${part}"]`).evaluate(node => node.scrollWidth <= node.clientWidth + 1), `${part} wraps within host width`).toBe(true);
       }
+      await info.attach('host-document-geometry', { contentType: 'application/json', body: JSON.stringify(await host.evaluate(node => ({
+        viewport: innerWidth, documentWidth: document.documentElement.scrollWidth,
+        children: Array.from(node.children).map(child => ({ tag: child.tagName, part: child.getAttribute('data-sgui-part'), testId: child.getAttribute('data-testid'), width: child.getBoundingClientRect().width, scrollWidth: child.scrollWidth })),
+      }))) });
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
       expect(errors).toEqual([]);
       await info.attach('combined-editor-chrome', { body: await host.screenshot(), contentType: 'image/png' });
