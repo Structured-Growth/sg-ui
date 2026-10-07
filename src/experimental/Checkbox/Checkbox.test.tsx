@@ -26,3 +26,31 @@ it("prevents disabled and read-only edits", async () => {
   rerender(<Checkbox label="Available" readOnly onCheckedChange={change} />);
   await user.click(screen.getByRole("checkbox")); expect(change).not.toHaveBeenCalled();
 });
+it("associates its description and validation error without changing its name", async () => {
+  const user = userEvent.setup();
+  render(<form onSubmit={event => event.preventDefault()}>
+    <Checkbox label="Accept terms" name="terms" required description="Required to register" errorMessage="Accept before submitting" />
+    <button type="submit">Submit</button><button type="reset">Reset</button>
+  </form>);
+  const checkbox = screen.getByRole("checkbox", { name: "Accept terms" }) as HTMLInputElement;
+  const description = () => (checkbox.getAttribute("aria-describedby") ?? "").split(/\s+/).map(id => document.getElementById(id)?.textContent).join(" ");
+  expect(checkbox.required).toBe(true);
+  expect(description()).toContain("Required to register");
+  await user.click(screen.getByText("Submit"));
+  expect(checkbox.getAttribute("aria-invalid")).toBe("true");
+  expect(description()).toContain("Accept before submitting");
+  await user.click(screen.getByText("Reset"));
+  expect(checkbox.getAttribute("aria-invalid")).not.toBe("true");
+  expect(description()).not.toContain("Accept before submitting");
+});
+it("omits disabled checked values and serializes mixed state by checked value", () => {
+  const { container } = render(<form>
+    <Checkbox label="Mixed checked" name="mixedChecked" value="yes" mixed defaultChecked />
+    <Checkbox label="Mixed unchecked" name="mixedUnchecked" mixed />
+    <Checkbox label="Disabled" name="disabled" defaultChecked disabled />
+  </form>);
+  const values = new FormData(container.querySelector("form")!);
+  expect(values.get("mixedChecked")).toBe("yes");
+  expect(values.has("mixedUnchecked")).toBe(false);
+  expect(values.has("disabled")).toBe(false);
+});
