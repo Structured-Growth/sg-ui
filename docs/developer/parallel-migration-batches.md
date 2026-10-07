@@ -603,3 +603,26 @@ Wave28 actual filters and case identities attested; four correction suites compl
 - Batch67 progress-steps-native-state, chat01a11782-9fce-7bb3-b120-1d7039d27713, basefc4f9fca9be4aaace869f0944baccaeed921e5b8, scope: src/components/AppInlineProgress/; src/components/AppOperationSteps/; tests/browser/batch67-progress-steps-native-state.spec.ts; docs/developer/parallel-batch-67/progress-steps-native-state.md. Status active. Managedworktreebeforeedits; targetedlightchecks/frozenrootsharednativeproof; exclusive ownership.
 
 Batch60 criterionreport integrated; M04/M05heldonlyboundedmissingFirefox12/32nativeproof, originalC/Whistoricalartifactlimitations explicit. Coordinator reserves existingreadonlyspecs nextsharedbuild. Batch59review caught genuinefocusownership blocker beforecostlynative run; changedregression/sourcepending. No wholeacceptanceupgradesfromboundedchanges.
+
+
+## Wave29–30 velocity and integration — 2026-10-07
+
+Wave29 candidate `f87c8d336932ea70ad3ab9eaea5e4e6b77bc40ec` passed all54 native cases; individual53/46/67 histories integrated. Independent criterion reconciliation accepted whole M04/M05 rows using44 missing Firefox cases and exact source attribution; historical artifact limitations retained, broad manual/device/AT gates open. Whole checklist71/326 (21.8%), required71/320 (22.2%),27 held inventory.
+
+Wave30 testing-only candidate `5cc976dc1b9af6ced3980ec0e93fe930a9a8237b`, proof `80b00fee-f55f-45e8-88dc-4666223d88cc`, used one fresh30.582s build and one typecheck for seven concurrent Chromium sessions. Six complete green suites total25 cases; pointer shard9 passed/2 failed. Total51.325s, peak load5.2803 on10CPU, swap delta0; exact source/build immutable, commands settled and owner leases released. Root aggregate failed; never merge whole candidate.
+
+- Batch61 `keyboard-range-preview` final `522e86e4ad68a030e7c55288d475662c95666c83` independently reviewed and individual full history integrated; unique report-only final delta, exact source/spec bytes verified, complete focused Chromium proof. Firefox/WebKit/manual/whole gates pending. Scope released.
+
+- Batch62 `insert-menu-native-focus` final `d485d0266660da45f4c75bbb12dfb357c6844dc6` independently reviewed and individual full history integrated; unique report-only final delta, exact source/spec bytes verified, complete focused Chromium proof. Firefox/WebKit/manual/whole gates pending. Scope released.
+
+- Batch63 `color-menu-native-transactions` final `192e6f3c38662b72907ff867ec7a3aa41e520daf` independently reviewed and individual full history integrated; unique report-only final delta, exact source/spec bytes verified, complete focused Chromium proof. Firefox/WebKit/manual/whole gates pending. Scope released.
+
+- Batch64 `style-menu-native-selection` final `df81ddcc7358811ffe3cbd15bbc22728437d525c` independently reviewed and individual full history integrated; unique report-only final delta, exact source/spec bytes verified, complete focused Chromium proof. Firefox/WebKit/manual/whole gates pending. Scope released.
+
+- Batch65 `side-navigation-native-flow` final `72710c981a6abb103b411d551057965e0fe676b9` independently reviewed and individual full history integrated; unique report-only final delta, exact source/spec bytes verified, complete focused Chromium proof. Firefox/WebKit/manual/whole gates pending. Scope released.
+
+- Batch66 `instructor-card-native-presentation` final `799ca9b71000b3e730cd04f1c03fb7193a9dc6dd` independently reviewed and individual full history integrated; unique report-only final delta, exact source/spec bytes verified, complete focused Chromium proof. Firefox/WebKit/manual/whole gates pending. Scope released.
+
+- Batch59 remains exclusive productionfocus owner: existing Strict Mode keyboard Escape return regression requires diagnosis; original inventory pointer invalidation now green. Failed evidence retained.
+- Batch68 NEW chat01a11793-f296-7830-a050-c1ee82483b92 owns only tests/browser/reorder.spec.ts and unique report: confirmed custom touch-context hard-coded6173 conflicts isolated pool6613. Separate driver correction, no production overlap, fresh coordinator native proof required.
+- Calendar contract wording follow-up reserved exclusively for batch61 focused preview association; no K17 whole acceptance implied.
