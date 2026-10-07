@@ -135,10 +135,13 @@ it("bounds translated feedback and restarts its lifetime independently for each 
   writeText.mockRejectedValueOnce(new Error("Denied"));
   await act(async () => { fireEvent.click(buttons[1]!); });
   expect(statuses.map(node => node.textContent)).toEqual(["Kopiert", "Kopieren fehlgeschlagen"]);
+  act(() => vi.advanceTimersByTime(500));
   await act(async () => { fireEvent.click(buttons[0]!); });
-  act(() => vi.advanceTimersByTime(1000));
+  act(() => vi.advanceTimersByTime(500));
   expect(statuses.map(node => node.textContent)).toEqual(["Kopiert", "Kopieren fehlgeschlagen"]);
   act(() => vi.advanceTimersByTime(2000));
+  expect(statuses.map(node => node.textContent)).toEqual(["Kopiert", ""]);
+  act(() => vi.advanceTimersByTime(500));
   expect(statuses.map(node => node.textContent)).toEqual(["", ""]);
 });
 
