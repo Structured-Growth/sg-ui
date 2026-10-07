@@ -16,8 +16,9 @@ export const MAX_SESSIONS = 65535 - 1024 + 1;
 export function validateLimit(max) {
   if (!Number.isInteger(max) || max < 1 || max > MAX_SESSIONS) throw new Error('Session limit must fit the valid loopback port namespace');
 }
-export const acquireLightSlot = owner => acquireSlot(LIGHT_ROOT, owner, 4);
-export const acquireInstallSlot = owner => acquireSlot(INSTALL_ROOT, owner, 2);
+// The optional root is a fixture-only seam; production callers use canonical roots.
+export const acquireLightSlot = (owner, fixture = {}) => acquireCanonicalSlot(fixture.root ?? LIGHT_ROOT, owner, 4, 'slot');
+export const acquireInstallSlot = (owner, fixture = {}) => acquireCanonicalSlot(fixture.root ?? INSTALL_ROOT, owner, 2, 'installslot');
 
 export const LEGACY_LOCK = '/tmp/sgui-parallel-batch-01-validation.lock';
 export const POOL_ROOT = join(tmpdir(), 'sgui-browser-validation-pool-v1');
@@ -30,13 +31,38 @@ export async function acquireLease(path, owner) {
   catch (error) { await rmdir(path); throw error; }
   return { path, owner };
 }
-export async function releaseLease(lease) {
+async function assertLeaseOwner(lease) {
   if (!(await lstat(lease.path)).isDirectory() || !(await lstat(join(lease.path, 'owner'))).isFile()) throw new Error(`Non-regular lease; refusing cleanup: ${lease.path}`);
   if ((await readFile(join(lease.path, 'owner'), 'utf8')) !== lease.owner) {
     throw new Error(`Owner mismatch; refusing cleanup: ${lease.path}`);
   }
-  await unlink(join(lease.path, 'owner'));
-  await rmdir(lease.path);
+}
+export async function releaseLease(lease) {
+  // Verify both claims before changing either; a replaced/malformed owner retains
+  // the canonical claim and its transition guard for explicit owner resolution.
+  const claims = lease.legacyLease ? [lease, lease.legacyLease] : [lease];
+  for (const claim of claims) await assertLeaseOwner(claim);
+  for (const claim of claims) {
+    await unlink(join(claim.path, 'owner'));
+    await rmdir(claim.path);
+  }
+}
+async function acquireCanonicalSlot(root, owner, max, prefix) {
+  await mkdir(root, { recursive: true });
+  if (!(await lstat(root)).isDirectory()) throw new Error('Lease root must be a regular directory');
+  for (let slot = 0; slot < max; slot++) {
+    let legacyLease;
+    try { legacyLease = await acquireLease(join(root, `slot-${slot}`), owner); }
+    catch (error) { if (error.code === 'EEXIST') continue; throw error; }
+    // Holding the legacy claim throughout the admitted job excludes old helpers
+    // too, including those starting after this helper's canonical mkdir.
+    try { return { ...await acquireLease(join(root, `${prefix}${slot}`), owner), slot, legacyLease }; }
+    catch (error) {
+      await releaseLease(legacyLease);
+      if (error.code !== 'EEXIST') throw error;
+    }
+  }
+  throw new Error('Validation slots occupied; no work started');
 }
 export async function acquireSlot(root, owner, max = 2) {
   validateLimit(max);

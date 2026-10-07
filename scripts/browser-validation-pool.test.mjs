@@ -5,7 +5,7 @@ import { mkdtemp, mkdir, writeFile, readFile, rm, chmod, symlink, readdir, lstat
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createServer } from 'node:net';
-import { acquireLease, releaseLease, acquireSlot, assertQueueDrained, assertPortFree, ownedPath, digestTree, LEGACY_LOCK, runPool, runOwnedCommand, createStage, validateSelection, prepareSnapshot, runFrozenSnapshot, sampleResources, assertBudget, validateBudget, acquirePortLease, sourceDigest, assertSource, MAX_SESSIONS, createAdmission, validateCaseFilter, snapshotCases } from './browser-validation-pool.mjs';
+import { acquireLightSlot, acquireInstallSlot, LIGHT_ROOT, INSTALL_ROOT, acquireLease, releaseLease, acquireSlot, assertQueueDrained, assertPortFree, ownedPath, digestTree, LEGACY_LOCK, runPool, runOwnedCommand, createStage, validateSelection, prepareSnapshot, runFrozenSnapshot, sampleResources, assertBudget, validateBudget, acquirePortLease, sourceDigest, assertSource, MAX_SESSIONS, createAdmission, validateCaseFilter, snapshotCases } from './browser-validation-pool.mjs';
 import { browserSettings, startServer } from './serve-browser-storybook.mjs';
 const moduleURL = new URL('./browser-validation-pool.mjs', import.meta.url).href;
 async function fixture(t) {
@@ -22,6 +22,130 @@ function claimProcess(root, owner) {
     child.once('error', reject); child.once('close', code => done({ code, output }));
   });
 }
+const canonicalHelpers = [
+  { name: 'light', acquire: acquireLightSlot, prefix: 'slot', max: 4 },
+  { name: 'install', acquire: acquireInstallSlot, prefix: 'installslot', max: 2 },
+];
+function canonicalClaimProcess(root, name, owner) {
+  const script = `import {acquireLightSlot,acquireInstallSlot} from ${JSON.stringify(moduleURL)};
+    try { const acquire=process.argv[2]==='light'?acquireLightSlot:acquireInstallSlot;
+      console.log(JSON.stringify(await acquire(process.argv[3],{root:process.argv[1]}))); }
+    catch(error) { console.error(error.message); process.exitCode=2; }`;
+  return new Promise((done, reject) => {
+    const child = spawn(process.execPath, ['--input-type=module', '-e', script, root, name, owner]);
+    let output = '', errors = '';
+    child.stdout.on('data', data => { output += data; });
+    child.stderr.on('data', data => { errors += data; });
+    child.once('error', reject); child.once('close', code => done({ code, output, errors }));
+  });
+}
+test('canonical helper processes contend with human claims and enforce light/install limits', async t => {
+  assert.equal(LIGHT_ROOT, '/tmp/sgui-light-validation-slots');
+  assert.equal(INSTALL_ROOT, '/tmp/sgui-install-slots');
+  for (const { name, acquire, prefix, max } of canonicalHelpers) {
+    const root = await fixture(t);
+    const human = await acquireLease(join(root, `${prefix}0`), 'human');
+    const results = await Promise.all(Array.from({ length: max + 4 }, (_, i) => canonicalClaimProcess(root, name, `helper-${i}`)));
+    const admitted = results.filter(result => result.code === 0).map(result => JSON.parse(result.output));
+    assert.equal(admitted.length, max - 1);
+    assert.equal(new Set(admitted.map(lease => lease.slot)).size, max - 1);
+    assert.equal(results.filter(result => result.code === 2 && /occupied/.test(result.errors)).length, 5);
+    for (const lease of admitted) {
+      assert.equal(lease.path, join(root, `${prefix}${lease.slot}`));
+      assert.equal(lease.legacyLease.path, join(root, `slot-${lease.slot}`));
+      await assert.rejects(acquireLease(lease.path, 'human-late'), { code: 'EEXIST' });
+      await assert.rejects(acquireLease(lease.legacyLease.path, 'old-helper-late'), { code: 'EEXIST' });
+    }
+    assert.equal(await readFile(join(human.path, 'owner'), 'utf8'), 'human');
+    assert.equal((await readdir(root)).includes('slot-0'), false);
+    for (const lease of admitted) await releaseLease(lease);
+    await releaseLease(human);
+    assert.deepEqual(await readdir(root), []);
+    const full = [];
+    for (let slot = 0; slot < max; slot++) full.push(await acquire('full', { root }));
+    await assert.rejects(acquireSlot(root, 'old-helper', max), /occupied/);
+    await assert.rejects(acquire('extra', { root }), /occupied/);
+    for (const lease of full) await releaseLease(lease);
+  }
+});
+test('canonical helpers refuse corresponding legacy occupancy without changing foreign claims', async t => {
+  for (const { acquire, prefix, max } of canonicalHelpers) {
+    const root = await fixture(t);
+    const old = await acquireSlot(root, 'old-helper', max);
+    // An ownerless legacy claim is occupied too; no stale reclamation.
+    await mkdir(join(root, 'slot-1'));
+    const leases = [];
+    for (let slot = 2; slot < max; slot++) {
+      const lease = await acquire('new-helper', { root }); leases.push(lease);
+      assert.equal(lease.slot, slot);
+    }
+    await assert.rejects(acquire('blocked', { root }), /occupied/);
+    await assert.rejects(lstat(join(root, `${prefix}0`)), { code: 'ENOENT' });
+    await assert.rejects(lstat(join(root, `${prefix}1`)), { code: 'ENOENT' });
+    assert.equal(await readFile(join(old.path, 'owner'), 'utf8'), 'old-helper');
+    assert.deepEqual(await readdir(join(root, 'slot-1')), []);
+    for (const lease of leases) await releaseLease(lease);
+    await releaseLease(old);
+    const next = await acquire('next', { root }); assert.equal(next.slot, 0);
+    await releaseLease(next);
+  }
+});
+test('canonical helper cleanup checks both exact owners and retains claims on errors', async t => {
+  for (const { acquire, prefix, max } of canonicalHelpers) {
+    for (const changed of ['canonical', 'legacy']) {
+      const root = await fixture(t);
+      const lease = await acquire('original', { root });
+      const claim = changed === 'canonical' ? lease : lease.legacyLease;
+      await writeFile(join(claim.path, 'owner'), 'foreign');
+      await assert.rejects(releaseLease(lease), /Owner mismatch/);
+      assert.equal(await readFile(join(claim.path, 'owner'), 'utf8'), 'foreign');
+      const untouched = changed === 'canonical' ? lease.legacyLease : lease;
+      assert.equal(await readFile(join(untouched.path, 'owner'), 'utf8'), 'original');
+      await writeFile(join(claim.path, 'owner'), 'original');
+      await releaseLease(lease);
+      assert.deepEqual(await readdir(root), []);
+    }
+    const malformedRoot = await fixture(t);
+    const malformed = await acquire('original', { root: malformedRoot });
+    const legacyOwner = join(malformed.legacyLease.path, 'owner');
+    await rm(legacyOwner); await symlink(join(malformed.path, 'owner'), legacyOwner);
+    await assert.rejects(releaseLease(malformed), /Non-regular lease/);
+    assert.equal(await readFile(join(malformed.path, 'owner'), 'utf8'), 'original');
+    assert.equal((await lstat(legacyOwner)).isSymbolicLink(), true);
+    await rm(legacyOwner); await writeFile(legacyOwner, 'original');
+    await releaseLease(malformed);
+    const root = await fixture(t);
+    // A canonical symlink/file is occupied and is never followed or removed.
+    const foreign = join(root, 'foreign'); await mkdir(foreign);
+    await writeFile(join(foreign, 'owner'), 'foreign');
+    await symlink(foreign, join(root, `${prefix}0`));
+    for (let slot = 1; slot < max; slot++) await writeFile(join(root, `${prefix}${slot}`), 'foreign');
+    await assert.rejects(acquire('blocked', { root }), /occupied/);
+    assert.equal((await lstat(join(root, `${prefix}0`))).isSymbolicLink(), true);
+    assert.equal(await readFile(join(foreign, 'owner'), 'utf8'), 'foreign');
+    assert.equal((await readdir(root)).some(name => name.startsWith('slot-')), false);
+    const linkRoot = join(root, 'link-root'); await symlink(foreign, linkRoot);
+    await assert.rejects(acquire('blocked', { root: linkRoot }), /regular directory/);
+    assert.deepEqual(await readdir(foreign), ['owner']);
+  }
+});
+test('canonical helper failure releases both owned claims while generic pool naming stays unchanged', async t => {
+  for (const { acquire, max } of canonicalHelpers) {
+    const root = await fixture(t);
+    const other = await acquireSlot(root, 'foreign', max);
+    await assert.rejects((async () => {
+      const lease = await acquire('own', { root });
+      try { throw new Error('fixture job failure'); } finally { await releaseLease(lease); }
+    })(), /fixture job failure/);
+    assert.deepEqual(await readdir(root), ['slot-0']);
+    assert.equal(await readFile(join(other.path, 'owner'), 'utf8'), 'foreign');
+    await releaseLease(other);
+    const generic = await acquireSlot(root, 'session', max);
+    assert.equal(generic.path, join(root, 'slot-0'));
+    assert.equal(generic.legacyLease, undefined);
+    await releaseLease(generic);
+  }
+});
 test('independent processes atomically admit exactly two sessions', async t => {
   const root = await fixture(t);
   const results = await Promise.all(Array.from({ length: 8 }, (_, i) => claimProcess(root, `owner-${i}`)));
