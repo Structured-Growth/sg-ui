@@ -1,3 +1,4 @@
+import { NativeInsertionHost } from "./NativeInsertionHost";
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Provider } from "../../experimental/Provider/Provider";
@@ -12,3 +13,8 @@ function Example({ dark = false }: { dark?: boolean }) {
 export const Default: Story = { render: () => <Example /> };
 export const Dark: Story = { render: () => <Example dark /> };
 export const UnavailableCommands: Story = { args: { onInsertHorizontalRule: () => {} } };
+
+/** Host owns dialog content, requests and final insertion. No editor implementation is involved. */
+export const NativeInsertionHandoff: Story = {
+  render: () => <Provider><NativeInsertionHost /></Provider>,
+};
