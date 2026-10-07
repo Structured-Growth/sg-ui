@@ -11,7 +11,11 @@ test('prevented and accepted reset preserve independent names and controlled aut
   const values = () => form.evaluate(element => Object.fromEntries(new FormData(element as HTMLFormElement)));
   await expect(form).toBeVisible();
   await expect(paused).toBeDisabled();
-  await page.getByText('Paused updates', { exact: true }).click();
+  // Locator.click intentionally refuses disabled descendants. Send a physical
+  // pointer attempt at the visible label to verify native fieldset suppression.
+  const pausedLabel = await page.getByText('Paused updates', { exact: true }).boundingBox();
+  expect(pausedLabel).not.toBeNull();
+  await page.mouse.click(pausedLabel!.x + pausedLabel!.width / 2, pausedLabel!.y + pausedLabel!.height / 2);
   await expect(page.getByLabel('Change requests')).toHaveText('0');
   expect(await values()).toEqual({ emailUpdates: 'email', smsUpdates: 'sms' });
   await email.focus();

@@ -9,7 +9,14 @@
 - Implementation/test/story commit: `f561607b78b81e983ed2c5e713ddff3479e4aa2d`.
 - Exclusive allowlist: `src/experimental/Switch/`,
   `tests/browser/batch13-control-switch.spec.ts`, this report.
-- Draft PR and native evidence: pending focused browser queue completion.
+- Draft PR: [#84](https://github.com/Structured-Growth/sg-ui/pull/84).
+- Explicitly authorized common prerequisite: normal full-ancestry merge of
+  reviewed `6b9da4423f1e6675c37571d5552474da25e90258`, producing
+  `4c9e7190e51a98194d6f2f6248984449a5255d1a` with no conflicts. Its six shared
+  harness/config/docs files are prerequisite ancestry, not exclusive task edits.
+  No harness copies, history rewriting or independent pool migration.
+- Native evidence: first frozen pool run failed in test actionability;
+  focused rerun pending after correction below.
 
 ## Evidence selection and correction
 
@@ -41,8 +48,9 @@ The fieldset unit case passed at baseline and required no product change.
 
 ## Local validation
 
-Runtime: Node `v26.5.0`, pnpm `10.29.3`, React `19.2.3`, Vitest `4.1.11`.
-No Node 22/24, packed React 18, device or assistive-technology acceptance is claimed.
+Runtime: initial Node `v26.5.0`; canonical targeted checks also passed on existing
+Node `v24.21.0`, pnpm `10.29.3`, React `19.2.3`, Vitest `4.1.11`.
+No Node 22, packed React 18, device or assistive-technology acceptance is claimed.
 
 - `pnpm install --frozen-lockfile`: passed, own atomic install slot1;
   `/tmp/sgui-batch13-switch-install.log`. Initial slot attempts queued (exit75).
@@ -54,8 +62,21 @@ No Node 22/24, packed React 18, device or assistive-technology acceptance is cla
 - `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
 - `pnpm foundations:check`: passed; no style/token changes.
 - `git diff --check`: passed.
-- Fresh Storybook and focused native browser run: pending; existing shared lock
-  and priority queue honored. No browser-pool migration or Firefox launch retry.
+- Coordinator's first fresh Storybook build/browser TypeScript: passed on Node24,
+  frozen exact head `4c9e7190e51a98194d6f2f6248984449a5255d1a`.
+  Focused Chromium/WebKit: 0 passed / 2 timed out at the attempted disabled-label
+  `locator.click`, before any reset assertions. Playwright's enabled-action check
+  refused that disabled descendant. This establishes no native reset pass.
+  After coordinator unfroze the worktree, the spec changed only the input driver:
+  real `page.mouse.click` at the visible label's bounding-box center. Disabled,
+  zero-request and omitted-FormData assertions remain. No forced or synthetic
+  click, test skip or assertion weakening. Focused fresh rerun remains pending.
+  Evidence: `artifacts/browser-pool/408ab40a-5e45-497c-a0f8-72cb7ab05639/`
+  (`evidence.json`, `build.log`, `types.log`, `browser.log`, results and traces).
+  First/final static digest matched
+  `8931f13887f973997135e1100d8ebd670e2fbe33ec45dea539906e29661a2e36`;
+  final source head/status remained clean. No own standalone build/server/browser
+  session, shared lock removal, queue modification or Firefox launch retry.
 
 Per [development validation policy](../react-aria-development-validation.md),
 no full `pnpm check`, full browser suite or consumer matrix runs per task.
@@ -72,8 +93,9 @@ Reserved next-task scopes requiring broader ownership:
 
 - Audit the same prevented-reset ordering in Checkbox/RadioGroup/public primitive
   wrappers separately; their source is read-only for this assignment.
-- Reconcile shared form guidance after review, including experimental native label
-  refs versus public primitive native input refs. No shared contracts edited here.
+- Reconcile shared form guidance after review: public Switch directly reexports
+  the preserved native label ref, while the primitive mapping says native input.
+  No shared contract edits or ref-contract change here.
 - External form association, disabled-fieldset legend exceptions and host-driven
   controlled replacement during reset are separate compositions, not evidence
   established by this bounded case.
