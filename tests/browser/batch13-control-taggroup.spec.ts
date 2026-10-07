@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+test('live removal changes preserve host rejection, keyboard focus and independent tags', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/iframe.html?id=migration-proofs-taggroup--host-controlled-removal&viewMode=story&globals=a11y.manual:!true');
+  const editable = page.getByRole('grid', { name: 'Editable topics' });
+  const reference = page.getByRole('grid', { name: 'Reference topics' });
+  await expect(editable.getByRole('button')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Enable removal' }).click();
+  await expect(editable.getByRole('button', { name: 'Remove Design' })).toBeVisible();
+  const design = editable.getByRole('row', { name: 'Design', exact: true });
+  await design.focus();
+  await page.keyboard.press('Delete');
+  await expect(page.getByLabel('Removal requests')).toHaveText('design');
+  await expect(design).toBeFocused();
+  await expect(reference.getByRole('row')).toHaveCount(3);
+  await page.getByRole('button', { name: 'Accept removals' }).click();
+  await design.focus();
+  await page.keyboard.press('Backspace');
+  await expect(design).toHaveCount(0);
+  await expect(editable.getByRole('row', { name: 'React', exact: true })).toBeFocused();
+  await expect(reference.getByRole('row', { name: 'Design', exact: true })).toBeVisible();
+  await expect(reference.getByRole('button')).toHaveCount(0);
+  await page.getByRole('button', { name: 'Disable removal' }).click();
+  await expect(editable.getByRole('button')).toHaveCount(0);
+  await editable.getByRole('row', { name: 'React', exact: true }).focus();
+  await page.keyboard.press('Delete');
+  await expect(page.getByLabel('Removal requests')).toHaveText('design; design');
+  await expect(editable.getByRole('row', { name: 'React', exact: true })).toBeFocused();
+  expect(errors).toEqual([]);
+});

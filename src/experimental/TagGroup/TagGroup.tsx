@@ -45,7 +45,7 @@ export const TagGroup = forwardRef<HTMLDivElement, TagGroupProps>(function TagGr
     data-sgui-part="tag-group" data-sgui-density={density}
     className={[styles.root, className].filter(Boolean).join(" ")}>
     <Label className={styles.label}>{label}</Label>
-    <TagList items={items} className={styles.list}
+    <TagList items={items} dependencies={[Boolean(onRemove)]} className={styles.list}
       renderEmptyState={() => emptyContent ?? t("common.ui.noTags", { defaultMessage: "No tags" })}>
       {item => <Tag id={item.id} textValue={item.label} isDisabled={disabled || item.disabled}
         className={styles.tag} data-tone={tone} data-sgui-part="tag">
