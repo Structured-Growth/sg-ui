@@ -87,3 +87,47 @@ reset native-type suppression to `docs/developer/react-aria-button.md`, with the
 focused report link after native verification. Broader autofill, implicit submit,
 mid-gesture host replacement, physical touch and assistive-technology behavior
 remain separate acceptance work; this slice does not infer their results.
+
+## Approved prerequisite and first native pool outcome
+
+The coordinator explicitly authorized normally merging full reviewed dev ancestry
+`6b9da4423f1e6675c37571d5552474da25e90258` into this same worktree.
+Conflict-free ort merge `d6e77073be8797bdbac131fa55b2518a450fb179` has task parent
+`6b92046dbb2737e0e3bd5821496526bdd75f4c20` and that reviewed prerequisite parent.
+Inherited harness/config/docs changes are separate from the exclusive task edits;
+no copied harness, selective graft or worker configuration edits were made.
+
+The coordinator built fresh Storybook and passed browser types at frozen
+`d6e77073be8797bdbac131fa55b2518a450fb179`, then ran the focused spec in the
+approved pool. Both Chromium/WebKit cases failed (0 passed / 2 failed): pending
+reset/draft/focus/disabled assertions passed, but resumed Space produced
+`reset press 2 | reset press 2 | reset`. No assertion was relaxed. Pool evidence:
+`artifacts/browser-pool/1bbc817e-2e9e-463e-84b3-1edb12b6f9df/browser.log` and
+its engine traces/error contexts. Frozen source and immutable digest remained
+intact; coordinator explicitly unfroze the worktree for repair.
+
+React Aria's keyup press and the native form button keyboard click both call the
+host for Space. Enter also calls the host after the native form action, verified
+by two failing colocated reset/submit ordering cases before repair. Native
+submit/reset buttons now deliver their owned host callback from the single
+native click capture, before the browser form default. Their React Aria press
+handler is omitted; ordinary buttons retain normalized React Aria onPress.
+Native pointer, keyboard and programmatic/AT click paths share the same callback;
+loading/disabled guards remain explicit and APIs/refs are unchanged. This DOM
+path is not a manual AT acceptance claim.
+
+Repair validation (same Node 24/pnpm runtime):
+
+- Before repair: `pnpm exec vitest run src/experimental/Button/Button.test.tsx --maxWorkers=1`:
+  4 passed / 2 failed, native Enter action before host callback for reset/submit.
+- After repair: `pnpm exec vitest run src/experimental/Button/Button.test.tsx src/components/AppButton/AppButton.test.tsx --maxWorkers=1`:
+  2 files / 10 tests passed, including pointer/Enter/Space single callback/order.
+- `pnpm typecheck`, `pnpm foundations:check`, and
+  `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: passed.
+- `git diff --check`: passed.
+
+Vitest used atomic owner-matching light-slot acquisition/release with maxWorkers1;
+no standalone build/server/browser run or unchanged Firefox retry was started.
+Repair logs: `/tmp/batch13-control-button-native-before.log` and
+`/tmp/batch13-control-button-native-after.log`. Required coordinator focused
+Chromium/WebKit rerun remains queued and native acceptance incomplete.

@@ -27,11 +27,17 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     children, startIcon, endIcon, className, onPress, type = "button", ...props }, ref,
 ) {
   const { t } = useTranslation();
+  const hasNativeFormAction = type === "submit" || type === "reset";
   return (
     <AriaButton {...props} ref={ref}
       // Pending reset buttons must suppress the native default as well as the press callback.
       type={loading && type === "reset" ? "button" : type} isDisabled={disabled} isPending={loading}
-      onPress={onPress} className={[styles.root, className].filter(Boolean).join(" ")}
+      // Form buttons have a native keyboard click in addition to React Aria's key press.
+      // Capture that one click so the host runs once, before the native form action.
+      onClickCapture={hasNativeFormAction ? () => {
+        if (!loading && !disabled) onPress?.();
+      } : undefined}
+      onPress={hasNativeFormAction ? undefined : onPress} className={[styles.root, className].filter(Boolean).join(" ")}
       data-variant={variant} data-tone={tone} data-sgui-density={density} data-sgui-part="button">
       {loading ? <ProgressBar isIndeterminate className={styles.spinner}
         aria-label={t("common.ui.pending", { defaultMessage: "Pending" })} /> :

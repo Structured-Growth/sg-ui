@@ -74,4 +74,21 @@ describe("owned button proof", () => {
     expect((screen.getByRole("textbox") as HTMLInputElement).value).toBe("Original course");
   });
 
+  it.each(["reset", "submit"] as const)("calls the host once before native %s for pointer, Enter and Space", async type => {
+    const events: string[] = [];
+    const user = userEvent.setup();
+    render(<form onReset={() => events.push("reset")} onSubmit={event => {
+      event.preventDefault(); events.push("submit");
+    }}><Button type={type} onPress={() => events.push("press")}>Apply</Button></form>);
+    const button = screen.getByRole("button", { name: "Apply" });
+    await user.click(button);
+    expect(events).toEqual(["press", type]);
+    events.length = 0;
+    await user.keyboard("{Enter}");
+    expect(events).toEqual(["press", type]);
+    events.length = 0;
+    await user.keyboard(" ");
+    expect(events).toEqual(["press", type]);
+  });
+
 });
