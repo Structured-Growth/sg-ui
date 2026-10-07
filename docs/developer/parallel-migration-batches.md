@@ -724,3 +724,20 @@ Read-only shell/control audit recovered nine previously unmapped historical comp
 Editor/grid mapping adds nine more bounded historical stages: M-16 Chromium/Firefox/WebKit, M-31/M-34 Chromium, M-25/M-33 Firefox/WebKit. Root rechecked raw root/shard/results hashes, selected retry-zero passing case multisets and declared candidate/worker source equality. Root-level unrelated reds remain failed; only actual green case subsets support the mappings. Historical Firefox before later corrections and corrected WebKit subsets are explicitly distinguished. Missing historical /tmp attribution files remain disclosed.
 
 M-12 Chromium also receives shared footer-composition attribution after exact eleven recursive footer runtime/helper/style blobs, tokens/lock/spec and tested/prepared/final Git bytes were checked. It references the existing six-case card-collection execution, never another run or standalone footer matrix. The immutable three receipt files map ten additional existing component stages; parent and comprehensive execution counts remain unchanged. All ready corrective assignments are integrated; deferred matrix/manual/device/AT and owner intent gates remain open.
+
+## Acceptance backlog expansion: batches 80–85
+
+Three independent read-only audits at `007617d53600b258e001d69530fb74d672362222` found six concrete, disjoint automatable gaps beyond the exhausted correction queue. Queue exhaustion did not mean acceptance work was exhausted. All six new chats created isolated managed worktrees before edits and reported frozen preparation heads. Production behavior, whole parent gates, browser proof and dev acceptance remain unclaimed.
+
+| Batch | Bounded deliverable | Parent links | Frozen prepared head | Chat |
+| --- | --- | --- | --- | --- |
+| 80 | editor-native-paragraph-command-history | E-03 E-04 | `f9115e4add5083d48ff3aca81e6fbadb87dce298` | `01a11837-cfff-7b50-86a9-24801b8211c1` |
+| 81 | range-picker-controlled-open-reset | K-03 K-06 K-07 | `40a2c6c48fb7b3753e70a4874dc72badd167dd4c` | `01a11837-d00d-7490-81e5-e54378af9a44` |
+| 82 | grid-server-response-race-fixture | G-05 G-28 G-29 | `364242198e1224bd949386288dc821aaaa12ca52` | `01a11837-d004-77d3-940f-e3cbb89873a5` |
+| 83 | popover-native-collision-scroll | U-19 U-07 | `d81eb13bb31922d49f14f2ae0a68ca89f647f595` | `01a11837-cfff-7b50-86a9-2460fd1cbe97` |
+| 84 | packed-editor-hydration | X-17 X-20 R-01 Z-11 | `fdad564100ef336d8a278bbb907386ccfecc9a10` | `01a11837-d000-75b1-8656-ba24de966ac9` |
+| 85 | production-grid-workload-measurement | G-20 P-08 X-19 B-10 | `6c9b120332cb7eff42110d18aeb44376b9b1f74a` | `01a11837-d00a-7c80-acd4-e15f789826c8` |
+
+Exact allowlists, paths and readiness receipts are durable in the coordinator state. Batches80/81/83 have independent testing-only source admission; batch85 measurement is held for owner-checked install-slot release. Batches82/84 independent review is underway. Node26 local preparation passes on80/81/83/85 do not establish supported Node24 validation;82/84 report Node24.19 checks. Native execution remains coordinator-owned on reviewed frozen snapshots, with no duplicate builds or per-task full suites.
+
+The granular checklist gains these actual preparation/review/native/integration deliverables; its denominator expands explicitly while the326 stable parent IDs and219 historical component-stage view remain intact. Failed slot admission sequencing reported by82/85 is retained as infrastructure evidence;85 overwrote a preexisting light-slot0 owner, whose lease is preserved pending reconciliation. No product failure or native pass is inferred from this incident.
