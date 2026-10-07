@@ -24,9 +24,10 @@ async function noDocumentOverflow(page: Page) {
   }
 }
 
+// macOS WebKit uses Option+Tab to include links in native sequential focus.
 for (const theme of ['light', 'dark']) {
   for (const enlarged of [false, true]) {
-    test(`host form reflows with native focus and submit (${theme}, ${enlarged ? '200% text' : 'normal text'})`, async ({ page }) => {
+    test(`host form reflows with native focus and submit (${theme}, ${enlarged ? '200% text' : 'normal text'})`, async ({ page, browserName }) => {
       await page.setViewportSize({ width: 320, height: 640 });
       await openStory(page, 'native-reflow', theme);
       const email = page.getByRole('textbox', { name: 'School email', exact: true });
@@ -38,19 +39,19 @@ for (const theme of ['light', 'dark']) {
       await page.setViewportSize({ width: 320, height: 640 });
       await expect(email).toHaveValue('student@example.org');
       await email.focus();
-      await page.keyboard.press('Tab');
-      await page.keyboard.press('Shift+Tab');
+      await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
+      await page.keyboard.press(browserName === 'webkit' ? 'Alt+Shift+Tab' : 'Shift+Tab');
       await visibleFocus(email);
       await page.keyboard.press('Enter');
       await expect(page.getByRole('status')).toHaveText('Host submissions: 1');
       for (const name of ['School name', 'Additional host information']) {
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
         await visibleFocus(page.getByRole('textbox', { name, exact: true }));
       }
-      await page.keyboard.press('Tab');
+      await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
       await visibleFocus(page.getByRole('button', { name: 'Continue', exact: true }));
       for (const name of ['ContactYourSchoolAdministratorForAccountAndLearningSupport', 'Read the school privacy and accessibility information']) {
-        await page.keyboard.press('Tab');
+        await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
         await visibleFocus(page.getByRole('link', { name, exact: true }));
       }
       await noDocumentOverflow(page);
@@ -60,7 +61,7 @@ for (const theme of ['light', 'dark']) {
   }
 }
 
-test('wide host content scrolls independently of the heading and footer', async ({ page }) => {
+test('wide host content scrolls independently of the heading and footer', async ({ page, browserName }) => {
   await page.setViewportSize({ width: 320, height: 640 });
   await openStory(page, 'independent-content');
   const content = page.locator('[data-sgui-part="auth-shell-content"]');
@@ -74,7 +75,7 @@ test('wide host content scrolls independently of the heading and footer', async 
   expect(await page.getByRole('link').evaluate(element => element.getBoundingClientRect().left)).toBe(footerLeft);
   const action = page.getByRole('button', { name: 'Host action' });
   await action.focus();
-  await page.keyboard.press('Tab');
+  await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
   await visibleFocus(page.getByRole('link'));
   await noDocumentOverflow(page);
 });

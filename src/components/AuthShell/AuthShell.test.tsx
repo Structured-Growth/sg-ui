@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { createRef } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { act, cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AuthShell } from "./AuthShell";
 import { AppButton } from "../AppButton";
@@ -9,7 +9,7 @@ import { TextField } from "../../experimental/TextField/TextField";
 import { Link } from "../../experimental/Link/Link";
 import { SGNavigationProvider } from "../../adapters/navigation";
 
-afterEach(cleanup);
+afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 describe("AuthShell", () => {
   it("preserves host sections, heading semantics and native root customization", () => {
     const ref = createRef<HTMLDivElement>();
@@ -72,6 +72,39 @@ describe("AuthShell", () => {
     expect(footerSubmit).toHaveBeenCalledTimes(1);
     expect(submit).toHaveBeenCalledTimes(1);
     expect(screen.getByRole("form", { name: "Host support" }).closest('[data-sgui-part="auth-shell-footer"]')).not.toBeNull();
+  });
+
+
+  it("reveals a clipped native control after focus settles, but leaves visible controls alone", () => {
+    const callbacks: FrameRequestCallback[] = [];
+    vi.stubGlobal("requestAnimationFrame", (callback: FrameRequestCallback) => { callbacks.push(callback); return callbacks.length; });
+    render(<AuthShell title="Host form"><TextField label="School" /></AuthShell>);
+    const input = screen.getByRole("textbox");
+    const scroll = vi.fn();
+    Object.defineProperty(input, "scrollIntoView", { value: scroll });
+    vi.spyOn(input, "getBoundingClientRect").mockReturnValue({ top: 760, bottom: 804, left: 10, right: 210, width: 200, height: 44, x: 10, y: 760, toJSON() {} });
+    act(() => input.focus());
+    callbacks.shift()!(0);
+    expect(scroll).toHaveBeenCalledExactlyOnceWith({ block: "nearest", inline: "nearest" });
+    act(() => input.blur());
+    vi.mocked(input.getBoundingClientRect).mockReturnValue({ top: 20, bottom: 64, left: 10, right: 210, width: 200, height: 44, x: 10, y: 20, toJSON() {} });
+    act(() => input.focus());
+    callbacks.shift()!(0);
+    expect(scroll).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not scroll stale focus, removed controls or nested dialogs", () => {
+    const callbacks: FrameRequestCallback[] = [];
+    vi.stubGlobal("requestAnimationFrame", (callback: FrameRequestCallback) => { callbacks.push(callback); return callbacks.length; });
+    const { unmount } = render(<AuthShell title="Host form"><TextField label="School" /><div role="dialog" aria-label="Host dialog"><TextField label="Dialog field" /></div></AuthShell>);
+    const input = screen.getByRole("textbox", { name: "School" });
+    const nested = screen.getByRole("textbox", { name: "Dialog field" });
+    const scroll = vi.fn(); Object.defineProperty(input, "scrollIntoView", { value: scroll });
+    act(() => input.focus()); act(() => nested.focus());
+    expect(callbacks).toHaveLength(1);
+    callbacks.shift()!(0); expect(scroll).not.toHaveBeenCalled();
+    act(() => input.focus()); unmount();
+    callbacks.shift()!(0); expect(scroll).not.toHaveBeenCalled();
   });
 
 });
