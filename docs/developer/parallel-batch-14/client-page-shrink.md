@@ -94,3 +94,51 @@ coordinator's authorized resource slot. Broader cards scroll behavior, physical-
 behavior, assistive-technology output, whole grid acceptance, full checkpoint and
 packed React 18/19 matrices remain outside this slice. Consumer contract/checklist
 updates outside the allowlist belong to the coordinator. No broad acceptance upgrade.
+
+## Recovery and native failure diagnosis (2026-10-07)
+
+The original directory was unavailable (coordinator verified ENOENT). One managed
+recovery restored exact saved head `ad7a1f5f82b9faad1778dd6733d4cf3e0ed68e1b` at
+`/Users/thomashall/.codex/worktrees/batch14-client-page-shrink-recovery/sg-ui`.
+Coordinator-authorized full-history harness merge of
+`6b9da4423f1e6675c37571d5552474da25e90258` produced clean frozen head
+`08300af7074f5958d0583128c2860cf25497c798`. SHA-256 verification established all
+10 task source/spec/report files unchanged. Node24 frozen install passed using
+canonical atomic install slot ownership/finally cleanup. PR87/history retained.
+
+Coordinator's seventeenth native wave ran the unchanged focused spec against a
+fresh immutable build at exact `08300af7074f5958d0583128c2860cf25497c798`:
+**2 Chromium passed / 1 failed**. Grid and cards passed; shell list failed at
+spec line 30, expecting grid-container scrollTop 0 after accepted page entry,
+receiving 35. This is an incomplete native result, not a passing suite.
+Retained run `artifacts/browser-pool/e5c807a8-3714-4175-9fb7-ee2610bbe5f2/`
+contains evidence.json, browser.log, results.json, failure screenshot and trace.
+No original native assertion was weakened or removed.
+
+Trace/test progression establishes accepted requested page 0, focused first cell
+and correct `1-10 of 11` display before the scroll failure. The screenshot shows
+the table header partially scrolled out of view while the focused first row remains
+visible in the shorter shell content area. Owned grid/shell page-entry effects
+reset scrollTop, then invoked native focus without preventScroll. Both now use
+`focus({ preventScroll: true })` to avoid a focus-induced scroll after the explicit
+reset. The shared interaction already uses scroll-preserving focus for its own
+repair path; it was not edited.
+
+Correction code/test head: `f75007971a74310cb2eb65a4a307a9ae0393fbf1`.
+Targeted public tests still exercise accepted/rejected ownership and now verify
+the owned entry call uses scroll-preserving focus. A diagnostic assertion over
+*every* focus call failed because React Aria uses its own fallback in jsdom;
+stack inspection identified focusWithoutScrolling/useGridCell, and the final
+assertion covers the first owned footer-entry call. It does not certify native
+scroll geometry or prohibit the engine's own focus repair.
+
+- `/tmp/sgui-batch14-shrink-light.py exec vitest run src/components/AppDataGrid/AppDataGrid.test.tsx src/components/AppDataGridShell/AppDataGridShell.test.tsx --maxWorkers=1`: **30 passed / 2 files**, log `/tmp/sgui-batch14-shrink-scroll-final-unit.log`.
+- Slot-owned `typecheck`: passed, log `/tmp/sgui-batch14-shrink-scroll-types.log`.
+- `git diff --check`: passed.
+
+No own heavy build/native run or unchanged native retry occurred. Fresh coordinator
+Chromium execution is still required on the corrected frozen head, with the same
+spec/assertions. This minimal correction is not yet native-proven; if a subsequent
+engine-scheduled scroll defeats it, shared-interaction correction requires its
+separate owner rather than an out-of-scope edit here. Firefox/WebKit checkpoint
+and broad acceptance remain pending under the latest coordinator policy.
