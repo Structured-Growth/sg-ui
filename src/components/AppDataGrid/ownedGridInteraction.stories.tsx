@@ -64,3 +64,46 @@ type Story = StoryObj<typeof meta>;
 export const Client: Story = { render: () => <InteractionExample /> };
 export const Server: Story = { render: () => <InteractionExample server /> };
 export const Independent: Story = { render: () => <><InteractionExample /><InteractionExample /></> };
+
+/** G-16/G-29: host updates while focus remains inside one of two grids. */
+function FocusRetentionExample() {
+  const [rows, setRows] = useState(records);
+  const [page, setPage] = useState({ page: 0, pageSize: 25 });
+  const [hidden, setHidden] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
+  const [actions, setActions] = useState(0);
+  const columns: OwnedGridPresentationColumn<RecordRow>[] = [
+    { field: "name", headerName: "Course", width: 240 },
+    { field: "score", headerName: "Score", width: 220, cellType: "custom", renderCustomCell: row => <>
+      <Button density="compact" aria-label={`Inspect ${row.name}`} onPress={() => setActions(value => value + 1)}>Inspect</Button>
+      <Button density="compact" aria-label={`Review ${row.name}`} onPress={() => setActions(value => value + 1)}>Review</Button>
+    </> },
+    { field: "status", headerName: "Status", width: 220 },
+  ];
+  return <div onKeyDownCapture={event => {
+    if (!event.altKey) return;
+    switch (event.key.toLowerCase()) {
+      case "r": setRows(value => value.map(row => ({ ...row }))); setRefreshing(value => !value); break;
+      case "h": setHidden(value => !value); break;
+      case "d": {
+        const id = (event.target as HTMLElement).closest<HTMLElement>("[data-grid-row]")?.dataset.gridRow;
+        setRows(value => value.filter(row => row.id !== id)); break;
+      }
+      case "p": setPage(value => ({ ...value, page: value.page + 1 })); break;
+      case "s": setPage(value => ({ page: 0, pageSize: value.pageSize === 25 ? 10 : 25 })); break;
+      case "e": setRows([]); break;
+      default: return;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+  }}>
+    <p>Host shortcuts: Alt+R refresh, Alt+H hide Score, Alt+D delete focused row, Alt+P next page, Alt+S page size, Alt+E empty first grid.</p>
+    <Button>Host action</Button><p role="status">Nested actions: {actions}</p>
+    <OwnedGridInteraction label="Focus courses" rows={rows} columns={columns} getRowLabel={row => row.name}
+      paginationModel={page} pageSizeOptions={[10, 25]} refreshing={refreshing}
+      columnVisibilityModel={{ score: !hidden }} style={{ maxHeight: 240, maxWidth: 460 }} />
+    <OwnedGridInteraction label="Independent focus courses" rows={records} columns={columns} getRowLabel={row => row.name}
+      style={{ maxHeight: 240, maxWidth: 460 }} />
+  </div>;
+}
+export const FocusRetention: Story = { render: () => <FocusRetentionExample /> };

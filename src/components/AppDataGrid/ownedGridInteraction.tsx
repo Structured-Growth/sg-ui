@@ -72,7 +72,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const selectable = pageRows.filter(row => isRowSelectable?.(row.original) !== false).map(row => row.id);
   const pageSelection = getOwnedGridPageSelection(state.selectedRowIds, selectable);
   const focus = useRef<{ rowId?: string; field?: string; index: number; element: HTMLElement } | null>(null);
-  const previousPage = useRef(state.paginationModel.page);
+  const previousPage = useRef(state.paginationModel);
   const previousReorderEnabled = useRef(!!props.rowDrag);
   const reorderFocusFrame = useRef<number | null>(null);
   useEffect(() => () => {
@@ -98,8 +98,8 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     return () => observer.disconnect();
   }, []);
   useBrowserLayoutEffect(() => {
-    const pageChanged = previousPage.current !== state.paginationModel.page;
-    previousPage.current = state.paginationModel.page;
+    const pageChanged = previousPage.current.page !== state.paginationModel.page || previousPage.current.pageSize !== state.paginationModel.pageSize;
+    previousPage.current = state.paginationModel;
     const reorderChanged = previousReorderEnabled.current !== !!props.rowDrag;
     previousReorderEnabled.current = !!props.rowDrag;
     const saved = focus.current;
@@ -109,16 +109,19 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     if (document.activeElement !== document.body && !node.contains(document.activeElement)) return;
     if (pageChanged) {
       node.scrollTop = 0;
-      (node.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder'])") ?? table.current)?.focus();
+      node.scrollLeft = 0;
+      (node.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder'])") ?? table.current)?.focus({ preventScroll: true });
     } else if (!saved.element.isConnected || (saved.element instanceof HTMLButtonElement && saved.element.disabled)) {
       const restore = () => {
         if (!node.isConnected || (document.activeElement !== document.body && !node.contains(document.activeElement))) return;
         const cells = [...node.querySelectorAll<HTMLElement>("[data-grid-field]")];
         const cell = cells.find(cell => cell.dataset.gridRow === saved.rowId && cell.dataset.gridField === saved.field) ??
-          cells.find(cell => cell.dataset.gridRow === saved.rowId) ?? cells.find(cell => cell.dataset.gridField === saved.field) ?? table.current;
+          cells.find(cell => cell.dataset.gridRow === saved.rowId) ??
+          cells.find(cell => cell.dataset.gridRow !== undefined && cell.dataset.gridField === saved.field) ??
+          cells.find(cell => cell.dataset.gridField === saved.field) ?? table.current;
         const controls = cell?.querySelectorAll<HTMLElement>("button, a, input, [role='slider']");
         const control = saved.index >= 0 ? controls?.[saved.index] : undefined;
-        (control instanceof HTMLButtonElement && control.disabled ? cell?.querySelector<HTMLElement>("button:not(:disabled)") ?? cell : control ?? cell)?.focus();
+        (control instanceof HTMLButtonElement && control.disabled ? cell?.querySelector<HTMLElement>("button:not(:disabled)") ?? cell : control ?? cell)?.focus({ preventScroll: true });
       };
       restore();
       // A newly mounted React Aria collection reconciles focus after commit.
@@ -203,20 +206,24 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const noRows = pageRows.length === 0;
   const status = errorMessage !== undefined ? "error" : loading && noRows ? "loading" : refreshing || loading ? "refreshing" :
     noRows ? (state.searchValue || state.filterRules.length ? "noResults" : "empty") : undefined;
-  return <div className={styles.root} onFocusCapture={event => {
+  return <div className={styles.root} onBlurCapture={event => {
+      // A deliberate move to a host control or another grid ends our ownership.
+      // A removed focused node has no related target and still needs repair.
+      if (event.relatedTarget instanceof Node && !container.current?.contains(event.relatedTarget)) focus.current = null;
+    }} onFocusCapture={event => {
       const element = event.target as HTMLElement;
       if (!container.current?.contains(element)) return;
       const cell = element.closest<HTMLElement>("[data-grid-field]");
       focus.current = { rowId: cell?.dataset.gridRow, field: cell?.dataset.gridField, element,
         index: cell ? [...cell.querySelectorAll("button, a, input, [role='slider']")].indexOf(element) : -1 };
-    }}><ResizableTableContainer ref={setContainer} className={[styles.container, className].filter(Boolean).join(" ")} style={style}
+    }}>{status && !noRows && <OwnedGridStatus state={status} message={errorMessage} onRetry={onRetry} />}
+    <ResizableTableContainer ref={setContainer} className={[styles.container, className].filter(Boolean).join(" ")} style={style}
     data-sgui-part="grid-container" onResize={widths => {
       const active = table.current?.contains(document.activeElement) ? (document.activeElement as HTMLElement)?.closest<HTMLElement>("[data-grid-field]")?.dataset.gridField : undefined;
       const field = active && columns.some(column => column.field === active) ? active : resizing.current;
       const width = field ? widths.get(field) : undefined;
       if (field && typeof width === "number") setWidths({ ...layout.widths, [field]: width });
     }} onResizeEnd={() => { resizing.current = null; }}>
-    {status && !noRows && <OwnedGridStatus state={status} message={errorMessage} onRetry={onRetry} />}
     {/* React Aria requires a stable hook surface within each Table instance.
         Recreate only when the host enables/disables reorder, retaining the outer
         container and repairing its focused cell in the layout effect above. */}

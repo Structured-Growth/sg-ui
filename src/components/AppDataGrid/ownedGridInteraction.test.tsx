@@ -121,8 +121,10 @@ it("keeps focused nested controls on stable rows and repairs deleted row focus i
   expect(screen.getByRole("grid", { name: "Other courses" }).contains(document.activeElement)).toBe(true);
 });
 it("retains rows during refresh/error and distinguishes empty versus filtered results", () => {
-  const { rerender } = render(<OwnedGridInteraction {...props} refreshing />);
+  const ref = createRef<HTMLDivElement>();
+  const { rerender } = render(<OwnedGridInteraction {...props} ref={ref} refreshing />);
   expect(screen.getByText("Refreshing rows")).toBeTruthy(); expect(screen.getByText("Science")).toBeTruthy();
+  expect(ref.current?.contains(screen.getByText("Refreshing rows"))).toBe(false);
   rerender(<OwnedGridInteraction {...props} errorMessage="Host request failed" onRetry={() => {}} />);
   expect(screen.getByRole("alert").textContent).toContain("Host request failed"); expect(screen.getByText("Science")).toBeTruthy();
   rerender(<OwnedGridInteraction {...props} rows={[]} />); expect(screen.getByText("No rows available")).toBeTruthy();
@@ -171,4 +173,49 @@ it("omits drag hooks without reorder and preserves header focus when host toggle
     } finally { outside.remove(); }
     expect(warn.mock.calls.filter(([message]) => /Drag hooks|Drop hooks|Draggable items/.test(String(message)))).toEqual([]);
   } finally { warn.mockRestore(); }
+});
+
+it("resets the page entry and both scroll axes for an accepted page-size change", () => {
+  const ref = createRef<HTMLDivElement>();
+  const { rerender } = render(<OwnedGridInteraction {...props} ref={ref} pageSizeOptions={[10, 25]} paginationModel={{ page: 0, pageSize: 25 }} />);
+  act(() => screen.getByRole("gridcell", { name: "10" }).focus());
+  ref.current!.scrollTop = 100; ref.current!.scrollLeft = 80;
+  rerender(<OwnedGridInteraction {...props} ref={ref} pageSizeOptions={[10, 25]} paginationModel={{ page: 0, pageSize: 10 }} />);
+  expect(document.activeElement).toBe(screen.getByRole("rowheader", { name: "Science" }));
+  expect(ref.current!.scrollTop).toBe(0); expect(ref.current!.scrollLeft).toBe(0);
+});
+
+it("repairs a disappearing focused row to the same body field without pruning retained selection", () => {
+  const retained = { defaultSelectedRowIds: new Set(["b"]) };
+  const { rerender } = render(<OwnedGridInteraction {...props} {...retained} />);
+  act(() => screen.getByRole("gridcell", { name: "10" }).focus());
+  rerender(<OwnedGridInteraction {...props} {...retained} rows={[rows[0]!, rows[2]!]} />);
+  expect(document.activeElement?.getAttribute("data-grid-field")).toBe("score");
+  expect(document.activeElement?.closest("tbody")).not.toBeNull();
+  expect(document.activeElement?.getAttribute("data-grid-row")).not.toBe("b");
+  rerender(<OwnedGridInteraction {...props} {...retained} />);
+  expect((screen.getByRole("checkbox", { name: "Select Mathematics" }) as HTMLInputElement).checked).toBe(true);
+});
+
+it("repairs a hidden focused field within its row and preserves the native scroll position", () => {
+  const ref = createRef<HTMLDivElement>();
+  const { rerender } = render(<OwnedGridInteraction {...props} ref={ref} />);
+  act(() => screen.getByRole("gridcell", { name: "10" }).focus());
+  ref.current!.scrollTop = 100; ref.current!.scrollLeft = 80;
+  rerender(<OwnedGridInteraction {...props} ref={ref} columnVisibilityModel={{ score: false }} />);
+  expect(screen.getByRole("row", { name: /Mathematics/ }).contains(document.activeElement)).toBe(true);
+  expect(ref.current!.scrollTop).toBe(100); expect(ref.current!.scrollLeft).toBe(80);
+});
+
+it("does not revive stale grid focus after focus deliberately left for a host control", () => {
+  const host = document.createElement("button"); document.body.append(host);
+  try {
+    const { rerender } = render(<OwnedGridInteraction {...props} mode="server" paginationModel={{ page: 0, pageSize: 25 }} />);
+    act(() => screen.getByRole("rowheader", { name: "Science" }).focus());
+    act(() => host.focus());
+    host.remove();
+    expect(document.activeElement).toBe(document.body);
+    rerender(<OwnedGridInteraction {...props} mode="server" paginationModel={{ page: 1, pageSize: 25 }} />);
+    expect(document.activeElement).toBe(document.body);
+  } finally { host.remove(); }
 });
