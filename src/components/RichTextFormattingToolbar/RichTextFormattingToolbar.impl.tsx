@@ -341,6 +341,7 @@ export function RichTextFormattingToolbar({
             ) : null}
             {!isHidden("backgroundColor", "colors") ? (
               <TextColorPickerControl
+                mode="background"
                 disabled={isDisabled("backgroundColor", "colors")}
                 onChange={onBackgroundColorChange}
                 triggerIcon={<FormatColorFillIcon fontSize="small" />}

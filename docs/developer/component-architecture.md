@@ -98,3 +98,9 @@ ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundat
 Apply migrated boundaries to these directories; see [editor dialog contracts](react-aria-editor-dialogs.md)
 for preset draft reset, URL protocol validation and optional host-owned image descriptions.
 Load /styles.css and provide Provider or ThemeScope.
+
+InsertContentMenuControl, TextAlignMenuControl, TextColorPickerControl and
+TextStyleMenuControl now use the owned foundation and migrated-module boundaries.
+See [editor menu contracts](react-aria-editor-menus.md) for host callbacks,
+checked formatting state and the breaking semantic color preset mapping. Load
+/styles.css and provide Provider or ThemeScope. Surrounding editor migration remains open.

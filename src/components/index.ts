@@ -32,7 +32,7 @@ export { ImageUploadModal, type ImageUploadModalProps } from "./ImageUploadModal
 export { RichTextFormattingToolbar, type RichTextFormattingToolbarProps } from "./RichTextFormattingToolbar";
 export { TextAlignMenuControl, type AlignOption, type TextAlignMenuControlProps } from "./TextAlignMenuControl";
 export { TextColorPickerControl, type TextColorPickerControlProps } from "./TextColorPickerControl";
-export { TextStyleMenuControl, type TextStyleMenuControlProps } from "./TextStyleMenuControl";
+export { TextStyleMenuControl, type TextStyleMenuControlProps, type TextStyleId } from "./TextStyleMenuControl";
 export { PageRichTextEditorSection, type PageRichTextEditorSectionProps } from "./PageRichTextEditorSection";
 export {
   ExperiencePageNavigator,

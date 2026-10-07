@@ -10,3 +10,14 @@
   .icon { display: inline-flex; flex: none; }
   @media (forced-colors: active) { .item[data-focused] { outline-color: Highlight; } .item[data-disabled] { color: GrayText; opacity: 1; } }
 }
+@layer sgui.components {
+  .check { inline-size: 1em; flex: none; }
+  .itemLabel { flex: 1; overflow-wrap: anywhere; }
+  .shortcut { color: var(--sgui-text-muted); white-space: nowrap; font-size: var(--sgui-caption-size); }
+  .sectionDivider { border-block-start: 1px solid var(--sgui-border); margin-block-start: var(--sgui-space1); padding-block-start: var(--sgui-space1); }
+  .item[data-selected] { background: var(--sgui-surface-subtle); }
+}
+@layer sgui.components {
+  .menu[data-shortcuts] { box-sizing: border-box; min-inline-size: min(18rem, calc(100vw - 2rem)); }
+  @media (max-width: 24rem) { .shortcut { display: none; } }
+}

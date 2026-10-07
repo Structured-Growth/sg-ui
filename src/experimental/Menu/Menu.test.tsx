@@ -52,3 +52,13 @@ it("keeps host action errors within the accessible menu scope", async () => {
   const user = userEvent.setup(); render(<Provider theme="dark"><Menu label="Retry actions" errorMessage="Unable to save. Try again." items={items} trigger={<Button>Retry</Button>} /></Provider>);
   await user.click(screen.getByRole("button", { name: "Retry" })); const alert = screen.getByRole("alert"); const menu = screen.getByRole("menu", { name: "Retry actions" }); expect(menu.getAttribute("aria-describedby")).toBe(alert.id); expect(alert.closest('[data-sgui-theme="dark"]')).toBeTruthy();
 });
+it("exposes host-controlled selected choices alongside plain commands", async () => {
+  const user = userEvent.setup(); const action = vi.fn();
+  render(<Menu label="Formatting" selectionMode="single" items={[{ id:"left", label:"Left", selected:true }, { id:"right", label:"Right", selected:false }, { id:"indent", label:"Indent", separatorBefore:true }]} trigger={<Button>Format</Button>} onAction={action} />);
+  await user.click(screen.getByRole("button", {name:"Format"}));
+  expect(screen.getByRole("menuitemradio", {name:"Left"}).getAttribute("aria-checked")).toBe("true");
+  expect(screen.getByRole("menuitemradio", {name:"Right"}).getAttribute("aria-checked")).toBe("false");
+  expect(screen.getByRole("menuitem", {name:"Indent"})).toBeTruthy();
+  await user.click(screen.getByRole("menuitemradio", {name:"Right"})); expect(action).toHaveBeenCalledExactlyOnceWith("right");
+  expect(screen.queryByRole("menu")).toBeNull();
+});

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   TextColorPickerControl as TextColorPickerControlImpl,
   type TextColorPickerControlProps,
@@ -6,5 +8,5 @@ import {
 export type { TextColorPickerControlProps };
 
 export function TextColorPickerControl(props: TextColorPickerControlProps) {
-  return TextColorPickerControlImpl(props);
+  return <TextColorPickerControlImpl {...props} />;
 }

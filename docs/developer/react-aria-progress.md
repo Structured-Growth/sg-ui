@@ -512,3 +512,73 @@ to Edited guide at /courses/edited with target/rel cleared, then submitted a bla
 URL. The editor retained Edited guide as plain text with zero anchors and native
 contenteditable focus; no captured Lexical diagnostics. Remaining legacy toolbar
 buttons in this story lack accessible names and remain required M-26 work.
+
+## Editor menu controls
+
+Completed on 2026-10-06: M-27–M-30, in shared
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
+`feat/react-aria-owned-foundation-cards`. See the
+[editor menu contracts](react-aria-editor-menus.md) for preserved callbacks,
+new controlled selection/restrictions and breaking semantic color presets.
+M-26/M-25/M-21–M-23/M-34 and general editor/grid/U/X/R/Z gates remain open.
+
+| Task | Implementation and evidence |
+| --- | --- |
+| M-27 | InsertContentMenuControl uses owned Menu/Button/icons, translated labels, native trigger ref/style and disabled unavailable callbacks. Four DOM tests cover pointer/Space/Enter, host form safety, disabled navigation and keyboard opening of an actual ColumnsLayoutModal with focus transfer/return. |
+| M-28 | TextAlignMenuControl retains all six alignment IDs and indent callbacks, adds canIndent/canOutdent restrictions and native trigger ref/style. Six DOM tests cover single checked radio state, all commands once, keyboard skipping/focus, controlled requests, translated Arabic/dark portal and logical start/end icons. |
+| M-29 | TextColorPickerControl uses owned Popover/fields/buttons/icons and semantic token swatches, native labeled color input, associated hex errors, foreground/background names, clear/reset and current-color indication. Five DOM tests cover normalized Enter/blur once, composing Enter, draft reload/external updates, swatches/native colors, disabled state and dark scope. A composed test caught React portal form submit bubbling; the picker now stops it before reaching the host form. |
+| M-30 | TextStyleMenuControl preserves the eight existing callbacks, disables missing commands and adds optional controlled activeStyles checkbox state. Five DOM tests cover all callbacks once, keyboard/disabled/form behavior, selected state, plain clear command, translations and dark portal. Existing component has no typeface selection; toolbar typeface/heading contracts remain pending. |
+
+The shared owned Menu adds selected choice sections, separators and visual shortcut
+hints through owned props. Selection remains host-controlled and action callbacks
+close once. Colocated tests cover mixed radio/action roles. Native narrow testing
+caught shortcut hints squeezing alignment labels; menus with hints now constrain
+their width to the viewport and hide hints below 24rem while retaining labels.
+All four directories enter strict transitive source/declaration audits, granular
+exports, public consumer typings and the packed fixture. No check was weakened.
+
+The actual Lexical host has an additional composed color test using owned pickers
+with real engine/plugins and JSON change output. Semantic foreground/background
+tokens serialize, and Clear removes the style. The test caught empty-string
+patches persisting `color: ;background-color: ;`; the host now maps Clear to
+Lexical null removal. Existing dialog/link/image tests remain passing. This is
+necessary host integration repair, not completion of M-34. The legacy toolbar's
+background picker explicitly supplies mode=background.
+
+Validation:
+
+- Final `pnpm check`: 117 Vitest files / 576 tests passed, four foundation and
+  four release tests, strict source/token/layer checks, production/story typecheck,
+  ESM/declarations, all public entry imports and consumer typings passed.
+- Final `pnpm build-storybook`: passed with existing directive/sourcemap/large
+  chunk warnings. No warning suppression or check exemptions were introduced.
+- Final packed React18.3.1 / React19.2.3: real tarballs passed no-browser-global
+  SSR, production Vite builds, one compiled stylesheet and no legacy/editor
+  bundle or auto-installed retired peers. All four granular menu exports are used.
+- Native React19 fixture: ArrowDown/End/Enter Insert opened actual columns dialog;
+  Space committed twoEqual and returned Insert focus. Alignment exposed Start
+  checked, Center Enter requested center and returned trigger focus. Text style
+  skipped unavailable choices to checked Highlight; Space requested once.
+  Invalid hex stayed associated with the field, trimmed mixed-case hex requested
+  #abcdef, Escape returned Text color focus. React18 confirmed checked alignment,
+  disabled style skipping, Space/Enter commands and #fedcba commit. Captured
+  warning/error logs were empty in both fixtures.
+- Final packed dark narrow fixture at260x600: alignment menu measured213px wide
+  with scrollWidth213 and273px height; labels and checked state remained readable,
+  shortcut hints hid. Color dialog measured201px wide/scrollWidth201 and324px high.
+  Production Arabic/dark story had RTL portal and logical start icon rendered the
+  right-align icon while hiding left-align. Temporary viewport was reset.
+- Final production FullTools editor selected Lorem and applied Primary. DOM showed
+  only selected text with color:var(--sgui-action); native picker resolved #1d4ed8.
+  Clear removed the declaration and preserved text. No captured diagnostics.
+
+Local Node26.5.0 / pnpm10.29.3. Full Chrome/Firefox/WebKit, touch, screen-reader,
+zoom/visual/performance, Node24 and Next.js/RSC gates remain open. Representative
+native evidence does not complete the broad acceptance matrix. No merge,
+publication, licensing or workflow permission changes are authorized.
+
+Next dependency batch: M-26 RichTextFormattingToolbar, then M-25
+FloatingTextSelectionToolbar and M-21–M-23/M-34 as dependencies allow. Preserve
+Lexical command/selection/serialization and host account/routing/translation APIs.
+Complete checks/commit/push before dispatching the successor local sg-ui chat.
+Do not count representative checks as completion of broad acceptance gates.

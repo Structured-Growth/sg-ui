@@ -5,6 +5,7 @@ import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { $getRoot, $isElementNode, $isTextNode, type LexicalEditor } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
+import { TextColorPickerControl } from "../TextColorPickerControl";
 import { Provider } from "../../experimental/Provider/Provider";
 import { AppThemeProvider } from "../../theme/AppThemeProvider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection.impl";
@@ -19,9 +20,11 @@ function CaptureEditor() {
 // Isolate the dialogs from formatting/menu migration while retaining the real
 // host callbacks, Lexical engine, insertion plugins and serialized change output.
 vi.mock("../RichTextFormattingToolbar", () => ({
-  RichTextFormattingToolbar: (props: { onLink: () => void; onLinkMouseDown: () => void; onInsertImage: () => void }) => <>
+  RichTextFormattingToolbar: (props: { onLink: () => void; onLinkMouseDown: () => void; onInsertImage: () => void; textColorValue?: string; backgroundColorValue?: string; onTextColorChange?: (value:string)=>void; onBackgroundColorChange?: (value:string)=>void }) => <>
     <button onMouseDown={event => { event.preventDefault(); props.onLinkMouseDown(); }} onClick={props.onLink}>Edit link</button>
     <button onMouseDown={event => event.preventDefault()} onClick={props.onInsertImage}>Add image</button>
+    <TextColorPickerControl value={props.textColorValue} onChange={props.onTextColorChange} />
+    <TextColorPickerControl mode="background" value={props.backgroundColorValue} onChange={props.onBackgroundColorChange} />
   </>,
 }));
 vi.mock("@lexical/react/LexicalComposer", async () => {
@@ -142,4 +145,24 @@ describe("editor dialog host contracts", () => {
     expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).not.toContain('"type":"image"');
   });
 
+});
+
+it("applies semantic color tokens and clears foreground/background through the real editor host", async () => {
+  const user = userEvent.setup(); const change = mount();
+  await selectText(); await user.click(screen.getByRole("button", {name:"Text color"}));
+  await user.click(await screen.findByRole("button", {name:"Primary",exact:true}));
+  await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("color: var(--sgui-action)"));
+  if (screen.queryByRole("dialog", {name:"Text color"})) await user.keyboard("{Escape}");
+  await selectText(); await user.click(screen.getByRole("button", {name:"Text color"}));
+  await user.click(await screen.findByRole("button", {name:"Clear",exact:true}));
+  await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).not.toContain("color:"));
+  if (screen.queryByRole("dialog", {name:"Text color"})) await user.keyboard("{Escape}");
+  await selectText(); await user.click(screen.getByRole("button", {name:"Background color"}));
+  await user.click(await screen.findByRole("button", {name:"Subtle surface",exact:true}));
+  await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).toContain("background-color: var(--sgui-surface-subtle)"));
+  if (screen.queryByRole("dialog", {name:"Background color"})) await user.keyboard("{Escape}");
+  await selectText(); await user.click(screen.getByRole("button", {name:"Background color"}));
+  await user.click(await screen.findByRole("button", {name:"Clear",exact:true}));
+  await waitFor(() => expect(JSON.stringify(activeEditor!.getEditorState().toJSON())).not.toContain("background-color:"));
+  expect(change).toHaveBeenCalledWith(activeEditor!.getEditorState().toJSON());
 });

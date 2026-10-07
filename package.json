@@ -145,6 +145,22 @@
     "./components/LinkUrlModal": {
       "types": "./dist/components/LinkUrlModal/index.d.ts",
       "import": "./dist/components/LinkUrlModal/index.js"
+    },
+    "./components/InsertContentMenuControl": {
+      "types": "./dist/components/InsertContentMenuControl/index.d.ts",
+      "import": "./dist/components/InsertContentMenuControl/index.js"
+    },
+    "./components/TextAlignMenuControl": {
+      "types": "./dist/components/TextAlignMenuControl/index.d.ts",
+      "import": "./dist/components/TextAlignMenuControl/index.js"
+    },
+    "./components/TextColorPickerControl": {
+      "types": "./dist/components/TextColorPickerControl/index.d.ts",
+      "import": "./dist/components/TextColorPickerControl/index.js"
+    },
+    "./components/TextStyleMenuControl": {
+      "types": "./dist/components/TextStyleMenuControl/index.d.ts",
+      "import": "./dist/components/TextStyleMenuControl/index.js"
     }
   },
   "repository": {

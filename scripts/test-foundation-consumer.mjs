@@ -46,6 +46,10 @@ import { SideNavigation } from '@structured-growth/sg-ui/components/SideNavigati
 import { ColumnsLayoutModal } from '@structured-growth/sg-ui/components/ColumnsLayoutModal';
 import { ImageUploadModal } from '@structured-growth/sg-ui/components/ImageUploadModal';
 import { LinkUrlModal } from '@structured-growth/sg-ui/components/LinkUrlModal';
+import { InsertContentMenuControl } from '@structured-growth/sg-ui/components/InsertContentMenuControl';
+import { TextAlignMenuControl } from '@structured-growth/sg-ui/components/TextAlignMenuControl';
+import { TextColorPickerControl } from '@structured-growth/sg-ui/components/TextColorPickerControl';
+import { TextStyleMenuControl } from '@structured-growth/sg-ui/components/TextStyleMenuControl';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
 export function Proof() {
@@ -56,6 +60,10 @@ export function Proof() {
   const [tab,setTab]=React.useState('details');
   return <Provider theme="dark" style={{background:tokens.surface,padding:tokens.space4}}>
     <Button onPress={()=>setEditorDialog('columns')}>Choose columns</Button><Button onPress={()=>setEditorDialog('link')}>Edit link</Button><Button onPress={()=>setEditorDialog('image')}>Upload image</Button>
+    <InsertContentMenuControl onInsertColumnsLayout={()=>setEditorDialog('columns')} onInsertImage={()=>setEditorDialog('image')} onInsertHorizontalRule={()=>setResult('Horizontal rule')} />
+    <TextAlignMenuControl value="start" onChange={setResult} onIndent={()=>setResult('Indent')} onOutdent={()=>setResult('Outdent')} />
+    <TextStyleMenuControl activeStyles={['highlight']} onHighlight={()=>setResult('Highlight')} onClearFormatting={()=>setResult('Clear formatting')} />
+    <TextColorPickerControl value="#123456" onChange={setResult} />
     <p role="status">{result}</p>
     <ColumnsLayoutModal open={editorDialog==='columns'} onClose={()=>setEditorDialog(null)} onSubmit={preset=>{setResult(preset);setEditorDialog(null);}} />
     <LinkUrlModal open={editorDialog==='link'} initialDisplayText="Course guide" onClose={()=>setEditorDialog(null)} onSubmit={payload=>{setResult(JSON.stringify(payload));setEditorDialog(null);}} />

@@ -137,3 +137,9 @@ export const editorDialogs = <Provider>
 <LinkUrlModal open={false} allowedProtocols={["https"]} allowRelativeUrls={false} onClose={()=>{}} onSubmit={payload=>{const url: string|null=payload.url; console.log(url);}} />
 <ImageUploadModal enableAltText open={false} onClose={()=>{}} onSubmit={(file,alt)=>{const native: File=file;const text: string|undefined=alt;console.log(native,text);}} />
 </Provider>;
+
+import { InsertContentMenuControl } from '@structured-growth/sg-ui/components/InsertContentMenuControl';
+import { TextAlignMenuControl } from '@structured-growth/sg-ui/components/TextAlignMenuControl';
+import { TextColorPickerControl } from '@structured-growth/sg-ui/components/TextColorPickerControl';
+import { TextStyleMenuControl } from '@structured-growth/sg-ui/components/TextStyleMenuControl';
+export const editorMenus = <Provider><InsertContentMenuControl onInsertImage={()=>{}} /><TextAlignMenuControl value="end" onChange={value=>{const next: import('@structured-growth/sg-ui/components/TextAlignMenuControl').AlignOption=value; console.log(next);}} /><TextStyleMenuControl activeStyles={['highlight']} onHighlight={()=>{}} /><TextColorPickerControl value="#123456" onChange={()=>{}} /></Provider>;

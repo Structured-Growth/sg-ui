@@ -1,0 +1,4 @@
+@layer sgui.components {
+  .trigger { min-inline-size: 0; padding-inline: var(--sgui-space1); }
+  .letters { font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); font-weight: var(--sgui-body2-weight); line-height: var(--sgui-label-line-height); }
+}

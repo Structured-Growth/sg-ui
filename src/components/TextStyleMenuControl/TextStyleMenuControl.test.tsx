@@ -31,3 +31,48 @@ describe("TextStyleMenuControl", () => {
     expect(screen.queryByRole("menu")).toBeNull();
   });
 });
+
+it("skips missing callbacks, selects by keyboard once and restores trigger focus", async () => {
+  const user = userEvent.setup();
+  const highlight = vi.fn(); const clear = vi.fn();
+  render(<TextStyleMenuControl onHighlight={highlight} onClearFormatting={clear} />);
+  const trigger = screen.getByRole("button", { name: "Text style" });
+  await user.tab(); await user.keyboard("{ArrowDown}");
+  expect(screen.getByRole("menuitem", { name: /^Lowercase/ }).getAttribute("aria-disabled")).toBe("true");
+  expect(document.activeElement).toBe(screen.getByRole("menuitem", { name: "Highlight" }));
+  await user.keyboard("{Enter}");
+  expect(highlight).toHaveBeenCalledTimes(1); expect(clear).not.toHaveBeenCalled();
+  await waitFor(() => expect(document.activeElement).toBe(trigger));
+  await user.keyboard("{ArrowDown}{ArrowDown}{Escape}");
+  expect(screen.queryByRole("menu")).toBeNull(); expect(clear).not.toHaveBeenCalled();
+  await waitFor(() => expect(document.activeElement).toBe(trigger));
+});
+
+it("keeps active styles under host control and clear formatting an ordinary command", async () => {
+  const user = userEvent.setup(); const highlight = vi.fn();
+  const { rerender } = render(<TextStyleMenuControl activeStyles={["highlight"]} onHighlight={highlight} onClearFormatting={() => {}} />);
+  const trigger = screen.getByRole("button", { name: "Text style" });
+  await user.click(trigger);
+  expect(screen.getByRole("menuitemcheckbox", { name: "Highlight" }).getAttribute("aria-checked")).toBe("true");
+  expect(screen.getByRole("menuitemcheckbox", { name: /^Strikethrough/ }).getAttribute("aria-checked")).toBe("false");
+  expect(screen.getByRole("menuitem", { name: /^Clear Formatting/ })).toBeDefined();
+  await user.click(screen.getByRole("menuitemcheckbox", { name: "Highlight" }));
+  expect(highlight).toHaveBeenCalledTimes(1);
+  await user.click(trigger);
+  expect(screen.getByRole("menuitemcheckbox", { name: "Highlight" }).getAttribute("aria-checked")).toBe("true");
+  rerender(<TextStyleMenuControl activeStyles={[]} onHighlight={highlight} onClearFormatting={() => {}} />);
+  expect(screen.getByRole("menuitemcheckbox", { name: "Highlight" }).getAttribute("aria-checked")).toBe("false");
+});
+
+it("forwards labels and fallback messages to the host translation adapter in a scoped portal", async () => {
+  const { SGTranslationProvider } = await import("../../i18n");
+  const { Provider } = await import("../../experimental/Provider/Provider");
+  const t = vi.fn((_key: string, options: { defaultMessage: string }) => `Translated ${options.defaultMessage}`);
+  const user = userEvent.setup();
+  render(<SGTranslationProvider value={{ locale: "en", t, useNamespace: () => {} }}><Provider theme="dark"><TextStyleMenuControl onHighlight={() => {}} /></Provider></SGTranslationProvider>);
+  await user.click(screen.getByRole("button", { name: "Translated Text style" }));
+  const menu = screen.getByRole("menu", { name: "Translated Text style" });
+  expect(menu.closest('[data-sgui-theme="dark"]')).not.toBeNull();
+  expect(screen.getByRole("menuitem", { name: "Translated Highlight" })).toBeDefined();
+  expect(t).toHaveBeenCalledWith("common.ui.editor.clearFormatting", { defaultMessage: "Clear Formatting" });
+});

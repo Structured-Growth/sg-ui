@@ -181,3 +181,9 @@ The first release is `1.0.0` if no previous release tag exists. The repository's
 version. Releases require configured npm credentials or trusted publishing.
 AI-generated changes remain draft PRs for review; merging a release-worthy change
 to main triggers publication automatically.
+
+InsertContentMenuControl, TextAlignMenuControl, TextColorPickerControl and
+TextStyleMenuControl now use the owned foundation and migrated-module boundaries.
+See [editor menu contracts](docs/developer/react-aria-editor-menus.md) for host callbacks,
+checked formatting state and the breaking semantic color preset mapping. Load
+/styles.css and provide Provider or ThemeScope. Surrounding editor migration remains open.

@@ -245,3 +245,9 @@ UI conventions were adapted from learning-platform/AGENTS.md and its
 docs/developer/component-architecture.md. See docs/agent-guidance-migration.md
 for the source-to-SGUI mapping and host-owned rules. The library's semantic-release
 workflow, adapters and commercial license remain authoritative for this repository.
+
+InsertContentMenuControl, TextAlignMenuControl, TextColorPickerControl and
+TextStyleMenuControl now use the owned foundation and migrated-module boundaries.
+See [editor menu contracts](docs/developer/react-aria-editor-menus.md) for host callbacks,
+checked formatting state and the breaking semantic color preset mapping. Load
+/styles.css and provide Provider or ThemeScope. Surrounding editor migration remains open.

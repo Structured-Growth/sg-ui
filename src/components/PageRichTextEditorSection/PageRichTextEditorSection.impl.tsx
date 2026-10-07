@@ -918,7 +918,7 @@ export function PageRichTextEditorSection({
             if (!$isRangeSelection(selection)) {
               return;
             }
-            $patchStyleText(selection, { "background-color": nextColor });
+            $patchStyleText(selection, { "background-color": nextColor || null });
           });
         }}
         onTextColorChange={(nextColor) => {
@@ -928,7 +928,7 @@ export function PageRichTextEditorSection({
             if (!$isRangeSelection(selection)) {
               return;
             }
-            $patchStyleText(selection, { color: nextColor });
+            $patchStyleText(selection, { color: nextColor || null });
           });
         }}
         onRedo={() => {

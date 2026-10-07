@@ -36,3 +36,33 @@ describe("InsertContentMenuControl", () => {
     expect(screen.queryByRole("menu")).toBeNull();
   });
 });
+
+it("skips unavailable commands and returns focus without submitting a surrounding form", async () => {
+  const user = userEvent.setup(); const submit = vi.fn(event => event.preventDefault()); const insert = vi.fn();
+  render(<form onSubmit={submit}><InsertContentMenuControl onInsertHorizontalRule={insert} /></form>);
+  const trigger = screen.getByRole("button", { name: "Insert" }); trigger.focus();
+  await user.keyboard("{ArrowDown}");
+  expect(screen.getByRole("menuitem", { name: "Image" }).getAttribute("aria-disabled")).toBe("true");
+  expect(document.activeElement).toBe(screen.getByRole("menuitem", { name: "Horizontal Rule" }));
+  await user.keyboard("{Enter}"); expect(insert).toHaveBeenCalledTimes(1); expect(submit).not.toHaveBeenCalled();
+  await waitFor(() => expect(document.activeElement).toBe(trigger));
+});
+
+it("hands keyboard focus to a host-opened insertion dialog", async () => {
+  const { useState } = await import("react");
+  const { ColumnsLayoutModal } = await import("../ColumnsLayoutModal");
+  const insert = vi.fn();
+  function Host() {
+    const [open, setOpen] = useState(false);
+    return <><InsertContentMenuControl onInsertColumnsLayout={() => setOpen(true)} /><ColumnsLayoutModal open={open} onClose={() => setOpen(false)} onSubmit={preset => { insert(preset); setOpen(false); }} /></>;
+  }
+  const user = userEvent.setup(); render(<Host />);
+  const trigger = screen.getByRole("button", {name:"Insert"}); trigger.focus();
+  await user.keyboard("{ArrowDown}{Enter}");
+  const dialog = await screen.findByRole("dialog");
+  await waitFor(() => expect(dialog.contains(document.activeElement)).toBe(true));
+  expect(screen.queryByRole("menu")).toBeNull();
+  await user.click(screen.getByRole("button", {name:"Insert"}));
+  expect(insert).toHaveBeenCalledExactlyOnceWith("twoEqual");
+  await waitFor(() => expect(document.activeElement).toBe(trigger));
+});
