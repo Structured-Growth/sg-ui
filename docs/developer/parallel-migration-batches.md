@@ -273,3 +273,54 @@ Completion reports received for grid-retry-focus and batch11 serialization, filt
 New chat `01a116ad-fb4d-7891-9b4b-359e6ab91ea0` owns only playwright.config.ts, scripts/serve-browser-storybook.mjs, scripts/browser-validation-pool.mjs, scripts/browser-validation-pool.test.mjs, docs/developer/react-aria-parallel-browser-validation.md and its unique parallel-batch-12/browser-pool.md report. Baseline d0fcc6298004ad23d1a75480b216b39142e6df96. Goal: opt-in isolated ports/output, atomic two-browser slot pool and separate build exclusion, preserving defaults and current active queue. No rollout before targeted isolation/cleanup checks and coordinator review.
 
 PR39 link activation, PR40 async direction and PR41 API audit reports also received, pending diff/evidence review. API/ref/export decisions and client page-shrink/async busy findings reserved; no broad task upgraded.
+
+## User-authorized cap50 and velocity batch13
+
+User explicitly requested all speedups and up to50 parallel chats. Cap50 supersedes earlier10/16 limits. New42 chats (three read-only reviewers,39 focused source/evidence assignments) start at reviewed b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818 in isolated managed worktrees before edits. No duplicate/made-up work: inspect existing evidence first and return evidence-only if already adequate. Reviewers own only reports and cannot integrate; coordinator alone merges reviewed heads into dev. Four targeted test process slots (/tmp/sgui-light-validation-slots), two install slots (/tmp/sgui-install-slots), atomic ownership/finally cleanup. Heavy builds/browser keep current lock and priority queue until batch12 pool reviewed/proved; then initial two isolated browser sessions, separate build capacity. Full checkpoints remain occasional local; GitHub dev CI paused.
+
+| Task | Chat | Exclusive ownership |
+| --- | --- | --- |
+| review-1 (X-01/W-19/Z-13 bounded integration review) | `01a116b0-b23c-7ed0-ba3b-8fac40c17d87` | docs/developer/parallel-batch-13/review-1.md |
+| review-2 (X-01/W-19/Z-13 bounded integration review) | `01a116b0-b4a6-7c51-aa9f-2ffc1bb983a7` | docs/developer/parallel-batch-13/review-2.md |
+| review-3 (X-01/W-19/Z-13 bounded integration review) | `01a116b0-b863-7142-9eb6-a9efde3511e3` | docs/developer/parallel-batch-13/review-3.md |
+| control-checkbox (U-04/U-18) | `01a116b0-bbae-72b2-b8c6-40bc5a6e4e46` | src/experimental/Checkbox/; tests/browser/batch13-control-checkbox.spec.ts; docs/developer/parallel-batch-13/control-checkbox.md |
+| control-switch (U-04/U-18) | `01a116b0-bf3f-70a1-be5e-8d7c6021ad17` | src/experimental/Switch/; tests/browser/batch13-control-switch.spec.ts; docs/developer/parallel-batch-13/control-switch.md |
+| control-radiogroup (U-04/U-18) | `01a116b0-c37a-7932-a49f-f357c539b09a` | src/experimental/RadioGroup/; tests/browser/batch13-control-radiogroup.spec.ts; docs/developer/parallel-batch-13/control-radiogroup.md |
+| control-textarea (U-05/U-18) | `01a116b0-c76a-7571-9862-cfc832f897de` | src/experimental/TextArea/; tests/browser/batch13-control-textarea.spec.ts; docs/developer/parallel-batch-13/control-textarea.md |
+| control-timefield (K-07/K-08) | `01a116b0-caec-72b0-91f8-c4cee4ee0df7` | src/experimental/TimeField/; tests/browser/batch13-control-timefield.spec.ts; docs/developer/parallel-batch-13/control-timefield.md |
+| control-togglebutton (U-03/X-16) | `01a116b0-ce26-7e71-b2e7-700346f058db` | src/experimental/ToggleButton/; tests/browser/batch13-control-togglebutton.spec.ts; docs/developer/parallel-batch-13/control-togglebutton.md |
+| control-buttongroup (U-03/X-07) | `01a116b0-d21e-7892-9c33-cb45049f8f87` | src/experimental/ButtonGroup/; tests/browser/batch13-control-buttongroup.spec.ts; docs/developer/parallel-batch-13/control-buttongroup.md |
+| control-splitaction (U-03/X-04) | `01a116b0-d56e-7cb3-bb2b-03c9aff27c42` | src/experimental/SplitAction/; tests/browser/batch13-control-splitaction.spec.ts; docs/developer/parallel-batch-13/control-splitaction.md |
+| control-iconbutton (U-03/X-03) | `01a116b0-d9dd-7090-ba93-0d2db675a766` | src/experimental/IconButton/; tests/browser/batch13-control-iconbutton.spec.ts; docs/developer/parallel-batch-13/control-iconbutton.md |
+| control-tooltip (U-08/X-04) | `01a116b0-de67-7b53-adbc-fd67abbbc9e6` | src/experimental/Tooltip/; tests/browser/batch13-control-tooltip.spec.ts; docs/developer/parallel-batch-13/control-tooltip.md |
+| control-disclosure (U-09/X-16) | `01a116b0-e286-7290-864b-a63bf8695c9e` | src/experimental/Disclosure/; tests/browser/batch13-control-disclosure.spec.ts; docs/developer/parallel-batch-13/control-disclosure.md |
+| control-collapse (U-02/X-06) | `01a116b1-2f4f-74f1-86c2-f66f53acf91b` | src/experimental/Collapse/; tests/browser/batch13-control-collapse.spec.ts; docs/developer/parallel-batch-13/control-collapse.md |
+| control-taggroup (U-06/X-04) | `01a116b1-3320-7210-84f9-c74de9c9bcd7` | src/experimental/TagGroup/; tests/browser/batch13-control-taggroup.spec.ts; docs/developer/parallel-batch-13/control-taggroup.md |
+| control-breadcrumbs (U-10/X-03) | `01a116b1-37e6-7043-a1ce-41f991628c56` | src/experimental/Breadcrumbs/; tests/browser/batch13-control-breadcrumbs.spec.ts; docs/developer/parallel-batch-13/control-breadcrumbs.md |
+| control-navigation (U-10/H-03) | `01a116b1-3e5f-7452-922f-4f580b00b84b` | src/experimental/Navigation/; tests/browser/batch13-control-navigation.spec.ts; docs/developer/parallel-batch-13/control-navigation.md |
+| control-pagination (U-17/G-05) | `01a116b1-4545-7dd1-a57f-437edba7de83` | src/experimental/Pagination/; tests/browser/batch13-control-pagination.spec.ts; docs/developer/parallel-batch-13/control-pagination.md |
+| control-table (U-17/X-16) | `01a116b1-4a3b-7c12-bea1-f2646b278b8f` | src/experimental/Table/; tests/browser/batch13-control-table.spec.ts; docs/developer/parallel-batch-13/control-table.md |
+| control-datagrid (U-17/X-16) | `01a116b1-50a4-7aa2-8791-8d4e6d347ac9` | src/experimental/DataGrid/; tests/browser/batch13-control-datagrid.spec.ts; docs/developer/parallel-batch-13/control-datagrid.md |
+| control-progress (U-11/X-03) | `01a116b1-580a-7722-8683-e9a092fc879d` | src/experimental/Progress/; tests/browser/batch13-control-progress.spec.ts; docs/developer/parallel-batch-13/control-progress.md |
+| control-avatar (U-02/X-03) | `01a116b1-5fde-7061-94ba-52bc35739d62` | src/experimental/Avatar/; tests/browser/batch13-control-avatar.spec.ts; docs/developer/parallel-batch-13/control-avatar.md |
+| control-badge (U-02/X-03) | `01a116b1-6d5d-7db2-bba0-df9dd885a693` | src/experimental/Badge/; tests/browser/batch13-control-badge.spec.ts; docs/developer/parallel-batch-13/control-badge.md |
+| control-chip (U-06/X-04) | `01a116b1-78ed-7b22-bc17-18d289ccbc55` | src/experimental/Chip/; tests/browser/batch13-control-chip.spec.ts; docs/developer/parallel-batch-13/control-chip.md |
+| control-list (U-02/X-03) | `01a116b1-827e-7122-9899-b49bdf6f7678` | src/experimental/List/; tests/browser/batch13-control-list.spec.ts; docs/developer/parallel-batch-13/control-list.md |
+| control-typography (A-08/U-02) | `01a116b1-8b6b-7b42-9acb-834ef8c3b493` | src/experimental/Typography/; tests/browser/batch13-control-typography.spec.ts; docs/developer/parallel-batch-13/control-typography.md |
+| control-surface (A-08/U-02) | `01a116b1-90b2-77f2-9537-002527ba56b4` | src/experimental/Surface/; tests/browser/batch13-control-surface.spec.ts; docs/developer/parallel-batch-13/control-surface.md |
+| control-card (U-02/X-03) | `01a116b1-c7e5-7d71-abc0-d82a219ff96e` | src/experimental/Card/; tests/browser/batch13-control-card.spec.ts; docs/developer/parallel-batch-13/control-card.md |
+| control-box (U-02/A-08) | `01a116b1-ce2e-7f40-836b-cf951f174928` | src/experimental/Box/; tests/browser/batch13-control-box.spec.ts; docs/developer/parallel-batch-13/control-box.md |
+| control-stack (U-02/A-08) | `01a116b1-d4df-7472-b331-78279d595959` | src/experimental/Stack/; tests/browser/batch13-control-stack.spec.ts; docs/developer/parallel-batch-13/control-stack.md |
+| control-button (U-03/U-18) | `01a116b1-dab9-7872-bc20-f4d8cb27ddaa` | src/experimental/Button/; tests/browser/batch13-control-button.spec.ts; docs/developer/parallel-batch-13/control-button.md |
+| control-link (U-10/H-03) | `01a116b1-e07e-7db1-88b4-bb930301ef82` | src/experimental/Link/; tests/browser/batch13-control-link.spec.ts; docs/developer/parallel-batch-13/control-link.md |
+| control-status (U-11/X-03) | `01a116b1-e56b-7491-ba0b-a635f4bf0845` | src/experimental/Status/; tests/browser/batch13-control-status.spec.ts; docs/developer/parallel-batch-13/control-status.md |
+| editable-title (M-11/U-05) | `01a116b1-edae-7382-b118-adce6f93c8fc` | src/components/EditableTitleField/; tests/browser/batch13-editable-title.spec.ts; docs/developer/parallel-batch-13/editable-title.md |
+| page-navigator (M-06/U-10) | `01a116b1-f50d-72f3-87e9-4e96aca0161f` | src/components/ExperiencePageNavigator/; tests/browser/batch13-page-navigator.spec.ts; docs/developer/parallel-batch-13/page-navigator.md |
+| card-collection (M-12/U-17) | `01a116b1-fbae-73a2-a8a2-4b9b0eb6c470` | src/components/CardCollectionWithFooter/; tests/browser/batch13-card-collection.spec.ts; docs/developer/parallel-batch-13/card-collection.md |
+| columns-dialog (E-03/U-08) | `01a116b2-03f5-72b2-92be-18c2f502dd09` | src/components/ColumnsLayoutModal/; tests/browser/batch13-columns-dialog.spec.ts; docs/developer/parallel-batch-13/columns-dialog.md |
+| editor-layout (E-03/X-05) | `01a116b2-0d9a-72f0-b4a5-4cdff6f43dec` | src/components/DocumentEditorLayout/; tests/browser/batch13-editor-layout.spec.ts; docs/developer/parallel-batch-13/editor-layout.md |
+| formatting-toolbar (E-03/E-04) | `01a116b2-1308-7332-a5e6-c85bd6cccf25` | src/components/RichTextFormattingToolbar/; tests/browser/batch13-formatting-toolbar.spec.ts; docs/developer/parallel-batch-13/formatting-toolbar.md |
+| logout-lifetime (H-04/H-05) | `01a116b2-1e9e-7153-a892-263b970d2428` | src/components/SideNavigation/; tests/browser/batch13-logout-lifetime.spec.ts; docs/developer/parallel-batch-13/logout-lifetime.md |
+| persistent-state (H-16/X-16) | `01a116b2-32b6-7831-b74e-5ac137d0e516` | src/hooks/usePersistentState.ts; src/hooks/usePersistentState.test.ts; src/hooks/usePersistentState.behavior.test.tsx; src/hooks/usePersistentState.ssr.test.tsx; tests/browser/batch13-persistent-state.spec.ts; docs/developer/parallel-batch-13/persistent-state.md |
+
+All42 creation calls succeeded and were checked with compact snapshots. Avatar managed registration failed; detached checkout remains unedited, read-only report requested. Partial source audits do not close whole task IDs. Acceptance67/32620.6%, required67/32020.9%, delta0,31inventory rows held; ETA not reliable.
