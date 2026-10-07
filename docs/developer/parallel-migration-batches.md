@@ -526,3 +526,16 @@ Reviewed final report-only commits and independently verified each owned source/
 Measured ten concurrent sessions: fresh build 31.883s, total85.257s, native window50.395s; peak load1 6.610, sampled peak system RSS18.995GiB, minimum reclaimable49%, swap3546.94MiB unchanged. These measurements establish useful concurrency, not hardware capacity guarantees. Modal timeouts dominate this wave. Held card footer layout remains owned product correction, editor/link/table failures have bounded driver corrections, and modal header/focus failures require targeted diagnosis. Preserve prior red artifacts.
 
 Recovered M-32 historical logs show 114 Chromium/WebKit cases passed, including file presentation and upload lifetime. Relevant current/dev file bytes match the committed metadata implementation, but the historical execution used a dirty primary checkout without captured immutable source/build manifest; record historical evidence only, not exact-head proof or whole acceptance. Firefox and broad upload acceptance remain pending.
+
+
+## Next independent assignments — batches46–50
+
+Verified base 0186aff866d1b0b568817631f3d0da83ee0d49e3. Five completed scopes released after review; five unfinished corrected/diagnostic scopes remain reserved.
+
+- Batch46 grid-shell-responsive: chat 01a1174a-9b03-7791-9ffd-c68dc293de81; exclusive src/components/AppDataGridShell/; tests/browser/inventory-grid-shell-responsive.spec.ts; docs/developer/parallel-batch-46/grid-shell-responsive.md; managed worktree before edits, targeted local evidence then coordinator immutable Chromium.
+- Batch47 toolbar-native-composition: chat 01a1174a-9d8d-7421-aada-c530fef019b8; exclusive src/components/DataToolbar/DataToolbar.stories.tsx; src/components/DataToolbar/DataToolbar.native-composition.test.tsx; tests/browser/inventory-toolbar-composition.spec.ts; docs/developer/parallel-batch-47/toolbar-native-composition.md; managed worktree before edits, targeted local evidence then coordinator immutable Chromium.
+- Batch48 pointer-reorder-invalidation: chat 01a1174a-a0fe-7582-86c2-71609f217c03; exclusive src/components/AppDataGrid/AppDataGrid.reorder-invalidation.stories.tsx; src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx; tests/browser/inventory-pointer-reorder-invalidation.spec.ts; docs/developer/parallel-batch-48/pointer-reorder-invalidation.md; managed worktree before edits, targeted local evidence then coordinator immutable Chromium.
+- Batch49 auth-embedded-host: chat 01a1174a-a486-7b23-a110-7939fd9ff001; exclusive src/components/AuthShell/; tests/browser/inventory-auth-embedded-host.spec.ts; docs/developer/parallel-batch-49/auth-embedded-host.md; managed worktree before edits, targeted local evidence then coordinator immutable Chromium.
+- Batch50 dialog-header-reflow: chat 01a1174b-0b94-7ad3-bf87-23367269c0ea; exclusive src/experimental/Dialog/Dialog.module.css; src/experimental/Dialog/Dialog.stories.tsx; src/experimental/Dialog/Dialog.test.tsx; tests/browser/batch50-dialog-header-reflow.spec.ts; docs/developer/parallel-batch-50/dialog-header-reflow.md; managed worktree before edits, targeted local evidence then coordinator immutable Chromium.
+
+Batch50 owns confirmed shared Dialog header reflow only; batch40 retains AppModal diagnostic focus ownership. Whole task gates unchanged.
