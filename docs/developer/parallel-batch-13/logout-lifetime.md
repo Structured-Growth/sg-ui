@@ -57,7 +57,7 @@ Every targeted unit/type/guard command used an atomic owned light-validation slo
 under `/tmp/sgui-light-validation-slots` (limit four); Vitest used one worker.
 Slots release only after matching their unique owner token. Queuing is not a pass.
 
-Fresh Storybook/browser execution remains pending: the shared
+At the initial handoff, fresh Storybook/browser execution was pending: the shared
 `/tmp/sgui-parallel-batch-01-validation.lock` is owned by another chat and
 `/tmp/sgui-browser-validation-priority.json` reserves earlier focused native work.
 The browser pool is under review; this task did not bypass it, steal a lock,
@@ -72,9 +72,8 @@ An adapter object replaced with exactly the same callbacks/getters is indistingu
 through the existing hook; this slice covers changed callbacks/getters and provider
 removal. Host network cancellation, session/asset cleanup and authority remain host-owned.
 
-Reserved next scope: run `tests/browser/batch13-logout-lifetime.spec.ts` against a
-fresh build containing this story through the coordinator-approved browser route;
-record exact tested head, engines, counts and native focus outcome. Any required
+The initially reserved focused Chromium run is now complete as recorded below.
+Remaining browser scope: Firefox/WebKit at the coordinator batch checkpoint. Any required
 browser infrastructure change belongs outside this task. Adapter identity API or
 organization-switch result lifetime needs a separate allowlist/task and demonstrated
 regression. No broader source change is included here.
@@ -118,10 +117,43 @@ the enabled Manage Profile item, and requires that item's native focus to remain
 after obsolete success/rejection. Pending-state, no-navigation/no-alert, menu
 visibility, newer-request completion and trigger restoration assertions are retained.
 Only the spec and this evidence record changed; no product/shared Menu source was
-changed. The corrected native run remains pending coordinator execution. Firefox
+changed. The corrected native run subsequently passed as recorded below. Firefox
 and WebKit are explicitly deferred to the batch checkpoint under the latest policy;
 no broad native/device/AT gate closes.
 
 Changed-spec `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json` passed on
 Node 24.21.0 under one atomic owned light-validation slot; `git diff --check`
 passed. No unchanged unit suite or browser run was repeated by the worker.
+
+
+## Final focused Chromium evidence
+
+After the coordinator selected and froze corrected head
+`089077fdabddab111f20ba9fda0119f8d1463d57`, its nineteenth pool completed
+all **4 Chromium cases**, with zero skipped, flaky or unexpected cases and no
+retries. The worker independently read evidence.json and results.json. Source
+initial/final head match, final tracked status is empty, and the immutable build
+initial/final SHA-256 matches:
+`d4f03689dbc7c49c0a8b49819185c922de046712669091b3758a57e6313770c6`.
+
+Evidence directory in the recovery worktree:
+`artifacts/browser-pool/e5dbf5d2-62dd-48bc-9a4d-eb7e4b908410/`.
+Runtime: Node 24.21.0, pnpm 10.29.3, Playwright 1.63.0 on macOS.
+Commands recorded by the coordinator supervisor:
+
+- `pnpm exec storybook build --output-dir <evidence-directory>/storybook`
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`
+- `pnpm exec playwright test tests/browser/batch13-logout-lifetime.spec.ts --project=chromium`
+
+Result duration: 3.16 seconds. The corrected assertions reached menu-container
+focus recovery, real ArrowDown into enabled Manage Profile, preserved focus after
+obsolete success/rejection, newer-request completion and restored trigger focus.
+Per-account and all-account logout both passed. The earlier four failures remain
+recorded above as the classified disabled-item expectation error.
+
+The coordinator released the freeze for this report-only update. Task source and
+spec remain byte-for-byte identical to the passed head; no redundant native,
+light-validation or build command ran. Final report-only head is supplied in the
+coordinator handoff and the same draft PR #79 evidence is updated. Coordinator
+alone reviews/integrates. Firefox/WebKit remain pending the batch checkpoint;
+broad H/U/X/R/Z, manual/device/assistive-technology acceptance stays open.
