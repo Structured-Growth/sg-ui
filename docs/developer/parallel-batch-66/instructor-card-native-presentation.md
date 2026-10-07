@@ -35,7 +35,8 @@ and explicit America/Chicago. No current clock, external service or auth involve
 
 [Focused browser spec](../../../tests/browser/batch66-instructor-card-native-presentation.spec.ts)
 contains three cases: light/comfortable/16px and dark/compact/32px narrow host
-compositions, native Tab focus-visible outline, retained link identity/focus during
+compositions, native Tab focus-visible outline plus strict whole-link viewport/card containment
+and center hit testing after Tab and every status update/Enter; retained link identity/focus during
 all four status changes, exactly one host route request per Enter, complete
 heading/text reflow, decorative icons and avatar, and native Intl date plus host
 missing/invalid fallback updates retaining focus. It pins browser locale/timezone
@@ -72,3 +73,14 @@ passes. Physical device/touch, zoom beyond this enlarged-text fixture, spoken AT
 broader locale/host composition and U/X/R/Z acceptance remain open. M-14 owner
 acceptance and disposition of historical menu/date/icon clauses remain with the
 coordinator; this report neither invents those contracts nor closes the row.
+
+## Bounded source admission correction
+
+Coordinator review found that focus/outline alone could pass a clipped control.
+The focused spec now polls positive whole-control bounds within both viewport and
+card, center `elementFromPoint` hit on the link/descendant, focus-visible state and
+solid nonzero outline after real Tab and each status update/Enter. It allows native
+keyboard scrolling to settle while adding no synthetic reveal/scroll. Predecessor
+focus is explicitly setup; the date case's direct focus proves retention only.
+This correction changes only the scoped browser spec and report. Browser types
+passed again; no independent browser run or component/model/API changes.
