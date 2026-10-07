@@ -195,3 +195,75 @@ occurred. Source scope stays reserved pending the coordinator's exclusive succes
 and fresh changed-source proof. Cross-engine/device/AT and broad acceptance remain
 open. This report-only update records the actual failed proof, not a completed F7
 acceptance slice.
+
+## Wave 34 — bounded Chromium acceptance after reserved production successor
+
+Fresh coordinator candidate `12db3601e7fa0707c7c8d43f6e04c7fabf3c52ae`
+passes all three batch 48 cases. Attribution in
+`/tmp/sgui-batch45-candidate-wave34-attribution.json` maps this slice to worker
+`573f31b68b742a2edfc43af1bdd92231900c6b65`, baseline
+`0186aff866d1b0b568817631f3d0da83ee0d49e3`. The unchanged executable hashes
+are exactly story `73d78ef89bb557bf4941bbd8c248f4cc3427f3f10217bf488e93059a4013bea3`,
+composed tests `2f09c9affabc97d65a599dc17828015f76e00cf9a276ba258c783e73a428de79`,
+native spec `ec608c320db9275f4b7f9228805e30f013a22e9b8d1c95076a1097c357502915`.
+The report digest at testing time was
+`ff38222a4f55900a0dec955d60194781da4b9f03225682883c29f65b4a82ad5f`;
+this final report-only addition does not change the tested executable bytes.
+
+The candidate includes the independently reserved batch 59 successor worker
+`c7634ceb77453b0566814cf78196f875a819c65a` (baseline
+`352dc493f64520f544b489d656d30972ea63727b`). Its interaction SHA-256 is
+`2d55999e42473069c6128ee569eb0629126768c067f317164ac15c617c38535d` and
+drop-focus regression SHA-256 is
+`3c2e41a441f2f15b44db9dbfdab276caf0547be6e48518f993e8c50a4302a9c1`.
+See its separate [production fix history](../parallel-batch-59/pointer-drop-focus.md)
+in the combined candidate. That successor document is outside this worker's
+isolated four-file scope. Batch 48 never edited those production files; this green
+evidence requires the combined candidate containing that successor, rather than
+the isolated original batch 48 base plus coverage alone.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/46471bab-1194-490a-bbc4-86adfcbb76e7/`.
+Root `evidence.json` records exact source/build/head immutability, Node 24.19.0,
+one fresh Storybook build and browser typecheck; the coordinator attests settled
+commands and released owned leases. Build SHA-256:
+`867868632be1585f81d0a8d3b00088e917f6d69e4e561cae22ae6b9698d97933`.
+The `pointer-reorder-invalidation/` shard retains `evidence.json`, `results.json`,
+browser logs and attached trusted native event records. Actual focused command:
+`pnpm exec playwright test (?:^|/)tests/browser/inventory-pointer-reorder-invalidation\.spec\.ts$ --project=chromium`.
+
+| Batch 48 native case | Actual outcome |
+| --- | --- |
+| Dataset replacement during trusted pointer drag; valid source-grid drop | Pass: no stale host request, unchanged orders, clean drag state, source-handle focus, trusted start/drop/end. |
+| Identity-function replacement during trusted pointer drag; valid source-grid drop | Pass: same complete assertions with changed identity function and equal IDs. |
+| Trusted release on other-grid row with colliding IDs | Pass: other-grid native entry and precise row hit, neither host receives a move, clean drag state and source-handle focus. |
+
+All three results are `passed`, retry 0, with zero skipped/flaky cases. Root wave
+coverage is **17/17 Chromium cases**: this slice 3, existing reorder 5, batch01 grid
+3 and separately owned editor 6. Total elapsed 44.299 seconds, browser window
+9.638 seconds, peak load 4.727, swap delta 0, per coordinator metrics. Adjacent
+green regressions support the shared candidate; the editor slice is not batch 48
+work or evidence for the reorder contract.
+
+Wave 23 driver reds and wave 27 product-focus reds retain their classifications,
+logs/screenshots/traces and actual tested candidates above. The later changed-source
+green proof does not rewrite them. Batch 48's bounded F7 native slice now has fresh
+Chromium evidence with unchanged strict assertions. Firefox/WebKit remain pending
+the batch checkpoint; physical touch long-press, spoken AT, manual coverage, host
+production network races and broad M-18/G/U/X/R/Z acceptance remain open. This is a
+reviewed testing-only candidate, not a claim of dev integration or production/main
+acceptance. No executable/story/spec edit, further native/build/CI run, push or
+integration accompanies this final report-only update; the coordinator owns
+individual history review and integration.
+
+### Final report checkout
+
+The original attached batch 48 checkout was absent when finalization resumed;
+the attempted report edit failed before applying any change. A new managed and
+attached checkout was created at the exact clean frozen worker head
+`573f31b68b742a2edfc43af1bdd92231900c6b65`:
+`/Users/thomashall/.codex/worktrees/batch48-pointer-final-report/sg-ui`.
+Only this report changes there. The prior worktree attachment and all candidate
+evidence were left untouched. `git diff --check` and unchanged executable hashes
+validate this documentation-only completion; no dependency install or UI checks
+were rerun. The final report-only commit is supplied in the coordinator handoff.
