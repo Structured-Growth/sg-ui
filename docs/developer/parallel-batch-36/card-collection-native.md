@@ -1,5 +1,9 @@
 # M-11 card collection native composition
 
+Current disposition: bounded Chromium composition proof passed in wave27. Earlier
+pending/red entries below are preserved history; final evidence is recorded at
+the end. Firefox/WebKit and whole-row/manual/device/AT acceptance remain open.
+
 Reviewed baseline: `4c9f859bad204a7d7fd2e3787aa6f293db268525`.
 Managed attached worktree:
 `/Users/thomashall/.codex/worktrees/batch36-card-collection-native/sg-ui`.
@@ -178,3 +182,47 @@ this report changed; previous source/browser typechecks remain attributable to
 the unchanged TypeScript. No independent heavy/native run, unchanged retry, or
 acceptance upgrade occurred. Coordinator fresh Chromium proof remains pending;
 Firefox/WebKit/manual/device/AT remain open.
+
+
+## Final wave27 Chromium proof and completion handoff
+
+Original frozen worker source/spec head:
+`397d89cc040905c6b7cbe905243b0b72fa10de37`.
+Actual shared testing candidate:
+`4987a1fe046c37f2e612d6de159aa09e1e840043`.
+Read-only `git diff --name-only <worker> <candidate> --
+src/components/CardCollectionWithFooter tests/browser/inventory-card-collection.spec.ts`
+returned no changed paths: the complete owned component directory and spec are
+byte-identical. This is shared candidate proof with exact worker attribution,
+not an independent browser run at the original worker head. Shared prerequisites
+belong to their respective owners; no Dialog recovery fix or other worker's
+implementation/evidence is claimed by this M-11 history.
+
+Coordinator pool on Node `v24.19.0` built fresh immutable Storybook once and ran
+`pnpm exec playwright test '(?:^|/)tests/browser/inventory-card-collection\.spec\.ts$' --project=chromium`
+with one worker. **All 6 Chromium cases passed, no retries, zero skipped/flaky**:
+all four light/dark × compact/comfortable native reflow/focus/draft/reorder cases,
+state replacement/quiet semantics, and host-controlled pagination rejection then
+acceptance with reset order. Downstream compact footer/keyed-focus assertions
+are now reached and passed. Historical unit 7/7, source/browser typechecking and
+foundation/token guards retain their exact local source attribution above.
+
+Preserved pool root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/afadf38b-8476-4c9b-a10e-2a78d786822d/`.
+Read `evidence.json`, `card-collection-native/evidence.json` and its `browser.log`;
+shard results/traces remain adjacent. Source digest initial/final:
+`f51549571de652b8a8be38addfc49b31da7c903aba36c7e4f0301385bc752b79`;
+build digest initial/final:
+`101bdd11ab686d9bad4c31857100322d960ee4edfcd19068dc77c1c06aec7a3e`.
+Final head equals the tested candidate and final status is clean. Commands settled
+and coordinator released owned leases. Overall pool status is red for unrelated
+grid-shell/pointer scopes; the complete card-collection shard is green. No broader
+pool success is claimed. Original wave21/22/23 red evidence stays preserved.
+
+Only this report changes after proof; source, story, unit test and browser spec
+remain frozen at the attributed worker bytes. No additional tests/builds/native
+servers ran during report finalization. Final clean report commit is returned to
+the coordinator for individual history review/integration; no candidate history
+merge, dev/main merge, publication or master-checkbox change occurs here.
+Firefox/WebKit await coordinated checkpoints. Actual browser zoom, physical devices,
+spoken assistive technology, broad acceptance and whole M-11 acceptance remain open.
