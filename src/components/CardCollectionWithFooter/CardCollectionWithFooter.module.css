@@ -1,6 +1,7 @@
 @layer sgui.components {
   .root { display: flex; flex: 1; flex-direction: column; min-block-size: 0; min-inline-size: 0; overflow: auto; }
-  /* Keep a native control visible; oversized footer chrome uses the root scroll. */
-  .grid { box-sizing: border-box; display: grid; flex: 1; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22.5rem), 1fr)); align-content: start; gap: var(--sgui-space4); min-block-size: var(--sgui-control-height); overflow: auto; padding: var(--sgui-space4); }
+  /* Text metrics can exceed compact control-height; retain the full control and focus outline.
+     Oversized footer chrome uses the root scroll. */
+  .grid { box-sizing: border-box; display: grid; flex: 1; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22.5rem), 1fr)); align-content: start; gap: var(--sgui-space4); min-block-size: max(var(--sgui-control-height), calc(var(--sgui-body-size) * var(--sgui-body-line-height) + 2 * var(--sgui-space1) + 2px + 2 * (var(--sgui-focus-width) + var(--sgui-focus-offset)))); overflow: auto; padding: var(--sgui-space4); }
   .item { min-inline-size: 0; overflow-wrap: anywhere; }
 }

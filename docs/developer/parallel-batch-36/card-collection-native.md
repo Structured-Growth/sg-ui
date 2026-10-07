@@ -141,3 +141,40 @@ Second correction targeted checks: 7/7 collection unit cases, browser TypeScript
 foundation and token guards passed. No TypeScript source/API changed since the
 preceding source typecheck; no unrelated full check/native/server run performed.
 Fresh coordinator Chromium proof of the corrected clean head remains pending.
+
+
+## Wave23 compact intrinsic-height correction
+
+Coordinator's actual Node24.19 Chromium proof tested candidate
+`c64c4377eb42c936f3cf8f1e3f5de2a5b33bdc05`, byte attribution to prepared
+`3a358e9318bdcf70aa5f22d45db4473c04dacaba` recorded in
+`/tmp/sgui-batch45-candidate-wave23-attribution.json`. Source/build hashes stayed
+unchanged. **4 passed / 2 failed, zero skipped/flaky**. Preserved evidence:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/16f6feff-4479-4f37-8c96-451b694ba457/`
+(root/shard evidence, logs/results/traces). The earlier pre-browser attempt stopped
+on a child PATH environment error; its cleanup EPERM/recovered dead leases are
+retained by the coordinator. That attempt provided no native proof.
+
+Comfortable light/dark full container/enlarged keyboard/footer/reorder cases and
+both state/host-pagination cases passed. Compact light/dark both failed enlarged
+input top: `162.75` versus grid top `165` (existing minimum assertion `164`).
+The snapshot/screenshot shows the focused native input clipped at the grid top;
+trace retains grid scrollTop340 across focus and geometry snapshots. This is a
+stable **owned layout defect**, not a timing tolerance: compact control-height
+is a minimum, while native field body line-height + vertical padding + two 1px
+borders can produce a taller actual control. A viewport capped to control-height
+cannot show that intrinsic control completely.
+
+Owned grid minimum now takes the maximum of control-height and those actual owned
+body/spacing metrics, plus the owned focus outline/offset on both sides. It remains
+border-box and keeps the root scroll fallback. This reserves a usable focus stop
+without changing shared TextField/footer or local typography. Browser assertions,
+tolerances, fixture and API remain unchanged. Comfortable results are historical
+candidate evidence, not an automatic pass for this new CSS head; compact downstream
+footer/reorder checks remain pending until reached.
+
+Third correction: 7/7 unit cases and foundation/token guards passed. Only CSS and
+this report changed; previous source/browser typechecks remain attributable to
+the unchanged TypeScript. No independent heavy/native run, unchanged retry, or
+acceptance upgrade occurred. Coordinator fresh Chromium proof remains pending;
+Firefox/WebKit/manual/device/AT remain open.
