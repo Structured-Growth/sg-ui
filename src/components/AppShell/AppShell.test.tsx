@@ -14,3 +14,19 @@ it("keeps main content available when composed navigation collapses and exposes 
   render(<AppShell ref={shellRef} navigation={<SideNavigation ref={navRef} model={{ user: { initials: "TH", name: "Thomas", organization: "School" }, rootMenu: { id: "root", sections: [] } }} />}>Learning content</AppShell>);
   expect(shellRef.current?.contains(navRef.current)).toBe(true); await userEvent.setup().click(screen.getByRole("button", { name: "Collapse navigation" })); expect(navRef.current?.hasAttribute("data-collapsed")).toBe(true); expect(screen.getByRole("main").textContent).toBe("Learning content");
 });
+it("retains an unsaved host field and main node through composed navigation collapse and expansion", async () => {
+  const { default: userEvent } = await import("@testing-library/user-event");
+  const user = userEvent.setup();
+  render(<AppShell mainLabel="Host workspace" navigation={<SideNavigation model={{ user: { initials: "TH", name: "Thomas", organization: "School" }, rootMenu: { id: "root", sections: [] } }} />}>
+    <label>Host title<input defaultValue="Learning plan" /></label>
+  </AppShell>);
+  const main = screen.getByRole("main", { name: "Host workspace" });
+  const input = screen.getByRole("textbox", { name: "Host title" });
+  await user.clear(input);
+  await user.type(input, "Unsaved title");
+  await user.click(screen.getByRole("button", { name: "Collapse navigation" }));
+  await user.click(screen.getByRole("button", { name: "Expand navigation" }));
+  expect(screen.getByRole("main", { name: "Host workspace" })).toBe(main);
+  expect(screen.getByRole("textbox", { name: "Host title" })).toBe(input);
+  expect((input as HTMLInputElement).value).toBe("Unsaved title");
+});
