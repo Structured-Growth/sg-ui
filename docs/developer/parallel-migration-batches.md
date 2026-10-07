@@ -246,3 +246,30 @@ Three newbatch10chats use revieweddev061a882 andexclusive scopes:
 | page-header-reflow (M-04/U-19) | `01a116a4-f72f-7853-b068-47a3e2ebe9cb` | src/components/AppPageHeader/; tests/browser/batch10-page-header-reflow.spec.ts; docs/developer/parallel-batch-10/page-header-reflow.md |
 | auth-shell-reflow (M-07/U-02) | `01a116a4-fa98-7d20-a217-302eca6279e1` | src/components/AuthShell/; tests/browser/batch10-auth-shell-reflow.spec.ts; docs/developer/parallel-batch-10/auth-shell-reflow.md |
 | card-frame-reflow (M-13/U-02) | `01a116a4-fd4c-7ab3-acfa-d29891b53fef` | src/components/ClassCardFrame/; tests/browser/batch10-card-frame-reflow.spec.ts; docs/developer/parallel-batch-10/card-frame-reflow.md |
+
+
+## Concurrency expansion and batch11
+
+User authorized increasing concurrency above10. Current cap16; browsers retain the existing lock/priority queue until a reviewed isolated-port slot pool is available. Targeted local checks and paused dev GitHub CI continue. Reviewed PR21 native reset, PR26 composed grid shell and PR29 contract wording merged and pushed at `d0fcc6298004ad23d1a75480b216b39142e6df96`. Runtime/native evidence accepted as bounded slices only; M10/M14/M30 owner criteria decisions remain open.
+
+Nine new chats use that verified baseline and exclusive allowlists:
+
+| Task | Chat | Ownership |
+| --- | --- | --- |
+| async-direction (H-06/U-19) | `01a116aa-47a8-7ac0-a7b1-031fc11b4a1b` | src/experimental/AsyncMultiSelect/; tests/browser/batch11-async-direction.spec.ts; docs/developer/parallel-batch-11/async-direction.md |
+| standalone-form-reset (U-18/K-06) | `01a116aa-4ad8-7a43-9bad-fbd7ab927463` | src/experimental/TextField/; src/experimental/DateField/; tests/browser/batch11-standalone-reset.spec.ts; docs/developer/parallel-batch-11/standalone-form-reset.md |
+| grid-page-shrink (G-05/H-16) | `01a116aa-4e1c-7150-8ef2-ca9dbef2a3a4` | src/components/AppDataGrid/ownedGridController.ts; src/components/AppDataGrid/ownedGridController.test.ts; src/components/AppDataGrid/ownedGridState.ts; src/components/AppDataGrid/ownedGridState.test.ts; src/components/AppDataGrid/ownedGridPageShrink.test.tsx; docs/developer/parallel-batch-11/grid-page-shrink.md |
+| filter-draft-transactions (G-09/U-07) | `01a116aa-514d-7f53-89d8-93e3882da963` | src/components/DataToolbar/components/DataToolbarFilterMenu.tsx; src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx; src/components/DataToolbar/components/DataToolbarFilterMenu.module.css; src/components/DataToolbar/filterRuleValue.ts; src/components/DataToolbar/filterRuleValue.test.ts; docs/developer/parallel-batch-11/filter-draft-transactions.md |
+| account-action-lifetime (H-04/H-05) | `01a116aa-5554-7eb1-8466-64cfa41a40e6` | src/adapters/accounts.tsx; src/adapters/accounts.test.tsx; src/adapters/accounts.stories.tsx; docs/developer/parallel-batch-11/account-action-lifetime.md |
+| icu-parser-boundaries (H-08) | `01a116aa-587d-71d2-bc80-6d9009dfab9f` | src/i18n/icu.ts; src/i18n/icu.test.ts; docs/developer/parallel-batch-11/icu-parser-boundaries.md |
+| editor-serialization (E-02/E-07) | `01a116aa-5bc3-7341-b095-6b2e95cba18b` | src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts; src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts; docs/developer/parallel-batch-11/editor-serialization.md |
+| editor-link-activation (E-07) | `01a116aa-5f39-7342-92d7-a46180801075` | src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx; src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts; src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts; src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts; docs/developer/parallel-batch-11/editor-link-activation.md |
+| public-api-reconciliation (Z-13/W-13) | `01a116aa-6384-7da2-8008-98ff10422683` | docs/developer/react-aria-public-api-reconciliation.md; docs/developer/parallel-batch-11/public-api-reconciliation.md |
+
+Completion reports received for grid-retry-focus and batch11 serialization, filters, ICU, account lifetime and page shrink; they await exact diff/evidence review. No broad checklist items closed. Acceptance remains67/326 (20.6%), required67/320 (20.9%), delta0;31 inventory rows held. ETA not reliable.
+
+## Batch12 browser parallelism
+
+New chat `01a116ad-fb4d-7891-9b4b-359e6ab91ea0` owns only playwright.config.ts, scripts/serve-browser-storybook.mjs, scripts/browser-validation-pool.mjs, scripts/browser-validation-pool.test.mjs, docs/developer/react-aria-parallel-browser-validation.md and its unique parallel-batch-12/browser-pool.md report. Baseline d0fcc6298004ad23d1a75480b216b39142e6df96. Goal: opt-in isolated ports/output, atomic two-browser slot pool and separate build exclusion, preserving defaults and current active queue. No rollout before targeted isolation/cleanup checks and coordinator review.
+
+PR39 link activation, PR40 async direction and PR41 API audit reports also received, pending diff/evidence review. API/ref/export decisions and client page-shrink/async busy findings reserved; no broad task upgraded.
