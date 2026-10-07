@@ -75,13 +75,21 @@ for (const placement of placements) for (const scope of scopes) for (const host 
     await assertState('live resize');
     if (host) {
       const scroller = page.getByTestId('collision-host');
+      const scrollDiagnostics = [{ label: 'before host scroll', ...await scrollAnchorDiagnostics(overlay) }];
       const before = await trigger.boundingBox();
       // Native host scroll while modal focus stays inside. Wheel outside a modal is
       // intentionally locked; use the host's native scroll API, never focus repair.
       await scroller.evaluate(element => element.scrollBy({ top: 32, behavior: 'instant' }));
       await expect.poll(() => scroller.evaluate(element => element.scrollTop)).toBe(32);
       await expect.poll(async () => Math.round((before?.y ?? 0) - (await trigger.boundingBox())!.y)).toBe(32);
-      await assertState('host scroll');
+      try {
+        await assertState('host scroll');
+      } finally {
+        scrollDiagnostics.push({ label: 'after host scroll assertion', ...await scrollAnchorDiagnostics(overlay) });
+        await testInfo.attach('scroll-anchor-diagnostics', {
+          body: JSON.stringify(scrollDiagnostics, null, 2), contentType: 'application/json',
+        });
+      }
     }
     await page.keyboard.press('Tab');
     await expect(review).toBeFocused();
@@ -101,4 +109,40 @@ for (const placement of placements) for (const scope of scopes) for (const host 
 
 async function documentScroll(page: Page) {
   return page.evaluate(() => ({ x: window.scrollX, y: window.scrollY }));
+}
+
+// Read-only geometry in one browser evaluation, retained even when adjacency fails.
+async function scrollAnchorDiagnostics(overlay: Locator) {
+  return overlay.evaluate(element => {
+    const host = document.querySelector<HTMLElement>('[data-testid="collision-host"]')!;
+    const anchor = host.querySelector<HTMLButtonElement>('button')!;
+    const box = element.getBoundingClientRect();
+    const target = anchor.getBoundingClientRect();
+    const side = element.getAttribute('data-placement');
+    const describe = (node: Element) => ({
+      tag: node.tagName, testId: node.getAttribute('data-testid'),
+      rect: node.getBoundingClientRect().toJSON(),
+      scrollTop: node.scrollTop, scrollLeft: node.scrollLeft,
+      position: getComputedStyle(node).position,
+      overflow: getComputedStyle(node).overflow,
+      transform: getComputedStyle(node).transform,
+    });
+    const ancestors = [];
+    for (let node = anchor.parentElement; node; node = node.parentElement) ancestors.push(describe(node));
+    return {
+      anchor: describe(anchor), overlay: describe(element), host: describe(host), ancestors,
+      placement: side,
+      gap: side === 'top' ? target.top - box.bottom : box.top - target.bottom,
+      horizontalOverlap: Math.min(target.right, box.right) - Math.max(target.left, box.left),
+      overlayInlineStyle: element.getAttribute('style'),
+      overlayOffsetParent: (element as HTMLElement).offsetParent
+        ? describe((element as HTMLElement).offsetParent!) : null,
+      documentScroll: { x: window.scrollX, y: window.scrollY },
+      viewport: { width: innerWidth, height: innerHeight },
+      activeElement: document.activeElement && {
+        tag: document.activeElement.tagName, id: document.activeElement.id,
+        insideOverlay: element.contains(document.activeElement),
+      },
+    };
+  });
 }
