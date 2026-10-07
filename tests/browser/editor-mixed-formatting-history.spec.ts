@@ -23,17 +23,59 @@ async function saved(page: Page): Promise<Document> {
 function characters(document: Document) {
   return document.root.children[0].children.flatMap(run => [...run.text].map(text => ({ ...run, text })));
 }
+// Read native endpoints as text offsets without constructing or changing a Range.
+function nativeSelectionState(root: HTMLElement) {
+  const selection = window.getSelection();
+  const textOffset = (node: Node | null, offset: number) => {
+    if (!node || !root.contains(node)) return null;
+    let total = node.nodeType === Node.TEXT_NODE ? offset
+      : [...node.childNodes].slice(0, offset).reduce((sum, child) => sum + (child.textContent?.length ?? 0), 0);
+    for (let current = node; current !== root; current = current.parentNode!) {
+      for (let sibling = current.previousSibling; sibling; sibling = sibling.previousSibling) {
+        total += sibling.textContent?.length ?? 0;
+      }
+    }
+    return total;
+  };
+  return {
+    focused: document.activeElement === root, documentFocused: document.hasFocus(),
+    editable: root.isContentEditable, text: selection?.toString(), collapsed: selection?.isCollapsed,
+    anchor: textOffset(selection?.anchorNode ?? null, selection?.anchorOffset ?? 0),
+    focus: textOffset(selection?.focusNode ?? null, selection?.focusOffset ?? 0),
+  };
+}
+
 async function selectMixedRange(page: Page) {
   const editor = page.getByRole('textbox', { name: 'Mixed formatting document', exact: true });
   await editor.click();
-  // Single short paragraph: Home and two arrows establish the forward anchor inside Bold.
-  await page.keyboard.press('Home');
-  await page.keyboard.press('ArrowRight');
-  await page.keyboard.press('ArrowRight');
-  for (let index = 0; index < 'ld plain Ita'.length; index++) await page.keyboard.press('Shift+ArrowRight');
-  // Observation only: no DOM Range, dispatchEvent, selection.modify or Lexical injection.
-  await expect.poll(() => page.evaluate(() => window.getSelection()?.toString())).toBe('ld plain Ita');
-  await expect(editor).toBeFocused();
+  try {
+    await expect(editor).toBeFocused();
+    await expect.poll(() => editor.evaluate(nativeSelectionState)).toMatchObject({
+      focused: true, documentFocused: true, editable: true,
+    });
+    // One short line: macOS Home scrolls instead of establishing the caret anchor.
+    await page.keyboard.press(process.platform === 'darwin' ? 'Meta+ArrowLeft' : 'Home');
+    await expect.poll(() => editor.evaluate(nativeSelectionState)).toMatchObject({
+      focused: true, documentFocused: true, editable: true, collapsed: true, anchor: 0, focus: 0,
+    });
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
+    await expect.poll(() => editor.evaluate(nativeSelectionState)).toMatchObject({
+      focused: true, documentFocused: true, editable: true, collapsed: true, anchor: 2, focus: 2,
+    });
+    for (let index = 0; index < 'ld plain Ita'.length; index++) await page.keyboard.press('Shift+ArrowRight');
+    // Observation only: no DOM Range, dispatchEvent, selection.modify or Lexical injection.
+    await expect(editor).toHaveText('Bold plain Italic');
+    await expect.poll(() => editor.evaluate(nativeSelectionState)).toEqual({
+      focused: true, documentFocused: true, editable: true,
+      text: 'ld plain Ita', collapsed: false, anchor: 2, focus: 14,
+    });
+  } finally {
+    await test.info().attach('native-mixed-selection-precondition', {
+      body: JSON.stringify({ platform: process.platform, ...await editor.evaluate(nativeSelectionState) }),
+      contentType: 'application/json',
+    });
+  }
   return editor;
 }
 

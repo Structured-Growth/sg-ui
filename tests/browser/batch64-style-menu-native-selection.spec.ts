@@ -8,12 +8,53 @@ async function tabTo(page: Page, target: Locator) {
   await expect(target).toBeFocused();
 }
 
+// Read native endpoints as text offsets without constructing or changing a Range.
+function nativeSelectionState(root: HTMLElement) {
+  const selection = window.getSelection();
+  const textOffset = (node: Node | null, offset: number) => {
+    if (!node || !root.contains(node)) return null;
+    let total = node.nodeType === Node.TEXT_NODE ? offset
+      : [...node.childNodes].slice(0, offset).reduce((sum, child) => sum + (child.textContent?.length ?? 0), 0);
+    for (let current = node; current !== root; current = current.parentNode!) {
+      for (let sibling = current.previousSibling; sibling; sibling = sibling.previousSibling) {
+        total += sibling.textContent?.length ?? 0;
+      }
+    }
+    return total;
+  };
+  return {
+    focused: document.activeElement === root, documentFocused: document.hasFocus(),
+    editable: root.isContentEditable, text: selection?.toString(), collapsed: selection?.isCollapsed,
+    anchor: textOffset(selection?.anchorNode ?? null, selection?.anchorOffset ?? 0),
+    focus: textOffset(selection?.focusNode ?? null, selection?.focusOffset ?? 0),
+  };
+}
+
 async function selectSample(page: Page) {
   const editor = page.getByRole('textbox', { name: 'Native style document', exact: true });
   await editor.click();
-  await page.keyboard.press('Home');
-  await page.keyboard.press('Shift+End');
-  await expect.poll(() => page.evaluate(() => window.getSelection()?.toString())).toBe(await editor.textContent());
+  try {
+    await expect(editor).toBeFocused();
+    await expect.poll(() => editor.evaluate(nativeSelectionState)).toMatchObject({
+      focused: true, documentFocused: true, editable: true,
+    });
+    // macOS Home scrolls; Command+Left moves the caret to this short line's start.
+    await page.keyboard.press(process.platform === 'darwin' ? 'Meta+ArrowLeft' : 'Home');
+    await expect.poll(() => editor.evaluate(nativeSelectionState)).toMatchObject({
+      focused: true, documentFocused: true, editable: true, collapsed: true, anchor: 0, focus: 0,
+    });
+    await page.keyboard.press(process.platform === 'darwin' ? 'Shift+Meta+ArrowRight' : 'Shift+End');
+    await expect(editor).toHaveText('MiXeD text');
+    await expect.poll(() => editor.evaluate(nativeSelectionState)).toEqual({
+      focused: true, documentFocused: true, editable: true,
+      text: 'MiXeD text', collapsed: false, anchor: 0, focus: 9,
+    });
+  } finally {
+    await test.info().attach('native-style-selection-precondition', {
+      body: JSON.stringify({ platform: process.platform, ...await editor.evaluate(nativeSelectionState) }),
+      contentType: 'application/json',
+    });
+  }
   return editor;
 }
 
