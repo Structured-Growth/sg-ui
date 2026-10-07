@@ -1,11 +1,12 @@
 "use client";
-import { forwardRef, useState } from "react";
+import { forwardRef, useState, useRef, useImperativeHandle } from "react";
 import { parseDate, parseDateTime, toCalendar, GregorianCalendar } from "@internationalized/date";
 import { DateField as AriaDateField, DateInput, DateSegment } from "react-aria-components/DateField";
 import { Label } from "react-aria-components/Label";
 import { Text } from "react-aria-components/Text";
 import { FieldError } from "react-aria-components/FieldError";
 import { useTranslation } from "../../i18n";
+import { useStandaloneFormReset } from "../TextField/useStandaloneFormReset";
 import field from "../TextField/TextField.module.css";
 import styles from "./DateField.module.css";
 
@@ -36,11 +37,25 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(function Dat
     try { return parse(raw); } catch { return null; }
   };
   const [invalidDefault, setInvalidDefault] = useState(() => Boolean(defaultValue && !safeParse(defaultValue)));
-  const parsedValue = value === undefined ? undefined : safeParse(value);
+  const root = useRef<HTMLDivElement>(null);
+  useImperativeHandle(ref, () => root.current!);
+  const [internal, setInternal] = useState(defaultValue ?? null);
+  const resetting = useStandaloneFormReset(root, () => {
+    if (value === undefined) {
+      setInternal(defaultValue ?? null);
+      setInvalidDefault(Boolean(defaultValue && !safeParse(defaultValue)));
+    }
+  });
+  const parsedValue = safeParse(value === undefined ? internal : value);
   const invalidInput = value === undefined ? invalidDefault : Boolean(value && !parsedValue);
   const invalidBounds = Boolean((min && !safeParse(min)) || (max && !safeParse(max)));
-  return <AriaDateField ref={ref} value={parsedValue}
-    defaultValue={safeParse(defaultValue) ?? undefined} onChange={date => { setInvalidDefault(false); onValueChange?.(date ? toCalendar(date, new GregorianCalendar()).toString() : null); }}
+  return <AriaDateField ref={root} value={parsedValue}
+    onChange={date => {
+      if (resetting.current) return;
+      const next = date ? toCalendar(date, new GregorianCalendar()).toString() : null;
+      if (value === undefined) setInternal(next);
+      setInvalidDefault(false); onValueChange?.(next);
+    }}
     minValue={safeParse(min) ?? undefined} maxValue={safeParse(max) ?? undefined} name={name}
     granularity={kind === "date" ? "day" : "second"} hourCycle={hourCycle}
     isInvalid={invalid || invalidInput || invalidBounds} isRequired={required} isDisabled={disabled} isReadOnly={readOnly} validationBehavior="native" className={field.root}>

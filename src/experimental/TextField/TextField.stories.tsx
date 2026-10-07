@@ -72,3 +72,29 @@ function NativeAcceptanceForm({ acceptChanges = true }: { acceptChanges?: boolea
 }
 export const NativeAcceptance: Story = { render: () => <NativeAcceptanceForm /> };
 export const ControlledAuthority: Story = { render: () => <NativeAcceptanceForm acceptChanges={false} /> };
+
+function StandaloneResetForm() {
+  const [prevent, setPrevent] = useState(false);
+  const [changes, setChanges] = useState(0);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
+    <form aria-label="Standalone reset form">
+      <TextField label="Uncontrolled field" name="uncontrolled" defaultValue="Initial" onValueChange={() => setChanges(count => count + 1)} />
+      <TextField label="Controlled field" name="controlled" value="Host title" defaultValue="Initial" onValueChange={() => setChanges(count => count + 1)} />
+      <Button type="reset">Reset fields</Button>
+      <output aria-label="Change callbacks">{changes}</output>
+    </form>
+  </div>;
+}
+export const StandaloneReset: Story = { render: () => <StandaloneResetForm /> };
+
+export const PreventedValidationReset: Story = { render: () => {
+  const [prevent, setPrevent] = useState(true);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
+    <form onSubmit={event => event.preventDefault()}>
+      <TextField label="Required course" defaultValue="Initial" required errorMessage="Enter a course name." />
+      <Button type="submit">Validate</Button><Button type="reset">Reset validation</Button>
+    </form>
+  </div>;
+} };
