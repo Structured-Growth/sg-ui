@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createRef, useState } from "react";
 import { TagGroup, type TagItem } from "./TagGroup";
@@ -23,6 +23,20 @@ describe("owned tag group", () => {
     expect(screen.getByText("Beta")).toBeTruthy();
     rerender(<TagGroup label="Topics" items={items} />);
     expect(screen.queryByRole("button")).toBeNull();
+  });
+  it("keeps rejected keyboard removals focused and scoped to their collection", async () => {
+    const onRemove = vi.fn();
+    render(<><TagGroup label="Editable topics" items={items} onRemove={onRemove} />
+      <TagGroup label="Reference topics" items={items} /></>);
+    const editable = within(screen.getByRole("grid", { name: "Editable topics" }));
+    const reference = within(screen.getByRole("grid", { name: "Reference topics" }));
+    const user = userEvent.setup();
+    await user.tab();
+    await user.keyboard("{ArrowRight}{Delete}{Backspace}");
+    expect(onRemove.mock.calls).toEqual([[["b"]], [["b"]]]);
+    expect(document.activeElement).toBe(editable.getByRole("row", { name: "Beta" }));
+    expect(reference.getAllByRole("row")).toHaveLength(3);
+    expect(reference.queryByRole("button")).toBeNull();
   });
   it("removes tokens by keyboard and focuses the next, previous, then empty list", async () => {
     const user = userEvent.setup();
