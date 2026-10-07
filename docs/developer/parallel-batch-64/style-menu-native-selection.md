@@ -46,20 +46,37 @@ and public contracts are unchanged. The new checks extend behavioral coverage.
 
 ## Coordinator-owned native proof
 
-The coordinator must compose the attributed candidate, build fresh static
-Storybook once, and run:
+The coordinator composed wave30 candidate
+`5cc976dc1b9af6ced3980ec0e93fe930a9a8237b` from frozen worker source head
+`98dfb3faa5cb3b2b2d8998171e706702cd4da631`, built fresh static Storybook once,
+and ran the exact scoped selection:
 
 ```sh
-pnpm exec playwright test tests/browser/batch64-style-menu-native-selection.spec.ts --project=chromium
+pnpm exec playwright test '(?:^|/)tests/browser/batch64-style-menu-native-selection\.spec\.ts$' --project=chromium
 ```
 
-The three prepared cases cover light/dark all-command selection handoff, checked
+All **3 Chromium cases passed** on 2026-10-07, with no retries (shard log reports
+6.5 seconds). They cover light/dark all-command selection handoff, checked
 state after each host acceptance, clear availability, Escape and explicit host
 selection return, plus live replacement/disabled callbacks and rejected requests.
-Native execution is **pending**, not claimed passed. No browser/server/Storybook
-build or full check ran independently. Firefox/WebKit remain deferred to the batch
-checkpoint. Device/assistive-technology and broad M-30/editor acceptance remain
-open. Only the coordinator reviews and accepts/integrates this slice.
+
+Root evidence:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/evidence.json`.
+The `style-menu-native-selection` shard under that directory contains its
+`browser.log`, `results.json` and evidence. Attribution:
+`/tmp/sgui-batch45-candidate-wave30-attribution.json`. All five worker file SHA-256
+digests matched the attribution before this report-only amendment. The tested
+source/story/spec/unit bytes remain unchanged. The shard build digest is
+`6978ebf422790330db7d1a041dfa973e0d3f01c06362a9afbefb43719c5a6ee0`.
+The coordinator reported the source and build immutable and all owned commands
+settled with locks released. Overall wave30 status was failed because the separate
+pointer-drop-focus shard failed; that does not invalidate this complete green
+style-menu shard or constitute a whole-candidate pass.
+
+No browser/server/Storybook build, redundant rerun or full check ran independently.
+Firefox/WebKit remain deferred to the batch checkpoint. Device/assistive-technology
+and broad M-30/editor acceptance remain open. Only the coordinator reviews and
+accepts/integrates the individual worker history, not the complete shared candidate.
 
 See [editor menu contracts](../react-aria-editor-menus.md),
 [formatting toolbar contracts](../react-aria-formatting-toolbar.md) and
