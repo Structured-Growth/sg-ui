@@ -10,7 +10,9 @@ full columns/editor acceptance.
 
 - Verified baseline and inspected source head: `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818`.
 - Managed worktree: `/Users/thomashall/.codex/worktrees/batch13-columns-dialog/sg-ui`.
-- Branch: `codex/batch13-columns-dialog`; intended draft PR base: `codex/dev`.
+- Branch: `codex/batch13-columns-dialog`; draft PR base: `codex/dev`.
+- Draft PR: [#60](https://github.com/Structured-Growth/sg-ui/pull/60).
+- Initial report head: `102398186131daccd8b9424992089aa0b94819df`; final evidence-link commit is reported to the coordinator.
 - Exclusive write allowlist: `src/components/ColumnsLayoutModal/`,
   `tests/browser/batch13-columns-dialog.spec.ts`, and this report.
 - Actual tracked change: this report only. Other source, shared contracts,
