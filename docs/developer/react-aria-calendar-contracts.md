@@ -35,11 +35,22 @@ planning assumption that this necessarily requires lower-level hooks does not
 apply to this version. No custom collection state is added merely to duplicate it.
 
 `DateRangeSelector` keeps a draft until Apply. Cancel restores the committed range;
-clear affects the draft and is disabled when required. Presets supply explicit
+Clear affects the draft and is disabled when required. Presets supply explicit
 inclusive ranges and may include descriptions. A preset crossing a minimum,
 maximum or unavailable day is disabled. Typed start/end segments and calendar
 selection share one draft. Partial/reversed/unavailable drafts cannot Apply.
 Controlled parent changes replace a draft only when serialized endpoints change.
+After activating the first endpoint, a visible translated `date-range-preview`
+status follows the interaction engine's highlighted range, including reverse and
+cross-month keyboard navigation. The complete localized date-cell labels remain
+intact. The first activation moves focus to the nearest available endpoint; arrows
+then adjust the preview. Apply is disabled until the second endpoint is activated,
+so an unfinished selection cannot accidentally commit the previous draft.
+Cancel, Clear, presets, typed edits, changed committed host values and native reset
+invalidate the pending anchor. Leaving the calendar cancels an unfinished preview
+without synthesizing a second endpoint or changing the draft. A preview is
+neither a draft commit nor submitted
+form data; after completing both endpoints, Apply still controls the commit.
 
 `DatePicker` commits single-date field/calendar changes immediately. Its name
 participates in native form data. `DateRangePicker` opens the advanced selector,
@@ -50,7 +61,16 @@ the host can prevent reset. Controlled values always remain host-owned.
 `DateField` and `TimeField` use native validation and form participation, with
 keyboard-editable segments, descriptions/errors and controlled/uncontrolled
 contracts. Standalone range-selector hidden fields submit committed values,
-not an unconfirmed draft. A required range disables Apply when empty; the host
+not an unconfirmed draft. Its nearest native form reset restores uncontrolled
+committed defaults and the draft, or restores the draft to the controlled host
+value. Preventing the native reset preserves both values. A host `form.reset()` while
+calendar focus remains inside also preserves the pending preview; moving focus
+outside cancels that preview independently of form reset.
+Segmented fields' reset requests are suppressed during that transaction so they
+cannot independently overwrite one endpoint. Reset does not emit a commit callback. Range controls defer the transaction to a
+new task, because native dispatch can run a microtask before React's delegated
+host reset handler has prevented the event.
+A required range disables Apply when empty; the host
 must enforce a required committed range in its final submission validation.
 
 ## Initial scope and accessibility limits
@@ -72,9 +92,13 @@ dates cannot be activated. The native availability disclosure remains a keyboard
 and touch alternative for reviewing all supplied dates. Host messages stay
 host-owned. Draft endpoints remain a separate status and only Apply commits.
 
-These changes address availability and preset access in K-17. Intermediate range
-preview/anchor announcements, live screen-reader output and the full locale/device
-matrix still need acceptance, so K-17 stays open. Descriptions on date buttons
+These changes address availability, preset access and visible keyboard range
+preview in K-17. Native browser regressions in
+`tests/browser/batch01-calendar.spec.ts` exercise leap-day/month-boundary previews,
+unavailable interior dates, draft/Apply/Cancel/Clear/reset form transactions and
+picker Escape/focus return. The same civil endpoints are exercised in Chicago and
+Tokyo browser timezones. Live screen-reader output and the full locale/device
+matrix still need acceptance, so K-03–K-10 and K-17 remain broad open gates. Descriptions on date buttons
 attach after hydration; the visible descriptions and disclosure are server-rendered.
 
 Comparison periods, computed fiscal rules, month/year-only selectors, recurrence,
