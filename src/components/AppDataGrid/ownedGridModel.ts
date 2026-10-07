@@ -32,6 +32,7 @@ export type OwnedGridProcessingResult<Row> = {
   rowIds: string[];
   rowCount: number | undefined;
   canNextPage: boolean;
+  /** Requested criteria; client rows use the last available display page. */
   paginationModel: OwnedGridPaginationModel;
 };
 
@@ -211,11 +212,13 @@ export function processOwnedGridRows<Row>(options: OwnedGridProcessingOptions<Ro
   const definitions: ColumnDef<Row>[] = columns.map(column => ({ id: column.field, accessorFn: row => getOwnedGridCellValue(row, column),
     sortingFn: (a, b) => compareOwnedGridValues(getOwnedGridCellValue(a.original, column), getOwnedGridCellValue(b.original, column),
       options.filterFields?.find(field => field.id === column.field)?.type ?? column.filterType), sortUndefined: false }));
+  // Complete client data defines the display bound; do not accept or mutate host criteria.
+  const displayPage = Math.min(paginationModel.page, Math.max(0, Math.ceil(data.length / paginationModel.pageSize) - 1));
   const table = createTable<Row>({ data, columns: definitions, getRowId: row => identities.get(row)!,
-    state: { sorting: sortRules.map(rule => ({ id: rule.field, desc: rule.direction === "desc" })), pagination: { pageIndex: paginationModel.page, pageSize: paginationModel.pageSize } },
+    state: { sorting: sortRules.map(rule => ({ id: rule.field, desc: rule.direction === "desc" })), pagination: { pageIndex: displayPage, pageSize: paginationModel.pageSize } },
     onStateChange: () => {}, renderFallbackValue: null, getCoreRowModel: getCoreRowModel(), getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(), autoResetPageIndex: false });
   const page = table.getRowModel().rows;
   return { rows: page.map(row => row.original), processedRows: table.getPrePaginationRowModel().rows.map(row => row.original), rowIds: page.map(row => row.id),
-    rowCount: data.length, canNextPage: (paginationModel.page + 1) * paginationModel.pageSize < data.length, paginationModel: { ...paginationModel } };
+    rowCount: data.length, canNextPage: (displayPage + 1) * paginationModel.pageSize < data.length, paginationModel: { ...paginationModel } };
 }

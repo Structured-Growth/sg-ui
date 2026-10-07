@@ -6,7 +6,7 @@ import userEvent from "@testing-library/user-event";
 import { AppDataGridShell } from "./AppDataGridShell";
 import type { OwnedGridCriteriaState } from "../AppDataGrid/ownedGridState";
 import type { AppDataGridColumn } from "../AppDataGrid";
-afterEach(cleanup);
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 type Course = { id: string; name: string; score: number };
 const rows: Course[] = [{ id: "a", name: "Science", score: 20 }, { id: "b", name: "Mathematics", score: 10 }, { id: "c", name: "History", score: 30 }];
 const columns: AppDataGridColumn<Course>[] = [{ field: "name", headerName: "Name" }, { field: "score", headerName: "Score", filterType: "number" }];
@@ -299,4 +299,83 @@ it("isolates grid/card selection, sorting and filters with distinct persisted vi
   expect(screen.queryByText("1 selected")).toBeNull();
   expect(within(screen.getByRole("region", { name: "Card view" })).getAllByRole("listitem").map(item => item.textContent)).toEqual(["History"]);
   expect([...screen.getByRole("grid", { name: "Courses" }).querySelectorAll("tbody [data-grid-field='name']")].map(item => item.textContent)).toEqual(["History", "Science", "Mathematics"]);
+});
+
+it.each([false, true])("keeps a shrunk client page coherent with host acceptance=%s", async accept => {
+  const dataset = Array.from({ length: 41 }, (_, index) => ({ id: String(index + 1), name: `Shrink course ${index + 1}`, score: index }));
+  const page = vi.fn(); const combined = vi.fn(); const selected = vi.fn(); const order: string[] = [];
+  const focusOptions: Array<FocusOptions | undefined> = [];
+  const originalFocus = HTMLElement.prototype.focus;
+  const focusSpy = vi.spyOn(HTMLElement.prototype, "focus").mockImplementation(function (this: HTMLElement, options) {
+    if (this.dataset.gridField === "name") focusOptions.push(options);
+    originalFocus.call(this, options);
+  });
+  const config = { ...props, rows: dataset, pageSizeOptions: [10], paginationModel: { page: 3, pageSize: 10 },
+    rowCount: 1, hasNextPage: false,
+    selection: { defaultSelectedRowIds: new Set(["41"]), onSelectedRowIdsChange: selected },
+    onPaginationModelChange: (value: { page: number; pageSize: number }) => { order.push("page"); page(value); },
+    onStateChange: (value: unknown) => { order.push("state"); combined(value); } };
+  const { rerender } = render(<AppDataGridShell {...config} />);
+  expect(screen.getByText("Shrink course 31")).toBeTruthy();
+  rerender(<AppDataGridShell {...config} rows={dataset.slice(0, 11)} />);
+  expect(screen.getByText("Shrink course 11")).toBeTruthy();
+  expect(screen.getByText("11-11 of 11")).toBeTruthy();
+  expect(screen.getByRole("button", { name: "Next page" }).hasAttribute("disabled")).toBe(true);
+  expect(page).not.toHaveBeenCalled(); expect(combined).not.toHaveBeenCalled();
+  await userEvent.click(screen.getByRole("button", { name: "Previous page" }));
+  expect(page).toHaveBeenCalledExactlyOnceWith({ page: 0, pageSize: 10 });
+  expect(order).toEqual(["page", "state"]);
+  expect(combined.mock.calls[0][0]).toMatchObject({ paginationModel: { page: 0, pageSize: 10 }, selectedRowIds: new Set(["41"]) });
+  expect(screen.getByText("Shrink course 11")).toBeTruthy();
+  rerender(<AppDataGridShell {...config} rows={dataset.slice(0, 11)} paginationModel={{ page: accept ? 0 : 3, pageSize: 10 }} />);
+  expect(screen.getByText(accept ? "Shrink course 1" : "Shrink course 11")).toBeTruthy();
+  if (accept) {
+    expect(document.activeElement?.getAttribute("data-grid-field")).toBe("name");
+    expect(focusOptions.length).toBeGreaterThan(0);
+    // The first call is the owned footer-entry focus; React Aria may then
+    // refocus with its own scroll-preserving fallback in jsdom.
+    expect(focusOptions[0]).toEqual({ preventScroll: true });
+  }
+  focusSpy.mockRestore();
+  expect(combined).toHaveBeenCalledTimes(1);
+  expect(selected).not.toHaveBeenCalled();
+  rerender(<AppDataGridShell {...config} rows={[]} />);
+  expect(screen.getByText("0-0 of 0")).toBeTruthy();
+  expect(combined).toHaveBeenCalledTimes(1);
+  rerender(<AppDataGridShell {...config} />);
+  expect(screen.getByText("Shrink course 31")).toBeTruthy();
+});
+
+it("uses the complete client total for callback-only page requests despite server hints", async () => {
+  const page = vi.fn(); const combined = vi.fn();
+  const config = { ...props, pageSizeOptions: [1], defaultPaginationModel: { page: 0, pageSize: 1 },
+    rowCount: 0, hasNextPage: false, onPaginationModelChange: page, onStateChange: combined };
+  const { rerender } = render(<AppDataGridShell {...config} />);
+  await userEvent.click(screen.getByRole("button", { name: "Last page" }));
+  expect(page).toHaveBeenCalledExactlyOnceWith({ page: props.rows.length - 1, pageSize: 1 });
+  expect(screen.getByText(props.rows.at(-1)!.name)).toBeTruthy();
+  rerender(<AppDataGridShell {...config} rows={props.rows.slice(0, 2)} />);
+  expect(screen.getByText(props.rows[1]!.name)).toBeTruthy();
+  expect(page).toHaveBeenCalledTimes(1);
+  await userEvent.click(screen.getByRole("button", { name: "Previous page" }));
+  expect(screen.getByText(props.rows[0]!.name)).toBeTruthy();
+  expect(combined).toHaveBeenCalledTimes(2);
+});
+
+it("shares the clamped client slice and retained selection with cards while rejecting a request", async () => {
+  const dataset = Array.from({ length: 41 }, (_, index) => ({ id: String(index), name: `Card course ${index}`, score: index }));
+  const onStateChange = vi.fn();
+  const config = { ...props, rows: dataset, pageSizeOptions: [10], paginationModel: { page: 3, pageSize: 10 },
+    onStateChange, selection: { defaultSelectedRowIds: new Set(["40"]) } };
+  const { rerender } = render(<AppDataGridShell {...config} />);
+  rerender(<AppDataGridShell {...config} rows={dataset.slice(0, 11)} />);
+  await userEvent.click(screen.getByRole("button", { name: "Cards" }));
+  expect(screen.getAllByRole("listitem")).toHaveLength(1);
+  expect(within(screen.getByRole("list")).getByText("Card course 10")).toBeTruthy();
+  expect(screen.getByText("1 selected")).toBeTruthy();
+  await userEvent.click(screen.getByRole("button", { name: "Previous page" }));
+  expect(onStateChange).toHaveBeenCalledExactlyOnceWith(expect.objectContaining({ paginationModel: { page: 0, pageSize: 10 }, selectedRowIds: new Set(["40"]) }));
+  expect(within(screen.getByRole("list")).getByText("Card course 10")).toBeTruthy();
+  await userEvent.click(screen.getByRole("button", { name: "List" }));
+  expect(screen.getByRole("checkbox", { name: "Select Card course 10" })).toBeTruthy();
 });

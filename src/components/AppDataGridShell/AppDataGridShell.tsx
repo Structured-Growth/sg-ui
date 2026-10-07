@@ -12,6 +12,7 @@ import { useOwnedGridPersistence, type OwnedGridPersistedState, type OwnedGridPe
 import { Button } from "../../experimental/Button/Button";
 import { useTranslation } from "../../i18n";
 import { createOwnedGridResetState } from "../AppDataGrid/ownedGridReset";
+import { transitionOwnedGridState, type OwnedGridTransition } from "../AppDataGrid/ownedGridState";
 import styles from "./AppDataGridShell.module.css";
 
 /** Criteria are owned by the shell. Toolbar callbacks observe those transactions. */
@@ -53,7 +54,8 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
   const defaults = persistence.defaults;
   const toolbarSortRules = useMemo(() => toolbar?.sortRules?.flatMap(rule => rule.field && (rule.direction === "asc" || rule.direction === "desc")
     ? [{ field: rule.field, direction: rule.direction }] : []), [toolbar?.sortRules]);
-  const { state, dispatch } = useOwnedGridController({ ...props, filterFields,
+  const { state, dispatch: requestedDispatch } = useOwnedGridController({ ...props, filterFields,
+    rowCount: mode === "server" ? props.rowCount : undefined, hasNextPage: mode === "server" ? props.hasNextPage : undefined,
     defaultPaginationModel: defaults.paginationModel ?? props.defaultPaginationModel,
     defaultSortRules: defaults.sortRules ?? props.defaultSortRules,
     defaultFilterRules: defaults.filterRules ?? props.defaultFilterRules,
@@ -76,6 +78,14 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
     rowCount: props.rowCount, hasNextPage: props.hasNextPage, ...state }),
   [rows, columns, getRowId, mode, filterFields, props.rowCount, props.hasNextPage,
     state.paginationModel, state.sortRules, state.filterRules, state.searchValue]);
+  // Bound explicit client page requests by the complete processed total. The
+  // controller retains requested state until its owner accepts the transaction.
+  const dispatch = (action: OwnedGridTransition) => {
+    if (mode === "client" && (action.type === "page" || action.type === "pageSize" || action.type === "pagination")) {
+      const next = transitionOwnedGridState(state, action, { columns, pageSizeOptions: props.pageSizeOptions, rowCount: processed.rowCount });
+      requestedDispatch({ type: "pagination", value: next.paginationModel });
+    } else requestedDispatch(action);
+  };
   const [localView, setLocalView] = useState<ClassesViewMode>(() => defaults.viewMode ?? view?.defaultMode ?? "list");
   const viewMode = view?.mode ?? localView;
   useEffect(() => { persistence.persist({ ...state, columnVisibilityModel: layout.visibility,
@@ -111,7 +121,7 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
     const node = entry.current;
     const scrolling = node?.querySelector<HTMLElement>("[data-sgui-part='grid-container']") ?? node;
     if (scrolling) scrolling.scrollTop = 0;
-    (node?.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder']), [data-sgui-part='grid-card']") ?? node)?.focus();
+    (node?.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder']), [data-sgui-part='grid-card']") ?? node)?.focus({ preventScroll: true });
   }, [state.paginationModel.page]);
   const hasCriteria = Boolean(state.searchValue || state.filterRules.length);
   return <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="data-grid-shell">
