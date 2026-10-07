@@ -68,6 +68,8 @@ export const NativeHostSelection: Story = {
     const [events, setEvents] = useState<object[]>([]);
     const selection = useRef("");
     const fragment = useRef<HTMLElement>(null);
+    const trigger = useRef<HTMLButtonElement>(null);
+    const restorePending = useRef(false);
     const captureSelection = () => {
       const current = window.getSelection();
       if (current && fragment.current?.contains(current.anchorNode) && fragment.current.contains(current.focusNode)) {
@@ -75,24 +77,27 @@ export const NativeHostSelection: Story = {
       }
     };
     const restoreSelection = () => {
-      // Native modal focus restoration remains with the dialog. The host restores
-      // its noneditable rich fragment selection without moving keyboard focus.
-      requestAnimationFrame(() => {
-        if (selection.current !== "Course guide" || !fragment.current) return;
-        const range = document.createRange();
-        range.selectNodeContents(fragment.current);
-        const current = window.getSelection();
-        current?.removeAllRanges();
-        current?.addRange(range);
-      });
+      if (!restorePending.current || document.activeElement !== trigger.current) return;
+      restorePending.current = false;
+      if (selection.current !== "Course guide" || !fragment.current) return;
+      const range = document.createRange();
+      range.selectNodeContents(fragment.current);
+      const current = window.getSelection();
+      current?.removeAllRanges();
+      current?.addRange(range);
     };
     const richChildren = <><strong>Course</strong>{" "}<em>guide</em></>;
-    return <Stack gap={3}>
+    return <Stack gap={3} onFocusCapture={event => {
+      // The dialog owns return focus. Restore the host's selection only after
+      // that native focus operation finishes, including when unlink replaced
+      // the selected nodes. A submit-time RAF can run before dialog restoration.
+      if (event.target === trigger.current && restorePending.current) queueMicrotask(restoreSelection);
+    }}>
       <Typography variant="body2">Select the course guide text, then edit its link. The host retains the rich fragment.</Typography>
       <Typography ref={fragment} aria-label="Host rich fragment" onMouseUp={captureSelection}>
         {url ? <a href={url} onClick={event => event.preventDefault()}>{richChildren}</a> : richChildren}
       </Typography>
-      <AppButton variant="outlined" tone="neutral" onPress={() => {
+      <AppButton ref={trigger} variant="outlined" tone="neutral" onPress={() => {
         setEvents(current => [...current, { action: "open", selection: selection.current }]);
         setOpen(true);
       }}>Edit selected link</AppButton>
@@ -101,14 +106,14 @@ export const NativeHostSelection: Story = {
       <LinkUrlModal open={open} initialDisplayText="Course guide" initialUrl={url ?? ""}
         onClose={() => {
           setEvents(current => [...current, { action: "close", selection: selection.current }]);
+          restorePending.current = true;
           setOpen(false);
-          restoreSelection();
         }}
         onSubmit={payload => {
           setEvents(current => [...current, { action: "submit", ...payload, selection: selection.current }]);
+          restorePending.current = true;
           setUrl(payload.url);
           setOpen(false);
-          restoreSelection();
         }} />
     </Stack>;
   },
