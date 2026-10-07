@@ -5,6 +5,8 @@ import { SGNavigationProvider } from "../../adapters/navigation";
 import { Button } from "../../experimental/Button/Button";
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeaderCell, TableRow } from "../../experimental/Table/Table";
 import { OwnedGridCell } from "./ownedGridCells";
+import { TextArea } from "../../experimental/TextArea/TextArea";
+import { CopyableTableCell } from "./components/table-cell/CopyableTableCell";
 import { TextTableCell } from "./components/table-cell/TextTableCell";
 import { AppDataGrid } from "./AppDataGrid";
 import type { OwnedGridPresentationColumn } from "./ownedGridColumns";
@@ -58,3 +60,24 @@ export const ColumnTextWrapping: Story = { render: () => <div style={{ height: 3
   rows={[{ id: "one", description: "First line\nA complete long description that wraps within the declared column width." }]}
   label="Wrapped course descriptions" getRowLabel={() => "Course description"} selection={false}
   columns={[{ field: "description", headerName: "Description", width: 240, truncate: false }]} /></div> };
+
+
+export const ClipboardFeedback: Story = { render: function ClipboardFeedbackExample() {
+  const [revision, setRevision] = useState(0);
+  const [showIndependent, setShowIndependent] = useState(true);
+  const text = '<img src=x onerror="alert(1)"> & "quoted"\nSecond line';
+  const json = { html: '<script>alert("quoted")</script>', text: "First\nSecond & third" };
+  return <>
+    <p>Use Enter or Space to copy. Each cell announces success or failure for three seconds. Clipboard permissions belong to the browser.</p>
+    <div style={{ height: 320 }}><AppDataGrid label="Clipboard courses"
+      rows={[{ id: "text", name: "Text course", value: text }, { id: "json", name: "JSON course", value: json }, { id: "empty", name: "Empty course", value: null }]}
+      getRowLabel={row => row.name} columns={[{ field: "name", headerName: "Course" },
+        { field: "value", headerName: "Copy value", cellType: "copyable", width: 420, truncate: false,
+          formatValue: value => typeof value === "object" && value !== null ? JSON.stringify(value) : String(value ?? "—") }]} /></div>
+    <section aria-label="Independent copy cell">{showIndependent && <CopyableTableCell value={`Independent ${revision}`} />}</section>
+    <Button onPress={() => setRevision(value => value + 1)}>Replace independent value</Button>
+    <Button onPress={() => setShowIndependent(value => !value)}>Toggle independent cell</Button>
+    <Button>Host action</Button>
+    <TextArea label="Clipboard destination" />
+  </>;
+} };
