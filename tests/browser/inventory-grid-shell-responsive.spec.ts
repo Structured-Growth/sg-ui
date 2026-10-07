@@ -91,14 +91,27 @@ async function observeNativeFocus(page: Page) {
 type FocusObservation = Awaited<ReturnType<typeof observeNativeFocus>>;
 
 // Native sequential navigation only: no locator.focus or DOM focus injection.
-async function tabTo(page: Page, target: Locator, browserName: string, observation: FocusObservation) {
+async function tabTo(page: Page, target: Locator, browserName: string, observation: FocusObservation,
+  removedFocusDirection?: 'backward') {
   const targetName = await target.getAttribute('aria-label') ?? await target.innerText();
-  await observation.evaluate((observer, name) => observer.capture(`traversal:start:${name}`), targetName);
+  // BODY does not expose the engine's sequential starting point after Retry unmounts.
+  // That return has an explicit backwards route; connected controls use DOM order.
+  const direction = await target.evaluate((element, removedDirection) => {
+    const active = document.activeElement;
+    if (!active || active === document.body || active === document.documentElement) {
+      return removedDirection ?? 'forward';
+    }
+    return element.compareDocumentPosition(active) & Node.DOCUMENT_POSITION_FOLLOWING
+      ? 'backward' : 'forward';
+  }, removedFocusDirection);
+  const key = `${browserName === 'webkit' ? 'Alt+' : ''}${direction === 'backward' ? 'Shift+' : ''}Tab`;
+  await observation.evaluate((observer, step) => observer.capture(`traversal:start:${step}`),
+    `${targetName}:${direction}:${key}`);
   for (let attempt = 0; attempt < 50; attempt++) {
     if (await target.evaluate(element => element === document.activeElement)) return;
-    await page.keyboard.press(browserName === 'webkit' ? 'Alt+Tab' : 'Tab');
+    await page.keyboard.press(key);
     await observation.evaluate((observer, step) => observer.capture(`traversal:after-tab:${step}`),
-      `${targetName}:${attempt + 1}`);
+      `${targetName}:${attempt + 1}:${direction}:${key}`);
   }
   await expect(target, 'reachable by native sequential navigation').toBeFocused();
 }
@@ -176,8 +189,8 @@ for (const theme of ['light', 'dark']) {
         await expect(list).toBeEnabled();
         await expect(list).toHaveAttribute('tabindex', '0');
         await observation.evaluate(observer => observer.capture('retry:removed-pending-visible'));
-        // Re-enter the persistent toolbar with real Tab after Retry unmounts.
-        await tabTo(page, list, browserName, observation);
+        // List precedes the removed Retry starting point in native sequential order.
+        await tabTo(page, list, browserName, observation, 'backward');
         await page.keyboard.press('Alt+r');
         await page.keyboard.press('Enter');
         await visibleFocus(list);
