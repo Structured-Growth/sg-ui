@@ -4,7 +4,7 @@ import { DateRangeSelector, type DateRangeSelectorProps } from "../DateRangeSele
 import { Button } from "../Button/Button";
 import { Popover } from "../Popover/Popover";
 import { useTranslation } from "../../i18n";
-import { useFormReset } from "../useFormReset";
+import { useCalendarFormReset } from "../DateRangeSelector/useCalendarFormReset";
 export type DateRangePickerProps = Omit<DateRangeSelectorProps, "onCancel">;
 export function DateRangePicker({ value, defaultValue = null, onValueChange, name, ...props }: DateRangePickerProps) {
   const { t } = useTranslation();
@@ -12,7 +12,7 @@ export function DateRangePicker({ value, defaultValue = null, onValueChange, nam
   const committed = value === undefined ? internal : value;
   const [open, setOpen] = useState(false);
   const root = useRef<HTMLDivElement>(null);
-  useFormReset(root, () => { if (value === undefined) setInternal(defaultValue); setOpen(false); });
+  useCalendarFormReset(root, () => { if (value === undefined) setInternal(defaultValue); setOpen(false); });
   return <div ref={root}>
     <Popover title={props.label} size="lg" open={open} onOpenChange={setOpen}
       trigger={<Button variant="outlined" tone="neutral" disabled={props.disabled || props.readOnly}

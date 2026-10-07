@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { DateRangeSelector } from "./DateRangeSelector";
+import { Button } from "../Button/Button";
 import { Provider } from "../Provider/Provider";
 import { SGTranslationProvider } from "../../i18n";
 import { formatIcuMessage } from "../../i18n/icu";
@@ -26,4 +27,16 @@ export const LocaleAndTimezone: Story = { render: args => {
   return <><label>Host locale <select value={locale} onChange={event => setLocale(event.target.value)}><option value="ar-EG">Arabic</option><option value="de-DE">German</option><option value="en-US">English</option></select></label>
     <p>Date-only reporting uses the same YYYY-MM-DD values in America/Chicago and Asia/Tokyo. The host chooses a timezone only when converting to instants.</p>
     <SGTranslationProvider value={{ locale, t: (_key, options) => formatIcuMessage(options.defaultMessage, locale, options.values), useNamespace: () => {} }}><Provider><DateRangeSelector {...args} /></Provider></SGTranslationProvider></>;
+} };
+export const KeyboardRangePreview: Story = { args: { defaultValue: { start: "2024-02-28", end: "2024-02-29" }, defaultFocusedDate: "2024-02-28", name: "range" }, render: args => {
+  const [submitted, setSubmitted] = useState("");
+  const [preventReset, setPreventReset] = useState(false);
+  return <form onReset={event => { if (preventReset) event.preventDefault(); }} onSubmit={event => { event.preventDefault(); const data = new FormData(event.currentTarget); setSubmitted(`${data.get("range.start")} – ${data.get("range.end")}`); }}>
+    <p>Focus February 28, press Enter, then use arrows across leap day. The preview stays separate until the end date is activated and Apply is pressed.</p>
+    <DateRangeSelector {...args} />
+    <label><input type="checkbox" checked={preventReset} onChange={event => setPreventReset(event.target.checked)} />Prevent form reset</label>
+    <Button type="reset" variant="outlined" tone="neutral">Reset dates</Button>
+    <Button type="submit" variant="outlined" tone="neutral">Read committed form dates</Button>
+    <output aria-label="Submitted dates">{submitted}</output>
+  </form>;
 } };
