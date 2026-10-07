@@ -1,16 +1,46 @@
 name: UI change
-description: Request a Structured Growth UI change
+description: Request a Structured Growth UI change for maintainer triage
 title: '[UI] '
 body:
+  - type: markdown
+    attributes:
+      value: |
+        This form records a request; it does not start AI implementation.
+        The existing AI workflow is manually dispatched from Actions on main.
+        See [GitHub setup](https://github.com/Structured-Growth/sg-ui/blob/main/docs/github-setup.md)
+        and the [component recipe](https://github.com/Structured-Growth/sg-ui/blob/main/docs/developer/react-aria-component-recipe.md).
+        Include only acceptance gates relevant to this request; broader backlog gates remain separate.
   - type: textarea
     id: request
     attributes:
       label: Component and requested behavior
+      description: Describe the trigger, current behavior and desired consumer-visible result.
     validations:
       required: true
+  - type: textarea
+    id: task-scope
+    attributes:
+      label: Task IDs and scope
+      description: Reference applicable migration/backlog IDs, affected components or documentation, and explicit limits. Leave blank if unknown.
   - type: textarea
     id: acceptance
     attributes:
       label: Acceptance criteria
+      description: State observable behavior and relevant states, themes/densities, keyboard/focus and composed interactions. For documentation, identify claims/examples to verify.
     validations:
       required: true
+  - type: textarea
+    id: contracts
+    attributes:
+      label: Owned contracts and host boundaries
+      description: Note owned props/native refs, shared tokens/CSS, stylesheet and Provider/ThemeScope needs; keep data, routing, translations, accounts and persistence/uploads host-owned. Use N/A for guidance-only work.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Stories and validation evidence
+      description: Identify relevant stories/tests or reproduction links and planned checks. Guidance-only work verifies links/paths/commands/exports and form structure; code/build changes run pnpm check and pnpm build-storybook plus relevant behavior/consumer checks. Record results in the PR.
+  - type: textarea
+    id: remaining-gates
+    attributes:
+      label: Remaining gates and release impact
+      description: Record known unverified behavior, follow-ups and possible breaking migration. Preserve existing public names unless explicitly changing them; the PR needs a Conventional Commit title with a breaking marker when applicable.
