@@ -3,6 +3,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { DateField } from "./DateField";
+import { createRef } from "react";
 import { dateTimeToInstant } from "../DateRangeSelector/date-contract";
 afterEach(cleanup);
 it("edits a date by keyboard and participates in submission and native reset", async () => {
@@ -122,5 +123,94 @@ it("preserves an incomplete day draft and focused segment after a delegated prev
   expect(screen.getByRole("spinbutton", { name: /month/ }).getAttribute("aria-valuenow")).toBeNull();
   expect(screen.getByRole("spinbutton", { name: /year/ }).getAttribute("aria-valuenow")).toBeNull();
   expect(new FormData(form).get("date")).toBe("");
+  expect(change).not.toHaveBeenCalled();
+});
+
+
+it("preserves a controlled-null incomplete draft on prevented reset and clears it silently on accepted reset", async () => {
+  const user = userEvent.setup(); const change = vi.fn(); let prevent = true;
+  render(<div onReset={event => { if (prevent) event.preventDefault(); }}><form data-testid="null-draft">
+    <DateField label="Host empty date" name="date" value={null} defaultValue="2024-02-28" onValueChange={change} />
+    <button type="reset">Reset host draft</button>
+  </form></div>);
+  const day = screen.getByRole("spinbutton", { name: /day/ });
+  const month = screen.getByRole("spinbutton", { name: /month/ });
+  const year = screen.getByRole("spinbutton", { name: /year/ });
+  await user.click(day); await user.keyboard("28");
+  await user.click(year); await user.keyboard("2024");
+  const form = screen.getByTestId("null-draft") as HTMLFormElement;
+  const nativeInput = form.elements.namedItem("date");
+  expect(change).not.toHaveBeenCalled();
+  await user.click(screen.getByRole("button", { name: "Reset host draft" }));
+  expect(day.getAttribute("aria-valuenow")).toBe("28");
+  expect(year.getAttribute("aria-valuenow")).toBe("2024");
+  expect(month.getAttribute("aria-valuenow")).toBeNull();
+  expect(new FormData(form).get("date")).toBe("");
+  prevent = false;
+  await user.click(screen.getByRole("button", { name: "Reset host draft" }));
+  await waitFor(() => expect(day.getAttribute("aria-valuenow")).toBeNull());
+  expect(year.getAttribute("aria-valuenow")).toBeNull();
+  expect(new FormData(form).get("date")).toBe("");
+  expect(form.elements.namedItem("date")).toBe(nativeInput);
+  expect(change).not.toHaveBeenCalled();
+  // Completing a draft remains an ordinary host request. A rejecting host keeps
+  // its null value; reset must never substitute the uncontrolled default.
+  for (const [segment, text] of [[year, "2024"], [month, "02"], [day, "7"]] as const) {
+    await user.click(segment); await user.keyboard(text);
+  }
+  expect(change).toHaveBeenLastCalledWith("2024-02-07");
+  expect(new FormData(form).get("date")).toBe("");
+});
+
+it("keeps native required validation and its descriptions through prevented draft reset", async () => {
+  const user = userEvent.setup(); const change = vi.fn(); let prevent = true;
+  render(<div onReset={event => { if (prevent) event.preventDefault(); }}><form data-testid="draft-validation">
+    <DateField label="Required draft" name="date" required description="Choose the full date"
+      errorMessage="Complete the course date" onValueChange={change} />
+    <button type="reset">Reset validation draft</button>
+  </form></div>);
+  const day = screen.getByRole("spinbutton", { name: /day/ });
+  await user.click(day); await user.keyboard("28");
+  const form = screen.getByTestId("draft-validation") as HTMLFormElement;
+  expect(screen.queryByText("Complete the course date")).toBeNull();
+  act(() => { expect(form.checkValidity()).toBe(false); });
+  await screen.findByText("Complete the course date");
+  await user.click(screen.getByRole("button", { name: "Reset validation draft" }));
+  expect(day.getAttribute("aria-valuenow")).toBe("28");
+  expect(day.getAttribute("aria-invalid")).toBe("true");
+  const descriptions = day.getAttribute("aria-describedby")!.split(" ").map(id => document.getElementById(id)?.textContent).join(" ");
+  expect(descriptions).toContain("Choose the full date");
+  expect(descriptions).toContain("Complete the course date");
+  expect((form.elements.namedItem("date") as HTMLInputElement).validity.valueMissing).toBe(true);
+  prevent = false;
+  await user.click(screen.getByRole("button", { name: "Reset validation draft" }));
+  await waitFor(() => expect(day.getAttribute("aria-valuenow")).toBeNull());
+  expect(screen.queryByText("Complete the course date")).toBeNull();
+  expect(day.getAttribute("aria-invalid")).toBeNull();
+  expect((form.elements.namedItem("date") as HTMLInputElement).validity.valueMissing).toBe(true);
+  expect(change).not.toHaveBeenCalled();
+});
+
+it("restores the current default after draft reset and retains the native root/input/segments", async () => {
+  const user = userEvent.setup(); const change = vi.fn(); const ref = createRef<HTMLDivElement>();
+  const content = (defaultValue: string | null) => <form data-testid="current-draft-default">
+    <DateField ref={ref} label="Current draft" name="date" defaultValue={defaultValue} onValueChange={change} />
+  </form>;
+  const { rerender } = render(content(null));
+  const root = ref.current;
+  const day = screen.getByRole("spinbutton", { name: /day/ });
+  await user.click(day); await user.keyboard("28");
+  const form = screen.getByTestId("current-draft-default") as HTMLFormElement;
+  const input = form.elements.namedItem("date");
+  rerender(content("2025-03-12"));
+  expect(day.getAttribute("aria-valuenow")).toBe("28");
+  const focused = document.activeElement;
+  act(() => form.reset());
+  await waitFor(() => expect(new FormData(form).get("date")).toBe("2025-03-12"));
+  expect(day.getAttribute("aria-valuenow")).toBe("12");
+  expect(ref.current).toBe(root);
+  expect(form.elements.namedItem("date")).toBe(input);
+  expect(screen.getByRole("spinbutton", { name: /day/ })).toBe(day);
+  expect(document.activeElement).toBe(focused);
   expect(change).not.toHaveBeenCalled();
 });

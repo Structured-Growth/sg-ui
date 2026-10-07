@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-// These retained acceptance cases expose the known U-18/K-06 defect until the
-// interaction reset owner can preserve incomplete state before engine clearing.
+// The owned transaction preserves the engine draft and validation before
+// delegated host reset prevention settles; acceptance needs native execution.
 for (const story of ['incomplete-prevented-reset', 'controlled-null-incomplete-reset']) {
   test(`${story} retains an incomplete draft, focus and native required validity on prevented reset`, async ({ page }) => {
     const errors: string[] = [];
@@ -19,6 +19,9 @@ for (const story of ['incomplete-prevented-reset', 'controlled-null-incomplete-r
       return input instanceof HTMLInputElement && input.validity.valueMissing;
     });
     await expect.poll(missingValue).toBe(true);
+    const invalidSegments = form.locator('[role="spinbutton"][aria-invalid="true"]');
+    await expect(invalidSegments.first()).toBeVisible();
+    await expect(form.getByText('Complete the course date', { exact: true })).toBeVisible();
     // Reset directly while the keyboard focus remains in a segment. The host's
     // delegated prevention stays outside the form; the fixture never intercepts
     // submission or manufactures a reset event.
@@ -27,10 +30,14 @@ for (const story of ['incomplete-prevented-reset', 'controlled-null-incomplete-r
     await expect(day).toBeFocused();
     await expect(day).toHaveAttribute('aria-valuenow', '28');
     await expect.poll(missingValue).toBe(true);
+    await expect(invalidSegments.first()).toBeVisible();
+    await expect(form.getByText('Complete the course date', { exact: true })).toBeVisible();
     await form.getByRole('button', { name: 'Reset draft' }).click();
     await expect(form.getByRole('button', { name: 'Reset draft' })).toBeFocused();
     await expect(day).toHaveAttribute('aria-valuenow', '28');
     await expect.poll(missingValue).toBe(true);
+    await expect(invalidSegments.first()).toBeVisible();
+    await expect(form.getByText('Complete the course date', { exact: true })).toBeVisible();
     for (const name of [/month/, /year/]) {
       await expect(form.getByRole('spinbutton', { name })).not.toHaveAttribute('aria-valuenow');
     }
@@ -40,6 +47,8 @@ for (const story of ['incomplete-prevented-reset', 'controlled-null-incomplete-r
     await form.getByRole('button', { name: 'Reset draft' }).click();
     await expect(day).not.toHaveAttribute('aria-valuenow');
     await expect.poll(missingValue).toBe(true);
+    await expect(invalidSegments).toHaveCount(0);
+    await expect(form.getByText('Complete the course date', { exact: true })).toHaveCount(0);
     await expect(page.getByLabel('Draft change callbacks')).toHaveText('0');
     expect(errors).toEqual([]);
   });

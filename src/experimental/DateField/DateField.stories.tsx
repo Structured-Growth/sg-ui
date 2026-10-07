@@ -44,7 +44,7 @@ function IncompleteResetForm({ controlled = false }: { controlled?: boolean }) {
   return <div onReset={event => { if (prevent) event.preventDefault(); }}>
     <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent incomplete reset</label>
     <form aria-label="Incomplete date reset form">
-      <DateField label="Incomplete date" name="date" required value={controlled ? null : undefined}
+      <DateField label="Incomplete date" name="date" required errorMessage="Complete the course date" value={controlled ? null : undefined}
         onValueChange={() => setChanges(count => count + 1)} description="Enter a day while leaving month and year empty." />
       <Button type="submit">Validate draft</Button>
       <Button type="reset">Reset draft</Button>
@@ -52,6 +52,6 @@ function IncompleteResetForm({ controlled = false }: { controlled?: boolean }) {
     </form>
   </div>;
 }
-/** Known U-18/K-06 defect reproduction; not a passing acceptance fixture. */
+/** U-18/K-06 incomplete-draft transactions, with native validation. */
 export const IncompletePreventedReset: Story = { render: () => <IncompleteResetForm /> };
 export const ControlledNullIncompleteReset: Story = { render: () => <IncompleteResetForm controlled /> };
