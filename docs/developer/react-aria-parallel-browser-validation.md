@@ -76,11 +76,16 @@ occupied resources fail with a prerequisite error.
 
 The existing `/tmp/sgui-browser-validation-priority.json` is read only. Recognized
 empty forms are an empty file, `[]` or an object with `queue: []`. Missing,
-unrecognized or nonempty queues fail closed. Substitute queues are rejected.
+unrecognized or nonempty queues fail closed by default. A coordinator-authorized
+priority worker can pass `--owner <exact chat ID>` only when that chat is the
+existing first queue entry and preceding workers have drained. Following entries
+remain queued. The harness never inserts, reorders or removes entries; after
+validation the listed caller removes only its own first entry, preserving the
+rest, as required by the coordinator's protocol. Substitute queues are rejected.
 
 The supervisor atomically claims
-`/tmp/sgui-parallel-batch-01-validation.lock` for its whole run, only after the
-queue drains. This compatibility bridge excludes all unchanged legacy heavy and
+`/tmp/sgui-parallel-batch-01-validation.lock` for its whole run, only after preceding queue
+entries drain. This compatibility bridge excludes all unchanged legacy heavy and
 browser workers, without migrating them or modifying an occupied lock. Queue
 state is checked again after claiming the bridge and before every job. One
 supervisor can run at a time; its jobs run concurrently. Existing queued owners
@@ -153,3 +158,11 @@ Record exact commands, selected case counts and heads. That trial proves bounded
 parallel Chromium scheduling only; it does not establish Firefox/WebKit or any
 manual/device/AT acceptance. Do not create extra worktrees or deploy the patch to
 existing workers as part of this task; the coordinator owns the reviewed trial.
+
+For an authorized first-entry proof, the gated server fixture also accepts
+`SGUI_POOL_OWNER=<exact chat ID>`. Both paths still acquire the legacy lock
+atomically, never adopt an existing owner, and recheck queue eligibility. The
+batch-12 proof uses one managed worktree plus an owned ignored local Git snapshot
+clone for its second source root; it does not create another managed worktree or
+modify another worker. Each source root has the same committed head and a separate
+fresh build/output tree.

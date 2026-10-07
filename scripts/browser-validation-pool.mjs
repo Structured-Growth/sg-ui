@@ -34,14 +34,16 @@ export async function acquireSlot(root, owner, max = 2) {
   }
   throw new Error('Browser slots occupied; no session started');
 }
-export async function assertQueueDrained(path) {
+export async function assertQueueDrained(path, owner) {
   if (!path || !isAbsolute(path)) throw new Error('An absolute legacy --queue-file is required');
   const contents = (await readFile(path, 'utf8')).trim();
-  if (!contents) return;
+  if (!contents && !owner) return;
   let value;
   try { value = JSON.parse(contents); } catch { throw new Error(`Invalid legacy queue: ${path}`); }
   const queue = Array.isArray(value) ? value : value?.queue;
-  if (!Array.isArray(queue) || queue.length) throw new Error(`Legacy queue is not drained: ${path}`);
+  if (!Array.isArray(queue) || (owner ? queue[0] !== owner : queue.length !== 0)) {
+    throw new Error(`Legacy queue is not drained for ${owner ?? 'unlisted caller'}: ${path}`);
+  }
 }
 export async function assertPortFree(port) {
   if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error('Invalid browser port');
@@ -125,10 +127,11 @@ export async function runOwnedCommand({ cwd, env = process.env, executable, args
   if (result.code !== 0 || signal?.aborted) throw new Error(`${executable} ${args.join(' ')} failed (${result.code}/${result.signal}); see ${log}`);
 }
 
-export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-priority.json', max = 2, firstPort = 6273, output = 'artifacts/browser-pool' } = {}) {
+export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-priority.json', queueOwner, max = 2, firstPort = 6273, output = 'artifacts/browser-pool' } = {}) {
   if (!Array.isArray(plan) || plan.length === 0) throw new Error('Plan must be a nonempty JSON array');
   if (!Number.isInteger(max) || max < 1 || max > 2) throw new Error('Session limit must be 1 or 2');
   if (queueFile !== '/tmp/sgui-browser-validation-priority.json') throw new Error('Use the existing legacy priority queue; substitute queues are forbidden');
+  if (queueOwner && !/^[a-f0-9-]{36}$/.test(queueOwner)) throw new Error('Queue owner must be an exact chat ID');
   const jobs = [];
   for (const entry of plan) {
     const worktree = await realpath(entry.worktree);
@@ -147,7 +150,7 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
     jobs.push({ ...entry, worktree, parent });
   }
   if (new Set(jobs.map(job => job.worktree)).size !== jobs.length) throw new Error('Only one job per worktree per pool run');
-  await assertQueueDrained(queueFile);
+  await assertQueueDrained(queueFile, queueOwner);
   if (!Number.isInteger(firstPort) || firstPort < 1024 || firstPort + max - 1 > 65535) throw new Error('Invalid pool port range');
   const owner = `browser-pool:${process.pid}:${randomUUID()}`;
   // Compatibility bridge: excludes all legacy heavy/browser workers throughout this opt-in run.
@@ -174,7 +177,7 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
       const env = { ...process.env, SGUI_BROWSER_PORT: String(port), SGUI_BROWSER_BASE_URL: `http://127.0.0.1:${port}`,
         SGUI_BROWSER_STORYBOOK_DIR: build, SGUI_BROWSER_OUTPUT_DIR: join(run, 'traces'),
         SGUI_BROWSER_REPORT_DIR: join(run, 'report'), SGUI_BROWSER_RESULTS_FILE: join(run, 'results.json'), SGUI_BROWSER_IMMUTABLE: '1' };
-      evidence = { owner, token, worktree: job.worktree, head: job.head, sourceTree: git(job.worktree, 'rev-parse', 'HEAD^{tree}'),
+      evidence = { owner, queueOwner, token, worktree: job.worktree, head: job.head, sourceTree: git(job.worktree, 'rev-parse', 'HEAD^{tree}'),
         startedAt: new Date().toISOString(), node: process.version, nodeExecutable: process.execPath, platform: platform(), osRelease: release(),
         slot: slot.slot, port, baseURL: env.SGUI_BROWSER_BASE_URL, build, outputs: { run, report: env.SGUI_BROWSER_REPORT_DIR, results: env.SGUI_BROWSER_RESULTS_FILE, traces: env.SGUI_BROWSER_OUTPUT_DIR },
         configuredProjects: ['chromium', 'firefox', 'webkit'], selection: job.args,
@@ -182,7 +185,7 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
         harnessDigest: createHash('sha256').update(await readFile(fileURLToPath(import.meta.url))).digest('hex'),
         commands: [['pnpm', 'exec', 'storybook', 'build', '--output-dir', build], ['pnpm', 'exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], ['pnpm', 'exec', 'playwright', 'test', ...job.args]], status: 'running' };
       await writeFile(join(run, 'evidence.json'), JSON.stringify(evidence, null, 2));
-      await assertQueueDrained(queueFile);
+      await assertQueueDrained(queueFile, queueOwner);
       await assertPortFree(port);
       evidence.pnpm = version(job.worktree, 'pnpm', ['--version']);
       evidence.playwright = version(job.worktree, 'pnpm', ['exec', 'playwright', '--version']);
@@ -229,7 +232,7 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
     }
   }
   try {
-    await assertQueueDrained(queueFile); // Recheck after acquiring the compatibility bridge.
+    await assertQueueDrained(queueFile, queueOwner); // Recheck after acquiring the compatibility bridge.
     for (let offset = 0; !aborted && offset < jobs.length; offset += max) {
       const wave = jobs.slice(offset, offset + max);
       const stage = createStage(wave.length);
@@ -248,17 +251,17 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   if (args.includes('--help')) {
-    console.log('node scripts/browser-validation-pool.mjs --plan <json> --queue-file <absolute legacy queue> [--max 1|2] [--first-port 6273] [--output artifacts/browser-pool]');
+    console.log('node scripts/browser-validation-pool.mjs --plan <json> --queue-file <absolute legacy queue> [--owner <first priority chat ID>] [--max 1|2] [--first-port 6273] [--output artifacts/browser-pool]');
   } else {
     const options = {};
-    const allowed = new Set(['--plan', '--queue-file', '--max', '--first-port', '--output']);
+    const allowed = new Set(['--plan', '--queue-file', '--owner', '--max', '--first-port', '--output']);
     for (let i = 0; i < args.length; i += 2) {
       if (!allowed.has(args[i]) || !args[i + 1] || options[args[i]]) throw new Error('Invalid arguments; see --help');
       options[args[i]] = args[i + 1];
     }
     try {
       const plan = JSON.parse(await readFile(options['--plan'], 'utf8'));
-      await runPool(plan, { queueFile: options['--queue-file'], max: Number(options['--max'] ?? 2), firstPort: Number(options['--first-port'] ?? 6273), output: options['--output'] ?? 'artifacts/browser-pool' });
+      await runPool(plan, { queueFile: options['--queue-file'], queueOwner: options['--owner'], max: Number(options['--max'] ?? 2), firstPort: Number(options['--first-port'] ?? 6273), output: options['--output'] ?? 'artifacts/browser-pool' });
     } catch (error) { console.error(error.message); process.exitCode = 1; }
   }
 }

@@ -39,7 +39,7 @@ processes and stale owners are never automatically stopped/reclaimed.
 ## Targeted validation
 
 - `pnpm install --frozen-lockfile`: passed, no manifest/lockfile change.
-- `node --test scripts/browser-validation-pool.test.mjs`: 12 passed, one explicitly
+- `node --test scripts/browser-validation-pool.test.mjs`: 13 passed, one explicitly
   skipped configurable-server integration test; no browser or Storybook launched.
   Tests cover eight competing independent Node processes admitting exactly two
   slots, owner mismatch, failed-job cleanup, stale claims, heavy-lock exclusion,
@@ -88,3 +88,12 @@ Next tasks outside this allowlist: coordinator review and opt-in real-browser
 trial after the legacy queue drains; future reviewed migration of heavyweight-only
 workers to the separate build lock; any global scheduling/cap increase, workflow
 integration or manual/device/AT evidence. Broad G/U/X/R/Z gates remain open.
+
+
+The coordinator subsequently authorized the live proof immediately after the
+page-header worker, appending this chat as the next priority entry. Explicit
+`--owner` support preserves default empty-queue behavior while permitting only
+the existing first chat after preceding entries drain; regression coverage checks
+preceding/following/unlisted callers. Live proof outcomes are recorded below after
+execution. The second isolated source root is an owned ignored snapshot clone,
+preserving the one-managed-worktree constraint.

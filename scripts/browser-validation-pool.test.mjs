@@ -104,7 +104,7 @@ test('static digest detects byte changes, rejects symlinks and freezes the build
 });
 // Explicitly gated: no static Storybook-like servers while the legacy queue/lock is occupied.
 test('two configurable static servers preserve independent immutable bytes', { skip: process.env.SGUI_POOL_SERVER_TESTS !== '1' }, async t => {
-  await assertQueueDrained('/tmp/sgui-browser-validation-priority.json');
+  await assertQueueDrained('/tmp/sgui-browser-validation-priority.json', process.env.SGUI_POOL_OWNER);
   const bridge = await acquireLease(LEGACY_LOCK, `pool-server-test:${process.pid}`);
   t.after(() => releaseLease(bridge));
   const root = await fixture(t);
@@ -152,4 +152,16 @@ test('targeted selections preserve harness configuration and failure requirement
   validateSelection([]);
   validateSelection(['tests/browser/example.spec.ts', '--project=chromium', '--grep', 'one case']);
   for (const args of [['-c', 'other.ts'], ['-j50'], ['--workers=50'], ['--config=other.ts'], ['--reporter=line'], ['--output=shared'], ['--retries=1'], ['--list'], ['--pass-with-no-tests'], ['--ignore-snapshots'], ['--update-snapshots']]) assert.throws(() => validateSelection(args), /override/);
+});
+
+test('explicit priority owner may run only from the existing first entry', async t => {
+  const root = await fixture(t); const path = join(root, 'queue');
+  await writeFile(path, JSON.stringify({ queue: ['preceding', 'own', 'following'] }));
+  await assert.rejects(assertQueueDrained(path, 'own'), /not drained/);
+  await writeFile(path, JSON.stringify({ queue: ['own', 'following'] }));
+  await assertQueueDrained(path, 'own');
+  await assert.rejects(assertQueueDrained(path), /not drained/);
+  await assert.rejects(assertQueueDrained(path, 'following'), /not drained/);
+  await writeFile(path, '[]');
+  await assert.rejects(assertQueueDrained(path, 'own'), /not drained/);
 });
