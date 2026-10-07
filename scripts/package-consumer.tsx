@@ -143,3 +143,6 @@ import { TextAlignMenuControl } from '@structured-growth/sg-ui/components/TextAl
 import { TextColorPickerControl } from '@structured-growth/sg-ui/components/TextColorPickerControl';
 import { TextStyleMenuControl } from '@structured-growth/sg-ui/components/TextStyleMenuControl';
 export const editorMenus = <Provider><InsertContentMenuControl onInsertImage={()=>{}} /><TextAlignMenuControl value="end" onChange={value=>{const next: import('@structured-growth/sg-ui/components/TextAlignMenuControl').AlignOption=value; console.log(next);}} /><TextStyleMenuControl activeStyles={['highlight']} onHighlight={()=>{}} /><TextColorPickerControl value="#123456" onChange={()=>{}} /></Provider>;
+
+import { RichTextFormattingToolbar } from '@structured-growth/sg-ui/components/RichTextFormattingToolbar';
+export const ownedFormatting = <RichTextFormattingToolbar ref={createRef<HTMLDivElement>()} boldActive="mixed" activeTextStyles={['highlight']} canIndent={false} style={{marginInline:2}} onHeadingChange={value=>{const heading: import('@structured-growth/sg-ui/components/RichTextFormattingToolbar').RichTextHeadingValue=value; console.log(heading);}} />;

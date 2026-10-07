@@ -50,6 +50,7 @@ import { InsertContentMenuControl } from '@structured-growth/sg-ui/components/In
 import { TextAlignMenuControl } from '@structured-growth/sg-ui/components/TextAlignMenuControl';
 import { TextColorPickerControl } from '@structured-growth/sg-ui/components/TextColorPickerControl';
 import { TextStyleMenuControl } from '@structured-growth/sg-ui/components/TextStyleMenuControl';
+import { RichTextFormattingToolbar } from '@structured-growth/sg-ui/components/RichTextFormattingToolbar';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
 export function Proof() {
@@ -64,6 +65,7 @@ export function Proof() {
     <TextAlignMenuControl value="start" onChange={setResult} onIndent={()=>setResult('Indent')} onOutdent={()=>setResult('Outdent')} />
     <TextStyleMenuControl activeStyles={['highlight']} onHighlight={()=>setResult('Highlight')} onClearFormatting={()=>setResult('Clear formatting')} />
     <TextColorPickerControl value="#123456" onChange={setResult} />
+    <RichTextFormattingToolbar aria-label="Packed formatting" headingValue="Normal" onHeadingChange={setResult} fontFamilyValue="Arial" onFontFamilyChange={setResult} boldActive="mixed" onBold={()=>setResult('Bold')} onItalic={()=>setResult('Italic')} onLink={()=>setResult('Toolbar link')} onTextColorChange={setResult} onInsertColumnsLayout={()=>setEditorDialog('columns')} />
     <p role="status">{result}</p>
     <ColumnsLayoutModal open={editorDialog==='columns'} onClose={()=>setEditorDialog(null)} onSubmit={preset=>{setResult(preset);setEditorDialog(null);}} />
     <LinkUrlModal open={editorDialog==='link'} initialDisplayText="Course guide" onClose={()=>setEditorDialog(null)} onSubmit={payload=>{setResult(JSON.stringify(payload));setEditorDialog(null);}} />

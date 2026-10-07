@@ -187,3 +187,9 @@ TextStyleMenuControl now use the owned foundation and migrated-module boundaries
 See [editor menu contracts](docs/developer/react-aria-editor-menus.md) for host callbacks,
 checked formatting state and the breaking semantic color preset mapping. Load
 /styles.css and provide Provider or ThemeScope. Surrounding editor migration remains open.
+
+RichTextFormattingToolbar now uses the owned foundation and migrated-module
+boundaries. See [formatting toolbar contracts](docs/developer/react-aria-formatting-toolbar.md)
+for named formatting actions, controlled active state, selection preparation and
+callback availability. Load /styles.css and provide Provider or ThemeScope.
+Floating toolbar/editor layout, chrome and section migration remain open.

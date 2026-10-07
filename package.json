@@ -161,6 +161,10 @@
     "./components/TextStyleMenuControl": {
       "types": "./dist/components/TextStyleMenuControl/index.d.ts",
       "import": "./dist/components/TextStyleMenuControl/index.js"
+    },
+    "./components/RichTextFormattingToolbar": {
+      "types": "./dist/components/RichTextFormattingToolbar/index.d.ts",
+      "import": "./dist/components/RichTextFormattingToolbar/index.js"
     }
   },
   "repository": {

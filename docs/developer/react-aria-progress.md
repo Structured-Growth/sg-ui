@@ -582,3 +582,64 @@ FloatingTextSelectionToolbar and M-21–M-23/M-34 as dependencies allow. Preserv
 Lexical command/selection/serialization and host account/routing/translation APIs.
 Complete checks/commit/push before dispatching the successor local sg-ui chat.
 Do not count representative checks as completion of broad acceptance gates.
+
+## Rich text formatting toolbar
+
+Completed on 2026-10-06: M-26, in shared
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1) on
+`feat/react-aria-owned-foundation-cards`. See the
+[formatting toolbar contract](react-aria-formatting-toolbar.md) for retained
+control IDs, callbacks, heading/font-family values and host selection ownership.
+
+The migration composes owned Button/Select/icons and the migrated menu controls,
+with tokenized wrapping CSS and a native div ref/class/style/accessible group name.
+Inline formatting exposes controlled boolean/mixed pressed state; heading changes use one
+value-change path. Unavailable callbacks disable actions. Optional activeTextStyles
+and canIndent/canOutdent forward host checked state and restrictions.
+The link mouse-down preparation callback remains separate from activation.
+
+Validation:
+
+- Final `pnpm check`: 118 Vitest files / 583 tests passed, four foundation and four
+  release tests, source/token/layer guards, production/story typecheck, ESM and
+  owned declarations, public entry imports and consumer typings passed. The suite
+  printed jsdom navigation-not-implemented diagnostics from link checks; no test
+  failed and no check was weakened.
+- Final `pnpm build-storybook`: passed with existing directive/sourcemap/large
+  chunk warnings.
+- Final packed React18.3.1 / React19.2.3 real tarballs: no-browser-global SSR,
+  hydration fixture generation, production Vite build, one compiled stylesheet,
+  no retired peers or legacy/editor bundle and granular toolbar import passed.
+- Seven toolbar DOM tests cover named actions, boolean/mixed pressed state,
+  pointer/Space/Enter, form safety, single controlled heading/font requests,
+  link preparation, hidden/disabled controls, checked nested styles, restricted
+  indent, semantic color, translations, native ref/style/slots and callback timing.
+  Two real Lexical-host tests exercise bold, Georgia, H2, serialized change output,
+  pointer/keyboard link commit and unlink without replacing document text.
+- Native production Storybook selected Lorem and applied Bold only to Lorem,
+  then pointer link opening retained the display text and URL Enter stored
+  /courses/guide with editor focus. Native chooser Enter initially replaced
+  selected text with a newline because a synchronous host callback refocused
+  contenteditable during the select event. Toolbar heading/font requests now run
+  after that event completes, with unmount cleanup. A targeted regression asserts
+  that callbacks cannot refocus during selection keydown; real host keyboard
+  font selection is covered. Final production native ArrowDown/Enter applied
+  Georgia only to Lorem and H2 to its paragraph, preserved all text and returned
+  editor focus. Captured production editor warning/error logs were empty.
+- Final packed native React19 Space requested Bold and heading Enter requested
+  Heading 3 once while retaining controlled Normal. React18 Space requested Bold
+  and font Enter requested Georgia while retaining controlled Arial and returning
+  trigger focus. Both captured warning/error logs were empty.
+- Narrow dark production story at260x600: toolbar width/scrollWidth228px and
+  height305px; selectors/actions wrapped without horizontal overflow. Native
+  inspection caught a transparent dark toolbar inheriting a light host surface;
+  the toolbar now paints its owned surface token, with final dark background
+  rgb(15,23,42) and readable controls. Temporary viewport was reset.
+
+Local Node26.5.0 / pnpm10.29.3. Full browser/touch/screen-reader/zoom/visual,
+performance, Node24 and Next.js/RSC gates remain open. Representative native
+checks do not complete the broad acceptance matrix.
+M-25, M-21–M-23, M-34, grid and broad U/X/R/Z gates remain open.
+No merge, publication, version, licensing or workflow permission changes are
+authorized. The next dependency batch is M-25, followed by M-21–M-23/M-34 as
+dependencies allow. Complete checks/commit/push before the successor local chat.
