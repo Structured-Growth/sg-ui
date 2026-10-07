@@ -30,3 +30,13 @@ export const Variants: Story = {
     </Stack>
   ),
 };
+
+/** Native percentage widths remain relative to the host's available width. */
+export const LayoutStates: Story = {
+  render: () => <Stack gap={2}>
+    <AppInlineProgress value={0} />
+    <AppInlineProgress value={24.6} barWidth={120} />
+    <AppInlineProgress value={100} barWidth="50%" />
+    <AppInlineProgress value={NaN} />
+  </Stack>,
+};
