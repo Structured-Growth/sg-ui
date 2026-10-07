@@ -1,0 +1,10 @@
+@layer sgui.components {
+  .root { position: relative; display: inline-flex; flex: none; align-items: center; justify-content: center; inline-size: calc(var(--sgui-space4) * 2.5); block-size: calc(var(--sgui-space4) * 2.5); aspect-ratio: 1; overflow: hidden; border-radius: 50%; background: var(--sgui-surface-subtle); color: var(--sgui-text); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); font-weight: var(--sgui-label-weight); vertical-align: middle; }
+  .root[data-size="small"] { inline-size: calc(var(--sgui-space4) * 2); block-size: calc(var(--sgui-space4) * 2); }
+  .root[data-size="large"] { inline-size: calc(var(--sgui-space4) * 3); block-size: calc(var(--sgui-space4) * 3); }
+  .root[data-shape="square"] { border-radius: var(--sgui-control-radius); }
+  .fallback { display: inline-flex; align-items: center; justify-content: center; }
+  .image { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; opacity: 0; }
+  .image[data-loaded] { opacity: 1; }
+  @media (forced-colors: active) { .root { outline: 1px solid CanvasText; } }
+}

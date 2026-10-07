@@ -1,0 +1,14 @@
+@layer sgui.components {
+  .trigger { position: relative; gap: 0; padding-inline: var(--sgui-space1); }
+  .indicator { position: absolute; inset-inline-start: var(--sgui-space1); inset-block-end: var(--sgui-space1); inline-size: 1rem; block-size: 0.15rem; border-radius: var(--sgui-control-radius); }
+  .content { display: flex; flex-direction: column; gap: var(--sgui-space3); min-inline-size: 0; inline-size: min(18rem, 100%); }
+  .swatches { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); }
+  .swatch { inline-size: 1.75rem; min-inline-size: 1.75rem; min-block-size: 1.75rem; padding: 0; border-color: var(--sgui-border); }
+  .swatch[aria-pressed="true"] { outline: var(--sgui-focus-width) solid var(--sgui-text); outline-offset: var(--sgui-focus-offset); }
+  .nativeLabel { display: flex; flex-direction: column; gap: var(--sgui-space1); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); font-weight: var(--sgui-label-weight); }
+  .native { box-sizing: border-box; inline-size: 100%; block-size: 2.5rem; border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); background: var(--sgui-surface); cursor: pointer; }
+  .native:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+  .actions { display: flex; justify-content: flex-end; gap: var(--sgui-space1); }
+  .sample { display: none; }
+  @media (forced-colors: active) { .swatch { forced-color-adjust: none; } .swatch[aria-pressed="true"] { outline-color: Highlight; } }
+}

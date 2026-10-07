@@ -1,0 +1,12 @@
+@layer sgui.components {
+  .header { display: flex; align-items: center; gap: var(--sgui-space1); min-inline-size: 0; inline-size: 100%; color: var(--sgui-text); }
+  .headerLabel { flex: 1; min-inline-size: 0; }
+  .sortIndicator { display: inline-flex; align-items: center; color: var(--sgui-text-muted); }
+  .sortIndicator[data-direction="desc"] { transform: rotate(180deg); }
+  .iconButton { flex-shrink: 0; padding: var(--sgui-space1); min-inline-size: 2rem; }
+  .status { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: var(--sgui-space2); padding: var(--sgui-space4); }
+  .progress { flex-shrink: 0; }
+  .subHeader { display: flex; align-items: center; gap: var(--sgui-space2); min-inline-size: 0; inline-size: 100%; color: var(--sgui-text); }
+  .trailing { margin-inline-start: auto; }
+  @media (forced-colors: active) { .header, .subHeader, .sortIndicator { color: CanvasText; } }
+}

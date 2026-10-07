@@ -1,227 +1,196 @@
 "use client";
 
-import { useMemo } from "react";
-import type { ReactNode } from "react";
-import type { GridValidRowModel } from "@mui/x-data-grid";
-import { DataToolbar, type ClassesViewMode, type DataGridInteractionMode, type DataToolbarColumnOption, type DataToolbarProps } from "../DataToolbar";
-import { buildDataToolbarColumnOptions } from "../DataToolbar";
-import { CardCollectionWithFooter } from "../CardCollectionWithFooter";
-import { AppDataGrid, type AppDataGridColumn, type AppDataGridProps } from "../AppDataGrid";
-import { APP_PAGE_SIZE_OPTIONS, usePersistentPaginationModel } from "../../hooks/usePersistentPaginationModel";
-import { usePersistentState } from "../../hooks/usePersistentState";
-import { Box, Stack, Typography } from "../primitives";
-import type { AppGridColumnVisibilityModel, AppGridPaginationModel } from "../AppDataGrid";
-import type { AppDataGridSelectionConfig } from "../AppDataGrid";
+import { forwardRef, useEffect, useMemo, useRef, useState, type ReactElement, type ReactNode, type Ref } from "react";
+import { DataToolbar, type ClassesViewMode, type DataToolbarColumnOption, type DataToolbarProps } from "../DataToolbar";
+import { ComposedAppDataGrid as AppDataGrid, type AppDataGridProps } from "../AppDataGrid/AppDataGrid";
+import { AppPaginationFooter } from "../CardPaginationFooter";
+import { useOwnedGridController } from "../AppDataGrid/ownedGridController";
+import { useOwnedGridLayoutController } from "../AppDataGrid/ownedGridLayoutController";
+import { getOwnedGridRowId, normalizeGridPageSizeOptions, processOwnedGridRows } from "../AppDataGrid/ownedGridModel";
+import { OwnedGridStatus } from "../AppDataGrid/ownedGridParts";
+import { useOwnedGridPersistence, type OwnedGridPersistedState, type OwnedGridPersistenceConfig } from "../AppDataGrid/ownedGridPersistence";
+import { Button } from "../../experimental/Button/Button";
+import { useTranslation } from "../../i18n";
+import { createOwnedGridResetState } from "../AppDataGrid/ownedGridReset";
+import styles from "./AppDataGridShell.module.css";
 
-type AppDataGridShellBaseColumnOption = {
-  id: string;
-  label: string;
-  locked?: boolean;
-};
-
-export type AppDataGridShellToolbarConfig = Omit<
-  DataToolbarProps,
-  "mode" | "viewMode" | "onViewModeChange" | "columnOptions" | "onColumnOptionsChange"
+/** Criteria are owned by the shell. Toolbar callbacks observe those transactions. */
+export type AppDataGridShellToolbarConfig = Omit<DataToolbarProps,
+  "mode" | "viewMode" | "onViewModeChange" | "columnOptions" | "onColumnOptionsChange" | "selectedCount"
 > & {
   show?: boolean;
   showSelectedCount?: boolean;
-  baseColumnOptions?: readonly AppDataGridShellBaseColumnOption[];
-  columnOptions?: DataToolbarColumnOption[];
-  onColumnOptionsChange?: (nextOptions: DataToolbarColumnOption[]) => void;
-  columnVisibilityModel?: AppGridColumnVisibilityModel;
-  onColumnVisibilityModelChange?: (nextModel: AppGridColumnVisibilityModel) => void;
+  baseColumnOptions?: readonly { id: string; label: string; locked?: boolean }[];
+  onColumnOptionsChange?: (options: DataToolbarColumnOption[]) => void;
 };
 
-export type AppDataGridShellCardsConfig<RowModel extends GridValidRowModel> = {
+/** Cards use the same identity, processing and pagination as the list. */
+export type AppDataGridShellCardsConfig<RowModel> = {
   renderCard: (row: RowModel) => ReactNode;
-  getRowId?: (row: RowModel) => string;
-  pageSizeOptions?: number[];
-  paginationModel?: AppGridPaginationModel;
-  onPaginationModelChange?: (nextModel: AppGridPaginationModel) => void;
 };
-
-export type AppDataGridShellViewConfig<RowModel extends GridValidRowModel> = {
+export type AppDataGridShellViewConfig<RowModel> = {
   enabled?: boolean;
   mode?: ClassesViewMode;
   defaultMode?: ClassesViewMode;
-  onModeChange?: (nextMode: ClassesViewMode) => void;
+  onModeChange?: (mode: ClassesViewMode) => void;
   cards?: AppDataGridShellCardsConfig<RowModel>;
 };
-
-export type AppDataGridShellProps<RowModel extends GridValidRowModel> = Omit<
-  AppDataGridProps<RowModel>,
-  "rows" | "columns" | "storageKey" | "mode" | "columnVisibilityModel" | "selection" | "checkboxSelection"
-> & {
-  rows: RowModel[];
-  columns: AppDataGridColumn<RowModel>[];
-  storageKey: string;
-  mode?: DataGridInteractionMode;
-  selection?: AppDataGridSelectionConfig<RowModel> | boolean;
+export type AppDataGridShellProps<RowModel> = Omit<AppDataGridProps<RowModel>, "processingResult" | "dispatchTransition"> & {
+  persistence?: OwnedGridPersistenceConfig;
+  footer?: ReactNode;
   toolbar?: AppDataGridShellToolbarConfig;
   view?: AppDataGridShellViewConfig<RowModel>;
 };
 
-export function AppDataGridShell<RowModel extends GridValidRowModel>({
-  rows,
-  columns,
-  storageKey,
-  mode = "client",
-  toolbar,
-  view,
-  selection: shellSelection,
-  ...gridProps
-}: AppDataGridShellProps<RowModel>) {
-  const [persistedViewMode, setPersistedViewMode] = usePersistentState<ClassesViewMode>(
-    `page:${storageKey}:viewMode`,
-    view?.defaultMode ?? "list",
-  );
-  const [persistedColumnVisibilityModel, setPersistedColumnVisibilityModel] = usePersistentState<AppGridColumnVisibilityModel>(
-    `page:${storageKey}:columnVisibilityModel`,
-    {},
-  );
-  const [persistedCardsPaginationModel, setPersistedCardsPaginationModel] = usePersistentPaginationModel(
-    `page:${storageKey}:cardsPaginationModel`,
-    { page: 0, pageSize: APP_PAGE_SIZE_OPTIONS[0] },
-  );
-
-  const cardsConfig = view?.cards;
-  const canToggleViewMode = (view?.enabled ?? true) && Boolean(cardsConfig);
-  const resolvedViewMode = view?.mode ?? persistedViewMode;
-  const resolvedColumnVisibilityModel = toolbar?.columnVisibilityModel ?? persistedColumnVisibilityModel;
-  const resolvedCardsPaginationModel = cardsConfig?.paginationModel ?? persistedCardsPaginationModel;
-  const resolvedCardsPageSizeOptions = cardsConfig?.pageSizeOptions ?? [...APP_PAGE_SIZE_OPTIONS];
-  const baseColumnOptions = toolbar?.baseColumnOptions;
-  const sanitizedColumnVisibilityModel = useMemo<AppGridColumnVisibilityModel>(() => {
-    if (!baseColumnOptions) {
-      return resolvedColumnVisibilityModel;
-    }
-
-    const allowedById = new Map(baseColumnOptions.map((option) => [option.id, option]));
-    const sanitized = Object.entries(resolvedColumnVisibilityModel).reduce<AppGridColumnVisibilityModel>((accumulator, [id, visible]) => {
-      if (allowedById.has(id)) {
-        accumulator[id] = visible;
-      }
-      return accumulator;
-    }, {});
-
-    for (const option of baseColumnOptions) {
-      if (option.locked) {
-        sanitized[option.id] = true;
-      }
-    }
-
-    if (allowedById.has("actions")) {
-      sanitized.actions = true;
-    }
-
-    return sanitized;
-  }, [baseColumnOptions, resolvedColumnVisibilityModel]);
-
-  const computedColumnOptions = useMemo<DataToolbarColumnOption[] | undefined>(() => {
-    if (!baseColumnOptions) {
-      return undefined;
-    }
-
-    return buildDataToolbarColumnOptions({
-      baseOptions: baseColumnOptions,
-      columnVisibilityModel: sanitizedColumnVisibilityModel,
-      rows,
-    });
-  }, [baseColumnOptions, rows, sanitizedColumnVisibilityModel]);
-
-  const resolvedToolbarColumnOptions = toolbar?.columnOptions ?? computedColumnOptions;
-
-  const handleViewModeChange = (nextMode: ClassesViewMode) => {
-    if (!view?.mode) {
-      setPersistedViewMode(nextMode);
-    }
-    view?.onModeChange?.(nextMode);
-  };
-
-  const handleColumnVisibilityModelChange = (nextModel: AppGridColumnVisibilityModel) => {
-    if (!toolbar?.columnVisibilityModel) {
-      setPersistedColumnVisibilityModel(nextModel);
-    }
-    toolbar?.onColumnVisibilityModelChange?.(nextModel);
-  };
-
-  const handleColumnOptionsChange = (nextOptions: DataToolbarColumnOption[]) => {
-    toolbar?.onColumnOptionsChange?.(nextOptions);
-
-    const nextModel = nextOptions.reduce<AppGridColumnVisibilityModel>((accumulator, option) => {
-      accumulator[option.id] = option.visible;
-      return accumulator;
-    }, {});
-    handleColumnVisibilityModelChange(nextModel);
-  };
-
-  const handleCardsPaginationChange = (nextModel: AppGridPaginationModel) => {
-    if (!cardsConfig?.paginationModel) {
-      setPersistedCardsPaginationModel(nextModel);
-    }
-    cardsConfig?.onPaginationModelChange?.(nextModel);
-  };
-
-  const resolvedGetCardRowId = cardsConfig?.getRowId ?? ((row: RowModel) => String((row as { id?: string }).id ?? ""));
-  const resolvedSelection = shellSelection;
-  const selectedCount = resolvedSelection && typeof resolvedSelection === "object"
-    ? (resolvedSelection.selectedRowIds?.size ?? 0)
-    : 0;
-  const shouldShowSelectedCount = toolbar?.showSelectedCount !== false && selectedCount > 0;
-  const resolvedLeftContentWhenSelected = shouldShowSelectedCount
-    ? (
-      <Stack alignItems="center" direction="row" spacing={1}>
-        <Typography color="text.secondary" variant="body2">
-          {selectedCount} selected
-        </Typography>
-        {toolbar?.leftContentWhenSelected}
-      </Stack>
-    )
-    : toolbar?.leftContentWhenSelected;
-
-  return (
-    <Box sx={{ display: "flex", flex: 1, flexDirection: "column", height: "100%", minHeight: 0, minWidth: 0 }}>
-      {toolbar?.show === false ? null : (
-        <DataToolbar
-          {...toolbar}
-          columnOptions={resolvedToolbarColumnOptions}
-          leftContentWhenSelected={resolvedLeftContentWhenSelected}
-          mode={mode}
-          onColumnOptionsChange={resolvedToolbarColumnOptions ? handleColumnOptionsChange : undefined}
-          onViewModeChange={canToggleViewMode ? handleViewModeChange : undefined}
-          showViewModeToggle={canToggleViewMode}
-          viewMode={canToggleViewMode ? resolvedViewMode : undefined}
-        />
-      )}
-
-      <Box sx={{ display: "flex", flex: 1, minHeight: 0, minWidth: 0 }}>
-        {canToggleViewMode && resolvedViewMode === "cards" && cardsConfig ? (
-          <CardCollectionWithFooter
-            getRowId={resolvedGetCardRowId}
-            onPageChange={(nextPage) => {
-              handleCardsPaginationChange({ ...resolvedCardsPaginationModel, page: nextPage });
-            }}
-            onPageSizeChange={(nextPageSize) => {
-              handleCardsPaginationChange({ page: 0, pageSize: nextPageSize });
-            }}
-            page={resolvedCardsPaginationModel.page}
-            pageSize={resolvedCardsPaginationModel.pageSize}
-            pageSizeOptions={resolvedCardsPageSizeOptions}
-            renderCard={cardsConfig.renderCard}
-            rows={rows}
-          />
-        ) : (
-          <AppDataGrid
-            {...gridProps}
-            columnVisibilityModel={sanitizedColumnVisibilityModel}
-            columns={columns}
-            mode={mode}
-            rows={rows}
-            selection={resolvedSelection}
-            storageKey={storageKey}
-          />
-        )}
-      </Box>
-    </Box>
-  );
+function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props }: AppDataGridShellProps<RowModel> & {
+  shellRef: Ref<HTMLDivElement>; persisted: { defaults: OwnedGridPersistedState; persist: (state: OwnedGridPersistedState) => void; reset: (state?: OwnedGridPersistedState) => void };
+}) {
+  const { toolbar, view, selection = true, mode = "client", className, style, hideFooter, footer,
+    rows, columns, getRowId, getRowLabel, label, showResetView, onResetView, ...gridProps } = props;
+  const { t } = useTranslation();
+  const selectionConfig = typeof selection === "object" ? selection : undefined;
+  const filterFields = props.filterFields ?? toolbar?.filterFields;
+  const defaults = persistence.defaults;
+  const toolbarSortRules = useMemo(() => toolbar?.sortRules?.flatMap(rule => rule.field && (rule.direction === "asc" || rule.direction === "desc")
+    ? [{ field: rule.field, direction: rule.direction }] : []), [toolbar?.sortRules]);
+  const { state, dispatch } = useOwnedGridController({ ...props, filterFields,
+    defaultPaginationModel: defaults.paginationModel ?? props.defaultPaginationModel,
+    defaultSortRules: defaults.sortRules ?? props.defaultSortRules,
+    defaultFilterRules: defaults.filterRules ?? props.defaultFilterRules,
+    defaultSearchValue: defaults.searchValue ?? props.defaultSearchValue,
+    searchValue: props.searchValue ?? toolbar?.searchValue,
+    sortRules: props.sortRules ?? toolbarSortRules,
+    filterRules: props.filterRules ?? toolbar?.filterRules,
+    selectedRowIds: selectionConfig?.selectedRowIds,
+    defaultSelectedRowIds: selectionConfig?.defaultSelectedRowIds,
+    onSelectedRowIdsChange: selectionConfig?.onSelectedRowIdsChange,
+    onSearchChange: value => { props.onSearchChange?.(value); if (toolbar?.onSearchValueChange !== props.onSearchChange) toolbar?.onSearchValueChange?.(value); },
+    onSortRulesChange: value => { props.onSortRulesChange?.(value); if (toolbar?.onSortRulesChange !== props.onSortRulesChange) toolbar?.onSortRulesChange?.(value); },
+    onFilterRulesChange: value => { props.onFilterRulesChange?.(value); if (toolbar?.onFilterRulesChange !== props.onFilterRulesChange) toolbar?.onFilterRulesChange?.(value); },
+  });
+  const { layout, setVisibility, setOrder, setWidths } = useOwnedGridLayoutController({ ...props,
+    defaultColumnVisibilityModel: defaults.columnVisibilityModel ?? props.defaultColumnVisibilityModel,
+    defaultColumnOrder: defaults.columnOrder ?? props.defaultColumnOrder,
+    defaultColumnWidths: defaults.columnWidths ?? props.defaultColumnWidths });
+  const processed = useMemo(() => processOwnedGridRows({ rows, columns, getRowId, mode, filterFields,
+    rowCount: props.rowCount, hasNextPage: props.hasNextPage, ...state }),
+  [rows, columns, getRowId, mode, filterFields, props.rowCount, props.hasNextPage,
+    state.paginationModel, state.sortRules, state.filterRules, state.searchValue]);
+  const [localView, setLocalView] = useState<ClassesViewMode>(() => defaults.viewMode ?? view?.defaultMode ?? "list");
+  const viewMode = view?.mode ?? localView;
+  useEffect(() => { persistence.persist({ ...state, columnVisibilityModel: layout.visibility,
+    columnOrder: layout.order, columnWidths: layout.widths, viewMode }); });
+  const canToggle = view?.enabled !== false && Boolean(view?.cards);
+  const cards = canToggle && viewMode === "cards";
+  const columnOptions = layout.order.map(field => {
+    const column = columns.find(candidate => candidate.field === field)!;
+    const hostOption = toolbar?.baseColumnOptions?.find(option => option.id === field);
+    return { id: field, label: hostOption?.label ?? column.headerName ?? field,
+      visible: layout.visibility[field]!, locked: layout.lockedFields.includes(field) };
+  });
+  const entry = useRef<HTMLDivElement>(null);
+  const cardFocus = useRef<{ id: string; index: number; element: HTMLElement } | null>(null);
+  useEffect(() => {
+    const saved = cardFocus.current;
+    const node = entry.current;
+    if (!cards || !saved || !node || saved.element.isConnected) return;
+    if (document.activeElement !== document.body && !node.contains(document.activeElement)) return;
+    const items = [...node.querySelectorAll<HTMLElement>("[data-sgui-part='grid-card']")];
+    const item = items.find(item => item.dataset.gridRow === saved.id) ?? items[0];
+    const controls = item?.querySelectorAll<HTMLElement>("button, a, input, select, textarea, [tabindex='0']");
+    (saved.index >= 0 ? controls?.[saved.index] ?? item ?? node : item ?? node).focus();
+  });
+  const pendingPageFocus = useRef<{ page: number; origin: Element | null } | null>(null);
+  // Footer page changes enter the new page only after the authoritative value
+  // changes. Toolbar/search and another instance keep their own focus.
+  useEffect(() => {
+    if (pendingPageFocus.current === null || pendingPageFocus.current.page !== state.paginationModel.page) return;
+    const origin = pendingPageFocus.current.origin;
+    pendingPageFocus.current = null;
+    if (document.activeElement !== origin && document.activeElement !== document.body) return;
+    const node = entry.current;
+    const scrolling = node?.querySelector<HTMLElement>("[data-sgui-part='grid-container']") ?? node;
+    if (scrolling) scrolling.scrollTop = 0;
+    (node?.querySelector<HTMLElement>("tbody [data-grid-field]:not([data-grid-field='__selection']):not([data-grid-field='__reorder']), [data-sgui-part='grid-card']") ?? node)?.focus();
+  }, [state.paginationModel.page]);
+  const hasCriteria = Boolean(state.searchValue || state.filterRules.length);
+  return <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="data-grid-shell">
+    {showResetView && <Button className={styles.resetView} variant="text" tone="neutral" density="compact" onPress={() => {
+      const next = createOwnedGridResetState({ ...props, filterFields }, view?.defaultMode ?? "list");
+      persistence.reset(next);
+      setVisibility(next.columnVisibilityModel); setOrder(next.columnOrder); setWidths(next.columnWidths);
+      if (view?.mode === undefined) setLocalView(next.viewMode!);
+      view?.onModeChange?.(next.viewMode!);
+      toolbar?.onColumnOptionsChange?.(next.columnOrder.map(field => {
+        const column = columns.find(candidate => candidate.field === field)!;
+        const hostOption = toolbar?.baseColumnOptions?.find(option => option.id === field);
+        return { id: field, label: hostOption?.label ?? column.headerName ?? field, visible: next.columnVisibilityModel[field]!,
+          locked: layout.lockedFields.includes(field) };
+      }));
+      dispatch({ type: "reset", value: next });
+      onResetView?.(next);
+    }}>{t("common.ui.grid.resetView", { defaultMessage: "Reset view" })}</Button>}
+    {toolbar?.show !== false && <DataToolbar {...toolbar} mode={mode}
+      selectedCount={toolbar?.showSelectedCount === false ? undefined : state.selectedRowIds.size}
+      leftContentWhenSelected={state.selectedRowIds.size ? toolbar?.leftContentWhenSelected : undefined}
+      columnOptions={columnOptions} onColumnOptionsChange={options => {
+        setVisibility(Object.fromEntries(options.map(option => [option.id, option.visible])));
+        setOrder(options.map(option => option.id));
+        toolbar?.onColumnOptionsChange?.(options.map(option => ({ ...option })));
+      }}
+      sortOptions={toolbar?.sortOptions ?? columns.filter(column => column.sortable !== false).map(column => ({ id: column.field, label: column.headerName ?? column.field }))}
+      sortRules={state.sortRules} onSortRulesChange={value => dispatch({ type: "sort", value: value.flatMap(rule => rule.field && (rule.direction === "asc" || rule.direction === "desc")
+        ? [{ field: rule.field, direction: rule.direction }] : []) })}
+      filterFields={filterFields ? [...filterFields] : undefined} filterRules={state.filterRules}
+      onFilterRulesChange={value => dispatch({ type: "filter", value })}
+      searchValue={state.searchValue} onSearchValueChange={value => dispatch({ type: "search", value })}
+      showViewModeToggle={canToggle} viewMode={canToggle ? viewMode : undefined}
+      onViewModeChange={canToggle ? next => { if (view?.mode === undefined) setLocalView(next); view?.onModeChange?.(next); } : undefined} />}
+    <div ref={entry} className={styles.content} tabIndex={-1} aria-label={label} onFocusCapture={event => {
+      if (!cards || !event.currentTarget.contains(event.target)) return;
+      const element = event.target as HTMLElement;
+      const card = element.closest<HTMLElement>("[data-sgui-part='grid-card']");
+      if (!card?.dataset.gridRow) return;
+      const controls = [...card.querySelectorAll<HTMLElement>("button, a, input, select, textarea, [tabindex='0']")];
+      cardFocus.current = { id: card.dataset.gridRow, index: controls.indexOf(element), element };
+    }}>
+      {cards && view?.cards ? <>
+        {props.errorMessage ? <OwnedGridStatus state="error" message={props.errorMessage} onRetry={props.onRetry} />
+          : props.loading || props.refreshing ? <OwnedGridStatus state={processed.rows.length ? "refreshing" : "loading"} />
+          : !processed.rows.length ? <OwnedGridStatus state={hasCriteria ? "noResults" : "empty"} /> : null}
+        <div className={styles.cards} aria-label={label} role="list" aria-busy={props.loading || props.refreshing || undefined}>
+          {processed.rows.map(row => <div className={styles.card} key={getOwnedGridRowId(row, getRowId)} role="listitem" tabIndex={-1}
+            aria-label={getRowLabel(row)} data-grid-row={getOwnedGridRowId(row, getRowId)} data-sgui-part="grid-card">{view.cards!.renderCard(row)}</div>)}
+        </div>
+      </> : <AppDataGrid {...gridProps} storageKey={undefined} persistence={undefined} label={label} getRowLabel={getRowLabel} getRowId={getRowId}
+        rows={rows} columns={columns} mode={mode} filterFields={filterFields} processingResult={processed} dispatchTransition={dispatch}
+        {...state} selection={selection === false ? false : { ...selectionConfig, selectedRowIds: state.selectedRowIds,
+          onSelectedRowIdsChange: value => dispatch({ type: "selection", value }) }}
+        onPaginationModelChange={value => dispatch({ type: "pagination", value })}
+        onSortRulesChange={value => dispatch({ type: "sort", value })}
+        onFilterRulesChange={value => dispatch({ type: "filter", value })}
+        onSearchChange={value => dispatch({ type: "search", value })} onStateChange={undefined}
+        columnVisibilityModel={layout.visibility} onColumnVisibilityModelChange={setVisibility}
+        columnOrder={layout.order} onColumnOrderChange={setOrder} columnWidths={layout.widths} onColumnWidthsChange={setWidths} hideFooter />}
+    </div>
+    {!hideFooter && (footer ?? <AppPaginationFooter page={state.paginationModel.page} pageSize={state.paginationModel.pageSize}
+      pageSizeOptions={normalizeGridPageSizeOptions(props.pageSizeOptions).map(option => option.value)} totalCount={processed.rowCount}
+      hasNextPage={processed.canNextPage} onPageChange={() => {}} onPageSizeChange={() => {}}
+      onPaginationModelChange={value => {
+        pendingPageFocus.current = { page: value.pageSize !== state.paginationModel.pageSize ? 0 : value.page, origin: document.activeElement };
+        dispatch({ type: "pagination", value });
+      }} />)}
+  </div>;
 }
+
+function Shell<RowModel>(props: AppDataGridShellProps<RowModel>, ref: Ref<HTMLDivElement>) {
+  const persisted = useOwnedGridPersistence({ persistence: props.persistence ?? (props.storageKey ? { key: props.storageKey } : undefined),
+    columns: props.columns, filterFields: props.filterFields ?? props.toolbar?.filterFields, pageSizeOptions: props.pageSizeOptions });
+  if (!persisted.ready) return <div ref={ref} className={[styles.root, props.className].filter(Boolean).join(" ")} style={props.style}
+    data-sgui-part="data-grid-shell" aria-label={props.label}><OwnedGridStatus state="loading" /></div>;
+  return <ReadyShell {...props} persisted={persisted} shellRef={ref} />;
+}
+
+export const AppDataGridShell = forwardRef(Shell) as <RowModel>(props: AppDataGridShellProps<RowModel> & {
+  ref?: Ref<HTMLDivElement>;
+}) => ReactElement;

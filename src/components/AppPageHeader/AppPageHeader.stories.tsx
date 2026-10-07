@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import GroupIcon from "@mui/icons-material/Group";
-import SchoolIcon from "@mui/icons-material/School";
+import { GroupIcon } from "../../experimental/icons/GroupIcon";
+import { SchoolIcon } from "../../experimental/icons/SchoolIcon";
 import { AppButton } from "../AppButton";
 import { AppPageHeader } from "./AppPageHeader";
 
@@ -31,8 +31,8 @@ export const DetailStyle: Story = {
     ],
     description: "Introductory section with mixed-ability learner groups.",
     metaItems: [
-      { id: "learners", icon: <GroupIcon color="action" fontSize="medium" />, label: "28 Learners" },
-      { id: "site", icon: <SchoolIcon color="action" fontSize="medium" />, label: "Hogwarts" },
+      { id: "learners", icon: <GroupIcon />, label: "28 Learners" },
+      { id: "site", icon: <SchoolIcon />, label: "Hogwarts" },
     ],
     moreMenuItems: [
       { id: "edit", label: "Edit Section" },
@@ -77,6 +77,9 @@ export const ActionButtons: Story = {
       { href: "/sections/instructor", label: "Classes" },
       { label: "Biology 101" },
     ],
-    actionButtons: <AppButton size="small" variant="outlined">Add Course to Section...</AppButton>,
+    actionButtons: <AppButton density="compact" tone="neutral" variant="outlined">Add Course to Section...</AppButton>,
   },
 };
+
+export const Primary: Story = { args: { title: "Courses", hierarchy: "primary" } };
+export const Narrow: Story = { ...DetailStyle, decorators: [(Story) => <div style={{ width: 260 }}><Story /></div>] };

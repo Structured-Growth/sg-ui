@@ -1,0 +1,10 @@
+@layer sgui.components {
+  .trigger { min-inline-size: 0; padding-inline: var(--sgui-space1); }
+  .logical { display: inline-flex; }
+  .logical[data-align="start"] .right,
+  .logical[data-align="end"] .left { display: none; }
+  .logical[data-align="start"]:dir(rtl) .left,
+  .logical[data-align="end"]:dir(rtl) .right { display: none; }
+  .logical[data-align="start"]:dir(rtl) .right,
+  .logical[data-align="end"]:dir(rtl) .left { display: block; }
+}

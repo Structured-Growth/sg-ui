@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Stack from "@mui/material/Stack";
+import { Stack } from "../../experimental/Stack/Stack";
+import { ThemeScope } from "../../foundation/ThemeScope";
 import { LearnerClassCard } from "./LearnerClassCard";
 
 const referenceNow = new Date("2026-02-17T09:00:00");
@@ -19,6 +20,7 @@ const meta = {
   title: "Classes/LearnerClassCard",
   component: LearnerClassCard,
   tags: ["autodocs"],
+  decorators: [(Story) => <ThemeScope><Story /></ThemeScope>],
 } satisfies Meta<typeof LearnerClassCard>;
 
 export default meta;
@@ -30,7 +32,7 @@ export const TimeVariants: Story = {
     dueAt: offsetDays(5),
   },
   render: () => (
-    <Stack spacing={2}>
+    <Stack gap={4}>
       <LearnerClassCard {...baseArgs} dueAt={offsetMinutes(25)} />
       <LearnerClassCard {...baseArgs} dueAt={offsetHours(6)} />
       <LearnerClassCard {...baseArgs} dueAt={offsetHours(27)} />
@@ -47,3 +49,17 @@ export const SingleCard: Story = {
     dueAt: offsetDays(5),
   },
 };
+
+export const NavigationActions: Story = { args: { ...baseArgs, dueAt: offsetDays(5), detailsHref: "/course/details", continueHref: "/course/continue" } };
+
+export const NarrowLongNames: Story = {
+  args: {
+    ...baseArgs,
+    courseName: "An advanced course with a long uninterrupted title Supercalifragilisticexpialidocious",
+    instructorName: "An instructor with a long host supplied name",
+    dueAt: offsetDays(5),
+  },
+  decorators: [(Story) => <div style={{ width: 260 }}><Story /></div>],
+};
+
+export const Dark: Story = { args: { ...baseArgs, dueAt: offsetDays(5) }, render: args => <ThemeScope theme="dark"><LearnerClassCard {...args} /></ThemeScope> };

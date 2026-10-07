@@ -1,0 +1,3 @@
+@layer sgui.components {
+  .input { resize: vertical; min-block-size: 6rem; }
+}

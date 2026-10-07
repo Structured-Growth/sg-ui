@@ -1,103 +1,35 @@
-import { useState } from "react";
-import type { MouseEvent, ReactNode } from "react";
-import AddIcon from "@mui/icons-material/Add";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
-import ImageIcon from "@mui/icons-material/Image";
-import ViewWeekIcon from "@mui/icons-material/ViewWeek";
-import Box from "@mui/material/Box";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import { AppButton } from "../AppButton";
-
-type InsertAction = {
-  id: string;
-  label: string;
-  icon: ReactNode;
-  onClick?: () => void;
-};
+"use client";
+import { forwardRef, type CSSProperties } from "react";
+import { Button } from "../../experimental/Button/Button";
+import { Menu } from "../../experimental/Menu/Menu";
+import { AddIcon } from "../../experimental/icons/AddIcon";
+import { ArrowDropDownIcon } from "../../experimental/icons/ArrowDropDownIcon";
+import { ImageIcon } from "../../experimental/icons/ImageIcon";
+import { HorizontalRuleIcon } from "../../experimental/icons/HorizontalRuleIcon";
+import { ViewWeekIcon } from "../../experimental/icons/ViewWeekIcon";
+import { useTranslation } from "../../i18n";
 
 export type InsertContentMenuControlProps = {
   disabled?: boolean;
   onInsertImage?: () => void;
   onInsertHorizontalRule?: () => void;
   onInsertColumnsLayout?: () => void;
+  className?: string;
+  style?: CSSProperties;
 };
 
-export function InsertContentMenuControl({
-  disabled = false,
-  onInsertImage,
-  onInsertHorizontalRule,
-  onInsertColumnsLayout,
-}: InsertContentMenuControlProps) {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-
-  const openMenu = (event: MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const closeMenu = () => {
-    setAnchorEl(null);
-  };
-
-  const actions: InsertAction[] = [
-    {
-      id: "image",
-      icon: <ImageIcon fontSize="small" />,
-      label: "Image",
-      onClick: onInsertImage,
-    },
-    {
-      id: "horizontalRule",
-      icon: <HorizontalRuleIcon fontSize="small" />,
-      label: "Horizontal Rule",
-      onClick: onInsertHorizontalRule,
-    },
-    {
-      id: "columnsLayout",
-      icon: <ViewWeekIcon fontSize="small" />,
-      label: "Columns Layout",
-      onClick: onInsertColumnsLayout,
-    },
+/** Host callbacks own insertion, announcements and subsequent editor/dialog focus. */
+export const InsertContentMenuControl = forwardRef<HTMLButtonElement, InsertContentMenuControlProps>(function InsertContentMenuControl({
+  disabled = false, onInsertImage, onInsertHorizontalRule, onInsertColumnsLayout, className, style,
+}, ref) {
+  const { t } = useTranslation();
+  const label = t("editor.insert.menu", { defaultMessage: "Insert" });
+  const actions = [
+    { id: "image", label: t("editor.insert.image", { defaultMessage: "Image" }), icon: <ImageIcon />, callback: onInsertImage },
+    { id: "horizontalRule", label: t("editor.insert.horizontalRule", { defaultMessage: "Horizontal Rule" }), icon: <HorizontalRuleIcon />, callback: onInsertHorizontalRule },
+    { id: "columnsLayout", label: t("editor.insert.columnsLayout", { defaultMessage: "Columns Layout" }), icon: <ViewWeekIcon />, callback: onInsertColumnsLayout },
   ];
-
-  return (
-    <>
-      <AppButton
-        color="inherit"
-        disabled={disabled}
-        onClick={openMenu}
-        size="small"
-        startIcon={<AddIcon fontSize="small" />}
-        sx={{ minHeight: 30, minWidth: 0, px: 0.5, py: 0.25 }}
-        variant="text"
-      >
-        Insert
-        <ArrowDropDownIcon fontSize="small" />
-      </AppButton>
-      <Menu anchorEl={anchorEl} onClose={closeMenu} open={Boolean(anchorEl)} slotProps={{ list: { dense: true } }}>
-        {actions.map((action) => (
-          <MenuItem
-            key={action.id}
-            onClick={() => {
-              action.onClick?.();
-              closeMenu();
-            }}
-            sx={{ minWidth: 260 }}
-          >
-            <Stack alignItems="center" direction="row" spacing={1.5} sx={{ width: "100%" }}>
-              <Box sx={{ alignItems: "center", color: "text.secondary", display: "flex", justifyContent: "center", minWidth: 24 }}>
-                {action.icon}
-              </Box>
-              <Typography sx={{ flex: 1 }} variant="body2">
-                {action.label}
-              </Typography>
-            </Stack>
-          </MenuItem>
-        ))}
-      </Menu>
-    </>
-  );
-}
+  return <Menu label={label} density="compact" items={actions.map(action => ({ ...action, disabled: !action.callback }))}
+    onAction={id => actions.find(action => action.id === id)?.callback?.()}
+    trigger={<Button ref={ref} disabled={disabled} className={className} style={style} density="compact" variant="text" tone="neutral" startIcon={<AddIcon />} endIcon={<ArrowDropDownIcon />}>{label}</Button>} />;
+});

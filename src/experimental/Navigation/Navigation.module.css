@@ -1,0 +1,7 @@
+@layer sgui.components {
+  .root { min-inline-size: 0; }
+  .item { box-sizing: border-box; display: flex; align-items: center; gap: var(--sgui-space2); min-block-size: var(--sgui-control-height); padding-block: var(--sgui-space1); padding-inline: var(--sgui-control-padding); border-radius: var(--sgui-control-radius); color: var(--sgui-text); }
+  .item:hover, .item[aria-current="page"] { background: var(--sgui-surface-subtle); }
+  .item[aria-current="page"] { color: var(--sgui-action); }
+  @media (forced-colors: active) { .item[aria-current="page"] { outline: 1px solid Highlight; outline-offset: -1px; } }
+}

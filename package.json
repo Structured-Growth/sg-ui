@@ -14,7 +14,7 @@
     "THIRD_PARTY_NOTICES.md"
   ],
   "sideEffects": [
-    "./dist/theme/mui-typography.js"
+    "./dist/**/*.css"
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -26,6 +26,18 @@
     "./components": {
       "types": "./dist/components/index.d.ts",
       "import": "./dist/components/index.js"
+    },
+    "./components/AppInlineProgress": {
+      "types": "./dist/components/AppInlineProgress/index.d.ts",
+      "import": "./dist/components/AppInlineProgress/index.js"
+    },
+    "./components/AppOperationSteps": {
+      "types": "./dist/components/AppOperationSteps/index.d.ts",
+      "import": "./dist/components/AppOperationSteps/index.js"
+    },
+    "./components/EditableTitleField": {
+      "types": "./dist/components/EditableTitleField/index.d.ts",
+      "import": "./dist/components/EditableTitleField/index.js"
     },
     "./theme": {
       "types": "./dist/theme/index.d.ts",
@@ -51,7 +63,152 @@
       "types": "./dist/i18n/index.d.ts",
       "import": "./dist/i18n/index.js"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./experimental": {
+      "types": "./dist/experimental/index.d.ts",
+      "import": "./dist/experimental/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/foundation/tokens.generated.d.ts",
+      "import": "./dist/foundation/tokens.generated.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./experimental/icons": {
+      "types": "./dist/experimental/icons/index.d.ts",
+      "import": "./dist/experimental/icons/index.js"
+    },
+    "./experimental/icons/*Icon": {
+      "types": "./dist/experimental/icons/*Icon.d.ts",
+      "import": "./dist/experimental/icons/*Icon.js"
+    },
+    "./components/CardPaginationFooter": {
+      "types": "./dist/components/CardPaginationFooter/index.d.ts",
+      "import": "./dist/components/CardPaginationFooter/index.js"
+    },
+    "./components/CardCollectionWithFooter": {
+      "types": "./dist/components/CardCollectionWithFooter/index.d.ts",
+      "import": "./dist/components/CardCollectionWithFooter/index.js"
+    },
+    "./components/ClassCardFrame": {
+      "types": "./dist/components/ClassCardFrame/index.d.ts",
+      "import": "./dist/components/ClassCardFrame/index.js"
+    },
+    "./components/InstructorClassCard": {
+      "types": "./dist/components/InstructorClassCard/index.d.ts",
+      "import": "./dist/components/InstructorClassCard/index.js"
+    },
+    "./components/LearnerClassCard": {
+      "types": "./dist/components/LearnerClassCard/index.d.ts",
+      "import": "./dist/components/LearnerClassCard/index.js"
+    },
+    "./components/AppButton": {
+      "types": "./dist/components/AppButton/index.d.ts",
+      "import": "./dist/components/AppButton/index.js"
+    },
+    "./components/ExperiencePageNavigator": {
+      "types": "./dist/components/ExperiencePageNavigator/index.d.ts",
+      "import": "./dist/components/ExperiencePageNavigator/index.js"
+    },
+    "./components/AppPageTabs": {
+      "types": "./dist/components/AppPageTabs/index.d.ts",
+      "import": "./dist/components/AppPageTabs/index.js"
+    },
+    "./components/AppPageHeader": {
+      "types": "./dist/components/AppPageHeader/index.d.ts",
+      "import": "./dist/components/AppPageHeader/index.js"
+    },
+    "./components/AppModal": {
+      "types": "./dist/components/AppModal/index.d.ts",
+      "import": "./dist/components/AppModal/index.js"
+    },
+    "./components/AuthShell": {
+      "types": "./dist/components/AuthShell/index.d.ts",
+      "import": "./dist/components/AuthShell/index.js"
+    },
+    "./components/SideNavigation": {
+      "types": "./dist/components/SideNavigation/index.d.ts",
+      "import": "./dist/components/SideNavigation/index.js"
+    },
+    "./components/AppShell": {
+      "types": "./dist/components/AppShell/index.d.ts",
+      "import": "./dist/components/AppShell/index.js"
+    },
+    "./components/ColumnsLayoutModal": {
+      "types": "./dist/components/ColumnsLayoutModal/index.d.ts",
+      "import": "./dist/components/ColumnsLayoutModal/index.js"
+    },
+    "./components/ImageUploadModal": {
+      "types": "./dist/components/ImageUploadModal/index.d.ts",
+      "import": "./dist/components/ImageUploadModal/index.js"
+    },
+    "./components/LinkUrlModal": {
+      "types": "./dist/components/LinkUrlModal/index.d.ts",
+      "import": "./dist/components/LinkUrlModal/index.js"
+    },
+    "./components/InsertContentMenuControl": {
+      "types": "./dist/components/InsertContentMenuControl/index.d.ts",
+      "import": "./dist/components/InsertContentMenuControl/index.js"
+    },
+    "./components/TextAlignMenuControl": {
+      "types": "./dist/components/TextAlignMenuControl/index.d.ts",
+      "import": "./dist/components/TextAlignMenuControl/index.js"
+    },
+    "./components/TextColorPickerControl": {
+      "types": "./dist/components/TextColorPickerControl/index.d.ts",
+      "import": "./dist/components/TextColorPickerControl/index.js"
+    },
+    "./components/TextStyleMenuControl": {
+      "types": "./dist/components/TextStyleMenuControl/index.d.ts",
+      "import": "./dist/components/TextStyleMenuControl/index.js"
+    },
+    "./components/RichTextFormattingToolbar": {
+      "types": "./dist/components/RichTextFormattingToolbar/index.d.ts",
+      "import": "./dist/components/RichTextFormattingToolbar/index.js"
+    },
+    "./components/FloatingTextSelectionToolbar": {
+      "types": "./dist/components/FloatingTextSelectionToolbar/index.d.ts",
+      "import": "./dist/components/FloatingTextSelectionToolbar/index.js"
+    },
+    "./components/DocumentEditorLayout": {
+      "types": "./dist/components/DocumentEditorLayout/index.d.ts",
+      "import": "./dist/components/DocumentEditorLayout/index.js"
+    },
+    "./components/DocumentEditorToolbar": {
+      "types": "./dist/components/DocumentEditorToolbar/index.d.ts",
+      "import": "./dist/components/DocumentEditorToolbar/index.js"
+    },
+    "./components/ContentEditorChrome": {
+      "types": "./dist/components/ContentEditorChrome/index.d.ts",
+      "import": "./dist/components/ContentEditorChrome/index.js"
+    },
+    "./components/PageRichTextEditorSection": {
+      "types": "./dist/components/PageRichTextEditorSection/index.d.ts",
+      "import": "./dist/components/PageRichTextEditorSection/index.js"
+    },
+    "./components/DataToolbar": {
+      "types": "./dist/components/DataToolbar/index.d.ts",
+      "import": "./dist/components/DataToolbar/index.js"
+    },
+    "./components/AppDataGrid": {
+      "types": "./dist/components/AppDataGrid/index.d.ts",
+      "import": "./dist/components/AppDataGrid/index.js"
+    },
+    "./components/AppDataGridShell": {
+      "types": "./dist/components/AppDataGridShell/index.d.ts",
+      "import": "./dist/components/AppDataGridShell/index.js"
+    },
+    "./components/LearnerClassesDataGrid": {
+      "types": "./dist/components/LearnerClassesDataGrid/index.d.ts",
+      "import": "./dist/components/LearnerClassesDataGrid/index.js"
+    },
+    "./components/AppDataGridRowDnd": {
+      "types": "./dist/components/AppDataGridRowDnd/index.d.ts",
+      "import": "./dist/components/AppDataGridRowDnd/index.js"
+    },
+    "./icons/*Icon": {
+      "types": "./dist/icons/*Icon.d.ts",
+      "import": "./dist/icons/*Icon.js"
+    }
   },
   "repository": {
     "type": "git",
@@ -66,23 +223,27 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "pnpm typecheck && pnpm test && pnpm test:release && pnpm build && pnpm test:package",
+    "check": "pnpm foundations:check && pnpm tokens:check && pnpm test:foundations && pnpm typecheck && pnpm test && pnpm test:release && pnpm build && pnpm test:package",
     "test:package": "node scripts/check-package.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "release": "semantic-release",
-    "test:release": "node --test scripts/release-policy.test.mjs"
+    "test:release": "node --test scripts/release-policy.test.mjs",
+    "tokens:generate": "node scripts/tokens.mjs",
+    "tokens:check": "node scripts/tokens.mjs --check",
+    "test:foundations": "node --test scripts/tokens.test.mjs scripts/css-modules.test.mjs scripts/packed-browser.test.mjs",
+    "foundations:check": "node scripts/check-foundations.mjs",
+    "test:foundation-consumer": "pnpm build && node scripts/test-foundation-consumer.mjs",
+    "test:hydration-consumer": "pnpm build && node scripts/test-foundation-consumer.mjs --react18 --browser && node scripts/test-foundation-consumer.mjs --browser",
+    "test:next-consumer": "pnpm build && node scripts/test-next-consumer.mjs",
+    "test:browser": "tsc --noEmit -p tests/browser/tsconfig.json && playwright test"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.7",
-    "@mui/material": "^7.3.7",
-    "@mui/x-data-grid": "^8.27.0",
     "react": "^18.3.1 || ^19.0.0",
     "react-dom": "^18.3.1 || ^19.0.0"
   },
   "dependencies": {
+    "@internationalized/date": "3.12.4",
     "@lexical/code": "^0.41.0",
     "@lexical/history": "^0.41.0",
     "@lexical/link": "^0.41.0",
@@ -92,35 +253,40 @@
     "@lexical/selection": "^0.41.0",
     "@lexical/table": "^0.41.0",
     "@lexical/utils": "^0.41.0",
-    "lexical": "^0.41.0"
+    "@tanstack/react-table": "8.21.3",
+    "lexical": "^0.41.0",
+    "lucide-react": "1.52.0",
+    "react-aria-components": "1.21.1"
   },
   "devDependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.1",
-    "@mui/icons-material": "^7.3.7",
-    "@mui/material": "^7.3.7",
-    "@mui/x-data-grid": "^8.27.0",
-    "react": "19.2.3",
-    "react-dom": "19.2.3",
+    "@axe-core/playwright": "^4.13.0",
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@playwright/test": "^1.63.0",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/github": "^12.0.10",
+    "@semantic-release/npm": "^13.2.0",
+    "@semantic-release/release-notes-generator": "^14.1.1",
+    "@storybook/addon-a11y": "^10.2.8",
+    "@storybook/addon-docs": "^10.2.8",
+    "@storybook/react-vite": "^10.2.8",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "14.6.1",
+    "@types/css.escape": "1.5.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "conventional-changelog-conventionalcommits": "^10.4.1",
+    "css.escape": "1.5.1",
+    "jsdom": "^26.0.0",
+    "postcss": "8.5.6",
+    "postcss-modules": "6.0.1",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "semantic-release": "^25.0.9",
+    "storybook": "^10.2.8",
     "typescript": "^5",
     "vite": "^7.3.1",
-    "vitest": "^4.0.18",
-    "@storybook/react-vite": "^10.2.8",
-    "@storybook/addon-a11y": "^10.2.8",
-    "@storybook/addon-docs": "^10.2.8",
-    "storybook": "^10.2.8",
-    "@testing-library/react": "^16.3.0",
-    "jsdom": "^26.0.0",
-    "semantic-release": "^25.0.9",
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/release-notes-generator": "^14.1.1",
-    "@semantic-release/npm": "^13.2.0",
-    "@semantic-release/github": "^12.0.10",
-    "conventional-changelog-conventionalcommits": "^10.4.1",
-    "@commitlint/cli": "^21.2.3",
-    "@commitlint/config-conventional": "^21.2.3"
+    "vitest": "^4.0.18"
   }
 }

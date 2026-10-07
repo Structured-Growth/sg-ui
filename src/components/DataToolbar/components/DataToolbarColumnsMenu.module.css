@@ -1,0 +1,6 @@
+@layer sgui.components {
+  .body { inline-size: 18rem; max-inline-size: 100%; display: flex; flex-direction: column; gap: var(--sgui-space2); }
+  .options { display: flex; flex-direction: column; gap: var(--sgui-space1); max-block-size: 17.5rem; overflow: auto; border-block: 1px solid var(--sgui-border); padding-block: var(--sgui-space2); }
+  .empty { margin: 0; padding: var(--sgui-space2); color: var(--sgui-text-muted); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .reset { inline-size: 100%; }
+}

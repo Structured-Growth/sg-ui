@@ -1,0 +1,7 @@
+@layer sgui.components {
+  .root { background: var(--sgui-surface); color: var(--sgui-text); border-radius: var(--sgui-control-radius); }
+  .root[data-tone="subtle"] { background: var(--sgui-surface-subtle); }
+  .root[data-variant="outlined"] { border: 1px solid var(--sgui-divider); }
+  .root[data-variant="raised"] { box-shadow: var(--sgui-overlay-shadow); }
+  @media (forced-colors: active) { .root[data-variant="raised"] { border: 1px solid CanvasText; } }
+}

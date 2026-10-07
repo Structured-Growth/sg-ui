@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import Box from "@mui/material/Box";
-import Checkbox from "@mui/material/Checkbox";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import { Button } from "../../../experimental/Button/Button";
+import { Checkbox } from "../../../experimental/Checkbox/Checkbox";
+import { Menu } from "../../../experimental/Menu/Menu";
+import { ArrowDropDownIcon } from "../../../experimental/icons/ArrowDropDownIcon";
+import { useTranslation } from "../../../i18n";
+import styles from "./DataToolbarSelectionMenu.module.css";
 
 export type DataToolbarSelectionOption = {
   id: string;
@@ -22,54 +21,14 @@ type DataToolbarSelectionMenuProps = {
   onSelectOption: (optionId: string) => void;
 };
 
-export function DataToolbarSelectionMenu({
-  options,
-  selectionState,
-  onToggleSelection,
-  onSelectOption,
-}: DataToolbarSelectionMenuProps) {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const open = Boolean(anchorEl);
-
-  return (
-    <>
-      <Box sx={{ alignItems: "center", display: "flex", gap: 0.125, pl: 1 }}>
-        <Checkbox
-          checked={selectionState === "all"}
-          indeterminate={selectionState === "some"}
-          onChange={onToggleSelection}
-          size="small"
-          sx={{ p: 0 }}
-        />
-        <IconButton
-          onClick={(event) => {
-            setAnchorEl(event.currentTarget);
-          }}
-          size="small"
-          sx={{ p: 0, width: 16, height: 16 }}
-        >
-          <ArrowDropDownIcon fontSize="small" />
-        </IconButton>
-      </Box>
-
-      <Menu
-        anchorEl={anchorEl}
-        onClose={() => setAnchorEl(null)}
-        open={open}
-        transformOrigin={{ horizontal: "left", vertical: "top" }}
-      >
-        {options.map((option) => (
-          <MenuItem
-            key={option.id}
-            onClick={() => {
-              onSelectOption(option.id);
-              setAnchorEl(null);
-            }}
-          >
-            {option.label}
-          </MenuItem>
-        ))}
-      </Menu>
-    </>
-  );
+export function DataToolbarSelectionMenu({ options, selectionState, onToggleSelection, onSelectOption }: DataToolbarSelectionMenuProps) {
+  const { t, useNamespace } = useTranslation();
+  useNamespace("common.ui");
+  const selectLabel = t("common.ui.toolbar.selectRows", { defaultMessage: "Select rows", namespace: "common.ui" });
+  const optionsLabel = t("common.ui.toolbar.selectionOptions", { defaultMessage: "Selection options", namespace: "common.ui" });
+  return <div className={styles.root} data-sgui-density="compact">
+    <span className={styles.checkbox}><Checkbox label={selectLabel} checked={selectionState === "all"} mixed={selectionState === "some"} onCheckedChange={() => onToggleSelection()} /></span>
+    <Menu label={optionsLabel} density="compact" items={options} onAction={onSelectOption}
+      trigger={<Button variant="text" tone="neutral" density="compact" aria-label={optionsLabel} className={styles.trigger}><ArrowDropDownIcon /></Button>} />
+  </div>;
 }

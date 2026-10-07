@@ -1,1 +1,1 @@
-export { AppPaginationFooter } from "./CardPaginationFooter";
+export { AppPaginationFooter, type AppPaginationFooterProps } from "./CardPaginationFooter";

@@ -1,25 +1,16 @@
 "use client";
-
-import { useMemo, useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
-import CloseIcon from "@mui/icons-material/Close";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import Badge from "@mui/material/Badge";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
-import IconButton from "@mui/material/IconButton";
-import ListItemText from "@mui/material/ListItemText";
-import MenuItem from "@mui/material/MenuItem";
-import Popover from "@mui/material/Popover";
-import Select from "@mui/material/Select";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
-import type { SelectChangeEvent } from "@mui/material/Select";
+import { useEffect, useRef, useState } from "react";
+import { Button } from "../../../experimental/Button/Button";
+import { IconButton } from "../../../experimental/IconButton/IconButton";
+import { Checkbox } from "../../../experimental/Checkbox/Checkbox";
+import { Select } from "../../../experimental/Select/Select";
+import { Popover } from "../../../experimental/Popover/Popover";
+import { AddIcon } from "../../../experimental/icons/AddIcon";
+import { CloseIcon } from "../../../experimental/icons/CloseIcon";
+import { FilterListIcon } from "../../../experimental/icons/FilterListIcon";
 import { useTranslation } from "../../../i18n";
-import { toLabelKey } from "../../../i18n/labelKey";
 import { parseFilterRuleValues, serializeFilterRuleValues } from "../filterRuleValue";
-
+import styles from "./DataToolbarFilterMenu.module.css";
 export type DataToolbarFilterFieldType = "string" | "number" | "date" | "enum";
 
 export type DataToolbarFilterField = {
@@ -56,36 +47,10 @@ export type DataToolbarFilterRule = {
   value: string;
 };
 
-type DataToolbarFilterMenuProps = {
+export type DataToolbarFilterMenuProps = {
   fields: DataToolbarFilterField[];
   value: DataToolbarFilterRule[];
   onApply: (nextRules: DataToolbarFilterRule[]) => void;
-};
-
-const toolbarButtonSx = {
-  borderColor: "divider",
-  color: "text.secondary",
-  pl: 1.25,
-  pr: 2.25,
-  py: 0.25,
-  textTransform: "none",
-};
-
-const compactSelectMenuProps = {
-  MenuListProps: {
-    dense: true,
-  },
-  PaperProps: {
-    sx: {
-      minWidth: 180,
-    },
-  },
-};
-
-const compactSelectMenuItemSx = {
-  fontSize: 13,
-  minHeight: 30,
-  px: 1.25,
 };
 
 type OperatorOption = {
@@ -158,315 +123,106 @@ const hasRuleValue = (rule: DataToolbarFilterRule, field: DataToolbarFilterField
   return Boolean(rule.value.trim());
 };
 
+type DraftRule = DataToolbarFilterRule & { draftId: number };
+
 export function DataToolbarFilterMenu({ fields, value, onApply }: DataToolbarFilterMenuProps) {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [draftRules, setDraftRules] = useState<DataToolbarFilterRule[]>(value.length ? value : [createEmptyRule()]);
+  const [open, setOpen] = useState(false);
+  const [draftRules, setDraftRules] = useState<DraftRule[]>([]);
+  const nextId = useRef(0);
+  const columnTriggers = useRef(new Map<number, HTMLButtonElement>());
+  const pendingFocus = useRef<number | null>(null);
+  useEffect(() => {
+    const draftId = pendingFocus.current;
+    pendingFocus.current = null;
+    if (!open || draftId === null) return;
+    // Let React Aria finish press handling before focusing the surviving row.
+    const timer = setTimeout(() => columnTriggers.current.get(draftId)?.focus(), 0);
+    return () => clearTimeout(timer);
+  }, [draftRules, open]);
+  const makeDraft = (rule: DataToolbarFilterRule): DraftRule => ({ ...rule, draftId: nextId.current++ });
   const { t, useNamespace } = useTranslation();
   useNamespace("common.ui");
   const tr = (key: string, defaultMessage: string) => t(key, { defaultMessage, namespace: "common.ui" });
-  const trLabel = (label: string) => t(toLabelKey("common.ui.label", label), { defaultMessage: label, namespace: "common.ui" });
-  const isOpen = Boolean(anchorEl);
-
-  const addRule = () => {
-    setDraftRules((prev) => [...prev, createEmptyRule()]);
-  };
-
-  const removeRule = (index: number) => {
-    setDraftRules((prev) => prev.filter((_, currentIndex) => currentIndex !== index));
-  };
-
-  const updateField = (index: number, event: SelectChangeEvent<string>) => {
-    const nextFieldId = event.target.value;
-    const nextField = getFieldById(fields, nextFieldId);
-    const nextOperators = getOperatorsForField(nextField);
-    setDraftRules((prev) =>
-      prev.map((rule, currentIndex) =>
-        currentIndex === index
-          ? {
-              field: nextFieldId,
-              operator: nextOperators[0]?.id ?? "",
-              value: "",
-            }
-          : rule,
-      ),
-    );
-  };
-
-  const updateOperator = (index: number, event: SelectChangeEvent<string>) => {
-    const nextOperator = event.target.value as DataToolbarFilterOperator;
-    setDraftRules((prev) =>
-      prev.map((rule, currentIndex) =>
-        currentIndex === index
-          ? {
-              ...rule,
-              operator: nextOperator,
-              value: "",
-            }
-          : rule,
-      ),
-    );
-  };
-
-  const updateValue = (index: number, nextValue: string) => {
-    setDraftRules((prev) =>
-      prev.map((rule, currentIndex) =>
-        currentIndex === index
-          ? {
-              ...rule,
-              value: nextValue,
-            }
-          : rule,
-      ),
-    );
-  };
-
-  const updateEnumValues = (index: number, nextValues: string[]) => {
-    setDraftRules((prev) =>
-      prev.map((rule, currentIndex) =>
-        currentIndex === index
-          ? {
-              ...rule,
-              value: nextValues.length > 0 ? serializeFilterRuleValues(nextValues) : "",
-            }
-          : rule,
-      ),
-    );
-  };
-
-  const activeRuleCount = useMemo(
-    () =>
-      value.filter((rule) => {
+  const sanitize = (rules: DataToolbarFilterRule[]) => rules.flatMap(rule => {
+    const field = getFieldById(fields, rule.field);
+    const operator = getOperatorsForField(field).find(option => option.id === rule.operator);
+    if (!field || !operator || (operator.requiresValue && !hasRuleValue(rule, field))) return [];
+    return [{ field: rule.field, operator: rule.operator, value: operator.requiresValue ? rule.value : "" }];
+  });
+  const count = sanitize(value).length;
+  const updateRule = (index: number, patch: Partial<DataToolbarFilterRule>) =>
+    setDraftRules(previous => previous.map((rule, current) => current === index ? { ...rule, ...patch } : rule));
+  const columnsLabel = tr("common.ui.filter.columns", "Columns");
+  const operatorLabel = tr("common.ui.filter.operator", "Operator");
+  const valueLabel = tr("common.ui.filter.value", "Value");
+  return <Popover title={tr("common.ui.toolbar.filter", "Filter")} size="lg" open={open}
+    onOpenChange={nextOpen => {
+      pendingFocus.current = null;
+      if (nextOpen) setDraftRules((value.length ? value : [createEmptyRule()]).map(makeDraft));
+      setOpen(nextOpen);
+    }}
+    trigger={<Button variant="outlined" tone="neutral" density="compact" startIcon={<FilterListIcon />}>
+      {tr("common.ui.toolbar.filter", "Filter")}
+      {count > 0 && <> <span className={styles.badge}>{count}</span></>}
+    </Button>}>
+    <div className={styles.rules} data-sgui-density="compact">
+      {draftRules.map((rule, index) => {
         const field = getFieldById(fields, rule.field);
-        if (!field || !rule.operator) {
-          return false;
-        }
-
-        const operator = getOperatorsForField(field).find((item) => item.id === rule.operator);
-        if (!operator) {
-          return false;
-        }
-
-        if (!operator.requiresValue) {
-          return true;
-        }
-
-        return hasRuleValue(rule, field);
-      }).length,
-    [fields, value],
-  );
-
-  return (
-    <>
-      <Badge
-        badgeContent={activeRuleCount > 0 ? activeRuleCount : 0}
-        anchorOrigin={{ horizontal: "right", vertical: "top" }}
-        color="primary"
-        overlap="rectangular"
-        sx={{
-          "& .MuiBadge-badge": {
-            fontSize: 12,
-            fontWeight: 700,
-            minWidth: 22,
-            right: 6,
-            top: 6,
-          },
-        }}
-      >
-        <Button
-          onClick={(event) => {
-            setDraftRules(value.length ? value : [createEmptyRule()]);
-            setAnchorEl(event.currentTarget);
-          }}
-          size="small"
-          startIcon={<FilterListIcon fontSize="small" />}
-          sx={toolbarButtonSx}
-          variant="outlined"
-        >
-          {tr("common.ui.toolbar.filter", "Filter")}
-        </Button>
-      </Badge>
-
-      <Popover
-        anchorEl={anchorEl}
-        anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
-        disableScrollLock
-        onClose={() => setAnchorEl(null)}
-        open={isOpen}
-        transformOrigin={{ horizontal: "left", vertical: "top" }}
-      >
-        <Box sx={{ minWidth: 820, p: 2 }}>
-          <Box sx={{ display: "grid", gap: 1.5, gridTemplateColumns: "1fr 1fr 1fr 32px", mb: 1 }}>
-            <Typography sx={{ fontSize: 13, fontWeight: 700 }}>{tr("common.ui.filter.columns", "Columns")}</Typography>
-            <Typography sx={{ fontSize: 13, fontWeight: 700 }}>{tr("common.ui.filter.operator", "Operator")}</Typography>
-            <Typography sx={{ fontSize: 13, fontWeight: 700 }}>{tr("common.ui.filter.value", "Value")}</Typography>
-            <Box />
-          </Box>
-
-          <Box sx={{ display: "grid", gap: 1.5 }}>
-            {draftRules.map((rule, index) => {
-              const field = getFieldById(fields, rule.field);
-              const operators = getOperatorsForField(field);
-              const selectedOperator = operators.find((operator) => operator.id === rule.operator);
-              const requiresValue = selectedOperator?.requiresValue ?? false;
-              const isEnumField = field?.type === "enum";
-              const selectedEnumValues = isEnumField ? parseFilterRuleValues(rule.value) : [];
-
-              return (
-                <Box key={`${rule.field}-${index}`} sx={{ alignItems: "flex-end", display: "grid", gap: 1.5, gridTemplateColumns: "1fr 1fr 1fr 32px" }}>
-                  <Select
-                    MenuProps={compactSelectMenuProps}
-                    displayEmpty
-                    fullWidth
-                    onChange={(event) => updateField(index, event)}
-                    size="small"
-                    value={rule.field}
-                    variant="standard"
-                  >
-                    <MenuItem sx={compactSelectMenuItemSx} value="">
-                      <em>{tr("common.ui.filter.selectColumn", "Select column")}</em>
-                    </MenuItem>
-                    {fields.map((fieldOption) => (
-                      <MenuItem key={fieldOption.id} sx={compactSelectMenuItemSx} value={fieldOption.id}>
-                        {trLabel(fieldOption.label)}
-                      </MenuItem>
-                    ))}
-                  </Select>
-
-                  <Select
-                    MenuProps={compactSelectMenuProps}
-                    displayEmpty
-                    fullWidth
-                    onChange={(event) => updateOperator(index, event)}
-                    size="small"
-                    value={rule.operator}
-                    variant="standard"
-                  >
-                    <MenuItem sx={compactSelectMenuItemSx} value="">
-                      <em>{tr("common.ui.filter.selectOperator", "Select operator")}</em>
-                    </MenuItem>
-                    {operators.map((operator) => (
-                      <MenuItem key={operator.id} sx={compactSelectMenuItemSx} value={operator.id}>
-                        {tr(operator.labelKey, operator.defaultMessage)}
-                      </MenuItem>
-                    ))}
-                  </Select>
-
-                  {isEnumField ? (
-                    <Select
-                      disabled={!requiresValue || !field}
-                      displayEmpty
-                      fullWidth
-                      MenuProps={compactSelectMenuProps}
-                      multiple
-                      onChange={(event) => {
-                        const nextValues = event.target.value;
-                        updateEnumValues(
-                          index,
-                          Array.isArray(nextValues)
-                            ? nextValues
-                            : nextValues
-                                .split(",")
-                                .map((item) => item.trim())
-                                .filter(Boolean),
-                        );
-                      }}
-                      renderValue={(selected) => {
-                        if (!Array.isArray(selected) || selected.length === 0) {
-                          return tr("common.ui.filter.selectValues", "Select values");
-                        }
-
-                        const labelById = new Map((field?.enumOptions ?? []).map((option) => [option.id, option.label]));
-                        return selected.map((id) => trLabel(labelById.get(id) ?? id)).join(", ");
-                      }}
-                      size="small"
-                      value={selectedEnumValues}
-                      variant="standard"
-                    >
-                      {(field?.enumOptions ?? []).map((option) => (
-                        <MenuItem key={option.id} sx={compactSelectMenuItemSx} value={option.id}>
-                          <Checkbox checked={selectedEnumValues.includes(option.id)} size="small" />
-                          <ListItemText primary={trLabel(option.label)} primaryTypographyProps={{ fontSize: 13 }} />
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  ) : (
-                    <TextField
-                      disabled={!requiresValue}
-                      fullWidth
-                      onChange={(event) => updateValue(index, event.target.value)}
-                      placeholder={tr("common.ui.filter.valueInput", "Value")}
-                      size="small"
-                      type={field?.type === "number" ? "number" : field?.type === "date" ? "date" : "text"}
-                      value={rule.value}
-                      variant="standard"
-                    />
-                  )}
-
-                  <Box sx={{ alignItems: "center", display: "grid", minHeight: 32, width: 32 }}>
-                    {draftRules.length > 1 ? (
-                      <IconButton onClick={() => removeRule(index)} size="small">
-                        <CloseIcon fontSize="small" />
-                      </IconButton>
-                    ) : (
-                      <Box sx={{ height: 32, width: 32 }} />
-                    )}
-                  </Box>
-                </Box>
-              );
-            })}
-          </Box>
-
-          <Box sx={{ alignItems: "center", display: "flex", justifyContent: "space-between", mt: 1.5 }}>
-            <IconButton
-              onClick={addRule}
-              size="small"
-              sx={{
-                border: 1,
-                borderColor: "primary.main",
-                borderRadius: 1,
-                color: "primary.main",
-                p: 0.5,
-              }}
-            >
-              <AddIcon fontSize="small" />
-            </IconButton>
-
-            <Box sx={{ display: "flex", gap: 1, justifyContent: "flex-end" }}>
-              <Button onClick={() => setDraftRules([createEmptyRule()])} size="small" variant="outlined">
-                {tr("common.ui.common.reset", "Reset")}
-              </Button>
-              <Button
-                onClick={() => {
-                  const nextRules = draftRules.filter((rule) => {
-                    const currentField = getFieldById(fields, rule.field);
-                    if (!currentField || !rule.operator) {
-                      return false;
-                    }
-
-                    const operator = getOperatorsForField(currentField).find((item) => item.id === rule.operator);
-                    if (!operator) {
-                      return false;
-                    }
-
-                    if (!operator.requiresValue) {
-                      return true;
-                    }
-
-                    return hasRuleValue(rule, currentField);
-                  });
-
-                  onApply(nextRules);
-                  setAnchorEl(null);
-                }}
-                size="small"
-                variant="contained"
-              >
-                {tr("common.ui.common.apply", "Apply")}
-              </Button>
-            </Box>
-          </Box>
-        </Box>
-      </Popover>
-    </>
-  );
+        const operators = getOperatorsForField(field);
+        const requiresValue = operators.find(operator => operator.id === rule.operator)?.requiresValue ?? false;
+        const selectedValues = field?.type === "enum" ? parseFilterRuleValues(rule.value) : [];
+        const valueName = `${valueLabel} ${index + 1}`;
+        return <div key={rule.draftId} className={styles.row}>
+          <Select ref={element => {
+            if (element) columnTriggers.current.set(rule.draftId, element);
+            else columnTriggers.current.delete(rule.draftId);
+          }} label={`${columnsLabel} ${index + 1}`} value={rule.field || null}
+            placeholder={tr("common.ui.filter.selectColumn", "Select column")} options={fields.map(option => ({ id: option.id, label: option.label }))}
+            onValueChange={id => updateRule(index, { field: id ?? "", operator: getOperatorsForField(getFieldById(fields, id ?? ""))[0]?.id ?? "", value: "" })} />
+          <Select label={`${operatorLabel} ${index + 1}`} value={rule.operator || null} disabled={!field}
+            placeholder={tr("common.ui.filter.selectOperator", "Select operator")}
+            options={operators.map(operator => ({ id: operator.id, label: tr(operator.labelKey, operator.defaultMessage) }))}
+            onValueChange={id => updateRule(index, { operator: (id ?? "") as DataToolbarFilterRule["operator"], value: "" })} />
+          {field?.type === "enum" ? <div className={styles.field}>
+            <span className={styles.label}>{valueName}</span>
+            <Popover title={valueName} trigger={<Button variant="outlined" tone="neutral" density="compact" disabled={!requiresValue} aria-label={valueName}>
+              {selectedValues.length ? selectedValues.map(id => field.enumOptions?.find(option => option.id === id)?.label ?? id).join(", ") : tr("common.ui.filter.all", "All")}
+            </Button>}>
+              <div className={styles.options} data-sgui-density="compact">
+                <Checkbox label={tr("common.ui.filter.all", "All")} checked={selectedValues.length === 0} onCheckedChange={() => updateRule(index, { value: "" })} />
+                {(field.enumOptions ?? []).map(option => <Checkbox key={option.id} label={option.label} checked={selectedValues.includes(option.id)}
+                  onCheckedChange={checked => updateRule(index, { value: serializeFilterRuleValues(checked ? [...selectedValues, option.id] : selectedValues.filter(id => id !== option.id)) })} />)}
+              </div>
+            </Popover>
+          </div> : <label className={styles.field}>
+            <span className={styles.label}>{valueName}</span>
+            <input className={styles.input} disabled={!requiresValue} type={field?.type === "number" ? "number" : field?.type === "date" ? "date" : "text"}
+              value={rule.value} placeholder={valueLabel} onChange={event => updateRule(index, { value: event.target.value })} />
+          </label>}
+          {draftRules.length > 1 && <IconButton label={`${tr("common.ui.filter.removeRule", "Remove filter")} ${index + 1}`} density="compact"
+            onPress={() => {
+              pendingFocus.current = (draftRules[index + 1] ?? draftRules[index - 1])?.draftId ?? null;
+              setDraftRules(previous => previous.filter(current => current.draftId !== rule.draftId));
+            }}><CloseIcon /></IconButton>}
+        </div>;
+      })}
+    </div>
+    <div className={styles.footer}>
+      <IconButton label={tr("common.ui.filter.addRule", "Add filter")} variant="outlined" density="compact"
+        onPress={() => {
+          const rule = makeDraft(createEmptyRule());
+          pendingFocus.current = rule.draftId;
+          setDraftRules(previous => [...previous, rule]);
+        }}><AddIcon /></IconButton>
+      <div className={styles.actions}>
+        <Button variant="outlined" tone="neutral" density="compact" onPress={() => {
+          const rule = makeDraft(createEmptyRule());
+          pendingFocus.current = rule.draftId;
+          setDraftRules([rule]);
+        }}>{tr("common.ui.common.reset", "Reset")}</Button>
+        <Button variant="text" tone="neutral" density="compact" onPress={() => setOpen(false)}>{tr("common.ui.common.cancel", "Cancel")}</Button>
+        <Button density="compact" onPress={() => { onApply(sanitize(draftRules)); setOpen(false); }}>{tr("common.ui.common.apply", "Apply")}</Button>
+      </div>
+    </div>
+  </Popover>;
 }

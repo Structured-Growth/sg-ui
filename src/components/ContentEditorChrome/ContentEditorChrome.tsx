@@ -1,67 +1,57 @@
-import type { MouseEvent, ReactNode } from "react";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import { AppButton } from "../AppButton";
+"use client";
+import { forwardRef, useRef, type CSSProperties, type ReactNode } from "react";
+import { Button } from "../../experimental/Button/Button";
+import { useTranslation } from "../../i18n";
 import { EditableTitleField } from "../EditableTitleField";
+import styles from "./ContentEditorChrome.module.css";
 
 export type ContentEditorChromeMenuItem = {
   id: string;
   label: string;
-  onClick: (event: MouseEvent<HTMLButtonElement>) => void;
+  /** One pointer/keyboard activation. Replaces onClick(event): use anchor instead of event.currentTarget. */
+  onPress?: (anchor: HTMLButtonElement) => void;
+  disabled?: boolean;
+  loading?: boolean;
+  "aria-haspopup"?: "menu" | "dialog";
+  "aria-expanded"?: boolean;
+  "aria-controls"?: string;
 };
 
 export type ContentEditorChromeProps = {
   icon: ReactNode;
   title: string;
   onTitleSave: (nextTitle: string) => Promise<void> | void;
-  menuItems: ContentEditorChromeMenuItem[];
+  menuItems: readonly ContentEditorChromeMenuItem[];
   rightSlot?: ReactNode;
+  titleReadOnly?: boolean;
+  id?: string;
+  className?: string;
+  style?: CSSProperties;
+  "aria-label"?: string;
 };
 
-export function ContentEditorChrome({
-  icon,
-  title,
-  onTitleSave,
-  menuItems,
-  rightSlot,
-}: ContentEditorChromeProps) {
-  return (
-    <Box sx={{ bgcolor: "grey.100", borderBottom: 1, borderColor: "divider", flexShrink: 0, px: 2, py: 1.5 }}>
-      <Stack alignItems="stretch" direction="row" spacing={1.5}>
-        <Box
-          sx={{
-            alignItems: "center",
-            color: "primary.main",
-            display: "flex",
-            lineHeight: 1,
-            minWidth: 44,
-            pt: 0.25,
-          }}
-        >
-          {icon}
-        </Box>
-        <Box sx={{ flex: 1, minWidth: 0 }}>
-          <Stack alignItems="center" direction="row" justifyContent="space-between" spacing={2}>
-            <EditableTitleField minWidth={320} onSave={onTitleSave} title={title} variant="h4" />
-            {rightSlot}
-          </Stack>
-
-          <Stack alignItems="center" direction="row" spacing={0.25} sx={{ color: "text.primary", mt: 0.5 }}>
-            {menuItems.map((item) => (
-              <AppButton
-                color="inherit"
-                key={item.id}
-                onClick={(event) => item.onClick(event)}
-                size="small"
-                sx={{ minWidth: 0, px: 0.75, py: 0.125 }}
-                variant="text"
-              >
-                {item.label}
-              </AppButton>
-            ))}
-          </Stack>
-        </Box>
-      </Stack>
-    </Box>
-  );
+function ChromeAction({ item }: { item: ContentEditorChromeMenuItem }) {
+  const anchor = useRef<HTMLButtonElement>(null);
+  return <Button ref={anchor} className={styles.action} variant="text" tone="neutral" density="compact"
+    disabled={item.disabled || !item.onPress} loading={item.loading}
+    aria-haspopup={item["aria-haspopup"]} aria-expanded={item["aria-expanded"]} aria-controls={item["aria-controls"]}
+    onPress={() => { if (anchor.current) item.onPress?.(anchor.current); }}>{item.label}</Button>;
 }
+
+export const ContentEditorChrome = forwardRef<HTMLDivElement, ContentEditorChromeProps>(function ContentEditorChrome({
+  icon, title, onTitleSave, menuItems, rightSlot, titleReadOnly = false, className, ...props
+}, ref) {
+  const { t } = useTranslation();
+  return <div {...props} ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} data-sgui-part="content-editor-chrome">
+    {icon != null && <div className={styles.icon} aria-hidden="true" data-sgui-part="editor-icon">{icon}</div>}
+    <div className={styles.content}>
+      <div className={styles.header}>
+        <div className={styles.title} data-sgui-part="editor-title"><EditableTitleField minWidth={0} onSave={onTitleSave} title={title} variant="h4" readOnly={titleReadOnly} /></div>
+        {rightSlot != null && <div className={styles.right} data-sgui-part="editor-status">{rightSlot}</div>}
+      </div>
+      {menuItems.length > 0 && <div className={styles.actions} role="group" aria-label={t("common.ui.documentActions", { defaultMessage: "Document actions" })} data-sgui-part="editor-actions">
+        {menuItems.map(item => <ChromeAction key={item.id} item={item} />)}
+      </div>}
+    </div>
+  </div>;
+});

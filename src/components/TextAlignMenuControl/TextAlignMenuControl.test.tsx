@@ -1,80 +1,70 @@
-import { describe, expect, it, vi } from "vitest";
+// @vitest-environment jsdom
+import { createRef } from "react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { TextAlignMenuControl } from "./TextAlignMenuControl";
-
-const stateControl = vi.hoisted(() => ({
-  anchor: null as unknown,
-}));
-const setAnchorMock = vi.hoisted(() => vi.fn((value: unknown) => { stateControl.anchor = value; }));
-
-vi.mock("react", async () => {
-  const actual = await vi.importActual<typeof import("react")>("react");
-  return {
-    ...actual,
-    useState: <T,>(initial: T) => [((stateControl.anchor ?? initial) as T), setAnchorMock] as const,
-  };
-});
-
-const findNodes = (node: any, predicate: (candidate: any) => boolean, found: any[] = []) => {
-  if (!node || typeof node !== "object") {
-    return found;
-  }
-  if (predicate(node)) {
-    found.push(node);
-  }
-  const children = node?.props?.children;
-  if (Array.isArray(children)) {
-    children.forEach((child) => findNodes(child, predicate, found));
-  } else {
-    findNodes(children, predicate, found);
-  }
-  return found;
-};
-
+import { Provider } from "../../experimental/Provider/Provider";
+import { SGTranslationProvider } from "../../i18n";
+afterEach(cleanup);
 describe("TextAlignMenuControl", () => {
-  it("opens menu and applies align + indent actions", () => {
-    const onChange = vi.fn();
-    const onOutdent = vi.fn();
-    const onIndent = vi.fn();
-    stateControl.anchor = { id: "open-anchor" };
-
-    const element = TextAlignMenuControl({
-      value: "justify",
-      onChange,
-      onOutdent,
-      onIndent,
-    }) as any;
-
-    const button = findNodes(element, (candidate) => candidate?.type?.name === "AppButton")[0];
-    button.props.onClick({ currentTarget: { id: "anchor" } });
-    expect(setAnchorMock).toHaveBeenCalledWith({ id: "anchor" });
-
-    const actions = findNodes(
-      element,
-      (candidate) => typeof candidate?.props?.onClick === "function" && candidate?.props?.sx?.minWidth === 320,
-    );
-    expect(actions).toHaveLength(8);
-    actions[0].props.onClick();
-    actions[1].props.onClick();
-    actions[2].props.onClick();
-    actions[3].props.onClick();
-    actions[4].props.onClick();
-    actions[5].props.onClick();
-    actions[6].props.onClick();
-    actions[7].props.onClick();
-    expect(onChange).toHaveBeenCalledWith("left");
-    expect(onChange).toHaveBeenCalledWith("center");
-    expect(onChange).toHaveBeenCalledWith("right");
-    expect(onChange).toHaveBeenCalledWith("justify");
-    expect(onChange).toHaveBeenCalledWith("start");
-    expect(onChange).toHaveBeenCalledWith("end");
-    expect(onOutdent).toHaveBeenCalledTimes(1);
-    expect(onIndent).toHaveBeenCalledTimes(1);
-    expect(setAnchorMock).toHaveBeenCalledWith(null);
+  it("applies all six alignments and indent commands once, then restores focus", async () => {
+    const user = userEvent.setup(); const onChange = vi.fn(); const onOutdent = vi.fn(); const onIndent = vi.fn();
+    render(<TextAlignMenuControl value="justify" onChange={onChange} onOutdent={onOutdent} onIndent={onIndent} />);
+    const trigger = screen.getByRole("button", { name: "Justify Align" });
+    for (const label of ["Left Align", "Center Align", "Right Align", "Justify Align", "Start Align", "End Align", "Outdent", "Indent"]) {
+      await user.click(trigger);
+      expect(trigger.getAttribute("aria-expanded")).toBe("true");
+      await user.click(screen.getByRole(label.endsWith("Align") ? "menuitemradio" : "menuitem", { name: new RegExp(`^${label}`) }));
+      await waitFor(() => expect(screen.queryByRole("menu")).toBeNull());
+      await waitFor(() => expect(document.activeElement).toBe(trigger));
+      expect(trigger.getAttribute("aria-expanded")).toBe("false");
+    }
+    expect(onChange.mock.calls.map(([value]) => value)).toEqual(["left", "center", "right", "justify", "start", "end"]);
+    expect(onOutdent).toHaveBeenCalledTimes(1); expect(onIndent).toHaveBeenCalledTimes(1);
   });
-
-  it("supports disabled trigger", () => {
-    const element = TextAlignMenuControl({ disabled: true }) as any;
-    const button = findNodes(element, (candidate) => candidate?.type?.name === "AppButton")[0];
-    expect(button.props.disabled).toBe(true);
+  it("keeps the active alignment under host control and exposes one selected option", async () => {
+    const user = userEvent.setup(); const onChange = vi.fn();
+    const { rerender } = render(<TextAlignMenuControl value="center" onChange={onChange} />);
+    await user.click(screen.getByRole("button", { name: "Center Align" }));
+    expect(screen.getByRole("menuitemradio", { name: /^Center Align/ }).getAttribute("aria-checked")).toBe("true");
+    expect(screen.getAllByRole("menuitemradio").filter(item => item.getAttribute("aria-checked") === "true")).toHaveLength(1);
+    await user.click(screen.getByRole("menuitemradio", { name: /^Start Align/ }));
+    expect(onChange).toHaveBeenCalledExactlyOnceWith("start");
+    expect(screen.getByRole("button", { name: "Center Align" })).toBeTruthy();
+    rerender(<TextAlignMenuControl value="start" onChange={onChange} />);
+    expect(screen.getByRole("button", { name: "Start Align" })).toBeTruthy();
+  });
+  it("disables missing callbacks and host-restricted indent commands", async () => {
+    const user = userEvent.setup(); const onIndent = vi.fn();
+    render(<TextAlignMenuControl onIndent={onIndent} canIndent={false} />);
+    await user.click(screen.getByRole("button", { name: "Left Align" }));
+    for (const item of [...screen.getAllByRole("menuitemradio"), ...screen.getAllByRole("menuitem")]) expect(item.getAttribute("aria-disabled")).toBe("true");
+    await user.click(screen.getByRole("menuitem", { name: /^Indent/ })); expect(onIndent).not.toHaveBeenCalled();
+  });
+  it("opens by keyboard, skips unavailable indentation, and returns focus on Escape", async () => {
+    const user = userEvent.setup(); render(<TextAlignMenuControl onChange={() => {}} onIndent={() => {}} />);
+    const trigger = screen.getByRole("button", { name: "Left Align" }); trigger.focus();
+    await user.keyboard("{ArrowDown}"); expect(screen.getByRole("menu")).toBeTruthy();
+    await user.keyboard("{End}"); expect(document.activeElement).toBe(screen.getByRole("menuitem", { name: /^Indent/ }));
+    await user.keyboard("{Escape}"); await waitFor(() => expect(document.activeElement).toBe(trigger));
+  });
+  it("prevents disabled activation and forwards native trigger refs/styles", async () => {
+    const user = userEvent.setup(); const ref = createRef<HTMLButtonElement>();
+    render(<TextAlignMenuControl ref={ref} disabled className="host-align" style={{ marginInline: 2 }} />);
+    const trigger = screen.getByRole("button", { name: "Left Align" });
+    expect(ref.current).toBe(trigger); expect(trigger.classList.contains("host-align")).toBe(true);
+    await user.click(trigger); expect(screen.queryByRole("menu")).toBeNull();
+  });
+  it("uses translated labels and preserves the RTL dark scope in the portaled menu", async () => {
+    const user = userEvent.setup(); const t = vi.fn((_key, options) => `Translated ${options.defaultMessage}`);
+    render(<SGTranslationProvider value={{ locale: "ar", t, useNamespace: () => {} }}><Provider theme="dark">
+      <TextAlignMenuControl value="start" onChange={() => {}} />
+    </Provider></SGTranslationProvider>);
+    await user.click(screen.getByRole("button", { name: "Translated Start Align" }));
+    const menu = screen.getByRole("menu", { name: "Translated Text alignment" });
+    expect(menu.closest('[dir="rtl"]')).toBeTruthy(); expect(menu.closest('[data-sgui-theme="dark"]')).toBeTruthy();
+    expect(screen.getByRole("menuitemradio", { name: "Translated Start Align" }).querySelector('[data-align="start"]')).toBeTruthy();
+    expect(t).toHaveBeenCalledWith("common.ui.editor.align.start", { defaultMessage: "Start Align" });
   });
 });

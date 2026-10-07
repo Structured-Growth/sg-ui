@@ -23,11 +23,11 @@ export const Default: Story = {
     return (
       <>
         <AppButton
-          onClick={() => {
+          onPress={() => {
             setSession((current) => current + 1);
             setOpen(true);
           }}
-          size="small"
+          density="compact"
           variant="outlined"
         >
           Open Link Modal
@@ -47,4 +47,13 @@ export const Default: Story = {
       </>
     );
   },
+};
+
+/** The host can narrow safe protocols; blank URL still removes an existing link. */
+export const RestrictedProtocols: Story = {
+  args: { open: true, initialDisplayText: "Course guide", initialUrl: "javascript:alert(1)", allowedProtocols: ["https"], allowRelativeUrls: false },
+};
+
+export const RemoveExistingLink: Story = {
+  args: { open: true, initialDisplayText: "Keep this text", initialUrl: "" },
 };

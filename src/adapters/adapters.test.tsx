@@ -26,6 +26,24 @@ describe("host adapters", () => {
     fireEvent.click(screen.getByRole("link"));
     expect(navigate).not.toHaveBeenCalled();
   });
+  it.each(["", "course.txt", true])("leaves download=%s to the browser", (download) => {
+    const navigate = vi.fn();
+    render(<SGNavigationProvider value={{ pathname: "/", navigate }}><Link href="#download" download={download}>Download</Link></SGNavigationProvider>);
+    expect(fireEvent.click(screen.getByRole("link"))).toBe(true);
+    expect(navigate).not.toHaveBeenCalled();
+  });
+  it("routes download=false and calls the native click callback before navigation", () => {
+    const order: string[] = [];
+    render(<SGNavigationProvider value={{ pathname: "/", navigate: () => order.push("navigate") }}><Link href="#course" download={false} onClick={() => order.push("click")}>Course</Link></SGNavigationProvider>);
+    expect(fireEvent.click(screen.getByRole("link"))).toBe(false);
+    expect(order).toEqual(["click", "navigate"]);
+  });
+  it.each(["_blank", "course-window"])("preserves target=%s navigation", (target) => {
+    const navigate = vi.fn();
+    render(<SGNavigationProvider value={{ pathname: "/", navigate }}><Link href="#course" target={target}>Course</Link></SGNavigationProvider>);
+    expect(fireEvent.click(screen.getByRole("link"))).toBe(true);
+    expect(navigate).not.toHaveBeenCalled();
+  });
   it("supports custom router links", () => {
     render(<SGNavigationProvider value={{ pathname: "/", navigate: vi.fn(), Link: props => <a href={props.href} data-router="custom">{props.children}</a> }}><Link href="/courses">Courses</Link></SGNavigationProvider>);
     expect(screen.getByRole("link").getAttribute("data-router")).toBe("custom");

@@ -1,163 +1,68 @@
-import { describe, expect, it, vi } from "vitest";
-import { AppModal } from "./AppModal";
-
-describe("AppModal", () => {
-  it("blocks backdrop close when disableBackdropClose is true", () => {
-    const onClose = vi.fn();
-    const element = AppModal({
-      open: true,
-      onClose,
-      disableBackdropClose: true,
-      children: "content",
-    }) as any;
-
-    element.props.onClose({ type: "click" }, "backdropClick");
-    expect(onClose).not.toHaveBeenCalled();
-
-    element.props.onClose({ type: "esc" }, "escapeKeyDown");
-    expect(onClose).toHaveBeenCalledTimes(1);
+// @vitest-environment jsdom
+import { createRef, useState } from "react";
+import { renderToString } from "react-dom/server";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { AppModal, type AppModalCloseReason } from "./AppModal";
+import { AppButton } from "../AppButton";
+import { AppPageTabs } from "../AppPageTabs";
+import { TextField } from "../../experimental/TextField/TextField";
+import { Popover } from "../../experimental/Popover/Popover";
+import { Provider } from "../../experimental/Provider/Provider";
+afterEach(cleanup);
+function Fixture({ close, locked = false }: {close: (reason: AppModalCloseReason) => void; locked?: boolean}) {
+  const [open,setOpen] = useState(false); const [tab,setTab] = useState("details");
+  return <Provider theme="dark"><AppButton onPress={() => setOpen(true)}>Open</AppButton>
+    <AppModal open={open} title="Settings" subtitle="Review settings" size="md" heightMode="md" showCloseButton
+      disableBackdropClose={locked} disableEscapeKeyDown={locked} onClose={reason => {close(reason);setOpen(false);}}>
+      <AppPageTabs value={tab} onChange={setTab} items={[{id:"details",label:"Details",content:<TextField label="Name" autoFocus />},
+        {id:"access",label:"Access",content:<Popover title="Help" trigger={<AppButton>Help</AppButton>}><TextField label="Note" autoFocus /></Popover>}]} />
+    </AppModal></Provider>;
+}
+describe("AppModal owned contract", () => {
+  it("traps focus, labels its content, and restores the trigger with an owned Escape reason", async () => {
+    const user=userEvent.setup();const close=vi.fn();render(<Fixture close={close} />);
+    const trigger=screen.getByRole("button",{name:"Open"});await user.click(trigger);
+    const dialog=await screen.findByRole("dialog",{name:"Settings"});
+    await waitFor(()=>expect(document.activeElement).toBe(screen.getByRole("textbox",{name:"Name"})));
+    expect(dialog.getAttribute("aria-describedby")).toBeTruthy();
+    for(let index=0;index<6;index++){await user.tab();expect(dialog.contains(document.activeElement)).toBe(true);}
+    await user.keyboard("{Escape}");expect(close).toHaveBeenLastCalledWith("escape");
+    await waitFor(()=>expect(document.activeElement).toBe(trigger));
   });
-
-  it("builds step/footer text and applies size settings", () => {
-    const element = AppModal({
-      open: true,
-      title: "Edit Activity",
-      children: "content",
-      steps: { current: 1, total: 2 },
-      primaryAction: { label: "Save" },
-      secondaryAction: { label: "Cancel" },
-      size: "xl",
-      heightMode: "md",
-    }) as any;
-
-    expect(element.props.maxWidth).toBe("xl");
-    expect(element.props.PaperProps.sx.height).toBe("68vh");
-
-    const dialogChildren = element.props.children as any[];
-    const actions = dialogChildren[2];
-    const footerStack = actions.props.children.props.children[1];
-    expect(footerStack.props.children[0].props.children).toBe("Cancel");
-    expect(footerStack.props.children[1].props.children).toBe("Save");
+  it("keeps nested tabs/popover dismissal local and copies the portal theme", async () => {
+    const user=userEvent.setup();const close=vi.fn();render(<Fixture close={close} />);await user.click(screen.getByRole("button",{name:"Open"}));
+    const dialog=await screen.findByRole("dialog",{name:"Settings"});expect(dialog.closest('[data-sgui-scope]')?.getAttribute("data-sgui-theme")).toBe("dark");
+    await user.click(screen.getByRole("tab",{name:"Access"}));await user.click(screen.getByRole("button",{name:"Help"}));
+    expect(await screen.findByRole("dialog",{name:"Help"})).toBeTruthy();await user.keyboard("{Escape}");
+    await waitFor(()=>expect(screen.queryByRole("dialog",{name:"Help"})).toBeNull());expect(close).not.toHaveBeenCalled();
+    await user.click(dialog.closest('[data-sgui-part="dialog-overlay"]')!);expect(close).toHaveBeenLastCalledWith("outside");
   });
-
-  it("renders close button and triggers onClose with escape reason", () => {
-    const onClose = vi.fn();
-    const element = AppModal({
-      open: true,
-      title: "Title",
-      children: "content",
-      showCloseButton: true,
-      onClose,
-    }) as any;
-
-    const dialogChildren = element.props.children as any[];
-    const header = dialogChildren[0];
-    const closeButton = header.props.children.props.children[1];
-    closeButton.props.onClick({ type: "click" });
-    expect(onClose).toHaveBeenCalledWith(expect.anything(), "escapeKeyDown");
+  it("honors both dismissal locks and reports explicit close separately", async () => {
+    const user=userEvent.setup();const close=vi.fn();render(<Fixture close={close} locked />);await user.click(screen.getByRole("button",{name:"Open"}));
+    const dialog=await screen.findByRole("dialog",{name:"Settings"});await user.keyboard("{Escape}");await user.click(dialog.closest('[data-sgui-part="dialog-overlay"]')!);
+    expect(close).not.toHaveBeenCalled();await user.click(screen.getByRole("button",{name:"Close"}));expect(close).toHaveBeenLastCalledWith("close-button");
   });
-
-  it("supports custom width/height and full-screen mode", () => {
-    const element = AppModal({
-      open: true,
-      children: "content",
-      size: "full",
-      width: 900,
-      height: "70vh",
-      steps: { current: 1, total: 1, label: "Custom step" },
-    }) as any;
-
-    expect(element.props.fullScreen).toBe(true);
-    expect(element.props.maxWidth).toBe(false);
-    expect(element.props.PaperProps.sx.width).toBe(900);
-    expect(element.props.PaperProps.sx.height).toBe("70vh");
-
-    const dialogChildren = element.props.children as any[];
-    const actions = dialogChildren[2];
-    const stepText = actions.props.children.props.children[0];
-    expect(stepText.props.children).toBe("Custom step");
+  it("has native refs/styles, form-safe actions, pending/disabled states and no single-step label", async () => {
+    const user=userEvent.setup();const action=vi.fn();const submit=vi.fn();const ref=createRef<HTMLElement>();
+    const {rerender}=render(<Provider><AppModal ref={ref} open title="Edit" size="xl" width={800} height="70vh" steps={{current:1,total:1,label:"Step one"}}
+      primaryAction={{label:"Save",onPress:action}} secondaryAction={{label:"Cancel",disabled:true}}><form onSubmit={submit}><TextField label="Name" /></form></AppModal></Provider>);
+    expect(ref.current?.getAttribute("role")).toBe("dialog");expect(ref.current?.closest('[data-sgui-part="dialog-surface"]')?.getAttribute("style")).toContain("width: 800px");
+    expect(screen.queryByText("Step one")).toBeNull();await user.click(screen.getByRole("button",{name:"Save"}));expect(action).toHaveBeenCalledTimes(1);expect(submit).not.toHaveBeenCalled();
+    rerender(<Provider><AppModal open title="Edit" steps={{current:2,total:3}} primaryAction={{label:"Save",loading:true,onPress:action}}>Content</AppModal></Provider>);
+    expect(screen.getByText("Step 2 of 3")).toBeTruthy();await user.click(screen.getByRole("button",{name:"Save"}));expect(action).toHaveBeenCalledTimes(1);
   });
-
-  it("applies xl fallback paper sizing when no explicit width/height is provided", () => {
-    const element = AppModal({
-      open: true,
-      children: "content",
-      size: "xl",
-      heightMode: "auto",
-    }) as any;
-
-    expect(element.props.maxWidth).toBe("xl");
-    expect(element.props.PaperProps.sx.height).toBe("92vh");
-    expect(element.props.PaperProps.sx.width).toBe("96vw");
-    expect(element.props.PaperProps.sx.maxWidth).toBe("96vw");
+  it("keeps full viewport sizing independent of height presets", async () => {
+    render(<Provider><AppModal open title="Full" size="full" heightMode="md">Content</AppModal></Provider>);
+    const dialog=await screen.findByRole("dialog",{name:"Full"});
+    const surface=dialog.closest('[data-sgui-part="dialog-surface"]') as HTMLElement;
+    expect(surface.getAttribute("data-size")).toBe("full");expect(surface.style.height).toBe("");
+    expect(dialog.closest('[data-sgui-part="dialog-overlay"]')?.getAttribute("data-size")).toBe("full");
   });
-
-  it("supports small and large preset height modes and xl width override", () => {
-    const small = AppModal({
-      open: true,
-      children: "content",
-      heightMode: "sm",
-    }) as any;
-    expect(small.props.PaperProps.sx.height).toBe("56vh");
-
-    const large = AppModal({
-      open: true,
-      children: "content",
-      heightMode: "lg",
-    }) as any;
-    expect(large.props.PaperProps.sx.height).toBe("80vh");
-
-    const xlWithCustomWidth = AppModal({
-      open: true,
-      children: "content",
-      size: "xl",
-      width: 800,
-    }) as any;
-    expect(xlWithCustomWidth.props.PaperProps.sx.width).toBe(800);
-    expect(xlWithCustomWidth.props.PaperProps.sx.maxWidth).toBe("none");
-  });
-
-  it("falls back to small modal size when nullable size inputs are provided", () => {
-    const element = AppModal({
-      open: true,
-      children: "content",
-      size: null as any,
-      maxWidth: null as any,
-    }) as any;
-    expect(element.props.maxWidth).toBe("sm");
-  });
-
-  it("renders subtitle without title when provided", () => {
-    const element = AppModal({
-      open: true,
-      subtitle: "Only subtitle",
-      children: "content",
-    }) as any;
-    const dialogChildren = element.props.children as any[];
-    const header = dialogChildren[0];
-    const headerBlock = header.props.children.props.children[0].props.children;
-    expect(headerBlock.props.children[0]).toBeNull();
-    expect(headerBlock.props.children[1].props.children).toBe("Only subtitle");
-  });
-
-  it("renders custom header/footer content and can render without header/footer sections", () => {
-    const withCustomBlocks = AppModal({
-      open: true,
-      children: "content",
-      headerContent: "Custom Header",
-      footerContent: "Custom Footer",
-    }) as any;
-    const withCustomChildren = withCustomBlocks.props.children as any[];
-    expect(withCustomChildren[0].props.children.props.children[0].props.children).toBe("Custom Header");
-    expect(withCustomChildren[2].props.children.props.children[1]).toBe("Custom Footer");
-
-    const minimal = AppModal({
-      open: true,
-      children: "content",
-    }) as any;
-    const minimalChildren = minimal.props.children as any[];
-    expect(minimalChildren).toHaveLength(3);
-    expect(minimalChildren[0]).toBeNull();
-    expect(minimalChildren[2]).toBeNull();
+  it("names custom headers and server-renders a closed modal", async () => {
+    render(<Provider><AppModal open aria-label="Custom settings" headerContent={<h2>Custom</h2>} footerContent={<AppButton>Done</AppButton>}>Content</AppModal></Provider>);
+    expect(await screen.findByRole("dialog",{name:"Custom settings"})).toBeTruthy();expect(screen.getByRole("button",{name:"Done"})).toBeTruthy();
+    expect(renderToString(<AppModal open={false} title="Closed">Content</AppModal>)).not.toContain('role="dialog"');
   });
 });

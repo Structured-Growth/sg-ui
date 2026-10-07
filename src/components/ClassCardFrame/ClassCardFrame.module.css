@@ -1,0 +1,6 @@
+@layer sgui.components {
+  .root { inline-size: 100%; box-sizing: border-box; overflow: hidden; }
+  .header, .body { padding: var(--sgui-space4); }
+  .header, .footer { background: var(--sgui-surface-subtle); }
+  .footer { padding: var(--sgui-space2) var(--sgui-space3); }
+}

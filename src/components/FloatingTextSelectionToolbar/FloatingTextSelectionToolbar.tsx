@@ -1,274 +1,166 @@
-import { useEffect, useState } from "react";
-import type { MouseEvent as ReactMouseEvent } from "react";
-import type { RefObject } from "react";
-import FormatBoldIcon from "@mui/icons-material/FormatBold";
-import FormatItalicIcon from "@mui/icons-material/FormatItalic";
-import LinkIcon from "@mui/icons-material/Link";
-import SubscriptIcon from "@mui/icons-material/Subscript";
-import SuperscriptIcon from "@mui/icons-material/Superscript";
-import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import { useRef } from "react";
-import {
-  $getSelection,
-  $isRangeSelection,
-  FORMAT_TEXT_COMMAND,
-  SELECTION_CHANGE_COMMAND,
-  type TextFormatType,
-} from "lexical";
+"use client";
+
+import { forwardRef, useEffect, useRef, useState, type CSSProperties, type RefObject } from "react";
+import { $getSelection, $getNodeByKey, $isRangeSelection, $setSelection, FORMAT_TEXT_COMMAND, SELECTION_CHANGE_COMMAND, type RangeSelection, type TextFormatType } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { mergeRegister } from "@lexical/utils";
+import { Button } from "../../experimental/Button/Button";
+import { FormatBoldIcon } from "../../experimental/icons/FormatBoldIcon";
+import { FormatItalicIcon } from "../../experimental/icons/FormatItalicIcon";
+import { FormatUnderlinedIcon } from "../../experimental/icons/FormatUnderlinedIcon";
+import { SubscriptIcon } from "../../experimental/icons/SubscriptIcon";
+import { SuperscriptIcon } from "../../experimental/icons/SuperscriptIcon";
+import { LinkIcon } from "../../experimental/icons/LinkIcon";
+import { useTranslation } from "../../i18n";
+import styles from "./FloatingTextSelectionToolbar.module.css";
 
-type ToolbarFormats = {
-  bold: boolean;
-  italic: boolean;
-  underline: boolean;
-  subscript: boolean;
-  superscript: boolean;
-};
-
-type Position = {
-  left: number;
-  top: number;
-};
-
-const DEFAULT_FORMATS: ToolbarFormats = {
-  bold: false,
-  italic: false,
-  subscript: false,
-  superscript: false,
-  underline: false,
-};
-
+const formats = ["bold", "italic", "underline", "subscript", "superscript"] as const;
+type Formats = Record<typeof formats[number], boolean>;
+const emptyFormats: Formats = { bold: false, italic: false, underline: false, subscript: false, superscript: false };
 export type FloatingTextSelectionToolbarProps = {
   boundaryRef?: RefObject<HTMLElement | null>;
   onRequestLink?: () => void;
   onRequestLinkMouseDown?: () => void;
+  className?: string;
+  style?: CSSProperties;
+  "aria-label"?: string;
 };
 
-export function FloatingTextSelectionToolbar({
-  boundaryRef,
-  onRequestLink,
-  onRequestLinkMouseDown,
-}: FloatingTextSelectionToolbarProps) {
+/** Lexical owns document state; this overlay only requests commands for its saved selection. */
+export const FloatingTextSelectionToolbar = forwardRef<HTMLDivElement, FloatingTextSelectionToolbarProps>(function FloatingTextSelectionToolbar({
+  boundaryRef, onRequestLink, onRequestLinkMouseDown, className, style, "aria-label": ariaLabel,
+}, ref) {
   const [editor] = useLexicalComposerContext();
-  const [formats, setFormats] = useState<ToolbarFormats>(DEFAULT_FORMATS);
-  const [position, setPosition] = useState<Position>({ left: 24, top: 24 });
-  const [visible, setVisible] = useState(false);
+  const { t } = useTranslation();
   const toolbarRef = useRef<HTMLDivElement | null>(null);
-  const [toolbarSize, setToolbarSize] = useState({ height: 44, width: 460 });
-
+  const savedSelection = useRef<RangeSelection | null>(null);
+  const savedRange = useRef<Range | null>(null);
+  const dismissedSelection = useRef<RangeSelection | null>(null);
+  const pending = useRef(new Set<ReturnType<typeof setTimeout>>());
+  const [active, setActive] = useState<Formats>(emptyFormats);
+  const [visible, setVisible] = useState(false);
+  const [position, setPosition] = useState({ left: 12, top: 12, maxWidth: 240 });
+  const [size, setSize] = useState({ width: 240, height: 44 });
+  const label = (id: string, fallback: string) => t(`common.ui.editor.${id}`, { defaultMessage: fallback });
+  useEffect(() => () => { pending.current.forEach(clearTimeout); pending.current.clear(); }, []);
+  const afterEvent = (callback: () => void) => {
+    const timer = setTimeout(() => { pending.current.delete(timer); callback(); }, 0);
+    pending.current.add(timer);
+  };
   useEffect(() => {
     const element = toolbarRef.current;
-    if (!element || typeof ResizeObserver === "undefined") {
-      return;
-    }
-
-    const observer = new ResizeObserver(() => {
+    if (!element || !visible) return;
+    const measure = () => {
       const rect = element.getBoundingClientRect();
-      setToolbarSize({ height: rect.height, width: rect.width });
-    });
+      if (rect.width && rect.height) setSize(previous => previous.width === rect.width && previous.height === rect.height ? previous : { width: rect.width, height: rect.height });
+    };
+    measure();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(measure);
     observer.observe(element);
-
     return () => observer.disconnect();
-  }, []);
+  }, [visible]);
 
   useEffect(() => {
-    const updateToolbar = () => {
+    const update = () => {
+      // Focusing an owned control must not discard the editor selection or hide its keyboard path.
+      const focused = toolbarRef.current?.contains(document.activeElement);
       editor.getEditorState().read(() => {
-        const selection = $getSelection();
-        if (!$isRangeSelection(selection) || selection.isCollapsed()) {
+        const selection = focused ? savedSelection.current : $getSelection();
+        const dom = window.getSelection();
+        const root = editor.getRootElement();
+        const range = focused ? savedRange.current : dom?.rangeCount ? dom.getRangeAt(0) : null;
+        if (!editor.isEditable() || !$isRangeSelection(selection) || selection.isCollapsed() || !$getNodeByKey(selection.anchor.key) || !$getNodeByKey(selection.focus.key) || !root || !range ||
+          !root.contains(range.startContainer) || !root.contains(range.endContainer)) {
+          setVisible(false); savedSelection.current = null; return;
+        }
+        if (dismissedSelection.current?.is(selection)) { setVisible(false); return; }
+        dismissedSelection.current = null;
+        savedRange.current = range.cloneRange();
+        const rects = range.getClientRects();
+        const rect = rects.length ? rects[0] : range.getBoundingClientRect();
+        const boundary = boundaryRef?.current?.getBoundingClientRect();
+        const bounds = {
+          left: Math.max(12, boundary?.left ?? 12), right: Math.min(window.innerWidth - 12, boundary?.right ?? window.innerWidth - 12),
+          top: Math.max(12, boundary?.top ?? 12), bottom: Math.min(window.innerHeight - 12, boundary?.bottom ?? window.innerHeight - 12),
+        };
+        if ((!rect.width && !rect.height) || bounds.right <= bounds.left || bounds.bottom <= bounds.top ||
+          rect.bottom < bounds.top || rect.top > bounds.bottom || rect.right < bounds.left || rect.left > bounds.right) {
           setVisible(false);
-          setFormats(DEFAULT_FORMATS);
+          if (focused) { dismissedSelection.current = selection.clone(); editor.getRootElement()?.focus({ preventScroll: true }); }
           return;
         }
-
-        const domSelection = window.getSelection();
-        if (!domSelection || domSelection.rangeCount === 0) {
-          setVisible(false);
-          return;
-        }
-        const rootElement = editor.getRootElement();
-        const anchorNode = domSelection.anchorNode;
-        const focusNode = domSelection.focusNode;
-        if (
-          !rootElement
-          || !anchorNode
-          || !focusNode
-          || !rootElement.contains(anchorNode)
-          || !rootElement.contains(focusNode)
-        ) {
-          setVisible(false);
-          return;
-        }
-
-        const range = domSelection.getRangeAt(0);
-        const clientRects = range.getClientRects();
-        const rect = clientRects.length > 0 ? clientRects[0] : range.getBoundingClientRect();
-        if (rect.width === 0 && rect.height === 0) {
-          setVisible(false);
-          return;
-        }
-
-        setFormats({
-          bold: selection.hasFormat("bold"),
-          italic: selection.hasFormat("italic"),
-          subscript: selection.hasFormat("subscript"),
-          superscript: selection.hasFormat("superscript"),
-          underline: selection.hasFormat("underline"),
-        });
-
-        const gutter = 8;
-        const viewportPadding = 12;
-        const scopeRect = boundaryRef?.current
-          ? boundaryRef.current.getBoundingClientRect()
-          : {
-              bottom: window.innerHeight - viewportPadding,
-              left: viewportPadding,
-              right: window.innerWidth - viewportPadding,
-              top: viewportPadding,
-            };
-        const startX = rect.left;
-        const placeRightLeft = startX;
-        const placeLeftLeft = startX - toolbarSize.width;
-        const left = placeRightLeft + toolbarSize.width <= scopeRect.right
-          ? placeRightLeft
-          : placeLeftLeft >= scopeRect.left
-            ? placeLeftLeft
-            : Math.max(scopeRect.left, Math.min(placeRightLeft, scopeRect.right - toolbarSize.width));
-
-        const aboveTop = rect.top - toolbarSize.height - gutter;
-        const belowTop = rect.bottom + gutter;
-        const top = aboveTop >= scopeRect.top
-          ? aboveTop
-          : Math.min(belowTop, scopeRect.bottom - toolbarSize.height);
-
+        savedSelection.current = selection.clone();
+        setActive(Object.fromEntries(formats.map(format => [format, selection.hasFormat(format)])) as Formats);
+        const width = Math.min(size.width, bounds.right - bounds.left);
+        const above = rect.top - size.height - 8;
         setPosition({
-          left,
-          top,
+          left: Math.max(bounds.left, Math.min(rect.left, bounds.right - width)),
+          top: Math.max(bounds.top, Math.min(above >= bounds.top ? above : rect.bottom + 8, bounds.bottom - size.height)),
+          maxWidth: bounds.right - bounds.left,
         });
         setVisible(true);
       });
     };
-
-    return mergeRegister(
-      editor.registerUpdateListener(() => {
-        updateToolbar();
-      }),
-      editor.registerCommand(
-        SELECTION_CHANGE_COMMAND,
-        () => {
-          updateToolbar();
-          return false;
-        },
-        1,
-      ),
-    );
-  }, [boundaryRef, editor, toolbarSize.height, toolbarSize.width]);
-
-  useEffect(() => {
-    const hideToolbar = () => {
-      setVisible(false);
+    const hide = () => { dismissedSelection.current = savedSelection.current?.clone() ?? null; setVisible(false); };
+    const pointer = (event: PointerEvent) => {
+      if (!(event.target instanceof Node) || toolbarRef.current?.contains(event.target)) return;
+      if (editor.getRootElement()?.contains(event.target)) dismissedSelection.current = null;
+      if (!editor.getRootElement()?.contains(event.target) && !boundaryRef?.current?.contains(event.target)) hide();
     };
-
-    const onPointerDown = (event: PointerEvent) => {
-      const target = event.target;
-      if (!(target instanceof Node)) {
-        return;
+    const keyboard = (event: KeyboardEvent) => {
+      if (event.altKey && event.key === "F10" && savedSelection.current && !toolbarRef.current?.hidden) {
+        event.preventDefault(); toolbarRef.current?.querySelector<HTMLButtonElement>("button:not(:disabled)")?.focus();
       }
-      const toolbarElement = toolbarRef.current;
-      if (toolbarElement?.contains(target)) {
-        return;
-      }
-      const boundaryElement = boundaryRef?.current;
-      const rootElement = editor.getRootElement();
-      if (
-        (boundaryElement && boundaryElement.contains(target))
-        || (rootElement && rootElement.contains(target))
-      ) {
-        return;
-      }
-      hideToolbar();
     };
+    const unregisterRoot = editor.registerRootListener((root, previous) => {
+      previous?.removeEventListener("keydown", keyboard); root?.addEventListener("keydown", keyboard);
+    });
+    document.addEventListener("selectionchange", update);
+    document.addEventListener("scroll", update, true);
+    document.addEventListener("pointerdown", pointer, true);
+    window.addEventListener("resize", update);
+    window.addEventListener("blur", hide);
+    update();
+    return mergeRegister(unregisterRoot, editor.registerUpdateListener(update), editor.registerEditableListener(update), editor.registerCommand(SELECTION_CHANGE_COMMAND, () => { update(); return false; }, 1), () => {
+      editor.getRootElement()?.removeEventListener("keydown", keyboard);
+      document.removeEventListener("selectionchange", update); document.removeEventListener("scroll", update, true);
+      document.removeEventListener("pointerdown", pointer, true); window.removeEventListener("resize", update); window.removeEventListener("blur", hide);
+    });
+  }, [boundaryRef, editor, size]);
 
-    document.addEventListener("pointerdown", onPointerDown, true);
-    window.addEventListener("blur", hideToolbar);
-
-    return () => {
-      document.removeEventListener("pointerdown", onPointerDown, true);
-      window.removeEventListener("blur", hideToolbar);
-    };
-  }, [boundaryRef, editor]);
-
-  const dispatchFormat = (format: TextFormatType) => {
-    editor.dispatchCommand(FORMAT_TEXT_COMMAND, format);
+  const restore = (callback: () => void) => {
+    const selection = savedSelection.current?.clone();
+    if (!selection) return;
+    // A command can refocus contenteditable. Finish native Enter before that focus moves.
+    afterEvent(() => {
+      if (!editor.isEditable()) return;
+      editor.getRootElement()?.focus({ preventScroll: true });
+      let valid = false;
+      editor.update(() => {
+        if ($getNodeByKey(selection.anchor.key) && $getNodeByKey(selection.focus.key)) { $setSelection(selection); valid = true; }
+      }, { discrete: true });
+      if (valid) callback();
+    });
   };
-
-  const buttonSx = (active: boolean) => ({
-    bgcolor: active ? "action.selected" : "transparent",
-    borderRadius: 1,
-    color: "text.secondary",
-    p: 0.5,
-  });
-
-  const onMouseDown = (event: ReactMouseEvent) => {
-    event.preventDefault();
-  };
-
+  const dispatch = (format: TextFormatType) => restore(() => { editor.dispatchCommand(FORMAT_TEXT_COMMAND, format); editor.focus(); });
   const controls = [
-    { active: formats.bold, icon: <FormatBoldIcon fontSize="small" />, id: "bold", onClick: () => dispatchFormat("bold") },
-    { active: formats.italic, icon: <FormatItalicIcon fontSize="small" />, id: "italic", onClick: () => dispatchFormat("italic") },
-    { active: formats.underline, icon: <FormatUnderlinedIcon fontSize="small" />, id: "underline", onClick: () => dispatchFormat("underline") },
-    { active: formats.subscript, icon: <SubscriptIcon fontSize="small" />, id: "subscript", onClick: () => dispatchFormat("subscript") },
-    { active: formats.superscript, icon: <SuperscriptIcon fontSize="small" />, id: "superscript", onClick: () => dispatchFormat("superscript") },
-    {
-      active: false,
-      icon: <LinkIcon fontSize="small" />,
-      id: "link",
-      onClick: () => onRequestLink?.(),
-      onMouseDown: () => onRequestLinkMouseDown?.(),
-    },
-  ];
-
-  return (
-    <Box
-      onMouseDown={onMouseDown}
-      ref={toolbarRef}
-      sx={{
-        alignItems: "center",
-        bgcolor: "background.paper",
-        border: 1,
-        borderColor: "divider",
-        borderRadius: 1,
-        boxShadow: 3,
-        display: "flex",
-        gap: 0.25,
-        left: position.left,
-        opacity: visible ? 1 : 0,
-        p: 0.5,
-        pointerEvents: visible ? "auto" : "none",
-        position: "fixed",
-        top: position.top,
-        transform: visible ? "translateY(0) scale(1)" : "translateY(4px) scale(0.98)",
-        transition: "opacity 160ms ease, transform 180ms ease",
-        zIndex: 1400,
-      }}
-    >
-      {controls.map((control) => (
-        <IconButton
-          key={control.id}
-          onClick={control.onClick}
-          onMouseDown={(event) => {
-            event.preventDefault();
-            control.onMouseDown?.();
-          }}
-          size="small"
-          sx={buttonSx(control.active)}
-        >
-          {control.icon}
-        </IconButton>
-      ))}
-    </Box>
-  );
-}
+    { id: "bold", name: "Bold", icon: <FormatBoldIcon /> }, { id: "italic", name: "Italic", icon: <FormatItalicIcon /> },
+    { id: "underline", name: "Underline", icon: <FormatUnderlinedIcon /> }, { id: "subscript", name: "Subscript", icon: <SubscriptIcon /> },
+    { id: "superscript", name: "Superscript", icon: <SuperscriptIcon /> },
+  ] as const;
+  return <div ref={element => { toolbarRef.current = element; if (typeof ref === "function") ref(element); else if (ref) ref.current = element; }}
+    role="group" aria-label={ariaLabel ?? label("selectionFormatting", "Selection formatting")} hidden={!visible}
+    className={[styles.root, className].filter(Boolean).join(" ")} style={{ ...style, left: position.left, top: position.top, maxWidth: position.maxWidth }} data-sgui-part="selection-toolbar"
+    onMouseDownCapture={event => {
+      event.preventDefault();
+      if (onRequestLink && (event.target as HTMLElement).closest('[data-sgui-part="selection-link"]')) onRequestLinkMouseDown?.();
+    }} onKeyDownCapture={event => {
+      if (event.key === "Escape") { event.preventDefault(); dismissedSelection.current = savedSelection.current?.clone() ?? null; setVisible(false); afterEvent(() => { editor.getRootElement()?.focus({ preventScroll: true }); editor.focus(); }); }
+    }}>
+    {controls.map(control => <Button key={control.id} className={styles.action} variant="text" tone="neutral" density="compact"
+      aria-label={label(control.id, control.name)} aria-pressed={active[control.id]} startIcon={control.icon} onPress={() => dispatch(control.id)} />)}
+    <span data-sgui-part="selection-link"><Button className={styles.action} variant="text" tone="neutral" density="compact"
+      aria-label={label("link", "Edit link")} startIcon={<LinkIcon />} disabled={!onRequestLink} onPress={() => restore(() => onRequestLink?.())} /></span>
+  </div>;
+});

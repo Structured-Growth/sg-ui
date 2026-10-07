@@ -1,60 +1,32 @@
-import type { GridColDef, GridValidRowModel } from "@mui/x-data-grid";
-import type { ReactNode } from "react";
+import type { OwnedGridCellType, OwnedGridMenuAction, OwnedGridPresentationColumn } from "./ownedGridColumns";
+import type { OwnedGridPaginationModel, OwnedGridSortRule } from "./ownedGridModel";
 
-export type AppDataGridMenuAction<RowModel extends GridValidRowModel> = {
-  id: string;
-  label: string;
-  href?: string;
-  target?: "_blank" | "_self" | "_parent" | "_top";
-  rel?: string;
-  onClick?: (row: RowModel) => void;
-};
-
-export type AppDataGridSortDirection = "asc" | "desc" | "";
-
-export type AppDataGridSortRule = {
-  field: string;
-  direction: AppDataGridSortDirection;
-};
-
-export type AppDataGridCellType = "text" | "date" | "dateTime" | "link" | "copyable" | "json" | "image" | "menu" | "custom";
-
+export type AppDataGridMenuAction<Row> = OwnedGridMenuAction<Row>;
+export type AppDataGridSortDirection = "asc" | "desc";
+export type AppDataGridSortRule = OwnedGridSortRule;
+export type AppDataGridCellType = OwnedGridCellType;
+export type AppDataGridColumn<Row> = OwnedGridPresentationColumn<Row>;
 export type AppDataGridSelectionState = "none" | "some" | "all";
-
-export type AppDataGridSelectionConfig<RowModel extends GridValidRowModel> = {
-  selectedRowIds?: Set<string>;
+export type AppGridRowId = string;
+export type AppGridRowSelectionModel = Set<string>;
+export type AppGridColumnVisibilityModel = Record<string, boolean>;
+export type AppGridPaginationModel = OwnedGridPaginationModel;
+export type AppDataGridSelectionConfig<Row> = {
+  selectedRowIds?: ReadonlySet<string>;
+  defaultSelectedRowIds?: ReadonlySet<string>;
   onSelectedRowIdsChange?: (nextIds: Set<string>) => void;
-  getRowId?: (row: RowModel) => string;
+  isRowSelectable?: (row: Row) => boolean;
   selectAllLabel?: string;
   selectNoneLabel?: string;
 };
-
 export type AppDataGridRowDragDropPosition = "before" | "after";
-
-export type AppDataGridRowDragReorderParams<RowModel extends GridValidRowModel> = {
-  sourceRow: RowModel;
-  sourceRowId: string;
-  targetRow: RowModel;
-  targetRowId: string;
+export type AppDataGridRowDragReorderParams<Row> = {
+  sourceRow: Row; sourceRowId: string; targetRow: Row; targetRowId: string;
   position: AppDataGridRowDragDropPosition;
 };
-
-export type AppDataGridRowDragConfig<RowModel extends GridValidRowModel> = {
-  onReorder: (params: AppDataGridRowDragReorderParams<RowModel>) => void;
-  getRowId?: (row: RowModel) => string;
-  getRowLabel?: (row: RowModel) => string;
-  isRowDraggable?: (row: RowModel) => boolean;
+export type AppDataGridRowDragConfig<Row> = {
+  onReorder: (params: AppDataGridRowDragReorderParams<Row>) => void;
+  getRowLabel?: (row: Row) => string;
+  isRowDraggable?: (row: Row) => boolean;
   handleColumnWidth?: number;
-};
-
-export type AppDataGridColumn<RowModel extends GridValidRowModel> = Omit<GridColDef<RowModel>, "renderCell"> & {
-  cellType?: AppDataGridCellType;
-  pinned?: "left" | "right";
-  locked?: boolean;
-  getCellValue?: (row: RowModel) => unknown;
-  renderCustomCell?: (row: RowModel) => ReactNode;
-  getLink?: (row: RowModel) => { href: string; label?: string; abbr?: string };
-  getImageSrc?: (row: RowModel) => string | null | undefined;
-  getMenuActions?: (row: RowModel) => AppDataGridMenuAction<RowModel>[];
-  fallbackText?: string;
 };

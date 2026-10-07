@@ -1,30 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Typography from "@mui/material/Typography";
-import { SideNavigation } from "../SideNavigation";
+import { Typography } from "../../experimental/Typography/Typography";
+import { SideNavigation, type SideNavigationModel } from "../SideNavigation";
 import { AppShell } from "./AppShell";
-import { mainNavigation } from "../../fixtures/navigation";
-import { resolveNavigationIcon } from "../../fixtures/navigation";
-
-const meta = {
-  title: "Layout/AppShell",
-  component: AppShell,
-  parameters: {
-    layout: "fullscreen",
-  },
-  tags: ["autodocs"],
-} satisfies Meta<typeof AppShell>;
-
+const model: SideNavigationModel = { user: { initials: "TH", name: "Thomas Hall", organization: "Structured Growth" }, rootMenu: { id: "root", sections: [{ id: "courses", title: "Workspace", items: [{ id: "overview", label: "Overview", href: "/", active: true }, { id: "courses", label: "Courses", children: [{ id: "course", label: "Sample course", href: "/course" }] }] }] } };
+const meta = { title: "Layout/AppShell", component: AppShell, parameters: { layout: "fullscreen" }, tags: ["autodocs"] } satisfies Meta<typeof AppShell>;
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {
-  args: {
-    children: undefined,
-    navigation: undefined,
-  },
-  render: () => (
-    <AppShell navigation={<SideNavigation model={mainNavigation} resolveIcon={resolveNavigationIcon} />}>
-      <Typography variant="h2">Main Area Placeholder</Typography>
-    </AppShell>
-  ),
-};
+export const Default: Story = { args: { children: undefined, navigation: undefined }, render: () => <AppShell mainLabel="Workspace" navigation={<SideNavigation model={model} />}><Typography as="h1" variant="h2">Main Area Placeholder</Typography></AppShell> };
+export const IndependentScrollAndReflow: Story = { args: { children: undefined, navigation: undefined }, render: () => <AppShell mainLabel="Long workspace" navigation={<SideNavigation model={{ ...model, rootMenu: { id: "long", sections: [{ id: "courses", title: "Courses", items: Array.from({ length: 35 }, (_, i) => ({ id: `course-${i}`, label: `Course ${i + 1}`, href: `/course/${i}` })) }] } }} />}><Typography as="h1" variant="h2">Responsive workspace</Typography>{Array.from({ length: 45 }, (_, i) => <Typography key={i}>Learning content section {i + 1}</Typography>)}</AppShell> };

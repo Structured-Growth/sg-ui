@@ -1,0 +1,28 @@
+@layer sgui.components {
+  .root { display: flex; flex-direction: column; gap: var(--sgui-space1); color: var(--sgui-text); font-family: var(--sgui-font-family); }
+  .label, .description, .error { font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .label { font-weight: var(--sgui-label-weight); }
+  .input {
+    box-sizing: border-box;
+    min-inline-size: 0;
+    inline-size: 100%;
+    min-block-size: var(--sgui-control-height);
+    padding-block: var(--sgui-space1);
+    padding-inline: var(--sgui-control-padding);
+    border: 1px solid var(--sgui-border);
+    border-radius: var(--sgui-field-radius);
+    color: var(--sgui-text);
+    background: var(--sgui-surface);
+    font-family: var(--sgui-font-family);
+    font-size: var(--sgui-body-size);
+    line-height: var(--sgui-body-line-height);
+  }
+  .input::placeholder { color: var(--sgui-text-muted); opacity: 1; }
+  .input[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+  .root[data-invalid] .input { border-color: var(--sgui-danger); }
+  .root[data-disabled] { opacity: 0.5; }
+  .input[readonly] { background: var(--sgui-surface-subtle); }
+  .description { color: var(--sgui-text-muted); }
+  .error { color: var(--sgui-danger); }
+  @media (forced-colors: active) { .input { border-color: FieldText; } .input[data-focus-visible] { outline-color: Highlight; } .root[data-disabled] { color: GrayText; opacity: 1; } }
+}

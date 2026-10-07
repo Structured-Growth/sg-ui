@@ -1,0 +1,9 @@
+@layer sgui.components {
+  .table { border-collapse: collapse; inline-size: 100%; font-family: var(--sgui-font-family); font-size: var(--sgui-body2-size); line-height: var(--sgui-body2-line-height); color: var(--sgui-text); background: var(--sgui-surface); }
+  .cell, .header { block-size: var(--sgui-control-height); padding: var(--sgui-space2) var(--sgui-control-padding); border-block-end: 1px solid var(--sgui-divider); vertical-align: middle; text-align: start; }
+  .header { background: var(--sgui-surface-subtle); font-weight: var(--sgui-label-weight); }
+  .cell[data-align="center"], .header[data-align="center"] { text-align: center; }
+  .cell[data-align="end"], .header[data-align="end"] { text-align: end; }
+  .caption { padding: var(--sgui-space2); text-align: start; font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); font-weight: var(--sgui-label-weight); }
+  @media (forced-colors: active) { .cell, .header { border-color: CanvasText; } }
+}

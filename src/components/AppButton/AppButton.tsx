@@ -1,7 +1,11 @@
-import Button, { type ButtonProps } from "@mui/material/Button";
+"use client";
 
-export type AppButtonProps = ButtonProps;
+import { forwardRef } from "react";
+import { Button, type ButtonProps } from "../../experimental/Button/Button";
 
-export function AppButton({ variant = "contained", color = "primary", ...props }: AppButtonProps) {
-  return <Button color={color} variant={variant} {...props} />;
-}
+/** SGUI-owned action contract. Use Link for host-routed navigation. */
+export interface AppButtonProps extends ButtonProps {}
+
+export const AppButton = forwardRef<HTMLButtonElement, AppButtonProps>(function AppButton(props, ref) {
+  return <Button {...props} ref={ref} />;
+});

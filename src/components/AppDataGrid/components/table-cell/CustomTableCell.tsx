@@ -1,10 +1,5 @@
 import type { ReactNode } from "react";
-import Box from "@mui/material/Box";
-
-type CustomTableCellProps = {
-  children: ReactNode;
-};
-
-export function CustomTableCell({ children }: CustomTableCellProps) {
-  return <Box sx={{ alignItems: "center", display: "flex", minHeight: 40 }}>{children}</Box>;
+import { OwnedGridCell } from "../../ownedGridCells";
+export function CustomTableCell({ children }: { children: ReactNode }) {
+  return <OwnedGridCell row={undefined} value={undefined} column={{ field: "value", cellType: "custom", renderCustomCell: () => children }} />;
 }

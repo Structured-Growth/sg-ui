@@ -1,1 +1,1 @@
-export { LearnerClassesDataGrid, learnerClassesColumnOptions, learnerClassesSortOptions } from "./LearnerClassesDataGrid";
+export { LearnerClassesDataGrid, learnerClassesColumnOptions, learnerClassesSortOptions, type LearnerClassesDataGridProps } from "./LearnerClassesDataGrid";

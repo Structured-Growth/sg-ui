@@ -1,33 +1,28 @@
-import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
-import Box from "@mui/material/Box";
-import type { DragEventHandler, MouseEventHandler } from "react";
+"use client";
 
-export type DataGridDragHandleProps = {
-  className?: string;
-  onClick?: MouseEventHandler<HTMLDivElement>;
-  onDragStart?: DragEventHandler<HTMLDivElement>;
-  onDragEnd?: DragEventHandler<HTMLDivElement>;
-};
+import { forwardRef, type ButtonHTMLAttributes } from "react";
+import { Button as AriaButton } from "react-aria-components/Button";
+import { DragIndicatorIcon } from "../../experimental/icons";
+import styles from "./DataGridDragHandle.module.css";
 
-export function DataGridDragHandle({ className, onClick, onDragEnd, onDragStart }: DataGridDragHandleProps) {
-  return (
-    <Box
-      className={className}
-      draggable
-      onClick={onClick}
-      onDragEnd={onDragEnd}
-      onDragStart={onDragStart}
-      sx={{
-        alignItems: "center",
-        color: "text.disabled",
-        cursor: "grab",
-        display: "inline-flex",
-        height: "100%",
-        justifyContent: "center",
-        minHeight: 0,
-      }}
-    >
-      <DragIndicatorIcon fontSize="small" />
-    </Box>
-  );
+/** Owned reorder action. The host supplies the translated row-specific name. */
+export interface DataGridDragHandleProps extends Pick<ButtonHTMLAttributes<HTMLButtonElement>,
+  "className" | "style" | "id" | "slot" | "tabIndex" | "onKeyDown"> {
+  label: string;
+  disabled?: boolean;
+  dragging?: boolean;
+  onPress?: () => void;
 }
+
+export const DataGridDragHandle = forwardRef<HTMLButtonElement, DataGridDragHandleProps>(function DataGridDragHandle(
+  { label, disabled, dragging, className, onPress, slot, style, ...props }, ref,
+) {
+  return <AriaButton {...props} slot={slot} ref={ref} type="button" aria-label={label} isDisabled={disabled}
+    // Table's drag slot defaults to pointer pass-through. In a composed cell
+    // that targets the wrapper instead and suppresses the first native drag.
+    style={slot === "drag" ? { pointerEvents: "auto", ...style } : style}
+    onPress={onPress} className={[styles.handle, className].filter(Boolean).join(" ")}
+    data-sgui-part="grid-drag-handle" data-dragging={dragging || undefined}>
+    <DragIndicatorIcon aria-hidden="true" />
+  </AriaButton>;
+});

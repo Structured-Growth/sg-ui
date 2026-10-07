@@ -1,8 +1,12 @@
-import type { ReactNode } from "react";
-import { AppPaginationFooter } from "../CardPaginationFooter";
-import { Box } from "../primitives";
+"use client";
+import type { CSSProperties, ReactNode } from "react";
+import { useTranslation } from "../../i18n";
+import { AppPaginationFooter } from "../CardPaginationFooter/CardPaginationFooter";
+import { normalizeCardPagination } from "../CardPaginationFooter/pagination";
+import { Status } from "../../experimental/Status/Status";
+import styles from "./CardCollectionWithFooter.module.css";
 
-type CardCollectionWithFooterProps<TRow> = {
+export type CardCollectionWithFooterProps<TRow> = {
   rows: TRow[];
   getRowId: (row: TRow) => string;
   page: number;
@@ -11,49 +15,29 @@ type CardCollectionWithFooterProps<TRow> = {
   onPageChange: (nextPage: number) => void;
   onPageSizeChange: (nextPageSize: number) => void;
   renderCard: (row: TRow) => ReactNode;
+  loading?: boolean;
+  emptyContent?: ReactNode;
+  loadingContent?: ReactNode;
+  paginationLabel?: string;
+  className?: string;
+  style?: CSSProperties;
 };
 
-export function CardCollectionWithFooter<TRow>({
-  rows,
-  getRowId,
-  page,
-  pageSize,
-  pageSizeOptions,
-  onPageChange,
-  onPageSizeChange,
-  renderCard,
-}: CardCollectionWithFooterProps<TRow>) {
-  const totalCount = rows.length;
-  const startIndex = page * pageSize;
-  const endIndex = startIndex + pageSize;
-  const pagedRows = rows.slice(startIndex, endIndex);
-
-  return (
-    <Box sx={{ display: "flex", flex: 1, flexDirection: "column", minHeight: 0 }}>
-      <Box
-        sx={{
-          display: "grid",
-          flex: 1,
-          gap: 2,
-          gridTemplateColumns: { xs: "1fr", md: "repeat(auto-fill, minmax(360px, 1fr))" },
-          minHeight: 0,
-          overflow: "auto",
-          p: 2,
-        }}
-      >
-        {pagedRows.map((row) => (
-          <Box key={getRowId(row)}>{renderCard(row)}</Box>
-        ))}
-      </Box>
-
-      <AppPaginationFooter
-        onPageChange={onPageChange}
-        onPageSizeChange={onPageSizeChange}
-        page={page}
-        pageSize={pageSize}
-        pageSizeOptions={pageSizeOptions}
-        totalCount={totalCount}
-      />
-    </Box>
-  );
+export function CardCollectionWithFooter<TRow>({ rows, getRowId, page, pageSize, pageSizeOptions,
+  onPageChange, onPageSizeChange, renderCard, loading = false, emptyContent, loadingContent,
+  paginationLabel, className, style }: CardCollectionWithFooterProps<TRow>) {
+  const { t } = useTranslation();
+  const normalized = normalizeCardPagination(page, pageSize, rows.length);
+  const start = normalized.page * normalized.pageSize;
+  const pagedRows = rows.slice(start, start + normalized.pageSize);
+  return <div className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="card-collection">
+    <div className={styles.grid} aria-busy={loading} data-sgui-part="card-collection-grid">
+      {loading ? <Status>{loadingContent ?? t("common.ui.cards.loading", { defaultMessage: "Loading courses" })}</Status>
+        : pagedRows.length ? pagedRows.map(row => <div key={getRowId(row)} className={styles.item}>{renderCard(row)}</div>)
+        : <Status>{emptyContent ?? t("common.ui.cards.empty", { defaultMessage: "No courses" })}</Status>}
+    </div>
+    <AppPaginationFooter page={normalized.page} pageSize={normalized.pageSize} pageSizeOptions={pageSizeOptions}
+      totalCount={rows.length} onPageChange={onPageChange} onPageSizeChange={onPageSizeChange}
+      disabled={loading} label={paginationLabel} />
+  </div>;
 }

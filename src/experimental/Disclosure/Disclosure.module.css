@@ -1,0 +1,6 @@
+@layer sgui.components {
+  .root { min-inline-size: 0; }
+  .trigger { inline-size: 100%; justify-content: flex-start; text-align: start; }
+  .indicator { display: inline-flex; align-items: center; justify-content: center; inline-size: 1em; }
+  .panel { padding-block: var(--sgui-space2); padding-inline: var(--sgui-control-padding); }
+}

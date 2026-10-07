@@ -1,201 +1,98 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+// @vitest-environment jsdom
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { act, cleanup, renderHook } from "@testing-library/react";
+import { createElement } from "react";
+import { renderToString } from "react-dom/server";
 import { usePersistentState } from "./usePersistentState";
 
-const {
-  useSyncExternalStoreImpl,
-} = vi.hoisted(() => ({
-  useSyncExternalStoreImpl: vi.fn((
-    subscribe: (cb: () => void) => () => void,
-    getSnapshot: () => unknown,
-    getServerSnapshot?: () => unknown,
-  ) => {
-    subscribe(() => undefined);
-    getServerSnapshot?.();
-    return getSnapshot();
-  }),
-}));
-
-vi.mock("react", async () => {
-  const actual = await vi.importActual<typeof import("react")>("react");
-  return {
-    ...actual,
-    useCallback: <T,>(fn: T) => fn,
-    useEffect: (effect: () => void | (() => void)) => {
-      effect();
-    },
-    useRef: <T,>(value: T) => ({ current: value }),
-    useSyncExternalStore: (...args: unknown[]) => useSyncExternalStoreImpl(...args),
-  };
+beforeEach(() => {
+  window.localStorage.clear();
+  window.dispatchEvent(new StorageEvent("storage", { key: null, storageArea: window.localStorage }));
 });
+afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 
-type LocalStorageMap = Record<string, string>;
+describe("usePersistentState with real React subscriptions", () => {
+  it("restores stored JSON and synchronizes functional updates across mounted views", () => {
+    window.localStorage.setItem("count", '{"count":1}');
+    const first = renderHook(() => usePersistentState("count", { count: 0 }, { storage: "local" }));
+    const second = renderHook(() => usePersistentState("count", { count: 0 }, { storage: "local" }));
+    const change = vi.fn();
+    window.addEventListener("persistent-state-change", change);
+    try {
+      expect(first.result.current[0]).toEqual({ count: 1 });
+      act(() => first.result.current[1](previous => ({ count: previous.count + 1 })));
+      expect(first.result.current[0]).toEqual({ count: 2 });
+      expect(second.result.current[0]).toEqual({ count: 2 });
+      expect(window.localStorage.getItem("count")).toBe('{"count":2}');
+      act(() => first.result.current[1]({ count: 2 }));
+      expect(change).toHaveBeenCalledTimes(1);
+    } finally { window.removeEventListener("persistent-state-change", change); }
+  });
 
-const createWindowStub = (initialStorage: LocalStorageMap = {}) => {
-  const storage: LocalStorageMap = { ...initialStorage };
-  const listeners = new Map<string, Set<(event: Event) => void>>();
-  let dispatchCount = 0;
-
-  const windowStub = {
-    localStorage: {
-      getItem: (key: string) => (Object.prototype.hasOwnProperty.call(storage, key) ? storage[key] : null),
-      setItem: (key: string, value: string) => {
-        storage[key] = value;
-      },
-    },
-    addEventListener: (name: string, handler: (event: Event) => void) => {
-      const set = listeners.get(name) ?? new Set();
-      set.add(handler);
-      listeners.set(name, set);
-    },
-    removeEventListener: (name: string, handler: (event: Event) => void) => {
-      listeners.get(name)?.delete(handler);
-    },
-    dispatchEvent: (event: Event) => {
-      dispatchCount += 1;
-      listeners.get(event.type)?.forEach((handler) => handler(event));
-      return true;
-    },
-  };
-
-  return {
-    storage,
-    windowStub,
-    getDispatchCount: () => dispatchCount,
-    emitStorage: (key: string) => {
-      windowStub.dispatchEvent({ type: "storage", key } as unknown as Event);
-    },
-    emitPersistentChange: (key: string) => {
-      windowStub.dispatchEvent(new CustomEvent("persistent-state-change", { detail: { key } }));
-    },
-  };
-};
-
-describe("usePersistentState", () => {
-  beforeEach(() => {
-    vi.unstubAllGlobals();
-    useSyncExternalStoreImpl.mockReset();
-    useSyncExternalStoreImpl.mockImplementation((
-      subscribe: (cb: () => void) => () => void,
-      getSnapshot: () => unknown,
-      getServerSnapshot?: () => unknown,
-    ) => {
-      const unsubscribe = subscribe(() => undefined);
-      unsubscribe();
-      getServerSnapshot?.();
-      return getSnapshot();
+  it("restores stable initial state after another tab removes a previously stored key", () => {
+    window.localStorage.setItem("removed", '{"count":8}');
+    const { result, rerender } = renderHook(() => usePersistentState("removed", { count: 0 }, { storage: "local" }));
+    expect(result.current[0]).toEqual({ count: 8 });
+    act(() => {
+      window.localStorage.removeItem("removed");
+      window.dispatchEvent(new StorageEvent("storage", { key: "removed", storageArea: window.localStorage }));
     });
-    vi.stubGlobal(
-      "CustomEvent",
-      class MockCustomEvent extends Event {
-        detail: unknown;
-
-        constructor(type: string, init?: CustomEventInit<unknown>) {
-          super(type);
-          this.detail = init?.detail;
-        }
-      } as unknown as typeof CustomEvent,
-    );
+    expect(result.current[0]).toEqual({ count: 0 });
+    const initial = result.current[0];
+    rerender();
+    expect(result.current[0]).toBe(initial);
   });
 
-  it("reads existing JSON and writes updated values", () => {
-    const { storage, windowStub, getDispatchCount } = createWindowStub({ key: JSON.stringify({ count: 1 }) });
-    vi.stubGlobal("window", windowStub as unknown as Window);
-
-    const [value, setValue] = usePersistentState("key", { count: 0 });
-    expect(value).toEqual({ count: 1 });
-
-    setValue((previous) => ({ count: previous.count + 1 }));
-    expect(storage.key).toBe(JSON.stringify({ count: 2 }));
-    expect(getDispatchCount()).toBe(1);
-
-    setValue({ count: 2 });
-    expect(getDispatchCount()).toBe(1);
+  it("retains snapshot identity for unchanged stored JSON", () => {
+    window.localStorage.setItem("stable", '{"count":5}');
+    const { result, rerender } = renderHook(() => usePersistentState("stable", { count: 0 }, { storage: "local" }));
+    const snapshot = result.current[0];
+    rerender();
+    expect(result.current[0]).toBe(snapshot);
   });
 
-  it("falls back to initial value when storage parsing fails", () => {
-    const { windowStub } = createWindowStub({ broken: "{invalid-json" });
-    vi.stubGlobal("window", windowStub as unknown as Window);
-
-    const [value] = usePersistentState("broken", { safe: true });
-    expect(value).toEqual({ safe: true });
-  });
-
-  it("handles null/cached snapshots after a previous stored value", () => {
-    const { storage, windowStub } = createWindowStub({ key: JSON.stringify({ count: 1 }) });
-    vi.stubGlobal("window", windowStub as unknown as Window);
-
-    useSyncExternalStoreImpl.mockImplementation((subscribe: (cb: () => void) => () => void, getSnapshot: () => unknown) => {
-      subscribe(() => undefined);
-      const first = getSnapshot();
-      expect(first).toEqual({ count: 1 });
-      delete storage.key;
-      const second = getSnapshot();
-      expect(second).toEqual({ count: 0 });
-      const third = getSnapshot();
-      expect(third).toEqual({ count: 0 });
-      return third;
+  it("ignores notifications for other keys and updates on a matching storage event", () => {
+    window.localStorage.setItem("watched", '{"count":1}');
+    const { result } = renderHook(() => usePersistentState("watched", { count: 0 }, { storage: "local" }));
+    act(() => {
+      window.localStorage.setItem("watched", '{"count":3}');
+      window.dispatchEvent(new StorageEvent("storage", { key: "other", storageArea: window.localStorage }));
+      window.dispatchEvent(new CustomEvent("persistent-state-change", { detail: { key: "other", storage: "local" } }));
     });
-
-    const [value] = usePersistentState("key", { count: 0 });
-    expect(value).toEqual({ count: 0 });
+    expect(result.current[0]).toEqual({ count: 1 });
+    act(() => window.dispatchEvent(new StorageEvent("storage", { key: "watched", storageArea: window.localStorage })));
+    expect(result.current[0]).toEqual({ count: 3 });
   });
 
-  it("reuses cached parsed value when raw storage value is unchanged", () => {
-    const { windowStub } = createWindowStub({ key: JSON.stringify({ count: 5 }) });
-    vi.stubGlobal("window", windowStub as unknown as Window);
-
-    useSyncExternalStoreImpl.mockImplementation((subscribe: (cb: () => void) => () => void, getSnapshot: () => unknown) => {
-      subscribe(() => undefined);
-      const first = getSnapshot();
-      const second = getSnapshot();
-      expect(first).toEqual({ count: 5 });
-      expect(second).toEqual({ count: 5 });
-      return second;
-    });
-
-    const [value] = usePersistentState("key", { count: 0 });
-    expect(value).toEqual({ count: 5 });
+  it.each([null, "{invalid-json"])("uses defaults for missing/malformed JSON %s when applying a functional update", raw => {
+    if (raw !== null) window.localStorage.setItem("invalid", raw);
+    const { result } = renderHook(() => usePersistentState("invalid", { count: 4 }, { storage: "local" }));
+    expect(result.current[0]).toEqual({ count: 4 });
+    act(() => result.current[1](previous => ({ count: previous.count + 1 })));
+    expect(result.current[0]).toEqual({ count: 5 });
+    expect(window.localStorage.getItem("invalid")).toBe('{"count":5}');
   });
 
-  it("invokes storage listener callback only for matching key", () => {
-    const { windowStub, emitStorage, emitPersistentChange } = createWindowStub({ key: JSON.stringify({ count: 1 }) });
-    vi.stubGlobal("window", windowStub as unknown as Window);
-
-    const subscriber = vi.fn();
-    useSyncExternalStoreImpl.mockImplementation((subscribe: (cb: () => void) => () => void, getSnapshot: () => unknown) => {
-      subscribe(subscriber);
-      emitStorage("different");
-      emitStorage("key");
-      emitPersistentChange("other");
-      emitPersistentChange("key");
-      return getSnapshot();
-    });
-
-    usePersistentState("key", { count: 0 });
-    expect(subscriber).toHaveBeenCalledTimes(2);
+  it("unsubscribes mounted listeners on unmount", () => {
+    const add = vi.spyOn(window, "addEventListener");
+    const remove = vi.spyOn(window, "removeEventListener");
+    const view = renderHook(() => usePersistentState("cleanup", 0, { storage: "local" }));
+    const changeSubscriptions = add.mock.calls.filter(([type]) => type === "persistent-state-change");
+    expect(changeSubscriptions).toHaveLength(1);
+    view.unmount();
+    expect(remove).toHaveBeenCalledWith("persistent-state-change", changeSubscriptions[0][1]);
+    const storageSubscriptions = add.mock.calls.filter(([type]) => type === "storage");
+    expect(remove).toHaveBeenCalledWith("storage", storageSubscriptions.at(-1)![1]);
   });
 
-  it("uses initial value when readValue has no stored key", () => {
-    const { storage, windowStub } = createWindowStub();
-    vi.stubGlobal("window", windowStub as unknown as Window);
-
-    const [, setValue] = usePersistentState("missing", { count: 4 });
-    setValue((previous) => ({ count: previous.count + 1 }));
-    expect(storage.missing).toBe(JSON.stringify({ count: 5 }));
-  });
-
-  it("falls back to initial value when readValue parsing fails during setValue", () => {
-    const { storage, windowStub } = createWindowStub({ bad: "{bad-json" });
-    vi.stubGlobal("window", windowStub as unknown as Window);
-
-    const [, setValue] = usePersistentState("bad", { count: 10 });
-    setValue((previous) => ({ count: previous.count + 2 }));
-    expect(storage.bad).toBe(JSON.stringify({ count: 12 }));
-  });
-
-  it("returns initial value and no-ops setter when window is unavailable", () => {
-    const [value, setValue] = usePersistentState("missing-window", { safe: true });
-    expect(value).toEqual({ safe: true });
-    expect(() => setValue({ safe: false })).not.toThrow();
+  it("uses the server snapshot without reading ambient browser storage during SSR", () => {
+    window.localStorage.setItem("server", '99');
+    const read = vi.spyOn(window.Storage.prototype, "getItem");
+    function ServerView() {
+      const [value] = usePersistentState("server", 4, { storage: "local" });
+      return createElement("output", null, value);
+    }
+    expect(renderToString(createElement(ServerView))).toBe("<output>4</output>");
+    expect(read).not.toHaveBeenCalled();
   });
 });

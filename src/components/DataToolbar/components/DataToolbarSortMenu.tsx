@@ -1,370 +1,177 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import AddIcon from "@mui/icons-material/Add";
-import CloseIcon from "@mui/icons-material/Close";
-import DragIndicatorIcon from "@mui/icons-material/DragIndicator";
-import SortIcon from "@mui/icons-material/Sort";
-import Badge from "@mui/material/Badge";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuItem from "@mui/material/MenuItem";
-import Popover from "@mui/material/Popover";
-import Select from "@mui/material/Select";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import type { SelectChangeEvent } from "@mui/material/Select";
+import { useEffect, useRef, useState, type PointerEvent } from "react";
+import { Button } from "../../../experimental/Button/Button";
+import { Badge } from "../../../experimental/Badge/Badge";
+import { IconButton } from "../../../experimental/IconButton/IconButton";
+import { Popover } from "../../../experimental/Popover/Popover";
+import { Select } from "../../../experimental/Select/Select";
+import { AddIcon } from "../../../experimental/icons/AddIcon";
+import { CloseIcon } from "../../../experimental/icons/CloseIcon";
+import { DragIndicatorIcon } from "../../../experimental/icons/DragIndicatorIcon";
+import { ExpandLessIcon } from "../../../experimental/icons/ExpandLessIcon";
+import { ExpandMoreIcon } from "../../../experimental/icons/ExpandMoreIcon";
+import { SortIcon } from "../../../experimental/icons/SortIcon";
 import { useTranslation } from "../../../i18n";
-import { toLabelKey } from "../../../i18n/labelKey";
+import styles from "./DataToolbarSortMenu.module.css";
 
-export type DataToolbarSortOption = {
-  id: string;
-  label: string;
-};
-
+export type DataToolbarSortOption = { id: string; label: string };
 export type DataToolbarSortDirection = "asc" | "desc";
-
-export type DataToolbarSortRule = {
-  field: string;
-  direction: DataToolbarSortDirection | "";
-};
-
+export type DataToolbarSortRule = { field: string; direction: DataToolbarSortDirection | "" };
 type DataToolbarSortMenuProps = {
   options: DataToolbarSortOption[];
   value: DataToolbarSortRule[];
   onApply: (nextRules: DataToolbarSortRule[]) => void;
 };
-
-const toolbarButtonSx = {
-  borderColor: "divider",
-  color: "text.secondary",
-  pl: 1.25,
-  pr: 2.25,
-  py: 0.25,
-  textTransform: "none",
-};
-
-const compactSelectMenuProps = {
-  MenuListProps: {
-    dense: true,
-  },
-  PaperProps: {
-    sx: {
-      minWidth: 180,
-    },
-  },
-};
-
-const compactSelectMenuItemSx = {
-  fontSize: 13,
-  minHeight: 30,
-  px: 1.25,
-};
-
-const createEmptyRule = (): DataToolbarSortRule => ({
-  field: "",
-  direction: "",
-});
+type DraftRule = DataToolbarSortRule & { draftId: number };
+type PointerMove = { sourceId: number; pointerId: number; x: number; y: number; moved: boolean; targetId: number | null; handle: HTMLSpanElement };
 
 export function DataToolbarSortMenu({ options, value, onApply }: DataToolbarSortMenuProps) {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [draftRules, setDraftRules] = useState<DataToolbarSortRule[]>(value.length ? value : [createEmptyRule()]);
-  const [draggingIndex, setDraggingIndex] = useState<number | null>(null);
-  const [dropIndex, setDropIndex] = useState<number | null>(null);
+  const [open, setOpen] = useState(false);
+  const [draftRules, setDraftRules] = useState<DraftRule[]>([]);
+  const nextId = useRef(0);
+  const columnTriggers = useRef(new Map<number, HTMLButtonElement>());
+  const rows = useRef(new Map<number, HTMLDivElement>());
+  const pointerMove = useRef<PointerMove | null>(null);
+  const pendingFocus = useRef<number | null>(null);
+  useEffect(() => {
+    const draftId = pendingFocus.current;
+    pendingFocus.current = null;
+    if (!open || draftId === null) return;
+    // React Aria completes press focus handling before the newly committed row receives focus.
+    const timer = setTimeout(() => columnTriggers.current.get(draftId)?.focus(), 0);
+    return () => clearTimeout(timer);
+  }, [draftRules, open]);
+  const [dropId, setDropId] = useState<number | null>(null);
+  const clearPointer = () => {
+    const current = pointerMove.current;
+    pointerMove.current = null;
+    if (current?.handle.hasPointerCapture?.(current.pointerId)) current.handle.releasePointerCapture(current.pointerId);
+  };
+  useEffect(() => () => clearPointer(), []);
   const { t, useNamespace } = useTranslation();
   useNamespace("common.ui");
   const tr = (key: string, defaultMessage: string) => t(key, { defaultMessage, namespace: "common.ui" });
-  const trLabel = (label: string) => t(toLabelKey("common.ui.label", label), { defaultMessage: label, namespace: "common.ui" });
-
-  const isOpen = Boolean(anchorEl);
-  const usedFields = useMemo(() => draftRules.map((rule) => rule.field).filter(Boolean), [draftRules]);
-  const hasAvailableFieldForNewRule = useMemo(
-    () => options.some((option) => !usedFields.includes(option.id)),
-    [options, usedFields],
-  );
-  const orderOptions: Array<{ id: DataToolbarSortDirection; label: string }> = [
-    { id: "asc", label: tr("common.ui.sort.order.ascending", "Ascending") },
-    { id: "desc", label: tr("common.ui.sort.order.descending", "Descending") },
-  ];
-
-  const getRowOptions = (rowIndex: number) =>
-    options.filter((option) => {
-      const currentField = draftRules[rowIndex]?.field;
-      return option.id === currentField || !usedFields.includes(option.id);
+  const sortLabel = tr("common.ui.toolbar.sort", "Sort");
+  const validRules = (rules: DataToolbarSortRule[]) => {
+    const fields = new Set(options.map(option => option.id));
+    const seen = new Set<string>();
+    return rules.filter(rule => {
+      if (!rule.field || !fields.has(rule.field) || (rule.direction !== "asc" && rule.direction !== "desc") || seen.has(rule.field)) return false;
+      seen.add(rule.field); return true;
+    }).map(({ field, direction }) => ({ field, direction }));
+  };
+  const activeCount = validRules(value).length;
+  const usedFields = draftRules.map(rule => rule.field).filter(Boolean);
+  const availableField = options.find(option => !usedFields.includes(option.id));
+  const makeDraft = (rule: DataToolbarSortRule): DraftRule => ({ ...rule, draftId: nextId.current++ });
+  const resetDraft = () => {
+    const rule = makeDraft({ field: "", direction: "" });
+    pendingFocus.current = rule.draftId;
+    setDraftRules([rule]);
+  };
+  const changeOpen = (nextOpen: boolean) => {
+    clearPointer();
+    pendingFocus.current = null;
+    if (nextOpen) {
+      const rules: DataToolbarSortRule[] = value.length ? value : [{ field: "", direction: "" }];
+      setDraftRules(rules.map(makeDraft));
+    }
+    setDropId(null); setOpen(nextOpen);
+  };
+  const updateRule = (draftId: number, patch: Partial<DataToolbarSortRule>) =>
+    setDraftRules(rules => rules.map(rule => rule.draftId === draftId ? { ...rule, ...patch } : rule));
+  const moveRule = (sourceId: number, targetId: number) => {
+    if (sourceId === targetId) return;
+    pendingFocus.current = sourceId;
+    setDraftRules(rules => {
+      const source = rules.findIndex(rule => rule.draftId === sourceId);
+      const target = rules.findIndex(rule => rule.draftId === targetId);
+      if (source < 0 || target < 0 || source === target) return rules;
+      const next = [...rules]; const [moved] = next.splice(source, 1); next.splice(target, 0, moved); return next;
     });
-
-  const addRule = () => {
-    if (!options.length) {
-      return;
-    }
-
-    const nextField = options.find((option) => !usedFields.includes(option.id))?.id;
-    if (!nextField) {
-      return;
-    }
-
-    setDraftRules((prev) => [...prev, { direction: "asc", field: nextField }]);
   };
-
-  const removeRule = (index: number) => {
-    setDraftRules((prev) => prev.filter((_, currentIndex) => currentIndex !== index));
-  };
-
-  const updateField = (index: number, event: SelectChangeEvent<string>) => {
-    const nextField = event.target.value;
-    setDraftRules((prev) =>
-      prev.map((rule, currentIndex) =>
-        currentIndex === index
-          ? {
-              ...rule,
-              field: nextField,
-            }
-          : rule,
-      ),
-    );
-  };
-
-  const updateDirection = (index: number, event: SelectChangeEvent<string>) => {
-    const nextDirection = event.target.value as DataToolbarSortDirection;
-    setDraftRules((prev) =>
-      prev.map((rule, currentIndex) =>
-        currentIndex === index
-          ? {
-              ...rule,
-              direction: nextDirection,
-            }
-          : rule,
-      ),
-    );
-  };
-
-  const closeMenu = () => {
-    setAnchorEl(null);
-  };
-
-  const moveRule = (sourceIndex: number, targetIndex: number) => {
-    if (sourceIndex === targetIndex || sourceIndex < 0 || targetIndex < 0) {
-      return;
-    }
-
-    setDraftRules((currentRules) => {
-      if (sourceIndex >= currentRules.length || targetIndex >= currentRules.length) {
-        return currentRules;
+  const trackPointer = (event: PointerEvent<HTMLSpanElement>) => {
+    const current = pointerMove.current;
+    if (!current || current.pointerId !== event.pointerId) return;
+    if (!current.moved && Math.hypot(event.clientX - current.x, event.clientY - current.y) < 4) return;
+    current.moved = true;
+    event.preventDefault();
+    current.targetId = null;
+    for (const [id, row] of rows.current) {
+      const rect = row.getBoundingClientRect();
+      if (event.clientY >= rect.top && event.clientY <= rect.bottom && event.clientX >= rect.left && event.clientX <= rect.right) {
+        current.targetId = id; break;
       }
-
-      const nextRules = [...currentRules];
-      const [movedRule] = nextRules.splice(sourceIndex, 1);
-      nextRules.splice(targetIndex, 0, movedRule);
-      return nextRules;
-    });
+    }
+    setDropId(current.targetId !== current.sourceId ? current.targetId : null);
   };
-
-  return (
-    <>
-      <Badge
-        badgeContent={value.length > 0 ? value.length : 0}
-        anchorOrigin={{ horizontal: "right", vertical: "top" }}
-        color="primary"
-        overlap="rectangular"
-        sx={{
-          "& .MuiBadge-badge": {
-            fontSize: 12,
-            fontWeight: 700,
-            minWidth: 22,
-            right: 6,
-            top: 6,
-          },
-        }}
-      >
-        <Button
-          onClick={(event) => {
-            setDraftRules(value.length ? value : [createEmptyRule()]);
-            setAnchorEl(event.currentTarget);
-          }}
-          size="small"
-          startIcon={<SortIcon fontSize="small" />}
-          sx={toolbarButtonSx}
-          variant="outlined"
-        >
-          {tr("common.ui.toolbar.sort", "Sort")}
-        </Button>
-      </Badge>
-      <Popover
-        anchorEl={anchorEl}
-        anchorOrigin={{ horizontal: "left", vertical: "bottom" }}
-        disableScrollLock
-        onClose={closeMenu}
-        open={isOpen}
-        transformOrigin={{ horizontal: "left", vertical: "top" }}
-      >
-        <Box sx={{ minWidth: 660, p: 2 }}>
-          <Stack spacing={1.5}>
-            <Box sx={{ display: "grid", gap: 1.5, gridTemplateColumns: "24px 1fr 1fr 32px" }}>
-              <Box />
-              <Typography sx={{ fontSize: 13, fontWeight: 700 }}>{tr("common.ui.sort.column", "Column")}</Typography>
-              <Typography sx={{ fontSize: 13, fontWeight: 700 }}>{tr("common.ui.sort.order", "Order")}</Typography>
-              <Box />
-            </Box>
-
-            {draftRules.map((rule, index) => (
-              <Box
-                key={`${rule.field}-${index}`}
-                onDragOver={(event) => {
-                  if (draggingIndex === null || draggingIndex === index) {
-                    return;
-                  }
-
-                  event.preventDefault();
-                  setDropIndex((currentDropIndex) => (currentDropIndex === index ? currentDropIndex : index));
-                }}
-                onDrop={(event) => {
-                  if (draggingIndex === null || draggingIndex === index) {
-                    return;
-                  }
-
-                  event.preventDefault();
-                  moveRule(draggingIndex, index);
-                  setDraggingIndex(null);
-                  setDropIndex(null);
-                }}
-                sx={{
-                  alignItems: "flex-end",
-                  display: "grid",
-                  gap: 1.5,
-                  gridTemplateColumns: "24px 1fr 1fr 32px",
-                  ...(dropIndex === index
-                    ? {
-                        borderTop: 2,
-                        borderTopColor: "primary.main",
-                        pt: 0.5,
-                      }
-                    : {}),
-                }}
-              >
-                <Box
-                  draggable={draftRules.length > 1}
-                  onDragEnd={() => {
-                    setDraggingIndex(null);
-                    setDropIndex(null);
-                  }}
-                  onDragStart={(event) => {
-                    setDraggingIndex(index);
-                    event.dataTransfer.setData("text/plain", String(index));
-                    event.dataTransfer.effectAllowed = "move";
-                  }}
-                  sx={{
-                    alignItems: "center",
-                    color: draftRules.length > 1 ? "text.disabled" : "action.disabled",
-                    cursor: draftRules.length > 1 ? "grab" : "default",
-                    display: "inline-flex",
-                    minHeight: 32,
-                  }}
-                >
-                  <DragIndicatorIcon fontSize="small" />
-                </Box>
-
-                <Box>
-                  <Select
-                    MenuProps={compactSelectMenuProps}
-                    fullWidth
-                    onChange={(event) => updateField(index, event)}
-                    size="small"
-                    value={rule.field}
-                    variant="standard"
-                  >
-                    <MenuItem sx={compactSelectMenuItemSx} value="">
-                      <em>{tr("common.ui.sort.selectColumn", "Select column")}</em>
-                    </MenuItem>
-                    {getRowOptions(index).map((option) => (
-                      <MenuItem key={option.id} sx={compactSelectMenuItemSx} value={option.id}>
-                        {trLabel(option.label)}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </Box>
-                <Box>
-                  <Select
-                    MenuProps={compactSelectMenuProps}
-                    displayEmpty
-                    fullWidth
-                    onChange={(event) => updateDirection(index, event)}
-                    size="small"
-                    value={rule.direction}
-                    variant="standard"
-                  >
-                    <MenuItem sx={compactSelectMenuItemSx} value="">
-                      <em>{tr("common.ui.sort.selectOrder", "Select order")}</em>
-                    </MenuItem>
-                    {orderOptions.map((option) => (
-                      <MenuItem key={option.id} sx={compactSelectMenuItemSx} value={option.id}>
-                        {option.label}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </Box>
-                <Box sx={{ alignItems: "center", display: "grid", minHeight: 32, width: 32 }}>
-                  {draftRules.length > 1 ? (
-                    <IconButton
-                      onClick={() => {
-                        removeRule(index);
-                      }}
-                      size="small"
-                    >
-                      <CloseIcon fontSize="small" />
-                    </IconButton>
-                  ) : (
-                    <Box sx={{ height: 32, width: 32 }} />
-                  )}
-                </Box>
-              </Box>
-            ))}
-
-            <Box sx={{ alignItems: "center", display: "flex", justifyContent: "space-between" }}>
-              <IconButton
-                disabled={!hasAvailableFieldForNewRule}
-                onClick={addRule}
-                size="small"
-                sx={{
-                  border: 1,
-                  borderColor: hasAvailableFieldForNewRule ? "primary.main" : "action.disabled",
-                  borderRadius: 1,
-                  color: hasAvailableFieldForNewRule ? "primary.main" : "action.disabled",
-                  p: 0.5,
-                  "&.Mui-disabled": {
-                    borderColor: "action.disabled",
-                    color: "action.disabled",
-                  },
-                }}
-              >
-                <AddIcon fontSize="small" />
-              </IconButton>
-
-              <Box sx={{ display: "flex", gap: 1, justifyContent: "flex-end" }}>
-                <Button
-                  onClick={() => {
-                    setDraftRules([createEmptyRule()]);
-                  }}
-                  size="small"
-                  variant="outlined"
-                >
-                  {tr("common.ui.common.reset", "Reset")}
-                </Button>
-                <Button
-                  onClick={() => {
-                    onApply(draftRules.filter((rule) => Boolean(rule.field && rule.direction)));
-                    closeMenu();
-                  }}
-                  size="small"
-                  variant="contained"
-                >
-                  {tr("common.ui.common.apply", "Apply")}
-                </Button>
-              </Box>
-            </Box>
-          </Stack>
-        </Box>
-      </Popover>
-    </>
-  );
+  const trigger = <Button density="compact" variant="outlined" tone="neutral" startIcon={<SortIcon />}>
+    {sortLabel}{activeCount > 0 && <Badge content={activeCount} className={styles.badge} />}
+  </Button>;
+  return <Popover trigger={trigger} title={sortLabel} size="lg" open={open} onOpenChange={changeOpen}>
+    <div className={styles.body} data-sgui-density="compact">
+      {draftRules.map((rule, index) => <div key={rule.draftId} ref={row => {
+        if (row) rows.current.set(rule.draftId, row); else rows.current.delete(rule.draftId);
+      }} className={styles.row} data-sgui-part="sort-rule" data-drop-target={dropId === rule.draftId || undefined}>
+        <span className={styles.handle} aria-hidden="true" data-sgui-part="sort-rule-handle" data-reorderable={draftRules.length > 1 || undefined}
+          onPointerDown={event => {
+            if (draftRules.length < 2 || event.button !== 0 || pointerMove.current) return;
+            event.preventDefault();
+            pointerMove.current = { sourceId: rule.draftId, pointerId: event.pointerId, x: event.clientX, y: event.clientY, moved: false, targetId: null, handle: event.currentTarget };
+            event.currentTarget.setPointerCapture?.(event.pointerId);
+          }} onPointerMove={trackPointer} onPointerUp={event => {
+            const current = pointerMove.current;
+            if (!current || current.pointerId !== event.pointerId) return;
+            trackPointer(event);
+            clearPointer(); setDropId(null);
+            if (current.moved && current.targetId !== null) moveRule(current.sourceId, current.targetId);
+          }} onPointerCancel={event => {
+            if (pointerMove.current?.pointerId !== event.pointerId) return;
+            clearPointer(); setDropId(null);
+          }} onLostPointerCapture={() => { clearPointer(); setDropId(null); }}><DragIndicatorIcon /></span>
+        <Select ref={trigger => {
+          if (trigger) columnTriggers.current.set(rule.draftId, trigger);
+          else columnTriggers.current.delete(rule.draftId);
+        }} className={styles.field} label={`${tr("common.ui.sort.column", "Column")} ${index + 1}`}
+          placeholder={tr("common.ui.sort.selectColumn", "Select column")} value={rule.field || null}
+          options={options.filter(option => option.id === rule.field || !usedFields.includes(option.id))}
+          onValueChange={field => updateRule(rule.draftId, { field: field ?? "" })} />
+        <Select className={styles.field} label={`${tr("common.ui.sort.order", "Order")} ${index + 1}`}
+          placeholder={tr("common.ui.sort.selectOrder", "Select order")} value={rule.direction || null}
+          options={[
+            { id: "asc", label: tr("common.ui.sort.order.ascending", "Ascending") },
+            { id: "desc", label: tr("common.ui.sort.order.descending", "Descending") },
+          ]} onValueChange={direction => updateRule(rule.draftId, { direction: (direction ?? "") as DataToolbarSortDirection | "" })} />
+        <div className={styles.rowActions}>
+          <IconButton density="compact" label={`${tr("common.ui.sort.moveUp", "Move sort rule up")} ${index + 1}`} disabled={index === 0}
+            onPress={() => moveRule(rule.draftId, draftRules[index - 1].draftId)}><ExpandLessIcon /></IconButton>
+          <IconButton density="compact" label={`${tr("common.ui.sort.moveDown", "Move sort rule down")} ${index + 1}`} disabled={index === draftRules.length - 1}
+            onPress={() => moveRule(rule.draftId, draftRules[index + 1].draftId)}><ExpandMoreIcon /></IconButton>
+          <IconButton density="compact" label={`${tr("common.ui.sort.remove", "Remove sort rule")} ${index + 1}`} disabled={draftRules.length === 1}
+            onPress={() => {
+              pendingFocus.current = (draftRules[index + 1] ?? draftRules[index - 1]).draftId;
+              setDraftRules(rules => rules.filter(current => current.draftId !== rule.draftId));
+            }}><CloseIcon /></IconButton>
+        </div>
+      </div>)}
+      <div className={styles.footer}>
+        <IconButton density="compact" variant="outlined" label={tr("common.ui.sort.add", "Add sort rule")} disabled={!availableField}
+          onPress={() => {
+            if (!availableField) return;
+            const rule = makeDraft({ field: availableField.id, direction: "asc" });
+            pendingFocus.current = rule.draftId;
+            setDraftRules(rules => [...rules, rule]);
+          }}><AddIcon /></IconButton>
+        <div className={styles.actions}>
+          <Button density="compact" variant="outlined" tone="neutral" onPress={resetDraft}>{tr("common.ui.common.reset", "Reset")}</Button>
+          <Button density="compact" variant="text" tone="neutral" onPress={() => changeOpen(false)}>{tr("common.ui.common.cancel", "Cancel")}</Button>
+          <Button density="compact" onPress={() => {
+            onApply(validRules(draftRules));
+            changeOpen(false);
+          }}>{tr("common.ui.common.apply", "Apply")}</Button>
+        </div>
+      </div>
+    </div>
+  </Popover>;
 }

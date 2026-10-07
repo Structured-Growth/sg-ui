@@ -2,10 +2,39 @@
 
 Source: `Structured-Growth/learning-platform`, commit
 `8e63f1e16fc3d43d851908b312603a1099ca13d9`, `apps/web/src/ui`.
-The file-by-file [manifest](extraction-manifest.json) confirms every shared UI
-source file has a destination in this library. Original components, helpers,
-stories, and tests were copied; framework coupling was then adapted.
+The file-by-file [manifest](extraction-manifest.json) records every original shared
+UI source path and extraction destination. `present` reports current destination
+existence; migration metadata records removed or renamed destinations and their
+owned replacements. Original components, helpers, stories, and tests were copied;
+framework coupling was then adapted.
 The learner platform checkout has not been modified.
+
+The subsequent foundation migration has begun with scoped tokens and experimental
+button/field proofs. See the [execution record](developer/react-aria-progress.md).
+The inventory and adaptations below remain extraction provenance; they do not
+describe a completed foundation migration. Catalog migration now includes
+AppInlineProgress, AppOperationSteps, EditableTitleField and the Typefaces stories.
+These keep their public names while moving to the foundation stylesheet/scope;
+see [owned control contracts](developer/react-aria-remaining-controls.md) and
+[progress/avatar contracts](developer/react-aria-progress-avatar.md).
+
+The card collection/footer and frame/instructor/learner cards now also use the
+owned foundation. See [card pagination](developer/react-aria-card-pagination.md) and
+[card frame mappings](developer/react-aria-card-frames.md) for breaking integration
+changes, retained presentation props, routing and callbacks.
+
+AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
+foundation. See [button mappings](developer/react-aria-button.md),
+[page navigation](developer/react-aria-page-navigation.md) and
+[page layout](developer/react-aria-page-layout.md). AppButton now uses onPress,
+owned variant/tone/density and native class/style; the upstream button prop surface
+is removed. Load /styles.css and provide Provider or ThemeScope.
+
+AppModal, AuthShell, SideNavigation and AppShell now use the owned foundation.
+Apply the migrated-module boundaries to these directories. See [modal and shell
+contracts](developer/react-aria-modal-shells.md) for owned dismissal/action callbacks, native style slots,
+responsive navigation and host adapter behavior. Load /styles.css and provide an
+owned scope, including for editor dialogs.
 
 ## Source architecture
 
@@ -74,8 +103,7 @@ retained for compatibility; broader renaming requires a separate migration.
 ## Adaptations and limits
 
 - Root imports and subpath entry points work without Next.js or the source
-  platform. SGUI keeps MUI as its foundation; this extraction does not replace
-  MUI's rendering implementation.
+  platform. The subsequent React Aria migration replaces the extracted renderer with owned contracts and compiled styles.
 - Links use the host navigation adapter; replace behavior is preserved. Provide
   pathname when using SideNavigation so selected/expanded menus track your router.
 - SideNavigation reads accounts through host-provided functions. Logout actions
@@ -84,14 +112,12 @@ retained for compatibility; broader renaming requires a separate migration.
 - Translation keys/default messages are retained, with an English fallback and
   host translation integration. Application translation catalogs and database
   overrides are not part of the library.
-- AppThemeProvider preserves the original light theme. Applications can use MUI
-  ThemeProvider with the exported darkTheme or a derived theme.
+- AppThemeProvider now aliases the owned Provider. Use theme="light|dark|system", density and CSS token overrides; old theme objects and typography augmentation are removed. See [theme mappings](developer/react-aria-theme.md).
 - Production type checking corrected false selection handling, optional
   navigation child arrays, and React drag events' native composedPath access.
 - Storybook uses representative navigation fixtures rather than app routes.
   The source global CSS and app-owned font loading are not imposed on consumers.
-- MUI X community behavior is retained. Licensed Pro-only grid capabilities
-  are not added by this migration.
+- The owned grid preserves the required catalog capability contract. True pinning and other deferred spreadsheet capabilities are not added by this migration.
 
 ## Adopt SGUI in the learner platform
 
@@ -112,3 +138,55 @@ root AGENTS.md. See [agent guidance migration](agent-guidance-migration.md) for
 the source inventory and section-by-section decisions, and
 [component architecture](developer/component-architecture.md) for the adapted
 architecture guidance. Application-only rules remain with the learner platform.
+
+ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundation.
+Apply migrated boundaries to these directories; see [editor dialog contracts](developer/react-aria-editor-dialogs.md)
+for preset draft reset, URL protocol validation and optional host-owned image descriptions.
+Load /styles.css and provide Provider or ThemeScope.
+
+InsertContentMenuControl, TextAlignMenuControl, TextColorPickerControl and
+TextStyleMenuControl now use the owned foundation and migrated-module boundaries.
+See [editor menu contracts](developer/react-aria-editor-menus.md) for host callbacks,
+checked formatting state and the breaking semantic color preset mapping. Load
+/styles.css and provide Provider or ThemeScope. Surrounding editor migration remains open.
+
+RichTextFormattingToolbar now uses the owned foundation and migrated-module
+boundaries. See [formatting toolbar contracts](developer/react-aria-formatting-toolbar.md)
+for named formatting actions, controlled active state, selection preparation and
+callback availability. Load /styles.css and provide Provider or ThemeScope.
+See the owned editor section contract below.
+
+FloatingTextSelectionToolbar, DocumentEditorLayout, DocumentEditorToolbar and
+ContentEditorChrome now use the owned foundation and migrated-module boundaries.
+See [editor layout and selection contracts](developer/react-aria-editor-layout.md) for host scrolling, keyboard selection access, native
+status colors and the breaking menu onPress(anchor) callback mapping. Load
+/styles.css and provide Provider or ThemeScope. Broad editor/grid acceptance gates remain open.
+
+PageRichTextEditorSection (M-34), including its Lexical image decoration, now uses
+the owned foundation and migrated-module boundaries. See [editor section contracts](developer/react-aria-editor-section.md)
+for stylesheet/scope requirements, native styling/ref, live read-only state,
+document reset and formatting-preserving link behavior. Broad editor/grid and
+U/X/R/Z acceptance gates remain open.
+
+DataToolbar (M-20), including columns, sort, filter and selection menus, now uses
+the owned foundation and migrated-module boundaries. See [data toolbar contracts](developer/react-aria-data-toolbar.md) for controlled host state, draft menus, native styling/ref and scope requirements.
+Load `/styles.css` and provide Provider or ThemeScope. Grid migration remains open.
+
+AppDataGrid public renderer/types/helpers/parts, AppDataGridShell and
+LearnerClassesDataGrid now use the owned foundation and strict whole-directory
+boundaries. See [catalog grid integration](developer/react-aria-catalog-grid.md)
+for breaking mappings, one shared shell state owner and opt-in hydration-safe
+persistence. Load /styles.css and provide Provider or ThemeScope. M-18 reorder
+and broad G/U/X/R/Z acceptance remain open.
+
+AppDataGridRowDnd and public catalog grid row reorder now use the owned
+foundation and migrated-module boundaries. See [grid reorder contracts](developer/react-aria-grid-reorder.md)
+for the complete single-page dataset boundary, drag/Move requests, cancellation,
+source focus and host persistence/rollback ownership. Broad G/U/X/R/Z gates remain open.
+
+The public icons (M-36) and primitives (M-37) now use owned implementations,
+with whole-directory source/transitive/declaration boundaries. See
+[icon mappings](developer/react-aria-icons.md) and
+[primitive mappings](developer/react-aria-primitives.md) for preserved names,
+owned props and deliberate breaking removals. Import `/styles.css` and provide
+Provider or ThemeScope. The public theme is now owned; broad acceptance remains open.

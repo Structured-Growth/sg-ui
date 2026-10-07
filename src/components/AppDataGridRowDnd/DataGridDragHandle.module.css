@@ -1,0 +1,45 @@
+@layer sgui.components {
+  .handle {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    min-inline-size: var(--sgui-control-height);
+    min-block-size: var(--sgui-control-height);
+    padding: var(--sgui-space1);
+    border: 1px solid transparent;
+    border-radius: var(--sgui-control-radius);
+    background: transparent;
+    color: var(--sgui-text-muted);
+    cursor: grab;
+    touch-action: none;
+  }
+  .handle[data-hovered] { background: var(--sgui-surface-subtle); color: var(--sgui-text); }
+  .handle[data-dragging], .handle[data-pressed] { cursor: grabbing; }
+  .handle[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+  .handle[data-disabled] { cursor: default; opacity: 0.5; }
+  .preview {
+    position: fixed;
+    inset-block-start: -10000px;
+    inset-inline-start: -10000px;
+    max-inline-size: 32rem;
+    padding: var(--sgui-space2) var(--sgui-space3);
+    border: 1px solid var(--sgui-border);
+    border-radius: var(--sgui-control-radius);
+    background: var(--sgui-surface);
+    color: var(--sgui-text);
+    font-family: var(--sgui-font-family);
+    font-size: var(--sgui-label-size);
+    line-height: var(--sgui-label-line-height);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+  }
+  @media (forced-colors: active) {
+    .handle, .preview { border-color: ButtonText; }
+    .handle[data-focus-visible] { outline-color: Highlight; }
+    .handle[data-disabled] { color: GrayText; opacity: 1; }
+  }
+}

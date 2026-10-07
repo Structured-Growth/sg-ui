@@ -1,9 +1,10 @@
-import { CodeNode } from "@lexical/code";
+import { CodeHighlightNode, CodeNode } from "@lexical/code";
 import { LinkNode } from "@lexical/link";
 import { ListItemNode, ListNode } from "@lexical/list";
 import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
 import { HorizontalRuleNode } from "@lexical/react/LexicalHorizontalRuleNode";
+import { OwnedLinkNode } from "./OwnedLinkNode";
 import { ImageNode } from "./ImageNode";
 
 export const EXPERIENCE_EDITOR_NODES = [
@@ -11,8 +12,10 @@ export const EXPERIENCE_EDITOR_NODES = [
   QuoteNode,
   ListNode,
   ListItemNode,
-  LinkNode,
+  OwnedLinkNode,
+  { replace: LinkNode, with: (node: LinkNode) => new OwnedLinkNode(node.getURL(), { target: node.getTarget(), rel: node.getRel(), title: node.getTitle() }), withKlass: OwnedLinkNode },
   CodeNode,
+  CodeHighlightNode,
   ImageNode,
   HorizontalRuleNode,
   TableNode,

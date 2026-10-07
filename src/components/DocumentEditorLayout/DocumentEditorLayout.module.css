@@ -1,0 +1,12 @@
+@layer sgui.components {
+  .root { display: flex; flex: 1; flex-direction: column; min-block-size: 0; min-inline-size: 0; color: var(--sgui-text); background: var(--sgui-surface); font-family: var(--sgui-font-family); }
+  .header { flex: none; border-block-end: 1px solid var(--sgui-divider); padding: var(--sgui-space3) var(--sgui-space4); }
+  .header[data-has-menu] { border-block-end: 0; }
+  .headerRow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sgui-space4); }
+  .title { flex: 1 1 10rem; min-inline-size: 0; overflow-wrap: anywhere; }
+  .fallbackTitle { font-size: var(--sgui-h6-size); }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sgui-space2); min-inline-size: 0; margin-inline-start: auto; }
+  .menu { flex: none; min-inline-size: 0; border-block-end: 1px solid var(--sgui-divider); padding-inline: var(--sgui-space4); }
+  .toolbar { flex: none; min-inline-size: 0; border-block-end: 1px solid var(--sgui-divider); padding: calc(var(--sgui-space2) + var(--sgui-space1) / 2) var(--sgui-space4); }
+  .content { display: flex; flex: 1; flex-direction: column; min-block-size: 0; min-inline-size: 0; }
+}

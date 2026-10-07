@@ -1,0 +1,16 @@
+@layer sgui.components {
+  .root { color: var(--sgui-text); background: var(--sgui-surface); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .toolbar, .footer, .actions, .columnHeader { display: flex; align-items: center; gap: var(--sgui-space2); }
+  .toolbar, .footer { padding: var(--sgui-space2); flex-wrap: wrap; }
+  .footer { justify-content: flex-end; }
+  .container { overflow: auto; border: 1px solid var(--sgui-border); }
+  .table { border-collapse: collapse; inline-size: 100%; }
+  .header, .cell { text-align: start; vertical-align: middle; padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-border); }
+  .header { background: var(--sgui-surface-subtle); }
+  .row[data-selected] { background: var(--sgui-surface-subtle); }
+  .row[data-focus-visible], .cell[data-focus-visible], .header[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: calc(-1 * var(--sgui-focus-width)); }
+  .resizer { block-size: var(--sgui-control-height); inline-size: 0.5rem; border-inline-end: 2px solid var(--sgui-border); cursor: col-resize; touch-action: none; }
+  .resizer[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); }
+  .columnHeader { justify-content: space-between; }
+  @media (forced-colors: active) { .row[data-selected] { border: 1px solid Highlight; } }
+}

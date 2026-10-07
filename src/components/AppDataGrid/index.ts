@@ -15,10 +15,6 @@ export type {
   AppDataGridSortDirection,
   AppDataGridSortRule,
 } from "./types";
-export type {
-  GridRowId as AppGridRowId,
-  GridRowSelectionModel as AppGridRowSelectionModel,
-  GridColumnVisibilityModel as AppGridColumnVisibilityModel,
-  GridPaginationModel as AppGridPaginationModel,
-  GridSortModel as AppGridSortModel,
-} from "@mui/x-data-grid";
+export type { AppGridRowId, AppGridRowSelectionModel, AppGridColumnVisibilityModel, AppGridPaginationModel } from "./types";
+
+export type { AppDataGridViewState } from "./ownedGridReset";

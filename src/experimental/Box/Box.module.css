@@ -1,0 +1,4 @@
+@layer sgui.components {
+  .root { box-sizing: border-box; min-inline-size: 0; }
+  .root[data-container] { inline-size: 100%; max-inline-size: 80rem; margin-inline: auto; }
+}

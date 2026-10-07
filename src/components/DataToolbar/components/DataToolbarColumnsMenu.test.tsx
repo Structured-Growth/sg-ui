@@ -1,145 +1,65 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { DataToolbarColumnsMenu } from "./DataToolbarColumnsMenu";
-
-const setState = vi.fn();
-const useStateMock = vi.fn();
-
-const findNodes = (node: any, predicate: (candidate: any) => boolean, found: any[] = []) => {
-  if (Array.isArray(node)) {
-    node.forEach((child) => findNodes(child, predicate, found));
-    return found;
-  }
-
-  if (!node || typeof node !== "object") {
-    return found;
-  }
-  if (predicate(node)) {
-    found.push(node);
-  }
-  const children = node?.props?.children;
-  if (Array.isArray(children)) {
-    children.forEach((child) => findNodes(child, predicate, found));
-  } else {
-    findNodes(children, predicate, found);
-  }
-  return found;
-};
-
-vi.mock("react", async () => {
-  const actual = await vi.importActual<typeof import("react")>("react");
-  return {
-    ...actual,
-    useCallback: <T,>(fn: T) => fn,
-    useMemo: <T,>(factory: () => T) => factory(),
-    useState: <T,>(initial: T) => useStateMock(initial),
-  };
+// @vitest-environment jsdom
+import { useState } from "react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { afterEach, expect, it, vi } from "vitest";
+import { Provider } from "../../../experimental/Provider/Provider";
+import { DataToolbarColumnsMenu, type DataToolbarColumnOption } from "./DataToolbarColumnsMenu";
+afterEach(cleanup);
+const initial = [
+  { id: "name", label: "Course name", locked: true, visible: true },
+  { id: "status", label: "Status", visible: true },
+  { id: "instructor", label: "Instructor", visible: false },
+];
+function Harness({ change }: { change: (options: DataToolbarColumnOption[]) => void }) {
+  const [options, setOptions] = useState(initial);
+  return <DataToolbarColumnsMenu options={options} onChange={next => { setOptions(next); change(next); }} />;
+}
+it("keeps locked columns disabled, toggles controlled visibility once and resets all columns", async () => {
+  const user = userEvent.setup(); const change = vi.fn(); const submit = vi.fn(event => event.preventDefault());
+  render(<Provider theme="dark"><form onSubmit={submit}><Harness change={change} /></form></Provider>);
+  await user.tab(); await user.keyboard("{Enter}");
+  expect(screen.getByRole("dialog", { name: "Columns" }).closest('[data-sgui-theme="dark"]')).toBeTruthy();
+  expect((screen.getByRole("checkbox", { name: "Course name" }) as HTMLInputElement).disabled).toBe(true);
+  await user.click(screen.getByRole("checkbox", { name: "Course name" })); expect(change).not.toHaveBeenCalled();
+  await user.click(screen.getByRole("checkbox", { name: "Status" }));
+  expect(change).toHaveBeenCalledExactlyOnceWith([initial[0], { ...initial[1], visible: false }, initial[2]]);
+  expect((screen.getByRole("checkbox", { name: "Status" }) as HTMLInputElement).checked).toBe(false);
+  await user.click(screen.getByRole("button", { name: "Reset" }));
+  expect(change).toHaveBeenLastCalledWith(initial.map(option => ({ ...option, visible: true })));
+  expect(submit).not.toHaveBeenCalled();
+  await user.keyboard("{Escape}"); expect(screen.queryByRole("dialog")).toBeNull();
+  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Columns" })));
 });
-
-vi.mock("../../../i18n", () => ({
-  useTranslation: () => ({
-    t: (_key: string, { defaultMessage }: { defaultMessage: string }) => defaultMessage,
-    useNamespace: () => undefined,
-  }),
-}));
-
-vi.mock("../../../i18n/labelKey", () => ({
-  toLabelKey: (_prefix: string, label: string) => label,
-}));
-
-describe("DataToolbarColumnsMenu", () => {
-  beforeEach(() => {
-    setState.mockClear();
-    useStateMock.mockReset();
-    useStateMock.mockImplementation((initial: unknown) => [initial, setState]);
-  });
-
-  it("opens menu and updates column visibility + reset", () => {
-    const onChange = vi.fn();
-    const options = [
-      { id: "name", label: "Name", visible: true },
-      { id: "status", label: "Status", visible: false },
-    ];
-    const element = DataToolbarColumnsMenu({ options, onChange }) as any;
-
-    const nodesWithOnClick = findNodes(element, (candidate) => typeof candidate?.props?.onClick === "function");
-    nodesWithOnClick[0].props.onClick({ currentTarget: { nodeName: "BUTTON" } });
-    expect(setState).toHaveBeenCalled();
-
-    nodesWithOnClick[1].props.onClick();
-    expect(onChange).toHaveBeenCalled();
-    expect(onChange.mock.calls[0][0]).toHaveLength(2);
-
-    const resetButton = nodesWithOnClick[nodesWithOnClick.length - 1];
-    resetButton.props.onClick();
-    expect(onChange).toHaveBeenCalledWith([
-      { id: "name", label: "Name", visible: true },
-      { id: "status", label: "Status", visible: true },
-    ]);
-  });
-
-  it("keeps locked columns visible when toggled", () => {
-    const onChange = vi.fn();
-    const options = [
-      { id: "name", label: "Name", locked: true, visible: true },
-      { id: "status", label: "Status", visible: true },
-    ];
-    const element = DataToolbarColumnsMenu({ options, onChange }) as any;
-    const nodesWithOnClick = findNodes(element, (candidate) => typeof candidate?.props?.onClick === "function");
-    nodesWithOnClick[1].props.onClick();
-    expect(onChange).toHaveBeenCalledWith([
-      { id: "name", label: "Name", locked: true, visible: true },
-      { id: "status", label: "Status", visible: true },
-    ]);
-  });
-
-  it("toggles an unlocked row option from the menu list", () => {
-    const onChange = vi.fn();
-    const options = [
-      { id: "name", label: "Name", visible: true },
-      { id: "status", label: "Status", visible: true },
-    ];
-    const element = DataToolbarColumnsMenu({ options, onChange }) as any;
-    const clickables = findNodes(element, (candidate) => typeof candidate?.props?.onClick === "function");
-    clickables[1].props.onClick();
-
-    const nextOptions = onChange.mock.calls[0][0];
-    expect(nextOptions).toHaveLength(2);
-    expect(nextOptions.some((option: { visible: boolean }) => option.visible === false)).toBe(true);
-  });
-
-  it("returns empty filtered options state when search has no matches", () => {
-    useStateMock
-      .mockImplementationOnce(() => [null, setState])
-      .mockImplementationOnce(() => ["no-match", setState]);
-
-    const element = DataToolbarColumnsMenu({
-      options: [{ id: "name", label: "Name", visible: true }],
-      onChange: vi.fn(),
-    }) as any;
-
-    const noMatchText = findNodes(
-      element,
-      (candidate) => candidate?.props?.children === "No matching columns",
-    );
-    expect(noMatchText.length).toBeGreaterThan(0);
-  });
-
-  it("resets anchor/query on popover close and updates query from input", () => {
-    const element = DataToolbarColumnsMenu({
-      options: [{ id: "name", label: "Name", visible: true }],
-      onChange: vi.fn(),
-    }) as any;
-
-    const input = findNodes(element, (candidate) => typeof candidate?.props?.onChange === "function")[0];
-    input.props.onChange({ target: { value: "na" } });
-    const popover = findNodes(element, (candidate) => typeof candidate?.props?.onClose === "function")[0];
-    popover.props.onClose();
-
-    const setCalls = setState.mock.calls.map((call) => call[0]);
-    expect(setCalls).toContain("na");
-    expect(setCalls).toContain(null);
-    expect(setCalls).toContain("");
-  });
-
-
+it("searches literal host labels, reports no matches and clears search after dismissal", async () => {
+  const user = userEvent.setup(); render(<Provider><Harness change={vi.fn()} /></Provider>);
+  await user.click(screen.getByRole("button", { name: "Columns" }));
+  const search = screen.getByRole("searchbox", { name: "Search" });
+  await user.type(search, "  INSTRUCTOR ");
+  expect(screen.getAllByRole("checkbox")).toHaveLength(1);
+  expect(screen.getByRole("checkbox", { name: "Instructor" })).toBeTruthy();
+  await user.clear(search); await user.type(search, "missing"); expect(screen.queryByRole("checkbox")).toBeNull();
+  expect(screen.getByText("No matching columns")).toBeTruthy();
+  await user.keyboard("{Escape}"); await user.click(screen.getByRole("button", { name: "Columns" }));
+  expect((screen.getByRole("searchbox", { name: "Search" }) as HTMLInputElement).value).toBe("");
+  expect(screen.getAllByRole("checkbox")).toHaveLength(3);
+});
+it("supports keyboard checkbox changes without closing the dialog", async () => {
+  const user = userEvent.setup(); const change = vi.fn(); render(<Provider><Harness change={change} /></Provider>);
+  await user.tab(); await user.keyboard("{Enter}");
+  screen.getByRole("searchbox").focus(); await user.tab();
+  expect(document.activeElement).toBe(screen.getByRole("checkbox", { name: "Status" }));
+  await user.keyboard(" "); expect(change).toHaveBeenCalledTimes(1);
+  expect(screen.getByRole("dialog", { name: "Columns" })).toBeTruthy();
+});
+it("translates library strings while searching host labels without generated translation keys", async () => {
+  const { SGTranslationProvider } = await import("../../../i18n");
+  const user = userEvent.setup();
+  const t = vi.fn((_key: string, { defaultMessage }: { defaultMessage: string }) => `Local ${defaultMessage}`);
+  render(<SGTranslationProvider value={{ locale: "en-US", t, useNamespace: () => {} }}><Provider><Harness change={vi.fn()} /></Provider></SGTranslationProvider>);
+  await user.click(screen.getByRole("button", { name: "Local Columns" }));
+  expect(screen.getByRole("checkbox", { name: "Course name" })).toBeTruthy();
+  await user.type(screen.getByRole("searchbox", { name: "Local Search" }), "course");
+  expect(screen.getAllByRole("checkbox")).toHaveLength(1);
+  expect(t.mock.calls.some(([key]) => key.startsWith("common.ui.label"))).toBe(false);
 });

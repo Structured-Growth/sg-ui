@@ -1,109 +1,60 @@
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import EventIcon from "@mui/icons-material/Event";
-import ExploreIcon from "@mui/icons-material/Explore";
-import Link from "../../adapters/Link";
-import Avatar from "@mui/material/Avatar";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import LinearProgress from "@mui/material/LinearProgress";
-import Typography from "@mui/material/Typography";
+"use client";
+import { ArrowForwardIcon } from "../../experimental/icons/ArrowForwardIcon";
+import { EventIcon } from "../../experimental/icons/EventIcon";
+import { ExploreIcon } from "../../experimental/icons/ExploreIcon";
+import { Link } from "../../experimental/Link/Link";
+import { Button } from "../../experimental/Button/Button";
+import { Avatar } from "../../experimental/Avatar/Avatar";
+import { Progress } from "../../experimental/Progress/Progress";
+import { Typography } from "../../experimental/Typography/Typography";
 import { useTranslation } from "../../i18n";
 import { ClassCardFrame } from "../ClassCardFrame";
 import { formatDueDateLabel } from "./formatDueDateLabel";
+import styles from "./LearnerClassCard.module.css";
 
-type LearnerClassCardProps = {
-  courseName: string;
-  instructorName: string;
-  progressPercent: number;
-  nextActivity: string;
-  dueAt: string | Date;
-  referenceNow?: Date;
-  onContinue?: () => void;
-  detailsHref?: string;
-  continueHref?: string;
+export type LearnerClassCardProps = {
+  courseName: string; instructorName: string; progressPercent: number;
+  nextActivity: string; dueAt: string | Date; referenceNow?: Date;
+  onContinue?: () => void; detailsHref?: string; continueHref?: string;
 };
-
-export function LearnerClassCard({
-  courseName,
-  instructorName,
-  progressPercent,
-  nextActivity,
-  dueAt,
-  referenceNow,
-  onContinue,
-  detailsHref,
-  continueHref,
-}: LearnerClassCardProps) {
+export function LearnerClassCard({ courseName, instructorName, progressPercent,
+  nextActivity, dueAt, referenceNow, onContinue, detailsHref, continueHref }: LearnerClassCardProps) {
   const { locale, t, useNamespace } = useTranslation();
   useNamespace("sections.learner");
   const tr = (key: string, defaultMessage: string, values?: Record<string, string | number>) =>
     t(key, { defaultMessage, namespace: "sections.learner", values });
   const dueLabel = formatDueDateLabel(dueAt, referenceNow, { locale, t: tr });
-  const detailsButtonProps = (detailsHref ?? continueHref)
-    ? ({ component: Link, href: detailsHref ?? continueHref } as const)
-    : ({ component: "button" } as const);
-  const continueButtonProps = continueHref
-    ? ({ component: Link, href: continueHref, target: "_blank", rel: "noopener noreferrer" } as const)
-    : ({ component: "button" } as const);
-
-  return (
-    <ClassCardFrame
-      body={
-        <>
-          <Box sx={{ alignItems: "center", display: "flex", gap: 2, mb: 2 }}>
-            <LinearProgress
-              sx={{
-                borderRadius: 999,
-                flex: 1,
-                height: 12,
-              }}
-              value={progressPercent}
-              variant="determinate"
-            />
-            <Typography sx={{ fontSize: 16 }}>{progressPercent}%</Typography>
-          </Box>
-
-          <Box sx={{ alignItems: "center", display: "flex", gap: 1, mb: 1 }}>
-            <ExploreIcon color="action" fontSize="small" />
-            <Typography sx={{ fontSize: 30 / 2 }}>
-              {tr("card.upNext", "Up Next: {activity}", { activity: nextActivity })}
-            </Typography>
-          </Box>
-
-          <Box sx={{ alignItems: "center", display: "flex", gap: 1 }}>
-            <EventIcon color="action" fontSize="small" />
-            <Typography sx={{ fontSize: 30 / 2 }}>{dueLabel}</Typography>
-          </Box>
-        </>
-      }
-      footer={
-        <Box sx={{ alignItems: "center", display: "flex", justifyContent: "space-between", width: "100%" }}>
-          <Button {...detailsButtonProps} size="small" sx={{ minWidth: 0 }} variant="text">
-            {tr("card.details", "Details")}
-          </Button>
-          <Button
-            {...continueButtonProps}
-            onClick={onContinue}
-            size="small"
-            startIcon={<ArrowForwardIcon />}
-            variant="outlined"
-          >
-            {tr("card.continue", "Continue")}
-          </Button>
-        </Box>
-      }
-      footerSx={{ p: 1.25 }}
-      header={
-        <Box sx={{ alignItems: "center", display: "flex", gap: 2 }}>
-          <Avatar sx={{ bgcolor: "grey.400", borderRadius: 1, height: 44, width: 44 }}>HE</Avatar>
-          <Box>
-            <Typography sx={{ fontSize: 32 / 2, fontWeight: 500 }}>{courseName}</Typography>
-            <Typography color="text.secondary" sx={{ fontSize: 28 / 2 }}>
-              {instructorName}
-            </Typography>
-          </Box>
-        </Box>
-      }
-    />
-  );
+  const detailsTarget = detailsHref ?? continueHref;
+  const progress = Number.isFinite(progressPercent) ? Math.max(0, Math.min(100, progressPercent)) : 0;
+  return <ClassCardFrame
+    header={<div className={styles.header}>
+      <Avatar alt="" fallback="HE" shape="square" className={styles.avatar} />
+      <div className={styles.heading}>
+        <Typography as="h3" variant="subtitle1">{courseName}</Typography>
+        <Typography variant="body2" tone="muted">{instructorName}</Typography>
+      </div>
+    </div>}
+    body={<>
+      <div className={styles.progressRow}>
+        <Progress className={styles.progress} value={progress} aria-label={tr("card.progress", "Course progress")} />
+        <Typography as="span" variant="body1">{progress}%</Typography>
+      </div>
+      <div className={styles.row}><ExploreIcon aria-hidden="true" className={styles.icon} />
+        <Typography variant="body2">{tr("card.upNext", "Up Next: {activity}", { activity: nextActivity })}</Typography>
+      </div>
+      <div className={styles.row}><EventIcon aria-hidden="true" className={styles.icon} />
+        <Typography variant="body2">{dueLabel}</Typography>
+      </div>
+    </>}
+    footerClassName={styles.footer}
+    footer={<div className={styles.actions}>
+      {detailsTarget ? <Link href={detailsTarget} className={styles.details} underline="none">{tr("card.details", "Details")}</Link> :
+        <Button variant="text" density="compact">{tr("card.details", "Details")}</Button>}
+      {continueHref ? <Link href={continueHref} target="_blank" rel="noopener noreferrer" onClick={onContinue} className={styles.continue} underline="none">
+        <ArrowForwardIcon aria-hidden="true" className={styles.icon} />{tr("card.continue", "Continue")}
+      </Link> : <Button variant="outlined" density="compact" onPress={onContinue} startIcon={<ArrowForwardIcon />}>
+        {tr("card.continue", "Continue")}
+      </Button>}
+    </div>}
+  />;
 }

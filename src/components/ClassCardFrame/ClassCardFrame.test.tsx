@@ -1,57 +1,25 @@
-import { describe, expect, it } from "vitest";
-import {
-  ClassCardFrame,
-  STANDARD_CLASS_CARD_MIN_WIDTH,
-  STANDARD_CLASS_CARD_WIDTH,
-} from "./ClassCardFrame";
-
-describe("ClassCardFrame", () => {
-  it("exports standard width constants", () => {
-    expect(STANDARD_CLASS_CARD_WIDTH).toBe(420);
-    expect(STANDARD_CLASS_CARD_MIN_WIDTH).toBe(360);
-  });
-
-  it("renders card slots and optional footer", () => {
-    const withFooter = ClassCardFrame({
-      header: "header",
-      body: "body",
-      footer: "footer",
-    }) as any;
-    expect(withFooter.props.sx.maxWidth).toBe(420);
-    expect(withFooter.props.children).toHaveLength(3);
-
-    const withoutFooter = ClassCardFrame({
-      header: "header",
-      body: "body",
-    }) as any;
-    expect(withoutFooter.props.children[2]).toBeNull();
-  });
-
-  it("supports custom width and sx arrays for each section", () => {
-    const element = ClassCardFrame({
-      header: "header",
-      body: "body",
-      footer: "footer",
-      width: 500,
-      headerSx: [{ borderColor: "primary.main" }] as any,
-      bodySx: { mt: 2 } as any,
-      footerSx: [{ mb: 1 }] as any,
-    }) as any;
-    expect(element.props.sx.maxWidth).toBe(500);
-
-    const [header, body, footer] = element.props.children as any[];
-    expect(Array.isArray(header.props.sx)).toBe(true);
-    expect(Array.isArray(body.props.sx)).toBe(true);
-    expect(Array.isArray(footer.props.sx)).toBe(true);
-  });
-
-  it("accepts body sx as an array", () => {
-    const element = ClassCardFrame({
-      header: "header",
-      body: "body",
-      bodySx: [{ mt: 1 }, { mb: 1 }] as any,
-    }) as any;
-    const body = element.props.children[1];
-    expect(body.props.sx).toHaveLength(3);
-  });
+// @vitest-environment jsdom
+import { cleanup, render, screen } from "@testing-library/react";
+import { renderToString } from "react-dom/server";
+import { afterEach, expect, it } from "vitest";
+import { ClassCardFrame, STANDARD_CLASS_CARD_WIDTH, STANDARD_CLASS_CARD_MIN_WIDTH } from "./ClassCardFrame";
+afterEach(cleanup);
+it("preserves width constants and optional frame sections", () => {
+  expect(STANDARD_CLASS_CARD_WIDTH).toBe(420);
+  expect(STANDARD_CLASS_CARD_MIN_WIDTH).toBe(360);
+  const { rerender } = render(<ClassCardFrame header="Title" body="Body" footer="Action" />);
+  expect(screen.getByRole("article").style.maxInlineSize).toBe("420px");
+  expect(screen.getByText("Action").getAttribute("data-sgui-part")).toBe("class-card-footer");
+  rerender(<ClassCardFrame header="Title" body="Body" />);
+  expect(screen.queryByText("Action")).toBeNull();
+});
+it("supports native root and slot styling and server markup", () => {
+  render(<ClassCardFrame header="Title" body="Body" footer="Action" width={500}
+    className="host-card" headerClassName="host-header" bodyStyle={{ padding: 24 }} footerStyle={{ padding: 10 }} />);
+  expect(screen.getByRole("article").classList.contains("host-card")).toBe(true);
+  expect(screen.getByRole("article").style.maxInlineSize).toBe("500px");
+  expect(screen.getByText("Title").classList.contains("host-header")).toBe(true);
+  expect(screen.getByText("Body").style.padding).toBe("24px");
+  expect(screen.getByText("Action").style.padding).toBe("10px");
+  expect(renderToString(<ClassCardFrame header="Title" body="Body" />)).toContain('data-sgui-part="class-card-frame"');
 });

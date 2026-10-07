@@ -1,0 +1,20 @@
+@layer sgui.components {
+  .root { display: flex; flex: 1; flex-direction: column; min-height: 0; min-width: 0; }
+  .container { flex: 1; min-height: 0; overflow: auto; position: relative; border: 1px solid var(--sgui-border); color: var(--sgui-text); background: var(--sgui-surface); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .table { border-collapse: collapse; table-layout: fixed; }
+  .header, .cell { text-align: start; vertical-align: middle; padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-border); box-sizing: border-box; }
+  .selectionControls { display: flex; align-items: center; }
+  .selection label > span:last-child { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .header { background: var(--sgui-surface-subtle); }
+  .headerContent { display: flex; align-items: center; justify-content: space-between; gap: var(--sgui-space2); }
+  .headerContent > :first-child { min-inline-size: 0; flex: 1; }
+  .row[data-selected] { background: var(--sgui-surface-subtle); }
+  .row[data-focus-visible], .cell[data-focus-visible], .header[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: calc(-1 * var(--sgui-focus-width)); }
+  .resizer { block-size: var(--sgui-control-height); inline-size: 0.5rem; flex-shrink: 0; border-inline-end: 2px solid var(--sgui-border); cursor: col-resize; touch-action: none; }
+  .resizer[data-focus-visible] { outline: var(--sgui-focus-width) solid var(--sgui-focus); }
+  .reorderControls { display: flex; align-items: center; gap: var(--sgui-space1); }
+  .announcement { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
+  .dropIndicator[data-drop-target] { outline: var(--sgui-focus-width) solid var(--sgui-focus); }
+  .row[data-dragging] { opacity: 0.5; }
+  @media (forced-colors: active) { .row[data-selected] { border: 1px solid Highlight; } }
+}

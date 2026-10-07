@@ -1,117 +1,66 @@
-import { useState } from "react";
-import type { MouseEvent, ReactNode } from "react";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
-import FormatAlignJustifyIcon from "@mui/icons-material/FormatAlignJustify";
-import FormatAlignLeftIcon from "@mui/icons-material/FormatAlignLeft";
-import FormatAlignRightIcon from "@mui/icons-material/FormatAlignRight";
-import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
-import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
-import Box from "@mui/material/Box";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
+"use client";
+
+import { forwardRef, type CSSProperties, type ReactNode } from "react";
 import { AppButton } from "../AppButton";
+import { Menu, type MenuItem } from "../../experimental/Menu/Menu";
+import { ArrowDropDownIcon } from "../../experimental/icons/ArrowDropDownIcon";
+import { FormatAlignCenterIcon } from "../../experimental/icons/FormatAlignCenterIcon";
+import { FormatAlignJustifyIcon } from "../../experimental/icons/FormatAlignJustifyIcon";
+import { FormatAlignLeftIcon } from "../../experimental/icons/FormatAlignLeftIcon";
+import { FormatAlignRightIcon } from "../../experimental/icons/FormatAlignRightIcon";
+import { FormatIndentDecreaseIcon } from "../../experimental/icons/FormatIndentDecreaseIcon";
+import { FormatIndentIncreaseIcon } from "../../experimental/icons/FormatIndentIncreaseIcon";
+import { useTranslation } from "../../i18n";
+import styles from "./TextAlignMenuControl.module.css";
 
 export type AlignOption = "left" | "center" | "right" | "justify" | "start" | "end";
-
-type AlignMenuAction = {
-  id: string;
-  label: string;
-  icon: ReactNode;
-  shortcut?: string;
-  onClick?: () => void;
-};
-
 export type TextAlignMenuControlProps = {
   value?: AlignOption;
   disabled?: boolean;
   onChange?: (next: AlignOption) => void;
   onOutdent?: () => void;
   onIndent?: () => void;
+  /** Host editor restrictions. Missing callbacks also disable their commands. */
+  canOutdent?: boolean;
+  canIndent?: boolean;
+  className?: string;
+  style?: CSSProperties;
 };
 
-const ALIGN_META: Record<AlignOption, { label: string; icon: ReactNode; shortcut?: string }> = {
-  left: { label: "Left Align", icon: <FormatAlignLeftIcon fontSize="small" />, shortcut: "⌘+Shift+L" },
-  center: { label: "Center Align", icon: <FormatAlignCenterIcon fontSize="small" />, shortcut: "⌘+Shift+E" },
-  right: { label: "Right Align", icon: <FormatAlignRightIcon fontSize="small" />, shortcut: "⌘+Shift+R" },
-  justify: { label: "Justify Align", icon: <FormatAlignJustifyIcon fontSize="small" />, shortcut: "⌘+Shift+J" },
-  start: { label: "Start Align", icon: <FormatAlignLeftIcon fontSize="small" /> },
-  end: { label: "End Align", icon: <FormatAlignRightIcon fontSize="small" /> },
+const ALIGNMENTS: readonly AlignOption[] = ["left", "center", "right", "justify", "start", "end"];
+const DEFAULT_LABELS: Record<AlignOption, string> = {
+  left: "Left Align", center: "Center Align", right: "Right Align", justify: "Justify Align", start: "Start Align", end: "End Align",
 };
-
-export function TextAlignMenuControl({
-  value = "left",
-  disabled = false,
-  onChange,
-  onOutdent,
-  onIndent,
-}: TextAlignMenuControlProps) {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-
-  const openMenu = (event: MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const closeMenu = () => {
-    setAnchorEl(null);
-  };
-
-  const actions: AlignMenuAction[] = [
-    { id: "left", ...ALIGN_META.left, onClick: () => onChange?.("left") },
-    { id: "center", ...ALIGN_META.center, onClick: () => onChange?.("center") },
-    { id: "right", ...ALIGN_META.right, onClick: () => onChange?.("right") },
-    { id: "justify", ...ALIGN_META.justify, onClick: () => onChange?.("justify") },
-    { id: "start", ...ALIGN_META.start, onClick: () => onChange?.("start") },
-    { id: "end", ...ALIGN_META.end, onClick: () => onChange?.("end") },
-    { id: "outdent", label: "Outdent", icon: <FormatIndentDecreaseIcon fontSize="small" />, onClick: onOutdent, shortcut: "⌘+[" },
-    { id: "indent", label: "Indent", icon: <FormatIndentIncreaseIcon fontSize="small" />, onClick: onIndent, shortcut: "⌘+]" },
-  ];
-
-  const triggerMeta = ALIGN_META[value];
-
-  return (
-    <>
-      <AppButton
-        color="inherit"
-        disabled={disabled}
-        onClick={openMenu}
-        size="small"
-        startIcon={triggerMeta.icon}
-        sx={{ minHeight: 30, minWidth: 0, px: 0.5, py: 0.25 }}
-        variant="text"
-      >
-        <ArrowDropDownIcon fontSize="small" />
-      </AppButton>
-      <Menu anchorEl={anchorEl} onClose={closeMenu} open={Boolean(anchorEl)} slotProps={{ list: { dense: true } }}>
-        {actions.map((action, index) => (
-          <Box key={action.id}>
-            {index === 6 ? <Box sx={{ borderTop: 1, borderColor: "divider", my: 0.5 }} /> : null}
-            <MenuItem
-              onClick={() => {
-                action.onClick?.();
-                closeMenu();
-              }}
-              sx={{ minWidth: 320 }}
-            >
-              <Stack alignItems="center" direction="row" spacing={1.5} sx={{ width: "100%" }}>
-                <Box sx={{ alignItems: "center", color: "text.secondary", display: "flex", justifyContent: "center", minWidth: 24 }}>
-                  {action.icon}
-                </Box>
-                <Typography sx={{ flex: 1 }} variant="body2">
-                  {action.label}
-                </Typography>
-                {action.shortcut ? (
-                  <Typography color="text.secondary" variant="body2">
-                    {action.shortcut}
-                  </Typography>
-                ) : null}
-              </Stack>
-            </MenuItem>
-          </Box>
-        ))}
-      </Menu>
-    </>
-  );
+const SHORTCUTS: Partial<Record<AlignOption, string>> = { left: "⌘+Shift+L", center: "⌘+Shift+E", right: "⌘+Shift+R", justify: "⌘+Shift+J" };
+function alignmentIcon(value: AlignOption): ReactNode {
+  if (value === "center") return <FormatAlignCenterIcon />;
+  if (value === "justify") return <FormatAlignJustifyIcon />;
+  if (value === "right") return <FormatAlignRightIcon />;
+  if (value === "start" || value === "end") return <span className={styles.logical} data-align={value}>
+    <FormatAlignLeftIcon className={styles.left} /><FormatAlignRightIcon className={styles.right} />
+  </span>;
+  return <FormatAlignLeftIcon />;
 }
+
+/** Owned compact alignment commands; the host retains editor selection and command state. */
+export const TextAlignMenuControl = forwardRef<HTMLButtonElement, TextAlignMenuControlProps>(function TextAlignMenuControl({
+  value = "left", disabled = false, onChange, onOutdent, onIndent, canOutdent = true, canIndent = true, className, style,
+}, ref) {
+  const { t } = useTranslation();
+  const current = ALIGNMENTS.includes(value) ? value : "left";
+  const labels = Object.fromEntries(ALIGNMENTS.map(id => [id, t(`common.ui.editor.align.${id}`, { defaultMessage: DEFAULT_LABELS[id] })])) as Record<AlignOption, string>;
+  const items: MenuItem[] = [
+    ...ALIGNMENTS.map(id => ({ id, label: labels[id], icon: alignmentIcon(id), shortcut: SHORTCUTS[id], selected: id === current, disabled: !onChange })),
+    { id: "outdent", label: t("common.ui.editor.outdent", { defaultMessage: "Outdent" }), icon: <FormatIndentDecreaseIcon />, shortcut: "⌘+[", disabled: !onOutdent || !canOutdent, separatorBefore: true },
+    { id: "indent", label: t("common.ui.editor.indent", { defaultMessage: "Indent" }), icon: <FormatIndentIncreaseIcon />, shortcut: "⌘+]", disabled: !onIndent || !canIndent },
+  ];
+  return <Menu label={t("common.ui.editor.alignment", { defaultMessage: "Text alignment" })} density="compact" items={items} selectionMode="single"
+    onAction={id => {
+      if (ALIGNMENTS.includes(id as AlignOption)) onChange?.(id as AlignOption);
+      else if (id === "outdent") onOutdent?.();
+      else if (id === "indent") onIndent?.();
+    }} trigger={<AppButton ref={ref} aria-label={labels[current]} disabled={disabled} tone="neutral" density="compact" variant="text"
+      className={[styles.trigger, className].filter(Boolean).join(" ")} style={style} startIcon={alignmentIcon(current)}>
+      <ArrowDropDownIcon />
+    </AppButton>} />;
+});

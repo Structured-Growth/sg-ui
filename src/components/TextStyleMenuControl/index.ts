@@ -1,1 +1,1 @@
-export { TextStyleMenuControl, type TextStyleMenuControlProps } from "./TextStyleMenuControl";
+export { TextStyleMenuControl, type TextStyleMenuControlProps, type TextStyleId } from "./TextStyleMenuControl";

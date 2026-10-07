@@ -1,17 +1,17 @@
-import "../theme/mui-typography";
 export { AppButton, type AppButtonProps } from "./AppButton";
 export { AppInlineProgress, type AppInlineProgressProps } from "./AppInlineProgress";
 export { AppOperationSteps, type AppOperationStep, type AppOperationStepStatus, type AppOperationStepsProps } from "./AppOperationSteps";
 export { AuthShell, type AuthShellProps } from "./AuthShell";
-export { AppModal, type AppModalAction, type AppModalProps, type AppModalStep } from "./AppModal";
+export { AppModal, type AppModalAction, type AppModalProps, type AppModalStep, type AppModalCloseReason } from "./AppModal";
 export {
   AppPageHeader,
   type AppPageHeaderBreadcrumb,
   type AppPageHeaderMetaItem,
+  type AppPageHeaderMenuItem,
   type AppPageHeaderProps,
 } from "./AppPageHeader";
 export { AppPageTabs, type AppPageTabItem, type AppPageTabsProps } from "./AppPageTabs";
-export { DocumentEditorLayout } from "./DocumentEditorLayout";
+export { DocumentEditorLayout, type DocumentEditorLayoutProps } from "./DocumentEditorLayout";
 export { DocumentEditorToolbar, type DocumentEditorToolbarProps } from "./DocumentEditorToolbar";
 export {
   ColumnsLayoutModal,
@@ -24,14 +24,14 @@ export {
   type ContentEditorChromeProps,
 } from "./ContentEditorChrome";
 export { EditableTitleField, type EditableTitleFieldProps } from "./EditableTitleField";
-export { FloatingTextSelectionToolbar } from "./FloatingTextSelectionToolbar";
+export { FloatingTextSelectionToolbar, type FloatingTextSelectionToolbarProps } from "./FloatingTextSelectionToolbar";
 export { InsertContentMenuControl, type InsertContentMenuControlProps } from "./InsertContentMenuControl";
 export { LinkUrlModal, type LinkUrlModalProps } from "./LinkUrlModal";
 export { ImageUploadModal, type ImageUploadModalProps } from "./ImageUploadModal";
 export { RichTextFormattingToolbar, type RichTextFormattingToolbarProps } from "./RichTextFormattingToolbar";
 export { TextAlignMenuControl, type AlignOption, type TextAlignMenuControlProps } from "./TextAlignMenuControl";
 export { TextColorPickerControl, type TextColorPickerControlProps } from "./TextColorPickerControl";
-export { TextStyleMenuControl, type TextStyleMenuControlProps } from "./TextStyleMenuControl";
+export { TextStyleMenuControl, type TextStyleMenuControlProps, type TextStyleId } from "./TextStyleMenuControl";
 export { PageRichTextEditorSection, type PageRichTextEditorSectionProps } from "./PageRichTextEditorSection";
 export {
   ExperiencePageNavigator,
@@ -41,6 +41,9 @@ export {
 export * from "./icons";
 export * from "./primitives";
 export {
+  adminCourseStatuses,
+  createAdminCourseGridOptions,
+  createAdminPeopleGridOptions,
   adminClassesColumnOptions,
   adminClassesFilterFields,
   adminClassesSortOptions,
@@ -67,7 +70,6 @@ export {
   type AppGridRowId,
   type AppGridRowSelectionModel,
   type AppGridPaginationModel,
-  type AppGridSortModel,
   RowSubHeader,
   type RowSubHeaderProps,
 } from "./AppDataGrid";
@@ -79,7 +81,7 @@ export {
   type AppDataGridShellViewConfig,
 } from "./AppDataGridShell";
 export { DataGridDragHandle, type DataGridDragHandleProps, useDataGridRowDnd } from "./AppDataGridRowDnd";
-export { AppShell } from "./AppShell";
+export { AppShell, type AppShellProps } from "./AppShell";
 export {
   buildDataToolbarColumnOptions,
   DataToolbar,
@@ -101,13 +103,18 @@ export {
 } from "./DataToolbar";
 export {
   ClassCardFrame,
+  type ClassCardFrameProps,
   STANDARD_CLASS_CARD_MIN_WIDTH,
   STANDARD_CLASS_CARD_WIDTH,
 } from "./ClassCardFrame";
-export { CardCollectionWithFooter } from "./CardCollectionWithFooter";
-export { AppPaginationFooter } from "./CardPaginationFooter";
+export { CardCollectionWithFooter, type CardCollectionWithFooterProps } from "./CardCollectionWithFooter";
+export { AppPaginationFooter, type AppPaginationFooterProps } from "./CardPaginationFooter";
 export { InstructorClassCard, type InstructorClassCardProps, type InstructorClassCardStatus } from "./InstructorClassCard";
 export {
+  instructorCourseStatuses,
+  instructorCourseLearnerStatuses,
+  createInstructorCourseGridOptions,
+  createInstructorCourseLearnersGridOptions,
   instructorClassLearnersColumnOptions,
   instructorClassLearnersFilterFields,
   instructorClassLearnersSortOptions,
@@ -115,8 +122,8 @@ export {
   instructorClassesFilterFields,
   instructorClassesSortOptions,
 } from "./InstructorDataGridOptions";
-export { LearnerClassCard } from "./LearnerClassCard";
-export { LearnerClassesDataGrid, learnerClassesColumnOptions, learnerClassesSortOptions } from "./LearnerClassesDataGrid";
+export { LearnerClassCard, type LearnerClassCardProps } from "./LearnerClassCard";
+export { LearnerClassesDataGrid, learnerClassesColumnOptions, learnerClassesSortOptions, type LearnerClassesDataGridProps } from "./LearnerClassesDataGrid";
 export {
   SideNavigation,
   type SideNavChildBehavior,

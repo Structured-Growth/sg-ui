@@ -1,74 +1,78 @@
-import { describe, expect, it, vi } from "vitest";
+// @vitest-environment jsdom
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { TextStyleMenuControl } from "./TextStyleMenuControl";
 
-const stateControl = vi.hoisted(() => ({
-  anchor: null as unknown,
-}));
-const setAnchorMock = vi.hoisted(() => vi.fn((value: unknown) => { stateControl.anchor = value; }));
-
-vi.mock("react", async () => {
-  const actual = await vi.importActual<typeof import("react")>("react");
-  return {
-    ...actual,
-    useState: <T,>(initial: T) => [((stateControl.anchor ?? initial) as T), setAnchorMock] as const,
-  };
-});
-
-const findNodes = (node: any, predicate: (candidate: any) => boolean, found: any[] = []) => {
-  if (!node || typeof node !== "object") {
-    return found;
-  }
-  if (predicate(node)) {
-    found.push(node);
-  }
-  const children = node?.props?.children;
-  if (Array.isArray(children)) {
-    children.forEach((child) => findNodes(child, predicate, found));
-  } else {
-    findNodes(children, predicate, found);
-  }
-  return found;
-};
+afterEach(cleanup);
 
 describe("TextStyleMenuControl", () => {
-  it("opens menu and runs all actions", () => {
+  it("opens through the native ref and invokes each formatting callback once", async () => {
+    const user = userEvent.setup();
     const handlers = {
-      onLowercase: vi.fn(),
-      onUppercase: vi.fn(),
-      onCapitalize: vi.fn(),
-      onStrikethrough: vi.fn(),
-      onSubscript: vi.fn(),
-      onSuperscript: vi.fn(),
-      onHighlight: vi.fn(),
-      onClearFormatting: vi.fn(),
+      onLowercase: vi.fn(), onUppercase: vi.fn(), onCapitalize: vi.fn(), onStrikethrough: vi.fn(),
+      onSubscript: vi.fn(), onSuperscript: vi.fn(), onHighlight: vi.fn(), onClearFormatting: vi.fn(),
     };
-    stateControl.anchor = { id: "open-anchor" };
-    const element = TextStyleMenuControl(handlers) as any;
-
-    const button = findNodes(element, (candidate) => candidate?.type?.name === "AppButton")[0];
-    button.props.onClick({ currentTarget: { id: "anchor" } });
-    expect(setAnchorMock).toHaveBeenCalledWith({ id: "anchor" });
-
-    const actions = findNodes(
-      element,
-      (candidate) => typeof candidate?.props?.onClick === "function" && candidate?.props?.sx?.minWidth === 280,
-    );
-    expect(actions).toHaveLength(8);
-    actions.forEach((action) => action.props.onClick());
-    expect(handlers.onLowercase).toHaveBeenCalledTimes(1);
-    expect(handlers.onUppercase).toHaveBeenCalledTimes(1);
-    expect(handlers.onCapitalize).toHaveBeenCalledTimes(1);
-    expect(handlers.onStrikethrough).toHaveBeenCalledTimes(1);
-    expect(handlers.onSubscript).toHaveBeenCalledTimes(1);
-    expect(handlers.onSuperscript).toHaveBeenCalledTimes(1);
-    expect(handlers.onHighlight).toHaveBeenCalledTimes(1);
-    expect(handlers.onClearFormatting).toHaveBeenCalledTimes(1);
-    expect(setAnchorMock).toHaveBeenCalledWith(null);
+    render(<TextStyleMenuControl {...handlers} />);
+    const trigger = screen.getByRole("button", { name: "Text style" });
+    for (const label of ["Lowercase", "Uppercase", "Capitalize", "Strikethrough", "Subscript", "Superscript", "Highlight", "Clear Formatting"]) {
+      await user.click(trigger);
+      expect(trigger.getAttribute("aria-expanded")).toBe("true");
+      await user.click(screen.getByRole("menuitem", { name: new RegExp(label) }));
+      await waitFor(() => expect(screen.queryByRole("menu")).toBeNull());
+    }
+    Object.values(handlers).forEach((handler) => expect(handler).toHaveBeenCalledTimes(1));
   });
 
-  it("supports disabled trigger", () => {
-    const element = TextStyleMenuControl({ disabled: true }) as any;
-    const button = findNodes(element, (candidate) => candidate?.type?.name === "AppButton")[0];
-    expect(button.props.disabled).toBe(true);
+  it("prevents disabled activation", async () => {
+    const user = userEvent.setup();
+    render(<TextStyleMenuControl disabled />);
+    await user.click(screen.getByRole("button", { name: "Text style" }));
+    expect(screen.queryByRole("menu")).toBeNull();
   });
+});
+
+it("skips missing callbacks, selects by keyboard once and restores trigger focus", async () => {
+  const user = userEvent.setup();
+  const highlight = vi.fn(); const clear = vi.fn();
+  render(<TextStyleMenuControl onHighlight={highlight} onClearFormatting={clear} />);
+  const trigger = screen.getByRole("button", { name: "Text style" });
+  await user.tab(); await user.keyboard("{ArrowDown}");
+  expect(screen.getByRole("menuitem", { name: /^Lowercase/ }).getAttribute("aria-disabled")).toBe("true");
+  expect(document.activeElement).toBe(screen.getByRole("menuitem", { name: "Highlight" }));
+  await user.keyboard("{Enter}");
+  expect(highlight).toHaveBeenCalledTimes(1); expect(clear).not.toHaveBeenCalled();
+  await waitFor(() => expect(document.activeElement).toBe(trigger));
+  await user.keyboard("{ArrowDown}{ArrowDown}{Escape}");
+  expect(screen.queryByRole("menu")).toBeNull(); expect(clear).not.toHaveBeenCalled();
+  await waitFor(() => expect(document.activeElement).toBe(trigger));
+});
+
+it("keeps active styles under host control and clear formatting an ordinary command", async () => {
+  const user = userEvent.setup(); const highlight = vi.fn();
+  const { rerender } = render(<TextStyleMenuControl activeStyles={["highlight"]} onHighlight={highlight} onClearFormatting={() => {}} />);
+  const trigger = screen.getByRole("button", { name: "Text style" });
+  await user.click(trigger);
+  expect(screen.getByRole("menuitemcheckbox", { name: "Highlight" }).getAttribute("aria-checked")).toBe("true");
+  expect(screen.getByRole("menuitemcheckbox", { name: /^Strikethrough/ }).getAttribute("aria-checked")).toBe("false");
+  expect(screen.getByRole("menuitem", { name: /^Clear Formatting/ })).toBeDefined();
+  await user.click(screen.getByRole("menuitemcheckbox", { name: "Highlight" }));
+  expect(highlight).toHaveBeenCalledTimes(1);
+  await user.click(trigger);
+  expect(screen.getByRole("menuitemcheckbox", { name: "Highlight" }).getAttribute("aria-checked")).toBe("true");
+  rerender(<TextStyleMenuControl activeStyles={[]} onHighlight={highlight} onClearFormatting={() => {}} />);
+  expect(screen.getByRole("menuitemcheckbox", { name: "Highlight" }).getAttribute("aria-checked")).toBe("false");
+});
+
+it("forwards labels and fallback messages to the host translation adapter in a scoped portal", async () => {
+  const { SGTranslationProvider } = await import("../../i18n");
+  const { Provider } = await import("../../experimental/Provider/Provider");
+  const t = vi.fn((_key: string, options: { defaultMessage: string }) => `Translated ${options.defaultMessage}`);
+  const user = userEvent.setup();
+  render(<SGTranslationProvider value={{ locale: "en", t, useNamespace: () => {} }}><Provider theme="dark"><TextStyleMenuControl onHighlight={() => {}} /></Provider></SGTranslationProvider>);
+  await user.click(screen.getByRole("button", { name: "Translated Text style" }));
+  const menu = screen.getByRole("menu", { name: "Translated Text style" });
+  expect(menu.closest('[data-sgui-theme="dark"]')).not.toBeNull();
+  expect(screen.getByRole("menuitem", { name: "Translated Highlight" })).toBeDefined();
+  expect(t).toHaveBeenCalledWith("common.ui.editor.clearFormatting", { defaultMessage: "Clear Formatting" });
 });

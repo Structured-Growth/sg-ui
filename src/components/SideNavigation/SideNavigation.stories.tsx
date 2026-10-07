@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { SGNavigationProvider } from "../../adapters";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import ApartmentIcon from "@mui/icons-material/Apartment";
-import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
-import BookIcon from "@mui/icons-material/Book";
-import BuildIcon from "@mui/icons-material/Build";
-import ClassIcon from "@mui/icons-material/Class";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import DescriptionIcon from "@mui/icons-material/Description";
-import GroupIcon from "@mui/icons-material/Group";
-import PaidIcon from "@mui/icons-material/Paid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { ApartmentIcon } from "../../experimental/icons";
+import { AssignmentTurnedInIcon } from "../../experimental/icons";
+import { BookIcon } from "../../experimental/icons";
+import { BuildIcon } from "../../experimental/icons";
+import { ClassIcon } from "../../experimental/icons";
+import { DashboardIcon } from "../../experimental/icons";
+import { DescriptionIcon } from "../../experimental/icons";
+import { GroupIcon } from "../../experimental/icons";
+import { PaidIcon } from "../../experimental/icons";
+import { Box } from "../../experimental/Box/Box";
+import { Typography as Text } from "../../experimental/Typography/Typography";
 import { SideNavigation, type SideNavigationModel } from "./SideNavigation";
 
 const model: SideNavigationModel = {
@@ -43,8 +43,8 @@ const model: SideNavigationModel = {
         id: "classes",
         title: "Classes",
         items: [
-          { id: "my-classes", label: "My Classes", icon: "class" },
-          { id: "my-templates", label: "My Templates", icon: "template" },
+          { id: "my-classes", label: "My Classes", href: "/courses", icon: "class" },
+          { id: "my-templates", label: "My Templates", href: "/templates", icon: "template" },
           {
             id: "class-tools",
             label: "Class Tools",
@@ -72,7 +72,7 @@ const model: SideNavigationModel = {
             childBehavior: "drilldown",
             children: [
               { id: "org-dashboard", label: "Org Dashboard", icon: "dashboard" },
-              { id: "org-people", label: "Org People", icon: "people", active: true },
+              { id: "org-people", label: "Org People", href: "/people", icon: "people", active: true },
               { id: "org-billing", label: "Billing", icon: "billing" },
             ],
           },
@@ -83,16 +83,16 @@ const model: SideNavigationModel = {
 };
 
 const iconMap = {
-  billing: <PaidIcon fontSize="small" />,
-  checklist: <AssignmentTurnedInIcon fontSize="small" />,
-  class: <ClassIcon fontSize="small" />,
-  dashboard: <DashboardIcon fontSize="small" />,
-  gradebook: <BookIcon fontSize="small" />,
-  people: <GroupIcon fontSize="small" />,
-  settings: <BuildIcon fontSize="small" />,
-  site: <ApartmentIcon fontSize="small" />,
-  template: <DescriptionIcon fontSize="small" />,
-  tools: <BuildIcon fontSize="small" />,
+  billing: <PaidIcon />,
+  checklist: <AssignmentTurnedInIcon />,
+  class: <ClassIcon />,
+  dashboard: <DashboardIcon />,
+  gradebook: <BookIcon />,
+  people: <GroupIcon />,
+  settings: <BuildIcon />,
+  site: <ApartmentIcon />,
+  template: <DescriptionIcon />,
+  tools: <BuildIcon />,
 };
 
 const resolveIcon = (iconKey: string) => iconMap[iconKey as keyof typeof iconMap] ?? null;
@@ -115,10 +115,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: (args) => (
-    <Box sx={{ bgcolor: "background.default", display: "flex", minHeight: "100vh" }}>
+    <Box style={{ display: "flex", height: "100dvh" }}>
       <SideNavigation {...args} />
-      <Box sx={{ p: 4 }}>
-        <Typography variant="h4">Content Area</Typography>
+      <Box style={{ padding: "var(--sgui-space4)" }}>
+        <Text as="h1" variant="h4">Content Area</Text>
       </Box>
     </Box>
   ),
@@ -132,9 +132,9 @@ export const HostRouting: Story = {
 function HostRoutingExample(args: React.ComponentProps<typeof SideNavigation>) {
   const [pathname, setPathname] = useState("/");
   return <SGNavigationProvider value={{ pathname, navigate: setPathname }}>
-    <Box sx={{ display: "flex" }}><SideNavigation {...args} /><Box sx={{ p: 4 }}>
-      <Typography variant="h4">Host application</Typography>
-      <Typography>{pathname}</Typography>
+    <Box style={{ display: "flex", height: "100dvh" }}><SideNavigation {...args} /><Box style={{ padding: "var(--sgui-space4)" }}>
+      <Text as="h1" variant="h4">Host application</Text>
+      <Text>{pathname}</Text>
     </Box></Box>
   </SGNavigationProvider>;
 }

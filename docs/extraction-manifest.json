@@ -2,6 +2,7 @@
   "sourceRepository": "Structured-Growth/learning-platform",
   "sourceCommit": "8e63f1e16fc3d43d851908b312603a1099ca13d9",
   "sourceRoot": "apps/web/src/ui",
+  "presenceScope": "Current destination existence; original source paths retain extraction provenance.",
   "files": [
     {
       "source": "components/AdminDataGridOptions.ts",
@@ -66,12 +67,28 @@
     {
       "source": "components/AppDataGrid/components/baseGridSx.test.ts",
       "destination": "src/components/AppDataGrid/components/baseGridSx.test.ts",
-      "present": true
+      "present": false,
+      "migration": {
+        "status": "removed",
+        "replacements": [
+          "src/components/AppDataGrid/AppDataGrid.test.tsx",
+          "src/components/AppDataGrid/ownedGridInteraction.test.tsx"
+        ]
+      }
     },
     {
       "source": "components/AppDataGrid/components/baseGridSx.ts",
       "destination": "src/components/AppDataGrid/components/baseGridSx.ts",
-      "present": true
+      "present": false,
+      "migration": {
+        "status": "removed",
+        "replacements": [
+          "src/components/AppDataGrid/ownedGridInteraction.module.css",
+          "src/components/AppDataGrid/AppDataGrid.module.css",
+          "src/components/AppDataGrid/ownedGridCells.module.css",
+          "src/components/AppDataGrid/ownedGridParts.module.css"
+        ]
+      }
     },
     {
       "source": "components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
@@ -201,7 +218,13 @@
     {
       "source": "components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
       "destination": "src/components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
-      "present": true
+      "present": false,
+      "migration": {
+        "status": "renamed",
+        "replacements": [
+          "src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx"
+        ]
+      }
     },
     {
       "source": "components/AppDataGridRowDnd/useDataGridRowDnd.ts",
@@ -996,17 +1019,41 @@
     {
       "source": "theme/mui-typography.d.ts",
       "destination": "src/theme/mui-typography.ts",
-      "present": true
+      "present": false,
+      "migration": {
+        "status": "removed",
+        "replacements": [
+          "src/foundation/tokens.json",
+          "src/foundation/tokens.generated.ts",
+          "src/foundation/tokens.css"
+        ]
+      }
     },
     {
       "source": "theme/theme.test.ts",
       "destination": "src/theme/theme.test.ts",
-      "present": true
+      "present": false,
+      "migration": {
+        "status": "removed",
+        "replacements": [
+          "src/foundation/ThemeScope.test.tsx",
+          "src/theme/AppThemeProvider.test.tsx",
+          "src/experimental/Provider/Provider.test.tsx"
+        ]
+      }
     },
     {
       "source": "theme/theme.ts",
       "destination": "src/theme/theme.ts",
-      "present": true
+      "present": false,
+      "migration": {
+        "status": "removed",
+        "replacements": [
+          "src/foundation/ThemeScope.tsx",
+          "src/foundation/tokens.json",
+          "src/experimental/Provider/Provider.tsx"
+        ]
+      }
     }
   ]
 }

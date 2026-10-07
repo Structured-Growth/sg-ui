@@ -1,90 +1,36 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import { useTheme } from "@mui/material/styles";
+import { Box } from "../../experimental/Box/Box";
+import { Stack } from "../../experimental/Stack/Stack";
+import { Typography, type TypographyVariant } from "../../experimental/Typography/Typography";
+import { Provider } from "../../experimental/Provider/Provider";
+import tokenSource from "../../foundation/tokens.json";
 
 const sample = "The quick brown fox jumps over the lazy dog.";
+const variants: readonly TypographyVariant[] = ["h1", "h2", "h3", "h4", "h5", "h6", "body1", "body2", "bodyAlt2", "subtitle1", "subtitle2", "button", "caption", "overline", "code"];
 
 function TypefacesPreview() {
-  const theme = useTheme();
-
-  return (
-    <Stack spacing={3}>
-      <Stack spacing={0.5}>
-        <Typography variant="h5">Default Typeface</Typography>
-        <Typography variant="body2">{theme.typography.fontFamily}</Typography>
-      </Stack>
-
-      <Stack spacing={1}>
-        <Typography variant="h5">Typography Variants</Typography>
-
-        <Stack spacing={1}>
-          <Box>
-            <Typography variant="h1">h1</Typography>
-            <Typography variant="body2">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="h2">h2</Typography>
-            <Typography variant="body2">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="h3">h3</Typography>
-            <Typography variant="body2">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="h4">h4</Typography>
-            <Typography variant="body2">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="h5">h5</Typography>
-            <Typography variant="body2">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="h6">h6</Typography>
-            <Typography variant="body2">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="body1">body1</Typography>
-            <Typography variant="body1">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="body2">body2</Typography>
-            <Typography variant="body2">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="bodyAlt2">bodyAlt2</Typography>
-            <Typography variant="bodyAlt2">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="button">button</Typography>
-            <Typography variant="button">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="caption">caption</Typography>
-            <Typography variant="caption">{sample}</Typography>
-          </Box>
-          <Box>
-            <Typography variant="overline">overline</Typography>
-            <Typography variant="overline">{sample}</Typography>
-          </Box>
-        </Stack>
-      </Stack>
+  return <Stack gap={3}>
+    <Stack gap={1}>
+      <Typography as="h2" variant="h5">Default Typeface</Typography>
+      <Typography variant="body2">{tokenSource.shared.fontFamily.$value}</Typography>
     </Stack>
-  );
+    <Stack gap={1}>
+      <Typography as="h2" variant="h5">Typography Variants</Typography>
+      {variants.map(variant => <Box key={variant}>
+        <Typography as="h3" variant="body2" tone="muted">{variant}</Typography>
+        <Typography as={variant === "code" ? "code" : "p"} variant={variant}>{sample}</Typography>
+      </Box>)}
+    </Stack>
+  </Stack>;
 }
 
 const meta = {
   title: "Foundations/Typefaces",
-  parameters: {
-    layout: "padded",
-  },
+  parameters: { layout: "padded" },
+  decorators: [(Story) => <Provider><Story /></Provider>],
   tags: ["autodocs"],
 } satisfies Meta;
-
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const Defaults: Story = {
-  render: () => <TypefacesPreview />,
-};
+export const Defaults: Story = { render: () => <TypefacesPreview /> };
+export const Dark: Story = { render: () => <Provider theme="dark"><TypefacesPreview /></Provider> };

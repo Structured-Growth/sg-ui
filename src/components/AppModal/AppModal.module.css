@@ -1,0 +1,11 @@
+@layer sgui.components {
+  .body { display: flex; flex-direction: column; }
+  /* Keep a usable tab scrollport when enlarged text makes fixed chrome taller.
+     The dialog itself can scroll when header, content and actions no longer fit. */
+  .body:has(> [data-sgui-part="page-tabs"]) { min-block-size: calc(3 * var(--sgui-control-height) + 2 * var(--sgui-space4)); }
+  .body > * { flex-shrink: 0; }
+  .body > [data-sgui-part="page-tabs"] { flex: 1 1 auto; min-block-size: 0; }
+  .footer { display: flex; align-items: center; justify-content: space-between; gap: var(--sgui-space4); inline-size: 100%; flex-wrap: wrap; }
+  .steps { color: var(--sgui-text-muted); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .actions { display: flex; gap: var(--sgui-space2); margin-inline-start: auto; flex-wrap: wrap; }
+}

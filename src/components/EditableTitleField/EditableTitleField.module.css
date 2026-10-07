@@ -1,0 +1,9 @@
+@layer sgui.components {
+  .root { display: inline-flex; align-items: center; gap: var(--sgui-space1); min-block-size: var(--sgui-control-height); padding-inline: var(--sgui-space1); cursor: text; }
+  .root[data-read-only] { cursor: default; }
+  .field { flex: 1; min-inline-size: 0; }
+  .edit { opacity: 0; }
+  .root:hover .edit, .root:focus-within .edit { opacity: 1; }
+  @media (hover: none) { .edit { opacity: 1; } }
+  @media (forced-colors: active) { .edit { opacity: 1; } }
+}

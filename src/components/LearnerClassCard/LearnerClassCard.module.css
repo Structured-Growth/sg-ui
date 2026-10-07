@@ -1,0 +1,15 @@
+@layer sgui.components {
+  .header { display: flex; align-items: center; gap: var(--sgui-space4); }
+  .heading { min-inline-size: 0; overflow-wrap: anywhere; }
+  .avatar { flex: none; }
+  .row { display: flex; align-items: center; gap: var(--sgui-space2); }
+  .row + .row { margin-block-start: var(--sgui-space2); }
+  .icon { flex: none; inline-size: 1.25rem; block-size: 1.25rem; color: var(--sgui-text-muted); }
+  .progressRow { display: flex; align-items: center; gap: var(--sgui-space4); margin-block-end: var(--sgui-space4); }
+  .progress { flex: 1; min-inline-size: 0; }
+  .footer { padding: var(--sgui-space3); }
+  .actions { display: flex; align-items: center; justify-content: space-between; gap: var(--sgui-space2); flex-wrap: wrap; }
+  .details, .continue { display: inline-flex; align-items: center; justify-content: center; gap: var(--sgui-space2); min-block-size: 2rem; padding-inline: var(--sgui-space3); border-radius: var(--sgui-field-radius); font-family: var(--sgui-font-family); font-size: var(--sgui-button-size); font-weight: var(--sgui-button-weight); line-height: var(--sgui-button-line-height); box-sizing: border-box; }
+  .continue { border: 1px solid var(--sgui-action); }
+  .continue:hover { background: var(--sgui-surface); }
+}

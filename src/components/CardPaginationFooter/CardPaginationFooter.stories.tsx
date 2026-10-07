@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
-import Box from "@mui/material/Box";
+import { Box } from "../../experimental/Box/Box";
 import { AppPaginationFooter } from "./CardPaginationFooter";
 
 const meta = {
@@ -16,7 +16,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Box sx={{ width: 900 }}>
+      <Box style={{ maxWidth: 900 }}>
         <Story />
       </Box>
     ),
@@ -34,6 +34,10 @@ function InteractivePreview() {
   return (
     <AppPaginationFooter
       onPageChange={setPage}
+      onPaginationModelChange={(model) => {
+        setPage(model.page);
+        setPageSize(model.pageSize);
+      }}
       onPageSizeChange={(nextSize) => {
         setPage(0);
         setPageSize(nextSize);
@@ -49,3 +53,6 @@ function InteractivePreview() {
 export const Interactive: Story = {
   render: () => <InteractivePreview />,
 };
+
+export const UnknownTotal: Story = { args: { page: 2, totalCount: undefined, hasNextPage: true } };
+export const Disabled: Story = { args: { totalCount: 243, disabled: true } };

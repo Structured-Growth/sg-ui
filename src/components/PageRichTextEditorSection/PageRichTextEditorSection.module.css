@@ -1,0 +1,159 @@
+@layer sgui.components {
+  .root {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    block-size: 100%;
+    min-block-size: 0;
+    min-inline-size: 0;
+    overflow: hidden;
+    inline-size: 100%;
+    color: var(--sgui-text);
+    background: var(--sgui-surface);
+    font-family: var(--sgui-font-family);
+  }
+  .viewport {
+    flex: 1;
+    min-block-size: 0;
+    min-inline-size: 0;
+    overflow: auto;
+    padding: var(--sgui-space4);
+    position: relative;
+  }
+  .document {
+    block-size: 100%;
+    position: relative;
+  }
+  .editable {
+    color: inherit;
+    min-block-size: 100%;
+    outline: none;
+    white-space: pre-wrap;
+    font-size: var(--sgui-body1-size);
+    line-height: var(--sgui-body1-line-height);
+  }
+  .viewport:focus-visible,
+  .editable:focus-visible {
+    outline: var(--sgui-focus-width) solid var(--sgui-focus);
+    outline-offset: var(--sgui-focus-offset);
+  }
+  .placeholder {
+    color: var(--sgui-text-muted);
+    pointer-events: none;
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+  }
+  .document h1 {
+    font-size: var(--sgui-h1-size);
+    line-height: var(--sgui-h1-line-height);
+    font-weight: var(--sgui-h1-weight);
+  }
+  .document h2 {
+    font-size: var(--sgui-h2-size);
+    line-height: var(--sgui-h2-line-height);
+    font-weight: var(--sgui-h2-weight);
+  }
+  .document h3 {
+    font-size: var(--sgui-h3-size);
+    line-height: var(--sgui-h3-line-height);
+    font-weight: var(--sgui-h3-weight);
+  }
+  .document h4 {
+    font-size: var(--sgui-h4-size);
+    line-height: var(--sgui-h4-line-height);
+    font-weight: var(--sgui-h4-weight);
+  }
+  .document h5 {
+    font-size: var(--sgui-h5-size);
+    line-height: var(--sgui-h5-line-height);
+    font-weight: var(--sgui-h5-weight);
+  }
+  .document h6 {
+    font-size: var(--sgui-h6-size);
+    line-height: var(--sgui-h6-line-height);
+    font-weight: var(--sgui-h6-weight);
+  }
+  .document [style*="--lp-text-variant: body"] {
+    font-size: var(--sgui-body1-size);
+    line-height: var(--sgui-body1-line-height);
+    font-weight: var(--sgui-body1-weight);
+  }
+  .document [style*="--lp-text-variant: body1"] {
+    font-size: var(--sgui-body1-size);
+    line-height: var(--sgui-body1-line-height);
+    font-weight: var(--sgui-body1-weight);
+  }
+  .document [style*="--lp-text-variant: body2"] {
+    font-size: var(--sgui-body2-size);
+    line-height: var(--sgui-body2-line-height);
+    font-weight: var(--sgui-body2-weight);
+  }
+  .document [style*="--lp-text-variant: bodyAlt2"] {
+    font-size: var(--sgui-body-alt2-size);
+    line-height: var(--sgui-body-alt2-line-height);
+    font-weight: var(--sgui-body-alt2-weight);
+  }
+  .document p {
+    font-size: var(--sgui-body1-size);
+    line-height: var(--sgui-body1-line-height);
+    font-weight: var(--sgui-body1-weight);
+  }
+  .document :global(.editor-link) {
+    color: var(--sgui-action);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .document :global(.editor-horizontal-rule) {
+    border: 0;
+    border-block-start: 2px solid var(--sgui-divider);
+    cursor: pointer;
+    margin-block: var(--sgui-space3);
+    inline-size: 100%;
+  }
+  .document :global(.editor-horizontal-rule-selected) {
+    border-color: var(--sgui-action);
+    box-shadow: 0 0 0 2px var(--sgui-action);
+  }
+  .document table {
+    border-collapse: collapse;
+    margin-block: var(--sgui-space2);
+    inline-size: 100%;
+  }
+  .document td, .document th {
+    border: 1px solid var(--sgui-divider);
+    min-block-size: 2.25rem;
+    min-inline-size: 7.5rem;
+    padding: var(--sgui-space2);
+    vertical-align: top;
+  }
+  .document :global(.editor-text-bold) {
+    font-weight: 700;
+  }
+  .document :global(.editor-text-code) {
+    background: var(--sgui-surface-subtle);
+    border-radius: var(--sgui-field-radius);
+    font-family: var(--sgui-code-font-family);
+    padding-inline: var(--sgui-space1);
+  }
+  .document :global(.editor-text-italic) {
+    font-style: italic;
+  }
+  .document :global(.editor-text-strikethrough) {
+    text-decoration: line-through;
+  }
+  .document :global(.editor-text-subscript) {
+    font-size: 0.75em;
+    vertical-align: sub;
+  }
+  .document :global(.editor-text-superscript) {
+    font-size: 0.75em;
+    vertical-align: super;
+  }
+  .document :global(.editor-text-underline) {
+    text-decoration: underline;
+  }
+  .document :global(.editor-text-underlineStrikethrough) {
+    text-decoration: underline line-through;
+  }
+}

@@ -1,178 +1,71 @@
-import { describe, expect, it, vi } from "vitest";
+// @vitest-environment jsdom
+import { createRef } from "react";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { RichTextFormattingToolbar } from "./RichTextFormattingToolbar";
-
-vi.mock("../InsertContentMenuControl", () => ({
-  InsertContentMenuControl: (props: unknown) => ({ type: "InsertContentMenuControl", props }),
-}));
-
-vi.mock("../TextAlignMenuControl", () => ({
-  TextAlignMenuControl: (props: unknown) => ({ type: "TextAlignMenuControl", props }),
-}));
-
-vi.mock("../TextColorPickerControl", () => ({
-  TextColorPickerControl: (props: unknown) => ({ type: "TextColorPickerControl", props }),
-}));
-
-vi.mock("../TextStyleMenuControl", () => ({
-  TextStyleMenuControl: (props: unknown) => ({ type: "TextStyleMenuControl", props }),
-}));
-
-const findNodes = (node: any, predicate: (candidate: any) => boolean, found: any[] = []) => {
-  if (!node || typeof node !== "object") {
-    return found;
-  }
-  if (predicate(node)) {
-    found.push(node);
-  }
-  const children = node?.props?.children;
-  if (Array.isArray(children)) {
-    children.forEach((child) => findNodes(child, predicate, found));
-  } else {
-    findNodes(children, predicate, found);
-  }
-  return found;
-};
-
+import { SGTranslationProvider } from "../../i18n";
+import { Provider } from "../../experimental/Provider/Provider";
+afterEach(cleanup);
 describe("RichTextFormattingToolbar", () => {
-  it("renders controls and wires callbacks", () => {
-    const onUndo = vi.fn();
-    const onRedo = vi.fn();
-    const onBold = vi.fn();
-    const onItalic = vi.fn();
-    const onUnderline = vi.fn();
-    const onCode = vi.fn();
-    const onLink = vi.fn();
-    const onHeadingChange = vi.fn();
-    const onFontFamilyChange = vi.fn();
-    const onFontSizeDecrease = vi.fn();
-    const onFontSizeIncrease = vi.fn();
-    const onTextColorChange = vi.fn();
-    const onBackgroundColorChange = vi.fn();
-    const onAlignmentChange = vi.fn();
-    const onIndent = vi.fn();
-    const onOutdent = vi.fn();
-    const onInsertHorizontalRule = vi.fn();
-    const onInsertColumnsLayout = vi.fn();
-    const onInsertImage = vi.fn();
-
-    const element = RichTextFormattingToolbar({
-      headingValue: "Heading 2",
-      onHeadingChange,
-      fontFamilyValue: "Georgia",
-      onFontFamilyChange,
-      fontSizeValue: 18,
-      onFontSizeDecrease,
-      onFontSizeIncrease,
-      onUndo,
-      onRedo,
-      onBold,
-      boldActive: true,
-      onItalic,
-      italicActive: true,
-      onUnderline,
-      underlineActive: true,
-      onCode,
-      codeActive: true,
-      onLink,
-      textColorValue: "#123456",
-      onTextColorChange,
-      backgroundColorValue: "#654321",
-      onBackgroundColorChange,
-      onAlignmentChange,
-      onIndent,
-      onOutdent,
-      onInsertHorizontalRule,
-      onInsertColumnsLayout,
-      onInsertImage,
-      leftSlot: "left-slot",
-      rightSlot: "right-slot",
-    }) as any;
-
-    const iconButtons = findNodes(
-      element,
-      (candidate) =>
-        typeof candidate?.props?.onClick === "function"
-        && candidate?.props?.size === "small"
-        && candidate?.props?.sx,
-    );
-    iconButtons.forEach((button) => button.props.onClick());
-    expect(onUndo).toHaveBeenCalledTimes(1);
-    expect(onRedo).toHaveBeenCalledTimes(1);
-    expect(onFontSizeDecrease).toHaveBeenCalledTimes(1);
-    expect(onFontSizeIncrease).toHaveBeenCalledTimes(1);
-    expect(onBold).toHaveBeenCalledTimes(1);
-    expect(onItalic).toHaveBeenCalledTimes(1);
-    expect(onUnderline).toHaveBeenCalledTimes(1);
-    expect(onCode).toHaveBeenCalledTimes(1);
-    expect(onLink).toHaveBeenCalledTimes(1);
-
-    const headingSelect = findNodes(
-      element,
-      (candidate) =>
-        typeof candidate?.props?.onChange === "function"
-        && findNodes(candidate, (child) => child?.props?.value === "Normal").length > 0,
-    )[0];
-    const fontFamilySelect = findNodes(
-      element,
-      (candidate) =>
-        typeof candidate?.props?.onChange === "function"
-        && findNodes(candidate, (child) => child?.props?.value === "Arial").length > 0,
-    )[0];
-    headingSelect.props.onChange({ target: { value: "Heading 3" } });
-    fontFamilySelect.props.onChange({ target: { value: "Times New Roman" } });
-    expect(onHeadingChange).toHaveBeenCalledWith("Heading 3");
-    expect(onFontFamilyChange).toHaveBeenCalledWith("Times New Roman");
-
-    const menuItems = findNodes(
-      element,
-      (candidate) => typeof candidate?.props?.onClick === "function" && typeof candidate?.props?.value === "string",
-    );
-    menuItems.forEach((menuItem) => menuItem.props.onClick?.());
-    expect(onHeadingChange).toHaveBeenCalledWith("Normal");
-    expect(onHeadingChange).toHaveBeenCalledWith("Body Alt 3");
-
-    const textColorControls = findNodes(element, (candidate) => candidate?.type?.name === "TextColorPickerControl");
-    expect(textColorControls).toHaveLength(2);
-    textColorControls[0].props.onChange("#000001");
-    textColorControls[1].props.onChange("#000002");
-    expect(onTextColorChange).toHaveBeenCalledWith("#000001");
-    expect(onBackgroundColorChange).toHaveBeenCalledWith("#000002");
-
-    const alignControl = findNodes(element, (candidate) => candidate?.type?.name === "TextAlignMenuControl")[0];
-    alignControl.props.onChange("center");
-    alignControl.props.onIndent();
-    alignControl.props.onOutdent();
-    expect(onAlignmentChange).toHaveBeenCalledWith("center");
-    expect(onIndent).toHaveBeenCalledTimes(1);
-    expect(onOutdent).toHaveBeenCalledTimes(1);
-
-    const insertControl = findNodes(element, (candidate) => candidate?.type?.name === "InsertContentMenuControl")[0];
-    insertControl.props.onInsertHorizontalRule();
-    insertControl.props.onInsertColumnsLayout();
-    insertControl.props.onInsertImage();
-    expect(onInsertHorizontalRule).toHaveBeenCalledTimes(1);
-    expect(onInsertColumnsLayout).toHaveBeenCalledTimes(1);
-    expect(onInsertImage).toHaveBeenCalledTimes(1);
-
-    expect(JSON.stringify(element)).toContain("left-slot");
-    expect(JSON.stringify(element)).toContain("right-slot");
+  it("names actions, exposes controlled pressed states and activates once by pointer and keyboard without submitting", async () => {
+    const user=userEvent.setup(); const submit=vi.fn(); const callbacks=Array.from({length:9},()=>vi.fn());
+    render(<form onSubmit={submit}><RichTextFormattingToolbar onUndo={callbacks[0]} onRedo={callbacks[1]} onFontSizeDecrease={callbacks[2]} onFontSizeIncrease={callbacks[3]}
+      onBold={callbacks[4]} onItalic={callbacks[5]} onUnderline={callbacks[6]} onCode={callbacks[7]} onLink={callbacks[8]} boldActive italicActive="mixed" /></form>);
+    for (const name of ["Undo","Redo","Decrease font size","Increase font size","Bold","Italic","Underline","Inline code","Edit link"]) await user.click(screen.getByRole("button",{name}));
+    callbacks.forEach(callback=>expect(callback).toHaveBeenCalledTimes(1)); expect(submit).not.toHaveBeenCalled();
+    expect(screen.getByRole("button",{name:"Bold"}).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button",{name:"Italic"}).getAttribute("aria-pressed")).toBe("mixed");
+    screen.getByRole("button",{name:"Bold"}).focus(); await user.keyboard(" "); expect(callbacks[4]).toHaveBeenCalledTimes(2);
+    screen.getByRole("button",{name:"Edit link"}).focus(); await user.keyboard("{Enter}"); expect(callbacks[8]).toHaveBeenCalledTimes(2);
   });
-
-  it("hides and disables controls by set and id", () => {
-    const element = RichTextFormattingToolbar({
-      showFontFamilySelector: false,
-      showFontSizeControls: false,
-      disabledControlSets: { history: true, insert: true },
-      disabledControls: { heading: true, bold: true },
-      hiddenControlSets: { colors: true, textStyle: true },
-      hiddenControls: { heading: true, alignment: true, insert: true, undo: true, redo: true, bold: true, italic: true, underline: true, code: true, link: true },
-    }) as any;
-
-    expect(findNodes(element, (candidate) => candidate?.type?.name === "Select")).toHaveLength(0);
-    expect(findNodes(element, (candidate) => candidate?.type?.name === "TextColorPickerControl")).toHaveLength(0);
-    expect(findNodes(element, (candidate) => candidate?.type?.name === "TextStyleMenuControl")).toHaveLength(0);
-    expect(findNodes(element, (candidate) => candidate?.type?.name === "TextAlignMenuControl")).toHaveLength(0);
-    expect(findNodes(element, (candidate) => candidate?.type?.name === "InsertContentMenuControl")).toHaveLength(0);
-    expect(findNodes(element, (candidate) => candidate?.type?.name === "IconButton")).toHaveLength(0);
+  it("requests heading/font selections exactly once and preserves controlled values until the host updates", async () => {
+    const user=userEvent.setup(); const heading=vi.fn(); const font=vi.fn();
+    render(<RichTextFormattingToolbar onHeadingChange={heading} onFontFamilyChange={font} />);
+    const trigger=screen.getByRole("button",{name:/Text style heading/}); await user.click(trigger);
+    await user.click(screen.getByRole("option",{name:"Heading 3"})); expect(heading).toHaveBeenCalledExactlyOnceWith("Heading 3");
+    await waitFor(()=>expect(document.activeElement).toBe(trigger)); expect(trigger.textContent).toContain("Normal");
+    const fontTrigger=screen.getByRole("button",{name:/Font family/}); fontTrigger.focus(); await user.keyboard("{ArrowDown}{End}{Enter}");
+    expect(font).toHaveBeenCalledExactlyOnceWith("Times New Roman"); await waitFor(()=>expect(document.activeElement).toBe(fontTrigger));
+  });
+  it("finishes keyboard selection before a host callback can move focus into its editor", async () => {
+    const user=userEvent.setup(); const change=vi.fn(() => screen.getByRole("textbox",{name:"Host editor"}).focus());
+    render(<><RichTextFormattingToolbar onFontFamilyChange={change} /><input aria-label="Host editor" defaultValue="Guide" /></>);
+    await user.click(screen.getByRole("button",{name:/Font family/})); await user.keyboard("{ArrowDown}");
+    const option=screen.getByRole("option",{name:"Georgia"});
+    fireEvent.keyDown(option,{key:"Enter",code:"Enter"});
+    expect(change).not.toHaveBeenCalled();
+    fireEvent.keyUp(option,{key:"Enter",code:"Enter"});
+    await waitFor(()=>expect(change).toHaveBeenCalledExactlyOnceWith("Georgia"));
+    expect(document.activeElement).toBe(screen.getByRole("textbox",{name:"Host editor"}));
+    expect((screen.getByRole("textbox",{name:"Host editor"}) as HTMLInputElement).value).toBe("Guide");
+  });
+  it("preserves pointer link preparation and makes keyboard activation independent of it", async () => {
+    const user=userEvent.setup(); const prepare=vi.fn(); const link=vi.fn();
+    render(<RichTextFormattingToolbar onLink={link} onLinkMouseDown={prepare} />);
+    const trigger=screen.getByRole("button",{name:"Edit link"}); await user.click(trigger);
+    expect(prepare).toHaveBeenCalledTimes(1); expect(link).toHaveBeenCalledTimes(1);
+    trigger.focus(); await user.keyboard(" "); expect(link).toHaveBeenCalledTimes(2); expect(prepare).toHaveBeenCalledTimes(1);
+  });
+  it("honors hidden and disabled controls/sets and disables unavailable callbacks", async () => {
+    const user=userEvent.setup(); const bold=vi.fn();
+    render(<RichTextFormattingToolbar onBold={bold} disabledControls={{bold:true}} hiddenControlSets={{history:true,colors:true,insert:true}} showFontFamilySelector={false} showFontSizeControls={false} hiddenControls={{heading:true}} />);
+    expect(screen.queryByRole("button",{name:"Undo"})).toBeNull(); expect(screen.queryByRole("button",{name:"Text color"})).toBeNull(); expect(screen.queryByRole("button",{name:/Font family/})).toBeNull();
+    await user.click(screen.getByRole("button",{name:"Bold"})); expect(bold).not.toHaveBeenCalled();
+    expect((screen.getByRole("button",{name:"Italic"}) as HTMLButtonElement).disabled).toBe(true);
+  });
+  it("composes checked styles, restricted indent and semantic color actions", async () => {
+    const user=userEvent.setup(); const highlight=vi.fn(); const color=vi.fn(); const indent=vi.fn();
+    render(<Provider theme="dark"><RichTextFormattingToolbar activeTextStyles={["highlight"]} onTextStyleHighlight={highlight} onIndent={indent} canIndent={false} onBackgroundColorChange={color} /></Provider>);
+    await user.click(screen.getByRole("button",{name:"Text style"})); expect(screen.getByRole("menuitemcheckbox",{name:"Highlight"}).getAttribute("aria-checked")).toBe("true");
+    await user.click(screen.getByRole("menuitemcheckbox",{name:"Highlight"})); expect(highlight).toHaveBeenCalledTimes(1);
+    await user.click(screen.getByRole("button",{name:"Left Align"})); expect(screen.getByRole("menuitem",{name:/^Indent/}).getAttribute("aria-disabled")).toBe("true"); await user.keyboard("{Escape}");
+    await user.click(screen.getByRole("button",{name:"Background color"})); await user.click(screen.getByRole("button",{name:"Primary"})); expect(color).toHaveBeenCalledExactlyOnceWith("var(--sgui-action)");
+  });
+  it("forwards native root and slots and translates owned labels", () => {
+    const ref=createRef<HTMLDivElement>(); const t=vi.fn((_key,options)=>`Translated ${options.defaultMessage}`);
+    render(<SGTranslationProvider value={{t,useNamespace:()=>{}}}><RichTextFormattingToolbar ref={ref} className="host-toolbar" style={{marginInline:2}} leftSlot={<span>Left</span>} rightSlot={<span>Right</span>} /></SGTranslationProvider>);
+    expect(ref.current).toBe(screen.getByRole("group",{name:"Translated Text formatting"})); expect(ref.current?.classList.contains("host-toolbar")).toBe(true);
+    expect(screen.getByText("Left")).toBeTruthy(); expect(screen.getByText("Right")).toBeTruthy(); expect(screen.getByRole("button",{name:"Translated Undo"})).toBeTruthy();
   });
 });

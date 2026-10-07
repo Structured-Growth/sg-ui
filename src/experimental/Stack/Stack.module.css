@@ -1,0 +1,15 @@
+@layer sgui.components {
+  .root { display: flex; gap: var(--sgui-space2); flex-direction: column; align-items: stretch; justify-content: flex-start; }
+  .root[data-direction="row"] { flex-direction: row; }
+  .root[data-align="start"] { align-items: flex-start; }
+  .root[data-align="center"] { align-items: center; }
+  .root[data-align="end"] { align-items: flex-end; }
+  .root[data-align="baseline"] { align-items: baseline; }
+  .root[data-justify="center"] { justify-content: center; }
+  .root[data-justify="end"] { justify-content: flex-end; }
+  .root[data-justify="between"] { justify-content: space-between; }
+  .root[data-justify="around"] { justify-content: space-around; }
+  .root[data-justify="evenly"] { justify-content: space-evenly; }
+  .root[data-wrap] { flex-wrap: wrap; }
+  @media (max-width: 38rem) { .root[data-responsive] { flex-direction: column; } }
+}

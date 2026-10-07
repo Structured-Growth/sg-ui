@@ -1,0 +1,16 @@
+@layer sgui.components {
+  .rules { display: grid; gap: var(--sgui-space3); }
+  .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto; align-items: end; gap: var(--sgui-space2); }
+  .row > * { min-inline-size: 0; }
+  .field { display: flex; flex-direction: column; gap: var(--sgui-space1); }
+  .label { font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
+  .input { box-sizing: border-box; inline-size: 100%; min-inline-size: 0; min-block-size: var(--sgui-control-height); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); padding: var(--sgui-space1) var(--sgui-control-padding); color: var(--sgui-text); background: var(--sgui-surface); font: inherit; }
+  .input:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+  .input:disabled { opacity: 0.5; }
+  .options { display: grid; gap: var(--sgui-space2); }
+  .footer { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); align-items: center; justify-content: space-between; margin-block-start: var(--sgui-space3); }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); }
+  .badge { margin-inline-start: var(--sgui-space1); padding-inline: var(--sgui-space1); border-radius: var(--sgui-field-radius); color: var(--sgui-on-action); background: var(--sgui-action); }
+  @media (max-width: 40rem) { .row { grid-template-columns: minmax(0, 1fr); } }
+  @media (forced-colors: active) { .input { border-color: FieldText; } .input:focus-visible { outline-color: Highlight; } }
+}

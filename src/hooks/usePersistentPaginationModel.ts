@@ -1,68 +1,49 @@
 "use client";
 
 import { useCallback, useEffect, useMemo } from "react";
-import { usePersistentState } from "./usePersistentState";
+import { usePersistentState, type PersistentStateOptions } from "./usePersistentState";
 
-export type PaginationModel = {
-  page: number;
-  pageSize: number;
-};
+import { normalizePaginationModel, type PaginationModel, type PaginationNormalizationOptions } from "./paginationModel";
 
-export const APP_PAGE_SIZE_OPTIONS = [25, 50, 100] as const;
+export { normalizePaginationModel, APP_PAGE_SIZE_OPTIONS } from "./paginationModel";
+export type { PaginationModel, PaginationNormalizationOptions } from "./paginationModel";
 
-const normalizePageSize = (pageSize: number): number => {
-  if (!Number.isFinite(pageSize)) {
-    return APP_PAGE_SIZE_OPTIONS[0];
-  }
+export interface PersistentPaginationModelOptions extends PaginationNormalizationOptions,
+  Omit<PersistentStateOptions<PaginationModel>, "validate"> {}
 
-  if (pageSize > APP_PAGE_SIZE_OPTIONS[APP_PAGE_SIZE_OPTIONS.length - 1]) {
-    return APP_PAGE_SIZE_OPTIONS[APP_PAGE_SIZE_OPTIONS.length - 1];
-  }
+const isPaginationModel = (value: unknown): value is PaginationModel =>
+  value !== null && typeof value === "object" && "page" in value && "pageSize" in value &&
+  typeof value.page === "number" && typeof value.pageSize === "number";
 
-  const exactMatch = APP_PAGE_SIZE_OPTIONS.find((value) => value === pageSize);
-  if (exactMatch) {
-    return exactMatch;
-  }
-
-  const roundedUp = APP_PAGE_SIZE_OPTIONS.find((value) => value >= pageSize);
-  return roundedUp as number;
-};
-
-export const normalizePaginationModel = (model: PaginationModel): PaginationModel => {
-  const normalizedPage = Number.isFinite(model.page) && model.page > 0 ? Math.floor(model.page) : 0;
-
-  return {
-    page: normalizedPage,
-    pageSize: normalizePageSize(model.pageSize),
-  };
-};
-
-export function usePersistentPaginationModel(key: string, initialValue: PaginationModel = { page: 0, pageSize: 25 }) {
-  const [value, setValue] = usePersistentState<PaginationModel>(key, normalizePaginationModel(initialValue));
+export function usePersistentPaginationModel(
+  key: string | undefined = undefined,
+  initialValue: PaginationModel = { page: 0, pageSize: 25 },
+  options: PersistentPaginationModelOptions = {},
+) {
+  const { pageSizeOptions, defaultPageSize } = options;
+  const [value, setValue] = usePersistentState<PaginationModel>(key, normalizePaginationModel(initialValue, options), {
+    storage: options.storage,
+    version: options.version,
+    migrate: options.migrate,
+    validate: isPaginationModel,
+  });
   const normalizedValue = useMemo(
-    () => normalizePaginationModel(value),
-    [value],
+    () => normalizePaginationModel(value, { pageSizeOptions, defaultPageSize }),
+    [value, pageSizeOptions, defaultPageSize],
   );
 
   useEffect(() => {
-    if (normalizedValue.page !== value.page || normalizedValue.pageSize !== value.pageSize) {
-      setValue(normalizedValue);
-    }
+    if (normalizedValue.page !== value.page || normalizedValue.pageSize !== value.pageSize) setValue(normalizedValue);
   }, [normalizedValue, setValue, value.page, value.pageSize]);
 
   const setNormalizedValue = useCallback(
     (nextValue: PaginationModel | ((prevValue: PaginationModel) => PaginationModel)) => {
-      setValue((previousValue) => {
-        const normalizedPrevious = normalizePaginationModel(previousValue);
-        const resolved =
-          typeof nextValue === "function"
-            ? (nextValue as (prevValue: PaginationModel) => PaginationModel)(normalizedPrevious)
-            : nextValue;
-
-        return normalizePaginationModel(resolved);
-      });
+      setValue(previousValue => normalizePaginationModel(
+        typeof nextValue === "function" ? nextValue(normalizePaginationModel(previousValue, { pageSizeOptions, defaultPageSize })) : nextValue,
+        { pageSizeOptions, defaultPageSize },
+      ));
     },
-    [setValue],
+    [setValue, pageSizeOptions, defaultPageSize],
   );
 
   return [normalizedValue, setNormalizedValue] as const;

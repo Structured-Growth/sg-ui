@@ -1,46 +1,25 @@
 "use client";
-
-import { useEffect, useMemo, useRef, useState } from "react";
-import CachedIcon from "@mui/icons-material/Cached";
-import CloseIcon from "@mui/icons-material/Close";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import SearchIcon from "@mui/icons-material/Search";
-import SortIcon from "@mui/icons-material/Sort";
-import ViewColumnIcon from "@mui/icons-material/ViewColumn";
-import ViewListIcon from "@mui/icons-material/ViewList";
-import WindowIcon from "@mui/icons-material/Window";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Collapse from "@mui/material/Collapse";
-import IconButton from "@mui/material/IconButton";
-import InputBase from "@mui/material/InputBase";
-import Paper from "@mui/material/Paper";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import type { ReactNode } from "react";
+import { forwardRef, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { Button } from "../../experimental/Button/Button";
+import { TextField } from "../../experimental/TextField/TextField";
+import { ToggleButton } from "../../experimental/ToggleButton/ToggleButton";
+import { CachedIcon, CloseIcon, FilterListIcon, SearchIcon, SortIcon, ViewColumnIcon, ViewListIcon, WindowIcon } from "../../experimental/icons";
 import { useTranslation } from "../../i18n";
 import { DataToolbarColumnsMenu, type DataToolbarColumnOption } from "./components/DataToolbarColumnsMenu";
-import {
-  DataToolbarSortMenu,
-  type DataToolbarSortOption,
-  type DataToolbarSortRule,
-} from "./components/DataToolbarSortMenu";
-import {
-  DataToolbarFilterMenu,
-  type DataToolbarFilterField,
-  type DataToolbarFilterRule,
-} from "./components/DataToolbarFilterMenu";
-export type {
-  DataToolbarSelectionOption,
-  DataToolbarSelectionState,
-} from "./components/DataToolbarSelectionMenu";
+import { DataToolbarSortMenu, type DataToolbarSortOption, type DataToolbarSortRule } from "./components/DataToolbarSortMenu";
+import { DataToolbarFilterMenu, type DataToolbarFilterField, type DataToolbarFilterRule } from "./components/DataToolbarFilterMenu";
+import styles from "./DataToolbar.module.css";
+export type { DataToolbarSelectionOption, DataToolbarSelectionState } from "./components/DataToolbarSelectionMenu";
 export type { DataToolbarSortDirection, DataToolbarSortOption, DataToolbarSortRule } from "./components/DataToolbarSortMenu";
 export type { DataToolbarFilterField, DataToolbarFilterFieldType, DataToolbarFilterOperator, DataToolbarFilterRule } from "./components/DataToolbarFilterMenu";
-
 export type ClassesViewMode = "cards" | "list";
 export type DataGridInteractionMode = "client" | "server";
 
 export type DataToolbarProps = {
+  className?: string;
+  style?: CSSProperties;
+  "aria-label"?: string;
+  selectedCount?: number;
   mode?: DataGridInteractionMode;
   viewMode?: ClassesViewMode;
   onViewModeChange?: (mode: ClassesViewMode) => void;
@@ -66,222 +45,70 @@ export type DataToolbarProps = {
   onFilterRulesChange?: (nextRules: DataToolbarFilterRule[]) => void;
 };
 
-const toolbarActionButtonSx = {
-  borderColor: "divider",
-  color: "text.secondary",
-  px: 1.25,
-  py: 0.25,
-  textTransform: "none",
-};
 
-export function DataToolbar({
-  viewMode,
-  onViewModeChange,
-  showViewModeToggle,
-  onRefresh,
-  showRefreshButton = true,
-  showColumnsButton = true,
-  showSortButton = true,
-  showFilterButton = true,
-  showSearchButton = true,
-  leftContent,
-  leftContentWhenSelected,
-  searchPlaceholder,
-  searchValue,
-  onSearchValueChange,
-  columnOptions,
-  onColumnOptionsChange,
-  sortOptions,
-  sortRules,
-  onSortRulesChange,
-  filterFields,
-  filterRules,
-  onFilterRulesChange,
-}: DataToolbarProps) {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [internalSearchValue, setInternalSearchValue] = useState("");
-  const searchInputRef = useRef<HTMLInputElement>(null);
-  const { t, useNamespace } = useTranslation();
-  useNamespace("common.ui");
-  const tr = (key: string, defaultMessage: string) => t(key, { defaultMessage, namespace: "common.ui" });
-
-  const resolvedSearchValue = searchValue ?? internalSearchValue;
-  const resolvedSearchPlaceholder = searchPlaceholder ?? tr("common.ui.toolbar.search", "Search");
-
-  const canToggleViewMode = useMemo(() => {
-    if (typeof showViewModeToggle === "boolean") {
-      return showViewModeToggle;
-    }
-
-    return Boolean(viewMode && onViewModeChange);
-  }, [onViewModeChange, showViewModeToggle, viewMode]);
-  const resolvedLeftContent = leftContentWhenSelected ?? leftContent;
-
-  const handleSearchChange = (value: string) => {
-    if (onSearchValueChange) {
-      onSearchValueChange(value);
-      return;
-    }
-
-    setInternalSearchValue(value);
-  };
-
-  useEffect(() => {
-    if (!isSearchOpen) {
-      return;
-    }
-
-    const frame = window.requestAnimationFrame(() => {
-      searchInputRef.current?.focus();
-    });
-
-    return () => {
-      window.cancelAnimationFrame(frame);
-    };
-  }, [isSearchOpen]);
-
-  return (
-    <Box
-      sx={{
-        alignItems: "center",
-        bgcolor: "action.hover",
-        borderBottom: 1,
-        borderColor: "divider",
-        display: "flex",
-        justifyContent: "space-between",
-        minHeight: 54,
-        px: 1.5,
-      }}
-    >
-      <Box sx={{ alignItems: "center", display: "flex", gap: 1 }}>
-        {showRefreshButton ? (
-          <IconButton onClick={onRefresh} size="small">
-            <CachedIcon fontSize="small" />
-          </IconButton>
-        ) : null}
-        {resolvedLeftContent}
-      </Box>
-
-      <Box sx={{ alignItems: "center", display: "flex", gap: 1 }}>
-        {showSearchButton ? (
-          <Box sx={{ alignItems: "center", display: "flex" }}>
-            <Collapse in={!isSearchOpen} orientation="horizontal" timeout={180}>
-              <IconButton
-                onClick={() => {
-                  setIsSearchOpen(true);
-                }}
-                size="small"
-              >
-                <SearchIcon fontSize="small" />
-              </IconButton>
-            </Collapse>
-
-            <Collapse in={isSearchOpen} orientation="horizontal" timeout={180}>
-              <Paper
-                sx={{
-                  alignItems: "center",
-                  borderRadius: "5px",
-                  display: "flex",
-                  pl: 1,
-                  pr: 0.5,
-                  width: { xs: 180, sm: 260 },
-                }}
-                variant="outlined"
-              >
-                <SearchIcon color="action" fontSize="small" />
-                <InputBase
-                  inputRef={searchInputRef}
-                  onBlur={() => {
-                    if (!resolvedSearchValue.trim()) {
-                      setIsSearchOpen(false);
-                    }
-                  }}
-                  onChange={(event) => {
-                    handleSearchChange(event.target.value);
-                  }}
-                  placeholder={resolvedSearchPlaceholder}
-                  sx={{ ml: 1, width: "100%" }}
-                  value={resolvedSearchValue}
-                />
-                <IconButton
-                  onClick={() => {
-                    if (resolvedSearchValue) {
-                      handleSearchChange("");
-                    }
-                    setIsSearchOpen(false);
-                  }}
-                  size="small"
-                >
-                  <CloseIcon fontSize="small" />
-                </IconButton>
-              </Paper>
-            </Collapse>
-          </Box>
-        ) : null}
-
-        {showColumnsButton ? (
-          columnOptions && onColumnOptionsChange ? (
-            <DataToolbarColumnsMenu onChange={onColumnOptionsChange} options={columnOptions} />
-          ) : (
-            <Button size="small" startIcon={<ViewColumnIcon fontSize="small" />} sx={toolbarActionButtonSx}>
-              {tr("common.ui.toolbar.columns", "Columns")}
-            </Button>
-          )
-        ) : null}
-
-        {showSortButton ? (
-          sortOptions && sortRules && onSortRulesChange ? (
-            <DataToolbarSortMenu onApply={onSortRulesChange} options={sortOptions} value={sortRules} />
-          ) : (
-            <Button size="small" startIcon={<SortIcon fontSize="small" />} sx={toolbarActionButtonSx}>
-              {tr("common.ui.toolbar.sort", "Sort")}
-            </Button>
-          )
-        ) : null}
-
-        {showFilterButton ? (
-          filterFields && filterRules && onFilterRulesChange ? (
-            <DataToolbarFilterMenu fields={filterFields} onApply={onFilterRulesChange} value={filterRules} />
-          ) : (
-            <Button size="small" startIcon={<FilterListIcon fontSize="small" />} sx={toolbarActionButtonSx}>
-              {tr("common.ui.toolbar.filter", "Filter")}
-            </Button>
-          )
-        ) : null}
-
-        {canToggleViewMode ? (
-          <ToggleButtonGroup
-            exclusive
-            onChange={(_, nextMode: ClassesViewMode | null) => {
-              if (nextMode && onViewModeChange) {
-                onViewModeChange(nextMode);
-              }
-            }}
-            size="small"
-            sx={{
-              "& .MuiToggleButton-root": {
-                border: 1,
-                borderColor: "divider",
-                color: "text.secondary",
-                px: 1,
-                py: 0.25,
-              },
-              "& .Mui-selected": {
-                bgcolor: "action.selected",
-                color: "primary.main",
-              },
-            }}
-            value={viewMode}
-          >
-            <ToggleButton value="cards">
-              <WindowIcon fontSize="small" />
-            </ToggleButton>
-            <ToggleButton value="list">
-              <ViewListIcon fontSize="small" />
-            </ToggleButton>
-          </ToggleButtonGroup>
-        ) : null}
-      </Box>
-    </Box>
-  );
-}
+export const DataToolbar = forwardRef<HTMLDivElement, DataToolbarProps>(function DataToolbar({
+ viewMode, onViewModeChange, showViewModeToggle, onRefresh, showRefreshButton = true,
+ showColumnsButton = true, showSortButton = true, showFilterButton = true, showSearchButton = true,
+ leftContent, leftContentWhenSelected, searchPlaceholder, searchValue, onSearchValueChange,
+ columnOptions, onColumnOptionsChange, sortOptions, sortRules, onSortRulesChange,
+ filterFields, filterRules, onFilterRulesChange, selectedCount, className, style, "aria-label": accessibleName,
+}, ref) {
+ const [isSearchOpen, setIsSearchOpen] = useState(false);
+ const [internalSearchValue, setInternalSearchValue] = useState("");
+ const searchInputRef = useRef<HTMLInputElement>(null);
+ const searchTriggerRef = useRef<HTMLButtonElement>(null);
+ const { t, useNamespace } = useTranslation();
+ useNamespace("common.ui");
+ const tr = (key: string, defaultMessage: string) => t(key, { defaultMessage, namespace: "common.ui" });
+ const resolvedSearchValue = searchValue ?? internalSearchValue;
+ const handleSearchChange = (value: string) => {
+   if (searchValue === undefined) setInternalSearchValue(value);
+   onSearchValueChange?.(value);
+ };
+ const closeSearch = () => {
+   if (resolvedSearchValue) handleSearchChange("");
+   setIsSearchOpen(false);
+   searchTriggerRef.current?.focus();
+ };
+ useEffect(() => { if (isSearchOpen) searchInputRef.current?.focus(); }, [isSearchOpen]);
+ const canToggleViewMode = showViewModeToggle ?? Boolean(viewMode && onViewModeChange);
+ return <div ref={ref} role="group" aria-label={accessibleName ?? tr("common.ui.toolbar.label", "Data toolbar")}
+  className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="data-toolbar">
+  <div className={styles.actions}>
+   {showRefreshButton && <Button variant="text" tone="neutral" density="compact" aria-label={tr("common.ui.toolbar.refresh", "Refresh")}
+    disabled={!onRefresh} onPress={onRefresh}><CachedIcon /></Button>}
+   {leftContentWhenSelected ?? leftContent}
+   {selectedCount !== undefined && selectedCount > 0 && <span role="status" className={styles.selected}>
+    {t("common.ui.toolbar.selected", { defaultMessage: "{count} selected", values: { count: selectedCount }, namespace: "common.ui" })}</span>}
+  </div>
+  <div className={styles.actions}>
+   {showSearchButton && <div className={styles.search}>
+    <Button ref={searchTriggerRef} variant="text" tone="neutral" density="compact" aria-label={tr("common.ui.toolbar.search", "Search")}
+     aria-expanded={isSearchOpen} onPress={() => { setIsSearchOpen(true); searchInputRef.current?.focus(); }}><SearchIcon /></Button>
+    {isSearchOpen && <div className={styles.searchField} onKeyDown={event => {
+     if (event.key === "Escape") { event.stopPropagation(); event.preventDefault(); closeSearch(); }
+    }}>
+     <TextField ref={searchInputRef} type="search" density="compact" aria-label={tr("common.ui.toolbar.search", "Search")}
+      placeholder={searchPlaceholder ?? tr("common.ui.toolbar.search", "Search")} value={resolvedSearchValue} onValueChange={handleSearchChange} />
+     <Button variant="text" tone="neutral" density="compact" aria-label={tr("common.ui.toolbar.closeSearch", "Clear and close search")}
+      onPress={closeSearch}><CloseIcon /></Button>
+    </div>}
+   </div>}
+   {showColumnsButton && (columnOptions && onColumnOptionsChange
+    ? <DataToolbarColumnsMenu options={columnOptions} onChange={onColumnOptionsChange} />
+    : <Button variant="outlined" tone="neutral" density="compact" disabled startIcon={<ViewColumnIcon />}>{tr("common.ui.toolbar.columns", "Columns")}</Button>)}
+   {showSortButton && (sortOptions && sortRules && onSortRulesChange
+    ? <DataToolbarSortMenu options={sortOptions} value={sortRules} onApply={onSortRulesChange} />
+    : <Button variant="outlined" tone="neutral" density="compact" disabled startIcon={<SortIcon />}>{tr("common.ui.toolbar.sort", "Sort")}</Button>)}
+   {showFilterButton && (filterFields && filterRules && onFilterRulesChange
+    ? <DataToolbarFilterMenu fields={filterFields} value={filterRules} onApply={onFilterRulesChange} />
+    : <Button variant="outlined" tone="neutral" density="compact" disabled startIcon={<FilterListIcon />}>{tr("common.ui.toolbar.filter", "Filter")}</Button>)}
+   {canToggleViewMode && <div className={styles.views} role="group" aria-label={tr("common.ui.toolbar.viewMode", "View mode")}>
+    <ToggleButton density="compact" selected={viewMode === "cards"} disabled={!onViewModeChange}
+     aria-label={tr("common.ui.toolbar.cards", "Cards")} onPress={() => onViewModeChange?.("cards")}><WindowIcon /></ToggleButton>
+    <ToggleButton density="compact" selected={viewMode === "list"} disabled={!onViewModeChange}
+     aria-label={tr("common.ui.toolbar.list", "List")} onPress={() => onViewModeChange?.("list")}><ViewListIcon /></ToggleButton>
+   </div>}
+  </div>
+ </div>;
+});

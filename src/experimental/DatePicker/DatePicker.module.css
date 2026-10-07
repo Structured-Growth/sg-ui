@@ -1,0 +1,3 @@
+@layer sgui.components {
+  .root { display: flex; align-items: flex-start; gap: var(--sgui-space2); }
+}

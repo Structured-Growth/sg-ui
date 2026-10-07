@@ -8,22 +8,85 @@ permissions:
   contents: read
 jobs:
   validate:
+    name: Validate Node ${{ matrix.node }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ['22.12.0', '24']
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ matrix.node }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm check
-      - run: pnpm build-storybook
-      - run: pnpm pack --pack-destination artifacts
-      - uses: actions/upload-artifact@v4
+      - name: Record validation runtime
+        run: |
+          mkdir -p artifacts/logs
+          node --version | tee artifacts/logs/node.txt
+          pnpm --version | tee artifacts/logs/pnpm.txt
+      - name: Package and behavior checks
+        run: pnpm check 2>&1 | tee artifacts/logs/check.txt
+      - name: Build Storybook
+        run: pnpm build-storybook 2>&1 | tee artifacts/logs/storybook.txt
+      - name: Install browser engines
+        if: matrix.node == '24'
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
+      - name: Browser interactions, accessibility and performance smoke
+        if: matrix.node == '24'
+        run: pnpm test:browser 2>&1 | tee artifacts/logs/browser.txt
+      # Do not rebuild dist while these fixtures pack it. Vite SSR also shares a
+      # port, so React versions and foundation/editor fixtures run serially.
+      - name: Packed React 18.3 foundation consumer
+        run: node scripts/test-foundation-consumer.mjs --react18 ${{ matrix.node == '24' && '--browser' || '' }} 2>&1 | tee artifacts/logs/foundation-react18.txt
+      - name: Packed React 19 foundation and Flight consumer
+        run: node scripts/test-foundation-consumer.mjs ${{ matrix.node == '24' && '--browser' || '' }} 2>&1 | tee artifacts/logs/foundation-react19.txt
+      - name: Packed React 18.3 editor consumer
+        run: node scripts/test-editor-consumer.mjs --react18 2>&1 | tee artifacts/logs/editor-react18.txt
+      - name: Packed React 19 editor consumer
+        run: node scripts/test-editor-consumer.mjs 2>&1 | tee artifacts/logs/editor-react19.txt
+      - name: Packed Next.js production and browser consumer
+        if: matrix.node == '24'
+        run: node scripts/test-next-consumer.mjs 2>&1 | tee artifacts/logs/next-consumer.txt
+      - name: Pack validated package
+        run: pnpm pack --pack-destination artifacts
+      - name: Upload validated package
+        uses: actions/upload-artifact@v4
         with:
-          name: sgui-build
+          name: sgui-package-node-${{ matrix.node }}
+          path: artifacts/*.tgz
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload validated Storybook
+        uses: actions/upload-artifact@v4
+        with:
+          name: sgui-storybook-node-${{ matrix.node }}
+          path: storybook-static/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload browser evidence
+        if: always() && matrix.node == '24'
+        uses: actions/upload-artifact@v4
+        with:
+          name: sgui-browser-node-24
           path: |
-            artifacts/*.tgz
-            storybook-static/
+            artifacts/browser-report/
+            artifacts/browser-traces/
+            artifacts/browser-results.json
+            artifacts/packed-browser/
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Upload validation results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sgui-validation-node-${{ matrix.node }}
+          path: artifacts/logs/
+          if-no-files-found: warn
+          retention-days: 14

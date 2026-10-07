@@ -1,0 +1,6 @@
+@layer sgui.components {
+  .root { color: var(--sgui-action); text-decoration: none; border-radius: var(--sgui-field-radius); overflow-wrap: anywhere; }
+  .root[data-tone="inherit"] { color: inherit; }
+  .root[data-underline="always"], .root[data-underline="hover"]:hover { text-decoration: underline; }
+  .root:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: var(--sgui-focus-offset); }
+}

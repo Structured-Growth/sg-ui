@@ -1,0 +1,10 @@
+@layer sgui.components {
+  .root { display: flex; flex-direction: column; min-block-size: 0; min-inline-size: 0; background: var(--sgui-surface); color: var(--sgui-text); }
+  .navigation { display: flex; overflow-x: auto; border-block-end: 1px solid var(--sgui-divider); padding-inline: var(--sgui-space3); }
+  .link { display: inline-flex; align-items: center; gap: var(--sgui-space2); flex: none; box-sizing: border-box; min-block-size: var(--sgui-control-height); padding-inline: var(--sgui-control-padding); border-block-end: 2px solid transparent; white-space: nowrap; font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
+  .link[aria-current="page"] { color: var(--sgui-action); border-block-end-color: var(--sgui-action); }
+  .link[aria-disabled] { opacity: 0.5; }
+  .link:focus-visible { outline: var(--sgui-focus-width) solid var(--sgui-focus); outline-offset: calc(-1 * var(--sgui-focus-width)); }
+  .icon { display: inline-flex; flex: none; }
+  @media (forced-colors: active) { .link[aria-current="page"] { border-color: Highlight; } .link[aria-disabled] { color: GrayText; opacity: 1; } }
+}

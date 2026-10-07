@@ -1,0 +1,62 @@
+{
+  "measuredAt": "2026-10-06T03:25:45.631Z",
+  "runtime": "v26.5.0",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "cpu": "Apple M4",
+  "methodology": "Server render: 3 warm-ups, 9 samples, median and maximum (p90). Built modules, one Provider, no browser or network. Production consumer asset sizes include React and all proof controls; gzip level defaults. These are local reference measurements, not client interaction or framework rankings.",
+  "results": {
+    "extractedButtons100": {
+      "medianMs": 4.62,
+      "p90Ms": 16.3,
+      "htmlBytes": 665310
+    },
+    "ownedButtons100": {
+      "medianMs": 3.72,
+      "p90Ms": 4.03,
+      "htmlBytes": 25579
+    },
+    "ownedFields40": {
+      "medianMs": 2.78,
+      "p90Ms": 3.16,
+      "htmlBytes": 16234
+    },
+    "asyncOptions200": {
+      "medianMs": 8.47,
+      "p90Ms": 9.58,
+      "htmlBytes": 76131
+    },
+    "gridRows1000Page50": {
+      "medianMs": 16.12,
+      "p90Ms": 21.01,
+      "htmlBytes": 84327
+    },
+    "rangeTwoMonths": {
+      "medianMs": 4.72,
+      "p90Ms": 5.68,
+      "htmlBytes": 25250
+    }
+  },
+  "consumers": {
+    "18.3.1": {
+      "js": {
+        "bytes": 516910,
+        "gzipBytes": 162102
+      },
+      "css": {
+        "bytes": 30610,
+        "gzipBytes": 4795
+      }
+    },
+    "19.2.3": {
+      "js": {
+        "bytes": 567665,
+        "gzipBytes": 176968
+      },
+      "css": {
+        "bytes": 30610,
+        "gzipBytes": 4795
+      }
+    }
+  }
+}

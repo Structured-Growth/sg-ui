@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { LearnerClassesDataGrid } from "./LearnerClassesDataGrid";
 
+import { Provider } from "../../experimental/Provider/Provider";
+
 const now = new Date("2026-02-17T09:00:00");
 const hours = (value: number) => new Date(now.getTime() + value * 60 * 60 * 1000).toISOString();
 
@@ -30,6 +32,7 @@ const meta = {
       },
     ],
   },
+  decorators: [Story => <Provider><div style={{ height: 450 }}><Story /></div></Provider>],
   tags: ["autodocs"],
 } satisfies Meta<typeof LearnerClassesDataGrid>;
 
