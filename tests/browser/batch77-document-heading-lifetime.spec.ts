@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 for (const theme of ['light', 'dark']) {
   for (const mode of ['replace', 'remove', 'read-only', 'unmount', 'remove-restore', 'read-only-restore', 'unchanged']) {
-    test(`queued heading ${mode} uses committed availability and owner: ${theme}`, async ({ page }) => {
+    test(`queued heading ${mode} uses committed availability and owner: ${theme}`, async ({ page }, info) => {
       const diagnostics: string[] = [];
       page.on('pageerror', error => diagnostics.push(error.message));
       page.on('console', message => { if (['error', 'warning'].includes(message.type())) diagnostics.push(message.text()); });
@@ -16,6 +16,10 @@ for (const theme of ['light', 'dark']) {
       await page.keyboard.press('Enter');
       await expect(page.getByLabel('Heading host commits')).toHaveText('1');
       await expect(page.getByLabel('Heading delivery checkpoint')).toHaveText('drained');
+      const trace = JSON.parse(await page.getByLabel('Heading event trace').textContent() ?? '[]');
+      await info.attach('heading-event-order', { body: JSON.stringify(trace), contentType: 'application/json' });
+      expect(trace.slice(0, 3)).toEqual(['option-enter', 'select-closed', `host-committed:${mode}`]);
+      if (mode.endsWith('-restore')) expect(trace).toEqual(['option-enter', 'select-closed', `host-committed:${mode}`, 'availability-restored', 'delivery-checkpoint']);
       const accepted = mode === 'replace' || mode === 'unchanged';
       await expect(page.getByLabel('Heading requests')).toHaveText(accepted ? `["${mode === 'replace' ? 'current' : 'original'}:h1"]` : '[]');
       const editor = page.getByRole('textbox', { name: 'Heading host editor' });

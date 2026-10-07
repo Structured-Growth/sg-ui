@@ -102,6 +102,9 @@ describe("queued heading host fixture", () => {
       await user.keyboard("{ArrowDown}{Enter}");
       await waitFor(() => expect(screen.getByLabelText("Heading delivery checkpoint").textContent).toBe("drained"));
       expect(screen.getByLabelText("Heading host commits").textContent).toBe("1");
+      const trace = JSON.parse(screen.getByLabelText("Heading event trace").textContent ?? "[]");
+      expect(trace.slice(0, 3)).toEqual(["option-enter", "select-closed", `host-committed:${mode}`]);
+      if (mode.endsWith("-restore")) expect(trace).toEqual(["option-enter", "select-closed", `host-committed:${mode}`, "availability-restored", "delivery-checkpoint"]);
       expect(screen.getByLabelText("Heading requests").textContent).toBe(
         mode === "replace" ? '["current:h1"]' : mode === "unchanged" ? '["original:h1"]' : '[]',
       );
