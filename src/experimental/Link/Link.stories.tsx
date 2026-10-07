@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Link } from "./Link";
+import { Button } from "../Button/Button";
 import { Provider } from "../Provider/Provider";
-import { useState, type MouseEvent } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 import { SGNavigationProvider } from "../../adapters/navigation";
 const meta = { title: "Migration proofs/Link", component: Link, tags: ["autodocs"], decorators: [(Story) => <Provider><Story /></Provider>], args: { href: "https://example.com", target: "_blank", children: "Course reference" } } satisfies Meta<typeof Link>;
 export default meta;
@@ -32,3 +33,15 @@ function NavigationSemanticsExample() {
   </SGNavigationProvider>;
 }
 export const NavigationSemantics: Story = { render: () => <NavigationSemanticsExample /> };
+
+/** Reserved native browsing-context targets are case-insensitive. */
+function NewTabTargetsExample() {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const [events, setEvents] = useState<string[]>([]);
+  return <SGNavigationProvider value={{ pathname: "/", navigate: href => setEvents(previous => [...previous, `navigate:${href}`]) }}>
+    <Link ref={ref} href="#new-tab-reference" target="_BLANK" rel="author noopener" onClick={() => setEvents(previous => [...previous, "reference:click"])}><span>Mixed-case new tab reference</span></Link>
+    <Button onPress={() => ref.current?.focus()}>Focus reference link</Button>
+    <output aria-label="New tab events">{events.join("\n")}</output>
+  </SGNavigationProvider>;
+}
+export const NewTabTargets: Story = { render: () => <NewTabTargetsExample /> };
