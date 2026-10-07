@@ -2,6 +2,8 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { SGTranslationProvider } from "../../i18n";
+import { Provider } from "../Provider/Provider";
 import { ComboBox } from "./ComboBox";
 afterEach(cleanup);
 const options = [{ id: "science", label: "Science" }, { id: "math", label: "Mathematics" }, { id: "archived", label: "Archived", disabled: true }];
@@ -78,4 +80,17 @@ it("keeps the controlled host label when the host declines a selection request",
  await user.click(screen.getByRole("button")); await user.click(screen.getByRole("option", { name: "Mathematics" }));
  expect(change).toHaveBeenLastCalledWith("math");
  expect((screen.getByRole("combobox") as HTMLInputElement).value).toBe("Science");
+});
+
+it("keeps Turkish locale filtering while its popup uses an RTL visual override", async () => {
+  const user = userEvent.setup();
+  render(<SGTranslationProvider value={{ locale: "tr-TR", t: (_key, options) => options.defaultMessage, useNamespace: () => {} }}>
+    <Provider dir="rtl"><ComboBox label="City" options={[{ id: "isparta", label: "Isparta" }, { id: "istanbul", label: "İstanbul" }]} /></Provider>
+  </SGTranslationProvider>);
+  await user.type(screen.getByRole("combobox"), "ı");
+  expect(await screen.findByRole("option", { name: "Isparta" })).toBeTruthy();
+  expect(screen.queryByRole("option", { name: "İstanbul" })).toBeNull();
+  expect(screen.getByRole("listbox").closest("[data-sgui-scope]")?.getAttribute("dir")).toBe("rtl");
+  await user.keyboard("{ArrowDown}{Enter}");
+  expect((screen.getByRole("combobox") as HTMLInputElement).value).toBe("Isparta");
 });
