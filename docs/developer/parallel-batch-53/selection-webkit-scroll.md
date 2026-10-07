@@ -136,3 +136,59 @@ retained text, dismissal, native fresh selection and collision assertions before
 bounded acceptance; previous diagnostic Chromium success does not validate changed
 runtime bytes. Unchanged green cases need not be duplicated solely for load.
 Broader browser, whole M-25, device and AT acceptance stay open.
+
+
+## Wave29 verified native correction proof
+
+Coordinator released the frozen source after the run settled. Read root manifest,
+selection shard evidence/results and worker attribution at
+`/tmp/sgui-batch45-candidate-wave29-attribution.json`. Verified all five frozen
+worker file hashes against that attribution before this report-only update.
+Actual tested shared candidate: `f87c8d336932ea70ad3ab9eaea5e4e6b77bc40ec`.
+Attributed worker HEAD: `9b74d453cd83d50a1c5546a6ad8245bc8fed989a`, baseline
+`496658081b8b8efcde21ab4f9b151adfd3aa32fe`. The worker checkout did not itself run
+browsers. Candidate source bytes were identical for this scope:
+
+| Scoped file | Tested SHA-256 |
+| --- | --- |
+| FloatingTextSelectionToolbar.tsx | `e38c12274a47f75c325a4cd3c0e8e2461f4032ca1173da961dbf8308d8716402` |
+| FloatingTextSelectionToolbar.test.tsx | `e058ffd31c42edf7a7aaccb9015c4129ec504df91dc43a2730a8f9f75c8eb33a` |
+| FloatingTextSelectionToolbar.stories.tsx | `e89c2c9b4e59a73da006b98be82c15373699dd98ef7296665122289117166a9b` |
+| tests/browser/inventory-selection-boundary.spec.ts | `4a92fe7fb51d80400f85f8844901acc787f754ac61c4b69cc3eb40c10fca05b2` |
+| This report before finalization | `848448f6b7e0febfdd1ed69d00249c597fe89b822664c4bfd594c6e525d055f0` |
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/693cd1a1-28f1-4986-b345-258b4621c480`.
+Shard: `selection-webkit-scroll`, slot 0, port 6553, Node v24.19.0,
+pnpm 10.29.3, Playwright 1.63.0. One fresh shared Storybook build and browser
+source typecheck preceded the disjoint shards. Actual selected command:
+
+```sh
+pnpm exec playwright test '(?:^|/)tests/browser/inventory-selection-boundary\.spec\.ts$' --project=chromium --project=webkit --grep 'offscreen selection'
+```
+
+Exactly **two cases passed**: the offscreen-selection case once in Chromium and
+once in WebKit, each retry 0. Results: expected 2, unexpected 0, skipped 0,
+flaky 0. The strict 300px host scroll, editor return focus, retained full native
+selection, continued dismissal, native ArrowLeft collapse/fresh mouse selection
+and anchored collision assertions all passed. This is fresh native proof of the
+changed runtime bytes, not reuse of diagnostic Chromium success. Other unchanged
+selection cases were not duplicated in this run. Root run reports 54 passing
+native cases across five shards; this report's behavioral claim remains the two
+scoped cases, not broader component acceptance.
+
+Root initial/final HEAD is the same candidate, final Git status empty. Initial/
+final source digest is
+`6464ca63b43a916374529d26fd88b7cdefcd4efb82b0bcd2014618c1d9bbfe38`;
+initial/final build and shard digest is
+`d6a2c0f07f33e5ca842a98dbf9fe0f0f86b9700add97fdda68c4bcb87c9859f8`.
+Root status passed and cleanup confirms owned commands settled. Original checkpoint
+and wave28 diagnostic failures remain red and retained at their recorded paths.
+
+This finalization changes only the unique report. Source/spec/tests/story remain
+the tested, attributed bytes; no tests, server or build were repeated. Coordinator
+alone reviews and integrates the individual worker commits. The demonstrated
+WebKit focus-scroll defect has bounded Chromium/WebKit correction evidence;
+changed-byte Firefox proof, physical selection/touch/pen, assistive technology,
+whole M-25 and broad U/X/R/Z acceptance remain open. No inventory/master row was
+upgraded by this worker and no full shared-candidate merge is requested.
