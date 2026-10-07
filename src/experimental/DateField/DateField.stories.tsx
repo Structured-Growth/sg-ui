@@ -22,3 +22,18 @@ export const TimezoneResolution: Story = { render: () => {
     <Button onPress={() => { try { setResult(value ? dateTimeToInstant(value, zone, resolution) : "Choose a complete datetime."); }
       catch { setResult("This local time is ambiguous or unavailable. Choose a resolution or another time."); } }}>Resolve instant</Button><p role="status">{result}</p></>;
 } };
+
+function StandaloneResetForm() {
+  const [prevent, setPrevent] = useState(false);
+  const [changes, setChanges] = useState(0);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
+    <form aria-label="Standalone reset form">
+      <DateField label="Uncontrolled field" name="uncontrolled" defaultValue="2024-02-28" onValueChange={() => setChanges(count => count + 1)} />
+      <DateField label="Controlled field" name="controlled" value="2024-03-10" defaultValue="2024-02-28" onValueChange={() => setChanges(count => count + 1)} />
+      <Button type="reset">Reset fields</Button>
+      <output aria-label="Change callbacks">{changes}</output>
+    </form>
+  </div>;
+}
+export const StandaloneReset: Story = { render: () => <StandaloneResetForm /> };

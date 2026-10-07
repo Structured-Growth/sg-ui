@@ -72,3 +72,43 @@ function NativeAcceptanceForm({ acceptChanges = true }: { acceptChanges?: boolea
 }
 export const NativeAcceptance: Story = { render: () => <NativeAcceptanceForm /> };
 export const ControlledAuthority: Story = { render: () => <NativeAcceptanceForm acceptChanges={false} /> };
+
+function StandaloneResetForm() {
+  const [prevent, setPrevent] = useState(false);
+  const [changes, setChanges] = useState(0);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
+    <form aria-label="Standalone reset form">
+      <TextField label="Uncontrolled field" name="uncontrolled" defaultValue="Initial" onValueChange={() => setChanges(count => count + 1)} />
+      <TextField label="Controlled field" name="controlled" value="Host title" defaultValue="Initial" onValueChange={() => setChanges(count => count + 1)} />
+      <Button type="reset">Reset fields</Button>
+      <output aria-label="Change callbacks">{changes}</output>
+    </form>
+  </div>;
+}
+export const StandaloneReset: Story = { render: () => <StandaloneResetForm /> };
+
+export const PreventedValidationReset: Story = { render: () => {
+  const [prevent, setPrevent] = useState(true);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
+    <form onSubmit={event => event.preventDefault()}>
+      <TextField label="Required course" defaultValue="Initial" required errorMessage="Enter a course name." />
+      <Button type="submit">Validate</Button><Button type="reset">Reset validation</Button>
+    </form>
+  </div>;
+} };
+
+export const LiveFormAssociation: Story = { render: () => {
+  const [form, setForm] = useState("reset-owner-a");
+  const [changes, setChanges] = useState(0);
+  const [prevent, setPrevent] = useState(false);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <Button onPress={() => setForm("reset-owner-b")}>Associate with B</Button>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
+    <form id="reset-owner-a" aria-label="Form A"><Button type="reset">Reset A</Button></form>
+    <form id="reset-owner-b" aria-label="Form B"><Button type="reset">Reset B</Button></form>
+    <TextField label="Reassociated field" form={form} name="field" defaultValue="Initial" onValueChange={() => setChanges(count => count + 1)} />
+    <output aria-label="Associated form">{form}</output><output aria-label="Change callbacks">{changes}</output>
+  </div>;
+} };
