@@ -8,7 +8,9 @@ not close broad A/U/X/R/Z, manual/device or assistive-technology gates.
 
 - Exact verified baseline and inspected source head: `b139a0d06fb06ba4a5a5aa6adc69c5cb3b206818`.
 - Managed attached worktree: `/Users/thomashall/.codex/worktrees/batch13-control-typography/sg-ui`.
-- Branch: `codex/batch13-control-typography`; draft PR targets `codex/dev`.
+- Branch: `codex/batch13-control-typography`; draft PR [#50](https://github.com/Structured-Growth/sg-ui/pull/50) targets `codex/dev`.
+- Evidence commit: `2683eec` (exact full identity below); the subsequent report-only commit adds the PR identity.
+  Evidence head: `2683eec5cde2aeafbc0df34d797dd38a028c630a`.
 - Exclusive write allowlist: `src/experimental/Typography/`,
   `tests/browser/batch13-control-typography.spec.ts`, and this report.
 - Actual changed file: this report only. No demonstrated in-scope product defect
