@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { createRef, useState } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { renderToString } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
@@ -34,6 +34,36 @@ function NestedModalFixture({ close }: { close: (reason: string) => void }) {
   </Provider>;
 }
 describe("AppModal owned contract", () => {
+  it("preserves a host-selected parent destination when a removed child opener dismisses", async () => {
+    function RemovedTriggerFixture() {
+      const [open, setOpen] = useState(false);
+      const [child, setChild] = useState(false);
+      const [removed, setRemoved] = useState(false);
+      const destination = useRef<HTMLInputElement>(null);
+      useEffect(() => { if (removed && !child) destination.current?.focus(); }, [removed, child]);
+      return <Provider><AppButton onPress={() => setOpen(true)}>Open recovery</AppButton>
+        <AppModal open={open} title="Parent recovery" onClose={() => setOpen(false)}>
+          <TextField label="Fallback" autoFocus /><TextField label="Destination" ref={destination} />
+          {!removed && <AppButton onPress={() => setChild(true)}>Open removable</AppButton>}
+          <AppModal open={child} title="Child recovery" onClose={() => setChild(false)}>
+            <TextField label="Child" autoFocus /><AppButton onPress={() => setRemoved(true)}>Remove opener</AppButton>
+          </AppModal>
+        </AppModal></Provider>;
+    }
+    const user = userEvent.setup();
+    render(<RemovedTriggerFixture />);
+    await user.click(screen.getByRole("button", { name: "Open recovery", exact: true }));
+    await user.click(screen.getByRole("button", { name: "Open removable", exact: true }));
+    await user.click(screen.getByRole("button", { name: "Remove opener", exact: true }));
+    expect(screen.queryByRole("button", { name: "Open removable", exact: true })).toBeNull();
+    expect(screen.getByRole("dialog", { name: "Child recovery" })).toBeTruthy();
+    await user.keyboard("{Escape}");
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("textbox", { name: "Destination" })));
+    await user.tab();
+    expect(screen.getByRole("dialog", { name: "Parent recovery" }).contains(document.activeElement)).toBe(true);
+    await user.keyboard("{Escape}");
+    await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Open recovery", exact: true })));
+  });
   it("dismisses the top modal once and restores each surviving trigger", async () => {
     const user = userEvent.setup(); const close = vi.fn();
     render(<NestedModalFixture close={close} />);
