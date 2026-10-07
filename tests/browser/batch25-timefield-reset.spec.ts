@@ -11,6 +11,14 @@ test.beforeEach(({ page }) => {
 });
 test.afterEach(({ page }) => { expect(runtimeErrors.get(page)).toEqual([]); });
 
+async function allowClockReset(page: Page) {
+  const policy = page.getByRole('checkbox', { name: 'Prevent clock reset', exact: true });
+  await expect(policy).toBeChecked();
+  // The native input is visually hidden; activate its visible associated label.
+  await page.getByText('Prevent clock reset', { exact: true }).click();
+  await expect(policy).not.toBeChecked();
+}
+
 for (const story of ['incomplete-prevented-reset', 'controlled-null-reset']) {
   test(`${story}: prevented reset preserves partial clock, native validation and segment focus; acceptance clears silently`, async ({ page }) => {
     await page.goto(`/iframe.html?id=migration-proofs-timefield--${story}&viewMode=story&globals=a11y.manual:!true`);
@@ -40,7 +48,7 @@ for (const story of ['incomplete-prevented-reset', 'controlled-null-reset']) {
     for (const part of ['minute', 'second']) await expect(form.locator(`[data-type="${part}"]`)).not.toHaveAttribute('aria-valuenow');
     await expect.poll(() => form.evaluate(node => new FormData(node as HTMLFormElement).get('clock'))).toBe('');
     await expect(page.getByLabel('Clock change callbacks')).toHaveText('0');
-    await page.getByRole('checkbox', { name: 'Prevent clock reset' }).uncheck();
+    await allowClockReset(page);
     await hour.focus(); await form.evaluate(node => (node as HTMLFormElement).reset());
     await expect(hour).not.toHaveAttribute('aria-valuenow');
     await expect(hour).toBeFocused();
@@ -64,7 +72,7 @@ test('complete edited clock survives prevention and silently resets to the lates
   await expect(page.getByLabel('Clock change callbacks')).toHaveText('1');
   await form.getByRole('button', { name: 'Change reset default' }).click();
   await expect.poll(data).toBe('09:30:01');
-  await page.getByRole('checkbox', { name: 'Prevent clock reset' }).uncheck();
+  await allowClockReset(page);
   await second.focus(); await form.evaluate(node => (node as HTMLFormElement).reset());
   await expect.poll(data).toBe('12:45:59'); await expect(second).toBeFocused();
   await expect(second).toHaveAttribute('aria-valuenow', '59');
@@ -78,7 +86,7 @@ test('controlled host rejects edits and remains authoritative during silent nati
   await minute.click(); await page.keyboard.press('ArrowUp');
   await expect(page.getByLabel('Clock change callbacks')).toHaveText('1');
   await expect(minute).toHaveAttribute('aria-valuenow', '0');
-  await page.getByRole('checkbox', { name: 'Prevent clock reset' }).uncheck();
+  await allowClockReset(page);
   await minute.focus(); await form.evaluate(node => (node as HTMLFormElement).reset()); await page.waitForTimeout(30);
   await expect(minute).toBeFocused(); await expect(minute).toHaveAttribute('aria-valuenow', '0');
   await expect.poll(() => form.evaluate(node => new FormData(node as HTMLFormElement).get('clock'))).toBe('09:00:00');
