@@ -10,7 +10,8 @@ import styles from "./AsyncMultiSelect.module.css";
 export interface MultiSelectOption { id: string; label: string; disabled?: boolean }
 export interface AsyncMultiSelectProps {
   label: string;
-  /** Results for the current query. Fetching, cancellation and stale-response rejection belong to the host. */
+  /** Options require unique, stable string IDs; labels never determine selection identity.
+   * Results for the current query. Fetching, cancellation and stale-response rejection belong to the host. */
   options: readonly MultiSelectOption[];
   /** Selected records persist independently of the current search results. */
   value?: readonly MultiSelectOption[];

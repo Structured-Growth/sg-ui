@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { AsyncMultiSelect, type MultiSelectOption } from "./AsyncMultiSelect";
+import { Button } from "../Button/Button";
 import { Provider } from "../Provider/Provider";
 const courses = Array.from({ length: 200 }, (_, index) => ({ id: String(index), label: `Course ${index + 1}` }));
 /** This is a host adapter example, with no application endpoint or library-owned fetching. */
@@ -41,3 +42,21 @@ export const HostSearch: Story = { render: () => <HostSearchExample /> };
 export const Empty: Story = { args: { options: [] } };
 export const FailedSearch: Story = { args: { options: [], errorMessage: "Search failed.", onRetry: () => {} } };
 export const ReadOnly: Story = { args: { value: [courses[0]!], readOnly: true } };
+
+/** Manually settle requests in any order; the transport intentionally ignores abort. */
+function RaceExample() {
+ const [requests, setRequests] = useState<{ query: string; resolve: (options: MultiSelectOption[]) => void; reject: (error: Error) => void }[]>([]);
+ const [search] = useState(() => (query: string, _signal: AbortSignal) => new Promise<MultiSelectOption[]>((resolve, reject) => {
+   setRequests(current => [...current, { query, resolve, reject }]);
+ }));
+ return <><HostSearchExample search={search} />{requests.map((request, index) => <div key={index}>
+   <Button onPress={() => request.resolve([{ id: `result-${index}`, label: `Result ${request.query || "initial"}` }])}>Resolve request {index}</Button>
+   <Button onPress={() => request.reject(new Error("Search failed"))}>Reject request {index}</Button>
+ </div>)}</>;
+}
+export const RequestRace: Story = { render: () => <RaceExample /> };
+export const Loading: Story = { args: { loading: true } };
+export const Independent: Story = { render: () => <form>
+ <AsyncMultiSelect label="First courses" name="first" query="" onQueryChange={() => {}} options={[{ id: "01", label: "Science" }, { id: "locked", label: "Archived", disabled: true }, { id: "1", label: "Mathematics" }]} />
+ <AsyncMultiSelect label="Second courses" name="second" query="" onQueryChange={() => {}} options={[{ id: "01", label: "Science" }, { id: "1", label: "Mathematics" }]} defaultValue={[{ id: "1", label: "Mathematics" }]} />
+ </form> };

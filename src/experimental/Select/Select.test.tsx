@@ -25,3 +25,18 @@ it("associates validation and descriptions and renders empty collections", async
  await user.click(screen.getByRole("button")); expect(screen.getByText("Choose status No options found")).toBeDefined();
  expect(screen.queryByRole("listbox")).toBeNull();
 });
+it("keeps duplicate labels distinct by string ID and isolates default/controlled selections", async () => {
+ const user = userEvent.setup(); const change = vi.fn();
+ const sameLabels = [{ id: "01", label: "Same" }, { id: "1", label: "Same" }];
+ const { rerender } = render(<form data-testid="pair"><Select label="First" name="first" options={sameLabels} defaultValue="01" /><Select label="Second" name="second" options={sameLabels} value={null} onValueChange={change} /></form>);
+ await user.click(screen.getByRole("button", { name: /First/ }));
+ await user.click(screen.getAllByRole("option", { name: "Same" })[1]!);
+ const form = screen.getByTestId("pair") as HTMLFormElement;
+ expect(new FormData(form).get("first")).toBe("1"); expect(new FormData(form).get("second")).toBe("");
+ await user.click(screen.getByRole("button", { name: /Second/ }));
+ await user.click(screen.getAllByRole("option", { name: "Same" })[0]!);
+ expect(change).toHaveBeenLastCalledWith("01"); expect(new FormData(form).get("second")).toBe("");
+ rerender(<form data-testid="pair"><Select label="First" name="first" options={sameLabels} defaultValue="01" /><Select label="Second" name="second" options={[{ id: "01", label: "Renamed" }]} value="01" onValueChange={change} /></form>);
+ expect(screen.getByRole("button", { name: /Second/ }).textContent).toContain("Renamed");
+ expect(new FormData(form).get("second")).toBe("01");
+});

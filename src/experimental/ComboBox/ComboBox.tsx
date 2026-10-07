@@ -17,7 +17,10 @@ import styles from "./ComboBox.module.css";
 export interface ComboBoxOption { id: string; label: string; disabled?: boolean }
 export interface ComboBoxProps {
   label: string;
+  /** Unique, stable string IDs; labels are presentation and are locally filtered.
+   * Fetching and result freshness remain host-owned. */
   options: readonly ComboBoxOption[];
+  /** Controlled selected ID; null explicitly clears selection. Keep the control mode stable for this mount. */
   value?: string | null;
   defaultValue?: string | null;
   onValueChange?: (value: string | null) => void;
