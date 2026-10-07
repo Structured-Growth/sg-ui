@@ -112,19 +112,19 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 ## 4. Architecture, public API ownership, and replaceability
 
 - [x] A-01 Write an architecture decision record for React Aria, compiled CSS, the owned public API, specialist engines, and the reasons alternatives were not selected.
-- [ ] A-02 Establish layers: tokens/styles; native presentation primitives; interaction primitives; composed UI; optional grid/editor/learning extensions; host adapters.
+- [x] A-02 Establish layers: tokens/styles; native presentation primitives; interaction primitives; composed UI; optional grid/editor/learning extensions; host adapters.
 - [ ] A-03 Define one-way dependency boundaries; prevent root-barrel imports from internal implementations and prevent circular imports.
-- [ ] A-04 Keep React Aria imports inside the interaction implementation layer; consumers and higher-level compositions use SGUI contracts.
+- [x] A-04 Keep React Aria imports inside the interaction implementation layer; consumers and higher-level compositions use SGUI contracts.
 - [ ] A-05 Define SGUI-owned props instead of extending or aliasing all upstream props wholesale; selectively map native HTML attributes and ref behavior.
 - [ ] A-06 Standardize controlled/uncontrolled pairs, defaults, change callbacks, null/empty semantics, disabled/read-only/loading behavior, and stable IDs.
 - [ ] A-07 Specify native click versus normalized press semantics without surprising consumers; prevent duplicate callback invocation and document keyboard/touch activation.
-- [ ] A-08 Define public variant, size, tone, density, placement, dismissal-reason, and validation contracts independently of any foundation.
-- [ ] A-09 Define accessible naming and description requirements for icon-only and compound controls; choose typed requirements where practical.
-- [ ] A-10 Define composition and escape hatches: supported slots/parts, render callbacks, refs, `className`/part classes, CSS variables, and native `style` where needed.
+- [x] A-08 Define public variant, size, tone, density, placement, dismissal-reason, and validation contracts independently of any foundation.
+- [x] A-09 Define accessible naming and description requirements for icon-only and compound controls; choose typed requirements where practical.
+- [x] A-10 Define composition and escape hatches: supported slots/parts, render callbacks, refs, `className`/part classes, CSS variables, and native `style` where needed.
 - [ ] A-11 Avoid exposing upstream collection/state objects, date object classes, grid column types, or unstable event payloads without an explicit reviewed contract.
-- [ ] A-12 Preserve useful existing `App*` exports where possible; do not invent a wholesale `SG*` rename merely because examples used that prefix.
+- [x] A-12 Preserve useful existing `App*` exports where possible; do not invent a wholesale `SG*` rename merely because examples used that prefix.
 - [ ] A-13 Replace explicitly branded public exports such as `MuiLink`; document their owned replacement and migration since the final API must contain no retired branding.
-- [ ] A-14 Preserve Class-prefixed compatibility names when possible; use Course naming for new learning APIs and document intentional removals as breaking.
+- [x] A-14 Preserve Class-prefixed compatibility names when possible; use Course naming for new learning APIs and document intentional removals as breaking.
 - [ ] A-15 Create old-to-new API mappings for theme objects, typography, styling props, modal callbacks, selection, columns, and pagination.
 - [ ] A-16 Keep replacement implementations swappable behind observable behavior tests; do not promise a later rewrite will be cost-free or entirely nonbreaking.
 - [ ] A-17 Define extension points for advanced components without placing backend scheduling, booking, permission, or account logic inside UI controls.
@@ -511,19 +511,19 @@ responsibilities. Automated checks help but do not establish complete conformanc
 ## 18. Storybook, agent guidance, and consumer documentation
 
 - [ ] W-01 Rewrite active `AGENTS.md` for the new foundation as migration lands; obsolete direct imports, `sx`, augmentation, retired links and grid assumptions must not guide future AI work.
-- [ ] W-02 Retain valid learner-platform principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes.
-- [ ] W-03 Adapt modal guidance: simple reusable create/edit examples, no one-step numbering, sticky tab header with independently scrolling content, appropriate size, focus and host-owned persistence.
-- [ ] W-04 Retain course naming for new APIs, compatibility rules, host integration boundaries, translation requirements, doc organization, licensing and semantic-release rules.
+- [x] W-02 Retain valid learner-platform principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes.
+- [x] W-03 Adapt modal guidance: simple reusable create/edit examples, no one-step numbering, sticky tab header with independently scrolling content, appropriate size, focus and host-owned persistence.
+- [x] W-04 Retain course naming for new APIs, compatibility rules, host integration boundaries, translation requirements, doc organization, licensing and semantic-release rules.
 - [ ] W-05 Replace blanket compact-menu advice with explicit density defaults and compatibility policy; preserve usability/accessibility at both densities.
 - [ ] W-06 Update the source-guidance mapping to show each retained/adapted/omitted rule and why app database/API/login policies remain outside SGUI.
-- [ ] W-07 Create one canonical component recipe: owned props, native attributes/refs, React Aria mapping, tokens/CSS, stories, behavior tests, public export, and acceptance criteria.
+- [x] W-07 Create one canonical component recipe: owned props, native attributes/refs, React Aria mapping, tokens/CSS, stories, behavior tests, public export, and acceptance criteria.
 - [ ] W-08 Add import/token/style rules and executable checks that prevent AI-created parallel styling systems or leakage of upstream public types.
 - [x] W-09 Update `.storybook/preview.tsx` with production tokens/styles and theme/density/locale/direction controls; stories must not maintain a separate visual system.
-- [ ] W-10 Retain the 33 existing story files or document deliberate replacements; add missing catalog coverage for primitives, adapters, calendars and grid helpers.
-- [ ] W-11 Update README installation to require only actual final peers and CSS imports; provide copyable root/subpath examples with host providers where needed.
-- [ ] W-12 Document tokens/themes, CSS override layers, parts/slots, density, icons, form semantics, locale/direction, date contracts, and accessibility responsibilities.
-- [ ] W-13 Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults.
-- [ ] W-14 Provide representative Vite and Next.js host examples without importing framework APIs into the library; document SSR/client and CSS loading boundaries.
+- [x] W-10 Retain the 33 existing story files or document deliberate replacements; add missing catalog coverage for primitives, adapters, calendars and grid helpers.
+- [x] W-11 Update README installation to require only actual final peers and CSS imports; provide copyable root/subpath examples with host providers where needed.
+- [x] W-12 Document tokens/themes, CSS override layers, parts/slots, density, icons, form semantics, locale/direction, date contracts, and accessibility responsibilities.
+- [x] W-13 Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults.
+- [x] W-14 Provide representative Vite and Next.js host examples without importing framework APIs into the library; document SSR/client and CSS loading boundaries.
 - [ ] W-15 Provide a read-only learner-platform adoption checklist; modifying that application remains a separate implementation task.
 - [ ] W-16 Update `docs/migration.md` and the extraction manifest to preserve useful provenance and account for moves/deletions; do not misrepresent the original extraction as the final architecture.
 - [ ] W-17 Update component architecture, GitHub setup, commercial licensing, package fixtures, issue/PR templates, and troubleshooting for final behavior.
