@@ -175,3 +175,73 @@ it("does not arm drop recovery when another same-grid control already owns focus
     expect(document.activeElement).toBe(document.body);
   } finally { parent.insertBefore(target, next); }
 });
+
+it("returns Strict Mode keyboard cancellation to the source after entering through a selected checkbox", async () => {
+  const onReorder = vi.fn();
+  render(<StrictMode><OwnedGridInteraction {...props} rowDrag={{ onReorder }} /></StrictMode>);
+  const checkbox = screen.getByRole("checkbox", { name: "Select Science" }) as HTMLInputElement;
+  await userEvent.click(checkbox.closest("label")!);
+  expect(checkbox.checked).toBe(true);
+  // Native automation focus is keyboard-visible: nested child focus must not
+  // be assumed to update the collection's remembered selection-cell key.
+  await userEvent.keyboard("{F6}");
+  const handle = screen.getByRole("button", { name: "Reorder Mathematics" });
+  await act(async () => handle.focus());
+  expect(document.activeElement).toBe(handle);
+  await userEvent.keyboard("{Enter}{ArrowDown}{Escape}");
+  await settle();
+  expect(document.activeElement).toBe(handle);
+  expect(checkbox.checked).toBe(true);
+  expect(onReorder).not.toHaveBeenCalled();
+  expect(document.querySelectorAll('[aria-roledescription="drop indicator"]')).toHaveLength(0);
+});
+
+
+it.each([false, true])("keeps deliberate selected-checkbox ownership after cancellation handle replay, removed=%s", async removed => {
+  render(<OwnedGridInteraction {...props} defaultSelectedRowIds={new Set(["a"])} rowDrag={{ onReorder: vi.fn() }} />);
+  const { handle } = await start();
+  const indicator = document.createElement("div");
+  indicator.tabIndex = -1; indicator.setAttribute("aria-roledescription", "drop indicator");
+  handle.closest('[data-sgui-part="grid-container"]')!.append(indicator);
+  const checkbox = screen.getByRole("checkbox", { name: "Select Science" });
+  const parent = checkbox.parentNode!; const next = checkbox.nextSibling;
+  try {
+    act(() => indicator.focus());
+    expect(document.activeElement).toBe(indicator);
+    act(() => {
+      drag.current!.onDragEnd({ dropOperation: "cancel" });
+      // Reproduce DragManager's admitted source-handle restoration, then a
+      // genuine host focus choice, before any owned repair frame can run.
+      handle.focus();
+    });
+    act(() => checkbox.focus());
+    expect(document.activeElement).toBe(checkbox);
+    if (removed) checkbox.remove();
+    const focusHandle = vi.spyOn(handle, "focus");
+    await settle();
+    expect(document.activeElement).toBe(removed ? document.body : checkbox);
+    expect(focusHandle).not.toHaveBeenCalled();
+  } finally {
+    indicator.remove();
+    if (removed) parent.insertBefore(checkbox, next);
+  }
+});
+
+it("preserves a host-selected checkbox focus move during cancellation handle restoration", async () => {
+  render(<OwnedGridInteraction {...props} defaultSelectedRowIds={new Set(["a"])} rowDrag={{ onReorder: vi.fn() }} />);
+  const { handle } = await start();
+  const checkbox = screen.getByRole("checkbox", { name: "Select Science" });
+  const indicator = document.createElement("div");
+  indicator.tabIndex = -1; indicator.setAttribute("aria-roledescription", "drop indicator");
+  handle.closest('[data-sgui-part="grid-container"]')!.append(indicator);
+  const hostFocus = () => checkbox.focus();
+  try {
+    act(() => indicator.focus());
+    expect(document.activeElement).toBe(indicator);
+    act(() => drag.current!.onDragEnd({ dropOperation: "cancel" }));
+    handle.addEventListener("focus", hostFocus);
+    act(() => handle.focus());
+    await settle();
+    expect(document.activeElement).toBe(checkbox);
+  } finally { handle.removeEventListener("focus", hostFocus); indicator.remove(); }
+});

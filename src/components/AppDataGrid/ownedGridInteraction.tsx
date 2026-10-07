@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactElement, type Ref } from "react";
-import { Table, TableHeader, Column, TableBody, Row, Cell, ResizableTableContainer, ColumnResizer } from "react-aria-components/Table";
+import { Table, TableHeader, Column, TableBody, Row, Cell, ResizableTableContainer, ColumnResizer, type TableRenderProps } from "react-aria-components/Table";
 import { useDragAndDrop, DropIndicator } from "react-aria-components/useDragAndDrop";
 import { DataGridDragHandle } from "../AppDataGridRowDnd/DataGridDragHandle";
 import type { AppDataGridRowDragConfig } from "./types";
@@ -74,6 +74,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   const statusScroll = useRef<{ entry: HTMLElement; node: HTMLDivElement; top: number; left: number } | null>(null);
   const container = useRef<HTMLDivElement | null>(null);
   const table = useRef<HTMLTableElement | null>(null);
+  const tableState = useRef<TableRenderProps["state"] | null>(null);
   const busy = !!(loading || refreshing);
   const currentBusy = useRef(busy);
   currentBusy.current = busy;
@@ -272,6 +273,15 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       const dropEntry = entry instanceof HTMLElement && node.contains(entry) && entry.getAttribute("aria-roledescription") === "drop indicator";
       if (entry !== document.body && entry !== handle && entry !== sourceRow && entry !== sourceCell && entry !== cancellationRow && !dropEntry) return;
       let initial = true;
+      if (event.dropOperation === "cancel" && dropEntry) {
+        // Keyboard-visible nested focus preserves the previous collection cell
+        // key. Align that internal key before DragManager restores/replays the
+        // source handle, without focusing a cell or changing selected rows.
+        const interaction = tableState.current;
+        const column = interaction?.collection.columns.find(column => column.key === "__reorder");
+        const cell = column ? [...(interaction?.collection.getChildren?.(saved.id) ?? [])].find(cell => cell.index === column.index) : undefined;
+        if (cell) interaction?.selectionManager.setFocusedKey(cell.key);
+      }
       const cancel = () => {
         if (frame !== null) cancelAnimationFrame(frame);
         frame = null;
@@ -345,7 +355,7 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
     {/* React Aria requires a stable hook surface within each Table instance.
         Recreate only when the host enables/disables reorder, retaining the outer
         container and repairing its focused cell in the layout effect above. */}
-    <Table key={props.rowDrag ? "reorder" : "ordinary"} ref={setTable} dragAndDropHooks={props.rowDrag ? dragAndDropHooks : undefined} aria-label={label} className={styles.table}
+    <Table key={props.rowDrag ? "reorder" : "ordinary"} ref={setTable} dragAndDropHooks={props.rowDrag ? dragAndDropHooks : undefined} aria-label={label} className={({ state: interaction }) => { tableState.current = interaction; return styles.table; }}
       sortDescriptor={state.sortRules[0] ? { column: state.sortRules[0].field, direction: state.sortRules[0].direction === "asc" ? "ascending" : "descending" } : undefined}
       onSortChange={sort => dispatch({ type: "sort", value: changeOwnedGridHeaderSort(state.sortRules, String(sort.column), sort.direction === "ascending" ? "asc" : "desc") })}
       selectionMode={selection ? "multiple" : "none"} selectionBehavior="toggle"

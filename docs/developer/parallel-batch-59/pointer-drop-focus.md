@@ -152,3 +152,88 @@ completion handoff. Native admission still requires the coordinator's independen
 ownership review of these exact bytes and fresh Chromium proof with the unchanged
 batch 48 candidate. Browser focus args and all open engine/device/AT/acceptance
 limits remain as stated above. No native execution or integration occurred here.
+
+## Wave 30 native result and keyboard-visible cancellation successor
+
+Coordinator candidate `5cc976dc1b9af6ced3980ec0e93fe930a9a8237b` tested the reviewed
+`eab460a` source in a fresh Chromium build, digest
+`6978ebf422790330db7d1a041dfa973e0d3f01c06362a9afbefb43719c5a6ee0`.
+Retained evidence:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/pointer-drop-focus/`.
+Result: **9 passed / 2 failed**, 16.9s. The three pointer invalidation cases now pass,
+as do native before/after drops, outside cancellation/rollback, selection/sorting
+boundaries and Move focus cases. This is evidence for the preceding source only.
+
+The Strict Mode keyboard cancellation fails source-handle focus at
+`tests/browser/batch01-grid-reorder.spec.ts:32`. Read-only trace inspection shows
+the Course 2 handle with `data-focused` and `data-focus-visible` before Enter;
+after Escape, the selected Course 1 checkbox label has those attributes and the
+handle is inactive. No host focus move appears in the driver between Escape and
+the strict focus assertion. Classification: **product cancellation focus defect**.
+The separate touchscreen case fails `ERR_CONNECTION_REFUSED` on hard-coded port
+6173 while the pool serves port 6613. Classification: **test-driver defect**, owned
+by the coordinator's separate reservation. No outside-allowlist spec edit occurred.
+All failed logs/screenshots/traces remain intact; no unchanged native retry ran.
+
+### Reproduced mechanism and bounded correction
+
+The dependency's `useGridCell` intentionally does not update its remembered cell
+key when a nested child receives keyboard-visible focus. `DragManager.cancel`
+restores the handle and replays focus into the collection. If that remembered key
+still names the previously selected checkbox's cell, the replay restores that
+checkbox. The earlier default-selected-row unit case did not establish this
+keyboard-visible selected-checkbox entry history.
+
+A new regression uses the real hook under Strict Mode: click the selection label,
+assert selection, use F6 to establish keyboard-visible modality without changing
+cell navigation, focus/assert the source handle, then Enter/ArrowDown/Escape.
+Against `eab460a`, it fails with the **selected INPUT** active instead of the source
+handle, matching the native final-focus evidence. Initial trial DOM cell focus
+visits were rejected by existing navigation or new synchronous host-focus tests;
+those `/tmp/sgui-batch59-wave30-*` diagnostic logs remain retained. No trial focus
+visits, activation interception, `flushSync`, new dependency or sleep survives.
+
+The current successor captures React Aria's table state through its implementation
+render props. Only for an admitted `cancel` while the existing keyboard drop
+indicator owns native focus, it maps the source row and `__reorder` column through
+the collection API and sets the interaction engine's focused cell key before the
+engine restores/replays the handle. It does not change selection or focus a DOM
+cell. Engine state/types remain internal to the interaction implementation; no
+owned public props expose them. Pointer request handling, drag activation and the
+previous strict frame/listener ownership guards remain unchanged.
+
+New ownership cases require genuine selected-checkbox focus to survive after
+cancellation handle replay, including removal to BODY before the repair frame.
+A further case redirects focus synchronously in the handle's native focus handler
+and requires that host-selected checkbox to retain focus. No blanket selected
+checkbox/cell exception was added.
+
+### Current final evidence and renewed freeze
+
+The old-source comparison targets only the new actual keyboard regression: **one
+expected failure**, with the other cases intentionally unselected by `-t`. Its
+retained log is `/tmp/sgui-batch59-wave30-final-key-red.log`. Running old source's
+failed real drag case alongside later cases can retain an active upstream session;
+those subsequent setup failures in earlier exploratory logs are not counted as
+independent product defects.
+
+Final targeted validation runs the complete new 24-case regression plus unchanged
+interaction/reorder tests: **68/68 pass**, three files, 6.81s. Production types,
+foundation guards and `git diff --check` also pass. Exact-final logs:
+`/tmp/sgui-batch59-wave30-exact-final-unit.log`,
+`/tmp/sgui-batch59-wave30-exact-final-types.log`,
+`/tmp/sgui-batch59-wave30-exact-final-guard.log`.
+Prior native and all original batch 59 red/green logs remain untouched. Atomic owned
+light leases were released after settled commands; no foreign cleanup occurred.
+
+Current executable SHA-256, superseding earlier handoffs:
+
+- Interaction: `2d55999e42473069c6128ee569eb0629126768c067f317164ac15c617c38535d`.
+- Regression: `3c2e41a441f2f15b44db9dbfdab276caf0547be6e48518f993e8c50a4302a9c1`.
+
+These changed bytes still require reviewed fresh coordinator Chromium proof with
+`tests/browser/inventory-pointer-reorder-invalidation.spec.ts tests/browser/reorder.spec.ts tests/browser/batch01-grid-reorder.spec.ts --project=chromium`.
+The coordinator separately owns the touchscreen driver correction. Source/report
+are frozen again at the successor commit in the completion handoff. No independent
+browser/build/server/fullcheck, dev integration, GitHub dispatch or broad acceptance
+closure occurred. Firefox/WebKit, device/AT and M-18/G/U/X/R/Z limits remain open.
