@@ -76,12 +76,44 @@ Create an external plan such as `/tmp/sgui-browser-snapshot.json`:
 A shard ID is unique lowercase alphanumeric/hyphen text. Each spec must be an
 exact regular tracked top-level `tests/browser/<name>.spec.ts` path. Each file can
 appear in only one shard, including across projects. Patterns, line filters,
-extra fields and arbitrary Playwright arguments are rejected. Positional selectors
+extra fields and arbitrary Playwright arguments are rejected. The optional `grep`
+field selects focused cases within those owned files; it does not relax file ownership. Positional selectors
 are escaped and anchored because Playwright interprets them as regular expressions.
 A shard may use `"project": ["chromium", "firefox", "webkit"]` for an authorized
 checkpoint without assigning that spec to multiple sessions. Projects must be
 explicit, supported and unique. Separate files can contain similar scenarios;
 coordinator review remains responsible for behavioral duplication and useful scope.
+
+For an early engine check, add an explicit case filter to the owning shard:
+
+```json
+{ "id": "toolbar-firefox", "specs": ["tests/browser/toolbar.spec.ts"], "project": "firefox", "grep": "columns remain searchable$|search keeps focus$" }
+```
+
+`grep` is a nonempty string, at most 512 characters and eight alternatives. The
+bounded regex grammar admits literals, escaped punctuation, single-character `.`,
+anchors `^`/`$` and `|`. Repetition, groups, character classes, alphanumeric escapes,
+backreferences, control characters, leading option text and empty-matching expressions are rejected
+before any command. Escape literal punctuation as needed (double the backslash in
+JSON). No flags, inverse filters, arrays, environment fields or raw args are admitted.
+The supervisor passes `--grep` and its exact value as separate spawn arguments.
+Omitting it preserves whole-file selection. Filters use Playwright's project/file/
+describe/test title sequence (including its initial root separator); prefer case
+substrings or suffixes. Tagged focused cases fail closed because JSON flattens tag
+provenance and cannot attest the original grep title ordering. Whole-file selections
+retain tagged case support.
+
+Every selected file/project pair must report at least one case. Full JSON suites,
+regular report root, global errors, case identities and project membership are
+validated; the number of unique case executions must equal `stats.expected`.
+Each execution must have exactly one passed result at retry zero. Missing suites,
+empty matches, missing file/engine pairs, cases outside the filter, duplicate
+identities, skipped/flaky/unexpected outcomes and nonzero global errors fail closed.
+Per-session and aggregate evidence retain `grep` (explicit `null` when omitted),
+exact `selectionArgs`, and each passed case's file, ID, project and title. Counts
+attest the reported selection; they do not certify broader spec or engine coverage.
+The [batch-58 fixture record](parallel-batch-58/snapshot-case-filters.md) records
+validation and rollout limits.
 
 After exact-head review and queue authorization:
 
