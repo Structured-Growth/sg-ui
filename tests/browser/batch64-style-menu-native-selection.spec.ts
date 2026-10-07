@@ -47,7 +47,7 @@ async function selectSample(page: Page) {
     await expect(editor).toHaveText('MiXeD text');
     await expect.poll(() => editor.evaluate(nativeSelectionState)).toEqual({
       focused: true, documentFocused: true, editable: true,
-      text: 'MiXeD text', collapsed: false, anchor: 0, focus: 9,
+      text: 'MiXeD text', collapsed: false, anchor: 0, focus: 10,
     });
   } finally {
     await test.info().attach('native-style-selection-precondition', {
