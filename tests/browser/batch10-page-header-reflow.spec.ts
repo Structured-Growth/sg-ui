@@ -54,10 +54,16 @@ for (const theme of ['light', 'dark']) {
         await expect(page.getByRole('menuitem', { name: 'Shared content library', exact: true })).toBeFocused();
         await page.keyboard.press('Escape');
         await visibleFocus(path);
+        // Native WebKit in this profile skips anchors with plain Tab; Chromium includes them.
+        // Permit only that known ancestor as an intermediate stop, then require the action.
+        const ancestor = page.getByRole('link', { name: 'Professional development courses', exact: true });
+        await page.keyboard.press('Tab');
+        if (await ancestor.evaluate(element => element === document.activeElement)) {
+          await visibleFocus(ancestor);
+          await page.keyboard.press('Tab');
+        }
         if (kind === 'menu') {
           const more = page.getByRole('button', { name: 'More actions', exact: true });
-          await page.keyboard.press('Tab'); // penultimate breadcrumb link
-          await page.keyboard.press('Tab');
           await visibleFocus(more);
           await page.keyboard.press('ArrowDown');
           await expect(page.getByRole('menuitem', { name: 'Review course details', exact: true })).toBeFocused();
@@ -65,8 +71,6 @@ for (const theme of ['light', 'dark']) {
           await expect(page.getByRole('menu')).toHaveCount(0);
           await visibleFocus(more);
         } else {
-          await page.keyboard.press('Tab'); // penultimate breadcrumb link
-          await page.keyboard.press('Tab');
           await visibleFocus(page.getByRole('button', { name: 'AddCourseToAnotherSectionWithAnUnbrokenHostLabel', exact: true }));
           await page.keyboard.press('Tab');
           await visibleFocus(page.getByRole('button', { name: 'Review learner participation', exact: true }));
