@@ -64,9 +64,9 @@ demonstrated:
    target/rel attributes and source focus after popup close remain strict.
    The no-destination button test still uses ordinary Tab and native Enter/Space.
 
-Corrections are classified as fixture/driver/expectation defects. Fresh native
-confirmation remains coordinator-owned and pending; if it contradicts these
-causes, retain the new failure for bounded follow-up. M-15 and broad device/AT
+Corrections are classified as fixture/driver/expectation defects. At the initial handoff, fresh native
+confirmation remained coordinator-owned and pending. Wave28 confirmation is
+recorded below; earlier red evidence remains failed. M-15 and broad device/AT
 acceptance are not closed.
 
 ## Local validation
@@ -111,4 +111,64 @@ does not authorize a worker browser/server run or a harness change.
 
 Coordinator alone reviews/integrates/accepts. No dev/main merge, PR, push,
 publication, workflow dispatch, permissions/secrets change or broad closure.
-Source and report remain frozen after handoff until explicit coordinator release.
+Source and report were frozen after initial handoff. After wave28 settled, the
+coordinator authorized only the report update below; all source/spec/test bytes
+remain frozen.
+
+
+## Wave28 focused native result and final report-only handoff
+
+The coordinator ran the exact frozen correction bytes from worker head
+`d34ca299cecba28ed24f61ec8bd8058dbb950a04` on shared testing candidate
+`24f9b4abb6ae39675b5bdf9abe8c9764a14a059e`, not on the worker checkout.
+Read the actual root manifest, shard evidence, results, log and resource evidence
+under
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/ccfdb3fe-1f4a-4199-9564-3a8b2dbf6fc3/`.
+The shard is `learner-card-engine-parity`, slot 1, port 6504. One fresh shared
+build and typecheck preceded execution under Node `v24.19.0`.
+
+The actual coordinator filter was broader than the initial proposed selections:
+
+```sh
+pnpm exec playwright test '(?:^|/)tests/browser/inventory-learner-card\.spec\.ts$' --project=chromium --project=firefox --project=webkit --grep 'browser ICU de-DE|native isolated Continue activation|native activation'
+```
+
+Read and verified all selected case identities: exactly these four titles in each
+of Chromium, Firefox and WebKit, twelve cases total:
+
+- `browser ICU de-DE replaces due text while the same action retains keyboard focus`
+- `both preserves Details route and native isolated Continue activation`
+- `continue only preserves Details route and native isolated Continue activation`
+- `no destinations exposes two keyboard buttons and invokes Continue once per native activation`
+
+Result: **12 passed, 0 unexpected, 0 skipped, 0 flaky**, one attempt each, no
+retries. Session ran 2026-10-07 17:45:23.686–17:45:39.108 UTC; test duration
+14.513 seconds. The command exited 0, `settled: true`, with no signal errors.
+No learner-card diagnostic attachment was emitted. en-US/ar-EG and invalid-host-
+locale fallback cases were not selected; this is not a complete 21-case matrix.
+The passing German and link cases prove the known affected-engine correction;
+broader M-15/manual/device/AT and whole acceptance gates remain held.
+
+Root initial/final HEAD, source digest and build digest match, final Git status
+is clean, and cleanup records all owned commands settled. Build SHA-256:
+`de160daed84eb81439957ab5fe4a760f5405a517f60cdb66a0111167dda23248`.
+Source SHA-256:
+`356333879fef4f68251b39abde4ced33fac328900c82fb47a9cbf8911176786e`.
+The root pool remains red from separate selection diagnostic/grid scopes; this
+shard's pass does not relabel those results or the earlier failed checkpoint.
+Batch53 expected-red diagnostics do not provide learner-card acceptance.
+
+Read `/tmp/sgui-batch45-candidate-wave28-attribution.json` and independently
+hashed both worker/candidate owned files before this report-only update. Both
+matched the recorded prepared worker digests:
+
+| File | SHA-256 at tested worker/candidate |
+| --- | --- |
+| `tests/browser/inventory-learner-card.spec.ts` | `5cfdf74fa44c88a16598f445e4f071797a12ba1c1bcd69328a6bc38e5c62d296` |
+| This report before final update | `1808e341d824606f42278d6a1538676506444e5bbafde27c9e861fcf921fd436` |
+
+Only this report changes after the authorized scoped outcome. Report links and
+`git diff --check` pass; no unit/type/build/browser/server rerun was performed.
+Spec and all product/story/test bytes remain identical to the tested head.
+Coordinator reviews the final report delta before individual integration; no
+worker dev/main merge, push, publication or acceptance closure occurred.

@@ -104,3 +104,46 @@ The snapshot harness can use this spec with both projects if its shard format
 requires a whole-spec selection; prefer the legacy focused-args route when available.
 Native correction remains pending until fresh coordinator proof. Broad M-20,
 G/U/X/R/Z, manual/device and assistive-technology acceptance remains open.
+
+## Verified wave28 focused native result
+
+The pending handoff above is historical. On 2026-10-07 coordinator wave28 tested
+actual shared candidate `24f9b4abb6ae39675b5bdf9abe8c9764a14a059e`, with exact
+worker source bytes from `92eec1e93d24107a8213fda12269de06078c1a88`.
+Independently read root/shard evidence, raw JSON results and browser log. The
+actual filter was `--grep 'column locks and reset'`, with projects Chromium and
+Firefox and the anchored `inventory-toolbar-composition.spec.ts` selector.
+
+All **four selected cases** passed: the column locks/reset/search Clear/Escape
+and independent query lifetime case at 360px LTR and 320px RTL in each engine.
+Raw results record expected 4, unexpected 0, skipped 0, flaky 0, no global errors,
+and retry 0 for every result. The strict adjacent reverse/forward focus assertions
+and subsequent original callbacks/Escape assertions passed in the affected Firefox
+engine. This confirms the bounded driver correction. Selection/view cases and
+WebKit were not selected in this wave; this is not a whole toolbar suite pass.
+
+Root manifest records one fresh shared Storybook build and browser typecheck,
+bundled Node `v24.19.0`, owner
+`browser-snapshot:18139:69023eba-b79b-4ca5-8b57-9a7f3b42a1e8`, and queue owner
+`01a1164f-41db-7f30-aaf9-f20133b6566f`. Final HEAD/source/build hashes equal their
+initial values, final source status is clean, and owned commands settled.
+
+- Source digest: `356333879fef4f68251b39abde4ced33fac328900c82fb47a9cbf8911176786e`.
+- Build digest: `de160daed84eb81439957ab5fe4a760f5405a517f60cdb66a0111167dda23248`.
+- Root evidence: `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/ccfdb3fe-1f4a-4199-9564-3a8b2dbf6fc3/evidence.json`.
+- Scoped evidence, raw results and log: the adjacent `toolbar-firefox-search-focus/` directory.
+- Attribution: `/tmp/sgui-batch45-candidate-wave28-attribution.json`.
+
+Independently hashed candidate Git bytes at the tested SHA and frozen worker files;
+both match attribution for the spec
+`09c4f7e9e5ff17081d101e4cfdeafd1ee2049420064e5ff422964c1cc1634e18`
+and pre-append report
+`0b698d5bdc39ab52edb8f1e48f6b7916e97c2f52d1e1bd12e4c21ffdcb4f75eb`.
+Only this evidence append changes after proof; production/story/spec/test bytes
+remain frozen. No additional validation command or native worker run occurred.
+
+The overall pool remains red for separate selection-diagnostic/grid scopes;
+those failures and the earlier Firefox red traces are preserved. Their outcomes
+do not become product acceptance through this green shard. Coordinator retains
+individual integration/acceptance ownership. Known affected-engine correction is
+proven; unsupported/manual/device/AT and broad whole gates remain open.

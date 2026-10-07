@@ -97,3 +97,55 @@ exact worker-byte attribution and accepts/integrates. Native success is pending;
 no M-07 or broad U/X/R/Z gate is closed. Actual zoom, device and assistive technology
 remain unverified. No PR/main/dev merge, publication, force push, CI/title dispatch,
 permissions or secret operation occurred.
+
+## Wave 28 verified focused native result
+
+Coordinator wave 28 tested the exact frozen contribution
+`96f8cbdecfb6979a642e8d513daa9cfaeb8712f4` on shared candidate
+`24f9b4abb6ae39675b5bdf9abe8c9764a14a059e` in
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui`.
+This candidate is the actual browser-tested head. The worker independently read
+root/shard manifests, results, native-entry attachments and command settlement,
+and compared all four owned file SHA256 values against the candidate and
+`/tmp/sgui-batch45-candidate-wave28-attribution.json`; all matched.
+
+Selected command:
+`pnpm exec playwright test '(?:^|/)tests/browser/inventory-auth-embedded-host\.spec\.ts$' --project=chromium --project=firefox`.
+The shard has `grep: null`: exactly the four light/dark × normal/200% text cases
+on each of Chromium and Firefox. **Eight passed, zero failed/skipped/flaky;
+each result retry 0.** Playwright duration: 13526.218 ms. WebKit was not selected
+for this correction run; its prior checkpoint green remains historical evidence.
+
+The `native-entry-focus` attachments confirm the cause directly in every case:
+Chromium's native Tab from the asserted predecessor lands on `INPUT name=email`;
+Firefox lands on `DIV data-testid=auth-scroll-host`, then the one additional
+native Tab passes the mandatory whole-email-focus assertion. The remaining
+visibility, focus outline, host-only scroll, typing, live node/value/focus,
+submit-once and reverse-traversal assertions all passed. Final classification:
+**one confirmed fixture/driver/expectation defect**, corrected without changing
+production AuthShell. The earlier red checkpoint artifacts remain untouched.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/ccfdb3fe-1f4a-4199-9564-3a8b2dbf6fc3`.
+The `auth-firefox-keyboard-entry/` shard contains the case identities, selected
+arguments, `results.json`, `browser.log` and settlement resources. Root manifest
+attests matching initial/final head, empty final source status and these immutable
+source/build digests:
+
+- Source: `356333879fef4f68251b39abde4ced33fac328900c82fb47a9cbf8911176786e`.
+- Build: `de160daed84eb81439957ab5fe4a760f5405a517f60cdb66a0111167dda23248`.
+- Story: `59a762527b8064736f137bf017419cb5f8d0b3c2a3be26a2ab6598dd26131a0b`.
+- Unit: `ccd32abd24751b7a54c4a6c714057a8ff9ac353be207c02dc965af688b9e01f0`.
+- Spec: `671c59e4f6877774e98652b1932ccc84910522f673c87bce21dda6b4e97e1656`.
+
+The shared fresh Storybook build, source/browser typecheck and this browser shard
+all exited 0, with `settled: true` and no signal errors. Runtime: bundled Node
+v24.19.0, pnpm 10.29.3, Playwright 1.63.0. Overall pool status remains red from
+separate diagnostic/grid scopes; this report claims only this eight-case slice.
+No diagnostic expected-red capture is counted as AuthShell product acceptance.
+
+This follow-up changes only this report. All tested story/spec/unit/production
+bytes remain frozen. No worker browser/build/server or additional tests ran.
+Coordinator review/integration remains separate. The known Firefox correction
+and fresh Chromium slice are proven; whole M-07 and broad U/X/R/Z, actual zoom,
+physical-device and assistive-technology gates remain held.
