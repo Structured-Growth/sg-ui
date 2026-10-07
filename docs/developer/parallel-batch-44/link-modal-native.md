@@ -65,3 +65,40 @@ expectation, environment or unclassified; changes to shared/editor files require
 exclusive successor ownership. Firefox/WebKit remain pending batch checkpoint.
 M-33 whole-row acceptance and broad E-06/E-07/U/X/R/Z, security, manual/device/AT
 acceptance remain held. Coordinator alone integrates; no main/publication changes.
+
+
+## Wave22 red evidence and bounded driver correction
+
+Coordinator fresh shared candidate `e6270941ea8828d8868fef0798451a599a9db25f`
+contained the original prepared head `f860c303a60f4e01d8e7ed475da19a8c9fc96d17`
+with all owned files byte-identical, recorded in
+`/tmp/sgui-batch45-candidate-source-attribution.json`. Candidate build/source
+hashes stayed unchanged. Chromium returned **0 passed / 4 failed**, zero skipped
+or flaky. Preserve evidence at
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/link-modal-native/evidence.json`,
+with sibling `results.json`, `browser.log` and trace ZIPs.
+
+All four failed in `selectRichFragment` before opening the modal: native selected
+text was empty instead of `Course guide`. Inspected failure screenshot, trace
+mouse coordinates and source DOM. The light trace begins mouseDown at x32/y77.6875
+on the hyperlink first-glyph boundary, then drags to x133.203125. The story uses a
+native anchor (draggable by default); the selection driver begins where link
+rather than text dragging can start. Classification: **fixture/driver setup
+failure**, with native link-drag diagnosis inferred from the starting hit target;
+no modal product defect established. The four engine failures share this one
+initial setup failure and never reached edit/unlink behavior.
+
+Bounded correction changes only the driver: start four pixels beyond the rich
+link in its containing paragraph whitespace and drag backward to the first
+character's leading side using actual mouse down/move/up. No synthetic Selection
+setup, content replacement, timeout relaxation, assertion removal or product
+change. Exact selected text, host selection snapshots, submit counts, rich child
+preservation and native return-focus assertions remain unchanged. Corrected
+Chromium outcome is **pending a new coordinator immutable snapshot**; no unchanged
+retry or independent browser/build/heavy run. Original red artifacts remain intact.
+
+Corrected spec discovery under Node24 and an admitted/released light lease:
+`pnpm exec playwright test tests/browser/inventory-link-modal.spec.ts --project=chromium --list`
+passed, exactly four cases. This parses/discovers tests without launching browsers
+or a server. Whitespace/clean-head checks passed; source/story unchanged, so the
+previous units/types/guards remain attributed to original prepared content.
