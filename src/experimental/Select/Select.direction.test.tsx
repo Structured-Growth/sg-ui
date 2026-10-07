@@ -44,11 +44,14 @@ for (const kind of ["select", "combo"] as const) {
       view.rerender(tree(dir, "Host update"));
       expect(screen.getByRole("listbox")).toBe(list);
       expect(document.activeElement).toBe(focused);
+      expect(portal.getAttribute("dir")).toBe(dir);
       view.rerender(tree(reverse, "Host update"));
       expect(portal.getAttribute("dir")).toBe(reverse);
+      expect(document.activeElement).toBe(focused);
       expect(screen.getByRole("listbox")).toBe(list);
       view.rerender(tree(undefined, "Locale fallback"));
       expect(portal.getAttribute("dir")).toBe(locale === "en-US" ? "ltr" : "rtl");
+      expect(document.activeElement).toBe(focused);
       await user.keyboard("{Escape}");
       await waitFor(() => expect(screen.queryByRole("listbox")).toBeNull());
       await waitFor(() => expect(document.activeElement).toBe(kind === "select" ? selectRef.current : comboRef.current));

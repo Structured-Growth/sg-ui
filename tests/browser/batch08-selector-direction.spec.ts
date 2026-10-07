@@ -26,10 +26,13 @@ for (const kind of ['select', 'combobox']) {
       await page.keyboard.press('F3');
       expect(await list.evaluate((element, previous) => element === previous, listHandle)).toBe(true);
       expect(await page.evaluate(previous => document.activeElement === previous, focused)).toBe(true);
+      await expect(portal).toHaveAttribute('dir', initial);
       await page.keyboard.press('F2');
       await expect(portal).toHaveAttribute('dir', initial === 'rtl' ? 'ltr' : 'rtl');
+      expect(await page.evaluate(previous => document.activeElement === previous, focused)).toBe(true);
       await page.keyboard.press('F4');
       await expect(portal).toHaveAttribute('dir', locale === 'en-US' ? 'ltr' : 'rtl');
+      expect(await page.evaluate(previous => document.activeElement === previous, focused)).toBe(true);
       const beta = page.getByRole('option', { name: 'Beta', exact: true });
       await expect(beta).toBeVisible();
       expect(await beta.evaluate(element => {
