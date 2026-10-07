@@ -194,3 +194,57 @@ Coordinator selection, separate from the eight original greens:
 Coordinator alone chooses the fresh build and execution/acceptance disposition.
 The original reds, cancellation scope, deferred Firefox/WebKit checkpoint and
 M-10 intent HOLD remain visible. No unchanged native rerun occurred in this chat.
+
+
+## Final coordinator result: corrected three pass, prior eight retained
+
+Coordinator-owned wave36 executed only the three corrected navigator Chromium
+cases, **3/3 passed**, at fresh shared testing candidate
+`65e4c857a73ac0b0fcc86ff9f50d9fbbb1746421`. Worker attribution:
+`2199b8186cb0826cbd55caaea24185831ea09003`, baseline
+`036473472ffeee4e5d504d5ca76bc1431d187693`.
+The attribution record is `/tmp/sgui-wave36-heading-navigator-attribution.json`;
+the plan is `/tmp/sgui-thirtysixth-heading-navigator-plan.json`.
+All four allowlisted worker/candidate file digests were independently verified
+against that record before this report-only final edit. The final report commit
+changes no executable bytes; its exact hash is sent to the coordinator.
+
+Token: `e644960f-a690-4f5b-a6cd-6f1ed20e5a90`; navigator slot1/port6824.
+Fresh build digest:
+`20f093c3c5d3c4b7355b5f9e4b18429d2049a3c002445965c8ba69a1afa77952`.
+Artifact root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/e644960f-a690-4f5b-a6cd-6f1ed20e5a90/navigator-corrected-three/`.
+Read and verified `evidence.json`, `results.json` and `browser.log`: exact spec,
+Chromium project, corrected-case grep, three named cases and three passed results.
+Coordinator verified settled commands, immutable head/source/build and released
+owned leases. This chat ran no additional native/build/CI process.
+
+| New wave36 evidence | Result |
+| --- | --- |
+| Live read-only dialog/menu, permitted selection, explicit host re-enable and removed-page rename guard (light) | Pass |
+| Same bounded native keyboard transaction (dark) | Pass |
+| First trusted native mouse start with host source removal/cancellation | Pass |
+
+The actual removed-source attachment contains **only one trusted `dragstart`**:
+`[{"type":"dragstart","trusted":true,"title":"IntroductionPage 1 • Active","source":null}]`.
+The case passed survivor order and zero host request assertions. No drop/dragend
+was captured; this proves the bounded host-removal cancellation path, **not stale
+source data delivery to a surviving row's drop handler**. It does not establish
+Firefox/WebKit driver reliability or physical-device dragging.
+
+The eight earlier navigator passes remain historical evidence at wave35 worker
+`15ba1656429a89ea1f51700995b704efd68982ed`, token
+`378b8e10-1604-4ad9-ab7b-cdcef9967e97`: six light/dark rename/removal/Move cases
+and two trusted accepted/self drag cases. Their unchanged story/source/helper
+bytes above support retention; they were not rerun or counted again in wave36.
+Thus the report records eight original passes plus three fresh corrected passes,
+not an eleven-case run at the shared candidate. Original wave35 three-red artifacts
+remain intact and the correction history remains visible.
+
+The **whole wave36 root run failed** because four unrelated heading restoration
+cases failed. The navigator partition pass is not a full shared-run/check pass,
+dev acceptance, integration or whole-M-10 closure. Firefox/WebKit, AT/manual/device
+checks, broad U/X/R/Z gates and the disputed M-10 previous/next/link intent remain
+pending/HOLD. Coordinator alone owns integration and acceptance records. This
+finalization modifies only this unique report; fixture, unit, spec, production,
+contracts and master remain frozen and unchanged.
