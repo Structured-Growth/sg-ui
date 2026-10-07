@@ -106,3 +106,49 @@ browser/server, Storybook build, full check or other heavy run. Coordinator alon
 integrates/accepts. No dev/main merges, publication, forcepush, CI/title dispatch,
 permissions/secrets or broad/manual/device/AT closure. M-33 and broader acceptance
 remain open until the required evidence is actually recorded.
+
+## Wave28 focused native outcome
+
+Coordinator candidate `24f9b4abb6ae39675b5bdf9abe8c9764a14a059e` passed
+**four selected cases**, two Chromium and two WebKit, zero failed/skipped/flaky
+or retries. Actual filter was `remove preserves rich children`; each engine ran
+the light and dark case named `remove preserves rich children; Cancel and Escape
+discard drafts on mounted reopen`. The invalid-protocol cases and Firefox did
+not run in this focused shard, so no whole-spec or full-engine matrix pass is
+claimed. All unchanged strict assertions passed, including exact native return
+selection after unlink, Cancel/Escape, rich children, callbacks and mounted reopen.
+This proves the bounded host ordering correction for the known affected engine.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/ccfdb3fe-1f4a-4199-9564-3a8b2dbf6fc3/`.
+Read root `evidence.json` and shard `link-webkit-selection/evidence.json`,
+`browser.log` and `results.json` independently. Shard selectionArgs records the
+anchored exact spec, both projects and grep above. Slot 2, port 6505, Node
+`v24.19.0`; browser log reports four passes in 8.6 seconds with one worker.
+Results statistics: expected 4, unexpected 0, skipped 0, flaky 0.
+
+Root initial/final head equals the candidate; final status is clean and cleanup
+records owned commands settled. Source digest stays
+`356333879fef4f68251b39abde4ced33fac328900c82fb47a9cbf8911176786e`;
+fresh static build digest stays
+`de160daed84eb81439957ab5fe4a760f5405a517f60cdb66a0111167dda23248`.
+The coordinator built Storybook and browser types once for the shared snapshot.
+The overall pool remains red from separate diagnostic/grid scopes; this report
+claims only the selected link shard's success. No diagnostic expected-red capture
+is used as product acceptance.
+
+Read `/tmp/sgui-batch45-candidate-wave28-attribution.json` and independently
+compared candidate `git show` bytes with the frozen worker files before this
+report-only edit. Story, unchanged spec and prepared report were byte-identical.
+Their SHA256 values were respectively
+`32b4ddeddb9152735b62a538adb69595637b7455d8a0c8010f16570a537f7e20`,
+`90fafa594df32595dbb399e7987ee31e466993438232c2176b28625e9db139b0`, and
+`1c612241983d30dca1e72573bf9df78bbf62ff3a66838c4cb67e927ff5aa95fc`.
+Candidate evidence therefore applies to prepared worker
+`2853b82f1dba039c5a186f46fd72ad7e0a071682`'s exact correction bytes.
+
+Only this unique report changes after the coordinator released the outcome.
+Production/story/spec/test bytes remain frozen; no additional tests/browser/server
+or build ran. Earlier red artifacts above remain preserved. Coordinator reviews
+the final report delta and alone integrates/accepts. Actual Lexical, whole M-33,
+unsupported/manual/device/AT and other broad acceptance gates remain held.
