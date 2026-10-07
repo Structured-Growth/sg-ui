@@ -1,10 +1,3 @@
-import {
-  PageRichTextEditorSection as PageRichTextEditorSectionImpl,
-  type PageRichTextEditorSectionProps,
-} from "./PageRichTextEditorSection.impl";
+"use client";
 
-export type { PageRichTextEditorSectionProps };
-
-export function PageRichTextEditorSection(props: PageRichTextEditorSectionProps) {
-  return PageRichTextEditorSectionImpl(props);
-}
+export { PageRichTextEditorSection, type PageRichTextEditorSectionProps } from "./PageRichTextEditorSection.impl";

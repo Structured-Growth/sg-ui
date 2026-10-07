@@ -176,11 +176,16 @@ RichTextFormattingToolbar now uses the owned foundation and migrated-module
 boundaries. See [formatting toolbar contracts](react-aria-formatting-toolbar.md)
 for named formatting actions, controlled active state, selection preparation and
 callback availability. Load /styles.css and provide Provider or ThemeScope.
-The editor section migration remains open.
+See the owned editor section contract below.
 
 FloatingTextSelectionToolbar, DocumentEditorLayout, DocumentEditorToolbar and
 ContentEditorChrome now use the owned foundation and migrated-module boundaries.
 See [editor layout and selection contracts](react-aria-editor-layout.md) for host scrolling, keyboard selection access, native
 status colors and the breaking menu onPress(anchor) callback mapping. Load
-/styles.css and provide Provider or ThemeScope. PageRichTextEditorSection and
-broad editor/grid acceptance gates remain open.
+/styles.css and provide Provider or ThemeScope. Broad editor/grid acceptance gates remain open.
+
+PageRichTextEditorSection (M-34), including its Lexical image decoration, now uses
+the owned foundation and migrated-module boundaries. See [editor section contracts](react-aria-editor-section.md)
+for stylesheet/scope requirements, native styling/ref, live read-only state,
+document reset and formatting-preserving link behavior. Broad editor/grid and
+U/X/R/Z acceptance gates remain open.

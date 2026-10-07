@@ -155,3 +155,7 @@ export const ownedEditorLayout = <DocumentEditorLayout ref={createRef<HTMLDivEle
 export const ownedDocumentToolbar = <DocumentEditorToolbar ref={createRef<HTMLDivElement>()} canEdit headingValue="h2" onHeadingChange={value=>{const heading: 'normal'|'h1'|'h2'|'h3'|'h4'|'h5'=value; console.log(heading);}} actions={{bold:{active:true},italic:{active:false},bulletList:{active:false},orderedList:{active:false}}} />;
 export const ownedChrome = <ContentEditorChrome ref={createRef<HTMLDivElement>()} icon={null} title="Document" onTitleSave={()=>{}} menuItems={[{id:'file',label:'File',onPress:anchor=>{const element:HTMLButtonElement=anchor; console.log(element);},'aria-haspopup':'menu',loading:false}]} />;
 export const ownedFloating = <FloatingTextSelectionToolbar ref={createRef<HTMLDivElement>()} className="host" style={{margin:2}} onRequestLink={()=>{}} />;
+
+import { PageRichTextEditorSection as OwnedPageEditor, type PageRichTextEditorSectionProps } from "@structured-growth/sg-ui/components/PageRichTextEditorSection";
+const ownedPageProps: PageRichTextEditorSectionProps = {lexicalValue:null,editorKey:"owned",onLexicalChange:()=>{},"aria-label":"Course content",className:"host-editor",style:{height:400}};
+export const ownedPageEditor = <Provider><OwnedPageEditor {...ownedPageProps} /></Provider>;

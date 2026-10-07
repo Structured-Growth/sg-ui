@@ -4,8 +4,8 @@ Task references: M-21–M-23, M-25. These components keep their public names and
 compose SGUI-owned controls, tokens and compiled CSS Modules. Load
 `@structured-growth/sg-ui/styles.css` once and provide `Provider` or `ThemeScope`.
 Each has a granular `/components/<name>` export and native div ref/className/style.
-PageRichTextEditorSection (M-34), its full editor composition and broad editor
-acceptance gates remain open. Lexical document models, commands and serialization
+PageRichTextEditorSection has since migrated under M-34; see its
+[composition contract](react-aria-editor-section.md). Broad editor acceptance gates remain open. Lexical document models, commands and serialization
 are unchanged by this batch.
 
 ## DocumentEditorLayout

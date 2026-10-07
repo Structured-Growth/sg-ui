@@ -1,18 +1,14 @@
 import { describe, expect, it, vi } from "vitest";
 
-const implCall = vi.hoisted(() => vi.fn(() => ({ type: "ImplResult" })));
-
+const implementation = vi.hoisted(() => vi.fn(() => null));
 vi.mock("./PageRichTextEditorSection.impl", () => ({
-  PageRichTextEditorSection: (props: unknown) => implCall(props),
+  PageRichTextEditorSection: implementation,
 }));
 
-import * as wrapper from "./PageRichTextEditorSection";
+import { PageRichTextEditorSection } from "./PageRichTextEditorSection";
 
-describe("PageRichTextEditorSection wrapper", () => {
-  it("delegates to the implementation component", () => {
-    const props = { title: "Page 1" } as any;
-    const result = wrapper.PageRichTextEditorSection(props);
-    expect(implCall).toHaveBeenCalledWith(props);
-    expect(result).toEqual({ type: "ImplResult" });
+describe("PageRichTextEditorSection public export", () => {
+  it("preserves the implementation reference including native ref support", () => {
+    expect(PageRichTextEditorSection).toBe(implementation);
   });
 });

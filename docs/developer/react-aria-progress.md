@@ -728,3 +728,60 @@ checks do not complete broad acceptance. M-34, grid/catalog M-16–M-20/M-36–M
 and general U/X/R/Z gates remain open. No merge/publication/manual version/licensing
 or workflow permission/secret changes. Next dependency batch: M-34
 PageRichTextEditorSection; complete checks/commit/push before successor dispatch.
+
+## Page rich text editor section
+
+Task reference: M-34. Completed in the shared [draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review.
+PageRichTextEditorSection and its transitive ImageNode now use native markup,
+owned controls and token CSS Modules. The strict migrated import/layer/token and
+recursive declaration boundaries include the entire directory. Added granular
+component export, native div ref/class/style, translated accessible document name,
+placeholder and generic upload failure. See [consumer contract](react-aria-editor-section.md).
+
+Lexical nodes/plugins/commands, serialized document markers, asset metadata,
+heading/body roles, toolbar presets and upload/change callbacks remain available.
+Live readOnly updates the existing editor; editorKey seeds a new document. Both
+transitions close stale dialogs, clear saved selections and invalidate uploads.
+Links wrap existing formatted runs when display text is unchanged; URL edits and
+unlink preserve children. Explicit replacement display text remains new content.
+
+Validation for the final source:
+
+- pnpm check passed 120 files / 601 tests plus four foundation and four release
+  checks, production/story typing, generated token/layer/import audits, rebuilt
+  ESM/declarations, every public import and consumer typing.
+- pnpm build-storybook passed with existing directive/sourcemap/large-chunk warnings.
+- Parent section tests now use owned Provider only. Five new composed regressions
+  cover formatted multi-run link creation/URL edit/unlink, live readOnly, editorKey
+  reset with open dialog, all registered-node serialization (including image
+  metadata), and translated name/placeholder plus native ref/class/style.
+  ImageNode adds native SSR rendering verification. Existing actual Lexical floating,
+  formatting/menu/dialog and engine tests remain.
+- Packed basic React19.2.3 and React18.3.1 consumers passed; basic imports still
+  exclude editor dependencies. Packed full editor consumers passed both React
+  versions, SSR without browser globals, hydration entry/Vite production build,
+  one stylesheet, and strict absence of retired foundation/autoinstalled peers.
+- Native packed React19 selected paragraph1, Alt+F10/Enter applied Bold with all12
+  paragraphs intact and editor focus. Link URL Enter committed /courses/packed
+  while retaining strong markup and format1 in serialized link children. ReadOnly
+  toggle changed contenteditable to false and removed the formatting toolbar.
+- Native empty-document check caught indefinite percentage sizing: corrected the
+  document container to a definite block-size. Final packed editable/document
+  heights both363 within viewport395; a blank-area click150px below the first
+  line accepted text. Final React19 warn/error capture was empty.
+- Native final React18 Alt+F10/Tab/Space applied Italic to paragraph2 with all12
+  paragraphs intact and editor focus. Heading chooser Down/Enter committed h1,
+  preserved document text/12 blocks and returned editor focus. Native scroll
+  advanced viewport76→120 while toolbarTop70 remained fixed. Warn/error capture
+  empty. At320x700 dark, root and toolbar client/scroll widths289/289, viewport
+ 274/274 with223px content height; token background rgb15,23,42 and text226,232,240.
+
+Local evidence: /tmp/sgui-m34-final-editor.png and /tmp/sgui-m34-narrow-dark.png.
+The initial Storybook preview was opened during rebuild and served its fallback
+manager recursively; it was not used as final native evidence. Final packed
+consumer tabs had no captured warnings/errors. jsdom still emits existing
+unsupported scrollBy/navigation diagnostics; no checks were weakened. Local runtime
+remains Node26.5.0; Node24 and the full browser/touch/screenreader/zoom/visual/performance/
+NextRSC matrix are open. M-16–M-20/M-36–M-37, M-38 reconciliation and broad
+U/X/R/Z gates remain open. No merge/publication/version/licensing/workflow-permission
+or secret changes. Next batch: grid migration following the G matrix and dependencies.

@@ -181,6 +181,10 @@
     "./components/ContentEditorChrome": {
       "types": "./dist/components/ContentEditorChrome/index.d.ts",
       "import": "./dist/components/ContentEditorChrome/index.js"
+    },
+    "./components/PageRichTextEditorSection": {
+      "types": "./dist/components/PageRichTextEditorSection/index.d.ts",
+      "import": "./dist/components/PageRichTextEditorSection/index.js"
     }
   },
   "repository": {

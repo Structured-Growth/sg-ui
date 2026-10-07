@@ -7,7 +7,6 @@ import { $getRoot, $isElementNode, $isTextNode, type LexicalEditor } from "lexic
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { TextColorPickerControl } from "../TextColorPickerControl";
 import { Provider } from "../../experimental/Provider/Provider";
-import { AppThemeProvider } from "../../theme/AppThemeProvider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection.impl";
 
 let activeEditor: LexicalEditor | undefined;
@@ -57,7 +56,7 @@ async function selectText() {
 }
 function mount(upload?: (file: File) => Promise<{ assetId: string; assetVersionId: string; src: string; altText?: string }>) {
   const change = vi.fn();
-  render(<AppThemeProvider><Provider><PageRichTextEditorSection lexicalValue={initial} editorKey="dialogs" onLexicalChange={change} onUploadImage={upload} /></Provider></AppThemeProvider>);
+  render(<Provider><PageRichTextEditorSection lexicalValue={initial} editorKey="dialogs" onLexicalChange={change} onUploadImage={upload} /></Provider>);
   return change;
 }
 function serializedChildren() {

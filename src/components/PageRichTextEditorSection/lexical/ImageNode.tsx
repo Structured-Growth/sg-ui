@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import type { LexicalEditor, NodeKey, SerializedLexicalNode, Spread } from "lexical";
 import { DecoratorNode, $applyNodeReplacement } from "lexical";
-import { Box } from "../../primitives";
+import styles from "./ImageNode.module.css";
 
 export type SerializedImageNode = Spread<{
   type: "image";
@@ -30,26 +30,9 @@ type ImageComponentProps = {
 
 function ImageComponent({ altText, src }: ImageComponentProps) {
   return (
-    <Box
-      sx={{
-        alignItems: "center",
-        display: "flex",
-        justifyContent: "center",
-        my: 1,
-      }}
-    >
-      <Box
-        alt={altText}
-        component="img"
-        src={src}
-        sx={{
-          borderRadius: 1,
-          display: "block",
-          height: "auto",
-          maxWidth: "100%",
-        }}
-      />
-    </Box>
+    <div className={styles.root} data-sgui-part="editor-image">
+      <img alt={altText} src={src} className={styles.image} />
+    </div>
   );
 }
 

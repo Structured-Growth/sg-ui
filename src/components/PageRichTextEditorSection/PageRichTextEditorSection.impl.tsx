@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { forwardRef, useEffect, useMemo, useRef, useState } from "react";
 import {
   $createParagraphNode,
   $createRangeSelection,
@@ -24,7 +24,7 @@ import {
 } from "lexical";
 import { $patchStyleText, $setBlocksType } from "@lexical/selection";
 import { $createHeadingNode, $isHeadingNode } from "@lexical/rich-text";
-import { $createLinkNode, $isLinkNode, LinkNode } from "@lexical/link";
+import { $createLinkNode, $isLinkNode, $toggleLink, LinkNode } from "@lexical/link";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
@@ -47,7 +47,8 @@ import {
   type RichTextToolbarControlId,
   type RichTextToolbarControlSetId,
 } from "../RichTextFormattingToolbar";
-import { Box } from "../primitives";
+import { useTranslation } from "../../i18n";
+import styles from "./PageRichTextEditorSection.module.css";
 
 type HeadingValue = RichTextHeadingValue;
 
@@ -197,6 +198,10 @@ export type PageRichTextEditorSectionProps = {
   hiddenControls?: Partial<Record<RichTextToolbarControlId, boolean>>;
   hiddenControlSets?: Partial<Record<RichTextToolbarControlSetId, boolean>>;
   readOnly?: boolean;
+  /** Accessible name for the editable document. */
+  "aria-label"?: string;
+  className?: string;
+  style?: import("react").CSSProperties;
   onUploadImage?: (file: File) => Promise<{
     assetId: string;
     assetVersionId: string;
@@ -211,12 +216,16 @@ function ToolbarBridge({
   onStateChange,
   onReady,
   onSelectionSnapshotChange,
+  readOnly,
 }: {
+  readOnly: boolean;
   onStateChange: (nextState: ToolbarState) => void;
   onReady: (editor: LexicalEditor) => void;
   onSelectionSnapshotChange: (snapshot: RangeSelectionSnapshot | null) => void;
 }) {
   const [editor] = useLexicalComposerContext();
+
+  useEffect(() => { editor.setEditable(!readOnly); }, [editor, readOnly]);
 
   useEffect(() => {
     onReady(editor);
@@ -311,10 +320,10 @@ const DEFAULT_LEXICAL_VALUE = {
   },
 };
 
-export function PageRichTextEditorSection({
+export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichTextEditorSectionProps>(function PageRichTextEditorSection({
   lexicalValue,
   onLexicalChange,
-  placeholder = "Start writing page content...",
+  placeholder,
   editorKey,
   toolPreset = "base",
   enabledControls,
@@ -325,7 +334,11 @@ export function PageRichTextEditorSection({
   hiddenControlSets,
   readOnly = false,
   onUploadImage,
-}: PageRichTextEditorSectionProps) {
+  "aria-label": accessibleName,
+  className,
+  style,
+}, ref) {
+  const { t } = useTranslation();
   const [toolbarState, setToolbarState] = useState<ToolbarState>({
     bold: false,
     code: false,
@@ -354,6 +367,15 @@ export function PageRichTextEditorSection({
   const [imageUploading, setImageUploading] = useState(false);
   const imageUploadSessionRef = useRef(0);
   useEffect(() => () => { imageUploadSessionRef.current += 1; }, []);
+
+  useEffect(() => {
+    imageUploadSessionRef.current += 1;
+    setLinkModalOpen(false); setActiveLinkNodeKey(null);
+    setColumnsLayoutModalOpen(false); setImageUploadModalOpen(false);
+    setImageUploading(false); setImageUploadError(null);
+    pendingLinkSelectionRef.current = null; selectionSnapshotRef.current = null;
+    pendingLinkSelectedTextRef.current = "";
+  }, [editorKey, readOnly]);
 
   const baseHiddenControls = useMemo<Partial<Record<RichTextToolbarControlId, boolean>>>(
     () => (toolPreset === "base" ? { code: true, link: true } : {}),
@@ -731,9 +753,16 @@ export function PageRichTextEditorSection({
         const previousDisplayText = linkNode.getTextContent();
 
         if (!url) {
-          const replacement = $createTextNode(displayText || previousDisplayText);
-          linkNode.replace(replacement);
-          replacement.select();
+          if (!displayText || displayText === previousDisplayText) {
+            const children = linkNode.getChildren();
+            for (const child of children) linkNode.insertBefore(child);
+            linkNode.remove();
+            children.at(-1)?.selectEnd();
+          } else {
+            const replacement = $createTextNode(displayText);
+            linkNode.replace(replacement);
+            replacement.select();
+          }
           return;
         }
 
@@ -746,10 +775,14 @@ export function PageRichTextEditorSection({
           linkNode.setTarget(null);
           linkNode.setRel(null);
         }
-        const replacement = $createTextNode(displayText || previousDisplayText || normalizedUrl);
-        // Replace children atomically: clearing a nonempty LinkNode detaches it.
-        linkNode.splice(0, linkNode.getChildrenSize(), [replacement]);
-        replacement.select();
+        if (displayText && displayText !== previousDisplayText) {
+          const replacement = $createTextNode(displayText);
+          // Replace atomically: clearing a nonempty LinkNode detaches it.
+          linkNode.splice(0, linkNode.getChildrenSize(), [replacement]);
+          replacement.select();
+        } else {
+          linkNode.selectEnd();
+        }
       });
       setLinkModalOpen(false);
       setActiveLinkNodeKey(null);
@@ -767,12 +800,17 @@ export function PageRichTextEditorSection({
       const finalDisplayText = displayText || currentText;
 
       if (!url) {
+        if (finalDisplayText === currentText) { $toggleLink(null); return; }
         selection.insertText(finalDisplayText);
         return;
       }
 
       const normalizedUrl = normalizeUrlForStorage(url);
       const isExternal = isExternalUrl(url);
+      if (finalDisplayText === currentText && !selection.isCollapsed()) {
+        $toggleLink(normalizedUrl, isExternal ? { rel: "noopener noreferrer", target: "_blank" } : { rel: null, target: null });
+        return;
+      }
       const linkNode = $createLinkNode(
         normalizedUrl,
         isExternal
@@ -833,17 +871,7 @@ export function PageRichTextEditorSection({
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flex: 1,
-        flexDirection: "column",
-        height: "100%",
-        minHeight: 0,
-        overflow: "hidden",
-        width: "100%",
-      }}
-    >
+    <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="editor-section">
       {readOnly ? null : (
         <RichTextFormattingToolbar
         disabledControls={disabledControls}
@@ -972,108 +1000,8 @@ export function PageRichTextEditorSection({
         disableContainerPadding
         />
       )}
-      <Box ref={editorViewportRef} sx={{ flex: 1, minHeight: 0, overflow: "auto", p: 2 }}>
-        <Box
-          sx={{
-            "& .editor-heading-h1": {
-              typography: "h1",
-            },
-            "& .editor-heading-h2": {
-              typography: "h2",
-            },
-            "& .editor-heading-h3": {
-              typography: "h3",
-            },
-            "& .editor-heading-h4": {
-              typography: "h4",
-            },
-            "& .editor-heading-h5": {
-              typography: "h5",
-            },
-            "& .editor-heading-h6": {
-              typography: "h6",
-            },
-            "& .editor-link": {
-              color: "primary.main",
-              cursor: "pointer",
-              textDecoration: "underline",
-            },
-            "& .editor-horizontal-rule": {
-              border: 0,
-              borderTop: 2,
-              borderTopColor: "divider",
-              borderTopStyle: "solid",
-              cursor: "pointer",
-              marginY: 1.5,
-              outline: "none",
-              width: "100%",
-            },
-            "& .editor-horizontal-rule-selected": {
-              borderTopColor: "primary.main",
-              boxShadow: (theme) => `0 0 0 2px ${theme.palette.primary.main}`,
-            },
-            "& table": {
-              borderCollapse: "collapse",
-              marginY: 1,
-              width: "100%",
-            },
-            "& td, & th": {
-              border: 1,
-              borderColor: "divider",
-              minHeight: 36,
-              minWidth: 120,
-              padding: 1,
-              verticalAlign: "top",
-            },
-            "& h1": {
-              typography: "h1",
-            },
-            "& h2": {
-              typography: "h2",
-            },
-            "& h3": {
-              typography: "h3",
-            },
-            "& h4": {
-              typography: "h4",
-            },
-            "& h5": {
-              typography: "h5",
-            },
-            "& h6": {
-              typography: "h6",
-            },
-            "& p": {
-              typography: "body1",
-            },
-            [`& [style*="${TEXT_VARIANT_MARKER_PROPERTY}: body"]`]: {
-              typography: "body1",
-            },
-            [`& [style*="${TEXT_VARIANT_MARKER_PROPERTY}: body1"]`]: {
-              typography: "body1",
-            },
-            [`& [style*="${TEXT_VARIANT_MARKER_PROPERTY}: body2"]`]: {
-              typography: "body2",
-            },
-            [`& [style*="${TEXT_VARIANT_MARKER_PROPERTY}: bodyAlt2"]`]: {
-              typography: "bodyAlt2",
-            },
-            "& .editor-text-bold": { fontWeight: "fontWeightBold" },
-            "& .editor-text-code": {
-              backgroundColor: "action.hover",
-              borderRadius: 0.5,
-              fontFamily: "monospace",
-              px: 0.5,
-            },
-            "& .editor-text-italic": { fontStyle: "italic" },
-            "& .editor-text-strikethrough": { textDecoration: "line-through" },
-            "& .editor-text-subscript": { fontSize: "0.75em", verticalAlign: "sub" },
-            "& .editor-text-superscript": { fontSize: "0.75em", verticalAlign: "super" },
-            "& .editor-text-underline": { textDecoration: "underline" },
-            "& .editor-text-underlineStrikethrough": { textDecoration: "underline line-through" },
-            height: "100%",
-          }}
-        >
+      <div ref={editorViewportRef} className={styles.viewport} data-sgui-part="editor-viewport">
+        <div className={styles.document}>
           <LexicalComposer
             key={editorKey}
             initialConfig={{
@@ -1092,7 +1020,7 @@ export function PageRichTextEditorSection({
                 onRequestLinkMouseDown={capturePendingLinkSelection}
               />
             )}
-            <ToolbarBridge
+            <ToolbarBridge readOnly={readOnly}
               onReady={(editor) => setEditorRef(editor)}
               onSelectionSnapshotChange={(snapshot) => {
                 selectionSnapshotRef.current = snapshot;
@@ -1102,28 +1030,20 @@ export function PageRichTextEditorSection({
             <RichTextPlugin
               ErrorBoundary={LexicalErrorBoundary}
               contentEditable={(
-                <ContentEditable
-                  style={{
-                    color: "inherit",
-                    lineHeight: "1.5",
-                    minHeight: "100%",
-                    outline: "none",
-                    whiteSpace: "pre-wrap",
-                  }}
-                />
+                <ContentEditable className={styles.editable} aria-label={accessibleName ?? t("editor.document", { defaultMessage: "Document" })} />
               )}
               placeholder={(
                 readOnly ? null : (
-                  <Box sx={{ color: "text.secondary", pointerEvents: "none", position: "absolute", top: 16 }}>
-                    {placeholder}
-                  </Box>
+                  <div className={styles.placeholder}>
+                    {placeholder ?? t("editor.placeholder", { defaultMessage: "Start writing page content..." })}
+                  </div>
                 )
               )}
             />
             <ExperienceEditorPlugins onChange={onLexicalChange} />
           </LexicalComposer>
-        </Box>
-      </Box>
+        </div>
+      </div>
       <LinkUrlModal
         initialDisplayText={linkModalInitialDisplayText}
         key={linkModalSession}
@@ -1181,7 +1101,7 @@ export function PageRichTextEditorSection({
             setImageUploadModalOpen(false);
           } catch (error) {
             if (imageUploadSessionRef.current === uploadSession) {
-              setImageUploadError(error instanceof Error ? error.message : "Image upload failed.");
+              setImageUploadError(error instanceof Error ? error.message : t("editor.imageUploadFailed", { defaultMessage: "Image upload failed." }));
             }
           } finally {
             if (imageUploadSessionRef.current === uploadSession) setImageUploading(false);
@@ -1190,6 +1110,6 @@ export function PageRichTextEditorSection({
         open={imageUploadModalOpen}
         uploading={imageUploading}
       />
-    </Box>
+    </div>
   );
-}
+});

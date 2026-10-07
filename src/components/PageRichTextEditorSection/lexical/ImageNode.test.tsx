@@ -1,4 +1,5 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { renderToStaticMarkup } from "react-dom/server";
 import type { ImagePayload, SerializedImageNode } from "./ImageNode";
 
 const { applyNodeReplacementMock } = vi.hoisted(() => ({
@@ -22,6 +23,10 @@ vi.mock("lexical", async () => {
 });
 
 describe("ImageNode", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
   beforeEach(() => {
     applyNodeReplacementMock.mockClear();
   });
@@ -73,9 +78,23 @@ describe("ImageNode", () => {
     expect(decorated.props.src).toBe("src.png");
     expect(decorated.props.altText).toBe("Alt");
     const renderedImageComponent = decorated.type(decorated.props);
-    expect(renderedImageComponent.props.children.props.component).toBe("img");
+    expect(renderedImageComponent.type).toBe("div");
+    expect(renderedImageComponent.props.children.type).toBe("img");
     expect(renderedImageComponent.props.children.props.alt).toBe("Alt");
     expect(renderedImageComponent.props.children.props.src).toBe("src.png");
+  });
+
+  it("renders an accessible native image without browser globals or runtime styling", async () => {
+    const { ImageNode } = await import("./ImageNode");
+    const node = new ImageNode("/cover.png", "Course cover", 800, 600, "asset", "v1");
+    const markup = renderToStaticMarkup(node.decorate({} as never));
+
+    expect(markup).toContain('data-sgui-part="editor-image"');
+    expect(markup).toContain('<img alt="Course cover" src="/cover.png" class=');
+    expect(markup).not.toContain("<style");
+    // Stored host metadata remains serialized rather than overriding responsive sizing.
+    expect(markup).not.toContain('width="800"');
+    expect(node.exportJSON()).toMatchObject({ width: 800, height: 600, assetId: "asset", assetVersionId: "v1" });
   });
 
   it("creates, imports, and type-guards image nodes with defaults", async () => {

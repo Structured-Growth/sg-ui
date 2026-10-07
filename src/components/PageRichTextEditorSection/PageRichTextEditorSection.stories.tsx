@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import Box from "@mui/material/Box";
+import { Provider } from "../../experimental/Provider/Provider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection";
 
 const meta = {
@@ -100,14 +100,14 @@ export const FullTools: Story = {
     const [lexicalValue, setLexicalValue] = useState(INITIAL_DOC);
 
     return (
-      <Box sx={{ height: 520, width: "100%" }}>
+      <Provider style={{ height: 520, width: "100%" }}>
         <PageRichTextEditorSection
           editorKey="story-page-1"
           lexicalValue={lexicalValue}
           toolPreset="full"
           onLexicalChange={(next) => setLexicalValue(next as typeof INITIAL_DOC)}
         />
-      </Box>
+      </Provider>
     );
   },
 };
@@ -117,7 +117,7 @@ export const WithDisabledTools: Story = {
     const [lexicalValue, setLexicalValue] = useState(INITIAL_DOC);
 
     return (
-      <Box sx={{ height: 520, width: "100%" }}>
+      <Provider style={{ height: 520, width: "100%" }}>
         <PageRichTextEditorSection
           toolPreset="full"
           disabledControls={{ link: true, code: true }}
@@ -128,7 +128,7 @@ export const WithDisabledTools: Story = {
           lexicalValue={lexicalValue}
           onLexicalChange={(next) => setLexicalValue(next as typeof INITIAL_DOC)}
         />
-      </Box>
+      </Provider>
     );
   },
 };
@@ -138,13 +138,15 @@ export const BasePreset: Story = {
     const [lexicalValue, setLexicalValue] = useState(INITIAL_DOC);
 
     return (
-      <Box sx={{ height: 520, width: "100%" }}>
+      <Provider style={{ height: 520, width: "100%" }}>
         <PageRichTextEditorSection
           editorKey="story-page-3"
           lexicalValue={lexicalValue}
           onLexicalChange={(next) => setLexicalValue(next as typeof INITIAL_DOC)}
         />
-      </Box>
+      </Provider>
     );
   },
 };
+
+export const DarkReadOnly: Story = { args: { lexicalValue: INITIAL_DOC, readOnly: true, "aria-label": "Read-only course content" }, decorators: [(Story) => <Provider theme="dark" style={{height:320}}><Story /></Provider>] };

@@ -1,0 +1,16 @@
+@layer sgui.components {
+  .root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: var(--sgui-space2);
+    min-inline-size: 0;
+  }
+
+  .image {
+    display: block;
+    border-radius: var(--sgui-space1);
+    block-size: auto;
+    max-inline-size: 100%;
+  }
+}

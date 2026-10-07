@@ -6,7 +6,6 @@ import userEvent from "@testing-library/user-event";
 import { $getRoot, $isTextNode, type LexicalEditor } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { Provider } from "../../experimental/Provider/Provider";
-import { AppThemeProvider } from "../../theme/AppThemeProvider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection.impl";
 
 // jsdom has no selection geometry. Native anchoring/scrolling is verified in the browser.
@@ -44,7 +43,7 @@ afterEach(() => { cleanup(); editor = undefined; });
 const initial = { root: { type: "root", version: 1, children: [{ type: "paragraph", version: 1, children: [{ type: "text", version: 1, text: "Guide", detail: 0, format: 0, mode: "normal", style: "" }], direction: null, format: "", indent: 0 }], direction: null, format: "", indent: 0 } };
 function mount() {
   const change = vi.fn();
-  render(<AppThemeProvider><Provider><PageRichTextEditorSection lexicalValue={initial} editorKey="floating-host" toolPreset="full" onLexicalChange={change} /></Provider></AppThemeProvider>);
+  render(<Provider><PageRichTextEditorSection lexicalValue={initial} editorKey="floating-host" toolPreset="full" onLexicalChange={change} /></Provider>);
   return change;
 }
 async function selectText() {

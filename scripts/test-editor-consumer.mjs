@@ -26,7 +26,10 @@ import { FloatingTextSelectionToolbar } from '@structured-growth/sg-ui/component
 import { DocumentEditorLayout } from '@structured-growth/sg-ui/components/DocumentEditorLayout';
 import { ContentEditorChrome } from '@structured-growth/sg-ui/components/ContentEditorChrome';
 import { DocumentEditorToolbar } from '@structured-growth/sg-ui/components/DocumentEditorToolbar';
+import { PageRichTextEditorSection } from '@structured-growth/sg-ui/components/PageRichTextEditorSection';
 export function Proof() {
+  const [readOnly,setReadOnly]=React.useState(false);
+  const [sectionValue,setSectionValue]=React.useState({root:{type:'root',version:1,children:Array.from({length:12},(_,i)=>({type:'paragraph',version:1,children:[{type:'text',version:1,text:'Packed course paragraph '+(i+1)+' for editing.',detail:0,format:0,mode:'normal',style:''}],direction:null,format:'',indent:0})),direction:null,format:'',indent:0}});
   const boundary=React.useRef(null); const [result,setResult]=React.useState('No command');
   return <Provider theme="dark" style={{background:'var(--sgui-surface)',color:'var(--sgui-text)'}}>
     <ContentEditorChrome title="Packed editor" icon={null} onTitleSave={setResult} menuItems={[{id:'file',label:'File',onPress:anchor=>setResult(anchor.textContent)}]} />
@@ -37,7 +40,9 @@ export function Proof() {
           <RichTextPlugin contentEditable={<ContentEditable aria-label="Packed document" style={{padding:16}} />} ErrorBoundary={LexicalErrorBoundary} placeholder={null} />
         </LexicalComposer>
       </div>
-    </DocumentEditorLayout><p role="status">{result}</p>
+    </DocumentEditorLayout><button onClick={()=>setReadOnly(value=>!value)}>Toggle read only</button>
+    <PageRichTextEditorSection lexicalValue={sectionValue} editorKey="packed-section" toolPreset="full" onLexicalChange={setSectionValue} readOnly={readOnly} aria-label="Packed course content" style={{height:480}} />
+    <output aria-label="Serialized course content">{JSON.stringify(sectionValue)}</output><p role="status">{result}</p>
   </Provider>;
 }`);
 await writeFile(join(fixture,'main.jsx'), `import React from 'react';import {hydrateRoot} from 'react-dom/client';import {Proof} from './Proof.jsx';import '@structured-growth/sg-ui/styles.css';hydrateRoot(document.getElementById('root'),<Proof />);`);
