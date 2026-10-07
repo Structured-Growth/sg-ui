@@ -35,13 +35,24 @@ Regressions exercise reverse preview association, moving descriptions to the new
 
 The new `FocusedEndpointPreview` story keeps controlled committed values and commit count visible. The narrow native spec exercises light/dark keyboard unavailable-date focus and rejected activation, anchor/endpoint association, constrained traversal, unchanged committed data and native Cancel.
 
-Coordinator command after composing the attributed candidate and building Storybook once:
+Coordinator executed this exact selection against one fresh shared Storybook build:
 
 ```sh
-pnpm exec playwright test tests/browser/batch61-keyboard-range-preview.spec.ts --project=chromium
+pnpm exec playwright test '(?:^|/)tests/browser/batch61-keyboard-range-preview\.spec\.ts$' --project=chromium
 ```
 
-The existing `tests/browser/batch01-calendar.spec.ts` remains useful affected coverage for leap/month previews, reset and picker interactions. Browser execution belongs to the coordinator's shared candidate.
+On 2026-10-07, wave30 candidate `5cc976dc1b9af6ced3980ec0e93fe930a9a8237b` tested the exact frozen worker source at `913b79d753d5f5b0495e144da95d9c1c918dd97b`. These are different commits: the candidate composes multiple attributed worker scopes. `/tmp/sgui-batch45-candidate-wave30-attribution.json` records this worker head, base and per-file digests. This report-only follow-up preserves every implementation, CSS, story, unit and browser-spec byte from that tested worker source.
+
+The complete `keyboard-range-preview` Chromium shard passed **2/2**, light and dark, with zero failed cases. Playwright reports 3.5 seconds; the coordinator command duration was 4659.57 ms. Both tests include the mandatory runtime diagnostics assertion. Fresh Storybook build and browser TypeScript checking passed. Root snapshot head, source digest and build digest remained unchanged through execution; evidence records owned commands settled. The coordinator confirmed locks released. The root snapshot was incomplete because a separate pointer scope failed; that does not convert this green shard into a whole-candidate pass.
+
+Evidence:
+
+- Root: `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/evidence.json`
+- Shard evidence/results/log: `/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/80b00fee-f55f-45e8-88dc-4666223d88cc/keyboard-range-preview/`
+- Attribution: `/tmp/sgui-batch45-candidate-wave30-attribution.json`
+- Immutable build digest: `6978ebf422790330db7d1a041dfa973e0d3f01c06362a9afbefb43719c5a6ee0`
+
+No worker rerun or rebuild was performed for this report update. The existing `tests/browser/batch01-calendar.spec.ts` remains useful affected coverage for leap/month previews, reset and picker interactions; this shard does not claim a new execution of that spec. Coordinator integrates the individual reviewed worker history, not the whole shared candidate.
 
 An exploratory unit assertion manually injected a foreign native `aria-describedby` reference after mounting; it failed on the subsequent upstream cell rerender because React Aria owns and rewrites that attribute. That arbitrary post-mount native mutation is not an exposed consumer contract. The probe was removed; the bridge retains the existing merge/remove-only-owned-reference behavior at each attachment. No supported keyboard, availability or draft behavior assertion was weakened.
 
@@ -53,4 +64,4 @@ Do not mark K-17 complete or edit the master task list. No shared contract files
 
 ## Remaining gates
 
-Fresh focused Chromium execution is pending coordinator composition/build. Firefox/WebKit are deferred to the accumulated checkpoint. Live assistive-technology output, localized-calendar/device/touch matrix and broad K-17 remain unverified. DOM association and removal assertions do not prove screen-reader announcement timing or conformance. No release, main integration, publication, workflow permission or secret changes.
+Focused fresh Chromium execution passed 2/2 on the attributed candidate above. Firefox/WebKit remain pending the accumulated checkpoint. Live assistive-technology output, localized-calendar/device/touch matrix and broad K-17 remain unverified. DOM association and removal assertions do not prove screen-reader announcement timing or conformance. No release, main integration, publication, workflow permission or secret changes.
