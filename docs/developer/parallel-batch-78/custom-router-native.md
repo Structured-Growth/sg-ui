@@ -58,7 +58,7 @@ Install/light leases were released after their commands settled.
 | `src/adapters/navigation.tsx` | `6c961ccfaf1239ab7871c63d3593fd10dc4525dcbfec4b5965a59416c93e220e` |
 | `pnpm-lock.yaml` | `786f56018e5278bc36f59b02d0c2d2ee0ab2df7fc7883178aeb4b9deb3d13438` |
 
-## Coordinator native selection and pending evidence
+## Coordinator native selection
 
 Exact focused args:
 
@@ -81,8 +81,41 @@ The coordinator owns exact-head review, queue admission, a fresh Storybook build
 and focused Chromium supervisor execution per the
 [development policy](../react-aria-development-validation.md) and
 [parallel browser policy](../react-aria-parallel-browser-validation.md).
-Source scope stays reserved until that proof returns. Corrected Chromium execution
-is pending at this handoff; Firefox/WebKit remain pending for the checkpoint.
+The corrected focused Chromium execution passed as recorded below. The source
+reservation is released after final report handoff; Firefox/WebKit remain pending
+for the checkpoint.
+
+## Passed native proof and final report
+
+Coordinator wave 39 freshly built Storybook, typechecked browser sources and ran
+exactly **1 Chromium case**, passed at retry zero, from executable head
+`0707b97c33a89cf494bb2b245962a7698510b4b8`. Evidence:
+`artifacts/browser-pool/b234c72f-dd74-4363-a8f8-37a095bd905b/evidence.json`
+inside this worktree. Supervisor owner token:
+`browser-snapshot:23766:7f9d9b90-d5e4-45bb-955f-f4c5cca7b335`.
+Queue owner: `01a1164f-41db-7f30-aaf9-f20133b6566f`.
+The selection used the anchored spec argument
+`(?:^|/)tests/browser/batch01-adapters\.spec\.ts$`, project Chromium and the
+exact grep above. Port: 6853. Node: `v24.19.0`; Playwright: `1.63.0`.
+
+| Attestation | Value |
+| --- | --- |
+| Source digest, before/after | `c27a342ca93f11de9ce9540a030f97db8697a79dbd3ecb165bae0b6aa6e384f7` |
+| Immutable build digest, before/after | `2f65e5a719bef9720b1cd6e44fdf818856e7d0c678d149d1f70dda5b3900a7b2` |
+| Harness SHA-256 | `2a356b667f224018b0e51f1c698e5d7ae044857cbd6e1ddddae96aa786efb1d2` |
+| Final tested head | `0707b97c33a89cf494bb2b245962a7698510b4b8` |
+
+The supervisor recorded clean final status, matching source/build digests, owned
+commands settled and no owned processes after completion. The coordinator verified
+released owned locks. Both keyboard and pointer paths completed, including native
+ref focus after rerender and exact callback ownership. This proves this one
+custom-router case on Chromium, not the entire adapter spec or a complete adapter
+browser matrix. No worker browser/build or cleanup ran.
+
+The final commit changes only this report; executable spec/story/source/lock bytes
+remain identical to the tested head. Its exact final commit is in the coordinator
+handoff. Firefox/WebKit, real framework integration and broad H/U/X/R/Z/manual,
+physical-device and assistive-technology acceptance remain open.
 
 ## First native run and fixture correction
 
