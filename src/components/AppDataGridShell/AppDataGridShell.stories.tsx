@@ -70,36 +70,38 @@ function ControlledHostResponsesPreview() {
   const [hasNext, setHasNext] = useState(true);
   const callbackOrder = useRef<string[]>([]);
   const [lastOrder, setLastOrder] = useState("");
+  const acceptRequest = () => {
+    if (!requested) return;
+    // Host application policy: accept the complete request, then replace rows.
+    // Real hosts also discard stale responses before passing rows to the shell.
+    const matching = rows.filter(row => row.name.toLowerCase().includes(requested.searchValue.toLowerCase()) &&
+      requested.filterRules.every(rule => rule.field !== "name" || row.name.includes(rule.value)));
+    matching.sort((left, right) => {
+      for (const rule of requested.sortRules) {
+        const field = rule.field as keyof Course;
+        const a = left[field], b = right[field];
+        const result = typeof a === "number" && typeof b === "number" ? a - b : String(a).localeCompare(String(b));
+        if (result) return rule.direction === "desc" ? -result : result;
+      }
+      return 0;
+    });
+    const start = requested.paginationModel.page * requested.paginationModel.pageSize;
+    setLoaded(matching.slice(start, start + requested.paginationModel.pageSize));
+    setHasNext(start + requested.paginationModel.pageSize < matching.length);
+    setAccepted(requested); setRequested(null); setResponse("ready");
+  };
   const removeFocusedRow = (target: HTMLElement) => {
     const id = target.closest<HTMLElement>("[data-grid-row]")?.dataset.gridRow;
     if (id) setLoaded(current => current.filter(row => row.id !== id));
   };
   return <div style={{ height: 500, display: "flex", flexDirection: "column", gap: 8 }} onKeyDown={event => {
     if (event.altKey && event.key === "d") { event.preventDefault(); removeFocusedRow(event.target as HTMLElement); }
+    if (event.altKey && event.key === "a") { event.preventDefault(); acceptRequest(); }
   }}>
     <div role="group" aria-label="Host responses">
       <Button onPress={() => setResponse("pending")}>Pending response</Button>
       <Button onPress={() => setResponse("error")}>Failed response</Button>
-      <Button disabled={!requested} onPress={() => {
-        if (!requested) return;
-        // Host application policy: accept the complete request, then replace rows.
-        // Real hosts also discard stale responses before passing rows to the shell.
-        const matching = rows.filter(row => row.name.toLowerCase().includes(requested.searchValue.toLowerCase()) &&
-          requested.filterRules.every(rule => rule.field !== "name" || row.name.includes(rule.value)));
-        matching.sort((left, right) => {
-          for (const rule of requested.sortRules) {
-            const field = rule.field as keyof Course;
-            const a = left[field], b = right[field];
-            const result = typeof a === "number" && typeof b === "number" ? a - b : String(a).localeCompare(String(b));
-            if (result) return rule.direction === "desc" ? -result : result;
-          }
-          return 0;
-        });
-        const start = requested.paginationModel.page * requested.paginationModel.pageSize;
-        setLoaded(matching.slice(start, start + requested.paginationModel.pageSize));
-        setHasNext(start + requested.paginationModel.pageSize < matching.length);
-        setAccepted(requested); setRequested(null); setResponse("ready");
-      }}>Accept request</Button>
+      <Button disabled={!requested} onPress={acceptRequest}>Accept request</Button>
       <Button onPress={() => { setLoaded([]); setHasNext(false); setResponse("ready"); }}>Empty terminal response</Button>
     </div>
     <output aria-label="Host callback order">{lastOrder || "No request"}</output>

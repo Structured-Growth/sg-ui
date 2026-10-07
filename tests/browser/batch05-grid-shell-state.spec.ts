@@ -27,12 +27,14 @@ for (const mode of ['List', 'Cards']) {
     await expect(page.getByText('Host request failed', { exact: true })).toBeVisible();
     await page.getByRole('button', { name: 'Retry', exact: true }).click();
     await expect(page.getByText('Refreshing rows', { exact: true })).toBeVisible();
-    await page.getByRole('button', { name: 'Accept request', exact: true }).click();
+    // Accept through a host shortcut while a stable host action owns focus.
+    await page.getByRole('button', { name: 'Pending response', exact: true }).focus();
+    await page.keyboard.press('Alt+a');
     await expect(page.getByRole('status', { name: 'Accepted host page' })).toHaveText('Page 2, size 10');
     await expect(page.getByText(mode === 'Cards' ? 'Open Course 21' : 'Course 21', { exact: true })).toBeVisible();
     await expect(page.getByText('2 selected', { exact: true })).toBeVisible();
     // Host acceptance must leave the host action focused, even with a pending footer request.
-    await expect(page.getByRole('button', { name: 'Accept request', exact: true })).toBeFocused();
+    await expect(page.getByRole('button', { name: 'Pending response', exact: true })).toBeFocused();
     await page.getByRole('button', { name: 'Empty terminal response', exact: true }).click();
     await expect(page.getByText('No rows available', { exact: true })).toBeVisible();
     await expect(page.getByRole('button', { name: 'Next page', exact: true })).toBeDisabled();
