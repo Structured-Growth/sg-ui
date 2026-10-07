@@ -402,3 +402,9 @@ Tooltip managedrecovery succeeded at batch13-control-tooltip-3440, exact d264c57
 Eighth corrected pool: RadioGroup6 and reset/formassociation8 Chromium/WebKit passes atd2b1ccf/e1c922c respectively. Freshbuild/type/immutablehead/hashes verified; sourcefreeze released, finalreports/source reviews awaited. PreventedpartialDateField hold unaffected. Reviewed titlePR75 exact5-file allowlist, two-line liveReadOnlyguard/nativefield mapping,10unitreported/4coordinator nativepasses atd6a964f; final30377c9report-only readyintegration.
 
 Reviewed/integrated PR75 exact5-file scope,10unitreported/4coordinator nativepasses and report-only30377c9delta; small readOnly saveguard/nativefield mapping. Eighthreset8/RadioGroup6 C/Wpasses confirmed, finalreport/source reviews stillpending; preventedpartialDateField hold remains. Next nativepair sharedMenu test-onlybaseline06af8a6 and correctedSwitchfdcb9b7. Acceptance67/32620.6%, required67/32020.9%, delta0,31inventory held.
+
+### Coordination 2026-10-07T15:13:56.897057+00:00
+
+- Ninth nativepair starting Menu test-onlybaseline06af8a6 + correctedSwitchfdcb9b7; sourcefrozen. Userasked Firefoxbottleneck; localprobes/appdataEPERM and live upstreamissue42768 support macOSprivacy hypothesis; hostFullDiskAccess candidate described, one boundeddiagnostic only after actualenvironmentchange, Linuxalternative noCIreenable implied. Reset final9c735eb/Radio913c4f5 reportsawaitsource reviews.
+- Ninth pool finished: Switch2 C/W native passes; Menu independentbaseline5passes/1Chromium Alt+ArrowDown actualfocus failure. Menu exclusive correction authorized; Switch finalreport requested. No Firefox retry without environmentchange.
+- Reviewed PR78 dynamicRadioGroup bounded source/tests14affected +6C/Wnative; conflict-freefullhistory merge913c4f5. Newbatch18independentPR42correctionreview chat01a116ed-425d-7070-8343-8c77d48f087a owns onlyunique report; knownpartialDateFieldgate held.
