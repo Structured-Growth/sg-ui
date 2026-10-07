@@ -489,3 +489,17 @@ Integrated complete reviewed histories for logout lifetime (PR79, 4 Chromium pas
 - primitive-switch-ref: `91f280a8fc7969e41c27d2b80a8ec28bfe2f8585`.
 
 The three inventory reports retain 31 unresolved inventory rows and six prior accepted rows. Their proposed missing native scopes are successor candidates, not completed assignments. Switch guide now accurately describes HTMLLabelElement and its associated control. TimeField corrected driver head 127b3be remains queued for seven fresh Chromium cases; original 4 driver failures/3 existing passes are preserved.
+
+## Missing native acceptance scopes — batches 33–39
+
+Seven independent successor chats dispatched from reviewed `4c9f859bad204a7d7fd2e3787aa6f293db268525`. Each creates an isolated managed worktree before editing, owns only its component directory, unique native spec and report, and uses targeted checks plus coordinator fresh Chromium validation. No broad row closes by dispatch.
+
+- layout-replacement — chat `01a1172f-5f04-7232-8eea-fe97765e1392`; src/components/DocumentEditorLayout/; tests/browser/inventory-layout-replacement.spec.ts; docs/developer/parallel-batch-33/layout-replacement.md.
+- learner-grid-cells — chat `01a1172f-6137-72c2-add5-c3526e418dea`; src/components/LearnerClassesDataGrid/; tests/browser/inventory-learner-grid-cells.spec.ts; docs/developer/parallel-batch-34/learner-grid-cells.md.
+- shell-responsive-native — chat `01a11731-610c-7153-b23b-66ff274e10f6`; src/components/AppShell/; tests/browser/inventory-shell-responsive.spec.ts; docs/developer/parallel-batch-35/shell-responsive-native.md.
+- card-collection-native — chat `01a11731-638a-7760-a356-8c3471f63448`; src/components/CardCollectionWithFooter/; tests/browser/inventory-card-collection.spec.ts; docs/developer/parallel-batch-36/card-collection-native.md.
+- selection-boundary-native — chat `01a11731-65c5-7b52-9bc3-56f578ad70e4`; src/components/FloatingTextSelectionToolbar/; tests/browser/inventory-selection-boundary.spec.ts; docs/developer/parallel-batch-37/selection-boundary-native.md.
+- align-direction-native — chat `01a11731-68ad-7c13-bc70-8141de8bda49`; src/components/TextAlignMenuControl/; tests/browser/inventory-align-direction.spec.ts; docs/developer/parallel-batch-38/align-direction-native.md.
+- frame-resize-native — chat `01a11731-6ae5-7c31-9444-eee3eb7db7ba`; src/components/ClassCardFrame/; tests/browser/inventory-card-frame-resize.spec.ts; docs/developer/parallel-batch-39/frame-resize-native.md.
+
+TimeField corrected native driver at `127b3be83872b15babf5e6a4931b9b7c29db8529` passed all seven Chromium cases, zero skip/flaky/unexpected, immutable digest `5a18d5c738e3515d5f32e29cc8af6d885bed63e64f9833953f053c4308ded68e`; run `3efb9bc7-b53a-48b1-88f3-de88ce5585a4`. Original four checkbox-driver failures/three prior cases remain retained; only visible-label interaction changed. Worker released for final report-only handoff, source integration still pending. Crossmatrix backlog holds seven integrated native behavior slices; no full checkpoint due yet.
