@@ -13,8 +13,10 @@ product code, tests or stories. Broad/manual/device/assistive-technology gates r
 - Exclusive write allowlist: `src/components/CardCollectionWithFooter/`,
   `tests/browser/batch13-card-collection.spec.ts`, and this report.
 - Actual changed file: only this report. Primary/all other worktrees preserved.
-- Final report commit/head and PR URL are sent to the coordinator at handoff;
-  a report cannot embed its own resulting commit hash.
+- Evidence report commit: `913a3cc` (full SHA available in Git history).
+- Draft PR: [#52](https://github.com/Structured-Growth/sg-ui/pull/52), attached to this chat.
+- Final report head is sent to the coordinator at handoff; a report cannot embed
+  its own resulting commit hash.
 
 Root AGENTS.md and [development validation](../react-aria-development-validation.md)
 were read before edits; the only AGENTS.md found in this checkout is the root.
