@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { SGTranslationProvider } from "../../i18n";
 import { ThemeScope } from "../../foundation/ThemeScope";
