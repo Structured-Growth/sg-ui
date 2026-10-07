@@ -20,6 +20,26 @@ conflict resolution or interactions introduce a concrete concern. Keep the share
 heavy-validation/browser lock and record commands, tested head and limitations.
 A targeted pass is not a full-suite pass or a whole acceptance-gate completion.
 
+## Chromium-first development loop
+
+On 2026-10-07 the user approved Chromium-first native validation to shorten the
+correction loop. Each task still needs meaningful targeted unit/composed tests,
+types and relevant guards, plus a fresh focused Chromium run for native behavior.
+Those results permit reviewed provisional integration into `codex/dev`.
+
+Track Firefox/WebKit evidence as pending until a batch checkpoint actually runs.
+After ten newly integrated native behavior slices, or at the daily full checkpoint
+if it comes first, freeze a reviewed dev snapshot and run the accumulated affected
+focused specs across the supported engines. Known engine-specific defects retain
+an explicit follow-up and can warrant an earlier focused check. A finished Chromium
+worker can release its source scope; reserve unresolved cross-browser fixes in new
+bounded tasks. Chromium-only evidence does not close a cross-browser or whole-task
+gate. Production acceptance retains the complete matrix and manual/device/AT checks.
+
+Report underlying issues separately from failed engine cases. Classify confirmed
+product defects, fixture/driver/expectation defects, environment failures and
+unclassified failures. Preserve red evidence; do not weaken behavior assertions.
+
 ## Occasional full checkpoint
 
 Initially run at most one scheduled checkpoint each 24 hours while new code lands,
