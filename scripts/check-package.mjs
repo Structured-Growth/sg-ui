@@ -3,8 +3,23 @@ import { execFileSync } from 'node:child_process';
 import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import ts from 'typescript';
 
+export function assertOwnedDeclaration(path, declaration) {
+  assert(!/react-aria|react-stately|@react-types|@react-stately|@mui|@emotion|lucide-react|@tanstack/.test(declaration), `Upstream type escaped: ${path}`);
+}
+
+export async function checkOwnedDeclarations(dir) {
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    const path = `${dir}/${entry.name}`;
+    if (entry.isDirectory()) await checkOwnedDeclarations(path);
+    else if (path.endsWith('.d.ts')) {
+      assertOwnedDeclaration(path, await readFile(path, 'utf8'));
+    }
+  }
+}
+export async function checkPackage() {
 // Directives belong to source implementations, never to a build-time directory rule.
 async function checkClientBoundaries(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
@@ -54,7 +69,8 @@ for (const [name, entry] of Object.entries(pkg.exports)) {
     const files = (await readdir(directory)).filter(file => /^[A-Z].*Icon\.js$/.test(file));
     assert(files.length > 0, 'Individual icon modules are missing');
     for (const file of files) {
-      await readFile(`${directory}/${file.replace(/\.js$/, '.d.ts')}`, 'utf8');
+      const declarationPath = `${directory}/${file.replace(/\.js$/, '.d.ts')}`;
+      assertOwnedDeclaration(declarationPath, await readFile(declarationPath, 'utf8'));
       const icon = await import(new URL(`../${directory}/${file}`, import.meta.url));
       assert(icon[file.replace(/\.js$/, '')], `Missing icon export ${file}`);
     }
@@ -68,7 +84,7 @@ for (const [name, entry] of Object.entries(pkg.exports)) {
     assert(pkg.sideEffects.includes('./dist/**/*.css'), 'Styles must survive tree shaking');
     continue;
   }
-  await readFile(entry.types, 'utf8');
+  assertOwnedDeclaration(entry.types, await readFile(entry.types, 'utf8'));
   const exports = await import(new URL(`../${entry.import}`, import.meta.url));
   assert(Object.keys(exports).length > 0, `${name} has no exports`);
 }
@@ -97,20 +113,11 @@ for (const name of ['Button', 'TextField', 'ThemeScope', 'Provider', 'Dialog', '
 }
 const tokens = await readFile('dist/foundation/tokens.generated.js', 'utf8');
 assert(!tokens.includes('use client'), 'Token references must be server importable');
-async function checkOwnedDeclarations(dir) {
-  for (const entry of await readdir(dir, { withFileTypes: true })) {
-    const path = `${dir}/${entry.name}`;
-    if (entry.isDirectory()) await checkOwnedDeclarations(path);
-    else if (path.endsWith('.d.ts')) {
-      assert(!/react-aria|@react-types|@mui|@emotion|lucide-react|@tanstack/.test(await readFile(path, 'utf8')), `Upstream type escaped: ${path}`);
-    }
-  }
-}
 await checkOwnedDeclarations('dist/experimental');
 await checkOwnedDeclarations('dist/foundation');
 for (const file of ['ownedGridModel', 'ownedGridState', 'ownedGridColumns', 'ownedGridCells', 'ownedGridParts', 'ownedGridController', 'ownedGridLayoutController', 'ownedGridInteraction']) {
   const declaration = await readFile(`dist/components/AppDataGrid/${file}.d.ts`, 'utf8');
-  assert(!/react-aria|@react-types|@mui|@emotion|lucide-react|@tanstack/.test(declaration), `Upstream grid model type escaped: ${file}`);
+  assertOwnedDeclaration(`dist/components/AppDataGrid/${file}.d.ts`, declaration);
 }
 for (const name of ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'AppButton', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar', 'AppDataGrid', 'AppDataGridShell', 'LearnerClassesDataGrid', 'AppDataGridRowDnd', 'icons', 'primitives']) await checkOwnedDeclarations(`dist/components/${name}`);
 
@@ -122,7 +129,7 @@ for (const name of ['MuiLink','FormControlLabel','MenuItem']) assert(!primitives
 
 for (const directory of ['dist/adapters', 'dist/hooks', 'dist/i18n']) await checkOwnedDeclarations(directory);
 for (const file of ['dist/index.d.ts', 'dist/models.d.ts']) {
-  assert(!/react-aria|@react-types|@mui|@emotion|lucide-react|@tanstack/.test(await readFile(file, 'utf8')), `Upstream public type escaped: ${file}`);
+  assertOwnedDeclaration(file, await readFile(file, 'utf8'));
 }
 await checkOwnedDeclarations('dist/utils');
 
@@ -154,4 +161,9 @@ try {
   console.log('Packed JS, declarations, CSS, maps and assets match the fresh build; exports and notices are retained.');
 } finally {
   await rm(packedAudit, { recursive: true, force: true });
+}
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  await checkPackage();
 }

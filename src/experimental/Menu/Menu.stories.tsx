@@ -6,6 +6,13 @@ const meta = { title: "Migration proofs/Menu", component: Menu, tags: ["autodocs
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
+export const NativeAutofocus: Story = { args: { label: "Native focus actions", trigger: <Button>Native actions</Button>, items: [
+  { id: "blocked-first", label: "Unavailable first", disabled: true },
+  { id: "first", label: "First enabled" },
+  { id: "middle", label: "Unavailable middle", disabled: true },
+  { id: "last", label: "Last enabled" },
+  { id: "blocked-last", label: "Unavailable last", disabled: true },
+] } };
 
 export const RetryableActionError: Story = { args: { defaultOpen: true, errorMessage: "Unable to complete this action. Try again." } };
 export const LinkTargets: Story = { args: { items: [{ id: "course", label: "Open course", href: "/courses/1" }, { id: "reference", label: "Open reference in a new tab", href: "https://example.com", target: "_blank", rel: "help" }] } };
