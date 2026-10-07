@@ -25,7 +25,9 @@ for (const theme of ['light', 'dark']) {
       const initialScroll = await host.evaluate(node => node.scrollTop);
       await host.hover();
       await page.mouse.wheel(0, delta);
-      await expect.poll(() => host.evaluate(node => node.scrollTop)).toBeCloseTo(initialScroll + delta, 0);
+      // Fractional DOMRect-derived wheel requests can settle on an integer CSS pixel.
+      // Bound only this initial positioning difference; slot preservation below is exact.
+      await expect.poll(async () => Math.abs(await host.evaluate(node => node.scrollTop) - (initialScroll + delta))).toBeLessThanOrEqual(1);
       const originalRoot = await root.elementHandle();
       const originalHost = await host.elementHandle();
       const originalWrapper = await wrapper.elementHandle();
@@ -53,7 +55,7 @@ for (const theme of ['light', 'dark']) {
         await expect(root).toHaveAttribute('data-ref-attachments', rootAttachments!);
         await expect(host).toHaveAttribute('data-ref-attachments', hostAttachments!);
         await expect(action).toBeFocused();
-        expect(await host.evaluate(node => node.scrollTop)).toBeCloseTo(scrollTop, 0);
+        expect(await host.evaluate(node => node.scrollTop)).toBe(scrollTop);
         const geometry = await action.evaluate(node => {
           const host = node.closest('[role="region"]')!;
           const root = node.closest('[data-sgui-part="document-editor-layout"]')!;

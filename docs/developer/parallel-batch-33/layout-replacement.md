@@ -67,3 +67,39 @@ acceptance. Arbitrary host chrome taller than its bounded viewport still needs a
 host reflow policy; this representative composition does not add another scroll
 owner or claim arbitrary-slot overflow acceptance. Defects outside the allowlist
 require a reserved successor, not edits from this task.
+
+## Coordinator wave21 and bounded driver correction
+
+Coordinator executed exact clean head
+`f4eaa333be2cf24916a144e7b35d17d5f06f3f13` under Node `v24.19.0` with a fresh
+immutable Storybook. Chromium: **2 passed, 2 failed, zero skips/flaky**. Initial
+and final heads were identical and clean; build digest remained
+`da96bbc477bdc84ce08caf1a1fb34a4aa622ee6758b86b20b21f3ece89004a7a`.
+Original red evidence remains unmodified at
+`artifacts/browser-pool/08bcd092-720d-44b6-9ff1-d0b7c49daa6d/evidence.json`, with
+adjacent `results.json`, `browser.log`, report and retained failure traces.
+
+Both normal-text cases fail at initial trusted-wheel setup, before any chrome
+change. The DOMRect-derived requested absolute scroll is `1828.5`; Chromium
+settles at `1829`. The old `toBeCloseTo(..., 0)` requires a difference strictly
+less than 0.5, so exactly 0.5 fails. This is a wheel-position expectation/driver
+precision issue, not demonstrated product scroll drift or an environment failure.
+Both enlarged-text cases complete all chrome transitions: observed scrollTop is
+exactly `6541` throughout, action top stays `40.0625` below the host top, and node
+identity, ref attachments, visible focus and ownership assertions pass.
+
+Bounded spec correction permits at most **one CSS pixel only during initial wheel
+positioning**. This reflects fractional rectangle versus native wheel scroll
+representation; it does not loosen the behavior being investigated. The replacement
+scroll assertion is tightened to exact equality with the observed baseline, so
+any actual scroll drift during a slot change still fails. Identity, focus bounds,
+ref attachment and single host scroll-owner criteria remain unchanged. No story,
+production source or CSS correction is made.
+
+After correction, `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json` and
+`git diff --check` pass. Atomic token-owned light slot1 was released. The prior
+unit/source/foundation/token results remain applicable to unchanged files; no
+independent heavy/native execution or unchanged browser retry occurred. Corrected
+clean head is submitted for a fresh coordinator Chromium run; normal-text native
+replacement proof remains pending until that run passes. Firefox/WebKit and all
+broader acceptance limits remain open.
