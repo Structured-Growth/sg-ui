@@ -76,9 +76,45 @@ pnpm exec playwright test tests/browser/batch70-organization-switch-lifetime.spe
 ```
 
 No independent Storybook build, browser execution, full check or GitHub CI was run,
-per the bounded local policy. The coordinator owns the fresh shared snapshot build,
-small Chromium proof and further FW checkpoint. Physical-device and assistive
-technology acceptance remain unverified; this evidence does not close broad gates.
+per the bounded local policy. The coordinator ran the fresh shared snapshot build
+and scoped Chromium proof described below. The further FW checkpoint, manual,
+physical-device, assistive-technology and broad acceptance gates remain pending.
+
+## Settled coordinator wave32 evidence
+
+The six organization-switch cases passed on the testing-only shared candidate
+`1976be5e3776fe5e44065b02f359a17751ef7284`, which incorporated prepared worker head
+`dc003c237a90036db4615dd460dd56c5d66a667f`. These are different heads: the native
+proof belongs to the shared candidate and its attributed worker source bytes.
+Only this report changes after that proof; implementation, story, unit and browser
+spec bytes remain identical to the prepared worker head.
+
+Evidence root:
+`/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/6c2eaada-de28-4a40-aef8-2668b3847a47/evidence.json`.
+Worker attribution: `/tmp/sgui-batch45-candidate-wave32-attribution.json`.
+Plan: `/tmp/sgui-thirtysecond-lifetime-formatting-plan.json`.
+
+Actual runtime: Node `v24.19.0`, pnpm `10.29.3`, Playwright `1.63.0`, Darwin
+`27.0.0`; organization session slot 0 used loopback port `6733`. The fresh static
+Storybook build and browser TypeScript check completed before execution. Actual
+selection arguments were:
+
+```sh
+pnpm exec playwright test '(?:^|/)tests/browser/batch70-organization-switch-lifetime\.spec\.ts$' --project=chromium
+```
+
+The organization session passed 6/6 cases from `2026-10-07T18:35:06.371Z` to
+`2026-10-07T18:35:11.092Z`. Candidate head/source/build remained unchanged; commands
+settled and leases were released. Build digest:
+`2543b9cc0e24ff7ce9607fcd58da64e7ab2ffb1f7606aaa7b9d0de518ce96d5d`.
+The overall shared evidence root has status `failed` because the separate editor
+suite failed an expectation. That does not change the passing organization scope,
+and no overall shared-wave pass is claimed.
+
+Invalidation uses passive effect cleanup. The tested deferred settlements occur
+after lifecycle cleanup; this evidence does not establish invalidation for a
+synchronous settlement within the same commit before passive cleanup. Stronger
+timing remains untested. Firefox/WebKit, FW/manual and broad acceptance remain open.
 
 ## Exclusive files
 
