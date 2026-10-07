@@ -45,7 +45,10 @@ for (const locale of ['en-US', 'ar-EG']) {
     await expect(scope).toHaveAttribute('dir', reverse);
     await expect(scope).toHaveAttribute('lang', locale);
     await page.keyboard.press('Escape');
+    await expect(menu).toHaveCount(0);
+    await expect(actions).toBeFocused();
     await page.keyboard.press('Escape');
+    await expect(dialog).toHaveCount(0);
     await expect(trigger).toBeFocused();
   });
 }
