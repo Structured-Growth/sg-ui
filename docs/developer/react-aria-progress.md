@@ -847,3 +847,38 @@ No merge/publication/manual version/license/workflow permission/secret changes.
 Next dependency batch: G capability/state contract review and M-16 AppDataGrid,
 then M-17–M-19 as dependencies allow. Complete checks/commit/push before dispatching
 the next local sg-ui chat; do not overlap checkout edits after dispatch.
+
+## Catalog grid contract review
+
+Completed on 2026-10-06: G-01–G-03 design definitions, in shared
+[draft PR #1](https://github.com/Structured-Growth/sg-ui/pull/1), pending review.
+See [catalog grid contracts](react-aria-grid-contracts.md). No runtime grid or
+public declaration change is included in this documentation batch.
+
+The required capability matrix covers existing cell/helper/subheader behavior,
+client/server processing, selection, shared toolbar/cards, visibility/width/order,
+status/focus/reorder, persistence and conditional virtualization. True pinning,
+expansion/grouping/editing and spreadsheet/analytics features are explicitly
+deferred; performance and accessibility acceptance are not deferred.
+
+The source audit found competing sortRules/sortModel, separate checkbox/engine
+identity, loaded-input header selection, independently owned toolbar criteria,
+separate list/card pagination and misleading pinned/custom page-size props.
+Target contracts specify owned alias/helper mappings, per-concern controlled and
+default values, transaction ordering with page-zero requests, retained page
+selection, validated optional persistence and host action/stale-response ownership.
+Shell selection feedback also covers boolean selection. All implementation and
+G-04 onward acceptance remain open; design completion is not behavior evidence.
+
+Validation: read-only independent source audit and contract review; checked local
+Markdown links/anchors and source paths, git diff whitespace and backlog consistency.
+Documentation-only changes do not require pnpm check/build-storybook or new tests
+under AGENTS.md. Prior 97d16d6 PR title check passed; validation status is checked
+separately before successor dispatch. No check, dependency, runtime, license,
+version, workflow permission or secret changes.
+
+Next required batch: M-16 AppDataGrid implementation against these contracts,
+split into linked type/processing/cell/interaction batches if needed, then
+M-17–M-19. Each code batch must pass required check/Storybook and relevant packed
+consumer/native evidence before commit/push and successor dispatch. G/U/X/R/Z and
+full native/touch/screenreader/zoom/performance/Node24/NextRSC gates remain open.

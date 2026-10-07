@@ -34,6 +34,8 @@ owned scope, including for editor dialogs.
    Keep the existing package while migrating; use separate subpaths before considering
    separate packages. The specialist grid decision selects TanStack v8 row processing and React Aria
    interaction; see [grid ownership](react-aria-grid-decision.md).
+   The [catalog grid contracts](react-aria-grid-contracts.md) define the required
+   capability matrix, owned API mappings and state transitions for M-16–M-19.
 
 The import/token/layer check enforces the new foundation boundaries. AppInlineProgress,
 AppOperationSteps, EditableTitleField and Typefaces now enter those checks; migrated

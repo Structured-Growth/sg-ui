@@ -273,3 +273,9 @@ U/X/R/Z acceptance gates remain open.
 DataToolbar (M-20), including columns, sort, filter and selection menus, now uses
 the owned foundation and migrated-module boundaries. See [data toolbar contracts](docs/developer/react-aria-data-toolbar.md) for controlled host state, draft menus, native styling/ref and scope requirements.
 Load `/styles.css` and provide Provider or ThemeScope. Grid migration remains open.
+
+G-01–G-03 grid design review is recorded in
+[catalog grid contracts](docs/developer/react-aria-grid-contracts.md): required
+parity/deferred capabilities, owned type mappings and one owner per state concern.
+Use it for M-16–M-19 implementation. These target contracts do not mean the legacy
+grid has migrated; runtime G acceptance and strict grid removal remain open.

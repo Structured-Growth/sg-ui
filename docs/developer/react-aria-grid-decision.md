@@ -1,6 +1,9 @@
 # Grid integration decision and parity proof
 
 Tasks: P-06/P-09, G-01/G-25, A-18, L-06. Status: engine decision recorded; catalog migration in progress.
+The [catalog capability and state contracts](react-aria-grid-contracts.md) complete
+the G-01–G-03 design review and distinguish required parity, selected integration
+enhancements and deferred features. Runtime G acceptance remains open.
 
 Use TanStack Table 8.21.3 for row processing and React Aria Components 1.21.1 for
 interaction. SGUI owns the columns, state and callbacks. The implementation is

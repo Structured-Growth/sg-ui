@@ -362,9 +362,9 @@ logic; a dedicated grid provides more assembled functionality. None is assumed t
 be a drop-in replacement for the extracted grid. Assess licensing, accessibility,
 styling, performance, and implementation effort together.
 
-- [ ] G-01 Create a capability matrix with required parity, agreed enhancements, and explicitly deferred spreadsheet/analytics features.
-- [ ] G-02 Define owned row IDs, column IDs, accessors, cell renderers, value formatting, action callbacks, row models, and generic typing.
-- [ ] G-03 Define controlled/default selection, sort, filters, pagination, visibility, order, width, and expansion; one state owner per concern.
+- [x] G-01 Create a capability matrix with required parity, agreed enhancements, and explicitly deferred spreadsheet/analytics features. [Design review](react-aria-grid-contracts.md); runtime parity remains open.
+- [x] G-02 Define owned row IDs, column IDs, accessors, cell renderers, value formatting, action callbacks, row models, and generic typing. [Target contracts](react-aria-grid-contracts.md); M-16 implementation/declaration validation remains open.
+- [x] G-03 Define controlled/default selection, sort, filters, pagination, visibility, order, width, and expansion; one state owner per concern. [State authority](react-aria-grid-contracts.md#state-authority-and-transactions); expansion explicitly deferred, runtime integration remains open.
 - [ ] G-04 Support client filtering before sorting and pagination; implement stable null/date/number/text semantics with tests.
 - [ ] G-05 Support server mode through host callbacks, known/unknown totals, pending/error/refresh states, and stale-request handling examples; the grid does not fetch platform APIs.
 - [ ] G-06 Preserve first-column checkboxes, mixed header state, selected count, select-none, and explicit current-page versus all-matching selection semantics.
