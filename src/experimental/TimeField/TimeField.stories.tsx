@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Checkbox } from "../Checkbox/Checkbox";
 import { Button } from "../Button/Button";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { TimeField } from "./TimeField";
@@ -31,3 +32,27 @@ function HostReplacementExample() {
   </form>;
 }
 export const HostReplacement: Story = { render: () => <HostReplacementExample /> };
+
+function ResetTransactionExample({ mode }: { mode: "uncontrolled" | "controlled-null" | "complete" | "controlled" }) {
+  const [prevent, setPrevent] = useState(true);
+  const [defaultValue, setDefaultValue] = useState("09:30:00");
+  const [callbacks, setCallbacks] = useState(0);
+  const partial = mode === "uncontrolled" || mode === "controlled-null";
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <Checkbox label="Prevent clock reset" checked={prevent} onCheckedChange={setPrevent} />
+    <form aria-label="Clock reset form">
+      <TimeField label="Reset clock" hourCycle={24} name="clock" required errorMessage="Complete the clock"
+        description="A reset is silent; the host can prevent it."
+        value={mode === "controlled-null" ? null : mode === "controlled" ? "09:00:00" : undefined}
+        defaultValue={partial ? null : defaultValue} onValueChange={() => setCallbacks(count => count + 1)} />
+      <Button type="reset">Reset clock</Button>
+      <Button type="submit">Validate clock</Button>
+      {!partial && <Button onPress={() => setDefaultValue("12:45:59")}>Change reset default</Button>}
+      <output aria-label="Clock change callbacks">{callbacks}</output>
+    </form>
+  </div>;
+}
+export const IncompletePreventedReset: Story = { render: () => <ResetTransactionExample mode="uncontrolled" /> };
+export const ControlledNullReset: Story = { render: () => <ResetTransactionExample mode="controlled-null" /> };
+export const CompleteResetTransaction: Story = { render: () => <ResetTransactionExample mode="complete" /> };
+export const ControlledResetTransaction: Story = { render: () => <ResetTransactionExample mode="controlled" /> };
