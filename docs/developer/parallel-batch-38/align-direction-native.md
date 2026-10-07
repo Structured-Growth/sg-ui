@@ -57,19 +57,49 @@ checkout could not find the development-validation document; it was available
 and read at the required reviewed worktree base. That path lookup is not product
 or test failure evidence.
 
-## Immutable browser handoff and remaining limits
+## Coordinated immutable Chromium evidence
 
-Coordinator arguments for a freshly built immutable pool at the delivered head:
-`tests/browser/inventory-align-direction.spec.ts --project=chromium --workers=1`.
-The worker has not started a browser server or heavy build. Chromium is **pending**,
-not a pass. Assigned source remains reserved pending actual coordinated native
-proof. Firefox/WebKit are pending the coordinated batch checkpoint, with any
-failures to be preserved and classified as product, driver/expectation,
-environment, or unclassified evidence.
+Coordinator wave21 ran at exact source/spec head
+`0228f521c302ea8ead9200f7722f0bd611116551`, source tree
+`8eaf432f8ff5f05e5bed1d0c32cf7c5dd5deef33`, on 2026-10-07.
+Actual `evidence.json`, `results.json`, `browser.log`, `types.log` and the
+successful build-log ending were inspected after coordinator release.
 
-No full per-task check, Storybook build, CI/title dispatch, main merge, publish,
-secrets/permissions change or master-checkbox upgrade occurred. Targeted evidence
-is not completion of M-28 or broad G/U/X/R/Z acceptance. Physical devices,
-assistive technology, translated label review and real host-editor selection
-semantics remain outside these automated checks. Coordinator alone reviews and
-integrates; delivery supplies the exact clean committed head separately.
+Artifact root (local ignored output, preserved):
+`/Users/thomashall/.codex/worktrees/batch38-align-direction/sg-ui/artifacts/browser-pool/c36d8b90-b18e-4418-964d-75058806e9f1/`.
+Runtime: Node `v24.19.0`, pnpm `10.29.3`, Playwright `1.63.0`, Darwin
+OS release `27.0.0`; isolated slot 6, loopback port 6309. Pool bounds were eight
+slots and four simultaneous builds. The coordinator ran:
+
+- `pnpm exec storybook build --output-dir <artifact root>/storybook`: pass.
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`: pass.
+- `pnpm exec playwright test tests/browser/inventory-align-direction.spec.ts --project=chromium`:
+  **four passed**, zero failed/skipped/flaky; one worker, no retries, 3.640 seconds.
+
+All four named LTR/RTL cases passed on attempt zero. Results contain no global
+errors. Browser execution ran 11:34:47–11:34:52 America/Chicago
+(`16:34:47.886Z`–`16:34:52.439Z`). Initial/final heads match the tested head and
+final Git status is clean. Build digest before and after browser execution was
+`ef2d8f8247fc4a4c0f9b077397cc09b0c5b2e2200c1b6804aae965d187ae24d9`.
+No rebuild or worker rerun occurred. Logs retain non-failing color-environment
+and bundle-size warnings; these are tooling/build advisories, not failed native
+behavior. No failed browser cases require product/driver/environment triage.
+
+Coordinator released the freeze for this report-only finalization. Source,
+story and spec remain unchanged from the tested head; the report-only delivery
+commit is supplied separately. No independent heavy/native run was started.
+
+## Remaining limits
+
+Firefox/WebKit remain **pending** the coordinated batch checkpoint. Future
+failures must retain their original evidence and product, driver/expectation,
+environment or unclassified attribution. This Chromium pass establishes only
+the four focused native cases, not completion of M-28 or broad G/U/X/R/Z
+acceptance. Physical devices, assistive technology, translated label review and
+real host-editor selection semantics remain outside these automated checks.
+
+No full per-task check, worker Storybook build, CI/title dispatch, main merge,
+publish, secrets/permissions change or master-checkbox upgrade occurred.
+Coordinator alone reviews and integrates. This finalization changes only this
+unique report; source/spec reservations may be released by the coordinator on
+review of the recorded proof.
