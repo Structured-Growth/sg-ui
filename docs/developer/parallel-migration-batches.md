@@ -83,7 +83,7 @@ permissions and secrets remain read-only; no workflow dispatch, approval or publ
 
 The user requested consolidation for continued development on `codex/dev`.
 Integration worktree: `/Users/thomashall/.codex/worktrees/dev-integration/sg-ui`.
-Completed PR heads #1–#11 are incorporated with full-history merge commits. Original
+Completed PR heads #1–#14 are incorporated with full-history merge commits. Original
 task branches remain available; worker validation and later report commits can continue.
 The primary checkout's image-upload validation patch and its new browser test were
 copied without editing the original checkout. Unrelated `.obsidian` metadata is excluded.
@@ -106,3 +106,33 @@ selectors passed check (148 files/1038 tests), Storybook and 10 selector browser
 in Chromium/WebKit. Firefox profile creation failed before behavior ran; those
 passes do not establish the complete browser or consumer matrix. No additional
 full run is required for this documentation/CI-selection change.
+
+
+## Reviewed completions and batch 05
+
+Calendar, grid focus and row reorder reports/ownership/implementation diffs reviewed;
+conflict-free full-history merges pushed on `codex/dev` at `cca9452`. Targeted worker
+evidence is accepted for these bounded slices (calendar 18, grid focus 10, reorder
+16 Chromium/WebKit cases); Firefox launch remains blocked and no broad checkbox
+was closed. Main and primary image-upload work remain untouched. Reports:
+[calendar](parallel-batch-01/calendar.md), [grid focus](parallel-batch-01/grid-focus.md),
+[row reorder](parallel-batch-01/grid-reorder.md).
+
+Ten new batch-05 chats start from that reviewed dev commit. Each creates one
+isolated managed worktree before editing and owns the report
+`docs/developer/parallel-batch-05/<assignment>.md`. Targeted validation policy applies.
+
+| Assignment | Task IDs | Chat | Exclusive scope |
+| --- | --- | --- | --- |
+| native-reset | U-18/K-06 | `01a11673-bf82-7d02-b0fb-dec3fd38ece5` | src/experimental/useFormReset.ts; src/experimental/DatePicker/; src/experimental/AsyncMultiSelect/; tests/browser/batch05-native-reset.spec.ts |
+| portal-direction | H-06/U-19 | `01a11673-c27a-71c1-87c6-ceff07fc40e6` | src/foundation/ThemeScope.tsx; src/foundation/ThemeScope.test.tsx; src/foundation/ThemeScope.stories.tsx; src/experimental/Provider/; src/experimental/Menu/; src/experimental/Popover/; tests/browser/batch05-portal-direction.spec.ts |
+| grid-busy | G-15/G-16 | `01a11673-c572-7720-9c5e-2f67d7094741` | src/components/AppDataGrid/ownedGridInteraction.tsx; src/components/AppDataGrid/ownedGridInteraction.test.tsx; src/components/AppDataGrid/ownedGridInteraction.stories.tsx; tests/browser/batch05-grid-busy.spec.ts |
+| tabs-overflow | U-09 | `01a11673-c7d0-75a2-948c-0c07aece3334` | src/experimental/Tabs/; tests/browser/batch05-tabs-overflow.spec.ts |
+| grid-processing | G-04/G-08 | `01a11673-cb15-77b2-b6f0-d61b86ab60d4` | src/components/AppDataGrid/ownedGridModel.ts; src/components/AppDataGrid/ownedGridModel.test.ts; src/components/AppDataGrid/ownedGridProcessing.test.tsx; src/components/AppDataGrid/ownedGridProcessing.stories.tsx |
+| grid-shell-state | G-05/H-16/H-17 | `01a11673-cd99-7ae2-aa71-66c193c16169` | src/components/AppDataGridShell/; tests/browser/batch05-grid-shell-state.spec.ts |
+| grid-clipboard | G-21 | `01a11673-d03b-7653-8c82-6d3dec436862` | src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx; src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx; src/components/AppDataGrid/ownedGridCells.tsx; src/components/AppDataGrid/ownedGridCells.test.tsx; src/components/AppDataGrid/ownedGridCells.stories.tsx; tests/browser/batch05-grid-clipboard.spec.ts |
+| due-date | H-12 | `01a11673-d2b3-76a0-9fc3-3d33770c2276` | src/utils/formatDueDateLabel.ts; src/utils/formatDueDateLabel.test.ts; src/components/LearnerClassCard/formatDueDateLabel.ts; src/components/LearnerClassCard/formatDueDateLabel.test.ts; docs/developer/react-aria-due-date-acceptance.md |
+| firefox-runtime | R-11/X-12 environment gate | `01a11673-d610-7a21-8f5c-7ee133ca6623` | docs/troubleshooting/firefox-profile-launch.md; scripts/diagnose-firefox-profile.mjs |
+| inventory-evidence | W-19/Z-10/Z-15 M-01–M-37 reconciliation | `01a11673-d972-7d91-ae69-c05815612438` | docs/developer/react-aria-migration-inventory-acceptance.md |
+
+Checkpoint: 61/326 (18.7%) all tasks; 61/320 (19.1%) required. 37 inventory rows need whole-task status reconciliation; batch-05 audit owns the evidence. Delta 0 accepted tasks; ETA not reliable.

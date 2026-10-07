@@ -412,3 +412,15 @@ description for correction. Metadata acceptance is not byte decoding, size or
 asset authorization; the host owns those policies. See the [file presentation
 contract](docs/developer/react-aria-editor-dialogs.md#file-presentation-validation-e-06-partial).
 E-06 broader acceptance remains open.
+
+
+Batch-01 bounded calendar/focus/reorder acceptance is recorded in
+[calendar evidence](docs/developer/parallel-batch-01/calendar.md),
+[grid focus evidence](docs/developer/parallel-batch-01/grid-focus.md) and
+[reorder evidence](docs/developer/parallel-batch-01/grid-reorder.md).
+DateRangeSelector exposes keyboard range preview, blocks Apply during an unfinished
+range, cancels that preview on blur and resets the complete draft after native host
+reset prevention. Accepted grid page-size/page entry resets both scroll axes;
+refresh repair preserves scroll and outside focus ownership. Native drag previews
+clean up on dragend/cancellation and drag-image errors. These are partial slices;
+broad K/G/U/X/R/Z and device/assistive-technology gates remain open.
