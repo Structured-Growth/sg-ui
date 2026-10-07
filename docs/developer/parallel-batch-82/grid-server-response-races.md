@@ -46,13 +46,13 @@ Seven composed cases cover:
 - An obsolete rejection cannot clear a newer pending request. After a still-newer
   rejection commits an error, an older success cannot replace that error or rows.
 
-Seven native cases are prepared for the same overlapping criteria and host disposal
+Seven Chromium-validated native cases cover the same overlapping criteria and host disposal
 boundaries, plus pending/current-error preservation. Native Enter drives page and
 search controls; keyboard typing changes search criteria. Assertions check visible
 rows, complete host snapshots, exact lifecycle traces, DOM aria-busy/error status,
 and native focus. Native cases use no forced clicks, retries, injected focus repair,
 or timing sleeps. Full-fixture unmount completion is measured in the composed tests;
-removing/replacing individual hosts is covered by the prepared native spec.
+removing/replacing individual hosts is covered by the Chromium-validated native spec.
 
 ## Targeted local evidence
 
@@ -81,18 +81,53 @@ TypeScript and foundation import/layer/token checks passed. Logs:
 An initial pass used ambient Node 26; the final authoritative checks above reran
 under bundled Node 24. No production defect was demonstrated by these checks.
 
-## Coordinator-owned native gate: pending
+## Coordinator-owned Chromium evidence
 
-No Storybook build, browser run, packing, performance command, or CI dispatch was
-started by this worker. The coordinator must build a fresh pooled Storybook snapshot
-containing the frozen candidate, then run:
+Coordinator executed the fresh pooled snapshot at testing-only candidate
+`7248a80d79eb50a59a2e18b7bf461f8e9d26897c`. This shard passed **all 7 Chromium
+cases**, each on retry 0, one worker, with zero skipped/unexpected/flaky cases and
+no report-level errors. The exact recorded selection was:
 
 ```sh
-pnpm exec playwright test tests/browser/grid-server-response-races.spec.ts --project=chromium --workers=1 --retries=0
+pnpm exec playwright test '(?:^|/)tests/browser/grid-server-response-races\.spec\.ts$' --project=chromium
 ```
 
-Use the coordinator's unique loopback port and artifact paths with the existing
-browser configuration. Chromium is first; Firefox/WebKit remain deferred to the
-batch checkpoint. The browser spec has passed TypeScript checking only; no native
-runtime success is claimed. Broad G/U/X/R/Z and device/assistive-technology gates
-remain open, and this record does not mark the parent tasks complete.
+The existing configuration supplied one worker and zero retries. Session `batch82`
+used slot 2, port 6275, Node `v24.21.0`, pnpm `10.29.3`, Playwright `1.63.0`.
+The fresh Storybook build and browser TypeScript check completed before the shards;
+source and build digests remained identical through the native window.
+
+Retained evidence root:
+`/Users/thomashall/.codex/worktrees/batch80-83-native-candidate/sg-ui/artifacts/browser-pool/df2bc745-5e76-4922-80ae-03c3ccaa0f51`.
+
+- Root lifecycle/build evidence: `evidence.json`; build log: `build.log`.
+- Seven-case JSON: `batch82/results.json`; native log: `batch82/browser.log`.
+- Results JSON SHA-256:
+  `b9033c14c1e4795ff6ba68549b9cb398697c4d634c97462aeeb67426ecb20b9d`.
+- Storybook build SHA-256:
+  `1fcc9f4a6330e7ac18bedc92715525e8d05de622679281919306bc48b7178b61`.
+- Candidate source SHA-256:
+  `74870b26ee17638871a0f7dd0d020d6521d5f1554c6feab8ea2204eeebe28680`.
+
+Exact worker attribution is retained in `/tmp/sgui-wave41-native-attribution.json`.
+Its batch82 record identifies implementation/test head
+`364242198e1224bd949386288dc821aaaa12ca52`; this worker independently checked the
+recorded bytes against its frozen files before making this report-only update:
+
+| Frozen artifact | SHA-256 |
+| --- | --- |
+| Story | `0a96afb5d03369b77eb05ce5bb01ace549f4dcd3f997f17244c5fd76586bafc4` |
+| Composed tests | `343a2475f2bbb457f0508b5ced3103170641c8f20af5736ca741af4917d32fbb` |
+| Native spec | `d7ac446ee4c9944d9588642326062b70218fac101fc3accb3989ca124fd8c098` |
+
+The root snapshot status is **failed** because the other fixture shards batch80,
+batch81 and batch83 failed. This record accepts only this seven-case shard, and
+does not claim pooled acceptance or integrate the whole testing candidate. The
+coordinator reports review/integration of this worker's full individual history
+into dev. The report update leaves all source, unit and native test bytes unchanged.
+No worker test/build/browser rerun was needed or started.
+
+Root cleanup records `owned commands settled`, zero remaining owned processes,
+and unchanged candidate head/source/build. The coordinator released the native
+scope. Firefox/WebKit remain pending at the batch checkpoint. Broad G/U/X/R/Z and
+device/assistive-technology gates remain open; parent tasks are not marked complete.
