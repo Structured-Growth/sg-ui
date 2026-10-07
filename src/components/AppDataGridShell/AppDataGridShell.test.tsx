@@ -429,3 +429,40 @@ it("reveals owned keyboard focus on shell resize and leaves outside focus and sc
     expect(ownObserver.disconnect).toHaveBeenCalledOnce();
   } finally { vi.unstubAllGlobals(); }
 });
+
+it("reserves card space alongside live wrapped status and reveals focus when content resizes", async () => {
+  const observers: { callback: ResizeObserverCallback; observe: ReturnType<typeof vi.fn>; disconnect: ReturnType<typeof vi.fn> }[] = [];
+  vi.stubGlobal("ResizeObserver", class {
+    observe = vi.fn(); disconnect = vi.fn(); unobserve = vi.fn();
+    constructor(readonly callback: ResizeObserverCallback) { observers.push(this); }
+  });
+  let statusHeight = 152;
+  vi.spyOn(HTMLElement.prototype, "getBoundingClientRect").mockImplementation(function (this: HTMLElement) {
+    return { top: 0, bottom: statusHeight, height: this.dataset.sguiPart === "status" ? statusHeight : 0 } as DOMRect;
+  });
+  try {
+    const ref = createRef<HTMLDivElement>();
+    const config = { ...props, ref, view: { defaultMode: "cards" as const,
+      cards: { renderCard: (row: Course) => <button>Open {row.name}</button> } } };
+    const { rerender } = render(<AppDataGridShell {...config} />);
+    const card = screen.getByRole("listitem", { name: "Science" });
+    const content = screen.getByRole("list", { name: "Courses" }).parentElement!;
+    const shellObserver = observers.find(observer => observer.observe.mock.calls.some(([target]) => target === ref.current))!;
+    // The accepted footer-entry target is a programmatic wrapper focus stop.
+    card.focus();
+    rerender(<AppDataGridShell {...config} refreshing />);
+    expect(document.activeElement).toBe(card);
+    expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 152px)");
+    expect(shellObserver.observe).toHaveBeenCalledWith(content);
+    const status = screen.getByRole("status");
+    const statusObserver = observers.find(observer => observer.observe.mock.calls.some(([target]) => target === status))!;
+    statusHeight = 208;
+    const { act } = await import("@testing-library/react");
+    act(() => statusObserver.callback([], {} as ResizeObserver));
+    expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 208px)");
+    rerender(<AppDataGridShell {...config} />);
+    expect(content.style.minBlockSize).toBe("calc(4 * var(--sgui-control-height) + 0px)");
+    expect(statusObserver.disconnect).toHaveBeenCalledOnce();
+    expect(document.activeElement).toBe(card);
+  } finally { vi.unstubAllGlobals(); }
+});

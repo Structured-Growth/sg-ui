@@ -99,6 +99,17 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
       visible: layout.visibility[field]!, locked: layout.lockedFields.includes(field) };
   });
   const entry = useRef<HTMLDivElement>(null);
+  const [cardStatus, setCardStatus] = useState<HTMLDivElement | null>(null);
+  const [cardStatusHeight, setCardStatusHeight] = useState(0);
+  useEffect(() => {
+    if (!cardStatus) { setCardStatusHeight(0); return; }
+    const measure = () => setCardStatusHeight(cardStatus.getBoundingClientRect().height);
+    measure();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(measure);
+    observer.observe(cardStatus);
+    return () => observer.disconnect();
+  }, [cardStatus]);
   const cardFocus = useRef<{ id: string; index: number; element: HTMLElement } | null>(null);
   const revealShellFocus = (target: HTMLElement) => {
     const shell = entry.current?.parentElement;
@@ -121,6 +132,9 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
         && (active.matches(":focus-visible") || active.hasAttribute("data-focus-visible"))) revealShellFocus(active);
     });
     observer.observe(shell);
+    // Pending/error status can enlarge content without resizing the shell's
+    // own viewport. Keep its already focused card visible through that layout.
+    if (entry.current) observer.observe(entry.current);
     return () => observer.disconnect();
   }, []);
   const pendingPageFocus = useRef<{ page: number; origin: Element | null } | null>(null);
@@ -181,7 +195,8 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
       searchValue={state.searchValue} onSearchValueChange={value => dispatch({ type: "search", value })}
       showViewModeToggle={canToggle} viewMode={canToggle ? viewMode : undefined}
       onViewModeChange={canToggle ? next => { if (view?.mode === undefined) setLocalView(next); view?.onModeChange?.(next); } : undefined} />}
-    <div ref={entry} className={styles.content} tabIndex={-1} aria-label={label} onFocusCapture={event => {
+    <div ref={entry} className={styles.content}
+      style={cards ? { minBlockSize: `calc(4 * var(--sgui-control-height) + ${cardStatusHeight}px)` } : undefined} tabIndex={-1} aria-label={label} onFocusCapture={event => {
       if (!cards || !event.currentTarget.contains(event.target)) return;
       const element = event.target as HTMLElement;
       const card = element.closest<HTMLElement>("[data-sgui-part='grid-card']");
@@ -190,9 +205,9 @@ function ReadyShell<RowModel>({ persisted: persistence, shellRef: ref, ...props 
       cardFocus.current = { id: card.dataset.gridRow, index: controls.indexOf(element), element };
     }}>
       {cards && view?.cards ? <>
-        {props.errorMessage ? <OwnedGridStatus state="error" message={props.errorMessage} onRetry={props.onRetry} />
-          : props.loading || props.refreshing ? <OwnedGridStatus state={processed.rows.length ? "refreshing" : "loading"} />
-          : !processed.rows.length ? <OwnedGridStatus state={hasCriteria ? "noResults" : "empty"} /> : null}
+        {props.errorMessage ? <OwnedGridStatus ref={setCardStatus} state="error" message={props.errorMessage} onRetry={props.onRetry} />
+          : props.loading || props.refreshing ? <OwnedGridStatus ref={setCardStatus} state={processed.rows.length ? "refreshing" : "loading"} />
+          : !processed.rows.length ? <OwnedGridStatus ref={setCardStatus} state={hasCriteria ? "noResults" : "empty"} /> : null}
         <div className={styles.cards} data-sgui-part="grid-cards" aria-label={label} role="list" aria-busy={props.loading || props.refreshing || undefined}>
           {processed.rows.map(row => <div className={styles.card} key={getOwnedGridRowId(row, getRowId)} role="listitem" tabIndex={-1}
             aria-label={getRowLabel(row)} data-grid-row={getOwnedGridRowId(row, getRowId)} data-sgui-part="grid-card">{view.cards!.renderCard(row)}</div>)}
