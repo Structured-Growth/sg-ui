@@ -1,12 +1,11 @@
 import assert from 'node:assert/strict';
 import { access, readFile, readdir } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
+import { dirname, relative, resolve } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import typescript from 'typescript';
 import postcss from 'postcss';
 import { compileTokens } from './tokens.mjs';
 
-const source = JSON.parse(await readFile('src/foundation/tokens.json', 'utf8'));
-const { ts } = compileTokens(source);
-const variables = new Set([...ts.matchAll(/var\((--sgui-[\w-]+)\)/g)].map(match => match[1]));
 const interactionFiles = new Set(['Button', 'TextField', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'DateField', 'TimeField', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'Menu', 'Switch', 'RadioGroup', 'Select', 'TextArea', 'ToggleButton', 'Tooltip', 'TagGroup', 'Progress']
   .map(name => `src/experimental/${name}/${name}.tsx`));
 interactionFiles.add("src/components/AppDataGrid/ownedGridInteraction.tsx");
@@ -19,6 +18,38 @@ componentFiles.add('src/components/primitives/Progress.tsx');
 for (const name of migratedDirectories.filter(name => !entryOnlyDirectories.has(name))) {
   componentFiles.add(`src/components/${name}/${name === 'AppDataGridRowDnd' ? 'DataGridDragHandle' : name}.tsx`);
 }
+// Parse module references so type imports, reexports and lower-level hooks cannot
+// bypass the interaction boundary via syntax that lacks a `from` clause.
+function moduleReferences(path, code) {
+  const modules = [];
+  const source = typescript.createSourceFile(path, code, typescript.ScriptTarget.Latest, true);
+  function inspect(node) {
+    let module;
+    if (typescript.isImportDeclaration(node) || typescript.isExportDeclaration(node)) module = node.moduleSpecifier;
+    else if (typescript.isImportTypeNode(node) && typescript.isLiteralTypeNode(node.argument)) module = node.argument.literal;
+    else if (typescript.isExternalModuleReference(node)) module = node.expression;
+    else if (typescript.isCallExpression(node) && (node.expression.kind === typescript.SyntaxKind.ImportKeyword
+      || (typescript.isIdentifier(node.expression) && node.expression.text === 'require'))) module = node.arguments[0];
+    if (module && typescript.isStringLiteralLike(module)) modules.push(module.text);
+    typescript.forEachChild(node, inspect);
+  }
+  inspect(source);
+  return modules;
+}
+
+export function assertInteractionBoundary(path, code, root = process.cwd()) {
+  const ownedPath = relative(root, resolve(root, path)).split('\\').join('/');
+  for (const module of moduleReferences(path, code)) {
+    if (/^(?:react-aria(?:-components)?|react-stately|@react-aria\/[^/]+|@react-stately\/[^/]+)(?:\/|$)/.test(module)) {
+      assert(interactionFiles.has(ownedPath), `Interaction dependency outside its implementation layer: ${path}`);
+    }
+  }
+}
+
+export async function checkFoundations() {
+const source = JSON.parse(await readFile('src/foundation/tokens.json', 'utf8'));
+const { ts } = compileTokens(source);
+const variables = new Set([...ts.matchAll(/var\((--sgui-[\w-]+)\)/g)].map(match => match[1]));
 async function visit(dir, accept = () => true) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const path = `${dir}/${entry.name}`;
@@ -27,7 +58,7 @@ async function visit(dir, accept = () => true) {
       const code = await readFile(path, 'utf8');
       assert(!/@mui|@emotion|Mui[A-Z]|\bsx[=:]/.test(code), `Retired styling/foundation in ${path}`);
       assert(!/from\s+["'](?:@structured-growth\/sg-ui|\.\.\/index|\.\.\/\.\.\/index)["']/.test(code), `Internal root import in ${path}`);
-      if (/from\s+["']react-aria/.test(code)) assert(interactionFiles.has(path), `Interaction dependency outside its implementation layer: ${path}`);
+      assertInteractionBoundary(path, code);
       if (componentFiles.has(path) || path === 'src/foundation/ThemeScope.tsx') {
         await access(path.replace(/\.tsx$/, '.test.tsx')).catch(() => {
           throw new Error(`Missing colocated component behavior tests: ${path}`);
@@ -59,15 +90,16 @@ async function auditDependencies(path) {
   audited.add(path);
   const code = await readFile(path, 'utf8');
   assert(!/@mui|@emotion|Mui[A-Z]|\bsx[=:]/.test(code), `Retired transitive dependency of migrated catalog: ${path}`);
-  for (const match of code.matchAll(/(?:from\s+|import\s*)["'](\.[^"']+)["']/g)) {
-    const base = resolve(dirname(path), match[1]);
+  assertInteractionBoundary(path, code);
+  for (const module of moduleReferences(path, code).filter(module => module.startsWith('.'))) {
+    const base = resolve(dirname(path), module);
     if (/\.(?:css|json)$/.test(base)) continue;
     let target;
     for (const candidate of [base, `${base}.ts`, `${base}.tsx`, `${base}/index.ts`, `${base}/index.tsx`]) {
       if (!/\.(?:ts|tsx)$/.test(candidate)) continue;
       try { await access(candidate); target = candidate; break; } catch { /* Try the next source resolution. */ }
     }
-    assert(target, `Unresolved migrated source dependency ${match[1]} from ${path}`);
+    assert(target, `Unresolved migrated source dependency ${module} from ${path}`);
     await auditDependencies(target);
   }
 }
@@ -89,3 +121,8 @@ for (const file of ['ownedGridModel.ts', 'ownedGridState.ts', 'ownedGridControll
   await auditDependencies(resolve(`src/components/AppDataGrid/${file}`));
 }
 console.log('Owned foundation import, layer and token checks pass.');
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  await checkFoundations();
+}
