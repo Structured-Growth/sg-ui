@@ -21,7 +21,11 @@ export const Disclosure = forwardRef<HTMLDivElement, DisclosureProps>(function D
   const contentFocused = useRef(false);
   useEffect(() => {
     if (!expanded && contentFocused.current) {
-      trigger.current?.focus();
+      // Removing a focused child may skip blur. Respect any later host focus.
+      const active = content.current?.ownerDocument.activeElement;
+      if (active === content.current?.ownerDocument.body || (active && content.current?.contains(active))) {
+        trigger.current?.focus();
+      }
       contentFocused.current = false;
     }
   }, [expanded]);

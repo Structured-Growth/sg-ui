@@ -14,3 +14,9 @@ function ControlledExample() {
  return <><Button onPress={() => setExpanded(!expanded)}>Toggle details from host</Button><Disclosure label="Details" expanded={expanded} onExpandedChange={setExpanded} unmountOnCollapse><TextField label="Temporary note" /></Disclosure></>;
 }
 export const ControlledUnmounting: Story = { render: () => <ControlledExample /> };
+function RemovedDraftExample() {
+ const [expanded, setExpanded] = useState(true);
+ const [showDraft, setShowDraft] = useState(true);
+ return <><Button onPress={() => setExpanded(!expanded)}>Toggle details from host</Button><Disclosure label="Details" expanded={expanded} onExpandedChange={setExpanded} unmountOnCollapse onKeyDown={(event) => { if (event.key === "Escape") setShowDraft(false); }}>{showDraft && <TextField label="Temporary draft" description="Press Escape to discard the draft." />}</Disclosure></>;
+}
+export const RemovedFocusedDraft: Story = { render: () => <RemovedDraftExample /> };
