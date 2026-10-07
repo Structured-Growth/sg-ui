@@ -1,5 +1,10 @@
 # Client dataset shrink — G-05/H-16 partial
 
+Latest status: corrected source at `c9790bdbb2d16f288de8926086759d222a3c25bc`
+passed all three focused Chromium cases in the coordinator’s nineteenth pool.
+Earlier pending/failure entries below are retained history. Firefox/WebKit and
+broad/manual/assistive-technology gates remain open.
+
 Baseline: `f1e5e457ce6240022ca07d6336ea06c5b67c917c` (verified before edits).
 Managed worktree: `/Users/thomashall/.codex/worktrees/batch14-client-page-shrink/sg-ui`.
 Branch: `codex/batch14-client-page-shrink`.
@@ -142,3 +147,33 @@ spec/assertions. This minimal correction is not yet native-proven; if a subseque
 engine-scheduled scroll defeats it, shared-interaction correction requires its
 separate owner rather than an out-of-scope edit here. Firefox/WebKit checkpoint
 and broad acceptance remain pending under the latest coordinator policy.
+
+
+## Final focused Chromium evidence
+
+Coordinator released the source/report freeze after the nineteenth pool. Exact
+clean tested head: `c9790bdbb2d16f288de8926086759d222a3c25bc`.
+Retained immutable run: `artifacts/browser-pool/ff05d2df-5ab0-4bfb-8125-6d9583464c53/`.
+Node `24.21.0`; selection:
+`tests/browser/batch14-client-page-shrink.spec.ts --project=chromium`.
+All **3 Chromium cases passed**, 0 skipped, 0 flaky, 0 unexpected failures.
+The cases cover public grid, shell list and shell cards, with unchanged assertions
+for coherent display, controlled rejection/acceptance, native page-entry focus and
+grid/list scroll reset. The formerly failing shell list scroll assertion passed
+following the two owned `preventScroll` corrections. The previous 2/3 failure
+and diagnostic classification remain recorded above, with their artifacts retained.
+
+Evidence verifies final HEAD equals the tested head, final tracked status is clean,
+and before/after immutable build SHA-256 matches:
+`60b4273214351f4e2298bb9f5c4fced80988a728acee24cc8aee7158d8f1ad3e`.
+Run window: `2026-10-07T16:14:35.647Z`–`2026-10-07T16:15:56.255Z`;
+browser result duration 2.925 seconds. evidence.json, browser.log and results.json
+were read directly; no redundant native, light or build run was performed.
+
+Finalization changes only this unique report and draft PR evidence. Source and
+browser-spec bytes are unchanged from tested `c9790bd`; the final report-only
+commit is sent to the coordinator for exact-head review. No broad G-05/H-16
+upgrade, manual/device/assistive-technology acceptance, Firefox/WebKit pass or
+integration is claimed. Firefox/WebKit remain pending the batch checkpoint;
+coordinator alone reviews and integrates. Existing 120/7 targeted and 30/2
+post-correction public-unit results remain the recorded evidence, not newly rerun.
