@@ -13,6 +13,8 @@ bounded dynamic-option/native-form slice, not whole-gate acceptance.
 - Source/story/spec commit: `9a01b4a98cbbe0199fe0acf5ab87f535198d03ed`.
 - SSR layout-effect guard commit: `f174c8c57b3079ba0b7002abfef9bc403eaa12bb`.
 - Initial clean task/report head: `ec91c4e71ba0c243b57d7e041a45ed930d647ff1`.
+- Native grouping/current-name correction and final tested source/spec/report head:
+  `d2b1ccf045f7e1fe62902b6cf1cf60f49fb4d93f`.
 - Separately authorized common browser-pool prerequisite: normal full-ancestry
   merge of reviewed `6b9da4423f1e6675c37571d5552474da25e90258`, producing
   `e78dab93f4b4bc04a0d65bdad9c3dbe177338a8a`. No conflicts; task paths were
@@ -74,7 +76,9 @@ required submission after removal and actual host reset in the composed form.
 
 ## Local validation
 
-Runtime: bundled Node `24.19.0`, pnpm `10.29.3`, Vitest `4.1.11`, React `19.2.3`.
+Lightweight runtime: bundled Node `24.19.0`, pnpm `10.29.3`, Vitest `4.1.11`,
+React `19.2.3`. Coordinator native pool runtime: Node `24.21.0`, pnpm `10.29.3`,
+Playwright `1.63.0`, Darwin `27.0.0`.
 
 - `pnpm install --frozen-lockfile`: passed; manifest/lockfile unchanged. One
   atomic install slot was held and released by this task. The install token was
@@ -98,8 +102,7 @@ Runtime: bundled Node `24.19.0`, pnpm `10.29.3`, Vitest `4.1.11`, React `19.2.3`
   6 passes, proving required native validity incorrectly accepted the unavailable
   checked option. The initial correction then exposed retained old naming after
   host rename (1 failure / 12 passes); the owned current name and stable generated
-  fallback correct this too. Final corrected affected results are recorded before
-  the next freeze.
+  fallback correct this too. The final corrected affected results follow.
 - Corrected combined explicit RadioGroup, RadioGroup SSR and ColumnsLayoutModal
   command above: 3 files / 14 tests passed, with generated-name independence,
   required unavailable selection and host rename/restoration regressions included.
@@ -123,8 +126,26 @@ Chromium passed all 3 cases; WebKit passed removal and required/reset, but skipp
 the disabled-selected group on Tab. This partial result is not accepted completion.
 Evidence/results/build/types/browser logs and trace are under
 `artifacts/browser-pool/10281224-fc11-4d1a-b12e-88e755dc760b/` in this worktree.
-The corrected source awaits the focused coordinator pool rerun; no own build or
-server was started. Native acceptance remains incomplete until that rerun passes.
+The corrected coordinator pool run at immutable head
+`d2b1ccf045f7e1fe62902b6cf1cf60f49fb4d93f` passed all 6 focused native cases:
+3 Chromium and 3 WebKit, with no skipped/flaky/unexpected tests or browser runtime
+errors. Fresh Storybook and browser types passed. Commands recorded by the pool:
+
+- `pnpm exec storybook build --output-dir artifacts/browser-pool/185a7f37-358d-40ab-9bd1-db78691921de/storybook`
+  (the pool passed the equivalent absolute output path).
+- `pnpm exec tsc --noEmit -p tests/browser/tsconfig.json`.
+- `pnpm exec playwright test tests/browser/batch13-control-radiogroup.spec.ts --project=chromium --project=webkit`.
+
+The source head remained unchanged and clean throughout the build/suite. Initial
+and final Storybook digests both equal
+`7bf4f8d7d8b2c007f8a24b2af18d87f9a162b743f7b4873fd12db33ae61b98d1`;
+no rebuild occurred during testing. Pool slot 0 used loopback port 6273 and owner
+`browser-pool:37171:a88272c9-4a3a-4698-8032-baa3dd33977f` under coordinator queue
+owner `01a1164f-41db-7f30-aaf9-f20133b6566f`. The worker started no own build or
+server and stayed frozen until the coordinator explicitly released the worktree.
+Evidence, results, build/types/browser logs, native diagnostic attachments and
+reports are under `artifacts/browser-pool/185a7f37-358d-40ab-9bd1-db78691921de/`.
+These local pool results establish only this bounded Chromium/WebKit slice.
 
 Local evidence logs: `/tmp/sgui-batch13-radiogroup-install.log`,
 `/tmp/sgui-batch13-radiogroup-red.log`, `/tmp/sgui-batch13-radiogroup-green.log`,
@@ -140,14 +161,16 @@ Accept the native Tab-entry repair without changing host value policy. A selecte
 disabled option remains host-owned and disabled native inputs are omitted from
 submission; its detached native name cannot satisfy an enabled required group.
 Restoring availability restores the current form name and original host selection.
-No replacement selection is invented. An empty option collection still has no usable radio; hosts
-own the empty state and the decision to restore options or clear a value.
+No replacement selection is invented. An empty option collection still has no
+usable radio; hosts own the empty state and the decision to restore options or
+clear a value.
 
 Reserved next tasks: broader empty/all-disabled required-group and assistive
-technology acceptance; separately audit delegated reset prevention for standalone RadioGroup and other
-fields under exclusive ownership. The batch 05 composite helper does not establish
-that acceptance for these standalone controls. No shared helper or guidance was
-edited here.
+technology acceptance; separately audit delegated reset prevention for standalone
+RadioGroup and other fields under exclusive ownership. The batch 05 composite
+helper does not establish that acceptance for these standalone controls. Exclusive
+task edits do not modify shared helpers or guidance; the separately authorized
+common prerequisite includes its reviewed pool documentation.
 
 Firefox local launch remains the known runtime limitation; no repeated unchanged
 launch failures or independent browser-pool migration are authorized here. Manual
