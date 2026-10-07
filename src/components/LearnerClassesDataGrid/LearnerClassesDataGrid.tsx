@@ -14,6 +14,8 @@ export type LearnerClassesDataGridProps = Omit<import("../AppDataGrid").AppDataG
 
 const buildLearnerLaunchHref = (row: LearnerClass): string =>
   `/content-library/activities/${encodeURIComponent(row.nextActivityId?.trim() || row.id)}/launch`;
+const buildLearnerDetailsHref = (row: LearnerClass): string =>
+  `/sections/${encodeURIComponent(row.id)}/learner/me`;
 
 const buildColumns = (
   tr: (key: string, defaultMessage: string, values?: Record<string, string | number>) => string,
@@ -30,7 +32,7 @@ const buildColumns = (
     cellType: "link",
     flex: 1,
     minWidth: 230,
-    getLink: row => ({ href: `/sections/${row.id}/learner/me` }),
+    getLink: row => ({ href: buildLearnerDetailsHref(row) }),
   },
   {
     field: "siteName",
@@ -48,7 +50,7 @@ const buildColumns = (
   createActionMenuColumn<LearnerClass>({
     headerName: tr("table.columns.actions", "Actions"),
     getMenuActions: (row) => [
-      { id: `details-${row.id}`, href: `/sections/${row.id}/learner/me`, label: tr("table.actions.details", "Details") },
+      { id: `details-${row.id}`, href: buildLearnerDetailsHref(row), label: tr("table.actions.details", "Details") },
       {
         id: `continue-${row.id}`,
         href: buildLearnerLaunchHref(row),
