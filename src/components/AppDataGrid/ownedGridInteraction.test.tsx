@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { createRef } from "react";
+import { createRef, StrictMode } from "react";
 import { afterEach, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen, within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -218,4 +218,95 @@ it("does not revive stale grid focus after focus deliberately left for a host co
     rerender(<OwnedGridInteraction {...props} mode="server" paginationModel={{ page: 1, pageSize: 25 }} />);
     expect(document.activeElement).toBe(document.body);
   } finally { host.remove(); }
+});
+
+
+it("exposes native busy state across pending, failure, retry and table replacement", () => {
+  const tableRef = createRef<HTMLTableElement>();
+  const { rerender } = render(<OwnedGridInteraction {...props} tableRef={tableRef} loading />);
+  expect(tableRef.current).toBe(screen.getByRole("grid", { name: "Courses" }));
+  expect(tableRef.current?.getAttribute("aria-busy")).toBe("true");
+  rerender(<OwnedGridInteraction {...props} tableRef={tableRef} refreshing />);
+  expect(tableRef.current?.getAttribute("aria-busy")).toBe("true");
+  rerender(<OwnedGridInteraction {...props} tableRef={tableRef} errorMessage="Host request failed" />);
+  expect(tableRef.current?.hasAttribute("aria-busy")).toBe(false);
+  rerender(<OwnedGridInteraction {...props} tableRef={tableRef} loading rowDrag={{ onReorder: vi.fn() }} />);
+  expect(tableRef.current?.getAttribute("aria-busy")).toBe("true");
+  rerender(<OwnedGridInteraction {...props} tableRef={tableRef} />);
+  expect(tableRef.current?.hasAttribute("aria-busy")).toBe(false);
+});
+
+it("keeps one retained-row announcement through failure and host retry without moving another grid's focus", async () => {
+  const user = userEvent.setup(); const retry = vi.fn(); const ref = createRef<HTMLDivElement>();
+  const view = (pending = false, errorMessage?: string) => <>
+    <OwnedGridInteraction {...props} ref={ref} refreshing={pending} errorMessage={errorMessage} onRetry={retry} />
+    <OwnedGridInteraction {...props} label="Independent courses" />
+  </>;
+  const { rerender } = render(view());
+  const grid = screen.getByRole("grid", { name: "Courses" });
+  const cell = within(grid).getByRole("rowheader", { name: "Science" });
+  act(() => cell.focus());
+  ref.current!.scrollTop = 100; ref.current!.scrollLeft = 80;
+  rerender(view(true));
+  const message = screen.getByText("Refreshing rows");
+  const live = message.closest('[role="status"]')!;
+  expect(live.getAttribute("aria-live")).toBe("polite");
+  expect(live.getAttribute("aria-atomic")).toBe("true");
+  expect(grid.contains(live)).toBe(false);
+  const mutations: MutationRecord[] = [];
+  const observer = new MutationObserver(records => mutations.push(...records));
+  observer.observe(live, { subtree: true, childList: true, characterData: true });
+  rerender(view(true));
+  await act(async () => { await Promise.resolve(); });
+  observer.disconnect();
+  expect(mutations).toEqual([]);
+  expect(screen.getAllByText("Refreshing rows")).toHaveLength(1);
+  expect(document.activeElement).toBe(cell);
+  expect([ref.current!.scrollTop, ref.current!.scrollLeft]).toEqual([100, 80]);
+  rerender(view(false, "Host request failed"));
+  expect(screen.getAllByRole("alert")).toHaveLength(1);
+  expect(screen.getByRole("alert").getAttribute("aria-live")).toBe("assertive");
+  expect(screen.queryByText("Refreshing rows")).toBeNull();
+  expect(document.activeElement).toBe(cell);
+  await user.click(screen.getByRole("button", { name: "Retry" }));
+  expect(retry).toHaveBeenCalledExactlyOnceWith();
+  // Retry is a request: only host state changes establish a new pending cycle.
+  expect(grid.hasAttribute("aria-busy")).toBe(false);
+  const other = screen.getByRole("grid", { name: "Independent courses" });
+  const otherCell = within(other).getByRole("rowheader", { name: "Science" });
+  act(() => otherCell.focus());
+  rerender(view(true));
+  expect(screen.queryByRole("alert")).toBeNull();
+  expect(screen.getAllByText("Refreshing rows")).toHaveLength(1);
+  expect(other.hasAttribute("aria-busy")).toBe(false);
+  expect(document.activeElement).toBe(otherCell);
+  rerender(view());
+  expect(screen.queryByText("Refreshing rows")).toBeNull();
+  expect(within(grid).getByRole("rowheader", { name: "Science" })).toBe(cell);
+  expect(document.activeElement).toBe(otherCell);
+  expect([ref.current!.scrollTop, ref.current!.scrollLeft]).toEqual([100, 80]);
+});
+
+
+it("initializes empty pending tables before forwarding their native ref and avoids duplicate busy mutations", async () => {
+  const seen: string[] = [];
+  const tableRef = (node: HTMLTableElement | null) => { if (node) seen.push(node.getAttribute("aria-busy") ?? "absent"); };
+  const view = (pending: boolean) => <StrictMode><OwnedGridInteraction {...props} rows={[]} loading={pending} tableRef={tableRef} /></StrictMode>;
+  const { rerender } = render(view(true));
+  const table = screen.getByRole("grid", { name: "Courses" });
+  expect(seen.length).toBeGreaterThan(0);
+  expect(seen.every(value => value === "true")).toBe(true);
+  expect(screen.getAllByText("Loading rows")).toHaveLength(1);
+  const records: MutationRecord[] = [];
+  const observer = new MutationObserver(mutations => records.push(...mutations));
+  observer.observe(table, { attributes: true, attributeFilter: ["aria-busy"] });
+  rerender(view(true));
+  await act(async () => { await Promise.resolve(); });
+  expect(records).toHaveLength(0);
+  rerender(view(false));
+  await act(async () => { await Promise.resolve(); });
+  observer.disconnect();
+  expect(records).toHaveLength(1);
+  expect(table.hasAttribute("aria-busy")).toBe(false);
+  expect(screen.getAllByText("No rows available")).toHaveLength(1);
 });
