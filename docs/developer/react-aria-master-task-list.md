@@ -510,11 +510,11 @@ responsibilities. Automated checks help but do not establish complete conformanc
 
 ## 18. Storybook, agent guidance, and consumer documentation
 
-- [ ] W-01 Rewrite active `AGENTS.md` for the new foundation as migration lands; obsolete direct imports, `sx`, augmentation, retired links and grid assumptions must not guide future AI work.
+- [x] W-01 Rewrite active `AGENTS.md` for the new foundation as migration lands; obsolete direct imports, `sx`, augmentation, retired links and grid assumptions must not guide future AI work.
 - [x] W-02 Retain valid learner-platform principles: shared components first, props/variants before custom styles, tokenized typography, neutral split actions, consistent grid alignment/filtering, and stories with behavior changes.
 - [x] W-03 Adapt modal guidance: simple reusable create/edit examples, no one-step numbering, sticky tab header with independently scrolling content, appropriate size, focus and host-owned persistence.
 - [x] W-04 Retain course naming for new APIs, compatibility rules, host integration boundaries, translation requirements, doc organization, licensing and semantic-release rules.
-- [ ] W-05 Replace blanket compact-menu advice with explicit density defaults and compatibility policy; preserve usability/accessibility at both densities.
+- [x] W-05 Replace blanket compact-menu advice with explicit density defaults and compatibility policy; preserve usability/accessibility at both densities.
 - [ ] W-06 Update the source-guidance mapping to show each retained/adapted/omitted rule and why app database/API/login policies remain outside SGUI.
 - [x] W-07 Create one canonical component recipe: owned props, native attributes/refs, React Aria mapping, tokens/CSS, stories, behavior tests, public export, and acceptance criteria.
 - [ ] W-08 Add import/token/style rules and executable checks that prevent AI-created parallel styling systems or leakage of upstream public types.
