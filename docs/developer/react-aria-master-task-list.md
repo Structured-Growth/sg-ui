@@ -208,10 +208,10 @@ directive. At baseline `AppThemeProvider` installed a global stylesheet; the pub
 - [ ] H-01 Preserve native-anchor fallback, custom router links, pathname tracking, navigation replace behavior, refs, and forwarded attributes.
 - [x] H-02 Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](react-aria-browser-acceptance.md).
 - [ ] H-03 Integrate React Aria routing where needed behind the existing host adapter; avoid two competing navigation systems or a runtime Next.js dependency.
-- [ ] H-04 Preserve account/organization/logout callback boundaries; no credentials, platform fetches, or implicit session refresh enter SGUI.
+- [x] H-04 Preserve account/organization/logout callback boundaries; no credentials, platform fetches, or implicit session refresh enter SGUI.
 - [ ] H-05 Define pending/error handling for asynchronous host actions without duplicating requests or swallowing useful errors.
-- [ ] H-06 Connect host locale/direction settings to React Aria internationalization; avoid different locales in controls, SGUI strings, and date formatting.
-- [ ] H-07 Preserve translation keys, mandatory `defaultMessage`, interpolation values, namespace awareness, and deterministic English fallback.
+- [x] H-06 Connect host locale/direction settings to React Aria internationalization; avoid different locales in controls, SGUI strings, and date formatting.
+- [x] H-07 Preserve translation keys, mandatory `defaultMessage`, interpolation values, namespace awareness, and deterministic English fallback.
 - [ ] H-08 Validate ICU variables, pluralization, selection counts, date/number formatting, long labels, RTL, and pseudo-localized stories.
 - [x] H-09 Keep supported-language policy, database overrides, caching/invalidation, audit metadata, and diagnostic logging host-owned.
 - [x] H-10 Define serializable owned date-only, local date-time, and zoned instant contracts; do not collapse all values into JavaScript `Date` or leak date-library classes casually.
@@ -245,15 +245,15 @@ Native HTML/CSS is preferable for presentation-only primitives; not every elemen
 needs a React Aria wrapper.
 
 - [ ] U-01 Implement Button, IconButton, split action, and button groups with loading, disabled, form type, link/action distinction, and focus behavior.
-- [ ] U-02 Implement Box/container, Stack, surface/Paper, card/content, separator/Divider, and responsive layout primitives with scoped styles.
+- [x] U-02 Implement Box/container, Stack, surface/Paper, card/content, separator/Divider, and responsive layout primitives with scoped styles.
 - [x] U-03 Implement Text/Typography with semantic element selection and all required typography roles.
 - [ ] U-04 Implement TextField, input base, labels, descriptions, validation errors, required state, textarea, and grouped fields with correct associations.
-- [ ] U-05 Implement Checkbox, mixed state, Switch, RadioGroup, and label composition; document keyboard and form-submission semantics.
-- [ ] U-06 Implement Select and searchable ComboBox/Autocomplete; define value identity, filtering ownership, empty/loading/error, multiple selection where required, and disabled options.
+- [x] U-05 Implement Checkbox, mixed state, Switch, RadioGroup, and label composition; document keyboard and form-submission semantics.
+- [x] U-06 Implement Select and searchable ComboBox/Autocomplete; define value identity, filtering ownership, empty/loading/error, multiple selection where required, and disabled options.
 - [ ] U-07 Implement Menu/MenuItem, submenus when required, Popover, and Tooltip; distinguish menu commands from arbitrary form content in a popover.
 - [ ] U-08 Implement dialog primitives and modal composition with title/description, dismissal reasons, initial/return focus, scroll locking, background interaction handling, and nested overlays.
 - [ ] U-09 Implement Tabs with correct roles, panels, orientation, activation mode, disabled tabs, focus visibility, and overflow behavior.
-- [ ] U-10 Implement owned Link/Breadcrumbs with host navigation integration and meaningful external-link behavior.
+- [x] U-10 Implement owned Link/Breadcrumbs with host navigation integration and meaningful external-link behavior.
 - [x] U-11 Implement List/list items, navigation items, disclosure/Collapse, and selected/expanded state without misusing menu semantics for navigation.
 - [x] U-12 Implement Chip/Tag, Badge, and removable tokens with accessible action labels and predictable focus after removal.
 - [x] U-13 Implement progress indicators and status messages; distinguish determinate progress from loading and avoid noisy live-region announcements.
