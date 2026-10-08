@@ -83,16 +83,18 @@ describe("vertical tabs", () => {
     expect(document.activeElement).toBe(screen.getByRole("tab", { name: "Access" }));
     expect(change).not.toHaveBeenCalled();
     expect(screen.getByRole("tabpanel").textContent).toBe("Course details");
-    for (const key of ["End", "Home", "ArrowUp", "ArrowDown"]) {
+    for (const [key, label] of [["End", "Access"], ["Home", "Details"], ["ArrowUp", "Access"], ["ArrowDown", "Details"]]) {
       const event = new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true });
       fireEvent(document.activeElement!, event);
       expect(event.defaultPrevented).toBe(true);
+      expect(document.activeElement).toBe(screen.getByRole("tab", { name: label }));
       expect(change).not.toHaveBeenCalled();
       expect(screen.getByRole("tabpanel").textContent).toBe("Course details");
     }
     const modifiedEnd = new KeyboardEvent("keydown", { key: "End", altKey: true, bubbles: true, cancelable: true });
     fireEvent(document.activeElement!, modifiedEnd);
     expect(modifiedEnd.defaultPrevented).toBe(false);
+    await user.keyboard("{ArrowDown}");
     await user.keyboard(" ");
     expect(change).toHaveBeenLastCalledWith("access");
     expect(screen.getByRole("tabpanel").textContent).toBe("Course details");
