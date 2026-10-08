@@ -72,7 +72,18 @@ function themeScope(page: Page, theme: Theme) {
 function color(theme: Theme, name: keyof typeof tokenSource.light) {
   const value = tokenSource[theme][name].$value;
   const reference = /^\{base\.(\w+)\}$/.exec(value);
-  const hex = reference ? tokenSource.base[reference[1] as keyof typeof tokenSource.base].$value : value;
+  const baseToken = reference
+    ? Object.entries(tokenSource.base).find(([key]) => key === reference[1])?.[1]
+    : undefined;
+  if (reference && baseToken?.$type !== 'color') {
+    throw new Error(`${theme}.${name} must reference a base color token: ${value}`);
+  }
+  const hex = reference ? baseToken?.$value : value;
+  // Base tokens also contain numeric scales and other non-color values. Fail
+  // explicitly instead of coercing those values into the palette oracle.
+  if (typeof hex !== 'string' || !/^#[\da-f]{6}(?:[\da-f]{2})?$/i.test(hex)) {
+    throw new Error(`${theme}.${name} must resolve to a six- or eight-digit hex color: ${String(hex)}`);
+  }
   const channels = [1, 3, 5].map(offset => parseInt(hex.slice(offset, offset + 2), 16));
   return hex.length === 7 ? `rgb(${channels.join(', ')})` : `rgba(${channels.join(', ')}, ${Math.round(parseInt(hex.slice(7, 9), 16) / 255 * 1000) / 1000})`;
 }
