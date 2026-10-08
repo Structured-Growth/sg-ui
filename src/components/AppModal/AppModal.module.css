@@ -1,4 +1,6 @@
 @layer sgui.components {
+  /* The portaled dialog measures its own surface, independent of the opener. */
+  .root { container: sgui-app-modal / inline-size; }
   .body { display: flex; flex-direction: column; }
   /* Keep a usable tab scrollport when enlarged text makes fixed chrome taller.
      The dialog itself can scroll when header, content and actions no longer fit. */
@@ -8,4 +10,11 @@
   .footer { display: flex; align-items: center; justify-content: space-between; gap: var(--sgui-space4); inline-size: 100%; flex-wrap: wrap; }
   .steps { color: var(--sgui-text-muted); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
   .actions { display: flex; gap: var(--sgui-space2); margin-inline-start: auto; flex-wrap: wrap; }
+  @container sgui-app-modal (inline-size < 30rem) {
+    .body { min-inline-size: 0; overflow-wrap: anywhere; }
+    .footer { flex-direction: column; align-items: stretch; }
+    .steps { max-inline-size: 100%; overflow-wrap: anywhere; }
+    .actions { inline-size: 100%; min-inline-size: 0; margin-inline-start: 0; }
+    .actions > * { flex: 1 1 100%; min-inline-size: 0; max-inline-size: 100%; }
+  }
 }
