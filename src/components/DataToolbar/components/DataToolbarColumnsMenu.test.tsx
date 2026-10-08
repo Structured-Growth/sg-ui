@@ -74,7 +74,7 @@ it("requests full-array moves through filtered results without changing visibili
   move.focus(); await user.keyboard("{Enter}");
   expect(change).toHaveBeenCalledExactlyOnceWith([initial[1], initial[0], initial[2]]);
   await user.clear(screen.getByRole("searchbox"));
-  expect(screen.getAllByRole("checkbox").map(input => input.closest("label")?.textContent)).toEqual(["Status", "Course name", "Instructor"]);
+  expect(screen.getAllByRole("checkbox")).toEqual(["Status", "Course name", "Instructor"].map(name => screen.getByRole("checkbox", { name })));
   await user.click(screen.getByRole("button", { name: "Move Instructor up" }));
   expect(change).toHaveBeenLastCalledWith([initial[1], initial[2], initial[0]]);
 });
