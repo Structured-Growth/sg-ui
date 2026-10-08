@@ -1,5 +1,11 @@
 import { expect, test, type Locator, type Page, type TestInfo } from '@playwright/test';
-import tokenSource from '../../src/foundation/tokens.json';
+import { readFileSync } from 'node:fs';
+import type tokenSourceShape from '../../src/foundation/tokens.json';
+
+// Read production bytes without a runtime JSON import attribute dependency.
+const tokenSource = JSON.parse(
+  readFileSync(new URL('../../src/foundation/tokens.json', import.meta.url), 'utf8'),
+) as typeof tokenSourceShape;
 
 const prefix = 'foundations-foundation-catalogue--';
 const stories = ['palettes', 'spacing', 'density', 'surfaces', 'keyboard-focus', 'motion-and-preferences'] as const;
