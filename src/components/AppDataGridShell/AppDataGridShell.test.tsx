@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { createRef } from "react";
+import { createRef, useState } from "react";
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -465,4 +465,39 @@ it("reserves card space alongside live wrapped status and reveals focus when con
     expect(statusObserver.disconnect).toHaveBeenCalledOnce();
     expect(document.activeElement).toBe(card);
   } finally { vi.unstubAllGlobals(); }
+});
+
+it("accepts columns-menu order requests through the controlled shell while retaining locks, visibility and actions last", async () => {
+  const user = userEvent.setup(); const orderChange = vi.fn(); const optionsChange = vi.fn();
+  const orderedColumns: AppDataGridColumn<Course>[] = [columns[0]!,
+    { field: "site", headerName: "Site", renderCustomCell: () => "North campus", cellType: "custom" }, columns[1]!,
+    { field: "notes", headerName: "Notes" },
+    { field: "actions", headerName: "Actions", cellType: "menu", getMenuActions: () => [] }];
+  function ControlledHost() {
+    const [order, setOrder] = useState(orderedColumns.map(column => column.field));
+    return <AppDataGridShell {...props} columns={orderedColumns} columnOrder={order}
+      columnVisibilityModel={{ notes: false }}
+      onColumnOrderChange={next => { orderChange(next); setOrder(next); }}
+      toolbar={{ onColumnOptionsChange: optionsChange }} />;
+  }
+  render(<ControlledHost />);
+  await user.click(screen.getByRole("button", { name: "Columns" }));
+  expect((screen.getByRole("checkbox", { name: "Name" }) as HTMLInputElement).disabled).toBe(true);
+  expect((screen.getByRole("checkbox", { name: "Actions" }) as HTMLInputElement).disabled).toBe(true);
+  await user.type(screen.getByRole("searchbox", { name: "Search" }), "Site");
+  await user.click(screen.getByRole("button", { name: "Move Site down" }));
+  expect(orderChange).toHaveBeenCalledExactlyOnceWith(["name", "score", "site", "notes", "actions"]);
+  expect(optionsChange).toHaveBeenCalledTimes(1);
+  expect(optionsChange.mock.calls[0]![0].map((option: { id: string; visible: boolean }) => [option.id, option.visible]))
+    .toEqual([["name", true], ["score", true], ["site", true], ["notes", false], ["actions", true]]);
+  const headerLabels = () => within(screen.getByRole("grid", { name: "Courses" })).getAllByRole("columnheader")
+    .filter(header => header.hasAttribute("data-grid-field")).map(header => header.getAttribute("data-grid-field"));
+  expect(headerLabels()).toEqual(["name", "score", "site", "actions"]);
+  await user.clear(screen.getByRole("searchbox", { name: "Search" }));
+  await user.click(screen.getByRole("button", { name: "Move Name down" }));
+  expect(orderChange).toHaveBeenLastCalledWith(["score", "name", "site", "notes", "actions"]);
+  await user.click(screen.getByRole("button", { name: "Move Actions up" }));
+  expect(orderChange).toHaveBeenLastCalledWith(["score", "name", "site", "notes", "actions"]);
+  expect(headerLabels()).toEqual(["score", "name", "site", "actions"]);
+  expect((screen.getByRole("checkbox", { name: "Notes" }) as HTMLInputElement).checked).toBe(false);
 });

@@ -47,7 +47,7 @@ it("searches literal host labels, reports no matches and clears search after dis
 it("supports keyboard checkbox changes without closing the dialog", async () => {
   const user = userEvent.setup(); const change = vi.fn(); render(<Provider><Harness change={change} /></Provider>);
   await user.tab(); await user.keyboard("{Enter}");
-  screen.getByRole("searchbox").focus(); await user.tab();
+  screen.getByRole("button", { name: "Move Course name down" }).focus(); await user.tab();
   expect(document.activeElement).toBe(screen.getByRole("checkbox", { name: "Status" }));
   await user.keyboard(" "); expect(change).toHaveBeenCalledTimes(1);
   expect(screen.getByRole("dialog", { name: "Columns" })).toBeTruthy();
@@ -62,4 +62,19 @@ it("translates library strings while searching host labels without generated tra
   await user.type(screen.getByRole("searchbox", { name: "Local Search" }), "course");
   expect(screen.getAllByRole("checkbox")).toHaveLength(1);
   expect(t.mock.calls.some(([key]) => key.startsWith("common.ui.label"))).toBe(false);
+});
+
+it("requests full-array moves through filtered results without changing visibility or locking text positions", async () => {
+  const user = userEvent.setup(); const change = vi.fn(); render(<Provider><Harness change={change} /></Provider>);
+  await user.click(screen.getByRole("button", { name: "Columns" }));
+  expect((screen.getByRole("button", { name: "Move Course name up" }) as HTMLButtonElement).disabled).toBe(true);
+  expect((screen.getByRole("button", { name: "Move Instructor down" }) as HTMLButtonElement).disabled).toBe(true);
+  await user.type(screen.getByRole("searchbox"), "Course");
+  const move = screen.getByRole("button", { name: "Move Course name down" });
+  move.focus(); await user.keyboard("{Enter}");
+  expect(change).toHaveBeenCalledExactlyOnceWith([initial[1], initial[0], initial[2]]);
+  await user.clear(screen.getByRole("searchbox"));
+  expect(screen.getAllByRole("checkbox").map(input => input.getAttribute("aria-label"))).toHaveLength(3);
+  await user.click(screen.getByRole("button", { name: "Move Instructor up" }));
+  expect(change).toHaveBeenLastCalledWith([initial[1], initial[2], initial[0]]);
 });
