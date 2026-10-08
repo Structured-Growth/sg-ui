@@ -53,9 +53,13 @@ test('nested source overrides rebind semantic and component aliases without chan
   const parent = page.getByTestId('alias-parent'), child = page.getByTestId('alias-child');
   const component = page.getByTestId('alias-component'), dark = page.getByTestId('alias-dark');
   const p = await colors(parent), c = await colors(child), slot = await colors(component), d = await colors(dark);
-  for (const role of ['action', 'actionPressed', 'buttonPrimaryBackground', 'buttonPrimaryPressedBackground']) {
+  for (const role of ['action', 'buttonPrimaryBackground']) {
     expect(p[role], `parent ${role}`).toBe('rgb(0, 90, 156)');
     expect(c[role], `child ${role}`).toBe('rgb(107, 33, 168)');
+  }
+  for (const role of ['actionHover', 'actionPressed', 'buttonPrimaryHoverBackground', 'buttonPrimaryPressedBackground']) {
+    expect(p[role], `parent ${role}`).toBe('rgb(7, 89, 133)');
+    expect(c[role], `child ${role}`).toBe('rgb(88, 28, 135)');
   }
   for (const role of ['danger', 'actionDestructive', 'validationError', 'buttonDestructiveBackground', 'fieldInvalidBorder']) {
     expect(p[role], `parent ${role}`).toBe('rgb(153, 27, 27)');
@@ -66,7 +70,7 @@ test('nested source overrides rebind semantic and component aliases without chan
   for (const role of ['surface', 'surfaceOverlay', 'menuBackground', 'dialogBackground']) expect(c[role]).toBe('rgb(255, 255, 255)');
   expect(slot.buttonPrimaryBackground).toBe('rgb(22, 101, 52)');
   expect(slot.action).toBe(c.action);
-  expect(slot.buttonPrimaryPressedBackground).toBe(c.action);
+  expect(slot.buttonPrimaryPressedBackground).toBe(c.actionHover);
   expect((await actual(component, 'Component scope actual action')).background).toBe(c.action);
   expect((await actual(child, 'Child actual action')).background).toBe(c.action);
   expect(d.text).toBe('rgb(226, 232, 240)');

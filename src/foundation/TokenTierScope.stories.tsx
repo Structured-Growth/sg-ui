@@ -33,11 +33,11 @@ function RoleSwatches() {
 }
 
 export const NestedOverrides: Story = { render: () => <ThemeScope theme="light" density="comfortable" data-testid="alias-parent" style={{ ...layout,
-  "--sgui-action": "#005a9c", "--sgui-danger": "#991b1b" }}>
+  "--sgui-action": "#005a9c", "--sgui-action-hover": "#075985", "--sgui-danger": "#991b1b" }}>
   <Typography as="h2" variant="h3">Parent semantic overrides</Typography>
   <RoleSwatches /><AppButton>Parent actual action</AppButton>
   <ThemeScope density="compact" data-testid="alias-child" style={{ ...layout,
-    "--sgui-action": "#6b21a8", "--sgui-danger": "#9f1239", "--sgui-surface-raised": "#fef3c7" }}>
+    "--sgui-action": "#6b21a8", "--sgui-action-hover": "#581c87", "--sgui-danger": "#9f1239", "--sgui-surface-raised": "#fef3c7" }}>
     <Typography as="h3" variant="h3">Nested semantic overrides</Typography>
     <RoleSwatches /><AppButton>Child actual action</AppButton>
     <ThemeScope data-testid="alias-component" style={{ ...layout, "--sgui-button-primary-background": "#166534" }}>
