@@ -27,6 +27,10 @@ export function DatePicker({ value, defaultValue = null, onValueChange, unavaila
       aria-label={t("common.ui.chooseDate", { defaultMessage: "Choose {label}", values: { label: props.label } })}>▦</Button>}>
       <Calendar label={props.label} value={selected} onValueChange={date => { change(date); setOpen(false); }}
         min={props.min} max={props.max} unavailable={unavailable} defaultFocusedDate={selected ?? defaultFocusedDate} />
+      {selected && !props.required && !props.disabled && !props.readOnly && <Button variant="outlined" tone="neutral"
+        onPress={() => { change(null); setOpen(false); }}>
+        {t("common.ui.clear", { defaultMessage: "Clear" })}
+      </Button>}
     </Popover>
   </div>;
 }

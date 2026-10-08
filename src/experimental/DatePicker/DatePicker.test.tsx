@@ -6,7 +6,7 @@ import { StrictMode, useRef } from "react";
 import { useFormReset } from "../useFormReset";
 import { DatePicker } from "./DatePicker";
 afterEach(cleanup);
-it("synchronizes calendar and field, serializes the date and restores trigger focus", async () => {
+it("selects and clears the date, restores trigger focus and silently resets the native default", async () => {
   const user = userEvent.setup(); const change = vi.fn();
   render(<form data-testid="form"><DatePicker label="Course date" defaultValue="2024-02-28" name="date" onValueChange={change} /><button type="reset">Reset</button></form>);
   const trigger = screen.getByRole("button", { name: "Choose Course date" });
@@ -15,13 +15,30 @@ it("synchronizes calendar and field, serializes the date and restores trigger fo
   await waitFor(() => expect(document.activeElement).toBe(trigger));
   const form = screen.getByTestId("form") as HTMLFormElement;
   expect(new FormData(form).get("date")).toBe("2024-02-29");
+  change.mockClear();
+  await user.click(trigger); await user.click(screen.getByRole("button", { name: "Clear" }));
+  expect(change).toHaveBeenCalledExactlyOnceWith(null);
+  expect(new FormData(form).get("date")).toBe(""); expect(screen.queryByRole("dialog")).toBeNull();
+  await waitFor(() => expect(document.activeElement).toBe(trigger));
   await user.click(screen.getByRole("button", { name: "Reset" })); expect(new FormData(form).get("date")).toBe("2024-02-28");
+  expect(change).toHaveBeenCalledExactlyOnceWith(null);
 });
-it("closes on Escape without changing selection and prevents opening read-only fields", async () => {
+it("preserves controlled authority on Clear and guards empty, required and read-only dates", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  const { rerender } = render(<DatePicker label="Course date" value="2024-02-28" onValueChange={change} />);
+  const { rerender } = render(<DatePicker label="Course date" name="date" value="2024-02-28" onValueChange={change} />);
   await user.click(screen.getByRole("button", { name: "Choose Course date" })); await user.keyboard("{Escape}"); expect(change).not.toHaveBeenCalled();
+  const trigger = screen.getByRole("button", { name: "Choose Course date" });
+  await user.click(trigger); await user.click(screen.getByRole("button", { name: "Clear" }));
+  expect(change).toHaveBeenCalledExactlyOnceWith(null); expect(screen.queryByRole("dialog")).toBeNull();
+  await waitFor(() => expect(document.activeElement).toBe(trigger));
+  expect((document.querySelector('input[name="date"]') as HTMLInputElement).value).toBe("2024-02-28");
+  rerender(<DatePicker label="Course date" value={null} onValueChange={change} />);
+  await user.click(trigger); expect(screen.queryByRole("button", { name: "Clear" })).toBeNull(); await user.keyboard("{Escape}");
+  rerender(<DatePicker label="Course date" value="2024-02-28" required onValueChange={change} />);
+  await user.click(trigger); expect(screen.queryByRole("button", { name: "Clear" })).toBeNull(); await user.keyboard("{Escape}");
   rerender(<DatePicker label="Course date" value="2024-02-28" readOnly />);
+  expect((screen.getByRole("button", { name: "Choose Course date" }) as HTMLButtonElement).disabled).toBe(true);
+  rerender(<DatePicker label="Course date" value="2024-02-28" disabled />);
   expect((screen.getByRole("button", { name: "Choose Course date" }) as HTMLButtonElement).disabled).toBe(true);
 });
 
