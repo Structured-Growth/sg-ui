@@ -14,7 +14,7 @@ candidate browser proof under the active daily checkpoint policy.
 - Reviewed prerequisite history: `fd1cfc3e1d2972e7ef077d4d1f82b7d29c05ffd7`.
 - Normal non-fast-forward bootstrap merge, before edits:
   `68dc47b18b35a71d259e2f81efbb62b4428dbddc`.
-- Bounded story/spec source commit: `0472b0996a057c035bb6b0e41499b11201ffe8b2`.
+- Bounded story/spec source commit: `b5a6ae40565468cc58fe9b0e0b43ae84f2474918`.
 - Independent prerequisite source receipt:
   `/Users/thomashall/.codex/visualizations/2026/10/07/01a1164f-41db-7f30-aaf9-f20133b6566f/batch164-independent-review.json`.
   Its admission is provisional source admission; it does not contain native proof.
@@ -35,7 +35,7 @@ compiled production styles. No runtime/public feature is added.
 
 | Story ID suffix | Native case and concrete observations |
 | --- | --- |
-| `nested-overrides` | Parent action/danger overrides; child source overrides; independently overridden raised surface and primary component slot. CSS-computed backgrounds test source/derived aliases, card versus plain/overlay separation, explicit dark boundary, real AppButton semantics and nested density geometry. |
+| `nested-overrides` | Parent action/hover/danger overrides; child source overrides; independently overridden raised surface and primary component slot. CSS-computed backgrounds test source/derived aliases, card versus plain/overlay separation, explicit dark boundary, real AppButton semantics and nested density geometry. |
 | `switching` | Owned action callbacks switch light/dark/system and compact/comfortable. Browser color-scheme emulation checks all 41 semantic and 27 color component swatches against explicit light/dark comparison scopes. Inherited boundaries follow changes; fixed dark/compact stays fixed. Geometry uses computed min-height/padding normalized by native root font size. |
 | `portaled-scope` | Native activation opens real Popover dialog outside its Provider DOM subtree. Portal theme/density and computed alias/control colors match the owner's custom variables; compact and nested comfortable geometry differ. Provider layout width does not propagate. Adjacent custom light scope retains its prior values, and Escape restores trigger focus. |
 | `declared-pairs` | Native computed opaque sRGB swatches check the documented essential text/action/validation pairs at 4.5:1 and border/focus pairs at 3:1, in both default themes. Decorative/disabled pairs and custom host contrast are excluded. |
@@ -73,20 +73,28 @@ No heavy/browser lock was acquired.
 | `tokens` | `["scripts/tokens.mjs", "--check"]` | `/tmp/sgui-light-validation-slots/slot1` / `batch171:252176c7-33d8-4446-914a-0022560285ac` | 0; settled `True`; released |
 | `final-types` | `["node_modules/typescript/bin/tsc", "--noEmit", "-p", "/tmp/sgui-batch171-types.json"]` | `/tmp/sgui-light-validation-slots/slot1` / `batch171:38bc4643-be36-4aa5-a820-e0f44ca77155` | 0; settled `True`; released |
 
+| `corrected-types` | `["node_modules/typescript/bin/tsc", "--noEmit", "-p", "/tmp/sgui-batch171-types.json"]` | `/tmp/sgui-light-validation-slots/slot1` / `batch171:3efb798f-424b-4afe-b124-fd1ad9d043f8` | 0; settled `True`; released |
+| `corrected-foundations` | `["scripts/check-foundations.mjs"]` | `/tmp/sgui-light-validation-slots/slot1` / `batch171:2956a9bd-2ef5-4678-b558-f7e41f883987` | 0; settled `True`; released |
+
 The targeted external TypeScript config includes only the new story/spec and CSS
 module declarations, resolving their source dependencies under repository compiler
 settings. It does not typecheck all stories or claim clean packed/public-consumer
-declarations. Initial types passed; a final spec-only addition verifies native
-forced-color focus, followed by final targeted types. Source review corrected the
-compact-height expectation to the declared `2rem` before validation. No red command
-was suppressed. The install log retains the pnpm ignored-esbuild-build-script
-warning; no build execution is inferred from installation.
+declarations. Initial and final types passed. Final review then caught an unrun
+fixture expectation error: `actionPressed` aliases `actionHover`, not `action`.
+Distinct parent/child action-hover overrides now verify that chain and its hover/
+pressed component slots independently of default action. Corrected targeted types
+and foundation guards passed with final source hashes. No red command was
+suppressed; earlier type passes did not prove the mistaken runtime expectation.
+Source review also corrected compact height to the declared `2rem` before checks.
+The install log retains the pnpm ignored-esbuild-build-script warning; no build
+execution is inferred from installation.
 
-Checks ran at bootstrap HEAD with the new files present before commit. Final types
-receipt records both source file hashes and all seven prerequisite file hashes;
-the source commit contains those exact story/spec bytes. Foundation/token guards
-ran before the final spec-only focus assertion change; the story and prerequisite
-bytes were unchanged. No unrelated unit suite is needed for a proof-only fixture
+Initial checks ran at bootstrap HEAD with new files present before commit.
+Corrected types/guard receipts ran at `9bfe228f4660c9c5e77545dadfa33b5ada1886a7`
+with corrected source present before its commit. They record both final source
+file hashes and all seven prerequisite file hashes; the corrected source commit
+contains those exact bytes. The token guard checked the unchanged prerequisite.
+No unrelated unit suite is needed for a proof-only fixture
 addition. `git diff --check` and prerequisite zero-diff inspection also passed.
 
 Each label has retained raw log `/tmp/sgui-batch171-<label>.log`, command receipt
@@ -95,7 +103,7 @@ Each label has retained raw log `/tmp/sgui-batch171-<label>.log`, command receip
 argv, exact precommit HEAD, owner claims, timestamps, raw-log/resource SHA-256,
 exit result and released leases. Resources report exit 0, settled true and no
 signal errors for every command. Consolidated evidence:
-`/tmp/sgui-batch171-evidence.json` (SHA-256 `990731bf84cc1bf9b94e0bc4a3aded003b1bd1226377b5a6bc9c061706d01e02`).
+`/tmp/sgui-batch171-evidence.json` (SHA-256 `82b9ae9522ee021c7d2f9114d3e402d43362466522f7d330b3bdc9965b63641e`).
 
 External wrapper/config hashes:
 
@@ -104,8 +112,8 @@ External wrapper/config hashes:
 
 Final validated source/prerequisite hashes:
 
-- `src/foundation/TokenTierScope.stories.tsx`: `57c492ccd8b36beada2f058a61fe20504cd6059074c14f498d0f8023d9e262a9`
-- `tests/browser/token-tier-scope.spec.ts`: `edbf5ce0577dfcf15fa5864b39b452c12a72876c4f3b19fb504893d6c856b337`
+- `src/foundation/TokenTierScope.stories.tsx`: `57fa7feeb6a18ac5cde46d034dc9c190e8e69e8a12e5b25551cc1aad5f088024`
+- `tests/browser/token-tier-scope.spec.ts`: `2d381784f7eaf20751c473b8821dbc1ea608bffb66d3c51b04d522e2ef75bcf2`
 - `src/foundation/tokens.json`: `1b22596dbf77a1904ac1c01026089b55190fb417a2ab6e00ddddce9b636c1d94`
 - `src/foundation/tokens.css`: `fb01cc9285d81c8a66412fc1af5a1d9ab9e157b3a4346a067989fa11890e6196`
 - `src/foundation/tokens.generated.ts`: `45e07cc11684334d9ba3784562b8872bb4dcd9a66312d564b7b6d845b41c3d20`
@@ -124,6 +132,9 @@ consolidated evidence):
 - `/tmp/sgui-batch171-foundations.log.receipt.json`: `b95bb881c968892cb2320124a9b17c9d01da6185c6d870d933fffd2b7b543ddc`
 - `/tmp/sgui-batch171-tokens.log.receipt.json`: `c1bd0f025e0e6cb43b30c6dbbfdf3b3d74d590092e56081a74daac5139c697b4`
 - `/tmp/sgui-batch171-final-types.log.receipt.json`: `1f8dfef2ced2ba82f98fabd9cdce945efda9b02324960bdd517998db454be47f`
+
+- `/tmp/sgui-batch171-corrected-types.log.receipt.json`: `60f281f6d56efdc89e7c3d20e81f5ed6ff5efc46fbf7c370a35a9ec7c138cf3a`
+- `/tmp/sgui-batch171-corrected-foundations.log.receipt.json`: `33054e9512de7fadefb88ddcb60e70d8256fbc698c74af3750ef89bb72a8e75c`
 
 ## Pending coordinator proof and acceptance limits
 
