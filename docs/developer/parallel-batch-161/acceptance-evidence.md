@@ -6,7 +6,7 @@ Inspection/validation date: 2026-10-07 (America/Chicago). Assigned baseline:
 `codex/batch161-license-inventory`. Initial status was clean and detached; branch
 creation preceded edits. Coordinator alone reviews, integrates and accepts.
 
-The retained [batch 98 report](../parallel-batch-98/acceptance-evidence.md), read
+The retained [batch 98 report](https://github.com/Structured-Growth/sg-ui/blob/7335e41c35ea0af07f72b133ced92e04e1e896ca/docs/developer/parallel-batch-98/acceptance-evidence.md), read
 from Git commit `7335e41c35ea0af07f72b133ced92e04e1e896ca`, identifies the actual
 missing repeatable resolved inventory and ownership workflow. Current L-08 still
 requires both. This change adds the check and a proposed workflow, with owner
@@ -73,8 +73,11 @@ head and corrects the master-task anchor; checker and fixture blobs are unchange
 | `LICENSE` (unchanged) | `9dbc843502f2b1e8f74ed4c4940c471e7cca8acd` |
 | `THIRD_PARTY_NOTICES.md` (unchanged) | `a5a5cdef430e435077f85c002f4c7398a09c4c62` |
 
-`git diff --check` passed. Documentation links/paths were checked against retained
-files/headings. The change is restricted to the four authorized new paths; no
+`git diff --check` passed. A relative-link check initially found that the batch 98
+report is not in this checkout; both links were corrected to its retained exact Git
+commit. Local documentation links/paths and anchors were then checked against
+retained files/headings; the linked batch 98 blob was confirmed using `git ls-tree`
+(remote web availability was not tested). The change is restricted to the four authorized new paths; no
 manifest, lockfile, dependency, workflow, production source, LICENSE, notice or
 commercial-term edit occurred. No approval automation, package installs, network
 fetches, builds, browsers, full `pnpm check`, publication or production acceptance

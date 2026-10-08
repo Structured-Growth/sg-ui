@@ -7,7 +7,7 @@ for review; it does not approve licenses, change notices or decide commercial te
 See [L-01–L-09](react-aria-master-task-list.md#5-licensing-and-dependency-governance),
 [architecture policy](react-aria-architecture.md#dependency-and-license-policy),
 [commercial guidance](../commercial-licensing.md) and the
-[batch 98 gap record](parallel-batch-98/acceptance-evidence.md).
+[batch 98 gap record](https://github.com/Structured-Growth/sg-ui/blob/7335e41c35ea0af07f72b133ced92e04e1e896ca/docs/developer/parallel-batch-98/acceptance-evidence.md).
 
 ## Run and interpret
 
