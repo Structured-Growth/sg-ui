@@ -1,3 +1,14 @@
+## Current execution priority
+
+The human-approved detailed backlog runs functionality first, regression second,
+and hardening third. Follow docs/developer/react-aria-master-task-list.md and its
+F checklist. Reconcile working source and existing accepted smoke evidence before
+implementing gaps; use only 1–3 meaningful smoke cases per component in total.
+Expanded regression and hardening are separate later tasks. The historical scope
+ledger preserves original acceptance IDs and evidence; those counts are separate
+from the new F/T/V phase counts. Targeted development validation and safe integration
+constraints remain in force.
+
 # Structured Growth UI agent instructions
 
 AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
