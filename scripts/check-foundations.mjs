@@ -3,7 +3,7 @@ import { access, readFile, readdir } from 'node:fs/promises';
 import { dirname, relative, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import typescript from 'typescript';
-import postcss from 'postcss';
+import { validateComponentCss } from './check-component-css.mjs';
 import { compileTokens } from './tokens.mjs';
 
 const interactionFiles = new Set(['Button', 'TextField', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'DateField', 'TimeField', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'Menu', 'Switch', 'RadioGroup', 'Select', 'TextArea', 'ToggleButton', 'Tooltip', 'TagGroup', 'Progress']
@@ -49,6 +49,7 @@ export function assertInteractionBoundary(path, code, root = process.cwd()) {
 export async function checkFoundations() {
 const source = JSON.parse(await readFile('src/foundation/tokens.json', 'utf8'));
 const { ts } = compileTokens(source);
+const cssErrors = [];
 const variables = new Set([...ts.matchAll(/var\((--sgui-[\w-]+)\)/g)].map(match => match[1]));
 async function visit(dir, accept = () => true) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -65,18 +66,7 @@ async function visit(dir, accept = () => true) {
         });
       }
       if (path.endsWith('.module.css')) {
-        const css = postcss.parse(code);
-        css.walkDecls(decl => {
-          for (const match of decl.value.matchAll(/var\((--sgui-[\w-]+)/g)) {
-            assert(variables.has(match[1]), `Unknown token ${match[1]} in ${path}`);
-          }
-        });
-        css.walkRules(rule => {
-          let parent = rule.parent;
-          while (parent && !(parent.type === 'atrule' && parent.name === 'layer')) parent = parent.parent;
-          assert(parent?.params === 'sgui.components', `Unlayered component rule in ${path}`);
-          assert(!/(^|[\s,>])(?:body|html|:root)(?=$|[\s,.:[>])/.test(rule.selector), `Global host selector in ${path}`);
-        });
+        cssErrors.push(...validateComponentCss(code, { path, variables }));
       }
     }
   }
@@ -120,6 +110,7 @@ await visit('src/components/AppDataGrid', name => name.startsWith('ownedGrid'));
 for (const file of ['ownedGridModel.ts', 'ownedGridState.ts', 'ownedGridController.ts', 'ownedGridLayoutController.ts', 'ownedGridInteraction.tsx', 'ownedGridInteraction.stories.tsx', 'ownedGridColumns.ts', 'ownedGridCells.tsx', 'ownedGridParts.tsx', 'ownedGridProcessing.stories.tsx', 'ownedGridCells.stories.tsx', 'ownedGridParts.stories.tsx']) {
   await auditDependencies(resolve(`src/components/AppDataGrid/${file}`));
 }
+assert.equal(cssErrors.length, 0, [...new Set(cssErrors)].join('\n'));
 console.log('Owned foundation import, layer and token checks pass.');
 }
 
