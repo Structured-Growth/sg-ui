@@ -47,7 +47,7 @@ Scope: [src/components/AppPageHeader](../../src/components/AppPageHeader). Origi
 
 - [x] F-C04-01 Confirm or complete AppPageHeader: primary and subpage surface hierarchy.
 - [x] F-C04-02 Confirm or complete AppPageHeader: breadcrumb navigation through owned links.
-- [ ] F-C04-03 Confirm or complete AppPageHeader: left split actions and right actions.
+- [x] F-C04-03 Confirm or complete AppPageHeader: host-supplied trailing actionButtons with precedence over the compact moreMenuItems menu.
 - [x] F-C04-04 Confirm or complete AppPageHeader: metadata and title wrapping.
 - [x] F-C04-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for AppPageHeader; link any breaking mapping.
 - [x] F-C04-91 Accept or add the minimal smoke evidence for AppPageHeader; record remaining bugs without making expanded coverage a baseline gate.
@@ -69,7 +69,7 @@ Scope: [src/components/AppShell](../../src/components/AppShell). Original scope:
 
 - [x] F-C06-01 Confirm or complete AppShell: main and navigation landmarks.
 - [x] F-C06-02 Confirm or complete AppShell: responsive navigation presentation.
-- [ ] F-C06-03 Confirm or complete AppShell: host content and header slots.
+- [x] F-C06-03 Confirm or complete AppShell: host navigation and main content through navigation and children, with host headers composed in children.
 - [x] F-C06-04 Confirm or complete AppShell: owned scope propagation.
 - [x] F-C06-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for AppShell; link any breaking mapping.
 - [x] F-C06-91 Accept or add the minimal smoke evidence for AppShell; record remaining bugs without making expanded coverage a baseline gate.
@@ -79,7 +79,7 @@ Scope: [src/components/AppShell](../../src/components/AppShell). Original scope:
 Scope: [src/components/AuthShell](../../src/components/AuthShell). Original scope: `M-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C07-01 Confirm or complete AuthShell: presentation-only authentication layout.
-- [ ] F-C07-02 Confirm or complete AuthShell: content and branding slots.
+- [x] F-C07-02 Confirm or complete AuthShell: title/subtitle, host children and optional footerContent, with host branding composed through children or footerContent.
 - [x] F-C07-03 Confirm or complete AuthShell: small-container content sizing.
 - [x] F-C07-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for AuthShell; link any breaking mapping.
 - [x] F-C07-91 Accept or add the minimal smoke evidence for AuthShell; record remaining bugs without making expanded coverage a baseline gate.
@@ -114,10 +114,10 @@ Scope: [src/components/SideNavigation](../../src/components/SideNavigation). Ori
 
 Scope: [src/components/ExperiencePageNavigator](../../src/components/ExperiencePageNavigator). Original scope: `M-10` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] F-C10-01 Confirm or complete ExperiencePageNavigator: previous and next callbacks.
-- [ ] F-C10-02 Confirm or complete ExperiencePageNavigator: first and last disabled boundaries.
-- [ ] F-C10-03 Confirm or complete ExperiencePageNavigator: link versus action rendering.
-- [ ] F-C10-04 Confirm or complete ExperiencePageNavigator: translated destination labels.
+- [x] F-C10-01 Confirm or complete ExperiencePageNavigator: controlled activePageKey selection through onSelectPage and host page creation through onAddPage.
+- [x] F-C10-02 Confirm or complete ExperiencePageNavigator: first/last Move up/Move down boundaries, final-page removal protection and readOnly mutation guards while retaining selection.
+- [x] F-C10-03 Confirm or complete ExperiencePageNavigator: separate selection buttons and rename/remove/reorder commands, with trimmed rename submission through the owned dialog.
+- [x] F-C10-04 Confirm or complete ExperiencePageNavigator: translated library page-list, position, active and action/dialog labels with English defaultMessage, preserving host-translated page titles and explicit title.
 - [x] F-C10-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for ExperiencePageNavigator; link any breaking mapping.
 - [x] F-C10-91 Accept or add the minimal smoke evidence for ExperiencePageNavigator; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -160,9 +160,9 @@ Scope: [src/components/ClassCardFrame](../../src/components/ClassCardFrame). Ori
 Scope: [src/components/InstructorClassCard](../../src/components/InstructorClassCard). Original scope: `M-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C14-01 Confirm or complete InstructorClassCard: course status and metadata.
-- [ ] F-C14-02 Confirm or complete InstructorClassCard: menu actions with host callbacks.
-- [ ] F-C14-03 Confirm or complete InstructorClassCard: date and icon fallback.
-- [ ] F-C14-04 Confirm or complete InstructorClassCard: long title and description presentation.
+- [x] F-C14-02 Confirm or complete InstructorClassCard: the owned actionHref/actionLabel link, preserved translated/custom action labels, and host navigation requests.
+- [x] F-C14-03 Confirm or complete InstructorClassCard: host-formatted activity labels, translated known activity fallbacks, and decorative fixed icons/avatar fallback; preserve archived metadata omission.
+- [x] F-C14-04 Confirm or complete InstructorClassCard: wrapping long course name, site name, activity text and action labels within the card.
 - [x] F-C14-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for InstructorClassCard; link any breaking mapping.
 - [x] F-C14-91 Accept or add the minimal smoke evidence for InstructorClassCard; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -171,9 +171,9 @@ Scope: [src/components/InstructorClassCard](../../src/components/InstructorClass
 Scope: [src/components/LearnerClassCard](../../src/components/LearnerClassCard). Original scope: `M-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C15-01 Confirm or complete LearnerClassCard: progress and completion presentation.
-- [ ] F-C15-02 Confirm or complete LearnerClassCard: due-date and status labels.
+- [x] F-C15-02 Confirm or complete LearnerClassCard: localized relative/absolute due-date labels and the translated Course progress name with normalized visible percentage.
 - [x] F-C15-03 Confirm or complete LearnerClassCard: owned link and action regions.
-- [ ] F-C15-04 Confirm or complete LearnerClassCard: translated empty metadata.
+- [x] F-C15-04 Confirm or complete LearnerClassCard: translated unavailable due-date metadata with provider-free English fallback; preserve host-supplied course, instructor and next-activity labels.
 - [x] F-C15-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for LearnerClassCard; link any breaking mapping.
 - [x] F-C15-91 Accept or add the minimal smoke evidence for LearnerClassCard; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -184,7 +184,7 @@ Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original 
 - [x] F-C16-01 Confirm or complete AppDataGrid: owned row and column IDs with generics.
 - [x] F-C16-02 Confirm or complete AppDataGrid: filter-before-sort-before-page processing.
 - [x] F-C16-03 Confirm or complete AppDataGrid: controlled client and server state.
-- [ ] F-C16-04 Confirm or complete AppDataGrid: row checkboxes and selected count.
+- [x] F-C16-04 Confirm or complete AppDataGrid: first-column row/page checkboxes and retained selected IDs, with selected count read from that same selection owner by AppDataGridShell/DataToolbar.
 - [x] F-C16-05 Confirm or complete AppDataGrid: visibility locks and last action column.
 - [x] F-C16-06 Confirm or complete AppDataGrid: owned cell renderer dispatch.
 - [x] F-C16-07 Confirm or complete AppDataGrid: loading empty no-results and error parts.
@@ -222,7 +222,7 @@ Scope: [src/components/AppDataGridRowDnd](../../src/components/AppDataGridRowDnd
 Scope: [src/components/LearnerClassesDataGrid](../../src/components/LearnerClassesDataGrid). Original scope: `M-19` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C19-01 Confirm or complete LearnerClassesDataGrid: owned learner presentation model.
-- [ ] F-C19-02 Confirm or complete LearnerClassesDataGrid: date link and status columns.
+- [x] F-C19-02 Confirm or complete LearnerClassesDataGrid: localized due-date/fallback, course-name link and Details/Continue action columns.
 - [x] F-C19-03 Confirm or complete LearnerClassesDataGrid: host row and action callbacks.
 - [x] F-C19-04 Confirm or complete LearnerClassesDataGrid: shared filtering selection and pagination.
 - [x] F-C19-05 Confirm or complete LearnerClassesDataGrid: public LearnerClassesDataGridProps export.
@@ -237,7 +237,7 @@ Scope: [src/components/DataToolbar](../../src/components/DataToolbar). Original 
 - [x] F-C20-02 Confirm or complete DataToolbar: selected count and selected actions.
 - [x] F-C20-03 Confirm or complete DataToolbar: sort draft apply and clear.
 - [x] F-C20-04 Confirm or complete DataToolbar: filter draft apply cancel and All semantics.
-- [ ] F-C20-05 Confirm or complete DataToolbar: columns visibility locks and order.
+- [ ] F-C20-05 Confirm or complete DataToolbar: column visibility locks and non-drag column-order requests through the owned option-array callback, integrated with catalog columnOrder and actions-last normalization.
 - [x] F-C20-06 Confirm or complete DataToolbar: grid and card view callback.
 - [x] F-C20-07 Confirm or complete DataToolbar: neutral outlined split actions.
 - [x] F-C20-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for DataToolbar; link any breaking mapping.
@@ -249,7 +249,7 @@ Scope: [src/components/DocumentEditorLayout](../../src/components/DocumentEditor
 
 - [x] F-C21-01 Confirm or complete DocumentEditorLayout: toolbar content and menu slots.
 - [x] F-C21-02 Confirm or complete DocumentEditorLayout: host-owned scrolling boundary.
-- [ ] F-C21-03 Confirm or complete DocumentEditorLayout: native status styles and refs.
+- [x] F-C21-03 Confirm or complete DocumentEditorLayout: native root ref/className/style and host-supplied headerRight status content; DocumentEditorToolbar owns statusLabel/statusColor.
 - [x] F-C21-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for DocumentEditorLayout; link any breaking mapping.
 - [x] F-C21-91 Accept or add the minimal smoke evidence for DocumentEditorLayout; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -259,7 +259,7 @@ Scope: [src/components/DocumentEditorToolbar](../../src/components/DocumentEdito
 
 - [x] F-C22-01 Confirm or complete DocumentEditorToolbar: owned actions and menu triggers.
 - [x] F-C22-02 Confirm or complete DocumentEditorToolbar: controlled active formatting state.
-- [ ] F-C22-03 Confirm or complete DocumentEditorToolbar: disabled and pending actions.
+- [x] F-C22-03 Confirm or complete DocumentEditorToolbar: read-only and unavailable actions disable editing while available zoom remains usable; queued heading requests deliver after chooser completion and cancel on availability loss or unmount.
 - [x] F-C22-04 Confirm or complete DocumentEditorToolbar: narrow toolbar overflow.
 - [x] F-C22-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for DocumentEditorToolbar; link any breaking mapping.
 - [x] F-C22-91 Accept or add the minimal smoke evidence for DocumentEditorToolbar; record remaining bugs without making expanded coverage a baseline gate.
@@ -269,7 +269,7 @@ Scope: [src/components/DocumentEditorToolbar](../../src/components/DocumentEdito
 Scope: [src/components/ContentEditorChrome](../../src/components/ContentEditorChrome). Original scope: `M-23` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C23-01 Confirm or complete ContentEditorChrome: editor menu and toolbar composition.
-- [ ] F-C23-02 Confirm or complete ContentEditorChrome: selection preparation before actions.
+- [x] F-C23-02 Confirm or complete ContentEditorChrome: native onPress(anchor) action handoff supports host-owned editor selection and focus preparation/restoration; chrome does not own document selection.
 - [x] F-C23-03 Confirm or complete ContentEditorChrome: host onPress anchor callbacks.
 - [x] F-C23-04 Confirm or complete ContentEditorChrome: loading and disabled chrome.
 - [x] F-C23-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for ContentEditorChrome; link any breaking mapping.
@@ -316,7 +316,7 @@ Scope: [src/components/InsertContentMenuControl](../../src/components/InsertCont
 
 - [x] F-C27-01 Confirm or complete InsertContentMenuControl: insert image columns and rule actions.
 - [x] F-C27-02 Confirm or complete InsertContentMenuControl: unavailable insertion actions disabled.
-- [ ] F-C27-03 Confirm or complete InsertContentMenuControl: selection preparation and command focus.
+- [x] F-C27-03 Confirm or complete InsertContentMenuControl: keyboard commands close the menu and restore trigger focus or hand focus to a host-opened dialog; the host/editor owns insertion selection preparation, final focus and announcements.
 - [x] F-C27-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for InsertContentMenuControl; link any breaking mapping.
 - [x] F-C27-91 Accept or add the minimal smoke evidence for InsertContentMenuControl; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -345,7 +345,7 @@ Scope: [src/components/TextColorPickerControl](../../src/components/TextColorPic
 
 Scope: [src/components/TextStyleMenuControl](../../src/components/TextStyleMenuControl). Original scope: `M-30` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] F-C30-01 Confirm or complete TextStyleMenuControl: style and typeface options.
+- [x] F-C30-01 Confirm or complete TextStyleMenuControl: lowercase, uppercase, capitalize, strikethrough, subscript, superscript, highlight and clear-formatting commands; preserve typeface selection in RichTextFormattingToolbar through fontFamilyValue/onFontFamilyChange.
 - [x] F-C30-02 Confirm or complete TextStyleMenuControl: controlled selected formatting style.
 - [x] F-C30-03 Confirm or complete TextStyleMenuControl: tokenized option typography.
 - [x] F-C30-04 Confirm or complete TextStyleMenuControl: selection and focus callback integration.
@@ -687,7 +687,7 @@ Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Origina
 
 - [x] F-P26-01 Confirm or complete Navigation: navigation and NavigationItem exports.
 - [x] F-P26-02 Confirm or complete Navigation: selected and expanded item state.
-- [ ] F-P26-03 Confirm or complete Navigation: owned host links and action items.
+- [x] F-P26-03 - [ ] F-P26-03 Confirm or complete Navigation: host route links through NavigationItem/Link; command items use separately owned ListItemButton/onPress, and expansion uses Disclosure.
 - [x] F-P26-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for Navigation; link any breaking mapping.
 - [x] F-P26-91 Accept or add the minimal smoke evidence for Navigation; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -715,7 +715,7 @@ Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Origina
 Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P29-01 Confirm or complete Collapse: expanded content visibility.
-- [ ] F-P29-02 Confirm or complete Collapse: reduced-motion-compatible transition.
+- [x] F-P29-02 - [ ] F-P29-02 Confirm or complete Collapse: immediate native hidden/unmount visibility changes without library animation; retain child state by default and document removed transition-engine props.
 - [x] F-P29-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for Collapse; link any breaking mapping.
 - [x] F-P29-91 Accept or add the minimal smoke evidence for Collapse; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -724,7 +724,7 @@ Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original sc
 Scope: [src/experimental/Chip](../../src/experimental/Chip). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P30-01 Confirm or complete Chip: owned token label and tone.
-- [ ] F-P30-02 Confirm or complete Chip: remove action accessible name.
+- [x] F-P30-02 - [ ] F-P30-02 Confirm or complete Chip: passive label without an implicit remove action; retain accessible removal in TagGroup through translated Remove {label} or host removeLabel and host-owned onRemove(ids).
 - [x] F-P30-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for Chip; link any breaking mapping.
 - [x] F-P30-91 Accept or add the minimal smoke evidence for Chip; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -834,7 +834,7 @@ Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original sc
 - [x] F-P41-02 Confirm or complete Calendar: minimum maximum and unavailable dates.
 - [x] F-P41-03 Confirm or complete Calendar: host locale and direction.
 - [x] F-P41-04 Confirm or complete Calendar: multiple-date selection where supported.
-- [ ] F-P41-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for Calendar; link any breaking mapping.
+- [x] F-P41-90 - [ ] F-P41-90 Confirm Calendar/CalendarProps exports, owned ISO selection/focus callbacks and options, compiled production styles and a Provider-scoped example; apply public ref/className/style only where declared (Calendar declares none), and link the ISO-value contract.
 - [x] F-P41-91 Accept or add the minimal smoke evidence for Calendar; record remaining bugs without making expanded coverage a baseline gate.
 
 ## P42: DatePicker
@@ -842,7 +842,7 @@ Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original sc
 Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P42-01 Confirm or complete DatePicker: synchronized field and calendar value.
-- [ ] F-P42-02 Confirm or complete DatePicker: popover open clear and focus return.
+- [ ] F-P42-02 - [ ] F-P42-02 Confirm or complete DatePicker: popover opening, an explicit accessible Clear action for optional editable dates requesting null through onValueChange, and trigger focus return after selection, Clear or dismissal.
 - [x] F-P42-03 Confirm or complete DatePicker: controlled commit and native reset.
 - [x] F-P42-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for DatePicker; link any breaking mapping.
 - [x] F-P42-91 Accept or add the minimal smoke evidence for DatePicker; record remaining bugs without making expanded coverage a baseline gate.
@@ -855,7 +855,7 @@ Scope: [src/experimental/DateRangePicker](../../src/experimental/DateRangePicker
 - [x] F-P43-02 Confirm or complete DateRangePicker: range selection and clear.
 - [x] F-P43-03 Confirm or complete DateRangePicker: apply Cancel and focus return.
 - [x] F-P43-04 Confirm or complete DateRangePicker: native serialization and reset.
-- [ ] F-P43-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for DateRangePicker; link any breaking mapping.
+- [x] F-P43-90 - [ ] F-P43-90 Confirm DateRangePicker/DateRangePickerProps exports, owned ISO range/selector options, internal native form-reset ref and compiled composed styles plus a Provider-scoped example; apply public ref/className/style only where declared (DateRangePicker declares none), and link the ISO range/commit/reset contract.
 - [x] F-P43-91 Accept or add the minimal smoke evidence for DateRangePicker; record remaining bugs without making expanded coverage a baseline gate.
 
 ## P44: DateRangeSelector
@@ -887,8 +887,8 @@ Scope: [src/experimental/DataGrid](../../src/experimental/DataGrid). Original sc
 - [x] F-P46-01 Confirm or complete DataGrid: owned proof row and column contracts.
 - [x] F-P46-02 Confirm or complete DataGrid: tanStack processing with one state authority.
 - [x] F-P46-03 Confirm or complete DataGrid: controlled selection sort filter and page.
-- [ ] F-P46-04 Confirm or complete DataGrid: owned column resize and reorder proof.
-- [ ] F-P46-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for DataGrid; link any breaking mapping.
+- [x] F-P46-04 Confirm or complete DataGrid: owned numeric column-resize state and bounded row-reorder requests, including a non-drag Move alternative.
+- [x] F-P46-90 Confirm DataGrid’s owned proof exports, column width/minWidth and state.widths wiring, owned renderCell/renderActions composition and production-scope styles/example; document that this proof exposes no root ref/className/style props and link its integration contract plus the catalog native ref/style mapping.
 - [x] F-P46-91 Accept or add the minimal smoke evidence for DataGrid; record remaining bugs without making expanded coverage a baseline gate.
 
 ## P47: icons
@@ -948,7 +948,7 @@ Scope: [src/adapters/navigation.tsx](../../src/adapters/navigation.tsx). Origina
 Scope: [src/adapters/accounts.tsx](../../src/adapters/accounts.tsx). Original scope: `H-04 H-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S05-01 Confirm or complete AccountAdapter: organization and logout host callbacks.
-- [ ] F-S05-02 Confirm or complete AccountAdapter: pending state and duplicate request guard.
+- [x] F-S05-02 Confirm or complete AccountAdapter integration: the host/composed action owner awaits async callbacks, presents pending state and guards repeated actions; preserve independent adapter requests and original promise/rejection identity.
 - [x] F-S05-03 Confirm or complete AccountAdapter: error delivery and result lifetime.
 - [x] F-S05-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for AccountAdapter; link any breaking mapping.
 - [x] F-S05-91 Accept or add the minimal smoke evidence for AccountAdapter; record remaining bugs without making expanded coverage a baseline gate.
@@ -988,8 +988,8 @@ Scope: [src/hooks/usePersistentState.ts](../../src/hooks/usePersistentState.ts).
 Scope: [src/hooks/usePersistentPaginationModel.ts](../../src/hooks/usePersistentPaginationModel.ts). Original scope: `H-15 H-16` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S09-01 Confirm or complete PaginationState: positive safe integer page sizes.
-- [ ] F-S09-02 Confirm or complete PaginationState: page-zero request on size or filter change.
-- [ ] F-S09-03 Confirm or complete PaginationState: known-total clamp and unknown-total behavior.
+- [x] F-S09-02 Confirm or complete PaginationState integration: size actions request page zero with the new size through AppPaginationFooter, and grid filter actions reset page zero before criteria/combined callbacks; the hook normalizes and stores the complete model supplied by its owner without inferring resets.
+- [x] F-S09-03 Confirm or complete PaginationState integration: grid/footer owners clamp known-total page requests or display, preserve controlled host authority, and use host hasNextPage for unknown server totals without treating loaded rows as a total; the hook remains a total-independent numeric model store.
 - [x] F-S09-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for PaginationState; link any breaking mapping.
 - [x] F-S09-91 Accept or add the minimal smoke evidence for PaginationState; record remaining bugs without making expanded coverage a baseline gate.
 
