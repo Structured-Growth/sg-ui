@@ -45,7 +45,7 @@ export function validateComponentCss(code, { path = '<component.css>', variables
     const layer = ancestor(rule, node => node.type === 'atrule' && node.name === 'layer');
     if (layer?.params !== 'sgui.components') fail(rule, 'Unlayered component rule');
     if (ancestor(rule, node => node.type === 'atrule' && /^(?:-webkit-)?keyframes$/i.test(node.name))) return;
-    for (const selector of postcss.list.comma(rule.selector)) {
+    for (const selector of postcss.list.comma(rule.selector.replace(/\/\*[\s\S]*?\*\//g, ''))) {
       if (/Mui[A-Z]|\.(?:css|jss)-[\w-]+|data-emotion/.test(selector)) fail(rule, `Retired foundation selector: ${selector}`);
       // Preserve and extend the original host-selector prohibition, including
       // functional pseudos and global wrappers; quoted attribute values are inert.
@@ -56,13 +56,13 @@ export function validateComponentCss(code, { path = '<component.css>', variables
     }
   });
   css.walkDecls(decl => {
-    for (const match of decl.value.matchAll(/var\(\s*(--sgui-[\w-]+)/g)) {
+    const value = decl.value.replace(/\/\*[\s\S]*?\*\//g, '').trim();
+    for (const match of value.matchAll(/var\(\s*(--sgui-[\w-]+)/g)) {
       if (!variables.has(match[1])) fail(decl, `Unknown token ${match[1]}`);
     }
     if (!typography.has(decl.prop.toLowerCase())) return;
     // An owned var must supply the value, or participate in CSS math. Merely
     // mentioning a token beside a literal (or as a fallback) is insufficient.
-    const value = decl.value.replace(/\/\*[\s\S]*?\*\//g, '').trim();
     if (inheritance.test(value)) return;
     const token = 'var\\(\\s*--sgui-[\\w-]+\\s*\\)';
     const direct = new RegExp(`^${token}$`).test(value);

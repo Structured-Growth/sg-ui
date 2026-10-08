@@ -48,5 +48,6 @@ test('comments are inert; diagnostics retain exact source locations and all viol
   const errors = check('@layer sgui.components {\n/* body { font-size: 12px; } */\nbutton { font-size: 12px; line-height: 2; }\n}');
   assert.equal(errors.length, 3);
   assert(errors.every(e => e.startsWith('fixture.module.css:3:')));
+  assert.deepEqual(check(layer('.root /* .MuiButton body */ { font-size: var(--sgui-body-size) /* var(--sgui-unknown) */; }')), []);
   assert.throws(() => check('.root {'), /Unclosed block/);
 });
