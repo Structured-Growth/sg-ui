@@ -99,7 +99,9 @@ test('live light dark system and density changes recompute all displayed aliases
       await expect.poll(() => colors(scope)).toEqual(expected);
       await expect.poll(() => colors(inherited)).toEqual(expected);
       expect(await colors(fixed)).toEqual(dark);
-      expect((await actual(scope, 'Switch actual action')).background).toBe(expected.action);
+      // Alias swatches update immediately; AppButton retains its production
+      // background-color transition. Poll the same exact endpoint after each change.
+      await expect.poll(async () => (await actual(scope, 'Switch actual action')).background).toBe(expected.action);
       for (const density of ['compact', 'comfortable'] as const) {
         await page.getByRole('button', { name: `Use ${density} density`, exact: true }).click();
         await expect(scope).toHaveAttribute('data-sgui-density', density);
