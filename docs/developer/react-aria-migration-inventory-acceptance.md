@@ -122,6 +122,8 @@ against the preserved public contracts, then record M-02/M-03 reduced-motion and
 live-status transition acceptance without closing broad display/AT gates.
 
 
+<a id="m-21-criterion-reconciliation-2026-10-07"></a>
+
 ## M-21 criterion reconciliation — 2026-10-07
 
 Coordinator accepted the individual DocumentEditorLayout inventory row after independent criterion review at reviewed dev `496658081b8b8efcde21ab4f9b151adfd3aa32fe`. This upgrades the previously held row, not broad editor/scroll/AT acceptance.
@@ -133,6 +135,8 @@ Coordinator accepted the individual DocumentEditorLayout inventory row after ind
 
 No row-specific criterion remains uncovered. Physical browser zoom/device, assistive technology, arbitrary oversized host chrome and broad E/U/X/R/Z gates are not closed by this acceptance.
 
+
+<a id="m-13-criterion-reconciliation-2026-10-07"></a>
 
 ## M-13 criterion reconciliation — 2026-10-07
 
@@ -156,6 +160,8 @@ Coordinator accepted these two individual rows after the independent [batch60 cr
 
 No individual-row criterion remains uncovered. Physical-device/browser-chrome zoom, spoken AT, broader U/X/R/Z and production current-head full-matrix acceptance stay open. Historical shared Link/Button/Menu dependency changes and original artifact limitations remain explicitly documented.
 
+<a id="m-06-criterion-reconciliation-2026-10-07"></a>
+
 ## M-06 criterion reconciliation — 2026-10-07
 
 Coordinator accepted the individual AppShell row after independent criterion review against dev `2d6f357d10b2a65bc988aba6280e69f92f3b1147`. Source and CSS plus the native spec are byte-identical to reviewed engine proof.
@@ -167,6 +173,8 @@ Coordinator accepted the individual AppShell row after independent criterion rev
 - AppShell source SHA256 `4038fed4e3c0826efbb721fcf0216cb7c40b29e9063b59e478aa21c63f12c731`; CSS `214d73c5ea62e9601aedfa4cd356e6ec5c42c93cad89302a6956d66a35fc7d32`; spec `95d3eb8a0d1a95f2a6026738c4e80f4d4e07ce44f7b655d1d2a8cb5b709beec1`. Direct runtime closure is React/CSS. Composed SideNavigation drilldown routing changed afterward; collapse/layout paths and CSS exercised here remain unchanged, not the entire composition.
 
 Physical browser zoom/device, spoken AT, full SideNavigation/account and production current-head full-matrix gates remain open.
+
+<a id="m-19-criterion-reconciliation-2026-10-07"></a>
 
 ## M-19 criterion reconciliation — 2026-10-07
 
