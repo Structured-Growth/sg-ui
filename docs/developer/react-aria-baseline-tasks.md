@@ -687,7 +687,7 @@ Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Origina
 
 - [x] F-P26-01 Confirm or complete Navigation: navigation and NavigationItem exports.
 - [x] F-P26-02 Confirm or complete Navigation: selected and expanded item state.
-- [x] F-P26-03 - [ ] F-P26-03 Confirm or complete Navigation: host route links through NavigationItem/Link; command items use separately owned ListItemButton/onPress, and expansion uses Disclosure.
+- [x] F-P26-03 Confirm or complete Navigation: host route links through NavigationItem/Link; command items use separately owned ListItemButton/onPress, and expansion uses Disclosure.
 - [x] F-P26-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for Navigation; link any breaking mapping.
 - [x] F-P26-91 Accept or add the minimal smoke evidence for Navigation; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -715,7 +715,7 @@ Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Origina
 Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P29-01 Confirm or complete Collapse: expanded content visibility.
-- [x] F-P29-02 - [ ] F-P29-02 Confirm or complete Collapse: immediate native hidden/unmount visibility changes without library animation; retain child state by default and document removed transition-engine props.
+- [x] F-P29-02 Confirm or complete Collapse: immediate native hidden/unmount visibility changes without library animation; retain child state by default and document removed transition-engine props.
 - [x] F-P29-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for Collapse; link any breaking mapping.
 - [x] F-P29-91 Accept or add the minimal smoke evidence for Collapse; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -724,7 +724,7 @@ Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original sc
 Scope: [src/experimental/Chip](../../src/experimental/Chip). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P30-01 Confirm or complete Chip: owned token label and tone.
-- [x] F-P30-02 - [ ] F-P30-02 Confirm or complete Chip: passive label without an implicit remove action; retain accessible removal in TagGroup through translated Remove {label} or host removeLabel and host-owned onRemove(ids).
+- [x] F-P30-02 Confirm or complete Chip: passive label without an implicit remove action; retain accessible removal in TagGroup through translated Remove {label} or host removeLabel and host-owned onRemove(ids).
 - [x] F-P30-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for Chip; link any breaking mapping.
 - [x] F-P30-91 Accept or add the minimal smoke evidence for Chip; record remaining bugs without making expanded coverage a baseline gate.
 
@@ -834,7 +834,7 @@ Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original sc
 - [x] F-P41-02 Confirm or complete Calendar: minimum maximum and unavailable dates.
 - [x] F-P41-03 Confirm or complete Calendar: host locale and direction.
 - [x] F-P41-04 Confirm or complete Calendar: multiple-date selection where supported.
-- [x] F-P41-90 - [ ] F-P41-90 Confirm Calendar/CalendarProps exports, owned ISO selection/focus callbacks and options, compiled production styles and a Provider-scoped example; apply public ref/className/style only where declared (Calendar declares none), and link the ISO-value contract.
+- [x] F-P41-90 Confirm Calendar/CalendarProps exports, owned ISO selection/focus callbacks and options, compiled production styles and a Provider-scoped example; apply public ref/className/style only where declared (Calendar declares none), and link the ISO-value contract.
 - [x] F-P41-91 Accept or add the minimal smoke evidence for Calendar; record remaining bugs without making expanded coverage a baseline gate.
 
 ## P42: DatePicker
@@ -842,7 +842,7 @@ Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original sc
 Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P42-01 Confirm or complete DatePicker: synchronized field and calendar value.
-- [ ] F-P42-02 - [ ] F-P42-02 Confirm or complete DatePicker: popover opening, an explicit accessible Clear action for optional editable dates requesting null through onValueChange, and trigger focus return after selection, Clear or dismissal.
+- [ ] F-P42-02 Confirm or complete DatePicker: popover opening, an explicit accessible Clear action for optional editable dates requesting null through onValueChange, and trigger focus return after selection, Clear or dismissal.
 - [x] F-P42-03 Confirm or complete DatePicker: controlled commit and native reset.
 - [x] F-P42-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for DatePicker; link any breaking mapping.
 - [x] F-P42-91 Accept or add the minimal smoke evidence for DatePicker; record remaining bugs without making expanded coverage a baseline gate.
@@ -855,7 +855,7 @@ Scope: [src/experimental/DateRangePicker](../../src/experimental/DateRangePicker
 - [x] F-P43-02 Confirm or complete DateRangePicker: range selection and clear.
 - [x] F-P43-03 Confirm or complete DateRangePicker: apply Cancel and focus return.
 - [x] F-P43-04 Confirm or complete DateRangePicker: native serialization and reset.
-- [x] F-P43-90 - [ ] F-P43-90 Confirm DateRangePicker/DateRangePickerProps exports, owned ISO range/selector options, internal native form-reset ref and compiled composed styles plus a Provider-scoped example; apply public ref/className/style only where declared (DateRangePicker declares none), and link the ISO range/commit/reset contract.
+- [x] F-P43-90 Confirm DateRangePicker/DateRangePickerProps exports, owned ISO range/selector options, internal native form-reset ref and compiled composed styles plus a Provider-scoped example; apply public ref/className/style only where declared (DateRangePicker declares none), and link the ISO range/commit/reset contract.
 - [x] F-P43-91 Accept or add the minimal smoke evidence for DateRangePicker; record remaining bugs without making expanded coverage a baseline gate.
 
 ## P44: DateRangeSelector
