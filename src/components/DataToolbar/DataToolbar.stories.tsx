@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Provider } from "../../experimental/Provider/Provider";
 import { DataToolbarSelectionMenu } from "./components/DataToolbarSelectionMenu";
 import { SplitAction } from "../../experimental/SplitAction/SplitAction";
+import { AppButton } from "../AppButton/AppButton";
 import {
   DataToolbar,
   type DataToolbarFilterRule,
@@ -116,3 +117,28 @@ export function NativeCompositionPreview({ rtl = false }: { rtl?: boolean }) {
 
 export const NativeComposition: Story = { render: () => <NativeCompositionPreview /> };
 export const NativeCompositionRtl: Story = { render: () => <NativeCompositionPreview rtl /> };
+
+/** Independent allocated hosts inside an intentionally wider, same-name container. */
+export function ContainerBoundaryPreview({ enlarged = false }: { enlarged?: boolean }) {
+  const [expanded, setExpanded] = useState(false);
+  const [events, setEvents] = useState<string[]>([]);
+  const record = (event: string) => setEvents(previous => [...previous, event]);
+  return <Provider style={enlarged ? { "--sgui-label-size": "1.75rem", "--sgui-body-size": "2rem" } : undefined}>
+    <AppButton onPress={() => setExpanded(value => !value)}>Resize narrow host</AppButton>
+    <div data-testid="outer-toolbar-container" style={{ inlineSize: 1120, container: "sgui-data-toolbar / inline-size" }}>
+      {(["Narrow", "Wide"] as const).map(name => <section key={name} aria-label={`${name} toolbar host`}
+        style={{ inlineSize: name === "Narrow" ? expanded ? 640 : 320 : 800 }}>
+        <DataToolbar aria-label={`${name} container toolbar`} showRefreshButton={false}
+          showColumnsButton={false} showSortButton={false} showFilterButton={false}
+          leftContent={<SplitAction label="Create course" menuLabel={`${name} course actions`}
+            items={[{ id: "import", label: "Import courses for review" }]}
+            onPress={() => record(`${name}:create`)} onAction={id => record(`${name}:${id}`)} />}
+          onSearchValueChange={value => record(`${name}:search:${value}`)} />
+      </section>)}
+    </div>
+    <output aria-label="Container host callbacks">{JSON.stringify(events)}</output>
+  </Provider>;
+}
+
+export const ContainerBoundary: Story = { render: () => <ContainerBoundaryPreview /> };
+export const ContainerBoundaryEnlarged: Story = { render: () => <ContainerBoundaryPreview enlarged /> };
