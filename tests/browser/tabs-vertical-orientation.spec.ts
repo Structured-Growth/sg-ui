@@ -2,6 +2,11 @@ import { test, expect, type Locator } from '@playwright/test';
 
 async function visibleVertically(tab: Locator) {
   await expect(tab).toBeFocused();
+  // React Aria schedules its native focus-scroll pass in an animation frame.
+  // Observe that pass before advancing to another focused tab or activation.
+  await tab.evaluate(() => new Promise<void>(resolve => {
+    requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+  }));
   await expect.poll(() => tab.evaluate(element => {
     const list = element.closest('[role="tablist"]')!;
     const top = list.getBoundingClientRect().top + list.clientTop;
@@ -36,20 +41,34 @@ for (const locale of ['en-US', 'ar-EG']) {
       const initial = await ownedScroll();
       await page.keyboard.press('ArrowDown');
       await visibleVertically(access);
+      expect(await ownedScroll(), "ArrowDown must preserve ancestor scroll").toEqual(initial);
       await expect(access).toHaveAttribute('aria-selected', activation === 'manual' ? 'false' : 'true');
       if (activation === 'manual') {
         await expect(details).toHaveAttribute('aria-selected', 'true');
         await page.keyboard.press('Space');
+        await visibleVertically(access);
+        expect(await ownedScroll(), "Space activation must preserve ancestor scroll").toEqual(initial);
       }
       await expect(access).toHaveAttribute('aria-selected', 'true');
       await page.keyboard.press('End');
       await visibleVertically(history);
-      if (activation === 'manual') await page.keyboard.press('Enter');
+      expect(await ownedScroll(), "End must preserve ancestor scroll").toEqual(initial);
+      if (activation === 'manual') {
+        await page.keyboard.press('Enter');
+        await visibleVertically(history);
+        expect(await ownedScroll(), "History activation must preserve ancestor scroll").toEqual(initial);
+      }
       await expect(history).toHaveAttribute('aria-selected', 'true');
       expect(await list.evaluate(el => el.scrollTop)).toBeGreaterThan(0);
       await page.keyboard.press('Home');
       await visibleVertically(details);
-      if (activation === 'manual') await page.keyboard.press('Enter');
+      expect(await ownedScroll(), "Home must preserve ancestor scroll").toEqual(initial);
+      if (activation === 'manual') {
+        await page.keyboard.press('Enter');
+        await expect(details).toHaveAttribute('aria-selected', 'true');
+        await visibleVertically(details);
+        expect(await ownedScroll(), "Details activation must preserve ancestor scroll").toEqual(initial);
+      }
       await page.keyboard.press('ArrowUp');
       await visibleVertically(history);
       expect(await ownedScroll()).toEqual(initial);
