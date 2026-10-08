@@ -29,3 +29,17 @@ export const NarrowOverflow: Story = {
 export const ManualOverflow: Story = {
   args: { ...NarrowOverflow.args, activation: "manual" },
 };
+
+export const Vertical: Story = { args: { orientation: "vertical" } };
+export const VerticalManual: Story = { args: { orientation: "vertical", activation: "manual" } };
+// Two independent tablists inside a scrollable host make scroll ownership observable.
+export const VerticalOverflow: Story = {
+  args: { orientation: "vertical", items: overflowItems, style: { blockSize: "9rem", inlineSize: "min(100%, 30rem)" } },
+  render: args => <div data-testid="tabs-orientation-host" style={{ blockSize: "18rem", overflow: "auto" }}>
+    <div style={{ blockSize: "3rem" }} />
+    <Tabs {...args} />
+    <Tabs {...args} label="Other settings" />
+    <div style={{ blockSize: "24rem" }} />
+  </div>,
+};
+export const VerticalManualOverflow: Story = { ...VerticalOverflow, args: { ...VerticalOverflow.args, activation: "manual" } };
