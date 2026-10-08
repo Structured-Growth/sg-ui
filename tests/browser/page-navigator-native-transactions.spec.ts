@@ -7,13 +7,114 @@ const requests = (page: Page) => page.getByLabel('Host requests');
 const actions = (page: Page, title: string) => page.getByRole('button', { name: `Actions for ${title}`, exact: true });
 const row = (page: Page, title: string) => actions(page, title).locator('xpath=ancestor::li');
 
+// Read-only observations select native traversal direction; never move focus here.
+async function focusSnapshot(target: Locator) {
+  return target.evaluate(element => {
+    const describe = (node: Element | null) => {
+      if (!node) return null;
+      const style = getComputedStyle(node);
+      return {
+        tag: node.tagName, id: node.id, role: node.getAttribute('role'),
+        label: node.getAttribute('aria-label'), text: node.textContent?.trim().slice(0, 120),
+        connected: node.isConnected, tabIndex: node instanceof HTMLElement ? node.tabIndex : null,
+        disabled: node.matches(':disabled'), ariaDisabled: node.getAttribute('aria-disabled'),
+        hidden: node.hasAttribute('hidden'), inert: node.hasAttribute('inert'),
+        ariaHidden: node.getAttribute('aria-hidden'), display: style.display, visibility: style.visibility,
+        rects: node.getClientRects().length,
+      };
+    };
+    const ancestors = (node: Element) => {
+      const result = [];
+      for (let parent = node.parentElement; parent; parent = parent.parentElement) result.push(describe(parent));
+      return result;
+    };
+    const active = document.activeElement;
+    const targetPositionFromActive = active?.compareDocumentPosition(element) ?? null;
+    // These fixtures use ordinary DOM-ordered tab stops. BODY/HTML is document
+    // entry, not a sequential focus anchor; take one forward step and observe it.
+    const direction = active && active !== document.body && active !== document.documentElement &&
+      targetPositionFromActive !== null && !(targetPositionFromActive & Node.DOCUMENT_POSITION_DISCONNECTED) &&
+      (targetPositionFromActive & Node.DOCUMENT_POSITION_PRECEDING) ? 'backward' : 'forward';
+    return {
+      time: performance.now(), documentFocused: document.hasFocus(), visibility: document.visibilityState,
+      targetPositionFromActive, direction,
+      reached: element === active, target: describe(element), targetAncestors: ancestors(element),
+      active: describe(active), activeAncestors: active ? ancestors(active) : [],
+      // DOM markers establish scope lifetime/containment, not internal React Aria state.
+      scopesAndOverlays: [...document.querySelectorAll('[data-focus-scope-start], [data-focus-scope-end], [data-overlay-container], [role="menu"], [role="dialog"]')]
+        .map(node => ({ ...describe(node), scopeStart: node.hasAttribute('data-focus-scope-start'),
+          scopeEnd: node.hasAttribute('data-focus-scope-end'), containsTarget: node.contains(element),
+          containsActive: active ? node.contains(active) : false })),
+    };
+  });
+}
+
+async function observeFocusLifecycle(page: Page) {
+  await page.addInitScript(() => {
+    const records: unknown[] = [];
+    let sequence = 0;
+    const describe = (node: EventTarget | null) => node instanceof Element ? {
+      tag: node.tagName, id: node.id, role: node.getAttribute('role'), label: node.getAttribute('aria-label'),
+      text: node.textContent?.trim().slice(0, 120), connected: node.isConnected,
+    } : null;
+    const record = (value: object) => {
+      records.push({ sequence: sequence++, time: performance.now(), documentFocused: document.hasFocus(),
+        active: describe(document.activeElement), ...value });
+      if (records.length > 256) records.shift();
+    };
+    Object.assign(window, { navigatorFocusLifecycle: records });
+    for (const type of ['keydown', 'keyup', 'focusin', 'focusout']) document.addEventListener(type, event => {
+      const key = event instanceof KeyboardEvent ? event : null;
+      record({ type, trusted: event.isTrusted, target: describe(event.target),
+        related: event instanceof FocusEvent ? describe(event.relatedTarget) : null,
+        key: key?.key, alt: key?.altKey, shift: key?.shiftKey, preventedAtCapture: event.defaultPrevented });
+    }, { capture: true, passive: true });
+    for (const type of ['focus', 'blur']) window.addEventListener(type, event => {
+      record({ type: `window-${type}`, trusted: event.isTrusted });
+    }, { passive: true });
+    const selector = '[data-focus-scope-start], [data-focus-scope-end], [data-overlay-container], [role="menu"], [role="dialog"]';
+    new MutationObserver(mutations => {
+      for (const mutation of mutations) {
+        if (mutation.type === 'attributes') {
+          record({ type: 'attribute', attribute: mutation.attributeName, target: describe(mutation.target),
+            value: (mutation.target as Element).getAttribute(mutation.attributeName!) });
+        } else {
+          for (const [type, nodes] of [['scope-added', mutation.addedNodes], ['scope-removed', mutation.removedNodes]] as const) {
+            for (const node of nodes) {
+              if (!(node instanceof Element)) continue;
+              for (const marker of [...(node.matches(selector) ? [node] : []), ...node.querySelectorAll(selector)]) {
+                record({ type, target: describe(marker), scopeStart: marker.hasAttribute('data-focus-scope-start'),
+                  scopeEnd: marker.hasAttribute('data-focus-scope-end') });
+              }
+            }
+          }
+        }
+      }
+    }).observe(document, { subtree: true, childList: true, attributes: true,
+      attributeFilter: ['inert', 'hidden', 'aria-hidden', 'disabled', 'aria-disabled', 'tabindex', 'aria-expanded'] });
+  });
+}
+
 async function reach(page: Page, target: Locator, browserName: string) {
   const tab = browserName === 'webkit' ? 'Alt+Tab' : 'Tab';
-  for (let i = 0; i < 24; i++) {
-    if (await target.evaluate(element => element === document.activeElement)) return;
-    await page.keyboard.press(tab);
+  const backwardTab = browserName === 'webkit' ? 'Alt+Shift+Tab' : 'Shift+Tab';
+  const observations = [{ tabs: 0, key: null as string | null, ...await focusSnapshot(target) }];
+  try {
+    for (let i = 0; i < 24; i++) {
+      const current = observations[observations.length - 1];
+      if (current.reached) return;
+      const key = current.direction === 'backward' ? backwardTab : tab;
+      await page.keyboard.press(key);
+      observations.push({ tabs: i + 1, key, ...await focusSnapshot(target) });
+    }
+    await expect(target).toBeFocused();
+  } finally {
+    const finalObservation = await focusSnapshot(target);
+    const lifecycle = await page.evaluate(() =>
+      (window as unknown as { navigatorFocusLifecycle: unknown[] }).navigatorFocusLifecycle);
+    await test.info().attach('navigator-native-tab-reach', { contentType: 'application/json',
+      body: JSON.stringify({ browserName, key: tab, backwardKey: backwardTab, limit: 24, observations, finalObservation, lifecycle }) });
   }
-  await expect(target).toBeFocused();
 }
 async function openActions(page: Page, title: string, browserName: string) {
   await reach(page, actions(page, title), browserName);
@@ -34,6 +135,7 @@ async function start(page: Page, theme: string) {
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
+  await observeFocusLifecycle(page);
   await page.goto(`${story};theme:${theme}`);
   await expect(order(page)).toHaveText('["intro","lesson","summary"]');
   return errors;
