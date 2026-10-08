@@ -71,6 +71,17 @@ export async function verifyEditor(page, hydrated) {
   await expect(editor).toHaveAttribute('contenteditable', 'true');
   await editor.click();
   await page.keyboard.press('ControlOrMeta+End');
+  // Establish the insertion format rather than assuming saved text sets the caret format.
+  const bold = page.locator('[data-sgui-part="editor-section"]')
+    .getByRole('group', { name: 'Text formatting', exact: true })
+    .getByRole('button', { name: 'Bold', exact: true });
+  await expect(bold).toBeVisible();
+  await expect(bold).toHaveAttribute('aria-pressed', /^(true|false)$/);
+  if (await bold.getAttribute('aria-pressed') === 'false') {
+    await page.keyboard.press('ControlOrMeta+B');
+  }
+  await expect(bold).toHaveAttribute('aria-pressed', 'true');
+  await expect(editor).toBeFocused();
   await editor.pressSequentially(' after reset');
   await expect(editor).toHaveText('Replacement packed document after reset');
   await expect.poll(async () => readDocument(await serialized.innerText())).toMatchObject({ root: { children: [
