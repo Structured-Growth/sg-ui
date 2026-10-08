@@ -4,7 +4,7 @@
 manifest declarations, pnpm v9 locked identities/edges, available installed package
 metadata, legal-file hashes and distributed asset candidates. It supplies evidence
 for review; it does not approve licenses, change notices or decide commercial terms.
-See [L-01–L-09](react-aria-master-task-list.md#l-dependencies-and-licensing),
+See [L-01–L-09](react-aria-master-task-list.md#5-licensing-and-dependency-governance),
 [architecture policy](react-aria-architecture.md#dependency-and-license-policy),
 [commercial guidance](../commercial-licensing.md) and the
 [batch 98 gap record](parallel-batch-98/acceptance-evidence.md).
