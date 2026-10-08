@@ -799,3 +799,8 @@ Individually integrate reviewed148/149/150/151 histories only;148 includes previ
 ## Reviewed active guidance corrections:154/156
 
 Individually integrated documentation-only154and156. Independent source/link/consistency reviews support W-01/W-05 closure for accurate owned whole-directory grid guidance and explicit general/inherited comfortable versus compact catalog density policy.154checks61local targets and15pinned source blobs; validation/release/licensing/translation rules unchanged.156aligns architecture validation paragraph with canonical targeted dev policy, retaining full production/release and immutable native build requirements. W-17broadernotices/packed requirements remain open. No runtime/manual/native acceptance inferred; unique independent receipts retained.
+
+
+## Reviewed bounded tooling155/157
+
+Individually integrated155AIcomponent prompt/scope/generated PR evidence correction and157deterministic local Markdown link checker. Fresh supportedNode24.21inert fixtures passed5+10under one owned light lease; workflow YAML parsed successfully. Workflow permission/secret/trigger/security/release/pausedCI fields preserved; no dispatch or realAIworkflow acceptance. Checker differentiates local anchor/path defects from unavailable historical/temp artifacts; reported trackedscan finds8realfragment defects and1retentionfinding. Broader R19/R20semantic/runtime workflow and W19examples/commands/full documentation acceptance stay open; freshrawfixturelogs/resources retained by coordinator.153catalogue authoring separately reviewed, executable Storybook/native validation still pending.
