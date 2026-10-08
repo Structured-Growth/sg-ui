@@ -12,7 +12,7 @@ test('functionality column order requests preserve visibility in controlled shel
   await menu.getByRole('searchbox', { name: 'Search', exact: true }).fill('Site');
   await menu.getByRole('button', { name: 'Move Site down', exact: true }).click();
   await expect(order).toHaveText('name,score,site,notes,actions');
-  await expect(visibility).toHaveText('{"notes":false}');
+  expect(JSON.parse((await visibility.textContent())!)).toEqual({ name: true, site: true, score: true, notes: false, actions: true });
   await page.keyboard.press('Escape');
   const headers = page.getByRole('grid', { name: 'Course column order' }).getByRole('columnheader');
   await expect(headers).toHaveCount(5);
@@ -34,6 +34,6 @@ test('functionality DatePicker Clear closes restores focus and preserves silent 
   await expect(changes).toHaveText('1');
   expect(await value()).toBe('');
   await page.getByRole('button', { name: 'Reset dates', exact: true }).click();
-  expect(await value()).toBe('2024-02-28');
+  await expect.poll(value).toBe('2024-02-28');
   await expect(changes).toHaveText('1');
 });
