@@ -51,3 +51,42 @@ test('comments are inert; diagnostics retain exact source locations and all viol
   assert.deepEqual(check(layer('.root /* .MuiButton body */ { font-size: var(--sgui-body-size) /* var(--sgui-unknown) */; }')), []);
   assert.throws(() => check('.root {'), /Unclosed block/);
 });
+
+test('percentage and dimension math offsets fail; unitless token arithmetic passes', () => {
+  for (const value of ['calc(var(--sgui-body-size) + 10%)', 'min(var(--sgui-body-size), 100%)', 'max(1%, var(--sgui-body-size))', 'clamp(10%, var(--sgui-body-size), 20%)', 'calc(var(--sgui-body-size) * (1 + 5%))', 'calc(var(--sgui-body-size) + 0.1em)']) {
+    assert(check(layer(`.root { font-size: ${value}; }`)).some(e => e.includes('Ad hoc typography')), value);
+  }
+  for (const value of ['calc(var(--sgui-body-size) * 1.25)', 'calc(var(--sgui-body-size) / 2)', 'min(var(--sgui-body-size), var(--sgui-body-size))', 'clamp(var(--sgui-body-size), calc(var(--sgui-body-size) * 1.5), var(--sgui-body-size))']) {
+    assert.deepEqual(check(layer(`.root { font-size: ${value}; }`)), [], value);
+  }
+});
+
+test('quoted attribute data is inert but actual retired identifiers still fail', () => {
+  for (const selector of ['.root [title=".MuiButton-root"]', ".root [title='.css-abc .jss-12 data-emotion']", '.root [data-note="data-emotion"]', '.root [title="escaped \\" .MuiButton-root"]', '.root [data-emotional="cache"]']) {
+    assert.deepEqual(check(layer(`${selector} { color: red; }`)), [], selector);
+  }
+  for (const selector of ['.root [data-emotion]', '.root [data-emotion~="cache"]', '.root [title="safe"] .MuiButton-root', '.root :is(.css-abc, .jss-12)', '.root [title=".MuiButton-root"] .css-abc']) {
+    assert(check(layer(`${selector} { color: red; }`)).some(e => e.includes('Retired foundation selector')), selector);
+  }
+  assert(check(layer('[title=".root .MuiButton-root"] { color: red; }')).some(e => e.includes('Unscoped')));
+});
+
+const richDocumentPath = 'src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css';
+const semanticCheck = code => validateComponentCss(code, { path: richDocumentPath, variables });
+test('only exact shared rich-document semantic declarations have a literal contract', () => {
+  for (const [selector, declaration] of [
+    ['.document :global(.editor-text-bold)', 'font-weight: 700'],
+    ['.document :global(.editor-text-subscript)', 'font-size: 0.75em'],
+    ['.document :global(.editor-text-superscript)', 'font-size: 0.75em'],
+  ]) {
+    const rule = `${selector} { ${declaration}; }`;
+    assert.deepEqual(semanticCheck(layer(rule)), []);
+    assert(check(layer(rule)).some(e => e.includes('Ad hoc typography')), 'other file');
+    for (const altered of [rule.replace(selector, `.other ${selector}`), rule.replace(selector, `${selector}, .other`), rule.replace(declaration, 'font-weight: 800'), rule.replace(declaration, 'font-size: 0.8em'), rule.replace(declaration, 'line-height: 1.5')]) {
+      assert(semanticCheck(layer(altered)).some(e => e.includes('Ad hoc typography')), altered);
+    }
+    assert(semanticCheck(rule).some(e => e.includes('Unlayered')));
+    assert(semanticCheck(layer(`${selector} { ${declaration}; color: var(--sgui-unknown); }`)).some(e => e.includes('Unknown token')));
+    assert(semanticCheck(layer(`${selector} { ${declaration}; font-family: Arial; }`)).some(e => e.includes('Ad hoc typography')));
+  }
+});
