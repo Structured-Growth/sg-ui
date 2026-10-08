@@ -657,7 +657,7 @@ Scope: [src/experimental/Tabs](../../src/experimental/Tabs). Original scope: `U-
 
 - [x] F-P23-01 Confirm or complete Tabs: owned tab IDs and associated panels.
 - [x] F-P23-02 Confirm or complete Tabs: manual versus automatic activation.
-- [ ] F-P23-03 Confirm or complete Tabs: orientation direction and disabled skipping.
+- [x] F-P23-03 Confirm or complete Tabs: orientation direction and disabled skipping.
 - [x] F-P23-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for Tabs; link any breaking mapping.
 - [x] F-P23-91 Accept or add the minimal smoke evidence for Tabs; record remaining bugs without making expanded coverage a baseline gate.
 
