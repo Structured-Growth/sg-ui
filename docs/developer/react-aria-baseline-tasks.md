@@ -237,7 +237,7 @@ Scope: [src/components/DataToolbar](../../src/components/DataToolbar). Original 
 - [x] F-C20-02 Confirm or complete DataToolbar: selected count and selected actions.
 - [x] F-C20-03 Confirm or complete DataToolbar: sort draft apply and clear.
 - [x] F-C20-04 Confirm or complete DataToolbar: filter draft apply cancel and All semantics.
-- [ ] F-C20-05 Confirm or complete DataToolbar: column visibility locks and non-drag column-order requests through the owned option-array callback, integrated with catalog columnOrder and actions-last normalization.
+- [x] F-C20-05 Confirm or complete DataToolbar: column visibility locks and non-drag column-order requests through the owned option-array callback, integrated with catalog columnOrder and actions-last normalization.
 - [x] F-C20-06 Confirm or complete DataToolbar: grid and card view callback.
 - [x] F-C20-07 Confirm or complete DataToolbar: neutral outlined split actions.
 - [x] F-C20-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for DataToolbar; link any breaking mapping.
@@ -842,7 +842,7 @@ Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original sc
 Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P42-01 Confirm or complete DatePicker: synchronized field and calendar value.
-- [ ] F-P42-02 Confirm or complete DatePicker: popover opening, an explicit accessible Clear action for optional editable dates requesting null through onValueChange, and trigger focus return after selection, Clear or dismissal.
+- [x] F-P42-02 Confirm or complete DatePicker: popover opening, an explicit accessible Clear action for optional editable dates requesting null through onValueChange, and trigger focus return after selection, Clear or dismissal.
 - [x] F-P42-03 Confirm or complete DatePicker: controlled commit and native reset.
 - [x] F-P42-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for DatePicker; link any breaking mapping.
 - [x] F-P42-91 Accept or add the minimal smoke evidence for DatePicker; record remaining bugs without making expanded coverage a baseline gate.
