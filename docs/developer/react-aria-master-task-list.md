@@ -51,11 +51,11 @@ Keep existing required checks: code/dependency/build/release changes run `pnpm c
 ## Baseline milestone and later acceptance
 
 - [x] PLAN-001 Rewrite the execution backlog into granular functionality and separate regression/hardening tasks; preserve original scope and align agent guidance. Evidence: this document, the three linked checklists and the original scope ledger; documentation checks recorded in this chat.
-- [ ] PLAN-002 Reconcile existing accepted catalog evidence into `F-C*` leaves, in small component-sized chats. Split this coordinator rollup by component; do not wait for whole-backlog reconciliation to implement a real gap.
+- [x] PLAN-002 Reconcile existing accepted catalog evidence into `F-C*` leaves, in small component-sized chats. Split this coordinator rollup by component; do not wait for whole-backlog reconciliation to implement a real gap.
 - [ ] PLAN-003 Reconcile existing accepted primitive evidence into `F-P*` leaves, in small control-sized chats.
-- [ ] PLAN-004 Reconcile existing accepted foundation/host evidence into `F-S*` leaves, in small module-sized chats.
+- [x] PLAN-004 Reconcile existing accepted foundation/host evidence into `F-S*` leaves, in small module-sized chats.
 - [ ] BASE-001 Confirm all required `F-*` leaves have owned implementation and minimal smoke/story evidence; list every known bug and retain all later coverage tasks.
-- [ ] BASE-002 Walk a composed host story using navigation, modal/form, cards/grid and editor; verify primary callbacks without backend dependencies. This is one composed smoke flow, not full acceptance.
+- [x] BASE-002 Walk a composed host story using navigation, modal/form, cards/grid and editor; verify primary callbacks without backend dependencies. This is one composed smoke flow, not full acceptance.
 - [ ] BASE-003 Record the baseline milestone separately from test/acceptance percentages and switch normal scheduling to P2.
 - [ ] ACCEPT-001 Confirm all required `T-*`, `V-*` and `A-*` leaves and original obligations are closed, with honestly bounded device/assistive-technology evidence and explicit future scope.
 - [ ] ACCEPT-002 Mark full migration complete only after original Z-16 requirements are met. Publication remains a separately authorized workflow action.

@@ -915,10 +915,10 @@ Scope: [src/foundation/ThemeScope.tsx](../../src/foundation/ThemeScope.tsx). Ori
 
 Scope: [src/foundation/tokens.json](../../src/foundation/tokens.json). Original scope: `D-01–D-20` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] F-S02-01 Confirm or complete Tokens: palette semantic and component aliases.
+- [x] F-S02-01 Confirm or complete Tokens: palette semantic and component aliases.
 - [x] F-S02-02 Confirm or complete Tokens: typography spacing size and surface scales.
 - [x] F-S02-03 Confirm or complete Tokens: deterministic generated CSS and typed references.
-- [ ] F-S02-04 Confirm or complete Tokens: focus error selected and disabled roles.
+- [x] F-S02-04 Confirm or complete Tokens: focus error selected and disabled roles.
 - [x] F-S02-90 Confirm owned public types and applicable ref/style wiring plus one production-scope story or consuming example for Tokens; link any breaking mapping.
 - [x] F-S02-91 Accept or add the minimal smoke evidence for Tokens; record remaining bugs without making expanded coverage a baseline gate.
 
