@@ -481,6 +481,7 @@ it("accepts columns-menu order requests through the controlled shell while retai
       toolbar={{ onColumnOptionsChange: optionsChange }} />;
   }
   render(<ControlledHost />);
+  const grid = screen.getByRole("grid", { name: "Courses" });
   await user.click(screen.getByRole("button", { name: "Columns" }));
   expect((screen.getByRole("checkbox", { name: "Name" }) as HTMLInputElement).disabled).toBe(true);
   expect((screen.getByRole("checkbox", { name: "Actions" }) as HTMLInputElement).disabled).toBe(true);
@@ -490,7 +491,7 @@ it("accepts columns-menu order requests through the controlled shell while retai
   expect(optionsChange).toHaveBeenCalledTimes(1);
   expect(optionsChange.mock.calls[0]![0].map((option: { id: string; visible: boolean }) => [option.id, option.visible]))
     .toEqual([["name", true], ["score", true], ["site", true], ["notes", false], ["actions", true]]);
-  const headerLabels = () => within(screen.getByRole("grid", { name: "Courses" })).getAllByRole("columnheader")
+  const headerLabels = () => within(grid).getAllByRole("columnheader", { hidden: true })
     .filter(header => header.hasAttribute("data-grid-field")).map(header => header.getAttribute("data-grid-field"));
   expect(headerLabels()).toEqual(["name", "score", "site", "actions"]);
   await user.clear(screen.getByRole("searchbox", { name: "Search" }));
