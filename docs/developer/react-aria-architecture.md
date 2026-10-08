@@ -156,6 +156,9 @@ and [frame contracts](react-aria-card-frames.md).
 
 ## Dependency and license policy
 
+Use the [read-only dependency/license inventory](react-aria-license-inventory.md)
+for deterministic local evidence and explicit unresolved owner/legal decisions.
+
 React and React DOM remain peers with the existing React 18.3/19 ranges.
 React Aria Components 1.21.1 is an exact direct runtime dependency, with subpath
 imports inside wrappers to keep unrelated collections out of basic-control paths.
