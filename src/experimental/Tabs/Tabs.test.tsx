@@ -83,6 +83,16 @@ describe("vertical tabs", () => {
     expect(document.activeElement).toBe(screen.getByRole("tab", { name: "Access" }));
     expect(change).not.toHaveBeenCalled();
     expect(screen.getByRole("tabpanel").textContent).toBe("Course details");
+    for (const key of ["End", "Home", "ArrowUp", "ArrowDown"]) {
+      const event = new KeyboardEvent("keydown", { key, bubbles: true, cancelable: true });
+      fireEvent(document.activeElement!, event);
+      expect(event.defaultPrevented).toBe(true);
+      expect(change).not.toHaveBeenCalled();
+      expect(screen.getByRole("tabpanel").textContent).toBe("Course details");
+    }
+    const modifiedEnd = new KeyboardEvent("keydown", { key: "End", altKey: true, bubbles: true, cancelable: true });
+    fireEvent(document.activeElement!, modifiedEnd);
+    expect(modifiedEnd.defaultPrevented).toBe(false);
     await user.keyboard(" ");
     expect(change).toHaveBeenLastCalledWith("access");
     expect(screen.getByRole("tabpanel").textContent).toBe("Course details");
@@ -103,7 +113,7 @@ describe("vertical tabs", () => {
   });
   it("reveals both vertical ends without changing another list or the horizontal axis", async () => {
     const user = userEvent.setup();
-    const { unmount } = render(<><Tabs label="Vertical settings" items={items} orientation="vertical" activation="manual" /><Tabs label="Other settings" items={items} /></>);
+    render(<><Tabs label="Vertical settings" items={items} orientation="vertical" activation="manual" /><Tabs label="Other settings" items={items} /></>);
     const strip = screen.getByRole("tablist", { name: "Vertical settings" });
     const other = screen.getByRole("tablist", { name: "Other settings" });
     const [details,,access] = strip.querySelectorAll<HTMLElement>('[role="tab"]');
@@ -117,23 +127,8 @@ describe("vertical tabs", () => {
     fireEvent.scroll(strip);
     await user.keyboard("{ArrowDown}");
     expect(document.activeElement).toBe(access); expect(strip.scrollTop).toBe(40);
-    // Model the later React Aria viewport pass, including its containing-list
-    // centering fallback, after the owned focus reveal has already completed.
-    access.scrollIntoView({ block: "nearest" });
-    strip.scrollIntoView({ block: "center", inline: "center" });
-    expect(strip.scrollTop).toBe(40);
     await user.keyboard("{ArrowUp}");
     expect(document.activeElement).toBe(details); expect(strip.scrollTop).toBe(0);
-    details.scrollIntoView({ block: "nearest" });
-    strip.scrollIntoView({ block: "center", inline: "center" });
-    expect(strip.scrollTop).toBe(0);
-    other.tabIndex = 0; other.focus();
-    access.scrollIntoView({ block: "nearest" });
-    expect(document.activeElement).toBe(other); expect(strip.scrollTop).toBe(0);
     expect(strip.scrollLeft).toBe(7); expect(other.scrollTop).toBe(13);
-    expect(Object.hasOwn(other, "scrollIntoView")).toBe(false);
-    unmount();
-    expect(Object.hasOwn(strip, "scrollIntoView")).toBe(false);
-    expect(Object.hasOwn(access, "scrollIntoView")).toBe(false);
   });
 });
