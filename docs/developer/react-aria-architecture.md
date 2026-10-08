@@ -156,6 +156,8 @@ and [frame contracts](react-aria-card-frames.md).
 
 ## Dependency and license policy
 
+Follow the [dependency support, security and upgrade procedure](react-aria-dependency-upgrades.md). Operational owner and confidential intake decisions remain pending.
+
 Use the [read-only dependency/license inventory](react-aria-license-inventory.md)
 for deterministic local evidence and explicit unresolved owner/legal decisions.
 
