@@ -83,10 +83,22 @@ representative fixtures and adapters. Behavior tests live beside implementations
 composed and browser tests cover nested focus, native timing, scrolling and positioning.
 Do not equate DOM assertions with screen-reader or physical-device acceptance.
 
-For code/build changes run `pnpm check` and `pnpm build-storybook`, plus meaningful
-targeted/browser/packed consumer checks for changed behavior. Build static Storybook
-before browser suites; never rebuild during a run. Documentation-only work verifies
-links, source paths, exports and examples without adding unrelated UI tests.
+During the user-authorized pre-production migration into `codex/dev`, follow the
+[development validation policy](react-aria-development-validation.md): run meaningful
+affected unit/composed tests, type/import/token guards relevant to the change, and
+focused browser or build/packed-consumer checks where behavior or packaging requires
+them. Update affected stories; build fresh static Storybook when browser checks need
+it, and never rebuild during a suite run. Neither each task nor each dev integration
+requires `pnpm check`, a Storybook build or the entire browser/consumer matrix.
+
+The coordinator runs occasional full checkpoints, initially at most once each
+24 hours while new code lands, recording the exact tested head and bounded follow-up
+tasks for failures. Broaden checks when a concrete regression warrants it. Targeted
+passes do not establish full-suite or whole-gate acceptance. Production-bound PRs,
+main pushes and reusable release CI retain complete checks; full validation remains
+required before production acceptance, including outstanding manual, device and
+assistive-technology gates. Documentation-only work verifies links, source paths, exports and
+examples without adding unrelated UI tests.
 
 [AGENTS.md](../../AGENTS.md) provides active rules. [Migration mappings](../migration.md)
 and the [read-only adoption checklist](react-aria-adoption-checklist.md) guide hosts.
