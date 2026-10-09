@@ -847,3 +847,10 @@ test('unresolved registered server group retains leases and EPERM evidence even 
   await assertPortFree(f.port);
   for (const path of [runtime.heavyPath, runtime.bridgePath]) await releaseLease({path, owner:evidence.owner});
 });
+
+test('continuation public API refuses fixture claims in options and arbitrary output before source access', async () => {
+  const { runFrozenContinuation } = await import('./browser-validation-pool.mjs');
+  await assert.rejects(runFrozenContinuation({}, { build: '/foreign/build' }), /Ambiguous/);
+  await assert.rejects(runFrozenContinuation({}, { fixture: { command: async () => {} } }), /Ambiguous/);
+  await assert.rejects(runFrozenContinuation({}, { output: '/foreign/output' }), /output root is fixed/);
+});

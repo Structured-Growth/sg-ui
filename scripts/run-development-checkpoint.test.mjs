@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, writeFile, access, rm, readdir, mkdir, copyFile } from 'node:fs/promises';
+import { mkdtemp, readFile, writeFile, access, rm, readdir, mkdir, copyFile, cp } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, basename, isAbsolute } from 'node:path';
 import { runCheckpointStages, runBoundedCommand } from './run-development-checkpoint.mjs';
@@ -14,6 +14,10 @@ const fixture = async fn => {
       assert.ok(isAbsolute(output));
       const destination = join(output, basename(dir)); await mkdir(destination, { recursive: true });
       for (const name of await readdir(dir)) if (/\.(log|json)$/.test(name)) await copyFile(join(dir, name), join(destination, name));
+      for (const name of ['original', 'candidate']) {
+        try { await cp(join(dir, name, 'artifacts'), join(destination, name, 'artifacts'), { recursive: true }); }
+        catch (error) { if (error.code !== 'ENOENT') throw error; }
+      }
     }
     const { chmod } = await import('node:fs/promises');
     const writable = async path => { await chmod(path, 0o755); for (const entry of await readdir(path, { withFileTypes: true })) if (entry.isDirectory()) await writable(join(path, entry.name)); };
@@ -223,6 +227,7 @@ async function continuationFixture(dir, { newSpec = false } = {}) {
   const fake = join(bin, 'pnpm');
   await writeFile(fake, `#!${process.execPath}\nconst fs=require('fs');const a=process.argv.slice(2);\nif(a.includes('build'))throw Error('forbidden build callback');\nif(a[0]==='--version'||a.includes('--version'))console.log('fixture-version');\nelse {fs.appendFileSync(${JSON.stringify(join(dir, 'commands.log'))},JSON.stringify(a)+'\\n');if(a.includes('playwright'))fs.writeFileSync(process.env.SGUI_BROWSER_RESULTS_FILE,${JSON.stringify(JSON.stringify(report(selected, candidate)))});}\n`);
   await chmod(fake, 0o755);
+  await write(join(dir, 'request.json'), request);
   const queueFile = join(dir, 'queue.json'); await write(queueFile, []);
   const runtime = { queueFile, bridgePath: join(dir, 'bridge'), heavyPath: join(dir, 'heavy'), lightRoot: join(dir, 'light'), poolRoot: join(dir, 'pool'), versions: { pnpm: 'fixture', playwright: 'fixture' } };
   return { runtime, request, candidate, original, run, build, audit, paths, bin, write, git, commandsLog: join(dir, 'commands.log'), sourceDigest, hash: async path => createHash('sha256').update(await readFile(path)).digest('hex') };
@@ -234,6 +239,8 @@ test('continuation rejects green reruns, tampered/missing pins, illegal source d
   const f = await continuationFixture(dir);
   const { prepareFrozenContinuation } = await import('./run-development-checkpoint.mjs');
   await prepareFrozenContinuation(f.request);
+  const canceled = structuredClone(f.request); canceled.shards = [{ id: 'canceled', specs: ['tests/browser/canceled.spec.ts'], project: 'chromium' }]; canceled.expectedCases = { canceled: [{ file: 'tests/browser/canceled.spec.ts', id: 'canceled-case', project: 'chromium', title: 'chromium case' }] };
+  await prepareFrozenContinuation(canceled);
   const clone = () => structuredClone(f.request);
   let bad = clone(); bad.shards = [{ id: 'green', specs: ['tests/browser/green.spec.ts'], project: 'chromium' }]; bad.expectedCases = { green: [{ file: 'tests/browser/green.spec.ts', id: 'green-case', project: 'chromium', title: 'chromium case' }] };
   await assert.rejects(prepareFrozenContinuation(bad), /green.*rerun/);
@@ -274,6 +281,12 @@ test('production continuation reuses immutable bytes without build/types and rej
   await assert.rejects(access(f.runtime.bridgePath), { code: 'ENOENT' });
   const { prepareFrozenContinuation } = await import('./run-development-checkpoint.mjs');
   await assert.rejects(prepareFrozenContinuation(f.request), /Unknown continuation claim/);
+  const next = structuredClone(f.request);
+  for (const path of [join(run, 'evidence.json'), ...['evidence.json', 'owner', 'results.json', 'browser.log', 'browser.log.resources.json'].map(name => join(run, 'unrun', name))]) next.pins.push({ path, sha256: await f.hash(path) });
+  next.history = [{ path: join(run, 'evidence.json'), sha256: await f.hash(join(run, 'evidence.json')) }];
+  await assert.rejects(prepareFrozenContinuation(next), /Duplicate.*accepted case/);
+  next.shards = [{ id: 'canceled', specs: ['tests/browser/canceled.spec.ts'], project: 'chromium' }]; next.expectedCases = { canceled: [{ file: 'tests/browser/canceled.spec.ts', id: 'canceled-case', project: 'chromium', title: 'chromium case' }] };
+  await prepareFrozenContinuation(next);
   await assert.rejects(runFrozenContinuation(f.request, { ...continuationOptions, fixture: {} }), /Ambiguous/);
 }));
 
