@@ -701,10 +701,10 @@ Scope: [src/experimental/List](../../src/experimental/List). Original scope: `U-
 
 Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P28-01 Add or accept a focused regression for Disclosure: controlled and default expanded state. Dependency: `F-P28-01`.
-- [ ] T-P28-02 Add or accept a focused regression for Disclosure: trigger and content association. Dependency: `F-P28-02`.
-- [ ] T-P28-90 Verify Disclosure public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P28-91 Verify Disclosure instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P28-01 Add or accept a focused regression for Disclosure: controlled and default expanded state. Dependency: `F-P28-01`.
+- [x] T-P28-02 Add or accept a focused regression for Disclosure: trigger and content association. Dependency: `F-P28-02`.
+- [x] T-P28-90 Verify Disclosure public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P28-91 Verify Disclosure instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P29: Collapse
 
