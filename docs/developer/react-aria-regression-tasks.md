@@ -683,7 +683,7 @@ Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Origina
 
 - [x] T-P26-01 Add or accept a focused regression for Navigation: navigation and NavigationItem exports. Dependency: `F-P26-01`.
 - [x] T-P26-02 Add or accept a focused regression for Navigation: selected and expanded item state. Dependency: `F-P26-02`.
-- [ ] T-P26-03 Add or accept a focused regression for Navigation: owned host links and action items. Dependency: `F-P26-03`.
+- [ ] T-P26-03 Add or accept a focused regression for Navigation: host route links through NavigationItem/Link; command items use separately owned ListItemButton/onPress, and expansion uses Disclosure. Dependency: `F-P26-03`.
 - [x] T-P26-90 Verify Navigation public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-P26-91 Verify Navigation instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
@@ -883,7 +883,7 @@ Scope: [src/experimental/DataGrid](../../src/experimental/DataGrid). Original sc
 - [x] T-P46-01 Add or accept a focused regression for DataGrid: owned proof row and column contracts. Dependency: `F-P46-01`.
 - [x] T-P46-02 Add or accept a focused regression for DataGrid: tanStack processing with one state authority. Dependency: `F-P46-02`.
 - [x] T-P46-03 Add or accept a focused regression for DataGrid: controlled selection sort filter and page. Dependency: `F-P46-03`.
-- [ ] T-P46-04 Add or accept a focused regression for DataGrid: owned column resize and reorder proof. Dependency: `F-P46-04`.
+- [ ] T-P46-04 Add or accept a focused regression for DataGrid: owned numeric column-resize state and bounded row-reorder requests, including the non-drag Move alternative. Dependency: `F-P46-04`.
 - [x] T-P46-90 Verify DataGrid public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-P46-91 Verify DataGrid instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
