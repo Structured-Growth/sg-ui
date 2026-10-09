@@ -2,7 +2,7 @@ import { spawn, execFile, execFileSync } from 'node:child_process';
 import { randomUUID, createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile, readdir, lstat, realpath, unlink, rmdir, chmod } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { createServer } from 'node:net';
+import { createServer, createConnection } from 'node:net';
 import { resolve, join, relative, isAbsolute } from 'node:path';
 import { tmpdir, platform, release, cpus, loadavg, freemem, totalmem } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -152,33 +152,103 @@ export function createStage(size) {
   return { ready, arrive(key) { arrivals.add(key); if (arrivals.size >= size) done(); } };
 }
 
+// Playwright's webServer launcher detaches its shell from the command group.
+// Register before listening, and keep the supervisor connection as a lifetime guard.
+function processTable() {
+  return execFileSync('ps', ['-axo', 'pid=,ppid=,pgid=,lstart='], { encoding: 'utf8' })
+    .trim().split('\n').map(line => {
+      const match = line.trim().match(/^(\d+)\s+(\d+)\s+(\d+)\s+(.+)$/);
+      if (!match) throw new Error('Unverifiable process table');
+      return { pid: Number(match[1]), ppid: Number(match[2]), pgid: Number(match[3]), started: match[4] };
+    });
+}
+export async function registerOwnedServer(env, port) {
+  if (!env.SGUI_COMMAND_SOCKET && !env.SGUI_COMMAND_TOKEN) return undefined;
+  if (!env.SGUI_COMMAND_SOCKET || !env.SGUI_COMMAND_TOKEN) throw new Error('Incomplete server ownership');
+  const socket = createConnection(env.SGUI_COMMAND_SOCKET);
+  await new Promise((done, reject) => {
+    socket.once('error', reject);
+    socket.once('connect', () => socket.write(JSON.stringify({ token: env.SGUI_COMMAND_TOKEN, pid: process.pid, port }) + '\n'));
+    let reply = '';
+    socket.on('data', data => {
+      reply += data;
+      if (reply.includes('\n')) reply === 'owned\n' ? done() : reject(new Error('Server ownership refused'));
+    });
+    socket.once('close', () => reject(new Error('Server supervisor closed')));
+  }).catch(error => { socket.destroy(); throw error; });
+  return socket;
+}
+
 // Each command has an owned process group; all termination is scoped to that group.
 // The second argument is a fixture-only signal seam, never a CLI option.
 export async function runOwnedCommand({ cwd, env = process.env, executable, args, log, signal, terminateDelay = 3000 }, fixture = {}) {
   if (signal?.aborted) throw new Error('Pool interrupted');
   const started = performance.now();
-  const samples = [], signalErrors = [];
+  const samples = [], signalErrors = [], serverGroups = new Map(), ownershipErrors = [];
+  const token = randomUUID();
+  const socketPath = join(tmpdir(), `sgui-command-${token}.sock`);
+  let child;
+  const connections = new Set();
+  const registry = createServer(socket => {
+    connections.add(socket); socket.on('error', () => {});
+    socket.once('close', () => connections.delete(socket));
+    let input = '';
+    socket.on('data', data => {
+      input += data;
+      if (input.length > 4096) { ownershipErrors.push('Oversized ownership request'); socket.destroy(); return; }
+      if (!input.includes('\n')) return;
+      socket.removeAllListeners('data');
+      try {
+        const receipt = JSON.parse(input);
+        if (receipt.token !== token || !Number.isSafeInteger(receipt.pid) || receipt.pid <= 0) throw new Error('Server owner token/PID mismatch');
+        const rows = processTable();
+        const server = rows.find(row => row.pid === receipt.pid);
+        const leader = rows.find(row => row.pid === server?.pgid);
+        let ancestor = server; const seen = new Set(), ancestry = [];
+        while (ancestor && ancestor.pid !== child?.pid && !seen.has(ancestor.pid)) {
+          ancestry.push(ancestor); seen.add(ancestor.pid); ancestor = rows.find(row => row.pid === ancestor.ppid);
+        }
+        if (!server || !leader || ancestor?.pid !== child?.pid || leader.pgid !== leader.pid) throw new Error('Server ancestry/group ownership ambiguous');
+        if (!Number.isInteger(receipt.port) || receipt.port < 1024 || receipt.port > 65535) throw new Error('Invalid owned server port');
+        serverGroups.set(server.pgid, { ...leader, serverPID: server.pid, port: receipt.port, ancestry: [...ancestry, ancestor] });
+        ownedGroups.add(server.pgid);
+        socket.write('owned\n');
+      } catch (error) { ownershipErrors.push(error.message); socket.end('refused\n'); }
+    });
+  });
+  await new Promise((done, reject) => { registry.once('error', reject); registry.listen(socketPath, done); });
   const send = fixture.kill ?? process.kill;
-  const child = spawn(executable, args, { cwd, env, detached: true, stdio: ['ignore', 'pipe', 'pipe'] });
+  child = spawn(executable, args, { cwd, env: { ...env, SGUI_COMMAND_SOCKET: socketPath, SGUI_COMMAND_TOKEN: token }, detached: true, stdio: ['ignore', 'pipe', 'pipe'] });
   if (child.pid) ownedGroups.add(child.pid);
   let timer, deadline, sampler, stopping = false, closed = false, settled = !child.pid;
   let text = '', result, commandError;
-  const kill = kind => {
-    if (!child.pid) return;
-    try { send(-child.pid, kind); }
-    catch (error) {
-      if (error.code !== 'ESRCH') signalErrors.push({ signal: kind, code: error.code, message: error.message });
-    }
-  };
-  const gone = () => {
-    if (!child.pid) return true;
-    try { send(-child.pid, 0); return false; }
+  const groups = () => [...new Set([child.pid, ...serverGroups.keys()].filter(Boolean))];
+  const probe = group => {
+    try { send(-group, 0); return false; }
     catch (error) {
       if (error.code === 'ESRCH') return true;
-      signalErrors.push({ signal: 0, code: error.code, message: error.message });
+      signalErrors.push({ processGroup: group, signal: 0, code: error.code, message: error.message });
       return false;
     }
   };
+  const kill = kind => {
+    for (const group of groups()) {
+      try {
+        const receipt = serverGroups.get(group);
+        if (receipt && group !== child.pid) {
+          if (probe(group)) continue;
+          const leader = processTable().find(row => row.pid === group);
+          if (!leader || leader.pgid !== group || leader.started !== receipt.started) {
+            ownershipErrors.push(`Group ${group} identity ambiguous; refusing signal`); continue;
+          }
+        }
+        send(-group, kind);
+      } catch (error) {
+        if (error.code !== 'ESRCH') signalErrors.push({ processGroup: group, signal: kind, code: error.code, message: error.message });
+      }
+    }
+  };
+  const gone = () => groups().map(probe).every(Boolean) && ownershipErrors.length === 0;
   let finish;
   const completion = new Promise(done => { finish = done; });
   const stop = () => {
@@ -201,7 +271,7 @@ export async function runOwnedCommand({ cwd, env = process.env, executable, args
   const sample = () => {
     if (samplingActive) return;
     samplingActive = true;
-    sampling = sampleResources(child.pid).then(value => samples.push(value)).catch(error => {
+    sampling = sampleResources(groups()).then(value => samples.push(value)).catch(error => {
       commandError ??= error;
     }).finally(() => { samplingActive = false; });
   };
@@ -211,8 +281,14 @@ export async function runOwnedCommand({ cwd, env = process.env, executable, args
     kill('SIGKILL');
     const until = performance.now() + terminateDelay;
     do {
+      kill('SIGKILL');
       settled = gone();
-      if (settled) break;
+      if (settled) {
+        for (const receipt of serverGroups.values()) {
+          try { await assertPortFree(receipt.port); } catch (error) { ownershipErrors.push(`Owned server port ${receipt.port} unresolved: ${error.message}`); settled = false; }
+        }
+        if (settled) break;
+      }
       await new Promise(done => setTimeout(done, 25));
     } while (performance.now() < until);
   } finally {
@@ -221,15 +297,19 @@ export async function runOwnedCommand({ cwd, env = process.env, executable, args
     child.removeListener('exit', stop);
     if (!closed) { child.stdout.destroy(); child.stderr.destroy(); child.unref(); }
     await sampling; sample(); await sampling;
-    if (settled) ownedGroups.delete(child.pid);
+    for (const socket of connections) socket.destroy();
+    await new Promise(done => registry.close(done));
+    // Registrations arriving during settlement must be included in its final proof.
+    settled = settled && gone();
+    if (settled) for (const group of groups()) ownedGroups.delete(group);
     try { await Promise.all([writeFile(log, text), writeFile(`${log}.resources.json`, JSON.stringify({
-      durationMs: performance.now() - started, processGroup: child.pid, samples,
-      result, commandError: commandError?.message, signalErrors, settled,
+      durationMs: performance.now() - started, commandOwner: token, processGroup: child.pid, samples,
+      result, commandError: commandError?.message, signalErrors, ownershipErrors, serverGroups: [...serverGroups.values()], settled,
     }, null, 2))]); }
     catch (error) { error.ownedCommandUnsettled = !settled; throw error; }
   }
-  if (commandError || signalErrors.length || !settled || result?.code !== 0 || signal?.aborted) {
-    const error = new Error(`${executable} ${args.join(' ')} failed (${result?.code}/${result?.signal}); group ${settled ? 'settled' : 'unsettled'}; ${signalErrors.map(item => `${item.signal}:${item.code}`).join(', ')}; see ${log}`);
+  if (commandError || signalErrors.length || ownershipErrors.length || !settled || result?.code !== 0 || signal?.aborted) {
+    const error = new Error(`${executable} ${args.join(' ')} failed (${result?.code}/${result?.signal}); group ${settled ? 'settled' : 'unsettled'}; ${signalErrors.map(item => `${item.signal}:${item.code}`).join(', ')}; ${ownershipErrors.join(', ')}; see ${log}`);
     error.ownedCommandUnsettled = !settled;
     throw error;
   }
@@ -251,7 +331,7 @@ export async function sampleResources(processGroup) {
   await capture('processes', 'ps', ['-axo', 'pid=,pgid=,rss=,%cpu=']);
   if (typeof result.processes === 'string') {
     const rows = result.processes.split('\n').map(line => line.trim().split(/\s+/).map(Number));
-    const owned = rows.filter(row => processGroup === undefined ? ownedGroups.has(row[1]) : row[1] === processGroup);
+    const owned = rows.filter(row => processGroup === undefined ? ownedGroups.has(row[1]) : (Array.isArray(processGroup) ? processGroup.includes(row[1]) : row[1] === processGroup));
     result.ownedProcesses = owned.map(([pid, pgid, rssKiB, cpuPercent]) => ({ pid, pgid, rssKiB, cpuPercent }));
     result.ownedRSSBytes = owned.reduce((sum, row) => sum + row[2] * 1024, 0);
     result.systemRSSBytes = rows.reduce((sum, row) => sum + row[2] * 1024, 0);
@@ -483,7 +563,7 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
     finally { await cleanup(heavy); }
     evidence.buildDigest = await digestTree(build, true);
     await checkSource();
-    const light = await acquireSlot(fixture.lightRoot ?? LIGHT_ROOT, owner, 4);
+    const light = await acquireLightSlot(owner, { root: fixture.lightRoot ?? LIGHT_ROOT });
     try { await execute(['exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], join(run, 'types.log')); }
     finally { await cleanup(light); }
     await checkSource();
@@ -656,7 +736,7 @@ export async function runPool(plan, { queueFile = '/tmp/sgui-browser-validation-
       const finishLight = await admitLight();
       let light;
       try {
-        light = await acquireSlot(fixture.lightRoot ?? LIGHT_ROOT, `${owner}:${token}`, 4);
+        light = await acquireLightSlot(`${owner}:${token}`, { root: fixture.lightRoot ?? LIGHT_ROOT });
         await command(job.worktree, env, 'pnpm', ['exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], join(run, 'types.log'));
       } finally { try { if (light) await cleanup(light); } finally { finishLight(); } }
       stage.arrive(job.worktree);
