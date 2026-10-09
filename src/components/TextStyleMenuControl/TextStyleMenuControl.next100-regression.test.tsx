@@ -1,11 +1,11 @@
 // @vitest-environment jsdom
-import { readFileSync } from "node:fs";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { Provider } from "../../theme";
 import { TextStyleMenuControl, type TextStyleMenuControlProps } from "./index";
 import styles from "./TextStyleMenuControl.module.css";
+import css from "./TextStyleMenuControl.module.css?raw";
 
 afterEach(cleanup);
 
@@ -20,7 +20,6 @@ it("binds case samples to shared typography tokens without inline font overrides
   }
   // jsdom does not resolve CSS custom properties. Guard the bound shared role;
   // computed typography, density and enlarged text remain browser/visual gates.
-  const css = readFileSync(new URL("./TextStyleMenuControl.module.css", import.meta.url), "utf8");
   const declarations = css.match(/\.letters\s*\{([^}]+)\}/)?.[1];
   expect(declarations).toBeDefined();
   for (const property of ["font-family", "font-size", "font-weight", "line-height"]) {
