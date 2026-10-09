@@ -10,54 +10,54 @@ These are independent tasks, not additional acceptance requirements for the base
 
 Scope: [src/components/AppButton](../../src/components/AppButton). Original scope: `M-01` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-C01-01 Add or accept a focused regression for AppButton: owned onPress and native button type. Dependency: `F-C01-01`.
-- [ ] T-C01-02 Add or accept a focused regression for AppButton: variant tone and density mapping. Dependency: `F-C01-02`.
-- [ ] T-C01-03 Add or accept a focused regression for AppButton: disabled and pending activation. Dependency: `F-C01-03`.
-- [ ] T-C01-04 Add or accept a focused regression for AppButton: native ref className and style. Dependency: `F-C01-04`.
-- [ ] T-C01-90 Verify AppButton public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-C01-91 Verify AppButton instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-C01-01 Add or accept a focused regression for AppButton: owned onPress and native button type. Dependency: `F-C01-01`.
+- [x] T-C01-02 Add or accept a focused regression for AppButton: variant tone and density mapping. Dependency: `F-C01-02`.
+- [x] T-C01-03 Add or accept a focused regression for AppButton: disabled and pending activation. Dependency: `F-C01-03`.
+- [x] T-C01-04 Add or accept a focused regression for AppButton: native ref className and style. Dependency: `F-C01-04`.
+- [x] T-C01-90 Verify AppButton public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-C01-91 Verify AppButton instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## C02: AppInlineProgress
 
 Scope: [src/components/AppInlineProgress](../../src/components/AppInlineProgress). Original scope: `M-02` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-C02-01 Add or accept a focused regression for AppInlineProgress: determinate percentage and finite fallback. Dependency: `F-C02-01`.
-- [ ] T-C02-02 Add or accept a focused regression for AppInlineProgress: translated status label. Dependency: `F-C02-02`.
-- [ ] T-C02-03 Add or accept a focused regression for AppInlineProgress: Owned barWidth and percentage label layout. Dependency: `F-C02-03`.
-- [ ] T-C02-90 Verify AppInlineProgress public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-C02-91 Verify AppInlineProgress instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-C02-01 Add or accept a focused regression for AppInlineProgress: determinate percentage and finite fallback. Dependency: `F-C02-01`.
+- [x] T-C02-02 Add or accept a focused regression for AppInlineProgress: translated status label. Dependency: `F-C02-02`.
+- [x] T-C02-03 Add or accept a focused regression for AppInlineProgress: Owned barWidth and percentage label layout. Dependency: `F-C02-03`.
+- [x] T-C02-90 Verify AppInlineProgress public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-C02-91 Verify AppInlineProgress instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## C03: AppOperationSteps
 
 Scope: [src/components/AppOperationSteps](../../src/components/AppOperationSteps). Original scope: `M-03` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-C03-01 Add or accept a focused regression for AppOperationSteps: active completed and error step rendering. Dependency: `F-C03-01`.
-- [ ] T-C03-02 Add or accept a focused regression for AppOperationSteps: ordered labels and status text. Dependency: `F-C03-02`.
-- [ ] T-C03-03 Add or accept a focused regression for AppOperationSteps: single-step numbering suppression. Dependency: `F-C03-03`.
-- [ ] T-C03-90 Verify AppOperationSteps public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-C03-91 Verify AppOperationSteps instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-C03-01 Add or accept a focused regression for AppOperationSteps: active completed and error step rendering. Dependency: `F-C03-01`.
+- [x] T-C03-02 Add or accept a focused regression for AppOperationSteps: ordered labels and status text. Dependency: `F-C03-02`.
+- [x] T-C03-03 Add or accept a focused regression for AppOperationSteps: single-step numbering suppression. Dependency: `F-C03-03`.
+- [x] T-C03-90 Verify AppOperationSteps public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-C03-91 Verify AppOperationSteps instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## C04: AppPageHeader
 
 Scope: [src/components/AppPageHeader](../../src/components/AppPageHeader). Original scope: `M-04` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-C04-01 Add or accept a focused regression for AppPageHeader: primary and subpage surface hierarchy. Dependency: `F-C04-01`.
-- [ ] T-C04-02 Add or accept a focused regression for AppPageHeader: breadcrumb navigation through owned links. Dependency: `F-C04-02`.
-- [ ] T-C04-03 Add or accept a focused regression for AppPageHeader: left split actions and right actions. Dependency: `F-C04-03`.
-- [ ] T-C04-04 Add or accept a focused regression for AppPageHeader: metadata and title wrapping. Dependency: `F-C04-04`.
-- [ ] T-C04-90 Verify AppPageHeader public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-C04-91 Verify AppPageHeader instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-C04-01 Add or accept a focused regression for AppPageHeader: primary and subpage surface hierarchy. Dependency: `F-C04-01`.
+- [x] T-C04-02 Add or accept a focused regression for AppPageHeader: breadcrumb navigation through owned links. Dependency: `F-C04-02`.
+- [x] T-C04-03 Add or accept a focused regression for AppPageHeader: host-supplied trailing actionButtons with precedence over the compact moreMenuItems menu. Dependency: `F-C04-03`.
+- [x] T-C04-04 Add or accept a focused regression for AppPageHeader: metadata and title wrapping. Dependency: `F-C04-04`.
+- [x] T-C04-90 Verify AppPageHeader public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-C04-91 Verify AppPageHeader instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## C05: AppPageTabs
 
 Scope: [src/components/AppPageTabs](../../src/components/AppPageTabs). Original scope: `M-05` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-C05-01 Add or accept a focused regression for AppPageTabs: tab and panel association. Dependency: `F-C05-01`.
-- [ ] T-C05-02 Add or accept a focused regression for AppPageTabs: controlled selection callback. Dependency: `F-C05-02`.
-- [ ] T-C05-03 Add or accept a focused regression for AppPageTabs: disabled tabs and arrow activation. Dependency: `F-C05-03`.
+- [x] T-C05-01 Add or accept a focused regression for AppPageTabs: tab and panel association. Dependency: `F-C05-01`.
+- [x] T-C05-02 Add or accept a focused regression for AppPageTabs: controlled selection callback. Dependency: `F-C05-02`.
+- [x] T-C05-03 Add or accept a focused regression for AppPageTabs: disabled tabs and arrow activation. Dependency: `F-C05-03`.
 - [ ] T-C05-04 Add or accept a focused regression for AppPageTabs: overflow strip with visible active tab. Dependency: `F-C05-04`.
-- [ ] T-C05-90 Verify AppPageTabs public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-C05-91 Verify AppPageTabs instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-C05-90 Verify AppPageTabs public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-C05-91 Verify AppPageTabs instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## C06: AppShell
 
@@ -193,25 +193,25 @@ Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original 
 
 Scope: [src/components/AppDataGridShell](../../src/components/AppDataGridShell). Original scope: `M-17 H-17` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-C17-01 Add or accept a focused regression for AppDataGridShell: one shared grid and card state owner. Dependency: `F-C17-01`.
-- [ ] T-C17-02 Add or accept a focused regression for AppDataGridShell: search and toolbar integration. Dependency: `F-C17-02`.
-- [ ] T-C17-03 Add or accept a focused regression for AppDataGridShell: filter and page-size page reset. Dependency: `F-C17-03`.
-- [ ] T-C17-04 Add or accept a focused regression for AppDataGridShell: grid and card switching. Dependency: `F-C17-04`.
-- [ ] T-C17-05 Add or accept a focused regression for AppDataGridShell: footer and pending error integration. Dependency: `F-C17-05`.
-- [ ] T-C17-90 Verify AppDataGridShell public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-C17-91 Verify AppDataGridShell instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-C17-01 Add or accept a focused regression for AppDataGridShell: one shared grid and card state owner. Dependency: `F-C17-01`.
+- [x] T-C17-02 Add or accept a focused regression for AppDataGridShell: search and toolbar integration. Dependency: `F-C17-02`.
+- [x] T-C17-03 Add or accept a focused regression for AppDataGridShell: filter and page-size page reset. Dependency: `F-C17-03`.
+- [x] T-C17-04 Add or accept a focused regression for AppDataGridShell: grid and card switching. Dependency: `F-C17-04`.
+- [x] T-C17-05 Add or accept a focused regression for AppDataGridShell: footer and pending error integration. Dependency: `F-C17-05`.
+- [x] T-C17-90 Verify AppDataGridShell public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-C17-91 Verify AppDataGridShell instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## C18: AppDataGridRowDnd
 
 Scope: [src/components/AppDataGridRowDnd](../../src/components/AppDataGridRowDnd). Original scope: `M-18 G-17 G-18 G-28` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-C18-01 Add or accept a focused regression for AppDataGridRowDnd: complete single-page reorder eligibility. Dependency: `F-C18-01`.
-- [ ] T-C18-02 Add or accept a focused regression for AppDataGridRowDnd: pointer handle and owned drag preview. Dependency: `F-C18-02`.
-- [ ] T-C18-03 Add or accept a focused regression for AppDataGridRowDnd: keyboard Move alternative. Dependency: `F-C18-03`.
-- [ ] T-C18-04 Add or accept a focused regression for AppDataGridRowDnd: cancel and source-focus return. Dependency: `F-C18-04`.
-- [ ] T-C18-05 Add or accept a focused regression for AppDataGridRowDnd: host reorder request and rollback boundary. Dependency: `F-C18-05`.
-- [ ] T-C18-90 Verify AppDataGridRowDnd public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-C18-91 Verify AppDataGridRowDnd instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-C18-01 Add or accept a focused regression for AppDataGridRowDnd: complete single-page reorder eligibility. Dependency: `F-C18-01`.
+- [x] T-C18-02 Add or accept a focused regression for AppDataGridRowDnd: pointer handle and owned drag preview. Dependency: `F-C18-02`.
+- [x] T-C18-03 Add or accept a focused regression for AppDataGridRowDnd: keyboard Move alternative. Dependency: `F-C18-03`.
+- [x] T-C18-04 Add or accept a focused regression for AppDataGridRowDnd: cancel and source-focus return. Dependency: `F-C18-04`.
+- [x] T-C18-05 Add or accept a focused regression for AppDataGridRowDnd: host reorder request and rollback boundary. Dependency: `F-C18-05`.
+- [x] T-C18-90 Verify AppDataGridRowDnd public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-C18-91 Verify AppDataGridRowDnd instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## C19: LearnerClassesDataGrid
 
@@ -363,14 +363,14 @@ Scope: [src/components/ColumnsLayoutModal](../../src/components/ColumnsLayoutMod
 
 Scope: [src/components/ImageUploadModal](../../src/components/ImageUploadModal). Original scope: `M-32 E-06` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-C32-01 Add or accept a focused regression for ImageUploadModal: picker and drop file selection. Dependency: `F-C32-01`.
-- [ ] T-C32-02 Add or accept a focused regression for ImageUploadModal: nonempty file and MIME extension presentation checks. Dependency: `F-C32-02`.
-- [ ] T-C32-03 Add or accept a focused regression for ImageUploadModal: preview and description draft. Dependency: `F-C32-03`.
-- [ ] T-C32-04 Add or accept a focused regression for ImageUploadModal: host upload pending error and retry. Dependency: `F-C32-04`.
-- [ ] T-C32-05 Add or accept a focused regression for ImageUploadModal: cancellation invalidates late results. Dependency: `F-C32-05`.
-- [ ] T-C32-06 Add or accept a focused regression for ImageUploadModal: clean reopen and preview release. Dependency: `F-C32-06`.
-- [ ] T-C32-90 Verify ImageUploadModal public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-C32-91 Verify ImageUploadModal instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-C32-01 Add or accept a focused regression for ImageUploadModal: picker and drop file selection. Dependency: `F-C32-01`.
+- [x] T-C32-02 Add or accept a focused regression for ImageUploadModal: nonempty file and MIME extension presentation checks. Dependency: `F-C32-02`.
+- [x] T-C32-03 Add or accept a focused regression for ImageUploadModal: preview and description draft. Dependency: `F-C32-03`.
+- [x] T-C32-04 Add or accept a focused regression for ImageUploadModal: host upload pending error and retry. Dependency: `F-C32-04`.
+- [x] T-C32-05 Add or accept a focused regression for ImageUploadModal: cancellation invalidates late results. Dependency: `F-C32-05`.
+- [x] T-C32-06 Add or accept a focused regression for ImageUploadModal: clean reopen and preview release. Dependency: `F-C32-06`.
+- [x] T-C32-90 Verify ImageUploadModal public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-C32-91 Verify ImageUploadModal instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## C33: LinkUrlModal
 
