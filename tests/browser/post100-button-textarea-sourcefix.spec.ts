@@ -68,7 +68,12 @@ test('TextArea reassociation isolates old resets and honors latest defaults, can
   await expect(requests).toHaveText(editRequests!);
 
   await draft.fill('Keep\ncancelled draft');
-  await page.getByRole('checkbox', { name: 'Cancel current form reset', exact: true }).check();
+  const cancelReset = page.getByRole('checkbox', { name: 'Cancel current form reset', exact: true });
+  await expect(cancelReset).not.toBeChecked();
+  await cancelReset.focus();
+  await expect(cancelReset).toBeFocused();
+  await page.keyboard.press('Space');
+  await expect(cancelReset).toBeChecked();
   const cancelledRequests = await requests.textContent();
   await page.getByRole('button', { name: 'Reset current form', exact: true }).click();
   await settleReset(page);
@@ -80,7 +85,11 @@ test('TextArea reassociation isolates old resets and honors latest defaults, can
   await expect(requests).toContainText('controlled:Rejected host draft');
   await page.getByRole('button', { name: 'Replace controlled summary', exact: true }).click();
   await expect(controlled).toHaveValue('Updated host summary');
-  await page.getByRole('checkbox', { name: 'Cancel current form reset', exact: true }).uncheck();
+  await expect(cancelReset).toBeChecked();
+  await cancelReset.focus();
+  await expect(cancelReset).toBeFocused();
+  await page.keyboard.press('Space');
+  await expect(cancelReset).not.toBeChecked();
   const controlledRequests = await requests.textContent();
   await page.getByRole('button', { name: 'Reset current form', exact: true }).click();
   await settleReset(page);
