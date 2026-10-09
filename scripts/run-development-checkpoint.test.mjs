@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtemp, readFile, writeFile, access, rm, readdir, mkdir, copyFile, cp } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { join, basename, isAbsolute } from 'node:path';
+import { join, basename, dirname, isAbsolute } from 'node:path';
 import { runCheckpointStages, runBoundedCommand } from './run-development-checkpoint.mjs';
 import { runOwnedCommand, acquireLease, releaseLease } from './browser-validation-pool.mjs';
 const quiet = async () => ({ load: [0], freeMemoryBytes: 1e9, systemRSSBytes: 0 });
@@ -179,6 +179,7 @@ async function continuationFixture(dir, { newSpec = false } = {}) {
   await mkdir(join(original, 'scripts')); await mkdir(join(original, 'tests/browser'), { recursive: true }); await mkdir(join(original, 'src'));
   for (const name of ['browser-validation-pool.mjs', 'run-development-checkpoint.mjs', 'serve-browser-storybook.mjs']) await copyFile(fileURLToPath(new URL(`./${name}`, import.meta.url)), join(original, 'scripts', name));
   await writeFile(join(original, '.gitignore'), 'artifacts/\n'); await writeFile(join(original, 'pnpm-lock.yaml'), 'fixture lock');
+  await writeFile(join(original, 'tests/browser/tsconfig.json'), '{}');
   await writeFile(join(original, 'playwright.config.ts'), 'workers: 1, retries: 0, reuseExistingServer: false SGUI_BROWSER_PORT SGUI_BROWSER_RESULTS_FILE');
   await writeFile(join(original, 'src/production.ts'), 'export const production = true;');
   const shards = ['green', 'canceled', 'unrun'].map(id => ({ id, specs: [`tests/browser/${id}.spec.ts`], project: 'chromium' }));
@@ -306,4 +307,101 @@ test('new reviewed spec gets exactly one typecheck; build mutation and relaxed b
   const commands = (await readFile(f.commandsLog, 'utf8')).trim().split('\n').map(JSON.parse); assert.equal(commands.length, 2); assert.equal(commands[0][1], 'tsc');
   const { chmod } = await import('node:fs/promises'); await chmod(join(f.build, 'iframe.html'), 0o644); await writeFile(join(f.build, 'iframe.html'), 'tampered');
   await assert.rejects(prepareFrozenContinuation(f.request), /source\/build mismatch/);
+}));
+
+async function freshProofFixture(dir) {
+  const f = await continuationFixture(dir);
+  dir = dirname(f.original);
+  const { digestTree } = await import('./browser-validation-pool.mjs');
+  const files = f.git(f.original, 'ls-files').split('\n');
+  const recoveryPath = join(dir, 'recovery.json'), reviewPath = join(dir, 'recovery-review.json'), historicalPath = join(dir, 'historical-review.json');
+  const head = f.git(f.original, 'rev-parse', 'HEAD'), digest = await f.sourceDigest(f.original), buildDigest = await digestTree(f.build);
+  const recovery = { recoveredSourcePath: f.original, recoveredSourceHead: head, historicalExecutionHead: head, historicalExecutionPath: join(dir, 'missing-original'), sourceDigest: digest,
+    buildPath: f.build, buildDigest, sourceFileCount: files.length, files: await Promise.all(files.map(async path => ({ path, sha256: await f.hash(join(f.original, path)) }))), reportSHA256: 'a'.repeat(64) };
+  await f.write(recoveryPath, recovery);
+  const review = { receipt: recoveryPath, receiptSha256: await f.hash(recoveryPath), recoveredSourcePath: f.original, recoveredHead: head, allFileBytesMatchReceiptAndCommittedBlob: true,
+    trackedPathSetMatchesOriginalCommittedTreeAndReceipt: true, sourceDigest: digest, sourceFileCount: files.length, build: { path: f.build, digest: buildDigest, counts: { files: 1 } } };
+  await f.write(reviewPath, review);
+  await f.write(historicalPath, { head, frozenSourceDigest: digest, retainedBuildDigest: buildDigest, reportSHA256: recovery.reportSHA256,
+    shards: [{ specs: ['tests/browser/green.spec.ts'] }, { specs: ['tests/browser/canceled.spec.ts'] }], unrunShards: f.request.shards });
+  const pin = async path => ({ path, sha256: await f.hash(path) });
+  const request = { retained: { recovery: await pin(recoveryPath), independentReview: await pin(reviewPath), historicalReview: await pin(historicalPath) },
+    candidate: f.request.candidate, deltas: f.request.deltas, shards: f.request.shards, expectedCases: f.request.expectedCases, priorProofs: [] };
+  // Remove actual old raw fixture records: fresh proof must not depend on them.
+  for (const path of Object.values(f.paths)) await rm(path);
+  await f.write(join(dir, 'fresh-request.json'), request);
+  return { ...f, request, recovery, review, pin, recoveryPath, reviewPath };
+}
+
+test('fresh proof authenticates recovered bytes while original continuation still refuses missing raw', () => fixture(async dir => {
+  const f = await freshProofFixture(dir);
+  const { prepareRetainedSnapshotFreshProof, prepareFrozenContinuation } = await import('./run-development-checkpoint.mjs');
+  const prepared = await prepareRetainedSnapshotFreshProof(f.request);
+  assert.equal(prepared.needsTypes, true); assert.equal(prepared.attestation.originalRawReconstructed, false);
+  assert.equal(prepared.attestation.setupPassesReused, false);
+  await assert.rejects(prepareFrozenContinuation({ original: f.paths, pins: [], candidate: f.request.candidate, deltas: f.request.deltas, shards: f.request.shards, expectedCases: f.request.expectedCases, history: [] }), /Missing.*pin/);
+  const bad = structuredClone(f.request); bad.shards = [{ id: 'green', specs: ['tests/browser/green.spec.ts'], project: 'chromium' }]; bad.expectedCases = { green: [{ file: bad.shards[0].specs[0], id: 'green-case', project: 'chromium', title: 'chromium case' }] };
+  await assert.rejects(prepareRetainedSnapshotFreshProof(bad), /Historical green/);
+  const tamper = structuredClone(f.request); tamper.retained.independentReview.sha256 = '0'.repeat(64);
+  await assert.rejects(prepareRetainedSnapshotFreshProof(tamper), /tampered/);
+  const duplicate = structuredClone(f.request); duplicate.expectedCases.unrun.push(duplicate.expectedCases.unrun[0]);
+  await assert.rejects(prepareRetainedSnapshotFreshProof(duplicate), /duplicate fresh/);
+  const noDelta = structuredClone(f.request); noDelta.deltas = [];
+  await assert.rejects(prepareRetainedSnapshotFreshProof(noDelta), /Missing fresh source delta/);
+  await f.write(f.recoveryPath, { ...f.recovery, files: [] });
+  const inventory = structuredClone(f.request); inventory.retained.recovery = await f.pin(f.recoveryPath);
+  await f.write(f.reviewPath, { ...f.review, receiptSha256: inventory.retained.recovery.sha256 }); inventory.retained.independentReview = await f.pin(f.reviewPath);
+  await assert.rejects(prepareRetainedSnapshotFreshProof(inventory), /Incomplete recovered/);
+  await assert.rejects(access(f.commandsLog), { code: 'ENOENT' });
+}));
+
+test('fresh proof runs one current typecheck and focused command without old raw, build or inherited passes', () => fixture(async dir => {
+  const f = await freshProofFixture(dir);
+  const { runRetainedSnapshotFreshProof } = await import('./browser-validation-pool.mjs');
+  const { prepareRetainedSnapshotFreshProof } = await import('./run-development-checkpoint.mjs');
+  await assert.rejects(runRetainedSnapshotFreshProof(f.request, { ...continuationOptions, output: 'foreign' }), /Ambiguous/);
+  await assert.rejects(runRetainedSnapshotFreshProof(f.request, { max: 9, budget: continuationOptions.budget }), /max <= 8/);
+  await assert.rejects(runRetainedSnapshotFreshProof(f.request, { max: 2, budget: {} }), /load 24/);
+  const oldPath = process.env.PATH; process.env.PATH = `${f.bin}:${oldPath}`;
+  let run;
+  try { run = await runRetainedSnapshotFreshProof(f.request, { ...continuationOptions, firstPort: 16473 }, f.runtime); }
+  finally { process.env.PATH = oldPath; }
+  const evidence = JSON.parse(await readFile(join(run, 'evidence.json')));
+  assert.equal(evidence.mode, 'retained-snapshot-fresh-proof'); assert.equal(evidence.continuation, undefined);
+  assert.equal(evidence.status, 'passed'); assert.equal(evidence.typecheckCount, 1); assert.equal(evidence.buildCommands, 0);
+  assert.equal(evidence.freshProof.checkPassReused, false); assert.equal(evidence.freshProof.consumerPassesReused, false);
+  assert.equal(evidence.passedCases, 1); assert.equal(evidence.cleanup, 'owned commands settled');
+  const commands = (await readFile(f.commandsLog, 'utf8')).trim().split('\n').map(JSON.parse);
+  assert.deepEqual(commands.map(row => row[1]), ['tsc', 'playwright']);
+  for (const path of ['types.log.resources.json', 'unrun/browser.log.resources.json']) assert.equal(JSON.parse(await readFile(join(run, path))).settled, true);
+  await assert.rejects(access(f.runtime.bridgePath), { code: 'ENOENT' });
+  await assert.rejects(prepareRetainedSnapshotFreshProof(f.request), /Unknown fresh proof claim/);
+  const next = structuredClone(f.request); next.priorProofs = [await f.pin(join(run, 'evidence.json'))];
+  await assert.rejects(prepareRetainedSnapshotFreshProof(next), /duplicate fresh/);
+  await copyFile(join(run, 'types.log.resources.json'), join(dir, 'fresh-types-before-tamper.json'));
+  await writeFile(join(run, 'types.log.resources.json'), '{}');
+  await assert.rejects(prepareRetainedSnapshotFreshProof(next), /tampered/);
+}));
+
+test('fresh proof retains command failures and foreign slots; immutable mutation blocks admission', () => fixture(async dir => {
+  const f = await freshProofFixture(dir);
+  const { runRetainedSnapshotFreshProof, acquireLease } = await import('./browser-validation-pool.mjs');
+  const { prepareRetainedSnapshotFreshProof } = await import('./run-development-checkpoint.mjs');
+  await mkdir(f.runtime.poolRoot);
+  const foreign = await acquireLease(join(f.runtime.poolRoot, 'slot-0'), 'foreign');
+  const oldPath = process.env.PATH; process.env.PATH = `${f.bin}:${oldPath}`;
+  try { await assert.rejects(runRetainedSnapshotFreshProof(f.request, { ...continuationOptions, max: 1, firstPort: 16473 }, f.runtime), /Snapshot failed/); }
+  finally { process.env.PATH = oldPath; }
+  assert.equal(await readFile(join(foreign.path, 'owner'), 'utf8'), 'foreign');
+  const parent = join(f.candidate, 'artifacts/retained-snapshot-fresh-proof');
+  const evidence = JSON.parse(await readFile(join(parent, (await readdir(parent))[0], 'evidence.json')));
+  assert.equal(evidence.status, 'failed'); assert.equal(evidence.sessions.length, 0);
+  const next = structuredClone(f.request); next.priorProofs = [await f.pin(join(parent, (await readdir(parent))[0], 'evidence.json'))];
+  await assert.rejects(prepareRetainedSnapshotFreshProof(next), /failed fresh proof history/);
+  await releaseLease(foreign);
+  const { chmod } = await import('node:fs/promises'); await chmod(join(f.build, 'iframe.html'), 0o644);
+  await assert.rejects(prepareRetainedSnapshotFreshProof(f.request), /Unknown fresh proof claim/);
+  // Admission into a clean independent candidate still rejects writable assets.
+  await rm(parent, { recursive: true });
+  await assert.rejects(prepareRetainedSnapshotFreshProof(f.request), /not immutable/);
 }));

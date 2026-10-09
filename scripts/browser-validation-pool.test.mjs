@@ -854,3 +854,16 @@ test('continuation public API refuses fixture claims in options and arbitrary ou
   await assert.rejects(runFrozenContinuation({}, { fixture: { command: async () => {} } }), /Ambiguous/);
   await assert.rejects(runFrozenContinuation({}, { output: '/foreign/output' }), /output root is fixed/);
 });
+
+test('fresh proof CLI refuses fixture injection and output overrides before admission', async t => {
+  const { execFileSync } = await import('node:child_process');
+  const { fileURLToPath } = await import('node:url');
+  const root = await fixture(t), config = join(root, 'fresh-config.json');
+  const cli = fileURLToPath(new URL('./run-development-checkpoint.mjs', import.meta.url));
+  for (const options of [{ fixture: {} }, { output: 'artifacts/foreign' }, { command: 'build' }]) {
+    await writeFile(config, JSON.stringify({ request: {}, poolOptions: options }));
+    assert.throws(() => execFileSync(process.execPath, [cli, 'fresh-proof', config], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }), error => {
+      assert.equal(error.status, 1); assert.match(error.stderr, /Ambiguous snapshot/); return true;
+    });
+  }
+});

@@ -7,7 +7,7 @@ import {
   acquireLease, acquireInstallSlot, releaseLease, assertQueueDrained,
   LEGACY_LOCK, HEAVY_LOCK, runOwnedCommand, sampleResources, assertBudget,
   validateBudget, assertSource, sourceDigest, digestTree, ownedPath,
-  prepareSnapshot, runFrozenSnapshot, runFrozenContinuation, snapshotCases, assertPortFree, validateCaseFilter,
+  prepareSnapshot, runFrozenSnapshot, runFrozenContinuation, runRetainedSnapshotFreshProof, snapshotCases, assertPortFree, validateCaseFilter,
 } from './browser-validation-pool.mjs';
 
 const json = async path => JSON.parse(await readFile(path, 'utf8'));
@@ -401,12 +401,159 @@ export async function prepareFrozenContinuation(request) {
       originalStatus: pool.status, scope: 'Selected continuation only; original checkpoint and consumers remain pending' } };
 }
 
+// Separate fresh proof: recovery attestations authenticate bytes only. Historical
+// reviews are used solely to exclude repeated work, never as fresh command proof.
+export async function prepareRetainedSnapshotFreshProof(request) {
+  strict(request, ['retained', 'candidate', 'deltas', 'shards', 'expectedCases', 'priorProofs']);
+  strict(request.retained, ['recovery', 'independentReview', 'historicalReview']);
+  strict(request.candidate, ['worktree', 'head', 'sourceDigest']);
+  if (!Array.isArray(request.deltas) || !Array.isArray(request.priorProofs)) throw new Error('Explicit reviewed deltas and prior proofs required');
+  const pins = new Map();
+  const pinnedJSON = async pin => {
+    strict(pin, ['path', 'sha256']);
+    if (typeof pin.path !== 'string' || !/^[a-f0-9]{64}$/.test(pin.sha256) || await realpath(pin.path) !== pin.path || !(await lstat(pin.path)).isFile() || await sha(pin.path) !== pin.sha256) throw new Error('Missing or tampered fresh-proof pin');
+    if (pins.has(pin.path) && pins.get(pin.path) !== pin.sha256) throw new Error('Conflicting fresh-proof pins');
+    pins.set(pin.path, pin.sha256);
+    return json(pin.path);
+  };
+  const recovery = await pinnedJSON(request.retained.recovery);
+  const review = await pinnedJSON(request.retained.independentReview);
+  const history = await pinnedJSON(request.retained.historicalReview);
+  const retained = recovery.recoveredSourcePath, retainedHead = recovery.recoveredSourceHead;
+  if (review.receipt !== request.retained.recovery.path || review.receiptSha256 !== request.retained.recovery.sha256 ||
+      review.recoveredSourcePath !== retained || review.recoveredHead !== retainedHead || recovery.historicalExecutionHead !== retainedHead ||
+      review.allFileBytesMatchReceiptAndCommittedBlob !== true || review.trackedPathSetMatchesOriginalCommittedTreeAndReceipt !== true ||
+      review.sourceDigest !== recovery.sourceDigest || review.sourceFileCount !== recovery.sourceFileCount ||
+      review.build?.path !== recovery.buildPath || review.build.digest !== recovery.buildDigest ||
+      history.head !== retainedHead || history.frozenSourceDigest !== recovery.sourceDigest || history.retainedBuildDigest !== recovery.buildDigest ||
+      history.reportSHA256 !== recovery.reportSHA256 || !Array.isArray(history.shards) || !Array.isArray(history.unrunShards)) throw new Error('Recovered source/build independent attestation mismatch');
+  const worktree = await realpath(request.candidate.worktree), head = request.candidate.head;
+  if (worktree === retained || worktree === recovery.historicalExecutionPath) throw new Error('Fresh proof requires a separate candidate');
+  const plan = { mode: 'snapshot', worktree, head, shards: request.shards };
+  await prepareSnapshot(plan, 'artifacts/retained-snapshot-fresh-proof');
+  if (await sourceDigest(worktree) !== request.candidate.sourceDigest) throw new Error('Fresh candidate source digest mismatch');
+  const sourceFiles = gitBytes(retained, 'ls-files', '-z').toString().split('\0').filter(Boolean);
+  if (!Array.isArray(recovery.files) || recovery.files.length !== recovery.sourceFileCount || sourceFiles.length !== recovery.sourceFileCount ||
+      new Set(recovery.files.map(row => row.path)).size !== sourceFiles.length || recovery.files.some(row => !sourceFiles.includes(row.path))) throw new Error('Incomplete recovered source inventory');
+  const immutable = async path => {
+    if (await realpath(path) !== path) throw new Error('Symlinked retained build');
+    const info = await lstat(path);
+    if (info.mode & 0o222 || (!info.isFile() && !info.isDirectory())) throw new Error('Retained build is not immutable');
+    let files = info.isFile() ? 1 : 0;
+    if (info.isDirectory()) for (const name of await readdir(path)) files += await immutable(join(path, name));
+    return files;
+  };
+  const oldFiles = gitBytes(worktree, 'ls-tree', '-r', '--name-only', '-z', retainedHead).toString().split('\0').filter(Boolean);
+  const newFiles = gitBytes(worktree, 'ls-files', '-z').toString().split('\0').filter(Boolean);
+  if (JSON.stringify([...oldFiles].sort()) !== JSON.stringify([...sourceFiles].sort())) throw new Error('Candidate does not contain retained Git tree');
+  const changes = new Map();
+  for (const file of new Set([...oldFiles, ...newFiles])) {
+    const before = oldFiles.includes(file) ? hashBytes(gitBytes(worktree, 'show', `${retainedHead}:${file}`)) : null;
+    const after = newFiles.includes(file) ? await sha(join(worktree, file)) : null;
+    if (before !== after) changes.set(file, { before, after });
+  }
+  const deltas = new Map();
+  for (const row of request.deltas) {
+    strict(row, ['path', 'kind', 'before', 'after']);
+    const allowed = row.kind === 'supervisor' ? ['scripts/browser-validation-pool.mjs', 'scripts/run-development-checkpoint.mjs', 'scripts/serve-browser-storybook.mjs'].includes(row.path) :
+      row.kind === 'documentation' ? /^docs\/.+\.md$/.test(row.path) :
+      row.kind === 'test' ? /^(?:src\/.+\.test\.[cm]?[jt]sx?|scripts\/.+\.test\.mjs|tests\/consumers\/[^/]+\.(?:tsx|tsconfig\.json))$/.test(row.path) :
+      row.kind === 'new-spec' ? /^tests\/browser\/[a-zA-Z0-9_-]+\.spec\.ts$/.test(row.path) && row.before === null : false;
+    if (!allowed || !row.after || deltas.has(row.path) || JSON.stringify(changes.get(row.path)) !== JSON.stringify({ before: row.before, after: row.after })) throw new Error(`Unreviewed/illegal fresh source delta: ${row.path}`);
+    deltas.set(row.path, row);
+  }
+  if (changes.size !== deltas.size) throw new Error('Missing fresh source delta');
+  const driverHashes = {};
+  for (const file of ['browser-validation-pool.mjs', 'run-development-checkpoint.mjs', 'serve-browser-storybook.mjs']) {
+    driverHashes[`scripts/${file}`] = await sha(new URL(`./${file}`, import.meta.url));
+    if (driverHashes[`scripts/${file}`] !== await sha(join(worktree, 'scripts', file))) throw new Error('Executing fresh supervisor differs from candidate');
+  }
+  for (const file of ['playwright.config.ts', 'tests/browser/tsconfig.json', ...request.shards.flatMap(row => row.specs)]) driverHashes[file] = await sha(join(worktree, file));
+  const excludedFiles = new Set(history.shards.flatMap(row => row.specs));
+  const unrun = new Map(history.unrunShards.flatMap(row => row.specs.map(file => [file, Array.isArray(row.project) ? row.project : [row.project]])));
+  const excludedCases = new Set(), priorPaths = new Set();
+  const passReceipt = async (path, expected) => {
+    await pinnedJSON({ path, sha256: expected });
+    const receipt = await json(path);
+    if (receipt.settled !== true || receipt.result?.code !== 0 || receipt.result.signal !== null || !Array.isArray(receipt.signalErrors) || receipt.signalErrors.length || receipt.commandError || receipt.ownershipErrors?.length) throw new Error('Unsettled fresh proof command');
+  };
+  for (const pin of request.priorProofs) {
+    const prior = await pinnedJSON(pin); priorPaths.add(pin.path);
+    if (prior.mode !== 'retained-snapshot-fresh-proof' || prior.status !== 'passed' || prior.cleanup !== 'owned commands settled' || !prior.finishedAt ||
+        prior.buildDigest !== recovery.buildDigest || prior.freshProof?.retainedHead !== retainedHead || !Array.isArray(prior.sessions)) throw new Error('Unknown or failed fresh proof history');
+    const run = dirname(pin.path);
+    if (await readFile(join(run, 'owner'), 'utf8') !== prior.owner) throw new Error('Fresh proof history owner mismatch');
+    pins.set(join(run, 'owner'), await sha(join(run, 'owner')));
+    await passReceipt(join(run, 'types.log.resources.json'), prior.freshArtifactHashes?.['types.log.resources.json']);
+    if (await sha(join(run, 'types.log')) !== prior.freshArtifactHashes?.['types.log']) throw new Error('Fresh types log mismatch');
+    pins.set(join(run, 'types.log'), prior.freshArtifactHashes['types.log']);
+    for (const item of prior.sessions) {
+      if (item.session !== join(run, item.id) || item.status !== 'passed') throw new Error('Failed/escaped fresh session history');
+      for (const name of ['owner', 'results.json', 'browser.log', 'browser.log.resources.json']) {
+        const path = join(item.session, name);
+        if (await realpath(path) !== path || await sha(path) !== item.artifactHashes?.[name]) throw new Error('Fresh session artifact mismatch');
+        pins.set(path, item.artifactHashes[name]);
+      }
+      if (await readFile(join(item.session, 'owner'), 'utf8') !== `${prior.owner}:${item.id}` || JSON.stringify(await json(join(item.session, 'evidence.json'))) !== JSON.stringify(item)) throw new Error('Fresh session owner/evidence mismatch');
+      pins.set(join(item.session, 'evidence.json'), await sha(join(item.session, 'evidence.json')));
+      await passReceipt(join(item.session, 'browser.log.resources.json'), item.artifactHashes['browser.log.resources.json']);
+      const cases = snapshotCases(await json(join(item.session, 'results.json')), { ...item, grep: item.grep ?? undefined }, prior.worktree);
+      if (JSON.stringify(cases) !== JSON.stringify(item.cases) || cases.length !== item.count) throw new Error('Fresh history cases mismatch');
+      for (const row of cases) excludedCases.add(caseKey(row));
+    }
+  }
+  const parent = join(worktree, 'artifacts/retained-snapshot-fresh-proof');
+  const existing = await children(parent);
+  for (const name of existing) if (!priorPaths.has(join(parent, name, 'evidence.json'))) throw new Error('Unknown fresh proof claim');
+  strict(request.expectedCases, request.shards.map(row => row.id));
+  const planned = new Set();
+  for (const shard of request.shards) {
+    const projects = Array.isArray(shard.project) ? shard.project : [shard.project];
+    for (const file of shard.specs) if (excludedFiles.has(file) || (deltas.get(file)?.kind !== 'new-spec' && (!unrun.has(file) || projects.some(project => !unrun.get(file).includes(project))))) throw new Error('Historical green/canceled/unknown scope refused; choose genuinely unrun specs');
+    const rows = request.expectedCases[shard.id];
+    if (!Array.isArray(rows) || !rows.length) throw new Error('Explicit fresh expected cases required');
+    const covered = new Set(), ids = new Set(), regex = shard.grep === undefined ? undefined : validateCaseFilter(shard.grep);
+    for (const row of rows) {
+      strict(row, ['file', 'id', 'project', 'title']);
+      const id = JSON.stringify([row.file, row.id, row.project]);
+      if (![row.file, row.id, row.project, row.title].every(value => typeof value === 'string' && value) || !shard.specs.includes(row.file) || !projects.includes(row.project) ||
+          (regex && !regex.test(` ${row.title}`)) || ids.has(id) || planned.has(caseKey(row)) || excludedCases.has(caseKey(row))) throw new Error('Invalid/duplicate fresh case inventory');
+      ids.add(id); planned.add(caseKey(row)); covered.add(JSON.stringify([row.file, row.project]));
+    }
+    if (shard.specs.some(file => projects.some(project => !covered.has(JSON.stringify([file, project]))))) throw new Error('Incomplete fresh case inventory');
+  }
+  for (const row of recovery.files) {
+      const path = join(retained, row.path);
+      if (await realpath(path) !== path || !(await lstat(path)).isFile() || await sha(path) !== row.sha256 || hashBytes(gitBytes(retained, 'show', `${retainedHead}:${row.path}`)) !== row.sha256) throw new Error('Recovered source file mismatch');
+    }
+  const check = async () => {
+    assertSource(retained, retainedHead); assertSource(worktree, head);
+    if (await sourceDigest(retained) !== recovery.sourceDigest || await sourceDigest(worktree) !== request.candidate.sourceDigest ||
+        await immutable(recovery.buildPath) !== review.build.counts.files || await digestTree(recovery.buildPath) !== recovery.buildDigest) throw new Error('Fresh retained source/build mutated');
+    for (const [path, hash] of pins) if (await realpath(path) !== path || await sha(path) !== hash) throw new Error('Fresh proof pin mutated');
+    for (const [file, hash] of Object.entries(driverHashes)) if (await sha(join(worktree, file)) !== hash) throw new Error('Fresh driver mutated');
+    return { retainedHead, retainedSourceDigest: recovery.sourceDigest, candidateHead: head, candidateSourceDigest: request.candidate.sourceDigest, buildDigest: recovery.buildDigest };
+  };
+  await check();
+  const canonical = rows => rows.map(row => JSON.stringify([row.file, row.id, row.project, row.title])).sort();
+  return { plan, build: recovery.buildPath, buildDigest: recovery.buildDigest, needsTypes: true, mode: 'retained-snapshot-fresh-proof', check,
+    assertCases(id, cases) { if (JSON.stringify(canonical(cases)) !== JSON.stringify(canonical(request.expectedCases[id]))) throw new Error('Actual fresh cases differ from reviewed inventory'); },
+    attestation: { schemaVersion: 1, retainedHead, retainedSourceDigest: recovery.sourceDigest, retained: request.retained, candidate: request.candidate,
+      deltas: request.deltas, driverHashes, expectedCases: request.expectedCases, priorProofs: request.priorProofs,
+      excludedHistoricalFiles: [...excludedFiles], excludedPriorCases: [...excludedCases],
+      setupPassesReused: false, checkPassReused: false, consumerPassesReused: false, originalRawReconstructed: false,
+      scope: 'New focused proof only; historical checkpoint dispositions unchanged; full native/device/AT and consumers pending' } };
+}
+
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const [mode, path] = process.argv.slice(2);
-  if (!['manifest', 'run', 'continue'].includes(mode) || !path || process.argv.length !== 4) throw new Error('Usage: node scripts/run-development-checkpoint.mjs manifest|run|continue <config.json>');
+  if (!['manifest', 'run', 'continue', 'fresh-proof'].includes(mode) || !path || process.argv.length !== 4) throw new Error('Usage: node scripts/run-development-checkpoint.mjs manifest|run|continue|fresh-proof <config.json>');
   const config = await json(await realpath(path));
   if (mode === 'manifest') console.log(JSON.stringify(await createContinuationManifest(config), null, 2));
-  else if (mode === 'continue') {
+  else if (mode === 'fresh-proof') {
+    strict(config, ['request', 'poolOptions']);
+    console.log(await runRetainedSnapshotFreshProof(config.request, config.poolOptions));
+  } else if (mode === 'continue') {
     strict(config, ['request', 'poolOptions']);
     console.log(await runFrozenContinuation(config.request, config.poolOptions));
   } else {
