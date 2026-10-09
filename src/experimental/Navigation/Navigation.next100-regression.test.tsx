@@ -3,10 +3,10 @@ import { createRef } from "react";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
-import {
-  Disclosure, List, ListItem, ListItemButton, Navigation, NavigationItem, Provider,
-  type NavigationProps, type NavigationItemProps,
-} from "../index";
+import { Disclosure } from "../Disclosure/Disclosure";
+import { List, ListItem, ListItemButton } from "../List/List";
+import { Navigation, NavigationItem, type NavigationProps, type NavigationItemProps } from "./Navigation";
+import { Provider } from "../Provider/Provider";
 import { SGNavigationProvider } from "../../adapters/navigation";
 
 afterEach(cleanup);

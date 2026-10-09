@@ -2,7 +2,8 @@
 import { createRef } from "react";
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, expect, it } from "vitest";
-import { Avatar, Provider, type AvatarProps } from "../index";
+import { Avatar, type AvatarProps } from "./Avatar";
+import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);
 

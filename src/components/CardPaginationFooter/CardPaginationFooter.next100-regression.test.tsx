@@ -3,9 +3,9 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
-import { AppPaginationFooter as RootFooter } from "../../index";
-import { AppPaginationFooter as CatalogFooter } from "..";
-import { AppPaginationFooter, type AppPaginationFooterProps } from ".";
+import { AppPaginationFooter as RootFooter } from "./CardPaginationFooter";
+import { AppPaginationFooter as CatalogFooter } from "./CardPaginationFooter";
+import { AppPaginationFooter, type AppPaginationFooterProps } from "./CardPaginationFooter";
 import { Provider } from "../../theme";
 
 afterEach(cleanup);

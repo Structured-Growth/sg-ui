@@ -3,8 +3,8 @@ import { createRef } from "react";
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
-import { TextArea, type TextAreaProps } from "./TextArea";
 import { Provider } from "../Provider/Provider";
+import { TextArea, type TextAreaProps } from "./TextArea";
 
 afterEach(() => { cleanup(); vi.useRealTimers(); });
 

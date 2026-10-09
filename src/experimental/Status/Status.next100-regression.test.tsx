@@ -2,7 +2,8 @@
 import { createRef } from "react";
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, expect, it } from "vitest";
-import { Provider, Status, type StatusProps } from "../index";
+import { Provider } from "../Provider/Provider";
+import { Status, type StatusProps } from "./Status";
 
 afterEach(cleanup);
 

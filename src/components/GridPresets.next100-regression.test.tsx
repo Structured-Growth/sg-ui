@@ -4,15 +4,9 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import { afterEach, describe, expect, it } from "vitest";
-import {
-  adminClassesColumnOptions, adminClassesFilterFields, adminClassesSortOptions,
-  adminPeopleColumnOptions, adminPeopleSortOptions,
-  createAdminCourseGridOptions, createAdminPeopleGridOptions,
-  createInstructorCourseGridOptions, createInstructorCourseLearnersGridOptions,
-  DataToolbar, instructorClassesColumnOptions, instructorClassesFilterFields,
-  instructorClassesSortOptions, instructorClassLearnersColumnOptions,
-  instructorClassLearnersFilterFields, instructorClassLearnersSortOptions,
-} from "../index";
+import { adminClassesColumnOptions, adminClassesFilterFields, adminClassesSortOptions, adminPeopleColumnOptions, adminPeopleSortOptions, createAdminCourseGridOptions, createAdminPeopleGridOptions } from "./AdminDataGridOptions";
+import { createInstructorCourseGridOptions, createInstructorCourseLearnersGridOptions, instructorClassesColumnOptions, instructorClassesFilterFields, instructorClassesSortOptions, instructorClassLearnersColumnOptions, instructorClassLearnersFilterFields, instructorClassLearnersSortOptions } from "./InstructorDataGridOptions";
+import { DataToolbar } from "./DataToolbar";
 import { Provider } from "../theme";
 
 afterEach(cleanup);

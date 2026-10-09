@@ -3,7 +3,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { act, cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createRef } from "react";
-import { TimeField, type TimeFieldProps } from "../index";
+import { TimeField, type TimeFieldProps } from "./TimeField";
 import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);
