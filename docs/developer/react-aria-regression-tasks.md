@@ -65,7 +65,7 @@ Scope: [src/components/AppShell](../../src/components/AppShell). Original scope:
 
 - [ ] T-C06-01 Add or accept a focused regression for AppShell: main and navigation landmarks. Dependency: `F-C06-01`.
 - [ ] T-C06-02 Add or accept a focused regression for AppShell: responsive navigation presentation. Dependency: `F-C06-02`.
-- [ ] T-C06-03 Add or accept a focused regression for AppShell: host content and header slots. Dependency: `F-C06-03`.
+- [ ] T-C06-03 Add or accept a focused regression for AppShell: host navigation and main content through navigation and children, with host headers composed in children. Dependency: `F-C06-03`.
 - [ ] T-C06-04 Add or accept a focused regression for AppShell: owned scope propagation. Dependency: `F-C06-04`.
 - [ ] T-C06-90 Verify AppShell public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [ ] T-C06-91 Verify AppShell instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
@@ -711,7 +711,7 @@ Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Origina
 Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] T-P29-01 Add or accept a focused regression for Collapse: expanded content visibility. Dependency: `F-P29-01`.
-- [ ] T-P29-02 Add or accept a focused regression for Collapse: reduced-motion-compatible transition. Dependency: `F-P29-02`.
+- [ ] T-P29-02 Add or accept a focused regression for Collapse: immediate native hidden/unmount visibility changes without library animation; retain child state by default and document removed transition-engine props. Dependency: `F-P29-02`.
 - [ ] T-P29-90 Verify Collapse public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [ ] T-P29-91 Verify Collapse instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
