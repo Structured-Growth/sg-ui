@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "paths": {
+      "@structured-growth/sg-ui": ["../../src/index.ts"],
+      "@structured-growth/sg-ui/components": ["../../src/components/index.ts"],
+      "@structured-growth/sg-ui/components/LearnerClassesDataGrid": ["../../src/components/LearnerClassesDataGrid/index.ts"]
+    }
+  },
+  "files": ["remaining-T-learner-props.tsx", "../../src/css-modules.d.ts"],
+  "include": [],
+  "exclude": []
+}
