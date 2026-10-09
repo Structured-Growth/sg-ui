@@ -735,3 +735,115 @@ test('snapshot case attestation preserves nested untagged titles and whole-file 
   assert.equal(snapshotCases(report, wholeFile, '/owned').length, 1);
   assert.throws(() => snapshotCases(report, shard, '/owned'), /untagged/);
 });
+
+// Match Playwright's detached shell/webServer topology without launching a browser.
+async function detachedServerFixture(t) {
+  const root = await realpath(await fixture(t));
+  await writeFile(join(root, 'iframe.html'), 'owned static fixture');
+  const reserve = createServer();
+  await new Promise(done => reserve.listen(0, '127.0.0.1', done));
+  const port = reserve.address().port;
+  await new Promise(done => reserve.close(done));
+  const serverURL = new URL('./serve-browser-storybook.mjs', import.meta.url).href;
+  const serverScript = `import {startServer} from ${JSON.stringify(serverURL)};
+    await startServer(); console.log('server-ready');`;
+  const quote = value => "'" + value.replaceAll("'", "'\\''") + "'";
+  const command = `${quote(process.execPath)} --input-type=module -e ${quote(serverScript)}`;
+  const leaderScript = `const {spawn}=require('node:child_process');
+    const c=spawn(${JSON.stringify(command)},{shell:true,detached:true,stdio:['ignore','pipe','inherit']});
+    c.stdout.on('data',()=>{ console.log('detached-ready'); ${'process.env.FIXTURE_NORMAL === "1" ? process.exit(0) : undefined'}; });
+    setInterval(()=>{},1000);`;
+  return { root, port, leaderScript, env: { ...process.env, SGUI_BROWSER_PORT: String(port), SGUI_BROWSER_STORYBOOK_DIR: root } };
+}
+test('registered detached static server settles on normal exit and cancellation while foreign server survives', { timeout: 10000 }, async t => {
+  for (const normal of [true, false]) {
+    const f = await detachedServerFixture(t);
+    const foreign = await startServer({ SGUI_BROWSER_PORT: String(f.port + 1), SGUI_BROWSER_STORYBOOK_DIR: f.root });
+    t.after(() => new Promise(done => foreign.close(done)));
+    const controller = new AbortController();
+    const log = join(f.root, 'detached.log');
+    const running = runOwnedCommand({ executable: process.execPath, args: ['-e', f.leaderScript],
+      env: { ...f.env, FIXTURE_NORMAL: normal ? '1' : '0' }, log, signal: controller.signal, terminateDelay: 200 });
+    // A bounded fixture timer cancels after the real listener is available.
+    const bound = setTimeout(() => controller.abort(), 3000);
+    const cancellation = normal ? undefined : setInterval(async () => {
+      try { await fetch(`http://127.0.0.1:${f.port}/iframe.html`); controller.abort(); } catch {}
+    }, 25);
+    try { if (normal) await running; else await assert.rejects(running, /failed/); }
+    finally { clearInterval(cancellation); clearTimeout(bound); }
+    const evidence = JSON.parse(await readFile(`${log}.resources.json`, 'utf8'));
+    assert.equal(evidence.settled, true); assert.equal(evidence.serverGroups.length, 1);
+    assert.notEqual(evidence.serverGroups[0].pgid, evidence.processGroup);
+    assert.throws(() => process.kill(-evidence.serverGroups[0].pgid, 0), { code: 'ESRCH' });
+    await assertPortFree(f.port);
+    assert.equal(await (await fetch(`http://127.0.0.1:${f.port + 1}/iframe.html`)).text(), 'owned static fixture');
+  }
+});
+test('ambiguous server registration refuses foreign signals and retains snapshot leases and failed evidence', async t => {
+  const { plan, runtime, worktree } = await snapshotFixture(t, 1);
+  const foreign = spawn(process.execPath, ['-e', 'setInterval(()=>{},1000)'], { detached: true });
+  const closed = new Promise(done => foreign.once('close', done));
+  t.after(async () => { process.kill(-foreign.pid, 'SIGKILL'); await closed; });
+  const attempted = [];
+  runtime.command = async request => {
+    const script = `const {createConnection}=require('node:net');
+      const s=createConnection(process.env.SGUI_COMMAND_SOCKET);
+      s.on('connect',()=>s.write(JSON.stringify({token:process.env.SGUI_COMMAND_TOKEN,pid:${foreign.pid},port:6273})+'\\n'));
+      s.on('data',()=>s.end()); s.on('close',()=>process.exit(0));`;
+    await runOwnedCommand({ ...request, executable: process.execPath, args: ['-e', script], terminateDelay: 80 }, {
+      kill(pid, kind) { attempted.push(pid); return process.kill(pid, kind); }
+    });
+  };
+  await assert.rejects(runFrozenSnapshot(plan, {}, runtime), /Snapshot/);
+  assert.equal(attempted.includes(-foreign.pid), false);
+  assert.doesNotThrow(() => process.kill(-foreign.pid, 0));
+  const [run] = await readdir(join(worktree, 'artifacts/browser-pool'));
+  const evidence = JSON.parse(await readFile(join(worktree, 'artifacts/browser-pool', run, 'evidence.json'), 'utf8'));
+  assert.match(evidence.cleanup, /retained/); assert.equal(evidence.status, 'failed');
+  assert.equal(await readFile(join(runtime.heavyPath, 'owner'), 'utf8'), evidence.owner);
+  assert.equal(await readFile(join(runtime.bridgePath, 'owner'), 'utf8'), evidence.owner);
+  const resources = JSON.parse(await readFile(join(worktree, 'artifacts/browser-pool', run, 'build.log.resources.json'), 'utf8'));
+  assert.equal(resources.settled, false); assert.match(resources.ownershipErrors[0], /ambiguous/);
+});
+
+test('unresolved registered server group retains leases and EPERM evidence even after watchdog shutdown', { timeout: 10000 }, async t => {
+  const { plan, runtime, worktree } = await snapshotFixture(t, 1);
+  const f = await detachedServerFixture(t);
+  let rootGroup, serverGroup;
+  runtime.command = async request => {
+    const controller = new AbortController();
+    const poll = setInterval(async () => {
+      try { await fetch(`http://127.0.0.1:${f.port}/iframe.html`); controller.abort(); } catch {}
+    }, 25);
+    const bound = setTimeout(() => controller.abort(), 3000);
+    try {
+      await runOwnedCommand({ ...request, executable: process.execPath, args: ['-e', f.leaderScript],
+        env: f.env, signal: controller.signal, terminateDelay: 100 }, { kill(pid, kind) {
+        if (kind === 'SIGTERM' && !rootGroup) rootGroup = -pid;
+        if (rootGroup && -pid !== rootGroup && kind !== 0) {
+          serverGroup = -pid;
+          throw Object.assign(new Error('fixture denied registered server'), { code: 'EPERM' });
+        }
+        return process.kill(pid, kind);
+      } });
+    } finally { clearInterval(poll); clearTimeout(bound); }
+  };
+  await assert.rejects(runFrozenSnapshot(plan, {}, runtime), /Snapshot/);
+  const [run] = await readdir(join(worktree, 'artifacts/browser-pool'));
+  const dir = join(worktree, 'artifacts/browser-pool', run);
+  const evidence = JSON.parse(await readFile(join(dir, 'evidence.json'), 'utf8'));
+  const resources = JSON.parse(await readFile(join(dir, 'build.log.resources.json'), 'utf8'));
+  assert.equal(resources.serverGroups.length, 1); assert.equal(resources.settled, false);
+  assert.ok(resources.signalErrors.some(item => item.processGroup === serverGroup && item.code === 'EPERM'));
+  assert.match(evidence.cleanup, /retained/);
+  for (const path of [runtime.heavyPath, runtime.bridgePath]) assert.equal(await readFile(join(path, 'owner'), 'utf8'), evidence.owner);
+  // The lifetime guard closes the refused server after the failed proof. This
+  // independent later audit must not retroactively turn failed evidence green.
+  for (let i = 0; i < 100; i++) {
+    try { process.kill(-serverGroup, 0); } catch (error) { if (error.code === 'ESRCH') break; throw error; }
+    await new Promise(done => setTimeout(done, 10));
+  }
+  assert.throws(() => process.kill(-serverGroup, 0), { code: 'ESRCH' });
+  await assertPortFree(f.port);
+  for (const path of [runtime.heavyPath, runtime.bridgePath]) await releaseLease({path, owner:evidence.owner});
+});
