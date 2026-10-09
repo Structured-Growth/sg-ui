@@ -4,7 +4,7 @@ import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createRef, useState } from "react";
 import { Pagination, type PaginationProps } from "./Pagination";
-import { ThemeScope } from "../Provider/Provider";
+import { ThemeScope } from "../../foundation/ThemeScope";
 import { formatIcuMessage, SGTranslationProvider, type SGTranslationAdapter } from "../../i18n";
 
 afterEach(cleanup);
