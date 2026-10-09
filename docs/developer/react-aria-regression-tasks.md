@@ -132,13 +132,13 @@ Scope: [src/components/CardCollectionWithFooter](../../src/components/CardCollec
 
 Scope: [src/components/CardPaginationFooter](../../src/components/CardPaginationFooter). Original scope: `M-12` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-C12-01 Add or accept a focused regression for CardPaginationFooter: appPaginationFooter preserved export. Dependency: `F-C12-01`.
-- [ ] T-C12-02 Add or accept a focused regression for CardPaginationFooter: page and page-size callbacks. Dependency: `F-C12-02`.
-- [ ] T-C12-03 Add or accept a focused regression for CardPaginationFooter: known and unknown totals. Dependency: `F-C12-03`.
-- [ ] T-C12-04 Add or accept a focused regression for CardPaginationFooter: page-zero request before size change. Dependency: `F-C12-04`.
-- [ ] T-C12-05 Add or accept a focused regression for CardPaginationFooter: first and last boundary disabling. Dependency: `F-C12-05`.
-- [ ] T-C12-90 Verify CardPaginationFooter public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-C12-91 Verify CardPaginationFooter instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-C12-01 Add or accept a focused regression for CardPaginationFooter: appPaginationFooter preserved export. Dependency: `F-C12-01`.
+- [x] T-C12-02 Add or accept a focused regression for CardPaginationFooter: page and page-size callbacks. Dependency: `F-C12-02`.
+- [x] T-C12-03 Add or accept a focused regression for CardPaginationFooter: known and unknown totals. Dependency: `F-C12-03`.
+- [x] T-C12-04 Add or accept a focused regression for CardPaginationFooter: page-zero request before size change. Dependency: `F-C12-04`.
+- [x] T-C12-05 Add or accept a focused regression for CardPaginationFooter: first and last boundary disabling. Dependency: `F-C12-05`.
+- [x] T-C12-90 Verify CardPaginationFooter public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-C12-91 Verify CardPaginationFooter instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## C13: ClassCardFrame
 
@@ -473,10 +473,10 @@ Scope: [src/experimental/Card](../../src/experimental/Card). Original scope: `U-
 
 Scope: [src/experimental/Divider](../../src/experimental/Divider). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P05-01 Add or accept a focused regression for Divider: horizontal and vertical separator. Dependency: `F-P05-01`.
-- [ ] T-P05-02 Add or accept a focused regression for Divider: decorative versus semantic role. Dependency: `F-P05-02`.
-- [ ] T-P05-90 Verify Divider public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P05-91 Verify Divider instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P05-01 Add or accept a focused regression for Divider: horizontal and vertical separator. Dependency: `F-P05-01`.
+- [x] T-P05-02 Add or accept a focused regression for Divider: decorative versus semantic role. Dependency: `F-P05-02`.
+- [x] T-P05-90 Verify Divider public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P05-91 Verify Divider instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P06: Typography
 
@@ -492,18 +492,18 @@ Scope: [src/experimental/Typography](../../src/experimental/Typography). Origina
 Scope: [src/experimental/Button](../../src/experimental/Button). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] T-P07-01 Add or accept a focused regression for Button: press once and native submit type. Dependency: `F-P07-01`.
-- [ ] T-P07-02 Add or accept a focused regression for Button: variant tone density and pending. Dependency: `F-P07-02`.
+- [x] T-P07-02 Add or accept a focused regression for Button: variant tone density and pending. Dependency: `F-P07-02`.
 - [ ] T-P07-90 Verify Button public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P07-91 Verify Button instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P07-91 Verify Button instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P08: IconButton
 
 Scope: [src/experimental/IconButton](../../src/experimental/IconButton). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P08-01 Add or accept a focused regression for IconButton: accessible name and icon rendering. Dependency: `F-P08-01`.
-- [ ] T-P08-02 Add or accept a focused regression for IconButton: press disabled and pending. Dependency: `F-P08-02`.
+- [x] T-P08-01 Add or accept a focused regression for IconButton: accessible name and icon rendering. Dependency: `F-P08-01`.
+- [x] T-P08-02 Add or accept a focused regression for IconButton: press disabled and pending. Dependency: `F-P08-02`.
 - [ ] T-P08-90 Verify IconButton public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P08-91 Verify IconButton instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P08-91 Verify IconButton instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P09: ButtonGroup
 
@@ -511,17 +511,17 @@ Scope: [src/experimental/ButtonGroup](../../src/experimental/ButtonGroup). Origi
 
 - [ ] T-P09-01 Add or accept a focused regression for ButtonGroup: shared group border and divider. Dependency: `F-P09-01`.
 - [ ] T-P09-02 Add or accept a focused regression for ButtonGroup: group density and action layout. Dependency: `F-P09-02`.
-- [ ] T-P09-90 Verify ButtonGroup public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P09-91 Verify ButtonGroup instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P09-90 Verify ButtonGroup public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P09-91 Verify ButtonGroup instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P10: SplitAction
 
 Scope: [src/experimental/SplitAction](../../src/experimental/SplitAction). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P10-01 Add or accept a focused regression for SplitAction: primary callback and secondary menu. Dependency: `F-P10-01`.
+- [x] T-P10-01 Add or accept a focused regression for SplitAction: primary callback and secondary menu. Dependency: `F-P10-01`.
 - [ ] T-P10-02 Add or accept a focused regression for SplitAction: neutral shared-border presentation. Dependency: `F-P10-02`.
 - [ ] T-P10-90 Verify SplitAction public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P10-91 Verify SplitAction instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P10-91 Verify SplitAction instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P11: TextField
 
@@ -541,17 +541,17 @@ Scope: [src/experimental/TextArea](../../src/experimental/TextArea). Original sc
 - [ ] T-P12-02 Add or accept a focused regression for TextArea: label and validation association. Dependency: `F-P12-02`.
 - [ ] T-P12-03 Add or accept a focused regression for TextArea: native reset and read-only behavior. Dependency: `F-P12-03`.
 - [ ] T-P12-90 Verify TextArea public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P12-91 Verify TextArea instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P12-91 Verify TextArea instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P13: Checkbox
 
 Scope: [src/experimental/Checkbox](../../src/experimental/Checkbox). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P13-01 Add or accept a focused regression for Checkbox: controlled default and mixed state. Dependency: `F-P13-01`.
-- [ ] T-P13-02 Add or accept a focused regression for Checkbox: space activation and disabled guard. Dependency: `F-P13-02`.
-- [ ] T-P13-03 Add or accept a focused regression for Checkbox: native name value and reset. Dependency: `F-P13-03`.
-- [ ] T-P13-90 Verify Checkbox public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P13-91 Verify Checkbox instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P13-01 Add or accept a focused regression for Checkbox: controlled default and mixed state. Dependency: `F-P13-01`.
+- [x] T-P13-02 Add or accept a focused regression for Checkbox: space activation and disabled guard. Dependency: `F-P13-02`.
+- [x] T-P13-03 Add or accept a focused regression for Checkbox: native name value and reset. Dependency: `F-P13-03`.
+- [x] T-P13-90 Verify Checkbox public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P13-91 Verify Checkbox instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P14: Switch
 
@@ -567,11 +567,11 @@ Scope: [src/experimental/Switch](../../src/experimental/Switch). Original scope:
 
 Scope: [src/experimental/RadioGroup](../../src/experimental/RadioGroup). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P15-01 Add or accept a focused regression for RadioGroup: owned string option identity. Dependency: `F-P15-01`.
-- [ ] T-P15-02 Add or accept a focused regression for RadioGroup: arrow selection and disabled skipping. Dependency: `F-P15-02`.
-- [ ] T-P15-03 Add or accept a focused regression for RadioGroup: native submitted value and reset. Dependency: `F-P15-03`.
-- [ ] T-P15-90 Verify RadioGroup public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P15-91 Verify RadioGroup instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P15-01 Add or accept a focused regression for RadioGroup: owned string option identity. Dependency: `F-P15-01`.
+- [x] T-P15-02 Add or accept a focused regression for RadioGroup: arrow selection and disabled skipping. Dependency: `F-P15-02`.
+- [x] T-P15-03 Add or accept a focused regression for RadioGroup: native submitted value and reset. Dependency: `F-P15-03`.
+- [x] T-P15-90 Verify RadioGroup public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P15-91 Verify RadioGroup instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P16: Select
 
@@ -610,21 +610,21 @@ Scope: [src/experimental/AsyncMultiSelect](../../src/experimental/AsyncMultiSele
 
 Scope: [src/experimental/Menu](../../src/experimental/Menu). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P19-01 Add or accept a focused regression for Menu: owned item actions and checked state. Dependency: `F-P19-01`.
-- [ ] T-P19-02 Add or accept a focused regression for Menu: keyboard navigation and disabled skipping. Dependency: `F-P19-02`.
-- [ ] T-P19-03 Add or accept a focused regression for Menu: compact menu and close callback. Dependency: `F-P19-03`.
-- [ ] T-P19-90 Verify Menu public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P19-91 Verify Menu instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P19-01 Add or accept a focused regression for Menu: owned item actions and checked state. Dependency: `F-P19-01`.
+- [x] T-P19-02 Add or accept a focused regression for Menu: keyboard navigation and disabled skipping. Dependency: `F-P19-02`.
+- [x] T-P19-03 Add or accept a focused regression for Menu: compact menu and close callback. Dependency: `F-P19-03`.
+- [x] T-P19-90 Verify Menu public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P19-91 Verify Menu instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P20: Popover
 
 Scope: [src/experimental/Popover](../../src/experimental/Popover). Original scope: `U-07 U-19` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P20-01 Add or accept a focused regression for Popover: controlled and default open state. Dependency: `F-P20-01`.
-- [ ] T-P20-02 Add or accept a focused regression for Popover: trigger focus return and dismissal. Dependency: `F-P20-02`.
-- [ ] T-P20-03 Add or accept a focused regression for Popover: scope locale and direction in portal. Dependency: `F-P20-03`.
+- [x] T-P20-01 Add or accept a focused regression for Popover: controlled and default open state. Dependency: `F-P20-01`.
+- [x] T-P20-02 Add or accept a focused regression for Popover: trigger focus return and dismissal. Dependency: `F-P20-02`.
+- [x] T-P20-03 Add or accept a focused regression for Popover: scope locale and direction in portal. Dependency: `F-P20-03`.
 - [ ] T-P20-90 Verify Popover public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P20-91 Verify Popover instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P20-91 Verify Popover instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P21: Tooltip
 
@@ -681,11 +681,11 @@ Scope: [src/experimental/Breadcrumbs](../../src/experimental/Breadcrumbs). Origi
 
 Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Original scope: `U-11 H-03` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P26-01 Add or accept a focused regression for Navigation: navigation and NavigationItem exports. Dependency: `F-P26-01`.
-- [ ] T-P26-02 Add or accept a focused regression for Navigation: selected and expanded item state. Dependency: `F-P26-02`.
+- [x] T-P26-01 Add or accept a focused regression for Navigation: navigation and NavigationItem exports. Dependency: `F-P26-01`.
+- [x] T-P26-02 Add or accept a focused regression for Navigation: selected and expanded item state. Dependency: `F-P26-02`.
 - [ ] T-P26-03 Add or accept a focused regression for Navigation: owned host links and action items. Dependency: `F-P26-03`.
 - [ ] T-P26-90 Verify Navigation public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P26-91 Verify Navigation instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P26-91 Verify Navigation instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P27: List
 
@@ -747,30 +747,30 @@ Scope: [src/experimental/TagGroup](../../src/experimental/TagGroup). Original sc
 
 Scope: [src/experimental/Progress](../../src/experimental/Progress). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P33-01 Add or accept a focused regression for Progress: determinate min max value. Dependency: `F-P33-01`.
-- [ ] T-P33-02 Add or accept a focused regression for Progress: indeterminate loading. Dependency: `F-P33-02`.
-- [ ] T-P33-03 Add or accept a focused regression for Progress: finite fallback and accessible label. Dependency: `F-P33-03`.
-- [ ] T-P33-90 Verify Progress public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P33-91 Verify Progress instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P33-01 Add or accept a focused regression for Progress: determinate min max value. Dependency: `F-P33-01`.
+- [x] T-P33-02 Add or accept a focused regression for Progress: indeterminate loading. Dependency: `F-P33-02`.
+- [x] T-P33-03 Add or accept a focused regression for Progress: finite fallback and accessible label. Dependency: `F-P33-03`.
+- [x] T-P33-90 Verify Progress public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P33-91 Verify Progress instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P34: Status
 
 Scope: [src/experimental/Status](../../src/experimental/Status). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P34-01 Add or accept a focused regression for Status: owned status tone and message. Dependency: `F-P34-01`.
-- [ ] T-P34-02 Add or accept a focused regression for Status: appropriate live-region priority. Dependency: `F-P34-02`.
-- [ ] T-P34-90 Verify Status public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P34-91 Verify Status instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P34-01 Add or accept a focused regression for Status: owned status tone and message. Dependency: `F-P34-01`.
+- [x] T-P34-02 Add or accept a focused regression for Status: appropriate live-region priority. Dependency: `F-P34-02`.
+- [x] T-P34-90 Verify Status public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P34-91 Verify Status instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P35: Avatar
 
 Scope: [src/experimental/Avatar](../../src/experimental/Avatar). Original scope: `U-14` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P35-01 Add or accept a focused regression for Avatar: image source and accessible label. Dependency: `F-P35-01`.
-- [ ] T-P35-02 Add or accept a focused regression for Avatar: loading and failed-image fallback. Dependency: `F-P35-02`.
+- [x] T-P35-01 Add or accept a focused regression for Avatar: image source and accessible label. Dependency: `F-P35-01`.
+- [x] T-P35-02 Add or accept a focused regression for Avatar: loading and failed-image fallback. Dependency: `F-P35-02`.
 - [ ] T-P35-03 Add or accept a focused regression for Avatar: stable aspect ratio and owned size. Dependency: `F-P35-03`.
-- [ ] T-P35-90 Verify Avatar public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P35-91 Verify Avatar instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P35-90 Verify Avatar public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P35-91 Verify Avatar instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P36: Table
 
@@ -810,38 +810,38 @@ Scope: [src/experimental/DateField](../../src/experimental/DateField). Original 
 - [x] T-P39-02 Add or accept a focused regression for DateField: segment input and description association. Dependency: `F-P39-02`.
 - [x] T-P39-03 Add or accept a focused regression for DateField: native serialization and reset. Dependency: `F-P39-03`.
 - [x] T-P39-90 Verify DateField public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P39-91 Verify DateField instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P39-91 Verify DateField instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P40: TimeField
 
 Scope: [src/experimental/TimeField](../../src/experimental/TimeField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P40-01 Add or accept a focused regression for TimeField: owned clock value and seconds. Dependency: `F-P40-01`.
-- [ ] T-P40-02 Add or accept a focused regression for TimeField: segment editing and disabled behavior. Dependency: `F-P40-02`.
-- [ ] T-P40-03 Add or accept a focused regression for TimeField: native serialization and reset. Dependency: `F-P40-03`.
-- [ ] T-P40-90 Verify TimeField public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P40-91 Verify TimeField instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P40-01 Add or accept a focused regression for TimeField: owned clock value and seconds. Dependency: `F-P40-01`.
+- [x] T-P40-02 Add or accept a focused regression for TimeField: segment editing and disabled behavior. Dependency: `F-P40-02`.
+- [x] T-P40-03 Add or accept a focused regression for TimeField: native serialization and reset. Dependency: `F-P40-03`.
+- [x] T-P40-90 Verify TimeField public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P40-91 Verify TimeField instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P41: Calendar
 
 Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P41-01 Add or accept a focused regression for Calendar: selection focused date and visible month. Dependency: `F-P41-01`.
-- [ ] T-P41-02 Add or accept a focused regression for Calendar: minimum maximum and unavailable dates. Dependency: `F-P41-02`.
-- [ ] T-P41-03 Add or accept a focused regression for Calendar: host locale and direction. Dependency: `F-P41-03`.
-- [ ] T-P41-04 Add or accept a focused regression for Calendar: multiple-date selection where supported. Dependency: `F-P41-04`.
-- [ ] T-P41-90 Verify Calendar public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P41-91 Verify Calendar instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P41-01 Add or accept a focused regression for Calendar: selection focused date and visible month. Dependency: `F-P41-01`.
+- [x] T-P41-02 Add or accept a focused regression for Calendar: minimum maximum and unavailable dates. Dependency: `F-P41-02`.
+- [x] T-P41-03 Add or accept a focused regression for Calendar: host locale and direction. Dependency: `F-P41-03`.
+- [x] T-P41-04 Add or accept a focused regression for Calendar: multiple-date selection where supported. Dependency: `F-P41-04`.
+- [x] T-P41-90 Verify Calendar public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P41-91 Verify Calendar instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P42: DatePicker
 
 Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P42-01 Add or accept a focused regression for DatePicker: synchronized field and calendar value. Dependency: `F-P42-01`.
-- [ ] T-P42-02 Add or accept a focused regression for DatePicker: popover open clear and focus return. Dependency: `F-P42-02`.
-- [ ] T-P42-03 Add or accept a focused regression for DatePicker: controlled commit and native reset. Dependency: `F-P42-03`.
-- [ ] T-P42-90 Verify DatePicker public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P42-91 Verify DatePicker instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P42-01 Add or accept a focused regression for DatePicker: synchronized field and calendar value. Dependency: `F-P42-01`.
+- [x] T-P42-02 Add or accept a focused regression for DatePicker: popover open clear and focus return. Dependency: `F-P42-02`.
+- [x] T-P42-03 Add or accept a focused regression for DatePicker: controlled commit and native reset. Dependency: `F-P42-03`.
+- [x] T-P42-90 Verify DatePicker public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P42-91 Verify DatePicker instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P43: DateRangePicker
 
@@ -858,13 +858,13 @@ Scope: [src/experimental/DateRangePicker](../../src/experimental/DateRangePicker
 
 Scope: [src/experimental/DateRangeSelector](../../src/experimental/DateRangeSelector). Original scope: `K-01–K-07 K-17` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P44-01 Add or accept a focused regression for DateRangeSelector: preset descriptions and draft selection. Dependency: `F-P44-01`.
-- [ ] T-P44-02 Add or accept a focused regression for DateRangeSelector: apply commit and Cancel restoration. Dependency: `F-P44-02`.
-- [ ] T-P44-03 Add or accept a focused regression for DateRangeSelector: multi-month range and typed endpoints. Dependency: `F-P44-03`.
-- [ ] T-P44-04 Add or accept a focused regression for DateRangeSelector: unavailable-date explanation. Dependency: `F-P44-04`.
-- [ ] T-P44-05 Add or accept a focused regression for DateRangeSelector: host-supplied date and availability data. Dependency: `F-P44-05`.
-- [ ] T-P44-90 Verify DateRangeSelector public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P44-91 Verify DateRangeSelector instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P44-01 Add or accept a focused regression for DateRangeSelector: preset descriptions and draft selection. Dependency: `F-P44-01`.
+- [x] T-P44-02 Add or accept a focused regression for DateRangeSelector: apply commit and Cancel restoration. Dependency: `F-P44-02`.
+- [x] T-P44-03 Add or accept a focused regression for DateRangeSelector: multi-month range and typed endpoints. Dependency: `F-P44-03`.
+- [x] T-P44-04 Add or accept a focused regression for DateRangeSelector: unavailable-date explanation. Dependency: `F-P44-04`.
+- [x] T-P44-05 Add or accept a focused regression for DateRangeSelector: host-supplied date and availability data. Dependency: `F-P44-05`.
+- [x] T-P44-90 Verify DateRangeSelector public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P44-91 Verify DateRangeSelector instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P45: Provider
 
@@ -880,12 +880,12 @@ Scope: [src/experimental/Provider](../../src/experimental/Provider). Original sc
 
 Scope: [src/experimental/DataGrid](../../src/experimental/DataGrid). Original scope: `P-06 G-25` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P46-01 Add or accept a focused regression for DataGrid: owned proof row and column contracts. Dependency: `F-P46-01`.
-- [ ] T-P46-02 Add or accept a focused regression for DataGrid: tanStack processing with one state authority. Dependency: `F-P46-02`.
-- [ ] T-P46-03 Add or accept a focused regression for DataGrid: controlled selection sort filter and page. Dependency: `F-P46-03`.
+- [x] T-P46-01 Add or accept a focused regression for DataGrid: owned proof row and column contracts. Dependency: `F-P46-01`.
+- [x] T-P46-02 Add or accept a focused regression for DataGrid: tanStack processing with one state authority. Dependency: `F-P46-02`.
+- [x] T-P46-03 Add or accept a focused regression for DataGrid: controlled selection sort filter and page. Dependency: `F-P46-03`.
 - [ ] T-P46-04 Add or accept a focused regression for DataGrid: owned column resize and reorder proof. Dependency: `F-P46-04`.
-- [ ] T-P46-90 Verify DataGrid public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P46-91 Verify DataGrid instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P46-90 Verify DataGrid public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P46-91 Verify DataGrid instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P47: icons
 
@@ -993,23 +993,23 @@ Scope: [src/hooks/usePersistentPaginationModel.ts](../../src/hooks/usePersistent
 
 Scope: [src/components/AdminDataGridOptions.ts](../../src/components/AdminDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-S10-01 Add or accept a focused regression for AdminPresets: course-named factory and Class compatibility. Dependency: `F-S10-01`.
-- [ ] T-S10-02 Add or accept a focused regression for AdminPresets: canonical status options. Dependency: `F-S10-02`.
-- [ ] T-S10-03 Add or accept a focused regression for AdminPresets: first-text and last-action visibility locks. Dependency: `F-S10-03`.
-- [ ] T-S10-04 Add or accept a focused regression for AdminPresets: empty filter criteria and translated labels. Dependency: `F-S10-04`.
-- [ ] T-S10-90 Verify AdminPresets public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-S10-91 Verify AdminPresets instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-S10-01 Add or accept a focused regression for AdminPresets: course-named factory and Class compatibility. Dependency: `F-S10-01`.
+- [x] T-S10-02 Add or accept a focused regression for AdminPresets: canonical status options. Dependency: `F-S10-02`.
+- [x] T-S10-03 Add or accept a focused regression for AdminPresets: first-text and last-action visibility locks. Dependency: `F-S10-03`.
+- [x] T-S10-04 Add or accept a focused regression for AdminPresets: empty filter criteria and translated labels. Dependency: `F-S10-04`.
+- [x] T-S10-90 Verify AdminPresets public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-S10-91 Verify AdminPresets instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## S11: InstructorPresets
 
 Scope: [src/components/InstructorDataGridOptions.ts](../../src/components/InstructorDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-S11-01 Add or accept a focused regression for InstructorPresets: course-named factory and Class compatibility. Dependency: `F-S11-01`.
-- [ ] T-S11-02 Add or accept a focused regression for InstructorPresets: canonical status options. Dependency: `F-S11-02`.
-- [ ] T-S11-03 Add or accept a focused regression for InstructorPresets: first-text and last-action visibility locks. Dependency: `F-S11-03`.
-- [ ] T-S11-04 Add or accept a focused regression for InstructorPresets: empty filter criteria and translated labels. Dependency: `F-S11-04`.
-- [ ] T-S11-90 Verify InstructorPresets public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-S11-91 Verify InstructorPresets instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-S11-01 Add or accept a focused regression for InstructorPresets: course-named factory and Class compatibility. Dependency: `F-S11-01`.
+- [x] T-S11-02 Add or accept a focused regression for InstructorPresets: canonical status options. Dependency: `F-S11-02`.
+- [x] T-S11-03 Add or accept a focused regression for InstructorPresets: first-text and last-action visibility locks. Dependency: `F-S11-03`.
+- [x] T-S11-04 Add or accept a focused regression for InstructorPresets: empty filter criteria and translated labels. Dependency: `F-S11-04`.
+- [x] T-S11-90 Verify InstructorPresets public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-S11-91 Verify InstructorPresets instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## S12: GridCells
 
