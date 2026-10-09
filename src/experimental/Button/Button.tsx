@@ -37,7 +37,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       onClickCapture={hasNativeFormAction ? () => {
         if (!loading && !disabled) onPress?.();
       } : undefined}
-      onPress={hasNativeFormAction ? undefined : onPress} className={[styles.root, className].filter(Boolean).join(" ")}
+      onPress={hasNativeFormAction || !onPress ? undefined : () => onPress()} className={[styles.root, className].filter(Boolean).join(" ")}
       data-variant={variant} data-tone={tone} data-sgui-density={density} data-sgui-part="button">
       {loading ? <ProgressBar isIndeterminate className={styles.spinner}
         aria-label={t("common.ui.pending", { defaultMessage: "Pending" })} /> :
