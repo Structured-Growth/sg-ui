@@ -455,19 +455,19 @@ Scope: [src/experimental/Stack](../../src/experimental/Stack). Original scope: `
 
 Scope: [src/experimental/Surface](../../src/experimental/Surface). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P03-01 Add or accept a focused regression for Surface: surface and elevation tokens. Dependency: `F-P03-01`.
-- [ ] T-P03-02 Add or accept a focused regression for Surface: native element and styling. Dependency: `F-P03-02`.
-- [ ] T-P03-90 Verify Surface public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P03-91 Verify Surface instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P03-01 Add or accept a focused regression for Surface: surface and elevation tokens. Dependency: `F-P03-01`.
+- [x] T-P03-02 Add or accept a focused regression for Surface: native element and styling. Dependency: `F-P03-02`.
+- [x] T-P03-90 Verify Surface public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P03-91 Verify Surface instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P04: Card
 
 Scope: [src/experimental/Card](../../src/experimental/Card). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P04-01 Add or accept a focused regression for Card: card and CardContent slots. Dependency: `F-P04-01`.
-- [ ] T-P04-02 Add or accept a focused regression for Card: owned padding and surface. Dependency: `F-P04-02`.
-- [ ] T-P04-90 Verify Card public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-P04-91 Verify Card instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-P04-01 Add or accept a focused regression for Card: card and CardContent slots. Dependency: `F-P04-01`.
+- [x] T-P04-02 Add or accept a focused regression for Card: owned padding and surface. Dependency: `F-P04-02`.
+- [x] T-P04-90 Verify Card public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P04-91 Verify Card instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P05: Divider
 
@@ -491,9 +491,9 @@ Scope: [src/experimental/Typography](../../src/experimental/Typography). Origina
 
 Scope: [src/experimental/Button](../../src/experimental/Button). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
-- [ ] T-P07-01 Add or accept a focused regression for Button: press once and native submit type. Dependency: `F-P07-01`.
+- [x] T-P07-01 Add or accept a focused regression for Button: press once and native submit type. Dependency: `F-P07-01`.
 - [x] T-P07-02 Add or accept a focused regression for Button: variant tone density and pending. Dependency: `F-P07-02`.
-- [ ] T-P07-90 Verify Button public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P07-90 Verify Button public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-P07-91 Verify Button instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P08: IconButton
@@ -502,7 +502,7 @@ Scope: [src/experimental/IconButton](../../src/experimental/IconButton). Origina
 
 - [x] T-P08-01 Add or accept a focused regression for IconButton: accessible name and icon rendering. Dependency: `F-P08-01`.
 - [x] T-P08-02 Add or accept a focused regression for IconButton: press disabled and pending. Dependency: `F-P08-02`.
-- [ ] T-P08-90 Verify IconButton public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P08-90 Verify IconButton public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-P08-91 Verify IconButton instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P09: ButtonGroup
@@ -520,7 +520,7 @@ Scope: [src/experimental/SplitAction](../../src/experimental/SplitAction). Origi
 
 - [x] T-P10-01 Add or accept a focused regression for SplitAction: primary callback and secondary menu. Dependency: `F-P10-01`.
 - [ ] T-P10-02 Add or accept a focused regression for SplitAction: neutral shared-border presentation. Dependency: `F-P10-02`.
-- [ ] T-P10-90 Verify SplitAction public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P10-90 Verify SplitAction public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-P10-91 Verify SplitAction instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P11: TextField
@@ -623,7 +623,7 @@ Scope: [src/experimental/Popover](../../src/experimental/Popover). Original scop
 - [x] T-P20-01 Add or accept a focused regression for Popover: controlled and default open state. Dependency: `F-P20-01`.
 - [x] T-P20-02 Add or accept a focused regression for Popover: trigger focus return and dismissal. Dependency: `F-P20-02`.
 - [x] T-P20-03 Add or accept a focused regression for Popover: scope locale and direction in portal. Dependency: `F-P20-03`.
-- [ ] T-P20-90 Verify Popover public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P20-90 Verify Popover public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-P20-91 Verify Popover instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P21: Tooltip
@@ -684,7 +684,7 @@ Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Origina
 - [x] T-P26-01 Add or accept a focused regression for Navigation: navigation and NavigationItem exports. Dependency: `F-P26-01`.
 - [x] T-P26-02 Add or accept a focused regression for Navigation: selected and expanded item state. Dependency: `F-P26-02`.
 - [ ] T-P26-03 Add or accept a focused regression for Navigation: owned host links and action items. Dependency: `F-P26-03`.
-- [ ] T-P26-90 Verify Navigation public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-P26-90 Verify Navigation public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-P26-91 Verify Navigation instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## P27: List
@@ -914,9 +914,9 @@ Scope: [src/foundation/tokens.json](../../src/foundation/tokens.json). Original 
 - [x] T-S02-01 Add or accept a focused regression for Tokens: palette semantic and component aliases. Dependency: `F-S02-01`.
 - [x] T-S02-02 Add or accept a focused regression for Tokens: typography spacing size and surface scales. Dependency: `F-S02-02`.
 - [x] T-S02-03 Add or accept a focused regression for Tokens: deterministic generated CSS and typed references. Dependency: `F-S02-03`.
-- [ ] T-S02-04 Add or accept a focused regression for Tokens: focus error selected and disabled roles. Dependency: `F-S02-04`.
-- [ ] T-S02-90 Verify Tokens public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
-- [ ] T-S02-91 Verify Tokens instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
+- [x] T-S02-04 Add or accept a focused regression for Tokens: focus error selected and disabled roles. Dependency: `F-S02-04`.
+- [x] T-S02-90 Verify Tokens public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
+- [x] T-S02-91 Verify Tokens instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
 ## S03: CSSPipeline
 
