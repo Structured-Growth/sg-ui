@@ -89,8 +89,8 @@ The original task authorizes one managed worktree here; coordinator adoption own
 selection/preparation of the second reviewed worktree. No automatic rollout is
 implemented. Missing Firefox runtime/profile acceptance stays open without retries.
 
-Next tasks outside this allowlist: coordinator review and opt-in real-browser
-trial after the legacy queue drains; future reviewed migration of heavyweight-only
+Next tasks outside this allowlist: coordinator review and opt-in rollout, with
+sustained contention measurement; future reviewed migration of heavyweight-only
 workers to the separate build lock; any global scheduling/cap increase, workflow
 integration or manual/device/AT evidence. Broad G/U/X/R/Z gates remain open.
 
@@ -118,7 +118,7 @@ directory. An initial root-level dependency symlink was correctly rejected as
 untracked by the clean-head guard before any build or lease acquisition; the
 fixture layout was corrected. No second managed worktree was created.
 
-Runtime: Node 24.21.0, pnpm 10.29.3, Playwright 1.63.0, macOS Darwin 25.0.0. The
+Runtime: Node 24.21.0, pnpm 10.29.3, Playwright 1.63.0, macOS Darwin 27.0.0. The
 Node 24 executable was the installed pnpm Node package's `node/bin/node`; each
 `evidence.json` records its full absolute path and OS/runtime details.
 
