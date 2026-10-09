@@ -228,7 +228,7 @@ async function continuationFixture(dir, { newSpec = false } = {}) {
   return { runtime, request, candidate, original, run, build, audit, paths, bin, write, git, commandsLog: join(dir, 'commands.log'), sourceDigest, hash: async path => createHash('sha256').update(await readFile(path)).digest('hex') };
 }
 
-const continuationOptions = { max: 2, budget: { maxLoad1: 24, maxSystemRSSMiB: 28000 } };
+const continuationOptions = { max: 2, budget: { maxLoad1: 24, maxSystemRSSBytes: 28000 * 1024 * 1024 } };
 
 test('continuation rejects green reruns, tampered/missing pins, illegal source deltas and unsettled cleanup before admission', () => fixture(async dir => {
   const f = await continuationFixture(dir);

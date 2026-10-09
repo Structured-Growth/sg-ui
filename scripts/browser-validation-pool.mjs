@@ -507,7 +507,7 @@ export async function runFrozenContinuation(request, options = {}, fixture = {})
 
 async function runSnapshot(plan, { queueFile = '/tmp/sgui-browser-validation-priority.json', queueOwner, max = 2, firstPort = 6273, output = 'artifacts/browser-pool', budget = {} } = {}, fixture = {}, reuse) {
   validateLimit(max);
-  if (reuse && (max > 8 || budget.maxLoad1 !== 24 || budget.maxSystemRSSMiB !== 28000 || Object.keys(budget).some(key => !['maxLoad1', 'maxSystemRSSMiB'].includes(key)))) throw new Error('Continuation requires max <= 8, load 24 and RSS 28000 MiB');
+  if (reuse && (max > 8 || budget.maxLoad1 !== 24 || budget.maxSystemRSSBytes !== 28000 * 1024 * 1024 || Object.keys(budget).some(key => !['maxLoad1', 'maxSystemRSSBytes'].includes(key)))) throw new Error('Continuation requires max <= 8, load 24 and RSS 28000 MiB');
   validateBudget(budget);
   if (!fixture.queueFile && queueFile !== '/tmp/sgui-browser-validation-priority.json') throw new Error('Use the existing legacy priority queue; substitute queues are forbidden');
   if (queueOwner && !/^[a-f0-9-]{36}$/.test(queueOwner)) throw new Error('Queue owner must be an exact chat ID');

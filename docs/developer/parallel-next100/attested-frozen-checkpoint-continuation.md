@@ -20,7 +20,7 @@ node scripts/run-development-checkpoint.mjs continue /absolute/reviewed-config.j
 
 The config has exactly `request` and `poolOptions`. Options permit the existing
 queue/owner/port controls, `max` at most eight, and exactly the unchanged budget
-`{ "maxLoad1": 24, "maxSystemRSSMiB": 28000 }`. Output is fixed to ignored
+`{ "maxLoad1": 24, "maxSystemRSSBytes": 29360128000 }`. Output is fixed to ignored
 `artifacts/browser-continuation` within the candidate checkout. Production uses
 canonical queue, bridge, four light slots, browser slots and owned command/server
 settlement. The existing fixture-only third argument isolates resource paths in
