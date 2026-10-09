@@ -505,6 +505,15 @@ export async function runFrozenContinuation(request, options = {}, fixture = {})
   return runSnapshot(reuse.plan, options, fixture, reuse);
 }
 
+// Fresh authentication is mandatory even when Node fixtures isolate resources.
+export async function runRetainedSnapshotFreshProof(request, options = {}, fixture = {}) {
+  exactKeys(options, ['queueFile', 'queueOwner', 'max', 'firstPort', 'budget']);
+  if (process.versions.node.split('.')[0] !== '24') throw new Error('Fresh proof requires Node 24');
+  const { prepareRetainedSnapshotFreshProof } = await import('./run-development-checkpoint.mjs');
+  const reuse = await prepareRetainedSnapshotFreshProof(request);
+  return runSnapshot(reuse.plan, { ...options, output: 'artifacts/retained-snapshot-fresh-proof' }, fixture, reuse);
+}
+
 async function runSnapshot(plan, { queueFile = '/tmp/sgui-browser-validation-priority.json', queueOwner, max = 2, firstPort = 6273, output = 'artifacts/browser-pool', budget = {} } = {}, fixture = {}, reuse) {
   validateLimit(max);
   if (reuse && (max > 8 || budget.maxLoad1 !== 24 || budget.maxSystemRSSBytes !== 28000 * 1024 * 1024 || Object.keys(budget).some(key => !['maxLoad1', 'maxSystemRSSBytes'].includes(key)))) throw new Error('Continuation requires max <= 8, load 24 and RSS 28000 MiB');
@@ -546,7 +555,7 @@ async function runSnapshot(plan, { queueFile = '/tmp/sgui-browser-validation-pri
     run = join(parent, randomUUID()); await mkdir(run);
     await writeFile(join(run, 'owner'), owner, { flag: 'wx' }); // Retained evidence/output ownership.
     const build = reuse ? reuse.build : join(run, 'storybook');
-    evidence = { mode: reuse ? 'continuation' : 'snapshot', continuation: reuse?.attestation, owner, queueOwner, worktree, head, sourceTree: git(worktree, 'rev-parse', 'HEAD^{tree}'),
+    evidence = { mode: reuse?.mode ?? (reuse ? 'continuation' : 'snapshot'), continuation: reuse?.mode ? undefined : reuse?.attestation, freshProof: reuse?.mode ? reuse.attestation : undefined, owner, queueOwner, worktree, head, sourceTree: git(worktree, 'rev-parse', 'HEAD^{tree}'),
       sourceDigest: prepared.sourceDigest, max, firstPort, budget, build, startedAt: new Date().toISOString(), node: process.version,
       nodeExecutable: process.execPath, platform: platform(), osRelease: release(), commands: [], sessions: [], status: 'running',
       packageLockDigest: createHash('sha256').update(await readFile(join(worktree, 'pnpm-lock.yaml'))).digest('hex'),
@@ -663,10 +672,18 @@ async function runSnapshot(plan, { queueFile = '/tmp/sgui-browser-validation-pri
             evidence.finalBuildDigest = await digestTree(evidence.build);
             if (evidence.finalBuildDigest !== evidence.buildDigest) throw new Error('Static build changed during validation');
           }
-          if (reuse) evidence.continuationFinal = await reuse.check();
+          if (reuse?.mode) evidence.freshProofFinal = await reuse.check();
+          else if (reuse) evidence.continuationFinal = await reuse.check();
           if (evidence.integrityError) throw new Error(evidence.integrityError);
           if (evidence.resourceError) throw new Error(evidence.resourceError);
         } catch (error) { evidence.status = 'failed'; evidence.integrityError = error.message; }
+        if (reuse?.mode) {
+          evidence.freshArtifactHashes = {};
+          for (const name of ['types.log', 'types.log.resources.json']) {
+            try { evidence.freshArtifactHashes[name] = createHash('sha256').update(await readFile(join(run, name))).digest('hex'); }
+            catch (error) { if (error.code !== 'ENOENT') throw error; evidence.freshArtifactHashes[name] = null; }
+          }
+        }
         evidence.resourcesAfter = await sampleResources();
         evidence.cleanup = unsettled ? 'leases retained: owned command unsettled' : 'owned commands settled';
         evidence.finishedAt = new Date().toISOString();
