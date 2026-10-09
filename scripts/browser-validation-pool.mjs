@@ -624,7 +624,17 @@ async function runSnapshot(plan, { queueFile = '/tmp/sgui-browser-validation-pri
             if (reuse) reuse.assertCases(shard.id, item.cases);
             item.count = item.cases.length; item.status = 'passed';
           } catch (error) { item.status = 'failed'; item.error = error.message; throw error; }
-          finally { item.finishedAt = new Date().toISOString(); await writeFile(join(session, 'evidence.json'), JSON.stringify(item, null, 2)); }
+          finally {
+            item.finishedAt = new Date().toISOString();
+            if (reuse) {
+              item.artifactHashes = {};
+              for (const name of ['owner', 'results.json', 'browser.log', 'browser.log.resources.json']) {
+                try { item.artifactHashes[name] = createHash('sha256').update(await readFile(join(session, name))).digest('hex'); }
+                catch (error) { if (error.code !== 'ENOENT') throw error; item.artifactHashes[name] = null; }
+              }
+            }
+            await writeFile(join(session, 'evidence.json'), JSON.stringify(item, null, 2));
+          }
         }));
         if (outcomes.some(result => result.status === 'rejected')) failed = true;
       } finally {
@@ -653,6 +663,7 @@ async function runSnapshot(plan, { queueFile = '/tmp/sgui-browser-validation-pri
             evidence.finalBuildDigest = await digestTree(evidence.build);
             if (evidence.finalBuildDigest !== evidence.buildDigest) throw new Error('Static build changed during validation');
           }
+          if (reuse) evidence.continuationFinal = await reuse.check();
           if (evidence.integrityError) throw new Error(evidence.integrityError);
           if (evidence.resourceError) throw new Error(evidence.resourceError);
         } catch (error) { evidence.status = 'failed'; evidence.integrityError = error.message; }

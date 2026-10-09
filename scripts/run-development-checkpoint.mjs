@@ -7,7 +7,7 @@ import {
   acquireLease, acquireInstallSlot, releaseLease, assertQueueDrained,
   LEGACY_LOCK, HEAVY_LOCK, runOwnedCommand, sampleResources, assertBudget,
   validateBudget, assertSource, sourceDigest, digestTree, ownedPath,
-  prepareSnapshot, runFrozenSnapshot, runFrozenContinuation, snapshotCases, assertPortFree,
+  prepareSnapshot, runFrozenSnapshot, runFrozenContinuation, snapshotCases, assertPortFree, validateCaseFilter,
 } from './browser-validation-pool.mjs';
 
 const json = async path => JSON.parse(await readFile(path, 'utf8'));
@@ -276,11 +276,13 @@ export async function prepareFrozenContinuation(request) {
   const checkStage = (daily.commands ?? daily.stages)?.find(row => row.id === 'check');
   if (checkStage?.status !== 'passed' || checkStage.holds?.length) throw new Error('Original check prerequisite failed');
   await passReceipt(checkStage.log);
+  const originalPlan = await json(request.original.planPath);
+  if (!Array.isArray(pool.sessions) || new Set(pool.sessions.map(row => row.id)).size !== pool.sessions.length || pool.sessions.some(row => !originalPlan.shards.some(shard => shard.id === row.id))) throw new Error('Unknown or duplicate original session claims');
   const accepted = new Set();
   for (const row of manifest.shards) {
     for (const key of Object.keys(row.hashes)) await verify(row.paths[key]);
     const session = pool.sessions?.find(item => item.id === row.id);
-    if (row.ownerToken && row.ownerToken !== `${pool.owner}:${row.id}`) throw new Error('Original shard owner mismatch');
+    if ((session || row.ownerToken) && row.ownerToken !== `${pool.owner}:${row.id}`) throw new Error('Original shard owner mismatch');
     if (session && (JSON.stringify(session.specs) !== JSON.stringify(row.specs) || JSON.stringify(session.project) !== JSON.stringify(row.project) || (session.grep ?? null) !== (row.grep ?? null))) throw new Error('Original shard selection mismatch');
     if (row.status === 'accepted-green') {
       if (!session || session.status !== 'passed' || session.count !== (await json(row.paths.evidence)).count || JSON.stringify(session.cases) !== JSON.stringify((await json(row.paths.evidence)).cases) || row.buildDigest !== pool.buildDigest) throw new Error('Original green aggregate mismatch');
@@ -358,17 +360,23 @@ export async function prepareFrozenContinuation(request) {
     }
     const cases = request.expectedCases[shard.id];
     if (!Array.isArray(cases) || !cases.length) throw new Error('Reviewed expected case inventory required');
+    const regex = shard.grep === undefined ? undefined : validateCaseFilter(shard.grep);
+    const covered = new Set(), ids = new Set();
     for (const row of cases) {
       strict(row, ['file', 'id', 'project', 'title']);
       if (![row.file, row.id, row.project, row.title].every(value => typeof value === 'string' && value) || !shard.specs.includes(row.file) || !(Array.isArray(shard.project) ? shard.project : [shard.project]).includes(row.project) || accepted.has(caseKey(row)) || planned.has(caseKey(row))) throw new Error('Duplicate/invalid accepted case inventory');
+      if (regex && !regex.test(` ${row.title}`) || ids.has(JSON.stringify([row.file, row.id, row.project]))) throw new Error('Out-of-selection/duplicate case inventory');
+      ids.add(JSON.stringify([row.file, row.id, row.project])); covered.add(JSON.stringify([row.file, row.project]));
       planned.add(caseKey(row));
     }
+    if (shard.specs.some(file => (Array.isArray(shard.project) ? shard.project : [shard.project]).some(project => !covered.has(JSON.stringify([file, project]))))) throw new Error('Missing file/project case inventory');
   }
   if (used.size !== pins.size) throw new Error('Unknown unused evidence pins');
   const check = async () => {
     assertSource(manifest.worktree, manifest.head); assertSource(worktree, head);
     if (await sourceDigest(manifest.worktree) !== manifest.sourceDigest || await sourceDigest(worktree) !== request.candidate.sourceDigest || await digestTree(pool.build) !== pool.buildDigest) throw new Error('Continuation source/build mutated');
     for (const path of used) await verify(path);
+    return { originalHead: manifest.head, originalSourceDigest: await sourceDigest(manifest.worktree), candidateHead: head, candidateSourceDigest: await sourceDigest(worktree), buildDigest: await digestTree(pool.build) };
   };
   await check();
   // Recheck historical ownership without signaling or assuming old ESRCH persists.

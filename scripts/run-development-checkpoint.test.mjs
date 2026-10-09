@@ -274,6 +274,8 @@ test('production continuation reuses immutable bytes without build/types and rej
   assert.equal(evidence.buildCommands, 0); assert.equal(evidence.typecheckCount, 0); assert.equal(evidence.passedCases, 1);
   assert.equal(evidence.continuation.originalCounts.acceptedGreen, 1); assert.equal(evidence.cleanup, 'owned commands settled');
   assert.equal(await f.hash(join(f.build, 'iframe.html')), before);
+  assert.equal(evidence.continuationFinal.originalHead, evidence.continuation.originalHead);
+  assert.equal(evidence.sessions[0].artifactHashes['browser.log.resources.json'], await f.hash(join(run, 'unrun/browser.log.resources.json')));
   const commands = (await readFile(f.commandsLog, 'utf8')).trim().split('\n').map(JSON.parse);
   assert.equal(commands.length, 1); assert.equal(commands[0][1], 'playwright');
   const receipt = JSON.parse(await readFile(join(run, 'unrun/browser.log.resources.json'))); assert.equal(receipt.settled, true);
