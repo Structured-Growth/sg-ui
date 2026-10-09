@@ -221,7 +221,7 @@ Scope: [src/components/LearnerClassesDataGrid](../../src/components/LearnerClass
 - [x] T-C19-02 Add or accept a focused regression for LearnerClassesDataGrid: localized due-date/fallback, course-name link and Details/Continue action columns. Dependency: `F-C19-02`.
 - [x] T-C19-03 Add or accept a focused regression for LearnerClassesDataGrid: host row and action callbacks. Dependency: `F-C19-03`.
 - [x] T-C19-04 Add or accept a focused regression for LearnerClassesDataGrid: shared filtering selection and pagination. Dependency: `F-C19-04`.
-- [ ] T-C19-05 Add or accept a focused regression for LearnerClassesDataGrid: public LearnerClassesDataGridProps export. Dependency: `F-C19-05`.
+- [x] T-C19-05 Add or accept a focused regression for LearnerClassesDataGrid: public LearnerClassesDataGridProps export. Dependency: `F-C19-05`.
 - [x] T-C19-90 Verify LearnerClassesDataGrid public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-C19-91 Verify LearnerClassesDataGrid instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
 
@@ -944,7 +944,7 @@ Scope: [src/adapters/navigation.tsx](../../src/adapters/navigation.tsx). Origina
 Scope: [src/adapters/accounts.tsx](../../src/adapters/accounts.tsx). Original scope: `H-04 H-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S05-01 Add or accept a focused regression for AccountAdapter: organization and logout host callbacks. Dependency: `F-S05-01`.
-- [ ] T-S05-02 Add or accept a focused regression for AccountAdapter: pending state and duplicate request guard. Dependency: `F-S05-02`.
+- [x] T-S05-02 Add or accept a focused regression for AccountAdapter integration: the host/composed action owner presents pending state and guards repeated actions while preserving independent adapter requests. Dependency: `F-S05-02`.
 - [x] T-S05-03 Add or accept a focused regression for AccountAdapter: error delivery and result lifetime. Dependency: `F-S05-03`.
 - [x] T-S05-90 Verify AccountAdapter public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-S05-91 Verify AccountAdapter instance isolation and lifecycle behavior where state/resources exist; for pure utilities verify repeated deterministic calls.
@@ -1082,6 +1082,6 @@ Scope: [src/models.ts](../../src/models.ts). Original scope: `A-14 E-09 E-10` in
 
 - [x] T-S18-01 Add or accept a focused regression for Models: course terminology for new models. Dependency: `F-S18-01`.
 - [x] T-S18-02 Add or accept a focused regression for Models: class compatibility exports. Dependency: `F-S18-02`.
-- [ ] T-S18-03 Add or accept a focused regression for Models: presentation-only data independent of HTTP contracts. Dependency: `F-S18-03`.
+- [x] T-S18-03 Add or accept a focused regression for Models: presentation-only data independent of HTTP contracts. Dependency: `F-S18-03`.
 - [x] T-S18-90 Verify Models public contract in a consuming composition or typed fixture; cover the exposed callback/ref/value shape rather than private internals.
 - [x] T-S18-91 Accept or add the minimal smoke evidence for Models; record remaining bugs without making expanded coverage a baseline gate. Dependency: `F-S18-91`.
