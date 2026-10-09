@@ -2,7 +2,7 @@ import { expect, it } from "vitest";
 import {
   dateTimeToInstant, isDateOnly, isDateRangeAllowed,
   type DateOnly, type DateRange, type DateAvailability, type DateRangePreset,
-} from "../index";
+} from "./date-contract";
 
 it("keeps public civil values JSON serializable and utility calls deterministic across host policies", () => {
   const date: DateOnly = "2024-02-29";

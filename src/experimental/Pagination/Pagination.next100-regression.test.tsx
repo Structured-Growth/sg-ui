@@ -3,7 +3,8 @@ import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createRef, useState } from "react";
-import { Pagination, type PaginationProps, ThemeScope } from "../index";
+import { Pagination, type PaginationProps } from "./Pagination";
+import { ThemeScope } from "../Provider/Provider";
 import { formatIcuMessage, SGTranslationProvider, type SGTranslationAdapter } from "../../i18n";
 
 afterEach(cleanup);
