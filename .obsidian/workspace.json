@@ -1,0 +1,239 @@
+{
+  "main": {
+    "id": "55c02c90766232dc",
+    "type": "split",
+    "children": [
+      {
+        "id": "f3a95faf642347b8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5b7a1db0201f19f4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/developer/react-aria-master-task-list.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "react-aria-master-task-list"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bfb3167d941853ed",
+    "type": "split",
+    "children": [
+      {
+        "id": "8242c41a4f5260cd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "34eab441492f7294",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "657847ea70656ec0",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "3f0a50a30410f443",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9af2c62a3d28103c",
+    "type": "split",
+    "children": [
+      {
+        "id": "f6d8ad651179e338",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5e0608b7a00ac274",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "THIRD_PARTY_NOTICES.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "abb558cd24862088",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "THIRD_PARTY_NOTICES.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "a40a7d919f713e54",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f075a84433a6169a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "5d05e460d2bd00b5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "THIRD_PARTY_NOTICES.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "5b7a1db0201f19f4",
+  "lastOpenFiles": [
+    "artifacts/browser-traces/reorder-touchscreen-non-dr-149ab-ck-with-trusted-touch-input-webkit",
+    "artifacts/browser-traces/reorder-first-native-point-70dc9-estores-source-handle-focus-webkit",
+    "artifacts/browser-traces/reorder-first-native-point-6be68-estores-source-handle-focus-webkit",
+    "artifacts/browser-traces/editor-rich-document-rich--adb63-t-reload-and-read-only-dark-webkit",
+    "artifacts/browser-traces/editor-rich-document-rich--ff14a--reload-and-read-only-light-webkit",
+    "artifacts/browser-traces/editor-image-lifecycle-loc-a4eeb-e-and-document-cleanup-dark-webkit",
+    "artifacts/browser-traces/editor-image-lifecycle-loc-721c6--and-document-cleanup-light-webkit",
+    "artifacts/browser-traces/editor-clipboard-native-ri-f4268-and-ordinary-shortcuts-dark-webkit",
+    "artifacts/browser-traces/editor-clipboard-native-mu-6364f-ion-and-read-only-copy-dark-webkit",
+    "artifacts/browser-traces/editor-clipboard-native-ri-c0491-nd-ordinary-shortcuts-light-webkit",
+    "artifacts/browser-traces/editor-clipboard-native-mu-bd277-on-and-read-only-copy-light-webkit",
+    "artifacts/browser-report/trace/playwright-logo.svg",
+    "artifacts/browser-report/data/304e6f157b80f04ca43a632c1743275682d7c46d.md",
+    "artifacts/browser-report/data/a23dc83d93dd7975bb405ca42cce27586a2d813c.png",
+    "artifacts/browser-report/data/4ba6a646bb9701caff90b571e0d48368391fad6c.md",
+    "artifacts/browser-report/data/42a771bc0a8a18a7ac64b4be255bc7cfab8888ba.png",
+    "artifacts/browser-report/data/7d89e01f5f714db6ffb6ecaca84b218bbfb942d0.md",
+    "artifacts/browser-report/data/40443000ae4fd94d75620b2d9eff80f3fceca650.png",
+    "artifacts/browser-report/data/0be7197aa0b669c0ed049e4d0899c8aafe764e87.md",
+    "artifacts/browser-report/data/0bd8cdce00294a48dfaf65cb90bc853892a185c9.png",
+    "artifacts/browser-traces/image-upload-validation-im-69632-before-host-submission-dark-webkit/error-context.md",
+    "artifacts/browser-traces/image-upload-validation-im-69632-before-host-submission-dark-webkit/test-failed-1.png",
+    "artifacts/browser-traces/image-upload-validation-im-3ace4-efore-host-submission-light-webkit/error-context.md",
+    "artifacts/browser-traces/image-upload-validation-im-3ace4-efore-host-submission-light-webkit/test-failed-1.png",
+    "docs/developer/parallel-migration-batches.md",
+    "artifacts/browser-traces/image-upload-validation-im-69632-before-host-submission-dark-chromium/error-context.md",
+    "artifacts/browser-traces/image-upload-validation-im-69632-before-host-submission-dark-chromium/test-failed-1.png",
+    "artifacts/browser-traces/image-upload-validation-im-3ace4-efore-host-submission-light-chromium/error-context.md",
+    "artifacts/browser-traces/image-upload-validation-im-3ace4-efore-host-submission-light-chromium/test-failed-1.png",
+    "storybook-static/sb-common-assets/favicon.svg",
+    "AGENTS.md",
+    "THIRD_PARTY_NOTICES.md",
+    "README.md",
+    "artifacts/browser-traces/reorder-multiple-selection-c8b3f-without-emitting-host-moves-chromium/error-context.md",
+    "docs/developer/react-aria-master-task-list.md",
+    "artifacts/browser-report/data/59e2cc15cdf17c4d5cdea7f9b790226f5aed1e5f.md",
+    "artifacts/browser-traces/reorder-native-mouse-drag-requests-a-host-reorder-chromium/error-context.md",
+    "artifacts/browser-report/data/7f156b27e670758f3a6f9602087c006bd1ce9ba2.md",
+    "artifacts/browser-report/data/a2d9023b2b2a27fcd37f3a3f9689025ebfaed3a6.md",
+    "artifacts/browser-traces/reorder-native-mouse-drag-requests-a-host-reorder-webkit/error-context.md",
+    "artifacts/browser-report/data/020bfb6b8bfd5d766bab05550a807c57d6d5b4f9.md",
+    "artifacts/browser-report/data/793b0ceacf606fc41ef47ddf030b24fc9c4d1619.md",
+    "artifacts/browser-report/data/3f981743b96b7269a59678a382b3113e6957679e.md",
+    "docs/developer/component-architecture.md",
+    "docs/migration.md"
+  ]
+}
