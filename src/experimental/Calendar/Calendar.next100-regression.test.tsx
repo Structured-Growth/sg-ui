@@ -22,9 +22,9 @@ it("rejects dates outside min/max and unavailable dates while accepting both inc
     await user.click(day);
   }
   expect(change).not.toHaveBeenCalled();
-  await user.click(screen.getByRole("button", { name: "Wednesday, February 14, 2024" }));
+  await user.click(screen.getByRole("button", { name: "Wednesday, February 14, 2024, First available date" }));
   expect(change).toHaveBeenLastCalledWith("2024-02-14");
-  await user.click(screen.getByRole("button", { name: "Friday, February 16, 2024" }));
+  await user.click(screen.getByRole("button", { name: "Friday, February 16, 2024, Last available date" }));
   expect(change).toHaveBeenLastCalledWith("2024-02-16");
   expect(change).toHaveBeenCalledTimes(2);
 });
