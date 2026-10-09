@@ -2,7 +2,8 @@
 import { createRef } from "react";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, expect, it, vi } from "vitest";
-import { Provider, Surface, type SurfaceProps } from "../index";
+import { Surface, type SurfaceProps } from "./Surface";
+import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);
 

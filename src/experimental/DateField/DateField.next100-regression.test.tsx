@@ -3,7 +3,7 @@ import { createRef } from "react";
 import { afterEach, expect, it, vi } from "vitest";
 import { act, cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { DateField } from "../index";
+import { DateField } from "./DateField";
 import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);

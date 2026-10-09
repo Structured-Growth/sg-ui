@@ -3,7 +3,7 @@ import { createRef } from "react";
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, expect, it, vi } from "vitest";
 import { SGNavigationProvider } from "../../adapters/navigation";
-import { Breadcrumbs, type BreadcrumbItem, type BreadcrumbsProps } from "../index";
+import { Breadcrumbs, type BreadcrumbItem, type BreadcrumbsProps } from "./Breadcrumbs";
 import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);

@@ -2,7 +2,8 @@
 import { createRef } from "react";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, expect, it, vi } from "vitest";
-import { Card, CardContent, Provider, type CardProps, type CardContentProps } from "../index";
+import { Card, CardContent, type CardProps, type CardContentProps } from "./Card";
+import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);
 
