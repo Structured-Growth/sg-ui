@@ -35,7 +35,7 @@ it("isolates multiline drafts, callbacks and resets across consuming forms", asy
   expect(firstChange).not.toHaveBeenCalled(); expect(secondChange).not.toHaveBeenCalled();
 });
 
-it("follows form reassociation and discards a queued reset across unmount/remount", () => {
+it("follows form reassociation without allowing the old form to reset its draft", () => {
   vi.useFakeTimers();
   const change = vi.fn(); const ref = createRef<HTMLTextAreaElement>();
   const view = (form: string, mounted = true) => <Provider>
@@ -53,12 +53,22 @@ it("follows form reassociation and discards a queued reset across unmount/remoun
   act(() => { (document.getElementById("new-owner") as HTMLFormElement).reset(); vi.runOnlyPendingTimers(); });
   expect(ref.current?.value).toBe("Saved\nsummary");
   expect(change).not.toHaveBeenCalled();
+});
+
+it("discards a queued reset across unmount/remount", () => {
+  vi.useFakeTimers();
+  const change = vi.fn(); const ref = createRef<HTMLTextAreaElement>();
+  const view = (mounted = true) => <Provider>
+    <form id="new-owner" />
+    {mounted && <TextArea ref={ref} label="Summary" form="new-owner" defaultValue={"Saved\nsummary"} onValueChange={change} />}
+  </Provider>;
+  const { rerender } = render(view());
   fireEvent.change(ref.current!, { target: { value: "Discarded draft" } });
   change.mockClear();
   act(() => { (document.getElementById("new-owner") as HTMLFormElement).reset(); });
-  rerender(view("new-owner", false));
+  rerender(view(false));
   expect(ref.current).toBeNull();
-  rerender(view("new-owner"));
+  rerender(view());
   fireEvent.change(ref.current!, { target: { value: "Fresh\ndraft" } });
   change.mockClear();
   act(() => { vi.runOnlyPendingTimers(); });
