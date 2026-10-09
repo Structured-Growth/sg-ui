@@ -41,6 +41,33 @@ export const TextReflow: Story = { render: () => <Preview tabs />, parameters: {
 
 export const ActionFocus: Story = { render: () => <Preview tabs autoFocusAction /> };
 
+function ContainerBoundaryPreview() {
+  const [open, setOpen] = useState<"narrow" | "wide" | null>(null);
+  const [width, setWidth] = useState(360);
+  const [tab, setTab] = useState("details");
+  return <Provider>
+    <AppButton onPress={() => { setWidth(360); setOpen("narrow"); }}>Open narrow surface</AppButton>
+    <AppButton onPress={() => { setWidth(800); setOpen("wide"); }}>Open wide surface</AppButton>
+    <p>These independent dialogs portal into the overlay. Their actual surface widths, rather than the opener layout or viewport, select the footer arrangement.</p>
+    {(["narrow", "wide"] as const).map(kind => <AppModal key={kind} open={open === kind}
+      title={`${kind === "narrow" ? "Narrow" : "Wide"} surface settings`} subtitle="Resize this surface while keeping the viewport wide"
+      size="md" width={width} height={560} showCloseButton onClose={() => setOpen(null)}
+      steps={{ current: 2, total: 3, label: "Step 2 of 3: Review course settings" }}
+      secondaryAction={{ label: "Cancel changes", onPress: () => setOpen(null) }}
+      primaryAction={{ label: "Save course settings" }}>
+      <AppButton onPress={() => setWidth(value => value === 360 ? 800 : 360)}>Toggle surface width</AppButton>
+      <AppPageTabs label="Surface sections" value={tab} onChange={setTab} items={[
+        { id: "details", label: "Details", content: <>{Array.from({ length: 20 }, (_, index) =>
+          <TextField key={index} label={`Surface field ${index + 1}`} autoFocus={index === 0} />)}</> },
+        { id: "access", label: "Access", content: <TextField label="Surface permission" /> },
+      ]} />
+    </AppModal>)}
+  </Provider>;
+}
+
+export const ContainerBoundary: Story = { render: () => <ContainerBoundaryPreview />,
+  parameters: { docs: { description: { story: "C-08: At a wide viewport, open each independent 360px/800px portaled surface sequentially. Toggle width without remounting; below 30rem the step precedes full-width stacked actions. Check tab-panel scrolling, whole-dialog fallback with enlarged text, and initial/return keyboard focus." } } } };
+
 function NestedOverlaysPreview() {
   const [open, setOpen] = useState(false);
   const [childOpen, setChildOpen] = useState(false);

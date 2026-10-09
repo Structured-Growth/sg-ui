@@ -61,7 +61,7 @@ export const AppModal = forwardRef<HTMLElement, AppModalProps>(function AppModal
   return <Dialog ref={ref} open={open} title={title} aria-label={label ?? (headerContent ? title : undefined)} description={subtitle}
     header={headerContent} footer={footer} size={size} onDismiss={reason => onClose?.(reason)}
     dismissOnEscape={!disableEscapeKeyDown} dismissOnOutside={!disableBackdropClose} showCloseButton={showCloseButton}
-    className={className} bodyClassName={[styles.body, bodyClassName].filter(Boolean).join(" ")} bodyStyle={bodyStyle}
+    className={[styles.root, className].filter(Boolean).join(" ")} bodyClassName={[styles.body, bodyClassName].filter(Boolean).join(" ")} bodyStyle={bodyStyle}
     surfaceStyle={{ ...(width !== undefined ? { width, maxWidth: "calc(100vw - 2rem)" } : {}), ...(resolvedHeight !== undefined ? { height: resolvedHeight } : {}), ...style }}>
     {children}
   </Dialog>;

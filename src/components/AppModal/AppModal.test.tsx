@@ -10,6 +10,7 @@ import { AppPageTabs } from "../AppPageTabs";
 import { TextField } from "../../experimental/TextField/TextField";
 import { Popover } from "../../experimental/Popover/Popover";
 import { Provider } from "../../experimental/Provider/Provider";
+import styles from "./AppModal.module.css";
 afterEach(cleanup);
 function Fixture({ close, locked = false }: {close: (reason: AppModalCloseReason) => void; locked?: boolean}) {
   const [open,setOpen] = useState(false); const [tab,setTab] = useState("details");
@@ -34,6 +35,36 @@ function NestedModalFixture({ close }: { close: (reason: string) => void }) {
   </Provider>;
 }
 describe("AppModal owned contract", () => {
+  it("keeps the owned dialog boundary and consumer slots through a live surface resize", async () => {
+    const ref = createRef<HTMLElement>();
+    const modal = (width: number) => <Provider><AppModal ref={ref} open title="Local surface"
+      className="consumer-dialog" bodyClassName="consumer-body" width={width} height={560}
+      style={{ borderRadius: 12 }} bodyStyle={{ paddingInline: 8 }} steps={{ current: 2, total: 3 }}
+      primaryAction={{ label: "Save settings" }} secondaryAction={{ label: "Cancel settings" }}>
+      <TextField label="Local name" autoFocus />
+    </AppModal></Provider>;
+    const { rerender } = render(modal(360));
+    const dialog = screen.getByRole("dialog", { name: "Local surface" });
+    const field = screen.getByRole("textbox", { name: "Local name" });
+    await waitFor(() => expect(document.activeElement).toBe(field));
+    expect(ref.current).toBe(dialog);
+    expect(dialog.classList.contains(styles.root)).toBe(true);
+    expect(dialog.classList.contains("consumer-dialog")).toBe(true);
+    const surface = dialog.closest('[data-sgui-part="dialog-surface"]') as HTMLElement;
+    expect(surface.style.width).toBe("360px");
+    expect(surface.style.height).toBe("560px");
+    expect(surface.style.borderRadius).toBe("12px");
+    const body = dialog.querySelector('[data-sgui-part="dialog-body"]') as HTMLElement;
+    expect(body.classList.contains("consumer-body")).toBe(true);
+    expect(body.style.paddingInline).toBe("8px");
+    rerender(modal(800));
+    expect(ref.current).toBe(dialog);
+    expect(surface.style.width).toBe("800px");
+    expect(document.activeElement).toBe(field);
+    expect(screen.getByText("Step 2 of 3")).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Save settings" })).toBeTruthy();
+    expect(screen.getByRole("button", { name: "Cancel settings" })).toBeTruthy();
+  });
   it("preserves a host-selected parent destination when a removed child opener dismisses", async () => {
     function RemovedTriggerFixture() {
       const [open, setOpen] = useState(false);
