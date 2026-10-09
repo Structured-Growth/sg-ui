@@ -14,7 +14,7 @@ it("isolates date drafts and form resets through sibling unmount and fresh remou
   const secondChange = vi.fn();
   const firstRef = createRef<HTMLDivElement>();
   const secondRef = createRef<HTMLDivElement>();
-  const content = (showFirst: boolean) => <Provider locale="en-US">
+  const content = (showFirst: boolean) => <Provider>
     {showFirst && <form aria-label="First date form">
       <DateField ref={firstRef} label="First date" name="date" defaultValue="2024-02-28" onValueChange={firstChange} />
     </form>}
