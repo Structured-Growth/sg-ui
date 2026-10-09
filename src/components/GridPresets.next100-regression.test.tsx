@@ -1,9 +1,9 @@
 // @vitest-environment jsdom
 
-import { render, screen } from "@testing-library/react";
+import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useState } from "react";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import {
   adminClassesColumnOptions, adminClassesFilterFields, adminClassesSortOptions,
   adminPeopleColumnOptions, adminPeopleSortOptions,
@@ -14,6 +14,8 @@ import {
   instructorClassLearnersFilterFields, instructorClassLearnersSortOptions,
 } from "../index";
 import { Provider } from "../theme";
+
+afterEach(cleanup);
 
 describe("public catalog preset compatibility", () => {
   it("preserves admin Class and people English defaults through the root entry", () => {
