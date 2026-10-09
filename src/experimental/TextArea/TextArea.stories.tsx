@@ -38,3 +38,32 @@ function NativeResetExample() {
     <output aria-label="Value changes">{changes}</output>
   </Stack>;
 }
+
+/** The host changes form ownership while preserving the mounted fields. */
+export const FormReassociation: Story = { render: () => <FormReassociationExample /> };
+function FormReassociationExample() {
+  const [owner, setOwner] = useState("textarea-original-owner");
+  const [latestDefault, setLatestDefault] = useState("Original\nsummary");
+  const [preventReset, setPreventReset] = useState(false);
+  const [controlledValue, setControlledValue] = useState("Host-owned summary");
+  const [changes, setChanges] = useState<string[]>([]);
+  return <Stack gap={3}>
+    <form id="textarea-original-owner" aria-label="Original summary form">
+      <Button type="reset">Reset original form</Button>
+    </form>
+    <form id="textarea-current-owner" aria-label="Current summary form"
+      onReset={event => { if (preventReset) event.preventDefault(); }}>
+      <Button type="reset">Reset current form</Button>
+    </form>
+    <TextArea form={owner} label="Reassociated draft" name="summary" defaultValue={latestDefault}
+      onValueChange={next => setChanges(previous => [...previous, `draft:${next}`])} />
+    <TextArea form={owner} label="Reassociated controlled summary" name="controlledSummary"
+      value={controlledValue}
+      onValueChange={next => setChanges(previous => [...previous, `controlled:${next}`])} />
+    <Button onPress={() => setOwner("textarea-current-owner")}>Move fields to current form</Button>
+    <Button onPress={() => setLatestDefault("Latest\nsummary")}>Replace reassociated default</Button>
+    <Button onPress={() => setControlledValue("Updated host summary")}>Replace controlled summary</Button>
+    <Checkbox label="Cancel current form reset" checked={preventReset} onCheckedChange={setPreventReset} />
+    <output aria-label="Reassociation change requests">{JSON.stringify(changes)}</output>
+  </Stack>;
+}

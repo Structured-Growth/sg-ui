@@ -55,3 +55,17 @@ function NativeFormTransitionsExample() {
     <output aria-label="Button events">{events.join(" | ") || "No events"}</output>
   </div>;
 }
+
+/** Reports the host-observed callback shape for native activation. */
+export const OwnedPressArguments: Story = {
+  render: () => <OwnedPressArgumentsExample />,
+};
+function OwnedPressArgumentsExample() {
+  const [argumentCounts, setArgumentCounts] = useState<number[]>([]);
+  return <div>
+    <Button onPress={(...args: unknown[]) => setArgumentCounts(previous => [...previous, args.length])}>
+      Record owned press
+    </Button>
+    <output aria-label="Press argument counts">{JSON.stringify(argumentCounts)}</output>
+  </div>;
+}
