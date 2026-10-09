@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { compileTokens } from '../../scripts/tokens.mjs';
+import { tokens, tokenTiers } from './tokens.generated.ts';
 
 test('disabled public references emit in both themes without mutating or leaking between compilations', async () => {
   const source = JSON.parse(await readFile(new URL('./tokens.json', import.meta.url), 'utf8'));
@@ -15,6 +16,8 @@ test('disabled public references emit in both themes without mutating or leaking
   };
   for (const role of ['textDisabled', 'surfaceDisabled', 'borderDisabled']) {
     const name = `--sgui-${role.replace(/[A-Z]/g, c => `-${c.toLowerCase()}`)}`;
+    assert.equal(tokens[role], `var(${name})`);
+    assert(tokenTiers.semantic.includes(role));
     assert(original.ts.includes(`"${role}": "var(${name})"`));
     for (const theme of ['light', 'dark']) {
       const selector = theme === 'light' ? '[data-sgui-theme="light"], [data-sgui-theme="system"]' : '[data-sgui-theme="dark"]';
