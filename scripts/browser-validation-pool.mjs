@@ -491,13 +491,29 @@ export async function prepareSnapshot(plan, output) {
 }
 
 // Third argument is a fixture-only dependency seam; the CLI never exposes resource substitutions.
-export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-validation-priority.json', queueOwner, max = 2, firstPort = 6273, output = 'artifacts/browser-pool', budget = {} } = {}, fixture = {}) {
+export async function runFrozenSnapshot(plan, options = {}, fixture = {}) {
+  return runSnapshot(plan, options, fixture);
+}
+
+// Public continuation always authenticates evidence; fixture overrides cannot enable reuse.
+export async function runFrozenContinuation(request, options = {}, fixture = {}) {
+  exactKeys(options, ['queueFile', 'queueOwner', 'max', 'firstPort', 'output', 'budget']);
+  if (options.output && options.output !== 'artifacts/browser-continuation') throw new Error('Continuation output root is fixed');
+  options = { ...options, output: 'artifacts/browser-continuation' };
+  const { prepareFrozenContinuation } = await import('./run-development-checkpoint.mjs');
+  const reuse = await prepareFrozenContinuation(request);
+  return runSnapshot(reuse.plan, options, fixture, reuse);
+}
+
+async function runSnapshot(plan, { queueFile = '/tmp/sgui-browser-validation-priority.json', queueOwner, max = 2, firstPort = 6273, output = 'artifacts/browser-pool', budget = {} } = {}, fixture = {}, reuse) {
   validateLimit(max);
+  if (reuse && (max > 8 || budget.maxLoad1 !== 24 || budget.maxSystemRSSBytes !== 28000 * 1024 * 1024 || Object.keys(budget).some(key => !['maxLoad1', 'maxSystemRSSBytes'].includes(key)))) throw new Error('Continuation requires max <= 8, load 24 and RSS 28000 MiB');
   validateBudget(budget);
   if (!fixture.queueFile && queueFile !== '/tmp/sgui-browser-validation-priority.json') throw new Error('Use the existing legacy priority queue; substitute queues are forbidden');
   if (queueOwner && !/^[a-f0-9-]{36}$/.test(queueOwner)) throw new Error('Queue owner must be an exact chat ID');
   if (!Number.isInteger(firstPort) || firstPort < 1024 || firstPort + max - 1 > 65535) throw new Error('Invalid pool port range');
   const prepared = await prepareSnapshot(plan, output);
+  if (reuse) await reuse.check();
   const { worktree, head, parent, shards } = prepared;
   queueFile = fixture.queueFile ?? queueFile;
   const poolRoot = fixture.poolRoot ?? POOL_ROOT;
@@ -509,6 +525,7 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
   process.on('SIGINT', onSignal); process.on('SIGTERM', onSignal);
   let run, evidence, monitor, monitoring = Promise.resolve(), monitoringActive = false;
   const checkSource = async () => {
+    if (reuse) await reuse.check();
     assertSource(worktree, head);
     if (await sourceDigest(worktree) !== prepared.sourceDigest) throw new Error('Source bytes changed during snapshot validation');
   };
@@ -528,8 +545,8 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
     await mkdir(parent, { recursive: true });
     run = join(parent, randomUUID()); await mkdir(run);
     await writeFile(join(run, 'owner'), owner, { flag: 'wx' }); // Retained evidence/output ownership.
-    const build = join(run, 'storybook');
-    evidence = { mode: 'snapshot', owner, queueOwner, worktree, head, sourceTree: git(worktree, 'rev-parse', 'HEAD^{tree}'),
+    const build = reuse ? reuse.build : join(run, 'storybook');
+    evidence = { mode: reuse ? 'continuation' : 'snapshot', continuation: reuse?.attestation, owner, queueOwner, worktree, head, sourceTree: git(worktree, 'rev-parse', 'HEAD^{tree}'),
       sourceDigest: prepared.sourceDigest, max, firstPort, budget, build, startedAt: new Date().toISOString(), node: process.version,
       nodeExecutable: process.execPath, platform: platform(), osRelease: release(), commands: [], sessions: [], status: 'running',
       packageLockDigest: createHash('sha256').update(await readFile(join(worktree, 'pnpm-lock.yaml'))).digest('hex'),
@@ -558,14 +575,22 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
     }, 1000); monitor.unref();
     await checkSource();
     assertBudget(evidence.resourcesBefore, budget);
-    const heavy = await acquireLease(fixture.heavyPath ?? HEAVY_LOCK, owner);
-    try { await execute(['exec', 'storybook', 'build', '--output-dir', build], join(run, 'build.log')); }
-    finally { await cleanup(heavy); }
-    evidence.buildDigest = await digestTree(build, true);
+    if (!reuse) {
+      const heavy = await acquireLease(fixture.heavyPath ?? HEAVY_LOCK, owner);
+      try { await execute(['exec', 'storybook', 'build', '--output-dir', build], join(run, 'build.log')); }
+      finally { await cleanup(heavy); }
+      evidence.buildDigest = await digestTree(build, true);
+    } else {
+      evidence.buildDigest = reuse.buildDigest;
+      evidence.buildReused = true; evidence.buildCommands = 0;
+    }
     await checkSource();
-    const light = await acquireLightSlot(owner, { root: fixture.lightRoot ?? LIGHT_ROOT });
-    try { await execute(['exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], join(run, 'types.log')); }
-    finally { await cleanup(light); }
+    if (!reuse || reuse.needsTypes) {
+      const light = await acquireLightSlot(owner, { root: fixture.lightRoot ?? LIGHT_ROOT });
+      try { await execute(['exec', 'tsc', '--noEmit', '-p', 'tests/browser/tsconfig.json'], join(run, 'types.log')); }
+      finally { await cleanup(light); }
+      evidence.typecheckCount = 1;
+    } else evidence.typecheckCount = 0;
     await checkSource();
     for (let offset = 0; offset < shards.length && !controller.signal.aborted; offset += max) {
       await assertQueueDrained(queueFile, queueOwner); await checkSource();
@@ -596,9 +621,20 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
             await execute(['exec', 'playwright', 'test', ...shard.args], join(session, 'browser.log'), env);
             const results = JSON.parse(await readFile(env.SGUI_BROWSER_RESULTS_FILE, 'utf8'));
             item.cases = snapshotCases(results, shard, worktree);
+            if (reuse) reuse.assertCases(shard.id, item.cases);
             item.count = item.cases.length; item.status = 'passed';
           } catch (error) { item.status = 'failed'; item.error = error.message; throw error; }
-          finally { item.finishedAt = new Date().toISOString(); await writeFile(join(session, 'evidence.json'), JSON.stringify(item, null, 2)); }
+          finally {
+            item.finishedAt = new Date().toISOString();
+            if (reuse) {
+              item.artifactHashes = {};
+              for (const name of ['owner', 'results.json', 'browser.log', 'browser.log.resources.json']) {
+                try { item.artifactHashes[name] = createHash('sha256').update(await readFile(join(session, name))).digest('hex'); }
+                catch (error) { if (error.code !== 'ENOENT') throw error; item.artifactHashes[name] = null; }
+              }
+            }
+            await writeFile(join(session, 'evidence.json'), JSON.stringify(item, null, 2));
+          }
         }));
         if (outcomes.some(result => result.status === 'rejected')) failed = true;
       } finally {
@@ -627,6 +663,7 @@ export async function runFrozenSnapshot(plan, { queueFile = '/tmp/sgui-browser-v
             evidence.finalBuildDigest = await digestTree(evidence.build);
             if (evidence.finalBuildDigest !== evidence.buildDigest) throw new Error('Static build changed during validation');
           }
+          if (reuse) evidence.continuationFinal = await reuse.check();
           if (evidence.integrityError) throw new Error(evidence.integrityError);
           if (evidence.resourceError) throw new Error(evidence.resourceError);
         } catch (error) { evidence.status = 'failed'; evidence.integrityError = error.message; }
