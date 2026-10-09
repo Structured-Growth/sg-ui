@@ -57,10 +57,22 @@ now use className/native style, and page-size changes request page zero first.
 exports. `pnpm check` validates new import/layer/token boundaries and CSS output;
 `pnpm test:foundation-consumer` validates a real tarball in a clean Vite fixture.
 See docs/developer/react-aria-progress.md for completed tasks and remaining gates.
-Every new or migrated control needs colocated behavior tests as it lands. Add
-composed interaction tests for nested controls, and browser checks for behavior
-that depends on native event timing, positioning, scrolling or focus. The new
-foundation check verifies that registered interaction controls have test files.
+Migration execution is functionality-first: follow the priorities and granular IDs in
+[the master task list](docs/developer/react-aria-master-task-list.md). Each implementation
+chat should close a reviewable leaf task with evidence. Schedule functionality first
+across all required components, regression second, and hardening third. Do not assign
+new regression or hardening tasks while required functionality baseline work remains;
+finish required regression tasks before assigning hardening. Evidence reconciliation
+belongs to the current phase. Land a usable owned baseline
+across components before expanding coverage. New/migrated interaction controls need
+only a minimal colocated smoke set during the baseline pass (normally 1–3 meaningful
+cases per component, reusing existing coverage). Track expanded behavior, composed
+interaction, native browser, visual and accessibility coverage as separate later
+tasks. Use a targeted native check sooner only to establish a primary flow that needs
+it. Preserve existing tests and required validation; the foundation check still
+requires registered interaction controls to have test files. Known bugs do not imply
+baseline incompletion unless they block its named primary flow; full acceptance remains
+separate.
 
 Read README.md, docs/migration.md and docs/developer/component-architecture.md
 before changing the architecture. The learner platform is provenance, not a
@@ -179,8 +191,10 @@ control; importing guidance is not an instruction to change all legacy behavior.
 - Keep each component's stories and tests colocated with its implementation.
 - Update Storybook stories in the same change as shared component props, states or
   behavior. Include at least one example covering the changed behavior.
-- Cover new component behavior with meaningful unit tests. When changing behavior,
-  update relevant existing tests; add a targeted regression test if none covers it.
+- During migration baseline work, keep new unit coverage to the minimal meaningful
+  smoke set described above. Update existing tests directly affected by the change;
+  track deeper regressions and environment matrices as separate tasks. After the
+  baseline, cover each regression/fix with focused behavior evidence.
 - Documentation-only edits do not require UI code or new unit tests.
 - Use representative data and host adapters in stories. Keep stories independent
   of Next.js, authentication endpoints, the learner platform and external databases.
@@ -397,3 +411,10 @@ after document reset, read-only changes and unmount, plus clean dialog reopening
 Cancellation invalidates UI results; hosts still own network abort and asset cleanup.
 See the [upload lifetime contract](docs/developer/react-aria-editor-section.md#host-upload-lifetime-e-06-partial).
 E-06/E-07 broad acceptance remains open.
+
+ImageUploadModal shares nonempty-file and MIME/extension presentation checks across
+picker/drop selection. Rejected selections release their preview and retain the
+description for correction. Metadata acceptance is not byte decoding, size or
+asset authorization; the host owns those policies. See the [file presentation
+contract](docs/developer/react-aria-editor-dialogs.md#file-presentation-validation-e-06-partial).
+E-06 broader acceptance remains open.

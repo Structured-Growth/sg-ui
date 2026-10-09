@@ -10,7 +10,9 @@ The approved migration direction is React Aria Components, SGUI-owned APIs and
 design tokens, compiled CSS Modules, and complete removal of the existing UI
 foundation. The [master task list](docs/developer/react-aria-master-task-list.md)
 records the full migration scope, component inventory, sequencing, and acceptance
-checks. Implementation has begun with scoped tokens, compiled CSS Modules and
+checks. Execution is now functionality-first: finish all component baselines with
+minimal smoke cases, then close separate regression and hardening tasks. Each
+implementation chat closes a small task with evidence. Implementation has begun with scoped tokens, compiled CSS Modules and
 experimental controls including button/field and nested dialog/form proofs. See the [execution record](docs/developer/react-aria-progress.md).
 `AppInlineProgress`, `AppOperationSteps`, `EditableTitleField`
 and the Typefaces catalog have migrated; their public prop names remain, but they

@@ -1,5 +1,37 @@
 # React Aria migration execution record
 
+## Backlog sequencing update — 2026-10-08
+
+Follow-up priority clarification: enforce functionality → regression → hardening
+across the whole library. Removed the separate P0 queue; reconciliation and
+primary-flow blockers belong to functionality. New regression assignments wait
+for the required baseline milestone; hardening assignments wait for required
+regression closure. Master list, phase headers and AGENTS.md now agree. This
+clarifies scheduling without changing task IDs, counts or completed evidence.
+
+
+User requested very granular tasks, usable functionality across all components first,
+and minimal initial test cases followed by separately tracked deeper coverage.
+[The rewritten master list](react-aria-master-task-list.md) now links 570 functionality
+leaves, 570 regression leaves and 782 hardening/scope tasks (including six deferred
+features). It also records nine planning/milestone tasks. The 37 catalog directories,
+47 experimental directories and 18 supporting modules/concerns have explicit rows.
+
+`PLAN-001` is complete: separate phase files and the original scope/status snapshot
+were written, and AGENTS.md/README guidance aligned. Documentation verification:
+unique new IDs, one-to-one feature/regression dependencies, actual inventory and
+source paths, preserved historical checklist statuses/component rows, local link
+targets and whitespace. No UI implementation or additional acceptance is claimed.
+Existing user changes were retained. Code tests/builds were not run for this
+writing-only change.
+
+Original acceptance counts below are dated evidence, not progress against the new
+leaf denominator. Already accepted implementation/test results should be mapped to
+new leaves in focused chats without duplicating work. Full migration acceptance
+remains separate from the all-component baseline. Existing tests and required code
+validation remain in place; broad new coverage no longer gates each baseline slice.
+
+
 Started: 2026-10-05. Owner: Codex, local implementation for maintainer review.
 Baseline commit: `21adebd61bedfc6a1ed395fe664ff4be83896821` on `main`.
 No release tags were present and the working tree was clean before implementation.

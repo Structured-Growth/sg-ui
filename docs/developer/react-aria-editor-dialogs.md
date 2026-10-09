@@ -58,9 +58,10 @@ input and description. The host must abort or ignore its own in-flight operation
 on cancellation; dismissing a dialog does not cancel network work or undo persistence.
 
 Selected images get a local object URL preview, revoked on replacement, dismissal
-or unmount. Non-image drops are rejected using MIME type or a supported filename
-extension when MIME is absent. This is presentation validation; the upload service
-must inspect the actual contents and enforce its own type, size and asset policy.
+or unmount. Picker and drop validation share the
+[file presentation contract](#file-presentation-validation-e-06-partial). The upload
+service must inspect the actual contents and enforce its own type, size and asset
+policy.
 The integrated editor ignores late upload success/error after cancellation,
 reopening, document reset, read-only changes or unmount, so it cannot insert a
 stale image or close the next dialog. Standalone dialog unmount also invalidates
@@ -77,3 +78,24 @@ selects its replacement plain text so Lexical retains a valid selection. Relativ
 links keep no external target/rel; www links retain existing HTTPS normalization
 and external target/rel behavior. These repairs preserve the editor's host JSON
 change and asset models; they do not migrate the surrounding editor implementation.
+
+## File presentation validation (E-06 partial)
+
+Picker selections and dropped files must be nonempty. A supplied MIME type must
+be a syntactically complete `image/<subtype>` without wildcards, whitespace or
+parameters; it takes precedence over the filename. MIME-less files retain the
+case-insensitive JPG/JPEG, PNG, WEBP, AVIF and GIF extension fallback. Valid image
+MIME subtypes such as `image/svg+xml` are accepted regardless of filename; the
+formats hint lists common choices, not an exhaustive service allowlist.
+
+Rejected selections clear the prior file and native input, revoke its preview,
+show a translated alert and disable Insert without invoking the host. The image
+description stays available for a corrected selection. Cancellation/reopening
+resets the complete draft. Nonempty files with allowed metadata still reach the
+host even when their bytes cannot decode; preview decoding is not upload validation.
+There is no library file-size ceiling, byte sniffing or service/asset authorization.
+Hosts must validate bytes, supported formats, dimensions, size and authorization
+before returning an image URL. The File-only host callback remains unchanged.
+The FileValidation story and picker/drop unit/native browser regressions cover
+rejection, correction, retained description and dismissal focus. E-06 remains
+open for broader image/upload acceptance.
