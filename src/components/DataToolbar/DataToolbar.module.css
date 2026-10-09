@@ -1,10 +1,10 @@
 @layer sgui.components {
- .root { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--sgui-space2); padding: var(--sgui-space2) var(--sgui-space3); min-block-size: 3.375rem; box-sizing: border-box; color: var(--sgui-text); background: var(--sgui-surface-subtle); border-block-end: 1px solid var(--sgui-border); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+ .root { container: sgui-data-toolbar / inline-size; min-inline-size: 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--sgui-space2); padding: var(--sgui-space2) var(--sgui-space3); min-block-size: 3.375rem; box-sizing: border-box; color: var(--sgui-text); background: var(--sgui-surface-subtle); border-block-end: 1px solid var(--sgui-border); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
  .actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sgui-space2); min-inline-size: 0; max-inline-size: 100%; }
  .search { display: flex; align-items: center; flex-wrap: wrap; min-inline-size: 0; max-inline-size: 100%; }
  .searchField { display: flex; align-items: center; min-inline-size: 0; max-inline-size: 100%; gap: var(--sgui-space1); }
  .searchField > :first-child { inline-size: 15rem; min-inline-size: 0; flex: 1; }
  .views { display: flex; align-items: center; gap: var(--sgui-space1); }
  .selected { color: var(--sgui-text-muted); }
- @media (max-width: 24rem) { .searchField > :first-child { inline-size: 10rem; } }
+ @container sgui-data-toolbar (max-width: 24rem) { .searchField > :first-child { inline-size: 10rem; } }
 }

@@ -2,9 +2,32 @@
 import { cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it } from "vitest";
-import { NativeCompositionPreview } from "./DataToolbar.stories";
+import { ContainerBoundaryPreview, NativeCompositionPreview } from "./DataToolbar.stories";
 afterEach(cleanup);
 const callbacks = () => JSON.parse(screen.getByLabelText("Host callbacks").textContent ?? "[]") as string[];
+
+it("keeps independently hosted search and actions alive through an allocated host resize", async () => {
+  const user = userEvent.setup(); render(<ContainerBoundaryPreview enlarged />);
+  const narrow = within(screen.getByRole("group", { name: "Narrow container toolbar" }));
+  const wide = within(screen.getByRole("group", { name: "Wide container toolbar" }));
+  await user.click(narrow.getByRole("button", { name: "Search", exact: true }));
+  await user.type(narrow.getByRole("searchbox"), "draft");
+  await user.click(wide.getByRole("button", { name: "Search", exact: true }));
+  await user.type(wide.getByRole("searchbox"), "published");
+  await user.click(screen.getByRole("button", { name: "Resize narrow host" }));
+  expect(narrow.getByRole("searchbox")).toHaveProperty("value", "draft");
+  expect(wide.getByRole("searchbox")).toHaveProperty("value", "published");
+  const trigger = narrow.getByRole("button", { name: "Narrow course actions" });
+  await user.click(trigger);
+  await user.click(screen.getByRole("menuitem", { name: "Import courses for review" }));
+  await waitFor(() => expect(document.activeElement).toBe(trigger));
+  expect(screen.getByLabelText("Container host callbacks").textContent).toContain("Narrow:import");
+  await user.click(narrow.getByRole("searchbox"));
+  await user.keyboard("{Escape}");
+  expect(narrow.queryByRole("searchbox")).toBeNull();
+  expect(document.activeElement).toBe(narrow.getByRole("button", { name: "Search", exact: true }));
+  expect(wide.getByRole("searchbox")).toHaveProperty("value", "published");
+});
 
 it("composes mixed selection, menu requests and controlled view rejection without form submission", async () => {
   const user = userEvent.setup(); render(<NativeCompositionPreview />);
