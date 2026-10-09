@@ -2,7 +2,9 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
-import { Button, Menu, Provider, type MenuProps } from "../index";
+import { Button } from "../Button/Button";
+import { Menu, type MenuProps } from "./Menu";
+import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);
 

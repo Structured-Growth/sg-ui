@@ -2,7 +2,8 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
-import { Provider, SplitAction, type SplitActionProps } from "../index";
+import { Provider } from "../Provider/Provider";
+import { SplitAction, type SplitActionProps } from "./SplitAction";
 
 afterEach(cleanup);
 

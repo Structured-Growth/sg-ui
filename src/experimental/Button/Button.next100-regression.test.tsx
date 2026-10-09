@@ -3,7 +3,8 @@ import { createRef } from "react";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
-import { Button, ThemeScope, type ButtonProps } from "../index";
+import { Button, type ButtonProps } from "./Button";
+import { ThemeScope } from "../../foundation/ThemeScope";
 
 afterEach(cleanup);
 

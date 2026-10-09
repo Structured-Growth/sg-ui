@@ -2,7 +2,8 @@
 import { createRef } from "react";
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, expect, it } from "vitest";
-import { Divider, Provider, type DividerProps } from "../index";
+import { Divider, type DividerProps } from "./Divider";
+import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);
 

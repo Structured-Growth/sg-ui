@@ -2,7 +2,9 @@
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { DateRangeSelector, Provider, type DateRange } from "../index";
+import { DateRangeSelector } from "./DateRangeSelector";
+import { Provider } from "../Provider/Provider";
+import { type DateRange } from "./date-contract";
 
 afterEach(cleanup);
 

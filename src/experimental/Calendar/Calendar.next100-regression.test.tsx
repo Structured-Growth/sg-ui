@@ -2,7 +2,8 @@
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Calendar, type CalendarProps, Provider } from "../index";
+import { Calendar, type CalendarProps } from "./Calendar";
+import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);
 

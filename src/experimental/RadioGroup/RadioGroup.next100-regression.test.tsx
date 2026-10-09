@@ -3,7 +3,8 @@ import { createRef, useState } from "react";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
-import { RadioGroup, Provider, type RadioGroupProps } from "../index";
+import { RadioGroup, type RadioGroupProps } from "./RadioGroup";
+import { Provider } from "../Provider/Provider";
 
 afterEach(cleanup);
 

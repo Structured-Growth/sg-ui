@@ -3,7 +3,8 @@ import { createRef } from "react";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
-import { IconButton, ThemeScope, type IconButtonProps } from "../index";
+import { IconButton, type IconButtonProps } from "./IconButton";
+import { ThemeScope } from "../../foundation/ThemeScope";
 import { AddIcon } from "../icons/AddIcon";
 
 afterEach(cleanup);

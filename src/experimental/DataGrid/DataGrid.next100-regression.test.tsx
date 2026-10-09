@@ -3,7 +3,8 @@ import { useState } from "react";
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { DataGrid, defaultGridState, type DataGridProps, type GridState } from "../index";
+import { DataGrid } from "./DataGrid";
+import { defaultGridState, type DataGridProps, type GridState } from "./types";
 import { ThemeScope } from "../../foundation/ThemeScope";
 
 afterEach(cleanup);
