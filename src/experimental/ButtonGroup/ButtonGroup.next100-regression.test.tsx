@@ -47,7 +47,7 @@ it("keeps consuming groups independent through prop updates, removal and remount
   expect(first.closest("[data-sgui-density]")?.getAttribute("data-sgui-density")).toBe("compact");
   expect(second.closest("[data-sgui-density]")?.getAttribute("data-sgui-density")).toBe("comfortable");
   await user.click(within(first).getByRole("button"));
-  expect(firstAction).toHaveBeenCalledExactlyOnceWith();
+  expect(firstAction).toHaveBeenCalledTimes(1);
   expect(secondAction).not.toHaveBeenCalled();
 
   view.rerender(<Composition joined={false} orientation="horizontal" />);
@@ -61,7 +61,7 @@ it("keeps consuming groups independent through prop updates, removal and remount
   expect(first.isConnected).toBe(false);
   expect(secondRef.current).toBe(second);
   await user.click(within(second).getByRole("button"));
-  expect(secondAction).toHaveBeenCalledExactlyOnceWith();
+  expect(secondAction).toHaveBeenCalledTimes(1);
   expect(firstAction).toHaveBeenCalledTimes(1);
 
   view.rerender(<Composition />);
@@ -72,4 +72,14 @@ it("keeps consuming groups independent through prop updates, removal and remount
   view.unmount();
   expect(firstRef.current).toBeNull();
   expect(secondRef.current).toBeNull();
+});
+
+it("preserves the declared zero-argument child onPress contract in a consuming group", async () => {
+  const user = userEvent.setup();
+  const action = vi.fn();
+  render(<Provider><ButtonGroup label="Course actions">
+    <Button onPress={action}>Create course</Button>
+  </ButtonGroup></Provider>);
+  await user.click(screen.getByRole("button", { name: "Create course" }));
+  expect(action).toHaveBeenCalledExactlyOnceWith();
 });
