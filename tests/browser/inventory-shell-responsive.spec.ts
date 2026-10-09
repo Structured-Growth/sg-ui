@@ -7,7 +7,7 @@ async function openWorkspace(page: Page, theme: string) {
 
 async function layout(page: Page, stacked: boolean) {
   const shell = page.locator('[data-sgui-part="app-shell"]');
-  await expect.poll(() => shell.evaluate(element => getComputedStyle(element).flexDirection)).toBe(stacked ? 'column' : 'row');
+  await expect.poll(() => shell.locator('main').evaluate(element => getComputedStyle(element.parentElement!).flexDirection)).toBe(stacked ? 'column' : 'row');
   const nav = await page.getByRole('navigation').boundingBox();
   const main = await page.getByRole('main').boundingBox();
   expect(nav).not.toBeNull();
