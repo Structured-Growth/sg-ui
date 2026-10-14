@@ -4,7 +4,7 @@ Date: 2026-10-07 (America/Chicago). Inspected base:
 `e53b6e20f4a6dd56e27ab0402923f3b5f9024fc3`, as assigned from `codex/dev`.
 Isolated managed worktree: `/Users/thomashall/.codex/worktrees/batch155-automation-evidence/sg-ui`.
 Only the [AI workflow](../../../.github/workflows/ai-code.yml), one inert
-[fixture test](../../../scripts/ai-component-scope.test.mjs), and this report change.
+[fixture test](../../../packages/ui/scripts/ai-component-scope.test.mjs), and this report change.
 The coordinator owns executable validation, integration and acceptance. No master
 acceptance/state, source component, image-upload scope or other workflow changes.
 

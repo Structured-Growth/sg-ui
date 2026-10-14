@@ -29,29 +29,29 @@ No source defect was identified; no product fix or manufactured regression was a
 Existing evidence is sufficient for the declarative contract review below, not
 for native rendered-style acceptance of every combination.
 
-- [Surface implementation](../../../src/experimental/Surface/Surface.tsx) declares
+- [Surface implementation](../../../packages/ui/src/experimental/Surface/Surface.tsx) declares
   `default | subtle` tone and `flat | outlined | raised` variant, defaults to
   default/flat, consumes those props and forwards the native ref and remaining
   owned Box/native props to Box. No upstream public type is exposed.
-- [Surface tests](../../../src/experimental/Surface/Surface.test.tsx) contain two
+- [Surface tests](../../../packages/ui/src/experimental/Surface/Surface.test.tsx) contain two
   existing cases: section/region accessible name, exact native ref identity,
   subtle/raised data attributes and absence of a leaked tone attribute; and
   provider-free server rendering. These were inspected, not rerun in this task.
-- [Box implementation](../../../src/experimental/Box/Box.tsx) creates the bounded
+- [Box implementation](../../../packages/ui/src/experimental/Box/Box.tsx) creates the bounded
   native element selected by `as` and forwards its ref directly. Its two existing
-  [tests](../../../src/experimental/Box/Box.test.tsx) cover native main/ref,
+  [tests](../../../packages/ui/src/experimental/Box/Box.test.tsx) cover native main/ref,
   className, container, padding, host style and provider-free SSR.
-- [ThemeScope tests](../../../src/foundation/ThemeScope.test.tsx) have two existing
+- [ThemeScope tests](../../../packages/ui/src/foundation/ThemeScope.test.tsx) have two existing
   cases covering server-safe system markup and nested inheritance/independent
-  theme/density overrides. [ThemeScope](../../../src/foundation/ThemeScope.tsx)
+  theme/density overrides. [ThemeScope](../../../packages/ui/src/foundation/ThemeScope.tsx)
   preserves nearest owned context values and native scope attributes.
-- [Surface CSS](../../../src/experimental/Surface/Surface.module.css) resolves
+- [Surface CSS](../../../packages/ui/src/experimental/Surface/Surface.module.css) resolves
   default/subtle backgrounds, text, radius, outlined divider and raised shadow
   through owned tokens in `sgui.components`. Raised surfaces have a CanvasText
-  border fallback in forced colors. [Generated tokens](../../../src/foundation/tokens.css)
+  border fallback in forced colors. [Generated tokens](../../../packages/ui/src/foundation/tokens.css)
   assign light/dark/system colors on scope roots, so nested themes resolve locally
   without Surface maintaining a second theme owner.
-- The existing [Default story](../../../src/experimental/Surface/Surface.stories.tsx)
+- The existing [Default story](../../../packages/ui/src/experimental/Surface/Surface.stories.tsx)
   uses the production Provider. No changed behavior required a story update.
 - [Architecture](../react-aria-architecture.md),
   [proof contracts](../react-aria-proof-controls.md),

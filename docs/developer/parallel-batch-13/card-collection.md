@@ -35,9 +35,9 @@ Inspected existing tests, not freshly executed:
 
 | Source | Existing cases | Evidence relevant to this assignment |
 | --- | --- | --- |
-| [Collection tests](../../../src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx) | 6 | Shrinking data/clamping with no render callback; controlled navigation and size reset; stable card state; host/fallback empty and loading content; disabled loading navigation; nested course actions and parent form isolation; SSR invalid page normalization. |
-| [Footer tests](../../../src/components/CardPaginationFooter/CardPaginationFooter.test.tsx) | 7 | Page-zero-before-size callback ordering; unknown Next/omitted Last; zero count and disabled boundaries; atomic page/size requests with rejected host updates retaining prior range; invalid/disabled state; translations; SSR. |
-| [Pagination tests](../../../src/experimental/Pagination/Pagination.test.tsx) | 7 | Controlled page navigation; unknown-total rejection retains displayed page; size reset ordering; zero/disabled actions; rejected atomic size request retains select value and page; atomic-only selector; keyboard/form-safe action. |
+| [Collection tests](../../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx) | 6 | Shrinking data/clamping with no render callback; controlled navigation and size reset; stable card state; host/fallback empty and loading content; disabled loading navigation; nested course actions and parent form isolation; SSR invalid page normalization. |
+| [Footer tests](../../../packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.test.tsx) | 7 | Page-zero-before-size callback ordering; unknown Next/omitted Last; zero count and disabled boundaries; atomic page/size requests with rejected host updates retaining prior range; invalid/disabled state; translations; SSR. |
+| [Pagination tests](../../../packages/ui/src/experimental/Pagination/Pagination.test.tsx) | 7 | Controlled page navigation; unknown-total rejection retains displayed page; size reset ordering; zero/disabled actions; rejected atomic size request retains select value and page; atomic-only selector; keyboard/form-safe action. |
 
 The collection has no local pagination state: it normalizes host props, slices the
 complete dataset and forwards callbacks directly to the shared footer. The footer

@@ -15,7 +15,7 @@ neither a manifest nor retained notices were treated as complete legal evidence.
 
 ## Implemented bounded capability
 
-- [Checker](../../../scripts/check-license-inventory.mjs): Node-built-in-only,
+- [Checker](../../../packages/ui/scripts/check-license-inventory.mjs): Node-built-in-only,
   read-only local manifest/pnpm v9 locked/installed inventory; sorted relative
   paths and input/legal/metadata/asset hashes; direct runtime/optional/dev,
   consumer peer realizations, shared transitive reachability and unclassified
@@ -27,7 +27,7 @@ neither a manifest nor retained notices were treated as complete legal evidence.
 - Literal distribution roots and binary/image/font/media asset candidates receive
   hashes and explicitly unknown provenance. Missing build output, symlinks and
   unsupported patterns remain unresolved; no packed-artifact completeness claim.
-- [Fixtures](../../../scripts/check-license-inventory.test.mjs): inert temporary
+- [Fixtures](../../../packages/ui/scripts/check-license-inventory.test.mjs): inert temporary
   inputs, deterministic output across different roots, unchanged legal/input bytes,
   shared scopes, scoped packages/cycles/optional edges, equal/conflicting peer
   instances, missing inputs, mismatches, unknown assets and CLI status semantics.

@@ -16,6 +16,7 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: packages/ui
     strategy:
       fail-fast: false
       matrix:
@@ -28,6 +29,7 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+        working-directory: .
       - name: Record validation runtime
         run: |
           mkdir -p artifacts/logs
@@ -35,8 +37,8 @@ jobs:
           pnpm --version | tee artifacts/logs/pnpm.txt
       - name: Package and behavior checks
         run: pnpm check 2>&1 | tee artifacts/logs/check.txt
-      - name: Build Storybook
-        run: pnpm build-storybook 2>&1 | tee artifacts/logs/storybook.txt
+      - name: Build native docs fixtures
+        run: pnpm build:browser-docs 2>&1 | tee artifacts/logs/browser-docs.txt
       - name: Install browser engines
         if: matrix.node == '24'
         run: pnpm exec playwright install --with-deps chromium firefox webkit
@@ -62,14 +64,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sgui-package-node-${{ matrix.node }}
-          path: artifacts/*.tgz
+          path: packages/ui/artifacts/*.tgz
           if-no-files-found: error
           retention-days: 14
-      - name: Upload validated Storybook
+      - name: Upload validated native docs fixtures
         uses: actions/upload-artifact@v4
         with:
-          name: sgui-storybook-node-${{ matrix.node }}
-          path: storybook-static/
+          name: sgui-browser-docs-node-${{ matrix.node }}
+          path: packages/ui/browser-docs-static/
           if-no-files-found: error
           retention-days: 14
       - name: Upload browser evidence
@@ -78,10 +80,10 @@ jobs:
         with:
           name: sgui-browser-node-24
           path: |
-            artifacts/browser-report/
-            artifacts/browser-traces/
-            artifacts/browser-results.json
-            artifacts/packed-browser/
+            packages/ui/artifacts/browser-report/
+            packages/ui/artifacts/browser-traces/
+            packages/ui/artifacts/browser-results.json
+            packages/ui/artifacts/packed-browser/
           if-no-files-found: warn
           retention-days: 14
       - name: Upload validation results
@@ -89,6 +91,23 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sgui-validation-node-${{ matrix.node }}
-          path: artifacts/logs/
+          path: packages/ui/artifacts/logs/
           if-no-files-found: warn
           retention-days: 14
+
+  docs:
+    name: Next.js docs
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check:docs
+      - run: pnpm build:docs
+      - run: pnpm --filter @structured-growth/docs exec playwright install --with-deps chromium
+      - run: pnpm --filter @structured-growth/docs test:e2e

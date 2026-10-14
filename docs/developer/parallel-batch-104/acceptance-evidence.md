@@ -23,19 +23,19 @@ migration checkbox. Links are the source available in this report's checkout.
 
 | Source | Git blob | Criterion |
 | --- | --- | --- |
-| [tokens.json](../../../src/foundation/tokens.json) | `64113cf0b2117e9bf1c2982bfe44c05a2ba59cee` | C-12/C-13/C-15 |
-| [tokens.css](../../../src/foundation/tokens.css) | `b36050c8871253823b4a9deb8d146936a14222ec` | C-13 |
-| [token assertions](../../../scripts/tokens.test.mjs) | `c06e8cbe72a0460ab9f54198bea95d3c74bf2b01` | C-13 |
-| [AuthShell CSS](../../../src/components/AuthShell/AuthShell.module.css) | `0cd35a0e8b495c11ecc0cce717f0cad27abc3519` | C-12/C-14 |
-| [page header CSS](../../../src/components/AppPageHeader/AppPageHeader.module.css) | `1fe3d6971a58e31e502509f8220bda3b1b55d664` | C-12 |
-| [Dialog CSS](../../../src/experimental/Dialog/Dialog.module.css) | `2a303b80cad1fecea4558179fabe14e959f65bde` | C-12/C-14/C-15 |
-| [calendar CSS](../../../src/experimental/DateRangeSelector/DateRangeSelector.module.css) | `b7052417e3fbdeef01f25540a3f1f11619404ca9` | C-14 |
-| [Popover implementation](../../../src/experimental/Popover/Popover.tsx) | `a892ebeb2665f432c635619bc2be43ee5abcb174` | C-14 |
-| [Button CSS](../../../src/experimental/Button/Button.module.css) | `cccf005e0bdee43ac22d8f8830523938ce5167f6` | C-15 |
-| [Menu CSS](../../../src/experimental/Menu/Menu.module.css) | `2f5371f35a24b6d6104864d9385f2d94c927752a` | C-15 |
-| [editor CSS](../../../src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css) | `eb123f89aeb360eb8394ab88be8d3b68774fe889` | C-15 |
-| [shell focus entry](../../../src/components/AppDataGridShell/AppDataGridShell.tsx) | `32310c5053ef335e38709f1650a7909be214722f` | C-15 limitation |
-| [display preferences spec](../../../tests/browser/display-preferences.spec.ts) | `cd5204cc7ab2f3deacc4da235198498138316dc7` | C-12/C-15 assertions; unrun here |
+| [tokens.json](../../../packages/ui/src/foundation/tokens.json) | `64113cf0b2117e9bf1c2982bfe44c05a2ba59cee` | C-12/C-13/C-15 |
+| [tokens.css](../../../packages/ui/src/foundation/tokens.css) | `b36050c8871253823b4a9deb8d146936a14222ec` | C-13 |
+| [token assertions](../../../packages/ui/scripts/tokens.test.mjs) | `c06e8cbe72a0460ab9f54198bea95d3c74bf2b01` | C-13 |
+| [AuthShell CSS](../../../packages/ui/src/components/AuthShell/AuthShell.module.css) | `0cd35a0e8b495c11ecc0cce717f0cad27abc3519` | C-12/C-14 |
+| [page header CSS](../../../packages/ui/src/components/AppPageHeader/AppPageHeader.module.css) | `1fe3d6971a58e31e502509f8220bda3b1b55d664` | C-12 |
+| [Dialog CSS](../../../packages/ui/src/experimental/Dialog/Dialog.module.css) | `2a303b80cad1fecea4558179fabe14e959f65bde` | C-12/C-14/C-15 |
+| [calendar CSS](../../../packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css) | `b7052417e3fbdeef01f25540a3f1f11619404ca9` | C-14 |
+| [Popover implementation](../../../packages/ui/src/experimental/Popover/Popover.tsx) | `a892ebeb2665f432c635619bc2be43ee5abcb174` | C-14 |
+| [Button CSS](../../../packages/ui/src/experimental/Button/Button.module.css) | `cccf005e0bdee43ac22d8f8830523938ce5167f6` | C-15 |
+| [Menu CSS](../../../packages/ui/src/experimental/Menu/Menu.module.css) | `2f5371f35a24b6d6104864d9385f2d94c927752a` | C-15 |
+| [editor CSS](../../../packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css) | `eb123f89aeb360eb8394ab88be8d3b68774fe889` | C-15 |
+| [shell focus entry](../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx) | `32310c5053ef335e38709f1650a7909be214722f` | C-15 limitation |
+| [display preferences spec](../../../packages/ui/tests/browser/display-preferences.spec.ts) | `cd5204cc7ab2f3deacc4da235198498138316dc7` | C-12/C-15 assertions; unrun here |
 
 ## Retained artifact inspection and limits
 

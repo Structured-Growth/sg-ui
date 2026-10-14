@@ -6,9 +6,20 @@ Each `T-*` below depends on the matching `F-*` feature. Add or accept a targeted
 
 These are independent tasks, not additional acceptance requirements for the baseline implementation chat. Browser, visual, device and assistive-technology work is tracked separately in the hardening checklist.
 
+## Current example and browser host
+
+The [website transition plan](docs-website.md#active-transition-plan--2026-10-14)
+governs new examples and fixture migration. New public examples use the Next.js
+website; native scenarios use docs-owned test fixtures as their mapped transfers
+land. References below to a production story mean the equivalent production-scope
+example/fixture after transfer. The migrated existing native tests remain required against the new fixture host;
+Storybook runtime is removed. Original A-* wording and historical results are preserved; close each
+leaf against its behavioral requirement and record the new host, without silently
+claiming old evidence exercised the website or changing acceptance counts.
+
 ## C01: AppButton
 
-Scope: [src/components/AppButton](../../src/components/AppButton). Original scope: `M-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppButton](../../packages/ui/src/components/AppButton). Original scope: `M-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C01-01 Add or accept a focused regression for AppButton: owned onPress and native button type. Dependency: `F-C01-01`.
 - [x] T-C01-02 Add or accept a focused regression for AppButton: variant tone and density mapping. Dependency: `F-C01-02`.
@@ -19,7 +30,7 @@ Scope: [src/components/AppButton](../../src/components/AppButton). Original scop
 
 ## C02: AppInlineProgress
 
-Scope: [src/components/AppInlineProgress](../../src/components/AppInlineProgress). Original scope: `M-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppInlineProgress](../../packages/ui/src/components/AppInlineProgress). Original scope: `M-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C02-01 Add or accept a focused regression for AppInlineProgress: determinate percentage and finite fallback. Dependency: `F-C02-01`.
 - [x] T-C02-02 Add or accept a focused regression for AppInlineProgress: translated status label. Dependency: `F-C02-02`.
@@ -29,7 +40,7 @@ Scope: [src/components/AppInlineProgress](../../src/components/AppInlineProgress
 
 ## C03: AppOperationSteps
 
-Scope: [src/components/AppOperationSteps](../../src/components/AppOperationSteps). Original scope: `M-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppOperationSteps](../../packages/ui/src/components/AppOperationSteps). Original scope: `M-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C03-01 Add or accept a focused regression for AppOperationSteps: active completed and error step rendering. Dependency: `F-C03-01`.
 - [x] T-C03-02 Add or accept a focused regression for AppOperationSteps: ordered labels and status text. Dependency: `F-C03-02`.
@@ -39,7 +50,7 @@ Scope: [src/components/AppOperationSteps](../../src/components/AppOperationSteps
 
 ## C04: AppPageHeader
 
-Scope: [src/components/AppPageHeader](../../src/components/AppPageHeader). Original scope: `M-04` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppPageHeader](../../packages/ui/src/components/AppPageHeader). Original scope: `M-04` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C04-01 Add or accept a focused regression for AppPageHeader: primary and subpage surface hierarchy. Dependency: `F-C04-01`.
 - [x] T-C04-02 Add or accept a focused regression for AppPageHeader: breadcrumb navigation through owned links. Dependency: `F-C04-02`.
@@ -50,7 +61,7 @@ Scope: [src/components/AppPageHeader](../../src/components/AppPageHeader). Origi
 
 ## C05: AppPageTabs
 
-Scope: [src/components/AppPageTabs](../../src/components/AppPageTabs). Original scope: `M-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppPageTabs](../../packages/ui/src/components/AppPageTabs). Original scope: `M-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C05-01 Add or accept a focused regression for AppPageTabs: tab and panel association. Dependency: `F-C05-01`.
 - [x] T-C05-02 Add or accept a focused regression for AppPageTabs: controlled selection callback. Dependency: `F-C05-02`.
@@ -61,7 +72,7 @@ Scope: [src/components/AppPageTabs](../../src/components/AppPageTabs). Original 
 
 ## C06: AppShell
 
-Scope: [src/components/AppShell](../../src/components/AppShell). Original scope: `M-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppShell](../../packages/ui/src/components/AppShell). Original scope: `M-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C06-01 Add or accept a focused regression for AppShell: main and navigation landmarks. Dependency: `F-C06-01`.
 - [ ] T-C06-02 Add or accept a focused regression for AppShell: responsive navigation presentation. Dependency: `F-C06-02`.
@@ -72,7 +83,7 @@ Scope: [src/components/AppShell](../../src/components/AppShell). Original scope:
 
 ## C07: AuthShell
 
-Scope: [src/components/AuthShell](../../src/components/AuthShell). Original scope: `M-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AuthShell](../../packages/ui/src/components/AuthShell). Original scope: `M-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C07-01 Add or accept a focused regression for AuthShell: presentation-only authentication layout. Dependency: `F-C07-01`.
 - [x] T-C07-02 Add or accept a focused regression for AuthShell: title/subtitle, host children and optional footerContent, with host branding composed through children or footerContent. Dependency: `F-C07-02`.
@@ -82,7 +93,7 @@ Scope: [src/components/AuthShell](../../src/components/AuthShell). Original scop
 
 ## C08: AppModal
 
-Scope: [src/components/AppModal](../../src/components/AppModal). Original scope: `M-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppModal](../../packages/ui/src/components/AppModal). Original scope: `M-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C08-01 Add or accept a focused regression for AppModal: owned size title description and parts. Dependency: `F-C08-01`.
 - [x] T-C08-02 Add or accept a focused regression for AppModal: open close and dismissal reasons. Dependency: `F-C08-02`.
@@ -95,7 +106,7 @@ Scope: [src/components/AppModal](../../src/components/AppModal). Original scope:
 
 ## C09: SideNavigation
 
-Scope: [src/components/SideNavigation](../../src/components/SideNavigation). Original scope: `M-09` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/SideNavigation](../../packages/ui/src/components/SideNavigation). Original scope: `M-09` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C09-01 Add or accept a focused regression for SideNavigation: pathname selected navigation item. Dependency: `F-C09-01`.
 - [x] T-C09-02 Add or accept a focused regression for SideNavigation: child expansion and collapsed navigation. Dependency: `F-C09-02`.
@@ -108,7 +119,7 @@ Scope: [src/components/SideNavigation](../../src/components/SideNavigation). Ori
 
 ## C10: ExperiencePageNavigator
 
-Scope: [src/components/ExperiencePageNavigator](../../src/components/ExperiencePageNavigator). Original scope: `M-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ExperiencePageNavigator](../../packages/ui/src/components/ExperiencePageNavigator). Original scope: `M-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C10-01 Add or accept a focused regression for ExperiencePageNavigator: controlled activePageKey selection through onSelectPage and host page creation through onAddPage. Dependency: `F-C10-01`.
 - [x] T-C10-02 Add or accept a focused regression for ExperiencePageNavigator: first/last Move up/Move down boundaries, final-page removal protection and readOnly mutation guards while retaining selection. Dependency: `F-C10-02`.
@@ -119,7 +130,7 @@ Scope: [src/components/ExperiencePageNavigator](../../src/components/ExperienceP
 
 ## C11: CardCollectionWithFooter
 
-Scope: [src/components/CardCollectionWithFooter](../../src/components/CardCollectionWithFooter). Original scope: `M-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/CardCollectionWithFooter](../../packages/ui/src/components/CardCollectionWithFooter). Original scope: `M-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C11-01 Add or accept a focused regression for CardCollectionWithFooter: stable item keys and card rendering. Dependency: `F-C11-01`.
 - [x] T-C11-02 Add or accept a focused regression for CardCollectionWithFooter: responsive collection layout. Dependency: `F-C11-02`.
@@ -130,7 +141,7 @@ Scope: [src/components/CardCollectionWithFooter](../../src/components/CardCollec
 
 ## C12: CardPaginationFooter
 
-Scope: [src/components/CardPaginationFooter](../../src/components/CardPaginationFooter). Original scope: `M-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/CardPaginationFooter](../../packages/ui/src/components/CardPaginationFooter). Original scope: `M-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C12-01 Add or accept a focused regression for CardPaginationFooter: appPaginationFooter preserved export. Dependency: `F-C12-01`.
 - [x] T-C12-02 Add or accept a focused regression for CardPaginationFooter: page and page-size callbacks. Dependency: `F-C12-02`.
@@ -142,7 +153,7 @@ Scope: [src/components/CardPaginationFooter](../../src/components/CardPagination
 
 ## C13: ClassCardFrame
 
-Scope: [src/components/ClassCardFrame](../../src/components/ClassCardFrame). Original scope: `M-13` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ClassCardFrame](../../packages/ui/src/components/ClassCardFrame). Original scope: `M-13` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] T-C13-01 Add or accept a focused regression for ClassCardFrame: owned frame surface and spacing. Dependency: `F-C13-01`.
 - [x] T-C13-02 Add or accept a focused regression for ClassCardFrame: image and content slots. Dependency: `F-C13-02`.
@@ -153,7 +164,7 @@ Scope: [src/components/ClassCardFrame](../../src/components/ClassCardFrame). Ori
 
 ## C14: InstructorClassCard
 
-Scope: [src/components/InstructorClassCard](../../src/components/InstructorClassCard). Original scope: `M-14` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/InstructorClassCard](../../packages/ui/src/components/InstructorClassCard). Original scope: `M-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C14-01 Add or accept a focused regression for InstructorClassCard: course status and metadata. Dependency: `F-C14-01`.
 - [x] T-C14-02 Add or accept a focused regression for InstructorClassCard: the owned actionHref/actionLabel link, preserved translated/custom action labels, and host navigation requests. Dependency: `F-C14-02`.
@@ -164,7 +175,7 @@ Scope: [src/components/InstructorClassCard](../../src/components/InstructorClass
 
 ## C15: LearnerClassCard
 
-Scope: [src/components/LearnerClassCard](../../src/components/LearnerClassCard). Original scope: `M-15` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/LearnerClassCard](../../packages/ui/src/components/LearnerClassCard). Original scope: `M-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C15-01 Add or accept a focused regression for LearnerClassCard: progress and completion presentation. Dependency: `F-C15-01`.
 - [x] T-C15-02 Add or accept a focused regression for LearnerClassCard: localized relative/absolute due-date labels and the translated Course progress name with normalized visible percentage. Dependency: `F-C15-02`.
@@ -175,7 +186,7 @@ Scope: [src/components/LearnerClassCard](../../src/components/LearnerClassCard).
 
 ## C16: AppDataGrid
 
-Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original scope: `M-16 G-04–G-16 G-21 G-22` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGrid](../../packages/ui/src/components/AppDataGrid). Original scope: `M-16 G-04–G-16 G-21 G-22` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C16-01 Add or accept a focused regression for AppDataGrid: owned row and column IDs with generics. Dependency: `F-C16-01`.
 - [x] T-C16-02 Add or accept a focused regression for AppDataGrid: filter-before-sort-before-page processing. Dependency: `F-C16-02`.
@@ -191,7 +202,7 @@ Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original 
 
 ## C17: AppDataGridShell
 
-Scope: [src/components/AppDataGridShell](../../src/components/AppDataGridShell). Original scope: `M-17 H-17` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGridShell](../../packages/ui/src/components/AppDataGridShell). Original scope: `M-17 H-17` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C17-01 Add or accept a focused regression for AppDataGridShell: one shared grid and card state owner. Dependency: `F-C17-01`.
 - [x] T-C17-02 Add or accept a focused regression for AppDataGridShell: search and toolbar integration. Dependency: `F-C17-02`.
@@ -203,7 +214,7 @@ Scope: [src/components/AppDataGridShell](../../src/components/AppDataGridShell).
 
 ## C18: AppDataGridRowDnd
 
-Scope: [src/components/AppDataGridRowDnd](../../src/components/AppDataGridRowDnd). Original scope: `M-18 G-17 G-18 G-28` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGridRowDnd](../../packages/ui/src/components/AppDataGridRowDnd). Original scope: `M-18 G-17 G-18 G-28` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C18-01 Add or accept a focused regression for AppDataGridRowDnd: complete single-page reorder eligibility. Dependency: `F-C18-01`.
 - [x] T-C18-02 Add or accept a focused regression for AppDataGridRowDnd: pointer handle and owned drag preview. Dependency: `F-C18-02`.
@@ -215,7 +226,7 @@ Scope: [src/components/AppDataGridRowDnd](../../src/components/AppDataGridRowDnd
 
 ## C19: LearnerClassesDataGrid
 
-Scope: [src/components/LearnerClassesDataGrid](../../src/components/LearnerClassesDataGrid). Original scope: `M-19` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/LearnerClassesDataGrid](../../packages/ui/src/components/LearnerClassesDataGrid). Original scope: `M-19` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C19-01 Add or accept a focused regression for LearnerClassesDataGrid: owned learner presentation model. Dependency: `F-C19-01`.
 - [x] T-C19-02 Add or accept a focused regression for LearnerClassesDataGrid: localized due-date/fallback, course-name link and Details/Continue action columns. Dependency: `F-C19-02`.
@@ -227,7 +238,7 @@ Scope: [src/components/LearnerClassesDataGrid](../../src/components/LearnerClass
 
 ## C20: DataToolbar
 
-Scope: [src/components/DataToolbar](../../src/components/DataToolbar). Original scope: `M-20 G-08–G-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/DataToolbar](../../packages/ui/src/components/DataToolbar). Original scope: `M-20 G-08–G-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C20-01 Add or accept a focused regression for DataToolbar: search and refresh callbacks. Dependency: `F-C20-01`.
 - [x] T-C20-02 Add or accept a focused regression for DataToolbar: selected count and selected actions. Dependency: `F-C20-02`.
@@ -241,7 +252,7 @@ Scope: [src/components/DataToolbar](../../src/components/DataToolbar). Original 
 
 ## C21: DocumentEditorLayout
 
-Scope: [src/components/DocumentEditorLayout](../../src/components/DocumentEditorLayout). Original scope: `M-21` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/DocumentEditorLayout](../../packages/ui/src/components/DocumentEditorLayout). Original scope: `M-21` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C21-01 Add or accept a focused regression for DocumentEditorLayout: toolbar content and menu slots. Dependency: `F-C21-01`.
 - [x] T-C21-02 Add or accept a focused regression for DocumentEditorLayout: host-owned scrolling boundary. Dependency: `F-C21-02`.
@@ -251,7 +262,7 @@ Scope: [src/components/DocumentEditorLayout](../../src/components/DocumentEditor
 
 ## C22: DocumentEditorToolbar
 
-Scope: [src/components/DocumentEditorToolbar](../../src/components/DocumentEditorToolbar). Original scope: `M-22` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/DocumentEditorToolbar](../../packages/ui/src/components/DocumentEditorToolbar). Original scope: `M-22` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C22-01 Add or accept a focused regression for DocumentEditorToolbar: owned actions and menu triggers. Dependency: `F-C22-01`.
 - [x] T-C22-02 Add or accept a focused regression for DocumentEditorToolbar: controlled active formatting state. Dependency: `F-C22-02`.
@@ -262,7 +273,7 @@ Scope: [src/components/DocumentEditorToolbar](../../src/components/DocumentEdito
 
 ## C23: ContentEditorChrome
 
-Scope: [src/components/ContentEditorChrome](../../src/components/ContentEditorChrome). Original scope: `M-23` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ContentEditorChrome](../../packages/ui/src/components/ContentEditorChrome). Original scope: `M-23` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C23-01 Add or accept a focused regression for ContentEditorChrome: editor menu and toolbar composition. Dependency: `F-C23-01`.
 - [x] T-C23-02 Add or accept a focused regression for ContentEditorChrome: native onPress(anchor) action handoff supports host-owned editor selection and focus preparation/restoration; chrome does not own document selection. Dependency: `F-C23-02`.
@@ -273,7 +284,7 @@ Scope: [src/components/ContentEditorChrome](../../src/components/ContentEditorCh
 
 ## C24: EditableTitleField
 
-Scope: [src/components/EditableTitleField](../../src/components/EditableTitleField). Original scope: `M-24` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/EditableTitleField](../../packages/ui/src/components/EditableTitleField). Original scope: `M-24` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C24-01 Add or accept a focused regression for EditableTitleField: controlled draft and committed title. Dependency: `F-C24-01`.
 - [x] T-C24-02 Add or accept a focused regression for EditableTitleField: enter commit and Escape cancel. Dependency: `F-C24-02`.
@@ -284,7 +295,7 @@ Scope: [src/components/EditableTitleField](../../src/components/EditableTitleFie
 
 ## C25: FloatingTextSelectionToolbar
 
-Scope: [src/components/FloatingTextSelectionToolbar](../../src/components/FloatingTextSelectionToolbar). Original scope: `M-25` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/FloatingTextSelectionToolbar](../../packages/ui/src/components/FloatingTextSelectionToolbar). Original scope: `M-25` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C25-01 Add or accept a focused regression for FloatingTextSelectionToolbar: selection-based toolbar visibility. Dependency: `F-C25-01`.
 - [ ] T-C25-02 Add or accept a focused regression for FloatingTextSelectionToolbar: owned selection anchor placement. Dependency: `F-C25-02`.
@@ -296,7 +307,7 @@ Scope: [src/components/FloatingTextSelectionToolbar](../../src/components/Floati
 
 ## C26: RichTextFormattingToolbar
 
-Scope: [src/components/RichTextFormattingToolbar](../../src/components/RichTextFormattingToolbar). Original scope: `M-26 E-04` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/RichTextFormattingToolbar](../../packages/ui/src/components/RichTextFormattingToolbar). Original scope: `M-26 E-04` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C26-01 Add or accept a focused regression for RichTextFormattingToolbar: named inline formatting callbacks. Dependency: `F-C26-01`.
 - [x] T-C26-02 Add or accept a focused regression for RichTextFormattingToolbar: controlled active and mixed states. Dependency: `F-C26-02`.
@@ -308,7 +319,7 @@ Scope: [src/components/RichTextFormattingToolbar](../../src/components/RichTextF
 
 ## C27: InsertContentMenuControl
 
-Scope: [src/components/InsertContentMenuControl](../../src/components/InsertContentMenuControl). Original scope: `M-27` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/InsertContentMenuControl](../../packages/ui/src/components/InsertContentMenuControl). Original scope: `M-27` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C27-01 Add or accept a focused regression for InsertContentMenuControl: insert image columns and rule actions. Dependency: `F-C27-01`.
 - [x] T-C27-02 Add or accept a focused regression for InsertContentMenuControl: unavailable insertion actions disabled. Dependency: `F-C27-02`.
@@ -318,7 +329,7 @@ Scope: [src/components/InsertContentMenuControl](../../src/components/InsertCont
 
 ## C28: TextAlignMenuControl
 
-Scope: [src/components/TextAlignMenuControl](../../src/components/TextAlignMenuControl). Original scope: `M-28` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/TextAlignMenuControl](../../packages/ui/src/components/TextAlignMenuControl). Original scope: `M-28` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C28-01 Add or accept a focused regression for TextAlignMenuControl: alignment actions and active state. Dependency: `F-C28-01`.
 - [x] T-C28-02 Add or accept a focused regression for TextAlignMenuControl: indent and outdent callbacks. Dependency: `F-C28-02`.
@@ -328,7 +339,7 @@ Scope: [src/components/TextAlignMenuControl](../../src/components/TextAlignMenuC
 
 ## C29: TextColorPickerControl
 
-Scope: [src/components/TextColorPickerControl](../../src/components/TextColorPickerControl). Original scope: `M-29` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/TextColorPickerControl](../../packages/ui/src/components/TextColorPickerControl). Original scope: `M-29` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C29-01 Add or accept a focused regression for TextColorPickerControl: foreground and background mode. Dependency: `F-C29-01`.
 - [x] T-C29-02 Add or accept a focused regression for TextColorPickerControl: semantic preset swatches. Dependency: `F-C29-02`.
@@ -339,7 +350,7 @@ Scope: [src/components/TextColorPickerControl](../../src/components/TextColorPic
 
 ## C30: TextStyleMenuControl
 
-Scope: [src/components/TextStyleMenuControl](../../src/components/TextStyleMenuControl). Original scope: `M-30` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/TextStyleMenuControl](../../packages/ui/src/components/TextStyleMenuControl). Original scope: `M-30` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C30-01 Add or accept a focused regression for TextStyleMenuControl: lowercase, uppercase, capitalize, strikethrough, subscript, superscript, highlight and clear-formatting commands; preserve typeface selection in RichTextFormattingToolbar through fontFamilyValue/onFontFamilyChange. Dependency: `F-C30-01`.
 - [x] T-C30-02 Add or accept a focused regression for TextStyleMenuControl: controlled selected formatting style. Dependency: `F-C30-02`.
@@ -350,7 +361,7 @@ Scope: [src/components/TextStyleMenuControl](../../src/components/TextStyleMenuC
 
 ## C31: ColumnsLayoutModal
 
-Scope: [src/components/ColumnsLayoutModal](../../src/components/ColumnsLayoutModal). Original scope: `M-31 E-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ColumnsLayoutModal](../../packages/ui/src/components/ColumnsLayoutModal). Original scope: `M-31 E-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C31-01 Add or accept a focused regression for ColumnsLayoutModal: layout preset selection. Dependency: `F-C31-01`.
 - [x] T-C31-02 Add or accept a focused regression for ColumnsLayoutModal: draft reset on reopen. Dependency: `F-C31-02`.
@@ -361,7 +372,7 @@ Scope: [src/components/ColumnsLayoutModal](../../src/components/ColumnsLayoutMod
 
 ## C32: ImageUploadModal
 
-Scope: [src/components/ImageUploadModal](../../src/components/ImageUploadModal). Original scope: `M-32 E-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ImageUploadModal](../../packages/ui/src/components/ImageUploadModal). Original scope: `M-32 E-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C32-01 Add or accept a focused regression for ImageUploadModal: picker and drop file selection. Dependency: `F-C32-01`.
 - [x] T-C32-02 Add or accept a focused regression for ImageUploadModal: nonempty file and MIME extension presentation checks. Dependency: `F-C32-02`.
@@ -374,7 +385,7 @@ Scope: [src/components/ImageUploadModal](../../src/components/ImageUploadModal).
 
 ## C33: LinkUrlModal
 
-Scope: [src/components/LinkUrlModal](../../src/components/LinkUrlModal). Original scope: `M-33 E-06 E-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/LinkUrlModal](../../packages/ui/src/components/LinkUrlModal). Original scope: `M-33 E-06 E-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C33-01 Add or accept a focused regression for LinkUrlModal: shared owned destination validation. Dependency: `F-C33-01`.
 - [x] T-C33-02 Add or accept a focused regression for LinkUrlModal: Display-text and URL-or-null submit payload. Dependency: `F-C33-02`.
@@ -385,7 +396,7 @@ Scope: [src/components/LinkUrlModal](../../src/components/LinkUrlModal). Origina
 
 ## C34: PageRichTextEditorSection
 
-Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichTextEditorSection). Original scope: `M-34 E-01–E-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/PageRichTextEditorSection](../../packages/ui/src/components/PageRichTextEditorSection). Original scope: `M-34 E-01–E-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C34-01 Add or accept a focused regression for PageRichTextEditorSection: owned Lexical configuration and saved nodes. Dependency: `F-C34-01`.
 - [x] T-C34-02 Add or accept a focused regression for PageRichTextEditorSection: document serialization preserving host data. Dependency: `F-C34-02`.
@@ -402,7 +413,7 @@ Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichT
 
 ## C35: Typefaces
 
-Scope: [src/components/Typefaces](../../src/components/Typefaces). Original scope: `M-35` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/Typefaces](../../packages/ui/src/components/Typefaces). Original scope: `M-35` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C35-01 Add or accept a focused regression for Typefaces: owned typography role catalog. Dependency: `F-C35-01`.
 - [x] T-C35-02 Add or accept a focused regression for Typefaces: bodyAlt2 compatibility role. Dependency: `F-C35-02`.
@@ -412,7 +423,7 @@ Scope: [src/components/Typefaces](../../src/components/Typefaces). Original scop
 
 ## C36: icons
 
-Scope: [src/components/icons](../../src/components/icons). Original scope: `M-36 I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/icons](../../packages/ui/src/components/icons). Original scope: `M-36 I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C36-01 Add or accept a focused regression for icons: public icon name mapping. Dependency: `F-C36-01`.
 - [x] T-C36-02 Add or accept a focused regression for icons: native size color style and ref contract. Dependency: `F-C36-02`.
@@ -424,7 +435,7 @@ Scope: [src/components/icons](../../src/components/icons). Original scope: `M-36
 
 ## C37: primitives
 
-Scope: [src/components/primitives](../../src/components/primitives). Original scope: `M-37 U-01–U-20` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/primitives](../../packages/ui/src/components/primitives). Original scope: `M-37 U-01–U-20` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-C37-01 Add or accept a focused regression for primitives: public owned primitive and alias mapping. Dependency: `F-C37-01`.
 - [x] T-C37-02 Add or accept a focused regression for primitives: owned props without upstream type leakage. Dependency: `F-C37-02`.
@@ -435,7 +446,7 @@ Scope: [src/components/primitives](../../src/components/primitives). Original sc
 
 ## P01: Box
 
-Scope: [src/experimental/Box](../../src/experimental/Box). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Box](../../packages/ui/src/experimental/Box). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P01-01 Add or accept a focused regression for Box: native element and ref. Dependency: `F-P01-01`.
 - [x] T-P01-02 Add or accept a focused regression for Box: owned spacing and native style. Dependency: `F-P01-02`.
@@ -444,7 +455,7 @@ Scope: [src/experimental/Box](../../src/experimental/Box). Original scope: `U-02
 
 ## P02: Stack
 
-Scope: [src/experimental/Stack](../../src/experimental/Stack). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Stack](../../packages/ui/src/experimental/Stack). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P02-01 Add or accept a focused regression for Stack: direction alignment and gap. Dependency: `F-P02-01`.
 - [ ] T-P02-02 Add or accept a focused regression for Stack: wrapping and logical spacing. Dependency: `F-P02-02`.
@@ -453,7 +464,7 @@ Scope: [src/experimental/Stack](../../src/experimental/Stack). Original scope: `
 
 ## P03: Surface
 
-Scope: [src/experimental/Surface](../../src/experimental/Surface). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Surface](../../packages/ui/src/experimental/Surface). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P03-01 Add or accept a focused regression for Surface: surface and elevation tokens. Dependency: `F-P03-01`.
 - [x] T-P03-02 Add or accept a focused regression for Surface: native element and styling. Dependency: `F-P03-02`.
@@ -462,7 +473,7 @@ Scope: [src/experimental/Surface](../../src/experimental/Surface). Original scop
 
 ## P04: Card
 
-Scope: [src/experimental/Card](../../src/experimental/Card). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Card](../../packages/ui/src/experimental/Card). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P04-01 Add or accept a focused regression for Card: card and CardContent slots. Dependency: `F-P04-01`.
 - [x] T-P04-02 Add or accept a focused regression for Card: owned padding and surface. Dependency: `F-P04-02`.
@@ -471,7 +482,7 @@ Scope: [src/experimental/Card](../../src/experimental/Card). Original scope: `U-
 
 ## P05: Divider
 
-Scope: [src/experimental/Divider](../../src/experimental/Divider). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Divider](../../packages/ui/src/experimental/Divider). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P05-01 Add or accept a focused regression for Divider: horizontal and vertical separator. Dependency: `F-P05-01`.
 - [x] T-P05-02 Add or accept a focused regression for Divider: decorative versus semantic role. Dependency: `F-P05-02`.
@@ -480,7 +491,7 @@ Scope: [src/experimental/Divider](../../src/experimental/Divider). Original scop
 
 ## P06: Typography
 
-Scope: [src/experimental/Typography](../../src/experimental/Typography). Original scope: `U-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Typography](../../packages/ui/src/experimental/Typography). Original scope: `U-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P06-01 Add or accept a focused regression for Typography: semantic element selection. Dependency: `F-P06-01`.
 - [x] T-P06-02 Add or accept a focused regression for Typography: all owned roles including bodyAlt2. Dependency: `F-P06-02`.
@@ -489,7 +500,7 @@ Scope: [src/experimental/Typography](../../src/experimental/Typography). Origina
 
 ## P07: Button
 
-Scope: [src/experimental/Button](../../src/experimental/Button). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Button](../../packages/ui/src/experimental/Button). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P07-01 Add or accept a focused regression for Button: press once and native submit type. Dependency: `F-P07-01`.
 - [x] T-P07-02 Add or accept a focused regression for Button: variant tone density and pending. Dependency: `F-P07-02`.
@@ -498,7 +509,7 @@ Scope: [src/experimental/Button](../../src/experimental/Button). Original scope:
 
 ## P08: IconButton
 
-Scope: [src/experimental/IconButton](../../src/experimental/IconButton). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/IconButton](../../packages/ui/src/experimental/IconButton). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P08-01 Add or accept a focused regression for IconButton: accessible name and icon rendering. Dependency: `F-P08-01`.
 - [x] T-P08-02 Add or accept a focused regression for IconButton: press disabled and pending. Dependency: `F-P08-02`.
@@ -507,7 +518,7 @@ Scope: [src/experimental/IconButton](../../src/experimental/IconButton). Origina
 
 ## P09: ButtonGroup
 
-Scope: [src/experimental/ButtonGroup](../../src/experimental/ButtonGroup). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/ButtonGroup](../../packages/ui/src/experimental/ButtonGroup). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] T-P09-01 Add or accept a focused regression for ButtonGroup: shared group border and divider. Dependency: `F-P09-01`.
 - [ ] T-P09-02 Add or accept a focused regression for ButtonGroup: group density and action layout. Dependency: `F-P09-02`.
@@ -516,7 +527,7 @@ Scope: [src/experimental/ButtonGroup](../../src/experimental/ButtonGroup). Origi
 
 ## P10: SplitAction
 
-Scope: [src/experimental/SplitAction](../../src/experimental/SplitAction). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/SplitAction](../../packages/ui/src/experimental/SplitAction). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P10-01 Add or accept a focused regression for SplitAction: primary callback and secondary menu. Dependency: `F-P10-01`.
 - [ ] T-P10-02 Add or accept a focused regression for SplitAction: neutral shared-border presentation. Dependency: `F-P10-02`.
@@ -525,7 +536,7 @@ Scope: [src/experimental/SplitAction](../../src/experimental/SplitAction). Origi
 
 ## P11: TextField
 
-Scope: [src/experimental/TextField](../../src/experimental/TextField). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TextField](../../packages/ui/src/experimental/TextField). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P11-01 Add or accept a focused regression for TextField: controlled and default text value. Dependency: `F-P11-01`.
 - [x] T-P11-02 Add or accept a focused regression for TextField: label description and validation. Dependency: `F-P11-02`.
@@ -535,7 +546,7 @@ Scope: [src/experimental/TextField](../../src/experimental/TextField). Original 
 
 ## P12: TextArea
 
-Scope: [src/experimental/TextArea](../../src/experimental/TextArea). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TextArea](../../packages/ui/src/experimental/TextArea). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P12-01 Add or accept a focused regression for TextArea: controlled and default multiline value. Dependency: `F-P12-01`.
 - [x] T-P12-02 Add or accept a focused regression for TextArea: label and validation association. Dependency: `F-P12-02`.
@@ -545,7 +556,7 @@ Scope: [src/experimental/TextArea](../../src/experimental/TextArea). Original sc
 
 ## P13: Checkbox
 
-Scope: [src/experimental/Checkbox](../../src/experimental/Checkbox). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Checkbox](../../packages/ui/src/experimental/Checkbox). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P13-01 Add or accept a focused regression for Checkbox: controlled default and mixed state. Dependency: `F-P13-01`.
 - [x] T-P13-02 Add or accept a focused regression for Checkbox: space activation and disabled guard. Dependency: `F-P13-02`.
@@ -555,7 +566,7 @@ Scope: [src/experimental/Checkbox](../../src/experimental/Checkbox). Original sc
 
 ## P14: Switch
 
-Scope: [src/experimental/Switch](../../src/experimental/Switch). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Switch](../../packages/ui/src/experimental/Switch). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P14-01 Add or accept a focused regression for Switch: controlled and default checked state. Dependency: `F-P14-01`.
 - [x] T-P14-02 Add or accept a focused regression for Switch: accessible switch labeling. Dependency: `F-P14-02`.
@@ -565,7 +576,7 @@ Scope: [src/experimental/Switch](../../src/experimental/Switch). Original scope:
 
 ## P15: RadioGroup
 
-Scope: [src/experimental/RadioGroup](../../src/experimental/RadioGroup). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/RadioGroup](../../packages/ui/src/experimental/RadioGroup). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P15-01 Add or accept a focused regression for RadioGroup: owned string option identity. Dependency: `F-P15-01`.
 - [x] T-P15-02 Add or accept a focused regression for RadioGroup: arrow selection and disabled skipping. Dependency: `F-P15-02`.
@@ -575,7 +586,7 @@ Scope: [src/experimental/RadioGroup](../../src/experimental/RadioGroup). Origina
 
 ## P16: Select
 
-Scope: [src/experimental/Select](../../src/experimental/Select). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Select](../../packages/ui/src/experimental/Select). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P16-01 Add or accept a focused regression for Select: owned option IDs and controlled value. Dependency: `F-P16-01`.
 - [x] T-P16-02 Add or accept a focused regression for Select: selection and disabled options. Dependency: `F-P16-02`.
@@ -585,7 +596,7 @@ Scope: [src/experimental/Select](../../src/experimental/Select). Original scope:
 
 ## P17: ComboBox
 
-Scope: [src/experimental/ComboBox](../../src/experimental/ComboBox). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/ComboBox](../../packages/ui/src/experimental/ComboBox). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P17-01 Add or accept a focused regression for ComboBox: query filtering and owned option IDs. Dependency: `F-P17-01`.
 - [x] T-P17-02 Add or accept a focused regression for ComboBox: keyboard selection and disabled options. Dependency: `F-P17-02`.
@@ -596,7 +607,7 @@ Scope: [src/experimental/ComboBox](../../src/experimental/ComboBox). Original sc
 
 ## P18: AsyncMultiSelect
 
-Scope: [src/experimental/AsyncMultiSelect](../../src/experimental/AsyncMultiSelect). Original scope: `U-06 H-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/AsyncMultiSelect](../../packages/ui/src/experimental/AsyncMultiSelect). Original scope: `U-06 H-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P18-01 Add or accept a focused regression for AsyncMultiSelect: host query and result callback. Dependency: `F-P18-01`.
 - [x] T-P18-02 Add or accept a focused regression for AsyncMultiSelect: multiple selected IDs outside results. Dependency: `F-P18-02`.
@@ -608,7 +619,7 @@ Scope: [src/experimental/AsyncMultiSelect](../../src/experimental/AsyncMultiSele
 
 ## P19: Menu
 
-Scope: [src/experimental/Menu](../../src/experimental/Menu). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Menu](../../packages/ui/src/experimental/Menu). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P19-01 Add or accept a focused regression for Menu: owned item actions and checked state. Dependency: `F-P19-01`.
 - [x] T-P19-02 Add or accept a focused regression for Menu: keyboard navigation and disabled skipping. Dependency: `F-P19-02`.
@@ -618,7 +629,7 @@ Scope: [src/experimental/Menu](../../src/experimental/Menu). Original scope: `U-
 
 ## P20: Popover
 
-Scope: [src/experimental/Popover](../../src/experimental/Popover). Original scope: `U-07 U-19` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Popover](../../packages/ui/src/experimental/Popover). Original scope: `U-07 U-19` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P20-01 Add or accept a focused regression for Popover: controlled and default open state. Dependency: `F-P20-01`.
 - [x] T-P20-02 Add or accept a focused regression for Popover: trigger focus return and dismissal. Dependency: `F-P20-02`.
@@ -628,7 +639,7 @@ Scope: [src/experimental/Popover](../../src/experimental/Popover). Original scop
 
 ## P21: Tooltip
 
-Scope: [src/experimental/Tooltip](../../src/experimental/Tooltip). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Tooltip](../../packages/ui/src/experimental/Tooltip). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P21-01 Add or accept a focused regression for Tooltip: keyboard focus and hover description. Dependency: `F-P21-01`.
 - [x] T-P21-02 Add or accept a focused regression for Tooltip: escape dismissal. Dependency: `F-P21-02`.
@@ -638,7 +649,7 @@ Scope: [src/experimental/Tooltip](../../src/experimental/Tooltip). Original scop
 
 ## P22: Dialog
 
-Scope: [src/experimental/Dialog](../../src/experimental/Dialog). Original scope: `U-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Dialog](../../packages/ui/src/experimental/Dialog). Original scope: `U-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P22-01 Add or accept a focused regression for Dialog: title description and owned dismissal reasons. Dependency: `F-P22-01`.
 - [x] T-P22-02 Add or accept a focused regression for Dialog: focus entry containment and return. Dependency: `F-P22-02`.
@@ -649,7 +660,7 @@ Scope: [src/experimental/Dialog](../../src/experimental/Dialog). Original scope:
 
 ## P23: Tabs
 
-Scope: [src/experimental/Tabs](../../src/experimental/Tabs). Original scope: `U-09` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Tabs](../../packages/ui/src/experimental/Tabs). Original scope: `U-09` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P23-01 Add or accept a focused regression for Tabs: owned tab IDs and associated panels. Dependency: `F-P23-01`.
 - [x] T-P23-02 Add or accept a focused regression for Tabs: manual versus automatic activation. Dependency: `F-P23-02`.
@@ -659,7 +670,7 @@ Scope: [src/experimental/Tabs](../../src/experimental/Tabs). Original scope: `U-
 
 ## P24: Link
 
-Scope: [src/experimental/Link](../../src/experimental/Link). Original scope: `U-10 H-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Link](../../packages/ui/src/experimental/Link). Original scope: `U-10 H-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P24-01 Add or accept a focused regression for Link: native anchor fallback and ref. Dependency: `F-P24-01`.
 - [x] T-P24-02 Add or accept a focused regression for Link: host navigation callback with replace. Dependency: `F-P24-02`.
@@ -669,7 +680,7 @@ Scope: [src/experimental/Link](../../src/experimental/Link). Original scope: `U-
 
 ## P25: Breadcrumbs
 
-Scope: [src/experimental/Breadcrumbs](../../src/experimental/Breadcrumbs). Original scope: `U-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Breadcrumbs](../../packages/ui/src/experimental/Breadcrumbs). Original scope: `U-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P25-01 Add or accept a focused regression for Breadcrumbs: owned routed ancestor links. Dependency: `F-P25-01`.
 - [x] T-P25-02 Add or accept a focused regression for Breadcrumbs: current page semantics. Dependency: `F-P25-02`.
@@ -679,7 +690,7 @@ Scope: [src/experimental/Breadcrumbs](../../src/experimental/Breadcrumbs). Origi
 
 ## P26: Navigation
 
-Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Original scope: `U-11 H-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Navigation](../../packages/ui/src/experimental/Navigation). Original scope: `U-11 H-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P26-01 Add or accept a focused regression for Navigation: navigation and NavigationItem exports. Dependency: `F-P26-01`.
 - [x] T-P26-02 Add or accept a focused regression for Navigation: selected and expanded item state. Dependency: `F-P26-02`.
@@ -689,7 +700,7 @@ Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Origina
 
 ## P27: List
 
-Scope: [src/experimental/List](../../src/experimental/List). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/List](../../packages/ui/src/experimental/List). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P27-01 Add or accept a focused regression for List: list and all item text icon button exports. Dependency: `F-P27-01`.
 - [x] T-P27-02 Add or accept a focused regression for List: native list versus interactive item semantics. Dependency: `F-P27-02`.
@@ -699,7 +710,7 @@ Scope: [src/experimental/List](../../src/experimental/List). Original scope: `U-
 
 ## P28: Disclosure
 
-Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Disclosure](../../packages/ui/src/experimental/Disclosure). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P28-01 Add or accept a focused regression for Disclosure: controlled and default expanded state. Dependency: `F-P28-01`.
 - [x] T-P28-02 Add or accept a focused regression for Disclosure: trigger and content association. Dependency: `F-P28-02`.
@@ -708,7 +719,7 @@ Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Origina
 
 ## P29: Collapse
 
-Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Collapse](../../packages/ui/src/experimental/Collapse). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P29-01 Add or accept a focused regression for Collapse: expanded content visibility. Dependency: `F-P29-01`.
 - [x] T-P29-02 Add or accept a focused regression for Collapse: immediate native hidden/unmount visibility changes without library animation; retain child state by default and document removed transition-engine props. Dependency: `F-P29-02`.
@@ -717,7 +728,7 @@ Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original sc
 
 ## P30: Chip
 
-Scope: [src/experimental/Chip](../../src/experimental/Chip). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Chip](../../packages/ui/src/experimental/Chip). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P30-01 Add or accept a focused regression for Chip: owned token label and tone. Dependency: `F-P30-01`.
 - [x] T-P30-02 Add or accept a focused regression for Chip: passive label without an implicit remove action; retain accessible removal in TagGroup through translated Remove {label} or host removeLabel and host-owned onRemove(ids). Dependency: `F-P30-02`.
@@ -726,7 +737,7 @@ Scope: [src/experimental/Chip](../../src/experimental/Chip). Original scope: `U-
 
 ## P31: Badge
 
-Scope: [src/experimental/Badge](../../src/experimental/Badge). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Badge](../../packages/ui/src/experimental/Badge). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P31-01 Add or accept a focused regression for Badge: badge value and overflow presentation. Dependency: `F-P31-01`.
 - [x] T-P31-02 Add or accept a focused regression for Badge: accessible count description. Dependency: `F-P31-02`.
@@ -735,7 +746,7 @@ Scope: [src/experimental/Badge](../../src/experimental/Badge). Original scope: `
 
 ## P32: TagGroup
 
-Scope: [src/experimental/TagGroup](../../src/experimental/TagGroup). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TagGroup](../../packages/ui/src/experimental/TagGroup). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P32-01 Add or accept a focused regression for TagGroup: owned token IDs and removal callback. Dependency: `F-P32-01`.
 - [x] T-P32-02 Add or accept a focused regression for TagGroup: keyboard token navigation. Dependency: `F-P32-02`.
@@ -745,7 +756,7 @@ Scope: [src/experimental/TagGroup](../../src/experimental/TagGroup). Original sc
 
 ## P33: Progress
 
-Scope: [src/experimental/Progress](../../src/experimental/Progress). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Progress](../../packages/ui/src/experimental/Progress). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P33-01 Add or accept a focused regression for Progress: determinate min max value. Dependency: `F-P33-01`.
 - [x] T-P33-02 Add or accept a focused regression for Progress: indeterminate loading. Dependency: `F-P33-02`.
@@ -755,7 +766,7 @@ Scope: [src/experimental/Progress](../../src/experimental/Progress). Original sc
 
 ## P34: Status
 
-Scope: [src/experimental/Status](../../src/experimental/Status). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Status](../../packages/ui/src/experimental/Status). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P34-01 Add or accept a focused regression for Status: owned status tone and message. Dependency: `F-P34-01`.
 - [x] T-P34-02 Add or accept a focused regression for Status: appropriate live-region priority. Dependency: `F-P34-02`.
@@ -764,7 +775,7 @@ Scope: [src/experimental/Status](../../src/experimental/Status). Original scope:
 
 ## P35: Avatar
 
-Scope: [src/experimental/Avatar](../../src/experimental/Avatar). Original scope: `U-14` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Avatar](../../packages/ui/src/experimental/Avatar). Original scope: `U-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P35-01 Add or accept a focused regression for Avatar: image source and accessible label. Dependency: `F-P35-01`.
 - [x] T-P35-02 Add or accept a focused regression for Avatar: loading and failed-image fallback. Dependency: `F-P35-02`.
@@ -774,7 +785,7 @@ Scope: [src/experimental/Avatar](../../src/experimental/Avatar). Original scope:
 
 ## P36: Table
 
-Scope: [src/experimental/Table](../../src/experimental/Table). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Table](../../packages/ui/src/experimental/Table). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P36-01 Add or accept a focused regression for Table: all semantic table part exports. Dependency: `F-P36-01`.
 - [x] T-P36-02 Add or accept a focused regression for Table: header associations and caption. Dependency: `F-P36-02`.
@@ -784,7 +795,7 @@ Scope: [src/experimental/Table](../../src/experimental/Table). Original scope: `
 
 ## P37: Pagination
 
-Scope: [src/experimental/Pagination](../../src/experimental/Pagination). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Pagination](../../packages/ui/src/experimental/Pagination). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P37-01 Add or accept a focused regression for Pagination: page and page-size requests. Dependency: `F-P37-01`.
 - [x] T-P37-02 Add or accept a focused regression for Pagination: known unknown and empty totals. Dependency: `F-P37-02`.
@@ -794,7 +805,7 @@ Scope: [src/experimental/Pagination](../../src/experimental/Pagination). Origina
 
 ## P38: ToggleButton
 
-Scope: [src/experimental/ToggleButton](../../src/experimental/ToggleButton). Original scope: `U-16` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/ToggleButton](../../packages/ui/src/experimental/ToggleButton). Original scope: `U-16` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P38-01 Add or accept a focused regression for ToggleButton: controlled and default pressed state. Dependency: `F-P38-01`.
 - [x] T-P38-02 Add or accept a focused regression for ToggleButton: single and multiple ToggleButtonGroup selection. Dependency: `F-P38-02`.
@@ -804,7 +815,7 @@ Scope: [src/experimental/ToggleButton](../../src/experimental/ToggleButton). Ori
 
 ## P39: DateField
 
-Scope: [src/experimental/DateField](../../src/experimental/DateField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateField](../../packages/ui/src/experimental/DateField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P39-01 Add or accept a focused regression for DateField: owned date-only and local datetime value. Dependency: `F-P39-01`.
 - [x] T-P39-02 Add or accept a focused regression for DateField: segment input and description association. Dependency: `F-P39-02`.
@@ -814,7 +825,7 @@ Scope: [src/experimental/DateField](../../src/experimental/DateField). Original 
 
 ## P40: TimeField
 
-Scope: [src/experimental/TimeField](../../src/experimental/TimeField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TimeField](../../packages/ui/src/experimental/TimeField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P40-01 Add or accept a focused regression for TimeField: owned clock value and seconds. Dependency: `F-P40-01`.
 - [x] T-P40-02 Add or accept a focused regression for TimeField: segment editing and disabled behavior. Dependency: `F-P40-02`.
@@ -824,7 +835,7 @@ Scope: [src/experimental/TimeField](../../src/experimental/TimeField). Original 
 
 ## P41: Calendar
 
-Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Calendar](../../packages/ui/src/experimental/Calendar). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P41-01 Add or accept a focused regression for Calendar: selection focused date and visible month. Dependency: `F-P41-01`.
 - [x] T-P41-02 Add or accept a focused regression for Calendar: minimum maximum and unavailable dates. Dependency: `F-P41-02`.
@@ -835,7 +846,7 @@ Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original sc
 
 ## P42: DatePicker
 
-Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DatePicker](../../packages/ui/src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P42-01 Add or accept a focused regression for DatePicker: synchronized field and calendar value. Dependency: `F-P42-01`.
 - [x] T-P42-02 Add or accept a focused regression for DatePicker: popover open clear and focus return. Dependency: `F-P42-02`.
@@ -845,7 +856,7 @@ Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Origina
 
 ## P43: DateRangePicker
 
-Scope: [src/experimental/DateRangePicker](../../src/experimental/DateRangePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateRangePicker](../../packages/ui/src/experimental/DateRangePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P43-01 Add or accept a focused regression for DateRangePicker: owned start and end fields. Dependency: `F-P43-01`.
 - [x] T-P43-02 Add or accept a focused regression for DateRangePicker: range selection and clear. Dependency: `F-P43-02`.
@@ -856,7 +867,7 @@ Scope: [src/experimental/DateRangePicker](../../src/experimental/DateRangePicker
 
 ## P44: DateRangeSelector
 
-Scope: [src/experimental/DateRangeSelector](../../src/experimental/DateRangeSelector). Original scope: `K-01–K-07 K-17` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateRangeSelector](../../packages/ui/src/experimental/DateRangeSelector). Original scope: `K-01–K-07 K-17` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P44-01 Add or accept a focused regression for DateRangeSelector: preset descriptions and draft selection. Dependency: `F-P44-01`.
 - [x] T-P44-02 Add or accept a focused regression for DateRangeSelector: apply commit and Cancel restoration. Dependency: `F-P44-02`.
@@ -868,7 +879,7 @@ Scope: [src/experimental/DateRangeSelector](../../src/experimental/DateRangeSele
 
 ## P45: Provider
 
-Scope: [src/experimental/Provider](../../src/experimental/Provider). Original scope: `D-16 H-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Provider](../../packages/ui/src/experimental/Provider). Original scope: `D-16 H-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P45-01 Add or accept a focused regression for Provider: theme density locale and direction scope. Dependency: `F-P45-01`.
 - [x] T-P45-02 Add or accept a focused regression for Provider: host translation locale bridge. Dependency: `F-P45-02`.
@@ -878,7 +889,7 @@ Scope: [src/experimental/Provider](../../src/experimental/Provider). Original sc
 
 ## P46: DataGrid
 
-Scope: [src/experimental/DataGrid](../../src/experimental/DataGrid). Original scope: `P-06 G-25` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DataGrid](../../packages/ui/src/experimental/DataGrid). Original scope: `P-06 G-25` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P46-01 Add or accept a focused regression for DataGrid: owned proof row and column contracts. Dependency: `F-P46-01`.
 - [x] T-P46-02 Add or accept a focused regression for DataGrid: tanStack processing with one state authority. Dependency: `F-P46-02`.
@@ -889,7 +900,7 @@ Scope: [src/experimental/DataGrid](../../src/experimental/DataGrid). Original sc
 
 ## P47: icons
 
-Scope: [src/experimental/icons](../../src/experimental/icons). Original scope: `I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/icons](../../packages/ui/src/experimental/icons). Original scope: `I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-P47-01 Add or accept a focused regression for icons: owned SVG factory and icon props. Dependency: `F-P47-01`.
 - [x] T-P47-02 Add or accept a focused regression for icons: direct icon and activity mapping. Dependency: `F-P47-02`.
@@ -899,7 +910,7 @@ Scope: [src/experimental/icons](../../src/experimental/icons). Original scope: `
 
 ## S01: ThemeScope
 
-Scope: [src/foundation/ThemeScope.tsx](../../src/foundation/ThemeScope.tsx). Original scope: `D-16 D-17` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/foundation/ThemeScope.tsx](../../packages/ui/src/foundation/ThemeScope.tsx). Original scope: `D-16 D-17` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S01-01 Add or accept a focused regression for ThemeScope: light dark and system setting. Dependency: `F-S01-01`.
 - [x] T-S01-02 Add or accept a focused regression for ThemeScope: nested density and token override. Dependency: `F-S01-02`.
@@ -909,7 +920,7 @@ Scope: [src/foundation/ThemeScope.tsx](../../src/foundation/ThemeScope.tsx). Ori
 
 ## S02: Tokens
 
-Scope: [src/foundation/tokens.json](../../src/foundation/tokens.json). Original scope: `D-01–D-20` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/foundation/tokens.json](../../packages/ui/src/foundation/tokens.json). Original scope: `D-01–D-20` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S02-01 Add or accept a focused regression for Tokens: palette semantic and component aliases. Dependency: `F-S02-01`.
 - [x] T-S02-02 Add or accept a focused regression for Tokens: typography spacing size and surface scales. Dependency: `F-S02-02`.
@@ -920,7 +931,7 @@ Scope: [src/foundation/tokens.json](../../src/foundation/tokens.json). Original 
 
 ## S03: CSSPipeline
 
-Scope: [scripts/build.mjs](../../scripts/build.mjs). Original scope: `C-01–C-21 R-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [scripts/build.mjs](../../packages/ui/scripts/build.mjs). Original scope: `C-01–C-21 R-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S03-01 Add or accept a focused regression for CSSPipeline: compiled module classes and emitted styles. Dependency: `F-S03-01`.
 - [x] T-S03-02 Add or accept a focused regression for CSSPipeline: namespaced cascade layers and scoped normalization. Dependency: `F-S03-02`.
@@ -931,7 +942,7 @@ Scope: [scripts/build.mjs](../../scripts/build.mjs). Original scope: `C-01–C-2
 
 ## S04: NavigationAdapter
 
-Scope: [src/adapters/navigation.tsx](../../src/adapters/navigation.tsx). Original scope: `H-01 H-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/adapters/navigation.tsx](../../packages/ui/src/adapters/navigation.tsx). Original scope: `H-01 H-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S04-01 Add or accept a focused regression for NavigationAdapter: native fallback and custom router provider. Dependency: `F-S04-01`.
 - [x] T-S04-02 Add or accept a focused regression for NavigationAdapter: pathname and replace request. Dependency: `F-S04-02`.
@@ -941,7 +952,7 @@ Scope: [src/adapters/navigation.tsx](../../src/adapters/navigation.tsx). Origina
 
 ## S05: AccountAdapter
 
-Scope: [src/adapters/accounts.tsx](../../src/adapters/accounts.tsx). Original scope: `H-04 H-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/adapters/accounts.tsx](../../packages/ui/src/adapters/accounts.tsx). Original scope: `H-04 H-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S05-01 Add or accept a focused regression for AccountAdapter: organization and logout host callbacks. Dependency: `F-S05-01`.
 - [x] T-S05-02 Add or accept a focused regression for AccountAdapter integration: the host/composed action owner presents pending state and guards repeated actions while preserving independent adapter requests. Dependency: `F-S05-02`.
@@ -951,7 +962,7 @@ Scope: [src/adapters/accounts.tsx](../../src/adapters/accounts.tsx). Original sc
 
 ## S06: TranslationAdapter
 
-Scope: [src/i18n/index.tsx](../../src/i18n/index.tsx). Original scope: `H-06–H-09` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/i18n/index.tsx](../../packages/ui/src/i18n/index.tsx). Original scope: `H-06–H-09` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S06-01 Add or accept a focused regression for TranslationAdapter: key namespace locale and values forwarding. Dependency: `F-S06-01`.
 - [x] T-S06-02 Add or accept a focused regression for TranslationAdapter: defaultMessage English fallback. Dependency: `F-S06-02`.
@@ -961,7 +972,7 @@ Scope: [src/i18n/index.tsx](../../src/i18n/index.tsx). Original scope: `H-06–H
 
 ## S07: ICUFormatting
 
-Scope: [src/i18n/icu.ts](../../src/i18n/icu.ts). Original scope: `H-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/i18n/icu.ts](../../packages/ui/src/i18n/icu.ts). Original scope: `H-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S07-01 Add or accept a focused regression for ICUFormatting: interpolation variable matching. Dependency: `F-S07-01`.
 - [x] T-S07-02 Add or accept a focused regression for ICUFormatting: plural and select message formatting. Dependency: `F-S07-02`.
@@ -971,7 +982,7 @@ Scope: [src/i18n/icu.ts](../../src/i18n/icu.ts). Original scope: `H-08` in the [
 
 ## S08: PersistentState
 
-Scope: [src/hooks/usePersistentState.ts](../../src/hooks/usePersistentState.ts). Original scope: `H-13 H-14` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/hooks/usePersistentState.ts](../../packages/ui/src/hooks/usePersistentState.ts). Original scope: `H-13 H-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S08-01 Add or accept a focused regression for PersistentState: opt-in local or session storage. Dependency: `F-S08-01`.
 - [x] T-S08-02 Add or accept a focused regression for PersistentState: versioned validation and in-memory fallback. Dependency: `F-S08-02`.
@@ -981,7 +992,7 @@ Scope: [src/hooks/usePersistentState.ts](../../src/hooks/usePersistentState.ts).
 
 ## S09: PaginationState
 
-Scope: [src/hooks/usePersistentPaginationModel.ts](../../src/hooks/usePersistentPaginationModel.ts). Original scope: `H-15 H-16` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/hooks/usePersistentPaginationModel.ts](../../packages/ui/src/hooks/usePersistentPaginationModel.ts). Original scope: `H-15 H-16` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S09-01 Add or accept a focused regression for PaginationState: positive safe integer page sizes. Dependency: `F-S09-01`.
 - [x] T-S09-02 Add or accept a focused regression for PaginationState integration: size actions request page zero with the new size through AppPaginationFooter, and grid filter actions reset page zero before criteria/combined callbacks; the hook normalizes and stores the complete model supplied by its owner without inferring resets. Dependency: `F-S09-02`.
@@ -991,7 +1002,7 @@ Scope: [src/hooks/usePersistentPaginationModel.ts](../../src/hooks/usePersistent
 
 ## S10: AdminPresets
 
-Scope: [src/components/AdminDataGridOptions.ts](../../src/components/AdminDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AdminDataGridOptions.ts](../../packages/ui/src/components/AdminDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S10-01 Add or accept a focused regression for AdminPresets: course-named factory and Class compatibility. Dependency: `F-S10-01`.
 - [x] T-S10-02 Add or accept a focused regression for AdminPresets: canonical status options. Dependency: `F-S10-02`.
@@ -1002,7 +1013,7 @@ Scope: [src/components/AdminDataGridOptions.ts](../../src/components/AdminDataGr
 
 ## S11: InstructorPresets
 
-Scope: [src/components/InstructorDataGridOptions.ts](../../src/components/InstructorDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/InstructorDataGridOptions.ts](../../packages/ui/src/components/InstructorDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S11-01 Add or accept a focused regression for InstructorPresets: course-named factory and Class compatibility. Dependency: `F-S11-01`.
 - [x] T-S11-02 Add or accept a focused regression for InstructorPresets: canonical status options. Dependency: `F-S11-02`.
@@ -1013,7 +1024,7 @@ Scope: [src/components/InstructorDataGridOptions.ts](../../src/components/Instru
 
 ## S12: GridCells
 
-Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original scope: `M-40 G-21` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGrid](../../packages/ui/src/components/AppDataGrid). Original scope: `M-40 G-21` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S12-01 Add or accept a focused regression for GridCells: text and multiline truncation contract. Dependency: `F-S12-01`.
 - [x] T-S12-02 Add or accept a focused regression for GridCells: date and datetime localized fallbacks. Dependency: `F-S12-02`.
@@ -1025,7 +1036,7 @@ Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original 
 
 ## S13: GridHelpers
 
-Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original scope: `M-41` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGrid](../../packages/ui/src/components/AppDataGrid). Original scope: `M-41` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S13-01 Add or accept a focused regression for GridHelpers: owned column and action builders. Dependency: `F-S13-01`.
 - [x] T-S13-02 Add or accept a focused regression for GridHelpers: subheader and loading empty parts. Dependency: `F-S13-02`.
@@ -1035,7 +1046,7 @@ Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original 
 
 ## S14: PublicExports
 
-Scope: [src/index.ts](../../src/index.ts). Original scope: `M-42 R-03 R-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/index.ts](../../packages/ui/src/index.ts). Original scope: `M-42 R-03 R-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S14-01 Add or accept a focused regression for PublicExports: root component and granular exports. Dependency: `F-S14-01`.
 - [x] T-S14-02 Add or accept a focused regression for PublicExports: owned model and callback declarations. Dependency: `F-S14-02`.
@@ -1046,7 +1057,7 @@ Scope: [src/index.ts](../../src/index.ts). Original scope: `M-42 R-03 R-05` in t
 
 ## S15: SavedEditorNodes
 
-Scope: [src/components/PageRichTextEditorSection/lexical](../../src/components/PageRichTextEditorSection/lexical). Original scope: `E-02 E-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/PageRichTextEditorSection/lexical](../../packages/ui/src/components/PageRichTextEditorSection/lexical). Original scope: `E-02 E-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S15-01 Add or accept a focused regression for SavedEditorNodes: image metadata and JSON preservation. Dependency: `F-S15-01`.
 - [x] T-S15-02 Add or accept a focused regression for SavedEditorNodes: saved code-highlight node registration. Dependency: `F-S15-02`.
@@ -1057,7 +1068,7 @@ Scope: [src/components/PageRichTextEditorSection/lexical](../../src/components/P
 
 ## S16: EditorUploadLifetime
 
-Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichTextEditorSection). Original scope: `E-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/PageRichTextEditorSection](../../packages/ui/src/components/PageRichTextEditorSection). Original scope: `E-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] T-S16-01 Add or accept a focused regression for EditorUploadLifetime: local preview retained through undo. Dependency: `F-S16-01`.
 - [x] T-S16-02 Add or accept a focused regression for EditorUploadLifetime: owned URLs released on reset and unmount. Dependency: `F-S16-02`.
@@ -1068,7 +1079,7 @@ Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichT
 
 ## S17: DateContracts
 
-Scope: [src/experimental/DateRangeSelector/date-contract.ts](../../src/experimental/DateRangeSelector/date-contract.ts). Original scope: `H-10 H-11 K-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateRangeSelector/date-contract.ts](../../packages/ui/src/experimental/DateRangeSelector/date-contract.ts). Original scope: `H-10 H-11 K-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S17-01 Add or accept a focused regression for DateContracts: serializable date-only local datetime and instant. Dependency: `F-S17-01`.
 - [x] T-S17-02 Add or accept a focused regression for DateContracts: valid parsing and callback payload. Dependency: `F-S17-02`.
@@ -1078,7 +1089,7 @@ Scope: [src/experimental/DateRangeSelector/date-contract.ts](../../src/experimen
 
 ## S18: Models
 
-Scope: [src/models.ts](../../src/models.ts). Original scope: `A-14 E-09 E-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/models.ts](../../packages/ui/src/models.ts). Original scope: `A-14 E-09 E-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] T-S18-01 Add or accept a focused regression for Models: course terminology for new models. Dependency: `F-S18-01`.
 - [x] T-S18-02 Add or accept a focused regression for Models: class compatibility exports. Dependency: `F-S18-02`.

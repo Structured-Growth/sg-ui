@@ -77,34 +77,34 @@ not that execution passed.
 | --- | --- |
 | [`docs/developer/react-aria-grid-contracts.md`](../../../docs/developer/react-aria-grid-contracts.md) | `a5bf300a3b1e31f8afdd208583d8d6f652f70fc9` |
 | [`docs/developer/react-aria-catalog-grid.md`](../../../docs/developer/react-aria-catalog-grid.md) | `58c59e7e56139e470d13c5f759e23d918dc913e1` |
-| [`src/components/AppDataGrid/ownedGridModel.ts`](../../../src/components/AppDataGrid/ownedGridModel.ts) | `9aec70184dc15e297f247647a67b6667d6bb0051` |
-| [`src/components/AppDataGrid/ownedGridState.ts`](../../../src/components/AppDataGrid/ownedGridState.ts) | `9ef583ee584e484ef148952e6531a48635929073` |
-| [`src/components/AppDataGrid/ownedGridController.ts`](../../../src/components/AppDataGrid/ownedGridController.ts) | `16617009233f81a71551c0e7f5eac7506423c776` |
-| [`src/components/AppDataGrid/ownedGridInteraction.tsx`](../../../src/components/AppDataGrid/ownedGridInteraction.tsx) | `c44cfd77b60afb1ad970351e6aaa9c34feb15473` |
-| [`src/components/AppDataGrid/ownedGridParts.tsx`](../../../src/components/AppDataGrid/ownedGridParts.tsx) | `ccdbb11cc12e1a15b8406be1317320d74e2eb3f3` |
-| [`src/components/AppDataGrid/ownedGridParts.module.css`](../../../src/components/AppDataGrid/ownedGridParts.module.css) | `a3e038bfea25cd1e0044c5ee51f52117842cf202` |
-| [`src/components/AppDataGrid/AppDataGrid.tsx`](../../../src/components/AppDataGrid/AppDataGrid.tsx) | `a0eee627e275734ad8e7eac95caf7913bf6dc94e` |
-| [`src/components/AppDataGrid/AppDataGrid.test.tsx`](../../../src/components/AppDataGrid/AppDataGrid.test.tsx) | `4a644840cf2913ef0e29a25f0c75694af20d1aec` |
-| [`src/components/AppDataGrid/ownedGridState.test.ts`](../../../src/components/AppDataGrid/ownedGridState.test.ts) | `e7814b961741e2d0aaf4ee98d52ee01d10fed31a` |
-| [`src/components/AppDataGrid/ownedGridInteraction.test.tsx`](../../../src/components/AppDataGrid/ownedGridInteraction.test.tsx) | `be176a8904128022e0d962dff6def28c1596522d` |
-| [`src/components/AppDataGrid/AppDataGrid.stories.tsx`](../../../src/components/AppDataGrid/AppDataGrid.stories.tsx) | `37e2735e11d6cbeed82277ce43f1fce36b4a05da` |
-| [`src/components/AppDataGridShell/AppDataGridShell.tsx`](../../../src/components/AppDataGridShell/AppDataGridShell.tsx) | `32310c5053ef335e38709f1650a7909be214722f` |
-| [`src/components/AppDataGridShell/AppDataGridShell.test.tsx`](../../../src/components/AppDataGridShell/AppDataGridShell.test.tsx) | `8021a0ae121cc0ea415e62bbb7d6e0070e8d3ed1` |
-| [`src/components/AppDataGridShell/AppDataGridShell.server-response-races.stories.tsx`](../../../src/components/AppDataGridShell/AppDataGridShell.server-response-races.stories.tsx) | `e2ba12cdf482d1e845e89147173cc1752ea1ece0` |
-| [`src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx`](../../../src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx) | `3924a9a12500e757e76914cc9d2e1a6ce72993d2` |
-| [`tests/browser/grid-server-response-races.spec.ts`](../../../tests/browser/grid-server-response-races.spec.ts) | `ed14dfaca40596eb27bec1aee10683131529a414` |
-| [`src/components/AppDataGrid/ownedGridSortAcceptance.test.tsx`](../../../src/components/AppDataGrid/ownedGridSortAcceptance.test.tsx) | `c0aa077bd87373f5f61aed09b8278a6f4fa64cb1` |
-| [`src/components/AppDataGrid/ownedGridSortAcceptance.stories.tsx`](../../../src/components/AppDataGrid/ownedGridSortAcceptance.stories.tsx) | `a0474d2f094f8347cf3da3504624048f2bf66a92` |
-| [`src/components/DataToolbar/components/DataToolbarSortMenu.tsx`](../../../src/components/DataToolbar/components/DataToolbarSortMenu.tsx) | `83b9fd4fb7d1235f6f36a085f5f723834ba6d093` |
-| [`tests/browser/batch06-grid-sort.spec.ts`](../../../tests/browser/batch06-grid-sort.spec.ts) | `d2dbc74e4b2301d46abbd90a76fd9bac243d6901` |
-| [`tests/browser/batch05-grid-shell-state.spec.ts`](../../../tests/browser/batch05-grid-shell-state.spec.ts) | `63accb4f81f13f82c9de0a788ba59ff265495969` |
+| [`src/components/AppDataGrid/ownedGridModel.ts`](../../../packages/ui/src/components/AppDataGrid/ownedGridModel.ts) | `9aec70184dc15e297f247647a67b6667d6bb0051` |
+| [`src/components/AppDataGrid/ownedGridState.ts`](../../../packages/ui/src/components/AppDataGrid/ownedGridState.ts) | `9ef583ee584e484ef148952e6531a48635929073` |
+| [`src/components/AppDataGrid/ownedGridController.ts`](../../../packages/ui/src/components/AppDataGrid/ownedGridController.ts) | `16617009233f81a71551c0e7f5eac7506423c776` |
+| [`src/components/AppDataGrid/ownedGridInteraction.tsx`](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx) | `c44cfd77b60afb1ad970351e6aaa9c34feb15473` |
+| [`src/components/AppDataGrid/ownedGridParts.tsx`](../../../packages/ui/src/components/AppDataGrid/ownedGridParts.tsx) | `ccdbb11cc12e1a15b8406be1317320d74e2eb3f3` |
+| [`src/components/AppDataGrid/ownedGridParts.module.css`](../../../packages/ui/src/components/AppDataGrid/ownedGridParts.module.css) | `a3e038bfea25cd1e0044c5ee51f52117842cf202` |
+| [`src/components/AppDataGrid/AppDataGrid.tsx`](../../../packages/ui/src/components/AppDataGrid/AppDataGrid.tsx) | `a0eee627e275734ad8e7eac95caf7913bf6dc94e` |
+| [`src/components/AppDataGrid/AppDataGrid.test.tsx`](../../../packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx) | `4a644840cf2913ef0e29a25f0c75694af20d1aec` |
+| [`src/components/AppDataGrid/ownedGridState.test.ts`](../../../packages/ui/src/components/AppDataGrid/ownedGridState.test.ts) | `e7814b961741e2d0aaf4ee98d52ee01d10fed31a` |
+| [`src/components/AppDataGrid/ownedGridInteraction.test.tsx`](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx) | `be176a8904128022e0d962dff6def28c1596522d` |
+| [`src/components/AppDataGrid/AppDataGrid.stories.tsx`](../../../packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx) | `37e2735e11d6cbeed82277ce43f1fce36b4a05da` |
+| [`src/components/AppDataGridShell/AppDataGridShell.tsx`](../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx) | `32310c5053ef335e38709f1650a7909be214722f` |
+| [`src/components/AppDataGridShell/AppDataGridShell.test.tsx`](../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.test.tsx) | `8021a0ae121cc0ea415e62bbb7d6e0070e8d3ed1` |
+| [`src/components/AppDataGridShell/AppDataGridShell.server-response-races.stories.tsx`](../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.stories.tsx) | `e2ba12cdf482d1e845e89147173cc1752ea1ece0` |
+| [`src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx`](../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx) | `3924a9a12500e757e76914cc9d2e1a6ce72993d2` |
+| [`tests/browser/grid-server-response-races.spec.ts`](../../../packages/ui/tests/browser/grid-server-response-races.spec.ts) | `ed14dfaca40596eb27bec1aee10683131529a414` |
+| [`src/components/AppDataGrid/ownedGridSortAcceptance.test.tsx`](../../../packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.test.tsx) | `c0aa077bd87373f5f61aed09b8278a6f4fa64cb1` |
+| [`src/components/AppDataGrid/ownedGridSortAcceptance.stories.tsx`](../../../packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.stories.tsx) | `a0474d2f094f8347cf3da3504624048f2bf66a92` |
+| [`src/components/DataToolbar/components/DataToolbarSortMenu.tsx`](../../../packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx) | `83b9fd4fb7d1235f6f36a085f5f723834ba6d093` |
+| [`tests/browser/batch06-grid-sort.spec.ts`](../../../packages/ui/tests/browser/batch06-grid-sort.spec.ts) | `d2dbc74e4b2301d46abbd90a76fd9bac243d6901` |
+| [`tests/browser/batch05-grid-shell-state.spec.ts`](../../../packages/ui/tests/browser/batch05-grid-shell-state.spec.ts) | `63accb4f81f13f82c9de0a788ba59ff265495969` |
 | [`docs/developer/parallel-batch-82/grid-server-response-races.md`](../../../docs/developer/parallel-batch-82/grid-server-response-races.md) | `e26ad493a1a3db1fb438454622c39bd7d239636e` |
 | [`docs/developer/parallel-batch-06/grid-sort.md`](../../../docs/developer/parallel-batch-06/grid-sort.md) | `64f5025975f458768c023f3860ba01f7b918fa81` |
 | [`docs/developer/parallel-batch-05/grid-shell-state.md`](../../../docs/developer/parallel-batch-05/grid-shell-state.md) | `fc1fb8e8a5bac597dcf45133f1a2fb07d1b7f8a4` |
 
 ## Bounded follow-ups and optional spec
 
-The new [native regression](../../../tests/browser/acceptance-pack-113.spec.ts)
+The new [native regression](../../../packages/ui/tests/browser/acceptance-pack-113.spec.ts)
 uses `data-appdatagrid--retained-selection`, which already deterministically starts
 with `course-55` selected and `course-2` disabled. Native Space selects Course 1,
 asserting the mixed property; page selection excludes Course 2; navigating to the

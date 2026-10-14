@@ -11,7 +11,7 @@ Public insertion APIs, translations, Menu, Dialog and PageRichTextEditorSection
 implementations are unchanged. No proven within-component defect was found by the
 local checks; this is evidence preparation, not a product behavior rewrite.
 
-The [NativeInsertionHost](../../../src/components/InsertContentMenuControl/NativeInsertionHost.tsx)
+The [NativeInsertionHost](../../../packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.native-fixture.tsx)
 fixture records host requests inside a form and opens the existing owned Dialog
 for Image/Columns Layout. Horizontal Rule records a direct command. The host
 supplies dialog labels/content and owns insertion; no editor or upload service is

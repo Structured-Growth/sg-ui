@@ -11,8 +11,9 @@ for related unit tests and `pnpm exec vitest run <test paths>` for explicit case
 Run typechecking and relevant foundation/token guards for source/API/style changes.
 Changes to build, exports or dependencies need the affected build/packed-consumer
 checks; workflow changes need syntax/event/selection checks. Update changed-state
-stories. Native timing, focus, scrolling or positioning needs focused browser cases
-against a freshly built Storybook, without rebuilding during the suite.
+website examples and native fixtures. Native timing, focus, scrolling or positioning needs focused browser cases
+against freshly built docs-owned native fixtures (`pnpm build:browser-docs`),
+without rebuilding during the suite.
 
 Do not rerun the entire suite for every task or dev integration. Review ownership,
 commits and targeted evidence before integration; rerun affected checks only where
@@ -46,7 +47,7 @@ Initially run at most one scheduled checkpoint each 24 hours while new code land
 starting from the last completed broad validation. Do not rerun an unchanged head.
 The coordinator freezes a snapshot, serializes heavy validation, and records every
 command/outcome. Workers can continue in their isolated worktrees. A checkpoint
-includes `pnpm check`, a fresh `pnpm build-storybook`, the complete browser matrix
+includes `pnpm check`, a fresh `pnpm build:browser-docs`, the complete browser matrix
 and the foundation/editor React 18/19 and Next.js consumer checks from CI. Keep
 runtime/engine failures distinct from product regressions; incomplete checkpoints
 remain incomplete. Track partial attempts, so a persistent environment failure

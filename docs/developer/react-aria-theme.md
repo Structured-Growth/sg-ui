@@ -1,4 +1,4 @@
-# Public theme and production Storybook scopes
+# Public theme and production scopes
 
 Task references: W-09, A-15 (theme mapping), Z-01–Z-03 (implementation removal;
 final historical/literal audit remains open). Public `/theme` and root exports
@@ -37,12 +37,14 @@ loading and any reset they require.
 | upstream typography augmentation | owned Typography roles, including `bodyAlt2` |
 | global baseline installed by AppThemeProvider | host-owned global styles; scoped library normalization |
 
-Storybook imports production tokens and uses the public Provider. Toolbar globals
-control light/dark/system, compact/comfortable, representative en-US/fr-FR/ar-EG
-locales and auto/ltr/rtl layout direction. These story locales are test examples,
-not a library supported-locale policy. Translation fallback uses the same ICU
-formatter and locale adapter as consumers. Stories may intentionally demonstrate
-nested explicit settings, which override outer globals as production scopes do.
+The docs website and private native fixtures import compiled production tokens and
+use the public Provider. Native fixture globals preserve light/dark/system,
+compact/comfortable, representative en-US/fr-FR/ar-EG locales and auto/ltr/rtl
+layout direction. These locales are test examples, not a library supported-locale
+policy. Translation fallback uses the same ICU formatter and locale adapter as
+consumers. Nested explicit settings override outer globals as production scopes do.
+The public website has separate fixed chrome and shared demo settings; see
+[docs architecture](docs-website.md).
 
 The retired runtime, peer and development packages were removed after source
 imports and augmentation consumers were eliminated. Packed checks must confirm

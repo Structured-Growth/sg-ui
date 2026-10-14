@@ -15,7 +15,7 @@ Dialog/Menu and PageRichTextEditorSection remained read-only.
 Read [batch 31 inventory review](../parallel-batch-31/inventory-acceptance-25-37.md),
 [reviewed 71-unit link evidence](../parallel-batch-13/review-3.md),
 [activation record](../parallel-batch-11/editor-link-activation.md), existing
-[activation/paste browser source](../../../tests/browser/editor-links.spec.ts),
+[activation/paste browser source](../../../packages/ui/tests/browser/editor-links.spec.ts),
 [dialog contract](../react-aria-editor-dialogs.md) and
 [targeted validation policy](../react-aria-development-validation.md).
 No repeated pure destination-policy cases or Link-only activation/paste suite.

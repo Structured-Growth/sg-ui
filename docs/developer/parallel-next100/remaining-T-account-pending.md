@@ -9,12 +9,12 @@ acceptance counts are unchanged by this worker.
 
 [F-S05-02](../react-aria-baseline-tasks.md) assigns awaiting callbacks, pending
 presentation and repeat suppression to the host/composed action owner. The
-[account adapter](../../../src/adapters/accounts.tsx) forwards original host
+[account adapter](../../../packages/ui/src/adapters/accounts.tsx) forwards original host
 promises and permits independent requests; it has no private pending capability.
 [SideNavigation](../react-aria-modal-shells.md) owns the consuming menu state.
 
 The existing `guards concurrent async account operations and returns focus on
-success` case in [SideNavigation.test.tsx](../../../src/components/SideNavigation/SideNavigation.test.tsx)
+success` case in [SideNavigation.test.tsx](../../../packages/ui/src/components/SideNavigation/SideNavigation.test.tsx)
 checks suppression but does not assert pending presentation. Other lifetime cases
 assert disabled state for obsolete/current operations, without the complete
 before-pending/duplicate/settled sequence. The prior
@@ -30,7 +30,7 @@ holds T-S05-02 for the missing pending indication assertion.
 src/adapters/account.remaining-T-pending.test.tsx | base head above plus test SHA
 below | 1 file / 1 case passed | JSDOM only | coordinator review/integration`.
 
-The single [new test](../../../src/adapters/account.remaining-T-pending.test.tsx)
+The single [new test](../../../packages/ui/src/adapters/account.remaining-T-pending.test.tsx)
 renders real SideNavigation with public account/navigation providers and the
 public theme entry point. It checks enabled Logout before activation, the retained
 accessible menu with Logout/Add account `aria-disabled="true"` before the host

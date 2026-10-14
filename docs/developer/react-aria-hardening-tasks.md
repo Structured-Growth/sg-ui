@@ -6,9 +6,20 @@ Browser evidence must name engine and tested scope. Visual review must name them
 
 Not-applicable cases require a concrete source-based reason, not a silent checkmark. Split an engine or state matrix further when one chat cannot close it; retain the original parent and append stable child suffixes.
 
+## Current example and browser host
+
+The [website transition plan](docs-website.md#active-transition-plan--2026-10-14)
+governs new examples and fixture migration. New public examples use the Next.js
+website; native scenarios use docs-owned test fixtures as their mapped transfers
+land. References below to a production story mean the equivalent production-scope
+example/fixture after transfer. The migrated existing native tests remain required against the new fixture host;
+Storybook runtime is removed. Original A-* wording and historical results are preserved; close each
+leaf against its behavioral requirement and record the new host, without silently
+claiming old evidence exercised the website or changing acceptance counts.
+
 ## C01: AppButton
 
-Scope: [src/components/AppButton](../../src/components/AppButton). Original scope: `M-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppButton](../../packages/ui/src/components/AppButton). Original scope: `M-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C01-01 Verify AppButton primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C01-02 Verify AppButton same primary flow in Firefox; record capability limitations independently.
@@ -18,7 +29,7 @@ Scope: [src/components/AppButton](../../src/components/AppButton). Original scop
 
 ## C02: AppInlineProgress
 
-Scope: [src/components/AppInlineProgress](../../src/components/AppInlineProgress). Original scope: `M-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppInlineProgress](../../packages/ui/src/components/AppInlineProgress). Original scope: `M-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C02-01 Verify AppInlineProgress primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C02-02 Verify AppInlineProgress same primary flow in Firefox; record capability limitations independently.
@@ -28,7 +39,7 @@ Scope: [src/components/AppInlineProgress](../../src/components/AppInlineProgress
 
 ## C03: AppOperationSteps
 
-Scope: [src/components/AppOperationSteps](../../src/components/AppOperationSteps). Original scope: `M-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppOperationSteps](../../packages/ui/src/components/AppOperationSteps). Original scope: `M-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C03-01 Verify AppOperationSteps primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C03-02 Verify AppOperationSteps same primary flow in Firefox; record capability limitations independently.
@@ -38,7 +49,7 @@ Scope: [src/components/AppOperationSteps](../../src/components/AppOperationSteps
 
 ## C04: AppPageHeader
 
-Scope: [src/components/AppPageHeader](../../src/components/AppPageHeader). Original scope: `M-04` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppPageHeader](../../packages/ui/src/components/AppPageHeader). Original scope: `M-04` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C04-01 Verify AppPageHeader primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C04-02 Verify AppPageHeader same primary flow in Firefox; record capability limitations independently.
@@ -48,7 +59,7 @@ Scope: [src/components/AppPageHeader](../../src/components/AppPageHeader). Origi
 
 ## C05: AppPageTabs
 
-Scope: [src/components/AppPageTabs](../../src/components/AppPageTabs). Original scope: `M-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppPageTabs](../../packages/ui/src/components/AppPageTabs). Original scope: `M-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C05-01 Verify AppPageTabs primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C05-02 Verify AppPageTabs same primary flow in Firefox; record capability limitations independently.
@@ -58,7 +69,7 @@ Scope: [src/components/AppPageTabs](../../src/components/AppPageTabs). Original 
 
 ## C06: AppShell
 
-Scope: [src/components/AppShell](../../src/components/AppShell). Original scope: `M-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppShell](../../packages/ui/src/components/AppShell). Original scope: `M-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C06-01 Verify AppShell primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C06-02 Verify AppShell same primary flow in Firefox; record capability limitations independently.
@@ -68,7 +79,7 @@ Scope: [src/components/AppShell](../../src/components/AppShell). Original scope:
 
 ## C07: AuthShell
 
-Scope: [src/components/AuthShell](../../src/components/AuthShell). Original scope: `M-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AuthShell](../../packages/ui/src/components/AuthShell). Original scope: `M-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C07-01 Verify AuthShell primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C07-02 Verify AuthShell same primary flow in Firefox; record capability limitations independently.
@@ -78,7 +89,7 @@ Scope: [src/components/AuthShell](../../src/components/AuthShell). Original scop
 
 ## C08: AppModal
 
-Scope: [src/components/AppModal](../../src/components/AppModal). Original scope: `M-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppModal](../../packages/ui/src/components/AppModal). Original scope: `M-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C08-01 Verify AppModal primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C08-02 Verify AppModal same primary flow in Firefox; record capability limitations independently.
@@ -88,7 +99,7 @@ Scope: [src/components/AppModal](../../src/components/AppModal). Original scope:
 
 ## C09: SideNavigation
 
-Scope: [src/components/SideNavigation](../../src/components/SideNavigation). Original scope: `M-09` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/SideNavigation](../../packages/ui/src/components/SideNavigation). Original scope: `M-09` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C09-01 Verify SideNavigation primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C09-02 Verify SideNavigation same primary flow in Firefox; record capability limitations independently.
@@ -98,7 +109,7 @@ Scope: [src/components/SideNavigation](../../src/components/SideNavigation). Ori
 
 ## C10: ExperiencePageNavigator
 
-Scope: [src/components/ExperiencePageNavigator](../../src/components/ExperiencePageNavigator). Original scope: `M-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ExperiencePageNavigator](../../packages/ui/src/components/ExperiencePageNavigator). Original scope: `M-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C10-01 Verify ExperiencePageNavigator primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C10-02 Verify ExperiencePageNavigator same primary flow in Firefox; record capability limitations independently.
@@ -108,7 +119,7 @@ Scope: [src/components/ExperiencePageNavigator](../../src/components/ExperienceP
 
 ## C11: CardCollectionWithFooter
 
-Scope: [src/components/CardCollectionWithFooter](../../src/components/CardCollectionWithFooter). Original scope: `M-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/CardCollectionWithFooter](../../packages/ui/src/components/CardCollectionWithFooter). Original scope: `M-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C11-01 Verify CardCollectionWithFooter primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C11-02 Verify CardCollectionWithFooter same primary flow in Firefox; record capability limitations independently.
@@ -118,7 +129,7 @@ Scope: [src/components/CardCollectionWithFooter](../../src/components/CardCollec
 
 ## C12: CardPaginationFooter
 
-Scope: [src/components/CardPaginationFooter](../../src/components/CardPaginationFooter). Original scope: `M-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/CardPaginationFooter](../../packages/ui/src/components/CardPaginationFooter). Original scope: `M-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C12-01 Verify CardPaginationFooter primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C12-02 Verify CardPaginationFooter same primary flow in Firefox; record capability limitations independently.
@@ -128,7 +139,7 @@ Scope: [src/components/CardPaginationFooter](../../src/components/CardPagination
 
 ## C13: ClassCardFrame
 
-Scope: [src/components/ClassCardFrame](../../src/components/ClassCardFrame). Original scope: `M-13` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ClassCardFrame](../../packages/ui/src/components/ClassCardFrame). Original scope: `M-13` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C13-01 Verify ClassCardFrame primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C13-02 Verify ClassCardFrame same primary flow in Firefox; record capability limitations independently.
@@ -138,7 +149,7 @@ Scope: [src/components/ClassCardFrame](../../src/components/ClassCardFrame). Ori
 
 ## C14: InstructorClassCard
 
-Scope: [src/components/InstructorClassCard](../../src/components/InstructorClassCard). Original scope: `M-14` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/InstructorClassCard](../../packages/ui/src/components/InstructorClassCard). Original scope: `M-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C14-01 Verify InstructorClassCard primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C14-02 Verify InstructorClassCard same primary flow in Firefox; record capability limitations independently.
@@ -148,7 +159,7 @@ Scope: [src/components/InstructorClassCard](../../src/components/InstructorClass
 
 ## C15: LearnerClassCard
 
-Scope: [src/components/LearnerClassCard](../../src/components/LearnerClassCard). Original scope: `M-15` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/LearnerClassCard](../../packages/ui/src/components/LearnerClassCard). Original scope: `M-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C15-01 Verify LearnerClassCard primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C15-02 Verify LearnerClassCard same primary flow in Firefox; record capability limitations independently.
@@ -158,7 +169,7 @@ Scope: [src/components/LearnerClassCard](../../src/components/LearnerClassCard).
 
 ## C16: AppDataGrid
 
-Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original scope: `M-16 G-04–G-16 G-21 G-22` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGrid](../../packages/ui/src/components/AppDataGrid). Original scope: `M-16 G-04–G-16 G-21 G-22` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C16-01 Verify AppDataGrid primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C16-02 Verify AppDataGrid same primary flow in Firefox; record capability limitations independently.
@@ -168,7 +179,7 @@ Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original 
 
 ## C17: AppDataGridShell
 
-Scope: [src/components/AppDataGridShell](../../src/components/AppDataGridShell). Original scope: `M-17 H-17` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGridShell](../../packages/ui/src/components/AppDataGridShell). Original scope: `M-17 H-17` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C17-01 Verify AppDataGridShell primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C17-02 Verify AppDataGridShell same primary flow in Firefox; record capability limitations independently.
@@ -178,7 +189,7 @@ Scope: [src/components/AppDataGridShell](../../src/components/AppDataGridShell).
 
 ## C18: AppDataGridRowDnd
 
-Scope: [src/components/AppDataGridRowDnd](../../src/components/AppDataGridRowDnd). Original scope: `M-18 G-17 G-18 G-28` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGridRowDnd](../../packages/ui/src/components/AppDataGridRowDnd). Original scope: `M-18 G-17 G-18 G-28` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C18-01 Verify AppDataGridRowDnd primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C18-02 Verify AppDataGridRowDnd same primary flow in Firefox; record capability limitations independently.
@@ -188,7 +199,7 @@ Scope: [src/components/AppDataGridRowDnd](../../src/components/AppDataGridRowDnd
 
 ## C19: LearnerClassesDataGrid
 
-Scope: [src/components/LearnerClassesDataGrid](../../src/components/LearnerClassesDataGrid). Original scope: `M-19` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/LearnerClassesDataGrid](../../packages/ui/src/components/LearnerClassesDataGrid). Original scope: `M-19` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C19-01 Verify LearnerClassesDataGrid primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C19-02 Verify LearnerClassesDataGrid same primary flow in Firefox; record capability limitations independently.
@@ -198,7 +209,7 @@ Scope: [src/components/LearnerClassesDataGrid](../../src/components/LearnerClass
 
 ## C20: DataToolbar
 
-Scope: [src/components/DataToolbar](../../src/components/DataToolbar). Original scope: `M-20 G-08–G-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/DataToolbar](../../packages/ui/src/components/DataToolbar). Original scope: `M-20 G-08–G-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C20-01 Verify DataToolbar primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C20-02 Verify DataToolbar same primary flow in Firefox; record capability limitations independently.
@@ -208,7 +219,7 @@ Scope: [src/components/DataToolbar](../../src/components/DataToolbar). Original 
 
 ## C21: DocumentEditorLayout
 
-Scope: [src/components/DocumentEditorLayout](../../src/components/DocumentEditorLayout). Original scope: `M-21` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/DocumentEditorLayout](../../packages/ui/src/components/DocumentEditorLayout). Original scope: `M-21` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C21-01 Verify DocumentEditorLayout primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C21-02 Verify DocumentEditorLayout same primary flow in Firefox; record capability limitations independently.
@@ -218,7 +229,7 @@ Scope: [src/components/DocumentEditorLayout](../../src/components/DocumentEditor
 
 ## C22: DocumentEditorToolbar
 
-Scope: [src/components/DocumentEditorToolbar](../../src/components/DocumentEditorToolbar). Original scope: `M-22` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/DocumentEditorToolbar](../../packages/ui/src/components/DocumentEditorToolbar). Original scope: `M-22` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C22-01 Verify DocumentEditorToolbar primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C22-02 Verify DocumentEditorToolbar same primary flow in Firefox; record capability limitations independently.
@@ -228,7 +239,7 @@ Scope: [src/components/DocumentEditorToolbar](../../src/components/DocumentEdito
 
 ## C23: ContentEditorChrome
 
-Scope: [src/components/ContentEditorChrome](../../src/components/ContentEditorChrome). Original scope: `M-23` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ContentEditorChrome](../../packages/ui/src/components/ContentEditorChrome). Original scope: `M-23` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C23-01 Verify ContentEditorChrome primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C23-02 Verify ContentEditorChrome same primary flow in Firefox; record capability limitations independently.
@@ -238,7 +249,7 @@ Scope: [src/components/ContentEditorChrome](../../src/components/ContentEditorCh
 
 ## C24: EditableTitleField
 
-Scope: [src/components/EditableTitleField](../../src/components/EditableTitleField). Original scope: `M-24` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/EditableTitleField](../../packages/ui/src/components/EditableTitleField). Original scope: `M-24` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C24-01 Verify EditableTitleField primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C24-02 Verify EditableTitleField same primary flow in Firefox; record capability limitations independently.
@@ -248,7 +259,7 @@ Scope: [src/components/EditableTitleField](../../src/components/EditableTitleFie
 
 ## C25: FloatingTextSelectionToolbar
 
-Scope: [src/components/FloatingTextSelectionToolbar](../../src/components/FloatingTextSelectionToolbar). Original scope: `M-25` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/FloatingTextSelectionToolbar](../../packages/ui/src/components/FloatingTextSelectionToolbar). Original scope: `M-25` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C25-01 Verify FloatingTextSelectionToolbar primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C25-02 Verify FloatingTextSelectionToolbar same primary flow in Firefox; record capability limitations independently.
@@ -258,7 +269,7 @@ Scope: [src/components/FloatingTextSelectionToolbar](../../src/components/Floati
 
 ## C26: RichTextFormattingToolbar
 
-Scope: [src/components/RichTextFormattingToolbar](../../src/components/RichTextFormattingToolbar). Original scope: `M-26 E-04` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/RichTextFormattingToolbar](../../packages/ui/src/components/RichTextFormattingToolbar). Original scope: `M-26 E-04` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C26-01 Verify RichTextFormattingToolbar primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C26-02 Verify RichTextFormattingToolbar same primary flow in Firefox; record capability limitations independently.
@@ -268,7 +279,7 @@ Scope: [src/components/RichTextFormattingToolbar](../../src/components/RichTextF
 
 ## C27: InsertContentMenuControl
 
-Scope: [src/components/InsertContentMenuControl](../../src/components/InsertContentMenuControl). Original scope: `M-27` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/InsertContentMenuControl](../../packages/ui/src/components/InsertContentMenuControl). Original scope: `M-27` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C27-01 Verify InsertContentMenuControl primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C27-02 Verify InsertContentMenuControl same primary flow in Firefox; record capability limitations independently.
@@ -278,7 +289,7 @@ Scope: [src/components/InsertContentMenuControl](../../src/components/InsertCont
 
 ## C28: TextAlignMenuControl
 
-Scope: [src/components/TextAlignMenuControl](../../src/components/TextAlignMenuControl). Original scope: `M-28` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/TextAlignMenuControl](../../packages/ui/src/components/TextAlignMenuControl). Original scope: `M-28` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C28-01 Verify TextAlignMenuControl primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C28-02 Verify TextAlignMenuControl same primary flow in Firefox; record capability limitations independently.
@@ -288,7 +299,7 @@ Scope: [src/components/TextAlignMenuControl](../../src/components/TextAlignMenuC
 
 ## C29: TextColorPickerControl
 
-Scope: [src/components/TextColorPickerControl](../../src/components/TextColorPickerControl). Original scope: `M-29` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/TextColorPickerControl](../../packages/ui/src/components/TextColorPickerControl). Original scope: `M-29` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C29-01 Verify TextColorPickerControl primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C29-02 Verify TextColorPickerControl same primary flow in Firefox; record capability limitations independently.
@@ -298,7 +309,7 @@ Scope: [src/components/TextColorPickerControl](../../src/components/TextColorPic
 
 ## C30: TextStyleMenuControl
 
-Scope: [src/components/TextStyleMenuControl](../../src/components/TextStyleMenuControl). Original scope: `M-30` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/TextStyleMenuControl](../../packages/ui/src/components/TextStyleMenuControl). Original scope: `M-30` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C30-01 Verify TextStyleMenuControl primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C30-02 Verify TextStyleMenuControl same primary flow in Firefox; record capability limitations independently.
@@ -308,7 +319,7 @@ Scope: [src/components/TextStyleMenuControl](../../src/components/TextStyleMenuC
 
 ## C31: ColumnsLayoutModal
 
-Scope: [src/components/ColumnsLayoutModal](../../src/components/ColumnsLayoutModal). Original scope: `M-31 E-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ColumnsLayoutModal](../../packages/ui/src/components/ColumnsLayoutModal). Original scope: `M-31 E-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C31-01 Verify ColumnsLayoutModal primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C31-02 Verify ColumnsLayoutModal same primary flow in Firefox; record capability limitations independently.
@@ -318,7 +329,7 @@ Scope: [src/components/ColumnsLayoutModal](../../src/components/ColumnsLayoutMod
 
 ## C32: ImageUploadModal
 
-Scope: [src/components/ImageUploadModal](../../src/components/ImageUploadModal). Original scope: `M-32 E-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ImageUploadModal](../../packages/ui/src/components/ImageUploadModal). Original scope: `M-32 E-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C32-01 Verify ImageUploadModal primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C32-02 Verify ImageUploadModal same primary flow in Firefox; record capability limitations independently.
@@ -328,7 +339,7 @@ Scope: [src/components/ImageUploadModal](../../src/components/ImageUploadModal).
 
 ## C33: LinkUrlModal
 
-Scope: [src/components/LinkUrlModal](../../src/components/LinkUrlModal). Original scope: `M-33 E-06 E-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/LinkUrlModal](../../packages/ui/src/components/LinkUrlModal). Original scope: `M-33 E-06 E-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C33-01 Verify LinkUrlModal primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C33-02 Verify LinkUrlModal same primary flow in Firefox; record capability limitations independently.
@@ -338,7 +349,7 @@ Scope: [src/components/LinkUrlModal](../../src/components/LinkUrlModal). Origina
 
 ## C34: PageRichTextEditorSection
 
-Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichTextEditorSection). Original scope: `M-34 E-01–E-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/PageRichTextEditorSection](../../packages/ui/src/components/PageRichTextEditorSection). Original scope: `M-34 E-01–E-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C34-01 Verify PageRichTextEditorSection primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C34-02 Verify PageRichTextEditorSection same primary flow in Firefox; record capability limitations independently.
@@ -348,7 +359,7 @@ Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichT
 
 ## C35: Typefaces
 
-Scope: [src/components/Typefaces](../../src/components/Typefaces). Original scope: `M-35` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/Typefaces](../../packages/ui/src/components/Typefaces). Original scope: `M-35` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C35-01 Verify Typefaces primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C35-02 Verify Typefaces same primary flow in Firefox; record capability limitations independently.
@@ -358,7 +369,7 @@ Scope: [src/components/Typefaces](../../src/components/Typefaces). Original scop
 
 ## C36: icons
 
-Scope: [src/components/icons](../../src/components/icons). Original scope: `M-36 I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/icons](../../packages/ui/src/components/icons). Original scope: `M-36 I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C36-01 Verify icons primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C36-02 Verify icons same primary flow in Firefox; record capability limitations independently.
@@ -368,7 +379,7 @@ Scope: [src/components/icons](../../src/components/icons). Original scope: `M-36
 
 ## C37: primitives
 
-Scope: [src/components/primitives](../../src/components/primitives). Original scope: `M-37 U-01–U-20` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/primitives](../../packages/ui/src/components/primitives). Original scope: `M-37 U-01–U-20` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-C37-01 Verify primitives primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-C37-02 Verify primitives same primary flow in Firefox; record capability limitations independently.
@@ -378,7 +389,7 @@ Scope: [src/components/primitives](../../src/components/primitives). Original sc
 
 ## P01: Box
 
-Scope: [src/experimental/Box](../../src/experimental/Box). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Box](../../packages/ui/src/experimental/Box). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P01-01 Verify Box primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P01-02 Verify Box same primary flow in Firefox; record capability limitations independently.
@@ -388,7 +399,7 @@ Scope: [src/experimental/Box](../../src/experimental/Box). Original scope: `U-02
 
 ## P02: Stack
 
-Scope: [src/experimental/Stack](../../src/experimental/Stack). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Stack](../../packages/ui/src/experimental/Stack). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P02-01 Verify Stack primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P02-02 Verify Stack same primary flow in Firefox; record capability limitations independently.
@@ -398,7 +409,7 @@ Scope: [src/experimental/Stack](../../src/experimental/Stack). Original scope: `
 
 ## P03: Surface
 
-Scope: [src/experimental/Surface](../../src/experimental/Surface). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Surface](../../packages/ui/src/experimental/Surface). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P03-01 Verify Surface primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P03-02 Verify Surface same primary flow in Firefox; record capability limitations independently.
@@ -408,7 +419,7 @@ Scope: [src/experimental/Surface](../../src/experimental/Surface). Original scop
 
 ## P04: Card
 
-Scope: [src/experimental/Card](../../src/experimental/Card). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Card](../../packages/ui/src/experimental/Card). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P04-01 Verify Card primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P04-02 Verify Card same primary flow in Firefox; record capability limitations independently.
@@ -418,7 +429,7 @@ Scope: [src/experimental/Card](../../src/experimental/Card). Original scope: `U-
 
 ## P05: Divider
 
-Scope: [src/experimental/Divider](../../src/experimental/Divider). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Divider](../../packages/ui/src/experimental/Divider). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P05-01 Verify Divider primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P05-02 Verify Divider same primary flow in Firefox; record capability limitations independently.
@@ -428,7 +439,7 @@ Scope: [src/experimental/Divider](../../src/experimental/Divider). Original scop
 
 ## P06: Typography
 
-Scope: [src/experimental/Typography](../../src/experimental/Typography). Original scope: `U-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Typography](../../packages/ui/src/experimental/Typography). Original scope: `U-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P06-01 Verify Typography primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P06-02 Verify Typography same primary flow in Firefox; record capability limitations independently.
@@ -438,7 +449,7 @@ Scope: [src/experimental/Typography](../../src/experimental/Typography). Origina
 
 ## P07: Button
 
-Scope: [src/experimental/Button](../../src/experimental/Button). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Button](../../packages/ui/src/experimental/Button). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P07-01 Verify Button primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P07-02 Verify Button same primary flow in Firefox; record capability limitations independently.
@@ -448,7 +459,7 @@ Scope: [src/experimental/Button](../../src/experimental/Button). Original scope:
 
 ## P08: IconButton
 
-Scope: [src/experimental/IconButton](../../src/experimental/IconButton). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/IconButton](../../packages/ui/src/experimental/IconButton). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P08-01 Verify IconButton primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P08-02 Verify IconButton same primary flow in Firefox; record capability limitations independently.
@@ -458,7 +469,7 @@ Scope: [src/experimental/IconButton](../../src/experimental/IconButton). Origina
 
 ## P09: ButtonGroup
 
-Scope: [src/experimental/ButtonGroup](../../src/experimental/ButtonGroup). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/ButtonGroup](../../packages/ui/src/experimental/ButtonGroup). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P09-01 Verify ButtonGroup primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P09-02 Verify ButtonGroup same primary flow in Firefox; record capability limitations independently.
@@ -468,7 +479,7 @@ Scope: [src/experimental/ButtonGroup](../../src/experimental/ButtonGroup). Origi
 
 ## P10: SplitAction
 
-Scope: [src/experimental/SplitAction](../../src/experimental/SplitAction). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/SplitAction](../../packages/ui/src/experimental/SplitAction). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P10-01 Verify SplitAction primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P10-02 Verify SplitAction same primary flow in Firefox; record capability limitations independently.
@@ -478,7 +489,7 @@ Scope: [src/experimental/SplitAction](../../src/experimental/SplitAction). Origi
 
 ## P11: TextField
 
-Scope: [src/experimental/TextField](../../src/experimental/TextField). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TextField](../../packages/ui/src/experimental/TextField). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P11-01 Verify TextField primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P11-02 Verify TextField same primary flow in Firefox; record capability limitations independently.
@@ -488,7 +499,7 @@ Scope: [src/experimental/TextField](../../src/experimental/TextField). Original 
 
 ## P12: TextArea
 
-Scope: [src/experimental/TextArea](../../src/experimental/TextArea). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TextArea](../../packages/ui/src/experimental/TextArea). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P12-01 Verify TextArea primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P12-02 Verify TextArea same primary flow in Firefox; record capability limitations independently.
@@ -498,7 +509,7 @@ Scope: [src/experimental/TextArea](../../src/experimental/TextArea). Original sc
 
 ## P13: Checkbox
 
-Scope: [src/experimental/Checkbox](../../src/experimental/Checkbox). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Checkbox](../../packages/ui/src/experimental/Checkbox). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P13-01 Verify Checkbox primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P13-02 Verify Checkbox same primary flow in Firefox; record capability limitations independently.
@@ -508,7 +519,7 @@ Scope: [src/experimental/Checkbox](../../src/experimental/Checkbox). Original sc
 
 ## P14: Switch
 
-Scope: [src/experimental/Switch](../../src/experimental/Switch). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Switch](../../packages/ui/src/experimental/Switch). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P14-01 Verify Switch primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P14-02 Verify Switch same primary flow in Firefox; record capability limitations independently.
@@ -518,7 +529,7 @@ Scope: [src/experimental/Switch](../../src/experimental/Switch). Original scope:
 
 ## P15: RadioGroup
 
-Scope: [src/experimental/RadioGroup](../../src/experimental/RadioGroup). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/RadioGroup](../../packages/ui/src/experimental/RadioGroup). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P15-01 Verify RadioGroup primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P15-02 Verify RadioGroup same primary flow in Firefox; record capability limitations independently.
@@ -528,7 +539,7 @@ Scope: [src/experimental/RadioGroup](../../src/experimental/RadioGroup). Origina
 
 ## P16: Select
 
-Scope: [src/experimental/Select](../../src/experimental/Select). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Select](../../packages/ui/src/experimental/Select). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P16-01 Verify Select primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P16-02 Verify Select same primary flow in Firefox; record capability limitations independently.
@@ -538,7 +549,7 @@ Scope: [src/experimental/Select](../../src/experimental/Select). Original scope:
 
 ## P17: ComboBox
 
-Scope: [src/experimental/ComboBox](../../src/experimental/ComboBox). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/ComboBox](../../packages/ui/src/experimental/ComboBox). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P17-01 Verify ComboBox primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P17-02 Verify ComboBox same primary flow in Firefox; record capability limitations independently.
@@ -548,7 +559,7 @@ Scope: [src/experimental/ComboBox](../../src/experimental/ComboBox). Original sc
 
 ## P18: AsyncMultiSelect
 
-Scope: [src/experimental/AsyncMultiSelect](../../src/experimental/AsyncMultiSelect). Original scope: `U-06 H-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/AsyncMultiSelect](../../packages/ui/src/experimental/AsyncMultiSelect). Original scope: `U-06 H-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P18-01 Verify AsyncMultiSelect primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P18-02 Verify AsyncMultiSelect same primary flow in Firefox; record capability limitations independently.
@@ -558,7 +569,7 @@ Scope: [src/experimental/AsyncMultiSelect](../../src/experimental/AsyncMultiSele
 
 ## P19: Menu
 
-Scope: [src/experimental/Menu](../../src/experimental/Menu). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Menu](../../packages/ui/src/experimental/Menu). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P19-01 Verify Menu primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P19-02 Verify Menu same primary flow in Firefox; record capability limitations independently.
@@ -568,7 +579,7 @@ Scope: [src/experimental/Menu](../../src/experimental/Menu). Original scope: `U-
 
 ## P20: Popover
 
-Scope: [src/experimental/Popover](../../src/experimental/Popover). Original scope: `U-07 U-19` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Popover](../../packages/ui/src/experimental/Popover). Original scope: `U-07 U-19` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P20-01 Verify Popover primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P20-02 Verify Popover same primary flow in Firefox; record capability limitations independently.
@@ -578,7 +589,7 @@ Scope: [src/experimental/Popover](../../src/experimental/Popover). Original scop
 
 ## P21: Tooltip
 
-Scope: [src/experimental/Tooltip](../../src/experimental/Tooltip). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Tooltip](../../packages/ui/src/experimental/Tooltip). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P21-01 Verify Tooltip primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P21-02 Verify Tooltip same primary flow in Firefox; record capability limitations independently.
@@ -588,7 +599,7 @@ Scope: [src/experimental/Tooltip](../../src/experimental/Tooltip). Original scop
 
 ## P22: Dialog
 
-Scope: [src/experimental/Dialog](../../src/experimental/Dialog). Original scope: `U-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Dialog](../../packages/ui/src/experimental/Dialog). Original scope: `U-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P22-01 Verify Dialog primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P22-02 Verify Dialog same primary flow in Firefox; record capability limitations independently.
@@ -598,7 +609,7 @@ Scope: [src/experimental/Dialog](../../src/experimental/Dialog). Original scope:
 
 ## P23: Tabs
 
-Scope: [src/experimental/Tabs](../../src/experimental/Tabs). Original scope: `U-09` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Tabs](../../packages/ui/src/experimental/Tabs). Original scope: `U-09` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P23-01 Verify Tabs primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P23-02 Verify Tabs same primary flow in Firefox; record capability limitations independently.
@@ -608,7 +619,7 @@ Scope: [src/experimental/Tabs](../../src/experimental/Tabs). Original scope: `U-
 
 ## P24: Link
 
-Scope: [src/experimental/Link](../../src/experimental/Link). Original scope: `U-10 H-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Link](../../packages/ui/src/experimental/Link). Original scope: `U-10 H-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P24-01 Verify Link primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P24-02 Verify Link same primary flow in Firefox; record capability limitations independently.
@@ -618,7 +629,7 @@ Scope: [src/experimental/Link](../../src/experimental/Link). Original scope: `U-
 
 ## P25: Breadcrumbs
 
-Scope: [src/experimental/Breadcrumbs](../../src/experimental/Breadcrumbs). Original scope: `U-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Breadcrumbs](../../packages/ui/src/experimental/Breadcrumbs). Original scope: `U-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P25-01 Verify Breadcrumbs primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P25-02 Verify Breadcrumbs same primary flow in Firefox; record capability limitations independently.
@@ -628,7 +639,7 @@ Scope: [src/experimental/Breadcrumbs](../../src/experimental/Breadcrumbs). Origi
 
 ## P26: Navigation
 
-Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Original scope: `U-11 H-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Navigation](../../packages/ui/src/experimental/Navigation). Original scope: `U-11 H-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P26-01 Verify Navigation primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P26-02 Verify Navigation same primary flow in Firefox; record capability limitations independently.
@@ -638,7 +649,7 @@ Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Origina
 
 ## P27: List
 
-Scope: [src/experimental/List](../../src/experimental/List). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/List](../../packages/ui/src/experimental/List). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P27-01 Verify List primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P27-02 Verify List same primary flow in Firefox; record capability limitations independently.
@@ -648,7 +659,7 @@ Scope: [src/experimental/List](../../src/experimental/List). Original scope: `U-
 
 ## P28: Disclosure
 
-Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Disclosure](../../packages/ui/src/experimental/Disclosure). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P28-01 Verify Disclosure primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P28-02 Verify Disclosure same primary flow in Firefox; record capability limitations independently.
@@ -658,7 +669,7 @@ Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Origina
 
 ## P29: Collapse
 
-Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Collapse](../../packages/ui/src/experimental/Collapse). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P29-01 Verify Collapse primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P29-02 Verify Collapse same primary flow in Firefox; record capability limitations independently.
@@ -668,7 +679,7 @@ Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original sc
 
 ## P30: Chip
 
-Scope: [src/experimental/Chip](../../src/experimental/Chip). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Chip](../../packages/ui/src/experimental/Chip). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P30-01 Verify Chip primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P30-02 Verify Chip same primary flow in Firefox; record capability limitations independently.
@@ -678,7 +689,7 @@ Scope: [src/experimental/Chip](../../src/experimental/Chip). Original scope: `U-
 
 ## P31: Badge
 
-Scope: [src/experimental/Badge](../../src/experimental/Badge). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Badge](../../packages/ui/src/experimental/Badge). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P31-01 Verify Badge primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P31-02 Verify Badge same primary flow in Firefox; record capability limitations independently.
@@ -688,7 +699,7 @@ Scope: [src/experimental/Badge](../../src/experimental/Badge). Original scope: `
 
 ## P32: TagGroup
 
-Scope: [src/experimental/TagGroup](../../src/experimental/TagGroup). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TagGroup](../../packages/ui/src/experimental/TagGroup). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P32-01 Verify TagGroup primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P32-02 Verify TagGroup same primary flow in Firefox; record capability limitations independently.
@@ -698,7 +709,7 @@ Scope: [src/experimental/TagGroup](../../src/experimental/TagGroup). Original sc
 
 ## P33: Progress
 
-Scope: [src/experimental/Progress](../../src/experimental/Progress). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Progress](../../packages/ui/src/experimental/Progress). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P33-01 Verify Progress primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P33-02 Verify Progress same primary flow in Firefox; record capability limitations independently.
@@ -708,7 +719,7 @@ Scope: [src/experimental/Progress](../../src/experimental/Progress). Original sc
 
 ## P34: Status
 
-Scope: [src/experimental/Status](../../src/experimental/Status). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Status](../../packages/ui/src/experimental/Status). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P34-01 Verify Status primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P34-02 Verify Status same primary flow in Firefox; record capability limitations independently.
@@ -718,7 +729,7 @@ Scope: [src/experimental/Status](../../src/experimental/Status). Original scope:
 
 ## P35: Avatar
 
-Scope: [src/experimental/Avatar](../../src/experimental/Avatar). Original scope: `U-14` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Avatar](../../packages/ui/src/experimental/Avatar). Original scope: `U-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P35-01 Verify Avatar primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P35-02 Verify Avatar same primary flow in Firefox; record capability limitations independently.
@@ -728,7 +739,7 @@ Scope: [src/experimental/Avatar](../../src/experimental/Avatar). Original scope:
 
 ## P36: Table
 
-Scope: [src/experimental/Table](../../src/experimental/Table). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Table](../../packages/ui/src/experimental/Table). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P36-01 Verify Table primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P36-02 Verify Table same primary flow in Firefox; record capability limitations independently.
@@ -738,7 +749,7 @@ Scope: [src/experimental/Table](../../src/experimental/Table). Original scope: `
 
 ## P37: Pagination
 
-Scope: [src/experimental/Pagination](../../src/experimental/Pagination). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Pagination](../../packages/ui/src/experimental/Pagination). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P37-01 Verify Pagination primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P37-02 Verify Pagination same primary flow in Firefox; record capability limitations independently.
@@ -748,7 +759,7 @@ Scope: [src/experimental/Pagination](../../src/experimental/Pagination). Origina
 
 ## P38: ToggleButton
 
-Scope: [src/experimental/ToggleButton](../../src/experimental/ToggleButton). Original scope: `U-16` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/ToggleButton](../../packages/ui/src/experimental/ToggleButton). Original scope: `U-16` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P38-01 Verify ToggleButton primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P38-02 Verify ToggleButton same primary flow in Firefox; record capability limitations independently.
@@ -758,7 +769,7 @@ Scope: [src/experimental/ToggleButton](../../src/experimental/ToggleButton). Ori
 
 ## P39: DateField
 
-Scope: [src/experimental/DateField](../../src/experimental/DateField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateField](../../packages/ui/src/experimental/DateField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P39-01 Verify DateField primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P39-02 Verify DateField same primary flow in Firefox; record capability limitations independently.
@@ -768,7 +779,7 @@ Scope: [src/experimental/DateField](../../src/experimental/DateField). Original 
 
 ## P40: TimeField
 
-Scope: [src/experimental/TimeField](../../src/experimental/TimeField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TimeField](../../packages/ui/src/experimental/TimeField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P40-01 Verify TimeField primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P40-02 Verify TimeField same primary flow in Firefox; record capability limitations independently.
@@ -778,7 +789,7 @@ Scope: [src/experimental/TimeField](../../src/experimental/TimeField). Original 
 
 ## P41: Calendar
 
-Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Calendar](../../packages/ui/src/experimental/Calendar). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P41-01 Verify Calendar primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P41-02 Verify Calendar same primary flow in Firefox; record capability limitations independently.
@@ -788,7 +799,7 @@ Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original sc
 
 ## P42: DatePicker
 
-Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DatePicker](../../packages/ui/src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P42-01 Verify DatePicker primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P42-02 Verify DatePicker same primary flow in Firefox; record capability limitations independently.
@@ -798,7 +809,7 @@ Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Origina
 
 ## P43: DateRangePicker
 
-Scope: [src/experimental/DateRangePicker](../../src/experimental/DateRangePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateRangePicker](../../packages/ui/src/experimental/DateRangePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P43-01 Verify DateRangePicker primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P43-02 Verify DateRangePicker same primary flow in Firefox; record capability limitations independently.
@@ -808,7 +819,7 @@ Scope: [src/experimental/DateRangePicker](../../src/experimental/DateRangePicker
 
 ## P44: DateRangeSelector
 
-Scope: [src/experimental/DateRangeSelector](../../src/experimental/DateRangeSelector). Original scope: `K-01–K-07 K-17` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateRangeSelector](../../packages/ui/src/experimental/DateRangeSelector). Original scope: `K-01–K-07 K-17` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P44-01 Verify DateRangeSelector primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P44-02 Verify DateRangeSelector same primary flow in Firefox; record capability limitations independently.
@@ -818,7 +829,7 @@ Scope: [src/experimental/DateRangeSelector](../../src/experimental/DateRangeSele
 
 ## P45: Provider
 
-Scope: [src/experimental/Provider](../../src/experimental/Provider). Original scope: `D-16 H-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Provider](../../packages/ui/src/experimental/Provider). Original scope: `D-16 H-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P45-01 Verify Provider primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P45-02 Verify Provider same primary flow in Firefox; record capability limitations independently.
@@ -828,7 +839,7 @@ Scope: [src/experimental/Provider](../../src/experimental/Provider). Original sc
 
 ## P46: DataGrid
 
-Scope: [src/experimental/DataGrid](../../src/experimental/DataGrid). Original scope: `P-06 G-25` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DataGrid](../../packages/ui/src/experimental/DataGrid). Original scope: `P-06 G-25` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P46-01 Verify DataGrid primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P46-02 Verify DataGrid same primary flow in Firefox; record capability limitations independently.
@@ -838,7 +849,7 @@ Scope: [src/experimental/DataGrid](../../src/experimental/DataGrid). Original sc
 
 ## P47: icons
 
-Scope: [src/experimental/icons](../../src/experimental/icons). Original scope: `I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/icons](../../packages/ui/src/experimental/icons). Original scope: `I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-P47-01 Verify icons primary interaction or rendering in Chromium using its production story; record actual focus/layout behavior.
 - [ ] V-P47-02 Verify icons same primary flow in Firefox; record capability limitations independently.
@@ -848,126 +859,126 @@ Scope: [src/experimental/icons](../../src/experimental/icons). Original scope: `
 
 ## S01: ThemeScope
 
-Scope: [src/foundation/ThemeScope.tsx](../../src/foundation/ThemeScope.tsx). Original scope: `D-16 D-17` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/foundation/ThemeScope.tsx](../../packages/ui/src/foundation/ThemeScope.tsx). Original scope: `D-16 D-17` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S01-01 Exercise ThemeScope in a real consuming page/package and record native or production output behavior.
 - [ ] V-S01-02 Review ThemeScope failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S02: Tokens
 
-Scope: [src/foundation/tokens.json](../../src/foundation/tokens.json). Original scope: `D-01–D-20` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/foundation/tokens.json](../../packages/ui/src/foundation/tokens.json). Original scope: `D-01–D-20` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S02-01 Exercise Tokens in a real consuming page/package and record native or production output behavior.
 - [ ] V-S02-02 Review Tokens failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S03: CSSPipeline
 
-Scope: [scripts/build.mjs](../../scripts/build.mjs). Original scope: `C-01–C-21 R-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [scripts/build.mjs](../../packages/ui/scripts/build.mjs). Original scope: `C-01–C-21 R-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S03-01 Exercise CSSPipeline in a real consuming page/package and record native or production output behavior.
 - [ ] V-S03-02 Review CSSPipeline failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S04: NavigationAdapter
 
-Scope: [src/adapters/navigation.tsx](../../src/adapters/navigation.tsx). Original scope: `H-01 H-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/adapters/navigation.tsx](../../packages/ui/src/adapters/navigation.tsx). Original scope: `H-01 H-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S04-01 Exercise NavigationAdapter in a real consuming page/package and record native or production output behavior.
 - [ ] V-S04-02 Review NavigationAdapter failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S05: AccountAdapter
 
-Scope: [src/adapters/accounts.tsx](../../src/adapters/accounts.tsx). Original scope: `H-04 H-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/adapters/accounts.tsx](../../packages/ui/src/adapters/accounts.tsx). Original scope: `H-04 H-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S05-01 Exercise AccountAdapter in a real consuming page/package and record native or production output behavior.
 - [ ] V-S05-02 Review AccountAdapter failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S06: TranslationAdapter
 
-Scope: [src/i18n/index.tsx](../../src/i18n/index.tsx). Original scope: `H-06–H-09` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/i18n/index.tsx](../../packages/ui/src/i18n/index.tsx). Original scope: `H-06–H-09` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S06-01 Exercise TranslationAdapter in a real consuming page/package and record native or production output behavior.
 - [ ] V-S06-02 Review TranslationAdapter failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S07: ICUFormatting
 
-Scope: [src/i18n/icu.ts](../../src/i18n/icu.ts). Original scope: `H-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/i18n/icu.ts](../../packages/ui/src/i18n/icu.ts). Original scope: `H-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S07-01 Exercise ICUFormatting in a real consuming page/package and record native or production output behavior.
 - [ ] V-S07-02 Review ICUFormatting failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S08: PersistentState
 
-Scope: [src/hooks/usePersistentState.ts](../../src/hooks/usePersistentState.ts). Original scope: `H-13 H-14` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/hooks/usePersistentState.ts](../../packages/ui/src/hooks/usePersistentState.ts). Original scope: `H-13 H-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S08-01 Exercise PersistentState in a real consuming page/package and record native or production output behavior.
 - [ ] V-S08-02 Review PersistentState failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S09: PaginationState
 
-Scope: [src/hooks/usePersistentPaginationModel.ts](../../src/hooks/usePersistentPaginationModel.ts). Original scope: `H-15 H-16` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/hooks/usePersistentPaginationModel.ts](../../packages/ui/src/hooks/usePersistentPaginationModel.ts). Original scope: `H-15 H-16` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S09-01 Exercise PaginationState in a real consuming page/package and record native or production output behavior.
 - [ ] V-S09-02 Review PaginationState failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S10: AdminPresets
 
-Scope: [src/components/AdminDataGridOptions.ts](../../src/components/AdminDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AdminDataGridOptions.ts](../../packages/ui/src/components/AdminDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S10-01 Exercise AdminPresets in a real consuming page/package and record native or production output behavior.
 - [ ] V-S10-02 Review AdminPresets failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S11: InstructorPresets
 
-Scope: [src/components/InstructorDataGridOptions.ts](../../src/components/InstructorDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/InstructorDataGridOptions.ts](../../packages/ui/src/components/InstructorDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S11-01 Exercise InstructorPresets in a real consuming page/package and record native or production output behavior.
 - [ ] V-S11-02 Review InstructorPresets failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S12: GridCells
 
-Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original scope: `M-40 G-21` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGrid](../../packages/ui/src/components/AppDataGrid). Original scope: `M-40 G-21` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S12-01 Exercise GridCells in a real consuming page/package and record native or production output behavior.
 - [ ] V-S12-02 Review GridCells failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S13: GridHelpers
 
-Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original scope: `M-41` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGrid](../../packages/ui/src/components/AppDataGrid). Original scope: `M-41` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S13-01 Exercise GridHelpers in a real consuming page/package and record native or production output behavior.
 - [ ] V-S13-02 Review GridHelpers failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S14: PublicExports
 
-Scope: [src/index.ts](../../src/index.ts). Original scope: `M-42 R-03 R-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/index.ts](../../packages/ui/src/index.ts). Original scope: `M-42 R-03 R-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S14-01 Exercise PublicExports in a real consuming page/package and record native or production output behavior.
 - [ ] V-S14-02 Review PublicExports failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S15: SavedEditorNodes
 
-Scope: [src/components/PageRichTextEditorSection/lexical](../../src/components/PageRichTextEditorSection/lexical). Original scope: `E-02 E-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/PageRichTextEditorSection/lexical](../../packages/ui/src/components/PageRichTextEditorSection/lexical). Original scope: `E-02 E-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S15-01 Exercise SavedEditorNodes in a real consuming page/package and record native or production output behavior.
 - [ ] V-S15-02 Review SavedEditorNodes failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S16: EditorUploadLifetime
 
-Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichTextEditorSection). Original scope: `E-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/PageRichTextEditorSection](../../packages/ui/src/components/PageRichTextEditorSection). Original scope: `E-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S16-01 Exercise EditorUploadLifetime in a real consuming page/package and record native or production output behavior.
 - [ ] V-S16-02 Review EditorUploadLifetime failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S17: DateContracts
 
-Scope: [src/experimental/DateRangeSelector/date-contract.ts](../../src/experimental/DateRangeSelector/date-contract.ts). Original scope: `H-10 H-11 K-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateRangeSelector/date-contract.ts](../../packages/ui/src/experimental/DateRangeSelector/date-contract.ts). Original scope: `H-10 H-11 K-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S17-01 Exercise DateContracts in a real consuming page/package and record native or production output behavior.
 - [ ] V-S17-02 Review DateContracts failure and cleanup boundaries in its host composition; record any defect separately.
 
 ## S18: Models
 
-Scope: [src/models.ts](../../src/models.ts). Original scope: `A-14 E-09 E-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/models.ts](../../packages/ui/src/models.ts). Original scope: `A-14 E-09 E-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [ ] V-S18-01 Exercise Models in a real consuming page/package and record native or production output behavior.
 - [ ] V-S18-02 Review Models failure and cleanup boundaries in its host composition; record any defect separately.

@@ -14,16 +14,16 @@ paragraph explains obtaining the associated native input with
 `switchRef.current?.control`, narrowing to `HTMLInputElement` before reading
 `checked` or focusing it.
 
-The [public primitive barrel](../../../src/components/primitives/index.ts)
-directly reexports [the experimental Switch](../../../src/experimental/Switch/Switch.tsx);
-[the public entry point](../../../src/primitives/index.ts) reexports that barrel.
+The [public primitive barrel](../../../packages/ui/src/components/primitives/index.ts)
+directly reexports [the experimental Switch](../../../packages/ui/src/experimental/Switch/Switch.tsx);
+[the public entry point](../../../packages/ui/src/primitives/index.ts) reexports that barrel.
 The implementation declares `forwardRef<HTMLLabelElement, SwitchProps>`, holds a
 label root ref and exposes that root through `useImperativeHandle`. Its internal
 input lookup handles native form reset and disabled-fieldset behavior. There is
 no public input-ref prop. The existing
-[Switch tests](../../../src/experimental/Switch/Switch.test.tsx) read the role's
+[Switch tests](../../../packages/ui/src/experimental/Switch/Switch.test.tsx) read the role's
 native input for checked/form behavior; the
-[public composition tests](../../../src/components/primitives/primitives.test.tsx)
+[public composition tests](../../../packages/ui/src/components/primitives/primitives.test.tsx)
 do not independently assert Switch ref identity. These tests were read, not run.
 The [API reconciliation contract](../react-aria-public-api-reconciliation.md)
 already identifies the label ref.

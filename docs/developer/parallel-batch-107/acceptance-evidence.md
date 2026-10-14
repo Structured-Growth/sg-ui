@@ -29,20 +29,20 @@ bytes independently of later changes.
 
 | Source at reviewed head | Git blob |
 | --- | --- |
-| [Account adapter](../../../src/adapters/accounts.tsx) | `205182f0161946cca99c8022a0c4c09543c4cef5` |
-| [Account boundary tests](../../../src/adapters/accounts.test.tsx) | `d875841639f8ffcf75cd004f0cb9c4251d42ba9b` |
-| [SideNavigation](../../../src/components/SideNavigation/SideNavigation.tsx) | `87a78ab622b7ab31eed623af8a4ab529a1b2fb4b` |
-| [Organization lifetime unit tests](../../../src/components/SideNavigation/SideNavigation.organization-lifetime.test.tsx) | `0272689d0d2d5cb06900cc101fb242043d811f06` |
-| [Organization deterministic fixture](../../../src/components/SideNavigation/SideNavigation.organization-lifetime.stories.tsx) | `683390e25f8302f4ce7184fa122c9f350fc9f92c` |
-| [Organization native spec](../../../tests/browser/batch70-organization-switch-lifetime.spec.ts) | `d18ccadb1d7cadc5317f64197b3d02241232fb48` |
-| [Provider locale bridge](../../../src/experimental/Provider/Provider.tsx) | `cb3e3de6f89932418f05fd793a4899bd8ff548ed` |
-| [ThemeScope/portal direction](../../../src/foundation/ThemeScope.tsx) | `ec330a71f6ee1f32ad10b717efe5a285094ca953` |
-| [LearnerClassCard composition](../../../src/components/LearnerClassCard/LearnerClassCard.tsx) | `3e8d73e0e48d68c9dc324ad49e4507a2060b5417` |
-| [Due formatter](../../../src/utils/formatDueDateLabel.ts) | `dfce16aa6abbed4fa0ea74f0257805b8a1b53431` |
-| [Translation boundary](../../../src/i18n/index.tsx) | `3995019deab2fe0b5c1082320c06c73802a47ffb` |
-| [Translation boundary tests](../../../src/i18n/index.test.tsx) | `3473d2b1a97cd5932d6322e3d4f1fee350da11d5` |
-| [ICU formatter](../../../src/i18n/icu.ts) | `7a93dd490eb641b91bbfdcee6e6d9784b452cb49` |
-| [ICU tests](../../../src/i18n/icu.test.ts) | `eebc4c3a65e1eddea07e9f24fac2b421e3fde932` |
+| [Account adapter](../../../packages/ui/src/adapters/accounts.tsx) | `205182f0161946cca99c8022a0c4c09543c4cef5` |
+| [Account boundary tests](../../../packages/ui/src/adapters/accounts.test.tsx) | `d875841639f8ffcf75cd004f0cb9c4251d42ba9b` |
+| [SideNavigation](../../../packages/ui/src/components/SideNavigation/SideNavigation.tsx) | `87a78ab622b7ab31eed623af8a4ab529a1b2fb4b` |
+| [Organization lifetime unit tests](../../../packages/ui/src/components/SideNavigation/SideNavigation.organization-lifetime.test.tsx) | `0272689d0d2d5cb06900cc101fb242043d811f06` |
+| [Organization deterministic fixture](../../../packages/ui/src/components/SideNavigation/SideNavigation.organization-lifetime.stories.tsx) | `683390e25f8302f4ce7184fa122c9f350fc9f92c` |
+| [Organization native spec](../../../packages/ui/tests/browser/batch70-organization-switch-lifetime.spec.ts) | `d18ccadb1d7cadc5317f64197b3d02241232fb48` |
+| [Provider locale bridge](../../../packages/ui/src/experimental/Provider/Provider.tsx) | `cb3e3de6f89932418f05fd793a4899bd8ff548ed` |
+| [ThemeScope/portal direction](../../../packages/ui/src/foundation/ThemeScope.tsx) | `ec330a71f6ee1f32ad10b717efe5a285094ca953` |
+| [LearnerClassCard composition](../../../packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx) | `3e8d73e0e48d68c9dc324ad49e4507a2060b5417` |
+| [Due formatter](../../../packages/ui/src/utils/formatDueDateLabel.ts) | `dfce16aa6abbed4fa0ea74f0257805b8a1b53431` |
+| [Translation boundary](../../../packages/ui/src/i18n/index.tsx) | `3995019deab2fe0b5c1082320c06c73802a47ffb` |
+| [Translation boundary tests](../../../packages/ui/src/i18n/index.test.tsx) | `3473d2b1a97cd5932d6322e3d4f1fee350da11d5` |
+| [ICU formatter](../../../packages/ui/src/i18n/icu.ts) | `7a93dd490eb641b91bbfdcee6e6d9784b452cb49` |
+| [ICU tests](../../../packages/ui/src/i18n/icu.test.ts) | `eebc4c3a65e1eddea07e9f24fac2b421e3fde932` |
 
 The translation boundary and ICU formatter match historical implementation
 `b12fef8c9f8d5e7d0bd931128c1f1f115735453f`; the due formatter matches

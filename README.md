@@ -65,7 +65,7 @@ There is no Tailwind or runtime CSS-engine requirement.
 The package exports the root, `/components`, `/theme`, `/tokens`, `/styles.css`,
 `/hooks`, `/icons`, `/primitives`, `/adapters`, `/i18n`, `/experimental` and
 `/experimental/icons`, plus the component and individual icon paths declared in
-[package.json](package.json). These are explicit exports, not unrestricted source
+[package.json](packages/ui/package.json). These are explicit exports, not unrestricted source
 paths. For example, AppPaginationFooter uses `/components/CardPaginationFooter`.
 Do not import `dist` internals. Prefer granular paths for bounded module graphs;
 root imports remain supported.
@@ -88,19 +88,19 @@ documents the runtime matrix, packed React consumers and retained artifacts:
 ```sh
 pnpm install --frozen-lockfile
 pnpm check
-pnpm storybook
-pnpm build-storybook
+pnpm dev:docs
+pnpm build:browser-docs
 ```
 
-`pnpm check` typechecks production source and stories, runs unit and release-policy tests, builds
+`pnpm check` typechecks production source and retained native test scenarios, runs unit and release-policy tests, builds
 ESM/declarations, and imports each public package entry point. Vitest executes
-colocated tests independently of TypeScript's production/story checking.
-GitHub Actions runs these checks and builds the package and Storybook on PRs and
+colocated tests independently of TypeScript's production checking.
+GitHub Actions runs these checks and builds the package and native docs fixtures on PRs and
 main. Local builds are for validation; official build artifacts and releases
 come from Actions.
 
 The [browser acceptance suite](docs/developer/react-aria-browser-acceptance.md)
-executes built Storybook interactions, accessibility failures and a bounded
+executes built native docs fixture interactions, accessibility failures and a bounded
 performance smoke workload through `pnpm test:browser`.
 `pnpm test:hydration-consumer` executes packed React 18/19 Vite SSR and hydration
 in browsers; `pnpm test:next-consumer` builds and runs a clean packed Next.js App
@@ -137,3 +137,25 @@ to main triggers publication automatically.
 
 For library development, use the [component architecture](docs/developer/component-architecture.md)
 and [canonical component recipe](docs/developer/react-aria-component-recipe.md).
+
+## Workspace and docs website
+
+The publishable library lives in `packages/ui`. The private Next.js application
+lives in `apps/docs` and consumes the library's compiled public exports. Internal
+architecture and acceptance records remain in `docs/developer`.
+
+```sh
+pnpm install --frozen-lockfile
+pnpm dev:docs        # Build the library, then open http://127.0.0.1:3000
+pnpm build:docs      # Production library and Next.js build
+pnpm check:docs      # Docs typecheck against built package declarations
+pnpm test:docs       # Production docs build and Chromium smoke
+```
+
+Library commands such as `pnpm check` and `pnpm build:browser-docs` forward to the UI
+workspace. Direct legacy scripts run from `packages/ui`; for example
+`pnpm --filter @structured-growth/sg-ui exec node scripts/test-next-consumer.mjs`.
+The Next.js docs site owns component playgrounds and copyable examples. Dedicated
+static native fixtures preserve isolated browser scenarios at `/fixtures/?id=...`.
+Storybook dependencies, configuration and story files have been removed.
+See [docs architecture and transition](docs/developer/docs-website.md).

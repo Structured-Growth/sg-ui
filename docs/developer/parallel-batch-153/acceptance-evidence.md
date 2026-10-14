@@ -4,7 +4,7 @@ Prepared October 7, 2026 from exact `codex/dev` base
 `e53b6e20f4a6dd56e27ab0402923f3b5f9024fc3` in isolated managed worktree
 `/Users/thomashall/.codex/worktrees/d20-foundation-catalogue/sg-ui`.
 Ownership is limited to this record and
-[src/foundation/FoundationCatalogue.stories.tsx](../../../src/foundation/FoundationCatalogue.stories.tsx).
+[src/foundation/FoundationCatalogue.stories.tsx](../../../packages/ui/src/foundation/FoundationCatalogue.stories.tsx).
 Coordinator owns executable validation, integration and acceptance. No master
 acceptance/state, production tokens, CSS, configuration or other source was edited.
 

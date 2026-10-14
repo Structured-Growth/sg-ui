@@ -12,7 +12,7 @@ Every item inherits the owned API, compiled CSS, production scope, host adapter,
 
 ## C01: AppButton
 
-Scope: [src/components/AppButton](../../src/components/AppButton). Original scope: `M-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppButton](../../packages/ui/src/components/AppButton). Original scope: `M-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C01-01 Confirm or complete AppButton: owned onPress and native button type.
 - [x] F-C01-02 Confirm or complete AppButton: variant tone and density mapping.
@@ -23,7 +23,7 @@ Scope: [src/components/AppButton](../../src/components/AppButton). Original scop
 
 ## C02: AppInlineProgress
 
-Scope: [src/components/AppInlineProgress](../../src/components/AppInlineProgress). Original scope: `M-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppInlineProgress](../../packages/ui/src/components/AppInlineProgress). Original scope: `M-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C02-01 Confirm or complete AppInlineProgress: determinate percentage and finite fallback.
 - [x] F-C02-02 Confirm or complete AppInlineProgress: translated status label.
@@ -33,7 +33,7 @@ Scope: [src/components/AppInlineProgress](../../src/components/AppInlineProgress
 
 ## C03: AppOperationSteps
 
-Scope: [src/components/AppOperationSteps](../../src/components/AppOperationSteps). Original scope: `M-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppOperationSteps](../../packages/ui/src/components/AppOperationSteps). Original scope: `M-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C03-01 Confirm or complete AppOperationSteps: active completed and error step rendering.
 - [x] F-C03-02 Confirm or complete AppOperationSteps: ordered labels and status text.
@@ -43,7 +43,7 @@ Scope: [src/components/AppOperationSteps](../../src/components/AppOperationSteps
 
 ## C04: AppPageHeader
 
-Scope: [src/components/AppPageHeader](../../src/components/AppPageHeader). Original scope: `M-04` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppPageHeader](../../packages/ui/src/components/AppPageHeader). Original scope: `M-04` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C04-01 Confirm or complete AppPageHeader: primary and subpage surface hierarchy.
 - [x] F-C04-02 Confirm or complete AppPageHeader: breadcrumb navigation through owned links.
@@ -54,7 +54,7 @@ Scope: [src/components/AppPageHeader](../../src/components/AppPageHeader). Origi
 
 ## C05: AppPageTabs
 
-Scope: [src/components/AppPageTabs](../../src/components/AppPageTabs). Original scope: `M-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppPageTabs](../../packages/ui/src/components/AppPageTabs). Original scope: `M-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C05-01 Confirm or complete AppPageTabs: tab and panel association.
 - [x] F-C05-02 Confirm or complete AppPageTabs: controlled selection callback.
@@ -65,7 +65,7 @@ Scope: [src/components/AppPageTabs](../../src/components/AppPageTabs). Original 
 
 ## C06: AppShell
 
-Scope: [src/components/AppShell](../../src/components/AppShell). Original scope: `M-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppShell](../../packages/ui/src/components/AppShell). Original scope: `M-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C06-01 Confirm or complete AppShell: main and navigation landmarks.
 - [x] F-C06-02 Confirm or complete AppShell: responsive navigation presentation.
@@ -76,7 +76,7 @@ Scope: [src/components/AppShell](../../src/components/AppShell). Original scope:
 
 ## C07: AuthShell
 
-Scope: [src/components/AuthShell](../../src/components/AuthShell). Original scope: `M-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AuthShell](../../packages/ui/src/components/AuthShell). Original scope: `M-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C07-01 Confirm or complete AuthShell: presentation-only authentication layout.
 - [x] F-C07-02 Confirm or complete AuthShell: title/subtitle, host children and optional footerContent, with host branding composed through children or footerContent.
@@ -86,7 +86,7 @@ Scope: [src/components/AuthShell](../../src/components/AuthShell). Original scop
 
 ## C08: AppModal
 
-Scope: [src/components/AppModal](../../src/components/AppModal). Original scope: `M-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppModal](../../packages/ui/src/components/AppModal). Original scope: `M-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C08-01 Confirm or complete AppModal: owned size title description and parts.
 - [x] F-C08-02 Confirm or complete AppModal: open close and dismissal reasons.
@@ -99,7 +99,7 @@ Scope: [src/components/AppModal](../../src/components/AppModal). Original scope:
 
 ## C09: SideNavigation
 
-Scope: [src/components/SideNavigation](../../src/components/SideNavigation). Original scope: `M-09` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/SideNavigation](../../packages/ui/src/components/SideNavigation). Original scope: `M-09` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C09-01 Confirm or complete SideNavigation: pathname selected navigation item.
 - [x] F-C09-02 Confirm or complete SideNavigation: child expansion and collapsed navigation.
@@ -112,7 +112,7 @@ Scope: [src/components/SideNavigation](../../src/components/SideNavigation). Ori
 
 ## C10: ExperiencePageNavigator
 
-Scope: [src/components/ExperiencePageNavigator](../../src/components/ExperiencePageNavigator). Original scope: `M-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ExperiencePageNavigator](../../packages/ui/src/components/ExperiencePageNavigator). Original scope: `M-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C10-01 Confirm or complete ExperiencePageNavigator: controlled activePageKey selection through onSelectPage and host page creation through onAddPage.
 - [x] F-C10-02 Confirm or complete ExperiencePageNavigator: first/last Move up/Move down boundaries, final-page removal protection and readOnly mutation guards while retaining selection.
@@ -123,7 +123,7 @@ Scope: [src/components/ExperiencePageNavigator](../../src/components/ExperienceP
 
 ## C11: CardCollectionWithFooter
 
-Scope: [src/components/CardCollectionWithFooter](../../src/components/CardCollectionWithFooter). Original scope: `M-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/CardCollectionWithFooter](../../packages/ui/src/components/CardCollectionWithFooter). Original scope: `M-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C11-01 Confirm or complete CardCollectionWithFooter: stable item keys and card rendering.
 - [x] F-C11-02 Confirm or complete CardCollectionWithFooter: responsive collection layout.
@@ -134,7 +134,7 @@ Scope: [src/components/CardCollectionWithFooter](../../src/components/CardCollec
 
 ## C12: CardPaginationFooter
 
-Scope: [src/components/CardPaginationFooter](../../src/components/CardPaginationFooter). Original scope: `M-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/CardPaginationFooter](../../packages/ui/src/components/CardPaginationFooter). Original scope: `M-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C12-01 Confirm or complete CardPaginationFooter: appPaginationFooter preserved export.
 - [x] F-C12-02 Confirm or complete CardPaginationFooter: page and page-size callbacks.
@@ -146,7 +146,7 @@ Scope: [src/components/CardPaginationFooter](../../src/components/CardPagination
 
 ## C13: ClassCardFrame
 
-Scope: [src/components/ClassCardFrame](../../src/components/ClassCardFrame). Original scope: `M-13` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ClassCardFrame](../../packages/ui/src/components/ClassCardFrame). Original scope: `M-13` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C13-01 Confirm or complete ClassCardFrame: owned frame surface and spacing.
 - [x] F-C13-02 Confirm or complete ClassCardFrame: image and content slots.
@@ -157,7 +157,7 @@ Scope: [src/components/ClassCardFrame](../../src/components/ClassCardFrame). Ori
 
 ## C14: InstructorClassCard
 
-Scope: [src/components/InstructorClassCard](../../src/components/InstructorClassCard). Original scope: `M-14` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/InstructorClassCard](../../packages/ui/src/components/InstructorClassCard). Original scope: `M-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C14-01 Confirm or complete InstructorClassCard: course status and metadata.
 - [x] F-C14-02 Confirm or complete InstructorClassCard: the owned actionHref/actionLabel link, preserved translated/custom action labels, and host navigation requests.
@@ -168,7 +168,7 @@ Scope: [src/components/InstructorClassCard](../../src/components/InstructorClass
 
 ## C15: LearnerClassCard
 
-Scope: [src/components/LearnerClassCard](../../src/components/LearnerClassCard). Original scope: `M-15` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/LearnerClassCard](../../packages/ui/src/components/LearnerClassCard). Original scope: `M-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C15-01 Confirm or complete LearnerClassCard: progress and completion presentation.
 - [x] F-C15-02 Confirm or complete LearnerClassCard: localized relative/absolute due-date labels and the translated Course progress name with normalized visible percentage.
@@ -179,7 +179,7 @@ Scope: [src/components/LearnerClassCard](../../src/components/LearnerClassCard).
 
 ## C16: AppDataGrid
 
-Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original scope: `M-16 G-04–G-16 G-21 G-22` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGrid](../../packages/ui/src/components/AppDataGrid). Original scope: `M-16 G-04–G-16 G-21 G-22` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C16-01 Confirm or complete AppDataGrid: owned row and column IDs with generics.
 - [x] F-C16-02 Confirm or complete AppDataGrid: filter-before-sort-before-page processing.
@@ -195,7 +195,7 @@ Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original 
 
 ## C17: AppDataGridShell
 
-Scope: [src/components/AppDataGridShell](../../src/components/AppDataGridShell). Original scope: `M-17 H-17` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGridShell](../../packages/ui/src/components/AppDataGridShell). Original scope: `M-17 H-17` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C17-01 Confirm or complete AppDataGridShell: one shared grid and card state owner.
 - [x] F-C17-02 Confirm or complete AppDataGridShell: search and toolbar integration.
@@ -207,7 +207,7 @@ Scope: [src/components/AppDataGridShell](../../src/components/AppDataGridShell).
 
 ## C18: AppDataGridRowDnd
 
-Scope: [src/components/AppDataGridRowDnd](../../src/components/AppDataGridRowDnd). Original scope: `M-18 G-17 G-18 G-28` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGridRowDnd](../../packages/ui/src/components/AppDataGridRowDnd). Original scope: `M-18 G-17 G-18 G-28` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C18-01 Confirm or complete AppDataGridRowDnd: complete single-page reorder eligibility.
 - [x] F-C18-02 Confirm or complete AppDataGridRowDnd: pointer handle and owned drag preview.
@@ -219,7 +219,7 @@ Scope: [src/components/AppDataGridRowDnd](../../src/components/AppDataGridRowDnd
 
 ## C19: LearnerClassesDataGrid
 
-Scope: [src/components/LearnerClassesDataGrid](../../src/components/LearnerClassesDataGrid). Original scope: `M-19` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/LearnerClassesDataGrid](../../packages/ui/src/components/LearnerClassesDataGrid). Original scope: `M-19` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C19-01 Confirm or complete LearnerClassesDataGrid: owned learner presentation model.
 - [x] F-C19-02 Confirm or complete LearnerClassesDataGrid: localized due-date/fallback, course-name link and Details/Continue action columns.
@@ -231,7 +231,7 @@ Scope: [src/components/LearnerClassesDataGrid](../../src/components/LearnerClass
 
 ## C20: DataToolbar
 
-Scope: [src/components/DataToolbar](../../src/components/DataToolbar). Original scope: `M-20 G-08–G-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/DataToolbar](../../packages/ui/src/components/DataToolbar). Original scope: `M-20 G-08–G-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C20-01 Confirm or complete DataToolbar: search and refresh callbacks.
 - [x] F-C20-02 Confirm or complete DataToolbar: selected count and selected actions.
@@ -245,7 +245,7 @@ Scope: [src/components/DataToolbar](../../src/components/DataToolbar). Original 
 
 ## C21: DocumentEditorLayout
 
-Scope: [src/components/DocumentEditorLayout](../../src/components/DocumentEditorLayout). Original scope: `M-21` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/DocumentEditorLayout](../../packages/ui/src/components/DocumentEditorLayout). Original scope: `M-21` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C21-01 Confirm or complete DocumentEditorLayout: toolbar content and menu slots.
 - [x] F-C21-02 Confirm or complete DocumentEditorLayout: host-owned scrolling boundary.
@@ -255,7 +255,7 @@ Scope: [src/components/DocumentEditorLayout](../../src/components/DocumentEditor
 
 ## C22: DocumentEditorToolbar
 
-Scope: [src/components/DocumentEditorToolbar](../../src/components/DocumentEditorToolbar). Original scope: `M-22` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/DocumentEditorToolbar](../../packages/ui/src/components/DocumentEditorToolbar). Original scope: `M-22` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C22-01 Confirm or complete DocumentEditorToolbar: owned actions and menu triggers.
 - [x] F-C22-02 Confirm or complete DocumentEditorToolbar: controlled active formatting state.
@@ -266,7 +266,7 @@ Scope: [src/components/DocumentEditorToolbar](../../src/components/DocumentEdito
 
 ## C23: ContentEditorChrome
 
-Scope: [src/components/ContentEditorChrome](../../src/components/ContentEditorChrome). Original scope: `M-23` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ContentEditorChrome](../../packages/ui/src/components/ContentEditorChrome). Original scope: `M-23` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C23-01 Confirm or complete ContentEditorChrome: editor menu and toolbar composition.
 - [x] F-C23-02 Confirm or complete ContentEditorChrome: native onPress(anchor) action handoff supports host-owned editor selection and focus preparation/restoration; chrome does not own document selection.
@@ -277,7 +277,7 @@ Scope: [src/components/ContentEditorChrome](../../src/components/ContentEditorCh
 
 ## C24: EditableTitleField
 
-Scope: [src/components/EditableTitleField](../../src/components/EditableTitleField). Original scope: `M-24` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/EditableTitleField](../../packages/ui/src/components/EditableTitleField). Original scope: `M-24` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C24-01 Confirm or complete EditableTitleField: controlled draft and committed title.
 - [x] F-C24-02 Confirm or complete EditableTitleField: enter commit and Escape cancel.
@@ -288,7 +288,7 @@ Scope: [src/components/EditableTitleField](../../src/components/EditableTitleFie
 
 ## C25: FloatingTextSelectionToolbar
 
-Scope: [src/components/FloatingTextSelectionToolbar](../../src/components/FloatingTextSelectionToolbar). Original scope: `M-25` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/FloatingTextSelectionToolbar](../../packages/ui/src/components/FloatingTextSelectionToolbar). Original scope: `M-25` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C25-01 Confirm or complete FloatingTextSelectionToolbar: selection-based toolbar visibility.
 - [x] F-C25-02 Confirm or complete FloatingTextSelectionToolbar: owned selection anchor placement.
@@ -300,7 +300,7 @@ Scope: [src/components/FloatingTextSelectionToolbar](../../src/components/Floati
 
 ## C26: RichTextFormattingToolbar
 
-Scope: [src/components/RichTextFormattingToolbar](../../src/components/RichTextFormattingToolbar). Original scope: `M-26 E-04` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/RichTextFormattingToolbar](../../packages/ui/src/components/RichTextFormattingToolbar). Original scope: `M-26 E-04` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C26-01 Confirm or complete RichTextFormattingToolbar: named inline formatting callbacks.
 - [x] F-C26-02 Confirm or complete RichTextFormattingToolbar: controlled active and mixed states.
@@ -312,7 +312,7 @@ Scope: [src/components/RichTextFormattingToolbar](../../src/components/RichTextF
 
 ## C27: InsertContentMenuControl
 
-Scope: [src/components/InsertContentMenuControl](../../src/components/InsertContentMenuControl). Original scope: `M-27` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/InsertContentMenuControl](../../packages/ui/src/components/InsertContentMenuControl). Original scope: `M-27` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C27-01 Confirm or complete InsertContentMenuControl: insert image columns and rule actions.
 - [x] F-C27-02 Confirm or complete InsertContentMenuControl: unavailable insertion actions disabled.
@@ -322,7 +322,7 @@ Scope: [src/components/InsertContentMenuControl](../../src/components/InsertCont
 
 ## C28: TextAlignMenuControl
 
-Scope: [src/components/TextAlignMenuControl](../../src/components/TextAlignMenuControl). Original scope: `M-28` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/TextAlignMenuControl](../../packages/ui/src/components/TextAlignMenuControl). Original scope: `M-28` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C28-01 Confirm or complete TextAlignMenuControl: alignment actions and active state.
 - [x] F-C28-02 Confirm or complete TextAlignMenuControl: indent and outdent callbacks.
@@ -332,7 +332,7 @@ Scope: [src/components/TextAlignMenuControl](../../src/components/TextAlignMenuC
 
 ## C29: TextColorPickerControl
 
-Scope: [src/components/TextColorPickerControl](../../src/components/TextColorPickerControl). Original scope: `M-29` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/TextColorPickerControl](../../packages/ui/src/components/TextColorPickerControl). Original scope: `M-29` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C29-01 Confirm or complete TextColorPickerControl: foreground and background mode.
 - [x] F-C29-02 Confirm or complete TextColorPickerControl: semantic preset swatches.
@@ -343,7 +343,7 @@ Scope: [src/components/TextColorPickerControl](../../src/components/TextColorPic
 
 ## C30: TextStyleMenuControl
 
-Scope: [src/components/TextStyleMenuControl](../../src/components/TextStyleMenuControl). Original scope: `M-30` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/TextStyleMenuControl](../../packages/ui/src/components/TextStyleMenuControl). Original scope: `M-30` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C30-01 Confirm or complete TextStyleMenuControl: lowercase, uppercase, capitalize, strikethrough, subscript, superscript, highlight and clear-formatting commands; preserve typeface selection in RichTextFormattingToolbar through fontFamilyValue/onFontFamilyChange.
 - [x] F-C30-02 Confirm or complete TextStyleMenuControl: controlled selected formatting style.
@@ -354,7 +354,7 @@ Scope: [src/components/TextStyleMenuControl](../../src/components/TextStyleMenuC
 
 ## C31: ColumnsLayoutModal
 
-Scope: [src/components/ColumnsLayoutModal](../../src/components/ColumnsLayoutModal). Original scope: `M-31 E-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ColumnsLayoutModal](../../packages/ui/src/components/ColumnsLayoutModal). Original scope: `M-31 E-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C31-01 Confirm or complete ColumnsLayoutModal: layout preset selection.
 - [x] F-C31-02 Confirm or complete ColumnsLayoutModal: draft reset on reopen.
@@ -365,7 +365,7 @@ Scope: [src/components/ColumnsLayoutModal](../../src/components/ColumnsLayoutMod
 
 ## C32: ImageUploadModal
 
-Scope: [src/components/ImageUploadModal](../../src/components/ImageUploadModal). Original scope: `M-32 E-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/ImageUploadModal](../../packages/ui/src/components/ImageUploadModal). Original scope: `M-32 E-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C32-01 Confirm or complete ImageUploadModal: picker and drop file selection.
 - [x] F-C32-02 Confirm or complete ImageUploadModal: nonempty file and MIME extension presentation checks.
@@ -378,7 +378,7 @@ Scope: [src/components/ImageUploadModal](../../src/components/ImageUploadModal).
 
 ## C33: LinkUrlModal
 
-Scope: [src/components/LinkUrlModal](../../src/components/LinkUrlModal). Original scope: `M-33 E-06 E-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/LinkUrlModal](../../packages/ui/src/components/LinkUrlModal). Original scope: `M-33 E-06 E-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C33-01 Confirm or complete LinkUrlModal: shared owned destination validation.
 - [x] F-C33-02 Confirm or complete LinkUrlModal: Display-text and URL-or-null submit payload.
@@ -389,7 +389,7 @@ Scope: [src/components/LinkUrlModal](../../src/components/LinkUrlModal). Origina
 
 ## C34: PageRichTextEditorSection
 
-Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichTextEditorSection). Original scope: `M-34 E-01–E-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/PageRichTextEditorSection](../../packages/ui/src/components/PageRichTextEditorSection). Original scope: `M-34 E-01–E-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C34-01 Confirm or complete PageRichTextEditorSection: owned Lexical configuration and saved nodes.
 - [x] F-C34-02 Confirm or complete PageRichTextEditorSection: document serialization preserving host data.
@@ -406,7 +406,7 @@ Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichT
 
 ## C35: Typefaces
 
-Scope: [src/components/Typefaces](../../src/components/Typefaces). Original scope: `M-35` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/Typefaces](../../packages/ui/src/components/Typefaces). Original scope: `M-35` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C35-01 Confirm or complete Typefaces: owned typography role catalog.
 - [x] F-C35-02 Confirm or complete Typefaces: bodyAlt2 compatibility role.
@@ -416,7 +416,7 @@ Scope: [src/components/Typefaces](../../src/components/Typefaces). Original scop
 
 ## C36: icons
 
-Scope: [src/components/icons](../../src/components/icons). Original scope: `M-36 I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/icons](../../packages/ui/src/components/icons). Original scope: `M-36 I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C36-01 Confirm or complete icons: public icon name mapping.
 - [x] F-C36-02 Confirm or complete icons: native size color style and ref contract.
@@ -428,7 +428,7 @@ Scope: [src/components/icons](../../src/components/icons). Original scope: `M-36
 
 ## C37: primitives
 
-Scope: [src/components/primitives](../../src/components/primitives). Original scope: `M-37 U-01–U-20` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/primitives](../../packages/ui/src/components/primitives). Original scope: `M-37 U-01–U-20` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-C37-01 Confirm or complete primitives: public owned primitive and alias mapping.
 - [x] F-C37-02 Confirm or complete primitives: owned props without upstream type leakage.
@@ -439,7 +439,7 @@ Scope: [src/components/primitives](../../src/components/primitives). Original sc
 
 ## P01: Box
 
-Scope: [src/experimental/Box](../../src/experimental/Box). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Box](../../packages/ui/src/experimental/Box). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P01-01 Confirm or complete Box: native element and ref.
 - [x] F-P01-02 Confirm or complete Box: owned spacing and native style.
@@ -448,7 +448,7 @@ Scope: [src/experimental/Box](../../src/experimental/Box). Original scope: `U-02
 
 ## P02: Stack
 
-Scope: [src/experimental/Stack](../../src/experimental/Stack). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Stack](../../packages/ui/src/experimental/Stack). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P02-01 Confirm or complete Stack: direction alignment and gap.
 - [x] F-P02-02 Confirm or complete Stack: wrapping and logical spacing.
@@ -457,7 +457,7 @@ Scope: [src/experimental/Stack](../../src/experimental/Stack). Original scope: `
 
 ## P03: Surface
 
-Scope: [src/experimental/Surface](../../src/experimental/Surface). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Surface](../../packages/ui/src/experimental/Surface). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P03-01 Confirm or complete Surface: surface and elevation tokens.
 - [x] F-P03-02 Confirm or complete Surface: native element and styling.
@@ -466,7 +466,7 @@ Scope: [src/experimental/Surface](../../src/experimental/Surface). Original scop
 
 ## P04: Card
 
-Scope: [src/experimental/Card](../../src/experimental/Card). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Card](../../packages/ui/src/experimental/Card). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P04-01 Confirm or complete Card: card and CardContent slots.
 - [x] F-P04-02 Confirm or complete Card: owned padding and surface.
@@ -475,7 +475,7 @@ Scope: [src/experimental/Card](../../src/experimental/Card). Original scope: `U-
 
 ## P05: Divider
 
-Scope: [src/experimental/Divider](../../src/experimental/Divider). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Divider](../../packages/ui/src/experimental/Divider). Original scope: `U-02` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P05-01 Confirm or complete Divider: horizontal and vertical separator.
 - [x] F-P05-02 Confirm or complete Divider: decorative versus semantic role.
@@ -484,7 +484,7 @@ Scope: [src/experimental/Divider](../../src/experimental/Divider). Original scop
 
 ## P06: Typography
 
-Scope: [src/experimental/Typography](../../src/experimental/Typography). Original scope: `U-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Typography](../../packages/ui/src/experimental/Typography). Original scope: `U-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P06-01 Confirm or complete Typography: semantic element selection.
 - [x] F-P06-02 Confirm or complete Typography: all owned roles including bodyAlt2.
@@ -493,7 +493,7 @@ Scope: [src/experimental/Typography](../../src/experimental/Typography). Origina
 
 ## P07: Button
 
-Scope: [src/experimental/Button](../../src/experimental/Button). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Button](../../packages/ui/src/experimental/Button). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P07-01 Confirm or complete Button: press once and native submit type.
 - [x] F-P07-02 Confirm or complete Button: variant tone density and pending.
@@ -502,7 +502,7 @@ Scope: [src/experimental/Button](../../src/experimental/Button). Original scope:
 
 ## P08: IconButton
 
-Scope: [src/experimental/IconButton](../../src/experimental/IconButton). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/IconButton](../../packages/ui/src/experimental/IconButton). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P08-01 Confirm or complete IconButton: accessible name and icon rendering.
 - [x] F-P08-02 Confirm or complete IconButton: press disabled and pending.
@@ -511,7 +511,7 @@ Scope: [src/experimental/IconButton](../../src/experimental/IconButton). Origina
 
 ## P09: ButtonGroup
 
-Scope: [src/experimental/ButtonGroup](../../src/experimental/ButtonGroup). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/ButtonGroup](../../packages/ui/src/experimental/ButtonGroup). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P09-01 Confirm or complete ButtonGroup: shared group border and divider.
 - [x] F-P09-02 Confirm or complete ButtonGroup: group density and action layout.
@@ -520,7 +520,7 @@ Scope: [src/experimental/ButtonGroup](../../src/experimental/ButtonGroup). Origi
 
 ## P10: SplitAction
 
-Scope: [src/experimental/SplitAction](../../src/experimental/SplitAction). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/SplitAction](../../packages/ui/src/experimental/SplitAction). Original scope: `U-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P10-01 Confirm or complete SplitAction: primary callback and secondary menu.
 - [x] F-P10-02 Confirm or complete SplitAction: neutral shared-border presentation.
@@ -529,7 +529,7 @@ Scope: [src/experimental/SplitAction](../../src/experimental/SplitAction). Origi
 
 ## P11: TextField
 
-Scope: [src/experimental/TextField](../../src/experimental/TextField). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TextField](../../packages/ui/src/experimental/TextField). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P11-01 Confirm or complete TextField: controlled and default text value.
 - [x] F-P11-02 Confirm or complete TextField: label description and validation.
@@ -539,7 +539,7 @@ Scope: [src/experimental/TextField](../../src/experimental/TextField). Original 
 
 ## P12: TextArea
 
-Scope: [src/experimental/TextArea](../../src/experimental/TextArea). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TextArea](../../packages/ui/src/experimental/TextArea). Original scope: `U-04 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P12-01 Confirm or complete TextArea: controlled and default multiline value.
 - [x] F-P12-02 Confirm or complete TextArea: label and validation association.
@@ -549,7 +549,7 @@ Scope: [src/experimental/TextArea](../../src/experimental/TextArea). Original sc
 
 ## P13: Checkbox
 
-Scope: [src/experimental/Checkbox](../../src/experimental/Checkbox). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Checkbox](../../packages/ui/src/experimental/Checkbox). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P13-01 Confirm or complete Checkbox: controlled default and mixed state.
 - [x] F-P13-02 Confirm or complete Checkbox: space activation and disabled guard.
@@ -559,7 +559,7 @@ Scope: [src/experimental/Checkbox](../../src/experimental/Checkbox). Original sc
 
 ## P14: Switch
 
-Scope: [src/experimental/Switch](../../src/experimental/Switch). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Switch](../../packages/ui/src/experimental/Switch). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P14-01 Confirm or complete Switch: controlled and default checked state.
 - [x] F-P14-02 Confirm or complete Switch: accessible switch labeling.
@@ -569,7 +569,7 @@ Scope: [src/experimental/Switch](../../src/experimental/Switch). Original scope:
 
 ## P15: RadioGroup
 
-Scope: [src/experimental/RadioGroup](../../src/experimental/RadioGroup). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/RadioGroup](../../packages/ui/src/experimental/RadioGroup). Original scope: `U-05 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P15-01 Confirm or complete RadioGroup: owned string option identity.
 - [x] F-P15-02 Confirm or complete RadioGroup: arrow selection and disabled skipping.
@@ -579,7 +579,7 @@ Scope: [src/experimental/RadioGroup](../../src/experimental/RadioGroup). Origina
 
 ## P16: Select
 
-Scope: [src/experimental/Select](../../src/experimental/Select). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Select](../../packages/ui/src/experimental/Select). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P16-01 Confirm or complete Select: owned option IDs and controlled value.
 - [x] F-P16-02 Confirm or complete Select: selection and disabled options.
@@ -589,7 +589,7 @@ Scope: [src/experimental/Select](../../src/experimental/Select). Original scope:
 
 ## P17: ComboBox
 
-Scope: [src/experimental/ComboBox](../../src/experimental/ComboBox). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/ComboBox](../../packages/ui/src/experimental/ComboBox). Original scope: `U-06 U-18` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P17-01 Confirm or complete ComboBox: query filtering and owned option IDs.
 - [x] F-P17-02 Confirm or complete ComboBox: keyboard selection and disabled options.
@@ -600,7 +600,7 @@ Scope: [src/experimental/ComboBox](../../src/experimental/ComboBox). Original sc
 
 ## P18: AsyncMultiSelect
 
-Scope: [src/experimental/AsyncMultiSelect](../../src/experimental/AsyncMultiSelect). Original scope: `U-06 H-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/AsyncMultiSelect](../../packages/ui/src/experimental/AsyncMultiSelect). Original scope: `U-06 H-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P18-01 Confirm or complete AsyncMultiSelect: host query and result callback.
 - [x] F-P18-02 Confirm or complete AsyncMultiSelect: multiple selected IDs outside results.
@@ -612,7 +612,7 @@ Scope: [src/experimental/AsyncMultiSelect](../../src/experimental/AsyncMultiSele
 
 ## P19: Menu
 
-Scope: [src/experimental/Menu](../../src/experimental/Menu). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Menu](../../packages/ui/src/experimental/Menu). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P19-01 Confirm or complete Menu: owned item actions and checked state.
 - [x] F-P19-02 Confirm or complete Menu: keyboard navigation and disabled skipping.
@@ -622,7 +622,7 @@ Scope: [src/experimental/Menu](../../src/experimental/Menu). Original scope: `U-
 
 ## P20: Popover
 
-Scope: [src/experimental/Popover](../../src/experimental/Popover). Original scope: `U-07 U-19` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Popover](../../packages/ui/src/experimental/Popover). Original scope: `U-07 U-19` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P20-01 Confirm or complete Popover: controlled and default open state.
 - [x] F-P20-02 Confirm or complete Popover: trigger focus return and dismissal.
@@ -632,7 +632,7 @@ Scope: [src/experimental/Popover](../../src/experimental/Popover). Original scop
 
 ## P21: Tooltip
 
-Scope: [src/experimental/Tooltip](../../src/experimental/Tooltip). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Tooltip](../../packages/ui/src/experimental/Tooltip). Original scope: `U-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P21-01 Confirm or complete Tooltip: keyboard focus and hover description.
 - [x] F-P21-02 Confirm or complete Tooltip: escape dismissal.
@@ -642,7 +642,7 @@ Scope: [src/experimental/Tooltip](../../src/experimental/Tooltip). Original scop
 
 ## P22: Dialog
 
-Scope: [src/experimental/Dialog](../../src/experimental/Dialog). Original scope: `U-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Dialog](../../packages/ui/src/experimental/Dialog). Original scope: `U-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P22-01 Confirm or complete Dialog: title description and owned dismissal reasons.
 - [x] F-P22-02 Confirm or complete Dialog: focus entry containment and return.
@@ -653,7 +653,7 @@ Scope: [src/experimental/Dialog](../../src/experimental/Dialog). Original scope:
 
 ## P23: Tabs
 
-Scope: [src/experimental/Tabs](../../src/experimental/Tabs). Original scope: `U-09` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Tabs](../../packages/ui/src/experimental/Tabs). Original scope: `U-09` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P23-01 Confirm or complete Tabs: owned tab IDs and associated panels.
 - [x] F-P23-02 Confirm or complete Tabs: manual versus automatic activation.
@@ -663,7 +663,7 @@ Scope: [src/experimental/Tabs](../../src/experimental/Tabs). Original scope: `U-
 
 ## P24: Link
 
-Scope: [src/experimental/Link](../../src/experimental/Link). Original scope: `U-10 H-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Link](../../packages/ui/src/experimental/Link). Original scope: `U-10 H-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P24-01 Confirm or complete Link: native anchor fallback and ref.
 - [x] F-P24-02 Confirm or complete Link: host navigation callback with replace.
@@ -673,7 +673,7 @@ Scope: [src/experimental/Link](../../src/experimental/Link). Original scope: `U-
 
 ## P25: Breadcrumbs
 
-Scope: [src/experimental/Breadcrumbs](../../src/experimental/Breadcrumbs). Original scope: `U-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Breadcrumbs](../../packages/ui/src/experimental/Breadcrumbs). Original scope: `U-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P25-01 Confirm or complete Breadcrumbs: owned routed ancestor links.
 - [x] F-P25-02 Confirm or complete Breadcrumbs: current page semantics.
@@ -683,7 +683,7 @@ Scope: [src/experimental/Breadcrumbs](../../src/experimental/Breadcrumbs). Origi
 
 ## P26: Navigation
 
-Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Original scope: `U-11 H-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Navigation](../../packages/ui/src/experimental/Navigation). Original scope: `U-11 H-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P26-01 Confirm or complete Navigation: navigation and NavigationItem exports.
 - [x] F-P26-02 Confirm or complete Navigation: selected and expanded item state.
@@ -693,7 +693,7 @@ Scope: [src/experimental/Navigation](../../src/experimental/Navigation). Origina
 
 ## P27: List
 
-Scope: [src/experimental/List](../../src/experimental/List). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/List](../../packages/ui/src/experimental/List). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P27-01 Confirm or complete List: list and all item text icon button exports.
 - [x] F-P27-02 Confirm or complete List: native list versus interactive item semantics.
@@ -703,7 +703,7 @@ Scope: [src/experimental/List](../../src/experimental/List). Original scope: `U-
 
 ## P28: Disclosure
 
-Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Disclosure](../../packages/ui/src/experimental/Disclosure). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P28-01 Confirm or complete Disclosure: controlled and default expanded state.
 - [x] F-P28-02 Confirm or complete Disclosure: trigger and content association.
@@ -712,7 +712,7 @@ Scope: [src/experimental/Disclosure](../../src/experimental/Disclosure). Origina
 
 ## P29: Collapse
 
-Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Collapse](../../packages/ui/src/experimental/Collapse). Original scope: `U-11` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P29-01 Confirm or complete Collapse: expanded content visibility.
 - [x] F-P29-02 Confirm or complete Collapse: immediate native hidden/unmount visibility changes without library animation; retain child state by default and document removed transition-engine props.
@@ -721,7 +721,7 @@ Scope: [src/experimental/Collapse](../../src/experimental/Collapse). Original sc
 
 ## P30: Chip
 
-Scope: [src/experimental/Chip](../../src/experimental/Chip). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Chip](../../packages/ui/src/experimental/Chip). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P30-01 Confirm or complete Chip: owned token label and tone.
 - [x] F-P30-02 Confirm or complete Chip: passive label without an implicit remove action; retain accessible removal in TagGroup through translated Remove {label} or host removeLabel and host-owned onRemove(ids).
@@ -730,7 +730,7 @@ Scope: [src/experimental/Chip](../../src/experimental/Chip). Original scope: `U-
 
 ## P31: Badge
 
-Scope: [src/experimental/Badge](../../src/experimental/Badge). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Badge](../../packages/ui/src/experimental/Badge). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P31-01 Confirm or complete Badge: badge value and overflow presentation.
 - [x] F-P31-02 Confirm or complete Badge: accessible count description.
@@ -739,7 +739,7 @@ Scope: [src/experimental/Badge](../../src/experimental/Badge). Original scope: `
 
 ## P32: TagGroup
 
-Scope: [src/experimental/TagGroup](../../src/experimental/TagGroup). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TagGroup](../../packages/ui/src/experimental/TagGroup). Original scope: `U-12` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P32-01 Confirm or complete TagGroup: owned token IDs and removal callback.
 - [x] F-P32-02 Confirm or complete TagGroup: keyboard token navigation.
@@ -749,7 +749,7 @@ Scope: [src/experimental/TagGroup](../../src/experimental/TagGroup). Original sc
 
 ## P33: Progress
 
-Scope: [src/experimental/Progress](../../src/experimental/Progress). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Progress](../../packages/ui/src/experimental/Progress). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P33-01 Confirm or complete Progress: determinate min max value.
 - [x] F-P33-02 Confirm or complete Progress: indeterminate loading.
@@ -759,7 +759,7 @@ Scope: [src/experimental/Progress](../../src/experimental/Progress). Original sc
 
 ## P34: Status
 
-Scope: [src/experimental/Status](../../src/experimental/Status). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Status](../../packages/ui/src/experimental/Status). Original scope: `U-13` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P34-01 Confirm or complete Status: owned status tone and message.
 - [x] F-P34-02 Confirm or complete Status: appropriate live-region priority.
@@ -768,7 +768,7 @@ Scope: [src/experimental/Status](../../src/experimental/Status). Original scope:
 
 ## P35: Avatar
 
-Scope: [src/experimental/Avatar](../../src/experimental/Avatar). Original scope: `U-14` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Avatar](../../packages/ui/src/experimental/Avatar). Original scope: `U-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P35-01 Confirm or complete Avatar: image source and accessible label.
 - [x] F-P35-02 Confirm or complete Avatar: loading and failed-image fallback.
@@ -778,7 +778,7 @@ Scope: [src/experimental/Avatar](../../src/experimental/Avatar). Original scope:
 
 ## P36: Table
 
-Scope: [src/experimental/Table](../../src/experimental/Table). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Table](../../packages/ui/src/experimental/Table). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P36-01 Confirm or complete Table: all semantic table part exports.
 - [x] F-P36-02 Confirm or complete Table: header associations and caption.
@@ -788,7 +788,7 @@ Scope: [src/experimental/Table](../../src/experimental/Table). Original scope: `
 
 ## P37: Pagination
 
-Scope: [src/experimental/Pagination](../../src/experimental/Pagination). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Pagination](../../packages/ui/src/experimental/Pagination). Original scope: `U-15` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P37-01 Confirm or complete Pagination: page and page-size requests.
 - [x] F-P37-02 Confirm or complete Pagination: known unknown and empty totals.
@@ -798,7 +798,7 @@ Scope: [src/experimental/Pagination](../../src/experimental/Pagination). Origina
 
 ## P38: ToggleButton
 
-Scope: [src/experimental/ToggleButton](../../src/experimental/ToggleButton). Original scope: `U-16` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/ToggleButton](../../packages/ui/src/experimental/ToggleButton). Original scope: `U-16` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P38-01 Confirm or complete ToggleButton: controlled and default pressed state.
 - [x] F-P38-02 Confirm or complete ToggleButton: single and multiple ToggleButtonGroup selection.
@@ -808,7 +808,7 @@ Scope: [src/experimental/ToggleButton](../../src/experimental/ToggleButton). Ori
 
 ## P39: DateField
 
-Scope: [src/experimental/DateField](../../src/experimental/DateField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateField](../../packages/ui/src/experimental/DateField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P39-01 Confirm or complete DateField: owned date-only and local datetime value.
 - [x] F-P39-02 Confirm or complete DateField: segment input and description association.
@@ -818,7 +818,7 @@ Scope: [src/experimental/DateField](../../src/experimental/DateField). Original 
 
 ## P40: TimeField
 
-Scope: [src/experimental/TimeField](../../src/experimental/TimeField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/TimeField](../../packages/ui/src/experimental/TimeField). Original scope: `K-02 K-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P40-01 Confirm or complete TimeField: owned clock value and seconds.
 - [x] F-P40-02 Confirm or complete TimeField: segment editing and disabled behavior.
@@ -828,7 +828,7 @@ Scope: [src/experimental/TimeField](../../src/experimental/TimeField). Original 
 
 ## P41: Calendar
 
-Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Calendar](../../packages/ui/src/experimental/Calendar). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P41-01 Confirm or complete Calendar: selection focused date and visible month.
 - [x] F-P41-02 Confirm or complete Calendar: minimum maximum and unavailable dates.
@@ -839,7 +839,7 @@ Scope: [src/experimental/Calendar](../../src/experimental/Calendar). Original sc
 
 ## P42: DatePicker
 
-Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DatePicker](../../packages/ui/src/experimental/DatePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P42-01 Confirm or complete DatePicker: synchronized field and calendar value.
 - [x] F-P42-02 Confirm or complete DatePicker: popover opening, an explicit accessible Clear action for optional editable dates requesting null through onValueChange, and trigger focus return after selection, Clear or dismissal.
@@ -849,7 +849,7 @@ Scope: [src/experimental/DatePicker](../../src/experimental/DatePicker). Origina
 
 ## P43: DateRangePicker
 
-Scope: [src/experimental/DateRangePicker](../../src/experimental/DateRangePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateRangePicker](../../packages/ui/src/experimental/DateRangePicker). Original scope: `K-02 K-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P43-01 Confirm or complete DateRangePicker: owned start and end fields.
 - [x] F-P43-02 Confirm or complete DateRangePicker: range selection and clear.
@@ -860,7 +860,7 @@ Scope: [src/experimental/DateRangePicker](../../src/experimental/DateRangePicker
 
 ## P44: DateRangeSelector
 
-Scope: [src/experimental/DateRangeSelector](../../src/experimental/DateRangeSelector). Original scope: `K-01–K-07 K-17` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateRangeSelector](../../packages/ui/src/experimental/DateRangeSelector). Original scope: `K-01–K-07 K-17` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P44-01 Confirm or complete DateRangeSelector: preset descriptions and draft selection.
 - [x] F-P44-02 Confirm or complete DateRangeSelector: apply commit and Cancel restoration.
@@ -872,7 +872,7 @@ Scope: [src/experimental/DateRangeSelector](../../src/experimental/DateRangeSele
 
 ## P45: Provider
 
-Scope: [src/experimental/Provider](../../src/experimental/Provider). Original scope: `D-16 H-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/Provider](../../packages/ui/src/experimental/Provider). Original scope: `D-16 H-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P45-01 Confirm or complete Provider: theme density locale and direction scope.
 - [x] F-P45-02 Confirm or complete Provider: host translation locale bridge.
@@ -882,7 +882,7 @@ Scope: [src/experimental/Provider](../../src/experimental/Provider). Original sc
 
 ## P46: DataGrid
 
-Scope: [src/experimental/DataGrid](../../src/experimental/DataGrid). Original scope: `P-06 G-25` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DataGrid](../../packages/ui/src/experimental/DataGrid). Original scope: `P-06 G-25` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P46-01 Confirm or complete DataGrid: owned proof row and column contracts.
 - [x] F-P46-02 Confirm or complete DataGrid: tanStack processing with one state authority.
@@ -893,7 +893,7 @@ Scope: [src/experimental/DataGrid](../../src/experimental/DataGrid). Original sc
 
 ## P47: icons
 
-Scope: [src/experimental/icons](../../src/experimental/icons). Original scope: `I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/icons](../../packages/ui/src/experimental/icons). Original scope: `I-01–I-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-P47-01 Confirm or complete icons: owned SVG factory and icon props.
 - [x] F-P47-02 Confirm or complete icons: direct icon and activity mapping.
@@ -903,7 +903,7 @@ Scope: [src/experimental/icons](../../src/experimental/icons). Original scope: `
 
 ## S01: ThemeScope
 
-Scope: [src/foundation/ThemeScope.tsx](../../src/foundation/ThemeScope.tsx). Original scope: `D-16 D-17` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/foundation/ThemeScope.tsx](../../packages/ui/src/foundation/ThemeScope.tsx). Original scope: `D-16 D-17` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S01-01 Confirm or complete ThemeScope: light dark and system setting.
 - [x] F-S01-02 Confirm or complete ThemeScope: nested density and token override.
@@ -913,7 +913,7 @@ Scope: [src/foundation/ThemeScope.tsx](../../src/foundation/ThemeScope.tsx). Ori
 
 ## S02: Tokens
 
-Scope: [src/foundation/tokens.json](../../src/foundation/tokens.json). Original scope: `D-01–D-20` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/foundation/tokens.json](../../packages/ui/src/foundation/tokens.json). Original scope: `D-01–D-20` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S02-01 Confirm or complete Tokens: palette semantic and component aliases.
 - [x] F-S02-02 Confirm or complete Tokens: typography spacing size and surface scales.
@@ -924,7 +924,7 @@ Scope: [src/foundation/tokens.json](../../src/foundation/tokens.json). Original 
 
 ## S03: CSSPipeline
 
-Scope: [scripts/build.mjs](../../scripts/build.mjs). Original scope: `C-01–C-21 R-01` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [scripts/build.mjs](../../packages/ui/scripts/build.mjs). Original scope: `C-01–C-21 R-01` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S03-01 Confirm or complete CSSPipeline: compiled module classes and emitted styles.
 - [x] F-S03-02 Confirm or complete CSSPipeline: namespaced cascade layers and scoped normalization.
@@ -935,7 +935,7 @@ Scope: [scripts/build.mjs](../../scripts/build.mjs). Original scope: `C-01–C-2
 
 ## S04: NavigationAdapter
 
-Scope: [src/adapters/navigation.tsx](../../src/adapters/navigation.tsx). Original scope: `H-01 H-03` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/adapters/navigation.tsx](../../packages/ui/src/adapters/navigation.tsx). Original scope: `H-01 H-03` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S04-01 Confirm or complete NavigationAdapter: native fallback and custom router provider.
 - [x] F-S04-02 Confirm or complete NavigationAdapter: pathname and replace request.
@@ -945,7 +945,7 @@ Scope: [src/adapters/navigation.tsx](../../src/adapters/navigation.tsx). Origina
 
 ## S05: AccountAdapter
 
-Scope: [src/adapters/accounts.tsx](../../src/adapters/accounts.tsx). Original scope: `H-04 H-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/adapters/accounts.tsx](../../packages/ui/src/adapters/accounts.tsx). Original scope: `H-04 H-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S05-01 Confirm or complete AccountAdapter: organization and logout host callbacks.
 - [x] F-S05-02 Confirm or complete AccountAdapter integration: the host/composed action owner awaits async callbacks, presents pending state and guards repeated actions; preserve independent adapter requests and original promise/rejection identity.
@@ -955,7 +955,7 @@ Scope: [src/adapters/accounts.tsx](../../src/adapters/accounts.tsx). Original sc
 
 ## S06: TranslationAdapter
 
-Scope: [src/i18n/index.tsx](../../src/i18n/index.tsx). Original scope: `H-06–H-09` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/i18n/index.tsx](../../packages/ui/src/i18n/index.tsx). Original scope: `H-06–H-09` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S06-01 Confirm or complete TranslationAdapter: key namespace locale and values forwarding.
 - [x] F-S06-02 Confirm or complete TranslationAdapter: defaultMessage English fallback.
@@ -965,7 +965,7 @@ Scope: [src/i18n/index.tsx](../../src/i18n/index.tsx). Original scope: `H-06–H
 
 ## S07: ICUFormatting
 
-Scope: [src/i18n/icu.ts](../../src/i18n/icu.ts). Original scope: `H-08` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/i18n/icu.ts](../../packages/ui/src/i18n/icu.ts). Original scope: `H-08` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S07-01 Confirm or complete ICUFormatting: interpolation variable matching.
 - [x] F-S07-02 Confirm or complete ICUFormatting: plural and select message formatting.
@@ -975,7 +975,7 @@ Scope: [src/i18n/icu.ts](../../src/i18n/icu.ts). Original scope: `H-08` in the [
 
 ## S08: PersistentState
 
-Scope: [src/hooks/usePersistentState.ts](../../src/hooks/usePersistentState.ts). Original scope: `H-13 H-14` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/hooks/usePersistentState.ts](../../packages/ui/src/hooks/usePersistentState.ts). Original scope: `H-13 H-14` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S08-01 Confirm or complete PersistentState: opt-in local or session storage.
 - [x] F-S08-02 Confirm or complete PersistentState: versioned validation and in-memory fallback.
@@ -985,7 +985,7 @@ Scope: [src/hooks/usePersistentState.ts](../../src/hooks/usePersistentState.ts).
 
 ## S09: PaginationState
 
-Scope: [src/hooks/usePersistentPaginationModel.ts](../../src/hooks/usePersistentPaginationModel.ts). Original scope: `H-15 H-16` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/hooks/usePersistentPaginationModel.ts](../../packages/ui/src/hooks/usePersistentPaginationModel.ts). Original scope: `H-15 H-16` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S09-01 Confirm or complete PaginationState: positive safe integer page sizes.
 - [x] F-S09-02 Confirm or complete PaginationState integration: size actions request page zero with the new size through AppPaginationFooter, and grid filter actions reset page zero before criteria/combined callbacks; the hook normalizes and stores the complete model supplied by its owner without inferring resets.
@@ -995,7 +995,7 @@ Scope: [src/hooks/usePersistentPaginationModel.ts](../../src/hooks/usePersistent
 
 ## S10: AdminPresets
 
-Scope: [src/components/AdminDataGridOptions.ts](../../src/components/AdminDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AdminDataGridOptions.ts](../../packages/ui/src/components/AdminDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S10-01 Confirm or complete AdminPresets: course-named factory and Class compatibility.
 - [x] F-S10-02 Confirm or complete AdminPresets: canonical status options.
@@ -1006,7 +1006,7 @@ Scope: [src/components/AdminDataGridOptions.ts](../../src/components/AdminDataGr
 
 ## S11: InstructorPresets
 
-Scope: [src/components/InstructorDataGridOptions.ts](../../src/components/InstructorDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/InstructorDataGridOptions.ts](../../packages/ui/src/components/InstructorDataGridOptions.ts). Original scope: `M-39` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S11-01 Confirm or complete InstructorPresets: course-named factory and Class compatibility.
 - [x] F-S11-02 Confirm or complete InstructorPresets: canonical status options.
@@ -1017,7 +1017,7 @@ Scope: [src/components/InstructorDataGridOptions.ts](../../src/components/Instru
 
 ## S12: GridCells
 
-Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original scope: `M-40 G-21` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGrid](../../packages/ui/src/components/AppDataGrid). Original scope: `M-40 G-21` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S12-01 Confirm or complete GridCells: text and multiline truncation contract.
 - [x] F-S12-02 Confirm or complete GridCells: date and datetime localized fallbacks.
@@ -1029,7 +1029,7 @@ Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original 
 
 ## S13: GridHelpers
 
-Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original scope: `M-41` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/AppDataGrid](../../packages/ui/src/components/AppDataGrid). Original scope: `M-41` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S13-01 Confirm or complete GridHelpers: owned column and action builders.
 - [x] F-S13-02 Confirm or complete GridHelpers: subheader and loading empty parts.
@@ -1039,7 +1039,7 @@ Scope: [src/components/AppDataGrid](../../src/components/AppDataGrid). Original 
 
 ## S14: PublicExports
 
-Scope: [src/index.ts](../../src/index.ts). Original scope: `M-42 R-03 R-05` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/index.ts](../../packages/ui/src/index.ts). Original scope: `M-42 R-03 R-05` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S14-01 Confirm or complete PublicExports: root component and granular exports.
 - [x] F-S14-02 Confirm or complete PublicExports: owned model and callback declarations.
@@ -1050,7 +1050,7 @@ Scope: [src/index.ts](../../src/index.ts). Original scope: `M-42 R-03 R-05` in t
 
 ## S15: SavedEditorNodes
 
-Scope: [src/components/PageRichTextEditorSection/lexical](../../src/components/PageRichTextEditorSection/lexical). Original scope: `E-02 E-07` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/PageRichTextEditorSection/lexical](../../packages/ui/src/components/PageRichTextEditorSection/lexical). Original scope: `E-02 E-07` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S15-01 Confirm or complete SavedEditorNodes: image metadata and JSON preservation.
 - [x] F-S15-02 Confirm or complete SavedEditorNodes: saved code-highlight node registration.
@@ -1061,7 +1061,7 @@ Scope: [src/components/PageRichTextEditorSection/lexical](../../src/components/P
 
 ## S16: EditorUploadLifetime
 
-Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichTextEditorSection). Original scope: `E-06` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/components/PageRichTextEditorSection](../../packages/ui/src/components/PageRichTextEditorSection). Original scope: `E-06` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S16-01 Confirm or complete EditorUploadLifetime: local preview retained through undo.
 - [x] F-S16-02 Confirm or complete EditorUploadLifetime: owned URLs released on reset and unmount.
@@ -1072,7 +1072,7 @@ Scope: [src/components/PageRichTextEditorSection](../../src/components/PageRichT
 
 ## S17: DateContracts
 
-Scope: [src/experimental/DateRangeSelector/date-contract.ts](../../src/experimental/DateRangeSelector/date-contract.ts). Original scope: `H-10 H-11 K-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/experimental/DateRangeSelector/date-contract.ts](../../packages/ui/src/experimental/DateRangeSelector/date-contract.ts). Original scope: `H-10 H-11 K-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S17-01 Confirm or complete DateContracts: serializable date-only local datetime and instant.
 - [x] F-S17-02 Confirm or complete DateContracts: valid parsing and callback payload.
@@ -1082,7 +1082,7 @@ Scope: [src/experimental/DateRangeSelector/date-contract.ts](../../src/experimen
 
 ## S18: Models
 
-Scope: [src/models.ts](../../src/models.ts). Original scope: `A-14 E-09 E-10` in the [scope ledger](react-aria-scope-ledger.md).
+Scope: [src/models.ts](../../packages/ui/src/models.ts). Original scope: `A-14 E-09 E-10` in the [scope ledger](react-aria-scope-ledger.md).
 
 - [x] F-S18-01 Confirm or complete Models: course terminology for new models.
 - [x] F-S18-02 Confirm or complete Models: class compatibility exports.

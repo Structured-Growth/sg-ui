@@ -120,7 +120,7 @@ prevent a merger changing the final title.
 [Release config](../../release.config.mjs), lines 2–9, selects main, `v${version}`,
 Conventional Commits, npm publication and a GitHub tarball asset.
 [Commitlint config](../../commitlint.config.mjs), lines 2–6, permits either
-breaking marker independently. [Release-policy tests](../../scripts/release-policy.test.mjs),
+breaking marker independently. [Release-policy tests](../../packages/ui/scripts/release-policy.test.mjs),
 lines 16–52, cover fix/perf patch, feat minor, exclamation/footer major,
 maintenance non-release, largest-bump inference and valid/invalid PR titles.
 These are safe analyzer/commitlint tests, not publication calls. Their source

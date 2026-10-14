@@ -28,11 +28,11 @@ rather than embedded recursively in its own committed content.
 
 ## Changes
 
-- [Header stories](../../../src/components/AppPageHeader/AppPageHeader.stories.tsx)
+- [Header stories](../../../packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx)
   add ReflowActions and ReflowMenu with long spaced/unbroken host breadcrumbs,
   title, description, icon metadata, multiple supplied actions and disabled menu
   commands. They use production scope/tokens and existing owned controls.
-- [Focused browser spec](../../../tests/browser/batch10-page-header-reflow.spec.ts)
+- [Focused browser spec](../../../packages/ui/tests/browser/batch10-page-header-reflow.spec.ts)
   runs 12 cases per engine: light/dark, 1280px/320px/640px with 200% root text,
   and supplied-action/overflow-menu variants. Assertions measure header/descendant
   horizontal bounds, resolved hierarchy surfaces and inherited text contrast,

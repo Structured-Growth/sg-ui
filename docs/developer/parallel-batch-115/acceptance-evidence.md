@@ -25,20 +25,20 @@ reviewed repository files. These are Git blobs, not asserted runtime passes.
 
 | Ref | File | Git blob at B |
 | --- | --- | --- |
-| S1 | [Interaction styles](../../../src/components/AppDataGrid/ownedGridInteraction.module.css) | `5755e97b79b1befefca13e7b76126869ddfa9aa3` |
-| S2 | [Cell styles](../../../src/components/AppDataGrid/ownedGridCells.module.css) | `498a1e051aef7671ade5091e994cbac03a48f464` |
-| S3 | [Part styles](../../../src/components/AppDataGrid/ownedGridParts.module.css) | `a3e038bfea25cd1e0044c5ee51f52117842cf202` |
-| S4 | [Cell renderer](../../../src/components/AppDataGrid/ownedGridCells.tsx) | `f1c3deb30e843e74b3b065d7e847374593acdd8d` |
-| S5 | [Interaction](../../../src/components/AppDataGrid/ownedGridInteraction.tsx) | `c44cfd77b60afb1ad970351e6aaa9c34feb15473` |
-| S6 | [Parts](../../../src/components/AppDataGrid/ownedGridParts.tsx) | `ccdbb11cc12e1a15b8406be1317320d74e2eb3f3` |
-| S7 | [Status primitive](../../../src/experimental/Status/Status.tsx) | `58d1d5e1aba096e902199a2d71b5dd1a16325a8f` |
-| S8 | [Native focus spec](../../../tests/browser/batch01-grid-focus.spec.ts) | `ce2134a4dac2c6f1049c41982a14c2eaa1d490ff` |
-| S9 | [Busy spec](../../../tests/browser/batch05-grid-busy.spec.ts) | `8cde1ae1e96d196d134dcd756bd6e25be4a218a5` |
-| S10 | [Retry spec](../../../tests/browser/batch08-grid-retry-focus.spec.ts) | `649ab065f8aa40408367cf0d5007178fc1ab5d6b` |
-| S11 | [Reorder spec](../../../tests/browser/reorder.spec.ts) | `2449eb6339a6bf5eb9c1d193fe0ad3cc5d9acc91` |
-| S12 | [Keyboard/Move spec](../../../tests/browser/batch01-grid-reorder.spec.ts) | `eeca05b54067ec5526fd5fce44c0de7ed3cef68e` |
-| S13 | [Pointer invalidation spec](../../../tests/browser/inventory-pointer-reorder-invalidation.spec.ts) | `d2844873d0f38ff4d7b31cc35429ecb35eda643a` |
-| S14 | [Public RowSubHeader mapping](../../../src/components/AppDataGrid/components/RowSubHeader.tsx) | `6730e8f6883fd0f72b6351b7dd6e64355febb93a` |
+| S1 | [Interaction styles](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css) | `5755e97b79b1befefca13e7b76126869ddfa9aa3` |
+| S2 | [Cell styles](../../../packages/ui/src/components/AppDataGrid/ownedGridCells.module.css) | `498a1e051aef7671ade5091e994cbac03a48f464` |
+| S3 | [Part styles](../../../packages/ui/src/components/AppDataGrid/ownedGridParts.module.css) | `a3e038bfea25cd1e0044c5ee51f52117842cf202` |
+| S4 | [Cell renderer](../../../packages/ui/src/components/AppDataGrid/ownedGridCells.tsx) | `f1c3deb30e843e74b3b065d7e847374593acdd8d` |
+| S5 | [Interaction](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx) | `c44cfd77b60afb1ad970351e6aaa9c34feb15473` |
+| S6 | [Parts](../../../packages/ui/src/components/AppDataGrid/ownedGridParts.tsx) | `ccdbb11cc12e1a15b8406be1317320d74e2eb3f3` |
+| S7 | [Status primitive](../../../packages/ui/src/experimental/Status/Status.tsx) | `58d1d5e1aba096e902199a2d71b5dd1a16325a8f` |
+| S8 | [Native focus spec](../../../packages/ui/tests/browser/batch01-grid-focus.spec.ts) | `ce2134a4dac2c6f1049c41982a14c2eaa1d490ff` |
+| S9 | [Busy spec](../../../packages/ui/tests/browser/batch05-grid-busy.spec.ts) | `8cde1ae1e96d196d134dcd756bd6e25be4a218a5` |
+| S10 | [Retry spec](../../../packages/ui/tests/browser/batch08-grid-retry-focus.spec.ts) | `649ab065f8aa40408367cf0d5007178fc1ab5d6b` |
+| S11 | [Reorder spec](../../../packages/ui/tests/browser/reorder.spec.ts) | `2449eb6339a6bf5eb9c1d193fe0ad3cc5d9acc91` |
+| S12 | [Keyboard/Move spec](../../../packages/ui/tests/browser/batch01-grid-reorder.spec.ts) | `eeca05b54067ec5526fd5fce44c0de7ed3cef68e` |
+| S13 | [Pointer invalidation spec](../../../packages/ui/tests/browser/inventory-pointer-reorder-invalidation.spec.ts) | `d2844873d0f38ff4d7b31cc35429ecb35eda643a` |
+| S14 | [Public RowSubHeader mapping](../../../packages/ui/src/components/AppDataGrid/components/RowSubHeader.tsx) | `6730e8f6883fd0f72b6351b7dd6e64355febb93a` |
 
 ## Retained evidence and attribution
 

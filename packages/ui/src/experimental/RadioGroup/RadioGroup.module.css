@@ -1,0 +1,15 @@
+@layer sgui.components {
+  .root { display: flex; flex-direction: column; gap: var(--sgui-space1); color: var(--sgui-radio-group-text); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .label { font-weight: var(--sgui-label-weight); }
+  .options { display: flex; flex-direction: column; gap: var(--sgui-space1); }
+  .options[data-orientation="horizontal"] { flex-direction: row; flex-wrap: wrap; gap: var(--sgui-space3); }
+  .radio { display: inline-flex; align-items: center; gap: var(--sgui-space2); min-block-size: var(--sgui-control-height); cursor: pointer; }
+  .indicator { inline-size: 1.25rem; block-size: 1.25rem; box-sizing: border-box; flex: none; border: 1px solid var(--sgui-radio-group-border); border-radius: 50%; background: var(--sgui-radio-group-surface); }
+  .radio[data-selected] .indicator { border: 0.375rem solid var(--sgui-radio-group-selected-border); }
+  .radio[data-focus-visible] .indicator { outline: var(--sgui-control-focus-width) solid var(--sgui-radio-group-focus-color); outline-offset: var(--sgui-control-focus-offset); }
+  .root[data-disabled], .radio[data-disabled] { opacity: 0.5; cursor: default; }
+  .description { color: var(--sgui-radio-group-description-text); }
+  .error { color: var(--sgui-radio-group-error-text); }
+  .root[data-invalid] .indicator { border-color: var(--sgui-radio-group-invalid-border); }
+  @media (forced-colors: active) { .radio[data-selected] .indicator { border-color: Highlight; } .radio[data-disabled] { color: GrayText; opacity: 1; } }
+}

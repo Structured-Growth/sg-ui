@@ -9,14 +9,14 @@ Shared experimental Dialog/Modal and AppShell source remain read-only.
 
 The [batch29 inventory review](../parallel-batch-29/inventory-acceptance-02-12.md)
 holds M-08 for removed-trigger recovery and native size/custom-chrome combinations.
-The existing [nested dialog spec](../../../tests/browser/batch01-dialogs.spec.ts)
+The existing [nested dialog spec](../../../packages/ui/tests/browser/batch01-dialogs.spec.ts)
 already covers surviving openers, topmost dismissal, standard twenty-field tabbed
 scrolling and short enlarged-text light/dark forms. Those completed cases are not
 copied into this new slice.
 
 ## Added evidence
 
-[Stories](../../../src/components/AppModal/AppModal.stories.tsx) remove a nested
+[Stories](../../../packages/ui/src/components/AppModal/AppModal.stories.tsx) remove a nested
 child opener while the child remains open, after native focus capture. One branch
 leaves recovery to the owned focus scope; another host explicitly focuses a
 surviving parent input during dismissal. The browser spec checks Escape, outside

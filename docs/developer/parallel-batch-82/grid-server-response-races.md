@@ -5,9 +5,9 @@ Task references: G-05, G-28, G-29. Baseline:
 
 ## Bounded fixture
 
-[Story](../../../src/components/AppDataGridShell/AppDataGridShell.server-response-races.stories.tsx),
-[composed tests](../../../src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx),
-and [native spec](../../../tests/browser/grid-server-response-races.spec.ts).
+[Story](../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.stories.tsx),
+[composed tests](../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx),
+and [native spec](../../../packages/ui/tests/browser/grid-server-response-races.spec.ts).
 
 Story ID: `data-display-appdatagridshell-server-response-races--deferred-responses`.
 The host starts with supplied rows; the first real request begins on a shell

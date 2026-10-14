@@ -218,15 +218,15 @@ command-menu work. Most of U/M/E/G/K and the final X/R/Z gates remain open.
 
 | Tasks | Implementation and acceptance evidence |
 | --- | --- |
-| U-03, M-35 | [Owned Typography](../../src/experimental/Typography/Typography.tsx), native semantics/ref and SSR tests, all typography roles including bodyAlt2/code. [Typefaces](../../src/components/Typefaces/Typefaces.stories.tsx) keeps the catalog and adds missing roles/dark mode using production tokens. |
-| U-11 | [List](../../src/experimental/List/List.tsx), [Navigation](../../src/experimental/Navigation/Navigation.tsx), [Disclosure](../../src/experimental/Disclosure/Disclosure.tsx), [Collapse](../../src/experimental/Collapse/Collapse.tsx). Colocated stories and 11 behavior/SSR tests cover host routing, native roles, selected state, controlled/uncontrolled expansion, disabled state, tab order and focus restoration. Browser collapse removed the focused panel's input while preserving trigger focus. |
-| U-12 | [Chip](../../src/experimental/Chip/Chip.tsx), [Badge](../../src/experimental/Badge/Badge.tsx), [TagGroup](../../src/experimental/TagGroup/TagGroup.tsx). Nine tests cover refs/names, group/item disabling, translated removal, keyboard next/previous/empty focus and pointer removal. Browser Delete moved React→Design focus; pointer removal moved to the list when only a disabled tag remained. |
-| U-13, U-14 | [Progress](../../src/experimental/Progress/Progress.tsx), [Status](../../src/experimental/Status/Status.tsx), [Avatar](../../src/experimental/Avatar/Avatar.tsx), stories and behavior/SSR tests. Determinate/indeterminate semantics, optional announcements, name/ref, source replacement and image load/error. Browser native image success showed opacity 1/natural width 80 with a 40×40 root; native error removed the image and retained initials in the 48×48 large root. |
-| U-15 | [Table](../../src/experimental/Table/Table.tsx) and [Pagination](../../src/experimental/Pagination/Pagination.tsx), six tests and stories. Native table refs/caption/headers, known/unknown totals, zero pages, boundaries, disabled state, form-safe keyboard actions and page-zero-before-size callbacks. Browser last-page navigation and size 25→50 reset Page 4→Page 1. |
-| U-16 | [ToggleButton/ToggleButtonGroup](../../src/experimental/ToggleButton/ToggleButton.tsx), five behavior tests and stories. Native refs, controlled/uncontrolled selection, single/multiple selection, no form submission, disabled skipping, required selection, RTL and vertical arrows. Browser arrows moved focus independently, then Space committed Grid→Cards. |
-| U-07 partial | [Tooltip](../../src/experimental/Tooltip/Tooltip.tsx), four behavior tests and stories. Focus description, hover, Escape/return focus, disabled state and portal visual/locale overrides; browser keyboard opening/dismissal. Submenus and broader overlay/browser checks stay open. |
-| M-02, M-03 | [AppInlineProgress](../../src/components/AppInlineProgress/AppInlineProgress.tsx) and [AppOperationSteps](../../src/components/AppOperationSteps/AppOperationSteps.tsx) now use owned controls/icons/styles. Public names/props retained; percentage normalization, ordered steps, translated status text and accessible progress covered by behavior tests and updated stories. Non-finite inline values now become 0%; completed-step color now uses the action token. |
-| M-24 | [EditableTitleField](../../src/components/EditableTitleField/EditableTitleField.tsx) now uses owned controls/icons/styles. Existing props and host-owned persistence preserved. Behavior/SSR and parent compatibility tests cover Enter/blur/Escape, trimming, duplicate pending saves, rejection/retry, IME and focus. Browser saved Updated course title and restored Edit title focus; rejection retained Retry title with aria-invalid and an associated error, Escape restored focus without another save. |
+| U-03, M-35 | [Owned Typography](../../packages/ui/src/experimental/Typography/Typography.tsx), native semantics/ref and SSR tests, all typography roles including bodyAlt2/code. [Typefaces](../../packages/ui/src/components/Typefaces/Typefaces.stories.tsx) keeps the catalog and adds missing roles/dark mode using production tokens. |
+| U-11 | [List](../../packages/ui/src/experimental/List/List.tsx), [Navigation](../../packages/ui/src/experimental/Navigation/Navigation.tsx), [Disclosure](../../packages/ui/src/experimental/Disclosure/Disclosure.tsx), [Collapse](../../packages/ui/src/experimental/Collapse/Collapse.tsx). Colocated stories and 11 behavior/SSR tests cover host routing, native roles, selected state, controlled/uncontrolled expansion, disabled state, tab order and focus restoration. Browser collapse removed the focused panel's input while preserving trigger focus. |
+| U-12 | [Chip](../../packages/ui/src/experimental/Chip/Chip.tsx), [Badge](../../packages/ui/src/experimental/Badge/Badge.tsx), [TagGroup](../../packages/ui/src/experimental/TagGroup/TagGroup.tsx). Nine tests cover refs/names, group/item disabling, translated removal, keyboard next/previous/empty focus and pointer removal. Browser Delete moved React→Design focus; pointer removal moved to the list when only a disabled tag remained. |
+| U-13, U-14 | [Progress](../../packages/ui/src/experimental/Progress/Progress.tsx), [Status](../../packages/ui/src/experimental/Status/Status.tsx), [Avatar](../../packages/ui/src/experimental/Avatar/Avatar.tsx), stories and behavior/SSR tests. Determinate/indeterminate semantics, optional announcements, name/ref, source replacement and image load/error. Browser native image success showed opacity 1/natural width 80 with a 40×40 root; native error removed the image and retained initials in the 48×48 large root. |
+| U-15 | [Table](../../packages/ui/src/experimental/Table/Table.tsx) and [Pagination](../../packages/ui/src/experimental/Pagination/Pagination.tsx), six tests and stories. Native table refs/caption/headers, known/unknown totals, zero pages, boundaries, disabled state, form-safe keyboard actions and page-zero-before-size callbacks. Browser last-page navigation and size 25→50 reset Page 4→Page 1. |
+| U-16 | [ToggleButton/ToggleButtonGroup](../../packages/ui/src/experimental/ToggleButton/ToggleButton.tsx), five behavior tests and stories. Native refs, controlled/uncontrolled selection, single/multiple selection, no form submission, disabled skipping, required selection, RTL and vertical arrows. Browser arrows moved focus independently, then Space committed Grid→Cards. |
+| U-07 partial | [Tooltip](../../packages/ui/src/experimental/Tooltip/Tooltip.tsx), four behavior tests and stories. Focus description, hover, Escape/return focus, disabled state and portal visual/locale overrides; browser keyboard opening/dismissal. Submenus and broader overlay/browser checks stay open. |
+| M-02, M-03 | [AppInlineProgress](../../packages/ui/src/components/AppInlineProgress/AppInlineProgress.tsx) and [AppOperationSteps](../../packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx) now use owned controls/icons/styles. Public names/props retained; percentage normalization, ordered steps, translated status text and accessible progress covered by behavior tests and updated stories. Non-finite inline values now become 0%; completed-step color now uses the action token. |
+| M-24 | [EditableTitleField](../../packages/ui/src/components/EditableTitleField/EditableTitleField.tsx) now uses owned controls/icons/styles. Existing props and host-owned persistence preserved. Behavior/SSR and parent compatibility tests cover Enter/blur/Escape, trimming, duplicate pending saves, rejection/retry, IME and focus. Browser saved Updated course title and restored Edit title focus; rejection retained Retry title with aria-invalid and an associated error, Escape restored focus without another save. |
 
 Contracts and integration changes are in [remaining controls](react-aria-remaining-controls.md)
 and [progress/avatar](react-aria-progress-avatar.md). Migrated catalog controls require
@@ -282,11 +282,11 @@ Class-prefixed contracts, routing, translation and host callbacks remain availab
 
 | Task | Implementation and acceptance evidence |
 | --- | --- |
-| M-12 | [AppPaginationFooter](../../src/components/CardPaginationFooter/CardPaginationFooter.tsx) uses owned Pagination, translated range/page labels, normalized page/size/counts, unknown totals and disabled boundaries. Six behavior/SSR tests include namespace/values, page-zero-before-size ordering and form-safe keyboard activation. |
-| M-11 | [CardCollectionWithFooter](../../src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx) uses responsive container columns, stable row keys, independent grid scrolling and translated host-replaceable empty/loading states. Six tests cover keyed identity, shrinking rows with consistent footer, controlled size/navigation, SSR and nested learner action/form composition. |
-| M-13 | [ClassCardFrame](../../src/components/ClassCardFrame/ClassCardFrame.tsx) uses owned Card and tokenized slots, preserves 420/360 constants and allows container shrinkage. Three tests cover native article slots, optional footer, width and slot class/style overrides plus server rendering. |
-| M-14 | [InstructorClassCard](../../src/components/InstructorClassCard/InstructorClassCard.tsx) uses owned avatar/typography/icons/host Link, status labels, archived metadata branch and retained action-label mappings. Three tests cover host keyboard routing, state/custom-label branches, translation values and SSR. No menu or persistence callback was present in its existing contract; none is invented. |
-| M-15 | [LearnerClassCard](../../src/components/LearnerClassCard/LearnerClassCard.tsx) uses named Progress, owned actions/links/avatar/icons and the retained locale/due formatter. Three tests cover normalized displayed/accessible percentages including non-finite inputs, callback once, host Details routing, isolated Continue links/fallbacks, translation values and SSR. |
+| M-12 | [AppPaginationFooter](../../packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx) uses owned Pagination, translated range/page labels, normalized page/size/counts, unknown totals and disabled boundaries. Six behavior/SSR tests include namespace/values, page-zero-before-size ordering and form-safe keyboard activation. |
+| M-11 | [CardCollectionWithFooter](../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx) uses responsive container columns, stable row keys, independent grid scrolling and translated host-replaceable empty/loading states. Six tests cover keyed identity, shrinking rows with consistent footer, controlled size/navigation, SSR and nested learner action/form composition. |
+| M-13 | [ClassCardFrame](../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx) uses owned Card and tokenized slots, preserves 420/360 constants and allows container shrinkage. Three tests cover native article slots, optional footer, width and slot class/style overrides plus server rendering. |
+| M-14 | [InstructorClassCard](../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx) uses owned avatar/typography/icons/host Link, status labels, archived metadata branch and retained action-label mappings. Three tests cover host keyboard routing, state/custom-label branches, translation values and SSR. No menu or persistence callback was present in its existing contract; none is invented. |
+| M-15 | [LearnerClassCard](../../packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx) uses named Progress, owned actions/links/avatar/icons and the retained locale/due formatter. Three tests cover normalized displayed/accessible percentages including non-finite inputs, callback once, host Details routing, isolated Continue links/fallbacks, translation values and SSR. |
 
 Each directory has updated colocated stories, including interactive pagination,
 empty/loading states, composed course cards, narrow long names, frame slot styling
@@ -1911,3 +1911,79 @@ and packed browser consumers were not repeated for this slice. Predecessor
 checked independently. Logs: `/tmp/sgui-upload-final-check.log`,
 `/tmp/sgui-upload-storybook.log`, `/tmp/sgui-upload-browser.log` and
 `/tmp/sgui-upload-browser-results.json`. Changed guidance paths and whitespace pass.
+
+
+## Next.js docs workspace skeleton — 2026-10-14
+
+DOCS-001–DOCS-004 are complete in the separate [docs website backlog](docs-website.md).
+Library source/tooling/tests moved to `packages/ui`; `apps/docs` consumes its compiled
+public package and supplies an app-owned theme. Navigation, installation, component
+index, Button/Dialog playgrounds, theming, unreleased version manifest and licensing
+skeleton are implemented. The AppButton story was transferred and retired. Existing
+native Storybook fixtures remain until separately migrated; historical evidence
+paths refer to the pre-workspace layout. Root docs source links now resolve to UI.
+Node 24 full checks pass 257 files/1,640 tests plus guards/types/release/build/package
+checks; docs production build and one Chromium smoke pass. See the linked receipt
+for exact scope, logs and unrun matrices. No F/T/V/A count or commercial term changes.
+
+
+## Docs playground/source contract — 2026-10-14
+
+Root AGENTS.md requires a prop playground for every component docs page and a
+shared preview/source/copy panel for every live example. Current AppButton/AppModal
+docs satisfy the contract; the separate docs backlog lists each catalog/primitive
+family still awaiting docs rollout. Button variants/tones, densities, content and
+native form plus the dialog playground expose runnable current-setting source.
+Docs type/build and the single expanded Chromium smoke pass; nine generated
+snippets typecheck and native clipboard bytes match displayed source. This closes
+the current docs-source requirement, not all-library rollout or any T/V/A gate.
+
+
+## Demo/website theme isolation — 2026-10-14
+
+The docs website retains fixed Structured Growth/light styling. Component page
+selectors now own preview-only identity/mode, with Structured Growth and SGUI
+Default in light/dark. Prop controls, documentation frames and code panels remain
+in the website scope; preview density and overlay identity are separately scoped.
+Generated source reflects preview settings. Docs type/build and Chromium scope,
+computed palette, portal, clipboard/snippet and original smoke assertions pass;
+see [docs validation](docs-website.md#website-versus-demonstration-scopes--2026-10-14).
+No library runtime change or broad acceptance is claimed.
+
+
+## Demo identities/system/contrast — 2026-10-14
+
+DOCS-009 is implemented: Structured Growth, SGUI Default and Editorial demo identities
+with independently selected system/light/dark appearance and system/standard/
+increased contrast. Browser preference changes update previews without reload;
+forced colors retain OS palette precedence. Website branding stays separate.
+Copyable examples include matching palettes and live preference subscriptions.
+Node 24 docs type/build and three production Chromium checks pass, including
+named enhanced text/control/focus contrast pairs, preference changes/overrides,
+forced-color focus, Editorial high-contrast dialog and prior source/clipboard
+checks. See [docs evidence](docs-website.md). No library API or F/T/V/A count changes.
+
+
+## Shared Demo settings toolbar — 2026-10-14
+
+DOCS-010 is complete: one persistent layout-level owner and toolbar replace the
+per-component appearance panels. Client navigation preserves identity, appearance
+and contrast across component and information pages. Website and demo scopes
+remain separate; source snapshots and portals consume the shared choices. Node 24
+docs type/build and all three targeted production Chromium checks pass, including
+selection persistence, prior palette/system/forced-color checks and snippet/copy
+evidence. See [docs receipt](docs-website.md). Full reload starts fresh; no backend
+persistence or library/migration acceptance change is claimed.
+
+
+## Complete Next.js component catalog — 2026-10-14
+
+DOCS-011 and the 84 DOCS-PLAY leaves are implemented: 90 searchable component
+pages, 269 examples, coverage for all 200 public React component/icon names,
+including compound children, aliases and host providers. Every page has a meaningful
+playground and current copyable source. Production build/type/export checks and five
+Chromium checks pass, including compilation of 538 initial/changed snippets,
+clipboard, separate demo scopes, preferences, navigation and representative mobile
+layouts. See [catalog evidence](docs-website.md). Legacy Storybook native fixture
+transfer and generated complete prop references remain open. No F/T/V/A acceptance
+count or library API change is implied.

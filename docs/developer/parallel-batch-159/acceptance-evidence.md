@@ -5,7 +5,7 @@ Prepared October 7, 2026 from exact batch158 head
 `/Users/thomashall/.codex/worktrees/736c/sg-ui`, verified clean and detached before
 creating `codex/batch159-catalogue-import`. Existing batch158, batch153 and primary
 worktrees were preserved. Only this record and
-[foundation-catalogue.spec.ts](../../../tests/browser/foundation-catalogue.spec.ts)
+[foundation-catalogue.spec.ts](../../../packages/ui/tests/browser/foundation-catalogue.spec.ts)
 change. No production implementation, stories, tokens or configuration change.
 
 Read repository AGENTS.md, the

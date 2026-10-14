@@ -39,7 +39,7 @@ or host application was modified or used as a runtime dependency.
 
 Original: `Previous/next boundaries, labels, disabled states, link/action semantics`.
 
-The [current source](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx)
+The [current source](../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx)
 and [page navigation contract](../react-aria-page-navigation.md) define a controlled
 authoring list: `pages`, `activePageKey`, `onSelectPage`, `onAddPage`,
 `onRemovePage`, `onRenamePage`, `onReorderPages`, optional title/readOnly and
@@ -49,7 +49,7 @@ navigation. First/last Move limits and last-page removal protection therefore
 cannot satisfy a literal previous/next navigation requirement. No href/route
 model exists. Read-only permits selection and prevents mutation/drag.
 
-[Unit/SSR coverage](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.test.tsx)
+[Unit/SSR coverage](../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.test.tsx)
 includes separated actions, trimmed rename/cancel/focus, Move boundaries,
 invalid/self/read-only drag, final-page protection and live host removal/read-only.
 The contract records independent list scrolling and remaining full native gates.
@@ -67,7 +67,7 @@ before accepting the row.
 
 Original: `Status/menu/actions, callbacks, long text, date and icon fallbacks`.
 
-The [current source](../../../src/components/InstructorClassCard/InstructorClassCard.tsx)
+The [current source](../../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx)
 and [card contract](../react-aria-card-frames.md) accept required course/site strings,
 four status values, learnerCount, lastLearnerActivityLabel, actionLabel and
 actionHref. One footer Link requests navigation through the host adapter. No
@@ -106,7 +106,7 @@ is demonstrated by an absent unapproved API.
 
 Original: `Style/typeface options, tokenized labels, selection and focus behavior`.
 
-The [current source](../../../src/components/TextStyleMenuControl/TextStyleMenuControl.tsx)
+The [current source](../../../packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx)
 and [menu contract](../react-aria-editor-menus.md#textstylemenucontrol-m-30) expose
 lowercase/uppercase/capitalize/strikethrough/subscript/superscript/highlight and
 Clear Formatting callbacks. Seven TextStyleIds are checked through controlled
@@ -116,7 +116,7 @@ shared typography tokens, and displayed shortcuts do not register global command
 Document formatting and selection restoration remain host-owned.
 
 Typeface and heading selection are concretely implemented by
-[RichTextFormattingToolbar](../../../src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx)
+[RichTextFormattingToolbar](../../../packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx)
 via fontFamilyValue/onFontFamilyChange/showFontFamilySelector and
 headingValue/onHeadingChange. This is M-26 responsibility, not M-35's typography
 catalog and not evidence of a typeface API in M-30.

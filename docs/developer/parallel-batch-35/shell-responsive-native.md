@@ -15,7 +15,7 @@ stories and CSS, and existing native browser specs including the AuthShell reflo
 suite. M-06 remains held: landmarks, collapse and historical independent-scroll
 measurements do not supply a focused responsive/main-content native matrix.
 
-Added [a representative host story](../../../src/components/AppShell/AppShell.stories.tsx)
+Added [a representative host story](../../../packages/ui/src/components/AppShell/AppShell.stories.tsx)
 using production scopes, SideNavigation, TextField, Typography and AppButton.
 Its fixed fullscreen host positioning excludes Storybook decorator gutters from
 viewport measurements. Twelve content sections provide real host controls and
@@ -24,7 +24,7 @@ implementation or shared component changes were demonstrated or made.
 
 Added a composed unit regression preserving the exact main/input nodes and unsaved
 host value through navigation collapse/expansion. Existing landmark/ref/SSR cases
-remain in place. The [six native cases](../../../tests/browser/inventory-shell-responsive.spec.ts)
+remain in place. The [six native cases](../../../packages/ui/tests/browser/inventory-shell-responsive.spec.ts)
 cover light/dark themes, 641/640/639/320/900px width transitions, retained host value
 and keyboard focus, collapsed navigation/main availability, positive main geometry,
 320x360 short narrow viewports with normal/200% root text, no main/document horizontal

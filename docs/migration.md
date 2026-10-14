@@ -21,7 +21,7 @@ use owned contracts. Broad G/K/E/U/X/R/Z acceptance remains open; source and
 | Shared components under `apps/web/src/ui/components` | Public names preserved where useful; implementations now owned |
 | Original theme/typography and primitive/icon reexports | Replaced with scopes, generated tokens, owned typography/primitives and SVG icons; augmentation removed |
 | State/pagination hooks | Public hooks retained; persistence now explicit opt-in |
-| Colocated Storybook stories | Adapted to React/Vite and production scopes; inventory growth is separate from original extraction counts |
+| Extracted Storybook stories | Original story files/framework removed; docs website examples and private native fixtures use production scopes. [Scenario ledger](developer/docs-fixture-migration.md) preserves provenance; inventory growth is separate from original extraction counts |
 | Router links/navigation | Framework imports replaced by host navigation adapter |
 | Account/session operations | Replaced by host account adapter; credentials and endpoints remain host-owned |
 | Translation provider | Host translation adapter with English/defaultMessage fallback |

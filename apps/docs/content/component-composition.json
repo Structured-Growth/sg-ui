@@ -1,0 +1,2021 @@
+{
+  "button": [
+    {
+      "name": "AppButton",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        }
+      ]
+    }
+  ],
+  "dialog": [
+    {
+      "name": "AppModal",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "Dialog",
+          "slug": "owned-dialog"
+        }
+      ]
+    }
+  ],
+  "icons": [
+    {
+      "name": "AccessTimeFilledIcon",
+      "children": []
+    },
+    {
+      "name": "AccountCircleIcon",
+      "children": []
+    },
+    {
+      "name": "AddIcon",
+      "children": []
+    },
+    {
+      "name": "ApartmentIcon",
+      "children": []
+    },
+    {
+      "name": "ArrowDropDownIcon",
+      "children": []
+    },
+    {
+      "name": "ArrowForwardIcon",
+      "children": []
+    },
+    {
+      "name": "AssignmentTurnedInIcon",
+      "children": []
+    },
+    {
+      "name": "AutoStoriesIcon",
+      "children": []
+    },
+    {
+      "name": "BookIcon",
+      "children": []
+    },
+    {
+      "name": "BuildIcon",
+      "children": []
+    },
+    {
+      "name": "BusinessCenterIcon",
+      "children": []
+    },
+    {
+      "name": "CachedIcon",
+      "children": []
+    },
+    {
+      "name": "CalendarTodayIcon",
+      "children": []
+    },
+    {
+      "name": "CheckIcon",
+      "children": []
+    },
+    {
+      "name": "ChevronRightIcon",
+      "children": []
+    },
+    {
+      "name": "CircleIcon",
+      "children": []
+    },
+    {
+      "name": "ClassIcon",
+      "children": []
+    },
+    {
+      "name": "CloseIcon",
+      "children": []
+    },
+    {
+      "name": "CodeIcon",
+      "children": []
+    },
+    {
+      "name": "ComputerIcon",
+      "children": []
+    },
+    {
+      "name": "ContentCopyIcon",
+      "children": []
+    },
+    {
+      "name": "CorporateFareIcon",
+      "children": []
+    },
+    {
+      "name": "DashboardIcon",
+      "children": []
+    },
+    {
+      "name": "DeleteOutlineIcon",
+      "children": []
+    },
+    {
+      "name": "DescriptionIcon",
+      "children": []
+    },
+    {
+      "name": "DescriptionOutlinedIcon",
+      "children": []
+    },
+    {
+      "name": "DnsIcon",
+      "children": []
+    },
+    {
+      "name": "DragIndicatorIcon",
+      "children": []
+    },
+    {
+      "name": "EditIcon",
+      "children": []
+    },
+    {
+      "name": "EventIcon",
+      "children": []
+    },
+    {
+      "name": "ExpandLessIcon",
+      "children": []
+    },
+    {
+      "name": "ExpandMoreIcon",
+      "children": []
+    },
+    {
+      "name": "ExploreIcon",
+      "children": []
+    },
+    {
+      "name": "FactCheckOutlinedIcon",
+      "children": []
+    },
+    {
+      "name": "FilterListIcon",
+      "children": []
+    },
+    {
+      "name": "FontDownloadIcon",
+      "children": []
+    },
+    {
+      "name": "FormatAlignCenterIcon",
+      "children": []
+    },
+    {
+      "name": "FormatAlignJustifyIcon",
+      "children": []
+    },
+    {
+      "name": "FormatAlignLeftIcon",
+      "children": []
+    },
+    {
+      "name": "FormatAlignRightIcon",
+      "children": []
+    },
+    {
+      "name": "FormatBoldIcon",
+      "children": []
+    },
+    {
+      "name": "FormatClearIcon",
+      "children": []
+    },
+    {
+      "name": "FormatColorFillIcon",
+      "children": []
+    },
+    {
+      "name": "FormatColorTextIcon",
+      "children": []
+    },
+    {
+      "name": "FormatIndentDecreaseIcon",
+      "children": []
+    },
+    {
+      "name": "FormatIndentIncreaseIcon",
+      "children": []
+    },
+    {
+      "name": "FormatItalicIcon",
+      "children": []
+    },
+    {
+      "name": "FormatListBulletedIcon",
+      "children": []
+    },
+    {
+      "name": "FormatListNumberedIcon",
+      "children": []
+    },
+    {
+      "name": "FormatSizeIcon",
+      "children": []
+    },
+    {
+      "name": "FormatStrikethroughIcon",
+      "children": []
+    },
+    {
+      "name": "FormatUnderlinedIcon",
+      "children": []
+    },
+    {
+      "name": "GroupIcon",
+      "children": []
+    },
+    {
+      "name": "HighlightIcon",
+      "children": []
+    },
+    {
+      "name": "HorizontalRuleIcon",
+      "children": []
+    },
+    {
+      "name": "ImageIcon",
+      "children": []
+    },
+    {
+      "name": "KeyboardArrowDownIcon",
+      "children": []
+    },
+    {
+      "name": "KeyboardArrowLeftIcon",
+      "children": []
+    },
+    {
+      "name": "LinkIcon",
+      "children": []
+    },
+    {
+      "name": "LockIcon",
+      "children": []
+    },
+    {
+      "name": "LockResetIcon",
+      "children": []
+    },
+    {
+      "name": "LogoutIcon",
+      "children": []
+    },
+    {
+      "name": "ManageAccountsIcon",
+      "children": []
+    },
+    {
+      "name": "MenuBookIcon",
+      "children": []
+    },
+    {
+      "name": "MenuBookOutlinedIcon",
+      "children": []
+    },
+    {
+      "name": "MoreHorizIcon",
+      "children": []
+    },
+    {
+      "name": "MoreVertIcon",
+      "children": []
+    },
+    {
+      "name": "PaidIcon",
+      "children": []
+    },
+    {
+      "name": "PeopleIcon",
+      "children": []
+    },
+    {
+      "name": "PersonIcon",
+      "children": []
+    },
+    {
+      "name": "PersonAddIcon",
+      "children": []
+    },
+    {
+      "name": "PhotoCameraBackIcon",
+      "children": []
+    },
+    {
+      "name": "QuizOutlinedIcon",
+      "children": []
+    },
+    {
+      "name": "RedoIcon",
+      "children": []
+    },
+    {
+      "name": "RemoveIcon",
+      "children": []
+    },
+    {
+      "name": "SchoolIcon",
+      "children": []
+    },
+    {
+      "name": "ScienceOutlinedIcon",
+      "children": []
+    },
+    {
+      "name": "SearchIcon",
+      "children": []
+    },
+    {
+      "name": "SortIcon",
+      "children": []
+    },
+    {
+      "name": "StarIcon",
+      "children": []
+    },
+    {
+      "name": "SubscriptIcon",
+      "children": []
+    },
+    {
+      "name": "SuperscriptIcon",
+      "children": []
+    },
+    {
+      "name": "TaskAltIcon",
+      "children": []
+    },
+    {
+      "name": "TerminalIcon",
+      "children": []
+    },
+    {
+      "name": "TranslateIcon",
+      "children": []
+    },
+    {
+      "name": "TuneIcon",
+      "children": []
+    },
+    {
+      "name": "UndoIcon",
+      "children": []
+    },
+    {
+      "name": "UploadFileIcon",
+      "children": []
+    },
+    {
+      "name": "ViewColumnIcon",
+      "children": []
+    },
+    {
+      "name": "ViewListIcon",
+      "children": []
+    },
+    {
+      "name": "ViewWeekIcon",
+      "children": []
+    },
+    {
+      "name": "VisibilityOffIcon",
+      "children": []
+    },
+    {
+      "name": "VpnKeyIcon",
+      "children": []
+    },
+    {
+      "name": "WindowIcon",
+      "children": []
+    },
+    {
+      "name": "WorkOutlineOutlinedIcon",
+      "children": []
+    }
+  ],
+  "owned-button": [
+    {
+      "name": "Button",
+      "children": []
+    }
+  ],
+  "owned-dialog": [
+    {
+      "name": "Dialog",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        }
+      ]
+    }
+  ],
+  "popover": [
+    {
+      "name": "Popover",
+      "children": []
+    }
+  ],
+  "tabs": [
+    {
+      "name": "Tabs",
+      "children": []
+    }
+  ],
+  "typography": [
+    {
+      "name": "Typography",
+      "children": []
+    }
+  ],
+  "box": [
+    {
+      "name": "Box",
+      "children": []
+    }
+  ],
+  "stack": [
+    {
+      "name": "Stack",
+      "children": [
+        {
+          "name": "Box",
+          "slug": "box"
+        }
+      ]
+    }
+  ],
+  "surface": [
+    {
+      "name": "Surface",
+      "children": [
+        {
+          "name": "Box",
+          "slug": "box"
+        }
+      ]
+    }
+  ],
+  "card": [
+    {
+      "name": "Card",
+      "children": [
+        {
+          "name": "Surface",
+          "slug": "surface"
+        }
+      ]
+    },
+    {
+      "name": "CardContent",
+      "children": [
+        {
+          "name": "Box",
+          "slug": "box"
+        }
+      ]
+    }
+  ],
+  "divider": [
+    {
+      "name": "Divider",
+      "children": []
+    }
+  ],
+  "icon-button": [
+    {
+      "name": "IconButton",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        }
+      ]
+    }
+  ],
+  "button-group": [
+    {
+      "name": "ButtonGroup",
+      "children": []
+    }
+  ],
+  "menu": [
+    {
+      "name": "Menu",
+      "children": []
+    }
+  ],
+  "split-action": [
+    {
+      "name": "SplitAction",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "ButtonGroup",
+          "slug": "button-group"
+        },
+        {
+          "name": "IconButton",
+          "slug": "icon-button"
+        },
+        {
+          "name": "KeyboardArrowDownIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        }
+      ]
+    }
+  ],
+  "link": [
+    {
+      "name": "Link",
+      "children": [
+        {
+          "name": "SGLink",
+          "slug": "sg-link"
+        }
+      ]
+    }
+  ],
+  "breadcrumbs": [
+    {
+      "name": "Breadcrumbs",
+      "children": [
+        {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "tooltip": [
+    {
+      "name": "Tooltip",
+      "children": []
+    }
+  ],
+  "list": [
+    {
+      "name": "List",
+      "children": []
+    },
+    {
+      "name": "ListItem",
+      "children": []
+    },
+    {
+      "name": "ListItemButton",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        }
+      ]
+    },
+    {
+      "name": "ListItemText",
+      "children": [
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    },
+    {
+      "name": "ListItemIcon",
+      "children": []
+    }
+  ],
+  "navigation": [
+    {
+      "name": "Navigation",
+      "children": []
+    },
+    {
+      "name": "NavigationItem",
+      "children": [
+        {
+          "name": "Link",
+          "slug": "link"
+        }
+      ]
+    }
+  ],
+  "disclosure": [
+    {
+      "name": "Disclosure",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "Collapse",
+          "slug": "collapse"
+        }
+      ]
+    }
+  ],
+  "collapse": [
+    {
+      "name": "Collapse",
+      "children": []
+    }
+  ],
+  "chip": [
+    {
+      "name": "Chip",
+      "children": []
+    }
+  ],
+  "badge": [
+    {
+      "name": "Badge",
+      "children": []
+    }
+  ],
+  "progress": [
+    {
+      "name": "Progress",
+      "children": []
+    },
+    {
+      "name": "CircularProgress",
+      "children": [
+        {
+          "name": "Progress",
+          "slug": "progress"
+        }
+      ]
+    },
+    {
+      "name": "LinearProgress",
+      "children": [
+        {
+          "name": "Progress",
+          "slug": "progress"
+        }
+      ]
+    }
+  ],
+  "status": [
+    {
+      "name": "Status",
+      "children": []
+    }
+  ],
+  "avatar": [
+    {
+      "name": "Avatar",
+      "children": []
+    }
+  ],
+  "table": [
+    {
+      "name": "Table",
+      "children": []
+    },
+    {
+      "name": "TableCaption",
+      "children": []
+    },
+    {
+      "name": "TableHead",
+      "children": []
+    },
+    {
+      "name": "TableBody",
+      "children": []
+    },
+    {
+      "name": "TableFoot",
+      "children": []
+    },
+    {
+      "name": "TableRow",
+      "children": []
+    },
+    {
+      "name": "TableCell",
+      "children": []
+    },
+    {
+      "name": "TableHeaderCell",
+      "children": []
+    }
+  ],
+  "pagination": [
+    {
+      "name": "Pagination",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        }
+      ]
+    }
+  ],
+  "provider": [
+    {
+      "name": "Provider",
+      "children": [
+        {
+          "name": "ThemeScope",
+          "slug": "theme-scope"
+        }
+      ]
+    },
+    {
+      "name": "AppThemeProvider",
+      "children": [
+        {
+          "name": "ThemeScope",
+          "slug": "theme-scope"
+        }
+      ]
+    }
+  ],
+  "theme-scope": [
+    {
+      "name": "ThemeScope",
+      "children": []
+    }
+  ],
+  "text-field": [
+    {
+      "name": "TextField",
+      "children": []
+    }
+  ],
+  "text-area": [
+    {
+      "name": "TextArea",
+      "children": []
+    }
+  ],
+  "select": [
+    {
+      "name": "Select",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "KeyboardArrowDownIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "combo-box": [
+    {
+      "name": "ComboBox",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "KeyboardArrowDownIcon",
+          "slug": "icons"
+        }
+      ]
+    },
+    {
+      "name": "Autocomplete",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "KeyboardArrowDownIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "async-multi-select": [
+    {
+      "name": "AsyncMultiSelect",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        }
+      ]
+    }
+  ],
+  "checkbox": [
+    {
+      "name": "Checkbox",
+      "children": []
+    }
+  ],
+  "switch": [
+    {
+      "name": "Switch",
+      "children": []
+    }
+  ],
+  "radio-group": [
+    {
+      "name": "RadioGroup",
+      "children": []
+    }
+  ],
+  "toggle-button": [
+    {
+      "name": "ToggleButton",
+      "children": []
+    }
+  ],
+  "toggle-button-group": [
+    {
+      "name": "ToggleButtonGroup",
+      "children": [
+        {
+          "name": "ToggleButton",
+          "slug": "toggle-button"
+        }
+      ]
+    }
+  ],
+  "tag-group": [
+    {
+      "name": "TagGroup",
+      "children": [
+        {
+          "name": "CloseIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "date-field": [
+    {
+      "name": "DateField",
+      "children": []
+    }
+  ],
+  "time-field": [
+    {
+      "name": "TimeField",
+      "children": []
+    }
+  ],
+  "calendar": [
+    {
+      "name": "Calendar",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        }
+      ]
+    }
+  ],
+  "date-picker": [
+    {
+      "name": "DatePicker",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "Calendar",
+          "slug": "calendar"
+        },
+        {
+          "name": "DateField",
+          "slug": "date-field"
+        },
+        {
+          "name": "Popover",
+          "slug": "popover"
+        }
+      ]
+    }
+  ],
+  "date-range-picker": [
+    {
+      "name": "DateRangePicker",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "DateRangeSelector",
+          "slug": "date-range-selector"
+        },
+        {
+          "name": "Popover",
+          "slug": "popover"
+        }
+      ]
+    }
+  ],
+  "date-range-selector": [
+    {
+      "name": "DateRangeSelector",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "DateField",
+          "slug": "date-field"
+        }
+      ]
+    }
+  ],
+  "auth-shell": [
+    {
+      "name": "AuthShell",
+      "children": [
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "app-shell": [
+    {
+      "name": "AppShell",
+      "children": []
+    }
+  ],
+  "page-header": [
+    {
+      "name": "AppPageHeader",
+      "children": [
+        {
+          "name": "IconButton",
+          "slug": "icon-button"
+        },
+        {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        },
+        {
+          "name": "MoreHorizIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "MoreVertIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "page-tabs": [
+    {
+      "name": "AppPageTabs",
+      "children": [
+        {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
+          "name": "Tabs",
+          "slug": "tabs"
+        }
+      ]
+    }
+  ],
+  "experience-page-navigator": [
+    {
+      "name": "ExperiencePageNavigator",
+      "children": [
+        {
+          "name": "AddIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "Dialog",
+          "slug": "owned-dialog"
+        },
+        {
+          "name": "DragIndicatorIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "IconButton",
+          "slug": "icon-button"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        },
+        {
+          "name": "MoreVertIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "side-navigation": [
+    {
+      "name": "SideNavigation",
+      "children": [
+        {
+          "name": "AccountCircleIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "AddIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Avatar",
+          "slug": "avatar"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "CheckIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ChevronRightIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ExpandMoreIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "KeyboardArrowLeftIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
+          "name": "LogoutIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        }
+      ]
+    }
+  ],
+  "editable-title-field": [
+    {
+      "name": "EditableTitleField",
+      "children": [
+        {
+          "name": "EditIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "IconButton",
+          "slug": "icon-button"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "document-editor-layout": [
+    {
+      "name": "DocumentEditorLayout",
+      "children": [
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "document-editor-toolbar": [
+    {
+      "name": "DocumentEditorToolbar",
+      "children": [
+        {
+          "name": "AddIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "FormatAlignCenterIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatAlignJustifyIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatAlignLeftIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatAlignRightIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatBoldIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatItalicIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatListBulletedIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatListNumberedIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "RemoveIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
+        }
+      ]
+    }
+  ],
+  "content-editor-chrome": [
+    {
+      "name": "ContentEditorChrome",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "EditableTitleField",
+          "slug": "editable-title-field"
+        }
+      ]
+    }
+  ],
+  "floating-text-selection-toolbar": [
+    {
+      "name": "FloatingTextSelectionToolbar",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "FormatBoldIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatItalicIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatUnderlinedIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "LinkIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "SubscriptIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "SuperscriptIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "rich-text-formatting-toolbar": [
+    {
+      "name": "RichTextFormattingToolbar",
+      "children": [
+        {
+          "name": "AddIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "CodeIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatBoldIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatItalicIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatUnderlinedIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "InsertContentMenuControl",
+          "slug": "insert-content-menu-control"
+        },
+        {
+          "name": "LinkIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "RedoIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "RemoveIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
+        },
+        {
+          "name": "TextAlignMenuControl",
+          "slug": "text-align-menu-control"
+        },
+        {
+          "name": "TextColorPickerControl",
+          "slug": "text-color-picker-control"
+        },
+        {
+          "name": "TextStyleMenuControl",
+          "slug": "text-style-menu-control"
+        },
+        {
+          "name": "UndoIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "insert-content-menu-control": [
+    {
+      "name": "InsertContentMenuControl",
+      "children": [
+        {
+          "name": "AddIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ArrowDropDownIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "HorizontalRuleIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ImageIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        },
+        {
+          "name": "ViewWeekIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "text-align-menu-control": [
+    {
+      "name": "TextAlignMenuControl",
+      "children": [
+        {
+          "name": "AppButton",
+          "slug": "button"
+        },
+        {
+          "name": "ArrowDropDownIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatAlignCenterIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatAlignJustifyIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatAlignLeftIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatAlignRightIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatIndentDecreaseIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatIndentIncreaseIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        }
+      ]
+    }
+  ],
+  "text-color-picker-control": [
+    {
+      "name": "TextColorPickerControl",
+      "children": [
+        {
+          "name": "ArrowDropDownIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "FormatColorFillIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatColorTextIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Popover",
+          "slug": "popover"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        }
+      ]
+    }
+  ],
+  "text-style-menu-control": [
+    {
+      "name": "TextStyleMenuControl",
+      "children": [
+        {
+          "name": "AppButton",
+          "slug": "button"
+        },
+        {
+          "name": "ArrowDropDownIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatClearIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FormatStrikethroughIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "HighlightIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        },
+        {
+          "name": "SubscriptIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "SuperscriptIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "columns-layout-modal": [
+    {
+      "name": "ColumnsLayoutModal",
+      "children": [
+        {
+          "name": "AppModal",
+          "slug": "dialog"
+        },
+        {
+          "name": "RadioGroup",
+          "slug": "radio-group"
+        }
+      ]
+    }
+  ],
+  "link-url-modal": [
+    {
+      "name": "LinkUrlModal",
+      "children": [
+        {
+          "name": "AppModal",
+          "slug": "dialog"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        }
+      ]
+    }
+  ],
+  "image-upload-modal": [
+    {
+      "name": "ImageUploadModal",
+      "children": [
+        {
+          "name": "AppButton",
+          "slug": "button"
+        },
+        {
+          "name": "AppModal",
+          "slug": "dialog"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        },
+        {
+          "name": "UploadFileIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "page-rich-text-editor-section": [
+    {
+      "name": "PageRichTextEditorSection",
+      "children": [
+        {
+          "name": "ColumnsLayoutModal",
+          "slug": "columns-layout-modal"
+        },
+        {
+          "name": "FloatingTextSelectionToolbar",
+          "slug": "floating-text-selection-toolbar"
+        },
+        {
+          "name": "ImageUploadModal",
+          "slug": "image-upload-modal"
+        },
+        {
+          "name": "LinkUrlModal",
+          "slug": "link-url-modal"
+        },
+        {
+          "name": "RichTextFormattingToolbar",
+          "slug": "rich-text-formatting-toolbar"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "navigation-provider": [
+    {
+      "name": "SGNavigationProvider",
+      "children": []
+    }
+  ],
+  "sg-link": [
+    {
+      "name": "SGLink",
+      "children": []
+    }
+  ],
+  "account-provider": [
+    {
+      "name": "SGAccountProvider",
+      "children": []
+    }
+  ],
+  "translation-provider": [
+    {
+      "name": "SGTranslationProvider",
+      "children": []
+    }
+  ],
+  "inline-progress": [
+    {
+      "name": "AppInlineProgress",
+      "children": [
+        {
+          "name": "Progress",
+          "slug": "progress"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "operation-steps": [
+    {
+      "name": "AppOperationSteps",
+      "children": [
+        {
+          "name": "CheckIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "CircleIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "CloseIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Progress",
+          "slug": "progress"
+        },
+        {
+          "name": "Surface",
+          "slug": "surface"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "pagination-footer": [
+    {
+      "name": "AppPaginationFooter",
+      "children": [
+        {
+          "name": "Pagination",
+          "slug": "pagination"
+        }
+      ]
+    }
+  ],
+  "card-frame": [
+    {
+      "name": "ClassCardFrame",
+      "children": [
+        {
+          "name": "Card",
+          "slug": "card"
+        }
+      ]
+    }
+  ],
+  "instructor-card": [
+    {
+      "name": "InstructorClassCard",
+      "children": [
+        {
+          "name": "AutoStoriesIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Avatar",
+          "slug": "avatar"
+        },
+        {
+          "name": "CalendarTodayIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ClassCardFrame",
+          "slug": "card-frame"
+        },
+        {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "learner-card": [
+    {
+      "name": "LearnerClassCard",
+      "children": [
+        {
+          "name": "ArrowForwardIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Avatar",
+          "slug": "avatar"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "ClassCardFrame",
+          "slug": "card-frame"
+        },
+        {
+          "name": "EventIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ExploreIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
+          "name": "Progress",
+          "slug": "progress"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "card-collection": [
+    {
+      "name": "CardCollectionWithFooter",
+      "children": [
+        {
+          "name": "AppPaginationFooter",
+          "slug": "pagination-footer"
+        },
+        {
+          "name": "Status",
+          "slug": "status"
+        }
+      ]
+    }
+  ],
+  "app-data-grid": [
+    {
+      "name": "AppDataGrid",
+      "children": [
+        {
+          "name": "AppPaginationFooter",
+          "slug": "pagination-footer"
+        },
+        {
+          "name": "ArrowDropDownIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "Checkbox",
+          "slug": "checkbox"
+        },
+        {
+          "name": "ContentCopyIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "DataGridDragHandle",
+          "slug": "row-reorder"
+        },
+        {
+          "name": "IconButton",
+          "slug": "icon-button"
+        },
+        {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        },
+        {
+          "name": "MoreVertIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Progress",
+          "slug": "progress"
+        },
+        {
+          "name": "SortIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Status",
+          "slug": "status"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "data-grid-shell": [
+    {
+      "name": "AppDataGridShell",
+      "children": [
+        {
+          "name": "AppDataGrid",
+          "slug": "app-data-grid"
+        },
+        {
+          "name": "AppPaginationFooter",
+          "slug": "pagination-footer"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "DataToolbar",
+          "slug": "data-toolbar"
+        },
+        {
+          "name": "Progress",
+          "slug": "progress"
+        },
+        {
+          "name": "Status",
+          "slug": "status"
+        }
+      ]
+    }
+  ],
+  "data-toolbar": [
+    {
+      "name": "DataToolbar",
+      "children": [
+        {
+          "name": "AddIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Badge",
+          "slug": "badge"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "CachedIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Checkbox",
+          "slug": "checkbox"
+        },
+        {
+          "name": "CloseIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "DragIndicatorIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ExpandLessIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ExpandMoreIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "FilterListIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "IconButton",
+          "slug": "icon-button"
+        },
+        {
+          "name": "Popover",
+          "slug": "popover"
+        },
+        {
+          "name": "SearchIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
+        },
+        {
+          "name": "SortIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        },
+        {
+          "name": "ToggleButton",
+          "slug": "toggle-button"
+        },
+        {
+          "name": "ViewColumnIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ViewListIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "WindowIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "selection-menu": [
+    {
+      "name": "DataToolbarSelectionMenu",
+      "children": [
+        {
+          "name": "ArrowDropDownIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "Checkbox",
+          "slug": "checkbox"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        }
+      ]
+    }
+  ],
+  "row-reorder": [
+    {
+      "name": "DataGridDragHandle",
+      "children": [
+        {
+          "name": "DragIndicatorIcon",
+          "slug": "icons"
+        }
+      ]
+    }
+  ],
+  "learner-grid": [
+    {
+      "name": "LearnerClassesDataGrid",
+      "children": [
+        {
+          "name": "AppDataGrid",
+          "slug": "app-data-grid"
+        }
+      ]
+    }
+  ],
+  "processing-grid": [
+    {
+      "name": "DataGrid",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "Checkbox",
+          "slug": "checkbox"
+        },
+        {
+          "name": "Popover",
+          "slug": "popover"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        }
+      ]
+    }
+  ],
+  "row-subheader": [
+    {
+      "name": "RowSubHeader",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "owned-button"
+        },
+        {
+          "name": "ChevronRightIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "EditIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "ExpandMoreIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
+  "grid-presets": []
+}

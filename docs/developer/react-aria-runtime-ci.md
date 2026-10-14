@@ -1,5 +1,12 @@
 # Runtime and CI validation
 
+Current workspace CI builds the library and docs-owned native fixtures with
+`pnpm build:browser-docs`, then runs `pnpm test:browser`; the separate Next.js docs
+job runs `check:docs`, `build:docs` and the public site Playwright checks. Artifacts
+use `sgui-browser-docs-node-*`. Storybook is removed. The dated heads, commands and
+artifact names below remain historical receipts, not current runner instructions.
+See [docs migration](docs-website.md) for current execution evidence.
+
 Final removal-guard head `7f03a35108bbf861e9b123b646694f64b21bb369` is independently
 verified by [run 37560788949](https://github.com/Structured-Growth/sg-ui/actions/runs/37560788949):
 both runtime jobs, all eight packed consumers and the required three-engine

@@ -4,7 +4,7 @@ Task scope: bounded K-17 controlled DateRangePicker transaction evidence, based 
 parent `60df360355082b5fac9fad30357e45ccbcab9fd2`. This correction changes only the
 endpoint locator in the existing native form-reset browser case. See the
 [calendar contract](../react-aria-calendar-contracts.md#selection-and-drafts) and
-[browser case](../../../tests/browser/range-picker-controlled-transactions.spec.ts).
+[browser case](../../../packages/ui/tests/browser/range-picker-controlled-transactions.spec.ts).
 
 ## Retained actual evidence
 

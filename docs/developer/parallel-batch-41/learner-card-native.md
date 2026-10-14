@@ -15,9 +15,9 @@ this follow-up corrects report attribution only and changes no native cases.
 
 ## Bounded additions
 
-The [native fixture](../../../src/components/LearnerClassCard/LearnerClassCard.stories.tsx)
+The [native fixture](../../../packages/ui/src/components/LearnerClassCard/LearnerClassCard.stories.tsx)
 adds host-controlled locale/translator/due/destination changes and callback outputs.
-The [spec](../../../tests/browser/inventory-learner-card.spec.ts) declares
+The [spec](../../../packages/ui/tests/browser/inventory-learner-card.spec.ts) declares
 `America/Chicago`, browser locale `en-US`, and fixed clock `2026-01-02T18:00:00Z`.
 Host locales en-US/de-DE/ar-EG have literal browser ICU absolute-date expectations;
 live translated, imminent and unavailable labels exercise the actual card composition.

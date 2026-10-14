@@ -109,7 +109,7 @@ host-owned. Draft endpoints remain a separate status and only Apply commits.
 These changes address availability, preset access and visible keyboard range
 preview in K-17. The [batch61 focused-endpoint evidence](parallel-batch-61/keyboard-range-preview.md)
 records source/unit coverage and a fresh Chromium light/dark shard passing 2/2 in
-[`batch61-keyboard-range-preview.spec.ts`](../../tests/browser/batch61-keyboard-range-preview.spec.ts).
+[`batch61-keyboard-range-preview.spec.ts`](../../packages/ui/tests/browser/batch61-keyboard-range-preview.spec.ts).
 That shard covers focused association/removal, constrained unavailable traversal,
 unchanged committed form data and Cancel; it does not establish spoken output or
 announcement timing. Firefox/WebKit, actual assistive-technology/manual acceptance

@@ -15,7 +15,7 @@ native `minBlockSize` to `100%`. Native email entry updates the controlled value
 heading, subtitle, guidance and footer while preserving the field. This is host
 presentation state, with no login/session/API behavior.
 
-The new [browser spec](../../../tests/browser/inventory-auth-embedded-host.spec.ts)
+The new [browser spec](../../../packages/ui/tests/browser/inventory-auth-embedded-host.spec.ts)
 contains four light/dark and normal/200% root-text cases at 368 × 700 CSS pixels.
 Native forward/reverse keyboard traversal must expose complete inputs, submit
 button and footer link within both ancestor bounds, with hit testing and visible

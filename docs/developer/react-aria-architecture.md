@@ -113,7 +113,7 @@ Import `@structured-growth/sg-ui/styles.css` once and wrap owned UI, including
 catalog compositions and dialogs, in `Provider` or `ThemeScope`.
 The build compiles CSS Module classes into deterministic, namespaced identifiers,
 emits JavaScript class maps and collects production CSS into one exported stylesheet.
-Storybook uses the same naming function and generated production tokens. Consumers
+The docs website and native fixtures consume this compiled CSS and generated production tokens. Consumers
 do not compile CSS Modules or configure PostCSS. CSS is marked as a side effect.
 The initial output has no CSS source map; add one when consumer debugging proves
 it useful. JavaScript/declaration maps retain the existing build behavior.
@@ -174,7 +174,7 @@ behind owned grid/icon contracts; MIT/ISC and applicable Feather notices are ret
 PostCSS and CSS Modules compilation are development dependencies only. The
 testing-library user-event dependency drives meaningful keyboard/form tests.
 Upgrades require regenerated lockfiles, license review, owned declaration checks,
-behavior checks, Storybook and packed-consumer validation. No upstream examples,
+behavior checks, docs/native-fixture and packed-consumer validation. No upstream examples,
 implementation code or icon assets were copied. Adobe dependencies retain Apache
 2.0 licensing; existing commercial terms and notices remain in place.
 
@@ -227,7 +227,7 @@ with whole-directory source/transitive/declaration boundaries. See
 owned props and deliberate breaking removals. Import `/styles.css` and provide
 Provider or ThemeScope. The public theme is owned; broad acceptance remains open.
 
-See [public theme mappings](react-aria-theme.md) for the shipped scope API and Storybook globals.
+See [public theme mappings](react-aria-theme.md) for the shipped scope API; [docs architecture](docs-website.md) describes demo settings and native fixture globals.
 
 Use the [canonical component recipe](react-aria-component-recipe.md) for new controls
 and migrations. The [read-only adoption checklist](react-aria-adoption-checklist.md)

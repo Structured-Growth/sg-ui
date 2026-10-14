@@ -27,13 +27,13 @@ stories or browser spec were manufactured for unsupported behavior.
 
 ## Exact evidence and contract mismatch
 
-- [Chip source](../../../src/experimental/Chip/Chip.tsx) explicitly documents a
+- [Chip source](../../../packages/ui/src/experimental/Chip/Chip.tsx) explicitly documents a
   presentation label and directs keyboard-navigable/removable tokens to TagGroup.
   Read-only `git show 51734ed:src/experimental/Chip/Chip.tsx` confirms the same
   passive contract at the foundation implementation commit; it is not a recent
   callback regression.
-- [Public primitive barrel](../../../src/components/primitives/index.ts) exports
-  that exact implementation; [experimental barrel](../../../src/experimental/index.ts)
+- [Public primitive barrel](../../../packages/ui/src/components/primitives/index.ts) exports
+  that exact implementation; [experimental barrel](../../../packages/ui/src/experimental/index.ts)
   exports it too. There is no alternate interactive Chip implementation.
 - [Remaining-control contract](../react-aria-remaining-controls.md#chips-badges-and-removable-tags)
   explicitly specifies passive Chip and Badge, with removal assigned to TagGroup.
@@ -42,10 +42,10 @@ stories or browser spec were manufactured for unsupported behavior.
   This guide is outside the exclusive write allowlist and was left unchanged.
 - [Master task list](../react-aria-master-task-list.md) assigns U-06 to selectors
   and U-12 to Chip/Tag/Badge. X-04 remains open. No task checkbox was changed.
-- [Existing Chip test](../../../src/experimental/Chip/Chip.test.tsx) has one case:
+- [Existing Chip test](../../../packages/ui/src/experimental/Chip/Chip.test.tsx) has one case:
   passive label, native span ref, host title, tone and absence of a button.
   Existing stories show passive default/light/dark/tone/variant combinations.
-- [TagGroup tests](../../../src/experimental/TagGroup/TagGroup.test.tsx) have six
+- [TagGroup tests](../../../packages/ui/src/experimental/TagGroup/TagGroup.test.tsx) have six
   cases covering keyboard removal and adjacent/empty focus, host-authoritative
   removal requests/native ref, pointer focus, item/read-only/group disabling,
   and translated/host removal labels. They belong to a different control outside

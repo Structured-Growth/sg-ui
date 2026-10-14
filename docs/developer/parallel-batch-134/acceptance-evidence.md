@@ -27,7 +27,7 @@ at H, and what still prevents these distinct final criteria from closing.
 
 ### Z-08: emitted guard coverage is narrower than final package/legal acceptance
 
-[Package guard](../../../scripts/check-package.mjs) recursively rejects retired
+[Package guard](../../../packages/ui/scripts/check-package.mjs) recursively rejects retired
 filenames and text for js/mjs/cjs/ts/css/json/map/svg/html/txt/md output; source
 maps are included. It compares every dist file's bytes with the extracted pack,
 checks exported modules and owned declarations, and restricts packed top-level
@@ -190,8 +190,8 @@ source/report bytes, not executed test artifacts. Links resolve in the repositor
 | Path | Git blob at H |
 | --- | --- |
 | [docs/developer/react-aria-master-task-list.md](../../../docs/developer/react-aria-master-task-list.md) | `930c3c94d0d8b4a9c18e7528e860eabdb55ec5a1` |
-| [scripts/check-package.mjs](../../../scripts/check-package.mjs) | `744f86595899989d90edc6cf590a757534c58f17` |
-| [scripts/check-foundations.mjs](../../../scripts/check-foundations.mjs) | `ecc96a852355231cc7845642c589980825a6356d` |
+| [scripts/check-package.mjs](../../../packages/ui/scripts/check-package.mjs) | `744f86595899989d90edc6cf590a757534c58f17` |
+| [scripts/check-foundations.mjs](../../../packages/ui/scripts/check-foundations.mjs) | `ecc96a852355231cc7845642c589980825a6356d` |
 | [package.json](../../../package.json) | `f83bab2065c9ae79b31aa6b0aa143b7ae0b2a3f0` |
 | [pnpm-lock.yaml](../../../pnpm-lock.yaml) | `d312a82ec958b0badc4633899ec4510cbb655648` |
 | [README.md](../../../README.md) | `0af615ed0dc6984d08b57aed8eea8ecb8ddce9a4` |
@@ -210,23 +210,23 @@ source/report bytes, not executed test artifacts. Links resolve in the repositor
 | [docs/developer/react-aria-release-gate-audit.md](../../../docs/developer/react-aria-release-gate-audit.md) | `b4cf9351ad301ba401eddc38446f257f286eebf7` |
 | [docs/developer/react-aria-runtime-ci.md](../../../docs/developer/react-aria-runtime-ci.md) | `9319d05492e47bcd15f751d3db7e042aa604fe0e` |
 | [release.config.mjs](../../../release.config.mjs) | `ee46e0de3e7545768032184650f0e1cc97f2c006` |
-| [scripts/release-policy.test.mjs](../../../scripts/release-policy.test.mjs) | `b1b6c0dfe4661475033d30ba968f4972484bdaf9` |
-| [src/index.ts](../../../src/index.ts) | `4b0ea0e0ad7845f2a34e1820a490aa4b6986411f` |
-| [src/components/index.ts](../../../src/components/index.ts) | `fd4f424ed4cb0a8ee3b7da1f70ccc3e06ec42122` |
-| [src/components/AppDataGrid/index.ts](../../../src/components/AppDataGrid/index.ts) | `4d8134908caeb409dd64d3e3935125197ad2ad18` |
-| [src/hooks/index.ts](../../../src/hooks/index.ts) | `924add6d71b1f6808316d91c3b19c27a71a0ea8f` |
-| [src/hooks/paginationModel.ts](../../../src/hooks/paginationModel.ts) | `a930a0b0a2600b5dedc963a1717d79c8821296d7` |
-| [src/hooks/usePersistentState.ts](../../../src/hooks/usePersistentState.ts) | `af48e9db8a583efbbe08fd290ef5a9d7eb8b8335` |
-| [src/hooks/usePersistentPaginationModel.ts](../../../src/hooks/usePersistentPaginationModel.ts) | `bedcdea5d9b8ac2cc8ff35b310570057a9a1bb16` |
-| [src/adapters/index.ts](../../../src/adapters/index.ts) | `422639cc475322b63cfcc62bd4561deec463007d` |
-| [src/adapters/navigation.tsx](../../../src/adapters/navigation.tsx) | `e18b09cd0755f37192e8a91af6f961a62189e2c0` |
-| [src/adapters/accounts.tsx](../../../src/adapters/accounts.tsx) | `205182f0161946cca99c8022a0c4c09543c4cef5` |
-| [src/adapters/Link.tsx](../../../src/adapters/Link.tsx) | `d5ed5662009771f4283760af377191d9c7a1da71` |
-| [src/components/AdminDataGridOptions.ts](../../../src/components/AdminDataGridOptions.ts) | `2149e949bb429adb23281748490efa29979a76da` |
-| [src/components/InstructorDataGridOptions.ts](../../../src/components/InstructorDataGridOptions.ts) | `6289bbe308424625e079db723ffd440176736691` |
-| [src/i18n/index.tsx](../../../src/i18n/index.tsx) | `3995019deab2fe0b5c1082320c06c73802a47ffb` |
-| [src/utils/formatDueDateLabel.ts](../../../src/utils/formatDueDateLabel.ts) | `dfce16aa6abbed4fa0ea74f0257805b8a1b53431` |
-| [src/components/DataToolbar/buildColumnOptions.ts](../../../src/components/DataToolbar/buildColumnOptions.ts) | `cfc11203c9fc6e4645a5ce9e4e2c4554cea5ae4d` |
+| [scripts/release-policy.test.mjs](../../../packages/ui/scripts/release-policy.test.mjs) | `b1b6c0dfe4661475033d30ba968f4972484bdaf9` |
+| [src/index.ts](../../../packages/ui/src/index.ts) | `4b0ea0e0ad7845f2a34e1820a490aa4b6986411f` |
+| [src/components/index.ts](../../../packages/ui/src/components/index.ts) | `fd4f424ed4cb0a8ee3b7da1f70ccc3e06ec42122` |
+| [src/components/AppDataGrid/index.ts](../../../packages/ui/src/components/AppDataGrid/index.ts) | `4d8134908caeb409dd64d3e3935125197ad2ad18` |
+| [src/hooks/index.ts](../../../packages/ui/src/hooks/index.ts) | `924add6d71b1f6808316d91c3b19c27a71a0ea8f` |
+| [src/hooks/paginationModel.ts](../../../packages/ui/src/hooks/paginationModel.ts) | `a930a0b0a2600b5dedc963a1717d79c8821296d7` |
+| [src/hooks/usePersistentState.ts](../../../packages/ui/src/hooks/usePersistentState.ts) | `af48e9db8a583efbbe08fd290ef5a9d7eb8b8335` |
+| [src/hooks/usePersistentPaginationModel.ts](../../../packages/ui/src/hooks/usePersistentPaginationModel.ts) | `bedcdea5d9b8ac2cc8ff35b310570057a9a1bb16` |
+| [src/adapters/index.ts](../../../packages/ui/src/adapters/index.ts) | `422639cc475322b63cfcc62bd4561deec463007d` |
+| [src/adapters/navigation.tsx](../../../packages/ui/src/adapters/navigation.tsx) | `e18b09cd0755f37192e8a91af6f961a62189e2c0` |
+| [src/adapters/accounts.tsx](../../../packages/ui/src/adapters/accounts.tsx) | `205182f0161946cca99c8022a0c4c09543c4cef5` |
+| [src/adapters/Link.tsx](../../../packages/ui/src/adapters/Link.tsx) | `d5ed5662009771f4283760af377191d9c7a1da71` |
+| [src/components/AdminDataGridOptions.ts](../../../packages/ui/src/components/AdminDataGridOptions.ts) | `2149e949bb429adb23281748490efa29979a76da` |
+| [src/components/InstructorDataGridOptions.ts](../../../packages/ui/src/components/InstructorDataGridOptions.ts) | `6289bbe308424625e079db723ffd440176736691` |
+| [src/i18n/index.tsx](../../../packages/ui/src/i18n/index.tsx) | `3995019deab2fe0b5c1082320c06c73802a47ffb` |
+| [src/utils/formatDueDateLabel.ts](../../../packages/ui/src/utils/formatDueDateLabel.ts) | `dfce16aa6abbed4fa0ea74f0257805b8a1b53431` |
+| [src/components/DataToolbar/buildColumnOptions.ts](../../../packages/ui/src/components/DataToolbar/buildColumnOptions.ts) | `cfc11203c9fc6e4645a5ce9e4e2c4554cea5ae4d` |
 
 ## Report validation result
 

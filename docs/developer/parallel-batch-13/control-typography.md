@@ -20,7 +20,7 @@ not close broad A/U/X/R/Z, manual/device or assistive-technology gates.
 
 ## Existing evidence inspected
 
-[Typography implementation](../../../src/experimental/Typography/Typography.tsx)
+[Typography implementation](../../../packages/ui/src/experimental/Typography/Typography.tsx)
 selects the native semantic element through `as` independently of `variant`.
 The default is a paragraph, including when a visual heading role is supplied.
 Native attributes and `style` pass through the remaining props; the native ref is
@@ -28,16 +28,16 @@ forwarded directly and host classes are appended to the compiled module class.
 Owned role/tone/no-wrap data attributes are applied after the native prop spread.
 No upstream public types or interaction dependency are used.
 
-[Colocated tests](../../../src/experimental/Typography/Typography.test.tsx)
+[Colocated tests](../../../packages/ui/src/experimental/Typography/Typography.test.tsx)
 contain two DOM cases (independent heading hierarchy; bodyAlt2/native span ref,
 host class and accessible name) and 15 parameterized server-rendered visual roles.
-The [SSR composition test](../../../src/experimental/Typography/Typography.ssr.test.tsx)
+The [SSR composition test](../../../packages/ui/src/experimental/Typography/Typography.ssr.test.tsx)
 adds one case with absent browser globals and Box/Stack/Surface/Card/Divider.
 There are 18 existing cases across these two files. These are inspected assertions,
 not fresh test results from this task. The DOM test title mentions styles but its
 body does not actually supply/assert `style`; do not cite it as cascade evidence.
 
-[Typography CSS](../../../src/experimental/Typography/Typography.module.css)
+[Typography CSS](../../../packages/ui/src/experimental/Typography/Typography.module.css)
 uses `sgui.components` exclusively. Every role's size, line-height and weight use
 owned variables; bodyAlt2 maps to `--sgui-body-alt2-*`, and code uses the shared
 monospace family. No local font metric values or token duplication were found.
@@ -46,7 +46,7 @@ The native style is not rewritten by the implementation. The
 specifies that normal unlayered host CSS outranks the library layer. Source
 inspection establishes this wiring, not an executed native-browser cascade test.
 
-[Existing stories](../../../src/experimental/Typography/Typography.stories.tsx)
+[Existing stories](../../../packages/ui/src/experimental/Typography/Typography.stories.tsx)
 already include default bodyAlt2, all roles and independent semantic heading
 selection under the production Provider. No changed behavior required a new story.
 The [public primitive mapping](../react-aria-primitives.md),

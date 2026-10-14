@@ -1,0 +1,57 @@
+import { useState } from "react";
+import type { Meta, StoryObj } from "../../../types";
+import { DateField } from "@structured-growth/sg-ui/experimental";
+import { Provider } from "@structured-growth/sg-ui/theme";
+import { Button } from "@structured-growth/sg-ui/experimental";
+import { dateTimeToInstant } from "@structured-growth/sg-ui/experimental";
+const meta = { title: "Migration proofs/DateField", component: DateField, tags: ["autodocs"],
+  decorators: [(Story) => <Provider><Story /></Provider>], args: { label: "Course date", defaultValue: "2024-02-28", description: "Gregorian ISO values; localized display." },
+} satisfies Meta<typeof DateField>;
+export default meta;
+type Story = StoryObj<typeof meta>;
+export const DateOnly: Story = {};
+export const Validation: Story = { args: { invalid: true, errorMessage: "Choose an available date." } };
+export const TimezoneResolution: Story = { render: () => {
+  const [value, setValue] = useState<string | null>("2024-11-03T01:30:00");
+  const [zone, setZone] = useState("America/Chicago");
+  const [resolution, setResolution] = useState<"reject" | "earlier" | "later">("reject");
+  const [result, setResult] = useState("");
+  return <><DateField label="Local start" kind="datetime" value={value} onValueChange={setValue} />
+    <label>Host timezone <select value={zone} onChange={event => setZone(event.target.value)}><option>America/Chicago</option><option>Asia/Tokyo</option></select></label>
+    <label>Ambiguous time <select value={resolution} onChange={event => setResolution(event.target.value as typeof resolution)}><option>reject</option><option>earlier</option><option>later</option></select></label>
+    <Button onPress={() => { try { setResult(value ? dateTimeToInstant(value, zone, resolution) : "Choose a complete datetime."); }
+      catch { setResult("This local time is ambiguous or unavailable. Choose a resolution or another time."); } }}>Resolve instant</Button><p role="status">{result}</p></>;
+} };
+
+function StandaloneResetForm() {
+  const [prevent, setPrevent] = useState(false);
+  const [changes, setChanges] = useState(0);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
+    <form aria-label="Standalone reset form">
+      <DateField label="Uncontrolled field" name="uncontrolled" defaultValue="2024-02-28" onValueChange={() => setChanges(count => count + 1)} />
+      <DateField label="Controlled field" name="controlled" value="2024-03-10" defaultValue="2024-02-28" onValueChange={() => setChanges(count => count + 1)} />
+      <Button type="reset">Reset fields</Button>
+      <output aria-label="Change callbacks">{changes}</output>
+    </form>
+  </div>;
+}
+export const StandaloneReset: Story = { render: () => <StandaloneResetForm /> };
+
+function IncompleteResetForm({ controlled = false }: { controlled?: boolean }) {
+  const [prevent, setPrevent] = useState(true);
+  const [changes, setChanges] = useState(0);
+  return <div onReset={event => { if (prevent) event.preventDefault(); }}>
+    <label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent incomplete reset</label>
+    <form aria-label="Incomplete date reset form">
+      <DateField label="Incomplete date" name="date" required errorMessage="Complete the course date" value={controlled ? null : undefined}
+        onValueChange={() => setChanges(count => count + 1)} description="Enter a day while leaving month and year empty." />
+      <Button type="submit">Validate draft</Button>
+      <Button type="reset">Reset draft</Button>
+      <output aria-label="Draft change callbacks">{changes}</output>
+    </form>
+  </div>;
+}
+/** U-18/K-06 incomplete-draft transactions, with native validation. */
+export const IncompletePreventedReset: Story = { render: () => <IncompleteResetForm /> };
+export const ControlledNullIncompleteReset: Story = { render: () => <IncompleteResetForm controlled /> };

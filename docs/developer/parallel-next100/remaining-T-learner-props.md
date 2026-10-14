@@ -4,11 +4,11 @@ T-C19-05, dependency F-C19-05: ready for independent review. The functionality
 baseline already exports `LearnerClassesDataGridProps`; the missing regression
 evidence was an actual compiler program consuming that public export.
 
-The [focused fixture](../../../tests/consumers/remaining-T-learner-props.tsx)
+The [focused fixture](../../../packages/ui/tests/consumers/remaining-T-learner-props.tsx)
 imports the component and props from the root, component barrel and granular
 public route. It consumes owned row labels/reset-view callbacks, assigns props
 through all three routes and renders each component in JSX under Provider.
-The [dedicated config](../../../tests/consumers/remaining-T-learner-props.tsconfig.json)
+The [dedicated config](../../../packages/ui/tests/consumers/remaining-T-learner-props.tsconfig.json)
 explicitly includes this fixture and the CSS module declaration. Its three
 package aliases map only to the public source barrels corresponding to the
 declared package exports. No private implementation alias masks an export gap.

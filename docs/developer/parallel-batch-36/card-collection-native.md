@@ -21,14 +21,14 @@ constrained enlarged-text viewport defect recorded below.
 
 ## Added composition evidence
 
-[NativeCollection story](../../../src/components/CardCollectionWithFooter/CardCollectionWithFooter.stories.tsx)
+[NativeCollection story](../../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.stories.tsx)
 has one host pagination owner, explicit accept/reject requests, complete keyed rows,
 state replacements, and editable owned fields inside owned cards.
-The [unit regression](../../../src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx)
+The [unit regression](../../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx)
 proves withheld page/size requests preserve the cards/select and accepted size
 changes request page zero before size and display the matching card slice/count.
 
-[Focused native spec](../../../tests/browser/inventory-card-collection.spec.ts)
+[Focused native spec](../../../packages/ui/tests/browser/inventory-card-collection.spec.ts)
 contains six cases: four light/dark × compact/comfortable container cases and two
 state/pagination cases. It measures 800/780/760/360/320px container changes with a
 260px host, the 22.5rem column threshold, no horizontal overflow, visible footer,

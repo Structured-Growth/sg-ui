@@ -1,0 +1,152 @@
+[
+  {
+    "id": "actions",
+    "label": "Buttons & actions",
+    "slugs": [
+      "button",
+      "owned-button",
+      "icon-button",
+      "button-group",
+      "split-action",
+      "menu",
+      "toggle-button",
+      "toggle-button-group"
+    ]
+  },
+  {
+    "id": "forms",
+    "label": "Form components",
+    "slugs": [
+      "text-field",
+      "text-area",
+      "select",
+      "combo-box",
+      "async-multi-select",
+      "checkbox",
+      "switch",
+      "radio-group",
+      "tag-group",
+      "editable-title-field",
+      "date-field",
+      "time-field",
+      "calendar",
+      "date-picker",
+      "date-range-picker",
+      "date-range-selector"
+    ]
+  },
+  {
+    "id": "text",
+    "label": "Text & content",
+    "slugs": [
+      "typography",
+      "link",
+      "list",
+      "chip",
+      "avatar"
+    ]
+  },
+  {
+    "id": "grids",
+    "label": "Data grids & tables",
+    "slugs": [
+      "data-grid-shell",
+      "app-data-grid",
+      "processing-grid",
+      "learner-grid",
+      "data-toolbar",
+      "selection-menu",
+      "row-reorder",
+      "row-subheader",
+      "table",
+      "pagination",
+      "grid-presets"
+    ]
+  },
+  {
+    "id": "cards",
+    "label": "Cards & collections",
+    "slugs": [
+      "card",
+      "card-frame",
+      "instructor-card",
+      "learner-card",
+      "card-collection",
+      "pagination-footer"
+    ]
+  },
+  {
+    "id": "overlays",
+    "label": "Dialogs & overlays",
+    "slugs": [
+      "dialog",
+      "owned-dialog",
+      "popover",
+      "tooltip",
+      "columns-layout-modal",
+      "link-url-modal",
+      "image-upload-modal"
+    ]
+  },
+  {
+    "id": "layouts",
+    "label": "Navigation & layout",
+    "slugs": [
+      "app-shell",
+      "auth-shell",
+      "side-navigation",
+      "navigation",
+      "breadcrumbs",
+      "page-header",
+      "page-tabs",
+      "tabs",
+      "experience-page-navigator",
+      "box",
+      "stack",
+      "surface",
+      "divider",
+      "disclosure",
+      "collapse"
+    ]
+  },
+  {
+    "id": "editor",
+    "label": "Rich text editors",
+    "slugs": [
+      "page-rich-text-editor-section",
+      "document-editor-layout",
+      "document-editor-toolbar",
+      "content-editor-chrome",
+      "rich-text-formatting-toolbar",
+      "floating-text-selection-toolbar",
+      "insert-content-menu-control",
+      "text-align-menu-control",
+      "text-color-picker-control",
+      "text-style-menu-control"
+    ]
+  },
+  {
+    "id": "feedback",
+    "label": "Feedback & progress",
+    "slugs": [
+      "progress",
+      "status",
+      "badge",
+      "inline-progress",
+      "operation-steps"
+    ]
+  },
+  {
+    "id": "foundations",
+    "label": "Themes & integration",
+    "slugs": [
+      "provider",
+      "theme-scope",
+      "navigation-provider",
+      "sg-link",
+      "account-provider",
+      "translation-provider",
+      "icons"
+    ]
+  }
+]

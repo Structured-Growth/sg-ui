@@ -1,0 +1,6 @@
+/* Keep the same layout width when modal overlays lock document scrolling. */
+html { color-scheme: light dark; scrollbar-gutter: stable; }
+/* WebKit can discard a classic gutter while overflow is hidden. The docs shell
+   measures its unlocked width; normal scrollbar compensation is not duplicated. */
+body { margin: 0; max-inline-size: var(--docs-layout-width, 100%); }
+* { box-sizing: border-box; }

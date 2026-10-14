@@ -1,4 +1,0 @@
-@layer sgui.components {
-  /* Scope ordinary text as well as controls; typography may inherit its color. */
-  .root { color: var(--sgui-text); }
-}

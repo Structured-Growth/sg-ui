@@ -5,16 +5,16 @@ This batch adds proof only. Popover runtime and all shared configurations are un
 
 ## Bounded fixture and assertions
 
-- [Fixture](../../../src/experimental/Popover/Popover.collision.stories.tsx):
+- [Fixture](../../../packages/ui/src/experimental/Popover/Popover.collision.stories.tsx):
   four owned placement intents (`bottom start/end`, `top start/end`), fixed edge
   anchors and a separate scrollable host. The edge anchor intentionally opposes
   the requested vertical side, requiring a resolved flip. Host layout does not
   repair focus, overlay positions or clipping.
-- [Composition tests](../../../src/experimental/Popover/Popover.collision.test.tsx):
+- [Composition tests](../../../packages/ui/src/experimental/Popover/Popover.collision.test.tsx):
   all four intents open named content via keyboard, inherit dark/RTL/enlarged
   token scope through the portal, expose editable controls and restore trigger
   focus after Escape. These jsdom tests make no placement/layout claim.
-- [Native spec](../../../tests/browser/popover-native-collision.spec.ts):
+- [Native spec](../../../packages/ui/tests/browser/popover-native-collision.spec.ts):
   32 cases cover four placement intents, two host layouts, and four scope/text
   combinations (light/LTR/normal, dark/RTL/enlarged, light/RTL/enlarged,
   dark/LTR/normal). Every case opens by native pointer, edits via keyboard,

@@ -16,18 +16,18 @@ are retained rather than duplicated in the new cases.
 
 ## Change and focused proof
 
-Added the [SlotReplacement story](../../../src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx)
+Added the [SlotReplacement story](../../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx)
 with host-owned bounded scrolling and Alt+1/2/3 state controls. The stable host
 child and ref callbacks stay in place as header actions, menu and toolbar are
 added, replaced, removed and re-added. Content remains focusable and independently
 scrollable. Story labels are host sample data. No production implementation,
 CSS, public API or dependency changed; no product defect has been demonstrated.
 
-One new [colocated composed test](../../../src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx)
+One new [colocated composed test](../../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx)
 asserts the unchanged focused host node and native root/host refs through live
 slot changes. Its jsdom scrollTop assertion is state retention, not native geometry.
 
-The [focused native spec](../../../tests/browser/inventory-layout-replacement.spec.ts)
+The [focused native spec](../../../packages/ui/tests/browser/inventory-layout-replacement.spec.ts)
 contains four cases: both production themes at 260px, with normal and 200% browser
 text. A trusted wheel positions a focused document action near the host viewport
 top; native Alt shortcuts change chrome without refocusing content. Cases assert

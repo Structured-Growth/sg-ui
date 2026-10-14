@@ -17,10 +17,10 @@ Exclusive write allowlist and actual changed files (three):
 - `docs/developer/parallel-batch-14/api-guide-corrections.md`
 
 The [primitive guide](../react-aria-primitives.md) now matches the current
-[Checkbox](../../../src/experimental/Checkbox/Checkbox.tsx) HTMLLabelElement ref,
-[TextField](../../../src/experimental/TextField/TextField.tsx) naming union
+[Checkbox](../../../packages/ui/src/experimental/Checkbox/Checkbox.tsx) HTMLLabelElement ref,
+[TextField](../../../packages/ui/src/experimental/TextField/TextField.tsx) naming union
 (label or aria-label), and passive
-[Chip](../../../src/experimental/Chip/Chip.tsx) HTMLSpanElement presentation with
+[Chip](../../../packages/ui/src/experimental/Chip/Chip.tsx) HTMLSpanElement presentation with
 no onRemove. Removable tokens belong to TagGroup through `/experimental`, as
 specified by the [remaining control contract](../react-aria-remaining-controls.md#chips-badges-and-removable-tags).
 The [layout guide](../react-aria-layout-actions.md) opening paragraph now describes
@@ -37,8 +37,8 @@ broad acceptance. Four claims corrected; no runtime, ref or export changes.
 
 PR #41 changes two audit documents; #56 and #51 each change one report and no
 runtime. Their findings are attributed evidence, not fresh unit/browser passes.
-Source and [public primitive barrel](../../../src/components/primitives/index.ts)
-confirm the current mappings; [experimental barrel](../../../src/experimental/index.ts)
+Source and [public primitive barrel](../../../packages/ui/src/components/primitives/index.ts)
+confirm the current mappings; [experimental barrel](../../../packages/ui/src/experimental/index.ts)
 confirms the TagGroup route. No historical snapshot, previous report or required
 breaking mapping was rewritten. Current owned contracts remain breaking mappings
 from extracted upstream APIs; this documentation correction introduces no new

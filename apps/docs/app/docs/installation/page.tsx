@@ -1,0 +1,4 @@
+import { Typography, Link } from '@structured-growth/sg-ui/primitives';
+import { DocPage, Code } from '../../../components/DocPage';
+export const metadata = {title:"Installation"};
+export default function Page() { return <DocPage title="Installation" description="Install the library and connect your application."><Typography>Before using SGUI, obtain a written commercial agreement. These are development docs; version 1 has not been published.</Typography><Code>{'pnpm add @structured-growth/sg-ui react react-dom'}</Code><Code>{`import '@structured-growth/sg-ui/styles.css';\nimport { Provider, AppButton } from '@structured-growth/sg-ui';\n\n<Provider><AppButton onPress={handleSave}>Save</AppButton></Provider>`}</Code><Typography>Load the stylesheet once. Your application owns routing, data, translation and account actions.</Typography></DocPage>; }

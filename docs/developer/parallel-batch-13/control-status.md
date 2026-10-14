@@ -30,35 +30,35 @@ any edits. Primary and other worktrees were preserved.
 
 ## Existing evidence
 
-[Status implementation](../../../src/experimental/Status/Status.tsx) owns one
+[Status implementation](../../../packages/ui/src/experimental/Status/Status.tsx) owns one
 native div and directly maps the host's announcement request: default `off`,
 polite `role=status`, or assertive `role=alert`. Atomicity is enabled for explicit
 announcements. Its presentation tone does not independently activate a live
 region, and the host owns content and translation. There is no timer, effect,
 secondary announcer or state engine that repeats messages.
 
-[Status tests](../../../src/experimental/Status/Status.test.tsx) contain two
+[Status tests](../../../packages/ui/src/experimental/Status/Status.test.tsx) contain two
 existing tests: default quiet/native ref followed by polite then assertive
 transitions, and SSR without browser globals. Existing
-[stories](../../../src/experimental/Status/Status.stories.tsx) show quiet content,
+[stories](../../../packages/ui/src/experimental/Status/Status.stories.tsx) show quiet content,
 an initially mounted empty polite region updated by a host action, and a danger
 tone that remains quiet. Repeating the same host message is not a new state
 transition; the API does not promise replay of identical speech.
 
-[Grid status parts](../../../src/components/AppDataGrid/ownedGridParts.tsx)
+[Grid status parts](../../../packages/ui/src/components/AppDataGrid/ownedGridParts.tsx)
 compose this exact Status component, with a non-live Progress indicator and one
 message span. Their
-[existing tests](../../../src/components/AppDataGrid/ownedGridParts.test.tsx)
+[existing tests](../../../packages/ui/src/components/AppDataGrid/ownedGridParts.test.tsx)
 cover loading, refreshing, empty, no-results and host error transitions plus a
 single retry request. The
-[composed lifecycle regression](../../../src/components/AppDataGrid/ownedGridInteraction.test.tsx)
+[composed lifecycle regression](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx)
 (`keeps one retained-row announcement through failure and host retry without
 moving another grid's focus`) observes zero content mutations on an unchanged
 pending rerender, one pending message, one assertive error region, host-authorized
 retry-to-pending, completion removal and independent-grid isolation. Retry alone
 does not establish new pending state.
 
-[Existing native browser cases](../../../tests/browser/batch05-grid-busy.spec.ts)
+[Existing native browser cases](../../../packages/ui/tests/browser/batch05-grid-busy.spec.ts)
 cover repeated loading/refreshing requests, zero live-content mutations on an
 unrelated host render, error/retry/success, and independent-grid ownership. The
 [batch-05 completion record](../parallel-batch-05/grid-busy.md) reports two cases

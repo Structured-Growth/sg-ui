@@ -1,0 +1,171 @@
+{
+  "text-field": {
+    "when": "Use TextField for a single line of user-entered text, such as a course name, email address, search phrase or URL. Choose TextArea when the content needs multiple lines, and a selection control when users must choose from known records.",
+    "how": [
+      "Provide a visible label, or aria-label when the design deliberately omits a visible label. Use description for guidance and the supported type, placeholder, autoComplete and inputMode props for the input's purpose.",
+      "Use value with onValueChange for a host-controlled draft, or defaultValue for an uncontrolled field. Keep that choice stable; the callback receives the text directly rather than a DOM event.",
+      "Supply name for native form data. Use required, length limits or pattern where appropriate, and invalid with errorMessage for host validation. The host owns submission and persistence.",
+      "Choose density locally. A native form reset restores uncontrolled defaults; reset controlled host state explicitly when your form's reset policy requires it."
+    ],
+    "related": [{"slug":"text-area","label":"Multiline input"},{"slug":"select","label":"Known option selection"},{"slug":"combo-box","label":"Searchable options"}]
+  },
+  "text-area": {
+    "when": "Use TextArea for descriptions, notes and other text that should span multiple lines. It retains the field contract of TextField while exposing rows to establish a useful initial editing area.",
+    "how": [
+      "Provide a label and optional description, then set rows for the expected amount of content. Use placeholder for an example rather than as the only label.",
+      "Pair value with onValueChange for controlled content, or use defaultValue for an uncontrolled draft. The callback receives the complete string.",
+      "Use name, required and supported length constraints for native forms; expose host validation through invalid and errorMessage. Reset controlled state in the host while uncontrolled values follow native form reset.",
+      "Apply disabled or readOnly according to whether the field should be unavailable or inspectable, and compare compact and comfortable density within the surrounding form."
+    ],
+    "related": [{"slug":"text-field","label":"Single-line input"},{"slug":"page-rich-text-editor-section","label":"Rich document editing"}]
+  },
+  "select": {
+    "when": "Use Select when users must choose one option from a known list and do not need to type a search query. Use ComboBox for searchable lists or AsyncMultiSelect when the host supplies search results and users can choose several records.",
+    "how": [
+      "Supply label and options with unique, stable string IDs. Labels describe records; disabled options remain unavailable without changing their identity.",
+      "Control the selected ID with value and onValueChange, using null to clear it, or initialize an uncontrolled selection with defaultValue. Keep the control mode stable and supply a placeholder for an empty selection.",
+      "Use name for native form serialization and required, invalid and errorMessage for validation. Native reset restores uncontrolled defaults; controlled hosts decide how to reset their selected ID.",
+      "Use description for instructions and disabled or readOnly for the appropriate interaction state. Density comes from the surrounding scope rather than a Select density prop."
+    ],
+    "related": [{"slug":"combo-box","label":"Searchable single selection"},{"slug":"async-multi-select","label":"Host-search multi-selection"},{"slug":"radio-group","label":"Always-visible choices"}]
+  },
+  "combo-box": {
+    "when": "Use ComboBox to choose one record from locally supplied options while typing to narrow the list. The public Autocomplete primitive is an alias of this same component; neither alias fetches records or turns arbitrary input text into a selected business value.",
+    "how": [
+      "Supply label and options with unique string IDs and presentation labels. The component filters those options locally; the host owns any fetching and result freshness.",
+      "Pair value with onValueChange for a controlled selected ID, or use defaultValue for an uncontrolled selection. null clears selection; typing a query and selecting an option are different actions.",
+      "Provide name for native form data, placeholder and description for guidance, and required or invalid with errorMessage for validation. Keep controlled state resets in the host.",
+      "Use disabled or readOnly for interaction restrictions and inherit density from the scope. Import ComboBox from the experimental entry or Autocomplete from the public primitives entry using the same prop contract."
+    ],
+    "related": [{"slug":"select","label":"Selection without search"},{"slug":"async-multi-select","label":"Multiple host-search results"},{"slug":"text-field","label":"Free text entry"}]
+  },
+  "async-multi-select": {
+    "when": "Use AsyncMultiSelect when users choose multiple records from host-owned search results. It separates the current query and result list from selected records, so a selection can remain visible when the next search no longer includes it.",
+    "how": [
+      "Control query with onQueryChange and supply options for that query, each with a stable unique ID. Fetching, cancellation and stale-response rejection belong to the host; the component does not call an endpoint.",
+      "Use value and onValueChange for selected option records, or defaultValue for an uncontrolled initial selection. Preserve those records independently of the current result list.",
+      "Set loading during a pending request and errorMessage on failure. Provide onRetry to let the host retry its search; use description to explain the search and selection task.",
+      "Use name to serialize selected IDs in native form data. Query and controlled selection reset policy remain host-owned; disabled or readOnly prevents selection changes."
+    ],
+    "related": [{"slug":"combo-box","label":"Searchable single selection"},{"slug":"tag-group","label":"Removable selected labels"},{"slug":"select","label":"Simple known choices"}]
+  },
+  "checkbox": {
+    "when": "Use Checkbox for an independent yes/no choice, an agreement, or an item in a set where several choices can be selected. Use mixed to present a partially selected aggregate; use RadioGroup when exactly one of several options should be chosen.",
+    "how": [
+      "Provide label and optional description. Pair checked with onCheckedChange for controlled state, or use defaultChecked for an uncontrolled initial choice.",
+      "Set mixed when the host's aggregate selection is partial. The host calculates that state and decides which items a checkbox activation selects or clears.",
+      "Supply name and value for native form submission, using required for a required agreement and invalid with errorMessage for host validation. An unchecked checkbox does not contribute its value to ordinary native form data.",
+      "Use disabled or readOnly for interaction restrictions. Native reset restores uncontrolled defaults; reset controlled checked and aggregate state through the host."
+    ],
+    "related": [{"slug":"switch","label":"Binary preferences"},{"slug":"radio-group","label":"Mutually exclusive choices"},{"slug":"toggle-button","label":"Pressed actions"}]
+  },
+  "switch": {
+    "when": "Use Switch for an on/off preference such as reminders or a feature setting. Its label describes the setting, while the checked state describes whether it is enabled; the host decides whether changes apply immediately or wait for a form submission.",
+    "how": [
+      "Provide a descriptive label and optional description. Use checked with onCheckedChange for a controlled preference, or defaultChecked to initialize uncontrolled state.",
+      "Connect the callback to host state and persistence policy. A visual state change alone does not save an account setting or send a request.",
+      "Use name and value when the switch participates in native form data. Native reset restores uncontrolled defaults; controlled preferences require a host reset policy.",
+      "Use disabled for an unavailable setting or readOnly when its value should remain inspectable without changes. Inherit spacing and target size from the local density scope."
+    ],
+    "related": [{"slug":"checkbox","label":"Agreements and multiple choices"},{"slug":"toggle-button","label":"Pressed-state actions"}]
+  },
+  "radio-group": {
+    "when": "Use RadioGroup when users should see a small set of mutually exclusive choices at once, such as a delivery method or course visibility. Select is usually a better fit when the option list is too long to display in full.",
+    "how": [
+      "Provide a group label and options with stable value strings and labels. Mark individual options disabled when they cannot currently be selected.",
+      "Pair value with onValueChange for controlled selection, or use defaultValue for the initial uncontrolled choice. The callback supplies the chosen value; the host owns option changes and selection policy.",
+      "Choose horizontal or vertical orientation for the surrounding layout. Use description for group guidance and disabled or readOnly to restrict interaction.",
+      "Supply name for native form data and required, invalid and errorMessage for validation. Native reset follows uncontrolled defaults; reset controlled selection explicitly."
+    ],
+    "related": [{"slug":"select","label":"Compact single selection"},{"slug":"checkbox","label":"Independent choices"},{"slug":"toggle-button-group","label":"Grouped pressed actions"}]
+  },
+  "toggle-button": {
+    "when": "Use ToggleButton for an action with a persistent pressed state, such as bold formatting or an enabled view tool. Use Checkbox or Switch when the interaction represents a named form field or a setting rather than a toolbar action.",
+    "how": [
+      "Supply readable children or an accessible name for the action. Pair selected with onSelectedChange for controlled pressed state, or use defaultSelected for an uncontrolled initial state.",
+      "Use onSelectedChange to receive the next pressed state. If you also provide onPress for a host command, avoid toggling the same state again in that callback.",
+      "Choose density locally and use disabled when the command is unavailable. ToggleButton is an action button; serialize application values separately rather than treating it as a native named form field."
+    ],
+    "related": [{"slug":"toggle-button-group","label":"Grouped pressed actions"},{"slug":"checkbox","label":"Binary form fields"},{"slug":"button","label":"Ordinary actions"}]
+  },
+  "toggle-button-group": {
+    "when": "Use ToggleButtonGroup for related pressed actions, such as choosing a view or enabling several formatting tools. It supports single or multiple selection while keeping the selected action IDs in a host-owned array.",
+    "how": [
+      "Provide label and options with unique stable IDs and labels, plus optional icons or disabled states. Set selectionMode to single or multiple according to the action relationship.",
+      "Pair selectedIds with onSelectionChange for controlled state, or use defaultSelectedIds for an initial uncontrolled selection. In single mode, keep the controlled array to at most one ID.",
+      "Set allowEmpty to false when a selected action must remain, and choose horizontal or vertical orientation. Apply density locally and disabled to make the entire group unavailable.",
+      "Connect selection to host commands or presentation state. The group is not a native form field; the host supplies any needed form serialization and reset behavior."
+    ],
+    "related": [{"slug":"toggle-button","label":"Individual pressed actions"},{"slug":"radio-group","label":"Named single-choice fields"},{"slug":"button-group","label":"Grouped ordinary actions"}]
+  },
+  "tag-group": {
+    "when": "Use TagGroup to display a host-owned collection of labels, especially selected filters or topics that users can remove. It represents the selected items themselves; use AsyncMultiSelect when users also need to search for and add records.",
+    "how": [
+      "Supply label and items with unique IDs and labels. Use item disabled or removeLabel for per-item behavior and host-translated removal names.",
+      "Provide onRemove to receive the IDs requested for removal, then filter those IDs out of your host-owned items. Omit the callback for a non-removable collection.",
+      "Choose neutral or primary tone and compact or comfortable density. Use emptyContent to explain what happens after the final item is removed, and disabled to restrict the collection.",
+      "Keep adding records, persistence and undo policy in the host; TagGroup does not fetch records or save the collection."
+    ],
+    "related": [{"slug":"async-multi-select","label":"Search and choose records"},{"slug":"chip","label":"Individual presentation labels"}]
+  },
+  "date-field": {
+    "when": "Use DateField for keyboard-editable segmented date or local datetime entry without a calendar popup. Use DatePicker when users should also browse a calendar. A local datetime is not an instant until the host resolves it in an explicit timezone.",
+    "how": [
+      "Provide label and choose kind: date uses a complete YYYY-MM-DD string, while datetime uses YYYY-MM-DDTHH:mm:ss without an offset or timezone. Partial editing stays within the field until a complete value is available.",
+      "Pair value with onValueChange for controlled values, using null for an empty field, or initialize with defaultValue. Keep supplied values valid for the selected kind and use matching min and max limits.",
+      "Use name, required, invalid and errorMessage for native form and host validation needs. Use description for guidance, disabled or readOnly for interaction state, and hourCycle for datetime presentation.",
+      "For an instant, call dateTimeToInstant with a host-selected timezone and ambiguity policy; do not infer timezone from locale. Native reset restores uncontrolled defaults, while controlled values follow the host's reset policy."
+    ],
+    "related": [{"slug":"date-picker","label":"Date entry with a calendar"},{"slug":"time-field","label":"Clock time without a date"},{"slug":"date-range-selector","label":"Inclusive date ranges"}]
+  },
+  "time-field": {
+    "when": "Use TimeField for a local clock time such as a course's start time or opening hours, without selecting a date. Use DateField with kind datetime when both a civil date and a time are required.",
+    "how": [
+      "Provide label and complete HH:mm:ss values. Pair value with onValueChange for controlled state, use null for empty, or initialize uncontrolled state with defaultValue.",
+      "Set hourCycle to 12 or 24 for presentation and use min and max for local clock limits. These values have no date or timezone and are not UTC timestamps.",
+      "Use name and required for native form participation, description for guidance, and invalid with errorMessage for host validation. disabled and readOnly express different interaction restrictions.",
+      "Native reset restores uncontrolled defaults; the host resets controlled state. If the time must become an instant, the host must first supply a civil date, timezone and conversion policy."
+    ],
+    "related": [{"slug":"date-field","label":"Date and local datetime entry"},{"slug":"date-picker","label":"Calendar date selection"}]
+  },
+  "calendar": {
+    "when": "Use Calendar when date browsing should remain visible within the page or a custom composition. It selects one day or several independent days; use DateRangeSelector for an inclusive interval and DatePicker for a compact field with a calendar popup.",
+    "how": [
+      "Provide label and Gregorian YYYY-MM-DD values. In single selection use a date or null; in multiple selection use an array of dates. Match value and onValueChange to the selected mode, or use defaultValue for uncontrolled initialization.",
+      "Choose one or two visible months and firstDayOfWeek. Treat focusedDate and onFocusedDateChange separately from selected values: moving focus is not the same as selecting a day.",
+      "Supply min, max and unavailable date/reason records from host metadata. The component does not fetch availability; disabled or readOnly restricts the entire calendar.",
+      "Use Provider locale for presentation without changing serialized civil dates. Calendar is not a named native form field, so the host supplies serialization, submission and reset policy when composing a form."
+    ],
+    "related": [{"slug":"date-picker","label":"Field with calendar popup"},{"slug":"date-range-selector","label":"Visible interval selection"},{"slug":"date-range-picker","label":"Compact interval picker"}]
+  },
+  "date-picker": {
+    "when": "Use DatePicker when users should be able to type a date in segments or choose it from a calendar popup. It combines DateField's date-only contract with Calendar browsing while keeping the popup inside the selected component theme scope.",
+    "how": [
+      "Provide label and YYYY-MM-DD value with onValueChange for controlled selection, using null to clear, or defaultValue for an uncontrolled initial date. Use defaultFocusedDate to give an empty calendar a useful starting month.",
+      "Supply min, max and unavailable date/reason records from the host. An unavailable current date is presented as invalid; the host remains responsible for its business availability policy.",
+      "Use description, required, invalid and errorMessage for form guidance and validation. name serializes the date in native form data; disabled or readOnly prevents calendar activation.",
+      "Native form reset restores uncontrolled defaults and closes the popup. Controlled reset belongs to the host; date-only values remain civil dates and do not imply a timezone."
+    ],
+    "related": [{"slug":"date-field","label":"Segmented entry without a popup"},{"slug":"calendar","label":"Always-visible browsing"},{"slug":"date-range-picker","label":"Choose an interval"}]
+  },
+  "date-range-picker": {
+    "when": "Use DateRangePicker for an inclusive date interval when the full range calendar should open only on demand. It displays the committed range in a trigger and uses DateRangeSelector inside a popup for drafting and Apply/Cancel actions.",
+    "how": [
+      "Pair value with onValueChange for a controlled {start, end} range of YYYY-MM-DD strings, using null for no range, or initialize with defaultValue. Both endpoints are inclusive.",
+      "Supply host presets with stable IDs, labels, explicit ranges and optional descriptions. Use min, max and unavailable records for limits, plus months and firstDayOfWeek for calendar presentation.",
+      "Treat calendar edits as a draft until Apply commits through onValueChange. Cancel closes without committing; required prevents clearing, while disabled or readOnly prevents popup interaction.",
+      "Provide name to submit name.start and name.end in native form data. Native reset closes the popup and restores uncontrolled defaults; controlled host state, availability and persistence remain outside the component."
+    ],
+    "related": [{"slug":"date-range-selector","label":"Always-visible range drafting"},{"slug":"date-picker","label":"Single-day picker"},{"slug":"calendar","label":"Independent date selections"}]
+  },
+  "date-range-selector": {
+    "when": "Use DateRangeSelector for a visible date-range workflow with presets, segmented start/end fields and an inline calendar. Unlike Calendar's multiple independent dates, this control drafts one ordered inclusive interval and commits it only through Apply.",
+    "how": [
+      "Provide label and value with onValueChange for a controlled {start, end} range of YYYY-MM-DD strings, using null for empty, or initialize with defaultValue. Host endpoint changes replace the current draft.",
+      "Supply presets with explicit inclusive values and optional descriptions, plus min, max and unavailable date/reason records from the host. Incomplete, reversed or unavailable drafts cannot Apply.",
+      "Use onCancel for the host's cancellation response. Cancel restores the committed draft; Clear edits the draft and is unavailable when required. Set months, firstDayOfWeek and defaultFocusedDate for the calendar context.",
+      "Use name to serialize committed name.start and name.end values, and keep controlled form reset, availability, timezone conversion and persistence in the host. Locale changes presentation rather than the civil YYYY-MM-DD values."
+    ],
+    "related": [{"slug":"date-range-picker","label":"Range drafting in a popup"},{"slug":"calendar","label":"Individual day selection"},{"slug":"date-field","label":"Segmented civil dates"}]
+  }
+}

@@ -66,7 +66,7 @@ Direct git rev-parse head:path comparisons against baseline:
 
 ## Optional native handoff and contract ambiguity
 
-New [acceptance-pack-114.spec.ts](../../../tests/browser/acceptance-pack-114.spec.ts)
+New [acceptance-pack-114.spec.ts](../../../packages/ui/tests/browser/acceptance-pack-114.spec.ts)
 is **UNRUN**, including browser typing. One distinct G-12 case uses existing
 Client story: native Tab/Enter/ArrowRight/Enter resizes Score, asserts only Score
 receives a width override, then native Tab/Enter activates host order, asserts
@@ -110,24 +110,24 @@ Test files pin reviewed assertions, not executed results.
 
 | Source | Git blob |
 | --- | --- |
-| [src/components/DataToolbar/components/DataToolbarFilterMenu.tsx](../../../src/components/DataToolbar/components/DataToolbarFilterMenu.tsx) | `6756905e82bfb9aac06d2bcd7c2b5f379b7fd187` |
-| [src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx](../../../src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx) | `d0d05ebf8de7f5bf9b385b5628882ea88d1f0050` |
-| [src/components/AppDataGrid/ownedGridModel.ts](../../../src/components/AppDataGrid/ownedGridModel.ts) | `9aec70184dc15e297f247647a67b6667d6bb0051` |
-| [src/components/AppDataGrid/ownedGridModel.test.ts](../../../src/components/AppDataGrid/ownedGridModel.test.ts) | `c3671f338d127e01a0fb96632526fa34a4aa3837` |
-| [src/components/AppDataGrid/ownedGridState.ts](../../../src/components/AppDataGrid/ownedGridState.ts) | `9ef583ee584e484ef148952e6531a48635929073` |
-| [src/components/AdminDataGridOptions.ts](../../../src/components/AdminDataGridOptions.ts) | `2149e949bb429adb23281748490efa29979a76da` |
-| [src/components/InstructorDataGridOptions.ts](../../../src/components/InstructorDataGridOptions.ts) | `6289bbe308424625e079db723ffd440176736691` |
-| [src/components/AppDataGrid/ownedGridColumns.ts](../../../src/components/AppDataGrid/ownedGridColumns.ts) | `5c5ae8541622c9689db5ed74d5eaf1c1c5f8f18d` |
-| [src/components/AppDataGrid/ownedGridColumns.test.ts](../../../src/components/AppDataGrid/ownedGridColumns.test.ts) | `d91d6ab292b6d761d72d9dec06af1916cd64303e` |
-| [src/components/AppDataGrid/ownedGridInteraction.tsx](../../../src/components/AppDataGrid/ownedGridInteraction.tsx) | `c44cfd77b60afb1ad970351e6aaa9c34feb15473` |
-| [src/components/AppDataGrid/ownedGridInteraction.test.tsx](../../../src/components/AppDataGrid/ownedGridInteraction.test.tsx) | `be176a8904128022e0d962dff6def28c1596522d` |
-| [src/components/AppDataGrid/ownedGridLayoutController.ts](../../../src/components/AppDataGrid/ownedGridLayoutController.ts) | `51131f611191dd2216109229befb13fa01181381` |
-| [src/components/AppDataGrid/ownedGridInteraction.stories.tsx](../../../src/components/AppDataGrid/ownedGridInteraction.stories.tsx) | `67d692fca66699078cafd4a352d898b393a0acc2` |
-| [src/components/AppDataGrid/AppDataGrid.cells.test.tsx](../../../src/components/AppDataGrid/AppDataGrid.cells.test.tsx) | `f8e96a3fb538c63539ddc9c3eaf6cb7015287c3a` |
-| [src/components/AppDataGrid/types.ts](../../../src/components/AppDataGrid/types.ts) | `aa61aad90e0d22b1f75addbf4b01c5fec63a5db7` |
-| [src/experimental/SplitAction/SplitAction.tsx](../../../src/experimental/SplitAction/SplitAction.tsx) | `50f18c4dd2f083f8a8428b08120283d1b306a23c` |
-| [src/experimental/ButtonGroup/ButtonGroup.module.css](../../../src/experimental/ButtonGroup/ButtonGroup.module.css) | `7a4872422c0163033cf612747dbb0c9cffb20be7` |
-| [src/experimental/Button/Button.module.css](../../../src/experimental/Button/Button.module.css) | `cccf005e0bdee43ac22d8f8830523938ce5167f6` |
+| [src/components/DataToolbar/components/DataToolbarFilterMenu.tsx](../../../packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.tsx) | `6756905e82bfb9aac06d2bcd7c2b5f379b7fd187` |
+| [src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx](../../../packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx) | `d0d05ebf8de7f5bf9b385b5628882ea88d1f0050` |
+| [src/components/AppDataGrid/ownedGridModel.ts](../../../packages/ui/src/components/AppDataGrid/ownedGridModel.ts) | `9aec70184dc15e297f247647a67b6667d6bb0051` |
+| [src/components/AppDataGrid/ownedGridModel.test.ts](../../../packages/ui/src/components/AppDataGrid/ownedGridModel.test.ts) | `c3671f338d127e01a0fb96632526fa34a4aa3837` |
+| [src/components/AppDataGrid/ownedGridState.ts](../../../packages/ui/src/components/AppDataGrid/ownedGridState.ts) | `9ef583ee584e484ef148952e6531a48635929073` |
+| [src/components/AdminDataGridOptions.ts](../../../packages/ui/src/components/AdminDataGridOptions.ts) | `2149e949bb429adb23281748490efa29979a76da` |
+| [src/components/InstructorDataGridOptions.ts](../../../packages/ui/src/components/InstructorDataGridOptions.ts) | `6289bbe308424625e079db723ffd440176736691` |
+| [src/components/AppDataGrid/ownedGridColumns.ts](../../../packages/ui/src/components/AppDataGrid/ownedGridColumns.ts) | `5c5ae8541622c9689db5ed74d5eaf1c1c5f8f18d` |
+| [src/components/AppDataGrid/ownedGridColumns.test.ts](../../../packages/ui/src/components/AppDataGrid/ownedGridColumns.test.ts) | `d91d6ab292b6d761d72d9dec06af1916cd64303e` |
+| [src/components/AppDataGrid/ownedGridInteraction.tsx](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx) | `c44cfd77b60afb1ad970351e6aaa9c34feb15473` |
+| [src/components/AppDataGrid/ownedGridInteraction.test.tsx](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx) | `be176a8904128022e0d962dff6def28c1596522d` |
+| [src/components/AppDataGrid/ownedGridLayoutController.ts](../../../packages/ui/src/components/AppDataGrid/ownedGridLayoutController.ts) | `51131f611191dd2216109229befb13fa01181381` |
+| [src/components/AppDataGrid/ownedGridInteraction.stories.tsx](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.stories.tsx) | `67d692fca66699078cafd4a352d898b393a0acc2` |
+| [src/components/AppDataGrid/AppDataGrid.cells.test.tsx](../../../packages/ui/src/components/AppDataGrid/AppDataGrid.cells.test.tsx) | `f8e96a3fb538c63539ddc9c3eaf6cb7015287c3a` |
+| [src/components/AppDataGrid/types.ts](../../../packages/ui/src/components/AppDataGrid/types.ts) | `aa61aad90e0d22b1f75addbf4b01c5fec63a5db7` |
+| [src/experimental/SplitAction/SplitAction.tsx](../../../packages/ui/src/experimental/SplitAction/SplitAction.tsx) | `50f18c4dd2f083f8a8428b08120283d1b306a23c` |
+| [src/experimental/ButtonGroup/ButtonGroup.module.css](../../../packages/ui/src/experimental/ButtonGroup/ButtonGroup.module.css) | `7a4872422c0163033cf612747dbb0c9cffb20be7` |
+| [src/experimental/Button/Button.module.css](../../../packages/ui/src/experimental/Button/Button.module.css) | `cccf005e0bdee43ac22d8f8830523938ce5167f6` |
 
 ## Retained raw-result fingerprints
 

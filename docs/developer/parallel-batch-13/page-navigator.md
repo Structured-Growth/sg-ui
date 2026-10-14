@@ -27,8 +27,8 @@ unit/SSR tests, stories and previous completion/reconciliation reports were read
 
 The [master inventory](../react-aria-master-task-list.md) assigns M-06 to AppShell
 and M-10 to ExperiencePageNavigator. U-10 concerns owned Link/Breadcrumbs and host
-navigation integration. The [public navigator source](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx)
-and [index](../../../src/components/ExperiencePageNavigator/index.ts) expose
+navigation integration. The [public navigator source](../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx)
+and [index](../../../packages/ui/src/components/ExperiencePageNavigator/index.ts) expose
 `{ key, title }` pages and controlled selection, add, remove, rename and reorder
 callbacks. They do not expose href, target, rel, download, router adapters or
 unavailable route destinations. Selection renders a Button; Move up/down requests
@@ -40,16 +40,16 @@ That record preserves the unresolved product/API decision about adjacent/route
 navigation. Repeating its audit or adding link props now would not establish a
 small regression fix in the shipped contract.
 
-Existing [colocated tests](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.test.tsx)
+Existing [colocated tests](../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.test.tsx)
 contain nine cases: separated selection/add/actions; trimmed Enter rename and
 focus restoration; cancellation/unchanged/blank names; keyboard reorder boundaries;
 invalid/self/read-only drag; read-only selection and last-page removal;
 host removal during editing; adjacent focus after removal; live read-only editing.
-The [SSR test](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx)
+The [SSR test](../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx)
 adds one case for controlled authoring markup without browser globals. These are
 static inventory counts, not newly executed passes.
 
-The [stories](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx)
+The [stories](../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx)
 provide interactive host state, read-only, last-page, dark and long scrollable
 lists. Labels read current host title/page data during render; heading/form IDs
 use React useId and edit/removal state is local to each component. Those source
@@ -58,9 +58,9 @@ interaction matrix. No demonstrated defect was found, and no new tests or storie
 were manufactured without a failing scenario.
 
 Native/router attributes already have a separate owned implementation in
-[SGLink](../../../src/adapters/Link.tsx), with
-[adapter unit tests](../../../src/adapters/navigation.test.tsx) and
-[browser cases](../../../tests/browser/batch01-adapters.spec.ts). The
+[SGLink](../../../packages/ui/src/adapters/Link.tsx), with
+[adapter unit tests](../../../packages/ui/src/adapters/navigation.test.tsx) and
+[browser cases](../../../packages/ui/tests/browser/batch01-adapters.spec.ts). The
 [batch 01 report](../parallel-batch-01/adapters.md) records its executed commands,
 heads and Firefox launch limits. The [page-navigation execution record](../react-aria-progress.md#page-actions-and-navigation)
 records historical native rename/reorder/removal focus, list scrolling and packed

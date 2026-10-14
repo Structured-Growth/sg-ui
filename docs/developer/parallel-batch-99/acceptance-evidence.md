@@ -33,27 +33,27 @@ browser-result artifacts, and test source is never counted as a pass.
 
 | Ref | Source | Git blob |
 | --- | --- | --- |
-| S1 | [tokens.json](../../../src/foundation/tokens.json) | `64113cf0b2117e9bf1c2982bfe44c05a2ba59cee` |
-| S2 | [generated scope tokens](../../../src/foundation/tokens.css) | `b36050c8871253823b4a9deb8d146936a14222ec` |
-| S3 | [token assertions](../../../scripts/tokens.test.mjs) | `c06e8cbe72a0460ab9f54198bea95d3c74bf2b01` |
-| S4 | [Typography contract/implementation](../../../src/experimental/Typography/Typography.tsx) | `43b138e03504fba2620868b448df834bf298ffea` |
-| S5 | [Typography CSS](../../../src/experimental/Typography/Typography.module.css) | `fbb4558cc025883846e6deb99792e5cc839f506e` |
-| S6 | [public primitive exports](../../../src/components/primitives/index.ts) | `43de81eedf14f9fc4119ff29cf9ae99cb8245c4f` |
-| S7 | [scope ordinary text CSS](../../../src/foundation/ThemeScope.module.css) | `f697d375173ab1ca5c3bbe2a464d660dc3b7ee8c` |
-| S8 | [Button CSS](../../../src/experimental/Button/Button.module.css) | `cccf005e0bdee43ac22d8f8830523938ce5167f6` |
-| S9 | [Surface CSS](../../../src/experimental/Surface/Surface.module.css) | `138edde127995739e5c8c38b5ae72231eaaeddb2` |
-| S10 | [Card composition](../../../src/experimental/Card/Card.tsx) | `2958daed3352aa00eee3d85153de2dd97be0ec7d` |
-| S11 | [ClassCardFrame composition](../../../src/components/ClassCardFrame/ClassCardFrame.tsx) | `89a99b92463c1a6dbb9350fdd7a2d4ddadeb9a71` |
-| S12 | [Table CSS roles](../../../src/experimental/Table/Table.module.css) | `4c2522c41fef3fb42902cc1cfd4cfbe0a20534b5` |
-| S13 | [catalog grid text CSS](../../../src/components/AppDataGrid/ownedGridInteraction.module.css) | `5755e97b79b1befefca13e7b76126869ddfa9aa3` |
+| S1 | [tokens.json](../../../packages/ui/src/foundation/tokens.json) | `64113cf0b2117e9bf1c2982bfe44c05a2ba59cee` |
+| S2 | [generated scope tokens](../../../packages/ui/src/foundation/tokens.css) | `b36050c8871253823b4a9deb8d146936a14222ec` |
+| S3 | [token assertions](../../../packages/ui/scripts/tokens.test.mjs) | `c06e8cbe72a0460ab9f54198bea95d3c74bf2b01` |
+| S4 | [Typography contract/implementation](../../../packages/ui/src/experimental/Typography/Typography.tsx) | `43b138e03504fba2620868b448df834bf298ffea` |
+| S5 | [Typography CSS](../../../packages/ui/src/experimental/Typography/Typography.module.css) | `fbb4558cc025883846e6deb99792e5cc839f506e` |
+| S6 | [public primitive exports](../../../packages/ui/src/components/primitives/index.ts) | `43de81eedf14f9fc4119ff29cf9ae99cb8245c4f` |
+| S7 | [scope ordinary text CSS](../../../packages/ui/src/foundation/ThemeScope.module.css) | `f697d375173ab1ca5c3bbe2a464d660dc3b7ee8c` |
+| S8 | [Button CSS](../../../packages/ui/src/experimental/Button/Button.module.css) | `cccf005e0bdee43ac22d8f8830523938ce5167f6` |
+| S9 | [Surface CSS](../../../packages/ui/src/experimental/Surface/Surface.module.css) | `138edde127995739e5c8c38b5ae72231eaaeddb2` |
+| S10 | [Card composition](../../../packages/ui/src/experimental/Card/Card.tsx) | `2958daed3352aa00eee3d85153de2dd97be0ec7d` |
+| S11 | [ClassCardFrame composition](../../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx) | `89a99b92463c1a6dbb9350fdd7a2d4ddadeb9a71` |
+| S12 | [Table CSS roles](../../../packages/ui/src/experimental/Table/Table.module.css) | `4c2522c41fef3fb42902cc1cfd4cfbe0a20534b5` |
+| S13 | [catalog grid text CSS](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css) | `5755e97b79b1befefca13e7b76126869ddfa9aa3` |
 | S14 | [icon mapping/defaults](../react-aria-icons.md) | `f2524b342566b5727f41267a9990eb405c0a6f32` |
 | S15 | [theme augmentation mapping](../react-aria-theme.md) | `f4c013be5314931ed051863eeb1ead6501594772` |
 | S16 | [architecture semantic rule](../react-aria-architecture.md) | `66280bea05b7f70b0e1bcc9e4b2388add91de97a` |
 | S17 | [component architecture](../component-architecture.md) | `802b8086c11e2c28460596214775653f75ac886d` |
-| S18 | [Typography existing assertions](../../../src/experimental/Typography/Typography.test.tsx) | `b85f5309f928f2fac492def9f6d263070e167973` |
-| S19 | [Typography existing stories](../../../src/experimental/Typography/Typography.stories.tsx) | `18d14d3174a5307ef09e8baa152c1c433735cf19` |
+| S18 | [Typography existing assertions](../../../packages/ui/src/experimental/Typography/Typography.test.tsx) | `b85f5309f928f2fac492def9f6d263070e167973` |
+| S19 | [Typography existing stories](../../../packages/ui/src/experimental/Typography/Typography.stories.tsx) | `18d14d3174a5307ef09e8baa152c1c433735cf19` |
 | E1 | [browser evidence and limits](../react-aria-browser-acceptance.md) | `41db9ad1186ddccbb84fabcd2a23237e05300c56` |
-| E2 | [existing display-preference assertions](../../../tests/browser/display-preferences.spec.ts) | `cd5204cc7ab2f3deacc4da235198498138316dc7` |
+| E2 | [existing display-preference assertions](../../../packages/ui/tests/browser/display-preferences.spec.ts) | `cd5204cc7ab2f3deacc4da235198498138316dc7` |
 
 ## Execution and artifact limits
 

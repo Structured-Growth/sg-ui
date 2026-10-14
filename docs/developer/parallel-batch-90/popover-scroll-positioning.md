@@ -20,7 +20,7 @@ sizes/resizes but does not reposition on ordinary ancestor scrolling. Its separa
 close-on-scroll path deliberately skips null. Merely resizing an ancestor does
 not describe positional movement from native scrolling.
 
-[Popover](../../../src/experimental/Popover/Popover.tsx) retains DialogTrigger's
+[Popover](../../../packages/ui/src/experimental/Popover/Popover.tsx) retains DialogTrigger's
 state/trigger context, Dialog/Heading naming, React Aria modal behavior, focus
 containment/restoration, outside/Escape dismissal and accessible dismiss buttons.
 An internal open-only native overlay composes `usePopover` with its positioning
@@ -38,7 +38,7 @@ owned listener, MutationObserver or upstream configuration/dependency change.
 Owned scope, native ref direction, CSS classes, resolved placement and trigger
 geometry variables remain on the overlay. No public props/types change.
 
-The [ScrollHost story](../../../src/experimental/Popover/Popover.stories.tsx)
+The [ScrollHost story](../../../packages/ui/src/experimental/Popover/Popover.stories.tsx)
 lets a host ancestor move while an editable draft stays open.
 
 ## Targeted validation

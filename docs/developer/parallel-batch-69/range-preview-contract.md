@@ -18,7 +18,7 @@ Exclusive changed files:
 
 ## Evidence and consistency review
 
-Read the [batch61 report and proposed contract wording](../parallel-batch-61/keyboard-range-preview.md), the integrated [selector source](../../../src/experimental/DateRangeSelector/DateRangeSelector.tsx), [unit tests](../../../src/experimental/DateRangeSelector/DateRangeSelector.test.tsx), [focused-endpoint story](../../../src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx) and [native spec](../../../tests/browser/batch61-keyboard-range-preview.spec.ts).
+Read the [batch61 report and proposed contract wording](../parallel-batch-61/keyboard-range-preview.md), the integrated [selector source](../../../packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx), [unit tests](../../../packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.test.tsx), [focused-endpoint story](../../../packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx) and [native spec](../../../packages/ui/tests/browser/batch61-keyboard-range-preview.spec.ts).
 
 The batch61 report records 16/16 selector and 20/20 related unit tests, plus a fresh Chromium light/dark shard passing 2/2 on attributed worker source `913b79d753d5f5b0495e144da95d9c1c918dd97b` in candidate `5cc976dc1b9af6ced3980ec0e93fe930a9a8237b`. That evidence belongs to batch61; this docs-only batch did not rerun it or inspect other worktrees. The shared candidate was not a whole-candidate pass, as detailed in the linked report.
 

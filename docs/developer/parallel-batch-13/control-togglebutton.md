@@ -16,7 +16,7 @@ U-03 records Typography in the master task list; this report does not reclassify
 No broad U/X gate is closed.
 
 Existing baseline evidence in
-[src/experimental/ToggleButton/ToggleButton.test.tsx](../../../src/experimental/ToggleButton/ToggleButton.test.tsx):
+[src/experimental/ToggleButton/ToggleButton.test.tsx](../../../packages/ui/src/experimental/ToggleButton/ToggleButton.test.tsx):
 
 - Controlled standalone selection requests `true` while `aria-pressed` stays false
   until the host accepts it; explicit disabled prevents further activation.

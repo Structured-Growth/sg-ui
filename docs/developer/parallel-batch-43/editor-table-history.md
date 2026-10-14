@@ -20,15 +20,15 @@ No implementation, Lexical plugin, toolbar, dialog or fixture source was changed
 
 ## Added evidence
 
-- [TableHistory story](../../../src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx):
+- [TableHistory story](../../../packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx):
   real editor, full toolbar, host callback JSON and reload with a new `editorKey`.
-- [Composed test](../../../src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx):
+- [Composed test](../../../packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx):
   real columns dialog with default `twoEqual`, two cells, selected substring Bold
   through the real toolbar, Undo/Redo exact JSON restoration, key replacement,
   preserved cells and surrounding introduction. Actual plugins/history remain;
   test-only editor capture and omitted floating geometry separate jsdom limitations.
   Test edits use Lexical updates with explicit history boundaries, not native typing.
-- [Native spec](../../../tests/browser/inventory-editor-table-history.spec.ts):
+- [Native spec](../../../packages/ui/tests/browser/inventory-editor-table-history.spec.ts):
   light/dark cases for real dialog insertion/focus return, native cell typing and
   Tab navigation, native substring selection with toolbar pointer activation,
   Undo/Redo, exact saved JSON reload, post-reload edit/history, one row/two cells

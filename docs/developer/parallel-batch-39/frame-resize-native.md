@@ -13,7 +13,7 @@ combined flex/grid parent resizing and header/footer media as missing evidence.
 transitions, static narrow/enlarged cards and body media. Its 10 Chromium/WebKit
 passes and Firefox limits are historical evidence, not a fresh pass here.
 
-Two new [stories](../../../src/components/ClassCardFrame/ClassCardFrame.stories.tsx)
+Two new [stories](../../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx)
 use a host sidebar with native flex/grid sizing. One persistent footer action
 changes parent width and replaces surrounding header/footer content together:
 portrait media in expanded header becomes landscape media in compact footer,
@@ -21,7 +21,7 @@ then returns. The body, frame and action retain DOM identity. Long text uses
 owned Typography and the shared theme; SVG images are self-contained img sources.
 No production implementation/API/styles changed; no product defect demonstrated.
 
-The [focused spec](../../../tests/browser/inventory-card-frame-resize.spec.ts)
+The [focused spec](../../../packages/ui/tests/browser/inventory-card-frame-resize.spec.ts)
 has eight cases: flex/grid × light/dark × narrow viewport/200% root text. Each
 asserts real parent-derived width at the existing 420px cap, actual shrink/restore,
 loaded media with intrinsic 2:3/2:1 ratios, slot/document overflow, exactly one

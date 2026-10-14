@@ -20,6 +20,17 @@ Scheduling order is **functionality → regression → hardening** across the wh
 
 Evidence reconciliation belongs to the current phase. Reuse existing passing tests and retain required validation during functionality work. Fix a build/import or primary-flow failure as part of its functionality task, with only the minimal smoke evidence needed to establish that flow. Record other bugs for the later phases; discovering them does not promote a regression or hardening assignment ahead of functionality. Existing guards, public contracts, licensing and host boundaries remain in force.
 
+The separate [Next.js docs workspace backlog](docs-website.md#delivery-checklist)
+tracks the authorized website/repository restructuring and Storybook transition.
+The [active transition plan](docs-website.md#active-transition-plan--2026-10-14)
+makes `apps/docs` the permanent UI design/examples environment and defines
+`DOCS-005-a`–`DOCS-005-l` for moving all existing native scenarios and removing
+Storybook. `DOCS-012-a`–`DOCS-012-f` complete palette/semantic/component theme layers.
+New public examples belong in the website. Storybook has been removed; migrated
+native scenarios use the private docs-owned fixture host, with source-context unit
+fixtures remaining colocated. Historical story evidence and original IDs stay
+valid within their recorded scope. This does not change F/T/V/A acceptance counts.
+
 ## Detailed checklists
 
 - [P1 functionality baseline](react-aria-baseline-tasks.md): 570 independently checkable tasks.
@@ -31,7 +42,7 @@ The files are one backlog split for readability. They cover all 37 catalog direc
 ## Every implementation chat closes a small task
 
 1. Select the earliest unfinished phase, then claim one specific open ID and list the files you will touch. Reference its legacy parent for context. Pick a task that can finish in one chat.
-2. Inspect current source, stories, tests and accepted evidence first. If it is already done, reconcile evidence and check the task; do not invent work or duplicate tests.
+2. Inspect current source, docs examples, tests, transitional stories and accepted evidence first. If it is already done, reconcile evidence and check the task; do not invent work or duplicate tests.
 3. Deliver the smallest reviewable functionality slice. If the selected item is still too large, retain it as a parent and create concrete `-a`, `-b`, etc. children before implementation. Children must name observable deliverables, not “continue work.”
 4. Run the minimum checks required by repository policy. Close the functionality task independently from future regression/browser tasks. Record bugs as separate tasks with expected/actual behavior and reproduction.
 5. Update the checkbox and append evidence to the execution record in the same change. The final report names checked IDs, result, validation and any newly identified successor IDs.
@@ -46,7 +57,13 @@ Keep a very small smoke set: normally 1–3 meaningful cases per component or ch
 
 Do not add exhaustive controlled/uncontrolled, keyboard matrix, browser-engine, locale/timezone, nested-instance, visual, SSR, performance, IME, device or assistive-technology coverage to an ordinary P1 slice. Those have separate P2/P3/P4 tasks. Use a narrow native check during P1 only when needed to establish the primary flow that DOM emulation cannot show. Full coverage does not block the baseline checkbox.
 
-Keep existing required checks: code/dependency/build/release changes run `pnpm check` and `pnpm build-storybook`; documentation-only changes verify relevant links, IDs, scope and consistency. This rewrite changes what new coverage is authored and when, not whether existing checks pass. Do not delete tests, weaken assertions, disable CI, alter workflow permissions or rebuild Storybook during an active browser run to accelerate progress.
+Follow [targeted development validation](react-aria-development-validation.md)
+for implementation tasks; documentation-only changes verify links, IDs, scope and
+consistency. Validate changed website examples against a fresh Next.js build and
+the docs Playwright checks. Existing native gates require a fresh docs-owned test build; their assertions and
+scenario provenance are retained in the migration ledger. Production acceptance retains full required library,
+consumer and native checks. Do not delete tests, weaken assertions, disable CI or
+alter workflow permissions. Never rebuild either host during an active suite.
 
 ## Baseline milestone and later acceptance
 
@@ -54,8 +71,8 @@ Keep existing required checks: code/dependency/build/release changes run `pnpm c
 - [x] PLAN-002 Reconcile existing accepted catalog evidence into `F-C*` leaves, in small component-sized chats. Split this coordinator rollup by component; do not wait for whole-backlog reconciliation to implement a real gap.
 - [x] PLAN-003 Reconcile existing accepted primitive evidence into `F-P*` leaves, in small control-sized chats.
 - [x] PLAN-004 Reconcile existing accepted foundation/host evidence into `F-S*` leaves, in small module-sized chats.
-- [x] BASE-001 Confirm all required `F-*` leaves have owned implementation and minimal smoke/story evidence; list every known bug and retain all later coverage tasks.
-- [x] BASE-002 Walk a composed host story using navigation, modal/form, cards/grid and editor; verify primary callbacks without backend dependencies. This is one composed smoke flow, not full acceptance.
+- [x] BASE-001 Confirm all required `F-*` leaves have owned implementation and minimal smoke/example evidence; list every known bug and retain all later coverage tasks.
+- [x] BASE-002 Walk a composed host example using navigation, modal/form, cards/grid and editor; verify primary callbacks without backend dependencies. This is one composed smoke flow, not full acceptance.
 - [x] BASE-003 Record the baseline milestone separately from test/acceptance percentages and switch normal scheduling to P2.
 - [ ] ACCEPT-001 Confirm all required `T-*`, `V-*` and `A-*` leaves and original obligations are closed, with honestly bounded device/assistive-technology evidence and explicit future scope.
 - [ ] ACCEPT-002 Mark full migration complete only after original Z-16 requirements are met. Publication remains a separately authorized workflow action.

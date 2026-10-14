@@ -39,18 +39,18 @@ accepted. Only the coordinator accepts criteria and updates shared ledgers.
 
 ## G-18: distinctions that affect acceptance
 
-[Native helper](../../../src/components/AppDataGridRowDnd/useDataGridRowDnd.ts)
+[Native helper](../../../packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts)
 uses `closest(rowSelector)` and coordinate/composed-path fallback. Its default
 selector is an owned part/data identity selector, not a retired renderer class.
 The public renderer still legitimately queries owned data hooks within its ref
 for source/focus recovery; G-18 is not a claim that all DOM queries disappeared.
 The helper's optional rowSelector remains consumer control.
 
-[Preview styles](../../../src/components/AppDataGridRowDnd/DataGridDragHandle.module.css)
+[Preview styles](../../../packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.module.css)
 use surface/text/border/focus tokens and forced-colors rules. Scope falls back to
 body when the caller supplies no owned scope; consumers must load styles and
 provide Provider/ThemeScope. Theme-aware CSS is inspectable evidence, not a native
-screenshot. [Helper tests](../../../src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx)
+screenshot. [Helper tests](../../../packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx)
 assert root isolation, composed paths, coordinate fallback, scope placement,
 replacement/unmount, listener balance, dragend and rejected drag imagery. Their
 synthetic jsdom dragend does not certify trusted physical native cancellation.
@@ -75,7 +75,7 @@ relabeling column locks/order as pinning. The 1,000-row/250-row smoke described 
 browser acceptance is neither workload justification nor an overscan decision.
 No benchmark was rerun or promoted into virtualization acceptance.
 
-[RowSubHeader](../../../src/components/AppDataGrid/ownedGridParts.tsx) exposes
+[RowSubHeader](../../../packages/ui/src/components/AppDataGrid/ownedGridParts.tsx) exposes
 controlled expanded display, onToggle and onTitleDoubleClick/keyboard Edit
 callbacks. It does not store expanded row IDs or edit a cell value; the host
 chooses resulting UI. Its existence prevents claiming an absence of all expansion
@@ -86,12 +86,12 @@ No fresh package/declaration audit was run.
 
 ## G-21: historical execution and artifact limits
 
-[Cell source](../../../src/components/AppDataGrid/ownedGridCells.tsx),
-[owned tests](../../../src/components/AppDataGrid/ownedGridCells.test.tsx) and
-[public composition](../../../src/components/AppDataGrid/AppDataGrid.cells.test.tsx)
+[Cell source](../../../packages/ui/src/components/AppDataGrid/ownedGridCells.tsx),
+[owned tests](../../../packages/ui/src/components/AppDataGrid/ownedGridCells.test.tsx) and
+[public composition](../../../packages/ui/src/components/AppDataGrid/AppDataGrid.cells.test.tsx)
 show the actual behavior/assertions, including invalid dates, host timestamp zones,
 cyclic/BigInt JSON fallback, link adapter calls, image error/retry, copy payloads
-and independence from selection. [Link CSS](../../../src/experimental/Link/Link.module.css)
+and independence from selection. [Link CSS](../../../packages/ui/src/experimental/Link/Link.module.css)
 uses native :focus-visible with owned tokens. That styling does not prove native
 focus visibility for every grid link in every engine/theme.
 

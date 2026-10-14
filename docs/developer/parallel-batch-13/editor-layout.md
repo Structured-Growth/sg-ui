@@ -27,7 +27,7 @@ contract and representative coverage are sufficient to avoid another migration
 or speculative focus/scroll changes. They do not establish full E-03/X-05
 acceptance.
 
-The [layout implementation](../../../src/components/DocumentEditorLayout/DocumentEditorLayout.tsx)
+The [layout implementation](../../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx)
 forwards its native root div ref, keeps header/menu/toolbar before the content
 wrapper, and delegates the scrollable child to the host. It introduces no scroll
 handler, focus handler, effect or second overflow container. Conditional menu and
@@ -37,18 +37,18 @@ still gives the host normal React replacement semantics. The layout cannot
 preserve focus on a control that the host removes and does not claim to choose
 a replacement focus target.
 
-The [compiled component styles](../../../src/components/DocumentEditorLayout/DocumentEditorLayout.module.css)
+The [compiled component styles](../../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.module.css)
 use zero minimum inline/block dimensions for the root/content, nonshrinking chrome,
 wrapping header/actions, and a breakable title. The host supplies a bounded height
 and its own `minHeight: 0; overflow: auto` child. Slot content remains host-owned;
 unbreakable custom controls and chrome taller than a bounded viewport still need
 host reflow/scroll policy.
 
-The [four existing colocated tests](../../../src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx)
+The [four existing colocated tests](../../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx)
 cover ordered slot regions and menu/toolbar removal, fallback/custom title
 semantics, native root ref/class/style, Save activation and keyboard order into
 host content, and server rendering. These are existing tests, not rerun results.
-The [three existing stories](../../../src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx)
+The [three existing stories](../../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx)
 provide independently scrolling long content, a custom heading, and a 260px dark
 composition. No behavior changed, so no changed-state story was required.
 
@@ -61,8 +61,8 @@ native heading/formatting focus evidence are also recorded there. This historica
 evidence was inspected, not regenerated or claimed against this baseline.
 
 Existing browser clipboard/keyboard-scroll cases in
-[editor-clipboard.spec.ts](../../../tests/browser/editor-clipboard.spec.ts) and
-[acceptance.spec.ts](../../../tests/browser/acceptance.spec.ts) concern the editor
+[editor-clipboard.spec.ts](../../../packages/ui/tests/browser/editor-clipboard.spec.ts) and
+[acceptance.spec.ts](../../../packages/ui/tests/browser/acceptance.spec.ts) concern the editor
 section's host region, not DocumentEditorLayout slot replacement; they must not be
 counted as that missing combined case.
 

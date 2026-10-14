@@ -30,9 +30,9 @@ primary checkout and other worktrees were preserved.
 
 The existing tests already cover bounded values, ordinary invalid bounds,
 loading/finite/NaN transitions, accessible names/value text, native refs and SSR.
-[Status tests](../../../src/experimental/Status/Status.test.tsx) already cover
+[Status tests](../../../packages/ui/src/experimental/Status/Status.test.tsx) already cover
 quiet/off, polite/atomic, assertive/danger and SSR behavior. Existing
-[display preference browser cases](../../../tests/browser/display-preferences.spec.ts)
+[display preference browser cases](../../../packages/ui/tests/browser/display-preferences.spec.ts)
 cover reduced-motion progress. These are existing evidence, not fresh native or
 spoken-AT acceptance. Previous batch reports and the
 [owned contract](../react-aria-progress-avatar.md) were inspected before editing.

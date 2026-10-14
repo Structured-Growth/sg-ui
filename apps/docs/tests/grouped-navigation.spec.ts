@@ -1,0 +1,32 @@
+import {test,expect} from '@playwright/test';
+import groups from '../content/component-navigation.json' with {type:'json'};
+
+test('navigation groups components, opens the current category and searches across aliases',async({page})=>{
+  await page.goto('/docs/components/data-grid-shell');
+  const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
+  for(const group of groups)await expect(nav.getByRole('button',{name:group.label,exact:true})).toBeVisible();
+  await expect(nav.getByRole('button',{name:'Data grids & tables',exact:true})).toHaveAttribute('aria-expanded','true');
+  await expect(nav.getByRole('link',{name:'AppDataGridShell',exact:true})).toHaveAttribute('aria-current','page');
+  const forms=nav.getByRole('button',{name:'Form components',exact:true});
+  await forms.focus();await page.keyboard.press('Enter');
+  await expect(forms).toHaveAttribute('aria-expanded','true');
+  await nav.getByRole('link',{name:'TextField',exact:true}).click();
+  await expect(page).toHaveURL(/\/docs\/components\/text-field$/);
+  await expect(nav.getByRole('link',{name:'TextField',exact:true})).toHaveAttribute('aria-current','page');
+  await forms.click();await expect(forms).toHaveAttribute('aria-expanded','false');
+  const search=nav.getByRole('textbox',{name:'Find in navigation',exact:true});
+  await search.fill('Autocomplete');
+  await expect(forms).toHaveAttribute('aria-expanded','true');
+  await expect(nav.getByRole('region',{name:'Form components',exact:true}).getByRole('link')).toHaveText(['ComboBox']);
+  await nav.getByRole('link',{name:'ComboBox',exact:true}).click();
+  await search.fill('');await expect(forms).toHaveAttribute('aria-expanded','true');
+  await search.fill('no-such-component');await expect(nav.getByText('No matching components.',{exact:true})).toBeVisible();
+  await search.fill('');
+  await page.goto('/docs/components/typography');
+  await expect(nav.getByRole('button',{name:'Text & content',exact:true})).toHaveAttribute('aria-expanded','true');
+  await expect(nav.getByRole('link',{name:'Typography',exact:true})).toHaveAttribute('aria-current','page');
+  await page.setViewportSize({width:375,height:812});
+  await page.goto('/docs/components/data-grid-shell');
+  await expect(nav.getByRole('link',{name:'AppDataGridShell',exact:true})).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+});

@@ -24,7 +24,7 @@ The [owned dialog contract](../react-aria-editor-dialogs.md) already specifies
 five unchanged preset IDs, invalid-runtime fallback, draft reset on opening or
 `defaultPreset` change, and cancellation without commit.
 
-[ColumnsLayoutModal](../../../src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx)
+[ColumnsLayoutModal](../../../packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx)
 normalizes the initial draft and reloads it in an effect depending on both `open`
 and `defaultPreset`. Radio changes accept only declared preset IDs. Insert uses
 the current render's selected ID and current host callback; Cancel uses `onClose`.
@@ -33,14 +33,14 @@ absence is not a supported standalone commit-availability state. The contract
 permits one commit per press, rather than disabling subsequent independent presses
 when the host deliberately keeps the dialog open.
 
-The [five colocated tests](../../../src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx)
+The [five colocated tests](../../../packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx)
 already exercise one selected radio with arrow navigation; Space commit once
 without outer-form submission; trigger focus restoration; Cancel without submit;
 reopening with a changed host default; invalid runtime fallback; Escape without
 submit; closed SSR; and translation defaults. Default/Dark stories already display
 the committed host layout and reopen from it.
 
-The [insert-menu tests](../../../src/components/InsertContentMenuControl/InsertContentMenuControl.test.tsx)
+The [insert-menu tests](../../../packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.test.tsx)
 cover disabled insertion and missing callback availability, plus keyboard handoff
 to the real ColumnsLayoutModal, commit delivery and return to the Insert trigger.
 These are composed DOM checks, not native focus acceptance.
@@ -55,7 +55,7 @@ Firefox launch failures. Those checks concern the shared modal, not columns
 insertion interrupted by host changes.
 
 Read-only inspection of the
-[editor implementation](../../../src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx)
+[editor implementation](../../../packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx)
 found that `editorKey` or `readOnly` changes close the columns dialog and clear
 saved selection; the opening callback checks `readOnly`, and editing controls are
 hidden in read-only mode. The

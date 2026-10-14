@@ -1,0 +1,55 @@
+import { test, expect } from '@playwright/test';
+import ts from 'typescript';
+import { resolve } from 'node:path';
+
+function typecheckSources(sources: string[]) {
+ expect(sources).toHaveLength(20);
+ const files = new Map(sources.map((source, index) => [resolve(`.source-check/Example${index}.tsx`), source]));
+ const options: ts.CompilerOptions = {strict:true, noEmit:true, skipLibCheck:true, target:ts.ScriptTarget.ES2022, module:ts.ModuleKind.ESNext, moduleResolution:ts.ModuleResolutionKind.Bundler, jsx:ts.JsxEmit.ReactJSX, esModuleInterop:true};
+ const host=ts.createCompilerHost(options);const original=host.getSourceFile.bind(host);
+ host.getSourceFile=(file, language, onError, shouldCreate)=>files.has(file)?ts.createSourceFile(file, files.get(file)!, ts.ScriptTarget.Latest, true):original(file, language, onError, shouldCreate);
+ const program=ts.createProgram([...files.keys()], options, host);
+ const diagnostics=ts.getPreEmitDiagnostics(program);
+ expect(diagnostics.map(d=>ts.flattenDiagnosticMessageText(d.messageText,'\n'))).toEqual([]);
+}
+test('public package examples, navigation and themed dialog work in the production app', async ({page, context}) => {
+ const sources: string[] = [];
+ await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('/');await expect(page.getByRole('banner').getByText('Density',{exact:true})).toHaveCount(0);await expect(page.getByRole('heading',{name:'Build with Structured Growth UI'})).toBeVisible();
+ await page.getByRole('navigation',{name:'Documentation'}).getByRole('link',{name:'Buttons',exact:true}).click();
+ await expect(page.getByRole('region',{name:'Compact density'})).toBeVisible();await expect(page.getByRole('region',{name:'Comfortable density'})).toBeVisible();
+ await page.getByRole('button',{name:'Save changes',exact:true}).click();await expect(page.getByRole('region',{name:'Prop playground',exact:true}).getByRole('status')).toHaveText('1 presses');
+ await page.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();
+ const label='Ship "<Course>" {draft}';await page.getByRole('textbox',{name:'Button label'}).fill(label);
+ const playgroundCode=page.getByLabel('Source: Prop playground',{exact:true});await expect(playgroundCode).toContainText(JSON.stringify(label));
+ await page.getByRole('button',{name:'Copy code: Prop playground',exact:true}).click();
+ expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe(await playgroundCode.textContent());
+ await page.getByRole('textbox',{name:'Compact field',exact:true}).fill('Compact snapshot');await expect(page.getByLabel('Source: Compact density',{exact:true})).toContainText('Compact snapshot');
+ sources.push(...await page.locator('code[aria-label^="Source:"]').allTextContents());
+ await page.getByRole('textbox',{name:'Button label'}).fill('Save changes');
+ await page.getByText('Disabled',{exact:true}).click();await expect(page.getByRole('checkbox',{name:'Disabled',exact:true})).toBeChecked();await expect(page.getByRole('button',{name:'Save changes',exact:true})).toBeDisabled();
+ const componentCode=(await playgroundCode.textContent())!;
+ await page.getByRole('button',{name:/Demo appearance/}).click();await page.getByRole('option',{name:'Dark',exact:true}).click();await expect(playgroundCode).toHaveText(componentCode);
+ const siteColor = () => page.locator('header').filter({hasText:'Component documentation'}).evaluate(element=>getComputedStyle(element).getPropertyValue('--sgui-action').trim());
+ expect(await siteColor()).toBe('#4338ca');
+ await expect(page.getByRole('navigation',{name:'Documentation'}).locator('xpath=ancestor::*[@data-sgui-scope][1]')).toHaveAttribute('data-sgui-theme','light');
+ await expect(playgroundCode.locator('xpath=ancestor::*[@data-sgui-scope][1]')).toHaveAttribute('data-sgui-theme','light');
+ await expect(page.getByRole('button',{name:'Example action',exact:true}).first()).toHaveCSS('background-color','rgb(208, 188, 255)');
+ await page.getByRole('button',{name:/Demo theme/}).click();await expect(page.getByRole('option',{name:'Structured Growth',exact:true})).toHaveCount(0);await expect(page.getByRole('option',{name:'SGUI Default',exact:true})).toHaveCount(0);await page.getByRole('option',{name:'Apple Human Interface',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Example action',exact:true}).first()).toHaveCSS('background-color','rgb(100, 181, 255)');expect(await siteColor()).toBe('#4338ca');await expect(playgroundCode).toHaveText(componentCode);await expect(page.getByRole('button',{name:'Example action',exact:true}).first()).toHaveCSS('border-radius','10px');
+ await page.getByRole('navigation',{name:'Documentation'}).getByRole('link',{name:'Dialogs',exact:true}).click();
+ await expect(page.getByRole('region',{name:'Demo settings'})).toHaveCount(1);await expect(page.getByRole('heading',{name:'Example appearance',exact:true})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:/Demo theme/})).toHaveText('Apple Human Interface');await expect(page.getByRole('button',{name:/Demo appearance/})).toHaveText('Dark');
+ await page.getByRole('button',{name:'Open example dialog'}).click();const dialog=page.getByRole('dialog',{name:'Course settings'});await expect(dialog).toBeVisible();await expect(dialog.getByRole('button',{name:'Save settings'})).toHaveCSS('background-color','rgb(100, 181, 255)');
+ await expect(dialog.locator('xpath=ancestor::*[@data-sgui-scope][1]')).toHaveAttribute('data-sgui-theme','dark');
+ expect(await siteColor()).toBe('#4338ca');
+ await dialog.getByRole('textbox',{name:'Course name'}).fill('Updated course');await dialog.getByRole('button',{name:'Save settings'}).click();
+ await expect(page.getByRole('region',{name:'Prop playground',exact:true}).getByRole('status')).toHaveText('Saved Updated course');await expect(page.getByRole('button',{name:'Open example dialog'})).toBeFocused();
+ await page.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();await expect(page.getByLabel('Source: Prop playground',{exact:true})).toContainText('Updated course');
+ sources.push(...await page.locator('code[aria-label^="Source:"]').allTextContents());typecheckSources(sources);
+ await page.getByRole('button',{name:/Demo theme/}).click();await page.getByRole('option',{name:'Apple Human Interface',exact:true}).click();
+ await page.getByRole('button',{name:'Open example dialog'}).click();await expect(dialog.getByRole('button',{name:'Save settings'})).toHaveCSS('background-color','rgb(100, 181, 255)');expect(await siteColor()).toBe('#4338ca');await page.keyboard.press('Escape');await expect(dialog).not.toBeVisible();
+ await page.setViewportSize({width:375,height:812});await expect(page.getByRole('navigation',{name:'Documentation'})).toBeVisible();
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);expect(errors).toEqual([]);await page.screenshot({path:'/tmp/sgui-docs-dark-mobile.png',fullPage:true});
+});

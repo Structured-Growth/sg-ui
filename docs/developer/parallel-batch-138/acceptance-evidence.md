@@ -30,13 +30,13 @@ wrapper has `clip: rect(0px, 0px, 0px, 0px)`, `clip-path: inset(50%)`, absolute
 positioning and 1px dimensions. This is the actual production structure, not
 a replacement fixture.
 
-[Checkbox](../../../src/experimental/Checkbox/Checkbox.tsx) renders the React
+[Checkbox](../../../packages/ui/src/experimental/Checkbox/Checkbox.tsx) renders the React
 Aria checkbox with its label root, indicator and text. Its
-[stylesheet](../../../src/experimental/Checkbox/Checkbox.module.css) gives the
+[stylesheet](../../../packages/ui/src/experimental/Checkbox/Checkbox.module.css) gives the
 root inline-flex layout and the indicator a 1.25rem hit area. The
-[grid stylesheet](../../../src/components/AppDataGrid/ownedGridInteraction.module.css)
+[grid stylesheet](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css)
 clips the selection label text, leaving the indicator as the visible target.
-[Grid interaction](../../../src/components/AppDataGrid/ownedGridInteraction.tsx)
+[Grid interaction](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx)
 owns the page-selection callback and disabled-row exclusion; the retained
 selection story starts with Course 55 selected and Course 2 disabled.
 

@@ -1,0 +1,4 @@
+@layer sgui.components {
+  .root { flex-shrink: 0; box-sizing: border-box; border-block-start: 1px solid var(--sgui-card-pagination-footer-divider); background: var(--sgui-card-pagination-footer-subtle-background); color: var(--sgui-card-pagination-footer-text); padding: var(--sgui-space3) var(--sgui-space4); }
+  .count { display: block; margin-block-end: var(--sgui-space2); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+}

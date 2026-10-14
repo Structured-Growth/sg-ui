@@ -1,6 +1,6 @@
 # Read-only dependency and license inventory (L-08 partial)
 
-[The checker](../../scripts/check-license-inventory.mjs) reports repository
+[The checker](../../packages/ui/scripts/check-license-inventory.mjs) reports repository
 manifest declarations, pnpm v9 locked identities/edges, available installed package
 metadata, legal-file hashes and distributed asset candidates. It supplies evidence
 for review; it does not approve licenses, change notices or decide commercial terms.
@@ -74,7 +74,7 @@ follow distribution symlinks. Inline SVG/icon code, generated/copied JS, CSS ass
 URLs, source maps, host-supplied fonts and assets outside the literal roots need
 separate provenance review. A missing `dist` is a finding; the checker never builds
 it. Root legal-file inspection does not prove packed byte preservation, which is
-the separate existing [package audit](../../scripts/check-package.mjs).
+the separate existing [package audit](../../packages/ui/scripts/check-package.mjs).
 
 ## Proposed ownership and update workflow — owner decision held
 

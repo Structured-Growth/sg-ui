@@ -16,7 +16,7 @@ overlay direction bridge is therefore unnecessary; no implementation, API, CSS o
 story behavior changed.
 
 The previously absent composed direction case is now colocated in
-[AsyncMultiSelect.test.tsx](../../../src/experimental/AsyncMultiSelect/AsyncMultiSelect.test.tsx).
+[AsyncMultiSelect.test.tsx](../../../packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.test.tsx).
 It mounts English/RTL and Arabic/LTR selectors simultaneously, verifies independent
 native direction/language ancestry, then reverses both scopes and updates host
 description/loading props. Input/listbox DOM identity, search focus in jsdom, host
@@ -27,7 +27,7 @@ This verifies native attribute inheritance, not rendered browser geometry.
 Existing tests already cover ignored-abort late responses, late failures, Strict
 Mode cleanup, retry/unmount, selected records outside current results, controlled
 selection, independent serialization and native reset preserving the host query.
-The existing [native reset browser cases](../../../tests/browser/batch05-native-reset.spec.ts)
+The existing [native reset browser cases](../../../packages/ui/tests/browser/batch05-native-reset.spec.ts)
 remain the native-event evidence; they were inspected, not rerun here. Open-state
 and overlay placement are inapplicable to this inline component.
 

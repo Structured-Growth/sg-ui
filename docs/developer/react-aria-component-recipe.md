@@ -7,7 +7,7 @@ component's existing contract define its boundaries.
 
 1. **Define the observable contract.** State the task IDs, existing names/behavior,
    changed behavior, host-owned data/actions and acceptance slice. Inventory current
-   props, stories, tests and exports before replacing an implementation. Use Course
+   props, docs examples/native fixtures, tests and exports before replacing an implementation. Use Course
    naming for new domain APIs while retaining established Class/App exports.
 2. **Declare owned props and refs.** Select useful native attributes and the actual
    native element ref; declare variants, state and callbacks explicitly. Do not
@@ -46,11 +46,12 @@ component's existing contract define its boundaries.
    scroll, positioning, clipboard/download and computed layout. Assertions should
    verify outcomes, not duplicate implementation. Report actual-device/IME and
    assistive-technology behavior as unverified until tested.
-9. **Validate and document.** Run `pnpm check` and `pnpm build-storybook` for code/build
-   changes plus targeted checks appropriate to the behavior. Build static Storybook
-   before `pnpm test:browser`, never during a suite. Use packed consumer checks for
-   public export/type/CSS/SSR changes. Update contract docs, stories and applicable
-   guidance in the same change; record tests and limits. Docs-only changes require
+9. **Validate and document.** Follow the [development validation policy](react-aria-development-validation.md)
+   with targeted checks appropriate to the behavior; full production acceptance
+   requires complete validation. Build `pnpm build:browser-docs` before
+   `pnpm test:browser`, never during a suite. Use packed consumer checks for
+   public export/type/CSS/SSR changes. Update contract docs, website examples, native
+   fixtures and applicable guidance in the same change; record tests and limits. Docs-only changes require
    source/export/link/example consistency checks, not unrelated UI tests.
 
 Acceptance requires owned declarations and import/style/token boundaries, meaningful

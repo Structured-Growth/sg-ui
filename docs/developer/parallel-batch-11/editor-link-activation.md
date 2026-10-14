@@ -20,7 +20,7 @@ Existing activation tests covered editable/read-only ordinary, Ctrl/Meta/Shift a
 middle activation with `noopener,noreferrer`, ordinary selected-range suppression,
 three rejected URL categories and a combined right-click/cleanup case. Existing
 node cases covered 13 accepted/rejected destinations with saved children and
-metadata. [Existing browser evidence source](../../../tests/browser/editor-links.spec.ts)
+metadata. [Existing browser evidence source](../../../packages/ui/tests/browser/editor-links.spec.ts)
 checks rejected click/middle activation, ordinary/modified/middle relative-link
 popups with null opener, editable/read-only state and native paste/reload.
 That browser source was inspected, not rerun in this task.

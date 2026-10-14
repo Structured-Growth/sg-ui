@@ -1,0 +1,233 @@
+{
+  "dialog": {
+    "when": "Use AppModal for a focused create, edit, review, or confirmation workflow that needs a consistent title, body, and action area. It adds application-level conveniences to the lower-level Dialog: primary and secondary actions, optional multi-step progress, and content sizing presets.",
+    "how": [
+      "Keep open in host state and update it from onClose(reason). Decide how Escape, outside clicks, the close button, and explicit Cancel actions affect an unsaved draft; closing does not save or undo application data.",
+      "Supply a meaningful title and optional subtitle, then define primaryAction and secondaryAction with onPress callbacks. The host performs validation and persistence, controls loading or disabled states, and closes the modal after the intended result.",
+      "For a multi-section form, place controlled AppPageTabs directly in the modal body and choose a bounded heightMode. The selected panel scrolls independently when it fits; the whole dialog can scroll when its chrome needs more space. Show steps only for a workflow with at least two steps.",
+      "Use Dialog when you want to compose the action area yourself with fewer application-specific conventions. Load the SGUI stylesheet and provide a production scope for either component; custom header content needs an appropriate dialog name."
+    ],
+    "related": [{"slug":"owned-dialog","label":"Dialog"},{"slug":"page-tabs","label":"AppPageTabs"},{"slug":"link-url-modal","label":"LinkUrlModal"}]
+  },
+  "auth-shell": {
+    "when": "Use AuthShell to present a sign-in, account creation, recovery, or invitation form with a clear title and supporting footer. It provides the surrounding presentation while the host owns the form and account workflow.",
+    "how": [
+      "Pass title, optional subtitle, and the form as children. Use footerContent for related account actions or supporting information.",
+      "Build the form with SGUI fields and buttons, and connect submission, validation, pending state, and error messages to host callbacks.",
+      "Keep authentication endpoints, session storage, redirects, and credentials in the host application. AuthShell does not authenticate users or fetch account data."
+    ],
+    "related": [{"slug":"text-field","label":"TextField"},{"slug":"button","label":"AppButton"},{"slug":"account-provider","label":"SGAccountProvider"}]
+  },
+  "app-shell": {
+    "when": "Use AppShell for an application workspace with navigation beside a main content region. It is a useful outer composition for dashboards, course workspaces, and administrative screens with independently scrolling content.",
+    "how": [
+      "Supply navigation as a React node and place the active page in children. SideNavigation is one option for the navigation slot; the host controls its model and routing.",
+      "Give the shell a suitable host height or flex layout so its main region has a bounded area to scroll. The host supplies navigation width and responsive composition.",
+      "Use mainLabel or mainId when the main region needs an explicit name or skip-link destination, and keep page-specific state in the page composition."
+    ],
+    "related": [{"slug":"side-navigation","label":"SideNavigation"},{"slug":"page-header","label":"AppPageHeader"}]
+  },
+  "page-header": {
+    "when": "Use AppPageHeader to establish a page title, its location in the application, and relevant metadata or actions. It keeps the heading hierarchy consistent between top-level pages and subordinate screens.",
+    "how": [
+      "Pass title and description, choose hierarchy='primary' for a top-level header or 'subpage' for a subordinate page, and set headingLevel to fit the surrounding document structure.",
+      "Supply breadcrumbs and metadata as presentation data. Routing remains host-owned; use the navigation adapter when breadcrumb destinations need client routing.",
+      "Choose actionButtons for an explicit action composition or moreMenuItems for a compact overflow menu. Give menu items real host callbacks and disable actions that are unavailable."
+    ],
+    "related": [{"slug":"page-tabs","label":"AppPageTabs"},{"slug":"navigation-provider","label":"SGNavigationProvider"}]
+  },
+  "page-tabs": {
+    "when": "Use AppPageTabs to divide a page or form into related sections, or to present route-based page navigation. Choose controlled panels for local content switching and route items for host-owned navigation.",
+    "how": [
+      "For local panels, provide value, onChange, and items with stable IDs and content. The host accepts the requested ID and keeps the selected panel state.",
+      "For route navigation, provide href on items and omit onChange. Supply the active value from the host route and connect navigation through SGNavigationProvider when needed.",
+      "Give the tab set a meaningful label, choose automatic or manual activation, and use disabled items for sections that cannot be entered. Set density locally for the composition."
+    ],
+    "related": [{"slug":"dialog","label":"AppModal"},{"slug":"navigation-provider","label":"SGNavigationProvider"}]
+  },
+  "experience-page-navigator": {
+    "when": "Use ExperiencePageNavigator to manage the ordered pages of a course, lesson, or document experience. It combines selecting a page with host-owned add, rename, remove, and reorder operations.",
+    "how": [
+      "Supply pages with stable keys and titles, plus activePageKey. Accept onSelectPage by updating the host's active page state.",
+      "Implement every mutation callback against the host page collection. Keep the surviving active page valid after removal, and treat reorder callbacks as requests to update the collection and any persistence.",
+      "Use readOnly when viewers may navigate but must not change the page collection. Pass a title that describes the collection rather than relying on a generic label."
+    ],
+    "related": [{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"},{"slug":"editable-title-field","label":"EditableTitleField"}]
+  },
+  "side-navigation": {
+    "when": "Use SideNavigation for a persistent workspace menu with grouped destinations, nested tools, and optional account or organization actions. It consumes a presentation model rather than discovering application routes or user data itself.",
+    "how": [
+      "Supply model.user and model.rootMenu with stable IDs, labels, sections, and optional destinations. Use childBehavior='expand' for an inline submenu or 'drilldown' for a separate nested menu view.",
+      "Connect route-aware destinations through SGNavigationProvider and use onItemSelect for host actions that are represented by menu IDs rather than URLs.",
+      "Provide SGAccountProvider and onOrganizationChange only when the host implements those account operations. Supply translated runtime labels and resolveIcon when the model uses icon keys."
+    ],
+    "related": [{"slug":"app-shell","label":"AppShell"},{"slug":"navigation-provider","label":"SGNavigationProvider"},{"slug":"account-provider","label":"SGAccountProvider"}]
+  },
+  "editable-title-field": {
+    "when": "Use EditableTitleField for a title that normally reads as a heading but can be edited in place. It fits document and course names where a full separate editing form would interrupt the workflow.",
+    "how": [
+      "Pass the committed title and update it from onSave(nextTitle). The host decides whether saving is local or asynchronous and owns persistence failures.",
+      "Choose an available h4, h5, or h6 visual variant and supply a useful placeholder for an empty title. Use minWidth to fit the surrounding layout.",
+      "Set readOnly when title editing is unavailable. Keep the host's committed value authoritative rather than saving every intermediate keystroke as a completed change."
+    ],
+    "related": [{"slug":"content-editor-chrome","label":"ContentEditorChrome"},{"slug":"document-editor-layout","label":"DocumentEditorLayout"}]
+  },
+  "document-editor-layout": {
+    "when": "Use DocumentEditorLayout to assemble document title, menu, toolbar, and content regions without rebuilding their layout on each editor screen. It keeps chrome outside the content scroll region while leaving document behavior to the host.",
+    "how": [
+      "Pass title or a custom titleNode, and compose headerRight, menuBar, and toolbar from appropriate SGUI controls.",
+      "Provide the document as children. The host content owns scrolling: use a bounded layout and a content child with minHeight: 0 and overflow: auto when an independent scrollport is needed.",
+      "Keep document loading, saving, and routing in host state. The layout does not create another editor instance or an additional content scroll container."
+    ],
+    "related": [{"slug":"document-editor-toolbar","label":"DocumentEditorToolbar"},{"slug":"editable-title-field","label":"EditableTitleField"},{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"}]
+  },
+  "document-editor-toolbar": {
+    "when": "Use DocumentEditorToolbar for a document host that needs a small controlled heading, formatting, zoom, and status bar. It requests commands from an existing editor rather than implementing document editing itself.",
+    "how": [
+      "Supply canEdit, headingValue, and actions with controlled active flags and real onClick callbacks. Derive those flags from the host editor selection; missing callbacks leave their commands unavailable.",
+      "Connect onHeadingChange to a host editor command and accept the requested normal/h1–h5 value. Heading requests finish the chooser interaction before invoking the host callback.",
+      "Provide zoomValue and zoom callbacks separately from editing availability. Hide optional groups that the host does not use; alignment and custom-component placeholders do not provide active editing commands.",
+      "Use statusLabel, a token-based statusColor, or rightSlot for host status. Saving and error recovery remain application responsibilities."
+    ],
+    "related": [{"slug":"document-editor-layout","label":"DocumentEditorLayout"},{"slug":"rich-text-formatting-toolbar","label":"RichTextFormattingToolbar"}]
+  },
+  "content-editor-chrome": {
+    "when": "Use ContentEditorChrome for an editor's identity and command area: an icon, editable title, host menu commands, and a status slot. It is useful above an existing content editor when the host already manages its document model.",
+    "how": [
+      "Provide title and onTitleSave for the committed document name. Use titleReadOnly to keep that name visible while preventing edits.",
+      "Supply menuItems with stable IDs and onPress(anchor) callbacks. Use the native button anchor to position a host-owned menu or dialog; there is no synthetic click event to inspect.",
+      "Expose disabled or loading command states and matching aria-haspopup, aria-expanded, and aria-controls when a command opens an overlay. Put saving or publication status in rightSlot."
+    ],
+    "related": [{"slug":"editable-title-field","label":"EditableTitleField"},{"slug":"document-editor-toolbar","label":"DocumentEditorToolbar"},{"slug":"popover","label":"Popover"}]
+  },
+  "floating-text-selection-toolbar": {
+    "when": "Use FloatingTextSelectionToolbar to offer formatting near a selected range in a Lexical document. It is intended for an existing Lexical editor context; PageRichTextEditorSection already composes it for its own document.",
+    "how": [
+      "Mount it inside the document's LexicalComposer and provide boundaryRef when the host needs to constrain positioning to a particular visible editor area.",
+      "Select a non-collapsed text range to expose formatting. Alt+F10 provides a keyboard route to its actions, and Escape returns control to the editor.",
+      "Connect onRequestLink to a host-owned link workflow and preserve the editor selection for that workflow. Keep the viewport-positioned toolbar outside ancestors that establish a transformed fixed-position containing block."
+    ],
+    "related": [{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"},{"slug":"link-url-modal","label":"LinkUrlModal"}]
+  },
+  "rich-text-formatting-toolbar": {
+    "when": "Use RichTextFormattingToolbar when a host editor needs configurable heading, inline formatting, colors, alignment, insertion, and history controls. It suits a richer command surface than DocumentEditorToolbar and keeps document state with the host.",
+    "how": [
+      "Connect the command callbacks to the existing editor and supply heading, alignment, color, font, and active formatting values from its current selection. Boolean or mixed inline states describe the selection; the toolbar does not infer them.",
+      "Use hiddenControls or hiddenControlSets to omit features, and disabledControls or disabledControlSets to show temporarily unavailable features. Missing callbacks also disable the corresponding commands.",
+      "Preserve or prepare the editor selection before a link or insertion workflow moves focus. Connect undo/redo and insertion callbacks only when the host implements those operations.",
+      "Choose the font-family and font-size groups you actually support, and provide named host content for leftSlot or rightSlot when composing additional controls."
+    ],
+    "related": [{"slug":"text-align-menu-control","label":"TextAlignMenuControl"},{"slug":"text-color-picker-control","label":"TextColorPickerControl"},{"slug":"insert-content-menu-control","label":"InsertContentMenuControl"}]
+  },
+  "insert-content-menu-control": {
+    "when": "Use InsertContentMenuControl for a compact menu of image, horizontal-rule, and column-layout insertion commands. It is appropriate when an editor host already owns insertion and its resulting document updates.",
+    "how": [
+      "Provide only the insertion callbacks the host supports. Unimplemented commands remain unavailable, and disabled makes the whole trigger unavailable.",
+      "Connect image and column requests to host-managed ImageUploadModal or ColumnsLayoutModal state, or another explicit insertion workflow.",
+      "Retain the intended editor selection before focus enters a menu or dialog, then insert through the host editor command. Opening a menu does not persist document changes."
+    ],
+    "related": [{"slug":"image-upload-modal","label":"ImageUploadModal"},{"slug":"columns-layout-modal","label":"ColumnsLayoutModal"},{"slug":"rich-text-formatting-toolbar","label":"RichTextFormattingToolbar"}]
+  },
+  "text-align-menu-control": {
+    "when": "Use TextAlignMenuControl to expose paragraph alignment and indent commands in an editor toolbar. It supports both physical left/right alignment and logical start/end choices for direction-aware content.",
+    "how": [
+      "Supply value and accept onChange through the host editor, then update the controlled value from the document's current alignment.",
+      "Provide onIndent and onOutdent only when supported, and derive canIndent and canOutdent from the host's nesting or indentation limits.",
+      "Keep selection handling with the editor and use disabled when the whole control is unavailable. Choosing alignment does not itself modify arbitrary page text."
+    ],
+    "related": [{"slug":"rich-text-formatting-toolbar","label":"RichTextFormattingToolbar"},{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"}]
+  },
+  "text-color-picker-control": {
+    "when": "Use TextColorPickerControl for foreground or highlight/background color commands within an editor. It offers semantic palette choices and custom hex values without owning the text selection or document style model.",
+    "how": [
+      "Choose mode='foreground' or 'background', provide value, and apply onChange(nextColor) through the host editor command.",
+      "Accept semantic preset values as CSS token references rather than assuming every choice is a hex literal. Clear emits an empty string so the host can remove the explicit style.",
+      "Preserve the target selection while the picker is open, and set disabled when formatting is unavailable. Saved document colors remain part of the host's content and rendering policy."
+    ],
+    "related": [{"slug":"rich-text-formatting-toolbar","label":"RichTextFormattingToolbar"},{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"}]
+  },
+  "text-style-menu-control": {
+    "when": "Use TextStyleMenuControl for less frequent text transformations and formatting commands such as case conversion, strikethrough, subscript, superscript, and highlighting. It keeps these commands compact without making them permanent toolbar buttons.",
+    "how": [
+      "Connect supported transformation callbacks to the editor's retained selection. Each callback requests a host command rather than transforming document text inside the menu.",
+      "Supply activeStyles when the host can report checked formatting state; omit it for ordinary action items. Missing callbacks leave individual commands unavailable.",
+      "Implement onClearFormatting according to the host's document rules, and use disabled when the entire menu is unavailable. Clearing formatting is a document operation, not a theme reset."
+    ],
+    "related": [{"slug":"rich-text-formatting-toolbar","label":"RichTextFormattingToolbar"},{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"}]
+  },
+  "columns-layout-modal": {
+    "when": "Use ColumnsLayoutModal when a user needs to choose one of the library's five supported column presets before the host inserts or changes a document layout. It provides a focused draft-and-confirm choice rather than an editor or persistence service.",
+    "how": [
+      "Keep open in host state and pass the committed or intended defaultPreset. Opening the dialog restores that preset; changing defaultPreset while it is open starts a new draft.",
+      "Handle onSubmit(preset) by applying the chosen ID through the host's document command, updating committed state, and closing the dialog when appropriate.",
+      "Handle onClose separately for cancellation. Cancel and Escape do not commit the draft, and the dialog does not create table nodes or save document content on its own."
+    ],
+    "related": [{"slug":"insert-content-menu-control","label":"InsertContentMenuControl"},{"slug":"dialog","label":"AppModal"},{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"}]
+  },
+  "link-url-modal": {
+    "when": "Use LinkUrlModal to create, edit, or remove a link through a small display-text and destination workflow. It is especially useful when an editor needs a destination draft while preserving the selected text until the user applies it.",
+    "how": [
+      "Control open and provide initialDisplayText and initialUrl from the current link or selection. Reopening or changing those initial values resets the dialog draft.",
+      "Accept onSubmit({displayText, url}) through the host editor. Values are trimmed; a blank URL produces null so the host can unlink existing text without discarding it. Close the dialog after applying the intended change.",
+      "Choose allowedProtocols and allowRelativeUrls for the host's destination policy. Built-in syntax/protocol checks do not establish that a URL exists or that the user is authorized to use it.",
+      "Treat onClose as cancellation and retain the original document value. Apply and URL-field Enter share validation; invalid destinations stay in the draft workflow for correction."
+    ],
+    "related": [{"slug":"dialog","label":"AppModal"},{"slug":"floating-text-selection-toolbar","label":"FloatingTextSelectionToolbar"},{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"}]
+  },
+  "image-upload-modal": {
+    "when": "Use ImageUploadModal to collect an image file, show a temporary preview, and optionally collect its description before a host upload or insertion. It suits image insertion workflows where the application owns asset storage and policy.",
+    "how": [
+      "Control open and implement onSubmit(file, altText) as the host workflow. Enable enableAltText to collect a description; an empty description identifies a decorative image. The host must retain that value when inserting or saving the image.",
+      "Provide uploading and errorMessage when the host owns pending/error state, or return a promise from onSubmit. Rejected submissions retain the selected file for correction or retry; close after the intended successful result.",
+      "Validate file contents, size limits, and asset authorization in the host. Picker/drop metadata checks and a visible preview are presentation checks, and the dialog's object URL is temporary rather than a durable asset URL.",
+      "Handle onClose as cancellation and invalidate or abort the host operation as appropriate. Closing the UI does not cancel a network request or clean up a server-side asset."
+    ],
+    "related": [{"slug":"dialog","label":"AppModal"},{"slug":"insert-content-menu-control","label":"InsertContentMenuControl"},{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"}]
+  },
+  "page-rich-text-editor-section": {
+    "when": "Use PageRichTextEditorSection when a page needs an integrated Lexical rich-text document editor with owned formatting and insertion controls. It is a complete editor section, unlike the standalone toolbar and chrome components that require an existing editor host.",
+    "how": [
+      "Seed the document with lexicalValue and persist serialized edits from onLexicalChange. The editor remains internally live: changing lexicalValue alone does not replace its document or selection; change editorKey to load a different document.",
+      "Give the section a bounded height or a zero-minimum flex parent, and supply a meaningful aria-label. Use readOnly to change the existing editor's availability rather than mounting a separate view solely to disable editing.",
+      "Choose toolPreset and supported control overrides for the workflow. The section composes selection handling, toolbars, and editor dialogs; avoid adding a second disconnected toolbar that does not share its editor state.",
+      "Provide onUploadImage when saved images need durable host asset URLs. Without a host upload, local image previews are temporary; the host owns persistence, upload cancellation, asset authorization, and cleanup."
+    ],
+    "related": [{"slug":"document-editor-layout","label":"DocumentEditorLayout"},{"slug":"rich-text-formatting-toolbar","label":"RichTextFormattingToolbar"},{"slug":"image-upload-modal","label":"ImageUploadModal"}]
+  },
+  "navigation-provider": {
+    "when": "Use SGNavigationProvider when SGUI links and route-aware navigation must integrate with a host router. It keeps routing frameworks out of the UI library and allows examples or tests to use a local navigation adapter.",
+    "how": [
+      "Pass value with the current pathname and a navigate(href, options) function that delegates to the host router. Honor options.replace when the caller requests replacement rather than a new history entry.",
+      "Wrap the relevant SGUI composition so breadcrumb links, route tabs, and side navigation share one routing owner. Update pathname from the host's actual route state.",
+      "Provide an optional Link implementation when the host needs a custom native-anchor bridge. Preserve href, children, native link props, and refs; external destinations retain their native behavior."
+    ],
+    "related": [{"slug":"sg-link","label":"SGLink"},{"slug":"side-navigation","label":"SideNavigation"},{"slug":"page-tabs","label":"AppPageTabs"}]
+  },
+  "sg-link": {
+    "when": "Use SGLink as the native-anchor adapter when a link needs to cooperate with host routing while preserving browser link behavior. Use the owned Link component when you also want the library's visual link treatment.",
+    "how": [
+      "Provide href and meaningful link content, and wrap local routes in SGNavigationProvider when clicks should request client navigation.",
+      "Use replace for route replacement when appropriate. Modified clicks, download links, non-self targets, and external destinations retain native anchor behavior rather than being forced through the router.",
+      "Supply a host Link adapter only if it preserves anchor semantics and refs. SGLink does not choose application destinations or make protected routes available to a user."
+    ],
+    "related": [{"slug":"navigation-provider","label":"SGNavigationProvider"},{"slug":"link","label":"Link"}]
+  },
+  "account-provider": {
+    "when": "Use SGAccountProvider when a composition such as SideNavigation needs to read available account sessions, select an account, or request sign-out. It adapts host-owned account operations without adding authentication or session storage to SGUI.",
+    "how": [
+      "Pass an adapter that returns the host's current session and session list, and implements account selection, organization-switch marking, and the requested sign-out operations.",
+      "Keep adapter results consistent with the host's state after mutations. Handle asynchronous logout and any organization transition in the application, including navigation and error presentation.",
+      "Never treat the provider or the local docs examples as authentication. The host owns credentials, network calls, authorization, session persistence, and cleanup."
+    ],
+    "related": [{"slug":"side-navigation","label":"SideNavigation"},{"slug":"auth-shell","label":"AuthShell"}]
+  },
+  "translation-provider": {
+    "when": "Use SGTranslationProvider to connect library-owned messages to the host's translation engine and locale. It supports localized labels and ICU values while retaining English default messages when a lookup fails or returns a missing marker.",
+    "how": [
+      "Pass locale, t(key, options), and useNamespace(namespace) through an adapter that delegates to the host engine. Preserve namespace and values so the host can format and diagnose the lookup correctly.",
+      "Provide defaultMessage for every library-message lookup and format its ICU values through the host engine or formatIcuMessage. Runtime content supplied by the application remains part of its own translation integration.",
+      "Keep locale support, catalog loading, overrides, caching, and diagnostics with the host. Wrap the same composition in an owned Provider for production styles and locale-aware interactions."
+    ],
+    "related": [{"slug":"provider","label":"Provider"},{"slug":"side-navigation","label":"SideNavigation"},{"slug":"page-rich-text-editor-section","label":"PageRichTextEditorSection"}]
+  }
+}

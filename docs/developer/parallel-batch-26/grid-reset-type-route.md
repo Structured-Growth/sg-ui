@@ -10,7 +10,7 @@ star export omitted it too. Adding the type to that barrel exposes the same
 contract through root, `/components`, and `/components/AppDataGrid`, without
 changing reset behavior, runtime exports, or the owned shape.
 
-The fixture at [tests/types/app-data-grid-view-state.tsx](../../../tests/types/app-data-grid-view-state.tsx)
+The fixture at [tests/types/app-data-grid-view-state.tsx](../../../packages/ui/tests/types/app-data-grid-view-state.tsx)
 imports those three package routes. It verifies exact type identity with both
 AppDataGrid and AppDataGridShell `onResetView` parameters, complete host snapshot
 construction and callback assignments, required layout fields, and the optional

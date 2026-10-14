@@ -1,0 +1,36 @@
+import {test,expect} from '@playwright/test';
+
+test('component composition navigation shows one level and keeps host content separate',async({page})=>{
+  await page.goto('/docs/components/data-grid-shell');
+  let usage=page.getByRole('region',{name:'Component usage',exact:true});
+  let children=usage.getByRole('list',{name:'Included components',exact:true});
+  await expect(children.getByRole('link')).toHaveText(['AppDataGrid','AppPaginationFooter','Button','DataToolbar','Progress','Status']);
+  await expect(children.getByRole('link',{name:'Checkbox',exact:true})).toHaveCount(0);
+  await expect(children.getByRole('link',{name:'Pagination',exact:true})).toHaveCount(0);
+  await children.getByRole('link',{name:'AppDataGrid',exact:true}).click();
+  usage=page.getByRole('region',{name:'Component usage',exact:true});
+  children=usage.getByRole('list',{name:'Included components',exact:true});
+  await expect(children.getByRole('link',{name:'Checkbox',exact:true})).toBeVisible();
+  await children.getByRole('link',{name:'AppPaginationFooter',exact:true}).click();
+  children=page.getByRole('region',{name:'Component usage',exact:true}).getByRole('list',{name:'Included components',exact:true});
+  await expect(children.getByRole('link')).toHaveText(['Pagination']);
+  await children.getByRole('link',{name:'Pagination',exact:true}).click();
+  children=page.getByRole('region',{name:'Component usage',exact:true}).getByRole('list',{name:'Included components',exact:true});
+  await expect(children.getByRole('link',{name:'Button',exact:true})).toBeVisible();
+  await page.goto('/docs/components/app-shell');
+  usage=page.getByRole('region',{name:'Component usage',exact:true});
+  await expect(usage.getByRole('list',{name:'Included components',exact:true})).toHaveCount(0);
+  await expect(usage).toContainText('No fixed child components');
+  await expect(usage).toContainText('navigation');
+  await page.goto('/docs/components/list');
+  usage=page.getByRole('region',{name:'Component usage',exact:true});
+  await expect(usage.getByRole('region',{name:'List composition',exact:true}).getByRole('list',{name:'Included components',exact:true})).toHaveCount(0);
+  await expect(usage.getByRole('region',{name:'ListItemText composition',exact:true}).getByRole('link')).toHaveText(['Typography']);
+  await page.goto('/docs/components/progress');
+  usage=page.getByRole('region',{name:'Component usage',exact:true});
+  const wrapper=usage.getByRole('region',{name:'CircularProgress composition',exact:true});
+  await expect(wrapper.getByRole('link')).toHaveText(['Progress']);
+  await wrapper.getByRole('link',{name:'Progress',exact:true}).click();
+  await expect(page).toHaveURL(/\/progress#composition-Progress$/);
+  await expect(usage.getByRole('region',{name:'Progress composition',exact:true}).getByRole('list',{name:'Included components',exact:true})).toHaveCount(0);
+});

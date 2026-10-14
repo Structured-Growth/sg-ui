@@ -1,0 +1,597 @@
+{
+  "modules": [
+    {
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/foundation/TokenTierScope.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/foundation/TokenTierScope.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/foundation/BaselineHostFlow.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/foundation/BaselineHostFlow.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/foundation/ThemeScope.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/foundation/ThemeScope.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/adapters/adapters.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/adapters/adapters.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AdminDataGridOptions.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AdminDataGridOptions.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/theme/AppThemeProvider.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/theme/AppThemeProvider.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/hooks/usePersistentPaginationModel.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/hooks/usePersistentPaginationModel.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/hooks/usePersistentState.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/hooks/usePersistentState.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/i18n/Translations.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/i18n/Translations.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.server-response-races.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/CardPaginationFooter/CardPaginationFooter.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppModal/AppModal.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/SideNavigation/SideNavigation.organization-lifetime.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.organization-lifetime.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/SideNavigation/SideNavigation.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LinkUrlModal/LinkUrlModal.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppPageTabs/AppPageTabs.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppPageTabs/AppPageTabs.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ColumnsLayoutModal/ColumnsLayoutModal.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DocumentEditorToolbar/DocumentEditorToolbar.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/InsertContentMenuControl.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AuthShell/AuthShell.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AuthShell/AuthShell.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/CardCollectionWithFooter/CardCollectionWithFooter.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppShell/AppShell.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppShell/AppShell.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/primitives/primitives.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/primitives/primitives.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ImageUploadModal/ImageUploadModal.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.native.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.native.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/ownedGridProcessing.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridProcessing.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/ownedGridParts.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridParts.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder-invalidation.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.reorder-invalidation.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridInteraction.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/ownedGridCells.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridCells.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridSortAcceptance.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/icons/icons.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/icons/icons.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/EditableTitleField/EditableTitleField.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/EditableTitleField/EditableTitleField.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridRowDnd/DataGridDragHandle.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextColorPickerControl/TextColorPickerControl.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/RichTextFormattingToolbar/RichTextFormattingToolbar.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DocumentEditorLayout/DocumentEditorLayout.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ExperiencePageNavigator/ExperiencePageNavigator.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppInlineProgress/AppInlineProgress.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextAlignMenuControl/TextAlignMenuControl.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/DataToolbar/DataToolbar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/DataToolbar/DataToolbar.column-order.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.column-order.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/TextStyleMenuControl/NativeSelection.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/NativeSelection.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/DataGrid/DataGrid.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/DataGrid/DataGrid.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/RadioGroup/RadioGroup.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/RadioGroup/RadioGroup.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Disclosure/Disclosure.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Disclosure/Disclosure.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Tabs/Tabs.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Tabs/Tabs.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/TagGroup/TagGroup.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/TagGroup/TagGroup.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Pagination/Pagination.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Pagination/Pagination.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Tooltip/Tooltip.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Tooltip/Tooltip.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/TimeField/TimeField.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/TimeField/TimeField.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Box/Box.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Calendar/Calendar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Calendar/Calendar.native-locales.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.native-locales.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Card/Card.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Card/Card.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/AsyncMultiSelect/AsyncMultiSelect.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/ButtonGroup/ButtonGroup.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/ButtonGroup/ButtonGroup.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Progress/Progress.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Progress/Progress.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/DatePicker/DatePicker.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/DatePicker/DatePicker.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Chip/Chip.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Chip/Chip.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Checkbox/Checkbox.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Checkbox/Checkbox.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Provider/Provider.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Provider/Provider.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Navigation/Navigation.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Navigation/Navigation.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/ToggleButton/ToggleButton.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/ToggleButton/ToggleButton.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/TextField/TextField.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/TextField/TextField.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Surface/Surface.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Surface/Surface.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Collapse/Collapse.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Collapse/Collapse.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Status/Status.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Status/Status.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/ComboBox/ComboBox.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Dialog/Dialog.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Dialog/Dialog.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Popover/Popover.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Popover/Popover.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Popover/Popover.collision.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Popover/Popover.collision.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.controlled-transactions.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/DateRangePicker/DateRangePicker.controlled-transactions.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/DateRangePicker/DateRangePicker.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/TextArea/TextArea.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/TextArea/TextArea.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/DateField/DateField.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/DateField/DateField.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Button/Button.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Link/Link.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Link/Link.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Table/Table.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Table/Table.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/List/List.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/List/List.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Divider/Divider.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Divider/Divider.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/icons/icons.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/icons/icons.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Menu/Menu.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Menu/Menu.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Avatar/Avatar.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Avatar/Avatar.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Typography/Typography.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Typography/Typography.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Switch/Switch.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Switch/Switch.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/SplitAction/SplitAction.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/SplitAction/SplitAction.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/IconButton/IconButton.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/IconButton/IconButton.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Select/Select.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Stack/Stack.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Stack/Stack.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Breadcrumbs/Breadcrumbs.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Breadcrumbs/Breadcrumbs.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/experimental/Badge/Badge.stories.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Badge/Badge.fixture.tsx",
+      "scenarioModule": true
+    },
+    {
+      "original": "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/NativeInsertionHost.tsx",
+      "scenarioModule": false,
+      "retainedUnitFixture": "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.native-fixture.tsx"
+    },
+    {
+      "original": "packages/ui/src/experimental/Select/SelectorDirectionStory.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/Select/SelectorDirectionFixture.tsx",
+      "scenarioModule": false
+    },
+    {
+      "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.fixtures.ts",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.fixtures.ts",
+      "scenarioModule": false
+    },
+    {
+      "original": "packages/ui/src/components/AppOperationSteps/AppOperationStepsNativeState.stories.fixture.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationStepsNativeState.fixture.fixture.tsx",
+      "scenarioModule": false
+    }
+  ],
+  "privateCompiledAliases": [
+    "components/AppDataGrid/components/table-cell/CopyableTableCell",
+    "components/AppDataGrid/components/table-cell/TextTableCell",
+    "components/AppDataGrid/ownedGridCells",
+    "components/AppDataGrid/ownedGridColumns",
+    "components/AppDataGrid/ownedGridController",
+    "components/AppDataGrid/ownedGridInteraction",
+    "components/AppDataGrid/ownedGridLayoutController",
+    "components/AppDataGrid/ownedGridModel",
+    "components/AppDataGrid/ownedGridParts",
+    "components/AppDataGrid/ownedGridState"
+  ]
+}

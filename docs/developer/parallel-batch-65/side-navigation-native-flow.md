@@ -6,11 +6,11 @@ M-09 bounded implementation/proof slice, based on
 
 ## Coverage gap and change
 
-The baseline's [catalog unit tests](../../../src/components/SideNavigation/SideNavigation.test.tsx)
+The baseline's [catalog unit tests](../../../packages/ui/src/components/SideNavigation/SideNavigation.test.tsx)
 cover route activation, expansion/collapse, drilldown/back and account adapter
-behavior in jsdom. [Responsive shell browser checks](../../../tests/browser/inventory-shell-responsive.spec.ts)
+behavior in jsdom. [Responsive shell browser checks](../../../packages/ui/tests/browser/inventory-shell-responsive.spec.ts)
 cover shell layout, collapse and host-content focus/scroll. The existing
-[logout lifetime browser checks](../../../tests/browser/batch13-logout-lifetime.spec.ts)
+[logout lifetime browser checks](../../../packages/ui/tests/browser/batch13-logout-lifetime.spec.ts)
 cover stale account-operation results. None proves the catalog hierarchy's full
 native keyboard sequence. Experimental navigation/control proofs are prerequisites,
 not catalog hierarchy traversal; no duplicate account/network lifetime work is added.
@@ -28,7 +28,7 @@ a parent route. Public props, native ref, accessible names, host routing ownersh
 account behavior and translations are preserved. Two regressions cover nested and
 non-nested child URLs, including exactly one parent request when required.
 
-The exclusive [native browser spec](../../../tests/browser/batch65-side-navigation-native-flow.spec.ts)
+The exclusive [native browser spec](../../../packages/ui/tests/browser/batch65-side-navigation-native-flow.spec.ts)
 contains four cases: light/dark × ordinary/200% root text at 320 × 720 CSS pixels.
 Native Tab/Shift+Tab, Enter, Space, ArrowDown and Escape cover account menu entry/
 return, branch expansion/collapse, all child focus stops, selected-route semantics,

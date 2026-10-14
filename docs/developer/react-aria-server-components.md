@@ -3,12 +3,18 @@
 R-02 removes the former blanket `"use client"` injection from the build.
 Directives now come from the source implementation and survive compilation.
 Barrels do not establish a client boundary. Tokens, models and presentation
-implementations such as Box, Typography, Table, ClassCardFrame, AuthShell and
-AppShell remain eligible for server rendering. Their native refs continue to
+implementations such as Box, Typography, Table, ClassCardFrame and AppShell
+remain eligible for server rendering. Their native refs continue to
 work for client consumers with React 18.3 and 19.
 
 Interactive components, hooks and context providers retain explicit client
-boundaries. Provider and ThemeScope depend on context, so they are Client
+boundaries. AuthShell also has a client boundary: its native focus handler reveals
+host controls inside clipped or scrolling authentication layouts. It remains free
+of account APIs and persistence; its presentation purpose does not make its focus
+behavior server-executable. AppShell remains a Server Component; its private AppShellMain client leaf owns
+native focus visibility and resize observation. Server-provided children still
+serialize through that leaf. The leaf never moves outside focus or navigation
+scroll, and cleanup disconnects observation and cancels pending frames. Provider and ThemeScope depend on context, so they are Client
 Components even though their initial SSR markup is stable. A Server Component
 can pass server-rendered presentation content as their children. Event handlers,
 render callbacks and other function props for an interactive component belong
@@ -25,8 +31,9 @@ Its React 19 fixture also installs the matching official
 `react-server-dom-webpack` test renderer, runs with Node's `react-server`
 condition and the official directive loader, and produces a Flight stream.
 It verifies that public presentation imports are executed on the server,
-that Provider and AppButton become client references, and that a composed
-shell/card/table tree serializes without render errors. The renderer is confined
+that Provider, AppButton and AuthShell become client references, and that a composed
+shell/card/table tree serializes without render errors, including the exact
+private AppShellMain client reference in its Flight manifest. The renderer is confined
 to the disposable fixture and adds no package runtime dependency.
 
 The same fixture retains ordinary SSR and Vite hydration-entry builds, production

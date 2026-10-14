@@ -7,9 +7,9 @@ Managed, attached worktree:
 Verified clean starting HEAD: `0186aff866d1b0b568817631f3d0da83ee0d49e3`.
 Only the following reserved files change:
 
-- [Host fixture](../../../src/components/AppDataGrid/AppDataGrid.reorder-invalidation.stories.tsx).
-- [Composed tests](../../../src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx).
-- [Native spec](../../../tests/browser/inventory-pointer-reorder-invalidation.spec.ts).
+- [Host fixture](../../../packages/ui/src/components/AppDataGrid/AppDataGrid.reorder-invalidation.stories.tsx).
+- [Composed tests](../../../packages/ui/src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx).
+- [Native spec](../../../packages/ui/tests/browser/inventory-pointer-reorder-invalidation.spec.ts).
 - This report.
 
 Production grid/RowDnd implementations, existing stories/tests and the integration

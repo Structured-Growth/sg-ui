@@ -1,3 +1,96 @@
+## Workspace layout (2026-10-14)
+
+Library source, colocated tests/unit fixtures and validation scripts now live in
+`packages/ui`. Interpret earlier `src/` paths relative to that workspace. Root
+commands forward library checks to it. Run direct library scripts from that cwd.
+The Next.js docs app is `apps/docs`, consumes public compiled package exports,
+and owns its docs theme via Provider token overrides. Use SGUI primitives and
+components for website UI; native framework document/form elements remain valid.
+New docs examples are ordinary React components with prop playgrounds, variant
+matrices and composed scenarios. Storybook runtime, dependencies and original story
+files have been removed. Docs-owned native scenarios live in `apps/docs/native-fixtures`;
+source-context unit fixtures remain colocated as `*.native-fixture*`. Keep existing
+assertions and record the new host separately from historical Storybook evidence.
+
+## Component documentation requirements
+
+Every component documented in `apps/docs` must have a prop playground. This applies
+to catalog compositions, public primitives and experimental controls, including all
+new components and Storybook migrations. A static example alone is incomplete.
+Every component page must also provide component-specific "When to use" and "How
+to use" guidance in `apps/docs/content/component-usage`, grounded in its shipped
+public APIs and host ownership. Explain related alternatives where choices are
+easy to confuse, especially Dialog, AppModal and other overlays. Keep the guidance
+current when contracts change; `catalog:check` rejects missing guidance or invalid
+related links. These descriptions belong to the fixed website scope, not demo themes.
+Expose meaningful public props: visual variants/tones, density, content/labels and
+behavior states where supported. Preserve controlled callbacks, native semantics,
+production scopes and public package imports; do not invent unsupported props.
+For components without variants or state, use applicable content/layout props.
+Register public component exports (including aliases and compound children) in the catalog metadata. `pnpm --filter @structured-growth/docs catalog:check` must pass; new exports require examples. The production browser catalog check must render every route and compile the displayed source against public package types.
+
+Every live example must use the shared `Example` panel and provide expandable,
+copyable source: playgrounds, individual variants, tone matrices, density comparisons,
+content examples and composed/native form flows. Source must match the rendered
+props, labels, states and applicable density as controls change. Include public
+component imports and required host state/callbacks; never leave undefined handlers
+or application aliases. Component source panels assume the application already
+loads the stylesheet and provides its theme. Omit demo palettes, appearance/contrast
+resolution, system-preference subscriptions and automatic Provider setup. Retain
+local density scopes or explicit theme overrides only when those are the documented
+behavior of the example. Put application-level theme setup in installation/theming
+guidance rather than repeating it in every component snippet.
+Serialize consumer content safely as JSX string expressions. Keep example code
+independent of Next.js and docs-specific controls, and disclose host integration
+requirements rather than implying backend persistence.
+
+Each component page includes a one-level Contains list of the documented UI
+components its implementation composes, linking to those components' pages.
+Give separately documented compound parts their own lists when their children differ.
+Do not flatten descendants into the parent list or infer fixed children from
+application-supplied slots. Private renderer helpers are transparent; maintain
+explicit mappings where a private entry implements a public component boundary.
+Regenerate and check the composition metadata with the catalog after changes.
+Keep component navigation grouped by purpose in `apps/docs/content/component-navigation.json`.
+Every catalog page belongs to exactly one group. Preserve keyboard-accessible
+expansion, cross-group search and visibility of the current page's category.
+Preserve docs header/sidebar/content width while overlays lock document scrolling.
+Keep the stable document gutter and docs-only unlocked-width constraint; validate
+opening/dismissal and viewport resize rather than disabling native scroll locking.
+
+Show density locally and compare compact/comfortable examples where relevant.
+Each Example block owns its own interaction state, including actions, counters,
+drafts, selection, pagination, filters, loading/errors and overlay open state.
+Mount separate state-owning components for separate panels; never share setters
+or lift their mutable state into a common page wrapper. Mapped panels must render
+separate components rather than capture shared page state in inline Example JSX.
+The catalog isolation guard enforces one Example per owner. Verify an interaction
+updates only that panel's preview/source and preserves every sibling's state/source.
+Playground controls affect only their own example. Reference examples must have
+fixed documented configurations and independent interaction state; do not pass
+playground props or state into comparison sections. For components with orientation,
+show horizontal and vertical examples at both compact and comfortable densities
+simultaneously. Expand meaningful combinations of supported variants, tones, states,
+content and layout with named source-backed panels rather than making one toggle
+change the whole page. Global demo identity/appearance/contrast remains shared.
+Do not restore a global docs density toggle. The website shell, navigation, headings, prop controls and source panels retain
+the fixed Structured Growth identity. One shared Demo settings toolbar owns identity/appearance/contrast selection
+above the component routes; preserve those settings across client navigation.
+Do not add another appearance panel to each component page. Selections affect
+live previews and their overlay portals only. Keep density inside
+preview scopes. Example theme identity is separate from light/dark appearance;
+use owned tokens. Visual identity/appearance/contrast changes must not add theme
+boilerplate to copied component source. Offer system-following appearance and contrast in demo settings;
+subscribe to preference changes with a stable SSR snapshot. Increased contrast
+palettes must verify named text/control/focus pairs. OS forced colors take priority
+even over explicit standard contrast; never disable forced-color adjustment to
+preserve branding. System forced colors may naturally recolor the website shell.
+Keep source buttons keyboard accessible, announce copy success/failure, and leave
+selectable source available if clipboard access fails. Validate generated snippets
+against the built package and verify component props/state source/copy in the docs smoke.
+Track missing component playgrounds individually in the docs backlog; do not claim
+all-library documentation coverage while those components remain pending.
+
 ## Current execution priority
 
 The human-approved detailed backlog runs functionality first, regression second,
@@ -42,7 +135,7 @@ The user-approved target architecture and migration backlog are in
 For migration tasks, its target architecture governs the owned-foundation
 rules below: use SGUI-owned APIs and styles, React Aria internally, and complete
 removal of the old foundation. Historical extraction guidance applies only where the owned contracts do not supersede it; a planning checkbox is not evidence that migration has shipped.
-Reference task IDs in migration work and update affected stories, tests, consumer
+Reference task IDs in migration work and update affected docs examples, fixtures, tests, consumer
 documentation, and these instructions as implementation changes land.
 
 The catalog, grid renderer/reorder, editor, primitives, icons and public theme
@@ -95,7 +188,7 @@ Do not store credentials or fetch application data inside UI components.
 
 ## Structure
 
-- src/components: reusable components, colocated tests and Storybook stories.
+- src/components: reusable components, colocated tests and source-context native unit fixtures.
 - src/theme: public owned Provider/ThemeScope exports; src/foundation owns tokens.
 - src/hooks: reusable state/pagination helpers.
 - src/adapters: routing and host account integration.
@@ -120,6 +213,17 @@ SGUI does not define application database or HTTP-contract naming.
 
 ## Styling and shared components
 
+- Keep theme color dependencies in this order: named identity palettes →
+  appearance/contrast semantic mappings → component aliases → component styles.
+  Library CSS modules consume component color aliases, never direct semantic
+  colors or palette literals. Shared typography/spacing and native forced-color
+  rules retain their foundation contracts. Define aliases in the owned token
+  source and regenerate; never edit generated output by hand.
+- Website identities and their complete semantic maps live in `apps/docs/theme`.
+  The fixed website identity stays separate from demo settings. Maintain the
+  compiled public token inventory, graph validation and copyable consumer scopes.
+  See [the token pipeline checklist](docs/developer/theme-token-pipeline.md).
+
 - Prefer built-in props, variants and sizes before adding custom styling.
 - Put reusable styles in theme tokens or shared CSS component styles first. Use native class/style
   only for a layout or context-specific adjustment.
@@ -135,7 +239,7 @@ SGUI does not define application database or HTTP-contract naming.
   icons. If a needed primitive is missing, add/export it in the library first.
 - All catalog wrappers, primitives/icons and public theme now use the owned foundation. Do not introduce retired imports or public types. The learner platform's @ui/app aliases do not exist here;
   use relative imports within source and public package imports in consumer examples.
-- App code and Storybook must use the same shared theme; do not fork tokens in stories.
+- App code and docs/native fixtures must use production scopes and tokens; website identity overrides remain isolated from previews.
 - Preserve accessible names, focus management, keyboard behavior and loading/empty/error
   states. A style change must preserve the component's light/dark theme behavior.
 
@@ -202,18 +306,24 @@ control; importing guidance is not an instruction to change all legacy behavior.
 - Reuse AppPageHeader, AppPageTabs and breadcrumb patterns rather than reproducing
   their layout with raw MUI in every composition.
 
-## Storybook and behavior tests
+## Website examples and behavior tests
 
-- Keep each component's stories and tests colocated with its implementation.
-- Update Storybook stories in the same change as shared component props, states or
-  behavior. Include at least one example covering the changed behavior.
+- The Next.js docs website is the target for new examples and UI design. Follow
+  [the transition checklist](docs/developer/docs-website.md#active-transition-plan--2026-10-14)
+  for migration evidence. Storybook is removed; new documentation belongs in the
+  website and native browser scenarios in its private test host.
+- Keep library tests colocated with implementations; update the corresponding
+  website playground/examples when public props, states or behavior change.
+- Update docs-owned native fixtures when a changed contract affects their tests;
+  preserve the mapped scenarios and assertions.
 - During migration baseline work, keep new unit coverage to the minimal meaningful
   smoke set described above. Update existing tests directly affected by the change;
   track deeper regressions and environment matrices as separate tasks. After the
   baseline, cover each regression/fix with focused behavior evidence.
 - Documentation-only edits do not require UI code or new unit tests.
-- Use representative data and host adapters in stories. Keep stories independent
-  of Next.js, authentication endpoints, the learner platform and external databases.
+- Use representative data and host adapters in examples. Keep reusable example
+  code independent of Next.js, authentication endpoints, the learner platform and
+  external databases; the website owns its framework routing integration.
 
 ## Translations
 
@@ -247,9 +357,9 @@ Run pnpm install --frozen-lockfile when dependencies are needed. During the
 user-authorized pre-production migration into `codex/dev`, use targeted validation
 per task: meaningful affected unit/composed tests, type/import/token guards relevant
 to the change, and focused browser or packed-consumer checks when behavior requires
-them. Update affected stories; build fresh Storybook only when needed for those
-checks. Neither each task PR nor each dev integration requires `pnpm check`, a
-Storybook build or the entire browser/consumer matrix. See
+them. Update affected website/native examples; build fresh docs fixtures when
+needed for native checks. Neither each task PR nor each dev integration requires
+`pnpm check`, a docs fixture build or the entire browser/consumer matrix. See
 [development validation policy](docs/developer/react-aria-development-validation.md).
 The coordinator runs an occasional full checkpoint (initially daily while new code
 lands), records the exact tested head and creates bounded follow-up tasks for
@@ -321,7 +431,7 @@ The M-16 ownedGridModel/ownedGridState processing and transaction modules,
 ownedGridColumns/ownedGridCells/ownedGridParts helpers and presentation,
 and ownedGridController/ownedGridLayoutController/ownedGridInteraction controllers
 and interaction are internal building blocks of the owned catalog renderer.
-Apply migrated boundaries to these files and their stories as part of the strict
+Apply migrated boundaries to these files and their fixtures as part of the strict
 whole-directory AppDataGrid boundary. See the internal processing, cell/presentation
 and interaction contracts in the catalog grid contracts. Earlier incremental
 migration records are historical evidence, not exceptions to current owned rules.
@@ -348,7 +458,7 @@ with whole-directory source/transitive/declaration boundaries. See
 owned props and deliberate breaking removals. Import `/styles.css` and provide
 Provider or ThemeScope. Legacy theme removal and broad acceptance remain open.
 
-The public `/theme` now exports owned Provider/ThemeScope and AppThemeProvider (the same Provider under its preserved name). Theme objects and upstream typography augmentation are removed. Storybook uses production scopes and theme/density/locale/direction globals. See [theme mappings](docs/developer/react-aria-theme.md). No retired runtime/peer/dev foundation packages remain. Broad acceptance and final literal-reference audits remain open.
+The public `/theme` now exports owned Provider/ThemeScope and AppThemeProvider (the same Provider under its preserved name). Theme objects and upstream typography augmentation are removed. The docs native test host uses production scopes and theme/density/locale/direction settings. See [theme mappings](docs/developer/react-aria-theme.md). No retired runtime/peer/dev foundation packages remain. Broad acceptance and final literal-reference audits remain open.
 
 M-39 admin/instructor presets now expose translated Course-named factories, canonical status constants, first/action column locks and empty criteria defaults. Existing Class-named exports remain. See [preset contracts](docs/developer/react-aria-grid-presets.md).
 
@@ -372,11 +482,11 @@ toggling reorder retains the outer container and repairs lost grid focus.
 See [runtime and CI validation](docs/developer/react-aria-runtime-ci.md) for
 Node 22.12/24 and packed React 18/19 consumer checks. Broad acceptance remains open.
 
-R-11/X-12 browser gates run against freshly built static Storybook with
+R-11/X-12 browser gates now run against freshly built docs-owned native fixtures with
 `pnpm test:browser`; CI requires Chromium, Firefox and WebKit on Node 24.
 See [browser acceptance](docs/developer/react-aria-browser-acceptance.md) for
 download bytes, axe failure ownership, native focus/scroll and performance smoke
-coverage. Never rebuild Storybook during a suite run. Broad native/device and
+coverage. Never rebuild the native fixture host during a suite run. Broad native/device and
 assistive-technology acceptance remains open. The
 [removal audit](docs/developer/react-aria-removal-audit.md) distinguishes emitted
 implementation guards from preserved historical/legal references.

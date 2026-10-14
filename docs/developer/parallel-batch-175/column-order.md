@@ -13,7 +13,7 @@ identify F-C20-05 as a genuine missing functionality slice. The approved
 existing visibility/reset evidence did not establish them. The
 [development validation policy](../react-aria-development-validation.md) governs this run.
 
-[Columns menu](../../../src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx)
+[Columns menu](../../../packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx)
 now renders compact owned Buttons named “Move {column} up/down”, translated with
 `defaultMessage`, namespace and host-label values. Each activation swaps adjacent
 entries in the **complete** controlled option array, including when search hides
@@ -25,7 +25,7 @@ menu/action fields last. The generic menu has no action-field metadata and makes
 requests; the catalog remains final authority. Reset still shows all columns in
 current order; dismissal still clears search.
 
-The [new production-scope story](../../../src/components/DataToolbar/DataToolbar.column-order.stories.tsx)
+The [new production-scope story](../../../packages/ui/src/components/DataToolbar/DataToolbar.column-order.stories.tsx)
 uses a controlled AppDataGridShell host, accepts order/visibility callbacks, starts
 Notes hidden, and exposes host snapshots. Story ID:
 `data-display-datatoolbar-column-order--controlled-host-order`.

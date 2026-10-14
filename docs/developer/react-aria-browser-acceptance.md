@@ -1,7 +1,7 @@
 # Executable browser acceptance
 
 Task references: H-02, R-11 and X-12, with representative G/X/editor evidence.
-The Playwright suite runs the built static Storybook iframe, using production
+The Playwright suite now runs the built docs-owned native React fixture host, using production
 scopes, styles and existing host adapters. It requires no authentication, database
 or external application service. Test fixtures and assertions live in
 `tests/browser/acceptance.spec.ts`; `playwright.config.ts` requires Chromium,
@@ -11,14 +11,14 @@ technology conformance.
 ```sh
 pnpm install --frozen-lockfile
 pnpm check
-pnpm build-storybook
+pnpm build:browser-docs
 pnpm exec playwright install --with-deps chromium firefox webkit
 pnpm test:browser
 ```
 
 The suite typechecks before executing. The server binds only to loopback, serves
 fresh static output without caching and rejects paths outside that output. Never
-rebuild Storybook while the suite is reading it. Package consumer fixtures still
+rebuild the native fixture bundle while the suite is reading it. Package consumer fixtures still
 run serially and must not overlap a `dist` rebuild.
 
 | Gate | Observable behavior |
@@ -38,10 +38,9 @@ Every scan attaches complete results. Library maintainers own remediation in the
 corresponding source component; consumers retain responsibility for their content,
 labels and overrides. New exceptions require a scoped documented reason and
 remediation owner, rather than a blanket suppression.
-Harness URLs set the Storybook addon's manual-scan global so the addon and
-Playwright do not launch competing axe runs in the same iframe. Playwright is the
-mandatory scan owner for these tests; its rules and violation assertions remain
-enabled.
+Playwright is the sole axe scan owner for these tests; its rules and violation
+assertions remain enabled. Retained legacy manual-scan query values are inert: the
+new host has no documentation runtime or accessibility addon.
 The read-only fixture deliberately sets its own dark scope; repeating outer
 globals checks its embedding, not a separate light read-only appearance.
 
@@ -54,7 +53,7 @@ Browser runtime errors and warnings fail the suite. Retries are disabled; CI
 forbids focused tests. Failure screenshots and traces, full JSON results, HTML
 report, axe results and smoke timings are retained as `sgui-browser-node-24` for
 14 days. The Node 24 CI job installs and runs all three engines after building
-Storybook. The Node 22.12.0 job independently validates package/consumer checks.
+the native docs fixture bundle. The Node 22.12.0 job independently validates package/consumer checks.
 See [runtime and artifact evidence](react-aria-runtime-ci.md).
 
 The broad browser matrix, physical touch dragging, manual screen-reader reviews,
@@ -62,6 +61,11 @@ zoom/reflow, visual snapshots, IME/paste, clipboard permissions, framework
 hydration and full performance/memory budgets remain separate acceptance tasks.
 Representative executed gates must not be treated as completion of every G/U/X
 or framework requirement.
+
+## Historical validation and environment receipts
+
+The following receipts retain their original hosts and environment limitations;
+new-host validation is recorded in [the migration ledger](docs-fixture-migration.md).
 
 Local Firefox could not launch on this Mac: its installed Playwright executable
 reported `Could not find profile folder` before a test page opened. A different
@@ -96,7 +100,7 @@ accessibility.
 
 Node 24 CI executes all three engines for both Vite React versions and Next.
 Each fixture has fresh server markup and browser contexts; it never shares the
-Storybook server. The helper enforces 30-second native action/navigation deadlines
+native fixture server. The helper enforces 30-second native action/navigation deadlines
 and fails on every page error or console warning/error. JSON evidence and failure
 screenshots/traces live under `artifacts/packed-browser` and are retained with the
 14-day browser artifact. Explicit local engine subsets remain reported as subsets;

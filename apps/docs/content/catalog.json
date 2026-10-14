@@ -1,0 +1,929 @@
+[
+  {
+    "slug": "button",
+    "title": "AppButton",
+    "description": "Variants, tones, density, disabled and pending actions.",
+    "exports": [
+      "AppButton"
+    ],
+    "group": "presentation"
+  },
+  {
+    "slug": "dialog",
+    "title": "AppModal",
+    "description": "Dialog sizes, dismissal options and host-owned forms.",
+    "exports": [
+      "AppModal"
+    ],
+    "group": "editor"
+  },
+  {
+    "group": "presentation",
+    "slug": "icons",
+    "title": "Icons",
+    "description": "Search every owned public SVG icon and adjust sizing, stroke and accessible labels.",
+    "exports": [
+      "AccessTimeFilledIcon",
+      "AccountCircleIcon",
+      "AddIcon",
+      "ApartmentIcon",
+      "ArrowDropDownIcon",
+      "ArrowForwardIcon",
+      "AssignmentTurnedInIcon",
+      "AutoStoriesIcon",
+      "BookIcon",
+      "BuildIcon",
+      "BusinessCenterIcon",
+      "CachedIcon",
+      "CalendarTodayIcon",
+      "CheckIcon",
+      "ChevronRightIcon",
+      "CircleIcon",
+      "ClassIcon",
+      "CloseIcon",
+      "CodeIcon",
+      "ComputerIcon",
+      "ContentCopyIcon",
+      "CorporateFareIcon",
+      "DashboardIcon",
+      "DeleteOutlineIcon",
+      "DescriptionIcon",
+      "DescriptionOutlinedIcon",
+      "DnsIcon",
+      "DragIndicatorIcon",
+      "EditIcon",
+      "EventIcon",
+      "ExpandLessIcon",
+      "ExpandMoreIcon",
+      "ExploreIcon",
+      "FactCheckOutlinedIcon",
+      "FilterListIcon",
+      "FontDownloadIcon",
+      "FormatAlignCenterIcon",
+      "FormatAlignJustifyIcon",
+      "FormatAlignLeftIcon",
+      "FormatAlignRightIcon",
+      "FormatBoldIcon",
+      "FormatClearIcon",
+      "FormatColorFillIcon",
+      "FormatColorTextIcon",
+      "FormatIndentDecreaseIcon",
+      "FormatIndentIncreaseIcon",
+      "FormatItalicIcon",
+      "FormatListBulletedIcon",
+      "FormatListNumberedIcon",
+      "FormatSizeIcon",
+      "FormatStrikethroughIcon",
+      "FormatUnderlinedIcon",
+      "GroupIcon",
+      "HighlightIcon",
+      "HorizontalRuleIcon",
+      "ImageIcon",
+      "KeyboardArrowDownIcon",
+      "KeyboardArrowLeftIcon",
+      "LinkIcon",
+      "LockIcon",
+      "LockResetIcon",
+      "LogoutIcon",
+      "ManageAccountsIcon",
+      "MenuBookIcon",
+      "MenuBookOutlinedIcon",
+      "MoreHorizIcon",
+      "MoreVertIcon",
+      "PaidIcon",
+      "PeopleIcon",
+      "PersonIcon",
+      "PersonAddIcon",
+      "PhotoCameraBackIcon",
+      "QuizOutlinedIcon",
+      "RedoIcon",
+      "RemoveIcon",
+      "SchoolIcon",
+      "ScienceOutlinedIcon",
+      "SearchIcon",
+      "SortIcon",
+      "StarIcon",
+      "SubscriptIcon",
+      "SuperscriptIcon",
+      "TaskAltIcon",
+      "TerminalIcon",
+      "TranslateIcon",
+      "TuneIcon",
+      "UndoIcon",
+      "UploadFileIcon",
+      "ViewColumnIcon",
+      "ViewListIcon",
+      "ViewWeekIcon",
+      "VisibilityOffIcon",
+      "VpnKeyIcon",
+      "WindowIcon",
+      "WorkOutlineOutlinedIcon",
+      "getActivityTypeIcon"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "owned-button",
+    "title": "Button",
+    "description": "Owned press actions, native button states and leading icons.",
+    "exports": [
+      "Button"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "owned-dialog",
+    "title": "Dialog",
+    "description": "Controlled overlay dismissal and explicitly host-owned actions.",
+    "exports": [
+      "Dialog"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "popover",
+    "title": "Popover",
+    "description": "Anchored supplementary content with keyboard dismissal.",
+    "exports": [
+      "Popover"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "tabs",
+    "title": "Tabs",
+    "description": "Host-controlled active panel, orientation and keyboard activation.",
+    "exports": [
+      "Tabs"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "typography",
+    "title": "Typography",
+    "description": "Visual roles are independent of native text semantics.",
+    "exports": [
+      "Typography"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "box",
+    "title": "Box",
+    "description": "Native semantic wrapper with spacing and readable container width.",
+    "exports": [
+      "Box"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "stack",
+    "title": "Stack",
+    "description": "Responsive spacing, alignment and wrapping for composed content.",
+    "exports": [
+      "Stack"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "surface",
+    "title": "Surface",
+    "description": "Shared surface elevation, tone and spacing.",
+    "exports": [
+      "Surface"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "card",
+    "title": "Card",
+    "description": "Semantic cards with shared surfaces and padded content.",
+    "exports": [
+      "Card",
+      "CardContent"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "divider",
+    "title": "Divider",
+    "description": "Semantic or decorative separators in horizontal and vertical layouts.",
+    "exports": [
+      "Divider"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "icon-button",
+    "title": "Icon button",
+    "description": "An accessible action name is required even when only an icon is visible.",
+    "exports": [
+      "IconButton"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "button-group",
+    "title": "Button group",
+    "description": "Group related native actions without changing their interaction semantics.",
+    "exports": [
+      "ButtonGroup"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "menu",
+    "title": "Menu",
+    "description": "Host-owned actions, checked items, disabled commands and shortcuts.",
+    "exports": [
+      "Menu"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "split-action",
+    "title": "Split action",
+    "description": "A primary command and secondary menu share a neutral action group.",
+    "exports": [
+      "SplitAction"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "link",
+    "title": "Link",
+    "description": "Native external navigation and host adapter routing for internal links.",
+    "exports": [
+      "Link"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "breadcrumbs",
+    "title": "Breadcrumbs",
+    "description": "A named navigation landmark with a non-link current item.",
+    "exports": [
+      "Breadcrumbs"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "tooltip",
+    "title": "Tooltip",
+    "description": "Plain supplementary descriptions for pointer and keyboard focus.",
+    "exports": [
+      "Tooltip"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "list",
+    "title": "List",
+    "description": "Native list semantics with optional selectable actions and secondary text.",
+    "exports": [
+      "List",
+      "ListItem",
+      "ListItemButton",
+      "ListItemText",
+      "ListItemIcon"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "navigation",
+    "title": "Navigation",
+    "description": "Route ownership remains with the host; current links expose aria-current.",
+    "exports": [
+      "Navigation",
+      "NavigationItem"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "disclosure",
+    "title": "Disclosure",
+    "description": "Expandable regions with controlled state and optional child unmounting.",
+    "exports": [
+      "Disclosure"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "collapse",
+    "title": "Collapse",
+    "description": "Host-owned visibility preserves children by default.",
+    "exports": [
+      "Collapse"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "chip",
+    "title": "Chip",
+    "description": "Presentation labels with owned tone, variant and local density.",
+    "exports": [
+      "Chip"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "badge",
+    "title": "Badge",
+    "description": "Host-formatted counts remain accessible without automatic capping.",
+    "exports": [
+      "Badge"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "progress",
+    "title": "Progress",
+    "description": "Determinate and unknown-work progress with meaningful accessible labels.",
+    "exports": [
+      "Progress",
+      "CircularProgress",
+      "LinearProgress"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "status",
+    "title": "Status",
+    "description": "Opt-in announcements for meaningful host state changes.",
+    "exports": [
+      "Status"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "avatar",
+    "title": "Avatar",
+    "description": "Named or decorative identities with stable fallback content.",
+    "exports": [
+      "Avatar"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "table",
+    "title": "Table",
+    "description": "Native tabular content with captions, scoped headers and alignment.",
+    "exports": [
+      "Table",
+      "TableCaption",
+      "TableHead",
+      "TableBody",
+      "TableFoot",
+      "TableRow",
+      "TableCell",
+      "TableHeaderCell"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "pagination",
+    "title": "Pagination",
+    "description": "Zero-based host state, known or unknown totals and page-size reset.",
+    "exports": [
+      "Pagination"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "provider",
+    "title": "Provider",
+    "description": "Production interaction scope with owned density and direction.",
+    "exports": [
+      "Provider",
+      "AppThemeProvider"
+    ]
+  },
+  {
+    "group": "presentation",
+    "slug": "theme-scope",
+    "title": "ThemeScope",
+    "description": "Nested visual scopes preserve the selected demo identity while changing density.",
+    "exports": [
+      "ThemeScope"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "text-field",
+    "title": "TextField",
+    "description": "Single-line inputs with controlled values, native validation and input-type variations.",
+    "exports": [
+      "TextField"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "text-area",
+    "title": "TextArea",
+    "description": "Multiline content, configurable rows, descriptions and native form participation.",
+    "exports": [
+      "TextArea"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "select",
+    "title": "Select",
+    "description": "Choose stable host option IDs using an accessible popup selector.",
+    "exports": [
+      "Select"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "combo-box",
+    "title": "ComboBox",
+    "description": "Search locally supplied options with keyboard selection and controlled host state.",
+    "exports": [
+      "ComboBox",
+      "Autocomplete"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "async-multi-select",
+    "title": "AsyncMultiSelect",
+    "description": "Search and select multiple records with loading, error, retry and retained selections.",
+    "exports": [
+      "AsyncMultiSelect"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "checkbox",
+    "title": "Checkbox",
+    "description": "Binary and mixed choices with validation, descriptions and named form values.",
+    "exports": [
+      "Checkbox"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "switch",
+    "title": "Switch",
+    "description": "A controlled binary preference with descriptive and read-only states.",
+    "exports": [
+      "Switch"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "radio-group",
+    "title": "RadioGroup",
+    "description": "Mutually exclusive choices with orientation, disabled options and validation.",
+    "exports": [
+      "RadioGroup"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "toggle-button",
+    "title": "ToggleButton",
+    "description": "Pressed-state actions with host-controlled selection and local density.",
+    "exports": [
+      "ToggleButton"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "toggle-button-group",
+    "title": "ToggleButtonGroup",
+    "description": "Single or multiple pressed actions with empty-selection and orientation controls.",
+    "exports": [
+      "ToggleButtonGroup"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "tag-group",
+    "title": "TagGroup",
+    "description": "Host-owned removable tags with neutral and primary tones and empty content.",
+    "exports": [
+      "TagGroup"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "date-field",
+    "title": "DateField",
+    "description": "Segmented ISO date and local datetime inputs with bounds and hour-cycle controls.",
+    "exports": [
+      "DateField"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "time-field",
+    "title": "TimeField",
+    "description": "Local clock segments, business-hour limits and 12/24-hour presentation.",
+    "exports": [
+      "TimeField"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "calendar",
+    "title": "Calendar",
+    "description": "One or two months with single/multiple selection and host availability explanations.",
+    "exports": [
+      "Calendar"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "date-picker",
+    "title": "DatePicker",
+    "description": "A segmented date field and scoped calendar popup with clear and availability handling.",
+    "exports": [
+      "DatePicker"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "date-range-picker",
+    "title": "DateRangePicker",
+    "description": "Popover range selection with presets, bounds and committed host values.",
+    "exports": [
+      "DateRangePicker"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "date-range-selector",
+    "title": "DateRangeSelector",
+    "description": "Inline range drafting, named preset descriptions, Apply and Cancel transactions.",
+    "exports": [
+      "DateRangeSelector"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "auth-shell",
+    "title": "AuthShell",
+    "description": "A presentation shell for host-owned authentication forms, without account APIs.",
+    "exports": [
+      "AuthShell"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "app-shell",
+    "title": "AppShell",
+    "description": "Independent navigation and main content regions for application compositions.",
+    "exports": [
+      "AppShell"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "page-header",
+    "title": "AppPageHeader",
+    "description": "Hierarchy, breadcrumbs, metadata and host-owned actions.",
+    "exports": [
+      "AppPageHeader"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "page-tabs",
+    "title": "AppPageTabs",
+    "description": "Controlled panels with automatic or manual keyboard activation.",
+    "exports": [
+      "AppPageTabs"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "experience-page-navigator",
+    "title": "ExperiencePageNavigator",
+    "description": "Host-owned page selection, rename, reorder, creation and removal.",
+    "exports": [
+      "ExperiencePageNavigator"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "side-navigation",
+    "title": "SideNavigation",
+    "description": "Expandable and drilldown navigation with a host-supplied user model.",
+    "exports": [
+      "SideNavigation"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "editable-title-field",
+    "title": "EditableTitleField",
+    "description": "Inline title editing with save/cancel and read-only presentation.",
+    "exports": [
+      "EditableTitleField"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "document-editor-layout",
+    "title": "DocumentEditorLayout",
+    "description": "Compose document title, actions and toolbar around host-owned content.",
+    "exports": [
+      "DocumentEditorLayout"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "document-editor-toolbar",
+    "title": "DocumentEditorToolbar",
+    "description": "Controlled heading, formatting and zoom state with explicit command availability.",
+    "exports": [
+      "DocumentEditorToolbar"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "content-editor-chrome",
+    "title": "ContentEditorChrome",
+    "description": "An editable document title with anchor-aware menu commands.",
+    "exports": [
+      "ContentEditorChrome"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "floating-text-selection-toolbar",
+    "title": "FloatingTextSelectionToolbar",
+    "description": "Select text in the integrated Lexical editor; Alt+F10 focuses its floating formatting actions.",
+    "exports": [
+      "FloatingTextSelectionToolbar"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "rich-text-formatting-toolbar",
+    "title": "RichTextFormattingToolbar",
+    "description": "Host-controlled formatting commands, checked states and optional control groups.",
+    "exports": [
+      "RichTextFormattingToolbar"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "insert-content-menu-control",
+    "title": "InsertContentMenuControl",
+    "description": "Insertion commands request host-owned changes rather than saving content themselves.",
+    "exports": [
+      "InsertContentMenuControl"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "text-align-menu-control",
+    "title": "TextAlignMenuControl",
+    "description": "Physical and logical alignment with host-controlled indent bounds.",
+    "exports": [
+      "TextAlignMenuControl"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "text-color-picker-control",
+    "title": "TextColorPickerControl",
+    "description": "Semantic colors and custom hex values, with separate foreground/background modes.",
+    "exports": [
+      "TextColorPickerControl"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "text-style-menu-control",
+    "title": "TextStyleMenuControl",
+    "description": "Case conversion and checked formatting state with explicit host callbacks.",
+    "exports": [
+      "TextStyleMenuControl"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "columns-layout-modal",
+    "title": "ColumnsLayoutModal",
+    "description": "A fresh layout draft on opening with a host-owned insertion result.",
+    "exports": [
+      "ColumnsLayoutModal"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "link-url-modal",
+    "title": "LinkUrlModal",
+    "description": "Editable link text and protocol policy, including relative URLs and removing links.",
+    "exports": [
+      "LinkUrlModal"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "image-upload-modal",
+    "title": "ImageUploadModal",
+    "description": "Picker/drop presentation, optional descriptions, retryable errors and host-owned upload.",
+    "exports": [
+      "ImageUploadModal"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "page-rich-text-editor-section",
+    "title": "PageRichTextEditorSection",
+    "description": "A controlled rich-document editor with formatting, insertion and read-only presentation.",
+    "exports": [
+      "PageRichTextEditorSection"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "navigation-provider",
+    "title": "SGNavigationProvider",
+    "description": "Connect SGUI navigation to host-owned route state without a framework dependency.",
+    "exports": [
+      "SGNavigationProvider"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "sg-link",
+    "title": "SGLink",
+    "description": "Native anchor semantics with an optional host router, including replace and download behavior.",
+    "exports": [
+      "SGLink"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "account-provider",
+    "title": "SGAccountProvider",
+    "description": "Supply local account selection and logout operations; credentials and persistence remain host-owned.",
+    "exports": [
+      "SGAccountProvider"
+    ]
+  },
+  {
+    "group": "editor",
+    "slug": "translation-provider",
+    "title": "SGTranslationProvider",
+    "description": "Supply host translations, ICU values and locale with deterministic English fallbacks.",
+    "exports": [
+      "SGTranslationProvider"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "inline-progress",
+    "title": "AppInlineProgress",
+    "description": "Finite progress, widths and completion states.",
+    "exports": [
+      "AppInlineProgress"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "operation-steps",
+    "title": "AppOperationSteps",
+    "description": "Host-owned operation states, labels and errors.",
+    "exports": [
+      "AppOperationSteps"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "pagination-footer",
+    "title": "AppPaginationFooter",
+    "description": "Controlled page sizes, known and unknown totals.",
+    "exports": [
+      "AppPaginationFooter"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "card-frame",
+    "title": "ClassCardFrame",
+    "description": "Course-card slots, widths and long content.",
+    "exports": [
+      "ClassCardFrame"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "instructor-card",
+    "title": "InstructorClassCard",
+    "description": "Course status, learner counts and instructor actions.",
+    "exports": [
+      "InstructorClassCard"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "learner-card",
+    "title": "LearnerClassCard",
+    "description": "Progress, deadlines and host continuation callbacks.",
+    "exports": [
+      "LearnerClassCard"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "card-collection",
+    "title": "CardCollectionWithFooter",
+    "description": "One owner for card pagination and loading/empty content.",
+    "exports": [
+      "CardCollectionWithFooter"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "app-data-grid",
+    "title": "AppDataGrid",
+    "description": "Owned selection, sorting, filtering, columns and paging.",
+    "exports": [
+      "AppDataGrid",
+      "createDataGridColumns",
+      "createActionMenuColumn"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "data-grid-shell",
+    "title": "AppDataGridShell",
+    "description": "Shared toolbar state, cards/list mode and criteria.",
+    "exports": [
+      "AppDataGridShell"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "data-toolbar",
+    "title": "DataToolbar",
+    "description": "Controlled search, sort/filter menus, columns and refresh.",
+    "exports": [
+      "DataToolbar"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "selection-menu",
+    "title": "DataToolbarSelectionMenu",
+    "description": "Host selection commands and mixed states.",
+    "exports": [
+      "DataToolbarSelectionMenu"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "row-reorder",
+    "title": "DataGridDragHandle",
+    "description": "Named drag handles and complete-dataset Move requests.",
+    "exports": [
+      "DataGridDragHandle"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "learner-grid",
+    "title": "LearnerClassesDataGrid",
+    "description": "Course data, host page requests and built-in learner columns.",
+    "exports": [
+      "LearnerClassesDataGrid"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "processing-grid",
+    "title": "DataGrid",
+    "description": "Owned proof grid processing and independent instances.",
+    "exports": [
+      "DataGrid"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "row-subheader",
+    "title": "RowSubHeader",
+    "description": "Grouped-row headings and supporting content.",
+    "exports": [
+      "RowSubHeader"
+    ]
+  },
+  {
+    "group": "data",
+    "slug": "grid-presets",
+    "title": "Grid presets",
+    "description": "Admin/instructor factories, canonical statuses and host translations.",
+    "exports": [
+      "createAdminCourseGridOptions",
+      "createAdminPeopleGridOptions",
+      "createInstructorCourseGridOptions",
+      "createInstructorCourseLearnersGridOptions"
+    ]
+  }
+]

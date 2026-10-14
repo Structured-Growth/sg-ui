@@ -22,7 +22,7 @@ No nested AGENTS.md exists. No architecture change was needed.
 
 ## Evidence and scope mismatch
 
-[Table](../../../src/experimental/Table/Table.tsx) is a set of native table element
+[Table](../../../packages/ui/src/experimental/Table/Table.tsx) is a set of native table element
 wrappers. The [owned contract](../react-aria-remaining-controls.md#tables-and-pagination)
 and [public mappings](../react-aria-primitives.md) explicitly describe a static
 presentation table without another data-state engine. It accepts React children,
@@ -35,9 +35,9 @@ Existing evidence inspected (not freshly executed):
 
 | Evidence | Actual coverage | Limit |
 | --- | --- | --- |
-| [Colocated test](../../../src/experimental/Table/Table.test.tsx) | 1 test: table/cell refs, caption name, native table rather than grid, column/row scope, explicit headers and footer colspan | Static fixture; no dynamic or controlled composition |
-| [Public primitive tests](../../../src/components/primitives/primitives.test.tsx) | 3 tests total, 1 includes public Table native ref and column scope in a Provider composition | Its rerenders exercise Collapse; they do not prove changing Table columns/rows |
-| [Stories](../../../src/experimental/Table/Table.stories.tsx) | 2 exports: Default and ThemesAndDensity | No interactive or empty/pending composition |
+| [Colocated test](../../../packages/ui/src/experimental/Table/Table.test.tsx) | 1 test: table/cell refs, caption name, native table rather than grid, column/row scope, explicit headers and footer colspan | Static fixture; no dynamic or controlled composition |
+| [Public primitive tests](../../../packages/ui/src/components/primitives/primitives.test.tsx) | 3 tests total, 1 includes public Table native ref and column scope in a Provider composition | Its rerenders exercise Collapse; they do not prove changing Table columns/rows |
+| [Stories](../../../packages/ui/src/experimental/Table/Table.stories.tsx) | 2 exports: Default and ThemesAndDensity | No interactive or empty/pending composition |
 | [Previous U-15 record](../react-aria-progress.md#owned-controls-and-first-catalog-migrations) | Records native table semantics alongside pagination checks | Pagination browser evidence is not dynamic Table browser evidence |
 
 Source inspection found no caching, derived collection/state ownership or native

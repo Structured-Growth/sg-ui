@@ -8,6 +8,9 @@ Implementation removal and final acceptance are separate: consult the
 [execution record](react-aria-progress.md), [master list](react-aria-master-task-list.md)
 and [removal audit](react-aria-removal-audit.md) for remaining gates.
 
+Library paths in this document are relative to `packages/ui`. The Next.js app
+`apps/docs` consumes public compiled exports; see [docs architecture](docs-website.md).
+
 ## Layers and source layout
 
 | Layer | Source and responsibility |
@@ -15,7 +18,7 @@ and [removal audit](react-aria-removal-audit.md) for remaining gates.
 | Tokens | `src/foundation/tokens.json` and generated outputs own values/variable names |
 | Presentation | Native elements, owned typography and compiled CSS; no interaction engine requirement for eligible modules |
 | Interaction | Selected React Aria subpath imports inside implementations; map to owned props/events/refs |
-| Catalog compositions | `src/components/<Component>` composes owned controls, colocated stories and tests |
+| Catalog compositions | `src/components/<Component>` composes owned controls and colocated tests; docs owns examples/native scenarios |
 | Specialist behavior | Grid uses TanStack row processing and React Aria interaction; editor uses Lexical behind owned section contracts |
 | Visual/locale scope | `src/theme` exposes Provider/ThemeScope/AppThemeProvider; foundation owns scope and tokens |
 | Host integration | `src/adapters`, `src/i18n`, hooks and presentation models; routing/accounts/translations/data policy stay host-owned |
@@ -78,7 +81,7 @@ See [server packaging](react-aria-server-components.md).
 ## Implementation and validation
 
 Use the [canonical component recipe](react-aria-component-recipe.md) for new controls
-and migrations. Stories use production scopes/theme/density/locale/direction,
+and migrations. Docs examples and native fixtures use production scopes/theme/density/locale/direction,
 representative fixtures and adapters. Behavior tests live beside implementations;
 composed and browser tests cover nested focus, native timing, scrolling and positioning.
 Do not equate DOM assertions with screen-reader or physical-device acceptance.
@@ -87,9 +90,10 @@ During the user-authorized pre-production migration into `codex/dev`, follow the
 [development validation policy](react-aria-development-validation.md): run meaningful
 affected unit/composed tests, type/import/token guards relevant to the change, and
 focused browser or build/packed-consumer checks where behavior or packaging requires
-them. Update affected stories; build fresh static Storybook when browser checks need
-it, and never rebuild during a suite run. Neither each task nor each dev integration
-requires `pnpm check`, a Storybook build or the entire browser/consumer matrix.
+them. Update affected docs examples and native fixtures; build a fresh static fixture host
+when browser checks need it, and never rebuild during a suite run. Neither each task
+nor each dev integration requires `pnpm check`, a fixture-host build or the entire
+browser/consumer matrix.
 
 The coordinator runs occasional full checkpoints, initially at most once each
 24 hours while new code lands, recording the exact tested head and bounded follow-up

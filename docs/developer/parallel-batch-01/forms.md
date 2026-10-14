@@ -87,7 +87,7 @@ local validation evidence, not official Actions artifacts.
 Firefox native behavior is unverified locally. CI must execute the unchanged
 three-browser suite; the launch failure is the existing documented local profile
 limitation, not a successful Firefox acceptance claim. See the existing
-[browser harness guidance](../../../tests/browser/README.md).
+[browser harness guidance](../../../packages/ui/tests/browser/README.md).
 
 ## Boundaries and next slice
 

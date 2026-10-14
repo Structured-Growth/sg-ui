@@ -24,10 +24,10 @@ run. They are additional regression protection, not a claimed red/green fix.
 
 ## Existing evidence reviewed
 
-- [IconButton tests](../../../src/experimental/IconButton/IconButton.test.tsx): the
+- [IconButton tests](../../../packages/ui/src/experimental/IconButton/IconButton.test.tsx): the
   original two tests cover the action name rather than the icon label, native ref,
   pointer/Enter/Space activation and pending pointer suppression/progress.
-- [Button tests](../../../src/experimental/Button/Button.test.tsx): three existing
+- [Button tests](../../../packages/ui/src/experimental/Button/Button.test.tsx): three existing
   tests cover normalized pointer/keyboard activation, disabled/pending suppression,
   pending focusability, default button type and submit-only form participation.
 - [Owned button contract](../react-aria-button.md) and

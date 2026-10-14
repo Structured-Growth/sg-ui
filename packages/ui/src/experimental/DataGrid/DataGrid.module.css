@@ -1,0 +1,16 @@
+@layer sgui.components {
+  .root { color: var(--sgui-data-grid-text); background: var(--sgui-data-grid-surface); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .toolbar, .footer, .actions, .columnHeader { display: flex; align-items: center; gap: var(--sgui-space2); }
+  .toolbar, .footer { padding: var(--sgui-space2); flex-wrap: wrap; }
+  .footer { justify-content: flex-end; }
+  .container { overflow: auto; border: 1px solid var(--sgui-data-grid-border); }
+  .table { border-collapse: collapse; inline-size: 100%; }
+  .header, .cell { text-align: start; vertical-align: middle; padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-data-grid-border); }
+  .header { background: var(--sgui-data-grid-header-surface); }
+  .row[data-selected] { background: var(--sgui-data-grid-selected-surface); }
+  .row[data-focus-visible], .cell[data-focus-visible], .header[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-data-grid-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
+  .resizer { block-size: var(--sgui-control-height); inline-size: 0.5rem; border-inline-end: 2px solid var(--sgui-data-grid-resizer-border); cursor: col-resize; touch-action: none; }
+  .resizer[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-data-grid-focus-color); }
+  .columnHeader { justify-content: space-between; }
+  @media (forced-colors: active) { .row[data-selected] { border: 1px solid Highlight; } }
+}

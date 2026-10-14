@@ -30,25 +30,25 @@ context-specific native styles. The
 [architecture](../react-aria-architecture.md) specifies native attributes/refs,
 class/style escape hatches and no inherited upstream slot types.
 
-[Box implementation](../../../src/experimental/Box/Box.tsx) supports nine native
+[Box implementation](../../../packages/ui/src/experimental/Box/Box.tsx) supports nine native
 container tags: div, section, article, main, nav, aside, header, footer and span.
 It removes owned layout options before spreading native attributes onto the
 selected element, forwards the ref directly, combines the scoped root class with
 the host class, and spreads host style after its token padding default. The
 container marker is derived from the owned `container` option.
-[Scoped CSS](../../../src/experimental/Box/Box.module.css) supplies border-box,
+[Scoped CSS](../../../packages/ui/src/experimental/Box/Box.module.css) supplies border-box,
 minimum inline size and the optional centered width bound in `sgui.components`.
 There is no Box slot/part override API to establish a second precedence contract.
 No missing interactive-element attribute support was inferred: anchors, inputs
 and buttons are outside the explicitly bounded `as` vocabulary.
 
-The existing [two tests](../../../src/experimental/Box/Box.test.tsx) cover:
+The existing [two tests](../../../packages/ui/src/experimental/Box/Box.test.tsx) cover:
 
 1. A main element with accessible name, native ref, token padding, container,
    host class and native maxWidth style, without leaking `padding` into the DOM.
 2. Server rendering without a provider or browser globals, retaining native id.
 
-The [existing story](../../../src/experimental/Box/Box.stories.tsx) uses the shared
+The [existing story](../../../packages/ui/src/experimental/Box/Box.stories.tsx) uses the shared
 Provider. The [execution record](../react-aria-progress.md) already records native
 server-renderable Box implementation and colocated stories/tests while explicitly
 keeping whole U-02 acceptance open. The previous

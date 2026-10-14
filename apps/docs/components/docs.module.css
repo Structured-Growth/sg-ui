@@ -1,0 +1,19 @@
+.root { font-family: var(--sgui-font-family); min-height: 100dvh; background: var(--sgui-surface); color: var(--sgui-text); }
+.header { border-bottom: 1px solid var(--sgui-border); padding: var(--sgui-space4); }
+.layout { display: grid; grid-template-columns: 16rem minmax(0, 1fr); }
+.sidebar { padding: var(--sgui-space4); display: flex; flex-direction: column; gap: var(--sgui-space4); border-right: 1px solid var(--sgui-border); }
+.main { padding: clamp(1rem, 4vw, 4rem); width: 100%; max-width: 72rem; min-width: 0; }
+.footer { border-top: 1px solid var(--sgui-border); padding: var(--sgui-space4); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sgui-space3); }
+.navLink[aria-current='page'] { color: var(--sgui-action); text-decoration: underline; text-underline-offset: 0.3em; }
+.nestedNavigation { padding-inline-start: var(--sgui-space3); border-inline-start: 1px solid var(--sgui-border); margin-inline-start: var(--sgui-space2); overflow-wrap: anywhere; }
+.skip { position: absolute; top: -10rem; left: 1rem; z-index: 100; padding: var(--sgui-space3); background: var(--sgui-surface); }
+.skip:focus { top: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--sgui-space4); }
+.code { white-space: pre-wrap; overflow-wrap: anywhere; padding: var(--sgui-space4); border-radius: var(--sgui-field-radius); background: var(--sgui-surface-subtle); }
+@media (max-width: 52rem) { .layout { grid-template-columns: 1fr; } .sidebar { border-right: 0; border-bottom: 1px solid var(--sgui-border); } }
+
+.preview { font-family: var(--sgui-font-family); padding: var(--sgui-space4); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); background: var(--sgui-surface); color: var(--sgui-text); min-width: 0; }
+/* Wide component compositions scroll inside their preview rather than the site. */
+.preview { max-width: 100%; overflow-x: auto; }
+.usageList { list-style: disc; padding-inline-start: var(--sgui-space4); }
+.usageListItem + .usageListItem { margin-block-start: var(--sgui-space2); }

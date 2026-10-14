@@ -131,14 +131,14 @@ combobox Escape leave their containing modal open. The menu portal inherits
 dark theme, compact density and Arabic locale/RTL direction at 320 CSS pixels.
 
 The exclusive browser regression file is
-[`batch01-dialogs.spec.ts`](../../tests/browser/batch01-dialogs.spec.ts).
+[`batch01-dialogs.spec.ts`](../../packages/ui/tests/browser/batch01-dialogs.spec.ts).
 It also exercises the existing sticky-tab stories at a 640 × 320 CSS-pixel
 viewport with 200% root text and increased line/letter/word spacing in both
 themes. Native Tab traverses every field and footer action; focused controls
 must fit the viewport and pass center-point hit testing, and the surface must
 avoid horizontal overflow. Existing broader tab-panel clipping and stationary
 chrome checks remain in
-[`display-preferences.spec.ts`](../../tests/browser/display-preferences.spec.ts).
+[`display-preferences.spec.ts`](../../packages/ui/tests/browser/display-preferences.spec.ts).
 
 These automated checks are a bounded acceptance slice. Root text scaling and
 CSS viewport sizing do not operate browser chrome zoom. Actual device/browser

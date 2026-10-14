@@ -10,7 +10,7 @@ it does not change runtime behavior or close either broad acceptance gate.
 - Verified clean starting HEAD: `d0fcc6298004ad23d1a75480b216b39142e6df96`.
 - Test implementation commit: `527c8f6` (runtime implementation stays at baseline).
 - Changed files: this report and
-  [DataToolbarFilterMenu.test.tsx](../../../src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx).
+  [DataToolbarFilterMenu.test.tsx](../../../packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx).
 - Sort, main toolbar, grid, stories, foundations and other worktrees remain read-only.
 
 Central guidance: [development validation](../react-aria-development-validation.md),
@@ -23,9 +23,9 @@ Existing filter-menu tests already exercise nested field/operator editing, enum
 multi-selection, nested Escape, All with `is`, Cancel/reopen, draft Reset, unknown
 fields/operators, valueless operators, number/date inputs, and row removal with
 stable identity/focus. Existing
-[serialization tests](../../../src/components/DataToolbar/filterRuleValue.test.ts)
+[serialization tests](../../../packages/ui/src/components/DataToolbar/filterRuleValue.test.ts)
 cover blank, trimmed, single and multiple values. Existing
-[shell tests](../../../src/components/AppDataGridShell/AppDataGridShell.test.tsx)
+[shell tests](../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.test.tsx)
 cover page-zero/filter/state callback ordering and rejected controlled requests;
 this audit does not duplicate that ownership coverage.
 

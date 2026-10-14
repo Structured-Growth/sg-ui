@@ -16,7 +16,7 @@ contract. Broad acceptance gates remain open.
 
 The [server boundary contract](../react-aria-server-components.md) requires explicit
 source boundaries for React client APIs. The unchanged
-[package guard](../../../scripts/check-package.mjs) includes this fixture because
+[package guard](../../../packages/ui/scripts/check-package.mjs) includes this fixture because
 its filename does not match the excluded `.stories.` or `.test.` patterns. It
 imports `useState`, so it must declare `"use client"`.
 

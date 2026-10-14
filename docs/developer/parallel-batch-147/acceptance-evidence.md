@@ -77,7 +77,7 @@ do not constitute fresh observations until the coordinator runs the case.
 
 ## Source-derived keyboard path
 
-Read the owned [renderer](../../../src/components/AppDataGrid/ownedGridInteraction.tsx)
+Read the owned [renderer](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx)
 and the actual installed React Aria 3.52.1 sourcesContent under the wave44
 candidate's `node_modules/.pnpm`, without executing dependencies:
 

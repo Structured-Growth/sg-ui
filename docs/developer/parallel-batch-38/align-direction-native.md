@@ -9,16 +9,16 @@ Worktree: `/Users/thomashall/.codex/worktrees/batch38-align-direction/sg-ui`.
 The [batch31 inventory](../parallel-batch-31/inventory-acceptance-25-37.md)
 identifies missing native LTR/RTL logical start/end versus physical left/right
 command evidence. Existing Center and
-[portal-direction cases](../../../tests/browser/batch05-portal-direction.spec.ts)
+[portal-direction cases](../../../packages/ui/tests/browser/batch05-portal-direction.spec.ts)
 are prerequisites and are not duplicated here. The
 [menu contract](../react-aria-editor-menus.md) leaves alignment and indentation
 state with the host.
 
-The [DirectionCommands story](../../../src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx)
+The [DirectionCommands story](../../../packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx)
 records requests without accepting their alignment. F2 represents an external
 host selection replacement while the menu is open. Outdent has a callback but
 is host-restricted; Indent has no callback. The
-[focused spec](../../../tests/browser/inventory-align-direction.spec.ts) has four
+[focused spec](../../../packages/ui/tests/browser/inventory-align-direction.spec.ts) has four
 cases, two in each explicit visual direction with the same English locale:
 
 - Compare visible logical icon paths with physical left/right icon paths in the

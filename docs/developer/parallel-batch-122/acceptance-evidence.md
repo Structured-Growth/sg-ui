@@ -62,23 +62,23 @@ baseline bytes, not a new execution. Comparison columns refer only to that file.
 
 | File | Baseline Git blob | Attribution limit |
 | --- | --- | --- |
-| [src/experimental/TextField/TextField.tsx](../../../src/experimental/TextField/TextField.tsx) | `de1f43a5e341da219f3aa353ed90bc1b13b6308e` | E1/E2/E3 equal |
-| [src/components/AppShell/AppShell.tsx](../../../src/components/AppShell/AppShell.tsx) | `a0c051d6ab15253a739ee2b831a63741912728cb` | E1/E2/E3 equal |
-| [src/components/AppPageHeader/AppPageHeader.tsx](../../../src/components/AppPageHeader/AppPageHeader.tsx) | `9f760230b1fbf1eec043a27b3605148fdbf2243c` | E3 equal |
-| [src/components/AppPageHeader/AppPageHeader.module.css](../../../src/components/AppPageHeader/AppPageHeader.module.css) | `1fe3d6971a58e31e502509f8220bda3b1b55d664` | E3 equal |
-| [src/components/AppPageHeader/AppPageHeader.stories.tsx](../../../src/components/AppPageHeader/AppPageHeader.stories.tsx) | `b177bf6fb6e98a97efe0fe45883e174e214d8aa1` | E3 equal |
-| [src/experimental/Dialog/Dialog.tsx](../../../src/experimental/Dialog/Dialog.tsx) | `b0bd1ef6109dba186bc881854339da68ec896284` | E2/E3 equal; E1 differs (`a2f4c54612bc2f7f3edc7ace4c2a5253cd529e9e`) |
-| [src/experimental/Dialog/Dialog.module.css](../../../src/experimental/Dialog/Dialog.module.css) | `2a303b80cad1fecea4558179fabe14e959f65bde` | E1/E2/E3 equal |
-| [src/experimental/Dialog/Dialog.stories.tsx](../../../src/experimental/Dialog/Dialog.stories.tsx) | `5a71310e762a3e2d52bd678bab47971924993dc1` | E1/E2/E3 equal |
-| [tests/browser/batch50-dialog-header-reflow.spec.ts](../../../tests/browser/batch50-dialog-header-reflow.spec.ts) | `68254e4ed431ada0d4dcd9cdd190cbdf48854456` | E1 equal |
-| [tests/browser/batch52-dialog-removed-opener.spec.ts](../../../tests/browser/batch52-dialog-removed-opener.spec.ts) | `7f7007ce64f106f20d35e53839f3fcc1e9a9c2d0` | E2 equal |
-| [tests/browser/batch10-page-header-reflow.spec.ts](../../../tests/browser/batch10-page-header-reflow.spec.ts) | `c5652e155212a2e57a0a521b6eca6f8ea66b95bf` | E3 equal |
-| [tests/browser/acceptance.spec.ts](../../../tests/browser/acceptance.spec.ts) | `f11daf0511e310efbf365ade27ed482ddc6b5daa` | Inspected assertions only |
-| [tests/browser/display-preferences.spec.ts](../../../tests/browser/display-preferences.spec.ts) | `cd5204cc7ab2f3deacc4da235198498138316dc7` | Inspected assertions only |
-| [tests/browser/batch01-forms.spec.ts](../../../tests/browser/batch01-forms.spec.ts) | `3a4920ab06603c7681f2bc66c6a65b7027685e8a` | Inspected assertions only |
-| [src/experimental/Button/Button.module.css](../../../src/experimental/Button/Button.module.css) | `cccf005e0bdee43ac22d8f8830523938ce5167f6` | Inspected production media rules |
-| [src/experimental/Progress/Progress.module.css](../../../src/experimental/Progress/Progress.module.css) | `1f51077901370d9c9009604673bf44b0995fdd1c` | Inspected production media rules |
-| [src/components/AppDataGrid/ownedGridInteraction.tsx](../../../src/components/AppDataGrid/ownedGridInteraction.tsx) | `c44cfd77b60afb1ad970351e6aaa9c34feb15473` | E1/E2/E3 differ (`efaee02d06a21b68a70e0c7097e7252a9f1501b3`) |
+| [src/experimental/TextField/TextField.tsx](../../../packages/ui/src/experimental/TextField/TextField.tsx) | `de1f43a5e341da219f3aa353ed90bc1b13b6308e` | E1/E2/E3 equal |
+| [src/components/AppShell/AppShell.tsx](../../../packages/ui/src/components/AppShell/AppShell.tsx) | `a0c051d6ab15253a739ee2b831a63741912728cb` | E1/E2/E3 equal |
+| [src/components/AppPageHeader/AppPageHeader.tsx](../../../packages/ui/src/components/AppPageHeader/AppPageHeader.tsx) | `9f760230b1fbf1eec043a27b3605148fdbf2243c` | E3 equal |
+| [src/components/AppPageHeader/AppPageHeader.module.css](../../../packages/ui/src/components/AppPageHeader/AppPageHeader.module.css) | `1fe3d6971a58e31e502509f8220bda3b1b55d664` | E3 equal |
+| [src/components/AppPageHeader/AppPageHeader.stories.tsx](../../../packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx) | `b177bf6fb6e98a97efe0fe45883e174e214d8aa1` | E3 equal |
+| [src/experimental/Dialog/Dialog.tsx](../../../packages/ui/src/experimental/Dialog/Dialog.tsx) | `b0bd1ef6109dba186bc881854339da68ec896284` | E2/E3 equal; E1 differs (`a2f4c54612bc2f7f3edc7ace4c2a5253cd529e9e`) |
+| [src/experimental/Dialog/Dialog.module.css](../../../packages/ui/src/experimental/Dialog/Dialog.module.css) | `2a303b80cad1fecea4558179fabe14e959f65bde` | E1/E2/E3 equal |
+| [src/experimental/Dialog/Dialog.stories.tsx](../../../packages/ui/src/experimental/Dialog/Dialog.stories.tsx) | `5a71310e762a3e2d52bd678bab47971924993dc1` | E1/E2/E3 equal |
+| [tests/browser/batch50-dialog-header-reflow.spec.ts](../../../packages/ui/tests/browser/batch50-dialog-header-reflow.spec.ts) | `68254e4ed431ada0d4dcd9cdd190cbdf48854456` | E1 equal |
+| [tests/browser/batch52-dialog-removed-opener.spec.ts](../../../packages/ui/tests/browser/batch52-dialog-removed-opener.spec.ts) | `7f7007ce64f106f20d35e53839f3fcc1e9a9c2d0` | E2 equal |
+| [tests/browser/batch10-page-header-reflow.spec.ts](../../../packages/ui/tests/browser/batch10-page-header-reflow.spec.ts) | `c5652e155212a2e57a0a521b6eca6f8ea66b95bf` | E3 equal |
+| [tests/browser/acceptance.spec.ts](../../../packages/ui/tests/browser/acceptance.spec.ts) | `f11daf0511e310efbf365ade27ed482ddc6b5daa` | Inspected assertions only |
+| [tests/browser/display-preferences.spec.ts](../../../packages/ui/tests/browser/display-preferences.spec.ts) | `cd5204cc7ab2f3deacc4da235198498138316dc7` | Inspected assertions only |
+| [tests/browser/batch01-forms.spec.ts](../../../packages/ui/tests/browser/batch01-forms.spec.ts) | `3a4920ab06603c7681f2bc66c6a65b7027685e8a` | Inspected assertions only |
+| [src/experimental/Button/Button.module.css](../../../packages/ui/src/experimental/Button/Button.module.css) | `cccf005e0bdee43ac22d8f8830523938ce5167f6` | Inspected production media rules |
+| [src/experimental/Progress/Progress.module.css](../../../packages/ui/src/experimental/Progress/Progress.module.css) | `1f51077901370d9c9009604673bf44b0995fdd1c` | Inspected production media rules |
+| [src/components/AppDataGrid/ownedGridInteraction.tsx](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx) | `c44cfd77b60afb1ad970351e6aaa9c34feb15473` | E1/E2/E3 differ (`efaee02d06a21b68a70e0c7097e7252a9f1501b3`) |
 
 ## Evidence loss and historical limits
 

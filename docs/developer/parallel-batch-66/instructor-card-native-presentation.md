@@ -19,7 +19,7 @@ Unknown statuses and undefined required props are outside the preserved contract
 
 ## Added evidence
 
-[Colocated tests](../../../src/components/InstructorClassCard/InstructorClassCard.test.tsx)
+[Colocated tests](../../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx)
 now have 21 cases (18 added): all four translated status labels/tone markers and
 archived metadata omission; six known Class/Section action aliases and a custom
 host action; actual translated status/activity/action/interpolation/namespace;
@@ -28,12 +28,12 @@ native Intl host dates for en-US/de-DE/ar-EG with fixed instant and explicit
 America/Chicago timezone; failed-lookup English fallbacks; decorative icons and
 fixed HE avatar with no image role; existing keyboard navigation and SSR.
 
-[Composed story](../../../src/components/InstructorClassCard/InstructorClassCard.stories.tsx)
+[Composed story](../../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx)
 uses the existing host routing adapter and status/activity updates with one stable
 link. Host date formatting uses native Intl, fixed `2026-01-01T15:05:00Z`, de-DE,
 and explicit America/Chicago. No current clock, external service or auth involved.
 
-[Focused browser spec](../../../tests/browser/batch66-instructor-card-native-presentation.spec.ts)
+[Focused browser spec](../../../packages/ui/tests/browser/batch66-instructor-card-native-presentation.spec.ts)
 contains three cases: light/comfortable/16px and dark/compact/32px narrow host
 compositions, native Tab focus-visible outline plus strict whole-link viewport/card containment
 and center hit testing after Tab and every status update/Enter; retained link identity/focus during

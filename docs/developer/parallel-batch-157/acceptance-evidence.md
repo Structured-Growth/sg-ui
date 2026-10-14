@@ -28,7 +28,7 @@ branch deletion or global configuration command ran.
 
 ## Implemented bounded contract
 
-[Checker](../../../scripts/check-document-links.mjs) uses Node built-ins only and
+[Checker](../../../packages/ui/scripts/check-document-links.mjs) uses Node built-ins only and
 reads local files without rewriting them. By default `git ls-files -z` selects
 tracked `.md`, `.markdown` and `.MD` documents. Explicit files and `--root` allow
 focused audits; `--json` provides machine-readable findings. Every finding reports

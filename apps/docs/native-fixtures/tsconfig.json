@@ -1,0 +1,44 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "paths": {
+      "@sgui-test-internals/components/AppDataGrid/components/table-cell/CopyableTableCell": [
+        "../../../packages/ui/dist/components/AppDataGrid/components/table-cell/CopyableTableCell.d.ts"
+      ],
+      "@sgui-test-internals/components/AppDataGrid/components/table-cell/TextTableCell": [
+        "../../../packages/ui/dist/components/AppDataGrid/components/table-cell/TextTableCell.d.ts"
+      ],
+      "@sgui-test-internals/components/AppDataGrid/ownedGridCells": [
+        "../../../packages/ui/dist/components/AppDataGrid/ownedGridCells.d.ts"
+      ],
+      "@sgui-test-internals/components/AppDataGrid/ownedGridColumns": [
+        "../../../packages/ui/dist/components/AppDataGrid/ownedGridColumns.d.ts"
+      ],
+      "@sgui-test-internals/components/AppDataGrid/ownedGridController": [
+        "../../../packages/ui/dist/components/AppDataGrid/ownedGridController.d.ts"
+      ],
+      "@sgui-test-internals/components/AppDataGrid/ownedGridInteraction": [
+        "../../../packages/ui/dist/components/AppDataGrid/ownedGridInteraction.d.ts"
+      ],
+      "@sgui-test-internals/components/AppDataGrid/ownedGridLayoutController": [
+        "../../../packages/ui/dist/components/AppDataGrid/ownedGridLayoutController.d.ts"
+      ],
+      "@sgui-test-internals/components/AppDataGrid/ownedGridModel": [
+        "../../../packages/ui/dist/components/AppDataGrid/ownedGridModel.d.ts"
+      ],
+      "@sgui-test-internals/components/AppDataGrid/ownedGridParts": [
+        "../../../packages/ui/dist/components/AppDataGrid/ownedGridParts.d.ts"
+      ],
+      "@sgui-test-internals/components/AppDataGrid/ownedGridState": [
+        "../../../packages/ui/dist/components/AppDataGrid/ownedGridState.d.ts"
+      ]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "env.d.ts"
+  ],
+  "exclude": []
+}

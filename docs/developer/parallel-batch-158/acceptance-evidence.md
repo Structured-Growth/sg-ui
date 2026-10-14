@@ -6,12 +6,12 @@ Prepared October 7, 2026 from exact reviewed batch153 head
 The coordinator authorized `codex/batch158-foundation-catalogue` because
 `codex/d20-foundation-catalogue` belongs to batch153. That branch and worktree
 were preserved. Ownership is limited to this record and
-[foundation-catalogue.spec.ts](../../../tests/browser/foundation-catalogue.spec.ts).
+[foundation-catalogue.spec.ts](../../../packages/ui/tests/browser/foundation-catalogue.spec.ts).
 Coordinator owns candidate composition, execution, integration and acceptance.
 
 ## Inputs and exact scope
 
-Read the actual [catalogue stories](../../../src/foundation/FoundationCatalogue.stories.tsx),
+Read the actual [catalogue stories](../../../packages/ui/src/foundation/FoundationCatalogue.stories.tsx),
 [batch153 evidence](../parallel-batch-153/acceptance-evidence.md), production token
 JSON/generated references, ThemeScope/Provider and shared preview, owned
 Button/Progress/Box/Stack/Surface implementation and CSS, browser configuration,

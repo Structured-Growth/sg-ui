@@ -37,7 +37,7 @@ Do not present reconstructed rectangles or gap estimates as recorded measurement
 
 ## Underlying cause and scope boundary
 
-Read-only inspection of [Popover](../../../src/experimental/Popover/Popover.tsx),
+Read-only inspection of [Popover](../../../packages/ui/src/experimental/Popover/Popover.tsx),
 its CSS and the actual retained Storybook assets establishes the positioning path.
 Popover uses the default modal React Aria Popover. The shipped `usePopover` in
 `storybook/assets/Menu-DYx8tmvJ.js` passes `onClose: null` to overlay positioning
@@ -61,7 +61,7 @@ reservation; this batch does not implement a runtime fix.
 
 ## Diagnostic change and validation limits
 
-The [native spec](../../../tests/browser/popover-native-collision.spec.ts) now
+The [native spec](../../../packages/ui/tests/browser/popover-native-collision.spec.ts) now
 attaches `scroll-anchor-diagnostics` around the existing host-scroll adjacency
 assertion, including on assertion failure. Each sample reads anchor/overlay/host
 DOM rectangles, computed position/overflow/transform, ancestor scroll offsets,

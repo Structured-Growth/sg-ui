@@ -14,10 +14,10 @@ reported to the coordinator and is the draft PR branch head.
 
 ## Changes and preserved contract
 
-Changed files: [frame CSS](../../../src/components/ClassCardFrame/ClassCardFrame.module.css),
-[stories](../../../src/components/ClassCardFrame/ClassCardFrame.stories.tsx),
-[unit tests](../../../src/components/ClassCardFrame/ClassCardFrame.test.tsx),
-[focused browser cases](../../../tests/browser/batch10-card-frame-reflow.spec.ts)
+Changed files: [frame CSS](../../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css),
+[stories](../../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx),
+[unit tests](../../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.test.tsx),
+[focused browser cases](../../../packages/ui/tests/browser/batch10-card-frame-reflow.spec.ts)
 and this report. Learner/Instructor implementation and shared styles remain read-only.
 
 The frame previously clipped intrinsic-width images through root overflow without

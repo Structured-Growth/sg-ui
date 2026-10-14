@@ -26,14 +26,14 @@ instructor-card presentation fields and eight text-style callbacks. The
 the [manifest](../extraction-manifest.json) identify learner-platform commit
 `8e63f1e16fc3d43d851908b312603a1099ca13d9`. Provenance is not a runtime dependency
 or evidence of approval to expand or remove behavior. Public types are reexported
-through their component indexes and the [component barrel](../../src/components/index.ts),
+through their component indexes and the [component barrel](../../packages/ui/src/components/index.ts),
 with subpaths declared in [package exports](../../package.json).
 
 ## M-10: authoring page list
 
 Master criterion: `Previous/next boundaries, labels, disabled states, link/action semantics`.
-The [source](../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx),
-[public index](../../src/components/ExperiencePageNavigator/index.ts) and
+The [source](../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx),
+[public index](../../packages/ui/src/components/ExperiencePageNavigator/index.ts) and
 [contract](react-aria-page-navigation.md) expose this exact API:
 
 ```ts
@@ -65,12 +65,12 @@ navigation. Hosts own selected page, order and persistence.
 | Disabled states | Read-only blocks mutations/drag while allowing selection; boundary Move commands and final-page removal are disabled. |
 | Link/action semantics | Selection/action button separation and host callbacks are proven; route/link behavior is absent and requires explicit attribution or new scope. |
 
-Existing [DOM tests](../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.test.tsx)
+Existing [DOM tests](../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.test.tsx)
 cover single selection/add, trimmed Enter rename, dismissal/focus, blank/unchanged
 names, keyboard reorder boundaries, invalid/self/read-only drag, last-page removal,
 host removal during rename, adjacent removal focus and live read-only changes.
-[SSR test](../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx)
-and [stories](../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx)
+[SSR test](../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx)
+and [stories](../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx)
 cover server rendering and host composition. The [page-navigation execution record](react-aria-progress.md#page-actions-and-navigation)
 records representative native rename/reorder/removal focus and independent list
 scrolling, plus packed React 18/19 checks. These are historical passes at their
@@ -88,8 +88,8 @@ B/C require API/design review and implementation evidence before acceptance.
 ## M-14: instructor course presentation card
 
 Master criterion: `Status/menu/actions, callbacks, long text, date and icon fallbacks`.
-The [source](../../src/components/InstructorClassCard/InstructorClassCard.tsx),
-[public index](../../src/components/InstructorClassCard/index.ts) and
+The [source](../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx),
+[public index](../../packages/ui/src/components/InstructorClassCard/index.ts) and
 [card contract](react-aria-card-frames.md) expose:
 
 ```ts
@@ -119,11 +119,11 @@ fallback and empty alt. The host supplies any formatted activity/date label.
 | Date fallbacks | Host activity string passes through except translated Recent activity/No recent activity. No library date parsing/fallback contract; blank/invalid host content policy is unresolved. |
 | Icon fallbacks | Fixed decorative icons and fixed Avatar fallback; no missing-image/dynamic-icon API. Required fallback scenarios must be identified, not inferred from markup. |
 
-Existing [three tests](../../src/components/InstructorClassCard/InstructorClassCard.test.tsx)
+Existing [three tests](../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx)
 cover keyboard routing, active metadata, archived omission, closed/custom activity
 and action text, draft label mapping, namespace/interpolation and SSR. They do
 not establish exhaustive empty/malformed/date/icon fallback acceptance.
-[Stories](../../src/components/InstructorClassCard/InstructorClassCard.stories.tsx)
+[Stories](../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx)
 and the [card execution record](react-aria-progress.md#card-pagination-and-course-cards)
 record narrow long-name wrapping and dark token rendering. Those historical
 checks do not close native navigation/reflow, device or AT acceptance.
@@ -140,8 +140,8 @@ persistence or application contracts belong in the card.
 ## M-30: text-style commands and M-26 ownership
 
 Master criterion: `Style/typeface options, tokenized labels, selection and focus behavior`.
-The [source](../../src/components/TextStyleMenuControl/TextStyleMenuControl.tsx),
-[public index](../../src/components/TextStyleMenuControl/index.ts) and
+The [source](../../packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx),
+[public index](../../packages/ui/src/components/TextStyleMenuControl/index.ts) and
 [menu contract](react-aria-editor-menus.md#textstylemenucontrol-m-30) expose:
 
 ```ts
@@ -165,7 +165,7 @@ Clear is a separate command, not a `TextStyleId`. Missing callbacks disable
 commands; optional activeStyles marks host-controlled checked choices. This
 menu neither selects fonts nor owns Lexical state/selection.
 
-The [M-26 implementation](../../src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx)
+The [M-26 implementation](../../packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx)
 and [toolbar contract](react-aria-formatting-toolbar.md#retained-host-contract)
 own `fontFamilyValue?: string`, `onFontFamilyChange?: (value: string) => void`,
 `showFontFamilySelector?: boolean`, `headingValue?: RichTextHeadingValue` and
@@ -185,12 +185,12 @@ catalog, not a font-selector runtime API.
 | Selection | Optional host-controlled checked styles; host owns document formatting and selection restoration. No typeface selection in M-30. |
 | Focus | Keyboard unavailable-item skipping and trigger restoration; composed editor selection/focus remains broader M-26/E acceptance. |
 
-Existing [five menu tests](../../src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx)
+Existing [five menu tests](../../packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx)
 cover all eight callbacks once, disabled activation, keyboard skipping/focus,
 controlled checked state, ordinary Clear and translated scoped dark portal.
-[Menu stories](../../src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx)
+[Menu stories](../../packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx)
 and the [menu execution record](react-aria-progress.md#editor-menu-controls)
-record packed/native keyboard checks. [Toolbar tests](../../src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx)
+record packed/native keyboard checks. [Toolbar tests](../../packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx)
 cover single controlled heading/font requests and callback-after-keydown focus
 timing; the [toolbar execution record](react-aria-progress.md#rich-text-formatting-toolbar)
 records representative native Georgia/H2 selection preserving editor text.

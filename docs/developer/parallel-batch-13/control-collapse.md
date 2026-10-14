@@ -22,7 +22,7 @@ outside that contract. No acceptance checkbox is closed.
 The [owned contract](../react-aria-remaining-controls.md) explicitly specifies
 native hidden/unmount behavior, no animated height transition and no render-time
 layout measurement. [Primitive mappings](../react-aria-primitives.md) remove
-transition-engine props. The [implementation](../../../src/experimental/Collapse/Collapse.tsx)
+transition-engine props. The [implementation](../../../packages/ui/src/experimental/Collapse/Collapse.tsx)
 derives `hidden` directly from `expanded` and derives children directly from
 `expanded || !unmountOnCollapse`. It contains no timer, effect, animation,
 measurement, cached expansion state or deferred completion to survive a later
@@ -31,22 +31,22 @@ an interrupted animation is not an unfinished combination in this implementation
 This source conclusion does not certify host CSS animations.
 
 Standalone Collapse supplies no trigger or focus destination. Compositions own
-their trigger; [Disclosure](../../../src/experimental/Disclosure/Disclosure.tsx)
+their trigger; [Disclosure](../../../packages/ui/src/experimental/Disclosure/Disclosure.tsx)
 owns restoration when its focused panel collapses. Inventing focus restoration
 inside Collapse would compete with that existing owner.
 
 ## Existing evidence, with limits
 
-- [Collapse tests](../../../src/experimental/Collapse/Collapse.test.tsx): two
+- [Collapse tests](../../../packages/ui/src/experimental/Collapse/Collapse.test.tsx): two
   existing cases cover native ref, retained hidden children, re-expansion and
   optional unmounting.
-- [Public primitive composed tests](../../../src/components/primitives/primitives.test.tsx):
+- [Public primitive composed tests](../../../packages/ui/src/components/primitives/primitives.test.tsx):
   the retained-state case edits a real TextField, collapses it, and reopens with
   the edited value. This is stronger than checking initial markup alone.
-- [Disclosure behavior tests](../../../src/experimental/Disclosure/Disclosure.test.tsx):
+- [Disclosure behavior tests](../../../packages/ui/src/experimental/Disclosure/Disclosure.test.tsx):
   three existing cases cover keyboard panel access, controlled host authority,
   focus restoration with unmounting, independent retained state and disabling.
-- [Disclosure SSR tests](../../../src/experimental/Disclosure/Disclosure.ssr.test.tsx):
+- [Disclosure SSR tests](../../../packages/ui/src/experimental/Disclosure/Disclosure.ssr.test.tsx):
   two existing cases cover stable linked semantics without browser globals and
   deterministic retained/unmounted collapsed markup.
 - [Previous execution record](../react-aria-progress.md) reports native focused

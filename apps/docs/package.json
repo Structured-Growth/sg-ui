@@ -1,0 +1,35 @@
+{
+  "name": "@structured-growth/docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm catalog:generate && next dev --hostname 127.0.0.1",
+    "build": "pnpm catalog:generate && pnpm theme:check && pnpm catalog:check && next build --webpack",
+    "start": "next start --hostname 127.0.0.1",
+    "typecheck": "pnpm catalog:generate && pnpm theme:check && pnpm catalog:check && tsc --noEmit",
+    "test:e2e": "playwright test",
+    "catalog:generate": "node scripts/generate-catalog.mjs",
+    "catalog:check": "pnpm examples:check && node scripts/check-catalog.mjs",
+    "theme:check": "node --test theme/theme-graph.test.mjs",
+    "examples:check": "node --test scripts/example-isolation.test.mjs"
+  },
+  "dependencies": {
+    "@structured-growth/sg-ui": "workspace:*",
+    "next": "16.4.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "lexical": "^0.41.0",
+    "@lexical/react": "^0.41.0"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/node": "^22",
+    "@playwright/test": "^1.63.0",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/user-event": "14.6.1",
+    "vite": "^7.3.1"
+  }
+}

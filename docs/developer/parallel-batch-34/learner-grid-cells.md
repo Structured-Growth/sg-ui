@@ -6,7 +6,7 @@ exact reviewed `codex/dev` baseline `4c9f859bad204a7d7fd2e3787aa6f293db268525`:
 `codex/batch34-learner-grid-cells`.
 
 Exclusive writes are LearnerClassesDataGrid, the new
-[focused native spec](../../../tests/browser/inventory-learner-grid-cells.spec.ts)
+[focused native spec](../../../packages/ui/tests/browser/inventory-learner-grid-cells.spec.ts)
 and this report. Shared grid/controller/shell/models/adapters/Link and barrels
 remain read-only. No other checkout, primary image-upload work, master acceptance,
 CI permissions/secrets, release or publication state changed.
@@ -32,7 +32,7 @@ not reclassified as an environment failure or weakened into a raw-path assertion
 
 ## Focused native fixture
 
-The [changed-state story](../../../src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.native.stories.tsx)
+The [changed-state story](../../../packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.native.stories.tsx)
 uses local host routing, translation and pagination adapters with no application
 network. Eight cases (four each in light/dark) cover:
 

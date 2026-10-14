@@ -2,8 +2,8 @@
 
 Managed worktree: `/Users/thomashall/.codex/worktrees/batch59-pointer-drop-focus/sg-ui`.
 Verified clean starting HEAD: `352dc493f64520f544b489d656d30972ea63727b`.
-Exclusive changed files: [interaction](../../../src/components/AppDataGrid/ownedGridInteraction.tsx),
-[new regression](../../../src/components/AppDataGrid/ownedGridInteraction.drop-focus.test.tsx), and this report.
+Exclusive changed files: [interaction](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx),
+[new regression](../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.drop-focus.test.tsx), and this report.
 No batch 48 source/spec/test/report, primary checkout, dependency manifest or lockfile changes.
 
 Read the architecture, migration, [development validation](../react-aria-development-validation.md),

@@ -24,7 +24,7 @@ these bounded authoring-list transactions, without disposing of disputed intent.
 - `tests/browser/page-navigator-native-transactions.spec.ts`
 - `docs/developer/parallel-batch-76/page-navigator-native-transactions.md`
 
-The [new story](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.stories.tsx)
+The [new story](../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.stories.tsx)
 uses SGUI controls inside the production Storybook scope, with canonical theme
 globals for representative light/dark runs. Host page order and requests are
 visible JSON snapshots. Requests change supplied props only when the host accepts;
@@ -36,14 +36,14 @@ only to a trusted dragstart and removes that source through host state.
 
 ## Added unit and authored browser coverage
 
-The [composed units](../../../src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.test.tsx)
+The [composed units](../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.test.tsx)
 verify rejected/accepted adjacent reorder snapshots, live read-only changes during
 an edit followed by permitted selection, and accepted removal focus to the next
 survivor with no selection callback. They are jsdom/user-event composition tests,
 not native-browser or assistive-technology evidence. Existing individual-command
 and SSR tests remain untouched.
 
-The [browser spec](../../../tests/browser/page-navigator-native-transactions.spec.ts)
+The [browser spec](../../../packages/ui/tests/browser/page-navigator-native-transactions.spec.ts)
 authors eleven cases per engine (eight keyboard cases over light/dark and three
 first-drag cases in light):
 
