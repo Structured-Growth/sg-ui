@@ -839,3 +839,21 @@ initial/changed compilable source snapshots. Logs:
 `/tmp/sgui-independent-isolation-tests.log` and
 `/tmp/sgui-independent-docs-tests.log`. Preview restored at port 3000. Library APIs,
 licensing, releases and broader acceptance counts are unchanged.
+
+
+## Development branch integration — 2026-10-14
+
+All workspace changes were committed for development integration. GitHub's existing
+branch is `codex/dev` (no `dev` branch existed). Preserved its additional retained-
+snapshot fresh-proof commits rather than replacing their history. Resolved the
+validation-pool/checkpoint conflicts by retaining fresh-proof evidence/admission
+rules together with library-relative paths and the docs static server. Updated the
+new immutable-build fixture from iframe.html to the existing docs index.html.
+Local pnpm cache is ignored. Staged whitespace checks pass.
+
+Affected validation scripts: `pnpm --filter @structured-growth/sg-ui exec node
+--test scripts/browser-validation-pool.test.mjs scripts/run-development-checkpoint.test.mjs`
+passes: 63 passing cases, 2 existing skips, 0 failures (18.3s). Log:
+`/tmp/sgui-dev-integration-tests-passed.log`. This integration adds no new UI behavior
+beyond the preceding documented implementation; production acceptance remains
+separate from this development-branch push.
