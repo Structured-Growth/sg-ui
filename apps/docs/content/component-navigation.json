@@ -95,6 +95,7 @@
       "app-shell",
       "auth-shell",
       "side-navigation",
+      "icon-panel-navigation",
       "navigation",
       "breadcrumbs",
       "page-header",

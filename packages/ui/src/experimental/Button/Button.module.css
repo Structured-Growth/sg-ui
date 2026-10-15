@@ -5,8 +5,8 @@
     align-items: center;
     justify-content: center;
     gap: var(--sgui-space2);
-    min-block-size: var(--sgui-control-height);
-    min-inline-size: var(--sgui-control-height);
+    min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size));
+    min-inline-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size));
     padding-block: var(--sgui-space1);
     padding-inline: var(--sgui-control-padding);
     border: 1px solid transparent;

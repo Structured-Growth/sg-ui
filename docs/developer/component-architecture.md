@@ -35,7 +35,7 @@ checks; `/experimental` preserves proofs, not a parallel visual system.
 
 Load `/styles.css` once and provide Provider or ThemeScope, including editor dialogs
 and nested grid controls. Provider bridges the host translation locale into
-interactions; ThemeScope sets visuals. Theme/density/language/direction and custom
+interactions; ThemeScope sets visuals. Theme/density/interactionMode/language/direction and custom
 SGUI variables propagate to portals, while local layout styles do not.
 `system` colors use CSS media queries with stable initial SSR markup. Fonts,
 body backgrounds and global resets belong to the host.
@@ -47,7 +47,10 @@ tokens/styles for reusable changes. Native class/style and documented
 outrank normal library declarations; avoid routine `!important`, whose layer
 priority reverses. Do not target generated class names or private engine markup.
 
-Density is compact or comfortable. General scopes default comfortable. Prefer compact
+Density is compact or comfortable. General scopes default comfortable. Interaction
+sizing is an independent auto/pointer/touch policy (auto by default), inherited
+through scopes and portals. Theme-backed density and interaction roles determine
+geometry; viewport layout stays separate. Prefer compact
 menus in catalog compositions; generic Menu inherits its scope unless density is explicit.
 Verify both densities and enlarged text rather than
 assuming compact means inaccessible. Semantic heading level is independent of
@@ -106,3 +109,7 @@ examples without adding unrelated UI tests.
 
 [AGENTS.md](../../AGENTS.md) provides active rules. [Migration mappings](../migration.md)
 and the [read-only adoption checklist](react-aria-adoption-checklist.md) guide hosts.
+
+The [sliding drilldown panel scope](hierarchical-menu-scope.md) compares the
+reference platform's level transitions and Back button with current SGUI support,
+and tracks reusable panel extraction separately from shipped APIs.

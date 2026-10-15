@@ -113,9 +113,9 @@ function FormScenario({kind, scenario}: {kind:Kind; scenario:Scenario}) {
       {kind === 'AsyncMultiSelect' && <><Checkbox label="Mock loading" checked={loading} onCheckedChange={setLoading} /><Checkbox label="Mock request failure" checked={error} onCheckedChange={setError} /></>}
     </ControlRow>
   </Stack> : undefined;
-  const output = <Stack gap={3}>{preview}<Typography role="status">Current value: {summary || 'None'}</Typography></Stack>;
+  const output = <Stack gap={3}>{preview}</Stack>;
   const summaryCode = isText || ['Select','ComboBox','RadioGroup'].includes(kind) ? "value || 'None'" : kind === 'TagGroup' ? "items.map(item => item.label).join(', ') || 'None'" : kind === 'AsyncMultiSelect' ? "selected.map(item => item.label).join(', ') || 'None'" : kind === 'ToggleButtonGroup' ? "ids.join(', ') || 'None'" : kind === 'ToggleButton' ? 'String(selected)' : 'String(checked)';
-  let content = `<Stack gap={3}>\n  ${body}\n  <Typography role="status">Current value: {${summaryCode}}</Typography>\n</Stack>`;
+  let content = `<Stack gap={3}>\n  ${body}\n  \n</Stack>`;
   let rendered:ReactNode = output;
   if (scenario === 'form') {
     const fieldIsNative = !['ToggleButton','ToggleButtonGroup','TagGroup'].includes(kind);
@@ -135,8 +135,8 @@ function AutocompleteAliasExample() {
   const [readOnly, setReadOnly] = useState(false);
   return <Example title="Autocomplete public alias playground" description="Autocomplete is the public primitives alias of ComboBox; it uses the same stable option IDs and controlled selection contract."
     density={density} controls={<ControlRow><TextField label="Autocomplete label" value={label} onValueChange={setLabel} /><DensityControl value={density} onChange={setDensity} /><Checkbox label="Alias disabled" checked={disabled} onCheckedChange={setDisabled} /><Checkbox label="Alias read only" checked={readOnly} onCheckedChange={setReadOnly} /></ControlRow>}
-    source={source({name:'AutocompleteAlias', imports:["import { Autocomplete, Stack, Typography } from '@structured-growth/sg-ui/primitives';", expImport('Button')], state:`  const [value, setValue] = useState<string | null>(${json(value)});`, body:`<ThemeScope density=${literal(density)}>\n  <Stack gap={3}>\n    <Autocomplete label={${literal(label)}} options={${json(choices)}} value={value} onValueChange={setValue} disabled={${disabled}} readOnly={${readOnly}} placeholder="Search course subjects" />\n    <Button variant="outlined" onPress={() => setValue(null)}>Clear host selection</Button>\n    <Typography role="status">Selected subject: {value ?? 'None'}</Typography>\n  </Stack>\n</ThemeScope>`})}>
-    <Stack gap={3}><Autocomplete label={label} options={choices} value={value} onValueChange={setValue} disabled={disabled} readOnly={readOnly} placeholder="Search course subjects" /><Button variant="outlined" onPress={() => setValue(null)}>Clear host selection</Button><Typography role="status">Selected subject: {value ?? 'None'}</Typography></Stack>
+    source={source({name:'AutocompleteAlias', imports:["import { Autocomplete, Stack, Typography } from '@structured-growth/sg-ui/primitives';", expImport('Button')], state:`  const [value, setValue] = useState<string | null>(${json(value)});`, body:`<ThemeScope density=${literal(density)}>\n  <Stack gap={3}>\n    <Autocomplete label={${literal(label)}} options={${json(choices)}} value={value} onValueChange={setValue} disabled={${disabled}} readOnly={${readOnly}} placeholder="Search course subjects" />\n    <Button variant="outlined" onPress={() => setValue(null)}>Clear host selection</Button>\n    \n  </Stack>\n</ThemeScope>`})}>
+    <Stack gap={3}><Autocomplete label={label} options={choices} value={value} onValueChange={setValue} disabled={disabled} readOnly={readOnly} placeholder="Search course subjects" /><Button variant="outlined" onPress={() => setValue(null)}>Clear host selection</Button></Stack>
   </Example>;
 }
 type OrientationKind = 'RadioGroup' | 'ToggleButtonGroup';
@@ -157,14 +157,14 @@ function OrientationExample({kind, orientation, density}: {kind:OrientationKind;
   let preview:ReactNode; let state:string; let body:string; let description:string;
   if (kind === 'RadioGroup') {
     description = readOnly ? 'A read-only selected choice, with an individually unavailable option.' : vertical ? 'An initially empty group with an individually unavailable option; choose one topic.' : 'An independently controlled selected choice with an individually unavailable option.';
-    preview = <Stack gap={3}><RadioGroup label={label} options={radioChoices} orientation={orientation} value={value} onValueChange={setValue} readOnly={readOnly} /><Typography role="status">Selected topic: {value ?? 'None'}</Typography></Stack>;
+    preview = <Stack gap={3}><RadioGroup label={label} options={radioChoices} orientation={orientation} value={value} onValueChange={setValue} readOnly={readOnly} /></Stack>;
     state = `  const [value, setValue] = useState<string | null>(${json(value)});`;
-    body = `<Stack gap={3}>\n  <RadioGroup label={${literal(label)}} options={${json(radioChoices)}} orientation=${literal(orientation)} value={value} onValueChange={setValue} readOnly={${readOnly}} />\n  <Typography role="status">Selected topic: {value ?? 'None'}</Typography>\n</Stack>`;
+    body = `<Stack gap={3}>\n  <RadioGroup label={${literal(label)}} options={${json(radioChoices)}} orientation=${literal(orientation)} value={value} onValueChange={setValue} readOnly={${readOnly}} />\n  \n</Stack>`;
   } else {
     description = disabled ? 'Multiple selected-action state while the group is unavailable.' : vertical ? 'Multiple actions can remain selected; an individually disabled action is unavailable.' : comfortable ? 'Single selection that keeps a chosen action; initially no action is selected.' : 'Single selection can be toggled off; each option retains a stable ID.';
-    preview = <Stack gap={3}><ToggleButtonGroup label={label} options={choices} orientation={orientation} selectionMode={selectionMode} selectedIds={ids} onSelectionChange={setIds} allowEmpty={allowEmpty} disabled={disabled} density={density} /><Typography role="status">Selected actions: {ids.join(', ') || 'None'}</Typography></Stack>;
+    preview = <Stack gap={3}><ToggleButtonGroup label={label} options={choices} orientation={orientation} selectionMode={selectionMode} selectedIds={ids} onSelectionChange={setIds} allowEmpty={allowEmpty} disabled={disabled} density={density} /></Stack>;
     state = `  const [ids, setIds] = useState<string[]>(${json(ids)});`;
-    body = `<Stack gap={3}>\n  <ToggleButtonGroup label={${literal(label)}} options={${json(choices)}} orientation=${literal(orientation)} selectionMode=${literal(selectionMode)} selectedIds={ids} onSelectionChange={setIds} allowEmpty={${allowEmpty}} disabled={${disabled}} density=${literal(density)} />\n  <Typography role="status">Selected actions: {ids.join(', ') || 'None'}</Typography>\n</Stack>`;
+    body = `<Stack gap={3}>\n  <ToggleButtonGroup label={${literal(label)}} options={${json(choices)}} orientation=${literal(orientation)} selectionMode=${literal(selectionMode)} selectedIds={ids} onSelectionChange={setIds} allowEmpty={${allowEmpty}} disabled={${disabled}} density=${literal(density)} />\n  \n</Stack>`;
   }
   return <Example title={title} description={description} density={density} source={source({name:kind + orientation + density, imports:[expImport(kind),primitivesImport], state, body:`<ThemeScope density=${literal(density)}>\n${body}\n</ThemeScope>`})}>{preview}</Example>;
 }
@@ -238,12 +238,12 @@ function DateScenario({kind, scenario}: {kind:DateKind; scenario:Scenario}) {
     preview = <Component {...rangeOptions} value={range} onValueChange={setRange} {...(kind === 'DateRangeSelector' ? {onCancel:() => setCancels(count => count + 1)} : {})} />;
     body = `<${kind} ${commonCode}${availableCode} required={${required}} presets={${json(presets ? rangePresets : [])}} months={${months}} firstDayOfWeek=${literal(firstDay)} defaultFocusedDate="2026-10-14" name="schedule" value={range} onValueChange={setRange}${kind === 'DateRangeSelector' ? ' onCancel={() => setCancels(count => count + 1)}' : ''} />`;
     imports += ', type DateRange'; state = `  const [range, setRange] = useState<DateRange | null>(${json(range)});`;
-    if (kind === 'DateRangeSelector') {state += `\n  const [cancels, setCancels] = useState(${cancels});`; body += '\n<Typography role="status">Cancelled {cancels} times</Typography>';}
+    if (kind === 'DateRangeSelector') {state += `\n  const [cancels, setCancels] = useState(${cancels});`; body += '\n';}
   }
   const selected = isRange ? range : kind === 'Calendar' && multiple ? dates : value;
   const summary = JSON.stringify(selected);
-  let content = `<Stack gap={3}>\n${body}\n<Typography role="status">Committed value: {JSON.stringify(${isRange ? 'range' : 'value'})}</Typography>\n</Stack>`;
-  let rendered:ReactNode = <Stack gap={3}>{preview}{kind === 'DateRangeSelector' && <Typography role="status">Cancelled {cancels} times</Typography>}<Typography role="status">Committed value: {summary}</Typography></Stack>;
+  let content = `<Stack gap={3}>\n${body}\n\n</Stack>`;
+  let rendered:ReactNode = <Stack gap={3}>{preview}</Stack>;
   if (scenario === 'form') {
     imports += ', Button'; state += `\n  const [submits, setSubmits] = useState(${submits});`;
     // Calendar is a selection widget rather than a native named field; the host supplies serialization.

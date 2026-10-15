@@ -97,7 +97,7 @@ documents the runtime matrix, packed React consumers and retained artifacts:
 ```sh
 pnpm install --frozen-lockfile
 pnpm check
-pnpm dev:docs
+pnpm run dev
 pnpm build:browser-docs
 ```
 
@@ -154,12 +154,20 @@ lives in `apps/docs` and consumes the library's compiled public exports. Interna
 architecture and acceptance records remain in `docs/developer`.
 
 ```sh
-pnpm install --frozen-lockfile
-pnpm dev:docs        # Build the library, then open http://127.0.0.1:3000
+pnpm install
+pnpm run dev         # Build the library, then start the website at http://127.0.0.1:3000
 pnpm build:docs      # Production library and Next.js build
 pnpm check:docs      # Docs typecheck against built package declarations
 pnpm test:docs       # Production docs build and Chromium smoke
 ```
+
+Run these commands in the repository root, including from the VS Code integrated
+terminal (Terminal → New Terminal). Once the server reports that it is ready, open
+http://127.0.0.1:3000 in your browser. Keep the terminal running; press Ctrl+C to
+stop the server. `pnpm dev:docs` remains available as an alias.
+
+Docs website edits refresh automatically. After changing library source in
+`packages/ui`, stop and restart `pnpm run dev` to rebuild the compiled library.
 
 Library commands such as `pnpm check` and `pnpm build:browser-docs` forward to the UI
 workspace. Direct legacy scripts run from `packages/ui`; for example

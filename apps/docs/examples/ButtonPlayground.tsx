@@ -57,8 +57,8 @@ return <Example title="Prop playground" description="Change the props; the sourc
       </Stack>
       <Stack direction="row" wrap gap={3}><Checkbox label="Disabled" checked={disabled} onCheckedChange={setDisabled} /><Checkbox label="Pending" checked={loading} onCheckedChange={setLoading} /></Stack>
       </Stack>}
-      source={source('Button', `<Stack direction="row" wrap align="center" gap={3}>\n  <AppButton variant=${literal(variant)} tone=${literal(tone)} density=${literal(density)} disabled={${disabled}} loading={${loading}} onPress={() => setPresses(value => value + 1)}>\n    {${literal(renderedLabel)}}\n  </AppButton>\n  <Typography role="status">{presses} presses</Typography>\n</Stack>`, `  const [presses, setPresses] = useState(${presses});`)}>
-      <Stack direction="row" wrap align="center" gap={3}><AppButton density={density} variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setPresses(n => n + 1)}>{renderedLabel}</AppButton><Typography role="status">{presses} presses</Typography></Stack>
+      source={source('Button', `<Stack direction="row" wrap align="center" gap={3}>\n  <AppButton variant=${literal(variant)} tone=${literal(tone)} density=${literal(density)} disabled={${disabled}} loading={${loading}} onPress={() => setPresses(value => value + 1)}>\n    {${literal(renderedLabel)}}\n  </AppButton>\n  \n</Stack>`, `  const [presses, setPresses] = useState(${presses});`)}>
+      <Stack direction="row" wrap align="center" gap={3}><AppButton density={density} variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setPresses(n => n + 1)}>{renderedLabel}</AppButton></Stack>
     </Example>;
 }
 
@@ -100,11 +100,11 @@ return <Example title="Native form submission" source={source('ButtonForm', `<fo
 function ButtonVariantExample({variant}: {variant: NonNullable<AppButtonProps['variant']>}) {
   const [presses, setPresses] = useState(0);
   const title = `${variant[0].toUpperCase() + variant.slice(1)} variant and tone matrix`;
-  const body = `<Stack gap={3}>\n${(['compact','comfortable'] as const).map(density => `  <ThemeScope density=${literal(density)}>\n    <Stack direction="row" wrap gap={3}>\n${tones.map(tone => `      <AppButton variant=${literal(variant)} tone=${literal(tone)} onPress={() => setPresses(value => value + 1)}>{${literal(tone+' · '+density)}}</AppButton>`).join('\n')}\n    </Stack>\n  </ThemeScope>`).join('\n')}\n  <Typography role="status">{presses} presses</Typography>\n</Stack>`;
+  const body = `<Stack gap={3}>\n${(['compact','comfortable'] as const).map(density => `  <ThemeScope density=${literal(density)}>\n    <Stack direction="row" wrap gap={3}>\n${tones.map(tone => `      <AppButton variant=${literal(variant)} tone=${literal(tone)} onPress={() => setPresses(value => value + 1)}>{${literal(tone+' · '+density)}}</AppButton>`).join('\n')}\n    </Stack>\n  </ThemeScope>`).join('\n')}\n  \n</Stack>`;
   return <Example title={title} description="Both tones at both densities, independently of the playground."
     source={exampleSource({name:`${variant[0].toUpperCase()+variant.slice(1)}Buttons`,imports,state:`  const [presses, setPresses] = useState(${presses});`,body})}>
     <Stack gap={3}>{(['compact','comfortable'] as const).map(density => <ThemeScope key={density} density={density}>
       <Stack direction="row" wrap gap={3}>{tones.map(tone => <AppButton key={tone} variant={variant} tone={tone} onPress={() => setPresses(value => value+1)}>{tone} · {density}</AppButton>)}</Stack>
-    </ThemeScope>)}<Typography role="status">{presses} presses</Typography></Stack>
+    </ThemeScope>)}</Stack>
   </Example>;
 }

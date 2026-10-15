@@ -124,9 +124,13 @@
   "app-data-grid": {
     "when": "Use AppDataGrid for an interactive tabular view with row selection, sorting, filtering and pagination. Choose AppDataGridShell when the view also needs a coordinated toolbar, footer and card/table switch.",
     "how": [
+      "At least one data column remains flexible to fill the container. Resizing preserves the latest requested width and can release another width override; accept the complete onColumnWidthsChange snapshot, including omitted keys. Minimum widths allow horizontal scrolling on narrow screens.",
       "Define owned columns and stable row IDs, give the grid a meaningful label, and provide room for its scrolling viewport.",
       "In client mode, supply the dataset for local processing. In server mode, the host owns criteria, requests, totals and loading/error state.",
-      "Keep each state concern under one owner. Configure selection, column visibility and action columns explicitly; row reordering requires the supported complete-page dataset and host persistence."
+      "Keep each state concern under one owner. Configure selection, column visibility and action columns explicitly; row reordering requires the supported complete-page dataset and host persistence.",
+      "Column sizing: width is the preferred starting size; minWidth and maxWidth bound resizing. For a fixed 96px action column, use width: 96, minWidth: 96, maxWidth: 96. A maxWidth alone limits growth but does not make the column fixed.",
+      "Leave at least one visible data column uncapped to fill the remaining container width. For example, keep Course flexible and Actions fixed. DataGrid columns without width share space; AppDataGrid uses flex: 1. Both use the same sizing policy. Fixed columns and maximum limits are never stretched to force a fill; if every column is fixed or capped, unused space can remain. Minimum widths produce horizontal scrolling when the container is too narrow.",
+      "Resizing commits the changed column and may release another flexible column\u2019s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in."
     ],
     "related": [
       {
@@ -230,7 +234,10 @@
     "how": [
       "Define GridColumn entries with stable IDs and getValue accessors, and supply getRowId and getRowLabel for the dataset.",
       "Control the combined GridState or provide defaultState. In server mode, the host processes requested criteria and supplies page rows and total or hasNextPage.",
-      "Keep request and reorder persistence in the host. This experimental entry point retains proof contracts and is not interchangeable with AppDataGrid's props."
+      "Columns without a width share the available space; explicit widths and user resizing remain supported. The footer uses the shared Select and resets page zero when rows per page changes. Keep request and reorder persistence in the host. This experimental entry point is not interchangeable with AppDataGrid's props.",
+      "Column sizing: width is the preferred starting size; minWidth and maxWidth bound resizing. For a fixed 96px action column, use width: 96, minWidth: 96, maxWidth: 96. A maxWidth alone limits growth but does not make the column fixed.",
+      "Leave at least one visible data column uncapped to fill the remaining container width. For example, keep Course flexible and Actions fixed. DataGrid columns without width share space; AppDataGrid uses flex: 1. Both use the same sizing policy. Fixed columns and maximum limits are never stretched to force a fill; if every column is fixed or capped, unused space can remain. Minimum widths produce horizontal scrolling when the container is too narrow.",
+      "Resizing commits the changed column and may release another flexible column\u2019s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in."
     ],
     "related": [
       {

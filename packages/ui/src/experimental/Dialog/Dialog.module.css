@@ -1,5 +1,5 @@
 @layer sgui.components {
-  .overlay { position: fixed; inset: 0; z-index: var(--sgui-overlay-layer); display: flex; align-items: center; justify-content: center; padding: var(--sgui-space4); background: var(--sgui-dialog-backdrop); box-sizing: border-box; }
+  .overlay { composes: scope from "../../foundation/Scrollbars.module.css"; position: fixed; inset: 0; z-index: var(--sgui-overlay-layer); display: flex; align-items: center; justify-content: center; padding: var(--sgui-space4); background: var(--sgui-dialog-backdrop); box-sizing: border-box; }
   .overlay[data-size="full"] { padding: 0; }
   .modal { inline-size: min(100%, 40rem); max-block-size: calc(100dvh - 2rem); background: var(--sgui-dialog-surface); color: var(--sgui-dialog-text); border-radius: var(--sgui-control-radius); box-shadow: var(--sgui-overlay-shadow); overflow: hidden; }
   .modal[data-size="xs"] { inline-size: min(100%, 22rem); }

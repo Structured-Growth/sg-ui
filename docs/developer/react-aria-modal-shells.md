@@ -82,7 +82,7 @@ footer, and tall content that grows into document scrolling. The host supplies
 forms, validation, submission and account flows. Wide host content can scroll
 inside the body without widening the document.
 
-AppShell retains navigation/children and exports AppShellProps, with native
+AppShell retains navigation/children and adds optional rightNavigation and exports AppShellProps, with native
 customization. SideNavigation retains its presentation model, item selection,
 organization-change callbacks, icon resolver and routing/account/translation
 adapters. Navigation and account data remain host-supplied. See the colocated
@@ -96,6 +96,11 @@ can close default/path-expanded ancestors explicitly. Drilldown and Back move
 focus to the new menu or restored parent after the host renders the change.
 Collapse now works and retains focus on the expand trigger.
 
+SideNavigation adds no outer top/inline inset; its host owns any surrounding
+padding. Content sections own horizontal spacing so the header/footer separators
+span the navigation surface. The docs SideNavigation examples use a flush preview
+and a zero-padding, content-width host rather than adding a frame inset.
+
 The account/organization menu remains compact and inherits the portal theme.
 Multiple-account organization/logout choices are flattened, qualified with the
 account identity. Logout/add-account actions stay disabled without an account
@@ -106,7 +111,15 @@ permit retry; failed logout no longer navigates. Menu's optional `errorMessage`
 keeps such errors inside its accessible portaled scope.
 
 AppShell exposes a native div ref, className/style, mainId/mainLabel and a native
-main landmark. Desktop navigation and main content scroll independently. At
+main landmark. Navigation and main content scroll independently by default; no
+extra mode prop is required. Optional `rightNavigation` renders a matching trailing
+column after main, with the `right-navigation` part hook and a mirrored inner
+divider for a directly supplied nav. Each SideNavigation owns its width and collapse
+state; hosts should provide distinct aria-labels. With both sides present at narrow
+widths, they stack above/below main and are each capped at 30% of shell height. The navigation wrapper also scrolls arbitrary
+host-supplied content, while SideNavigation owns its inner menu scrolling. The
+shell defaults to viewport height; use native style height/blockSize when
+embedding it in a bounded example or host region. At
 40rem and below, navigation stacks above the main region, limited to 45dvh;
 collapse reduces it to the trigger so main content has more space. This replaces
 the previous fixed side-by-side narrow layout. These responsive and error/focus
@@ -151,3 +164,8 @@ locale, `Provider dir="rtl"` reaches the modal but the menu's portaled root uses
 `dir="ltr"`. Locale-driven Arabic direction is tested here. Explicit direction
 overrides across other primitives need a central fix and regression coverage;
 that issue is outside this dialog batch's write ownership.
+
+For an independent icon-only rail with arbitrary sliding tool content, use
+[IconPanelNavigation](react-aria-icon-panel-navigation.md) in either AppShell
+navigation slot or as a standalone bounded composition. It does not share the
+SideNavigation account header or menu model.

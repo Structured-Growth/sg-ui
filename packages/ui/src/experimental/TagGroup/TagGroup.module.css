@@ -8,7 +8,7 @@
     align-items: center;
     gap: var(--sgui-space1);
     padding-inline: var(--sgui-space2);
-    min-block-size: var(--sgui-control-height);
+    min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size));
     border: 1px solid var(--sgui-tag-group-border);
     border-radius: var(--sgui-control-radius);
     background: var(--sgui-tag-group-subtle-surface);
@@ -19,7 +19,7 @@
     overflow-wrap: anywhere;
   }
   .tag[data-tone="primary"] { background: var(--sgui-tag-group-primary-surface); color: var(--sgui-tag-group-primary-text); border-color: var(--sgui-tag-group-primary-border); }
-  .remove { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--sgui-control-height); min-block-size: var(--sgui-control-height); margin-inline-end: calc(-1 * var(--sgui-space2)); padding: var(--sgui-space1); border: 0; border-radius: var(--sgui-control-radius); background: transparent; color: inherit; cursor: pointer; }
+  .remove { display: inline-flex; align-items: center; justify-content: center; min-inline-size: var(--sgui-control-height); min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); margin-inline-end: calc(-1 * var(--sgui-space2)); padding: var(--sgui-space1); border: 0; border-radius: var(--sgui-control-radius); background: transparent; color: inherit; cursor: pointer; }
   .remove[data-hovered] { outline: 1px solid currentColor; outline-offset: -1px; }
   .tag[data-focus-visible], .remove[data-focus-visible], .list[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-tag-group-focus-color); outline-offset: var(--sgui-control-focus-offset); }
   .tag[data-disabled] { opacity: 0.5; }

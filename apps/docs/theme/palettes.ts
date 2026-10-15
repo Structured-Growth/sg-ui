@@ -1,5 +1,12 @@
+import {defaultThemeTokens, tokenTiers, type SemanticTokenName} from '@structured-growth/sg-ui/tokens';
+const defaultsPalette = (mode:'light'|'dark'):Record<SemanticTokenName,string> => Object.fromEntries(
+  tokenTiers.semantic.map(role=>[role, defaultThemeTokens[mode][`--sgui-${role.replace(/[A-Z]/g,letter=>'-'+letter.toLowerCase())}` as keyof typeof defaultThemeTokens.light]]),
+) as Record<SemanticTokenName,string>;
+
 /** Raw named color values. Semantic and component layers reference these names. */
 export const palettes = {
+  globalLight: defaultsPalette('light'),
+  globalDark: defaultsPalette('dark'),
   shared: {
     white:'#ffffff', black:'#000000', slate50:'#f8fafc', slate200:'#e2e8f0', slate300:'#cbd5e1',
     slate600:'#475569', slate800:'#1e293b', slate900:'#0f172a',
@@ -7,7 +14,7 @@ export const palettes = {
     green400:'#4ade80', green700:'#15803d', amber300:'#fcd34d', amber800:'#92400e',
     slate900Alpha50:'#0f172a80', blackAlpha70:'#000000b3',
     gray975:'#080808', gray925:'#171717', gray50:'#f5f5f5',
-    gray100:'#e5e5e5', gray850:'#262626',
+    gray100:'#e5e5e5', gray850:'#262626', gray600:'#686868', gray400:'#a3a3a3',
     red200:'#fecaca', red900:'#7f1d1d', green200:'#bbf7d0', green900:'#14532d', amber200:'#fde68a', amber950:'#451a03',
   },
   material: {
@@ -31,8 +38,13 @@ export const palettes = {
     stone300:'#d6d3d1', stone200:'#e7e5e4', stone50:'#fafaf9', cream200:'#fef3c7', cream50:'#fffbeb',
   },
   'structured-growth': {
-    indigo900:'#312e81', indigo800:'#3730a3', indigo700:'#4338ca', indigo400:'#818cf8', indigo300:'#a5b4fc', indigo200:'#c7d2fe',
-    white:'#ffffff', indigo25:'#f5f6fc', gray900:'#111827', slate875:'#172033', slate800:'#1e293b',
+    // Structured Growth navy/gold, with neutral surfaces and cool-blue selection.
+    navy:'#0b233e', navyHover:'#143865', navyPressed:'#07192c',
+    gold:'#c5962c', goldAccessible:'#8c7535', goldLight:'#e2bd67', goldPale:'#f1d18c',
+    canvas:'#ffffff', subtle:'#f5f6f8', paper:'#ffffff', hover:'#edf0f4', selected:'#e8f0fa',
+    mutedInk:'#526071', controlBorder:'#788494', softBorder:'#dce1e8',
+    night:'#0b1725', nightSubtle:'#142438', nightRaised:'#1b3047', nightHover:'#263c52', nightGold:'#4a3d20',
+    lightInk:'#f5f7fa', mutedLightInk:'#cbd5e1', darkBorder:'#b6c2d0', darkDivider:'#566370',
   },
   os: {
     canvas:'Canvas', canvasText:'CanvasText', buttonFace:'ButtonFace', buttonText:'ButtonText',

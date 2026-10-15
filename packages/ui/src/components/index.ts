@@ -136,3 +136,4 @@ export {
   type SideNavigationModel,
   type SideNavigationProps,
 } from "./SideNavigation";
+export { IconPanelNavigation, type IconPanelNavigationProps, type IconPanelNavigationItem } from "./IconPanelNavigation";

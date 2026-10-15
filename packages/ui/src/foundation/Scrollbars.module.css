@@ -1,0 +1,10 @@
+@layer sgui.components {
+  /* Appearance is shared; scroll containers retain ownership of overflow and gutters. */
+  .scope, .scope * { scrollbar-width: thin; scrollbar-color: var(--sgui-scrollbar-thumb) transparent; }
+  @media (hover: hover) and (pointer: fine) and (forced-colors: none) {
+    .scope, .scope * { scrollbar-color: transparent transparent; }
+    .scope:hover, .scope:focus-within, .scope *:hover, .scope *:focus-within { scrollbar-color: var(--sgui-scrollbar-thumb) transparent; }
+    .scope[data-sgui-scrolling], .scope [data-sgui-scrolling] { scrollbar-color: var(--sgui-scrollbar-thumb) transparent; }
+  }
+  @media (forced-colors: active) { .scope, .scope * { scrollbar-color: auto; } }
+}

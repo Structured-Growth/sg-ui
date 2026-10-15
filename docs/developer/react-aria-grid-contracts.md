@@ -86,10 +86,21 @@ hooks must use owned contexts such as row/value/field, never engine params.
 
 Retain flex as an owned positive grow weight: divide available space among flexible
 columns within min/max bounds; widths below their minimum produce horizontal
-scrolling. A user-committed numeric columnWidths entry overrides flex for that
-column until reset. Numeric fixed widths remain fixed. Resizing and container
-measurement stay internal, with SSR-safe initial sizing and native verification.
-Do not silently turn existing responsive columns into fixed-width columns.
+scrolling. Keep at least one data column flexible so resizing cannot leave a blank
+strip at the right. When explicit widths would otherwise fix every column, the
+last available uncapped data column absorbs the remainder, including a numerically sized
+column when necessary. During a resize, preserve the newest requested width and
+release another data column's width override if needed to retain a fill column.
+The width callback returns that complete snapshot; a released key is omitted.
+Selection/drag utility columns and action-menu columns retain their allocations
+while a data column is available. Bounds still apply; hosts should leave the fill
+column uncapped when it must absorb arbitrarily wide containers. Equal minWidth
+and maxWidth define a fixed-size column and exclude it from fill selection.
+All-fixed or all-capped configurations can leave unused space; respect their limits.
+Both renderers use the private experimental/DataGrid/column-sizing core; catalog
+columns adapt field IDs and mark action-menu columns as utilities. Resizing and
+container measurement stay internal, with SSR-safe initial sizing and native
+verification. Do not turn every responsive column into a fixed-width column.
 
 Remove automatic enumeration of arbitrary row keys into inferred hidden columns
 as a documented breaking mapping. Hosts declare every available column explicitly,

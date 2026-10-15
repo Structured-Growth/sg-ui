@@ -59,3 +59,24 @@ it("retains an unsaved host field and main node through composed navigation coll
   expect(screen.getByRole("textbox", { name: "Host title" })).toBe(input);
   expect((input as HTMLInputElement).value).toBe("Unsaved title");
 });
+
+it("adds an optional trailing column without replacing main content or the left column", () => {
+  const shell = (show: boolean) => <AppShell navigation={<nav aria-label="Routes">Routes</nav>} rightNavigation={show ? <nav aria-label="Page outline">Outline</nav> : undefined}>
+    <input aria-label="Draft" defaultValue="Unsaved" />
+  </AppShell>;
+  const {container, rerender} = render(shell(false));
+  const main = screen.getByRole("main");
+  const routes = screen.getByRole("navigation", {name:"Routes"});
+  const draft = screen.getByRole("textbox") as HTMLInputElement;
+  draft.value = "Keep this draft";
+  expect(container.querySelector('[data-sgui-part="right-navigation"]')).toBeNull();
+  rerender(shell(true));
+  const right = container.querySelector('[data-sgui-part="right-navigation"]');
+  expect(main.nextElementSibling).toBe(right);
+  expect(right?.contains(screen.getByRole("navigation", {name:"Page outline"}))).toBe(true);
+  expect(screen.getAllByRole("main")).toHaveLength(1);
+  rerender(shell(false));
+  expect(screen.getByRole("main")).toBe(main);
+  expect(screen.getByRole("navigation", {name:"Routes"})).toBe(routes);
+  expect(draft.value).toBe("Keep this draft");
+});

@@ -1,32 +1,138 @@
+import {exampleName} from './example-name';
 import {test,expect} from '@playwright/test';
 import groups from '../content/component-navigation.json' with {type:'json'};
 
-test('navigation groups components, opens the current category and searches across aliases',async({page})=>{
-  await page.goto('/docs/components/data-grid-shell');
+test('sidebar slides into categories, restores Back focus and derives the level from the page',async({page})=>{
+  await page.goto('/docs/components');
   const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
   for(const group of groups)await expect(nav.getByRole('button',{name:group.label,exact:true})).toBeVisible();
-  await expect(nav.getByRole('button',{name:'Data grids & tables',exact:true})).toHaveAttribute('aria-expanded','true');
-  await expect(nav.getByRole('link',{name:'AppDataGridShell',exact:true})).toHaveAttribute('aria-current','page');
-  const forms=nav.getByRole('button',{name:'Form components',exact:true});
-  await forms.focus();await page.keyboard.press('Enter');
-  await expect(forms).toHaveAttribute('aria-expanded','true');
+  await page.screenshot({animations:'disabled',path:'/tmp/sgui-drilldown-root.png',clip:{...((await nav.boundingBox())!),height:600}});
+  const actions=nav.getByRole('button',{name:'Buttons & actions',exact:true});
+  await actions.focus();await page.keyboard.press('Enter');
+  const back=nav.getByRole('button',{name:'Back to Components',exact:true});
+  await expect(back).toBeFocused();
+  await page.screenshot({animations:'disabled',path:'/tmp/sgui-drilldown-child.png',clip:{...((await nav.boundingBox())!),height:600}});
+  await expect(nav.getByRole('heading',{name:exampleName('Buttons & actions'),exact:true})).toBeVisible();
+  await expect(nav.getByRole('link',{name:'AppButton',exact:true})).toBeVisible();
+  await expect(nav.getByRole('button',{name:'Form components',exact:true})).toHaveCount(0);
+  await expect(nav.getByRole('link',{name:'Installation',exact:true})).toBeVisible();
+  await back.click();await expect(actions).toBeFocused();
+  await nav.getByRole('button',{name:'Form components',exact:true}).click();
   await nav.getByRole('link',{name:'TextField',exact:true}).click();
   await expect(page).toHaveURL(/\/docs\/components\/text-field$/);
   await expect(nav.getByRole('link',{name:'TextField',exact:true})).toHaveAttribute('aria-current','page');
-  await forms.click();await expect(forms).toHaveAttribute('aria-expanded','false');
-  const search=nav.getByRole('textbox',{name:'Find in navigation',exact:true});
-  await search.fill('Autocomplete');
-  await expect(forms).toHaveAttribute('aria-expanded','true');
-  await expect(nav.getByRole('region',{name:'Form components',exact:true}).getByRole('link')).toHaveText(['ComboBox']);
-  await nav.getByRole('link',{name:'ComboBox',exact:true}).click();
-  await search.fill('');await expect(forms).toHaveAttribute('aria-expanded','true');
-  await search.fill('no-such-component');await expect(nav.getByText('No matching components.',{exact:true})).toBeVisible();
-  await search.fill('');
+  await expect(back).toBeVisible();
   await page.goto('/docs/components/typography');
-  await expect(nav.getByRole('button',{name:'Text & content',exact:true})).toHaveAttribute('aria-expanded','true');
+  await expect(nav.getByRole('heading',{name:exampleName('Text & content'),exact:true})).toBeVisible();
   await expect(nav.getByRole('link',{name:'Typography',exact:true})).toHaveAttribute('aria-current','page');
   await page.setViewportSize({width:375,height:812});
   await page.goto('/docs/components/data-grid-shell');
   await expect(nav.getByRole('link',{name:'AppDataGridShell',exact:true})).toBeVisible();
+  await expect(back).toBeVisible();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+});
+
+test('unlabelled visual search drops down pages across categories with keyboard and direct navigation',async({page})=>{
+  await page.goto('/docs/components/button');
+  const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
+  const search=nav.getByRole('textbox',{name:'Find in navigation',exact:true});
+  await expect(nav.locator('label')).toHaveCount(0);
+  await search.fill('Autocomplete');
+  const results=nav.getByRole('region',{name:exampleName('Component search results')});
+  await expect(results.getByRole('link')).toHaveText(['ComboBoxForm components']);
+  await page.screenshot({animations:'disabled',path:'/tmp/sgui-drilldown-search.png',clip:{...((await nav.boundingBox())!),height:600}});
+  await page.keyboard.press('ArrowDown');
+  await expect(results.getByRole('link',{name:/ComboBox/})).toBeFocused();
+  await page.keyboard.press('Escape');await expect(search).toBeFocused();
+  await expect(results).toHaveCount(0);
+  await search.fill('DataToolbar');
+  await results.getByRole('link',{name:'DataToolbar',exact:true}).click();
+  await expect(page).toHaveURL(/\/docs\/components\/data-toolbar$/);
+  await expect(search).toHaveValue('');
+  await expect(nav.getByRole('heading',{name:exampleName('Data grids & tables'),exact:true})).toBeVisible();
+  await expect(nav.getByRole('link',{name:'DataToolbar',exact:true})).toHaveAttribute('aria-current','page');
+  await nav.getByRole('button',{name:'Back to Components',exact:true}).click();
+  await expect(nav.getByRole('button',{name:'Data grids & tables',exact:true})).toBeFocused();
+  await search.fill('no-such-component');await expect(results.getByRole('status')).toHaveText('No matching components.');
+  await search.fill('Autocomplete');await page.keyboard.press('ArrowDown');await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/docs\/components\/combo-box$/);
+  await page.goBack();
+  await expect(nav.getByRole('heading',{name:exampleName('Data grids & tables'),exact:true})).toBeVisible();
+});
+
+
+test('sidebar orders overview, search, component menus and general links between full-width dividers',async({page})=>{
+  await page.goto('/');
+  const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
+  const order=()=>nav.locator('a,button,input,hr').evaluateAll(elements=>elements.map(element=>element.tagName==='HR'?'divider':element.tagName==='INPUT'?'Search components':element.textContent?.trim()));
+  await expect.poll(order).toEqual(['Overview','divider','Search components','Components',...groups.map(group=>group.label),'divider','Installation','Theming','Release history','Licenses','View on GitHub']);
+  const dividers=nav.getByRole('separator');
+  await expect(dividers).toHaveCount(2);
+  const frame=(await nav.boundingBox())!;
+  for(const divider of await dividers.all()) {
+    const bounds=(await divider.boundingBox())!;
+    expect(bounds.x).toBeCloseTo(frame.x,0);
+    expect(bounds.x+bounds.width).toBeCloseTo(frame.x+await nav.evaluate(element=>element.clientWidth),0);
+  }
+  await nav.getByRole('button',{name:'Buttons & actions',exact:true}).click();
+  await expect(nav.getByRole('button',{name:'Back to Components',exact:true})).toBeVisible();
+  await expect(nav.getByRole('link',{name:'Overview',exact:true})).toBeVisible();
+  await nav.getByRole('link',{name:'Installation',exact:true}).click();
+  await expect(page).toHaveURL(/\/installation$/);
+  await expect(nav.getByRole('link',{name:'Installation',exact:true})).toHaveAttribute('aria-current','page');
+  await page.screenshot({path:'/tmp/sgui-sidebar-order.png',animations:'disabled'});
+});
+
+test('Structured Growth links and navigation use background hover feedback',async({page})=>{
+  await page.goto('/docs/components/link');
+  const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
+  const overview=nav.getByRole('link',{name:'Overview',exact:true});
+  await expect(nav).toHaveCSS('background-color','rgb(255, 255, 255)');
+  await expect(overview).toHaveCSS('border-radius','6px');
+  const icon=overview.locator('svg');
+  await expect(icon).toHaveAttribute('aria-hidden','true');
+  const row=(await overview.boundingBox())!,symbol=(await icon.boundingBox())!;
+  expect(row.height).toBe(32);
+  await expect(overview).toHaveCSS('font-size','12px');
+  expect((await page.getByRole('banner').boundingBox())!.height).toBeLessThanOrEqual(56);
+  const search=nav.getByRole('textbox',{name:'Find in navigation',exact:true});
+  await expect(search).toHaveCSS('font-size','12px');
+  expect((await search.boundingBox())!.height).toBe(32);
+  expect(symbol.width).toBe(16);
+  expect(Math.abs((symbol.y+symbol.height/2)-(row.y+row.height/2))).toBeLessThan(1);
+  await overview.hover();
+  const hovered=await overview.evaluate(element=>({decoration:getComputedStyle(element).textDecorationLine,background:getComputedStyle(element).backgroundColor}));
+  expect(hovered.decoration).toBe('none');
+  expect(hovered.background).not.toBe('rgba(0, 0, 0, 0)');
+  await overview.focus();await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');
+  await expect(overview).toBeFocused();
+  expect(await overview.evaluate(element=>getComputedStyle(element).outlineStyle)).toBe('solid');
+  const back=nav.getByRole('button',{name:'Back to Components',exact:true});
+  await back.hover();
+  await expect.poll(()=>back.evaluate(element=>getComputedStyle(element).backgroundColor)).not.toBe('rgba(0, 0, 0, 0)');
+  expect(await back.evaluate(element=>getComputedStyle(element).textDecorationLine)).toBe('none');
+  const current=nav.locator('a[aria-current="page"]');
+  expect(await current.evaluate(element=>getComputedStyle(element).textDecorationLine)).toBe('none');
+  const demo=page.locator('[data-docs-preview] a[data-underline="hover"]').first();
+  await demo.hover();
+  expect(await demo.evaluate(element=>getComputedStyle(element).textDecorationLine)).toBe('underline');
+  await overview.hover();
+  await page.screenshot({path:'/tmp/sgui-background-hover.png',animations:'disabled'});
+});
+
+test('compact application navigation retains touch targets and supports enlarged labels',async({browser,baseURL})=>{
+  const context=await browser.newContext({baseURL,viewport:{width:375,height:812},hasTouch:true,isMobile:true});
+  const page=await context.newPage();
+  await page.goto('/docs/components');
+  const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
+  const row=nav.getByRole('link',{name:'Overview',exact:true});
+  const search=nav.getByRole('textbox',{name:'Find in navigation',exact:true});
+  expect((await row.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  expect((await search.boundingBox())!.height).toBeGreaterThanOrEqual(44);
+  await expect(row).toHaveCSS('font-size','12px');
+  await page.addStyleTag({content:'html { font-size: 200%; }'});
+  await expect(row).toHaveCSS('font-size','24px');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await row.focus();await expect(row).toBeFocused();
+  await context.close();
 });

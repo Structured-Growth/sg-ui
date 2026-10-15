@@ -1,19 +1,105 @@
-.root { font-family: var(--sgui-font-family); min-height: 100dvh; background: var(--sgui-surface); color: var(--sgui-text); }
-.header { border-bottom: 1px solid var(--sgui-border); padding: var(--sgui-space4); }
-.layout { display: grid; grid-template-columns: 16rem minmax(0, 1fr); }
-.sidebar { padding: var(--sgui-space4); display: flex; flex-direction: column; gap: var(--sgui-space4); border-right: 1px solid var(--sgui-border); }
-.main { padding: clamp(1rem, 4vw, 4rem); width: 100%; max-width: 72rem; min-width: 0; }
-.footer { border-top: 1px solid var(--sgui-border); padding: var(--sgui-space4); display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sgui-space3); }
-.navLink[aria-current='page'] { color: var(--sgui-action); text-decoration: underline; text-underline-offset: 0.3em; }
+.root { position: relative; display: grid; grid-template-rows: auto minmax(0, 1fr); height: 100dvh; overflow: hidden; font-family: var(--sgui-font-family); min-height: 0; background: var(--sgui-surface); color: var(--sgui-text); }
+.header { border-block-start: 1px solid var(--sgui-surface-pressed); border-bottom: 1px solid var(--sgui-divider); padding: var(--sgui-space4); }
+/* Panes own scrolling; focus must not scroll the outer grid sideways. */
+.layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); min-height: 0; overflow: clip; }
+.sidebar { position: relative; border-radius: 0; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--sgui-space4); display: flex; flex-direction: column; gap: var(--sgui-space4); border-right: 1px solid var(--sgui-divider); }
+.main { position: relative; min-height: 0; overflow: auto; overscroll-behavior: contain; width: 100%; min-width: 0; }
+.mainContent { width: 100%; max-width: 72rem; min-width: 0; }
+.navigationMeta { margin-block-start: auto; padding-block-start: var(--sgui-space3); flex-shrink: 0; }
+.navLink[aria-current='page'] { background: var(--sgui-surface-selected); color: var(--sgui-text-selected); text-decoration: none; }
 .nestedNavigation { padding-inline-start: var(--sgui-space3); border-inline-start: 1px solid var(--sgui-border); margin-inline-start: var(--sgui-space2); overflow-wrap: anywhere; }
 .skip { position: absolute; top: -10rem; left: 1rem; z-index: 100; padding: var(--sgui-space3); background: var(--sgui-surface); }
 .skip:focus { top: 1rem; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--sgui-space4); }
 .code { white-space: pre-wrap; overflow-wrap: anywhere; padding: var(--sgui-space4); border-radius: var(--sgui-field-radius); background: var(--sgui-surface-subtle); }
-@media (max-width: 52rem) { .layout { grid-template-columns: 1fr; } .sidebar { border-right: 0; border-bottom: 1px solid var(--sgui-border); } }
+@media (max-width: 52rem) { .layout { grid-template-columns: 1fr; grid-template-rows: minmax(0, min(35dvh, 18rem)) minmax(0, 1fr); } .sidebar { border-right: 0; border-bottom: 1px solid var(--sgui-border); } }
 
 .preview { font-family: var(--sgui-font-family); padding: var(--sgui-space4); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); background: var(--sgui-surface); color: var(--sgui-text); min-width: 0; }
 /* Wide component compositions scroll inside their preview rather than the site. */
 .preview { max-width: 100%; overflow-x: auto; }
 .usageList { list-style: disc; padding-inline-start: var(--sgui-space4); }
 .usageListItem + .usageListItem { margin-block-start: var(--sgui-space2); }
+
+.navigationSearch { position: relative; min-inline-size: 0; }
+.navigationResults { position: absolute; inset-block-start: calc(100% + var(--sgui-space1)); inset-inline: 0; z-index: 20; display: flex; flex-direction: column; gap: var(--sgui-space2); max-block-size: min(60dvh, 28rem); overflow-y: auto; padding: var(--sgui-space3); background: var(--sgui-surface); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); }
+.searchResult { display: flex; flex-direction: column; gap: var(--sgui-space1); padding-block: var(--sgui-space2); overflow-wrap: anywhere; }
+.navigationViewport { overflow: hidden; min-inline-size: 0; padding: var(--sgui-space1); margin: calc(-1 * var(--sgui-space1)); }
+.navigationPanel { min-inline-size: 0; animation: navigationForward var(--sgui-motion-duration) ease-out; }
+.navigationPanel[data-direction='back'] { animation-name: navigationBack; }
+.navigationButton { inline-size: 100%; justify-content: flex-start; text-align: start; }
+.navigationButton > span:nth-child(2) { flex: 1; min-inline-size: 0; }
+.navigationBack { justify-content: flex-start; }
+@keyframes navigationForward { from { opacity: 0; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
+@keyframes navigationBack { from { opacity: 0; transform: translateX(-1rem); } to { opacity: 1; transform: translateX(0); } }
+:global([dir='rtl']) .navigationPanel { animation-name: navigationBack; }
+:global([dir='rtl']) .navigationPanel[data-direction='back'] { animation-name: navigationForward; }
+@media (prefers-reduced-motion: reduce) { .navigationPanel { animation: none; } }
+
+.flushPreview { padding: 0; }
+
+.navigationDivider { inline-size: calc(100% + 2 * var(--sgui-space2)); margin-inline: calc(-1 * var(--sgui-space2)); }
+
+@media (max-width: 52rem) { .navigationResults { max-block-size: min(15dvh, 8rem); } }
+
+/* Shared SGUI scopes own scrollbar appearance; these panes reserve stable space. */
+.sidebar, .main, .navigationResults { scrollbar-gutter: stable; }
+
+/* The fixed website identity uses background feedback; live demo links own their styling. */
+.root :global(a[data-underline]):not(:global([data-docs-preview] a)) { text-decoration: none; }
+.root :global(a[data-underline]):not(:global([data-docs-preview] a)):hover { background-color: var(--sgui-surface-hover); text-decoration: none; }
+
+/* Section views share existing state-owning examples while omitting unrelated wrapper headings. */
+.catalogPhase :where(*):not(:where([data-docs-example], [data-docs-example] *, [data-docs-preview], [data-docs-preview] *)):not(:has([data-docs-example], [data-docs-preview])) { display: none; }
+.catalogPhase[data-catalog-phase="overview"] [data-docs-preview] { max-block-size: 24rem; overflow: auto; }
+
+/* The shell owns tools; pages register documentation and the section owns settings. */
+.layout[data-has-tools] { --docs-tool-rail-width: calc(max(var(--sgui-compact-navigation-item-height), var(--sgui-control-minimum-target-size)) + var(--sgui-space2)); grid-template-columns: 17rem minmax(0, 1fr) auto; }
+.tools { --docs-tool-panel-width: 20rem; position: relative; min-block-size: 0; min-inline-size: 0; max-inline-size: 48vw; border-inline-start: 1px solid var(--sgui-border); }
+.tools [data-sgui-part="icon-navigation-content"] { scrollbar-gutter: stable; }
+.tools[data-active-tool="documentation"] { --docs-tool-panel-width: min(40rem, 44vw); }
+.tools code { display: block; min-inline-size: 0; }
+@media (max-width: 52rem) {
+  .layout[data-has-tools] { grid-template-columns: minmax(0, 1fr) var(--docs-tool-rail-width); }
+  .layout[data-has-tools] > .sidebar { grid-column: 1 / -1; }
+  .tools, .tools[data-active-tool="documentation"] { --docs-tool-panel-width: min(40rem, calc(var(--docs-layout-width, 100vw) - var(--docs-tool-rail-width))); }
+  .tools { grid-column: 2; grid-row: 2; max-inline-size: none; z-index: 30; }
+  .tools [data-sgui-part="icon-navigation-panel"] { position: absolute; inset-block: 0; inset-inline-end: var(--docs-tool-rail-width); max-inline-size: none; background: var(--sgui-surface); border-inline-start: 1px solid var(--sgui-border); }
+}
+
+/* Desktop navigation has its own compact scale; reading and form type stay unchanged. */
+.navLink, .navigationButton {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--sgui-space2);
+  min-block-size: max(var(--sgui-compact-navigation-item-height), var(--sgui-control-minimum-target-size));
+  padding: var(--sgui-space1) var(--sgui-space2);
+  border: 0;
+  border-radius: var(--sgui-field-radius);
+  font-size: var(--sgui-side-navigation-label-size);
+  font-weight: var(--sgui-body2-weight);
+  line-height: var(--sgui-body2-line-height);
+}
+.navigationIcon { flex: 0 0 auto; inline-size: var(--sgui-side-navigation-icon-size); block-size: var(--sgui-side-navigation-icon-size); }
+.navigationSearchIcon { position: absolute; z-index: 1; pointer-events: none; inset-inline-start: var(--sgui-space2); inset-block-start: 50%; transform: translateY(-50%); inline-size: var(--sgui-side-navigation-icon-size); block-size: var(--sgui-side-navigation-icon-size); color: var(--sgui-text-muted); }
+.navigationSearchInput { min-block-size: max(var(--sgui-compact-navigation-item-height), var(--sgui-control-minimum-target-size)); padding-inline: 2rem var(--sgui-space2); font-size: var(--sgui-side-navigation-label-size); line-height: var(--sgui-body2-line-height); background: var(--sgui-surface-subtle); border-color: transparent; }
+.navigationSearchInput:focus-visible { border-color: var(--sgui-focus); }
+@media (forced-colors: active) { .navLink[aria-current='page'] { outline: 1px solid Highlight; outline-offset: -1px; } .navigationSearchInput { border-color: FieldText; } }
+
+
+/* A compact application toolbar, with its accessible picker label retained. */
+.applicationDescription, .versionPicker > :first-child {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.versionPicker { --sgui-control-height: var(--sgui-compact-control-height); --sgui-control-padding: var(--sgui-space2); --sgui-label-size: var(--sgui-caption-size); gap: 0; }
+.navigationMeta a { font-size: var(--sgui-caption-size); line-height: var(--sgui-body2-line-height); }
+
+.toolsScope { display: flex; block-size: 100%; min-block-size: 0; min-inline-size: 0; }

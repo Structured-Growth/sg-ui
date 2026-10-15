@@ -9,7 +9,7 @@
   .strip { flex: none; min-inline-size: 0; }
   .list { display: flex; flex: none; overflow-x: auto; position: sticky; inset-block-start: 0; background: var(--sgui-tabs-surface); border-block-end: 1px solid var(--sgui-tabs-divider); }
   .icon { display: inline-flex; flex: none; }
-  .tab { gap: var(--sgui-space2); display: flex; align-items: center; min-block-size: var(--sgui-control-height); padding-inline: var(--sgui-control-padding); border-block-end: 2px solid transparent; white-space: nowrap; cursor: pointer; font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
+  .tab { gap: var(--sgui-space2); display: flex; align-items: center; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline: var(--sgui-control-padding); border-block-end: 2px solid transparent; white-space: nowrap; cursor: pointer; font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
   .tab[data-selected] { color: var(--sgui-tabs-selected-action-text); border-block-end-color: var(--sgui-tabs-selected-border); }
   .tab[data-hovered] { background: var(--sgui-tabs-hover-surface); }
   .tab[data-disabled] { opacity: 0.5; cursor: default; }

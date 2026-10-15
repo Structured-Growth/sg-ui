@@ -1,3 +1,4 @@
+import {exampleName} from './example-name';
 import {test, expect, type Locator} from '@playwright/test';
 import {readFile, readdir} from 'node:fs/promises';
 import {join} from 'node:path';
@@ -12,7 +13,7 @@ async function setCheckbox(region:Locator, name:string, checked:boolean) {
 test('async playground source and copied code follow selected records, mock pending/failure and retry',async({page,context})=>{
   await context.grantPermissions(['clipboard-read','clipboard-write']);
   await page.goto('/docs/components/async-multi-select');
-  const playground=page.getByRole('region',{name:'Prop playground',exact:true});
+  const playground=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
   const preview=playground.locator('[data-docs-preview]');
   await playground.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();
   const code=playground.getByLabel('Source: Prop playground',{exact:true});
@@ -37,7 +38,8 @@ test('async playground source and copied code follow selected records, mock pend
   await expect(preview.getByRole('button',{name:'Retry',exact:true})).toHaveCount(0);
   await expect(code).toContainText('const [error, setError] = useState(false);');
   await expect(code).toContainText('const [loading, setLoading] = useState(false);');
-  await expect(preview.getByRole('status').filter({hasText:'Current value:'})).toHaveText('Current value: Design systems');
+  await expect(preview.getByRole('button',{name:'Remove Design systems',exact:true})).toBeVisible();
+  await expect(preview.getByText(/^Current value:/)).toHaveCount(0);
 
   await playground.getByRole('button',{name:'Copy code: Prop playground',exact:true}).click();
   await expect(playground.getByText('Copied to clipboard.',{exact:true})).toBeVisible();
@@ -47,7 +49,7 @@ test('async playground source and copied code follow selected records, mock pend
 test('date playground source follows datetime shape, hour cycle, density and committed segment edits',async({page,context})=>{
   await context.grantPermissions(['clipboard-read','clipboard-write']);
   await page.goto('/docs/components/date-field');
-  const playground=page.getByRole('region',{name:'Prop playground',exact:true});
+  const playground=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
   const preview=playground.locator('[data-docs-preview]');
   await playground.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();
   const code=playground.getByLabel('Source: Prop playground',{exact:true});
@@ -68,7 +70,7 @@ test('date playground source follows datetime shape, hour cycle, density and com
 
   const minute=preview.getByRole('spinbutton',{name:/minute/});
   await minute.focus(); await page.keyboard.press('ArrowUp');
-  await expect(preview.getByRole('status')).toHaveText('Committed value: "2026-10-14T09:31:00"');
+  await expect(minute).toHaveAttribute('aria-valuenow','31');
   await expect(code).toContainText('useState<string | null>("2026-10-14T09:31:00")');
   await playground.getByRole('button',{name:'Copy code: Prop playground',exact:true}).click();
   expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe(await code.textContent());

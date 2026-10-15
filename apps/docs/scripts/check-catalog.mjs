@@ -1,3 +1,4 @@
+import {generateAPI} from './component-api.mjs';
 import './check-example-isolation.mjs';
 import {generateComposition} from './component-composition.mjs';
 import componentNavigationGroups from '../content/component-navigation.json' with {type:'json'};
@@ -7,6 +8,7 @@ import {resolve,dirname} from 'node:path';
 const root=resolve(import.meta.dirname,'../../..');
 const catalog=JSON.parse(readFileSync(resolve(root,'apps/docs/content/catalog.json'),'utf8'));
 const bySlug=new Map(catalog.map(entry=>[entry.slug,entry]));
+for(const entry of catalog)if(entry.exampleTitle!==undefined && (entry.slug!=='processing-grid'||entry.exampleTitle!=='Course data grid'))throw Error(`Unapproved single-example exception: ${entry.slug}`);
 const grouped=componentNavigationGroups.flatMap(group=>group.slugs);
 if(new Set(grouped).size!==grouped.length || grouped.length!==catalog.length || grouped.some(slug=>!bySlug.has(slug)))throw Error('Navigation must group every catalog page exactly once');
 const usageSlugs=new Set();
@@ -29,3 +31,5 @@ const missing=[...required].filter(name=>!documented.has(name));if(missing.lengt
 console.log(`${catalog.length} pages cover all ${required.size} public component/icon export names with when/how guidance`);
 
 generateComposition(catalog,{check:true});
+
+generateAPI(catalog,{check:true});

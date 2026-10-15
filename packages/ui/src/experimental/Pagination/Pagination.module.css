@@ -2,7 +2,7 @@
   .root { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: var(--sgui-space3); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); color: var(--sgui-pagination-text); }
   .summary { margin-inline-end: auto; }
   .size, .actions { display: inline-flex; align-items: center; flex-wrap: wrap; gap: var(--sgui-space2); }
-  .select { box-sizing: border-box; min-block-size: var(--sgui-control-height); padding-inline: var(--sgui-space2); border: 1px solid var(--sgui-pagination-border); border-radius: var(--sgui-field-control-radius); font: inherit; background: var(--sgui-pagination-surface); color: var(--sgui-pagination-text); }
+  .select { box-sizing: border-box; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline: var(--sgui-space2); border: 1px solid var(--sgui-pagination-border); border-radius: var(--sgui-field-control-radius); font: inherit; background: var(--sgui-pagination-surface); color: var(--sgui-pagination-text); }
   .select:focus-visible { outline: var(--sgui-control-focus-width) solid var(--sgui-pagination-focus-color); outline-offset: var(--sgui-control-focus-offset); }
   .select:disabled { opacity: 0.5; }
   @media (forced-colors: active) { .select:focus-visible { outline-color: Highlight; } .select:disabled { color: GrayText; opacity: 1; } }

@@ -6,7 +6,7 @@
     box-sizing: border-box;
     min-inline-size: 0;
     inline-size: 100%;
-    min-block-size: var(--sgui-control-height);
+    min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size));
     padding-block: var(--sgui-space1);
     padding-inline: var(--sgui-control-padding);
     border: 1px solid var(--sgui-field-border);

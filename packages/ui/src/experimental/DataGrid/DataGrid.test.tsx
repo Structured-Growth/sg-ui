@@ -20,7 +20,7 @@ it("filters before sorting and pagination and preserves stable null/number/date 
 });
 it("commits numeric widths through keyboard resize activation", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  render(<DataGrid {...props} onStateChange={change} />);
+  render(<DataGrid {...props} columns={columns.map(column=>({...column,width:180}))} onStateChange={change} />);
   const slider = screen.getByRole("slider", { name: /Resize Name/ });
   await user.click(slider); await user.keyboard("{Enter}{ArrowRight}{Enter}");
   expect(change.mock.calls.at(-1)?.[0].widths.name).toBe(190);

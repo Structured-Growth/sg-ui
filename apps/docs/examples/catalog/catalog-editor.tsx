@@ -5,8 +5,9 @@ import {
   EditableTitleField, DocumentEditorLayout, DocumentEditorToolbar, ContentEditorChrome,
   FloatingTextSelectionToolbar, RichTextFormattingToolbar, InsertContentMenuControl, TextAlignMenuControl, TextColorPickerControl,
   TextStyleMenuControl, ColumnsLayoutModal, LinkUrlModal, ImageUploadModal, PageRichTextEditorSection,
-  AppButton, type ColumnsLayoutPreset, type AlignOption, type TextStyleId,
+  AppButton, type SideNavigationModel, type ColumnsLayoutPreset, type AlignOption, type TextStyleId,
 } from '@structured-growth/sg-ui/components';
+import { DashboardIcon,MenuBookIcon,EditIcon,TuneIcon,PeopleIcon,DescriptionOutlinedIcon,TerminalIcon } from '@structured-growth/sg-ui/icons';
 import { Stack, Typography } from '@structured-growth/sg-ui/primitives';
 import { TextField, Select, Checkbox, Surface } from '@structured-growth/sg-ui/experimental';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
@@ -17,14 +18,19 @@ import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
 import { ThemeScope } from '@structured-growth/sg-ui/theme';
 import { SGNavigationProvider, SGAccountProvider, SGLink, SGTranslationProvider, useAccountAdapter, useTranslation, formatIcuMessage, type StoredAuthSession, type SGAccountAdapter, type SGTranslationAdapter } from '@structured-growth/sg-ui';
 import { Example } from '../../components/Example';
+import { IconPanelNavigationExamples, AppShellIconNavigationExamples } from '../IconPanelNavigationExamples';
+import { AppShellScrollingExample } from '../AppShellScrollingExample';
 import { useExampleSource } from '../useExampleSource';
 import { literal } from '../source';
 import type { CatalogEntry } from '../../content/catalog-types';
 
+const navigationIcons={dashboard:DashboardIcon,course:MenuBookIcon,edit:EditIcon,settings:TuneIcon,people:PeopleIcon,resources:DescriptionOutlinedIcon,terminal:TerminalIcon};
+function resolveNavigationIcon(key:string) { const Icon=navigationIcons[key as keyof typeof navigationIcons];return Icon?<Icon/>:null; }
+
 type Kind = 'AuthShell' | 'AppShell' | 'AppPageHeader' | 'AppPageTabs' | 'ExperiencePageNavigator' | 'SideNavigation' | 'EditableTitleField' | 'DocumentEditorLayout' | 'DocumentEditorToolbar' | 'ContentEditorChrome' | 'FloatingTextSelectionToolbar' | 'RichTextFormattingToolbar' | 'InsertContentMenuControl' | 'TextAlignMenuControl' | 'TextColorPickerControl' | 'TextStyleMenuControl' | 'ColumnsLayoutModal' | 'LinkUrlModal' | 'ImageUploadModal' | 'PageRichTextEditorSection';
 const choices: Record<Kind, string[]> = {
   AuthShell:['Welcome back','Create your account','Reset your password'], AppShell:['Course workspace','Organization workspace'],
-  AppPageHeader:['primary','subpage'], AppPageTabs:['automatic','manual'], ExperiencePageNavigator:['Course outline','Lesson sequence'], SideNavigation:['expand','drilldown'],
+  AppPageHeader:['primary','subpage'], AppPageTabs:['automatic','manual'], ExperiencePageNavigator:['Course outline','Lesson sequence'], SideNavigation:['Mixed menu'],
   EditableTitleField:['h4','h5','h6'], DocumentEditorLayout:['Full chrome','Minimal chrome'], DocumentEditorToolbar:['All controls','Formatting only'],
   ContentEditorChrome:['Save and preview','Export only'], FloatingTextSelectionToolbar:['Narrow boundary','Wide boundary'], RichTextFormattingToolbar:['Full toolbar','Essential formatting'],
   InsertContentMenuControl:['All insertions','Rule only'], TextAlignMenuControl:['left','center','right','justify','start','end'], TextColorPickerControl:['foreground','background'],
@@ -34,7 +40,7 @@ const choices: Record<Kind, string[]> = {
 const descriptions: Record<Kind,string> = {
   AuthShell:'A presentation shell for host-owned authentication forms, without account APIs.', AppShell:'Independent navigation and main content regions for application compositions.',
   AppPageHeader:'Hierarchy, breadcrumbs, metadata and host-owned actions.', AppPageTabs:'Controlled panels with automatic or manual keyboard activation.', ExperiencePageNavigator:'Host-owned page selection, rename, reorder, creation and removal.',
-  SideNavigation:'Expandable and drilldown navigation with a host-supplied user model.', EditableTitleField:'Inline title editing with save/cancel and read-only presentation.',
+  SideNavigation:'One menu combining direct destinations, inline expansion, nested drilldown and footer actions. Each branch chooses its own behavior.', EditableTitleField:'Inline title editing with save/cancel and read-only presentation.',
   DocumentEditorLayout:'Compose document title, actions and toolbar around host-owned content.', DocumentEditorToolbar:'Controlled heading, formatting and zoom state with explicit command availability.',
   ContentEditorChrome:'An editable document title with anchor-aware menu commands.', FloatingTextSelectionToolbar:'Select text in the integrated Lexical editor; Alt+F10 focuses its floating formatting actions.',
   RichTextFormattingToolbar:'Host-controlled formatting commands, checked states and optional control groups.', InsertContentMenuControl:'Insertion commands request host-owned changes rather than saving content themselves.',
@@ -46,16 +52,18 @@ const descriptions: Record<Kind,string> = {
 function documentValue(text: string) { return {root:{type:'root',version:1,direction:null,format:'',indent:0,children:[{type:'paragraph',version:1,direction:null,format:'',indent:0,children:[{type:'text',version:1,text,detail:0,format:0,mode:'normal',style:''}]}]}}; }
 
 /** The fixture and its source share current state; commands deliberately update host-owned presentation. */
-function EditorExample({kind, section, initialChoice, initialReadOnly = false, initialDensity = 'comfortable', playground = false, previewWidth, routeTabs = false, initialContent, initialLink}:{kind:Kind;section:string;initialChoice:string;initialReadOnly?:boolean;initialDensity?:'compact'|'comfortable';playground?:boolean;previewWidth?:number;routeTabs?:boolean;initialContent?:string;initialLink?:{displayText:string;url:string}}) {
+function EditorExample({kind, section, initialChoice, initialReadOnly = false, initialDensity = 'comfortable', playground = false, previewWidth, routeTabs = false, initialContent, initialLink, initialRightNavigation = false}:{kind:Kind;section:string;initialChoice:string;initialReadOnly?:boolean;initialDensity?:'compact'|'comfortable';playground?:boolean;previewWidth?:number;routeTabs?:boolean;initialContent?:string;initialLink?:{displayText:string;url:string};initialRightNavigation?:boolean}) {
   const source = useExampleSource();
   const [label,setLabel] = useState(initialContent??(section==='Compact configuration'?'Quick start':section==='Alternate content and restricted actions'?'A longer course title that demonstrates wrapping, constrained widths, and clear presentation when actions are unavailable.':'Building a thoughtful learning experience'));
   const [choice,setChoice] = useState(initialChoice);
+  const [showRightNavigation,setShowRightNavigation] = useState(initialRightNavigation);
   const [readOnly,setReadOnly] = useState(initialReadOnly);
   const [density,setDensity] = useState<'compact'|'comfortable'>(initialDensity);
   const [title,setTitle] = useState(initialReadOnly?'Archived course introduction':'Course introduction');
   const [status,setStatus] = useState('Ready');
   const [open,setOpen] = useState(false);
   const [value,setValue] = useState(routeTabs?'/courses/overview':'overview');
+  const [navigationPath,setNavigationPath] = useState('/workspace/overview');
   const [pages,setPages] = useState([{key:'overview',title:'Overview'},{key:'practice',title:'Practice'},{key:'reflection',title:'Reflection'}]);
   const [bold,setBold] = useState(false); const [italic,setItalic] = useState(false); const [underline,setUnderline] = useState(false);
   const [bullet,setBullet] = useState(false); const [ordered,setOrdered] = useState(false);
@@ -70,7 +78,40 @@ function EditorExample({kind, section, initialChoice, initialReadOnly = false, i
   const [revision,setRevision] = useState(0);
   const report = (message:string) => setStatus(message);
   const toggleStyle = (style:TextStyleId) => setActiveStyles(items => items.includes(style) ? items.filter(item => item!==style) : [...items,style]);
-  const navigationModel = {user:{initials:'AL',name:label,organization:'Structured Growth'},rootMenu:{id:'demo',sections:[{id:'workspace',title:'Workspace',items:[{id:'overview',label:'Overview',active:value==='overview'},{id:'course',label:'Course tools',childBehavior:choice==='drilldown'?'drilldown' as const:'expand' as const,defaultExpanded:true,children:[{id:'practice',label:'Practice'},{id:'reflection',label:'Reflection'}]}]}]}};
+  const navigationModel:SideNavigationModel = kind==='SideNavigation'?{
+    user:{initials:'AL',name:label,organization:'Structured Growth'},
+    rootMenu:{id:'mixed-workspace',sections:[{id:'workspace',title:'Workspace',items:[
+      {id:'overview',icon:'dashboard',label:'Overview',href:'/workspace/overview'},
+      {id:'course-tools',icon:'course',label:'Course tools',childBehavior:'expand',defaultExpanded:true,children:[
+        {id:'practice',icon:'edit',label:'Practice'},
+        {id:'reflection',icon:'edit',label:'Reflection'},
+        {id:'course-settings',icon:'settings',label:'Course settings',childBehavior:'drilldown',children:[
+          {id:'general',icon:'settings',label:'General settings'},
+          {id:'notifications',icon:'settings',label:'Notifications',childBehavior:'expand',defaultExpanded:true,children:[
+            {id:'announcements',icon:'resources',label:'Announcements'},
+            {id:'reminders',icon:'resources',label:'Reminders'},
+          ]},
+          {id:'advanced',icon:'settings',label:'Advanced settings',childBehavior:'drilldown',children:[
+            {id:'completion',icon:'settings',label:'Completion rules'},
+            {id:'availability',icon:'settings',label:'Availability'},
+          ]},
+        ]},
+      ]},
+      {id:'organization',icon:'people',label:'Organization',childBehavior:'drilldown',children:[
+        {id:'people',icon:'people',label:'People',href:'/workspace/people'},
+        {id:'teams',icon:'people',label:'Teams',childBehavior:'expand',children:[
+          {id:'instructors',icon:'people',label:'Instructors'},
+          {id:'learners',icon:'people',label:'Learners'},
+        ]},
+      ]},
+    ]}],footerSections:[{id:'help',title:'Help & support',items:[
+      {id:'resources',icon:'resources',label:'Resources',childBehavior:'expand',children:[
+        {id:'guide',icon:'resources',label:'Workspace guide'},
+        {id:'shortcuts',icon:'terminal',label:'Keyboard shortcuts'},
+      ]},
+      {id:'support',icon:'people',label:'Contact support'},
+    ]}]},
+  }:{user:{initials:'AL',name:label,organization:'Structured Growth'},rootMenu:{id:'demo',sections:[{id:'workspace',title:'Workspace',items:[{id:'overview',label:'Overview',active:value==='overview'},{id:'course',label:'Course tools',childBehavior:'expand',defaultExpanded:true,children:[{id:'practice',label:'Practice'},{id:'reflection',label:'Reflection'}]}]}]}};
   const actions = {bold:{active:bold,onClick:()=>setBold(!bold)},italic:{active:italic,onClick:()=>setItalic(!italic)},bulletList:{active:bullet,onClick:()=>setBullet(!bullet)},orderedList:{active:ordered,onClick:()=>setOrdered(!ordered)}};
   let preview:ReactNode; let body=''; let imports:string[]=[]; let state='';
   const componentImport = (names:string) => `import { ${names} } from '@structured-growth/sg-ui/components';`;
@@ -84,13 +125,21 @@ function EditorExample({kind, section, initialChoice, initialReadOnly = false, i
       imports=[componentImport('AuthShell, AppButton'),primitiveImport,experimentalImport];state=`  const [text,setText] = useState(${literal(text)});\n  const [status,setStatus] = useState(${literal(status)});`;break;
     }
     case 'AppShell': case 'SideNavigation': {
-      const nav=<SideNavigation model={navigationModel} onItemSelect={setValue} aria-label="Example workspace navigation"/>;
-      preview=kind==='AppShell'?<AppShell navigation={nav} mainLabel="Example workspace" style={{height:420}}><Stack gap={3}><Typography variant="h5">{choice}</Typography><Typography>{label}</Typography><Typography role="status">Selected: {value}</Typography></Stack></AppShell>:<Stack gap={3}><Surface style={{height:440,maxWidth:360}}>{nav}</Surface><Typography role="status">Selected: {value}</Typography></Stack>;
+      const rightModel:SideNavigationModel={user:{initials:'PG',name:'Page tools',organization:'Workspace'},rootMenu:{id:'page-tools',sections:[{id:'outline',title:'On this page',items:[{id:'goals',label:'Learning goals'},{id:'activities',label:'Activities'}]}]}};
+      const rightNav=<SideNavigation model={rightModel} aria-label="Example page navigation"/>;
+      const nav=<SideNavigation model={navigationModel} resolveIcon={kind==='SideNavigation'?resolveNavigationIcon:undefined} onItemSelect={setValue} aria-label="Example workspace navigation"/>;
+      preview=kind==='AppShell'?<AppShell navigation={nav} rightNavigation={showRightNavigation?rightNav:undefined} mainLabel="Example workspace" style={{height:420}}><Stack gap={3}><Typography variant="h5">{choice}</Typography><Typography>{label}</Typography></Stack></AppShell>:<SGNavigationProvider value={{pathname:navigationPath,navigate:href=>setNavigationPath(href)}}><Stack gap={3}><Surface style={{height:560,width:'fit-content',maxWidth:'100%'}}>{nav}</Surface></Stack></SGNavigationProvider>;
       const model=JSON.stringify(navigationModel).replace(/"active":(?:true|false)/, "\"active\":value==='overview'");
       state=`  const [value,setValue] = useState(${literal(value)});\n  const model:SideNavigationModel = ${model};`;
-      const n='<SideNavigation model={model} onItemSelect={setValue} aria-label="Example workspace navigation" />';
-      body=kind==='AppShell'?`<AppShell navigation={${n}} mainLabel="Example workspace" style={{height:420}}><Stack gap={3}><Typography variant="h5">{${C}}</Typography><Typography>{${L}}</Typography><Typography role="status">Selected: {value}</Typography></Stack></AppShell>`:`<Stack gap={3}><Surface style={{height:440,maxWidth:360}}>${n}</Surface><Typography role="status">Selected: {value}</Typography></Stack>`;
-      imports=[componentImport('AppShell, SideNavigation, type SideNavigationModel'),primitiveImport,experimentalImport];break;
+      const n=`<SideNavigation model={model}${kind==='SideNavigation'?' resolveIcon={resolveNavigationIcon}':''} onItemSelect={setValue} aria-label="Example workspace navigation" />`;
+      body=kind==='AppShell'?`<AppShell navigation={${n}}${showRightNavigation?` rightNavigation={<SideNavigation model={${JSON.stringify(rightModel)}} aria-label="Example page navigation" />}`:''} mainLabel="Example workspace" style={{height:420}}><Stack gap={3}><Typography variant="h5">{${C}}</Typography><Typography>{${L}}</Typography></Stack></AppShell>`:`<Stack gap={3}><Surface style={{height:440,maxWidth:360}}>${n}</Surface></Stack>`;
+      imports=[componentImport('AppShell, SideNavigation, type SideNavigationModel'),primitiveImport,experimentalImport];
+      if(kind==='SideNavigation') {
+        state=`  const [value,setValue] = useState(${literal(value)});\n  const [navigationPath,setNavigationPath] = useState(${literal(navigationPath)});\n  const model:SideNavigationModel = ${JSON.stringify(navigationModel,null,2)};\nconst navigationIcons={dashboard:DashboardIcon,course:MenuBookIcon,edit:EditIcon,settings:TuneIcon,people:PeopleIcon,resources:DescriptionOutlinedIcon,terminal:TerminalIcon};\nfunction resolveNavigationIcon(key:string) { const Icon=navigationIcons[key as keyof typeof navigationIcons];return Icon?<Icon/>:null; }`;
+        body=`<SGNavigationProvider value={{pathname:navigationPath,navigate:href=>setNavigationPath(href)}}><Stack gap={3}><Surface style={{height:560,width:'fit-content',maxWidth:'100%'}}>${n}</Surface></Stack></SGNavigationProvider>`;
+        imports=[componentImport('SideNavigation, type SideNavigationModel'),primitiveImport,experimentalImport,"import { SGNavigationProvider } from '@structured-growth/sg-ui/adapters';","import { DashboardIcon,MenuBookIcon,EditIcon,TuneIcon,PeopleIcon,DescriptionOutlinedIcon,TerminalIcon } from '@structured-growth/sg-ui/icons';"];
+      }
+      break;
     }
     case 'AppPageHeader': {
       preview=<AppPageHeader title={label} headingLevel={2} hierarchy={choice as 'primary'|'subpage'} description="Publish a course with clear goals." breadcrumbs={[{label:'Workspace'},{label:'Courses'},{label:title}]} metaItems={[{label:'Draft'},{label:'3 sections'}]} moreMenuItems={[{label:'Duplicate',onClick:()=>report('Duplicate requested')},{label:'Archive',danger:true,onClick:()=>report('Archive requested'),disabled:readOnly}]} />;
@@ -105,8 +154,8 @@ function EditorExample({kind, section, initialChoice, initialReadOnly = false, i
       imports=[componentImport('AppPageTabs'),primitiveImport];state=`  const [value,setValue] = useState(${literal(value)});`;
       if(routeTabs) {
         const routeItems=[{id:'/courses/overview',label:'Overview',href:'/courses/overview'},{id:'/courses/practice',label:'Practice',href:'/courses/practice'},{id:'/courses/reflection',label:'Reflection',href:'/courses/reflection',disabled:readOnly}];
-        preview=<SGNavigationProvider value={{pathname:value,navigate:setValue}}><Stack gap={3}><AppPageTabs value={value} items={routeItems} density={density} label="Course routes"/><Typography role="status">Requested route: {value}</Typography></Stack></SGNavigationProvider>;
-        body=`<SGNavigationProvider value={{pathname:value,navigate:setValue}}><Stack gap={3}><AppPageTabs value={value} items={${JSON.stringify(routeItems)}} density=${literal(density)} label="Course routes"/><Typography role="status">Requested route: {value}</Typography></Stack></SGNavigationProvider>`;
+        preview=<SGNavigationProvider value={{pathname:value,navigate:setValue}}><Stack gap={3}><AppPageTabs value={value} items={routeItems} density={density} label="Course routes"/></Stack></SGNavigationProvider>;
+        body=`<SGNavigationProvider value={{pathname:value,navigate:setValue}}><Stack gap={3}><AppPageTabs value={value} items={${JSON.stringify(routeItems)}} density=${literal(density)} label="Course routes"/></Stack></SGNavigationProvider>`;
         imports.push("import { SGNavigationProvider } from '@structured-growth/sg-ui';");
       }
       break;
@@ -143,8 +192,8 @@ function EditorExample({kind, section, initialChoice, initialReadOnly = false, i
       imports=[componentImport('DocumentEditorToolbar'),primitiveImport];state=`  const [heading,setHeading] = useState<'normal'|'h1'|'h2'|'h3'|'h4'|'h5'>(${literal(heading)});\n  const [zoom,setZoom] = useState(${zoom});\n  const [bold,setBold] = useState(${bold});\n  const [italic,setItalic] = useState(${italic});\n  const [bullet,setBullet] = useState(${bullet});\n  const [ordered,setOrdered] = useState(${ordered});`;break;
     }
     case 'RichTextFormattingToolbar': {
-      preview=<Stack gap={3}><RichTextFormattingToolbar headingValue={richHeading} onHeadingChange={setRichHeading} boldActive={bold} onBold={()=>setBold(!bold)} italicActive={italic} onItalic={()=>setItalic(!italic)} underlineActive={underline} onUnderline={()=>setUnderline(!underline)} alignmentValue={alignment} onAlignmentChange={setAlignment} showFontFamilySelector={false} showFontSizeControls={false} hiddenControlSets={choice==='Essential formatting'?{colors:true,textStyle:true,insert:true,alignment:true}:undefined} disabledControlSets={readOnly?{heading:true,inlineFormats:true,alignment:true,colors:true,textStyle:true,insert:true}:undefined} textColorValue={color} onTextColorChange={setColor}/><Typography>{label}</Typography><Typography role="status">{`${richHeading} / bold ${bold} / italic ${italic} / underline ${underline} / ${alignment} / ${color}`}</Typography></Stack>;
-      body=`<Stack gap={3}><RichTextFormattingToolbar headingValue={heading} onHeadingChange={setHeading} boldActive={bold} onBold={()=>setBold(!bold)} italicActive={italic} onItalic={()=>setItalic(!italic)} underlineActive={underline} onUnderline={()=>setUnderline(!underline)} alignmentValue={alignment} onAlignmentChange={setAlignment} showFontFamilySelector={false} showFontSizeControls={false} ${choice==='Essential formatting'?'hiddenControlSets={{colors:true,textStyle:true,insert:true,alignment:true}}':''} ${readOnly?'disabledControlSets={{heading:true,inlineFormats:true,alignment:true,colors:true,textStyle:true,insert:true}}':''} textColorValue={color} onTextColorChange={setColor}/><Typography>{${L}}</Typography><Typography role="status">{heading} / bold {String(bold)} / italic {String(italic)} / underline {String(underline)} / {alignment} / {color}</Typography></Stack>`;
+      preview=<Stack gap={3}><RichTextFormattingToolbar headingValue={richHeading} onHeadingChange={setRichHeading} boldActive={bold} onBold={()=>setBold(!bold)} italicActive={italic} onItalic={()=>setItalic(!italic)} underlineActive={underline} onUnderline={()=>setUnderline(!underline)} alignmentValue={alignment} onAlignmentChange={setAlignment} showFontFamilySelector={false} showFontSizeControls={false} hiddenControlSets={choice==='Essential formatting'?{colors:true,textStyle:true,insert:true,alignment:true}:undefined} disabledControlSets={readOnly?{heading:true,inlineFormats:true,alignment:true,colors:true,textStyle:true,insert:true}:undefined} textColorValue={color} onTextColorChange={setColor}/><Typography>{label}</Typography></Stack>;
+      body=`<Stack gap={3}><RichTextFormattingToolbar headingValue={heading} onHeadingChange={setHeading} boldActive={bold} onBold={()=>setBold(!bold)} italicActive={italic} onItalic={()=>setItalic(!italic)} underlineActive={underline} onUnderline={()=>setUnderline(!underline)} alignmentValue={alignment} onAlignmentChange={setAlignment} showFontFamilySelector={false} showFontSizeControls={false} ${choice==='Essential formatting'?'hiddenControlSets={{colors:true,textStyle:true,insert:true,alignment:true}}':''} ${readOnly?'disabledControlSets={{heading:true,inlineFormats:true,alignment:true,colors:true,textStyle:true,insert:true}}':''} textColorValue={color} onTextColorChange={setColor}/><Typography>{${L}}</Typography></Stack>`;
       imports=[componentImport('RichTextFormattingToolbar, type AlignOption'),primitiveImport];state=`  const [heading,setHeading] = useState<NonNullable<React.ComponentProps<typeof RichTextFormattingToolbar>['headingValue']>>(${literal(richHeading)});\n  const [bold,setBold] = useState(${bold});\n  const [italic,setItalic] = useState(${italic});\n  const [underline,setUnderline] = useState(${underline});\n  const [alignment,setAlignment] = useState<AlignOption>(${literal(alignment)});\n  const [color,setColor] = useState(${literal(color)});`;break;
     }
     case 'InsertContentMenuControl': {
@@ -153,18 +202,18 @@ function EditorExample({kind, section, initialChoice, initialReadOnly = false, i
       imports=[componentImport('InsertContentMenuControl'),primitiveImport];state=`  const [status,setStatus] = useState(${literal(status)});`;break;
     }
     case 'TextAlignMenuControl': {
-      preview=<Stack gap={3}><TextAlignMenuControl value={alignment} onChange={setAlignment} disabled={readOnly} canIndent={indent<3} canOutdent={indent>0} onIndent={()=>setIndent(n=>Math.min(3,n+1))} onOutdent={()=>setIndent(n=>Math.max(0,n-1))}/><Typography style={{textAlign:alignment,marginInlineStart:indent*16}}>{label}</Typography><Typography role="status">Indent level: {indent}</Typography></Stack>;
-      body=`<Stack gap={3}><TextAlignMenuControl value={alignment} onChange={setAlignment} disabled={${R}} canIndent={indent<3} canOutdent={indent>0} onIndent={()=>setIndent(n=>Math.min(3,n+1))} onOutdent={()=>setIndent(n=>Math.max(0,n-1))}/><Typography style={{textAlign:alignment,marginInlineStart:indent*16}}>{${L}}</Typography><Typography role="status">Indent level: {indent}</Typography></Stack>`;
+      preview=<Stack gap={3}><TextAlignMenuControl value={alignment} onChange={setAlignment} disabled={readOnly} canIndent={indent<3} canOutdent={indent>0} onIndent={()=>setIndent(n=>Math.min(3,n+1))} onOutdent={()=>setIndent(n=>Math.max(0,n-1))}/><Typography style={{textAlign:alignment,marginInlineStart:indent*16}}>{label}</Typography></Stack>;
+      body=`<Stack gap={3}><TextAlignMenuControl value={alignment} onChange={setAlignment} disabled={${R}} canIndent={indent<3} canOutdent={indent>0} onIndent={()=>setIndent(n=>Math.min(3,n+1))} onOutdent={()=>setIndent(n=>Math.max(0,n-1))}/><Typography style={{textAlign:alignment,marginInlineStart:indent*16}}>{${L}}</Typography></Stack>`;
       imports=[componentImport('TextAlignMenuControl, type AlignOption'),primitiveImport];state=`  const [alignment,setAlignment] = useState<AlignOption>(${literal(alignment)});\n  const [indent,setIndent] = useState(${indent});`;break;
     }
     case 'TextColorPickerControl': {
-      preview=<Stack gap={3}><TextColorPickerControl value={color} onChange={setColor} disabled={readOnly} mode={choice as 'foreground'|'background'}/><Typography style={choice==='background'?{background:color}:{color}}>{label}</Typography><Typography role="status">Selected color: {color||'default'}</Typography></Stack>;
-      body=`<Stack gap={3}><TextColorPickerControl value={color} onChange={setColor} disabled={${R}} mode={${C}}/><Typography style={{${choice==='background'?'background':'color'}:color}}>{${L}}</Typography><Typography role="status">Selected color: {color||'default'}</Typography></Stack>`;
+      preview=<Stack gap={3}><TextColorPickerControl value={color} onChange={setColor} disabled={readOnly} mode={choice as 'foreground'|'background'}/><Typography style={choice==='background'?{background:color}:{color}}>{label}</Typography></Stack>;
+      body=`<Stack gap={3}><TextColorPickerControl value={color} onChange={setColor} disabled={${R}} mode={${C}}/><Typography style={{${choice==='background'?'background':'color'}:color}}>{${L}}</Typography></Stack>`;
       imports=[componentImport('TextColorPickerControl'),primitiveImport];state=`  const [color,setColor] = useState(${literal(color)});`;break;
     }
     case 'TextStyleMenuControl': {
-      preview=<Stack gap={3}><TextStyleMenuControl disabled={readOnly} activeStyles={activeStyles} onLowercase={()=>setText(s=>s.toLowerCase())} onUppercase={()=>setText(s=>s.toUpperCase())} onCapitalize={()=>setText(s=>s.replace(/\b\w/g,c=>c.toUpperCase()))} onStrikethrough={choice==='All styles'?()=>toggleStyle('strikethrough'):undefined} onSubscript={choice==='All styles'?()=>toggleStyle('subscript'):undefined} onSuperscript={choice==='All styles'?()=>toggleStyle('superscript'):undefined} onHighlight={choice==='All styles'?()=>toggleStyle('highlight'):undefined} onClearFormatting={()=>{setActiveStyles([]);setText(label);}}/><Typography style={{textDecoration:activeStyles.includes('strikethrough')?'line-through':undefined}}>{text}</Typography><Typography role="status">Active: {activeStyles.join(', ')||'none'}</Typography></Stack>;
-      body=`<Stack gap={3}><TextStyleMenuControl disabled={${R}} activeStyles={activeStyles} onLowercase={()=>setText(s=>s.toLowerCase())} onUppercase={()=>setText(s=>s.toUpperCase())} onCapitalize={()=>setText(s=>s.replace(/\\b\\w/g,c=>c.toUpperCase()))} ${choice==='All styles'?"onStrikethrough={()=>toggleStyle('strikethrough')} onSubscript={()=>toggleStyle('subscript')} onSuperscript={()=>toggleStyle('superscript')} onHighlight={()=>toggleStyle('highlight')}":''} onClearFormatting={()=>{setActiveStyles([]);setText(${L});}}/><Typography style={{textDecoration:activeStyles.includes('strikethrough')?'line-through':undefined}}>{text}</Typography><Typography role="status">Active: {activeStyles.join(', ')||'none'}</Typography></Stack>`;
+      preview=<Stack gap={3}><TextStyleMenuControl disabled={readOnly} activeStyles={activeStyles} onLowercase={()=>setText(s=>s.toLowerCase())} onUppercase={()=>setText(s=>s.toUpperCase())} onCapitalize={()=>setText(s=>s.replace(/\b\w/g,c=>c.toUpperCase()))} onStrikethrough={choice==='All styles'?()=>toggleStyle('strikethrough'):undefined} onSubscript={choice==='All styles'?()=>toggleStyle('subscript'):undefined} onSuperscript={choice==='All styles'?()=>toggleStyle('superscript'):undefined} onHighlight={choice==='All styles'?()=>toggleStyle('highlight'):undefined} onClearFormatting={()=>{setActiveStyles([]);setText(label);}}/><Typography style={{textDecoration:activeStyles.includes('strikethrough')?'line-through':undefined}}>{text}</Typography></Stack>;
+      body=`<Stack gap={3}><TextStyleMenuControl disabled={${R}} activeStyles={activeStyles} onLowercase={()=>setText(s=>s.toLowerCase())} onUppercase={()=>setText(s=>s.toUpperCase())} onCapitalize={()=>setText(s=>s.replace(/\\b\\w/g,c=>c.toUpperCase()))} ${choice==='All styles'?"onStrikethrough={()=>toggleStyle('strikethrough')} onSubscript={()=>toggleStyle('subscript')} onSuperscript={()=>toggleStyle('superscript')} onHighlight={()=>toggleStyle('highlight')}":''} onClearFormatting={()=>{setActiveStyles([]);setText(${L});}}/><Typography style={{textDecoration:activeStyles.includes('strikethrough')?'line-through':undefined}}>{text}</Typography></Stack>`;
       imports=[componentImport('TextStyleMenuControl, type TextStyleId'),primitiveImport];state=`  const [text,setText] = useState(${literal(text)});\n  const [activeStyles,setActiveStyles] = useState<TextStyleId[]>(${JSON.stringify(activeStyles)});\n  const toggleStyle = (style:TextStyleId) => setActiveStyles(items=>items.includes(style)?items.filter(item=>item!==style):[...items,style]);`;break;
     }
     case 'ColumnsLayoutModal': {
@@ -189,25 +238,25 @@ function EditorExample({kind, section, initialChoice, initialReadOnly = false, i
       state=`  const boundary = useRef<HTMLDivElement>(null);\n  const [status,setStatus] = useState(${literal(status)});\n  const [document,setDocument] = useState<unknown>(${JSON.stringify(lexical)});`;break;
     }
     case 'PageRichTextEditorSection': {
-      preview=<Stack gap={3}><AppButton variant="outlined" onPress={()=>{setRevision(n=>n+1);setLexical(documentValue(label));}}>Replace host document</AppButton><PageRichTextEditorSection editorKey={`docs-${kind}-${section}-${revision}`} lexicalValue={lexical} onLexicalChange={setLexical} placeholder={label} readOnly={readOnly} toolPreset={choice as 'base'|'full'} aria-label="Example rich document"/><Typography variant="caption">{'Changes update local JSON only. Image uploads require a durable host URL; the default preview is temporary.'}</Typography><Typography variant="caption">Serialized document: {JSON.stringify(lexical).length} characters</Typography></Stack>;
-      body=`<Stack gap={3}><AppButton variant="outlined" onPress={()=>{setRevision(n=>n+1);setLexical(${JSON.stringify(documentValue(label))});}}>Replace host document</AppButton><PageRichTextEditorSection editorKey={'example-document-'+revision} lexicalValue={lexical} onLexicalChange={setLexical} placeholder={${L}} readOnly={${R}} toolPreset={${C}} aria-label="Example rich document"/><Typography variant="caption">{${literal('Changes update local JSON only. Image uploads require a durable host URL; the default preview is temporary.')}}</Typography><Typography variant="caption">Serialized document: {JSON.stringify(lexical).length} characters</Typography></Stack>`;
+      preview=<Stack gap={3}><AppButton variant="outlined" onPress={()=>{setRevision(n=>n+1);setLexical(documentValue(label));}}>Replace host document</AppButton><PageRichTextEditorSection editorKey={`docs-${kind}-${section}-${revision}`} lexicalValue={lexical} onLexicalChange={setLexical} placeholder={label} readOnly={readOnly} toolPreset={choice as 'base'|'full'} aria-label="Example rich document"/><Typography variant="caption">{'Changes update local JSON only. Image uploads require a durable host URL; the default preview is temporary.'}</Typography></Stack>;
+      body=`<Stack gap={3}><AppButton variant="outlined" onPress={()=>{setRevision(n=>n+1);setLexical(${JSON.stringify(documentValue(label))});}}>Replace host document</AppButton><PageRichTextEditorSection editorKey={'example-document-'+revision} lexicalValue={lexical} onLexicalChange={setLexical} placeholder={${L}} readOnly={${R}} toolPreset={${C}} aria-label="Example rich document"/><Typography variant="caption">{${literal('Changes update local JSON only. Image uploads require a durable host URL; the default preview is temporary.')}}</Typography></Stack>`;
       imports=[componentImport('AppButton, PageRichTextEditorSection'),primitiveImport];state=`  const [revision,setRevision] = useState(${revision});\n  const [lexical,setLexical] = useState<unknown>(${JSON.stringify(lexical)});`;break;
     }
   }
   const densityBody=`<ThemeScope density=${literal(density)}${previewWidth?` style={{maxWidth:${previewWidth}}}`:''}>\n${body}\n</ThemeScope>`;
-  const controls=<Stack direction="row" wrap gap={3} align="end"><TextField label="Content / label" value={label} onValueChange={next=>{setLabel(next);if(kind==='TextStyleMenuControl')setText(next);}}/><Select label="Configuration" value={choice} onValueChange={next=>{if(next){setChoice(next);if(kind==='TextAlignMenuControl')setAlignment(next as AlignOption);}}} options={choices[kind].map(id=>({id,label:id}))}/><Select label="Preview density" value={density} onValueChange={next=>setDensity(next as 'compact'|'comfortable')} options={[{id:'compact',label:'Compact'},{id:'comfortable',label:'Comfortable'}]}/>{kind!=='AppShell'&&kind!=='SideNavigation'?<Checkbox checked={readOnly} onCheckedChange={setReadOnly} label={kind==='ImageUploadModal'?'Hide image description':kind==='AppPageTabs'?'Disable reflection tab':kind==='AppPageHeader'?'Disable archive action':'Read-only / unavailable actions'} />:null}{kind==='FloatingTextSelectionToolbar'?<TextField label="Document text" value={text} onValueChange={next=>{setText(next);setLexical(documentValue(next));}}/>:null}{kind==='EditableTitleField'||kind==='ContentEditorChrome'||kind==='DocumentEditorLayout'?<TextField label="Host title" value={title} onValueChange={setTitle}/>:null}</Stack>;
-  return <Example title={section} description={descriptions[kind]} controls={playground?controls:undefined} density={density} source={source({name:kind,imports,state,body:densityBody})}><ThemeScope density={density} style={previewWidth?{maxWidth:previewWidth}:undefined}>{preview}</ThemeScope></Example>;
+  const controls=<Stack direction="row" wrap gap={3} align="end">{kind==='AppShell'&&<Checkbox label="Show right navigation" checked={showRightNavigation} onCheckedChange={setShowRightNavigation}/>}<TextField label="Content / label" value={label} onValueChange={next=>{setLabel(next);if(kind==='TextStyleMenuControl')setText(next);}}/>{kind!=='SideNavigation'&&<Select label="Configuration" value={choice} onValueChange={next=>{if(next){setChoice(next);if(kind==='TextAlignMenuControl')setAlignment(next as AlignOption);}}} options={choices[kind].map(id=>({id,label:id}))}/> }<Select label="Preview density" value={density} onValueChange={next=>setDensity(next as 'compact'|'comfortable')} options={[{id:'compact',label:'Compact'},{id:'comfortable',label:'Comfortable'}]}/>{kind!=='AppShell'&&kind!=='SideNavigation'?<Checkbox checked={readOnly} onCheckedChange={setReadOnly} label={kind==='ImageUploadModal'?'Hide image description':kind==='AppPageTabs'?'Disable reflection tab':kind==='AppPageHeader'?'Disable archive action':'Read-only / unavailable actions'} />:null}{kind==='FloatingTextSelectionToolbar'?<TextField label="Document text" value={text} onValueChange={next=>{setText(next);setLexical(documentValue(next));}}/>:null}{kind==='EditableTitleField'||kind==='ContentEditorChrome'||kind==='DocumentEditorLayout'?<TextField label="Host title" value={title} onValueChange={setTitle}/>:null}</Stack>;
+  return <Example title={section} description={descriptions[kind]} controls={playground?controls:undefined} density={density} flushPreview={kind==='SideNavigation'} source={source({name:kind,imports,state,body:densityBody})}><ThemeScope density={density} style={previewWidth?{maxWidth:previewWidth}:undefined}>{preview}</ThemeScope></Example>;
 }
-type ReferenceConfiguration = { title:string; choice:string; density?:'compact'|'comfortable'; readOnly?:boolean; width?:number; routeTabs?:boolean; content?:string; link?:{displayText:string;url:string} };
+type ReferenceConfiguration = { title:string; choice:string; density?:'compact'|'comfortable'; readOnly?:boolean; width?:number; routeTabs?:boolean; rightNavigation?:boolean; content?:string; link?:{displayText:string;url:string} };
 const densities = ['compact','comfortable'] as const;
 const densityReferences = (values:string[], label=(value:string)=>value):ReferenceConfiguration[] => values.flatMap(choice=>densities.map(density=>({title:`${label(choice)} — ${density}`,choice,density})));
 const references:Record<Kind,ReferenceConfiguration[]> = {
   AuthShell:choices.AuthShell.map((choice,index)=>({title:choice,choice,density:index===1?'compact':'comfortable',readOnly:index===2,content:index===0?'Continue your learning journey.':index===1?'Create an account for your workspace.':'Account recovery is managed by the host.'})),
-  AppShell:[{title:'Workspace with navigation',choice:'Course workspace',width:760},{title:'Narrow workspace composition',choice:'Organization workspace',width:360,density:'compact',content:'A narrow workspace with the same navigation and main region.'}],
+  AppShell:[{title:'Left and right navigation',choice:'Course workspace',rightNavigation:true},{title:'Workspace with navigation',choice:'Course workspace',width:760},{title:'Narrow workspace composition',choice:'Organization workspace',width:360,density:'compact',content:'A narrow workspace with the same navigation and main region.'}],
   AppPageHeader:densityReferences(['primary','subpage'],value=>`${value==='primary'?'First-level':'Subpage'} header`),
   AppPageTabs:[...densityReferences(['automatic','manual'],value=>`${value==='automatic'?'Automatic':'Manual'} panel activation`),...densities.map(density=>({title:`Host route navigation — ${density}`,choice:'automatic',density,routeTabs:true}))],
   ExperiencePageNavigator:densities.flatMap(density=>[{title:`Editable page collection — ${density}`,choice:'Course outline',density},{title:`Read-only lesson sequence — ${density}`,choice:'Lesson sequence',density,readOnly:true}]),
-  SideNavigation:densityReferences(['expand','drilldown'],value=>value==='expand'?'Inline expanding menu':'Nested drilldown menu'),
+  SideNavigation:densityReferences(['Mixed menu'],()=>'Mixed expansion, drilldown and destinations'),
   EditableTitleField:[...densityReferences(['h4','h5','h6'],value=>`${value.toUpperCase()} title`),{title:'Read-only committed title',choice:'h4',readOnly:true}],
   DocumentEditorLayout:[{title:'Full editor composition',choice:'Full chrome'},{title:'Full editor in a narrow host',choice:'Full chrome',width:360,density:'compact',content:'An editor title and its host commands wrap within a narrow content region.'},{title:'Minimal document layout',choice:'Minimal chrome'},{title:'Read-only notes composition',choice:'Minimal chrome',readOnly:true,density:'compact'}],
   DocumentEditorToolbar:[...densityReferences(['All controls','Formatting only']),{title:'Read-only formatting with active zoom',choice:'All controls',readOnly:true}],
@@ -225,21 +274,23 @@ const references:Record<Kind,ReferenceConfiguration[]> = {
 };
 /** Each reference owns its hooks and callbacks; it never consumes playground state. */
 function EditorReferences({kind}:{kind:Kind}) {
-  return <Stack gap={4}>{references[kind].map(reference=><EditorExample key={reference.title} kind={kind} section={reference.title} initialChoice={reference.choice} initialDensity={reference.density} initialReadOnly={reference.readOnly} previewWidth={reference.width} routeTabs={reference.routeTabs} initialContent={reference.content} initialLink={reference.link}/>)}</Stack>;
+  return <Stack gap={4}>{references[kind].map(reference=><EditorExample key={reference.title} kind={kind} section={reference.title} initialChoice={reference.choice} initialDensity={reference.density} initialReadOnly={reference.readOnly} previewWidth={reference.width} routeTabs={reference.routeTabs} initialContent={reference.content} initialLink={reference.link} initialRightNavigation={reference.rightNavigation}/>)}</Stack>;
 }
 function makePlayground(kind:Kind) {
   return function CatalogEditorPlayground(){return <Stack gap={4}>
     <EditorExample kind={kind} section="Prop playground" initialChoice={choices[kind][0]} playground/>
     <EditorReferences kind={kind}/>
+    {kind==='AppShell'&&<><AppShellScrollingExample/><AppShellScrollingExample withRightNavigation/><AppShellIconNavigationExamples/></>}
   </Stack>;};
 }
 export const editorLayoutEntries:CatalogEntry[] = [
+  {slug:"icon-panel-navigation",title:"IconPanelNavigation",description:"An icon-only rail with sliding, independently owned workspace panels.",exports:["IconPanelNavigation"],Playground:IconPanelNavigationExamples},
   {slug:"auth-shell",title:"AuthShell",description:"A presentation shell for host-owned authentication forms, without account APIs.",exports:["AuthShell"],Playground:makePlayground("AuthShell")},
   {slug:"app-shell",title:"AppShell",description:"Independent navigation and main content regions for application compositions.",exports:["AppShell"],Playground:makePlayground("AppShell")},
   {slug:"page-header",title:"AppPageHeader",description:"Hierarchy, breadcrumbs, metadata and host-owned actions.",exports:["AppPageHeader"],Playground:makePlayground("AppPageHeader")},
   {slug:"page-tabs",title:"AppPageTabs",description:"Controlled panels with automatic or manual keyboard activation.",exports:["AppPageTabs"],Playground:makePlayground("AppPageTabs")},
   {slug:"experience-page-navigator",title:"ExperiencePageNavigator",description:"Host-owned page selection, rename, reorder, creation and removal.",exports:["ExperiencePageNavigator"],Playground:makePlayground("ExperiencePageNavigator")},
-  {slug:"side-navigation",title:"SideNavigation",description:"Expandable and drilldown navigation with a host-supplied user model.",exports:["SideNavigation"],Playground:makePlayground("SideNavigation")},
+  {slug:"side-navigation",title:"SideNavigation",description:"Direct destinations, expanding groups and sliding drilldown levels in one host-supplied menu.",exports:["SideNavigation"],Playground:makePlayground("SideNavigation")},
   {slug:"editable-title-field",title:"EditableTitleField",description:"Inline title editing with save/cancel and read-only presentation.",exports:["EditableTitleField"],Playground:makePlayground("EditableTitleField")},
   {slug:"document-editor-layout",title:"DocumentEditorLayout",description:"Compose document title, actions and toolbar around host-owned content.",exports:["DocumentEditorLayout"],Playground:makePlayground("DocumentEditorLayout")},
   {slug:"document-editor-toolbar",title:"DocumentEditorToolbar",description:"Controlled heading, formatting and zoom state with explicit command availability.",exports:["DocumentEditorToolbar"],Playground:makePlayground("DocumentEditorToolbar")},

@@ -11,7 +11,7 @@ import { Button } from "../../experimental/Button/Button";
 import { ArrowDropDownIcon } from "../../experimental/icons";
 import { Checkbox } from "../../experimental/Checkbox/Checkbox";
 import { useTranslation } from "../../i18n";
-import { changeOwnedGridHeaderSort, measureOwnedGridWidths, type OwnedGridPresentationColumn } from "./ownedGridColumns";
+import { changeOwnedGridHeaderSort, measureOwnedGridWidths, retainOwnedGridFlexColumn, type OwnedGridPresentationColumn } from "./ownedGridColumns";
 import { getOwnedGridCellValue, getOwnedGridRowId, processOwnedGridRows, type OwnedGridProcessingResult } from "./ownedGridModel";
 import { getOwnedGridPageSelection, selectOwnedGridPage } from "./ownedGridState";
 import { useOwnedGridController, type OwnedGridControllerOptions } from "./ownedGridController";
@@ -350,7 +350,10 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       const active = table.current?.contains(document.activeElement) ? (document.activeElement as HTMLElement)?.closest<HTMLElement>("[data-grid-field]")?.dataset.gridField : undefined;
       const field = active && columns.some(column => column.field === active) ? active : resizing.current;
       const width = field ? widths.get(field) : undefined;
-      if (field && typeof width === "number") setWidths({ ...layout.widths, [field]: width });
+      if (field && typeof width === "number") {
+        const next = { ...layout.widths, [field]: width };
+        setWidths(availableWidth > 0 ? retainOwnedGridFlexColumn(visible, next, field) : next);
+      }
     }} onResizeEnd={() => { resizing.current = null; }}>
     {/* React Aria requires a stable hook surface within each Table instance.
         Recreate only when the host enables/disables reorder, retaining the outer

@@ -7,8 +7,12 @@ export interface GridColumn<Row> {
   renderCell?: (row: Row) => ReactNode;
   sortable?: boolean;
   hideable?: boolean;
+  /** Omit to share available width. Keep one uncapped data column available to fill remaining space. */
   width?: number;
+  /** Defaults to 120 for flexible columns or 80 for explicitly sized columns. */
   minWidth?: number;
+  /** Upper size limit. Set minWidth and maxWidth equal for a fixed-size column. */
+  maxWidth?: number;
 }
 export interface GridSort { column: string; direction: "asc" | "desc" }
 export interface GridFilter { column: string; operator: "contains" | "equals" | "gte" | "lte"; value: string }

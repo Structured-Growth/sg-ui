@@ -9,12 +9,12 @@ afterEach(cleanup);
 it("updates nested public scope overrides without leaking to a sibling and releases the native ref", () => {
   const ref = createRef<HTMLDivElement>();
   const composition = (nested: ThemeScopeProps) => (
-    <ThemeScope theme="dark" density="compact" style={{ "--sgui-action": "#123456" }}>
+    <ThemeScope theme="dark" density="compact" interactionMode="touch" style={{ "--sgui-action": "#123456" }}>
       <ThemeScope {...nested} ref={ref} data-testid="nested"><ThemeScope data-testid="child" /></ThemeScope>
       <ThemeScope data-testid="sibling" />
     </ThemeScope>
   );
-  const view = render(composition({ theme: "light", density: "comfortable", className: "host", style: { "--sgui-action": "#abcdef" } }));
+  const view = render(composition({ theme: "light", density: "comfortable", interactionMode: "pointer", className: "host", style: { "--sgui-action": "#abcdef" } }));
   const nested = view.getByTestId("nested");
   const child = view.getByTestId("child");
   const sibling = view.getByTestId("sibling");
@@ -22,6 +22,8 @@ it("updates nested public scope overrides without leaking to a sibling and relea
   expect(nested.classList.contains("host")).toBe(true);
   expect(child.getAttribute("data-sgui-theme")).toBe("light");
   expect(child.getAttribute("data-sgui-density")).toBe("comfortable");
+  expect(child.getAttribute("data-sgui-interaction")).toBe("pointer");
+  expect(sibling.getAttribute("data-sgui-interaction")).toBe("touch");
   expect(child.style.getPropertyValue("--sgui-action")).toBe("#abcdef");
   expect(sibling.getAttribute("data-sgui-theme")).toBe("dark");
   expect(sibling.getAttribute("data-sgui-density")).toBe("compact");
@@ -30,6 +32,7 @@ it("updates nested public scope overrides without leaking to a sibling and relea
   view.rerender(composition({ theme: "system" }));
   expect(ref.current).toBe(nested);
   expect(child.getAttribute("data-sgui-theme")).toBe("system");
+  expect(child.getAttribute("data-sgui-interaction")).toBe("touch");
   expect(child.getAttribute("data-sgui-density")).toBe("compact");
   expect(child.style.getPropertyValue("--sgui-action")).toBe("#123456");
   expect(sibling.getAttribute("data-sgui-theme")).toBe("dark");

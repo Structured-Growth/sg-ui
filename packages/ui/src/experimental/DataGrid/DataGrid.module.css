@@ -1,5 +1,5 @@
 @layer sgui.components {
-  .root { color: var(--sgui-data-grid-text); background: var(--sgui-data-grid-surface); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .root { inline-size: 100%; min-inline-size: 0; color: var(--sgui-data-grid-text); background: var(--sgui-data-grid-surface); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
   .toolbar, .footer, .actions, .columnHeader { display: flex; align-items: center; gap: var(--sgui-space2); }
   .toolbar, .footer { padding: var(--sgui-space2); flex-wrap: wrap; }
   .footer { justify-content: flex-end; }

@@ -1,5 +1,5 @@
 @layer sgui.components {
-  .root {
+  .root { composes: scope from "../../foundation/Scrollbars.module.css";
     box-sizing: border-box; max-inline-size: min(24rem, calc(100vw - 2rem));
     padding-block: var(--sgui-space2); padding-inline: var(--sgui-space3);
     border: 1px solid var(--sgui-tooltip-border); border-radius: var(--sgui-field-control-radius);

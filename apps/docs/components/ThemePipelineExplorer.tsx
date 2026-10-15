@@ -41,13 +41,13 @@ export function ThemePipelineExplorer() {
     <Surface variant="outlined" padding={4} as="section" aria-label="Theme token pipeline">
       <Stack gap={3}>
         <Typography as="h2" variant="h5">Inspect the token pipeline</Typography>
-        <Typography>Use Demo settings to inspect the selected identity, appearance and contrast. The component references below come from the library’s compiled public tokens.</Typography>
+        <Typography>Choose a component token to follow its dependency through a semantic role to a named palette value. These references come from the library’s compiled public tokens; the active scope supplies the mapping.</Typography>
         <Select label="Component token" value={selected} onValueChange={value=>{if(value && value in componentTokenReferences)setSelected(value as ComponentTokenName);}} options={componentOptions} />
         <Code>{chain.join(' → ')}</Code>
         <Code>{`--sgui-${selected.replace(/[A-Z]/g,letter=>'-'+letter.toLowerCase())}: var(--sgui-${dependency.token.replace(/[A-Z]/g,letter=>'-'+letter.toLowerCase())});`}</Code>
         <Typography tone="muted">Color tokens resolve through the active semantic map to a named palette value. Geometry and typography reference shared or density tokens. Component styles consume these aliases; nested scopes and portals retain the local theme.</Typography>
         <Disclosure label="Show all semantic mappings"><Code>{JSON.stringify(map,null,2)}</Code></Disclosure>
-        <Disclosure label="Show named identity palettes"><Code>{JSON.stringify(themeGraph.palettes,null,2)}</Code></Disclosure>
+        <Disclosure label="Show the active named palette"><Code>{JSON.stringify(settings.identity==='none' ? themeGraph.palettes[settings.resolvedMode==='light'?'globalLight':'globalDark'] : themeGraph.palettes[settings.identity],null,2)}</Code></Disclosure>
       </Stack>
     </Surface>
     <Example title="Component token override" description="A local primary-button override uses the identity’s neutral action colors. The sibling button and field keep their existing tokens. Nested density and the menu portal preserve the same scoped override."

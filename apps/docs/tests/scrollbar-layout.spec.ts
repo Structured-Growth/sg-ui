@@ -1,3 +1,5 @@
+import {openSiteTool} from './site-tools';
+import {exampleName} from './example-name';
 import {test,expect,type Page} from '@playwright/test';
 
 async function geometry(page:Page) {
@@ -14,19 +16,24 @@ async function classicScrollbar(page:Page) {
   await page.evaluate(()=>{document.documentElement.style.removeProperty('overflow');});
   await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
 }
-for(const width of [1280,375])test(`page geometry stays stable during scroll locking at ${width}px`,async({page})=>{
+for(const width of [1920,1280,375])test(`page geometry stays stable during scroll locking at ${width}px`,async({page})=>{
   await page.setViewportSize({width,height:900});
   await page.goto('/docs/components/menu');
   // Use a classic scrollbar width where supported, including overlay-scrollbar hosts.
   await classicScrollbar(page);
-  await expect(page.getByRole('navigation',{name:'Documentation'}).getByRole('button',{name:'Buttons & actions',exact:true})).toHaveAttribute('aria-expanded','true');
-  const trigger=page.getByRole('region',{name:'Prop playground',exact:true}).locator('[data-docs-preview]').getByRole('button',{name:'Actions',exact:true});
+  await expect(page.getByRole('navigation',{name:'Documentation'}).getByRole('heading',{name:exampleName('Buttons & actions'),exact:true})).toBeVisible();
+  const trigger=page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).locator('[data-docs-preview]').getByRole('button',{name:'Actions',exact:true});
   await trigger.scrollIntoViewIfNeeded();
   const before=await geometry(page);
-  await trigger.click();await expect(page.getByRole('menu',{name:'Course actions',exact:true})).toBeVisible();
+  await trigger.click();
+  const menu=page.getByRole('menu',{name:'Course actions',exact:true});
+  await expect(menu).toBeVisible();
+  await expect(menu).toHaveCSS('scrollbar-width','thin');
+  await expect(menu).toHaveCSS('scrollbar-gutter','stable');
   await expect.poll(()=>geometry(page)).toEqual(before);
   await page.keyboard.press('Escape');await expect(trigger).toBeFocused();
   await expect.poll(()=>geometry(page)).toEqual(before);
+  await openSiteTool(page,'Demo settings');
   const select=page.getByRole('button',{name:/Demo theme/});
   await select.scrollIntoViewIfNeeded();
   const beforeSelect=await geometry(page);
@@ -36,7 +43,7 @@ for(const width of [1280,375])test(`page geometry stays stable during scroll loc
   await expect.poll(()=>geometry(page)).toEqual(beforeSelect);
   await page.goto('/docs/components/dialog');
   await classicScrollbar(page);
-  const open=page.getByRole('button',{name:'Open example dialog',exact:true});
+  const open=page.getByRole('region',{name:'Prop playground',exact:true}).getByRole('button',{name:'Open example dialog',exact:true});
   await open.scrollIntoViewIfNeeded();
   const beforeDialog=await geometry(page);
   await open.click();await expect(page.getByRole('dialog',{name:'Course settings',exact:true})).toBeVisible();

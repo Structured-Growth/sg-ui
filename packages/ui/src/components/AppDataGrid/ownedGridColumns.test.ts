@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { changeOwnedGridHeaderSort, createOwnedGridActionMenuColumn, createOwnedGridColumns, measureOwnedGridWidths, normalizeOwnedGridLayout } from "./ownedGridColumns";
+import { changeOwnedGridHeaderSort, createOwnedGridActionMenuColumn, createOwnedGridColumns, measureOwnedGridWidths, retainOwnedGridFlexColumn, normalizeOwnedGridLayout } from "./ownedGridColumns";
 describe("owned catalog column contracts", () => {
   it("preserves generic accessors and does not infer host keys", () => {
     const columns = createOwnedGridColumns<{ title: string }>([{ field: "course", getCellValue: row => row.title }]);
@@ -30,4 +30,29 @@ describe("owned catalog column contracts", () => {
     expect(measureOwnedGridWidths([{ field: "a", flex: 1, minWidth: 200 }, { field: "b", flex: 1, minWidth: 20, maxWidth: 50 }], 300)).toEqual({ a: 250, b: 50 });
     expect(measureOwnedGridWidths([{ field: "a", flex: 1 }, { field: "b", flex: 2 }], 600)).toEqual({ a: 200, b: 400 });
   });
+});
+
+
+it("retains a fill column when resizing all columns in turn, including fixed definitions", () => {
+  const columns=[{field:"course",flex:1,minWidth:180},{field:"status",width:100,minWidth:80}];
+  expect(measureOwnedGridWidths(columns,800,{course:300})).toEqual({course:300,status:500});
+  const widths=retainOwnedGridFlexColumn(columns,{course:300,status:120},"status");
+  expect(widths).toEqual({status:120});
+  expect(measureOwnedGridWidths(columns,800,widths)).toEqual({status:120,course:680});
+  expect(measureOwnedGridWidths(columns,950,widths)).toEqual({status:120,course:830});
+  const next=retainOwnedGridFlexColumn(columns,{...widths,course:250},"course");
+  expect(next).toEqual({course:250});
+  expect(measureOwnedGridWidths(columns,800,next)).toEqual({course:250,status:550});
+  expect(measureOwnedGridWidths(columns,200,next)).toEqual({course:250,status:80});
+  expect(measureOwnedGridWidths([{field:"a",width:100},{field:"b",width:100}],600)).toEqual({a:100,b:500});
+});
+
+
+it("keeps fixed and capped action columns while uncapped data absorbs remaining space", () => {
+  const columns = [{field:"course",flex:1}, {field:"status",width:120,minWidth:120,maxWidth:120}, {field:"actions",cellType:"menu" as const,width:90,maxWidth:110}];
+  expect(measureOwnedGridWidths(columns,800)).toEqual({status:120,actions:90,course:590});
+  expect(measureOwnedGridWidths(columns,1000,{course:250})).toEqual({status:120,actions:90,course:790});
+  expect(retainOwnedGridFlexColumn(columns,{course:250,status:120,actions:100},"actions")).toEqual({status:120,actions:100});
+  expect(measureOwnedGridWidths([{field:"course",flex:1},{field:"status",flex:1,maxWidth:150}],800,{course:250})).toEqual({course:650,status:150});
+  expect(measureOwnedGridWidths([{field:"fixed",width:100,minWidth:100,maxWidth:100}],800)).toEqual({fixed:100});
 });

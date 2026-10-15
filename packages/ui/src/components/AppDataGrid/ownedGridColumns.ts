@@ -1,3 +1,4 @@
+import { measureGridColumnWidths, retainGridFillColumn } from "../../experimental/DataGrid/column-sizing";
 import type { ReactNode } from "react";
 import type { OwnedGridColumn, OwnedGridSortRule } from "./ownedGridModel";
 
@@ -25,6 +26,7 @@ export type OwnedGridPresentationColumn<Row> = OwnedGridColumn<Row> & {
   /** False wraps display text and preserves line breaks instead of ellipsizing. */
   truncate?: boolean;
   locked?: boolean;
+  /** Preferred numeric width; one data column remains flexible to fill the container. */
   width?: number;
   minWidth?: number;
   maxWidth?: number;
@@ -46,6 +48,7 @@ export function createOwnedGridColumns<Row>(columns: readonly OwnedGridPresentat
 }
 export function createOwnedGridActionMenuColumn<Row>(options: {
   headerName?: string;
+  /** Preferred numeric width; one data column remains flexible to fill the container. */
   width?: number;
   minWidth?: number;
   maxWidth?: number;
@@ -77,33 +80,12 @@ export function normalizeOwnedGridLayout<Row>(columns: readonly OwnedGridPresent
   }
   return { visibility, order: [...order.filter(field => !actionFields.has(field)), ...order.filter(field => actionFields.has(field))], widths, lockedFields: [...locked] };
 }
-/** Bounded flex allocation. An explicit committed width overrides a flex weight. */
+const sizingColumns = <Row,>(columns: readonly OwnedGridPresentationColumn<Row>[]) => columns.map(column => ({ ...column, id: column.field, utility: column.cellType === "menu" }));
+/** Keep the grid core's fill-column policy across catalog resize snapshots. */
+export function retainOwnedGridFlexColumn<Row>(columns: readonly OwnedGridPresentationColumn<Row>[], widths: Readonly<Record<string, number>>, resizedField: string): Record<string, number> {
+  return retainGridFillColumn(sizingColumns(columns), widths, resizedField);
+}
+/** Catalog validation adapts presentation columns to the shared grid sizing core. */
 export function measureOwnedGridWidths<Row>(columns: readonly OwnedGridPresentationColumn<Row>[], availableWidth: number, overrides: Readonly<Record<string, number>> = {}): Record<string, number> {
-  const definitions = createOwnedGridColumns(columns);
-  const widths: Record<string, number> = {};
-  const flexible: OwnedGridPresentationColumn<Row>[] = [];
-  const clamp = (column: OwnedGridPresentationColumn<Row>, width: number) => Math.min(column.maxWidth ?? Infinity, Math.max(column.minWidth ?? 80, width));
-  let remaining = Math.max(0, Number.isFinite(availableWidth) ? availableWidth : 0);
-  for (const column of definitions) {
-    const override = overrides[column.field];
-    if (!finitePositive(override) && column.width === undefined && column.flex !== undefined) flexible.push(column);
-    else {
-      widths[column.field] = clamp(column, finitePositive(override) ? override : column.width ?? 160);
-      remaining -= widths[column.field]!;
-    }
-  }
-  if (flexible.length) {
-    // Find the weighted allocation after bounds, including mixed min/max cases.
-    const budget = Math.max(0, remaining);
-    let low = 0;
-    let high = Math.max(1, ...flexible.map(column => budget / column.flex!));
-    for (let iteration = 0; iteration < 80; iteration++) {
-      const weightUnit = (low + high) / 2;
-      const total = flexible.reduce((sum, column) => sum + clamp(column, weightUnit * column.flex!), 0);
-      if (total > budget) high = weightUnit;
-      else low = weightUnit;
-    }
-    for (const column of flexible) widths[column.field] = clamp(column, Math.round(((low + high) / 2) * column.flex! * 1000000) / 1000000);
-  }
-  return widths;
+  return measureGridColumnWidths(sizingColumns(createOwnedGridColumns(columns)), availableWidth, overrides);
 }

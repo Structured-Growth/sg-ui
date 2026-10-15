@@ -7,6 +7,7 @@ describe("host locale bridge", () => {
     const html = renderToString(<SGTranslationProvider value={{ locale: "ar-EG", t: (_key, options) => options.defaultMessage, useNamespace: () => {} }}>
       <Provider>Content</Provider>
     </SGTranslationProvider>);
+    expect(html).toContain('data-sgui-interaction="auto"');
     expect(html).toContain('lang="ar-EG"'); expect(html).toContain('dir="rtl"');
   });
 });

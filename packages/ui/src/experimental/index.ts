@@ -1,6 +1,6 @@
 export { Button, type ButtonProps } from "./Button/Button";
 export { TextField, type TextFieldProps } from "./TextField/TextField";
-export { ThemeScope, type ThemeScopeProps, type ScopeStyle, type Density, type ColorTheme } from "../foundation/ThemeScope";
+export { ThemeScope, type ThemeScopeProps, type ScopeStyle, type Density, type InteractionMode, type ColorTheme } from "../foundation/ThemeScope";
 export { Provider, type ProviderProps } from "./Provider/Provider";
 export { Dialog, type DialogProps, type DialogDismissReason } from "./Dialog/Dialog";
 export { Popover, type PopoverProps } from "./Popover/Popover";

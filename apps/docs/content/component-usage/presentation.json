@@ -50,12 +50,14 @@
     ]
   },
   "owned-button": {
-    "when": "Use Button when building reusable controls or compositions directly from the owned foundation. AppButton exposes the same props under its established catalog name, so choose the name that fits your surrounding component API rather than expecting different behavior.",
+    "when": "Use Button for an action such as saving, publishing or confirming. Use Link for navigation and IconButton for an icon-only action. AppButton exposes the same props under its established catalog name.",
     "how": [
       "Provide readable children and an onPress callback for application actions. Use Link when activation changes location.",
       "Explore variant, tone, density, disabled and loading independently; the playground source records the selected combination.",
       "Add decorative startIcon or endIcon alongside the text. Use IconButton when the action has no visible text label.",
-      "Keep native submit/reset behavior explicit with type and let the host form own its submission handler."
+      "Keep native submit/reset behavior explicit with type and let the host form own its submission handler.",
+      "Use startIcon and endIcon for optional leading and trailing decoration. Keep a visible text label: icon slots are hidden from assistive technology. Loading replaces startIcon with progress but preserves endIcon.",
+      "Use the named examples to reference a specific configuration. Native submit/reset buttons belong inside a host-owned form."
     ],
     "related": [
       {
@@ -153,7 +155,7 @@
     "when": "Use Typography to apply the library\u2019s text roles consistently while choosing the correct HTML semantics for the document. A heading-sized style does not automatically make text a heading.",
     "how": [
       "Choose variant for the visual role and as independently for semantics, such as as=\"h2\" with variant=\"h5\" for a section heading.",
-      "Use default, muted, primary or danger tone according to meaning. Keep important instructions readable rather than moving them entirely into muted captions.",
+      "Use default for main text, muted for descriptions, subtle for supplementary metadata, accent for brand-colored text and danger for errors. Primary remains a compatibility alias for accent, not an action-priority level. Keep important instructions readable. Theme mappings may converge in increased contrast or forced colors. An eyebrow is a content role, commonly rendered with the overline variant; as independently controls HTML semantics.",
       "Use noWrap only when single-line truncation is appropriate; consider ordinary wrapping for long titles, translated labels and enlarged text.",
       "Use the code variant for readable code text and the owned bodyAlt2 role where its supporting-text treatment fits. Avoid local font overrides that bypass these roles."
     ],
@@ -667,6 +669,7 @@
     "when": "Use Provider at an application or isolated demo boundary to establish the owned visual scope and interaction locale. AppThemeProvider is the same provider under its preserved public name, not a separate theme system.",
     "how": [
       "Load the public styles.css once, then set theme and density as scope defaults. Supply owned CSS token overrides through style to define a visual identity.",
+      "Set interactionMode to auto (default), pointer or touch independently of compact/comfortable density. Auto uses the touch sizing tokens when any available pointer is coarse, including hybrid devices. The setting changes presentation, never disables an input method, and inherits into nested scopes and overlay portals.",
       "Provide translations and locale through the host translation adapter. Provider derives locale and direction from that adapter; dir can explicitly choose ltr or rtl.",
       "Keep event handlers and other function props in consumer Client Components. Server-rendered presentation children can be passed through the provider.",
       "Nest ThemeScope for a local visual variation while retaining the surrounding interaction locale. Portaled owned overlays inherit the scope surrounding their trigger."
@@ -690,6 +693,7 @@
     "when": "Use ThemeScope to change visual appearance, density or token values for one region without changing the surrounding application. The docs previews use this boundary to keep demo themes separate from the website theme.",
     "how": [
       "Set theme and density only for the local region, and pass owned token overrides through style when demonstrating a different visual identity.",
+      "Set interactionMode to auto (default), pointer or touch independently of compact/comfortable density. Auto uses the touch sizing tokens when any available pointer is coarse, including hybrid devices. The setting changes presentation, never disables an input method, and inherits into nested scopes and overlay portals.",
       "Unspecified scope values inherit from the parent. Nested scopes also retain owned CSS variables, including the variables that portaled overlays need.",
       "Keep interaction locale in Provider and the translation adapter. A visual dir override does not replace the host\u2019s locale for keyboard or overlay placement behavior.",
       "Wrap the trigger and demonstrated controls together so dialogs, menus and tooltips opened from that region receive the intended visual scope."

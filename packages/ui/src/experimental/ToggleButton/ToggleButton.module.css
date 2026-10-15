@@ -1,7 +1,7 @@
 @layer sgui.components {
   .button {
     box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
-    gap: var(--sgui-space2); min-block-size: var(--sgui-control-height); min-inline-size: var(--sgui-control-height);
+    gap: var(--sgui-space2); min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); min-inline-size: var(--sgui-control-height);
     padding-block: var(--sgui-space1); padding-inline: var(--sgui-control-padding);
     border: 1px solid var(--sgui-toggle-button-border); border-radius: var(--sgui-field-control-radius);
     font-family: var(--sgui-font-family); font-size: var(--sgui-label-size);

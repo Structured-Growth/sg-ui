@@ -1,16 +1,18 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { useReactTable, getCoreRowModel, getSortedRowModel, getPaginationRowModel, type ColumnDef } from "@tanstack/react-table";
 import { Table, TableHeader, Column, TableBody, Row, Cell, ResizableTableContainer, ColumnResizer } from "react-aria-components/Table";
 import { useDragAndDrop } from "react-aria-components/useDragAndDrop";
 import { Button } from "../Button/Button";
 import { Checkbox } from "../Checkbox/Checkbox";
+import { Select } from "../Select/Select";
 import { TextField } from "../TextField/TextField";
 import { Popover } from "../Popover/Popover";
 import { useTranslation } from "../../i18n";
 import { compareGridValues, filterGridRows } from "./row-processing";
 import { defaultGridState, type DataGridProps, type GridState } from "./types";
 import styles from "./DataGrid.module.css";
+import { getGridFillColumn, retainGridFillColumn } from "./column-sizing";
 
 /** Migration integration proof. The host owns server requests and reorder persistence. */
 export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel, state, defaultState,
@@ -18,6 +20,7 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
   const { t } = useTranslation();
   const [internal, setInternal] = useState<GridState>(() => ({ ...defaultGridState, ...defaultState }));
   const current = state ?? internal;
+  const resizing = useRef<string | null>(null);
   function update(patch: Partial<GridState>) {
     const next = { ...current, ...patch };
     if (!state) setInternal(next);
@@ -31,6 +34,8 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
     getCoreRowModel: getCoreRowModel(), getSortedRowModel: getSortedRowModel(), getPaginationRowModel: getPaginationRowModel(),
     manualSorting: mode === "server", manualPagination: mode === "server", autoResetPageIndex: false });
   const visible = columns.filter((column, index) => index === 0 || column.hideable === false || !current.hiddenColumns.includes(column.id));
+  const sizingColumns = visible.map(column => ({ ...column, flex: column.width === undefined ? 1 : undefined }));
+  const fillColumn = getGridFillColumn(sizingColumns, current.widths);
   const pageRows = engine.getRowModel().rows;
   const count = mode === "server" ? total : data.length;
   const nextPage = count === undefined ? !!hasNextPage : (current.page + 1) * current.pageSize < count;
@@ -62,18 +67,24 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
       {current.selectedIds.length > 0 && <Button variant="text" tone="neutral" onPress={() => update({ selectedIds: [] })}>{t("common.ui.selectNone", { defaultMessage: "Select none" })}</Button>}
     </div>
     {errorMessage && <p role="alert">{errorMessage}</p>}
-    <ResizableTableContainer className={styles.container} onResize={widths => update({ widths: Object.fromEntries([...widths].filter((entry): entry is [string, number] => typeof entry[0] === "string" && typeof entry[1] === "number")) })}>
+    <ResizableTableContainer className={styles.container} onResize={widths => {
+      const field = resizing.current;
+      const width = field ? widths.get(field) : undefined;
+      if (!field || typeof width !== "number" || !Number.isFinite(width)) return;
+      const next = retainGridFillColumn(sizingColumns, { ...current.widths, [field]: width }, field);
+      update({ widths: next });
+    }} onResizeEnd={() => { resizing.current = null; }}>
       <Table aria-label={label} aria-busy={loading || undefined} selectionMode="multiple" selectionBehavior="toggle" dragAndDropHooks={dragAndDropHooks}
         selectedKeys={current.selectedIds} onSelectionChange={keys => update({ selectedIds: keys === "all" ? [...new Set([...current.selectedIds, ...pageRows.map(row => row.id)])] : [...keys].map(String) })}
         className={styles.table}>
         <TableHeader>
           <Column id="__selection" width={150} minWidth={100} className={styles.header}><Checkbox slot="selection" label={t("common.ui.selectPage", { defaultMessage: "Select page" })} /></Column>
           {visible.map((column, index) => <Column key={column.id} id={column.id} isRowHeader={index === 0} textValue={column.label}
-            width={current.widths[column.id] ?? column.width ?? 180} minWidth={column.minWidth ?? 80} className={styles.header}>
+            width={column.id === fillColumn ? "1fr" : current.widths[column.id] ?? column.width ?? "1fr"} minWidth={column.minWidth ?? (column.width === undefined ? 120 : 80)} maxWidth={column.maxWidth} className={styles.header}>
             <div className={styles.columnHeader}>{column.sortable !== false ? <Button variant="text" tone="neutral" onPress={() => toggleSort(column.id)} aria-label={t("common.ui.sortColumn", { defaultMessage: "Sort {label}", values: { label: column.label } })}>
               {column.label}{current.sort.find(rule => rule.column === column.id)?.direction === "asc" ? " ↑" : current.sort.some(rule => rule.column === column.id) ? " ↓" : ""}
               {current.sort.length > 1 && current.sort.some(rule => rule.column === column.id) && ` ${current.sort.findIndex(rule => rule.column === column.id) + 1}`}
-            </Button> : column.label}<ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.label } })} /></div>
+            </Button> : column.label}<span onFocusCapture={() => { resizing.current = column.id; }} onPointerDownCapture={() => { resizing.current = column.id; }} onKeyDownCapture={() => { resizing.current = column.id; }}><ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.label } })} /></span></div>
           </Column>)}
           {(renderActions || onReorder) && <Column id="__actions" width={240} className={styles.header}>{t("common.ui.actions", { defaultMessage: "Actions" })}</Column>}
         </TableHeader>
@@ -93,9 +104,9 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
     </ResizableTableContainer>
     <footer className={styles.footer}>
       <span>{t("common.ui.pageNumber", { defaultMessage: "Page {page}", values: { page: current.page + 1 } })}</span>
-      <label>{t("common.ui.pageSize", { defaultMessage: "Rows per page" })} <select value={current.pageSize} onChange={event => update({ pageSize: Number(event.target.value), page: 0 })}>
-        {[25, 50, 100].map(size => <option key={size} value={size}>{size}</option>)}
-      </select></label>
+      <Select label={t("common.ui.pageSize", { defaultMessage: "Rows per page" })} value={String(current.pageSize)} disabled={loading}
+        options={[...new Set([5, 10, 25, 50, 100, current.pageSize])].sort((a, b) => a - b).map(size => ({ id: String(size), label: String(size) }))}
+        onValueChange={value => { if (value !== null) update({ pageSize: Number(value), page: 0 }); }} />
       <Button variant="outlined" tone="neutral" disabled={loading || current.page === 0} onPress={() => update({ page: current.page - 1 })}>{t("common.ui.previousPage", { defaultMessage: "Previous page" })}</Button>
       <Button variant="outlined" tone="neutral" disabled={loading || !nextPage} onPress={() => update({ page: current.page + 1 })}>{t("common.ui.nextPage", { defaultMessage: "Next page" })}</Button>
     </footer>

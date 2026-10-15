@@ -1,6 +1,6 @@
 import {themeGraph, semanticRoles, type ThemeGraph, type SemanticMap, type ThemeIdentity, type Appearance, type Contrast} from './theme-graph';
 import {resolveSemantics} from './resolve-theme';
-const identityNames:ThemeIdentity[] = ['material','apple','editorial','structured-growth'];
+const identityNames:ThemeIdentity[] = ['none','material','apple','editorial','structured-growth'];
 const appearances:Appearance[] = ['light','dark'];
 const contrasts:Contrast[] = ['standard','increased'];
 const sameKeys = (actual:string[], expected:readonly string[], context:string) => {

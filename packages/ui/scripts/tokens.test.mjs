@@ -33,6 +33,7 @@ test('proof text, action, error and focus combinations meet declared contrast th
   for (const mode of ['light', 'dark']) {
     for (const [foreground, background, minimum] of [
       ['text', 'surface', 4.5], ['textMuted', 'surface', 4.5],
+      ...['surface','surfaceSubtle','surfaceRaised','surfaceOverlay'].map(bg => ['textSubtle', bg, 4.5]),
       ['text', 'surfaceSubtle', 4.5], ['action', 'surface', 4.5],
       ['onAction', 'action', 4.5], ['onAction', 'actionHover', 4.5],
       ['danger', 'surface', 4.5], ['focus', 'surface', 3], ['border', 'surface', 3],
@@ -68,7 +69,7 @@ test('public component metadata names the same scoped dependency that CSS consum
   assert.deepEqual(Object.keys(references),Object.keys(source.component));
   for(const [key,token] of Object.entries(source.component)) {
     const [,group,target]=token.$value.match(/^\{([^.]+)\.([^}]+)\}$/);
-    assert.deepEqual(references[key],{tier:({light:'semantic',shared:'shared',compact:'density',component:'component'})[group],token:target});
+    assert.deepEqual(references[key],{tier:({light:'semantic',shared:'shared',compact:'density',pointer:'interaction',component:'component'})[group],token:target});
     const cssName=name=>`--sgui-${name.replace(/[A-Z]/g,letter=>`-${letter.toLowerCase()}`)}`;
     assert(generated.css.includes(`${cssName(key)}: var(${cssName(target)})`),key);
   }
@@ -107,21 +108,21 @@ const blocks = css => [...css.matchAll(/:where\(([^)]+)\) \{([^}]+)\}/g)].map(([
 
 test('emitted component relationships rebind at scope, theme/system and density boundaries', () => {
   const emitted = blocks(compileTokens(source).css);
-  assert.equal(emitted.length, 6);
-  for (const { values } of emitted) {
+  assert.equal(emitted.length, 9);
+  for (const { values } of emitted.slice(0,6)) {
     for (const [key, token] of Object.entries(source.component)) {
       const target = token.$value.slice(1, -1).split('.')[1];
       assert.equal(values[cssName(key)], `var(${cssName(target)})`);
     }
   }
-  for (const { values } of emitted) {
+  for (const { values } of emitted.slice(0,6)) {
     assert.equal(values['--sgui-surface-raised'], 'var(--sgui-surface)');
     assert.equal(values['--sgui-action-destructive'], 'var(--sgui-danger)');
   }
   assert.equal(emitted[2].values['--sgui-action'], '#60a5fa');
   assert.equal(emitted[3].values['--sgui-action'], '#60a5fa');
-  assert.equal(emitted[4].values['--sgui-control-height'], '2rem');
-  assert.equal(emitted[5].values['--sgui-control-height'], '2.75rem');
+  assert.equal(emitted[4].values['--sgui-control-height'], 'var(--sgui-compact-control-height)');
+  assert.equal(emitted[5].values['--sgui-control-height'], 'var(--sgui-comfortable-control-height)');
   // A local host semantic override is referenced, never flattened into the component.
   assert.equal(emitted[0].values['--sgui-button-primary-background'], 'var(--sgui-action)');
 });
@@ -130,7 +131,7 @@ test('palette/scale owns deduplicated shared values; component tier contains ali
   const literals = Object.values(source.base).map(t => JSON.stringify([t.$type, t.$value]));
   assert.equal(new Set(literals).size, literals.length);
   for (const token of Object.values(source.shared)) assert.match(token.$value, /^\{base\./);
-  for (const token of Object.values(source.component)) assert.match(token.$value, /^\{(light|shared|compact|component)\./);
+  for (const token of Object.values(source.component)) assert.match(token.$value, /^\{(light|shared|compact|pointer|component)\./);
 });
 
 // Literal snapshot before D-02/D-04: every existing scoped declaration stays unchanged.
@@ -256,15 +257,49 @@ const legacyDeclarations = [
   }
 ];
 
-test('preserves every legacy scoped token literal and nesting selector', () => {
+test('preserves legacy resolved defaults and nesting selectors', () => {
   const emitted = blocks(compileTokens(source).css);
   assert.deepEqual(emitted.map(b => b.selector), [
     '[data-sgui-scope]', '[data-sgui-theme="light"], [data-sgui-theme="system"]',
     '[data-sgui-theme="dark"]', '[data-sgui-theme="system"]',
     '[data-sgui-density="compact"]', '[data-sgui-density="comfortable"]',
+    '[data-sgui-interaction="pointer"]', '[data-sgui-interaction="touch"]', '[data-sgui-interaction="auto"]',
   ]);
   assert(legacyDeclarations.every(d => Object.keys(d).length > 0));
   for (const [i, declarations] of legacyDeclarations.entries()) {
-    for (const [key, value] of Object.entries(declarations)) assert.equal(emitted[i].values[key], value, `${i}: ${key}`);
+    const values={...emitted[0].values,...emitted[i].values};
+    const resolve=value=>/^var\((--sgui-[\w-]+)\)$/.test(value)?resolve(values[value.slice(4,-1)]):value;
+    for (const [key, value] of Object.entries(declarations)) assert.equal(resolve(values[key]), value, `${i}: ${key}`);
   }
+});
+
+
+test('public default theme snapshots are generated from the shipped shared and semantic source',()=>{
+  const {ts}=compileTokens(source);
+  const match=ts.match(/export const defaultThemeTokens = ([\s\S]*?) as const;/);
+  assert.ok(match);
+  const defaults=JSON.parse(match[1]);
+  const resolveValue=value=>{const alias=/^\{(.+)\}$/.exec(String(value));if(!alias)return value;const [group,key]=alias[1].split('.');return resolveValue(source[group][key].$value);};
+  for(const mode of ['light','dark']) {
+    const expected=Object.fromEntries(['shared',mode].flatMap(group=>Object.entries(source[group]).map(([key,token])=>[`--sgui-${key.replace(/[A-Z]/g,letter=>'-'+letter.toLowerCase())}`,resolveValue(token.$value)])));
+    assert.deepEqual(defaults[mode],expected);
+    for(const role of ['action','action-neutral','validation-error','validation-warning','validation-success','validation-info','focus'])assert.match(defaults[mode][`--sgui-${role}`],/^#[0-9a-f]{6}$/i);
+    assert.equal(defaults[mode]['--sgui-control-height'],undefined,'density remains scope-owned');
+    assert.equal(defaults[mode]['--sgui-button-primary-background'],undefined,'component aliases remain scope-owned');
+  }
+});
+
+
+test('interaction roles are paired, theme-backed and independently scoped from density',()=>{
+  const output=compileTokens(source), emitted=blocks(output.css);
+  assert.match(output.ts,/export type InteractionTokenName/);
+  assert.equal(emitted[6].values['--sgui-minimum-target-size'],'var(--sgui-pointer-target-size)');
+  for(const index of [7,8]) {
+    assert.equal(emitted[index].values['--sgui-minimum-target-size'],'var(--sgui-touch-target-size)');
+    assert.equal(emitted[index].values['--sgui-navigation-icon-size'],'var(--sgui-touch-navigation-icon-size)');
+  }
+  assert.match(output.css,/@media \(any-pointer: coarse\)/);
+  assert(!('minimumTargetSize' in source.compact));
+  const invalid=structuredClone(source);delete invalid.touch.navigationIconSize;
+  assert.throws(()=>compileTokens(invalid),/Unpaired/);
 });

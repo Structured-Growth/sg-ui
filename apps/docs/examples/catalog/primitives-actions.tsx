@@ -1,86 +1,15 @@
 'use client';
 import { useState } from 'react';
 import { Button, Dialog, Popover, Tabs, Typography, Box, Stack, Surface, Card, CardContent, Divider, IconButton, ButtonGroup, Menu, SplitAction, Link, Breadcrumbs, Tooltip, List, ListItem, ListItemButton, ListItemText, ListItemIcon, Navigation, NavigationItem, Disclosure, Collapse, Chip, Badge, Progress, Status, Avatar, Table, TableHead, TableBody, TableFoot, TableRow, TableCell, TableHeaderCell, TableCaption, Pagination, Select, Checkbox, TextField } from '@structured-growth/sg-ui/experimental';
-import { Provider, ThemeScope, AppThemeProvider, type Density } from '@structured-growth/sg-ui/theme';
+import { Provider, ThemeScope, AppThemeProvider, type Density, type InteractionMode } from '@structured-growth/sg-ui/theme';
 import { CircularProgress, LinearProgress } from '@structured-growth/sg-ui/primitives';
 import * as Icons from '@structured-growth/sg-ui/icons';
 import type { CatalogEntry } from '../../content/catalog-types';
 import { Example } from '../../components/Example';
 import { useExampleSource } from '../useExampleSource';
 import { literal } from '../source';
-
-function OwnedButtonPlayground({reference = false}: {reference?: boolean} = {}) {
-
-if (reference) return <Stack gap={4}>
-    <OwnedButtonPlaygroundPanel1 reference={reference} />
-    <OwnedButtonPlaygroundPanel2 reference={reference} />
-  </Stack>;
-return <Stack gap={4}>
-    <OwnedButtonPlaygroundPanel3 reference={reference} />
-    <OwnedButtonPlayground reference />
-  </Stack>;
-}
-
-function OwnedButtonPlaygroundPanel1({reference = false}: {reference?: boolean} = {}) {
-const source = useExampleSource();
-const [density, setDensity] = useState<Density>("comfortable");
-const [action, setAction] = useState('No action yet');
-const [open, setOpen] = useState(false);
-const [page, setPage] = useState(0);
-const [pageSize, setPageSize] = useState(25);
-const [selected, setSelected] = useState('overview');
-const [label, setLabel] = useState("Publish course");
-const [variant, setVariant] = useState<"filled" | "outlined" | "text">("filled");
-const [tone, setTone] = useState<"primary" | "neutral">("primary");
-const [disabled, setDisabled] = useState(false);
-const [loading, setLoading] = useState(false);
-const imports = ["import { Button, ButtonGroup, Stack, Typography } from '@structured-growth/sg-ui/experimental';\nimport * as Icons from '@structured-growth/sg-ui/icons';"];
-const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
-return <Example title="Compact and comfortable comparison" description="The same props in independent density scopes." source={source({name:"OwnedButtonPlaygroundDensities", imports, state, body:`<Stack gap={3}>
-<ThemeScope density="compact"><Stack direction="row" align="center" gap={3}><Button variant={${literal(variant)}} tone={${literal(tone)}} disabled={${disabled}} loading={${loading}} onPress={() => setAction("Published locally")} startIcon={<Icons.AddIcon />}>{${literal(label)}}</Button><Typography role="status">{action}</Typography></Stack></ThemeScope>
-<ThemeScope density="comfortable"><Stack direction="row" align="center" gap={3}><Button variant={${literal(variant)}} tone={${literal(tone)}} disabled={${disabled}} loading={${loading}} onPress={() => setAction("Published locally")} startIcon={<Icons.AddIcon />}>{${literal(label)}}</Button><Typography role="status">{action}</Typography></Stack></ThemeScope>
-</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Stack direction="row" align="center" gap={3}><Button variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setAction("Published locally")} startIcon={<Icons.AddIcon />}>{label}</Button><Typography role="status">{action}</Typography></Stack></ThemeScope><ThemeScope density="comfortable"><Stack direction="row" align="center" gap={3}><Button variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setAction("Published locally")} startIcon={<Icons.AddIcon />}>{label}</Button><Typography role="status">{action}</Typography></Stack></ThemeScope></Stack></Example>;
-}
-
-function OwnedButtonPlaygroundPanel2({reference = false}: {reference?: boolean} = {}) {
-const source = useExampleSource();
-const [density, setDensity] = useState<Density>("comfortable");
-const [action, setAction] = useState('No action yet');
-const [open, setOpen] = useState(false);
-const [page, setPage] = useState(0);
-const [pageSize, setPageSize] = useState(25);
-const [selected, setSelected] = useState('overview');
-const [label, setLabel] = useState("Publish course");
-const [variant, setVariant] = useState<"filled" | "outlined" | "text">("filled");
-const [tone, setTone] = useState<"primary" | "neutral">("primary");
-const [disabled, setDisabled] = useState(false);
-const [loading, setLoading] = useState(false);
-const imports = ["import { Button, ButtonGroup, Stack, Typography } from '@structured-growth/sg-ui/experimental';\nimport * as Icons from '@structured-growth/sg-ui/icons';"];
-const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
-return <Example title="Composed example" source={source({name:"OwnedButtonPlaygroundComposition", imports, state, body:`<Stack gap={3}><ButtonGroup label="Document actions" joined><Button onPress={() => setAction("Saved")}>Save</Button><Button variant="outlined" onPress={() => setAction("Draft")}>Save draft</Button></ButtonGroup><Typography role="status">{action}</Typography></Stack>`})}><Stack gap={3}><ButtonGroup label="Document actions" joined><Button onPress={() => setAction("Saved")}>Save</Button><Button variant="outlined" onPress={() => setAction("Draft")}>Save draft</Button></ButtonGroup><Typography role="status">{action}</Typography></Stack></Example>;
-}
-
-function OwnedButtonPlaygroundPanel3({reference = false}: {reference?: boolean} = {}) {
-const source = useExampleSource();
-const [density, setDensity] = useState<Density>("comfortable");
-const [action, setAction] = useState('No action yet');
-const [open, setOpen] = useState(false);
-const [page, setPage] = useState(0);
-const [pageSize, setPageSize] = useState(25);
-const [selected, setSelected] = useState('overview');
-const [label, setLabel] = useState("Publish course");
-const [variant, setVariant] = useState<"filled" | "outlined" | "text">("filled");
-const [tone, setTone] = useState<"primary" | "neutral">("primary");
-const [disabled, setDisabled] = useState(false);
-const [loading, setLoading] = useState(false);
-const imports = ["import { Button, ButtonGroup, Stack, Typography } from '@structured-growth/sg-ui/experimental';\nimport * as Icons from '@structured-growth/sg-ui/icons';"];
-const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
-return <Example title="Prop playground" description="Owned press actions, native button states and leading icons." density={density} controls={<Stack direction="row" wrap gap={3}><TextField label="label" value={label} onValueChange={setLabel} /><Select label="variant" value={variant} options={[{"id": "filled", "label": "filled"}, {"id": "outlined", "label": "outlined"}, {"id": "text", "label": "text"}]} onValueChange={value => setVariant(value as "filled" | "outlined" | "text")} /><Select label="tone" value={tone} options={[{"id": "primary", "label": "primary"}, {"id": "neutral", "label": "neutral"}]} onValueChange={value => setTone(value as "primary" | "neutral")} /><Checkbox label="disabled" checked={disabled} onCheckedChange={setDisabled} /><Checkbox label="loading" checked={loading} onCheckedChange={setLoading} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"OwnedButtonPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<Stack direction="row" align="center" gap={3}><Button variant={${literal(variant)}} tone={${literal(tone)}} disabled={${disabled}} loading={${loading}} onPress={() => setAction("Published locally")} startIcon={<Icons.AddIcon />}>{${literal(label)}}</Button><Typography role="status">{action}</Typography></Stack>
-</ThemeScope>`})}>
-<Stack direction="row" align="center" gap={3}><Button variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setAction("Published locally")} startIcon={<Icons.AddIcon />}>{label}</Button><Typography role="status">{action}</Typography></Stack>
-    </Example>;
-}
+import { ButtonExamples } from '../ButtonDocumentation';
+import { SizingThemeExample } from '../SizingThemeExample';
 
 function OwnedDialogPlayground({reference = false}: {reference?: boolean} = {}) {
 
@@ -110,9 +39,9 @@ const [dismissOnEscape, setDismissOnEscape] = useState(true);
 const imports = ["import { Dialog, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [compactOpen, setCompactOpen] = useState(${compactOpen});\n  const [comfortableOpen, setComfortableOpen] = useState(${comfortableOpen});\n  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Compact and comfortable comparison" description="The same props in independent density scopes." source={source({name:"OwnedDialogPlaygroundDensities", imports, state, body:`<Stack gap={3}>
-<ThemeScope density="compact"><Stack gap={3}><Button onPress={() => setCompactOpen(true)}>Open dialog</Button><Dialog open={compactOpen} title={${literal(title)}} size={${literal(size)}} dismissOnOutside={${dismissOnOutside}} dismissOnEscape={${dismissOnEscape}} onDismiss={reason => {setCompactOpen(false); setAction(reason);}} footer={<Button onPress={() => {setCompactOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog><Typography role="status">{action}</Typography></Stack></ThemeScope>
-<ThemeScope density="comfortable"><Stack gap={3}><Button onPress={() => setComfortableOpen(true)}>Open dialog</Button><Dialog open={comfortableOpen} title={${literal(title)}} size={${literal(size)}} dismissOnOutside={${dismissOnOutside}} dismissOnEscape={${dismissOnEscape}} onDismiss={reason => {setComfortableOpen(false); setAction(reason);}} footer={<Button onPress={() => {setComfortableOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog><Typography role="status">{action}</Typography></Stack></ThemeScope>
-</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Stack gap={3}><Button onPress={() => setCompactOpen(true)}>Open dialog</Button><Dialog open={compactOpen} title={title} size={size} dismissOnOutside={dismissOnOutside} dismissOnEscape={dismissOnEscape} onDismiss={reason => {setCompactOpen(false); setAction(reason);}} footer={<Button onPress={() => {setCompactOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog><Typography role="status">{action}</Typography></Stack></ThemeScope><ThemeScope density="comfortable"><Stack gap={3}><Button onPress={() => setComfortableOpen(true)}>Open dialog</Button><Dialog open={comfortableOpen} title={title} size={size} dismissOnOutside={dismissOnOutside} dismissOnEscape={dismissOnEscape} onDismiss={reason => {setComfortableOpen(false); setAction(reason);}} footer={<Button onPress={() => {setComfortableOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog><Typography role="status">{action}</Typography></Stack></ThemeScope></Stack></Example>;
+<ThemeScope density="compact"><Stack gap={3}><Button onPress={() => setCompactOpen(true)}>Open dialog</Button><Dialog open={compactOpen} title={${literal(title)}} size={${literal(size)}} dismissOnOutside={${dismissOnOutside}} dismissOnEscape={${dismissOnEscape}} onDismiss={reason => {setCompactOpen(false); setAction(reason);}} footer={<Button onPress={() => {setCompactOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog></Stack></ThemeScope>
+<ThemeScope density="comfortable"><Stack gap={3}><Button onPress={() => setComfortableOpen(true)}>Open dialog</Button><Dialog open={comfortableOpen} title={${literal(title)}} size={${literal(size)}} dismissOnOutside={${dismissOnOutside}} dismissOnEscape={${dismissOnEscape}} onDismiss={reason => {setComfortableOpen(false); setAction(reason);}} footer={<Button onPress={() => {setComfortableOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog></Stack></ThemeScope>
+</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Stack gap={3}><Button onPress={() => setCompactOpen(true)}>Open dialog</Button><Dialog open={compactOpen} title={title} size={size} dismissOnOutside={dismissOnOutside} dismissOnEscape={dismissOnEscape} onDismiss={reason => {setCompactOpen(false); setAction(reason);}} footer={<Button onPress={() => {setCompactOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog></Stack></ThemeScope><ThemeScope density="comfortable"><Stack gap={3}><Button onPress={() => setComfortableOpen(true)}>Open dialog</Button><Dialog open={comfortableOpen} title={title} size={size} dismissOnOutside={dismissOnOutside} dismissOnEscape={dismissOnEscape} onDismiss={reason => {setComfortableOpen(false); setAction(reason);}} footer={<Button onPress={() => {setComfortableOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog></Stack></ThemeScope></Stack></Example>;
 }
 
 function OwnedDialogPlaygroundPanel2({reference = false}: {reference?: boolean} = {}) {
@@ -132,9 +61,9 @@ const [dismissOnEscape, setDismissOnEscape] = useState(true);
 const imports = ["import { Dialog, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [compactOpen, setCompactOpen] = useState(${compactOpen});\n  const [comfortableOpen, setComfortableOpen] = useState(${comfortableOpen});\n  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Prop playground" description="Controlled overlay dismissal and explicitly host-owned actions." density={density} controls={<Stack direction="row" wrap gap={3}><TextField label="title" value={title} onValueChange={setTitle} /><Select label="size" value={size} options={[{"id": "md", "label": "md"}, {"id": "xs", "label": "xs"}, {"id": "sm", "label": "sm"}, {"id": "lg", "label": "lg"}, {"id": "xl", "label": "xl"}, {"id": "full", "label": "full"}]} onValueChange={value => setSize(value as "md" | "xs" | "sm" | "lg" | "xl" | "full")} /><Checkbox label="dismissOnOutside" checked={dismissOnOutside} onCheckedChange={setDismissOnOutside} /><Checkbox label="dismissOnEscape" checked={dismissOnEscape} onCheckedChange={setDismissOnEscape} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"OwnedDialogPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<Stack gap={3}><Button onPress={() => setOpen(true)}>Open dialog</Button><Dialog open={open} title={${literal(title)}} size={${literal(size)}} dismissOnOutside={${dismissOnOutside}} dismissOnEscape={${dismissOnEscape}} onDismiss={reason => {setOpen(false); setAction(reason);}} footer={<Button onPress={() => {setOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog><Typography role="status">{action}</Typography></Stack>
+<Stack gap={3}><Button onPress={() => setOpen(true)}>Open dialog</Button><Dialog open={open} title={${literal(title)}} size={${literal(size)}} dismissOnOutside={${dismissOnOutside}} dismissOnEscape={${dismissOnEscape}} onDismiss={reason => {setOpen(false); setAction(reason);}} footer={<Button onPress={() => {setOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog></Stack>
 </ThemeScope>`})}>
-<Stack gap={3}><Button onPress={() => setOpen(true)}>Open dialog</Button><Dialog open={open} title={title} size={size} dismissOnOutside={dismissOnOutside} dismissOnEscape={dismissOnEscape} onDismiss={reason => {setOpen(false); setAction(reason);}} footer={<Button onPress={() => {setOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog><Typography role="status">{action}</Typography></Stack>
+<Stack gap={3}><Button onPress={() => setOpen(true)}>Open dialog</Button><Dialog open={open} title={title} size={size} dismissOnOutside={dismissOnOutside} dismissOnEscape={dismissOnEscape} onDismiss={reason => {setOpen(false); setAction(reason);}} footer={<Button onPress={() => {setOpen(false);setAction("Confirmed locally");}}>Confirm</Button>}><Typography>No server request is made. Your application owns persistence.</Typography></Dialog></Stack>
     </Example>;
 }
 
@@ -163,9 +92,9 @@ const [size, setSize] = useState<"md" | "lg">("md");
 const imports = ["import { Popover, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Compact and comfortable comparison" description="The same props in independent density scopes." source={source({name:"PopoverPlaygroundDensities", imports, state, body:`<Stack gap={3}>
-<ThemeScope density="compact"><Popover title={${literal(title)}} placement={${literal(placement)}} size={${literal(size)}} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button><Typography role="status">{action}</Typography></Stack></Popover></ThemeScope>
-<ThemeScope density="comfortable"><Popover title={${literal(title)}} placement={${literal(placement)}} size={${literal(size)}} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button><Typography role="status">{action}</Typography></Stack></Popover></ThemeScope>
-</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Popover title={title} placement={placement} size={size} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button><Typography role="status">{action}</Typography></Stack></Popover></ThemeScope><ThemeScope density="comfortable"><Popover title={title} placement={placement} size={size} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button><Typography role="status">{action}</Typography></Stack></Popover></ThemeScope></Stack></Example>;
+<ThemeScope density="compact"><Popover title={${literal(title)}} placement={${literal(placement)}} size={${literal(size)}} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover></ThemeScope>
+<ThemeScope density="comfortable"><Popover title={${literal(title)}} placement={${literal(placement)}} size={${literal(size)}} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover></ThemeScope>
+</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Popover title={title} placement={placement} size={size} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover></ThemeScope><ThemeScope density="comfortable"><Popover title={title} placement={placement} size={size} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover></ThemeScope></Stack></Example>;
 }
 
 function PopoverPlaygroundPanel2({reference = false}: {reference?: boolean} = {}) {
@@ -182,9 +111,9 @@ const [size, setSize] = useState<"md" | "lg">("md");
 const imports = ["import { Popover, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Prop playground" description="Anchored supplementary content with keyboard dismissal." density={density} controls={<Stack direction="row" wrap gap={3}><TextField label="title" value={title} onValueChange={setTitle} /><Select label="placement" value={placement} options={[{"id": "bottom start", "label": "bottom start"}, {"id": "bottom end", "label": "bottom end"}, {"id": "top start", "label": "top start"}, {"id": "top end", "label": "top end"}]} onValueChange={value => setPlacement(value as "bottom start" | "bottom end" | "top start" | "top end")} /><Select label="size" value={size} options={[{"id": "md", "label": "md"}, {"id": "lg", "label": "lg"}]} onValueChange={value => setSize(value as "md" | "lg")} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"PopoverPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<Popover title={${literal(title)}} placement={${literal(placement)}} size={${literal(size)}} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button><Typography role="status">{action}</Typography></Stack></Popover>
+<Popover title={${literal(title)}} placement={${literal(placement)}} size={${literal(size)}} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover>
 </ThemeScope>`})}>
-<Popover title={title} placement={placement} size={size} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button><Typography role="status">{action}</Typography></Stack></Popover>
+<Popover title={title} placement={placement} size={size} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover>
     </Example>;
 }
 
@@ -220,11 +149,31 @@ function TypographyPlayground({reference = false}: {reference?: boolean} = {}) {
 if (reference) return <Stack gap={4}>
     <TypographyPlaygroundPanel1 reference={reference} />
     <TypographyPlaygroundPanel2 reference={reference} />
+    <TypographyToneExamples />
   </Stack>;
 return <Stack gap={4}>
     <TypographyPlaygroundPanel3 reference={reference} />
     <TypographyPlayground reference />
   </Stack>;
+}
+
+function TypographyToneExamples() {
+  const source = useExampleSource();
+  return <Example title="Text tones and emphasis" description="Tone describes text emphasis, accent or meaning. Primary is retained as an accent alias; it does not assign button priority." source={source({name:"TypographyTones", imports:["import { Stack, Typography } from '@structured-growth/sg-ui/experimental';"], body:`<Stack gap={2}>
+  <Typography tone="default">Default: main content</Typography>
+  <Typography tone="muted">Muted: supporting descriptions</Typography>
+  <Typography tone="subtle">Subtle: supplementary metadata</Typography>
+  <Typography tone="accent">Accent: brand-colored text</Typography>
+  <Typography tone="primary">Primary: compatibility alias for accent</Typography>
+  <Typography tone="danger">Danger: error messaging</Typography>
+</Stack>`})}><Stack gap={2}>
+    <Typography tone="default">Default: main content</Typography>
+    <Typography tone="muted">Muted: supporting descriptions</Typography>
+    <Typography tone="subtle">Subtle: supplementary metadata</Typography>
+    <Typography tone="accent">Accent: brand-colored text</Typography>
+    <Typography tone="primary">Primary: compatibility alias for accent</Typography>
+    <Typography tone="danger">Danger: error messaging</Typography>
+  </Stack></Example>;
 }
 
 function TypographyPlaygroundPanel1({reference = false}: {reference?: boolean} = {}) {
@@ -236,7 +185,7 @@ const [page, setPage] = useState(0);
 const [pageSize, setPageSize] = useState(25);
 const [selected, setSelected] = useState('overview');
 const [variant, setVariant] = useState<"body1" | "body2" | "bodyAlt2" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2" | "caption" | "overline" | "button" | "code">("body1");
-const [tone, setTone] = useState<"default" | "muted" | "primary" | "danger">("default");
+const [tone, setTone] = useState<"default" | "muted" | "subtle" | "accent" | "primary" | "danger">("default");
 const [text, setText] = useState("Learning that grows with you");
 const [noWrap, setNoWrap] = useState(false);
 const imports = ["import { Typography, Stack, Button } from '@structured-growth/sg-ui/experimental';"];
@@ -256,7 +205,7 @@ const [page, setPage] = useState(0);
 const [pageSize, setPageSize] = useState(25);
 const [selected, setSelected] = useState('overview');
 const [variant, setVariant] = useState<"body1" | "body2" | "bodyAlt2" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2" | "caption" | "overline" | "button" | "code">("body1");
-const [tone, setTone] = useState<"default" | "muted" | "primary" | "danger">("default");
+const [tone, setTone] = useState<"default" | "muted" | "subtle" | "accent" | "primary" | "danger">("default");
 const [text, setText] = useState("Learning that grows with you");
 const [noWrap, setNoWrap] = useState(false);
 const imports = ["import { Typography, Stack, Button } from '@structured-growth/sg-ui/experimental';"];
@@ -273,12 +222,12 @@ const [page, setPage] = useState(0);
 const [pageSize, setPageSize] = useState(25);
 const [selected, setSelected] = useState('overview');
 const [variant, setVariant] = useState<"body1" | "body2" | "bodyAlt2" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2" | "caption" | "overline" | "button" | "code">("body1");
-const [tone, setTone] = useState<"default" | "muted" | "primary" | "danger">("default");
+const [tone, setTone] = useState<"default" | "muted" | "subtle" | "accent" | "primary" | "danger">("default");
 const [text, setText] = useState("Learning that grows with you");
 const [noWrap, setNoWrap] = useState(false);
 const imports = ["import { Typography, Stack, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
-return <Example title="Prop playground" description="Visual roles are independent of native text semantics." density={density} controls={<Stack direction="row" wrap gap={3}><Select label="variant" value={variant} options={[{"id": "body1", "label": "body1"}, {"id": "body2", "label": "body2"}, {"id": "bodyAlt2", "label": "bodyAlt2"}, {"id": "h1", "label": "h1"}, {"id": "h2", "label": "h2"}, {"id": "h3", "label": "h3"}, {"id": "h4", "label": "h4"}, {"id": "h5", "label": "h5"}, {"id": "h6", "label": "h6"}, {"id": "subtitle1", "label": "subtitle1"}, {"id": "subtitle2", "label": "subtitle2"}, {"id": "caption", "label": "caption"}, {"id": "overline", "label": "overline"}, {"id": "button", "label": "button"}, {"id": "code", "label": "code"}]} onValueChange={value => setVariant(value as "body1" | "body2" | "bodyAlt2" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2" | "caption" | "overline" | "button" | "code")} /><Select label="tone" value={tone} options={[{"id": "default", "label": "default"}, {"id": "muted", "label": "muted"}, {"id": "primary", "label": "primary"}, {"id": "danger", "label": "danger"}]} onValueChange={value => setTone(value as "default" | "muted" | "primary" | "danger")} /><TextField label="text" value={text} onValueChange={setText} /><Checkbox label="noWrap" checked={noWrap} onCheckedChange={setNoWrap} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"TypographyPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
+return <Example title="Prop playground" description="Visual roles are independent of native text semantics." density={density} controls={<Stack direction="row" wrap gap={3}><Select label="variant" value={variant} options={[{"id": "body1", "label": "body1"}, {"id": "body2", "label": "body2"}, {"id": "bodyAlt2", "label": "bodyAlt2"}, {"id": "h1", "label": "h1"}, {"id": "h2", "label": "h2"}, {"id": "h3", "label": "h3"}, {"id": "h4", "label": "h4"}, {"id": "h5", "label": "h5"}, {"id": "h6", "label": "h6"}, {"id": "subtitle1", "label": "subtitle1"}, {"id": "subtitle2", "label": "subtitle2"}, {"id": "caption", "label": "caption"}, {"id": "overline", "label": "overline"}, {"id": "button", "label": "button"}, {"id": "code", "label": "code"}]} onValueChange={value => setVariant(value as "body1" | "body2" | "bodyAlt2" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "subtitle1" | "subtitle2" | "caption" | "overline" | "button" | "code")} /><Select label="tone" value={tone} options={[{"id": "default", "label": "default"}, {"id": "muted", "label": "muted"}, {"id": "subtle", "label": "subtle"}, {"id": "accent", "label": "accent"}, {"id": "primary", "label": "primary (accent alias)"}, {"id": "danger", "label": "danger"}]} onValueChange={value => setTone(value as "default" | "muted" | "subtle" | "accent" | "primary" | "danger")} /><TextField label="text" value={text} onValueChange={setText} /><Checkbox label="noWrap" checked={noWrap} onCheckedChange={setNoWrap} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"TypographyPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
 <Typography variant={${literal(variant)}} tone={${literal(tone)}} noWrap={${noWrap}}>{${literal(text)}}</Typography>
 </ThemeScope>`})}>
 <Typography variant={variant} tone={tone} noWrap={noWrap}>{text}</Typography>
@@ -559,9 +508,9 @@ const [loading, setLoading] = useState(false);
 const imports = ["import { IconButton, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';\nimport * as Icons from '@structured-growth/sg-ui/icons';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Compact and comfortable comparison" description="The same props in independent density scopes." source={source({name:"IconButtonPlaygroundDensities", imports, state, body:`<Stack gap={3}>
-<ThemeScope density="compact"><Stack direction="row" gap={3} align="center"><IconButton label={${literal(label)}} variant={${literal(variant)}} tone={${literal(tone)}} disabled={${disabled}} loading={${loading}} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton><Typography role="status">{action}</Typography></Stack></ThemeScope>
-<ThemeScope density="comfortable"><Stack direction="row" gap={3} align="center"><IconButton label={${literal(label)}} variant={${literal(variant)}} tone={${literal(tone)}} disabled={${disabled}} loading={${loading}} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton><Typography role="status">{action}</Typography></Stack></ThemeScope>
-</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Stack direction="row" gap={3} align="center"><IconButton label={label} variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton><Typography role="status">{action}</Typography></Stack></ThemeScope><ThemeScope density="comfortable"><Stack direction="row" gap={3} align="center"><IconButton label={label} variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton><Typography role="status">{action}</Typography></Stack></ThemeScope></Stack></Example>;
+<ThemeScope density="compact"><Stack direction="row" gap={3} align="center"><IconButton label={${literal(label)}} variant={${literal(variant)}} tone={${literal(tone)}} disabled={${disabled}} loading={${loading}} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton></Stack></ThemeScope>
+<ThemeScope density="comfortable"><Stack direction="row" gap={3} align="center"><IconButton label={${literal(label)}} variant={${literal(variant)}} tone={${literal(tone)}} disabled={${disabled}} loading={${loading}} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton></Stack></ThemeScope>
+</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Stack direction="row" gap={3} align="center"><IconButton label={label} variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton></Stack></ThemeScope><ThemeScope density="comfortable"><Stack direction="row" gap={3} align="center"><IconButton label={label} variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton></Stack></ThemeScope></Stack></Example>;
 }
 
 function IconButtonPlaygroundPanel2({reference = false}: {reference?: boolean} = {}) {
@@ -580,9 +529,9 @@ const [loading, setLoading] = useState(false);
 const imports = ["import { IconButton, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';\nimport * as Icons from '@structured-growth/sg-ui/icons';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Prop playground" description="An accessible action name is required even when only an icon is visible." density={density} controls={<Stack direction="row" wrap gap={3}><TextField label="label" value={label} onValueChange={setLabel} /><Select label="variant" value={variant} options={[{"id": "text", "label": "text"}, {"id": "filled", "label": "filled"}, {"id": "outlined", "label": "outlined"}]} onValueChange={value => setVariant(value as "text" | "filled" | "outlined")} /><Select label="tone" value={tone} options={[{"id": "neutral", "label": "neutral"}, {"id": "primary", "label": "primary"}]} onValueChange={value => setTone(value as "neutral" | "primary")} /><Checkbox label="disabled" checked={disabled} onCheckedChange={setDisabled} /><Checkbox label="loading" checked={loading} onCheckedChange={setLoading} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"IconButtonPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<Stack direction="row" gap={3} align="center"><IconButton label={${literal(label)}} variant={${literal(variant)}} tone={${literal(tone)}} disabled={${disabled}} loading={${loading}} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton><Typography role="status">{action}</Typography></Stack>
+<Stack direction="row" gap={3} align="center"><IconButton label={${literal(label)}} variant={${literal(variant)}} tone={${literal(tone)}} disabled={${disabled}} loading={${loading}} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton></Stack>
 </ThemeScope>`})}>
-<Stack direction="row" gap={3} align="center"><IconButton label={label} variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton><Typography role="status">{action}</Typography></Stack>
+<Stack direction="row" gap={3} align="center"><IconButton label={label} variant={variant} tone={tone} disabled={disabled} loading={loading} onPress={() => setAction("Lesson added locally")}><Icons.AddIcon /></IconButton></Stack>
     </Example>;
 }
 
@@ -607,9 +556,9 @@ function ButtonGroupPlayground({reference = false}: {reference?: boolean} = {}) 
   </Stack>;
   return <Stack gap={4}>
     <Example title="Prop playground" description="Group related native actions without changing their interaction semantics." density={density} controls={<Stack direction="row" wrap gap={3}><Select label="orientation" value={orientation} options={[{"id": "horizontal", "label": "horizontal"}, {"id": "vertical", "label": "vertical"}]} onValueChange={value => setOrientation(value as "horizontal" | "vertical")} /><Checkbox label="joined" checked={joined} onCheckedChange={setJoined} /><TextField label="label" value={label} onValueChange={setLabel} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"ButtonGroupPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<ButtonGroup label={${literal(label)}} orientation={${literal(orientation)}} joined={${joined}}><Button variant="outlined" onPress={() => setAction("Saved")}>Save</Button><Button variant="outlined" onPress={() => setAction("Duplicated")}>Duplicate</Button><Button variant="outlined" disabled>Archive</Button></ButtonGroup><Typography role="status">{action}</Typography>
+<ButtonGroup label={${literal(label)}} orientation={${literal(orientation)}} joined={${joined}}><Button variant="outlined" onPress={() => setAction("Saved")}>Save</Button><Button variant="outlined" onPress={() => setAction("Duplicated")}>Duplicate</Button><Button variant="outlined" disabled>Archive</Button></ButtonGroup>
 </ThemeScope>`})}>
-<ButtonGroup label={label} orientation={orientation} joined={joined}><Button variant="outlined" onPress={() => setAction("Saved")}>Save</Button><Button variant="outlined" onPress={() => setAction("Duplicated")}>Duplicate</Button><Button variant="outlined" disabled>Archive</Button></ButtonGroup><Typography role="status">{action}</Typography>
+<ButtonGroup label={label} orientation={orientation} joined={joined}><Button variant="outlined" onPress={() => setAction("Saved")}>Save</Button><Button variant="outlined" onPress={() => setAction("Duplicated")}>Duplicate</Button><Button variant="outlined" disabled>Archive</Button></ButtonGroup>
     </Example>
     <ButtonGroupPlayground reference />
   </Stack>;
@@ -641,9 +590,9 @@ const [errorMessage, setErrorMessage] = useState("");
 const imports = ["import { Menu, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Compact and comfortable comparison" description="The same props in independent density scopes." source={source({name:"MenuPlaygroundDensities", imports, state, body:`<Stack gap={3}>
-<ThemeScope density="compact"><Stack gap={3}><Menu label={${literal(label)}} placement={${literal(placement)}} selectionMode={${literal(selectionMode)}} errorMessage={${literal(errorMessage)}} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /><Typography role="status">{action}</Typography></Stack></ThemeScope>
-<ThemeScope density="comfortable"><Stack gap={3}><Menu label={${literal(label)}} placement={${literal(placement)}} selectionMode={${literal(selectionMode)}} errorMessage={${literal(errorMessage)}} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /><Typography role="status">{action}</Typography></Stack></ThemeScope>
-</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Stack gap={3}><Menu label={label} placement={placement} selectionMode={selectionMode} errorMessage={errorMessage} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /><Typography role="status">{action}</Typography></Stack></ThemeScope><ThemeScope density="comfortable"><Stack gap={3}><Menu label={label} placement={placement} selectionMode={selectionMode} errorMessage={errorMessage} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /><Typography role="status">{action}</Typography></Stack></ThemeScope></Stack></Example>;
+<ThemeScope density="compact"><Stack gap={3}><Menu label={${literal(label)}} placement={${literal(placement)}} selectionMode={${literal(selectionMode)}} errorMessage={${literal(errorMessage)}} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /></Stack></ThemeScope>
+<ThemeScope density="comfortable"><Stack gap={3}><Menu label={${literal(label)}} placement={${literal(placement)}} selectionMode={${literal(selectionMode)}} errorMessage={${literal(errorMessage)}} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /></Stack></ThemeScope>
+</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Stack gap={3}><Menu label={label} placement={placement} selectionMode={selectionMode} errorMessage={errorMessage} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /></Stack></ThemeScope><ThemeScope density="comfortable"><Stack gap={3}><Menu label={label} placement={placement} selectionMode={selectionMode} errorMessage={errorMessage} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /></Stack></ThemeScope></Stack></Example>;
 }
 
 function MenuPlaygroundPanel2({reference = false}: {reference?: boolean} = {}) {
@@ -661,9 +610,9 @@ const [errorMessage, setErrorMessage] = useState("");
 const imports = ["import { Menu, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Prop playground" description="Host-owned actions, checked items, disabled commands and shortcuts." density={density} controls={<Stack direction="row" wrap gap={3}><TextField label="label" value={label} onValueChange={setLabel} /><Select label="placement" value={placement} options={[{"id": "bottom start", "label": "bottom start"}, {"id": "bottom end", "label": "bottom end"}, {"id": "top start", "label": "top start"}, {"id": "top end", "label": "top end"}]} onValueChange={value => setPlacement(value as "bottom start" | "bottom end" | "top start" | "top end")} /><Select label="selectionMode" value={selectionMode} options={[{"id": "multiple", "label": "multiple"}, {"id": "single", "label": "single"}]} onValueChange={value => setSelectionMode(value as "multiple" | "single")} /><TextField label="errorMessage" value={errorMessage} onValueChange={setErrorMessage} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"MenuPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<Stack gap={3}><Menu label={${literal(label)}} placement={${literal(placement)}} selectionMode={${literal(selectionMode)}} errorMessage={${literal(errorMessage)}} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /><Typography role="status">{action}</Typography></Stack>
+<Stack gap={3}><Menu label={${literal(label)}} placement={${literal(placement)}} selectionMode={${literal(selectionMode)}} errorMessage={${literal(errorMessage)}} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /></Stack>
 </ThemeScope>`})}>
-<Stack gap={3}><Menu label={label} placement={placement} selectionMode={selectionMode} errorMessage={errorMessage} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /><Typography role="status">{action}</Typography></Stack>
+<Stack gap={3}><Menu label={label} placement={placement} selectionMode={selectionMode} errorMessage={errorMessage} trigger={<Button variant="outlined">Actions</Button>} items={[{id:"save",label:"Save",shortcut:"⌘S"},{id:"published",label:"Published",selected:action === "published"},{id:"archive",label:"Archive",disabled:true},{id:"delete",label:"Delete",tone:"danger",separatorBefore:true}]} onAction={setAction} /></Stack>
     </Example>;
 }
 
@@ -692,9 +641,9 @@ const [loading, setLoading] = useState(false);
 const imports = ["import { SplitAction, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Compact and comfortable comparison" description="The same props in independent density scopes." source={source({name:"SplitActionPlaygroundDensities", imports, state, body:`<Stack gap={3}>
-<ThemeScope density="compact"><Stack gap={3}><SplitAction label={${literal(label)}} disabled={${disabled}} loading={${loading}} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /><Typography role="status">{action}</Typography></Stack></ThemeScope>
-<ThemeScope density="comfortable"><Stack gap={3}><SplitAction label={${literal(label)}} disabled={${disabled}} loading={${loading}} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /><Typography role="status">{action}</Typography></Stack></ThemeScope>
-</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Stack gap={3}><SplitAction label={label} disabled={disabled} loading={loading} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /><Typography role="status">{action}</Typography></Stack></ThemeScope><ThemeScope density="comfortable"><Stack gap={3}><SplitAction label={label} disabled={disabled} loading={loading} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /><Typography role="status">{action}</Typography></Stack></ThemeScope></Stack></Example>;
+<ThemeScope density="compact"><Stack gap={3}><SplitAction label={${literal(label)}} disabled={${disabled}} loading={${loading}} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /></Stack></ThemeScope>
+<ThemeScope density="comfortable"><Stack gap={3}><SplitAction label={${literal(label)}} disabled={${disabled}} loading={${loading}} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /></Stack></ThemeScope>
+</Stack>`})}><Stack gap={3}><ThemeScope density="compact"><Stack gap={3}><SplitAction label={label} disabled={disabled} loading={loading} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /></Stack></ThemeScope><ThemeScope density="comfortable"><Stack gap={3}><SplitAction label={label} disabled={disabled} loading={loading} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /></Stack></ThemeScope></Stack></Example>;
 }
 
 function SplitActionPlaygroundPanel2({reference = false}: {reference?: boolean} = {}) {
@@ -711,9 +660,9 @@ const [loading, setLoading] = useState(false);
 const imports = ["import { SplitAction, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Prop playground" description="A primary command and secondary menu share a neutral action group." density={density} controls={<Stack direction="row" wrap gap={3}><TextField label="label" value={label} onValueChange={setLabel} /><Checkbox label="disabled" checked={disabled} onCheckedChange={setDisabled} /><Checkbox label="loading" checked={loading} onCheckedChange={setLoading} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"SplitActionPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<Stack gap={3}><SplitAction label={${literal(label)}} disabled={${disabled}} loading={${loading}} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /><Typography role="status">{action}</Typography></Stack>
+<Stack gap={3}><SplitAction label={${literal(label)}} disabled={${disabled}} loading={${loading}} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /></Stack>
 </ThemeScope>`})}>
-<Stack gap={3}><SplitAction label={label} disabled={disabled} loading={loading} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /><Typography role="status">{action}</Typography></Stack>
+<Stack gap={3}><SplitAction label={label} disabled={disabled} loading={loading} items={[{id:"draft",label:"Save draft"},{id:"copy",label:"Save a copy"}]} onPress={() => setAction("Saved locally")} onAction={setAction} /></Stack>
     </Example>;
 }
 
@@ -1559,6 +1508,7 @@ function ProviderPlayground({reference = false}: {reference?: boolean} = {}) {
 if (reference) return <Stack gap={4}>
     <ProviderPlaygroundPanel1 reference={reference} />
     <ProviderPlaygroundPanel2 reference={reference} />
+    <SizingThemeExample/>
   </Stack>;
 return <Stack gap={4}>
     <ProviderPlaygroundPanel3 reference={reference} />
@@ -1600,28 +1550,28 @@ return <Example title="AppThemeProvider compatibility name" description="AppThem
 }
 
 function ProviderPlaygroundPanel3({reference = false}: {reference?: boolean} = {}) {
-const source = useExampleSource();
-const [density, setDensity] = useState<Density>("comfortable");
-const [action, setAction] = useState('No action yet');
-const [open, setOpen] = useState(false);
-const [page, setPage] = useState(0);
-const [pageSize, setPageSize] = useState(25);
-const [selected, setSelected] = useState('overview');
-const [direction, setDirection] = useState<"ltr" | "rtl">("ltr");
-const [text, setText] = useState("A scoped action");
-const imports = ["import { Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
-const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
-return <Example title="Prop playground" description="Production interaction scope with owned density and direction." density={density} controls={<Stack direction="row" wrap gap={3}><Select label="direction" value={direction} options={[{"id": "ltr", "label": "ltr"}, {"id": "rtl", "label": "rtl"}]} onValueChange={value => setDirection(value as "ltr" | "rtl")} /><TextField label="text" value={text} onValueChange={setText} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"ProviderPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<Provider dir={${literal(direction)}}><Stack direction="row" gap={3}><Button>{${literal(text)}}</Button><Typography>Provider sets interaction locale and visual scope.</Typography></Stack></Provider>
-</ThemeScope>`})}>
-<Provider dir={direction}><Stack direction="row" gap={3}><Button>{text}</Button><Typography>Provider sets interaction locale and visual scope.</Typography></Stack></Provider>
-    </Example>;
+  const source=useExampleSource();
+  const [density,setDensity]=useState<Density>('comfortable');
+  const [interactionMode,setInteractionMode]=useState<InteractionMode>('auto');
+  const [direction,setDirection]=useState<'ltr'|'rtl'>('ltr');
+  const [text,setText]=useState('A scoped action');
+  const imports=["import { Stack, Button, Menu, TextField } from '@structured-growth/sg-ui/experimental';"];
+  const body=`<Provider density=${literal(density)} interactionMode=${literal(interactionMode)} dir=${literal(direction)}><Stack gap={3}><TextField label="Workspace name" defaultValue="Design workspace"/><Menu label="Workspace actions" trigger={<Button>{${literal(text)}}</Button>} items={[{id:'settings',label:'Workspace settings'},{id:'members',label:'Manage members'}]}/></Stack></Provider>`;
+  return <Example title="Prop playground" description="Density sets spacing; interaction mode sets target and navigation icon sizing. Auto follows available pointer capabilities." density={density} controls={<Stack direction="row" wrap gap={3}>
+    <Select label="Interaction mode" value={interactionMode} options={[{id:'auto',label:'Auto'},{id:'pointer',label:'Pointer'},{id:'touch',label:'Touch'}]} onValueChange={value=>setInteractionMode(value as InteractionMode)}/>
+    <Select label="direction" value={direction} options={[{id:'ltr',label:'ltr'},{id:'rtl',label:'rtl'}]} onValueChange={value=>setDirection(value as 'ltr'|'rtl')}/>
+    <TextField label="text" value={text} onValueChange={setText}/>
+    <Select label="Preview density" value={density} options={[{id:'comfortable',label:'Comfortable'},{id:'compact',label:'Compact'}]} onValueChange={value=>setDensity(value as Density)}/>
+  </Stack>} source={source({name:'ProviderSizing',imports,body})}>
+    <Provider density={density} interactionMode={interactionMode} dir={direction}><Stack gap={3}><TextField label="Workspace name" defaultValue="Design workspace"/><Menu label="Workspace actions" trigger={<Button>{text}</Button>} items={[{id:'settings',label:'Workspace settings'},{id:'members',label:'Manage members'}]}/></Stack></Provider>
+  </Example>;
 }
 
 function ThemeScopePlayground({reference = false}: {reference?: boolean} = {}) {
 
 if (reference) return <Stack gap={4}>
     <ThemeScopePlaygroundPanel1 reference={reference} />
+    <SizingThemeExample/>
   </Stack>;
 return <Stack gap={4}>
     <ThemeScopePlaygroundPanel2 reference={reference} />
@@ -1648,25 +1598,24 @@ return <Example title="Compact and comfortable comparison" description="The same
 }
 
 function ThemeScopePlaygroundPanel2({reference = false}: {reference?: boolean} = {}) {
-const source = useExampleSource();
-const [density, setDensity] = useState<Density>("comfortable");
-const [action, setAction] = useState('No action yet');
-const [open, setOpen] = useState(false);
-const [page, setPage] = useState(0);
-const [pageSize, setPageSize] = useState(25);
-const [selected, setSelected] = useState('overview');
-const [direction, setDirection] = useState<"ltr" | "rtl">("ltr");
-const [text, setText] = useState("Locally scoped content");
-const imports = ["import { Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
-const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
-return <Example title="Prop playground" description="Nested visual scopes preserve the selected demo identity while changing density." density={density} controls={<Stack direction="row" wrap gap={3}><Select label="direction" value={direction} options={[{"id": "ltr", "label": "ltr"}, {"id": "rtl", "label": "rtl"}]} onValueChange={value => setDirection(value as "ltr" | "rtl")} /><TextField label="text" value={text} onValueChange={setText} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"ThemeScopePlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<ThemeScope dir={${literal(direction)}}><Stack gap={3}><Typography>{${literal(text)}}</Typography><Button>Scoped action</Button></Stack></ThemeScope>
-</ThemeScope>`})}>
-<ThemeScope dir={direction}><Stack gap={3}><Typography>{text}</Typography><Button>Scoped action</Button></Stack></ThemeScope>
-    </Example>;
+  const source=useExampleSource();
+  const [density,setDensity]=useState<Density>('comfortable');
+  const [interactionMode,setInteractionMode]=useState<InteractionMode>('auto');
+  const [direction,setDirection]=useState<'ltr'|'rtl'>('ltr');
+  const [text,setText]=useState('A scoped action');
+  const imports=["import { Stack, Button, Menu, TextField } from '@structured-growth/sg-ui/experimental';"];
+  const body=`<ThemeScope density=${literal(density)} interactionMode=${literal(interactionMode)} dir=${literal(direction)}><Stack gap={3}><TextField label="Workspace name" defaultValue="Design workspace"/><Menu label="Workspace actions" trigger={<Button>{${literal(text)}}</Button>} items={[{id:'settings',label:'Workspace settings'},{id:'members',label:'Manage members'}]}/></Stack></ThemeScope>`;
+  return <Example title="Prop playground" description="Density sets spacing; interaction mode sets target and navigation icon sizing. Auto follows available pointer capabilities." density={density} controls={<Stack direction="row" wrap gap={3}>
+    <Select label="Interaction mode" value={interactionMode} options={[{id:'auto',label:'Auto'},{id:'pointer',label:'Pointer'},{id:'touch',label:'Touch'}]} onValueChange={value=>setInteractionMode(value as InteractionMode)}/>
+    <Select label="direction" value={direction} options={[{id:'ltr',label:'ltr'},{id:'rtl',label:'rtl'}]} onValueChange={value=>setDirection(value as 'ltr'|'rtl')}/>
+    <TextField label="text" value={text} onValueChange={setText}/>
+    <Select label="Preview density" value={density} options={[{id:'comfortable',label:'Comfortable'},{id:'compact',label:'Compact'}]} onValueChange={value=>setDensity(value as Density)}/>
+  </Stack>} source={source({name:'ThemeScopeSizing',imports,body})}>
+    <ThemeScope density={density} interactionMode={interactionMode} dir={direction}><Stack gap={3}><TextField label="Workspace name" defaultValue="Design workspace"/><Menu label="Workspace actions" trigger={<Button>{text}</Button>} items={[{id:'settings',label:'Workspace settings'},{id:'members',label:'Manage members'}]}/></Stack></ThemeScope>
+  </Example>;
 }
 
-const iconNames = ["AccessTimeFilledIcon", "AccountCircleIcon", "AddIcon", "ApartmentIcon", "ArrowDropDownIcon", "ArrowForwardIcon", "AssignmentTurnedInIcon", "AutoStoriesIcon", "BookIcon", "BuildIcon", "BusinessCenterIcon", "CachedIcon", "CalendarTodayIcon", "CheckIcon", "ChevronRightIcon", "CircleIcon", "ClassIcon", "CloseIcon", "CodeIcon", "ComputerIcon", "ContentCopyIcon", "CorporateFareIcon", "DashboardIcon", "DeleteOutlineIcon", "DescriptionIcon", "DescriptionOutlinedIcon", "DnsIcon", "DragIndicatorIcon", "EditIcon", "EventIcon", "ExpandLessIcon", "ExpandMoreIcon", "ExploreIcon", "FactCheckOutlinedIcon", "FilterListIcon", "FontDownloadIcon", "FormatAlignCenterIcon", "FormatAlignJustifyIcon", "FormatAlignLeftIcon", "FormatAlignRightIcon", "FormatBoldIcon", "FormatClearIcon", "FormatColorFillIcon", "FormatColorTextIcon", "FormatIndentDecreaseIcon", "FormatIndentIncreaseIcon", "FormatItalicIcon", "FormatListBulletedIcon", "FormatListNumberedIcon", "FormatSizeIcon", "FormatStrikethroughIcon", "FormatUnderlinedIcon", "GroupIcon", "HighlightIcon", "HorizontalRuleIcon", "ImageIcon", "KeyboardArrowDownIcon", "KeyboardArrowLeftIcon", "LinkIcon", "LockIcon", "LockResetIcon", "LogoutIcon", "ManageAccountsIcon", "MenuBookIcon", "MenuBookOutlinedIcon", "MoreHorizIcon", "MoreVertIcon", "PaidIcon", "PeopleIcon", "PersonIcon", "PersonAddIcon", "PhotoCameraBackIcon", "QuizOutlinedIcon", "RedoIcon", "RemoveIcon", "SchoolIcon", "ScienceOutlinedIcon", "SearchIcon", "SortIcon", "StarIcon", "SubscriptIcon", "SuperscriptIcon", "TaskAltIcon", "TerminalIcon", "TranslateIcon", "TuneIcon", "UndoIcon", "UploadFileIcon", "ViewColumnIcon", "ViewListIcon", "ViewWeekIcon", "VisibilityOffIcon", "VpnKeyIcon", "WindowIcon", "WorkOutlineOutlinedIcon"] as const;
+const iconNames = ["AccessTimeFilledIcon", "AccountCircleIcon", "AddIcon", "ApartmentIcon", "ArrowDropDownIcon", "ArrowForwardIcon", "AssignmentTurnedInIcon", "AutoStoriesIcon", "BookIcon", "BrushIcon", "BuildIcon", "BusinessCenterIcon", "CachedIcon", "CalendarTodayIcon", "CheckIcon", "ChevronRightIcon", "CircleIcon", "ClassIcon", "CloseIcon", "CodeIcon", "ComputerIcon", "ContentCopyIcon", "CorporateFareIcon", "DashboardIcon", "DeleteOutlineIcon", "DescriptionIcon", "DescriptionOutlinedIcon", "DnsIcon", "DragIndicatorIcon", "EditIcon", "EventIcon", "ExpandLessIcon", "ExpandMoreIcon", "ExploreIcon", "FactCheckOutlinedIcon", "FilterListIcon", "FontDownloadIcon", "FormatAlignCenterIcon", "FormatAlignJustifyIcon", "FormatAlignLeftIcon", "FormatAlignRightIcon", "FormatBoldIcon", "FormatClearIcon", "FormatColorFillIcon", "FormatColorTextIcon", "FormatIndentDecreaseIcon", "FormatIndentIncreaseIcon", "FormatItalicIcon", "FormatListBulletedIcon", "FormatListNumberedIcon", "FormatSizeIcon", "FormatStrikethroughIcon", "FormatUnderlinedIcon", "GroupIcon", "HighlightIcon", "HorizontalRuleIcon", "ImageIcon", "KeyboardArrowDownIcon", "KeyboardArrowLeftIcon", "LinkIcon", "LockIcon", "LockResetIcon", "LogoutIcon", "ManageAccountsIcon", "MenuBookIcon", "MenuBookOutlinedIcon", "MoreHorizIcon", "MoreVertIcon", "PaidIcon", "PeopleIcon", "PersonIcon", "PersonAddIcon", "PhotoCameraBackIcon", "QuizOutlinedIcon", "RedoIcon", "RemoveIcon", "SchoolIcon", "ScienceOutlinedIcon", "SearchIcon", "SortIcon", "StarIcon", "SubscriptIcon", "SuperscriptIcon", "TaskAltIcon", "TerminalIcon", "TranslateIcon", "TuneIcon", "UndoIcon", "UploadFileIcon", "ViewColumnIcon", "ViewListIcon", "ViewWeekIcon", "VisibilityOffIcon", "VpnKeyIcon", "WindowIcon", "WorkOutlineOutlinedIcon"] as const;
 function IconsPlayground({reference = false}: {reference?: boolean} = {}) {
 
 if (reference) return <Stack gap={4}>
@@ -1761,17 +1710,17 @@ function ButtonGroupMatrixExample({orientation, density, joined, variant = 'outl
       <Button variant={${literal(variant)}} tone="neutral" disabled>Archive unavailable</Button>
       ${contentStates ? '<Button variant="outlined" tone="neutral" loading>Publishing course</Button>' : ''}
     </ButtonGroup>
-    <Typography role="status">{action}</Typography>
+
   </Stack>
 </ThemeScope>`;
-  return <Example title={title} density={density} description="These props are fixed independently of the playground. Actions update only this example's local result."
+  return <Example title={title} density={density} description="These props are fixed independently of the playground."
     source={source({name:'ButtonGroupMatrix', imports:["import { ButtonGroup, Button, Stack, Typography } from '@structured-growth/sg-ui/experimental';"],state:`  const [action, setAction] = useState(${literal(action)});`,body})}>
     <Stack gap={3} align="start"><ButtonGroup label={title} orientation={orientation} joined={joined}>
       <Button variant={variant} tone="neutral" onPress={() => setAction('Draft saved locally')}>{saveLabel}</Button>
       <Button variant={variant} tone="neutral" onPress={() => setAction('Course duplicated locally')}>Duplicate</Button>
       <Button variant={variant} tone="neutral" disabled>Archive unavailable</Button>
       {contentStates && <Button variant="outlined" tone="neutral" loading>Publishing course</Button>}
-    </ButtonGroup><Typography role="status">{action}</Typography></Stack>
+    </ButtonGroup></Stack>
   </Example>;
 }
 function TabsMatrixExample({orientation, density, activation = 'automatic'}: {
@@ -1787,7 +1736,7 @@ function TabsMatrixExample({orientation, density, activation = 'automatic'}: {
       {id:"lessons",label:"Lessons and activities",content:<Typography>12 lessons are ready for review.</Typography>},
       {id:"archive",label:"Archived materials",disabled:true,content:<Typography>Unavailable</Typography>}
     ]} />
-    <Typography role="status">Current panel: {selected}</Typography>
+
   </Stack>
 </ThemeScope>`;
   return <Example title={title} density={density} description={activation === 'manual' ? 'Move focus with arrows, then activate the desired tab. Selection belongs only to this panel.' : 'Arrow-key focus and panel selection move together; the archived tab is unavailable.'}
@@ -1796,7 +1745,7 @@ function TabsMatrixExample({orientation, density, activation = 'automatic'}: {
       {id:'overview',label:'Course overview',content:<Typography>Explore learning objectives and course details.</Typography>},
       {id:'lessons',label:'Lessons and activities',content:<Typography>12 lessons are ready for review.</Typography>},
       {id:'archive',label:'Archived materials',disabled:true,content:<Typography>Unavailable</Typography>}
-    ]} /><Typography role="status">Current panel: {selected}</Typography></Stack>
+    ]} /></Stack>
   </Example>;
 }
 function StackMatrixExample({direction, density, responsive = false}: {direction:'row' | 'column'; density:Density; responsive?:boolean}) {
@@ -1810,14 +1759,14 @@ function StackMatrixExample({direction, density, responsive = false}: {direction
       <Button onPress={() => setClicks(value => value + 1)}>Save draft</Button>
       <Button variant="outlined" onPress={() => setClicks(value => value + 1)}>Review publishing options</Button>
     </Stack>
-    <Typography role="status">Local action requests: {clicks}</Typography>
+
   </Stack>
 </ThemeScope>`;
-  return <Example title={title} density={density} description={responsive ? 'This fixed row becomes a column at the owned viewport breakpoint; resize the page to compare.' : 'Layout and density remain fixed while this example records its own action requests.'}
+  return <Example title={title} density={density} description={responsive ? 'This fixed row becomes a column at the owned viewport breakpoint; resize the page to compare.' : 'Compare spacing and alignment with a fixed layout and density.'}
     source={source({name:'StackMatrix',imports:["import { Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"],state:`  const [clicks, setClicks] = useState(${clicks});`,body})}>
     <Stack gap={3}><Stack direction={direction} gap={3} align="center" justify="between" wrap responsive={responsive}>
       <Typography>Course publishing actions</Typography><Button onPress={() => setClicks(value => value + 1)}>Save draft</Button><Button variant="outlined" onPress={() => setClicks(value => value + 1)}>Review publishing options</Button>
-    </Stack><Typography role="status">Local action requests: {clicks}</Typography></Stack>
+    </Stack></Stack>
   </Example>;
 }
 function NavigationMatrixExample({direction, density, dir='ltr'}:{direction:'row' | 'column';density:Density;dir?:'ltr' | 'rtl'}) {
@@ -1833,7 +1782,7 @@ function NavigationMatrixExample({direction, density, dir='ltr'}:{direction:'row
         <NavigationItem href="#resources" current={current === "resources"} onClick={event => {event.preventDefault();setCurrent("resources");}}>Resources</NavigationItem>
       </Stack>
     </Navigation>
-    <Typography role="status">Local destination: {current}</Typography>
+
   </Stack>
 </ThemeScope>`;
   return <Example title={title} density={density} description="Stack supplies the layout; Navigation has no orientation prop. These local links update a simulated destination without leaving the example. A production host supplies its routing adapter."
@@ -1842,13 +1791,13 @@ function NavigationMatrixExample({direction, density, dir='ltr'}:{direction:'row
       <NavigationItem href="#overview" current={current === 'overview'} onClick={event => {event.preventDefault();setCurrent('overview');}}>Overview</NavigationItem>
       <NavigationItem href="#lessons" current={current === 'lessons'} onClick={event => {event.preventDefault();setCurrent('lessons');}}>Lessons and activities</NavigationItem>
       <NavigationItem href="#resources" current={current === 'resources'} onClick={event => {event.preventDefault();setCurrent('resources');}}>Resources</NavigationItem>
-    </Stack></Navigation><Typography role="status">Local destination: {current}</Typography></Stack></ThemeScope>
+    </Stack></Navigation></Stack></ThemeScope>
   </Example>;
 }
 
 export const presentationEntries: CatalogEntry[] = [
-  {slug:"icons", title:"Icons", description:"Search every owned public SVG icon and adjust sizing, stroke and accessible labels.", exports:["AccessTimeFilledIcon", "AccountCircleIcon", "AddIcon", "ApartmentIcon", "ArrowDropDownIcon", "ArrowForwardIcon", "AssignmentTurnedInIcon", "AutoStoriesIcon", "BookIcon", "BuildIcon", "BusinessCenterIcon", "CachedIcon", "CalendarTodayIcon", "CheckIcon", "ChevronRightIcon", "CircleIcon", "ClassIcon", "CloseIcon", "CodeIcon", "ComputerIcon", "ContentCopyIcon", "CorporateFareIcon", "DashboardIcon", "DeleteOutlineIcon", "DescriptionIcon", "DescriptionOutlinedIcon", "DnsIcon", "DragIndicatorIcon", "EditIcon", "EventIcon", "ExpandLessIcon", "ExpandMoreIcon", "ExploreIcon", "FactCheckOutlinedIcon", "FilterListIcon", "FontDownloadIcon", "FormatAlignCenterIcon", "FormatAlignJustifyIcon", "FormatAlignLeftIcon", "FormatAlignRightIcon", "FormatBoldIcon", "FormatClearIcon", "FormatColorFillIcon", "FormatColorTextIcon", "FormatIndentDecreaseIcon", "FormatIndentIncreaseIcon", "FormatItalicIcon", "FormatListBulletedIcon", "FormatListNumberedIcon", "FormatSizeIcon", "FormatStrikethroughIcon", "FormatUnderlinedIcon", "GroupIcon", "HighlightIcon", "HorizontalRuleIcon", "ImageIcon", "KeyboardArrowDownIcon", "KeyboardArrowLeftIcon", "LinkIcon", "LockIcon", "LockResetIcon", "LogoutIcon", "ManageAccountsIcon", "MenuBookIcon", "MenuBookOutlinedIcon", "MoreHorizIcon", "MoreVertIcon", "PaidIcon", "PeopleIcon", "PersonIcon", "PersonAddIcon", "PhotoCameraBackIcon", "QuizOutlinedIcon", "RedoIcon", "RemoveIcon", "SchoolIcon", "ScienceOutlinedIcon", "SearchIcon", "SortIcon", "StarIcon", "SubscriptIcon", "SuperscriptIcon", "TaskAltIcon", "TerminalIcon", "TranslateIcon", "TuneIcon", "UndoIcon", "UploadFileIcon", "ViewColumnIcon", "ViewListIcon", "ViewWeekIcon", "VisibilityOffIcon", "VpnKeyIcon", "WindowIcon", "WorkOutlineOutlinedIcon", "getActivityTypeIcon"], Playground:IconsPlayground},
-  {slug: "owned-button", title: "Button", exports: ["Button"], description: "Owned press actions, native button states and leading icons.", Playground: OwnedButtonPlayground},
+  {slug:"icons", title:"Icons", description:"Search every owned public SVG icon and adjust sizing, stroke and accessible labels.", exports:["AccessTimeFilledIcon", "AccountCircleIcon", "AddIcon", "ApartmentIcon", "ArrowDropDownIcon", "ArrowForwardIcon", "AssignmentTurnedInIcon", "AutoStoriesIcon", "BookIcon", "BrushIcon", "BuildIcon", "BusinessCenterIcon", "CachedIcon", "CalendarTodayIcon", "CheckIcon", "ChevronRightIcon", "CircleIcon", "ClassIcon", "CloseIcon", "CodeIcon", "ComputerIcon", "ContentCopyIcon", "CorporateFareIcon", "DashboardIcon", "DeleteOutlineIcon", "DescriptionIcon", "DescriptionOutlinedIcon", "DnsIcon", "DragIndicatorIcon", "EditIcon", "EventIcon", "ExpandLessIcon", "ExpandMoreIcon", "ExploreIcon", "FactCheckOutlinedIcon", "FilterListIcon", "FontDownloadIcon", "FormatAlignCenterIcon", "FormatAlignJustifyIcon", "FormatAlignLeftIcon", "FormatAlignRightIcon", "FormatBoldIcon", "FormatClearIcon", "FormatColorFillIcon", "FormatColorTextIcon", "FormatIndentDecreaseIcon", "FormatIndentIncreaseIcon", "FormatItalicIcon", "FormatListBulletedIcon", "FormatListNumberedIcon", "FormatSizeIcon", "FormatStrikethroughIcon", "FormatUnderlinedIcon", "GroupIcon", "HighlightIcon", "HorizontalRuleIcon", "ImageIcon", "KeyboardArrowDownIcon", "KeyboardArrowLeftIcon", "LinkIcon", "LockIcon", "LockResetIcon", "LogoutIcon", "ManageAccountsIcon", "MenuBookIcon", "MenuBookOutlinedIcon", "MoreHorizIcon", "MoreVertIcon", "PaidIcon", "PeopleIcon", "PersonIcon", "PersonAddIcon", "PhotoCameraBackIcon", "QuizOutlinedIcon", "RedoIcon", "RemoveIcon", "SchoolIcon", "ScienceOutlinedIcon", "SearchIcon", "SortIcon", "StarIcon", "SubscriptIcon", "SuperscriptIcon", "TaskAltIcon", "TerminalIcon", "TranslateIcon", "TuneIcon", "UndoIcon", "UploadFileIcon", "ViewColumnIcon", "ViewListIcon", "ViewWeekIcon", "VisibilityOffIcon", "VpnKeyIcon", "WindowIcon", "WorkOutlineOutlinedIcon", "getActivityTypeIcon"], Playground:IconsPlayground},
+  {slug: "owned-button", title: "Button", exports: ["Button"], description: "Trigger an action with a labelled button, optional icons and native interaction states.", Playground: ButtonExamples},
   {slug: "owned-dialog", title: "Dialog", exports: ["Dialog"], description: "Controlled overlay dismissal and explicitly host-owned actions.", Playground: OwnedDialogPlayground},
   {slug: "popover", title: "Popover", exports: ["Popover"], description: "Anchored supplementary content with keyboard dismissal.", Playground: PopoverPlayground},
   {slug: "tabs", title: "Tabs", exports: ["Tabs"], description: "Host-controlled active panel, orientation and keyboard activation.", Playground: TabsPlayground},

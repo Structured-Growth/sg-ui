@@ -16,7 +16,10 @@ Library source, colocated tests/unit fixtures and validation scripts now live in
 `packages/ui`. Interpret earlier `src/` paths relative to that workspace. Root
 commands forward library checks to it. Run direct library scripts from that cwd.
 The Next.js docs app is `apps/docs`, consumes public compiled package exports,
-and owns its docs theme via Provider token overrides. Use SGUI primitives and
+and owns its docs theme via Provider token overrides. Component catalog routes stay
+under `/docs/components`; general site pages use `/installation`, `/theming`,
+`/releases` and `/licensing`, with permanent redirects from their former `/docs/*`
+URLs. Keep internal navigation and documentation links on the canonical routes. Use SGUI primitives and
 components for website UI; native framework document/form elements remain valid.
 New docs examples are ordinary React components with prop playgrounds, variant
 matrices and composed scenarios. Storybook runtime, dependencies and original story
@@ -26,12 +29,17 @@ assertions and record the new host separately from historical Storybook evidence
 
 ## Component documentation requirements
 
-Every component documented in `apps/docs` must have a prop playground. This applies
+Every component documented in `apps/docs` must have a prop playground, except
+`processing-grid` (DataGrid), where the user requested a single working, source-backed
+example without prop controls or the two-grid independence scenario. The shared
+page template also supplies its independent overview preview. This applies
 to catalog compositions, public primitives and experimental controls, including all
 new components and Storybook migrations. A static example alone is incomplete.
-Every component page must also provide component-specific "When to use" and "How
-to use" guidance in `apps/docs/content/component-usage`, grounded in its shipped
-public APIs and host ownership. Explain related alternatives where choices are
+Every component page must provide one Documentation section with Setup, Props,
+Behavior and accessibility, and Host responsibilities. Maintain component-specific
+guidance in `apps/docs/content/component-usage`, grounded in shipped public APIs
+and host ownership; its historical when/how fields feed the new sections rather
+than visible When to use/How to use panels. Explain related alternatives where choices are
 easy to confuse, especially Dialog, AppModal and other overlays. Keep the guidance
 current when contracts change; `catalog:check` rejects missing guidance or invalid
 related links. These descriptions belong to the fixed website scope, not demo themes.
@@ -41,7 +49,8 @@ production scopes and public package imports; do not invent unsupported props.
 For components without variants or state, use applicable content/layout props.
 Register public component exports (including aliases and compound children) in the catalog metadata. `pnpm --filter @structured-growth/docs catalog:check` must pass; new exports require examples. The production browser catalog check must render every route and compile the displayed source against public package types.
 
-Every live example must use the shared `Example` panel and provide expandable,
+Every live example must use the shared `Example` panel. The minimal overview uses
+its previewOnly presentation; playgrounds and reference examples provide expandable,
 copyable source: playgrounds, individual variants, tone matrices, density comparisons,
 content examples and composed/native form flows. Source must match the rendered
 props, labels, states and applicable density as controls change. Include public
@@ -64,8 +73,27 @@ application-supplied slots. Private renderer helpers are transparent; maintain
 explicit mappings where a private entry implements a public component boundary.
 Regenerate and check the composition metadata with the catalog after changes.
 Keep component navigation grouped by purpose in `apps/docs/content/component-navigation.json`.
-Every catalog page belongs to exactly one group. Preserve keyboard-accessible
-expansion, cross-group search and visibility of the current page's category.
+Every catalog page belongs to exactly one group. Use sliding category drilldown
+with keyboard-accessible Back navigation. Search has an accessible name without a
+visible field title and drops down matching content pages across groups. Selecting
+a result navigates directly and reveals the current page's category and Back control.
+Keep the sidebar order: Overview, full-width divider, component search, component
+menus, full-width divider, Installation, Theming, Release history, Licenses. Keep
+Overview and general links available while the component category drills down.
+The fixed Structured Growth website uses token-based background hover feedback
+for links and navigation, with no underlines; preserve visible keyboard focus
+and the independent styling of live demo identities.
+The docs shell bounds itself to the viewport: sidebar and main content scroll
+independently, with the website header outside those panes. Keep the main scroll
+pane full-width to the shell edge; apply reading-width limits and page padding
+to an inner content wrapper, not the scroll container. The Structured Growth
+website sidebar is 17rem wide on desktop, with a stable thin native scrollbar
+whose thumb appears on hover or keyboard focus on fine-pointer devices. Keep it
+visible for touch and respect forced colors. The website omits a shell footer;
+GitHub and commercial-license information belong at
+the bottom of the sidebar. The reusable AppShell retains its optional footer. Preserve
+keyboard access and narrow-screen reflow, reset only main scrolling on route
+changes, and retain native overlay scroll locking and stable document width.
 Preserve docs header/sidebar/content width while overlays lock document scrolling.
 Keep the stable document gutter and docs-only unlocked-width constraint; validate
 opening/dismissal and viewport resize rather than disabling native scroll locking.
@@ -78,17 +106,30 @@ or lift their mutable state into a common page wrapper. Mapped panels must rende
 separate components rather than capture shared page state in inline Example JSX.
 The catalog isolation guard enforces one Example per owner. Verify an interaction
 updates only that panel's preview/source and preserves every sibling's state/source.
+Avoid auxiliary selection/value echoes, click counters and raw state dumps in live
+previews. Use the component's own selected/checked/content presentation; retain
+meaningful loading, error, operation-result and clipboard announcements. Copied
+source must match the cleaned preview, and tests should verify component state
+and callbacks rather than depend on decorative debug readouts.
 Playground controls affect only their own example. Reference examples must have
 fixed documented configurations and independent interaction state; do not pass
 playground props or state into comparison sections. For components with orientation,
 show horizontal and vertical examples at both compact and comfortable densities
 simultaneously. Expand meaningful combinations of supported variants, tones, states,
 content and layout with named source-backed panels rather than making one toggle
-change the whole page. Global demo identity/appearance/contrast remains shared.
+change the whole page. Global demo identity/appearance/contrast remains shared. Offer None — global
+defaults as a demo identity option, generated from the public library token source
+without website branding leakage; retain the baseline stylesheet and density,
+increased-contrast and forced-color behavior.
 Do not restore a global docs density toggle. The website shell, navigation, headings, prop controls and source panels retain
-the fixed Structured Growth identity. One shared Demo settings toolbar owns identity/appearance/contrast selection
-above the component routes; preserve those settings across client navigation.
-Do not add another appearance panel to each component page. Selections affect
+the fixed Structured Growth identity. The website shell's right icon rail owns one
+shared Demo settings panel for identity/appearance/contrast across the component
+section. Its second panel receives each page's setup, props, behavior/accessibility
+and host responsibilities via PageDocumentation. Keep both panels out of main
+content, the global header and left navigation. Hide the rail on the catalog index
+and general documentation; preserve shared demo preferences across client navigation.
+Panels start closed; on narrow screens they overlay content. Do not add per-example
+appearance panels. Selections affect
 live previews and their overlay portals only. Keep density inside
 preview scopes. Example theme identity is separate from light/dark appearance;
 use owned tokens. Visual identity/appearance/contrast changes must not add theme
@@ -102,6 +143,19 @@ selectable source available if clipboard access fails. Validate generated snippe
 against the built package and verify component props/state source/copy in the docs smoke.
 Track missing component playgrounds individually in the docs backlog; do not claim
 all-library documentation coverage while those components remain pending.
+
+Use the user-approved Button page template for every component catalog route:
+One bare themed overview, the prop playground (or the processing-grid exception), named examples,
+then linked Contains and Used In sections at the bottom. Register the combined
+Documentation section in the shell's page-level right panel; demo settings are
+section-level content in its paintbrush panel. Do not show example
+numbers or an example index. Keep overview, playground and references as separate
+state owners; global demo settings remain shared. Component prop tables are
+generated from built public declarations into `component-api.json`; build the
+library first, then run catalog:generate/check. Keep compound/alias contracts and
+function parameters represented. Retain component-specific usage metadata and
+existing source-backed examples; the template does not justify generic filler or
+unsupported APIs.
 
 ## Current execution priority
 
@@ -128,6 +182,9 @@ Apply the migrated-module boundaries to these directories. See [modal and shell
 contracts](docs/developer/react-aria-modal-shells.md) for owned dismissal/action callbacks, native style slots,
 responsive navigation and host adapter behavior. Load /styles.css and provide an
 owned scope, including for editor dialogs.
+AppShell supports optional `rightNavigation`, mirroring the navigation column with
+independent scrolling. Hosts supply each side's width and distinct navigation labels;
+narrow three-column shells stack left/main/right without remounting main content.
 
 ColumnsLayoutModal, ImageUploadModal and LinkUrlModal also use the owned foundation.
 Apply migrated boundaries to these directories; see [editor dialog contracts](docs/developer/react-aria-editor-dialogs.md)
@@ -232,6 +289,10 @@ SGUI does not define application database or HTTP-contract naming.
   rules retain their foundation contracts. Define aliases in the owned token
   source and regenerate; never edit generated output by hand.
 - Website identities and their complete semantic maps live in `apps/docs/theme`.
+  The fixed Structured Growth website uses navy/gold with white and cool-gray surfaces;
+  see `docs/developer/structured-growth-style-guide.md` for observed source values
+  and accessible usage. Use bright gold for accents/surfaces rather than small text or sole focus
+  rings, with dark gold for functional borders on light backgrounds. Preserve the other demo identities.
   The fixed website identity stays separate from demo settings. Maintain the
   compiled public token inventory, graph validation and copyable consumer scopes.
   See [the token pipeline checklist](docs/developer/theme-token-pipeline.md).
@@ -239,9 +300,25 @@ SGUI does not define application database or HTTP-contract naming.
 - Prefer built-in props, variants and sizes before adding custom styling.
 - Put reusable styles in theme tokens or shared CSS component styles first. Use native class/style
   only for a layout or context-specific adjustment.
+- Typography uses `default`, `muted`, `subtle`, `accent` and `danger` text tones.
+  `primary` remains a compatibility alias for `accent`, not an action-priority
+  label. Keep subtle text token-backed and contrast-checked; use content roles
+  such as eyebrow in compositions rather than conflating them with color tones.
 - Do not set typography directly in local style (fontSize, fontWeight, fontFamily or
   lineHeight). Use Typography variants, owned typography tokens, or shared
   component-level styles. Preserve owned typography roles, including bodyAlt2.
+- SGUI scopes and overlay roots share scrollbar appearance through the owned
+  Scrollbars CSS module and `scrollbarThumb` component token. Use thin native
+  bars, transparent tracks and hover/focus thumb visibility on fine pointers;
+  preserve touch and forced colors. Scroll containers own overflow and gutters,
+  so appearance changes must not create extra scroll areas or reserve gutters on
+  every descendant. Avoid duplicating scrollbar styling in individual components.
+- Desktop application navigation uses its own compact scale: 12px labels, 16px
+  leading icons, 32px compact / 36px comfortable rows, and 44px minimum targets on
+  touch-capable devices (20px navigation icons). Centralize this through the owned
+  interactionMode auto/pointer/touch scope policy and generated interaction tokens;
+  do not duplicate pointer media queries in component styles. Do not shrink global body/form typography to obtain
+  navigation density. The fixed docs menu uses the compact scale.
 - General scopes default to comfortable density; generic Menu inherits its scope
   unless `density` is explicit. Catalog menu wrappers retain their explicit compact
   compatibility choice. Verify both densities and enlarged text while preserving
@@ -272,6 +349,10 @@ for each one unless the user requests customization:
 - Enable sorting, filtering, search, refresh, the footer and the columns menu.
 - Put the action-menu column last. Lock the first visible text column and action
   column against hiding; other columns can be hidden.
+- Keep at least one DataGrid/AppDataGrid data column uncapped and flexible to fill its container.
+  Resizing must preserve the latest requested width and release another override
+  when all data columns would become fixed; accept the complete width snapshot.
+  Respect min/max bounds, fixed columns (equal minWidth/maxWidth), and action/selection utility allocations. Both renderers use the shared DataGrid sizing core.
 - Preserve existing column order/locking behavior. The owned grid uses TanStack row processing and React Aria interactions; true pinning is deferred. Do not add a commercial grid dependency
   without an explicit task to change that integration.
 - For custom link cells, use cellType: "custom" with SGUI's Link and SGLink/router
@@ -578,3 +659,8 @@ empty or unsupported locale input. Locale does not set timezone; hosts coordinat
 reference clock and SSR/hydration timezone. See
 [due-date contract](docs/developer/react-aria-due-date-acceptance.md).
 Broad H/G/U/X/R/Z acceptance remains open.
+
+IconPanelNavigation is an owned icon rail with persistent, non-modal sliding panels.
+See [icon panel navigation](docs/developer/react-aria-icon-panel-navigation.md) for
+controlled opening, host-owned panel content, focus/keyboard behavior and independent
+AppShell placement. Load /styles.css and provide Provider or ThemeScope.

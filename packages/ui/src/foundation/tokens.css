@@ -69,6 +69,18 @@
     --sgui-code-line-height: 1.5;
     --sgui-code-weight: 400;
     --sgui-code-font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sgui-pointer-target-size: 0rem;
+    --sgui-touch-target-size: 2.75rem;
+    --sgui-pointer-navigation-icon-size: 1rem;
+    --sgui-touch-navigation-icon-size: 1.25rem;
+    --sgui-compact-control-height: 2rem;
+    --sgui-compact-control-padding: 0.75rem;
+    --sgui-compact-navigation-item-height: 2rem;
+    --sgui-comfortable-control-height: 2.75rem;
+    --sgui-comfortable-control-padding: 1rem;
+    --sgui-comfortable-navigation-item-height: 2.25rem;
+    --sgui-minimum-target-size: var(--sgui-pointer-target-size);
+    --sgui-navigation-icon-size: var(--sgui-pointer-navigation-icon-size);
     --sgui-surface-raised: var(--sgui-surface);
     --sgui-surface-overlay: var(--sgui-surface);
     --sgui-surface-hover: var(--sgui-surface-subtle);
@@ -210,7 +222,7 @@
     --sgui-side-navigation-background: var(--sgui-surface);
     --sgui-side-navigation-text: var(--sgui-text);
     --sgui-side-navigation-muted-text: var(--sgui-text-muted);
-    --sgui-side-navigation-subtle-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-subtle-background: var(--sgui-surface-hover);
     --sgui-side-navigation-danger: var(--sgui-danger);
     --sgui-text-color-picker-control-border: var(--sgui-border);
     --sgui-text-color-picker-control-text: var(--sgui-text);
@@ -378,6 +390,22 @@
     --sgui-typography-danger-text: var(--sgui-danger);
     --sgui-typography-muted-text: var(--sgui-text-muted);
     --sgui-typography-primary-foreground: var(--sgui-action);
+    --sgui-typography-subtle-text: var(--sgui-text-subtle);
+    --sgui-scrollbar-thumb: var(--sgui-border);
+    --sgui-icon-panel-navigation-background: var(--sgui-surface);
+    --sgui-icon-panel-navigation-text: var(--sgui-text);
+    --sgui-icon-panel-navigation-divider: var(--sgui-divider);
+    --sgui-icon-panel-navigation-active-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
+    --sgui-side-navigation-selected-text: var(--sgui-text-selected);
+    --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
+    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
+    --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
+    --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
   }
   :where([data-sgui-theme="light"], [data-sgui-theme="system"]) {
     --sgui-surface: #ffffff;
@@ -421,6 +449,7 @@
     --sgui-action-destructive-pressed: #991b1b;
     --sgui-validation-success: #15803d;
     --sgui-validation-warning: #92400e;
+    --sgui-text-subtle: #64748b;
     --sgui-button-primary-background: var(--sgui-action);
     --sgui-button-primary-hover-background: var(--sgui-action-hover);
     --sgui-button-primary-pressed-background: var(--sgui-action-pressed);
@@ -537,7 +566,7 @@
     --sgui-side-navigation-background: var(--sgui-surface);
     --sgui-side-navigation-text: var(--sgui-text);
     --sgui-side-navigation-muted-text: var(--sgui-text-muted);
-    --sgui-side-navigation-subtle-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-subtle-background: var(--sgui-surface-hover);
     --sgui-side-navigation-danger: var(--sgui-danger);
     --sgui-text-color-picker-control-border: var(--sgui-border);
     --sgui-text-color-picker-control-text: var(--sgui-text);
@@ -705,6 +734,22 @@
     --sgui-typography-danger-text: var(--sgui-danger);
     --sgui-typography-muted-text: var(--sgui-text-muted);
     --sgui-typography-primary-foreground: var(--sgui-action);
+    --sgui-typography-subtle-text: var(--sgui-text-subtle);
+    --sgui-scrollbar-thumb: var(--sgui-border);
+    --sgui-icon-panel-navigation-background: var(--sgui-surface);
+    --sgui-icon-panel-navigation-text: var(--sgui-text);
+    --sgui-icon-panel-navigation-divider: var(--sgui-divider);
+    --sgui-icon-panel-navigation-active-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
+    --sgui-side-navigation-selected-text: var(--sgui-text-selected);
+    --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
+    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
+    --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
+    --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
     color-scheme: light;
   }
   :where([data-sgui-theme="dark"]) {
@@ -749,6 +794,7 @@
     --sgui-action-destructive-pressed: #fca5a5;
     --sgui-validation-success: #4ade80;
     --sgui-validation-warning: #fcd34d;
+    --sgui-text-subtle: #94a3b8;
     --sgui-button-primary-background: var(--sgui-action);
     --sgui-button-primary-hover-background: var(--sgui-action-hover);
     --sgui-button-primary-pressed-background: var(--sgui-action-pressed);
@@ -865,7 +911,7 @@
     --sgui-side-navigation-background: var(--sgui-surface);
     --sgui-side-navigation-text: var(--sgui-text);
     --sgui-side-navigation-muted-text: var(--sgui-text-muted);
-    --sgui-side-navigation-subtle-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-subtle-background: var(--sgui-surface-hover);
     --sgui-side-navigation-danger: var(--sgui-danger);
     --sgui-text-color-picker-control-border: var(--sgui-border);
     --sgui-text-color-picker-control-text: var(--sgui-text);
@@ -1033,6 +1079,22 @@
     --sgui-typography-danger-text: var(--sgui-danger);
     --sgui-typography-muted-text: var(--sgui-text-muted);
     --sgui-typography-primary-foreground: var(--sgui-action);
+    --sgui-typography-subtle-text: var(--sgui-text-subtle);
+    --sgui-scrollbar-thumb: var(--sgui-border);
+    --sgui-icon-panel-navigation-background: var(--sgui-surface);
+    --sgui-icon-panel-navigation-text: var(--sgui-text);
+    --sgui-icon-panel-navigation-divider: var(--sgui-divider);
+    --sgui-icon-panel-navigation-active-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
+    --sgui-side-navigation-selected-text: var(--sgui-text-selected);
+    --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
+    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
+    --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
+    --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
     color-scheme: dark;
   }
   @media (prefers-color-scheme: dark) {
@@ -1078,6 +1140,7 @@
     --sgui-action-destructive-pressed: #fca5a5;
     --sgui-validation-success: #4ade80;
     --sgui-validation-warning: #fcd34d;
+    --sgui-text-subtle: #94a3b8;
     --sgui-button-primary-background: var(--sgui-action);
     --sgui-button-primary-hover-background: var(--sgui-action-hover);
     --sgui-button-primary-pressed-background: var(--sgui-action-pressed);
@@ -1194,7 +1257,7 @@
     --sgui-side-navigation-background: var(--sgui-surface);
     --sgui-side-navigation-text: var(--sgui-text);
     --sgui-side-navigation-muted-text: var(--sgui-text-muted);
-    --sgui-side-navigation-subtle-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-subtle-background: var(--sgui-surface-hover);
     --sgui-side-navigation-danger: var(--sgui-danger);
     --sgui-text-color-picker-control-border: var(--sgui-border);
     --sgui-text-color-picker-control-text: var(--sgui-text);
@@ -1362,12 +1425,29 @@
     --sgui-typography-danger-text: var(--sgui-danger);
     --sgui-typography-muted-text: var(--sgui-text-muted);
     --sgui-typography-primary-foreground: var(--sgui-action);
+    --sgui-typography-subtle-text: var(--sgui-text-subtle);
+    --sgui-scrollbar-thumb: var(--sgui-border);
+    --sgui-icon-panel-navigation-background: var(--sgui-surface);
+    --sgui-icon-panel-navigation-text: var(--sgui-text);
+    --sgui-icon-panel-navigation-divider: var(--sgui-divider);
+    --sgui-icon-panel-navigation-active-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
+    --sgui-side-navigation-selected-text: var(--sgui-text-selected);
+    --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
+    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
+    --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
+    --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
     color-scheme: dark;
   }
   }
   :where([data-sgui-density="compact"]) {
-    --sgui-control-height: 2rem;
-    --sgui-control-padding: 0.75rem;
+    --sgui-control-height: var(--sgui-compact-control-height);
+    --sgui-control-padding: var(--sgui-compact-control-padding);
+    --sgui-navigation-item-height: var(--sgui-compact-navigation-item-height);
     --sgui-surface-raised: var(--sgui-surface);
     --sgui-surface-overlay: var(--sgui-surface);
     --sgui-surface-hover: var(--sgui-surface-subtle);
@@ -1509,7 +1589,7 @@
     --sgui-side-navigation-background: var(--sgui-surface);
     --sgui-side-navigation-text: var(--sgui-text);
     --sgui-side-navigation-muted-text: var(--sgui-text-muted);
-    --sgui-side-navigation-subtle-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-subtle-background: var(--sgui-surface-hover);
     --sgui-side-navigation-danger: var(--sgui-danger);
     --sgui-text-color-picker-control-border: var(--sgui-border);
     --sgui-text-color-picker-control-text: var(--sgui-text);
@@ -1677,10 +1757,27 @@
     --sgui-typography-danger-text: var(--sgui-danger);
     --sgui-typography-muted-text: var(--sgui-text-muted);
     --sgui-typography-primary-foreground: var(--sgui-action);
+    --sgui-typography-subtle-text: var(--sgui-text-subtle);
+    --sgui-scrollbar-thumb: var(--sgui-border);
+    --sgui-icon-panel-navigation-background: var(--sgui-surface);
+    --sgui-icon-panel-navigation-text: var(--sgui-text);
+    --sgui-icon-panel-navigation-divider: var(--sgui-divider);
+    --sgui-icon-panel-navigation-active-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
+    --sgui-side-navigation-selected-text: var(--sgui-text-selected);
+    --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
+    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
+    --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
+    --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
   }
   :where([data-sgui-density="comfortable"]) {
-    --sgui-control-height: 2.75rem;
-    --sgui-control-padding: 1rem;
+    --sgui-control-height: var(--sgui-comfortable-control-height);
+    --sgui-control-padding: var(--sgui-comfortable-control-padding);
+    --sgui-navigation-item-height: var(--sgui-comfortable-navigation-item-height);
     --sgui-surface-raised: var(--sgui-surface);
     --sgui-surface-overlay: var(--sgui-surface);
     --sgui-surface-hover: var(--sgui-surface-subtle);
@@ -1822,7 +1919,7 @@
     --sgui-side-navigation-background: var(--sgui-surface);
     --sgui-side-navigation-text: var(--sgui-text);
     --sgui-side-navigation-muted-text: var(--sgui-text-muted);
-    --sgui-side-navigation-subtle-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-subtle-background: var(--sgui-surface-hover);
     --sgui-side-navigation-danger: var(--sgui-danger);
     --sgui-text-color-picker-control-border: var(--sgui-border);
     --sgui-text-color-picker-control-text: var(--sgui-text);
@@ -1990,5 +2087,35 @@
     --sgui-typography-danger-text: var(--sgui-danger);
     --sgui-typography-muted-text: var(--sgui-text-muted);
     --sgui-typography-primary-foreground: var(--sgui-action);
+    --sgui-typography-subtle-text: var(--sgui-text-subtle);
+    --sgui-scrollbar-thumb: var(--sgui-border);
+    --sgui-icon-panel-navigation-background: var(--sgui-surface);
+    --sgui-icon-panel-navigation-text: var(--sgui-text);
+    --sgui-icon-panel-navigation-divider: var(--sgui-divider);
+    --sgui-icon-panel-navigation-active-background: var(--sgui-surface-subtle);
+    --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
+    --sgui-side-navigation-selected-text: var(--sgui-text-selected);
+    --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
+    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
+    --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
+    --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
+    --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
+  }
+  :where([data-sgui-interaction="pointer"]) {
+    --sgui-minimum-target-size: var(--sgui-pointer-target-size);
+    --sgui-navigation-icon-size: var(--sgui-pointer-navigation-icon-size);
+  }
+  :where([data-sgui-interaction="touch"]) {
+    --sgui-minimum-target-size: var(--sgui-touch-target-size);
+    --sgui-navigation-icon-size: var(--sgui-touch-navigation-icon-size);
+  }
+  @media (any-pointer: coarse) {
+  :where([data-sgui-interaction="auto"]) {
+    --sgui-minimum-target-size: var(--sgui-touch-target-size);
+    --sgui-navigation-icon-size: var(--sgui-touch-navigation-icon-size);
+  }
   }
 }

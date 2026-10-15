@@ -283,7 +283,7 @@ export function NavItems({ items, pathname, depth = 0, expanded, onToggle, onDri
       return <li key={item.id} data-selected={selected || undefined} style={{ marginInlineStart: depth ? "var(--sgui-space4)" : undefined }}>
         {item.href && !hasChildren ? <Link className={styles.item} href={item.href} tone="inherit" underline="none" aria-current={selected ? "page" : undefined} onClick={event => {
           if (!event.defaultPrevented && event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) onItemSelect?.(item.id);
-        }}>{content}</Link> : <Button className={styles.item} variant="text" tone="neutral" density="compact" aria-expanded={hasChildren && behavior === "expand" ? isExpanded : undefined} onPress={activate}>{content}</Button>}
+        }}>{content}</Link> : <Button className={styles.item} variant="text" tone="neutral" aria-expanded={hasChildren && behavior === "expand" ? isExpanded : undefined} onPress={activate}>{content}</Button>}
         {hasChildren && behavior === "expand" && isExpanded && <NavItems items={item.children ?? []} pathname={pathname} depth={depth + 1} expanded={expanded} onToggle={onToggle} onDrilldown={onDrilldown} onItemSelect={onItemSelect} resolveIcon={resolveIcon} onNavigate={onNavigate} />}
       </li>;
     })}

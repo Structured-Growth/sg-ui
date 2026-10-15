@@ -32,6 +32,7 @@
       "AssignmentTurnedInIcon",
       "AutoStoriesIcon",
       "BookIcon",
+      "BrushIcon",
       "BuildIcon",
       "BusinessCenterIcon",
       "CachedIcon",
@@ -125,7 +126,7 @@
     "group": "presentation",
     "slug": "owned-button",
     "title": "Button",
-    "description": "Owned press actions, native button states and leading icons.",
+    "description": "Trigger an action with a labelled button, optional icons and native interaction states.",
     "exports": [
       "Button"
     ]
@@ -563,6 +564,15 @@
   },
   {
     "group": "editor",
+    "slug": "icon-panel-navigation",
+    "title": "IconPanelNavigation",
+    "description": "An icon-only rail with sliding, independently owned workspace panels.",
+    "exports": [
+      "IconPanelNavigation"
+    ]
+  },
+  {
+    "group": "editor",
     "slug": "auth-shell",
     "title": "AuthShell",
     "description": "A presentation shell for host-owned authentication forms, without account APIs.",
@@ -610,7 +620,7 @@
     "group": "editor",
     "slug": "side-navigation",
     "title": "SideNavigation",
-    "description": "Expandable and drilldown navigation with a host-supplied user model.",
+    "description": "Direct destinations, expanding groups and sliding drilldown levels in one host-supplied menu.",
     "exports": [
       "SideNavigation"
     ]
@@ -900,7 +910,8 @@
     "group": "data",
     "slug": "processing-grid",
     "title": "DataGrid",
-    "description": "Owned proof grid processing and independent instances.",
+    "description": "Search, sorting, flexible columns and pagination for host-owned course data.",
+    "exampleTitle": "Course data grid",
     "exports": [
       "DataGrid"
     ]

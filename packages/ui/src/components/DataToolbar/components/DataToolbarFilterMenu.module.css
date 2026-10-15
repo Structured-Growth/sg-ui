@@ -4,7 +4,7 @@
   .row > * { min-inline-size: 0; }
   .field { display: flex; flex-direction: column; gap: var(--sgui-space1); }
   .label { font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
-  .input { box-sizing: border-box; inline-size: 100%; min-inline-size: 0; min-block-size: var(--sgui-control-height); border: 1px solid var(--sgui-data-toolbar-border); border-radius: var(--sgui-field-control-radius); padding: var(--sgui-space1) var(--sgui-control-padding); color: var(--sgui-data-toolbar-text); background: var(--sgui-data-toolbar-background); font: inherit; }
+  .input { box-sizing: border-box; inline-size: 100%; min-inline-size: 0; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); border: 1px solid var(--sgui-data-toolbar-border); border-radius: var(--sgui-field-control-radius); padding: var(--sgui-space1) var(--sgui-control-padding); color: var(--sgui-data-toolbar-text); background: var(--sgui-data-toolbar-background); font: inherit; }
   .input:focus-visible { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); outline-offset: var(--sgui-control-focus-offset); }
   .input:disabled { opacity: 0.5; }
   .options { display: grid; gap: var(--sgui-space2); }

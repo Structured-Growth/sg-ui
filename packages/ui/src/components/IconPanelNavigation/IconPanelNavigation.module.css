@@ -1,0 +1,19 @@
+@layer sgui.components {
+  .root { --rail-size: calc(max(var(--sgui-icon-panel-navigation-item-size), var(--sgui-control-minimum-target-size)) + 2 * var(--sgui-icon-panel-navigation-rail-padding)); display: flex; block-size: 100%; min-block-size: 0; inline-size: max-content; max-inline-size: 100%; color: var(--sgui-icon-panel-navigation-text); background: var(--sgui-icon-panel-navigation-background); }
+  .rail { box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: var(--sgui-space1); padding: var(--sgui-icon-panel-navigation-rail-padding); flex: 0 0 var(--rail-size); min-block-size: 0; overflow-y: auto; overscroll-behavior: contain; }
+  .root .trigger { flex-shrink: 0; box-sizing: border-box; inline-size: max(var(--sgui-icon-panel-navigation-item-size), var(--sgui-control-minimum-target-size)); min-inline-size: max(var(--sgui-icon-panel-navigation-item-size), var(--sgui-control-minimum-target-size)); min-block-size: max(var(--sgui-icon-panel-navigation-item-size), var(--sgui-control-minimum-target-size)); padding: var(--sgui-space1); border-radius: var(--sgui-field-control-radius); }
+  .root .trigger[aria-expanded="true"] { background: var(--sgui-icon-panel-navigation-active-background); }
+  .icon { display: inline-flex; align-items: center; justify-content: center; inline-size: var(--sgui-icon-panel-navigation-icon-size); block-size: var(--sgui-icon-panel-navigation-icon-size); }
+  .icon > svg { inline-size: 100%; block-size: 100%; }
+  .panel { box-sizing: border-box; display: flex; flex-direction: column; max-inline-size: calc(100% - var(--rail-size)); min-inline-size: 0; min-block-size: 0; border-inline-start: 1px solid var(--sgui-icon-panel-navigation-divider); animation: slide-start var(--sgui-motion-duration) ease-out; }
+  .panel[hidden] { display: none; }
+  .header { display: flex; flex: 0 0 auto; align-items: center; justify-content: space-between; gap: var(--sgui-space2); padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-icon-panel-navigation-divider); }
+  .root .header h2 { font-size: var(--sgui-icon-panel-navigation-label-size); line-height: var(--sgui-body2-line-height); margin: 0; overflow-wrap: anywhere; }
+  .content { flex: 1; min-block-size: 0; min-inline-size: 0; overflow: auto; overscroll-behavior: contain; padding: var(--sgui-space2); }
+  .root[data-side="end"] .rail { order: 1; }
+  .root[data-side="end"] .panel { border-inline-start: 0; border-inline-end: 1px solid var(--sgui-icon-panel-navigation-divider); animation-name: slide-end; }
+  @keyframes slide-start { from { opacity: 0; transform: translateX(-0.75rem); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes slide-end { from { opacity: 0; transform: translateX(0.75rem); } to { opacity: 1; transform: translateX(0); } }
+  @media (prefers-reduced-motion: reduce) { .panel { animation: none; } }
+  @media (forced-colors: active) { .trigger[aria-expanded="true"] { outline: 2px solid Highlight; outline-offset: -2px; } }
+}

@@ -25,12 +25,12 @@
       "Supply label and options with unique, stable string IDs. Labels describe records; disabled options remain unavailable without changing their identity.",
       "Control the selected ID with value and onValueChange, using null to clear it, or initialize an uncontrolled selection with defaultValue. Keep the control mode stable and supply a placeholder for an empty selection.",
       "Use name for native form serialization and required, invalid and errorMessage for validation. Native reset restores uncontrolled defaults; controlled hosts decide how to reset their selected ID.",
-      "Use description for instructions and disabled or readOnly for the appropriate interaction state. Density comes from the surrounding scope rather than a Select density prop."
+      "Use description for instructions and disabled or readOnly for the appropriate interaction state. Density comes from the surrounding scope rather than a Select density prop. The popup fits option labels independently of the selected value, stays at least as wide as the trigger when space permits, and is capped by the viewport. Dropdown scrollbars are thin, with hover/focus visibility and native touch/forced-color behavior."
     ],
     "related": [{"slug":"combo-box","label":"Searchable single selection"},{"slug":"async-multi-select","label":"Host-search multi-selection"},{"slug":"radio-group","label":"Always-visible choices"}]
   },
   "combo-box": {
-    "when": "Use ComboBox to choose one record from locally supplied options while typing to narrow the list. The public Autocomplete primitive is an alias of this same component; neither alias fetches records or turns arbitrary input text into a selected business value.",
+    "when": "Use ComboBox to choose one record from locally supplied options while typing to narrow the list. The public Autocomplete primitive is an alias of this same component; neither alias fetches records or turns arbitrary input text into a selected business value. The option popup can grow beyond the input width to fit labels, up to the viewport limit.",
     "how": [
       "Supply label and options with unique string IDs and presentation labels. The component filters those options locally; the host owns any fetching and result freshness.",
       "Pair value with onValueChange for a controlled selected ID, or use defaultValue for an uncontrolled selection. null clears selection; typing a query and selecting an option are different actions.",

@@ -1,4 +1,4 @@
 @layer sgui.components {
-  .root { padding-inline: var(--sgui-space1); inline-size: var(--sgui-control-height); }
+  .root { padding-inline: var(--sgui-space1); inline-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); }
   .icon { display: inline-flex; align-items: center; justify-content: center; }
 }

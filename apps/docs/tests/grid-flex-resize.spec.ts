@@ -1,0 +1,35 @@
+import {exampleName} from './example-name';
+import {test,expect} from '@playwright/test';
+
+for(const density of ['compact','comfortable'])test(`AppDataGrid keeps a fill column after sequential resizing in ${density} density`,async({page})=>{
+  await page.setViewportSize({width:1440,height:1100});
+  await page.goto('/docs/components/app-data-grid');
+  const example=page.getByRole('region',{name:exampleName(`List · ${density}`),exact:true});
+  const grid=example.getByRole('grid',{name:`List · ${density}`,exact:true});
+  await grid.scrollIntoViewIfNeeded();
+  const container=example.locator('[data-sgui-part="grid-container"]');
+  const course=grid.locator('th[data-grid-field="name"]');
+  const status=grid.locator('th[data-grid-field="status"]');
+  const widths=async()=>({course:(await course.boundingBox())!.width,status:(await status.boundingBox())!.width});
+  const assertFilled=async()=>{await expect.poll(async()=>{const table=(await grid.boundingBox())!;const body=await container.evaluate(element=>element.clientWidth);return Math.abs(table.width-body);}).toBeLessThanOrEqual(2);};
+  await assertFilled();
+  const before=await widths();
+  const handle=example.getByRole('slider',{name:/^Resize Course/});
+  await handle.focus();await handle.press('Enter');
+  for(let step=0;step<6;step++)await handle.press('ArrowLeft');
+  await handle.press('Enter');
+  await expect.poll(async()=>(await widths()).course).toBeLessThan(before.course-30);
+  await expect.poll(async()=>(await widths()).status).toBeGreaterThan(before.status+30);
+  await assertFilled();
+  const afterCourse=await widths();
+  const other=example.getByRole('slider',{name:/^Resize Status/});
+  await other.focus();await other.press('Enter');
+  for(let step=0;step<3;step++)await other.press('ArrowLeft');
+  await other.press('Enter');
+  await expect.poll(async()=>(await widths()).status).toBeLessThan(afterCourse.status-10);
+  await expect.poll(async()=>(await widths()).course).toBeGreaterThan(afterCourse.course+10);
+  await assertFilled();
+  await page.setViewportSize({width:1600,height:1100});await assertFilled();
+  await page.setViewportSize({width:1100,height:1100});await assertFilled();
+  await example.screenshot({path:`/tmp/sgui-grid-fill-${density}.png`,animations:'disabled'});
+});

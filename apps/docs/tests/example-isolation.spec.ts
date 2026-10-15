@@ -1,21 +1,29 @@
+import {exampleName} from './example-name';
 import {test,expect} from '@playwright/test';
 import catalog from '../content/catalog.json' with {type:'json'};
 
-test('owned button composed actions do not change the comparison or playground',async({page})=>{
+test('owned button press and form actions preserve sibling examples',async({page})=>{
   await page.goto('/docs/components/owned-button');
-  const comparison=page.getByRole('region',{name:'Compact and comfortable comparison',exact:true});
-  const playground=page.getByRole('region',{name:'Prop playground',exact:true});
-  const composed=page.getByRole('region',{name:'Composed example',exact:true});
+  const comparison=page.getByRole('region',{name:exampleName('Button: Compact and comfortable comparison'),exact:true});
+  const playground=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
+  const press=page.getByRole('region',{name:exampleName('Button: Host-owned press action'),exact:true});
+  const form=page.getByRole('region',{name:exampleName('Button: Native submit and reset'),exact:true});
   const beforeComparison=await comparison.locator('code').textContent();
   const beforePlayground=await playground.locator('code').textContent();
-  await composed.getByRole('button',{name:'Save draft',exact:true}).click();
-  await expect(composed.getByRole('status')).toHaveText('Draft');
-  await expect(comparison.getByRole('status')).toHaveText(['No action yet','No action yet']);
+  await press.getByRole('button',{name:'Save changes',exact:true}).click();
+  await expect(press.getByRole('button',{name:'Saved',exact:true})).toBeVisible();
+  await expect(press.locator('code')).toContainText('useState(true)');
   expect(await comparison.locator('code').textContent()).toBe(beforeComparison);
   expect(await playground.locator('code').textContent()).toBe(beforePlayground);
-  await comparison.getByRole('button',{name:'Publish course',exact:true}).first().click();
-  await expect(comparison.getByRole('status')).toHaveText(['Published locally','Published locally']);
-  await expect(composed.getByRole('status')).toHaveText('Draft');
+  await form.getByRole('button',{name:'Submit course',exact:true}).click();
+  await expect(form.getByRole('button',{name:'Submitted',exact:true})).toBeVisible();
+  await form.getByRole('textbox',{name:'Course name'}).fill('Changed course');
+  await form.getByRole('button',{name:'Reset',exact:true}).click();
+  await expect(form.getByRole('textbox',{name:'Course name'})).toHaveValue('Learning foundations');
+  await expect(form.locator('code')).toContainText('useState(false)');
+  await expect(press.locator('code')).toContainText('useState(true)');
+  expect(await comparison.locator('code').textContent()).toBe(beforeComparison);
+  expect(await playground.locator('code').textContent()).toBe(beforePlayground);
 });
 
 test('interacting with catalog panels leaves every sibling source snapshot unchanged',async({page})=>{
@@ -23,7 +31,7 @@ test('interacting with catalog panels leaves every sibling source snapshot uncha
   let interactions=0,changedSources=0;
   for(const entry of catalog)await test.step(entry.slug,async()=>{
     await page.goto(`/docs/components/${entry.slug}`);
-    await expect(page.getByRole('heading',{name:'Prop playground',exact:true})).toBeVisible();
+    await expect(page.getByRole('heading',{name:exampleName(('exampleTitle' in entry ? entry.exampleTitle : undefined) ?? 'Prop playground'),exact:true})).toBeVisible();
     const panels=page.locator('section[aria-labelledby]').filter({has:page.locator('[data-docs-preview]')});
     const count=await panels.count();
     for(let index=0;index<count;index++) {
