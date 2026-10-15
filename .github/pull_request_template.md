@@ -9,12 +9,12 @@ For guidance-only changes, describe the corrected claim and its source.
 - Remaining backlog/acceptance gates and follow-up owner (do not claim broad completion from a bounded slice):
 - Conventional Commit title and release impact; breaking mappings/migration steps:
 
-During pre-production `codex/dev` work, use targeted tests and relevant guards,
+During pre-production `dev` work, use targeted tests and relevant guards,
 browser/build/consumer checks for the changed behavior. Full runs occur at occasional
 coordinator checkpoints, not for each task or dev integration. Documentation-only
 work checks links/anchors, paths, examples and template structure. Record exact
 commands, tested head and limitations. Automatic GitHub CI/title checks for
-`codex/dev` PRs are paused; production/main validation remains complete.
+`dev` PRs are paused; production/main validation remains complete.
 See [development validation policy](../docs/developer/react-aria-development-validation.md)
 and [setup guidance](../docs/github-setup.md).
 

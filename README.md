@@ -16,6 +16,15 @@ Implementation migration is distinct from final acceptance. The
 [removal audit](docs/developer/react-aria-removal-audit.md) record evidence and
 remaining browser, device, assistive-technology, packaging and legal gates.
 
+
+## Branches
+
+`dev` contains the latest development work. Start new development from it and
+integrate completed changes there. `main` is the production/release branch;
+promote validated work only for explicitly approved major or minor releases.
+For now, keep all ongoing work on `dev`. Release automation remains restricted
+to `main` and determines versions from Conventional Commits.
+
 ## Use in an application
 
 The package is `@structured-growth/sg-ui`, configured for public npm publication

@@ -1,3 +1,15 @@
+## Development and production branches
+
+`dev` is the integration branch and holds the latest development code. Base new
+development work on `dev` and merge completed work back into `dev`. Keep current
+pre-release work there; `codex/dev` is retired.
+
+`main` is the production/release branch. Promote reviewed, validated development
+work to `main` only for explicitly human-approved major or minor releases. Do not
+push or merge to `main`, tag, or publish during ordinary development work. Existing
+Conventional Commit and semantic-release rules determine the release version;
+do not edit versions by hand. Required production validation remains mandatory.
+
 ## Workspace layout (2026-10-14)
 
 Library source, colocated tests/unit fixtures and validation scripts now live in
@@ -354,7 +366,7 @@ entry document and keep examples aligned with SGUI's public exports and adapters
 ## Validation and changes
 
 Run pnpm install --frozen-lockfile when dependencies are needed. During the
-user-authorized pre-production migration into `codex/dev`, use targeted validation
+user-authorized pre-production migration into `dev`, use targeted validation
 per task: meaningful affected unit/composed tests, type/import/token guards relevant
 to the change, and focused browser or packed-consumer checks when behavior requires
 them. Update affected website/native examples; build fresh docs fixtures when

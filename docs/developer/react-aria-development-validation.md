@@ -1,7 +1,7 @@
 # Pre-production development validation
 
 The user authorized targeted task validation and occasional full checkpoints on
-2026-10-07 while the migration is consolidated into `codex/dev`.
+2026-10-07 while the migration is consolidated into `dev`.
 
 ## Task and dev integration checks
 
@@ -26,7 +26,7 @@ A targeted pass is not a full-suite pass or a whole acceptance-gate completion.
 On 2026-10-07 the user approved Chromium-first native validation to shorten the
 correction loop. Each task still needs meaningful targeted unit/composed tests,
 types and relevant guards, plus a fresh focused Chromium run for native behavior.
-Those results permit reviewed provisional integration into `codex/dev`.
+Those results permit reviewed provisional integration into `dev`.
 
 Track Firefox/WebKit evidence as pending until a batch checkpoint actually runs.
 After ten newly integrated native behavior slices, or at the daily full checkpoint
@@ -59,7 +59,7 @@ reports separate from the full-checkpoint cadence.
 
 ## GitHub and production acceptance
 
-The user paused automatic GitHub CI and PR-title runs for PRs targeting `codex/dev`
+The user paused automatic GitHub CI and PR-title runs for PRs targeting `dev`
 on 2026-10-07. Both workflows exclude that base branch at the event trigger. Dev
 pushes already do not trigger CI. Workers continue targeted local tests and provide
 reviewable evidence; coordinator integrations do not wait for GitHub checks.
@@ -71,3 +71,8 @@ Workflow permissions, secrets and publication behavior are unchanged. The separa
 manual AI proposal workflow retains its existing built-in validation; it is not the
 parallel migration dispatch path. Full acceptance is required before production,
 including outstanding manual, device and assistive-technology gates.
+
+The development branch was renamed from `codex/dev` to `dev` on 2026-10-14.
+This carries forward the existing development-validation policy. `main` remains
+the production/release branch; promotions require explicit approval and the
+complete production gates, as recorded in AGENTS.md.
