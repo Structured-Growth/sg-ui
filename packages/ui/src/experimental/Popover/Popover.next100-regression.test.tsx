@@ -3,7 +3,7 @@ import { createRef } from "react";
 import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Popover, type PopoverProps } from "./Popover";
 import { Provider } from "../Provider/Provider";
 import { TextField } from "../TextField/TextField";

@@ -4,7 +4,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { renderToString } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { DocumentEditorLayout } from "./DocumentEditorLayout";
 
 afterEach(cleanup);

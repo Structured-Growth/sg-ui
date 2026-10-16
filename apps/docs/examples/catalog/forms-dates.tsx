@@ -12,6 +12,9 @@ import { Example } from '../../components/Example';
 import type { CatalogEntry } from '../../content/catalog-types';
 import { useExampleSource } from '../useExampleSource';
 import { literal } from '../source';
+import {LocalizedRangeExample} from '../LocalizedRangeExample';
+import {AsyncSearchExample} from '../AsyncSearchExample';
+import {NativeResetFormExample,TimezoneInstantExample} from '../FormIntegrationExamples';
 
 const choices = [
   {id:'design', label:'Design systems'}, {id:'engineering', label:'Engineering'},
@@ -39,6 +42,7 @@ function FormScenario({kind, scenario}: {kind:Kind; scenario:Scenario}) {
   const [checked, setChecked] = useState(false); const [mixed, setMixed] = useState(false);
   const [type, setType] = useState<'text'|'email'|'password'|'search'|'tel'|'url'>('text');
   const [rows, setRows] = useState(3); const [orientation, setOrientation] = useState<'horizontal'|'vertical'>('vertical');
+  const [buttonWidth, setButtonWidth] = useState<'equal'|'content'>('equal');
   const [multiple, setMultiple] = useState(true); const [allowEmpty, setAllowEmpty] = useState(true);
   const [ids, setIds] = useState<string[]>(['design']);
   const [tags, setTags] = useState(choices.slice(0,3)); const [tone, setTone] = useState<'neutral'|'primary'>('primary');
@@ -80,8 +84,8 @@ function FormScenario({kind, scenario}: {kind:Kind; scenario:Scenario}) {
       body = `<ToggleButton selected={selected} onSelectedChange={setSelected} density=${literal(density)} disabled={${disabled}}>{${literal(label)}}</ToggleButton>`;
       state = `  const [selected, setSelected] = useState(${checked});`; break;
     case 'ToggleButtonGroup':
-      preview = <ToggleButtonGroup label={label} options={choices} selectedIds={ids} onSelectionChange={setIds} selectionMode={multiple ? 'multiple' : 'single'} allowEmpty={allowEmpty} orientation={orientation} density={density} disabled={disabled} />;
-      body = `<ToggleButtonGroup ${commonCode} options={${json(choices)}} selectedIds={ids} onSelectionChange={setIds} selectionMode=${literal(multiple ? 'multiple' : 'single')} allowEmpty={${allowEmpty}} orientation=${literal(orientation)} density=${literal(density)} />`;
+      preview = <ToggleButtonGroup label={label} options={choices} selectedIds={ids} onSelectionChange={setIds} selectionMode={multiple ? 'multiple' : 'single'} allowEmpty={allowEmpty} orientation={orientation} buttonWidth={buttonWidth} density={density} disabled={disabled} />;
+      body = `<ToggleButtonGroup ${commonCode} options={${json(choices)}} selectedIds={ids} onSelectionChange={setIds} selectionMode=${literal(multiple ? 'multiple' : 'single')} allowEmpty={${allowEmpty}} orientation=${literal(orientation)} buttonWidth=${literal(buttonWidth)} density=${literal(density)} />`;
       state = `  const [ids, setIds] = useState<string[]>(${json(ids)});`; break;
     case 'TagGroup':
       preview = <TagGroup label={label} items={tags} onRemove={removable ? removed => setTags(current => current.filter(tag => !removed.includes(tag.id))) : undefined} tone={tone} disabled={disabled} density={density} emptyContent="No topics selected" />;
@@ -102,6 +106,7 @@ function FormScenario({kind, scenario}: {kind:Kind; scenario:Scenario}) {
       {kind === 'TextField' && <Select label="Input type" value={type} onValueChange={v => setType(v as typeof type)} options={['text','email','password','search','tel','url'].map(id => ({id,label:id}))} />}
       {kind === 'TextArea' && <Select label="Rows" value={String(rows)} onValueChange={v => setRows(Number(v))} options={[2,3,6].map(n => ({id:String(n),label:String(n)}))} />}
       {['RadioGroup','ToggleButtonGroup'].includes(kind) && <Select label="Orientation" value={orientation} onValueChange={v => setOrientation(v as typeof orientation)} options={['horizontal','vertical'].map(id => ({id,label:id}))} />}
+      {kind === 'ToggleButtonGroup' && <Select label="Button width" value={buttonWidth} onValueChange={value => setButtonWidth(value as typeof buttonWidth)} options={[{id:'equal',label:'Equal widths'},{id:'content',label:'Fit content'}]} />}
       {kind === 'TagGroup' && <Select label="Tag tone" value={tone} onValueChange={v => setTone(v as typeof tone)} options={['neutral','primary'].map(id => ({id,label:id}))} />}
     </ControlRow>
     <ControlRow><Checkbox label="Disabled" checked={disabled} onCheckedChange={setDisabled} />
@@ -140,9 +145,9 @@ function AutocompleteAliasExample() {
   </Example>;
 }
 type OrientationKind = 'RadioGroup' | 'ToggleButtonGroup';
-function OrientationExample({kind, orientation, density}: {kind:OrientationKind; orientation:'horizontal'|'vertical'; density:Density}) {
+function OrientationExample({kind, orientation, density, buttonWidth = 'equal'}: {kind:OrientationKind; orientation:'horizontal'|'vertical'; density:Density; buttonWidth?:'equal'|'content'}) {
   const source = useExampleSource();
-  const title = `${orientation === 'horizontal' ? 'Horizontal' : 'Vertical'} · ${density}`;
+  const title = `${orientation === 'horizontal' ? 'Horizontal' : 'Vertical'} · ${density}${buttonWidth === 'content' ? ' · fit content' : ''}`;
   const label = `Course topics: ${orientation} ${density}`;
   const vertical = orientation === 'vertical';
   const comfortable = density === 'comfortable';
@@ -162,21 +167,21 @@ function OrientationExample({kind, orientation, density}: {kind:OrientationKind;
     body = `<Stack gap={3}>\n  <RadioGroup label={${literal(label)}} options={${json(radioChoices)}} orientation=${literal(orientation)} value={value} onValueChange={setValue} readOnly={${readOnly}} />\n  \n</Stack>`;
   } else {
     description = disabled ? 'Multiple selected-action state while the group is unavailable.' : vertical ? 'Multiple actions can remain selected; an individually disabled action is unavailable.' : comfortable ? 'Single selection that keeps a chosen action; initially no action is selected.' : 'Single selection can be toggled off; each option retains a stable ID.';
-    preview = <Stack gap={3}><ToggleButtonGroup label={label} options={choices} orientation={orientation} selectionMode={selectionMode} selectedIds={ids} onSelectionChange={setIds} allowEmpty={allowEmpty} disabled={disabled} density={density} /></Stack>;
+    preview = <Stack gap={3}><ToggleButtonGroup label={label} options={choices} orientation={orientation} buttonWidth={buttonWidth} selectionMode={selectionMode} selectedIds={ids} onSelectionChange={setIds} allowEmpty={allowEmpty} disabled={disabled} density={density} /></Stack>;
     state = `  const [ids, setIds] = useState<string[]>(${json(ids)});`;
-    body = `<Stack gap={3}>\n  <ToggleButtonGroup label={${literal(label)}} options={${json(choices)}} orientation=${literal(orientation)} selectionMode=${literal(selectionMode)} selectedIds={ids} onSelectionChange={setIds} allowEmpty={${allowEmpty}} disabled={${disabled}} density=${literal(density)} />\n  \n</Stack>`;
+    body = `<Stack gap={3}>\n  <ToggleButtonGroup label={${literal(label)}} options={${json(choices)}} orientation=${literal(orientation)} buttonWidth=${literal(buttonWidth)} selectionMode=${literal(selectionMode)} selectedIds={ids} onSelectionChange={setIds} allowEmpty={${allowEmpty}} disabled={${disabled}} density=${literal(density)} />\n  \n</Stack>`;
   }
-  return <Example title={title} description={description} density={density} source={source({name:kind + orientation + density, imports:[expImport(kind),primitivesImport], state, body:`<ThemeScope density=${literal(density)}>\n${body}\n</ThemeScope>`})}>{preview}</Example>;
+  return <Example title={title} description={description} density={density} source={source({name:kind + orientation + density + buttonWidth, imports:[expImport(kind),primitivesImport], state, body:`<ThemeScope density=${literal(density)}>\n${body}\n</ThemeScope>`})}>{preview}</Example>;
 }
 function OrientationMatrix({kind}: {kind:OrientationKind}) {
-  return <Stack gap={3}><Typography as="h2" variant="h5">Orientation and density comparisons</Typography><Typography tone="muted">All four configurations stay visible and independent of the prop playground.</Typography><Stack direction="row" wrap align="start" gap={4}>{(['horizontal','vertical'] as const).flatMap(orientation => (['compact','comfortable'] as const).map(density => <Stack key={`${orientation}-${density}`} style={{flex:'1 1 22rem',minWidth:0}}><OrientationExample kind={kind} orientation={orientation} density={density} /></Stack>))}</Stack></Stack>;
+  return <Stack gap={3}><Typography as="h2" variant="h5">Orientation and density comparisons</Typography><Typography tone="muted">The orientation and density comparisons stay visible and independent of the prop playground.</Typography><Stack direction="row" wrap align="start" gap={4}>{(['horizontal','vertical'] as const).flatMap(orientation => (['compact','comfortable'] as const).map(density => <Stack key={`${orientation}-${density}`} style={{flex:'1 1 22rem',minWidth:0}}><OrientationExample kind={kind} orientation={orientation} density={density} />{kind === 'ToggleButtonGroup' && <OrientationExample kind={kind} orientation={orientation} density={density} buttonWidth="content" />}</Stack>))}</Stack></Stack>;
 }
 function formPage(kind:Kind) {
   return function FormPage() {
     // Scenario components own their state at each mount: prop controls remain
     // local to the playground; density and form examples never consume it.
     const oriented = kind === 'RadioGroup' || kind === 'ToggleButtonGroup';
-    return <Stack gap={4}><FormScenario kind={kind} scenario="playground" />{oriented ? <OrientationMatrix kind={kind} /> : <><FormScenario kind={kind} scenario="compact" /><FormScenario kind={kind} scenario="comfortable" /></>}<FormScenario kind={kind} scenario="form" />{kind === 'ComboBox' && <AutocompleteAliasExample />}</Stack>;
+    return <Stack gap={4}><FormScenario kind={kind} scenario="playground" />{oriented ? <OrientationMatrix kind={kind} /> : <><FormScenario kind={kind} scenario="compact" /><FormScenario kind={kind} scenario="comfortable" /></>}<FormScenario kind={kind} scenario="form" />{kind === 'ComboBox' && <AutocompleteAliasExample />}{kind === 'TextField' && <NativeResetFormExample />}{kind === 'AsyncMultiSelect' && <AsyncSearchExample />}</Stack>;
   };
 }
 
@@ -271,7 +276,7 @@ function DateScenario({kind, scenario}: {kind:DateKind; scenario:Scenario}) {
   return <Example title={titles[scenario]} density={density} controls={controls} description={scenario === 'playground' ? 'Explore ISO values, field states and host-owned availability. The selected example theme also applies to picker portals.' : scenario === 'form' ? 'Native fields serialize local values. Hosts own persistence, timezone and availability policy.' : 'Compare segment, calendar and action target spacing in an independent scope.'} source={source({name:kind + scenario[0].toUpperCase() + scenario.slice(1), imports:[expImport(imports),primitivesImport], state, body:`<ThemeScope density=${literal(density)}>\n${content}\n</ThemeScope>`})}>{rendered}</Example>;
 }
 function datePage(kind:DateKind) {
-  return function DatePage() {return <Stack gap={4}>{(['playground','compact','comfortable','form'] as const).map(scenario => <DateScenario key={scenario} kind={kind} scenario={scenario} />)}</Stack>;};
+  return function DatePage() {return <Stack gap={4}>{(['playground','compact','comfortable','form'] as const).map(scenario => <DateScenario key={scenario} kind={kind} scenario={scenario} />)}{kind === 'DateField' && <TimezoneInstantExample />}{kind === 'DateRangeSelector' && <><LocalizedRangeExample locale="de-DE"/><LocalizedRangeExample locale="ar-EG"/></>}</Stack>;};
 }
 
 export const formsDateEntries: CatalogEntry[] = [

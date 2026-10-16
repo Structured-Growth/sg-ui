@@ -1,6 +1,6 @@
 "use client";
 import { forwardRef, type ReactNode } from "react";
-import { Button, type ButtonProps } from "../Button/Button";
+import { Button, type ButtonProps } from "../../components/Button/Button";
 import styles from "./IconButton.module.css";
 export interface IconButtonProps extends Omit<ButtonProps, "children" | "startIcon" | "endIcon" | "aria-label" | "aria-labelledby"> {
   label: string;

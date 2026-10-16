@@ -9,7 +9,7 @@ import { AppPaginationFooter } from "../CardPaginationFooter";
 import { useOwnedGridLayoutController } from "./ownedGridLayoutController";
 import { useOwnedGridPersistence, type OwnedGridPersistenceConfig } from "./ownedGridPersistence";
 import { OwnedGridStatus } from "./ownedGridParts";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { useTranslation } from "../../i18n";
 import { createOwnedGridResetState, type AppDataGridViewState } from "./ownedGridReset";
 import { transitionOwnedGridState, type OwnedGridTransition } from "./ownedGridState";

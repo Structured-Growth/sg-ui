@@ -1,3 +1,4 @@
 @layer sgui.components {
   .root { display: flex; align-items: flex-start; gap: var(--sgui-space2); }
+  .calendar { inline-size: min(20rem, calc(100vw - 2rem - 2 * var(--sgui-space4) - 2px)); }
 }

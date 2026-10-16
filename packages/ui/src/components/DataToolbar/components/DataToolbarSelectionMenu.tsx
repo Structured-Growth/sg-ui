@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "../../../experimental/Button/Button";
+import { Button } from "../../../components/Button/Button";
 import { Checkbox } from "../../../experimental/Checkbox/Checkbox";
 import { Menu } from "../../../experimental/Menu/Menu";
 import { ArrowDropDownIcon } from "../../../experimental/icons/ArrowDropDownIcon";

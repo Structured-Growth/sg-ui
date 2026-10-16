@@ -3,7 +3,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { DataGrid } from "./DataGrid";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { defaultGridState, type GridColumn } from "./types";
 import { compareGridValues, filterGridRows } from "./row-processing";
 afterEach(cleanup);

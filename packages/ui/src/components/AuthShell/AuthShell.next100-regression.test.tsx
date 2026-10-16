@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AuthShell, type AuthShellProps } from "./index";
-import { AppButton } from "../AppButton";
+import { Button } from "../Button";
 import { TextField } from "../../experimental/TextField/TextField";
 import { Provider } from "../../theme";
 
@@ -21,7 +21,7 @@ describe("AuthShell next100 regression", () => {
       footerContent: <span>Second school support</span>,
       children: <form onSubmit={event => { event.preventDefault(); secondSubmit(); }}>
         <TextField label="Second email" name="email" />
-        <AppButton type="submit">Continue second</AppButton>
+        <Button type="submit">Continue second</Button>
       </form>,
     };
     function Host({ showFirst }: { showFirst: boolean }) {
@@ -29,7 +29,7 @@ describe("AuthShell next100 regression", () => {
         {showFirst && <AuthShell key="first" title="First school" footerContent={<span>First school support</span>}>
           <form onSubmit={event => { event.preventDefault(); firstSubmit(); }}>
             <TextField label="First email" name="email" />
-            <AppButton type="submit">Continue first</AppButton>
+            <Button type="submit">Continue first</Button>
           </form>
         </AuthShell>}
         <AuthShell key="second" ref={secondRef} {...secondProps} />

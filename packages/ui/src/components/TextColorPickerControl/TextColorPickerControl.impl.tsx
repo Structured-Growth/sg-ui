@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Popover } from "../../experimental/Popover/Popover";
 import { TextField } from "../../experimental/TextField/TextField";
 import { FormatColorTextIcon } from "../../experimental/icons/FormatColorTextIcon";

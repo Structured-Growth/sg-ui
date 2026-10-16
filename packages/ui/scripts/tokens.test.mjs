@@ -249,7 +249,7 @@ const legacyDeclarations = [
   },
   {
     "--sgui-control-height": "2rem",
-    "--sgui-control-padding": "0.75rem"
+    "--sgui-control-padding": "0.5rem"
   },
   {
     "--sgui-control-height": "2.75rem",

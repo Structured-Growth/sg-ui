@@ -10,14 +10,21 @@
   .presets { padding-block-end: var(--sgui-space3); }
   .fields { display: flex; flex-wrap: wrap; gap: var(--sgui-space3); padding-block-end: var(--sgui-space3); }
   .months { display: flex; gap: var(--sgui-space3); flex-wrap: wrap; }
-  .month { flex: 1; text-align: center; }
-  .grid { border-spacing: var(--sgui-space1); inline-size: 100%; }
-  .weekday { font-weight: var(--sgui-action-weight); color: var(--sgui-date-range-selector-weekday-text); }
-  .cell { text-align: center; border-radius: var(--sgui-field-control-radius); min-inline-size: var(--sgui-control-height); block-size: var(--sgui-control-height); cursor: pointer; }
+  .month { container-type: inline-size; flex: 1; box-sizing: border-box; inline-size: 100%; max-inline-size: 100%; min-inline-size: 0; text-align: center; }
+  .gridViewport { box-sizing: border-box; inline-size: 100%; max-inline-size: 100%; min-inline-size: 0; overflow-x: auto; }
+  .grid { table-layout: fixed; border-spacing: var(--sgui-space1); inline-size: 100%; min-inline-size: calc(7 * max(var(--sgui-control-minimum-target-size), calc(2 * var(--sgui-caption-size))) + 8 * var(--sgui-space1)); }
+  .weekday { font-size: var(--sgui-caption-size); line-height: var(--sgui-caption-line-height); white-space: nowrap; font-weight: var(--sgui-action-weight); color: var(--sgui-date-range-selector-weekday-text); }
+  .weekday::after { content: attr(data-narrow-label); display: none; }
+  @container (max-width: 22rem) {
+    .grid { border-spacing: 0 var(--sgui-space1); min-inline-size: calc(7 * max(var(--sgui-control-minimum-target-size), calc(2 * var(--sgui-caption-size)))); }
+    .weekdayLabel { display: none; }
+    .weekday::after { display: inline; }
+  }
+  .cell { text-align: center; border-radius: var(--sgui-field-control-radius); min-inline-size: max(var(--sgui-control-minimum-target-size), calc(2 * var(--sgui-caption-size))); block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); cursor: pointer; }
   .cell[data-outside-month] { visibility: hidden; }
   .cell[data-selected] { color: var(--sgui-date-range-selector-selected-text); background: var(--sgui-date-range-selector-selected-surface); }
   .cell[data-hovered]:not([data-selected]) { background: var(--sgui-date-range-selector-hover-surface); }
-  .cell[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-date-range-selector-focus-color); outline-offset: var(--sgui-control-focus-offset); }
+  .cell[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-date-range-selector-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .cell[data-disabled], .cell[data-unavailable] { color: var(--sgui-date-range-selector-unavailable-text); text-decoration: line-through; cursor: default; }
   .previewContext { margin-block: 0 var(--sgui-space2); color: var(--sgui-date-range-selector-preview-text); }
   .summary { margin-block: var(--sgui-space2); }

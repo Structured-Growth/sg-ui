@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, useEffect, useLayoutEffect, useRef, type CSSProperties, type ReactNode } from "react";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Select } from "../../experimental/Select/Select";
 import { AddIcon } from "../../experimental/icons/AddIcon";
 import { RemoveIcon } from "../../experimental/icons/RemoveIcon";

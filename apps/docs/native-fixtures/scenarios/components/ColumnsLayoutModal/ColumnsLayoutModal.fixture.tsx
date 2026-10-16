@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
 import { ColumnsLayoutModal, type ColumnsLayoutPreset } from "@structured-growth/sg-ui/components";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { Provider } from "@structured-growth/sg-ui/theme";
 const meta = { title: "Editors/ColumnsLayoutModal", component: ColumnsLayoutModal, tags: ["autodocs"] } satisfies Meta<typeof ColumnsLayoutModal>;
 export default meta;
@@ -11,7 +11,7 @@ export const Default: Story = {
   render: args => {
     const [open, setOpen] = useState(args.open);
     const [preset, setPreset] = useState<ColumnsLayoutPreset>(args.defaultPreset ?? "twoEqual");
-    return <><AppButton onPress={() => setOpen(true)}>Choose columns</AppButton><p role="status">Host layout: {preset}</p>
+    return <><Button onPress={() => setOpen(true)}>Choose columns</Button><p role="status">Host layout: {preset}</p>
       <ColumnsLayoutModal {...args} open={open} defaultPreset={preset} onClose={() => setOpen(false)} onSubmit={value => { setPreset(value); setOpen(false); }} /></>;
   },
 };

@@ -1,4 +1,4 @@
-export { AppButton, type AppButtonProps } from "./AppButton";
+export { Button, type ButtonProps } from "./Button";
 export { AppInlineProgress, type AppInlineProgressProps } from "./AppInlineProgress";
 export { AppOperationSteps, type AppOperationStep, type AppOperationStepStatus, type AppOperationStepsProps } from "./AppOperationSteps";
 export { AuthShell, type AuthShellProps } from "./AuthShell";

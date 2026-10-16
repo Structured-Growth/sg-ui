@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type DragEvent } from "react";
-import { AppButton } from "../AppButton";
+import { Button } from "../Button";
 import { AppModal } from "../AppModal";
 import { TextField } from "../../experimental/TextField/TextField";
 import { Typography } from "../../experimental/Typography/Typography";
@@ -93,9 +93,9 @@ export function ImageUploadModal({ open, uploading = false, errorMessage = null,
       <div className={styles.dropZone} onDrop={onDrop} onDragOver={event => event.preventDefault()}>
         <UploadFileIcon size="2em" className={styles.icon} />
         <Typography variant="body2">{t("common.ui.imageDropHint", { defaultMessage: "Drag and drop an image here" })}</Typography>
-        <AppButton onPress={() => inputRef.current?.click()} density="compact" variant="outlined" disabled={busy}>
+        <Button onPress={() => inputRef.current?.click()} density="compact" variant="outlined" disabled={busy}>
           {t("common.ui.searchFiles", { defaultMessage: "Search Files" })}
-        </AppButton>
+        </Button>
         <Typography tone="muted" variant="caption">{t("common.ui.imageFormats", { defaultMessage: "JPG, PNG, WEBP, AVIF, or GIF" })}</Typography>
         <input accept="image/*" hidden aria-label={t("common.ui.chooseImage", { defaultMessage: "Choose image" })}
           disabled={busy} onChange={event => select(event.target.files?.[0] ?? null)} ref={inputRef} type="file" />

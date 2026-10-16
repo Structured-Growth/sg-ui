@@ -1,12 +1,14 @@
 "use client";
+import { useLocale } from "react-aria-components/I18nProvider";
 import { useContext, useEffect, useId, useRef, useState } from "react";
 import { parseDate, toCalendarDate, toCalendar, GregorianCalendar } from "@internationalized/date";
 import { RangeCalendar, CalendarHeading, CalendarGrid, CalendarGridHeader, CalendarHeaderCell,
   CalendarGridBody, CalendarCell, RangeCalendarStateContext } from "react-aria-components/RangeCalendar";
 import { ButtonContext } from "react-aria-components/Button";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { DateField } from "../DateField/DateField";
 import { useCalendarFormReset } from "./useCalendarFormReset";
+import { useNarrowWeekdays } from "./useNarrowWeekdays";
 import { useTranslation } from "../../i18n";
 import { isDateOnly, isDateRangeAllowed, type DateOnly, type DateRange, type DateAvailability, type DateRangePreset } from "./date-contract";
 import styles from "./DateRangeSelector.module.css";
@@ -34,6 +36,8 @@ export interface DateRangeSelectorProps {
 export function DateRangeSelector({ label, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets = [], months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
+  const { locale } = useLocale();
+  const narrowWeekdays = useNarrowWeekdays(locale);
   const descriptionId = useId();
   const previewId = `${descriptionId}-preview`;
   const previewContextId = `${descriptionId}-preview-context`;
@@ -94,15 +98,15 @@ export function DateRangeSelector({ label, value, defaultValue = null, onValueCh
       <div className={styles.months}>
         {Array.from({ length: months }, (_, index) => <div key={index} className={styles.month}>
           <CalendarHeading offset={{ months: index }} className={styles.heading} />
-          <CalendarGrid offset={{ months: index }} weekdayStyle="short" className={styles.grid}>
-          <CalendarGridHeader>{day => <CalendarHeaderCell className={styles.weekday}>{day}</CalendarHeaderCell>}</CalendarGridHeader>
+          <div className={styles.gridViewport}><CalendarGrid offset={{ months: index }} weekdayStyle="short" className={styles.grid}>
+          <CalendarGridHeader>{day => <CalendarHeaderCell className={styles.weekday} data-narrow-label={narrowWeekdays.get(day) ?? day}><span className={styles.weekdayLabel}>{day}</span></CalendarHeaderCell>}</CalendarGridHeader>
           <CalendarGridBody>{date => {
             const dateOnly = toCalendar(date, new GregorianCalendar()).toString();
             const reason = unavailable.find(day => day.date === dateOnly)?.reason;
             return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${dateOnly}-${index}`}
               previewIds={state.anchorDate && state.isFocused && state.focusedDate.compare(date) === 0 ? [previewId, previewContextId] : []} />;
           }}</CalendarGridBody>
-        </CalendarGrid></div>)}
+        </CalendarGrid></div></div>)}
       </div>
     {focusedReason && <p className={styles.summary} role="status" data-sgui-part="date-availability">{focusedDate}: {focusedReason}</p>}
     {unavailable.length > 0 && <details className={styles.availability}>

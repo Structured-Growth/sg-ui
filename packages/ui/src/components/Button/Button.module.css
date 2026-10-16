@@ -12,7 +12,7 @@
     border: 1px solid transparent;
     border-radius: var(--sgui-button-radius);
     font-family: var(--sgui-font-family);
-    font-size: var(--sgui-label-size);
+    font-size: var(--sgui-control-text-size);
     font-weight: var(--sgui-action-weight);
     line-height: var(--sgui-label-line-height);
     background: var(--sgui-button-primary-background);

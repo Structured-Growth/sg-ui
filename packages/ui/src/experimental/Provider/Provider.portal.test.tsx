@@ -7,7 +7,7 @@ import { SGTranslationProvider } from "../../i18n";
 import { ThemeScope } from "../../foundation/ThemeScope";
 import { Provider } from "./Provider";
 import { Menu } from "../Menu/Menu";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 afterEach(cleanup);
 
 it("keeps independently mounted scopes isolated across portal reopen and removal", async () => {

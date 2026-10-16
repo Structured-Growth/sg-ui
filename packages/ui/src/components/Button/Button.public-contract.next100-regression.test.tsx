@@ -4,21 +4,21 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createRef } from "react";
 import { Provider } from "../../experimental/Provider/Provider";
-import { AppButton, type AppButtonProps } from "./index";
+import { Button, type ButtonProps } from "./index";
 
 afterEach(cleanup);
 
 it("preserves the public native ref, class and style through host updates and unmount", () => {
   const ref = createRef<HTMLButtonElement>();
-  const props: AppButtonProps = { className: "host-action", style: { marginInlineStart: 12 }, name: "action", value: "save" };
-  const { rerender, unmount } = render(<Provider><AppButton {...props} ref={ref}>Save</AppButton></Provider>);
+  const props: ButtonProps = { className: "host-action", style: { marginInlineStart: 12 }, name: "action", value: "save" };
+  const { rerender, unmount } = render(<Provider><Button {...props} ref={ref}>Save</Button></Provider>);
   const button = screen.getByRole("button", { name: "Save" });
   expect(ref.current).toBe(button);
   expect(button.classList.contains("host-action")).toBe(true);
   expect(button.style.marginInlineStart).toBe("12px");
   expect(button.getAttribute("name")).toBe("action");
   expect(button.getAttribute("value")).toBe("save");
-  rerender(<Provider><AppButton ref={ref} className="host-updated" style={{ marginInlineStart: 24 }}>Save</AppButton></Provider>);
+  rerender(<Provider><Button ref={ref} className="host-updated" style={{ marginInlineStart: 24 }}>Save</Button></Provider>);
   expect(ref.current).toBe(button);
   expect(button.classList.contains("host-action")).toBe(false);
   expect(button.classList.contains("host-updated")).toBe(true);
@@ -32,9 +32,9 @@ it("isolates sibling activation and uses the latest host callback after pending 
   const latestPress = vi.fn();
   const siblingPress = vi.fn();
   const user = userEvent.setup();
-  const composition = (loading: boolean, onPress: AppButtonProps["onPress"]) => <Provider>
-    <AppButton loading={loading} onPress={onPress}>Save</AppButton>
-    <AppButton onPress={siblingPress}>Preview</AppButton>
+  const composition = (loading: boolean, onPress: ButtonProps["onPress"]) => <Provider>
+    <Button loading={loading} onPress={onPress}>Save</Button>
+    <Button onPress={siblingPress}>Preview</Button>
   </Provider>;
   const { rerender } = render(composition(false, firstPress));
   const save = screen.getByRole("button", { name: "Save" });

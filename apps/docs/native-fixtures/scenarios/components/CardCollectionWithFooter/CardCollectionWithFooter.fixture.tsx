@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "../../../types";
 import { useState } from "react";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { TextField } from "@structured-growth/sg-ui/experimental";
 import { Card } from "@structured-growth/sg-ui/experimental";
 import { Typography } from "@structured-growth/sg-ui/experimental";
@@ -39,11 +39,11 @@ export const NativeCollection: Story = {
   const [reversed, setReversed] = useState(false);
   return <div style={{ width: "100%", minWidth: 0 }}>
     <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-      <AppButton onPress={() => setAccept(value => !value)}>{accept ? "Reject requests" : "Accept requests"}</AppButton>
-      <AppButton onPress={() => setReversed(value => !value)}>Reverse cards</AppButton>
-      <AppButton onPress={() => setState("loading")}>Show loading</AppButton>
-      <AppButton onPress={() => setState("empty")}>Show empty</AppButton>
-      <AppButton onPress={() => setState("ready")}>Show ready</AppButton>
+      <Button onPress={() => setAccept(value => !value)}>{accept ? "Reject requests" : "Accept requests"}</Button>
+      <Button onPress={() => setReversed(value => !value)}>Reverse cards</Button>
+      <Button onPress={() => setState("loading")}>Show loading</Button>
+      <Button onPress={() => setState("empty")}>Show empty</Button>
+      <Button onPress={() => setState("ready")}>Show ready</Button>
     </div>
     <output aria-label="Pagination requests">{requests.join(" | ") || "None"}</output>
     <output aria-label="Host pagination">{`page:${page},size:${pageSize}`}</output>

@@ -3,7 +3,7 @@ import { useMemo, useRef, useState } from "react";
 import { useReactTable, getCoreRowModel, getSortedRowModel, getPaginationRowModel, type ColumnDef } from "@tanstack/react-table";
 import { Table, TableHeader, Column, TableBody, Row, Cell, ResizableTableContainer, ColumnResizer } from "react-aria-components/Table";
 import { useDragAndDrop } from "react-aria-components/useDragAndDrop";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Checkbox } from "../Checkbox/Checkbox";
 import { Select } from "../Select/Select";
 import { TextField } from "../TextField/TextField";

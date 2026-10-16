@@ -3,15 +3,15 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createRef } from "react";
-import { AppButton } from "./AppButton";
+import { Button } from "./Button";
 
 afterEach(cleanup);
-describe("AppButton owned action", () => {
+describe("Button owned action", () => {
   it("activates once per pointer, Enter and Space interaction and forwards its native ref", async () => {
     const onPress = vi.fn();
     const ref = createRef<HTMLButtonElement>();
     const user = userEvent.setup();
-    render(<AppButton ref={ref} onPress={onPress}>Save</AppButton>);
+    render(<Button ref={ref} onPress={onPress}>Save</Button>);
     const button = screen.getByRole("button", { name: "Save" });
     expect(ref.current).toBe(button);
     await user.click(button);
@@ -23,9 +23,9 @@ describe("AppButton owned action", () => {
   it("blocks activation while disabled or pending and keeps a pending control focusable", async () => {
     const onPress = vi.fn();
     const user = userEvent.setup();
-    const { rerender } = render(<AppButton disabled onPress={onPress}>Save</AppButton>);
+    const { rerender } = render(<Button disabled onPress={onPress}>Save</Button>);
     await user.click(screen.getByRole("button"));
-    rerender(<AppButton loading onPress={onPress}>Save</AppButton>);
+    rerender(<Button loading onPress={onPress}>Save</Button>);
     const button = screen.getByRole("button");
     await user.tab();
     expect(document.activeElement).toBe(button);
@@ -37,7 +37,7 @@ describe("AppButton owned action", () => {
   it("participates in a native form only when given submit type", async () => {
     const submit = vi.fn(event => event.preventDefault());
     const user = userEvent.setup();
-    render(<form onSubmit={submit}><AppButton>Cancel</AppButton><AppButton type="submit">Save</AppButton></form>);
+    render(<form onSubmit={submit}><Button>Cancel</Button><Button type="submit">Save</Button></form>);
     await user.click(screen.getByText("Cancel"));
     expect(submit).not.toHaveBeenCalled();
     await user.click(screen.getByText("Save"));
@@ -47,7 +47,7 @@ describe("AppButton owned action", () => {
 
 import { renderToString } from "react-dom/server";
 it("renders owned variants, native attributes and decorative slots on the server", () => {
-  const html = renderToString(<AppButton variant="outlined" tone="neutral" density="compact" name="action" value="save" startIcon={<span>icon</span>}>Save</AppButton>);
+  const html = renderToString(<Button variant="outlined" tone="neutral" density="compact" name="action" value="save" startIcon={<span>icon</span>}>Save</Button>);
   expect(html).toContain('data-variant="outlined"');
   expect(html).toContain('data-tone="neutral"');
   expect(html).toContain('data-sgui-density="compact"');

@@ -4,7 +4,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { List, ListItem, ListItemButton, ListItemText, ListItemIcon, type ListItemButtonProps } from "./List";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 afterEach(cleanup);
 it("keeps list semantics and gives list actions one keyboard activation with selected state", async () => {
   const user = userEvent.setup(); const onPress = vi.fn(); const ref = createRef<HTMLButtonElement>();

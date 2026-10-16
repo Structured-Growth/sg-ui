@@ -1,4 +1,4 @@
-export { Button, type ButtonProps } from "./Button/Button";
+export { Button, type ButtonProps } from "../components/Button/Button";
 export { TextField, type TextFieldProps } from "./TextField/TextField";
 export { ThemeScope, type ThemeScopeProps, type ScopeStyle, type Density, type InteractionMode, type ColorTheme } from "../foundation/ThemeScope";
 export { Provider, type ProviderProps } from "./Provider/Provider";

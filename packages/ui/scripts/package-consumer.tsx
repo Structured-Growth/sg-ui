@@ -1,12 +1,12 @@
 // This fixture typechecks only against built package entry points.
-import { AppButton, AppModal, AppDataGrid, PageRichTextEditorSection } from '@structured-growth/sg-ui';
+import { Button, AppModal, AppDataGrid, PageRichTextEditorSection } from '@structured-growth/sg-ui';
 import { Typography } from '@structured-growth/sg-ui/primitives';
 import { AppThemeProvider, ThemeScope as PublicThemeScope } from '@structured-growth/sg-ui/theme';
 // @ts-expect-error Theme objects are replaced by scoped settings and CSS tokens.
 import { darkTheme } from '@structured-growth/sg-ui/theme';
 import { SGNavigationProvider } from '@structured-growth/sg-ui/adapters';
 import type { AppDataGridColumn } from '@structured-growth/sg-ui/components';
-import { Button, TextField, ThemeScope, Provider, Dialog, Tabs, ComboBox, Popover, AsyncMultiSelect, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
+import { TextField, ThemeScope, Provider, Dialog, Tabs, ComboBox, Popover, AsyncMultiSelect, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
 import { tokens } from '@structured-growth/sg-ui/tokens';
 import { DataGrid, DateField, TimeField, Checkbox } from '@structured-growth/sg-ui/experimental';
 import { AddIcon } from '@structured-growth/sg-ui/experimental/icons/AddIcon';
@@ -64,7 +64,7 @@ export const unnamedIconAction = <IconButton><AddIcon /></IconButton>;
 export const unnamedMultilineField = <TextArea />;
 const columns: AppDataGridColumn<{ id: string; name: string }>[] = [{ field: 'name', headerName: 'Name', cellType: 'text' }];
 export const example = <SGNavigationProvider value={{ pathname: '/', navigate: () => {} }}>
-  <AppButton>Save</AppButton>
+  <Button>Save</Button>
   <Typography variant="bodyAlt2">Custom typography</Typography>
   <AppModal open={false} title="Example" onClose={() => {}}>Content</AppModal>
   <AppDataGrid label="Courses" getRowLabel={row => row.name} rows={[{ id: 'one', name: 'Example' }]} columns={columns} />
@@ -98,7 +98,7 @@ export const dialogProof = <Provider theme="dark"><Dialog open={false} title="Co
   <Popover title="Help" trigger={<Button>Help</Button>}><TextField label="Note" /></Popover>
 </>}]} /></Dialog></Provider>;
 
-import { AppButton as GranularAppButton } from '@structured-growth/sg-ui/components/AppButton';
+import { Button as GranularButton } from '@structured-growth/sg-ui/components/Button';
 import { AppPageTabs } from '@structured-growth/sg-ui/components/AppPageTabs';
 import { AppPageHeader, type AppPageHeaderMenuItem } from '@structured-growth/sg-ui/components/AppPageHeader';
 import { ExperiencePageNavigator } from '@structured-growth/sg-ui/components/ExperiencePageNavigator';
@@ -106,17 +106,17 @@ import { createRef } from 'react';
 const catalogRef = createRef<HTMLButtonElement>();
 const catalogMenu: AppPageHeaderMenuItem = { label: 'Edit', onClick: () => {} };
 export const migratedPages = <Provider>
-  <GranularAppButton ref={catalogRef} variant="filled" tone="neutral" density="compact" onPress={() => {}}>Save</GranularAppButton>
+  <GranularButton ref={catalogRef} variant="filled" tone="neutral" density="compact" onPress={() => {}}>Save</GranularButton>
   <AppPageHeader title="Course" hierarchy="primary" moreMenuItems={[catalogMenu]} />
   <AppPageTabs value="details" onChange={() => {}} items={[{id:'details',label:'Details',content:'Details'}]} />
   <ExperiencePageNavigator pages={[{key:'one',title:'Introduction'}]} activePageKey="one" onSelectPage={() => {}} onAddPage={() => {}} onRemovePage={() => {}} onRenamePage={() => {}} onReorderPages={() => {}} />
 </Provider>;
 // @ts-expect-error Catalog action no longer accepts upstream styling objects.
-export const retiredCatalogStyle = <GranularAppButton sx={{ color: 'red' }} />;
+export const retiredCatalogStyle = <GranularButton sx={{ color: 'red' }} />;
 // @ts-expect-error Catalog action uses the event-free owned activation callback.
-export const retiredCatalogClick = <GranularAppButton onClick={() => {}} />;
+export const retiredCatalogClick = <GranularButton onClick={() => {}} />;
 // @ts-expect-error Routed actions use Link, not a polymorphic button.
-export const retiredCatalogLink = <GranularAppButton href="/courses" />;
+export const retiredCatalogLink = <GranularButton href="/courses" />;
 
 import { AppModal as GranularAppModal, type AppModalCloseReason } from '@structured-growth/sg-ui/components/AppModal';
 import { AuthShell } from '@structured-growth/sg-ui/components/AuthShell';

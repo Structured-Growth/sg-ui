@@ -49,7 +49,11 @@ function defaultsFor(symbol) {
 export function generateAPI(catalog,{check=false}={}) {
  const paths=entries.map(entry=>`${dist}/${entry}.d.ts`);
  if(paths.some(path=>!existsSync(path)))throw Error('Build the public UI package before generating component documentation.');
- const program=ts.createProgram(paths,options),checker=program.getTypeChecker(),exports=new Map();
+ // TypeScript's implicit type discovery and name display must not depend on the
+ // shell's working directory (root scripts and docs workspace scripts both call this).
+ const host=ts.createCompilerHost(options);
+ host.getCurrentDirectory=()=>resolve(root,'apps/docs');
+ const program=ts.createProgram(paths,options,host),checker=program.getTypeChecker(),exports=new Map();
  for(let i=0;i<paths.length;i++) {
   const module=checker.getSymbolAtLocation(program.getSourceFile(paths[i]));
   for(const raw of checker.getExportsOfModule(module))if(!exports.has(raw.name))exports.set(raw.name,{symbol:raw.flags&ts.SymbolFlags.Alias?checker.getAliasedSymbol(raw):raw,from:i===0?'@structured-growth/sg-ui':`@structured-growth/sg-ui/${entries[i].replace('/index','')}`});

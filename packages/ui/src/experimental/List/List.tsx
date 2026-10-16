@@ -1,6 +1,6 @@
 "use client";
 import { forwardRef, type HTMLAttributes, type ReactNode } from "react";
-import { Button, type ButtonProps } from "../Button/Button";
+import { Button, type ButtonProps } from "../../components/Button/Button";
 import { Typography } from "../Typography/Typography";
 import styles from "./List.module.css";
 

@@ -57,11 +57,11 @@ interaction-foundation peers are needed in the host.
 import { createRoot } from "react-dom/client";
 import "@structured-growth/sg-ui/styles.css";
 import { Provider } from "@structured-growth/sg-ui/theme";
-import { AppButton } from "@structured-growth/sg-ui/components/AppButton";
+import { Button } from "@structured-growth/sg-ui/components/Button";
 
 function App() {
   return <Provider theme="system" density="comfortable">
-    <AppButton onPress={() => console.log("Save requested")}>Save</AppButton>
+    <Button onPress={() => console.log("Save requested")}>Save</Button>
   </Provider>;
 }
 
@@ -117,10 +117,10 @@ export function UIProviders({ children }: { children: ReactNode }) {
 ```tsx
 // app/save-action.tsx in the consuming application
 "use client";
-import { AppButton } from "@structured-growth/sg-ui/components/AppButton";
+import { Button } from "@structured-growth/sg-ui/components/Button";
 
 export function SaveAction({ onSave }: { onSave: () => void }) {
-  return <AppButton onPress={onSave}>Save</AppButton>;
+  return <Button onPress={onSave}>Save</Button>;
 }
 ```
 

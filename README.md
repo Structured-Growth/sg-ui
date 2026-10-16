@@ -43,11 +43,11 @@ Load the stylesheet once at the application's CSS entry and provide an owned sco
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";
-import { AppButton, Provider } from "@structured-growth/sg-ui";
+import { Button, Provider } from "@structured-growth/sg-ui";
 
 export function Example() {
   return <Provider theme="system">
-    <AppButton onPress={() => console.log("Save requested")}>Save</AppButton>
+    <Button onPress={() => console.log("Save requested")}>Save</Button>
   </Provider>;
 }
 ```
@@ -56,11 +56,11 @@ The equivalent granular imports are:
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";
-import { AppButton } from "@structured-growth/sg-ui/components/AppButton";
+import { Button } from "@structured-growth/sg-ui/components/Button";
 import { Provider } from "@structured-growth/sg-ui/theme";
 
 export function Example() {
-  return <Provider><AppButton variant="outlined" tone="neutral">Save</AppButton></Provider>;
+  return <Provider><Button variant="outlined" tone="neutral">Save</Button></Provider>;
 }
 ```
 
@@ -176,3 +176,12 @@ The Next.js docs site owns component playgrounds and copyable examples. Dedicate
 static native fixtures preserve isolated browser scenarios at `/fixtures/?id=...`.
 Storybook dependencies, configuration and story files have been removed.
 See [docs architecture and transition](docs/developer/docs-website.md).
+
+### Live library development
+
+Run `pnpm dev` for the documentation app and `pnpm build:watch` in a second
+terminal to rebuild public package exports, compiled styles and generated docs
+metadata after library changes. The watcher scans build inputs once per second,
+serializes builds, queues edits received during a build, and waits while native
+browser validation owns the build lease. Fix compile errors and save again to
+retry. Regenerate tokens with `pnpm tokens:generate` after changing token source.

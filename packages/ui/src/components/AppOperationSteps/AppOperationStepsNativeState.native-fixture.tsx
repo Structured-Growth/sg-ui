@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AppButton } from "../AppButton/AppButton";
+import { Button } from "../Button/Button";
 import { AppInlineProgress } from "../AppInlineProgress/AppInlineProgress";
 import { Stack } from "../../experimental/Stack/Stack";
 import { Status } from "../../experimental/Status/Status";
@@ -28,14 +28,14 @@ export function AppOperationStepsNativeStateFixture() {
     <Status announcement="polite" tone={status === "error" ? "danger" : "neutral"}>{message}</Status>
     <Typography as="p" variant="body2" data-testid="host-callbacks">Host requests: {calls}</Typography>
     <Stack direction="row" wrap gap={2}>
-      <AppButton onPress={() => request("in_progress")}>Start operation</AppButton>
-      <AppButton onPress={() => { setCalls(count => count + 1); setValue(current => Math.min(100, current + 25)); }}>Advance progress</AppButton>
-      <AppButton onPress={() => request("completed")}>Complete operation</AppButton>
-      <AppButton onPress={() => request("error")}>Fail operation</AppButton>
-      <AppButton onPress={() => request("pending")}>Reset operation</AppButton>
-      <AppButton onPress={() => { setCalls(count => count + 1); setShape("empty"); }}>Show empty</AppButton>
-      <AppButton onPress={() => { setCalls(count => count + 1); setShape("single"); }}>Show single</AppButton>
-      <AppButton onPress={() => { setCalls(count => count + 1); setShape("multiple"); }}>Show multiple</AppButton>
+      <Button onPress={() => request("in_progress")}>Start operation</Button>
+      <Button onPress={() => { setCalls(count => count + 1); setValue(current => Math.min(100, current + 25)); }}>Advance progress</Button>
+      <Button onPress={() => request("completed")}>Complete operation</Button>
+      <Button onPress={() => request("error")}>Fail operation</Button>
+      <Button onPress={() => request("pending")}>Reset operation</Button>
+      <Button onPress={() => { setCalls(count => count + 1); setShape("empty"); }}>Show empty</Button>
+      <Button onPress={() => { setCalls(count => count + 1); setShape("single"); }}>Show single</Button>
+      <Button onPress={() => { setCalls(count => count + 1); setShape("multiple"); }}>Show multiple</Button>
     </Stack>
   </Stack>;
 }

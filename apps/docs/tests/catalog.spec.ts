@@ -20,7 +20,7 @@ test('all public component catalog routes render documented examples and compila
   await expect(tools.getByRole('button')).toHaveCount(2);
   await expect(tools.locator('[aria-expanded="true"]')).toHaveCount(0);
   await openSiteTool(page,'Page documentation');
-  const documentation=page.getByRole('region',{name:slug==='owned-button'?'Button documentation':'Component documentation',exact:true});
+  const documentation=page.getByRole('region',{name:slug==='button'?'Button documentation':'Component documentation',exact:true});
   expect(await documentation.locator('h3').allTextContents()).toEqual(['Setup','Props','Behavior and accessibility','Host responsibilities']);
   expect(await documentation.getByRole('table').count()).toBeGreaterThan(0);
   const setup=await documentation.locator('code[aria-label^="Setup code:"], code[aria-label="Button setup code"]').textContent();
@@ -33,7 +33,7 @@ test('all public component catalog routes render documented examples and compila
   const contains=page.getByRole('region',{name:'Contains',exact:true});
   const usedIn=page.getByRole('region',{name:'Used In',exact:true});
   await expect(contains).toBeVisible();await expect(usedIn).toBeVisible();
-  if(slug==='owned-button')await expect(contains.getByRole('link')).toHaveCount(1);
+  if(slug==='button')await expect(contains.getByRole('link')).toHaveCount(1);
   else {
     const groups=(composition as Record<string,{name:string;children:{name:string;slug:string}[]}[]>)[slug];
     const shared=groups.every(group=>JSON.stringify(group.children)===JSON.stringify(groups[0]?.children));

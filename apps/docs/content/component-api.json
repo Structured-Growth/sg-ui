@@ -1,207 +1,4 @@
 {
-  "button": [
-    {
-      "names": [
-        "AppButton"
-      ],
-      "from": "@structured-growth/sg-ui",
-      "kind": "component",
-      "props": [
-        {
-          "name": "value",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "variant",
-          "type": "\"filled\" | \"outlined\" | \"text\" | undefined",
-          "required": false,
-          "default": "\"filled\"",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "tone",
-          "type": "\"primary\" | \"neutral\" | undefined",
-          "required": false,
-          "default": "\"primary\"",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "density",
-          "type": "Density | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Local density; otherwise use the surrounding scope."
-        },
-        {
-          "name": "loading",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "false",
-          "description": "Host-controlled pending presentation."
-        },
-        {
-          "name": "startIcon",
-          "type": "ReactNode",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "endIcon",
-          "type": "ReactNode",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "onPress",
-          "type": "(() => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "One activation callback for pointer, keyboard and touch. No upstream event object."
-        },
-        {
-          "name": "id",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "children",
-          "type": "ReactNode",
-          "required": false,
-          "default": "—",
-          "description": "Content supplied by the application."
-        },
-        {
-          "name": "name",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "type",
-          "type": "\"submit\" | \"reset\" | \"button\" | undefined",
-          "required": false,
-          "default": "\"button\"",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "form",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "formAction",
-          "type": "string | ((formData: FormData) => void | Promise<void>) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "formEncType",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "formMethod",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "formNoValidate",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "formTarget",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "disabled",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Controls availability of the interaction."
-        },
-        {
-          "name": "autoFocus",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "className",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Native CSS class hook."
-        },
-        {
-          "name": "style",
-          "type": "CSSProperties | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Native styles and applicable owned CSS variables."
-        },
-        {
-          "name": "title",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Title supplied by the application."
-        },
-        {
-          "name": "tabIndex",
-          "type": "number | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "slot",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "ref",
-          "type": "Ref<HTMLButtonElement> | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Forwarded native element reference."
-        },
-        {
-          "name": "aria-*",
-          "type": "Accessibility attributes (React.AriaAttributes)",
-          "required": false,
-          "default": "—",
-          "description": "Standard accessible names, descriptions, state and relationships supported by this component."
-        }
-      ],
-      "native": [
-        "key"
-      ]
-    }
-  ],
   "dialog": [
     {
       "names": [
@@ -580,7 +377,7 @@
       "native": []
     }
   ],
-  "owned-button": [
+  "button": [
     {
       "names": [
         "Button"
@@ -1047,6 +844,20 @@
           "required": false,
           "default": "\"automatic\"",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "overflow",
+          "type": "\"scroll\" | \"menu\" | undefined",
+          "required": false,
+          "default": "\"scroll\"",
+          "description": "Horizontal strips can replace scrolling with an overflow menu. Vertical strips keep scrolling."
+        },
+        {
+          "name": "overflowLabel",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Accessible name for the overflow action and menu."
         },
         {
           "name": "className",
@@ -10748,6 +10559,13 @@
           "required": false,
           "default": "\"horizontal\"",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "buttonWidth",
+          "type": "\"content\" | \"equal\" | undefined",
+          "required": false,
+          "default": "\"equal\"",
+          "description": "Equal widths follow the widest option by default; content sizes each button independently."
         },
         {
           "name": "density",

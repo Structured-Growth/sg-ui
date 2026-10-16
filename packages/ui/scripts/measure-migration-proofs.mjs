@@ -5,16 +5,14 @@ import { cpus, arch, platform } from 'node:os';
 import { gzipSync } from 'node:zlib';
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { Provider } from '../dist/experimental/Provider/Provider.js';
-import { Button } from '../dist/experimental/Button/Button.js';
+import { Button } from '../dist/components/Button/Button.js';
 import { TextField } from '../dist/experimental/TextField/TextField.js';
 import { AsyncMultiSelect } from '../dist/experimental/AsyncMultiSelect/AsyncMultiSelect.js';
 import { DataGrid } from '../dist/experimental/DataGrid/DataGrid.js';
 import { DateRangeSelector } from '../dist/experimental/DateRangeSelector/DateRangeSelector.js';
-import { AppButton } from '../dist/components/AppButton/AppButton.js';
 const h = createElement;
 const rows = Array.from({length:1000}, (_,index) => ({ id:String(index), name:`Course ${index}`, count:index }));
 const subjects = {
-  extractedButtons100: () => h('div', null, ...rows.slice(0,100).map(row => h(AppButton,{key:row.id},row.name))),
   ownedButtons100: () => h('div', null, ...rows.slice(0,100).map(row => h(Button,{key:row.id},row.name))),
   ownedFields40: () => h('div', null, ...rows.slice(0,40).map(row => h(TextField,{key:row.id,label:row.name,defaultValue:row.name}))),
   asyncOptions200: () => h(AsyncMultiSelect,{label:'Courses',query:'',onQueryChange:()=>{},options:rows.slice(0,200).map(row=>({id:row.id,label:row.name}))}),

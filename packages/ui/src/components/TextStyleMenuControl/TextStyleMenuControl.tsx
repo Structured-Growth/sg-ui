@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { AppButton } from "../AppButton";
+import { Button } from "../Button";
 import { Menu } from "../../experimental/Menu/Menu";
 import { ArrowDropDownIcon } from "../../experimental/icons/ArrowDropDownIcon";
 import { FormatClearIcon } from "../../experimental/icons/FormatClearIcon";
@@ -48,5 +48,5 @@ export function TextStyleMenuControl({ onLowercase, onUppercase, onCapitalize, o
       disabled: !action.onPress, selected: activeStyles && action.id !== "clear" ? activeStyles.includes(action.id) : undefined,
       separatorBefore: action.id === "clear" }))}
     onAction={id => actions.find(action => action.id === id)?.onPress?.()}
-    trigger={<AppButton aria-label={label} tone="neutral" variant="text" density="compact" disabled={disabled} className={styles.trigger} endIcon={<ArrowDropDownIcon />}><span aria-hidden="true">Aa</span></AppButton>} />;
+    trigger={<Button aria-label={label} tone="neutral" variant="text" density="compact" disabled={disabled} className={styles.trigger} endIcon={<ArrowDropDownIcon />}><span aria-hidden="true">Aa</span></Button>} />;
 }

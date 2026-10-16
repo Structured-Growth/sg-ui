@@ -8,7 +8,7 @@ import { pathToFileURL } from 'node:url';
 import postcss from 'postcss';
 
 const pipeline = pathToFileURL(resolve('scripts/css-modules.mjs')).href;
-const buttonPath = 'experimental/Button/Button.module.css';
+const buttonPath = 'components/Button/Button.module.css';
 const fieldPath = 'experimental/TextField/TextField.module.css';
 
 async function fixture(t) {
@@ -25,7 +25,7 @@ async function fixture(t) {
 }
 function compile(root) {
   execFileSync(process.execPath, ['--input-type=module', '-e',
-    `const {compileStyles} = await import(${JSON.stringify(pipeline)}); await compileStyles();`], { cwd: root });
+    `const {compileStyles} = await import(${JSON.stringify(pipeline)}); await compileStyles();`], { cwd: root, stdio: 'pipe' });
 }
 async function emitted(root) {
   const css = await readFile(join(root, 'dist/styles.css'), 'utf8');
@@ -55,7 +55,7 @@ test('emits real module maps with ordered layers, scoped normalization and logic
   const declarations = Object.fromEntries(button.nodes.filter(node => node.type === 'decl').map(node => [node.prop, node.value]));
   assert.equal(declarations['box-sizing'], 'border-box');
   assert.equal(declarations['padding-inline'], 'var(--sgui-control-padding)');
-  assert.equal(declarations['min-block-size'], 'var(--sgui-control-height)');
+  assert.equal(declarations['min-block-size'], 'max(var(--sgui-control-height), var(--sgui-control-minimum-target-size))');
   assert.equal(declarations.background, 'var(--sgui-button-primary-background)');
   const backgrounds=[];
   tree.walkDecls('--sgui-button-primary-background',decl=>backgrounds.push(decl.value));
@@ -95,4 +95,26 @@ test('repeated compilation is deterministic across roots and replaces stylesheet
   assert(!changed.css.includes(`.${original.maps[0].root}`));
   assert(changed.css.includes(`.${changed.maps[0].replacement}`));
   assert.deepEqual(await emitted(second), original);
+});
+
+test('invalid CSS fails explicitly without replacing the last stylesheet and a corrected build recovers', async t => {
+  const root = await fixture(t);
+  compile(root);
+  const original = await emitted(root);
+  const source = join(root, 'src', fieldPath);
+  const invalid = '@layer sgui.components { .broken { color: var(--sgui-field-text);';
+  await writeFile(source, invalid);
+  assert.throws(() => compile(root), error => {
+    assert.match(error.stderr.toString(), /CssSyntaxError/);
+    assert.match(error.stderr.toString(), /TextField\.module\.css/);
+    return true;
+  });
+  assert.equal(await readFile(source, 'utf8'), invalid, 'failure must not rewrite consumer source');
+  assert.equal(await readFile(join(root, 'dist/styles.css'), 'utf8'), original.css);
+  await writeFile(source, '@layer sgui.components { .recovered { color: var(--sgui-field-text); } }');
+  compile(root);
+  const recovered = await emitted(root);
+  assert(recovered.css.includes(`.${recovered.maps[1].recovered}`));
+  assert(!recovered.css.includes('.broken'));
+  assert(!recovered.css.includes(`.${original.maps[1].input}`));
 });

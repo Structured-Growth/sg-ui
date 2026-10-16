@@ -12,7 +12,7 @@
   .row[data-focus-visible], .cell[data-focus-visible], .header[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .resizer { block-size: var(--sgui-control-height); inline-size: 0.5rem; flex-shrink: 0; border-inline-end: 2px solid var(--sgui-owned-grid-border); cursor: col-resize; touch-action: none; }
   .resizer[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); }
-  .reorderControls { display: flex; align-items: center; gap: var(--sgui-space1); }
+  .reorderControls { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sgui-space1); }
   .announcement { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); }
   .dropIndicator[data-drop-target] { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); }
   .row[data-dragging] { opacity: 0.5; }

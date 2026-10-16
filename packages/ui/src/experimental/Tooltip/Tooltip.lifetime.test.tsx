@@ -4,7 +4,7 @@ import { act, cleanup, fireEvent, render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { Tooltip } from "./Tooltip";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 afterEach(cleanup);
 
 it("does not deliver pending hover callbacks from a replaced or removed trigger", async () => {

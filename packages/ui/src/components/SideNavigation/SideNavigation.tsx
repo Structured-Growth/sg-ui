@@ -5,7 +5,7 @@ import { useAccountAdapter } from "../../adapters/accounts";
 import type { AuthOrganization, StoredAuthSession } from "../../adapters/accounts";
 import { usePersistentState } from "../../hooks/usePersistentState";
 import { useTranslation } from "../../i18n";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Link } from "../../experimental/Link/Link";
 import { Menu, type MenuItem } from "../../experimental/Menu/Menu";
 import { Avatar } from "../../experimental/Avatar/Avatar";

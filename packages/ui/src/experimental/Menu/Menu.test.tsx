@@ -3,7 +3,7 @@ import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { Menu } from "./Menu";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Provider } from "../Provider/Provider";
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
 const items = [{ id: "edit", label: "Edit" }, { id: "locked", label: "Unavailable", disabled: true }, { id: "delete", label: "Delete", tone: "danger" as const }];

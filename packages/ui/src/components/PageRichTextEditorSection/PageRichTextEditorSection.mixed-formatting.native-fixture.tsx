@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { FixtureMeta, FixtureCase } from "../../../tests/fixtures/types";
-import { AppButton } from "../AppButton/AppButton";
+import { Button } from "../Button/Button";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection";
 
 const text = (value: string, format: number, style: string) => ({
@@ -22,7 +22,7 @@ export function MixedFormattingHost() {
   const [seed, setSeed] = useState<unknown>(MIXED_FORMATTING_DOCUMENT);
   const [revision, setRevision] = useState(0);
   return <>
-    <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved mixed document</AppButton>
+    <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved mixed document</Button>
     <PageRichTextEditorSection lexicalValue={seed} editorKey={`mixed-formatting-${revision}`}
       onLexicalChange={setValue} aria-label="Mixed formatting document" toolPreset="full" style={{ height: 360 }} />
     <pre aria-label="Saved mixed formatting JSON">{JSON.stringify(value)}</pre>

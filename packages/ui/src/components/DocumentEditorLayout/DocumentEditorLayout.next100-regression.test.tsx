@@ -3,7 +3,7 @@ import { createRef } from "react";
 import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { ThemeScope } from "../../foundation/ThemeScope";
 import { DocumentEditorLayout, type DocumentEditorLayoutProps } from "./index";
 

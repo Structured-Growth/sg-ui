@@ -26,7 +26,7 @@ test('general pages use root URLs, retain navigation and redirect old docs URLs'
   await expect(page).toHaveURL(/\/installation$/);
   const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
   await nav.getByRole('button',{name:'Buttons & actions',exact:true}).click();
-  await nav.getByRole('link',{name:'AppButton',exact:true}).click();
+  await nav.getByRole('link',{name:'Button',exact:true}).click();
   await expect(page).toHaveURL(/\/docs\/components\/button$/);
   await expect(page.getByRole('navigation',{name:'Component tools navigation'}).getByRole('button',{name:'Demo settings',exact:true})).toBeVisible();
   await expect(page.getByRole('region',{name:'Demo settings',exact:true})).toHaveCount(0);

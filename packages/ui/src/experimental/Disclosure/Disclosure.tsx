@@ -1,6 +1,6 @@
 "use client";
 import { forwardRef, useEffect, useId, useRef, useState, type HTMLAttributes, type ReactNode } from "react";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Collapse } from "../Collapse/Collapse";
 import styles from "./Disclosure.module.css";
 export interface DisclosureProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {

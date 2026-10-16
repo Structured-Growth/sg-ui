@@ -17,6 +17,6 @@ export { List, ListItem, ListItemButton, ListItemText, ListItemIcon, type ListPr
 export { Table, TableHead, TableBody, TableFoot, TableRow, TableCell, TableHeaderCell, TableCaption, type TableProps, type TablePartProps, type TablePartProps as TableHeadProps, type TablePartProps as TableBodyProps, type TablePartProps as TableRowProps, type TableCellProps, type TableHeaderCellProps } from "../../experimental/Table/Table";
 export { Collapse, type CollapseProps } from "../../experimental/Collapse/Collapse";
 export { Tooltip, type TooltipProps } from "../../experimental/Tooltip/Tooltip";
-export { Button, type ButtonProps } from "../../experimental/Button/Button";
+export { Button, type ButtonProps } from "../../components/Button/Button";
 export { Provider, type ProviderProps } from "../../experimental/Provider/Provider";
 export { ThemeScope, type ThemeScopeProps } from "../../foundation/ThemeScope";

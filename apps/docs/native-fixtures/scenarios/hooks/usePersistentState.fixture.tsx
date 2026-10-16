@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "../../types";
 import { useEffect, useRef, useState } from "react";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { Typography } from "@structured-growth/sg-ui/primitives";
 import { usePersistentState } from "@structured-growth/sg-ui/hooks";
 
@@ -11,9 +11,9 @@ function Counter({ name, storage, storageKey = key, initial = 3 }: {
   const [value, setValue] = usePersistentState(storageKey, initial, { storage });
   return <div>
     <output aria-label={`${name} value`}>{value}</output>{" "}
-    <AppButton onPress={() => setValue(3)}>Save {name} 3</AppButton>{" "}
-    <AppButton onPress={() => setValue(5)}>Save {name} 5</AppButton>{" "}
-    <AppButton onPress={() => setValue(previous => previous + 1)}>Increment {name}</AppButton>
+    <Button onPress={() => setValue(3)}>Save {name} 3</Button>{" "}
+    <Button onPress={() => setValue(5)}>Save {name} 5</Button>{" "}
+    <Button onPress={() => setValue(previous => previous + 1)}>Increment {name}</Button>
   </div>;
 }
 type Kind = "local" | "session";
@@ -29,8 +29,8 @@ function StorageViews({ kind, metrics, ready, toggleFailure }: {
     <output aria-label={`${kind} saved bytes`}>{saved ?? "absent"}</output>{" "}
     <output aria-label={`${kind} successful writes`}>{successful}</output>{" "}
     <output aria-label={`${kind} failed writes`}>{failed}</output>
-    <div><AppButton onPress={toggleFailure}>{injected ? `Recover ${kind} writes` : `Inject ${kind} quota failure`}</AppButton>{" "}
-      <AppButton onPress={() => setPeer(previous => !previous)}>{peer ? `Unmount ${kind} peer` : `Remount ${kind} peer`}</AppButton>
+    <div><Button onPress={toggleFailure}>{injected ? `Recover ${kind} writes` : `Inject ${kind} quota failure`}</Button>{" "}
+      <Button onPress={() => setPeer(previous => !previous)}>{peer ? `Unmount ${kind} peer` : `Remount ${kind} peer`}</Button>
     </div>
     <Counter name={`${kind} primary`} storage={kind} />
     {peer && <Counter name={`${kind} peer`} storage={kind} />}

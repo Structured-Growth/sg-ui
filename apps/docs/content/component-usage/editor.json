@@ -27,7 +27,8 @@
     "how": [
       "Pass title, optional subtitle, and the form as children. Use footerContent for related account actions or supporting information.",
       "Build the form with SGUI fields and buttons, and connect submission, validation, pending state, and error messages to host callbacks.",
-      "Keep authentication endpoints, session storage, redirects, and credentials in the host application. AuthShell does not authenticate users or fetch account data."
+      "Keep authentication endpoints, session storage, redirects, and credentials in the host application. AuthShell does not authenticate users or fetch account data.",
+      "The long registration example uses a host-bounded scroll region, native required/email validation, explicit local submit handling and a longer help/footer; no authentication endpoint is implied."
     ],
     "related": [
       {
@@ -36,7 +37,7 @@
       },
       {
         "slug": "button",
-        "label": "AppButton"
+        "label": "Button"
       },
       {
         "slug": "account-provider",
@@ -67,7 +68,8 @@
     "how": [
       "Pass title and description, choose hierarchy='primary' for a top-level header or 'subpage' for a subordinate page, and set headingLevel to fit the surrounding document structure.",
       "Supply breadcrumbs and metadata as presentation data. Routing remains host-owned; use the navigation adapter when breadcrumb destinations need client routing.",
-      "Choose actionButtons for an explicit action composition or moreMenuItems for a compact overflow menu. Give menu items real host callbacks and disable actions that are unavailable."
+      "Choose actionButtons for an explicit action composition or moreMenuItems for a compact overflow menu. Give menu items real host callbacks and disable actions that are unavailable.",
+      "Supply actionButtons for host primary actions. The deep-breadcrumb example condenses middle ancestors into Show path and uses the neutral SplitAction composition."
     ],
     "related": [
       {
@@ -183,7 +185,7 @@
     "when": "Use DocumentEditorToolbar for a document host that needs a small controlled heading, formatting, zoom, and status bar. It requests commands from an existing editor rather than implementing document editing itself.",
     "how": [
       "Supply canEdit, headingValue, and actions with controlled active flags and real onClick callbacks. Derive those flags from the host editor selection; missing callbacks leave their commands unavailable.",
-      "Connect onHeadingChange to a host editor command and accept the requested normal/h1\u2013h5 value. Heading requests finish the chooser interaction before invoking the host callback.",
+      "Connect onHeadingChange to a host editor command and accept the requested normal/h1–h5 value. Heading requests finish the chooser interaction before invoking the host callback.",
       "Provide zoomValue and zoom callbacks separately from editing availability. Hide optional groups that the host does not use; alignment and custom-component placeholders do not provide active editing commands.",
       "Use statusLabel, a token-based statusColor, or rightSlot for host status. Saving and error recovery remain application responsibilities."
     ],
@@ -411,7 +413,8 @@
       "Seed the document with lexicalValue and persist serialized edits from onLexicalChange. The editor remains internally live: changing lexicalValue alone does not replace its document or selection; change editorKey to load a different document.",
       "Give the section a bounded height or a zero-minimum flex parent, and supply a meaningful aria-label. Use readOnly to change the existing editor's availability rather than mounting a separate view solely to disable editing.",
       "Choose toolPreset and supported control overrides for the workflow. The section composes selection handling, toolbars, and editor dialogs; avoid adding a second disconnected toolbar that does not share its editor state.",
-      "Provide onUploadImage when saved images need durable host asset URLs. Without a host upload, local image previews are temporary; the host owns persistence, upload cancellation, asset authorization, and cleanup."
+      "Provide onUploadImage when saved images need durable host asset URLs. Without a host upload, local image previews are temporary; the host owns persistence, upload cancellation, asset authorization, and cleanup.",
+      "The saved rich-document examples supply host JSON with heading, formatting, link, list, code, table and image content in independent editable/read-only owners. The upload adapter example rejects once and retries to a predefined durable local asset; hosts own actual upload bytes, storage and authorization."
     ],
     "related": [
       {

@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Button } from "../../../experimental/Button/Button";
+import { Button } from "../../../components/Button/Button";
 import { IconButton } from "../../../experimental/IconButton/IconButton";
 import { Checkbox } from "../../../experimental/Checkbox/Checkbox";
 import { Select } from "../../../experimental/Select/Select";

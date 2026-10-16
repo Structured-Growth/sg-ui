@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "../../types";
 import { forwardRef, useRef, useState } from "react";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { Link } from "@structured-growth/sg-ui/primitives";
 import { SGLink as SGLink } from "@structured-growth/sg-ui/adapters";
 import { SGNavigationProvider, usePathname, useRouter, type SGLinkProps } from "@structured-growth/sg-ui/adapters";
@@ -42,7 +42,7 @@ function RoutingExample() {
     </SGNavigationProvider>
     <SGNavigationProvider value={{ pathname, navigate, Link: CustomLink }}>
       <SGLink href="/courses/custom" replace ref={anchor} aria-description="Host router course" data-host="course">Custom router course</SGLink>
-      <AppButton onPress={() => anchor.current?.focus()}>Focus custom router link</AppButton>
+      <Button onPress={() => anchor.current?.focus()}>Focus custom router link</Button>
     </SGNavigationProvider>
     <output aria-label="Host navigation events" style={{ whiteSpace: "pre-wrap" }}>{events.join("\n")}</output>
   </div>;
@@ -63,9 +63,9 @@ function AccountActions({ settle }: { settle: (fail: boolean) => void }) {
     finally { pending.current = false; }
   };
   return <div style={{ display: "grid", gap: "1rem" }}>
-    <AppButton onPress={() => void logout()} disabled={!adapter.enabled || status === "Pending"}>Log out account</AppButton>
-    <AppButton onPress={() => settle(false)} disabled={status !== "Pending"}>Host completes logout</AppButton>
-    <AppButton onPress={() => settle(true)} disabled={status !== "Pending"}>Host rejects logout</AppButton>
+    <Button onPress={() => void logout()} disabled={!adapter.enabled || status === "Pending"}>Log out account</Button>
+    <Button onPress={() => settle(false)} disabled={status !== "Pending"}>Host completes logout</Button>
+    <Button onPress={() => settle(true)} disabled={status !== "Pending"}>Host rejects logout</Button>
     <output aria-label="Host account status" aria-live="polite">{status}</output>
   </div>;
 }

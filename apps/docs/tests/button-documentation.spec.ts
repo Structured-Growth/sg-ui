@@ -4,7 +4,7 @@ import {test,expect} from '@playwright/test';
 import {checkSources} from './check-sources';
 
 test('Button page presents the trial flow, numbered anchors and complete prop reference',async({page})=>{
-  await page.goto('/docs/components/owned-button');
+  await page.goto('/docs/components/button');
   const order=await page.locator('h2').allTextContents();
   const required=['Prop playground','Examples','Button: Filled primary action','Button: Native submit and reset','Contains','Used In'];
   await expect(page.getByRole('heading',{name:/^(When to use|How to use)$/})).toHaveCount(0);
@@ -30,23 +30,23 @@ test('Button page presents the trial flow, numbered anchors and complete prop re
   await expect(page.getByRole('table',{name:'Button props'})).toContainText('startIcon');
   await expect(page.getByRole('table',{name:'Button props'})).toContainText('endIcon');
   await expect(page.getByRole('table',{name:'Button props'})).toContainText('formNoValidate');
-  await expect(page.getByRole('region',{name:exampleName('Used In')}).getByRole('link',{name:'AppButton',exact:true})).toHaveAttribute('href','/docs/components/button#composition-AppButton');
+  await expect(page.getByRole('region',{name:exampleName('Used In')}).getByRole('link',{name:'IconButton',exact:true})).toHaveAttribute('href','/docs/components/icon-button#composition-IconButton');
   await expect(page.getByRole('region',{name:exampleName('Contains'),exact:true}).getByRole('link',{name:'Icons (optional startIcon / endIcon)',exact:true})).toHaveAttribute('href','/docs/components/icons');
   await expect(page.getByLabel('Button example index')).toHaveCount(0);
   await expect(page.getByText('Use the example number and page URL', {exact:false})).toHaveCount(0);
   await closeSiteTool(page);
-  await page.goto('/docs/components/owned-button#example-3-text');
+  await page.goto('/docs/components/button#example-3-text');
   await expect(page.getByRole('region',{name:exampleName('Button: Text action'),exact:true})).toBeInViewport();
   const sources=await page.locator('code[aria-label^="Source:"]').allTextContents();
-  expect(sources.length).toBe(14);
+  expect(sources.length).toBe(21);
   expect(checkSources(sources.map((source,i)=>({slug:`button-${i}`,source})))).toEqual([]);
-  await page.goto('/docs/components/owned-button');
+  await page.goto('/docs/components/button');
   await page.screenshot({path:'/tmp/sgui-button-page-overview.png',animations:'disabled'});
 });
 
 test('Button playground controls each icon and keeps source/copy current without changing examples',async({page,context})=>{
   await context.grantPermissions(['clipboard-read','clipboard-write']);
-  await page.goto('/docs/components/owned-button');
+  await page.goto('/docs/components/button');
   const playground=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
   const preview=playground.locator('[data-docs-preview]');
   const reference=page.getByRole('region',{name:exampleName('Button: Leading icon'),exact:true});
@@ -77,7 +77,7 @@ test('Button playground controls each icon and keeps source/copy current without
 
 test('Button prop table and controls stay within a narrow page',async({page})=>{
   await page.setViewportSize({width:375,height:900});
-  await page.goto('/docs/components/owned-button');
+  await page.goto('/docs/components/button');
   await openSiteTool(page,'Page documentation');
   await expect(page.getByRole('table',{name:'Button props'})).toBeVisible();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -86,4 +86,14 @@ test('Button prop table and controls stay within a narrow page',async({page})=>{
   await closeSiteTool(page);
   await page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).scrollIntoViewIfNeeded();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+
+test('Button is the sole catalog action name and the former proof URL redirects',async({page})=>{
+  await page.goto('/docs/components/owned-button');
+  await expect(page).toHaveURL(/\/docs\/components\/button$/);
+  await expect(page.getByRole('heading',{level:1,name:'Button',exact:true})).toBeVisible();
+  const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
+  await expect(nav.getByRole('link',{name:'Button',exact:true})).toHaveCount(1);
+  await expect(nav.getByRole('link',{name:'AppButton',exact:true})).toHaveCount(0);
 });

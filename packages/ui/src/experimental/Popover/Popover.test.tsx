@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Popover } from "./Popover";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { TextField } from "../TextField/TextField";
 import { ThemeScope } from "../../foundation/ThemeScope";
 import { Menu } from "../Menu/Menu";

@@ -1,5 +1,5 @@
 @layer sgui.components {
-  .root { display: flex; flex-direction: column; gap: var(--sgui-space1); color: var(--sgui-radio-group-text); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .root { display: flex; flex-direction: column; gap: var(--sgui-space1); color: var(--sgui-radio-group-text); font-family: var(--sgui-font-family); font-size: var(--sgui-control-text-size); line-height: var(--sgui-label-line-height); }
   .label { font-weight: var(--sgui-label-weight); }
   .options { display: flex; flex-direction: column; gap: var(--sgui-space1); }
   .options[data-orientation="horizontal"] { flex-direction: row; flex-wrap: wrap; gap: var(--sgui-space3); }

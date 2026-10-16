@@ -77,6 +77,9 @@ export const tokens = {
   "comfortableControlHeight": "var(--sgui-comfortable-control-height)",
   "comfortableControlPadding": "var(--sgui-comfortable-control-padding)",
   "comfortableNavigationItemHeight": "var(--sgui-comfortable-navigation-item-height)",
+  "compactControlTextSize": "var(--sgui-compact-control-text-size)",
+  "comfortableControlTextSize": "var(--sgui-comfortable-control-text-size)",
+  "tabMaximumWidth": "var(--sgui-tab-maximum-width)",
   "surface": "var(--sgui-surface)",
   "surfaceSubtle": "var(--sgui-surface-subtle)",
   "text": "var(--sgui-text)",
@@ -122,6 +125,7 @@ export const tokens = {
   "controlHeight": "var(--sgui-control-height)",
   "controlPadding": "var(--sgui-control-padding)",
   "navigationItemHeight": "var(--sgui-navigation-item-height)",
+  "controlTextSize": "var(--sgui-control-text-size)",
   "minimumTargetSize": "var(--sgui-minimum-target-size)",
   "navigationIconSize": "var(--sgui-navigation-icon-size)",
   "buttonPrimaryBackground": "var(--sgui-button-primary-background)",
@@ -423,7 +427,8 @@ export const tokens = {
   "iconPanelNavigationItemSize": "var(--sgui-icon-panel-navigation-item-size)",
   "iconPanelNavigationIconSize": "var(--sgui-icon-panel-navigation-icon-size)",
   "iconPanelNavigationRailPadding": "var(--sgui-icon-panel-navigation-rail-padding)",
-  "iconPanelNavigationLabelSize": "var(--sgui-icon-panel-navigation-label-size)"
+  "iconPanelNavigationLabelSize": "var(--sgui-icon-panel-navigation-label-size)",
+  "tabsMaximumTabWidth": "var(--sgui-tabs-maximum-tab-width)"
 } as const;
 export type TokenName = keyof typeof tokens;
 /** Resolved built-in shared and color defaults; density and component aliases stay scope-owned. */
@@ -501,11 +506,14 @@ export const defaultThemeTokens = {
     "--sgui-pointer-navigation-icon-size": "1rem",
     "--sgui-touch-navigation-icon-size": "1.25rem",
     "--sgui-compact-control-height": "2rem",
-    "--sgui-compact-control-padding": "0.75rem",
+    "--sgui-compact-control-padding": "0.5rem",
     "--sgui-compact-navigation-item-height": "2rem",
     "--sgui-comfortable-control-height": "2.75rem",
     "--sgui-comfortable-control-padding": "1rem",
-    "--sgui-comfortable-navigation-item-height": "2.25rem",
+    "--sgui-comfortable-navigation-item-height": "2.75rem",
+    "--sgui-compact-control-text-size": "0.75rem",
+    "--sgui-comfortable-control-text-size": "0.875rem",
+    "--sgui-tab-maximum-width": "16rem",
     "--sgui-surface": "#ffffff",
     "--sgui-surface-subtle": "#f8fafc",
     "--sgui-text": "#0f172a",
@@ -622,11 +630,14 @@ export const defaultThemeTokens = {
     "--sgui-pointer-navigation-icon-size": "1rem",
     "--sgui-touch-navigation-icon-size": "1.25rem",
     "--sgui-compact-control-height": "2rem",
-    "--sgui-compact-control-padding": "0.75rem",
+    "--sgui-compact-control-padding": "0.5rem",
     "--sgui-compact-navigation-item-height": "2rem",
     "--sgui-comfortable-control-height": "2.75rem",
     "--sgui-comfortable-control-padding": "1rem",
-    "--sgui-comfortable-navigation-item-height": "2.25rem",
+    "--sgui-comfortable-navigation-item-height": "2.75rem",
+    "--sgui-compact-control-text-size": "0.75rem",
+    "--sgui-comfortable-control-text-size": "0.875rem",
+    "--sgui-tab-maximum-width": "16rem",
     "--sgui-surface": "#0f172a",
     "--sgui-surface-subtle": "#1e293b",
     "--sgui-text": "#e2e8f0",
@@ -749,7 +760,10 @@ export const tokenTiers = {
     "compactNavigationItemHeight",
     "comfortableControlHeight",
     "comfortableControlPadding",
-    "comfortableNavigationItemHeight"
+    "comfortableNavigationItemHeight",
+    "compactControlTextSize",
+    "comfortableControlTextSize",
+    "tabMaximumWidth"
   ],
   "semantic": [
     "surface",
@@ -798,7 +812,8 @@ export const tokenTiers = {
   "density": [
     "controlHeight",
     "controlPadding",
-    "navigationItemHeight"
+    "navigationItemHeight",
+    "controlTextSize"
   ],
   "interaction": [
     "minimumTargetSize",
@@ -1104,7 +1119,8 @@ export const tokenTiers = {
     "iconPanelNavigationItemSize",
     "iconPanelNavigationIconSize",
     "iconPanelNavigationRailPadding",
-    "iconPanelNavigationLabelSize"
+    "iconPanelNavigationLabelSize",
+    "tabsMaximumTabWidth"
   ]
 } as const;
 export type SemanticTokenName = typeof tokenTiers.semantic[number];
@@ -2284,8 +2300,8 @@ export const componentTokenReferences = {
     "token": "navigationItemHeight"
   },
   "sideNavigationLabelSize": {
-    "tier": "shared",
-    "token": "captionSize"
+    "tier": "density",
+    "token": "controlTextSize"
   },
   "sideNavigationIconSize": {
     "tier": "interaction",
@@ -2308,7 +2324,11 @@ export const componentTokenReferences = {
     "token": "space1"
   },
   "iconPanelNavigationLabelSize": {
+    "tier": "density",
+    "token": "controlTextSize"
+  },
+  "tabsMaximumTabWidth": {
     "tier": "shared",
-    "token": "captionSize"
+    "token": "tabMaximumWidth"
   }
 } as const;

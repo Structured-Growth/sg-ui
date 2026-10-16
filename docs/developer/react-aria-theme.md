@@ -100,7 +100,7 @@ Host applications own preference controls/persistence and can pass saved choices
 | Control target floor | No added floor; density applies | 44px |
 | Navigation icon | 16px | 20px |
 | Compact control / navigation row | 32px / 32px | At least 44px |
-| Comfortable control / navigation row | 44px / 36px | At least 44px |
+| Comfortable control / navigation row | 44px / 44px | At least 44px |
 
 These are theme-backed minimums, not fixed heights or device names. Controls can
 grow to fit their text, padding and borders; density does not clip readable content.
@@ -115,3 +115,43 @@ Common buttons/icon buttons, fields, selection controls, menus/options, tabs,
 pagination and navigation consume the target floor. This is a sizing policy,
 not certification of every specialized component or physical device. Host-provided
 custom controls and explicit geometry overrides remain host responsibilities.
+
+
+### Shared control typography and spacing
+
+Density owns `--sgui-control-text-size` alongside height and horizontal padding.
+Compact controls use 12px text, 32px minimum height and 8px horizontal padding;
+comfortable controls use 14px text, 44px minimum height and 16px horizontal padding.
+Buttons, text fields, selection controls, tabs, menus and selection popups consume
+this role. Body text and heading typography remain independent. Navigation label
+aliases use the same control text role, and navigation row defaults follow the
+corresponding control height. Existing navigation-specific tokens remain available
+for explicit host overrides.
+
+Customize `--sgui-compact-control-text-size`, `--sgui-comfortable-control-text-size`,
+and the corresponding control height/padding tokens on Provider or ThemeScope.
+Use scope `style` for theme overrides so nested scopes and portal overlays receive
+them; CSS variables on an individual trigger cannot theme a detached portal.
+Popup options inset their corner radius by popup padding and border, matching the
+existing menu convention. Control and field radius roles remain independently
+customizable for identities that distinguish buttons from fields.
+
+The documentation website selects compact density at its outer Provider. Header
+controls, prop controls and right-panel controls therefore share one sizing policy,
+including their portals. Each live Example explicitly supplies its own density.
+
+
+Select triggers and TextField/ComboBox inputs share the same field control styles:
+control text size, regular content weight, line height, padding, border, radius and
+focus ring. A Select is a field rather than an action button, so its selected value
+does not inherit action weight or button radius. Content widths remain host/layout
+owned; matching field height does not require equal widths or fixed heights that
+clip enlarged text.
+
+
+Select uses invisible, accessibility-hidden option labels to establish a stable
+intrinsic trigger width from the longest option or placeholder. This requires no
+DOM measurement and follows font, density and option changes during SSR and on the
+client. Host CSS on the field can set a fixed width or maximum width; the selected
+value truncates with an ellipsis inside that constraint, and the popup retains
+complete option labels within its viewport bounds.

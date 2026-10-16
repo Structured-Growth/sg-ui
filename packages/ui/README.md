@@ -34,11 +34,11 @@ Load the stylesheet once at the application's CSS entry and provide an owned sco
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";
-import { AppButton, Provider } from "@structured-growth/sg-ui";
+import { Button, Provider } from "@structured-growth/sg-ui";
 
 export function Example() {
   return <Provider theme="system">
-    <AppButton onPress={() => console.log("Save requested")}>Save</AppButton>
+    <Button onPress={() => console.log("Save requested")}>Save</Button>
   </Provider>;
 }
 ```
@@ -47,11 +47,11 @@ The equivalent granular imports are:
 
 ```tsx
 import "@structured-growth/sg-ui/styles.css";
-import { AppButton } from "@structured-growth/sg-ui/components/AppButton";
+import { Button } from "@structured-growth/sg-ui/components/Button";
 import { Provider } from "@structured-growth/sg-ui/theme";
 
 export function Example() {
-  return <Provider><AppButton variant="outlined" tone="neutral">Save</AppButton></Provider>;
+  return <Provider><Button variant="outlined" tone="neutral">Save</Button></Provider>;
 }
 ```
 

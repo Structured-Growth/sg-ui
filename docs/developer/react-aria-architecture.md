@@ -9,10 +9,10 @@ and shared implementations without authorizing public catalog renames. See the
 [execution record](react-aria-progress.md) and
 [master backlog](react-aria-master-task-list.md).
 
-AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
+Button, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
 foundation. See [button mappings](react-aria-button.md),
 [page navigation](react-aria-page-navigation.md) and
-[page layout](react-aria-page-layout.md). AppButton now uses onPress,
+[page layout](react-aria-page-layout.md). Button now uses onPress,
 owned variant/tone/density and native class/style; the upstream button prop surface
 is removed. Load /styles.css and provide Provider or ThemeScope.
 
@@ -65,7 +65,7 @@ prop type. Upstream events, state objects and date classes stay inside wrappers.
 
 For new action contracts, use `onPress: () => void` for a single normalized
 activation. Do not invoke both a native click callback and a press callback for the
-same activation. `AppButton` already uses the owned `onPress()` contract and no
+same activation. `Button` already uses the owned `onPress()` contract and no
 longer accepts `onClick`; migrate old event handlers using the documented
 [breaking button mappings](react-aria-button.md). Native Link click cancellation
 is a separate navigation contract, not a second button activation callback.

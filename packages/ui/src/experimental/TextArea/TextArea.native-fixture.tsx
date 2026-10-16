@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Checkbox } from "../Checkbox/Checkbox";
 import { Stack } from "../Stack/Stack";
 import type { FixtureMeta, FixtureCase } from "../../../tests/fixtures/types";

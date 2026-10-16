@@ -7,7 +7,7 @@ import { DataGridDragHandle } from "../AppDataGridRowDnd/DataGridDragHandle";
 import type { AppDataGridRowDragConfig } from "./types";
 import { CheckboxContext } from "react-aria-components/Checkbox";
 import { Menu } from "../../experimental/Menu/Menu";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { ArrowDropDownIcon } from "../../experimental/icons";
 import { Checkbox } from "../../experimental/Checkbox/Checkbox";
 import { useTranslation } from "../../i18n";

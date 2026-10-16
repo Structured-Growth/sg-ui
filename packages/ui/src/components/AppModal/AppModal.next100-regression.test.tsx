@@ -4,7 +4,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AppModal, type AppModalProps } from "./index";
-import { AppButton } from "../AppButton";
+import { Button } from "../Button";
 import { Provider } from "../../theme";
 
 afterEach(cleanup);
@@ -24,11 +24,11 @@ it("keeps secondary pending actions and close/reopen callbacks local to each hos
       open: firstOpen, title: "First settings", showCloseButton: true,
       onClose: reason => { firstClose(reason); setFirstOpen(false); },
       secondaryAction: { label: "Run first action", loading: pending, onPress: firstAction },
-      children: <AppButton onPress={() => setPending(value => !value)}>Toggle pending</AppButton>,
+      children: <Button onPress={() => setPending(value => !value)}>Toggle pending</Button>,
     };
     return <Provider>
-      <AppButton onPress={() => setFirstOpen(true)}>Open first</AppButton>
-      <AppButton onPress={() => setSecondOpen(true)}>Open second</AppButton>
+      <Button onPress={() => setFirstOpen(true)}>Open first</Button>
+      <Button onPress={() => setSecondOpen(true)}>Open second</Button>
       <AppModal {...firstProps} ref={firstRef} />
       <AppModal ref={secondRef} open={secondOpen} title="Second settings" showCloseButton
         onClose={reason => { secondClose(reason); setSecondOpen(false); }}

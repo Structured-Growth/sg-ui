@@ -6,7 +6,7 @@ import postcss from 'postcss';
 import modules from 'postcss-modules';
 
 test('module names are stable, namespaced and distinct between components', async () => {
-  const a = resolve('src/experimental/Button/Button.module.css');
+  const a = resolve('src/components/Button/Button.module.css');
   const b = resolve('src/experimental/TextField/TextField.module.css');
   assert.equal(scopedName('root', a), scopedName('root', a));
   assert.notEqual(scopedName('root', a), scopedName('root', b));

@@ -102,7 +102,7 @@ test('component tools belong to the shell and use an overlay on narrow screens',
    await openSiteTool(page,'Page documentation');
    await expect(settings).toBeHidden();
    const documentation=tools.getByRole('region',{name:'Component documentation',exact:true});
-   await expect(documentation.getByRole('table',{name:'AppButton props'})).toBeVisible();
+   await expect(documentation.getByRole('table',{name:'Button props'})).toBeVisible();
    await expect(main.getByRole('region',{name:'Component documentation',exact:true})).toHaveCount(0);
    const scroll=tools.locator('[data-sgui-part="icon-navigation-content"]').last();
    const mainTop=await main.evaluate(element=>element.scrollTop);
@@ -118,6 +118,6 @@ test('component tools belong to the shell and use an overlay on narrow screens',
    await page.getByRole('navigation',{name:'Documentation',exact:true}).getByRole('link',{name:'Icon button',exact:true}).click();
    await expect(tools.getByRole('table',{name:'IconButton props',exact:true})).toBeVisible();
    await expect.poll(()=>scroll.evaluate(element=>element.scrollTop)).toBe(0);
-   await expect(tools.getByRole('table',{name:'AppButton props',exact:true})).toHaveCount(0);
+   await expect(tools.getByRole('table',{name:'Button props',exact:true})).toHaveCount(0);
  }
 });

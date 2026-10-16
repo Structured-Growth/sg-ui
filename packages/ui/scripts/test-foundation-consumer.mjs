@@ -27,7 +27,7 @@ await writeFile(join(fixture, 'package.json'), JSON.stringify({
 await writeFile(join(fixture, 'index.html'), '<!doctype html><html lang="en"><meta charset="utf-8"><link rel="icon" href="data:,"><title>SGUI packed foundation proof</title><div id="root"></div><script type="module" src="/main.jsx"></script></html>');
 await writeFile(join(fixture, 'Proof.jsx'), `
 import React from 'react';
-import { Button, TextField, Dialog, Tabs, ComboBox, Popover, AsyncMultiSelect, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
+import { TextField, Dialog, Tabs, ComboBox, Popover, AsyncMultiSelect, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
 import { ToggleButtonGroup, Tooltip, Disclosure, Navigation, NavigationItem, List, ListItem,
   TagGroup, Progress, Status, Avatar, Table, TableCaption, TableHead, TableBody, TableRow,
   TableCell, TableHeaderCell, Pagination } from '@structured-growth/sg-ui/experimental';
@@ -39,7 +39,7 @@ import { CardCollectionWithFooter } from '@structured-growth/sg-ui/components/Ca
 import { ClassCardFrame } from '@structured-growth/sg-ui/components/ClassCardFrame';
 import { InstructorClassCard } from '@structured-growth/sg-ui/components/InstructorClassCard';
 import { LearnerClassCard } from '@structured-growth/sg-ui/components/LearnerClassCard';
-import { AppButton } from '@structured-growth/sg-ui/components/AppButton';
+import { Button } from '@structured-growth/sg-ui/components/Button';
 import { ExperiencePageNavigator } from '@structured-growth/sg-ui/components/ExperiencePageNavigator';
 import { AppPageTabs } from '@structured-growth/sg-ui/components/AppPageTabs';
 import { AppPageHeader } from '@structured-growth/sg-ui/components/AppPageHeader';
@@ -108,7 +108,7 @@ export function Proof() {
     <ImageUploadModal enableAltText open={editorDialog==='image'} onClose={()=>setEditorDialog(null)} onSubmit={(file,alt)=>{setResult(file.name+': '+alt);setEditorDialog(null);}} />
     <AppPageHeader title="Course workspace" hierarchy="primary" breadcrumbs={[{label:'Courses',href:'/courses'},{label:'Workspace'}]} moreMenuItems={[{label:'Refresh',onClick:()=>{}}]} />
     <AppPageTabs label="Workspace sections" value={tab} onChange={setTab} items={[{id:'details',label:'Details',content:'Course details'},{id:'access',label:'Access',content:'Course access'}]} />
-    <AppButton onPress={()=>setOpen(true)} density="compact">Catalog settings</AppButton>
+    <Button onPress={()=>setOpen(true)} density="compact">Catalog settings</Button>
     <ExperiencePageNavigator pages={[{key:'one',title:'Introduction'},{key:'two',title:'Practice'}]} activePageKey={page} onSelectPage={setPage} onAddPage={()=>{}} onRemovePage={()=>{}} onRenamePage={()=>{}} onReorderPages={()=>{}} />
     <TextField label="Course name" name="course" required />
     <Button startIcon={<AddIcon />} onPress={()=>setOpen(true)}>Edit course</Button>
@@ -184,7 +184,7 @@ const entries = [
   ['tokens', 'tokens'], ['theme', 'Provider'], ['primitives', 'Typography'],
   ['icons/AddIcon', 'AddIcon'], ['hooks', 'normalizePaginationModel'],
   ['adapters', 'SGNavigationProvider'], ['i18n', 'SGTranslationProvider'],
-  ['components/AppButton', 'AppButton'], ['components/ClassCardFrame', 'ClassCardFrame'],
+  ['components/Button', 'Button'], ['components/ClassCardFrame', 'ClassCardFrame'],
   ['components/AppDataGrid', 'AppDataGrid'],
 ];
 for (const [subpath, name] of entries) {
@@ -226,7 +226,7 @@ import { Box, Typography, Table, TableBody, TableRow, TableCell } from '@structu
 import { ClassCardFrame } from '@structured-growth/sg-ui/components/ClassCardFrame';
 import { AuthShell } from '@structured-growth/sg-ui/components/AuthShell';
 import { AppShell } from '@structured-growth/sg-ui/components/AppShell';
-import { AppButton } from '@structured-growth/sg-ui/components/AppButton';
+import { Button } from '@structured-growth/sg-ui/components/Button';
 import { Provider } from '@structured-growth/sg-ui/theme';
 assert.equal(typeof window, 'undefined');
 assert.equal(React.useState, undefined, 'Fixture must run the React server condition');
@@ -234,11 +234,11 @@ assert.deepEqual(normalizePaginationModel({ page: 2, pageSize: 37 }), { page: 2,
 for (const component of [Box, Typography, Table, ClassCardFrame, AppShell]) {
   assert.notEqual(component.$$typeof, Symbol.for('react.client.reference'), 'Presentation became a client reference');
 }
-for (const component of [AppButton, Provider, AuthShell]) {
+for (const component of [Button, Provider, AuthShell]) {
   assert.equal(component.$$typeof, Symbol.for('react.client.reference'), 'Interaction lost its client boundary');
 }
 const manifest = {};
-for (const [component, id] of [[AppButton, 'packed-app-button'], [Provider, 'packed-provider'], [AuthShell, 'packed-auth-shell']]) {
+for (const [component, id] of [[Button, 'packed-app-button'], [Provider, 'packed-provider'], [AuthShell, 'packed-auth-shell']]) {
   const module = component.$$id.slice(0, component.$$id.lastIndexOf('#'));
   manifest[module] = { id, chunks: [], name: '*' };
 }
@@ -253,7 +253,7 @@ const tree = el(Provider, { theme: 'dark' },
         header: el(Typography, { as: 'h2' }, 'Server course card'),
         body: el(Box, { padding: 2, style: { color: tokens.text } },
           el(Table, null, el(TableBody, null, el(TableRow, null, el(TableCell, null, 'Server table cell'))))),
-        footer: el(AppButton, null, 'Client action'),
+        footer: el(Button, null, 'Client action'),
       }))));
 const output = new PassThrough();
 let flight = '';

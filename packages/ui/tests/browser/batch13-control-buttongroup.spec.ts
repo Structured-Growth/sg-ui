@@ -25,6 +25,15 @@ test('joined groups round outer ends in both orientations and inherit density', 
           return { corners: [css.borderTopLeftRadius, css.borderTopRightRadius, css.borderBottomRightRadius, css.borderBottomLeftRadius], height: element.getBoundingClientRect().height };
         }));
         expect(geometry).toHaveLength(3);
+        await expect(group).toHaveCSS('border-top-width', '1px');
+        for (const index of [1, 2]) {
+          await expect(buttons.nth(index)).toHaveCSS(orientation === 'vertical' ? 'border-block-start-width' : 'border-inline-start-width', '1px');
+          const divider = await buttons.nth(index).evaluate((node, vertical) => {
+            const css = getComputedStyle(node);
+            return vertical ? css.borderBlockStartColor : css.borderInlineStartColor;
+          }, orientation === 'vertical');
+          expect(divider).not.toBe('rgba(0, 0, 0, 0)');
+        }
         const radius = await group.evaluate(element => getComputedStyle(element).borderTopLeftRadius);
         const first = orientation === 'vertical' ? [radius, radius, '0px', '0px'] : dir === 'ltr' ? [radius, '0px', '0px', radius] : ['0px', radius, radius, '0px'];
         const last = orientation === 'vertical' ? ['0px', '0px', radius, radius] : dir === 'ltr' ? ['0px', radius, radius, '0px'] : [radius, '0px', '0px', radius];

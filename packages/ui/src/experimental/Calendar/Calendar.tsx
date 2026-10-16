@@ -1,8 +1,10 @@
 "use client";
+import { useLocale } from "react-aria-components/I18nProvider";
+import { useNarrowWeekdays } from "../DateRangeSelector/useNarrowWeekdays";
 import { parseDate, toCalendar, GregorianCalendar } from "@internationalized/date";
 import { Calendar as AriaCalendar, CalendarHeading, CalendarGrid, CalendarGridHeader, CalendarHeaderCell,
   CalendarGridBody, CalendarCell, type DateValue } from "react-aria-components/Calendar";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { useTranslation } from "../../i18n";
 import type { DateOnly, DateAvailability } from "../DateRangeSelector/date-contract";
 import styles from "../DateRangeSelector/DateRangeSelector.module.css";
@@ -25,6 +27,8 @@ export type CalendarProps = CalendarOptions & (
 );
 export function Calendar(props: CalendarProps) {
   const { t } = useTranslation();
+  const { locale } = useLocale();
+  const narrowWeekdays = useNarrowWeekdays(locale);
   const { label, min, max, unavailable = [], focusedDate, defaultFocusedDate, onFocusedDateChange, months = 1,
     firstDayOfWeek, disabled, readOnly } = props;
   const shared = { "aria-label": label, minValue: min ? parseDate(min) : undefined, maxValue: max ? parseDate(max) : undefined,
@@ -38,11 +42,11 @@ export function Calendar(props: CalendarProps) {
     <Button slot="next" variant="outlined" tone="neutral" aria-label={t("common.ui.nextMonth", { defaultMessage: "Next month" })}>›</Button>
   </header><div className={styles.months}>{Array.from({ length: months }, (_, index) => <div key={index} className={styles.month}>
     <CalendarHeading offset={{ months: index }} className={styles.heading} />
-    <CalendarGrid offset={{ months: index }} weekdayStyle="short" className={styles.grid}>
-      <CalendarGridHeader>{day => <CalendarHeaderCell className={styles.weekday}>{day}</CalendarHeaderCell>}</CalendarGridHeader>
+    <div className={styles.gridViewport}><CalendarGrid offset={{ months: index }} weekdayStyle="short" className={styles.grid}>
+      <CalendarGridHeader>{day => <CalendarHeaderCell className={styles.weekday} data-narrow-label={narrowWeekdays.get(day) ?? day}><span className={styles.weekdayLabel}>{day}</span></CalendarHeaderCell>}</CalendarGridHeader>
       <CalendarGridBody>{date => <CalendarCell date={date} className={styles.cell}>{({ formattedDate }) => <span
         title={unavailable.find(day => day.date === toCalendar(date, new GregorianCalendar()).toString())?.reason}>{formattedDate}</span>}</CalendarCell>}</CalendarGridBody>
-    </CalendarGrid>
+    </CalendarGrid></div>
   </div>)}</div></>;
   return <div className={styles.root}>
     {props.selection === "multiple" ? <AriaCalendar {...shared} selectionMode="multiple" value={props.value?.map(parseDate)} defaultValue={props.defaultValue?.map(parseDate)}

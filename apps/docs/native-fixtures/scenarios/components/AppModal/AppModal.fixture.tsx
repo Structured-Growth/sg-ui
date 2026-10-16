@@ -1,7 +1,9 @@
+import { SGTranslationProvider, formatIcuMessage } from "@structured-growth/sg-ui/i18n";
+import type { FixtureGlobals } from "../../../types";
 import type { Meta, StoryObj } from "../../../types";
 import { useEffect, useRef, useState } from "react";
 import { AppModal } from "@structured-growth/sg-ui/components";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { AppPageTabs } from "@structured-growth/sg-ui/components";
 import { TextField } from "@structured-growth/sg-ui/experimental";
 import { Popover } from "@structured-growth/sg-ui/experimental";
@@ -14,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 function Preview({ tabs = false, locked = false, dark = false, full = false, custom = false, autoFocusAction = false }: { tabs?: boolean; locked?: boolean; dark?: boolean; full?: boolean; custom?: boolean; autoFocusAction?: boolean }) {
   const [open, setOpen] = useState(false); const [tab, setTab] = useState("details"); const [step, setStep] = useState(1);
   const [reason, setReason] = useState(""); const [saved, setSaved] = useState(0);
-  return <Provider theme={dark ? "dark" : "light"}><AppButton variant="outlined" onPress={() => setOpen(true)}>Open modal</AppButton>
+  return <Provider theme={dark ? "dark" : "light"}><Button variant="outlined" onPress={() => setOpen(true)}>Open modal</Button>
     <p>Last close: {reason || "None"}; saved: {saved}</p>
     <AppModal open={open} title="Course settings" subtitle="Host-owned settings" aria-label={custom ? "Custom settings" : undefined}
       headerContent={custom ? <h2>Custom settings</h2> : undefined} size={full ? "full" : "md"} heightMode={tabs ? "md" : "auto"}
@@ -24,7 +26,7 @@ function Preview({ tabs = false, locked = false, dark = false, full = false, cus
       secondaryAction={{ label: "Cancel", onPress: () => {setReason("Cancel action"); setOpen(false);} }}>
       {tabs ? <AppPageTabs label="Settings" value={tab} onChange={setTab} items={[
         {id:"details",label:"Details",content:<>{Array.from({length:20},(_,index)=><TextField key={index} label={`Field ${index + 1}`} autoFocus={index === 0 && !autoFocusAction} />)}</>},
-        {id:"access",label:"Access",content:<><TextField label="Permission" /><Popover title="Help" trigger={<AppButton>Help</AppButton>}><TextField label="Note" autoFocus /></Popover></>},
+        {id:"access",label:"Access",content:<><TextField label="Permission" /><Popover title="Help" trigger={<Button>Help</Button>}><TextField label="Note" autoFocus /></Popover></>},
       ]} /> : <TextField label="Course name" autoFocus />}
     </AppModal></Provider>;
 }
@@ -46,8 +48,8 @@ function ContainerBoundaryPreview() {
   const [width, setWidth] = useState(360);
   const [tab, setTab] = useState("details");
   return <Provider>
-    <AppButton onPress={() => { setWidth(360); setOpen("narrow"); }}>Open narrow surface</AppButton>
-    <AppButton onPress={() => { setWidth(800); setOpen("wide"); }}>Open wide surface</AppButton>
+    <Button onPress={() => { setWidth(360); setOpen("narrow"); }}>Open narrow surface</Button>
+    <Button onPress={() => { setWidth(800); setOpen("wide"); }}>Open wide surface</Button>
     <p>These independent dialogs portal into the overlay. Their actual surface widths, rather than the opener layout or viewport, select the footer arrangement.</p>
     {(["narrow", "wide"] as const).map(kind => <AppModal key={kind} open={open === kind}
       title={`${kind === "narrow" ? "Narrow" : "Wide"} surface settings`} subtitle="Resize this surface while keeping the viewport wide"
@@ -55,7 +57,7 @@ function ContainerBoundaryPreview() {
       steps={{ current: 2, total: 3, label: "Step 2 of 3: Review course settings" }}
       secondaryAction={{ label: "Cancel changes", onPress: () => setOpen(null) }}
       primaryAction={{ label: "Save course settings" }}>
-      <AppButton onPress={() => setWidth(value => value === 360 ? 800 : 360)}>Toggle surface width</AppButton>
+      <Button onPress={() => setWidth(value => value === 360 ? 800 : 360)}>Toggle surface width</Button>
       <AppPageTabs label="Surface sections" value={tab} onChange={setTab} items={[
         { id: "details", label: "Details", content: <>{Array.from({ length: 20 }, (_, index) =>
           <TextField key={index} label={`Surface field ${index + 1}`} autoFocus={index === 0} />)}</> },
@@ -74,19 +76,19 @@ function NestedOverlaysPreview() {
   const [events, setEvents] = useState<string[]>([]);
   const record = (value: string) => setEvents(previous => [...previous, value]);
   return <Provider theme="dark" density="compact">
-    <AppButton onPress={() => setOpen(true)}>Open parent</AppButton>
+    <Button onPress={() => setOpen(true)}>Open parent</Button>
     <p role="status">Dismissals: {events.join(", ") || "None"}</p>
     <AppModal open={open} title="Parent settings" subtitle="Host-owned settings" size="md" showCloseButton
       onClose={reason => { record(`parent:${reason}`); setOpen(false); }}>
       <TextField label="Parent name" autoFocus />
-      <Menu label="Settings actions" trigger={<AppButton>Open actions</AppButton>}
+      <Menu label="Settings actions" trigger={<Button>Open actions</Button>}
         items={[{ id: "review", label: "Review settings" }]} onAction={() => record("menu:review")} />
       <ComboBox label="Category" options={[{ id: "science", label: "Science" }, { id: "math", label: "Mathematics" }]} />
-      <AppButton onPress={() => setChildOpen(true)}>Open child</AppButton>
+      <Button onPress={() => setChildOpen(true)}>Open child</Button>
       <AppModal open={childOpen} title="Child settings" size="sm" showCloseButton
         onClose={reason => { record(`child:${reason}`); setChildOpen(false); }}>
         <TextField label="Child name" autoFocus />
-        <Popover title="Child guidance" trigger={<AppButton>Open guidance</AppButton>}>
+        <Popover title="Child guidance" trigger={<Button>Open guidance</Button>}>
           <TextField label="Guidance note" autoFocus />
         </Popover>
       </AppModal>
@@ -112,16 +114,16 @@ function RemovedOpenerPreview() {
     }
   }, [childOpen, hostFocus]);
   return <Provider>
-    <AppButton onPress={() => setOpen(true)}>Open recovery parent</AppButton>
+    <Button onPress={() => setOpen(true)}>Open recovery parent</Button>
     <AppModal open={open} title="Recovery parent" onClose={() => setOpen(false)}>
       <p role="status">Child dismissal: {reason || "None"}</p>
       <TextField label="Parent fallback" autoFocus />
       <TextField label="Host destination" ref={destination} />
-      {openerPresent && <AppButton onPress={() => setChildOpen(true)}>Open removable child</AppButton>}
+      {openerPresent && <Button onPress={() => setChildOpen(true)}>Open removable child</Button>}
       <AppModal open={childOpen} title="Recovery child" showCloseButton onClose={value => { setReason(value); setChildOpen(false); }}>
         <TextField label="Child input" autoFocus />
-        <AppButton onPress={() => setOpenerPresent(false)}>Remove child opener</AppButton>
-        <AppButton onPress={() => { setOpenerPresent(false); setHostFocus(true); }}>Remove opener and choose host destination</AppButton>
+        <Button onPress={() => setOpenerPresent(false)}>Remove child opener</Button>
+        <Button onPress={() => { setOpenerPresent(false); setHostFocus(true); }}>Remove opener and choose host destination</Button>
       </AppModal>
     </AppModal>
   </Provider>;
@@ -133,11 +135,11 @@ function CustomChromePreview({ size }: { size: "md" | "lg" }) {
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState("details");
   return <Provider>
-    <AppButton onPress={() => setOpen(true)}>Open custom {size} modal</AppButton>
+    <Button onPress={() => setOpen(true)}>Open custom {size} modal</Button>
     <AppModal open={open} aria-label="Custom chrome settings" size={size} heightMode={size} showCloseButton
       onClose={() => setOpen(false)}
-      headerContent={<><p>Course settings with host supplied header details</p><AppButton variant="outlined">Header help</AppButton></>}
-      footerContent={<><AppButton variant="text" onPress={() => setOpen(false)}>Custom cancel</AppButton><AppButton>Custom save</AppButton></>}>
+      headerContent={<><p>Course settings with host supplied header details</p><Button variant="outlined">Header help</Button></>}
+      footerContent={<><Button variant="text" onPress={() => setOpen(false)}>Custom cancel</Button><Button>Custom save</Button></>}>
       <AppPageTabs label="Custom settings sections" value={tab} onChange={setTab} items={[
         { id: "details", label: "Details", content: <>{Array.from({ length: 12 }, (_, index) => <TextField key={index} label={`Custom field ${index + 1}`} autoFocus={index === 0} />)}</> },
         { id: "access", label: "Access", content: <TextField label="Custom permission" /> },
@@ -147,3 +149,21 @@ function CustomChromePreview({ size }: { size: "md" | "lg" }) {
 }
 export const MediumCustomChrome: Story = { render: () => <CustomChromePreview size="md" /> };
 export const LargeCustomChrome: Story = { render: () => <CustomChromePreview size="lg" /> };
+
+function LocalizedModal({globals}:{globals:FixtureGlobals}) {
+ const [open,setOpen]=useState(false);
+ const rtl=globals.locale.startsWith('ar');
+ const title=rtl?'مراجعة إعدادات الدورة ومواد التعلم للمجموعات الدولية':'Review course settings and learning materials for international cohorts';
+ const messages:Record<string,string>={'common.ui.close':'إغلاق','common.ui.modalStep':'الخطوة {current} من {total}'};
+ return <SGTranslationProvider value={{locale:globals.locale,useNamespace:()=>{},t:(key,options)=>formatIcuMessage(rtl&&messages[key]?messages[key]:options.defaultMessage,globals.locale,options.values)}}>
+  <Provider theme={globals.theme} density={globals.density} dir={rtl?'rtl':'ltr'}>
+   <Button onPress={()=>setOpen(true)}>{rtl?'فتح إعدادات الدورة':'Open course settings'}</Button>
+   <AppModal open={open} onClose={()=>setOpen(false)} title={title} subtitle={rtl?'يتولى التطبيق حفظ المسودات ومراجعة الصلاحيات قبل نشر الدورة.':'The host saves drafts and reviews permissions before publishing the course.'} size="md" showCloseButton steps={{current:2,total:3}}
+    primaryAction={{label:rtl?'حفظ إعدادات الدورة للمراجعة':'Save course settings for review',onPress:()=>setOpen(false)}}
+    secondaryAction={{label:rtl?'إلغاء التغييرات والعودة':'Cancel changes and return',onPress:()=>setOpen(false)}}>
+     <TextField label={rtl?'عنوان الدورة التدريبية':'Course title'} autoFocus defaultValue={rtl?'التخطيط التعاوني للتعلم':'Collaborative learning planning'} />
+   </AppModal>
+  </Provider>
+ </SGTranslationProvider>;
+}
+export const LocalizedPresentation:Story={render:(_args,{globals})=><LocalizedModal globals={globals} />};

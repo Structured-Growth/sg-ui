@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { Stack, Typography } from "@structured-growth/sg-ui/primitives";
 import { LinkUrlModal } from "@structured-growth/sg-ui/components";
 
@@ -23,7 +23,7 @@ export const Default: Story = {
 
     return (
       <>
-        <AppButton
+        <Button
           onPress={() => {
             setSession((current) => current + 1);
             setOpen(true);
@@ -32,7 +32,7 @@ export const Default: Story = {
           variant="outlined"
         >
           Open Link Modal
-        </AppButton>
+        </Button>
         <LinkUrlModal
           initialDisplayText={lastDisplayText}
           key={session}
@@ -97,10 +97,10 @@ export const NativeHostSelection: Story = {
       <Typography ref={fragment} aria-label="Host rich fragment" onMouseUp={captureSelection}>
         {url ? <a href={url} onClick={event => event.preventDefault()}>{richChildren}</a> : richChildren}
       </Typography>
-      <AppButton ref={trigger} variant="outlined" tone="neutral" onPress={() => {
+      <Button ref={trigger} variant="outlined" tone="neutral" onPress={() => {
         setEvents(current => [...current, { action: "open", selection: selection.current }]);
         setOpen(true);
-      }}>Edit selected link</AppButton>
+      }}>Edit selected link</Button>
       <Typography as="div" variant="code" aria-label="Host link state">{JSON.stringify({ url, text: "Course guide" })}</Typography>
       <Typography as="div" variant="code" aria-label="Host link events">{JSON.stringify(events)}</Typography>
       <LinkUrlModal open={open} initialDisplayText="Course guide" initialUrl={url ?? ""}

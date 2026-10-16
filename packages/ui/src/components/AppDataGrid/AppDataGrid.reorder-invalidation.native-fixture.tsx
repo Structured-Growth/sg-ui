@@ -2,7 +2,7 @@ import type { FixtureMeta, FixtureCase } from "../../../tests/fixtures/types";
 import { useState } from "react";
 import { AppDataGrid } from "./AppDataGrid";
 import { Provider } from "../../experimental/Provider/Provider";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 
 type Course = { id: string; name: string };
 type Replacement = "dataset" | "identity" | null;

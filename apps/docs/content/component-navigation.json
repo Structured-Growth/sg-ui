@@ -4,7 +4,6 @@
     "label": "Buttons & actions",
     "slugs": [
       "button",
-      "owned-button",
       "icon-button",
       "button-group",
       "split-action",

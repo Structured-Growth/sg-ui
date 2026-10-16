@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { PageRichTextEditorSection } from "@structured-growth/sg-ui/components";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { IMAGE_POLICY_PIXEL, SAVED_IMAGE_SOURCE_DOCUMENT, SAVED_LINK_DOCUMENT, SAVED_RICH_DOCUMENT } from "./PageRichTextEditorSection.fixture.fixtures";
 
 const meta = {
@@ -161,8 +161,8 @@ export const SavedRichDocument: Story = {
     const [revision, setRevision] = useState(0);
     const [readOnly, setReadOnly] = useState(false);
     return <Provider>
-      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
-      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</AppButton>
+      <Button onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</Button>
+      <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</Button>
       <PageRichTextEditorSection lexicalValue={seed} editorKey={`rich-${revision}`} onLexicalChange={setValue}
         readOnly={readOnly} aria-label="Saved rich document" toolPreset="full" style={{ height: 520 }} />
       <pre aria-label="Saved rich JSON">{JSON.stringify(value)}</pre>
@@ -178,9 +178,9 @@ export const LocalImageLifecycle: Story = {
     const [mounted, setMounted] = useState(true);
     const [value, setValue] = useState<unknown>(null);
     return <Provider>
-      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
-      <AppButton onPress={() => { setReadOnly(false); setRevision(current => current + 1); }}>New document</AppButton>
-      <AppButton onPress={() => setMounted(current => !current)}>{mounted ? 'Close editor' : 'Open editor'}</AppButton>
+      <Button onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</Button>
+      <Button onPress={() => { setReadOnly(false); setRevision(current => current + 1); }}>New document</Button>
+      <Button onPress={() => setMounted(current => !current)}>{mounted ? 'Close editor' : 'Open editor'}</Button>
       {mounted && <PageRichTextEditorSection lexicalValue={null} editorKey={`local-image-${revision}`} onLexicalChange={setValue}
         readOnly={readOnly} aria-label="Local image document" toolPreset="full" style={{ height: 360 }} />}
       <pre aria-label="Saved image document">{JSON.stringify(value)}</pre>
@@ -200,8 +200,8 @@ export const ClipboardEditing: Story = {
       <div role="textbox" aria-label="Rich clipboard source" aria-multiline="true" contentEditable suppressContentEditableWarning>
         <p><strong>Bold course</strong> and <em>italic lesson</em></p><p>Second paragraph</p>
       </div>
-      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
-      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</AppButton>
+      <Button onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</Button>
+      <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</Button>
       <PageRichTextEditorSection lexicalValue={seed} editorKey={`clipboard-${revision}`} onLexicalChange={setValue}
         readOnly={readOnly} aria-label="Clipboard document" toolPreset="full" style={{ height: 360 }} />
       <pre aria-label="Saved document">{JSON.stringify(value)}</pre>
@@ -222,8 +222,8 @@ export const LinkDestinations: Story = {
         <p><a href="/link-policy-destination"><strong>Pasted guide</strong></a></p>
         <p><a href="javascript:alert('unsafe-paste')"><em>Pasted rejected script</em></a></p>
       </div>
-      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
-      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</AppButton>
+      <Button onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</Button>
+      <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</Button>
       <PageRichTextEditorSection lexicalValue={seed} editorKey={`links-${revision}`} onLexicalChange={setValue}
         readOnly={readOnly} aria-label="Link document" toolPreset="full" style={{ height: 360 }} />
       <pre aria-label="Saved link JSON">{JSON.stringify(value)}</pre>
@@ -241,8 +241,8 @@ export const ImageSources: Story = {
     const [attempt, setAttempt] = useState(0);
     return <Provider>
       <p>The first host upload returns an unsupported address. Retry with the same file and description.</p>
-      <AppButton onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</AppButton>
-      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</AppButton>
+      <Button onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</Button>
+      <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</Button>
       <PageRichTextEditorSection lexicalValue={seed} editorKey={`image-sources-${revision}`} onLexicalChange={setValue}
         readOnly={readOnly} aria-label="Image source document" toolPreset="full" style={{ height: 360 }}
         onUploadImage={async () => {
@@ -280,9 +280,9 @@ export const HostUploadLifecycle: Story = {
     }, [pending, mode, outcome]);
     return <Provider>
       <p>Choose how the editor lifetime ends when upload starts. The host promise settles afterward.</p>
-      {['reset', 'read-only', 'unmount'].map(choice => <AppButton key={choice} onPress={() => setMode(choice)}>Use {choice}</AppButton>)}
-      {['success', 'failure'].map(choice => <AppButton key={choice} onPress={() => setOutcome(choice)}>Late {choice}</AppButton>)}
-      <AppButton onPress={() => { setMounted(true); setReadOnly(false); }}>Resume editor</AppButton>
+      {['reset', 'read-only', 'unmount'].map(choice => <Button key={choice} onPress={() => setMode(choice)}>Use {choice}</Button>)}
+      {['success', 'failure'].map(choice => <Button key={choice} onPress={() => setOutcome(choice)}>Late {choice}</Button>)}
+      <Button onPress={() => { setMounted(true); setReadOnly(false); }}>Resume editor</Button>
       <output aria-label="Host upload completion">{completed}</output>
       {mounted && <PageRichTextEditorSection lexicalValue={null} editorKey={`host-upload-${revision}`} onLexicalChange={setValue}
         readOnly={readOnly} aria-label="Host upload document" toolPreset="full" style={{ height: 360 }}
@@ -299,7 +299,7 @@ export const TableHistory: Story = {
     const [seed, setSeed] = useState<unknown>(null);
     const [revision, setRevision] = useState(0);
     return <Provider>
-      <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved table</AppButton>
+      <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved table</Button>
       <PageRichTextEditorSection lexicalValue={seed} editorKey={`table-history-${revision}`} onLexicalChange={setValue}
         aria-label="Table history document" toolPreset="full" style={{ height: 420 }} />
       <pre aria-label="Saved table JSON">{JSON.stringify(value)}</pre>

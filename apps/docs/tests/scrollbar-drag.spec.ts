@@ -4,7 +4,7 @@ test.use({launchOptions:{ignoreDefaultArgs:['--hide-scrollbars']}});
 
 for(const name of ['main','sidebar'])test(`native ${name} scrollbar supports one continuous press and drag after wheel scrolling`,async({page})=>{
   await page.setViewportSize({width:1280,height:650});
-  await page.goto('/docs/components/owned-button');
+  await page.goto('/docs/components/button');
   const pane=name==='main'?page.getByRole('main'):page.getByRole('navigation',{name:'Documentation',exact:true});
   const bounds=(await pane.boundingBox())!;
   await page.mouse.move(bounds.x+bounds.width/2,bounds.y+bounds.height/2);

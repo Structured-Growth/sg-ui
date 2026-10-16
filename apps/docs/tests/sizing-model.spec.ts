@@ -66,12 +66,17 @@ test('a sizing theme customizes touch targets and navigation icons across nested
   const preview=owner.locator('[data-docs-preview]');
   const field=preview.getByRole('textbox',{name:'Workspace name',exact:true});
   expect((await field.boundingBox())!.height).toBe(48);
+  await expect(field).toHaveCSS('font-size','13px');
+  await expect(field).toHaveCSS('padding-left','10px');
+  await expect(field).toHaveCSS('border-radius','8px');
   const row=preview.getByRole('link',{name:'Workspace',exact:true});
   expect((await row.boundingBox())!.height).toBe(48);
   expect((await row.locator('svg').boundingBox())!.width).toBe(24);
   await preview.getByRole('button',{name:'Open workspace actions',exact:true}).click();
   const menu=page.getByRole('menu',{name:'Workspace actions',exact:true});
   expect((await menu.getByRole('menuitem').first().boundingBox())!.height).toBe(48);
+  await expect(menu).toHaveCSS('font-size','13px');
+  await expect(menu.getByRole('menuitem').first()).toHaveCSS('padding-left','10px');
   await page.keyboard.press('Escape');
   const sources=await owner.locator('code[aria-label^="Source:"]').allTextContents();
   expect(checkSources(sources.map((source,index)=>({slug:`sizing-theme-${index}`,source})))).toEqual([]);

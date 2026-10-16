@@ -1,5 +1,5 @@
 @layer sgui.components {
-  .root { display: inline-flex; align-items: center; gap: var(--sgui-space2); min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); color: var(--sgui-switch-text); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); cursor: pointer; }
+  .root { display: inline-flex; align-items: center; gap: var(--sgui-space2); min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); color: var(--sgui-switch-text); font-family: var(--sgui-font-family); font-size: var(--sgui-control-text-size); line-height: var(--sgui-label-line-height); cursor: pointer; }
   .track { display: flex; align-items: center; flex: none; inline-size: 2.25rem; block-size: 1.25rem; padding: 2px; box-sizing: border-box; border: 1px solid var(--sgui-switch-border); border-radius: 1rem; background: var(--sgui-switch-subtle-surface); }
   .thumb { inline-size: 0.875rem; block-size: 0.875rem; border-radius: 50%; background: var(--sgui-switch-thumb-color); }
   .root[data-selected] .track { justify-content: flex-end; background: var(--sgui-switch-selected-surface); }

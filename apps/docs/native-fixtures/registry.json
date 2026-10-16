@@ -650,6 +650,16 @@
       "importPath": "./scenarios/components/AppModal/AppModal.fixture.tsx",
       "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx"
     },
+    "overlays-appmodal--localized-presentation": {
+      "id": "overlays-appmodal--localized-presentation",
+      "type": "fixture",
+      "title": "Overlays/AppModal",
+      "name": "LocalizedPresentation",
+      "exportName": "LocalizedPresentation",
+      "module": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+      "importPath": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+      "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx"
+    },
     "navigation-sidenavigation-organization-lifetime--deferred-switch": {
       "id": "navigation-sidenavigation-organization-lifetime--deferred-switch",
       "type": "fixture",
@@ -970,6 +980,16 @@
       "importPath": "./scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx",
       "original": "packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx"
     },
+    "layout-apppageheader--localized-presentation": {
+      "id": "layout-apppageheader--localized-presentation",
+      "type": "fixture",
+      "title": "Layout/AppPageHeader",
+      "name": "LocalizedPresentation",
+      "exportName": "LocalizedPresentation",
+      "module": "./scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx",
+      "importPath": "./scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx",
+      "original": "packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx"
+    },
     "components-appoperationsteps--default": {
       "id": "components-appoperationsteps--default",
       "type": "fixture",
@@ -1006,6 +1026,16 @@
       "title": "Components/AppOperationSteps",
       "name": "AllStates",
       "exportName": "AllStates",
+      "module": "./scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
+      "importPath": "./scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
+      "original": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.stories.tsx"
+    },
+    "components-appoperationsteps--localized-presentation": {
+      "id": "components-appoperationsteps--localized-presentation",
+      "type": "fixture",
+      "title": "Components/AppOperationSteps",
+      "name": "LocalizedPresentation",
+      "exportName": "LocalizedPresentation",
       "module": "./scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
       "importPath": "./scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
       "original": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.stories.tsx"
@@ -1276,6 +1306,26 @@
       "title": "Layout/AppShell",
       "name": "IndependentContainers",
       "exportName": "IndependentContainers",
+      "module": "./scenarios/components/AppShell/AppShell.fixture.tsx",
+      "importPath": "./scenarios/components/AppShell/AppShell.fixture.tsx",
+      "original": "packages/ui/src/components/AppShell/AppShell.stories.tsx"
+    },
+    "layout-appshell--localized-presentation": {
+      "id": "layout-appshell--localized-presentation",
+      "type": "fixture",
+      "title": "Layout/AppShell",
+      "name": "LocalizedPresentation",
+      "exportName": "LocalizedPresentation",
+      "module": "./scenarios/components/AppShell/AppShell.fixture.tsx",
+      "importPath": "./scenarios/components/AppShell/AppShell.fixture.tsx",
+      "original": "packages/ui/src/components/AppShell/AppShell.stories.tsx"
+    },
+    "layout-appshell--localized-auth-presentation": {
+      "id": "layout-appshell--localized-auth-presentation",
+      "type": "fixture",
+      "title": "Layout/AppShell",
+      "name": "LocalizedAuthPresentation",
+      "exportName": "LocalizedAuthPresentation",
       "module": "./scenarios/components/AppShell/AppShell.fixture.tsx",
       "importPath": "./scenarios/components/AppShell/AppShell.fixture.tsx",
       "original": "packages/ui/src/components/AppShell/AppShell.stories.tsx"
@@ -2230,6 +2280,16 @@
       "importPath": "./scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
       "original": "packages/ui/src/components/DataToolbar/DataToolbar.stories.tsx"
     },
+    "data-display-datatoolbar--public-preset-hosts": {
+      "id": "data-display-datatoolbar--public-preset-hosts",
+      "type": "fixture",
+      "title": "Data Display/DataToolbar",
+      "name": "PublicPresetHosts",
+      "exportName": "PublicPresetHosts",
+      "module": "./scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "importPath": "./scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "original": "packages/ui/src/components/DataToolbar/DataToolbar.stories.tsx"
+    },
     "data-display-datatoolbar-column-order--controlled-host-order": {
       "id": "data-display-datatoolbar-column-order--controlled-host-order",
       "type": "fixture",
@@ -2886,6 +2946,156 @@
       "title": "Migration proofs/Box",
       "name": "Default",
       "exportName": "Default",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--hardening-matrix": {
+      "id": "migration-proofs-box--hardening-matrix",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "HardeningMatrix",
+      "exportName": "HardeningMatrix",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--control-geometry": {
+      "id": "migration-proofs-box--control-geometry",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "ControlGeometry",
+      "exportName": "ControlGeometry",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-navigation": {
+      "id": "migration-proofs-box--localized-navigation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedNavigation",
+      "exportName": "LocalizedNavigation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-learner-cards": {
+      "id": "migration-proofs-box--localized-learner-cards",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedLearnerCards",
+      "exportName": "LocalizedLearnerCards",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-instructor-cards": {
+      "id": "migration-proofs-box--localized-instructor-cards",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedInstructorCards",
+      "exportName": "LocalizedInstructorCards",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-fields-presentation": {
+      "id": "migration-proofs-box--localized-fields-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedFieldsPresentation",
+      "exportName": "LocalizedFieldsPresentation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-actions-presentation": {
+      "id": "migration-proofs-box--localized-actions-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedActionsPresentation",
+      "exportName": "LocalizedActionsPresentation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-navigator-presentation": {
+      "id": "migration-proofs-box--localized-navigator-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedNavigatorPresentation",
+      "exportName": "LocalizedNavigatorPresentation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-dates-presentation": {
+      "id": "migration-proofs-box--localized-dates-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedDatesPresentation",
+      "exportName": "LocalizedDatesPresentation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-typography-table-presentation": {
+      "id": "migration-proofs-box--localized-typography-table-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedTypographyTablePresentation",
+      "exportName": "LocalizedTypographyTablePresentation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-owned-grid-presentation": {
+      "id": "migration-proofs-box--localized-owned-grid-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedOwnedGridPresentation",
+      "exportName": "LocalizedOwnedGridPresentation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-shell-grid-presentation": {
+      "id": "migration-proofs-box--localized-shell-grid-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedShellGridPresentation",
+      "exportName": "LocalizedShellGridPresentation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-learner-grid-presentation": {
+      "id": "migration-proofs-box--localized-learner-grid-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedLearnerGridPresentation",
+      "exportName": "LocalizedLearnerGridPresentation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-proof-grid-presentation": {
+      "id": "migration-proofs-box--localized-proof-grid-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedProofGridPresentation",
+      "exportName": "LocalizedProofGridPresentation",
+      "module": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
+      "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
+    },
+    "migration-proofs-box--localized-editor-dialogs-presentation": {
+      "id": "migration-proofs-box--localized-editor-dialogs-presentation",
+      "type": "fixture",
+      "title": "Migration proofs/Box",
+      "name": "LocalizedEditorDialogsPresentation",
+      "exportName": "LocalizedEditorDialogsPresentation",
       "module": "./scenarios/experimental/Box/Box.fixture.tsx",
       "importPath": "./scenarios/experimental/Box/Box.fixture.tsx",
       "original": "packages/ui/src/experimental/Box/Box.stories.tsx"
@@ -4210,12 +4420,32 @@
       "importPath": "./scenarios/experimental/Stack/Stack.fixture.tsx",
       "original": "packages/ui/src/experimental/Stack/Stack.stories.tsx"
     },
+    "migration-proofs-stack--wrapping": {
+      "id": "migration-proofs-stack--wrapping",
+      "type": "fixture",
+      "title": "Migration proofs/Stack",
+      "name": "Wrapping",
+      "exportName": "Wrapping",
+      "module": "./scenarios/experimental/Stack/Stack.fixture.tsx",
+      "importPath": "./scenarios/experimental/Stack/Stack.fixture.tsx",
+      "original": "packages/ui/src/experimental/Stack/Stack.stories.tsx"
+    },
     "migration-proofs-breadcrumbs--default": {
       "id": "migration-proofs-breadcrumbs--default",
       "type": "fixture",
       "title": "Migration proofs/Breadcrumbs",
       "name": "Default",
       "exportName": "Default",
+      "module": "./scenarios/experimental/Breadcrumbs/Breadcrumbs.fixture.tsx",
+      "importPath": "./scenarios/experimental/Breadcrumbs/Breadcrumbs.fixture.tsx",
+      "original": "packages/ui/src/experimental/Breadcrumbs/Breadcrumbs.stories.tsx"
+    },
+    "migration-proofs-breadcrumbs--long-ancestor": {
+      "id": "migration-proofs-breadcrumbs--long-ancestor",
+      "type": "fixture",
+      "title": "Migration proofs/Breadcrumbs",
+      "name": "LongAncestor",
+      "exportName": "LongAncestor",
       "module": "./scenarios/experimental/Breadcrumbs/Breadcrumbs.fixture.tsx",
       "importPath": "./scenarios/experimental/Breadcrumbs/Breadcrumbs.fixture.tsx",
       "original": "packages/ui/src/experimental/Breadcrumbs/Breadcrumbs.stories.tsx"

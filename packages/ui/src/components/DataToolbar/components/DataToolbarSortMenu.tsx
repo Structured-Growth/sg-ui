@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type PointerEvent } from "react";
-import { Button } from "../../../experimental/Button/Button";
+import { Button } from "../../../components/Button/Button";
 import { Badge } from "../../../experimental/Badge/Badge";
 import { IconButton } from "../../../experimental/IconButton/IconButton";
 import { Popover } from "../../../experimental/Popover/Popover";

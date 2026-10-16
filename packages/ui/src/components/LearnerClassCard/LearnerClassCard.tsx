@@ -3,7 +3,7 @@ import { ArrowForwardIcon } from "../../experimental/icons/ArrowForwardIcon";
 import { EventIcon } from "../../experimental/icons/EventIcon";
 import { ExploreIcon } from "../../experimental/icons/ExploreIcon";
 import { Link } from "../../experimental/Link/Link";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Avatar } from "../../experimental/Avatar/Avatar";
 import { Progress } from "../../experimental/Progress/Progress";
 import { Typography } from "../../experimental/Typography/Typography";

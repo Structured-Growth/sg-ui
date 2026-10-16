@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { AppDataGridShell } from "./AppDataGridShell";
 import type { AppDataGridColumn } from "../AppDataGrid";
 import type { OwnedGridCriteriaState } from "../AppDataGrid/ownedGridState";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 
 type View = "First" | "Second";
 type Course = { id: string; name: string };

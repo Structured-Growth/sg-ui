@@ -5,7 +5,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AppModal, type AppModalCloseReason } from "./AppModal";
-import { AppButton } from "../AppButton";
+import { Button } from "../Button";
 import { AppPageTabs } from "../AppPageTabs";
 import { TextField } from "../../experimental/TextField/TextField";
 import { Popover } from "../../experimental/Popover/Popover";
@@ -14,20 +14,20 @@ import styles from "./AppModal.module.css";
 afterEach(cleanup);
 function Fixture({ close, locked = false }: {close: (reason: AppModalCloseReason) => void; locked?: boolean}) {
   const [open,setOpen] = useState(false); const [tab,setTab] = useState("details");
-  return <Provider theme="dark"><AppButton onPress={() => setOpen(true)}>Open</AppButton>
+  return <Provider theme="dark"><Button onPress={() => setOpen(true)}>Open</Button>
     <AppModal open={open} title="Settings" subtitle="Review settings" size="md" heightMode="md" showCloseButton
       disableBackdropClose={locked} disableEscapeKeyDown={locked} onClose={reason => {close(reason);setOpen(false);}}>
       <AppPageTabs value={tab} onChange={setTab} items={[{id:"details",label:"Details",content:<TextField label="Name" autoFocus />},
-        {id:"access",label:"Access",content:<Popover title="Help" trigger={<AppButton>Help</AppButton>}><TextField label="Note" autoFocus /></Popover>}]} />
+        {id:"access",label:"Access",content:<Popover title="Help" trigger={<Button>Help</Button>}><TextField label="Note" autoFocus /></Popover>}]} />
     </AppModal></Provider>;
 }
 function NestedModalFixture({ close }: { close: (reason: string) => void }) {
   const [open, setOpen] = useState(false);
   const [childOpen, setChildOpen] = useState(false);
-  return <Provider><AppButton onPress={() => setOpen(true)}>Open parent</AppButton>
+  return <Provider><Button onPress={() => setOpen(true)}>Open parent</Button>
     <AppModal open={open} title="Parent" onClose={reason => { close(`parent:${reason}`); setOpen(false); }}>
       <TextField label="Parent name" autoFocus />
-      <AppButton onPress={() => setChildOpen(true)}>Open child</AppButton>
+      <Button onPress={() => setChildOpen(true)}>Open child</Button>
       <AppModal open={childOpen} title="Child" onClose={reason => { close(`child:${reason}`); setChildOpen(false); }}>
         <TextField label="Child name" autoFocus />
       </AppModal>
@@ -72,12 +72,12 @@ describe("AppModal owned contract", () => {
       const [removed, setRemoved] = useState(false);
       const destination = useRef<HTMLInputElement>(null);
       useEffect(() => { if (removed && !child) destination.current?.focus(); }, [removed, child]);
-      return <Provider><AppButton onPress={() => setOpen(true)}>Open recovery</AppButton>
+      return <Provider><Button onPress={() => setOpen(true)}>Open recovery</Button>
         <AppModal open={open} title="Parent recovery" onClose={() => setOpen(false)}>
           <TextField label="Fallback" autoFocus /><TextField label="Destination" ref={destination} />
-          {!removed && <AppButton onPress={() => setChild(true)}>Open removable</AppButton>}
+          {!removed && <Button onPress={() => setChild(true)}>Open removable</Button>}
           <AppModal open={child} title="Child recovery" onClose={() => setChild(false)}>
-            <TextField label="Child" autoFocus /><AppButton onPress={() => setRemoved(true)}>Remove opener</AppButton>
+            <TextField label="Child" autoFocus /><Button onPress={() => setRemoved(true)}>Remove opener</Button>
           </AppModal>
         </AppModal></Provider>;
     }
@@ -151,7 +151,7 @@ describe("AppModal owned contract", () => {
     expect(dialog.closest('[data-sgui-part="dialog-overlay"]')?.getAttribute("data-size")).toBe("full");
   });
   it("names custom headers and server-renders a closed modal", async () => {
-    render(<Provider><AppModal open aria-label="Custom settings" headerContent={<h2>Custom</h2>} footerContent={<AppButton>Done</AppButton>}>Content</AppModal></Provider>);
+    render(<Provider><AppModal open aria-label="Custom settings" headerContent={<h2>Custom</h2>} footerContent={<Button>Done</Button>}>Content</AppModal></Provider>);
     expect(await screen.findByRole("dialog",{name:"Custom settings"})).toBeTruthy();expect(screen.getByRole("button",{name:"Done"})).toBeTruthy();
     expect(renderToString(<AppModal open={false} title="Closed">Content</AppModal>)).not.toContain('role="dialog"');
   });

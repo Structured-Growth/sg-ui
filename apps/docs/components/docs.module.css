@@ -99,7 +99,14 @@
   white-space: nowrap;
   border: 0;
 }
-.versionPicker { --sgui-control-height: var(--sgui-compact-control-height); --sgui-control-padding: var(--sgui-space2); --sgui-label-size: var(--sgui-caption-size); gap: 0; }
+.versionPicker { gap: 0; }
 .navigationMeta a { font-size: var(--sgui-caption-size); line-height: var(--sgui-body2-line-height); }
 
 .toolsScope { display: flex; block-size: 100%; min-block-size: 0; min-inline-size: 0; }
+
+/* Align unlabeled toggles with the control beneath a neighboring field label.
+   Flex end alignment applies independently to each wrapped row. */
+.playgroundControls [data-direction="row"] { align-items: flex-end; }
+@media (max-width: 38rem) {
+  .playgroundControls [data-direction="row"][data-responsive] { align-items: stretch; }
+}

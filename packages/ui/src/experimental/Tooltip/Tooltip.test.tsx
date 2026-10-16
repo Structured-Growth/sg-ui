@@ -4,7 +4,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Tooltip } from "./Tooltip";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { ThemeScope } from "../../foundation/ThemeScope";
 afterEach(cleanup);
 it("describes the focused trigger, dismisses with Escape and keeps trigger focus", async () => {

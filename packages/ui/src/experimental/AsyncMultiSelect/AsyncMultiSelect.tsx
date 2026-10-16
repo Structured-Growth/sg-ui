@@ -2,7 +2,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { ListBox, ListBoxItem } from "react-aria-components/ListBox";
 import { TextField } from "../TextField/TextField";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { useTranslation } from "../../i18n";
 import { useFormReset } from "../useFormReset";
 import styles from "./AsyncMultiSelect.module.css";

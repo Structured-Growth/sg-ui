@@ -90,7 +90,8 @@
     "how": [
       "Supply the course summary and progressPercent; the card does not calculate completion or fetch learner records.",
       "Use detailsHref and continueHref for navigation, or onContinue for a host action. A continueHref opens a separate tab.",
-      "Coordinate dueAt, locale, timezone and referenceNow in the host, especially for SSR. Supply a stable reference clock when rendering time-relative labels."
+      "Coordinate dueAt, locale, timezone and referenceNow in the host, especially for SSR. Supply a stable reference clock when rendering time-relative labels.",
+      "The due-label matrix fixes referenceNow and shows overdue/today/tomorrow/later plus unavailable-date and missing-content fallbacks. The current dueAt API remains required; the example passes an empty string to exercise unavailable host data."
     ],
     "related": [
       {
@@ -130,7 +131,8 @@
       "Keep each state concern under one owner. Configure selection, column visibility and action columns explicitly; row reordering requires the supported complete-page dataset and host persistence.",
       "Column sizing: width is the preferred starting size; minWidth and maxWidth bound resizing. For a fixed 96px action column, use width: 96, minWidth: 96, maxWidth: 96. A maxWidth alone limits growth but does not make the column fixed.",
       "Leave at least one visible data column uncapped to fill the remaining container width. For example, keep Course flexible and Actions fixed. DataGrid columns without width share space; AppDataGrid uses flex: 1. Both use the same sizing policy. Fixed columns and maximum limits are never stretched to force a fill; if every column is fixed or capped, unused space can remain. Minimum widths produce horizontal scrolling when the container is too narrow.",
-      "Resizing commits the changed column and may release another flexible column\u2019s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in."
+      "Resizing commits the changed column and may release another flexible column’s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in.",
+      "Reorder controls wrap within their utility column when enlarged text or touch targets need more room. Rows grow to contain them; drag and Move controls retain their minimum targets without covering neighboring data."
     ],
     "related": [
       {
@@ -148,7 +150,8 @@
     "how": [
       "Supply rows, columns and row identity, then add a card renderer through view.cards when people should switch presentations.",
       "Use the shell's combined state/callback contract rather than independently controlling the toolbar, grid and footer with competing state.",
-      "For server mode, translate requested criteria into host requests and accept the resulting state. Opt into persistence with an isolated storage key; showResetView requests the complete declared default view."
+      "For server mode, translate requested criteria into host requests and accept the resulting state. Opt into persistence with an isolated storage key; showResetView requests the complete declared default view.",
+      "The server example accepts the combined onStateChange transaction in one host criteria owner, processes local mock responses and guards stale success/error/pending completion. The persisted-view example uses an isolated storage key and declares complete reset defaults; selection and rows remain transient."
     ],
     "related": [
       {
@@ -202,7 +205,8 @@
     "how": [
       "Supply a label that identifies the row and action, and attach the handle to the grid's supported drag slot or a host-owned Move action.",
       "Enable reordering only for the supported complete single-page dataset, with criteria and selection compatible with reordering.",
-      "Accept reorder requests in the host, persist the order and handle rollback on failure. Provide the keyboard Move flow as well as pointer dragging."
+      "Accept reorder requests in the host, persist the order and handle rollback on failure. Provide the keyboard Move flow as well as pointer dragging.",
+      "Keep the handle and Move controls within the grid utility column. Enlarged text and touch targets can wrap the controls onto another line; allow row height to grow."
     ],
     "related": [
       {
@@ -237,7 +241,8 @@
       "Columns without a width share the available space; explicit widths and user resizing remain supported. The footer uses the shared Select and resets page zero when rows per page changes. Keep request and reorder persistence in the host. This experimental entry point is not interchangeable with AppDataGrid's props.",
       "Column sizing: width is the preferred starting size; minWidth and maxWidth bound resizing. For a fixed 96px action column, use width: 96, minWidth: 96, maxWidth: 96. A maxWidth alone limits growth but does not make the column fixed.",
       "Leave at least one visible data column uncapped to fill the remaining container width. For example, keep Course flexible and Actions fixed. DataGrid columns without width share space; AppDataGrid uses flex: 1. Both use the same sizing policy. Fixed columns and maximum limits are never stretched to force a fill; if every column is fixed or capped, unused space can remain. Minimum widths produce horizontal scrolling when the container is too narrow.",
-      "Resizing commits the changed column and may release another flexible column\u2019s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in."
+      "Resizing commits the changed column and may release another flexible column’s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in.",
+      "The grid scrollport contains both visible columns and the visually hidden native resize inputs, so wide columns do not increase the document width."
     ],
     "related": [
       {

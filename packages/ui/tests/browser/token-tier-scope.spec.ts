@@ -78,7 +78,7 @@ test('nested source overrides rebind semantic and component aliases without chan
   expect(d.buttonPrimaryBackground).toBe(p.action);
   expect(d.fieldInvalidBorder).toBe(p.danger);
   expect(await geometry(parent)).toMatchObject({ height: 2.75, padding: 1 });
-  expect(await geometry(child)).toMatchObject({ height: 2, padding: 0.75 });
+  expect(await geometry(child)).toMatchObject({ height: 2, padding: 0.5 });
   await info.attach('nested-computed-colors', { body: JSON.stringify({ p, c, slot, d }), contentType: 'application/json' });
 });
 
@@ -89,7 +89,8 @@ test('live light dark system and density changes recompute all displayed aliases
   const light = await colors(page.getByTestId('reference-light')), dark = await colors(page.getByTestId('reference-dark'));
   expect(light.buttonPrimaryBackground).toBe('rgb(29, 78, 216)');
   expect(dark.buttonPrimaryBackground).toBe('rgb(96, 165, 250)');
-  expect(Object.keys(light)).toHaveLength(68);
+  expect(Object.keys(light)).toHaveLength(69);
+  expect(light).toHaveProperty('textSubtle');
   for (const theme of ['dark', 'light', 'system'] as const) {
     await page.getByRole('button', { name: `Use ${theme} theme`, exact: true }).click();
     await expect(scope).toHaveAttribute('data-sgui-theme', theme);
@@ -99,16 +100,16 @@ test('live light dark system and density changes recompute all displayed aliases
       await expect.poll(() => colors(scope)).toEqual(expected);
       await expect.poll(() => colors(inherited)).toEqual(expected);
       expect(await colors(fixed)).toEqual(dark);
-      // Alias swatches update immediately; AppButton retains its production
+      // Alias swatches update immediately; Button retains its production
       // background-color transition. Poll the same exact endpoint after each change.
       await expect.poll(async () => (await actual(scope, 'Switch actual action')).background).toBe(expected.action);
       for (const density of ['compact', 'comfortable'] as const) {
         await page.getByRole('button', { name: `Use ${density} density`, exact: true }).click();
         await expect(scope).toHaveAttribute('data-sgui-density', density);
-        const dimensions = density === 'compact' ? { height: 2, padding: 0.75 } : { height: 2.75, padding: 1 };
+        const dimensions = density === 'compact' ? { height: 2, padding: 0.5 } : { height: 2.75, padding: 1 };
         expect(await geometry(scope)).toMatchObject(dimensions);
         expect(await geometry(inherited)).toMatchObject(dimensions);
-        expect(await geometry(fixed)).toMatchObject({ height: 2, padding: 0.75 });
+        expect(await geometry(fixed)).toMatchObject({ height: 2, padding: 0.5 });
         expect(await actual(inherited, 'Inherited actual action')).toMatchObject(dimensions);
         expect(await colors(scope)).toEqual(expected);
       }
@@ -137,8 +138,8 @@ test('Provider portal forwards host tier overrides while adjacent scope and layo
   expect(values.buttonPrimaryBackground).toBe('rgb(163, 230, 53)');
   expect(values.fieldInvalidBorder).toBe('rgb(253, 164, 175)');
   expect(await background(portal)).toBe(values.surface);
-  expect(await actual(content, 'Portal actual action')).toMatchObject({ background: values.buttonPrimaryBackground, height: 2, padding: 0.75 });
-  expect(await geometry(content)).toMatchObject({ height: 2, padding: 0.75 });
+  expect(await actual(content, 'Portal actual action')).toMatchObject({ background: values.buttonPrimaryBackground, height: 2, padding: 0.5 });
+  expect(await geometry(content)).toMatchObject({ height: 2, padding: 0.5 });
   expect(await geometry(page.getByTestId('portal-comfortable'))).toMatchObject({ height: 2.75, padding: 1 });
   expect(await actual(content, 'Portal comfortable action')).toMatchObject({ background: values.buttonPrimaryBackground, height: 2.75, padding: 1 });
   expect(await colors(adjacent)).toEqual(before);

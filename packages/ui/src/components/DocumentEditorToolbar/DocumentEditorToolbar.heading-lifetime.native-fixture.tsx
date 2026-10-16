@@ -2,7 +2,7 @@ import type { FixtureMeta, FixtureCase } from "../../../tests/fixtures/types";
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { flushSync } from "react-dom";
 import { Provider } from "../../experimental/Provider/Provider";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { DocumentEditorToolbar, type DocumentEditorToolbarProps } from "./DocumentEditorToolbar";
 
 const modes = ["replace", "remove", "read-only", "unmount", "remove-restore", "read-only-restore", "unchanged"] as const;

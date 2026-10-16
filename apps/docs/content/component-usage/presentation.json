@@ -1,28 +1,22 @@
 {
   "button": {
-    "when": "Use AppButton for an action such as saving a draft, opening a dialog or submitting a form. It preserves the catalog name while using the same owned action contract as Button; navigation to another location belongs in Link.",
+    "when": "Use Button for an action such as saving, publishing or confirming. Use Link for navigation and IconButton for an icon-only action. Button exposes the same props under its established catalog name.",
     "how": [
-      "Choose filled, outlined or text for emphasis, then primary or neutral tone. Compare compact and comfortable density locally rather than changing the entire page.",
-      "Handle pointer and keyboard activation through onPress. Keep persistence, validation and asynchronous success or failure state in the host application.",
-      "Use loading while an action is pending and disabled when unavailable. Supply a clear text label; startIcon and endIcon supplement that label.",
-      "Set type=\"submit\" or type=\"reset\" explicitly for native form actions; the default is a form-safe button."
+      "Provide readable children and an onPress callback for application actions. Use Link when activation changes location.",
+      "Explore variant, tone, density, disabled and loading independently; the playground source records the selected combination.",
+      "Add decorative startIcon or endIcon alongside the text. Use IconButton when the action has no visible text label.",
+      "Keep native submit/reset behavior explicit with type and let the host form own its submission handler.",
+      "Use startIcon and endIcon for optional leading and trailing decoration. Keep a visible text label: icon slots are hidden from assistive technology. Loading replaces startIcon with progress but preserves endIcon.",
+      "Use the named examples to reference a specific configuration. Native submit/reset buttons belong inside a host-owned form."
     ],
     "related": [
       {
-        "slug": "owned-button",
-        "label": "Button foundation"
+        "slug": "button-group",
+        "label": "Related action groups"
       },
       {
-        "slug": "icon-button",
-        "label": "Icon-only actions"
-      },
-      {
-        "slug": "link",
-        "label": "Navigation links"
-      },
-      {
-        "slug": "dialog",
-        "label": "AppModal forms"
+        "slug": "split-action",
+        "label": "Primary and secondary actions"
       }
     ]
   },
@@ -49,38 +43,14 @@
       }
     ]
   },
-  "owned-button": {
-    "when": "Use Button for an action such as saving, publishing or confirming. Use Link for navigation and IconButton for an icon-only action. AppButton exposes the same props under its established catalog name.",
-    "how": [
-      "Provide readable children and an onPress callback for application actions. Use Link when activation changes location.",
-      "Explore variant, tone, density, disabled and loading independently; the playground source records the selected combination.",
-      "Add decorative startIcon or endIcon alongside the text. Use IconButton when the action has no visible text label.",
-      "Keep native submit/reset behavior explicit with type and let the host form own its submission handler.",
-      "Use startIcon and endIcon for optional leading and trailing decoration. Keep a visible text label: icon slots are hidden from assistive technology. Loading replaces startIcon with progress but preserves endIcon.",
-      "Use the named examples to reference a specific configuration. Native submit/reset buttons belong inside a host-owned form."
-    ],
-    "related": [
-      {
-        "slug": "button",
-        "label": "AppButton catalog wrapper"
-      },
-      {
-        "slug": "button-group",
-        "label": "Related action groups"
-      },
-      {
-        "slug": "split-action",
-        "label": "Primary and secondary actions"
-      }
-    ]
-  },
   "owned-dialog": {
     "when": "Use Dialog for a modal task that needs a focused overlay but custom content or chrome. Prefer AppModal for standard create/update forms with named primary and secondary actions, subtitles and steps; use Popover for content anchored to an existing control. Both Dialog and AppModal are modal overlays: use them when the user should complete or dismiss a task before returning to the page.",
     "how": [
       "Control open in host state and close it from onDismiss(reason). The dismissal reason distinguishes Escape, outside activation, the close button and other dismissal.",
       "Supply a meaningful title or aria-label. Provide description for supplementary context and use header or footer only when custom chrome is needed.",
       "Choose a size from xs through full and decide dismissOnOutside and dismissOnEscape separately. If implicit dismissal is disabled, retain an explicit close or cancel action.",
-      "Open from a focusable control and keep that opener available for ordinary focus restoration. The overlay owns its focus scope; the host owns draft data, validation and persistence."
+      "Open from a focusable control and keep that opener available for ordinary focus restoration. The overlay owns its focus scope; the host owns draft data, validation and persistence.",
+      "Focused controls and their outer focus outlines are revealed inside nested dialog scrollports, including above a fixed footer when text is enlarged. Keep enough room for a usable content region; the dialog can scroll as a whole when its chrome cannot fit."
     ],
     "related": [
       {
@@ -134,7 +104,7 @@
       "Give the tab set a label and items with stable id, label and content. Mark unavailable items disabled instead of rendering an active panel that cannot be used.",
       "Use value and onValueChange for host-controlled selection, or defaultValue for an initial uncontrolled panel. Keep panel data and callbacks in the host.",
       "Choose horizontal or vertical orientation and automatic or manual activation. Manual activation separates moving keyboard focus from selecting a panel.",
-      "Keep labels concise and test long content in the playground; the owned tab strip supports scrolling focused tabs into view."
+      "The default overflow=scroll keeps focused tabs visible by scrolling their strip. For horizontal strips, use overflow=menu to show hidden sections in a More tabs menu. A hidden selection becomes the final visible tab, displacing other tabs as needed. Mark an item priority=secondary to keep it in the menu until selected, even with spare room. Long titles truncate in the row but retain their accessible name and full menu label. Customize overflowLabel for the host language; vertical tabs retain scrolling."
     ],
     "related": [
       {
@@ -152,7 +122,7 @@
     ]
   },
   "typography": {
-    "when": "Use Typography to apply the library\u2019s text roles consistently while choosing the correct HTML semantics for the document. A heading-sized style does not automatically make text a heading.",
+    "when": "Use Typography to apply the library’s text roles consistently while choosing the correct HTML semantics for the document. A heading-sized style does not automatically make text a heading.",
     "how": [
       "Choose variant for the visual role and as independently for semantics, such as as=\"h2\" with variant=\"h5\" for a section heading.",
       "Use default for main text, muted for descriptions, subtle for supplementary metadata, accent for brand-colored text and danger for errors. Primary remains a compatibility alias for accent, not an action-priority level. Keep important instructions readable. Theme mappings may converge in increased contrast or forced colors. An eyebrow is a content role, commonly rendered with the overline variant; as independently controls HTML semantics.",
@@ -218,7 +188,7 @@
     "when": "Use Surface when a section needs an owned background, subtle tone, border or elevation. Choose Card when the section represents a distinct item such as a course summary rather than a general page region.",
     "how": [
       "Choose flat, outlined or raised variant and default or subtle tone; these treatments follow the active theme tokens.",
-      "Use padding and as to fit the region\u2019s layout and document semantics. Compose text and actions inside with Typography and the appropriate controls.",
+      "Use padding and as to fit the region’s layout and document semantics. Compose text and actions inside with Typography and the appropriate controls.",
       "A surface is not an interactive control. Add a separately named Button or Link for actions and navigation instead of attaching click behavior to the whole wrapper."
     ],
     "related": [
@@ -280,8 +250,8 @@
     "when": "Use IconButton for a compact, familiar action whose visible content is an icon, such as adding a lesson or opening more actions. Prefer a text button when the action would be hard to recognize without words.",
     "how": [
       "Provide label describing the action and pass an owned icon as children. The containing button supplies the accessible name and the icon is decorative.",
-      "Use onPress for the action, and explore variant, tone, density, disabled and loading without changing the action\u2019s meaning.",
-      "If a short explanation is useful, add Tooltip as supplementary text while retaining the button\u2019s label."
+      "Use onPress for the action, and explore variant, tone, density, disabled and loading without changing the action’s meaning.",
+      "If a short explanation is useful, add Tooltip as supplementary text while retaining the button’s label."
     ],
     "related": [
       {
@@ -389,7 +359,7 @@
     ]
   },
   "breadcrumbs": {
-    "when": "Use Breadcrumbs to show a location\u2019s ancestry and let people return to parent locations. They describe a route hierarchy rather than the currently selected panel in a single view.",
+    "when": "Use Breadcrumbs to show a location’s ancestry and let people return to parent locations. They describe a route hierarchy rather than the currently selected panel in a single view.",
     "how": [
       "Provide items in ancestor-to-current order with stable id and readable label values. Add href to ancestors that can be visited.",
       "The final item is displayed as the current page rather than a link, even if a destination is supplied. Let the host determine that hierarchy.",
@@ -456,7 +426,7 @@
     ]
   },
   "navigation": {
-    "when": "Use Navigation and NavigationItem for a named group of destinations, such as a course workspace\u2019s local routes. The host determines which route is current; the components do not perform route matching.",
+    "when": "Use Navigation and NavigationItem for a named group of destinations, such as a course workspace’s local routes. The host determines which route is current; the components do not perform route matching.",
     "how": [
       "Provide a distinct label for the navigation landmark and compose NavigationItem links, usually inside List and ListItem.",
       "Supply href and readable text for each destination, then set current only on the host-selected route to expose the current-page state.",
@@ -498,7 +468,7 @@
   "collapse": {
     "when": "Use Collapse when the host already owns an expansion trigger and needs to show or hide a block while controlling its lifetime. Choose Disclosure when the component should also provide the named trigger and associated region.",
     "how": [
-      "Pass expanded from host state and provide the control that changes it. Connect that control\u2019s aria-expanded and aria-controls to the content where appropriate.",
+      "Pass expanded from host state and provide the control that changes it. Connect that control’s aria-expanded and aria-controls to the content where appropriate.",
       "By default, hidden children remain mounted so their local state survives. Use unmountOnCollapse when disposing that state is intended.",
       "Keep focus ownership in the surrounding composition when hiding interactive content; Collapse does not create a trigger or a dialog focus scope."
     ],
@@ -540,7 +510,7 @@
     "how": [
       "Provide content as a string or number; zero and values such as \"99+\" are displayed as supplied. Choose primary or neutral tone.",
       "Pass children when the badge should be attached to an anchor. Name an icon-only anchor independently rather than relying on its count.",
-      "Use aria-label or aria-labelledby when the badge and anchor need a combined group name. Keep changes and any announcements in the host\u2019s state design."
+      "Use aria-label or aria-labelledby when the badge and anchor need a combined group name. Keep changes and any announcements in the host’s state design."
     ],
     "related": [
       {
@@ -583,7 +553,7 @@
   "status": {
     "when": "Use Status for a result or state message, such as a saved draft or a recoverable error. Enable announcements deliberately for meaningful changes rather than every render or progress tick.",
     "how": [
-      "Provide readable children and choose neutral or danger tone according to the message\u2019s meaning.",
+      "Provide readable children and choose neutral or danger tone according to the message’s meaning.",
       "Leave announcement=\"off\" for static presentation, choose polite for ordinary updates, and reserve assertive for updates that warrant interrupting other announcements.",
       "Keep the message and state transitions in the host application. Use Progress for continuously changing completion values."
     ],
@@ -695,7 +665,7 @@
       "Set theme and density only for the local region, and pass owned token overrides through style when demonstrating a different visual identity.",
       "Set interactionMode to auto (default), pointer or touch independently of compact/comfortable density. Auto uses the touch sizing tokens when any available pointer is coarse, including hybrid devices. The setting changes presentation, never disables an input method, and inherits into nested scopes and overlay portals.",
       "Unspecified scope values inherit from the parent. Nested scopes also retain owned CSS variables, including the variables that portaled overlays need.",
-      "Keep interaction locale in Provider and the translation adapter. A visual dir override does not replace the host\u2019s locale for keyboard or overlay placement behavior.",
+      "Keep interaction locale in Provider and the translation adapter. A visual dir override does not replace the host’s locale for keyboard or overlay placement behavior.",
       "Wrap the trigger and demonstrated controls together so dialogs, menus and tooltips opened from that region receive the intended visual scope."
     ],
     "related": [

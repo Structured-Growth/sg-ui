@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AuthShell } from "./AuthShell";
-import { AppButton } from "../AppButton";
+import { Button } from "../Button";
 import { TextField } from "../../experimental/TextField/TextField";
 import { Link } from "../../experimental/Link/Link";
 import { SGNavigationProvider } from "../../adapters/navigation";
@@ -37,7 +37,7 @@ describe("AuthShell", () => {
     const user = userEvent.setup(); const submit = vi.fn(); const navigate = vi.fn();
     render(<SGNavigationProvider value={{ pathname: "/login", navigate }}><AuthShell title="Sign In" footerContent={<Link href="/help">Help</Link>}>
       <form onSubmit={event => { event.preventDefault(); submit(new FormData(event.currentTarget).get("email")); }}>
-        <TextField label="Email" name="email" type="email" required /><AppButton type="submit">Continue</AppButton>
+        <TextField label="Email" name="email" type="email" required /><Button type="submit">Continue</Button>
       </form>
     </AuthShell></SGNavigationProvider>);
     await user.tab(); expect(document.activeElement).toBe(screen.getByRole("textbox"));
@@ -53,10 +53,10 @@ describe("AuthShell", () => {
     const user = userEvent.setup();
     const submit = vi.fn(); const footerSubmit = vi.fn();
     const content = <form aria-label="Host form" onSubmit={event => { event.preventDefault(); submit(); }}>
-      <TextField label="School name" /><AppButton type="submit">Continue</AppButton>
+      <TextField label="School name" /><Button type="submit">Continue</Button>
     </form>;
     const footer = <form aria-label="Host support" onSubmit={event => { event.preventDefault(); footerSubmit(); }}>
-      <AppButton type="submit">Request support</AppButton>
+      <Button type="submit">Request support</Button>
     </form>;
     const { rerender } = render(<AuthShell title="Continue">{content}</AuthShell>);
     const input = screen.getByRole("textbox", { name: "School name" });
@@ -112,7 +112,7 @@ describe("AuthShell", () => {
     function Host() {
       const [value, setValue] = useState("");
       const updated = value.length >= 8;
-      return <><AppButton>Before embedded form</AppButton><div style={{ height: 300, overflow: "auto" }}><AuthShell
+      return <><Button>Before embedded form</Button><div style={{ height: 300, overflow: "auto" }}><AuthShell
         style={{ minBlockSize: "100%" }} title={updated ? "Continue entry" : "School sign in"}
         subtitle={updated ? "Updated host guidance" : "Initial host guidance"}
         footerContent={<Link href="#support">{updated ? "Updated support" : "School support"}</Link>}>

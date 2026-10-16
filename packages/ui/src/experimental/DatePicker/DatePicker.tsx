@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import { DateField, type DateFieldProps } from "../DateField/DateField";
 import { Calendar } from "../Calendar/Calendar";
 import { Popover } from "../Popover/Popover";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { useTranslation } from "../../i18n";
 import { useFormReset } from "../useFormReset";
 import type { DateAvailability } from "../DateRangeSelector/date-contract";
@@ -25,8 +25,8 @@ export function DatePicker({ value, defaultValue = null, onValueChange, unavaila
     <DateField {...props} value={selected} onValueChange={change} invalid={props.invalid || !!unavailableReason} errorMessage={unavailableReason ?? props.errorMessage} />
     <Popover title={props.label} open={open} onOpenChange={setOpen} trigger={<Button variant="outlined" tone="neutral" disabled={props.disabled || props.readOnly}
       aria-label={t("common.ui.chooseDate", { defaultMessage: "Choose {label}", values: { label: props.label } })}>▦</Button>}>
-      <Calendar label={props.label} value={selected} onValueChange={date => { change(date); setOpen(false); }}
-        min={props.min} max={props.max} unavailable={unavailable} defaultFocusedDate={selected ?? defaultFocusedDate} />
+      <div className={styles.calendar}><Calendar label={props.label} value={selected} onValueChange={date => { change(date); setOpen(false); }}
+        min={props.min} max={props.max} unavailable={unavailable} defaultFocusedDate={selected ?? defaultFocusedDate} /></div>
       {selected && !props.required && !props.disabled && !props.readOnly && <Button variant="outlined" tone="neutral"
         onPress={() => { change(null); setOpen(false); }}>
         {t("common.ui.clear", { defaultMessage: "Clear" })}

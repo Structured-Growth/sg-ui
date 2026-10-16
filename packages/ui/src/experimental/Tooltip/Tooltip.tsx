@@ -2,7 +2,7 @@
 import { forwardRef, useEffect, useRef, type Ref, type CSSProperties, type ReactElement } from "react";
 import { Tooltip as AriaTooltip, TooltipTrigger } from "react-aria-components/Tooltip";
 import { useOverlayScope } from "../../foundation/ThemeScope";
-import type { ButtonProps } from "../Button/Button";
+import type { ButtonProps } from "../../components/Button/Button";
 import styles from "./Tooltip.module.css";
 export interface TooltipProps {
   /** Change the trigger key when replacing its action identity. */

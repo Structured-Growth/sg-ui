@@ -1,7 +1,7 @@
 @layer sgui.components {
   .root { display: grid; gap: var(--sgui-space2); font-family: var(--sgui-font-family); color: var(--sgui-tag-group-text); }
-  .label { font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); font-weight: var(--sgui-label-weight); }
-  .list { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sgui-space2); font-size: var(--sgui-label-size); }
+  .label { font-size: var(--sgui-control-text-size); line-height: var(--sgui-label-line-height); font-weight: var(--sgui-label-weight); }
+  .list { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sgui-space2); font-size: var(--sgui-control-text-size); }
   .tag {
     box-sizing: border-box;
     display: inline-flex;
@@ -13,7 +13,7 @@
     border-radius: var(--sgui-control-radius);
     background: var(--sgui-tag-group-subtle-surface);
     color: var(--sgui-tag-group-text);
-    font-size: var(--sgui-label-size);
+    font-size: var(--sgui-control-text-size);
     line-height: var(--sgui-label-line-height);
     font-weight: var(--sgui-label-weight);
     overflow-wrap: anywhere;

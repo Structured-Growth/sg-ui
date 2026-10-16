@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type CSSProperties } from "react";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Dialog } from "../../experimental/Dialog/Dialog";
 import { IconButton } from "../../experimental/IconButton/IconButton";
 import { Menu } from "../../experimental/Menu/Menu";

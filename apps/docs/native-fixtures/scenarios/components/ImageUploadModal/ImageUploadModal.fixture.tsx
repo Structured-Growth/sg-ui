@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { Typography } from "@structured-growth/sg-ui/experimental";
 import { ImageUploadModal } from "@structured-growth/sg-ui/components";
 
@@ -17,7 +17,7 @@ export const Default: Story = {
   render: () => {
     const [open, setOpen] = useState(false);
     return <>
-      <AppButton onPress={() => setOpen(true)} density="compact" variant="outlined">Open Image Upload</AppButton>
+      <Button onPress={() => setOpen(true)} density="compact" variant="outlined">Open Image Upload</Button>
       <ImageUploadModal open={open} onClose={() => setOpen(false)} onSubmit={() => setOpen(false)} />
     </>;
   },
@@ -31,7 +31,7 @@ export const HostUploadAndDescription: Story = {
     const [attempt, setAttempt] = useState(0);
     const [result, setResult] = useState("");
     return <>
-      <AppButton onPress={() => { setAttempt(0); setError(null); setOpen(true); }} variant="outlined">Insert image with description</AppButton>
+      <Button onPress={() => { setAttempt(0); setError(null); setOpen(true); }} variant="outlined">Insert image with description</Button>
       <Typography variant="body2">The host rejects the first attempt. Retry to insert the same file and description.</Typography>
       {result && <Typography role="status" variant="body2">{result}</Typography>}
       <ImageUploadModal open={open} enableAltText errorMessage={error} onClose={() => { setOpen(false); setError(null); }}
@@ -56,7 +56,7 @@ export const FileValidation: Story = {
     const [open, setOpen] = useState(false);
     const [received, setReceived] = useState("");
     return <>
-      <AppButton variant="outlined" onPress={() => setOpen(true)}>Validate image file</AppButton>
+      <Button variant="outlined" onPress={() => setOpen(true)}>Validate image file</Button>
       <Typography variant="body2">Choose a nonempty image. The host inspects file contents and applies its upload policy.</Typography>
       <Typography variant="body2" aria-label="Received image file">{received || "No submission"}</Typography>
       <ImageUploadModal open={open} enableAltText onClose={() => setOpen(false)} onSubmit={(file, description) => {

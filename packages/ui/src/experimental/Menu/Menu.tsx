@@ -5,7 +5,7 @@ import { Popover } from "react-aria-components/Popover";
 import { useLocale } from "react-aria-components/I18nProvider";
 import { useOverlayScope, useOverlayDirectionRef } from "../../foundation/ThemeScope";
 import type { Density } from "../../foundation/ThemeScope";
-import type { ButtonProps } from "../Button/Button";
+import type { ButtonProps } from "../../components/Button/Button";
 import { useNavigationAdapter } from "../../adapters/navigation";
 import styles from "./Menu.module.css";
 export interface MenuItem { id: string; label: string; icon?: ReactNode; disabled?: boolean; href?: string; target?: "_blank" | "_self" | "_parent" | "_top"; rel?: string; replace?: boolean; tone?: "default" | "danger"; selected?: boolean; shortcut?: string; separatorBefore?: boolean; }

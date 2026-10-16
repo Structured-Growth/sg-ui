@@ -3,7 +3,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "../../experimental/Provider/Provider";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { SGNavigationProvider } from "../../adapters/navigation";
 import { AppDataGrid } from "./AppDataGrid";
 import { createDataGridColumns } from "./createDataGridColumns";

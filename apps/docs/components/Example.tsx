@@ -3,9 +3,9 @@ import { ThemeScope, type Density } from '@structured-growth/sg-ui/theme';
 import { useDemoSettings } from './DemoSettings';
 import { demoTokens } from './demo-theme';
 import { useId, useState, type ReactNode } from 'react';
-import { AppButton } from '@structured-growth/sg-ui/components/AppButton';
+import { Button } from '@structured-growth/sg-ui/components/Button';
 import { Disclosure, Surface } from '@structured-growth/sg-ui/experimental';
-import { Stack, Typography } from '@structured-growth/sg-ui/primitives';
+import { Box, Stack, Typography } from '@structured-growth/sg-ui/primitives';
 import styles from './docs.module.css';
 import {useExamplePresentation} from './ExamplePresentation';
 /** Source-backed panels; previewOnly supports the minimal component overview. */
@@ -30,12 +30,12 @@ export function Example({ id: anchorId, title, description, source, controls, de
     <Stack gap={3}>
       <Typography id={id} as="h2" variant="h5">{displayTitle}</Typography>
       {description && <Typography tone="muted">{description}</Typography>}
-      {controls}
+      {controls && <Box className={styles.playgroundControls} data-docs-controls="">{controls}</Box>}
       {preview}
       <Disclosure label={`Show source: ${title}`}>
         <Stack gap={2}>
           <Stack direction="row" wrap align="center" gap={2}>
-            <AppButton variant="outlined" tone="neutral" onPress={copy}>Copy code: {title}</AppButton>
+            <Button variant="outlined" tone="neutral" onPress={copy}>Copy code: {title}</Button>
             <Typography variant="caption" aria-live="polite">{failed ? 'Copy unavailable. Select the code below and copy it manually.' : copied === source ? 'Copied to clipboard.' : ''}</Typography>
           </Stack>
           <Typography as="code" variant="code" tabIndex={0} aria-label={`Source: ${title}`} className={styles.code}>{source}</Typography>

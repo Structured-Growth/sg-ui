@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
 import { TextAlignMenuControl, type AlignOption } from "@structured-growth/sg-ui/components";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { SGTranslationProvider } from "@structured-growth/sg-ui/i18n";
 const meta = { title: "Editors/TextAlignMenuControl", component: TextAlignMenuControl, tags: ["autodocs"] } satisfies Meta<typeof TextAlignMenuControl>;
@@ -33,7 +33,7 @@ export const DirectionCommands: Story = {
     }, []);
     return <>
       <p>Requests are recorded without changing host alignment. Press F2 to replace host alignment with end.</p>
-      <AppButton onPress={() => setValue("start")}>Host selects start</AppButton>
+      <Button onPress={() => setValue("start")}>Host selects start</Button>
       <TextAlignMenuControl value={value}
         onChange={next => setRequests(previous => [...previous, next])}
         onOutdent={() => setRequests(previous => [...previous, "outdent"])} canOutdent={false}

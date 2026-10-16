@@ -6,7 +6,7 @@ import { Text } from "react-aria-components/Text";
 import { FieldError } from "react-aria-components/FieldError";
 import { FramePositionedPopover } from "./FramePositionedPopover";
 import { ListBox, ListBoxItem } from "react-aria-components/ListBox";
-import { Button } from "../Button/Button";
+import { Button as AriaButton } from "react-aria-components/Button";
 import { KeyboardArrowDownIcon } from "../icons/KeyboardArrowDownIcon";
 import { useTranslation } from "../../i18n";
 import { useLocale } from "react-aria-components/I18nProvider";
@@ -37,15 +37,20 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
   const { t } = useTranslation(); const scope = useOverlayScope();
   const { direction } = useLocale();
   const directionRef = useOverlayDirectionRef(direction);
+  const placeholderText = placeholder ?? t("common.ui.selectOption", { defaultMessage: "Select an option" });
   return <AriaSelect selectedKey={value} defaultSelectedKey={defaultValue} onSelectionChange={key => onValueChange?.(key === null ? null : String(key))}
     disabledKeys={options.filter(option => option.disabled).map(option => option.id)}
     name={name} isRequired={required} isDisabled={disabled} isInvalid={invalid} validationBehavior="native"
-    placeholder={placeholder ?? t("common.ui.selectOption", { defaultMessage: "Select an option" })}
-    className={[field.root, className].filter(Boolean).join(" ")}>
+    placeholder={placeholderText}
+    className={[field.root, styles.root, className].filter(Boolean).join(" ")}>
     <Label className={field.label}>{label}</Label>
-    <Button ref={ref} variant="outlined" tone="neutral" disabled={readOnly} aria-readonly={readOnly || undefined} className={styles.trigger}>
-      <SelectValue className={styles.value} /><KeyboardArrowDownIcon />
-    </Button>
+    <AriaButton type="button" ref={ref} isDisabled={readOnly} aria-readonly={readOnly || undefined} className={[field.input, styles.trigger].join(" ")}>
+      <span aria-hidden="true" className={styles.sizer}>
+        <span data-label={placeholderText} />
+        {options.map(option => <span key={option.id} data-label={option.label} />)}
+      </span>
+      <SelectValue className={styles.value} /><KeyboardArrowDownIcon className={styles.chevron} />
+    </AriaButton>
     {(description || options.length === 0) && <Text slot="description" className={field.description}>
       {description}{description && options.length === 0 && " "}
       {options.length === 0 && t("common.ui.noOptions", { defaultMessage: "No options found" })}

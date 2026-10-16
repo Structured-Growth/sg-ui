@@ -29,11 +29,19 @@ for (const [firstDayOfWeek, order] of [["sun", ["Sun", "Mon", "Tue", "Wed", "Thu
   ["mon", ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]]] as const) {
   it(`uses explicit ${firstDayOfWeek} header order in both months`, () => {
     render(<NativeCalendarFixture firstDayOfWeek={firstDayOfWeek} />);
-    for (const grid of screen.getAllByRole("grid")) expect(within(grid).getAllByRole("columnheader", { hidden: true }).map(cell => cell.textContent)).toEqual(order);
+    for (const grid of screen.getAllByRole("grid")) {
+      const headers = within(grid).getAllByRole("columnheader", { hidden: true });
+      expect(headers.map(cell => cell.textContent)).toEqual(order);
+      expect(headers.map(cell => cell.getAttribute("data-narrow-label"))).toEqual(order.map(day => day[0]));
+    }
   });
 }
 it("uses locale RTL arrows while emitting Gregorian focus and selection", async () => {
   const user = userEvent.setup(); render(<NativeCalendarFixture locale="ar-EG" />);
+  for (const grid of screen.getAllByRole("grid")) {
+    expect(within(grid).getAllByRole("columnheader", { hidden: true }).map(cell => cell.getAttribute("data-narrow-label")))
+      .toEqual(["ح", "ن", "ث", "ر", "خ", "ج", "س"]);
+  }
   const start = screen.getAllByRole("button").find(button => button.closest('[role="grid"]') && button.tabIndex === 0)!;
   start.focus(); await user.keyboard("{Enter}{ArrowLeft}");
   expect(focused()).toBe("2024-02-29"); expect(selected()).toBe('["2024-02-28"]');

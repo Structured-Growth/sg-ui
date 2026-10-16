@@ -1,7 +1,7 @@
 "use client";
 import { forwardRef, useId, type CSSProperties } from "react";
 import { useTranslation } from "../../i18n";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import styles from "./Pagination.module.css";
 
 export interface PaginationProps {

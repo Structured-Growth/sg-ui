@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Provider } from "../../experimental/Provider/Provider";
 import { DataToolbarSelectionMenu } from "./components/DataToolbarSelectionMenu";
 import { SplitAction } from "../../experimental/SplitAction/SplitAction";
-import { AppButton } from "../AppButton/AppButton";
+import { Button } from "../Button/Button";
 import {
   DataToolbar,
   type DataToolbarFilterRule,
@@ -124,7 +124,7 @@ export function ContainerBoundaryPreview({ enlarged = false }: { enlarged?: bool
   const [events, setEvents] = useState<string[]>([]);
   const record = (event: string) => setEvents(previous => [...previous, event]);
   return <Provider style={enlarged ? { "--sgui-label-size": "1.75rem", "--sgui-body-size": "2rem" } : undefined}>
-    <AppButton onPress={() => setExpanded(value => !value)}>Resize narrow host</AppButton>
+    <Button onPress={() => setExpanded(value => !value)}>Resize narrow host</Button>
     <div data-testid="outer-toolbar-container" style={{ inlineSize: 1120, container: "sgui-data-toolbar / inline-size" }}>
       {(["Narrow", "Wide"] as const).map(name => <section key={name} aria-label={`${name} toolbar host`}
         style={{ inlineSize: name === "Narrow" ? expanded ? 640 : 320 : 800 }}>

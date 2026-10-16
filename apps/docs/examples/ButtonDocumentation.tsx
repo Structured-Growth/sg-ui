@@ -1,7 +1,9 @@
 'use client';
 import {useState} from 'react';
-import {Button, ButtonGroup, Checkbox, Select, TextField, Box, Stack, Typography, Surface, Link, Table, TableHead, TableBody, TableRow, TableCell, TableHeaderCell} from '@structured-growth/sg-ui/experimental';
-import type {ButtonProps} from '@structured-growth/sg-ui/experimental';
+import {ButtonAdditionalExamples} from './ButtonAdditionalExamples';
+import {Button} from '@structured-growth/sg-ui/components/Button';
+import {ButtonGroup, Checkbox, Select, TextField, Box, Stack, Typography, Surface, Link, Table, TableHead, TableBody, TableRow, TableCell, TableHeaderCell} from '@structured-growth/sg-ui/experimental';
+import type {ButtonProps} from '@structured-growth/sg-ui/components/Button';
 import {type Density} from '@structured-growth/sg-ui/theme';
 import {AddIcon, ChevronRightIcon} from '@structured-growth/sg-ui/icons';
 import {Example} from '../components/Example';
@@ -10,7 +12,7 @@ import {literal} from './source';
 import composition from '../content/component-composition.json';
 import styles from '../components/docs.module.css';
 
-const buttonImport="import { Button } from '@structured-growth/sg-ui/experimental';";
+const buttonImport="import { Button } from '@structured-growth/sg-ui/components/Button';";
 const iconImport="import { AddIcon, ChevronRightIcon } from '@structured-growth/sg-ui/icons';";
 
 export function ButtonOverview() {
@@ -19,7 +21,7 @@ export function ButtonOverview() {
 }
 
 function UsedIn() {
-  const parents=Object.entries(composition).flatMap(([slug,groups])=>groups.filter(group=>group.children.some(child=>child.slug==='owned-button' && child.name==='Button')).map(group=>({slug,name:group.name}))).sort((a,b)=>a.name.localeCompare(b.name));
+  const parents=Object.entries(composition).flatMap(([slug,groups])=>groups.filter(group=>group.children.some(child=>child.slug==='button' && child.name==='Button')).map(group=>({slug,name:group.name}))).sort((a,b)=>a.name.localeCompare(b.name));
   return <Surface as="section" aria-label="Used In" variant="outlined" padding={4}><Stack gap={3}>
     <Typography as="h2" variant="h5">Used In</Typography>
     <Stack direction="row" wrap gap={3}>{parents.map(parent=><Link key={`${parent.slug}-${parent.name}`} href={`/docs/components/${parent.slug}#composition-${parent.name}`}>{parent.name}</Link>)}</Stack>
@@ -49,7 +51,7 @@ const buttonSetup = `'use client';
 
 import '@structured-growth/sg-ui/styles.css';
 import { Provider } from '@structured-growth/sg-ui/theme';
-import { Button } from '@structured-growth/sg-ui/experimental';
+import { Button } from '@structured-growth/sg-ui/components/Button';
 
 export default function ButtonSetup() {
   return <Provider theme="light"><Button>Continue</Button></Provider>;
@@ -154,6 +156,6 @@ function ButtonForm() {
 }
 export function ButtonExamples() {
   return <Stack gap={4}><ButtonPropPlayground/><Typography as="h2" variant="h4">Examples</Typography>
-    {references.map((example,index)=><ButtonReference key={example.id} index={index+1} example={example}/>)}<ButtonDensities/><ButtonComposition/><ButtonPressAction/><ButtonForm/><ButtonContains/><UsedIn/>
+    {references.map((example,index)=><ButtonReference key={example.id} index={index+1} example={example}/>)}<ButtonDensities/><ButtonComposition/><ButtonPressAction/><ButtonForm/><ButtonAdditionalExamples/><ButtonContains/><UsedIn/>
   </Stack>;
 }

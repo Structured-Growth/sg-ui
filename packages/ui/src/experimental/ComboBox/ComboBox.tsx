@@ -7,7 +7,7 @@ import { Text } from "react-aria-components/Text";
 import { FieldError } from "react-aria-components/FieldError";
 import { Popover } from "react-aria-components/Popover";
 import { ListBox, ListBoxItem } from "react-aria-components/ListBox";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { KeyboardArrowDownIcon } from "../icons/KeyboardArrowDownIcon";
 import { useTranslation } from "../../i18n";
 import { useLocale } from "react-aria-components/I18nProvider";

@@ -1,22 +1,11 @@
 {
-  "button": [
-    {
-      "name": "AppButton",
-      "children": [
-        {
-          "name": "Button",
-          "slug": "owned-button"
-        }
-      ]
-    }
-  ],
   "dialog": [
     {
       "name": "AppModal",
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "Dialog",
@@ -411,7 +400,7 @@
       "children": []
     }
   ],
-  "owned-button": [
+  "button": [
     {
       "name": "Button",
       "children": []
@@ -423,7 +412,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         }
       ]
     }
@@ -437,7 +426,20 @@
   "tabs": [
     {
       "name": "Tabs",
-      "children": []
+      "children": [
+        {
+          "name": "IconButton",
+          "slug": "icon-button"
+        },
+        {
+          "name": "Menu",
+          "slug": "menu"
+        },
+        {
+          "name": "MoreHorizIcon",
+          "slug": "icons"
+        }
+      ]
     }
   ],
   "typography": [
@@ -506,7 +508,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         }
       ]
     }
@@ -529,7 +531,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "ButtonGroup",
@@ -596,7 +598,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         }
       ]
     },
@@ -635,7 +637,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "Collapse",
@@ -738,7 +740,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         }
       ]
     }
@@ -786,10 +788,6 @@
       "name": "Select",
       "children": [
         {
-          "name": "Button",
-          "slug": "owned-button"
-        },
-        {
           "name": "KeyboardArrowDownIcon",
           "slug": "icons"
         }
@@ -802,7 +800,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "KeyboardArrowDownIcon",
@@ -815,7 +813,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "KeyboardArrowDownIcon",
@@ -830,7 +828,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "TextField",
@@ -903,7 +901,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         }
       ]
     }
@@ -914,7 +912,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "Calendar",
@@ -937,7 +935,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "DateRangeSelector",
@@ -956,7 +954,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "DateField",
@@ -1061,7 +1059,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "Dialog",
@@ -1112,7 +1110,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "CheckIcon",
@@ -1189,7 +1187,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "FormatAlignCenterIcon",
@@ -1240,7 +1238,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "EditableTitleField",
@@ -1255,7 +1253,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "FormatBoldIcon",
@@ -1294,7 +1292,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "CodeIcon",
@@ -1365,7 +1363,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "HorizontalRuleIcon",
@@ -1391,12 +1389,12 @@
       "name": "TextAlignMenuControl",
       "children": [
         {
-          "name": "AppButton",
-          "slug": "button"
-        },
-        {
           "name": "ArrowDropDownIcon",
           "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "button"
         },
         {
           "name": "FormatAlignCenterIcon",
@@ -1439,7 +1437,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "FormatColorFillIcon",
@@ -1465,12 +1463,12 @@
       "name": "TextStyleMenuControl",
       "children": [
         {
-          "name": "AppButton",
-          "slug": "button"
-        },
-        {
           "name": "ArrowDropDownIcon",
           "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "button"
         },
         {
           "name": "FormatClearIcon",
@@ -1534,12 +1532,12 @@
       "name": "ImageUploadModal",
       "children": [
         {
-          "name": "AppButton",
-          "slug": "button"
-        },
-        {
           "name": "AppModal",
           "slug": "dialog"
+        },
+        {
+          "name": "Button",
+          "slug": "button"
         },
         {
           "name": "TextField",
@@ -1724,7 +1722,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "ClassCardFrame",
@@ -1782,7 +1780,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "Checkbox",
@@ -1845,7 +1843,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "DataToolbar",
@@ -1876,7 +1874,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "CachedIcon",
@@ -1959,7 +1957,7 @@
         },
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "Checkbox",
@@ -2000,7 +1998,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "Checkbox",
@@ -2027,7 +2025,7 @@
       "children": [
         {
           "name": "Button",
-          "slug": "owned-button"
+          "slug": "button"
         },
         {
           "name": "ChevronRightIcon",

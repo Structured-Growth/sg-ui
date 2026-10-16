@@ -145,10 +145,10 @@ test('compact and comfortable controls render production dimensions in both them
     for (const density of ['compact', 'comfortable'] as const) {
       const action = scope.getByRole('button', { name: `${density} primary`, exact: true });
       const style = await css(action);
-      const paddingToken = density === 'compact' ? 'space3' : 'space4';
+      const expectedPadding = parseFloat(String(sourceValue(density,'controlPadding'))) * rootSize;
       expect(style.minHeight).toBeCloseTo(parseFloat(String(sourceValue(density,'controlHeight'))) * rootSize, 2);
       expect(style.height).toBeCloseTo(style.minHeight, 2);
-      expect(style.padding).toBeCloseTo(parseFloat(String(sourceValue('shared',paddingToken))) * rootSize, 2);
+      expect(style.padding).toBeCloseTo(expectedPadding, 2);
       expect(style.background).toBe(color(theme, 'action'));
       await expect(scope.getByRole('button', { name: `${density} disabled`, exact: true })).toBeDisabled();
     }

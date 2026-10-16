@@ -38,7 +38,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
     toolsRef.current?.querySelectorAll<HTMLElement>('[data-sgui-part="icon-navigation-content"]')[1]?.scrollTo({top:0,left:0,behavior:'instant'});
   },[pathname]);
   return <SGNavigationProvider value={{ pathname, navigate: (href, options) => options?.replace ? router.replace(href) : router.push(href) }}>
-    <PageDocumentationContext.Provider value={registerDocumentation}><DemoSettingsProvider><Provider theme="light" style={docsTheme('light')} className={styles.root}>
+    <PageDocumentationContext.Provider value={registerDocumentation}><DemoSettingsProvider><Provider density="compact" theme="light" style={docsTheme('light')} className={styles.root}>
       <Link href="#main-content" className={styles.skip}>Skip to content</Link>
       <Box as="header" padding={2} className={styles.header}>
         <Stack direction="row" wrap align="center" justify="between" gap={3}>
@@ -59,11 +59,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
         </Surface>
         <Box ref={mainRef} as="main" id="main-content" tabIndex={-1} className={styles.main}><Box className={styles.mainContent} style={{padding:"clamp(1rem, 2vw, 2rem)"}}>{children}</Box></Box>
         {componentPage&&<Box ref={toolsRef} as="aside" aria-label="Component tools" className={styles.tools} data-active-tool={activeTool??undefined}>
-          <ThemeScope density="compact" className={styles.toolsScope} style={{
-            "--sgui-label-size":"var(--sgui-caption-size)",
-            "--sgui-body-size":"var(--sgui-caption-size)",
-            "--sgui-control-padding":"var(--sgui-space2)",
-          }}><IconPanelNavigation items={tools} activeId={activeTool} onActiveIdChange={setActiveTool} side="end" panelWidth="var(--docs-tool-panel-width)" aria-label="Component tools navigation"/></ThemeScope>
+          <ThemeScope density="compact" className={styles.toolsScope}><IconPanelNavigation items={tools} activeId={activeTool} onActiveIdChange={setActiveTool} side="end" panelWidth="var(--docs-tool-panel-width)" aria-label="Component tools navigation"/></ThemeScope>
         </Box>}
       </Box>
     </Provider></DemoSettingsProvider></PageDocumentationContext.Provider>

@@ -3,7 +3,7 @@ import {test,expect} from '@playwright/test';
 import catalog from '../content/catalog.json' with {type:'json'};
 
 test('owned button press and form actions preserve sibling examples',async({page})=>{
-  await page.goto('/docs/components/owned-button');
+  await page.goto('/docs/components/button');
   const comparison=page.getByRole('region',{name:exampleName('Button: Compact and comfortable comparison'),exact:true});
   const playground=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
   const press=page.getByRole('region',{name:exampleName('Button: Host-owned press action'),exact:true});

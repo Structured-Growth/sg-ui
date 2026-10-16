@@ -170,10 +170,14 @@ constraints remain in force.
 
 # Structured Growth UI agent instructions
 
-AppButton, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
+Button is the sole public action component. AppButton/AppButtonProps were removed
+before the first release; use Button/ButtonProps from the root, components barrel
+or `/components/Button`. Historical acceptance records retain their original names.
+
+Button, ExperiencePageNavigator, AppPageTabs and AppPageHeader also use the owned
 foundation. See [button mappings](docs/developer/react-aria-button.md),
 [page navigation](docs/developer/react-aria-page-navigation.md) and
-[page layout](docs/developer/react-aria-page-layout.md). AppButton now uses onPress,
+[page layout](docs/developer/react-aria-page-layout.md). Button now uses onPress,
 owned variant/tone/density and native class/style; the upstream button prop surface
 is removed. Load /styles.css and provide Provider or ThemeScope.
 
@@ -313,12 +317,12 @@ SGUI does not define application database or HTTP-contract naming.
   preserve touch and forced colors. Scroll containers own overflow and gutters,
   so appearance changes must not create extra scroll areas or reserve gutters on
   every descendant. Avoid duplicating scrollbar styling in individual components.
-- Desktop application navigation uses its own compact scale: 12px labels, 16px
-  leading icons, 32px compact / 36px comfortable rows, and 44px minimum targets on
+- Compact application controls and navigation share a scale: 12px labels, 16px
+  leading icons, 32px compact / 44px comfortable rows, and 44px minimum targets on
   touch-capable devices (20px navigation icons). Centralize this through the owned
   interactionMode auto/pointer/touch scope policy and generated interaction tokens;
-  do not duplicate pointer media queries in component styles. Do not shrink global body/form typography to obtain
-  navigation density. The fixed docs menu uses the compact scale.
+  do not duplicate pointer media queries in component styles. Use the shared control text role for form controls; do not shrink global body
+  or heading typography to obtain navigation density. The fixed docs menu uses the compact scale.
 - General scopes default to comfortable density; generic Menu inherits its scope
   unless `density` is explicit. Catalog menu wrappers retain their explicit compact
   compatibility choice. Verify both densities and enlarged text while preserving

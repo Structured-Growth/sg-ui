@@ -9,7 +9,7 @@ import { useOwnedGridLayoutController } from "../AppDataGrid/ownedGridLayoutCont
 import { getOwnedGridRowId, normalizeGridPageSizeOptions, processOwnedGridRows } from "../AppDataGrid/ownedGridModel";
 import { OwnedGridStatus } from "../AppDataGrid/ownedGridParts";
 import { useOwnedGridPersistence, type OwnedGridPersistedState, type OwnedGridPersistenceConfig } from "../AppDataGrid/ownedGridPersistence";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { useTranslation } from "../../i18n";
 import { createOwnedGridResetState } from "../AppDataGrid/ownedGridReset";
 import { transitionOwnedGridState, type OwnedGridTransition } from "../AppDataGrid/ownedGridState";

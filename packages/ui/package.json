@@ -101,9 +101,9 @@
       "types": "./dist/components/LearnerClassCard/index.d.ts",
       "import": "./dist/components/LearnerClassCard/index.js"
     },
-    "./components/AppButton": {
-      "types": "./dist/components/AppButton/index.d.ts",
-      "import": "./dist/components/AppButton/index.js"
+    "./components/Button": {
+      "types": "./dist/components/Button/index.d.ts",
+      "import": "./dist/components/Button/index.js"
     },
     "./components/ExperiencePageNavigator": {
       "types": "./dist/components/ExperiencePageNavigator/index.d.ts",
@@ -235,7 +235,8 @@
     "test:hydration-consumer": "pnpm build && node scripts/test-foundation-consumer.mjs --react18 --browser && node scripts/test-foundation-consumer.mjs --browser",
     "test:next-consumer": "pnpm build && node scripts/test-next-consumer.mjs",
     "test:browser": "tsc --noEmit -p tests/browser/tsconfig.json && playwright test",
-    "build:browser-docs": "pnpm build && node scripts/build-browser-docs.mjs"
+    "build:browser-docs": "pnpm build && node scripts/build-browser-docs.mjs",
+    "build:watch": "node scripts/watch-library.mjs"
   },
   "peerDependencies": {
     "react": "^18.3.1 || ^19.0.0",

@@ -1,6 +1,6 @@
 import type { FixtureMeta, FixtureCase } from "../../../tests/fixtures/types";
 import { Provider } from "../Provider/Provider";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { TextField } from "../TextField/TextField";
 import { Popover, type PopoverProps } from "./Popover";
 

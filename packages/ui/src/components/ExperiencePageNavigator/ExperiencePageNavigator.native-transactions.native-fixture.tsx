@@ -1,6 +1,6 @@
 import type { FixtureMeta, FixtureCase } from "../../../tests/fixtures/types";
 import { useState } from "react";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Typography } from "../../experimental/Typography/Typography";
 import { ExperiencePageNavigator, type ExperiencePageNavigatorItem } from "./ExperiencePageNavigator";
 

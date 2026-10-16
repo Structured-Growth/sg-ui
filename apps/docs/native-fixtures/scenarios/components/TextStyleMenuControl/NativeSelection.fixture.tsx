@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { Typography } from "@structured-growth/sg-ui/primitives";
 import { TextStyleMenuControl, type TextStyleId } from "@structured-growth/sg-ui/components";
 import styles from "./NativeSelection.module.css";
@@ -91,8 +91,8 @@ function NativeSelectionHost() {
       onLowercase={() => command("lowercase")} onUppercase={() => command("uppercase")} onCapitalize={() => command("capitalize")}
       onStrikethrough={() => command("strikethrough")} onSubscript={() => command("subscript")} onSuperscript={() => command("superscript")}
       onHighlight={limited ? undefined : () => command("highlight")} onClearFormatting={limited ? undefined : () => command("clear")} />
-    <AppButton onPress={restore}>Return to selection</AppButton>
-    <AppButton onPress={() => setAccept(current => !current)}>{accept ? "Reject host changes" : "Accept host changes"}</AppButton>
+    <Button onPress={restore}>Return to selection</Button>
+    <Button onPress={() => setAccept(current => !current)}>{accept ? "Reject host changes" : "Accept host changes"}</Button>
     <output aria-label="Host style requests">{JSON.stringify(requests)}</output>
     <output aria-label="Host active styles">{JSON.stringify(activeStyles)}</output>
     <output aria-label="Host callback generation">{replacement ? "replacement" : "original"}</output>

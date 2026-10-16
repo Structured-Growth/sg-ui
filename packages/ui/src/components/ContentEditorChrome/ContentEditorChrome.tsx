@@ -1,6 +1,6 @@
 "use client";
 import { forwardRef, useRef, type CSSProperties, type ReactNode } from "react";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { useTranslation } from "../../i18n";
 import { EditableTitleField } from "../EditableTitleField";
 import styles from "./ContentEditorChrome.module.css";

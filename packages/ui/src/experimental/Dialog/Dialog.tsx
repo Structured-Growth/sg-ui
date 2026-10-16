@@ -7,7 +7,7 @@ import { Heading } from "react-aria-components/Heading";
 import { Text } from "react-aria-components/Text";
 import { useOverlayScope } from "../../foundation/ThemeScope";
 import { useTranslation } from "../../i18n";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import styles from "./Dialog.module.css";
 
 export type DialogDismissReason = "escape" | "outside" | "close-button" | "dismiss";
@@ -85,11 +85,16 @@ function revealFocusedControl(event: FocusEvent<HTMLElement>) {
   target.ownerDocument.defaultView?.requestAnimationFrame(() => {
     // Measure after focus-scope scroll restoration and the portal's layout.
     if (target.ownerDocument.activeElement !== target || !target.isConnected) return;
-    const bounds = target.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const targetStyle = target.ownerDocument.defaultView!.getComputedStyle(target);
+    const outline = targetStyle.outlineStyle === "none" ? 0 : Math.max(0,
+      (parseFloat(targetStyle.outlineWidth) || 0) + (parseFloat(targetStyle.outlineOffset) || 0));
+    const bounds = { top: targetRect.top - outline, bottom: targetRect.bottom + outline,
+      left: targetRect.left - outline, right: targetRect.right + outline };
     const rect = dialog.getBoundingClientRect();
     const viewport = { top: rect.top, bottom: rect.bottom, left: rect.left, right: rect.right };
     // Nested panels have their own clipping bounds. Native Tab scrolling
-    // may reveal only an input's caret, leaving the control partly clipped.
+    // may reveal only an input's caret, leaving the control or its focus ring clipped.
     for (let parent = target.parentElement; parent && dialog.contains(parent); parent = parent.parentElement) {
       const css = target.ownerDocument.defaultView!.getComputedStyle(parent);
       const clip = parent.getBoundingClientRect();

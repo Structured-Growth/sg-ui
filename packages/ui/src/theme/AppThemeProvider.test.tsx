@@ -7,7 +7,7 @@ import userEvent from "@testing-library/user-event";
 import { AppThemeProvider, Provider, ThemeScope } from "./index";
 import { SGTranslationProvider } from "../i18n";
 import { Dialog } from "../experimental/Dialog/Dialog";
-import { Button } from "../experimental/Button/Button";
+import { Button } from "../components/Button/Button";
 afterEach(cleanup);
 const arabic = { locale: "ar-EG", t: (_key: string, options: { defaultMessage: string }) => options.defaultMessage, useNamespace: () => {} };
 

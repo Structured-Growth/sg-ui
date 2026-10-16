@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { FixtureMeta, FixtureCase } from "../../tests/fixtures/types";
 import { Provider } from "../theme";
-import { AppButton } from "../components/AppButton";
+import { Button } from "../components/Button";
 import { AppPageTabs } from "../components/AppPageTabs";
 import { AppModal } from "../components/AppModal";
 import { ClassCardFrame } from "../components/ClassCardFrame";
@@ -30,11 +30,11 @@ export function BaselineHostFlow() {
       <AppPageTabs value={section} onChange={navigate} label="Workspace sections" items={[
         { id: "overview", label: "Overview", content: <Typography>Choose Courses to create a course and edit its introduction.</Typography> },
         { id: "courses", label: "Courses", content: <Stack gap={4}>
-          <AppButton onPress={() => { setDraftTitle(""); setOpen(true); }}>Create course</AppButton>
+          <Button onPress={() => { setDraftTitle(""); setOpen(true); }}>Create course</Button>
           {courseTitle ? <ClassCardFrame
             header={<Typography as="h2" variant="h5">{courseTitle}</Typography>}
             body={<Typography>Host-owned course draft</Typography>}
-            footer={<AppButton onPress={() => { setOpenedCourse(courseTitle); navigate("editor"); }}>Edit introduction</AppButton>} /> :
+            footer={<Button onPress={() => { setOpenedCourse(courseTitle); navigate("editor"); }}>Edit introduction</Button>} /> :
             <Typography>No courses yet</Typography>}
         </Stack> },
         { id: "editor", label: "Introduction", disabled: !openedCourse, content: <Stack gap={4}>
@@ -49,7 +49,7 @@ export function BaselineHostFlow() {
       <pre aria-label="Host saved introduction">{JSON.stringify(document)}</pre>
     </Stack>
     <AppModal open={open} title="Create course" onClose={() => setOpen(false)}
-      footerContent={<AppButton type="submit" form="baseline-create-course">Save course</AppButton>}>
+      footerContent={<Button type="submit" form="baseline-create-course">Save course</Button>}>
       <form id="baseline-create-course" onSubmit={event => {
         event.preventDefault();
         const title = draftTitle.trim();

@@ -106,3 +106,30 @@ increased contrast or forced colors. Do not use reduced emphasis to hide require
 instructions or convey disabled interaction. Content roles such as an eyebrow
 belong in composed page-header APIs; Typography's `variant` and HTML `as` remain
 independent. Existing button variant/tone APIs are unchanged.
+
+
+## Tabs overflow menu
+
+Tabs retains scrolling by default. `overflow="menu"` opts a horizontal strip into
+measured overflow. `items[].priority="secondary"` keeps a section in the menu
+until it is selected, even if primary sections fit. Selecting a hidden section
+requests the same `onValueChange(id)` as a visible tab; controlled hosts remain
+authoritative. An accepted hidden selection occupies the final visible position,
+displacing enough preceding tabs to fit. Returning to a primary tab restores the
+primary prefix and returns the secondary tab to the menu.
+
+All tabs and panel associations retain their stable IDs. Hidden tabs are excluded
+from the visible accessibility tree and disabled in the tab collection's keyboard
+navigation; the menu exposes their actual disabled state. Accepted menu selection
+moves focus to the promoted tab. Escape returns to the More tabs trigger. The
+host supplies `overflowLabel` when overriding the translated default. Resize and
+font/density changes recalculate fit using the actual rendered controls.
+
+Long row labels truncate at the owned `tabsMaximumTabWidth` component token
+(default 16rem), or the available strip width if smaller. Full names remain
+accessible, are exposed by the label's native title and wrap in the menu.
+Vertical orientation retains the existing scroll behavior. SSR initially renders
+the primary strip; the client resolves available space after layout. Panels retain
+their existing mount/selection behavior; persistence and data loading remain host
+owned. The Tabs page demonstrates 15 sections and persistent secondary sections,
+with independent compact and comfortable examples.

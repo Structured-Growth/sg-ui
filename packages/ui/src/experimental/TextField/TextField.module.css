@@ -1,6 +1,6 @@
 @layer sgui.components {
   .root { display: flex; flex-direction: column; gap: var(--sgui-space1); color: var(--sgui-field-text); font-family: var(--sgui-font-family); }
-  .label, .description, .error { font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .label, .description, .error { font-size: var(--sgui-control-text-size); line-height: var(--sgui-label-line-height); }
   .label { font-weight: var(--sgui-label-weight); }
   .input {
     box-sizing: border-box;
@@ -14,8 +14,9 @@
     color: var(--sgui-field-text);
     background: var(--sgui-field-background);
     font-family: var(--sgui-font-family);
-    font-size: var(--sgui-body-size);
-    line-height: var(--sgui-body-line-height);
+    font-size: var(--sgui-control-text-size);
+    font-weight: var(--sgui-body1-weight);
+    line-height: var(--sgui-label-line-height);
   }
   .input::placeholder { color: var(--sgui-text-field-placeholder-text); opacity: 1; }
   .input[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-text-field-focus-color); outline-offset: var(--sgui-control-focus-offset); }

@@ -13,7 +13,7 @@ test('sidebar slides into categories, restores Back focus and derives the level 
   await expect(back).toBeFocused();
   await page.screenshot({animations:'disabled',path:'/tmp/sgui-drilldown-child.png',clip:{...((await nav.boundingBox())!),height:600}});
   await expect(nav.getByRole('heading',{name:exampleName('Buttons & actions'),exact:true})).toBeVisible();
-  await expect(nav.getByRole('link',{name:'AppButton',exact:true})).toBeVisible();
+  await expect(nav.getByRole('link',{name:'Button',exact:true})).toBeVisible();
   await expect(nav.getByRole('button',{name:'Form components',exact:true})).toHaveCount(0);
   await expect(nav.getByRole('link',{name:'Installation',exact:true})).toBeVisible();
   await back.click();await expect(actions).toBeFocused();

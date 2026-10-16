@@ -4,7 +4,7 @@ import { forwardRef, useEffect, useRef, useState, type CSSProperties, type RefOb
 import { $getSelection, $getNodeByKey, $isRangeSelection, $setSelection, FORMAT_TEXT_COMMAND, SELECTION_CHANGE_COMMAND, type RangeSelection, type TextFormatType } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { mergeRegister } from "@lexical/utils";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { FormatBoldIcon } from "../../experimental/icons/FormatBoldIcon";
 import { FormatItalicIcon } from "../../experimental/icons/FormatItalicIcon";
 import { FormatUnderlinedIcon } from "../../experimental/icons/FormatUnderlinedIcon";

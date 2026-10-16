@@ -15,6 +15,15 @@ app-owned token overrides are supplied as Provider style so portals inherit them
 Do not change library defaults to brand the docs app. CSS Modules own only website
 layout. No external font request, runtime styling engine or copied MUI UI is used.
 
+## Playground control alignment
+
+The shared Example panel wraps prop controls in a docs-owned layout scope. Row
+Stacks bottom-align their children so standalone checkbox/switch targets align
+with the input box beneath a neighboring field label, including wrapped rows.
+Responsive Stacks restore stretch alignment when they become columns. Keep this
+layout policy out of Checkbox padding and live preview/source styling; consumer
+forms can use Stack `align="end"` for the same simple labeled-field row pattern.
+
 ## Examples and Storybook transition
 
 MUI X's public docs workspace is the structural reference. The current catalog has
@@ -66,7 +75,12 @@ and notices are unchanged. There is no license-key enforcement or checkout yet.
 Run installation at repository root with `pnpm install --frozen-lockfile`.
 Root `pnpm dev:docs`, `build:docs`, `check:docs` and `test:docs` build the library
 before docs. Restart/rebuild when changing the UI package during this initial setup;
-a watch build is a follow-up. `pnpm check` and `build:browser-docs` forward to UI. `pnpm test:browser` executes
+`pnpm build:watch` in a second terminal rebuilds the public package and generated
+prop/composition metadata after source, stylesheet or build-input changes. Keep
+`pnpm dev` in the first terminal for the Next.js server. Builds are serialized and
+wait for active browser validation. Source edits received during a build queue
+another build. A failed compile waits for the next edit. Token-source changes
+still require `pnpm tokens:generate` before the checked build can succeed. `pnpm check` and `build:browser-docs` forward to UI. `pnpm test:browser` executes
 the standalone native host; `pnpm test:docs` executes the public Next.js site.
 Direct library scripts run with `packages/ui` as cwd. Full checkpoint coordinators
 must select that workspace and record the move before continuing historical plans;
@@ -79,9 +93,9 @@ frozen prior worktree receipts must not be rewritten or reused as current passes
 - [x] DOCS-003 Transfer AppButton examples and add live Button/Dialog playgrounds.
 - [x] DOCS-004 Validate production app, library checks, Storybook build and docs browser smoke.
 - [ ] DOCS-005 Complete docs migration reconciliation: Storybook retirement and native-test transfer are delivered; public scenario parity and complete production gates remain under DOCS-005-b/l.
-- [ ] DOCS-006 Generate a complete public prop reference (catalog/examples/search delivered by DOCS-011).
+- [x] DOCS-006 Generate a complete public prop reference (catalog/examples/search delivered by DOCS-011).
 - [ ] DOCS-007 Add immutable release docs deployment and missing-page version fallback.
-- [ ] DOCS-008 Add library watch mode (isolated demo/website scopes already delivered).
+- [x] DOCS-008 Add library watch mode (isolated demo/website scopes already delivered).
 - [x] DOCS-011 Complete the current public component catalog, expanded examples and searchable navigation.
 - [x] DOCS-012 Complete palette → semantic → component token separation for the website and demo identities.
 - [x] DOCS-013 Add component-specific when/how guidance and related-component choices to every catalog page, with required coverage checks.
@@ -119,7 +133,7 @@ UI design token pipeline; DOCS-006/007/008 retain their independent deliverables
 ### DOCS-005: retire Storybook without losing behavior coverage
 
 - [x] DOCS-005-a Inventory every remaining story/export, all 102 native browser spec files, helper and CI/script reference. Create a scenario ledger naming existing fixture/story ID, assertions, acceptance IDs, destination route, owning family and transfer status. Classify demonstration-only stories separately from required native fixtures; assign every spec to exactly one transfer leaf.
-- [ ] DOCS-005-b Reconcile existing website examples against that ledger. Transfer missing variants, tones, content, density, loading/empty/error states and composed host flows into their owning pages. Retain playground/source requirements; do not recreate examples that already exist. A catalog export entry alone is not evidence of scenario parity.
+- [x] DOCS-005-b Reconcile existing website examples against that ledger. Transfer missing variants, tones, content, density, loading/empty/error states and composed host flows into their owning pages. Retain playground/source requirements; do not recreate examples that already exist. A catalog export entry alone is not evidence of scenario parity.
 - [x] DOCS-005-c Establish docs-owned native test entry points using compiled public package imports, production scopes and host adapters. Specify build/route boundaries so private test fixtures are absent from public deployments; verify public builds return 404 and exclude their fixture code. Avoid embedding test-only controls in public component pages.
 - [x] DOCS-005-d Port shared Playwright navigation, frame/locator helpers, web-server/build lifecycle and browser configuration to the new host. Use immutable fresh builds, never rebuild during a suite. Keep engine coverage, focus/keyboard, portal, clipboard and native event assertions intact; no skipped or weakened checks to make a port pass.
 - [x] DOCS-005-e Transfer primitives, actions, forms and date/calendar scenarios. Keep native form/reset/validation, selection, overlays, range availability and focus assertions; record old/new fixture paths and the executed engine for each mapped spec.
@@ -135,18 +149,18 @@ UI design token pipeline; DOCS-006/007/008 retain their independent deliverables
 
 The [public scenario audit](docs-fixture-migration.md#public-example-parity-audit--docs-005-b) compares actual current example source with preserved fixture provenance. The 90-route/269-example export catalog is complete; public scenario parity is **not** complete. These leaves name confirmed customer-facing gaps, while specialized diagnostic probes remain private. Existing equivalent examples must be reused rather than recreated. Framework retirement is structurally delivered: Storybook is removed and 425 native fixture identities are retained. The leaves below expand public customer documentation; they do not require restoring Storybook or moving private diagnostic controls into the website. Existing-suite execution and final retirement validation remain the coordinator's separate receipts.
 
-- [ ] DOCS-005-b01 `text-field` — Native form reset composition. Current host flow controls a single field and has no Reset action. Add a customer-facing native form combining required input and controlled/uncontrolled defaults, explicit host reset and submit handling. Reuse current input/state/density controls; do not expose diagnostic callback counters as the purpose.
-- [ ] DOCS-005-b02 `async-multi-select` — Host-owned asynchronous search. Current search filters a local array synchronously; pending/failure are manually toggled. Add a bounded mock async search adapter showing query-to-request, pending, rejection/retry and retained selections with defined host cancellation/freshness handling. Keep existing loading/error examples; no real endpoint or application backend.
-- [ ] DOCS-005-b03 `date-field` — Local datetime to explicit-timezone instant. Current DateField exposes date/datetime and hour-cycle controls but no timezone integration. Add a local datetime plus host timezone example using public dateTimeToInstant; disclose ambiguous/nonexistent-time policy and keep civil dates separate from instants.
-- [ ] DOCS-005-b04 `date-range-selector` — Localized civil calendar presentation. Current calendar/range controls support weekday and availability, but examples inherit the default locale and do not explain locale versus timezone. Add named locale scopes and one civil-range comparison with explicit host reference context; preserve ISO values and copyable Provider setup.
-- [ ] DOCS-005-b05 `app-shell` — Independent navigation and long main-content scrolling. Current fixed-height shell has only short main text; it does not demonstrate independent overflowing regions. Add a bounded long navigation/main-content composition and narrow reflow example using shared SGUI UI. Preserve existing shell playground.
-- [ ] DOCS-005-b06 `auth-shell` — Long authentication form and footer content. Current auth choices change the heading around the same short email/action form. Add representative long host-owned form/help/footer content that visibly scrolls within a constrained host; use actual fields and defined host callbacks without account APIs.
-- [ ] DOCS-005-b07 `page-header` — Primary actions and deep breadcrumb compositions. Current header demonstrates primary/subpage surfaces, metadata and More menu, but does not supply its primary action-button slot. Add action-button and condensed/deep-breadcrumb examples from the preserved variants, with long labels and current source; reuse existing hierarchy modes.
-- [ ] DOCS-005-b08 `data-grid-shell` — Controlled server criteria and response ownership. Current shell playground is a client dataset with local view/state controls. Learner grid shows server pagination but not shell server search/sort/filter acceptance or rejected/stale host responses. Add a copyable controlled shell composition with one criteria owner and a bounded local async host adapter; avoid test-only resolve-request buttons.
-- [ ] DOCS-005-b09 `data-grid-shell` — Opt-in persisted view and complete reset. Current client shell enables Reset view but does not opt into persistence or demonstrate declared reset defaults. Add an isolated storage-key composition and declared defaults with reset source; keep production SSR-safe initialization and host ownership.
-- [ ] DOCS-005-b10 `learner-card` — Due-label and course-content variations. Current learner card varies completion only and uses one fixed future dueAt/referenceNow pair. Add a deterministic due-label matrix (overdue/today/tomorrow/later/no due date) plus long/missing supporting content using host locale/reference clock; reuse the completion matrix.
-- [ ] DOCS-005-b11 `page-rich-text-editor-section` — Representative saved rich document. Current editor initializes a single plain paragraph and offers tools/read-only/replacement. Add a customer-facing saved document containing representative headings, formatted/link text, list/code/table/image content, alongside a read-only presentation. Preserve public JSON and scope/style setup; keep diagnostic history/clipboard probes private.
-- [ ] DOCS-005-b12 `page-rich-text-editor-section` — Host image-upload integration and retry. Current editor uses default temporary local previews; separate ImageUploadModal examples only report selection or simulate rejection. Add a bounded mock host onUploadImage workflow returning a durable host URL and a recoverable failure, with defined callbacks and copied integration code. Explain host network/asset ownership; do not imply a real backend.
+- [x] DOCS-005-b01 `text-field` — Native form reset composition. Current host flow controls a single field and has no Reset action. Add a customer-facing native form combining required input and controlled/uncontrolled defaults, explicit host reset and submit handling. Reuse current input/state/density controls; do not expose diagnostic callback counters as the purpose.
+- [x] DOCS-005-b02 `async-multi-select` — Host-owned asynchronous search. Current search filters a local array synchronously; pending/failure are manually toggled. Add a bounded mock async search adapter showing query-to-request, pending, rejection/retry and retained selections with defined host cancellation/freshness handling. Keep existing loading/error examples; no real endpoint or application backend.
+- [x] DOCS-005-b03 `date-field` — Local datetime to explicit-timezone instant. Current DateField exposes date/datetime and hour-cycle controls but no timezone integration. Add a local datetime plus host timezone example using public dateTimeToInstant; disclose ambiguous/nonexistent-time policy and keep civil dates separate from instants.
+- [x] DOCS-005-b04 `date-range-selector` — Localized civil calendar presentation. Current calendar/range controls support weekday and availability, but examples inherit the default locale and do not explain locale versus timezone. Add named locale scopes and one civil-range comparison with explicit host reference context; preserve ISO values and copyable Provider setup.
+- [x] DOCS-005-b05 `app-shell` — Independent navigation and long main-content scrolling. Current fixed-height shell has only short main text; it does not demonstrate independent overflowing regions. Add a bounded long navigation/main-content composition and narrow reflow example using shared SGUI UI. Preserve existing shell playground.
+- [x] DOCS-005-b06 `auth-shell` — Long authentication form and footer content. Current auth choices change the heading around the same short email/action form. Add representative long host-owned form/help/footer content that visibly scrolls within a constrained host; use actual fields and defined host callbacks without account APIs.
+- [x] DOCS-005-b07 `page-header` — Primary actions and deep breadcrumb compositions. Current header demonstrates primary/subpage surfaces, metadata and More menu, but does not supply its primary action-button slot. Add action-button and condensed/deep-breadcrumb examples from the preserved variants, with long labels and current source; reuse existing hierarchy modes.
+- [x] DOCS-005-b08 `data-grid-shell` — Controlled server criteria and response ownership. Current shell playground is a client dataset with local view/state controls. Learner grid shows server pagination but not shell server search/sort/filter acceptance or rejected/stale host responses. Add a copyable controlled shell composition with one criteria owner and a bounded local async host adapter; avoid test-only resolve-request buttons.
+- [x] DOCS-005-b09 `data-grid-shell` — Opt-in persisted view and complete reset. Current client shell enables Reset view but does not opt into persistence or demonstrate declared reset defaults. Add an isolated storage-key composition and declared defaults with reset source; keep production SSR-safe initialization and host ownership.
+- [x] DOCS-005-b10 `learner-card` — Due-label and course-content variations. Current learner card varies completion only and uses one fixed future dueAt/referenceNow pair. Add a deterministic due-label matrix (overdue/today/tomorrow/later/no due date) plus long/missing supporting content using host locale/reference clock; reuse the completion matrix.
+- [x] DOCS-005-b11 `page-rich-text-editor-section` — Representative saved rich document. Current editor initializes a single plain paragraph and offers tools/read-only/replacement. Add a customer-facing saved document containing representative headings, formatted/link text, list/code/table/image content, alongside a read-only presentation. Preserve public JSON and scope/style setup; keep diagnostic history/clipboard probes private.
+- [x] DOCS-005-b12 `page-rich-text-editor-section` — Host image-upload integration and retry. Current editor uses default temporary local previews; separate ImageUploadModal examples only report selection or simulate rejection. Add a bounded mock host onUploadImage workflow returning a durable host URL and a recoverable failure, with defined callbacks and copied integration code. Explain host network/asset ownership; do not imply a real backend.
 
 Close each leaf only after its shared Example/playground/source deliverable and bounded relevant validation exist. This source audit adds no new browser/AT acceptance and does not reset historical F/T/V/A counts. Additional scenario findings may receive new bounded leaves; the twelve entries above do not imply exhaustive parity across private fixtures.
 
@@ -1726,3 +1740,20 @@ The checks verify rail/button/icon geometry on pointer and touch-capable desktop
 contexts, panel opening/dismissal/focus, retained drafts, theme isolation,
 responsive overlays, scroll locking and independently scrolling panes. Changes
 remain local and uncommitted.
+
+
+## Backlog scenario completion — 2026-10-15
+
+DOCS-005-b and its twelve scenario leaves, DOCS-006 and DOCS-008 now have
+implementation and focused evidence. The final fresh production docs build and
+21 Chromium checks passed, covering all 90 routes and 904 public setup and
+initial/changed example source snapshots. API/isolation/theme checks passed
+15 Node tests; catalog validation covers 201 public component/icon names.
+The watch command completed three serialized public builds/metadata generations,
+including a queued source change, then shut down cleanly with unchanged source
+content and released validation leases. See the
+[task-to-evidence receipt](backlog-execution-2026-10-15.md).
+
+DOCS-007 remains open pending the hosting target and implementation;
+DOCS-005-l and its parent retain the complete final production-matrix gate.
+These development checks do not close those gates or authorize a release.

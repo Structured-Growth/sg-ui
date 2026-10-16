@@ -1,4 +1,6 @@
 'use client';
+import {PersistedGridExample,ServerGridExample} from '../GridHostExamples';
+import {LearnerDueExamples} from '../LearnerDueExamples';
 import { useState } from 'react';
 import { AppInlineProgress, AppOperationSteps, AppPaginationFooter, CardCollectionWithFooter, ClassCardFrame, InstructorClassCard, LearnerClassCard, AppDataGrid, AppDataGridShell, LearnerClassesDataGrid, DataToolbar, DataToolbarSelectionMenu, DataGridDragHandle, RowSubHeader, createDataGridColumns, createActionMenuColumn, createAdminCourseGridOptions, createAdminPeopleGridOptions, createInstructorCourseGridOptions, createInstructorCourseLearnersGridOptions, type AppOperationStepStatus, type AppDataGridColumn, type DataToolbarFilterRule, type DataToolbarSortRule, type InstructorClassCardStatus } from '@structured-growth/sg-ui/components';
 import { Stack, Typography, Link } from '@structured-growth/sg-ui/primitives';
@@ -120,7 +122,7 @@ return <Example title="Prop playground" controls={<Stack direction="row" wrap ga
 }
 function LearnerPlayground({reference=false}: {reference?:boolean} = {}) {
 
-return <Stack gap={4}>{reference ? <><LearnerPlaygroundPanel1 reference={reference} /></> : <><LearnerPlaygroundPanel2 reference={reference} /><LearnerPlayground reference/></>}</Stack>;
+return <Stack gap={4}>{reference ? <><LearnerPlaygroundPanel1 reference={reference} /></> : <><LearnerPlaygroundPanel2 reference={reference} /><LearnerPlayground reference/><LearnerDueExamples/></>}</Stack>;
 }
 
 function LearnerPlaygroundPanel1({reference=false}: {reference?:boolean} = {}) {
@@ -208,7 +210,7 @@ const extra=shell?` toolbar={{showRefreshButton:true,onRefresh:()=>setMessage('R
 const body=`<Stack gap={3}><${name} label="Courses" rows={${state==='empty'?'[]':'rows'}} columns={columns} getRowLabel={row=>row.name} selection={${selection}} searchValue={search} onSearchChange={setSearch} pageSizeOptions={[5,10,25]} defaultPaginationModel={{page:0,pageSize:5}} filterFields={${JSON.stringify(fieldOptions)}} loading={${state==='loading'}} errorMessage={${state==='error'?literal('Unable to load courses'):'undefined'}} onRetry={()=>setMessage('Retry requested')} showResetView${extra} style={{height:420}}/></Stack>`;
 return <Example title="Prop playground" controls={<Stack direction="row" wrap gap={3}><Select label="Dataset state" value={state} options={['ready','loading','error','empty'].map(id=>({id,label:id}))} onValueChange={v=>setState(v??'ready')}/><Checkbox label="Enable row selection" checked={selection} onCheckedChange={setSelection}/>{shell?<Select label="View mode" value={view} options={[{id:'list',label:'List'},{id:'cards',label:'Cards'}]} onValueChange={v=>setView(v as typeof view)}/>:<TextField label="Search dataset" value={search} onValueChange={setSearch}/>}</Stack>} source={source(shell?'GridShell':'DataGrid',body,sourceState)}><Component label="Courses" rows={state==='empty'?[]:courses} columns={columns} getRowLabel={row=>row.name} selection={selection} searchValue={search} onSearchChange={setSearch} pageSizeOptions={[5,10,25]} defaultPaginationModel={{page:0,pageSize:5}} filterFields={fieldOptions} loading={state==='loading'} errorMessage={state==='error'?'Unable to load courses':undefined} onRetry={()=>setMessage('Retry requested')} showResetView style={{height:420}} {...(shell?{toolbar:{showRefreshButton:true,onRefresh:()=>setMessage('Refresh requested'),filterFields:fieldOptions},view:{mode:view,onModeChange:setView,cards:{renderCard:(row:Course)=><ClassCardFrame header={<Typography as="h3" variant="h5">{row.name}</Typography>} body={<Typography>{row.status}</Typography>}/>}}}:{})}/></Example>;
 }
-function GridShellPlayground(){return <Stack gap={4}><GridPlayground shell/><GridReferences shell/></Stack>;}
+function GridShellPlayground(){return <Stack gap={4}><GridPlayground shell/><GridReferences shell/><PersistedGridExample/><ServerGridExample/></Stack>;}
 function ToolbarPlayground({reference=false}: {reference?:boolean} = {}) {
 
 return <Stack gap={4}>{reference ? <><ToolbarPlaygroundPanel1 reference={reference} /></> : <><ToolbarPlaygroundPanel2 reference={reference} /><ToolbarPlayground reference/></>}</Stack>;

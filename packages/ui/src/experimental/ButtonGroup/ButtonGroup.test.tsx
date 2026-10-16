@@ -5,7 +5,7 @@ import { renderToString } from "react-dom/server";
 import { afterEach, expect, it } from "vitest";
 import { ButtonGroup } from "./ButtonGroup";
 import userEvent from "@testing-library/user-event";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 afterEach(cleanup);
 it("names a native group without adding toolbar keyboard semantics", () => {
  const ref = createRef<HTMLDivElement>(); render(<ButtonGroup ref={ref} label="Course actions" joined orientation="vertical"><button>Edit</button><button>Delete</button></ButtonGroup>);

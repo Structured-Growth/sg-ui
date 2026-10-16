@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { describe, expect, it } from "vitest";
 import * as root from "./index";
 import * as catalog from "./components";
-import * as granular from "./components/AppButton";
+import * as granular from "./components/Button";
 
 describe("PublicExports package contract", () => {
   it("retains React 18.3/19 peers and the exported stylesheet side effect", async () => {
@@ -20,9 +20,14 @@ describe("PublicExports package contract", () => {
   it("keeps the same owned exports across repeated root, catalog and granular imports", async () => {
     const repeatedRoot = await import("./index");
 
-    expect(root.AppButton).toBe(granular.AppButton);
-    expect(catalog.AppButton).toBe(granular.AppButton);
-    expect(repeatedRoot.AppButton).toBe(root.AppButton);
+    expect(root.Button).toBe(granular.Button);
+    expect(catalog.Button).toBe(granular.Button);
+    expect(repeatedRoot.Button).toBe(root.Button);
+    expect(root).not.toHaveProperty('AppButton');
+    expect(catalog).not.toHaveProperty('AppButton');
+    const manifest = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
+    expect(Object.keys(manifest.exports)).toContain('./components/Button');
+    expect(Object.keys(manifest.exports)).not.toContain('./components/AppButton');
     expect(repeatedRoot.Provider).toBe(root.Provider);
   });
 });

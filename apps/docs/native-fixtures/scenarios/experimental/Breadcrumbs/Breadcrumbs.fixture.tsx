@@ -5,3 +5,9 @@ const meta = { title: "Migration proofs/Breadcrumbs", component: Breadcrumbs, ta
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
+
+export const LongAncestor: Story = { args: { style: { width: 220 }, items: [
+  { id: "home", label: "Home", href: "/" },
+  { id: "ancestor", label: "Professional development courses for instructors and administrators", href: "/courses" },
+  { id: "current", label: "Course details" },
+] } };

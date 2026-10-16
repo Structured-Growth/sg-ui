@@ -1,7 +1,7 @@
 import { StrictMode, useEffect, useState } from "react";
 import type { FixtureMeta, FixtureCase } from "../../../tests/fixtures/types";
 import { AsyncMultiSelect, type MultiSelectOption } from "./AsyncMultiSelect";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Provider } from "../Provider/Provider";
 const courses = Array.from({ length: 200 }, (_, index) => ({ id: String(index), label: `Course ${index + 1}` }));
 /** This is a host adapter example, with no application endpoint or library-owned fetching. */

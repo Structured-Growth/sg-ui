@@ -11,8 +11,8 @@ export function ComponentCatalogPage({slug}:{slug:string}) {
  const entry=catalog.find(entry=>entry.slug===slug);if(!entry)notFound();
  const phaseProps={slug,group:entry.group,title:entry.title,primary:'exampleTitle' in entry?entry.exampleTitle:'Prop playground'};
  return <DocPage title={entry.title} description={entry.description}>
-  <PageDocumentation>{slug==='owned-button'?<ButtonDocumentation/>:<ComponentDocumentation slug={slug} title={entry.title}/>}</PageDocumentation>
-  {slug==='owned-button'?<><ButtonDocumentationIntro/><CatalogPlayground slug={slug} group={entry.group}/></>:<>
+  <PageDocumentation>{slug==='button'?<ButtonDocumentation/>:<ComponentDocumentation slug={slug} title={entry.title}/>}</PageDocumentation>
+  {slug==='button'?<><ButtonDocumentationIntro/><CatalogPlayground slug={slug} group={entry.group}/></>:<>
    <CatalogPlayground {...phaseProps} phase="overview"/>
    <CatalogPlayground {...phaseProps} phase="playground"/>
    {!('exampleTitle' in entry)&&<><Typography as="h2" variant="h4">Examples</Typography><CatalogPlayground {...phaseProps} phase="examples"/></>}

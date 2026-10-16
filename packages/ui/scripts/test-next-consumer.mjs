@@ -51,10 +51,10 @@ export default function Page() {
 import { useState, useEffect } from 'react';
 import { Provider } from '@structured-growth/sg-ui/theme';
 import { SGTranslationProvider } from '@structured-growth/sg-ui/i18n';
-import { AppButton } from '@structured-growth/sg-ui/components/AppButton';
+import { Button } from '@structured-growth/sg-ui/components/Button';
 import { AppPageTabs } from '@structured-growth/sg-ui/components/AppPageTabs';
 import { AppModal } from '@structured-growth/sg-ui/components/AppModal';
-import { TextField, Button, Popover, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
+import { TextField, Popover, DateRangeSelector } from '@structured-growth/sg-ui/experimental';
 const translations = {locale:'fr-FR', t:(_key, options) => options.defaultMessage, useNamespace:() => {}};
 export default function Client({children}) {
   const [hydrated, setHydrated] = useState(false);
@@ -66,13 +66,13 @@ export default function Client({children}) {
   useEffect(() => setHydrated(true), []);
   return <SGTranslationProvider value={translations}><Provider theme={theme}>
     {children}<output id="hydration">{hydrated ? 'Hydrated' : 'Server rendered'}</output>
-    <AppButton onPress={() => setTheme(value => value === 'light' ? 'dark' : 'light')}>Toggle theme</AppButton>
+    <Button onPress={() => setTheme(value => value === 'light' ? 'dark' : 'light')}>Toggle theme</Button>
     <AppPageTabs label="Course sections" value={tab} onChange={setTab} items={[
       {id:'details', label:'Details', content:'Course details'},
       {id:'access', label:'Access', content:'Course access'},
     ]} />
     <DateRangeSelector label="Reporting dates" name="reporting" months={1} defaultFocusedDate="2024-02-29" defaultValue={{start:"2024-02-28",end:"2024-02-29"}} />
-    <AppButton onPress={() => setOpen(true)}>Edit course</AppButton>
+    <Button onPress={() => setOpen(true)}>Edit course</Button>
     <output id="saved-course">{saved}</output>
     <AppModal open={open} title="Course settings" onClose={() => setOpen(false)} showCloseButton
       primaryAction={{label:'Save settings', onPress:() => {setSaved(name); setOpen(false);}}}>

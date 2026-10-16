@@ -35,19 +35,21 @@ export interface ToggleButtonGroupProps extends Pick<HTMLAttributes<HTMLDivEleme
   allowEmpty?: boolean;
   disabled?: boolean;
   orientation?: "horizontal" | "vertical";
+  /** Equal widths follow the widest option by default; content sizes each button independently. */
+  buttonWidth?: "equal" | "content";
   density?: Density;
 }
 /** Owns string IDs and callbacks; upstream collection and state types stay internal. */
 export const ToggleButtonGroup = forwardRef<HTMLDivElement, ToggleButtonGroupProps>(function ToggleButtonGroup(
   { label, options, selectionMode = "single", selectedIds, defaultSelectedIds, onSelectionChange,
-    allowEmpty = true, disabled, orientation = "horizontal", density, className, ...props }, ref,
+    allowEmpty = true, disabled, orientation = "horizontal", buttonWidth = "equal", density, className, ...props }, ref,
 ) {
   return <AriaToggleButtonGroup {...props} ref={ref} aria-label={label} selectionMode={selectionMode}
     selectedKeys={selectedIds} defaultSelectedKeys={defaultSelectedIds}
     onSelectionChange={keys => onSelectionChange?.([...keys].map(String))}
     disallowEmptySelection={!allowEmpty} isDisabled={disabled} orientation={orientation}
     className={[styles.group, className].filter(Boolean).join(" ")}
-    data-sgui-density={density} data-sgui-part="toggle-button-group">
+    data-sgui-density={density} data-button-width={buttonWidth} data-sgui-part="toggle-button-group">
     {options.map(option => <ToggleButton key={option.id} id={option.id} disabled={option.disabled}>
       {option.icon && <span aria-hidden="true" className={styles.icon}>{option.icon}</span>}{option.label}
     </ToggleButton>)}

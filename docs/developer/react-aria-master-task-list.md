@@ -33,9 +33,9 @@ valid within their recorded scope. This does not change F/T/V/A acceptance count
 
 ## Detailed checklists
 
-- [P1 functionality baseline](react-aria-baseline-tasks.md): 570 independently checkable tasks.
-- [P2 expanded regression coverage](react-aria-regression-tasks.md): 570 independently checkable tasks.
-- [P3/P4 hardening and scope closure](react-aria-hardening-tasks.md): 782 independently checkable tasks.
+- [P1 functionality baseline](react-aria-baseline-tasks.md): complete; no open items.
+- [P2 expanded regression coverage](react-aria-regression-tasks.md): complete; no open items.
+- [P3/P4 hardening and scope closure](react-aria-hardening-tasks.md): remaining items only; see its current open-work counts.
 
 The files are one backlog split for readability. They cover all 37 catalog directories, all 47 current experimental directories, and 18 supporting modules/concerns. IDs encode the inventory row, not a renamed public API. Matching `F-C01-01` and `T-C01-01` separate delivery of the same feature from deeper regression evidence. `V-*` adds native/visual evidence, and `A-E-06` closes the original E-06 obligation. Never add historical parent totals to the active child totals or report baseline percentage as overall acceptance.
 
@@ -67,13 +67,6 @@ alter workflow permissions. Never rebuild either host during an active suite.
 
 ## Baseline milestone and later acceptance
 
-- [x] PLAN-001 Rewrite the execution backlog into granular functionality and separate regression/hardening tasks; preserve original scope and align agent guidance. Evidence: this document, the three linked checklists and the original scope ledger; documentation checks recorded in this chat.
-- [x] PLAN-002 Reconcile existing accepted catalog evidence into `F-C*` leaves, in small component-sized chats. Split this coordinator rollup by component; do not wait for whole-backlog reconciliation to implement a real gap.
-- [x] PLAN-003 Reconcile existing accepted primitive evidence into `F-P*` leaves, in small control-sized chats.
-- [x] PLAN-004 Reconcile existing accepted foundation/host evidence into `F-S*` leaves, in small module-sized chats.
-- [x] BASE-001 Confirm all required `F-*` leaves have owned implementation and minimal smoke/example evidence; list every known bug and retain all later coverage tasks.
-- [x] BASE-002 Walk a composed host example using navigation, modal/form, cards/grid and editor; verify primary callbacks without backend dependencies. This is one composed smoke flow, not full acceptance.
-- [x] BASE-003 Record the baseline milestone separately from test/acceptance percentages and switch normal scheduling to P2.
 - [ ] ACCEPT-001 Confirm all required `T-*`, `V-*` and `A-*` leaves and original obligations are closed, with honestly bounded device/assistive-technology evidence and explicit future scope.
 - [ ] ACCEPT-002 Mark full migration complete only after original Z-16 requirements are met. Publication remains a separately authorized workflow action.
 

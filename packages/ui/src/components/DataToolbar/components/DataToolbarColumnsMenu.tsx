@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Button } from "../../../experimental/Button/Button";
+import { Button } from "../../../components/Button/Button";
 import { Checkbox } from "../../../experimental/Checkbox/Checkbox";
 import { Popover } from "../../../experimental/Popover/Popover";
 import { TextField } from "../../../experimental/TextField/TextField";

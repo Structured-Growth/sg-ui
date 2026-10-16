@@ -45,8 +45,9 @@ Links and navigation use background hover feedback and visible keyboard focus.
 Current navigation rows use pale blue without a heavy side border or bold label.
 
 The website's desktop menu uses 6px corners, 32px minimum rows, 16px leading
-icons, 8px icon-to-label gaps and regular 12px labels. Navigation has a distinct
-compact scale; body text, headings and form controls keep their existing sizes.
+icons, 8px icon-to-label gaps and regular 12px labels. Application controls share this compact scale through the website Provider,
+including header pickers, prop controls and their portals. Body text and headings
+retain their independent typography roles; live examples own their density.
 Touch-capable devices retain 44px minimum rows and search targets. Category disclosure chevrons
 stay at the trailing edge. Search has a leading icon and a cool-gray fill.
 The sidebar remains square, 17rem wide on desktop, with 8px outer gutters and
@@ -55,7 +56,7 @@ label, 32px version picker, a thin gold keyline and an accessible visually hidde
 picker label. Main content padding is 16–32px rather than a large website inset.
 
 Reusable SideNavigation owns vertical alignment, consistent icon sizing, row gaps,
-and density-aware minimum row height (32px compact, 36px comfortable; 44px on touch devices). Selection and hover have separate component
+and density-aware minimum row height (32px compact, 44px comfortable; 44px on touch devices). Selection and hover have separate component
 color aliases, so consumer themes control their colors without local overrides.
 Icons remain host-supplied; the docs menu uses the existing public SGUI icons.
 

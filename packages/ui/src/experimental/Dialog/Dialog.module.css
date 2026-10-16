@@ -10,6 +10,7 @@
   .modal[data-size="lg"] { inline-size: min(100%, 56rem); }
   .dialog { display: flex; flex-direction: column; max-block-size: inherit; block-size: 100%; min-block-size: 0; overflow: auto; font-family: var(--sgui-font-family); font-size: var(--sgui-body-size); line-height: var(--sgui-body-line-height); }
   .dialog:focus-visible { outline: var(--sgui-control-focus-width) solid var(--sgui-dialog-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
+  .dialog :focus { scroll-margin: calc(var(--sgui-control-focus-width) + var(--sgui-control-focus-offset)); }
   .header { display: flex; flex-wrap: wrap; flex: none; align-items: flex-start; justify-content: space-between; gap: var(--sgui-space4); padding: var(--sgui-space4); border-block-end: 1px solid var(--sgui-dialog-divider); }
   /* Keep custom chrome at a usable width before moving Close to its own row. */
   .header > button { flex: none; max-inline-size: 100%; margin-inline-start: auto; }

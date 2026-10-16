@@ -5,7 +5,7 @@ import ts from 'typescript';
 import { resolve } from 'node:path';
 
 function typecheckSources(sources: string[]) {
- expect(sources).toHaveLength(20);
+ expect(sources).toHaveLength(33);
  const files = new Map(sources.map((source, index) => [resolve(`.source-check/Example${index}.tsx`), source]));
  const options: ts.CompilerOptions = {strict:true, noEmit:true, skipLibCheck:true, target:ts.ScriptTarget.ES2022, module:ts.ModuleKind.ESNext, moduleResolution:ts.ModuleResolutionKind.Bundler, jsx:ts.JsxEmit.ReactJSX, esModuleInterop:true};
  const host=ts.createCompilerHost(options);const original=host.getSourceFile.bind(host);
@@ -20,18 +20,18 @@ test('public package examples, navigation and themed dialog work in the producti
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('/');await expect(page.getByRole('banner').getByText('Density',{exact:true})).toHaveCount(0);await expect(page.getByRole('heading',{name:exampleName('Build with Structured Growth UI')})).toBeVisible();
  await page.getByRole('navigation',{name:'Documentation'}).getByRole('button',{name:'Buttons & actions',exact:true}).click();
- await page.getByRole('navigation',{name:'Documentation'}).getByRole('link',{name:'AppButton',exact:true}).click();
+ await page.getByRole('navigation',{name:'Documentation'}).getByRole('link',{name:'Button',exact:true}).click();
  await expect(page.getByRole('region',{name:exampleName('Compact density')})).toBeVisible();await expect(page.getByRole('region',{name:exampleName('Comfortable density')})).toBeVisible();
- await page.getByRole('region',{name:'Prop playground',exact:true}).getByRole('button',{name:'Save changes',exact:true}).click();await expect(page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).locator('code')).toContainText('useState(1)');
+ const action=page.getByRole('region',{name:'Button: Host-owned press action',exact:true}).getByRole('button',{name:'Save changes',exact:true});await action.click();await expect(page.getByRole('region',{name:'Button: Host-owned press action',exact:true}).getByRole('button',{name:'Saved',exact:true})).toBeVisible();
  await page.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();
- const label='Ship "<Course>" {draft}';await page.getByRole('textbox',{name:'Button label'}).fill(label);
+ const label='Ship "<Course>" {draft}';await page.getByRole('textbox',{name:'children (label)'}).fill(label);
  const playgroundCode=page.getByLabel('Source: Prop playground',{exact:true});await expect(playgroundCode).toContainText(JSON.stringify(label));
  await page.getByRole('button',{name:'Copy code: Prop playground',exact:true}).click();
  expect(await page.evaluate(()=>navigator.clipboard.readText())).toBe(await playgroundCode.textContent());
  await page.getByRole('textbox',{name:'Compact field',exact:true}).fill('Compact snapshot');await expect(page.getByLabel('Source: Compact density',{exact:true})).toContainText('Compact snapshot');
  sources.push(...await page.locator('code[aria-label^="Source:"]').allTextContents());
- await page.getByRole('textbox',{name:'Button label'}).fill('Save changes');
- await page.getByText('Disabled',{exact:true}).click();await expect(page.getByRole('checkbox',{name:'Disabled',exact:true})).toBeChecked();await expect(page.getByRole('region',{name:'Prop playground',exact:true}).getByRole('button',{name:'Save changes',exact:true})).toBeDisabled();
+ await page.getByRole('textbox',{name:'children (label)'}).fill('Save changes');
+ await page.getByRole('checkbox',{name:'disabled',exact:true}).locator('xpath=ancestor::label[1]').click();await expect(page.getByRole('checkbox',{name:'disabled',exact:true})).toBeChecked();await expect(page.getByRole('region',{name:'Prop playground',exact:true}).getByRole('button',{name:'Save changes',exact:true})).toBeDisabled();
  const componentCode=(await playgroundCode.textContent())!;
  await openSiteTool(page,'Demo settings');await page.getByRole('button',{name:/Demo appearance/}).click();await page.getByRole('option',{name:'Dark',exact:true}).click();await expect(playgroundCode).toHaveText(componentCode);
  const siteColor = () => page.locator('header').filter({hasText:'Component documentation'}).evaluate(element=>getComputedStyle(element).getPropertyValue('--sgui-action').trim());

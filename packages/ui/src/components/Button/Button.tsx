@@ -21,7 +21,7 @@ export interface ButtonProps extends AriaAttributes, Pick<ButtonHTMLAttributes<H
   onPress?: () => void;
 }
 
-/** Experimental owned contract for the migration proof; links remain separate controls. */
+/** Owned action contract; use Link for navigation. */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   { variant = "filled", tone = "primary", density, loading = false, disabled,
     children, startIcon, endIcon, className, onPress, type = "button", ...props }, ref,

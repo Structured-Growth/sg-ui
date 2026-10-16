@@ -4,7 +4,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Dialog, type DialogDismissReason } from "./Dialog";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { TextField } from "../TextField/TextField";
 import { Popover } from "../Popover/Popover";
 import { Provider } from "../Provider/Provider";

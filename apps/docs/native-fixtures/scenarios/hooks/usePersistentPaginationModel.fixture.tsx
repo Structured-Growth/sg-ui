@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "../../types";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { AppPaginationFooter } from "@structured-growth/sg-ui/components";
 import { usePersistentPaginationModel } from "@structured-growth/sg-ui/hooks";
 
@@ -11,7 +11,7 @@ function PaginationExample({ storage }: { storage?: "session" }) {
     <AppPaginationFooter page={model.page} pageSize={model.pageSize} totalCount={1000}
       pageSizeOptions={[10, 75, 250]} onPageChange={() => {}} onPageSizeChange={() => {}}
       onPaginationModelChange={setModel} />
-    <AppButton variant="text" onPress={() => setModel({ page: 0, pageSize: 10 })}>Reset pagination</AppButton>
+    <Button variant="text" onPress={() => setModel({ page: 0, pageSize: 10 })}>Reset pagination</Button>
   </div>;
 }
 const meta = { title: "Hooks/Pagination state", component: PaginationExample } satisfies Meta<typeof PaginationExample>;

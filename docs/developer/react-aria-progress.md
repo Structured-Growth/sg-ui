@@ -1987,3 +1987,69 @@ clipboard, separate demo scopes, preferences, navigation and representative mobi
 layouts. See [catalog evidence](docs-website.md). Legacy Storybook native fixture
 transfer and generated complete prop references remain open. No F/T/V/A acceptance
 count or library API change is implied.
+
+
+## Remaining regression leaves — 2026-10-15
+
+Closed the last 17 T leaves with a combined 63-case Chromium run against the
+fresh docs-owned native fixture host, six existing Navigation/Stack unit cases,
+and browser-test TypeScript validation. Added focused real-layout checks for Stack
+wrapping, long breadcrumb ancestors, loaded/rejected avatar sizing, neutral split
+actions and tooltip placement; joined-group checks now assert the shared outer
+border and logical inner dividers. Preserved the existing native selection, editor,
+shell, modal, tab and grid scenarios. All 570 F and 570 T leaves are now recorded
+complete; no broad hardening/final acceptance claim follows.
+
+See the [task-to-evidence receipt](backlog-execution-2026-10-15.md) for scope,
+runtime and retained local reports. The checkout includes ongoing changes and is
+not an attested production head.
+
+
+## Initial hardening and website reconciliation — 2026-10-15
+
+The final regression flows also passed independently in Firefox and WebKit:
+63 native cases per engine, zero skips/retries. Recorded 39 primary-flow V leaves
+across thirteen component scopes plus V-S15-01/02 and V-S16-01. Broader visual,
+manual accessibility, physical-device and production acceptance remain separate.
+
+Closed the twelve outstanding docs scenario leaves, the complete prop-reference
+leaf and library-watch leaf. The final docs production build and 21 Chromium
+checks passed (90 catalog routes, 904 compiled source snapshots); 15 focused
+API/isolation/theme Node checks passed. Fixed BUG-0001: API metadata no longer
+depends on shell working directory. See the
+[execution receipt](backlog-execution-2026-10-15.md) for individual mappings and
+remaining gates. No release, deployment or whole-code audit completion is claimed.
+
+
+### Second native hardening batch
+
+An additional 44 existing control/adapter/calendar cases passed in each of
+Chromium, Firefox and WebKit. The evidence closes 69 primary component V leaves,
+two adapter consuming-output leaves, four production-docs Chromium leaves and
+six narrow utility output leaves. Failure/cleanup, visual review and manual
+accessibility remain independently tracked. The current open hardening/final
+acceptance count is 659; the website retains three open entries. See the
+[updated task mapping](backlog-execution-2026-10-15.md#second-hardening-batch).
+
+
+### Broader development checkpoint and repaired defects
+
+The full unit run is green (262 files, 1,660 tests). Repaired missing granular
+BrushIcon forwarding (BUG-0002) and the overflow hook's missing explicit client
+boundary (BUG-0003); fresh package/consumer/packed-output guards pass. All 35
+foundation/release-policy Node checks, library/browser types and foundation/token
+guards pass. The full Chromium run passed 509/513; its four stale sizing/token
+assertions were corrected, and all 16 affected foundation/token cases then passed
+in all three engines against a fresh host. No all-suite-green or frozen release
+claim is made for that mixed evidence.
+
+Accepted the additional individually successful Chromium primary flows and the
+Provider/PersistentState evidence with explicit mappings. There are now 153
+completed V leaves and three repaired defects; 629 hardening/final-acceptance leaves
+remain open. See the [checkpoint receipt](backlog-execution-2026-10-15.md#broader-development-checkpoint).
+
+
+Fresh public-package, native upload-lifetime and pure date-contract boundary
+evidence additionally closes V-S14-01, V-S16-02 and V-S17-02. The latest remaining
+hardening/final-acceptance count is 626 (156 V leaves complete, three repaired
+bugs tracked separately). The website still has three open entries.

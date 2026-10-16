@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type CSSProperties, type ReactNode } from "react";
-import { AppButton } from "../AppButton";
+import { Button } from "../Button";
 import { Menu, type MenuItem } from "../../experimental/Menu/Menu";
 import { ArrowDropDownIcon } from "../../experimental/icons/ArrowDropDownIcon";
 import { FormatAlignCenterIcon } from "../../experimental/icons/FormatAlignCenterIcon";
@@ -59,8 +59,8 @@ export const TextAlignMenuControl = forwardRef<HTMLButtonElement, TextAlignMenuC
       if (ALIGNMENTS.includes(id as AlignOption)) onChange?.(id as AlignOption);
       else if (id === "outdent") onOutdent?.();
       else if (id === "indent") onIndent?.();
-    }} trigger={<AppButton ref={ref} aria-label={labels[current]} disabled={disabled} tone="neutral" density="compact" variant="text"
+    }} trigger={<Button ref={ref} aria-label={labels[current]} disabled={disabled} tone="neutral" density="compact" variant="text"
       className={[styles.trigger, className].filter(Boolean).join(" ")} style={style} startIcon={alignmentIcon(current)}>
       <ArrowDropDownIcon />
-    </AppButton>} />;
+    </Button>} />;
 });

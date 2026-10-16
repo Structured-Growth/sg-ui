@@ -3,7 +3,7 @@
   .toolbar, .footer, .actions, .columnHeader { display: flex; align-items: center; gap: var(--sgui-space2); }
   .toolbar, .footer { padding: var(--sgui-space2); flex-wrap: wrap; }
   .footer { justify-content: flex-end; }
-  .container { overflow: auto; border: 1px solid var(--sgui-data-grid-border); }
+  .container { position: relative; overflow: auto; border: 1px solid var(--sgui-data-grid-border); }
   .table { border-collapse: collapse; inline-size: 100%; }
   .header, .cell { text-align: start; vertical-align: middle; padding: var(--sgui-space2); border-block-end: 1px solid var(--sgui-data-grid-border); }
   .header { background: var(--sgui-data-grid-header-surface); }

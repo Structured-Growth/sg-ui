@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { PageRichTextEditorSection } from "@structured-growth/sg-ui/components";
 
 const paragraph = (text: string, format: string, indent: number, inlineFormat: number, style: string) => ({
@@ -19,7 +19,7 @@ export function ParagraphTransactionsHost() {
   const [seed, setSeed] = useState<unknown>(PARAGRAPH_TRANSACTION_DOCUMENT);
   const [revision, setRevision] = useState(0);
   return <>
-    <AppButton onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved paragraphs</AppButton>
+    <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved paragraphs</Button>
     <PageRichTextEditorSection lexicalValue={seed} editorKey={`paragraph-transactions-${revision}`}
       onLexicalChange={setValue} aria-label="Paragraph transaction document" toolPreset="full" style={{ height: 360 }} />
     <pre aria-label="Saved paragraph JSON">{JSON.stringify(value)}</pre>

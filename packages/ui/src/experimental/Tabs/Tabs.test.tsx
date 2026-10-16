@@ -134,3 +134,26 @@ describe("vertical tabs", () => {
     expect(strip.scrollLeft).toBe(7); expect(other.scrollTop).toBe(13);
   });
 });
+
+it('promotes an uncontrolled secondary tab through its overflow menu',async()=>{
+  const user=userEvent.setup();
+  render(<Tabs label="Sections" overflow="menu" items={[...items,{id:'extra',label:'Extra section',priority:'secondary',content:'Extra content'}]}/>);
+  expect(screen.getByRole('tab',{name:'Extra section'}).getAttribute('aria-disabled')).toBe('true');
+  await user.click(screen.getByRole('button',{name:'More tabs'}));
+  await user.click(screen.getByRole('menuitem',{name:'Extra section'}));
+  expect(screen.getByRole('tab',{name:'Extra section'}).getAttribute('aria-selected')).toBe('true');
+  expect(screen.getByRole('tabpanel').textContent).toBe('Extra content');
+});
+it('keeps the controlled panel until the host accepts an overflow selection',async()=>{
+  const user=userEvent.setup();const change=vi.fn();
+  const tabs=[...items,{id:'extra',label:'Extra section',priority:'secondary' as const,content:'Extra content'}];
+  const {rerender}=render(<Tabs label="Sections" overflow="menu" items={tabs} value="details" onValueChange={change}/>);
+  await user.click(screen.getByRole('button',{name:'More tabs'}));
+  await user.click(screen.getByRole('menuitem',{name:'Extra section'}));
+  expect(change).toHaveBeenCalledExactlyOnceWith('extra');
+  expect(screen.getByRole('tab',{name:'Details'}).getAttribute('aria-selected')).toBe('true');
+  expect(screen.getByRole('tabpanel').textContent).toBe('Course details');
+  rerender(<Tabs label="Sections" overflow="menu" items={tabs} value="extra" onValueChange={change}/>);
+  expect(screen.getByRole('tab',{name:'Extra section'}).getAttribute('aria-selected')).toBe('true');
+  expect(screen.getByRole('tabpanel').textContent).toBe('Extra content');
+});

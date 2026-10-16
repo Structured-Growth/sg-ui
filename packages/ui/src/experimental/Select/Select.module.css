@@ -1,5 +1,10 @@
 @layer sgui.components {
-  .trigger { inline-size: 100%; justify-content: space-between; }
-  .trigger > span { display: flex; align-items: center; justify-content: space-between; gap: var(--sgui-space2); inline-size: 100%; }
-  .value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: start; }
+  .root { min-inline-size: 0; max-inline-size: 100%; }
+  .trigger { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--sgui-space2); cursor: pointer; }
+  /* Invisible overlapping labels contribute intrinsic width without adding height or accessible content. */
+  .sizer { grid-area: 1 / 1; display: grid; visibility: hidden; overflow: hidden; block-size: 0; pointer-events: none; }
+  .sizer > span { grid-area: 1 / 1; white-space: nowrap; }
+  .sizer > span::before { content: attr(data-label); }
+  .value { grid-area: 1 / 1; min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: start; }
+  .chevron { grid-area: 1 / 2; }
 }

@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { DataToolbarSelectionMenu } from "@structured-growth/sg-ui/components";
 import { SplitAction } from "@structured-growth/sg-ui/experimental";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
+import { createAdminCourseGridOptions, createAdminPeopleGridOptions, createInstructorCourseGridOptions, createInstructorCourseLearnersGridOptions } from "@structured-growth/sg-ui/components";
 import {
   DataToolbar,
   type DataToolbarFilterRule,
@@ -124,7 +125,7 @@ export function ContainerBoundaryPreview({ enlarged = false }: { enlarged?: bool
   const [events, setEvents] = useState<string[]>([]);
   const record = (event: string) => setEvents(previous => [...previous, event]);
   return <Provider style={enlarged ? { "--sgui-label-size": "1.75rem", "--sgui-body-size": "2rem" } : undefined}>
-    <AppButton onPress={() => setExpanded(value => !value)}>Resize narrow host</AppButton>
+    <Button onPress={() => setExpanded(value => !value)}>Resize narrow host</Button>
     <div data-testid="outer-toolbar-container" style={{ inlineSize: 1120, container: "sgui-data-toolbar / inline-size" }}>
       {(["Narrow", "Wide"] as const).map(name => <section key={name} aria-label={`${name} toolbar host`}
         style={{ inlineSize: name === "Narrow" ? expanded ? 640 : 320 : 800 }}>
@@ -142,3 +143,20 @@ export function ContainerBoundaryPreview({ enlarged = false }: { enlarged?: bool
 
 export const ContainerBoundary: Story = { render: () => <ContainerBoundaryPreview /> };
 export const ContainerBoundaryEnlarged: Story = { render: () => <ContainerBoundaryPreview enlarged /> };
+
+function PresetToolbar({ name, factory }: { name: string; factory: typeof createAdminCourseGridOptions }) {
+  const [preset] = useState(factory);
+  const [columns, setColumns] = useState(preset.columnOptions);
+  return <section aria-label={name}>
+    <DataToolbar aria-label={`${name} toolbar`} columnOptions={columns} onColumnOptionsChange={setColumns}
+      showRefreshButton={false} showSortButton={false} showFilterButton={false} showSearchButton={false} showViewModeToggle={false} />
+    <output aria-label={`${name} visible columns`}>{columns.filter(column => column.visible).map(column => column.label).join(', ')}</output>
+  </section>;
+}
+
+export const PublicPresetHosts: Story = { render: () => <>
+  <PresetToolbar name="Admin courses" factory={createAdminCourseGridOptions} />
+  <PresetToolbar name="Admin people" factory={createAdminPeopleGridOptions} />
+  <PresetToolbar name="Instructor courses" factory={createInstructorCourseGridOptions} />
+  <PresetToolbar name="Instructor learners" factory={createInstructorCourseLearnersGridOptions} />
+</> };

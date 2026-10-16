@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { DateRangeSelector, type DateRangeSelectorProps } from "../DateRangeSelector/DateRangeSelector";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Popover } from "../Popover/Popover";
 import { useTranslation } from "../../i18n";
 import { useCalendarFormReset } from "../DateRangeSelector/useCalendarFormReset";

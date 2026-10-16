@@ -1,7 +1,7 @@
 "use client";
 import { forwardRef, type CSSProperties, type ReactNode } from "react";
 import { Dialog, type DialogDismissReason } from "../../experimental/Dialog/Dialog";
-import { Button, type ButtonProps } from "../../experimental/Button/Button";
+import { Button, type ButtonProps } from "../../components/Button/Button";
 import { useTranslation } from "../../i18n";
 import styles from "./AppModal.module.css";
 

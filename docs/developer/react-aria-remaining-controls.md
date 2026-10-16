@@ -112,3 +112,15 @@ Browser checks cover representative native focus, removal, image events and sizi
 page-size reset, tooltip behavior and title editing. Full touch, zoom, screen-reader
 and cross-browser verification remains under X; these primitive task completions do
 not mark the entire accessibility or catalog migration complete.
+
+
+### ToggleButtonGroup widths
+
+`buttonWidth="equal"` is the default. Intrinsic equal grid tracks use the widest
+option, including icons, padding and disabled options, without filling extra host
+width. Vertical groups use one shared column. Horizontal groups constrained by
+the host retain equal columns and allow labels to wrap. `buttonWidth="content"`
+restores individual content widths and the existing horizontal flex wrapping.
+Selection, roving focus, disabled behavior, density and callbacks are independent
+of this layout setting. The docs playground includes the property and fixed,
+independently owned comparisons of both modes at both orientations and densities.

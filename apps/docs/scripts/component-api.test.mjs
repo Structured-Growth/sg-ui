@@ -1,4 +1,6 @@
 import test from 'node:test';
+import {execFileSync} from 'node:child_process';
+import {resolve} from 'node:path';
 import assert from 'node:assert/strict';
 import api from '../content/component-api.json' with {type:'json'};
 import catalog from '../content/catalog.json' with {type:'json'};
@@ -22,4 +24,10 @@ test('icons share their actual contract without duplicate tables or private file
  assert.ok(api.icons[0].names.length>80);
  assert.ok(api.icons[0].props.some(prop=>prop.name==='label'));
  assert.doesNotMatch(JSON.stringify(api),/\/Users\/|node_modules\//);
+});
+
+test('metadata checks are identical from repository and docs working directories',()=>{
+ const docs=resolve(import.meta.dirname,'..');
+ const script=`import {generateAPI} from ${JSON.stringify(new URL('./component-api.mjs',import.meta.url).href)}; import {readFileSync} from 'node:fs'; generateAPI(JSON.parse(readFileSync(${JSON.stringify(resolve(docs,'content/catalog.json'))},'utf8')),{check:true});`;
+ for(const cwd of [docs,resolve(docs,'../..')])execFileSync(process.execPath,['--input-type=module','--eval',script],{cwd,stdio:'pipe'});
 });

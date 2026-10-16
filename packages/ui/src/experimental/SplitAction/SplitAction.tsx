@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Button } from "../Button/Button";
+import { Button } from "../../components/Button/Button";
 import { IconButton } from "../IconButton/IconButton";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
 import { Menu, type MenuItem } from "../Menu/Menu";

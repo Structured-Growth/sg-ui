@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type CSSProperties, type ReactNode } from "react";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Menu } from "../../experimental/Menu/Menu";
 import { Progress } from "../../experimental/Progress/Progress";
 import { Status } from "../../experimental/Status/Status";

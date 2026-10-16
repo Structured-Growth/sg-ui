@@ -9,7 +9,7 @@ import { useOverlayPosition } from "react-aria/useOverlayPosition";
 import { Heading } from "react-aria-components/Heading";
 import { useLocale } from "react-aria-components/I18nProvider";
 import { useOverlayScope, useOverlayDirectionRef } from "../../foundation/ThemeScope";
-import type { ButtonProps } from "../Button/Button";
+import type { ButtonProps } from "../../components/Button/Button";
 import styles from "./Popover.module.css";
 
 export interface PopoverProps {

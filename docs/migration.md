@@ -31,7 +31,7 @@ use owned contracts. Broad G/K/E/U/X/R/Z acceptance remains open; source and
 
 ## Component inventory
 
-- AppButton
+- Button
 - AppDataGrid
 - AppDataGridRowDnd
 - AppDataGridShell

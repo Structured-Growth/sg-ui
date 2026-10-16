@@ -1,14 +1,5 @@
 [
   {
-    "slug": "button",
-    "title": "AppButton",
-    "description": "Variants, tones, density, disabled and pending actions.",
-    "exports": [
-      "AppButton"
-    ],
-    "group": "presentation"
-  },
-  {
     "slug": "dialog",
     "title": "AppModal",
     "description": "Dialog sizes, dismissal options and host-owned forms.",
@@ -124,7 +115,7 @@
   },
   {
     "group": "presentation",
-    "slug": "owned-button",
+    "slug": "button",
     "title": "Button",
     "description": "Trigger an action with a labelled button, optional icons and native interaction states.",
     "exports": [

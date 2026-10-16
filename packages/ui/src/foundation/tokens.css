@@ -74,11 +74,14 @@
     --sgui-pointer-navigation-icon-size: 1rem;
     --sgui-touch-navigation-icon-size: 1.25rem;
     --sgui-compact-control-height: 2rem;
-    --sgui-compact-control-padding: 0.75rem;
+    --sgui-compact-control-padding: 0.5rem;
     --sgui-compact-navigation-item-height: 2rem;
     --sgui-comfortable-control-height: 2.75rem;
     --sgui-comfortable-control-padding: 1rem;
-    --sgui-comfortable-navigation-item-height: 2.25rem;
+    --sgui-comfortable-navigation-item-height: 2.75rem;
+    --sgui-compact-control-text-size: 0.75rem;
+    --sgui-comfortable-control-text-size: 0.875rem;
+    --sgui-tab-maximum-width: 16rem;
     --sgui-minimum-target-size: var(--sgui-pointer-target-size);
     --sgui-navigation-icon-size: var(--sgui-pointer-navigation-icon-size);
     --sgui-surface-raised: var(--sgui-surface);
@@ -399,13 +402,14 @@
     --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
     --sgui-side-navigation-selected-text: var(--sgui-text-selected);
     --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
-    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-label-size: var(--sgui-control-text-size);
     --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
     --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
     --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
-    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
+    --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
   }
   :where([data-sgui-theme="light"], [data-sgui-theme="system"]) {
     --sgui-surface: #ffffff;
@@ -743,13 +747,14 @@
     --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
     --sgui-side-navigation-selected-text: var(--sgui-text-selected);
     --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
-    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-label-size: var(--sgui-control-text-size);
     --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
     --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
     --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
-    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
+    --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
     color-scheme: light;
   }
   :where([data-sgui-theme="dark"]) {
@@ -1088,13 +1093,14 @@
     --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
     --sgui-side-navigation-selected-text: var(--sgui-text-selected);
     --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
-    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-label-size: var(--sgui-control-text-size);
     --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
     --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
     --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
-    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
+    --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
     color-scheme: dark;
   }
   @media (prefers-color-scheme: dark) {
@@ -1434,13 +1440,14 @@
     --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
     --sgui-side-navigation-selected-text: var(--sgui-text-selected);
     --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
-    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-label-size: var(--sgui-control-text-size);
     --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
     --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
     --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
-    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
+    --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
     color-scheme: dark;
   }
   }
@@ -1448,6 +1455,7 @@
     --sgui-control-height: var(--sgui-compact-control-height);
     --sgui-control-padding: var(--sgui-compact-control-padding);
     --sgui-navigation-item-height: var(--sgui-compact-navigation-item-height);
+    --sgui-control-text-size: var(--sgui-compact-control-text-size);
     --sgui-surface-raised: var(--sgui-surface);
     --sgui-surface-overlay: var(--sgui-surface);
     --sgui-surface-hover: var(--sgui-surface-subtle);
@@ -1766,18 +1774,20 @@
     --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
     --sgui-side-navigation-selected-text: var(--sgui-text-selected);
     --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
-    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-label-size: var(--sgui-control-text-size);
     --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
     --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
     --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
-    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
+    --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
   }
   :where([data-sgui-density="comfortable"]) {
     --sgui-control-height: var(--sgui-comfortable-control-height);
     --sgui-control-padding: var(--sgui-comfortable-control-padding);
     --sgui-navigation-item-height: var(--sgui-comfortable-navigation-item-height);
+    --sgui-control-text-size: var(--sgui-comfortable-control-text-size);
     --sgui-surface-raised: var(--sgui-surface);
     --sgui-surface-overlay: var(--sgui-surface);
     --sgui-surface-hover: var(--sgui-surface-subtle);
@@ -2096,13 +2106,14 @@
     --sgui-side-navigation-selected-background: var(--sgui-surface-selected);
     --sgui-side-navigation-selected-text: var(--sgui-text-selected);
     --sgui-side-navigation-item-height: var(--sgui-navigation-item-height);
-    --sgui-side-navigation-label-size: var(--sgui-caption-size);
+    --sgui-side-navigation-label-size: var(--sgui-control-text-size);
     --sgui-side-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-control-minimum-target-size: var(--sgui-minimum-target-size);
     --sgui-icon-panel-navigation-item-size: var(--sgui-navigation-item-height);
     --sgui-icon-panel-navigation-icon-size: var(--sgui-navigation-icon-size);
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
-    --sgui-icon-panel-navigation-label-size: var(--sgui-caption-size);
+    --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
+    --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
   }
   :where([data-sgui-interaction="pointer"]) {
     --sgui-minimum-target-size: var(--sgui-pointer-target-size);

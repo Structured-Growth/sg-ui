@@ -29,7 +29,8 @@
     "check:docs": "pnpm build && pnpm --filter @structured-growth/docs typecheck",
     "test:docs": "pnpm build:docs && pnpm --filter @structured-growth/docs test:e2e",
     "pack:ui": "pnpm --filter @structured-growth/sg-ui pack",
-    "build:browser-docs": "pnpm --filter @structured-growth/sg-ui build:browser-docs"
+    "build:browser-docs": "pnpm --filter @structured-growth/sg-ui build:browser-docs",
+    "build:watch": "pnpm --filter @structured-growth/sg-ui build:watch"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",

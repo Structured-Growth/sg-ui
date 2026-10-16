@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "../../types";
-import { AppButton } from "@structured-growth/sg-ui/components";
+import { Button } from "@structured-growth/sg-ui/components";
 import { Stack, Typography } from "@structured-growth/sg-ui/primitives";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { SGTranslationProvider, useTranslation, formatIcuMessage, type SGTranslationAdapter } from "@structured-growth/sg-ui/i18n";
@@ -13,8 +13,8 @@ function Example() {
   const { t } = useTranslation();
   return <Stack gap={2} style={{ maxWidth: 320 }}>
     <Typography aria-live="polite">{t("grid.selection", { defaultMessage: english, namespace: "grid", values: { n } })}</Typography>
-    <AppButton onPress={() => setCount(count => count + 1)}>{t("grid.selectNext", { defaultMessage: "Select another row", namespace: "grid" })}</AppButton>
-    <AppButton variant="outlined" onPress={() => setCount(0)}>{t("grid.clear", { defaultMessage: "Clear selection", namespace: "grid" })}</AppButton>
+    <Button onPress={() => setCount(count => count + 1)}>{t("grid.selectNext", { defaultMessage: "Select another row", namespace: "grid" })}</Button>
+    <Button variant="outlined" onPress={() => setCount(0)}>{t("grid.clear", { defaultMessage: "Clear selection", namespace: "grid" })}</Button>
   </Stack>;
 }
 const fallback: SGTranslationAdapter = { locale: "en-US", t: key => key, useNamespace: () => {} };

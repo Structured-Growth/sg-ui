@@ -4,7 +4,7 @@ const transparent='rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)';
 
 test('page and sidebar scroll thumbs remain visible during scrolling without hover or focus',async({page})=>{
   await page.setViewportSize({width:1280,height:650});
-  await page.goto('/docs/components/owned-button');
+  await page.goto('/docs/components/button');
   const main=page.getByRole('main');
   const sidebar=page.getByRole('navigation',{name:'Documentation',exact:true});
   for(const pane of [main,sidebar]) {

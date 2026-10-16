@@ -1,0 +1,25 @@
+import{expect,test,type Locator}from'@playwright/test';
+import{waitForNativeScrollToSettle}from'./native-scroll-settling';
+async function bounded(locator:Locator){expect(await locator.evaluate(element=>{const r=element.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth+1&&element.scrollWidth<=element.clientWidth+1;})).toBe(true);}
+for(const theme of ['light','dark'])for(const density of ['compact','comfortable'])for(const locale of ['en-US','ar-EG'])for(const navigator of [false,true]){
+ test(`${navigator?'page navigator':'actions/popups'} presentation: ${theme}/${density}/${locale}`,async({page},info)=>{
+  const rtl=locale==='ar-EG';await page.setViewportSize({width:360,height:1000});await page.emulateMedia({reducedMotion:'reduce'});
+  await page.goto(`/fixtures/?id=migration-proofs-box--localized-${navigator?'navigator':'actions'}-presentation&embed=true&globals=theme:${theme};density:${density};locale:${locale}`);
+  const root=page.getByTestId('localized-actions');await expect(root).toHaveAttribute('lang',locale);await expect(root).toHaveAttribute('dir',rtl?'rtl':'ltr');await page.addStyleTag({content:'html{font-size:150%;}'});
+  if(navigator){
+   const rows=root.locator('[data-sgui-part="page-list"] > li');await expect(rows).toHaveCount(2);await rows.nth(1).getByRole('button').first().click();await expect(rows.nth(1)).toHaveAttribute('data-active','true');
+   const title=rtl?'مراجعة مواد التعلم والمستندات الداعمة قبل النشر':'Review the learning materials and supporting documents before publication';
+   const trigger=rows.nth(1).getByRole('button',{name:rtl?`إجراءات ${title}`:`Actions for ${title}`,exact:true});await trigger.focus();await trigger.press('ArrowDown');
+   const edit=rtl?'تعديل اسم الصفحة':'Edit Page Name';await page.getByRole('menuitem',{name:edit,exact:true}).press('Enter');const dialog=page.getByRole('dialog',{name:edit,exact:true});
+   const field=dialog.getByRole('textbox',{name:rtl?'اسم الصفحة':'Page Name',exact:true});await expect(field).toBeFocused();const next=rtl?'خطة تعلم محدثة للمراجعة الدولية':'Updated learning plan for international review';await field.fill(next);await field.press('Enter');await expect(dialog).toHaveCount(0);await expect(rows.nth(1).getByRole('button').first()).toHaveAccessibleName(new RegExp(next));
+   await bounded(root);for(const row of await rows.all())await bounded(row);
+  }else{
+   const edit=root.getByRole('button',{name:rtl?'تعديل العنوان':'Edit title',exact:true});await edit.focus();await edit.press('Enter');const field=root.getByRole('textbox',{name:rtl?'عنوان المستند':'Document title',exact:true});await expect(field).toBeFocused();const title=rtl?'مواد التعلم والمراجعة الدولية المحدثة':'Updated learning materials and international review';await field.fill(title);await field.press('Enter');await expect(root.getByRole('heading',{name:title,exact:true})).toBeVisible();await expect(edit).toBeFocused();
+   const more=root.getByRole('button',{name:rtl?'المزيد من الإجراءات':'More actions',exact:true});await more.focus();await more.press('ArrowDown');const menu=page.getByRole('menu',{name:rtl?'المزيد من الإجراءات':'More actions',exact:true});await expect(menu).toBeVisible();await bounded(menu);await expect(menu.getByRole('menuitem').first()).toBeFocused();await expect(menu).toHaveCSS('direction',rtl?'rtl':'ltr');await info.attach('localized-action-menu',{body:await page.screenshot(),contentType:'image/png'});await page.keyboard.press('Escape');await expect(more).toBeFocused();
+   const opener=root.getByRole('button',{name:rtl?'فتح إرشادات المراجعة':'Open review guidance',exact:true});await opener.click();const popover=page.getByRole('dialog',{name:rtl?'إرشادات مراجعة الدورة':'Course review guidance',exact:true});await expect(popover).toBeVisible();await bounded(popover);await expect(popover.getByRole('textbox',{name:rtl?'ملاحظة المراجعة':'Review note',exact:true})).toBeFocused();await info.attach('localized-popover',{body:await page.screenshot(),contentType:'image/png'});await page.keyboard.press('Escape');await expect(opener).toBeFocused();
+   await page.keyboard.press('Tab');await expect(root.getByRole('button',{name:rtl?'إرشادات النشر':'Publication guidance',exact:true})).toBeFocused();const tooltip=page.getByRole('tooltip');await expect(tooltip).toBeVisible();await bounded(tooltip);await expect(tooltip).toHaveText(rtl?'مراجعة الأذونات ومواد التعلم قبل النشر للمجموعات الدولية':'Review permissions and learning materials before publication to international cohorts');await info.attach('localized-tooltip',{body:await page.screenshot(),contentType:'image/png'});await page.keyboard.press('Escape');await expect(tooltip).toHaveCount(0);
+   for(const group of await root.getByRole('group').all())await bounded(group);await bounded(root.locator('[data-sgui-part="editable-title"]'));
+  }
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(361);await waitForNativeScrollToSettle(root);await info.attach('localized-actions',{body:await root.screenshot(),contentType:'image/png'});
+ });
+}

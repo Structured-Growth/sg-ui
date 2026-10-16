@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button } from "../../experimental/Button/Button";
+import { Button } from "../../components/Button/Button";
 import { Dialog } from "../../experimental/Dialog/Dialog";
 import { TextField } from "../../experimental/TextField/TextField";
 import { InsertContentMenuControl } from "./InsertContentMenuControl";
