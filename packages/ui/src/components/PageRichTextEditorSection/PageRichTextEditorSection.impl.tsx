@@ -366,9 +366,9 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
   const pendingLinkSelectionRef = useRef<RangeSelectionSnapshot | null>(null);
   const pendingLinkSelectedTextRef = useRef("");
   const modalSelectionRef = useRef<RangeSelectionSnapshot | null>(null);
-  const modalRestoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const modalRestoreFrameRef = useRef<number | null>(null);
   useEffect(() => () => {
-    if (modalRestoreTimerRef.current !== null) clearTimeout(modalRestoreTimerRef.current);
+    if (modalRestoreFrameRef.current !== null) cancelAnimationFrame(modalRestoreFrameRef.current);
     modalSelectionRef.current = null;
   }, [editorKey, readOnly, editorRef]);
   const [linkModalOpen, setLinkModalOpen] = useState(false);
@@ -647,6 +647,7 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
   };
 
   const captureModalSelection = () => {
+    if (modalRestoreFrameRef.current !== null) cancelAnimationFrame(modalRestoreFrameRef.current);
     modalSelectionRef.current = editorRef?.getEditorState().read(() => snapshotSelection($getSelection())) ?? null;
   };
 
@@ -654,20 +655,23 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
     modalSelectionRef.current = null;
     if (!snapshot || !editorRef || readOnly) return;
     const editor = editorRef;
-    if (modalRestoreTimerRef.current !== null) clearTimeout(modalRestoreTimerRef.current);
-    // Native modal focus restoration runs first. Restore the exact document
-    // range afterward without stealing focus from its surviving command owner.
-    modalRestoreTimerRef.current = setTimeout(() => {
-      modalRestoreTimerRef.current = null;
-      if (!editor.getRootElement()?.isConnected || !editor.isEditable()) return;
-      editor.update(() => {
-        if (!$getNodeByKey(snapshot.anchorKey) || !$getNodeByKey(snapshot.focusKey)) return;
-        const range = $createRangeSelection();
-        range.anchor.set(snapshot.anchorKey, snapshot.anchorOffset, snapshot.anchorType);
-        range.focus.set(snapshot.focusKey, snapshot.focusOffset, snapshot.focusType);
-        $setSelection(range);
-      }, { discrete: true, tag: SKIP_SELECTION_FOCUS_TAG });
-    }, 0);
+    if (modalRestoreFrameRef.current !== null) cancelAnimationFrame(modalRestoreFrameRef.current);
+    // FocusScope restores focus in its teardown animation frame. A zero-delay
+    // timer can run before that frame and have its exact range overwritten.
+    // Restore after that frame without stealing the surviving owner's focus.
+    modalRestoreFrameRef.current = requestAnimationFrame(() => {
+      modalRestoreFrameRef.current = requestAnimationFrame(() => {
+        modalRestoreFrameRef.current = null;
+        if (!editor.getRootElement()?.isConnected || !editor.isEditable()) return;
+        editor.update(() => {
+          if (!$getNodeByKey(snapshot.anchorKey) || !$getNodeByKey(snapshot.focusKey)) return;
+          const range = $createRangeSelection();
+          range.anchor.set(snapshot.anchorKey, snapshot.anchorOffset, snapshot.anchorType);
+          range.focus.set(snapshot.focusKey, snapshot.focusOffset, snapshot.focusType);
+          $setSelection(range);
+        }, { discrete: true, tag: SKIP_SELECTION_FOCUS_TAG });
+      });
+    });
   };
 
   const withPendingLinkSelection = (apply: () => void): boolean => {
@@ -755,6 +759,7 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
   };
 
   const openLinkModal = () => {
+    if (modalRestoreFrameRef.current !== null) cancelAnimationFrame(modalRestoreFrameRef.current);
     if (!pendingLinkSelectionRef.current) {
       capturePendingLinkSelection();
     }

@@ -1,7 +1,9 @@
 "use client";
-import { useCallback, useId, useRef, type ReactElement, type ReactNode } from "react";
-import { MenuTrigger, Menu as AriaMenu, MenuItem as AriaMenuItem, MenuSection } from "react-aria-components/Menu";
-import { Popover } from "react-aria-components/Popover";
+import { forwardRef, useCallback, useContext, useId, useRef, type ComponentProps, type ReactElement, type ReactNode } from "react";
+import { flushSync } from "react-dom";
+import { MenuTrigger, Menu as AriaMenu, MenuItem as AriaMenuItem, MenuSection, RootMenuTriggerStateContext } from "react-aria-components/Menu";
+import { Popover, PopoverContext } from "react-aria-components/Popover";
+import { useSlottedContext } from "react-aria-components/slots";
 import { useLocale } from "react-aria-components/I18nProvider";
 import { useOverlayScope, useOverlayDirectionRef } from "../../foundation/ThemeScope";
 import type { Density } from "../../foundation/ThemeScope";
@@ -23,6 +25,41 @@ export interface MenuProps {
   onOpenChange?: (open: boolean) => void;
   placement?: "bottom start" | "bottom end" | "top start" | "top end";
 }
+// A command menu leaves the document tab order after dismissal. Resolve the
+// trigger before the overlay is removed; then let the browser choose the next
+// native stop rather than duplicating its form/fieldset/radio visibility rules.
+const MenuPopover = forwardRef<HTMLDivElement, ComponentProps<typeof Popover>>(function MenuPopover(props, ref) {
+  const state = useContext(RootMenuTriggerStateContext);
+  const context = useSlottedContext(PopoverContext);
+  const removeListener = useRef<(() => void) | null>(null);
+  const setRef = useCallback((node: HTMLDivElement | null) => {
+    removeListener.current?.();
+    removeListener.current = null;
+    if (typeof ref === "function") ref(node);
+    else if (ref) ref.current = node;
+    if (!node) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== "Tab" || event.altKey || event.ctrlKey || event.metaKey || event.isComposing) return;
+      const trigger = context?.triggerRef?.current;
+      const view = node.ownerDocument.defaultView;
+      if (!state || !view || !(trigger instanceof view.HTMLElement)) return;
+      // Close before native traversal. Preserve propagation/default behavior so
+      // a surviving parent dialog still contains Tab at its own boundaries.
+      flushSync(() => state.close());
+      if (!node.isConnected && trigger.isConnected) trigger.focus({ preventScroll: true });
+      else {
+        event.preventDefault();
+        event.stopPropagation(); // A controlled host rejected dismissal.
+      }
+    };
+    // The overlay filters React capture props. Attach capture directly at the
+    // owned surface, before collection keyboard handlers can consume Tab.
+    node.addEventListener("keydown", onKeyDown, true);
+    removeListener.current = () => node.removeEventListener("keydown", onKeyDown, true);
+  }, [context, ref, state]);
+  return <Popover {...props} ref={setRef} />;
+});
+
 export function Menu({ trigger, label, density, selectionMode = "multiple", errorMessage, items, onAction, open, defaultOpen, onOpenChange, placement = "bottom start" }: MenuProps) {
   const { navigate } = useNavigationAdapter();
   const scope = useOverlayScope();
@@ -76,7 +113,7 @@ export function Menu({ trigger, label, density, selectionMode = "multiple", erro
     {item.shortcut && <span className={styles.shortcut} aria-hidden="true">{item.shortcut}</span>}
   </AriaMenuItem>;
   return <MenuTrigger isOpen={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
-    {trigger}<Popover {...scope} ref={directionRef} data-sgui-density={density ?? scope["data-sgui-density"]} placement={placement} className={styles.popover}>
+    {trigger}<MenuPopover {...scope} ref={directionRef} data-sgui-density={density ?? scope["data-sgui-density"]} placement={placement} className={styles.popover}>
       <span id={labelId} className={styles.label}>{label}</span>
       {errorMessage && <p id={errorId} role="alert" className={styles.error}>{errorMessage}</p>}
       <AriaMenu ref={setMenuRef} aria-labelledby={labelId} aria-describedby={errorMessage ? errorId : undefined} onAction={key => onAction?.(String(key))} className={styles.menu} data-shortcuts={items.some(item => item.shortcut) || undefined}>
@@ -88,6 +125,6 @@ export function Menu({ trigger, label, density, selectionMode = "multiple", erro
           {renderItem}
         </MenuSection>)}
       </AriaMenu>
-    </Popover>
+    </MenuPopover>
   </MenuTrigger>;
 }

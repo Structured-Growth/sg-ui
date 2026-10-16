@@ -1,0 +1,35 @@
+{
+  "status": "coordinator fullunit1851PASS including final stability assertion; all editor and overlay native cases pass3engines",
+  "failure": "units-final.log1850passed1failed exactcaret0vs2; waitFor already polled, proving scheduling defect rather than too-short immediate assertion",
+  "cause": "Zero-delay timer can repair selection before native FocusScope animationframe focus restoration overwrites it",
+  "fix": "Use two owned animationframes, preserving SKIP_SELECTION_FOCUS_TAG; cancel on document/readOnly/editor/unmount and before reopening another modal",
+  "targetedValidation": {
+    "log": "editor-frame-restore-units.log",
+    "passed": 19,
+    "runtime": "Node24.21.0",
+    "limits": "Final additional assertion waiting3frame opportunities and rechecking exactcaret is pending coordinatorfullunit; earlier19pass covers corrected scheduler before that added stabilityassertion"
+  },
+  "sourceSHA256": {
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": "66f9a08f34d24e3eb4c39c61646af69d9dacacf4e369bac7b18b705701ac94a9",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b"
+  },
+  "buildRequired": true,
+  "nativeRerunRequired": true,
+  "acceptedCheckpoint": {
+    "fullUnits": "1851passed root reported fresh checkpoint",
+    "nativeLog": "native-final.log",
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "scopes": [
+      "editor-selection-editing-successors.spec.ts",
+      "editor-style-range-transactions.spec.ts",
+      "wave03-editor-chrome-acceptance.spec.ts",
+      "wave03-editor-selection-acceptance.spec.ts",
+      "wave03-overlay-successors.spec.ts"
+    ],
+    "limits": "Overall native suite160pass1skip1failure: unrelated WebKit forced-color-adjust CSS capability; editor/overlay scoped receipts pass"
+  }
+}

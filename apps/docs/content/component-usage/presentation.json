@@ -301,7 +301,8 @@
       "Provide a Button-compatible trigger, a label and items with stable id and readable label values. Handle commands through onAction(id); the host performs the work.",
       "Use disabled, shortcut, tone=\"danger\" and separatorBefore on items to communicate availability and grouping. Keep item labels understandable without relying on icons.",
       "For checked options, supply selected on the relevant items and update those values in host state after onAction. Choose single or multiple selectionMode to match the task.",
-      "Use open/onOpenChange when the host controls the menu, and errorMessage for a host-provided retryable action error. Generic Menu inherits scope density unless density is explicit."
+      "Use open/onOpenChange when the host controls the menu, and errorMessage for a host-provided retryable action error. Generic Menu inherits scope density unless density is explicit.",
+      "Arrow keys, Home/End and typeahead move among enabled commands. Escape dismisses and returns focus to the trigger. Tab or Shift+Tab dismisses without invoking a command and continues native document traversal after or before the trigger; a controlled host that refuses dismissal retains the open menu and its focus."
     ],
     "related": [
       {

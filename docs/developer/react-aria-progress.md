@@ -2146,3 +2146,10 @@ pass. Earlier89 native passes/8failures/1skip/64unrun are not a green complete
 matrix; corrected native/operator/consumer/visual/owner/legal gates stay open.
 User explicitly requested committing current work to dev and pushing it now.
 Personal .obsidian state excluded; main/tags/publication/version untouched.
+
+## Validated browser follow-up — 2026-10-16
+
+Known automated failures are resolved in the [follow-up receipts](final-acceptance/wave-03-followup/validation-results.json). Full unit checkpoint:297 files /1,851 tests pass; the final Menu type guard also passes17 affected tests. Fresh library/foundation/token/docs/fixture/type/package checks pass. Native evidence covers161 passing cases and one unsupported Firefox touch skip: the full run passed160 cases, and its last WebKit CSS-capability assertion was corrected and passed in a three-engine focused rerun. Unsupported WebKit forced-color-adjust coverage is explicitly recorded rather than claimed. Docs evidence covers11 passing cases, including94 routes and1,138 compiled source snapshots, using the original eight passes plus three corrected cases.
+
+Menu native Tab dismissal, neutral Button feedback and editor Cancel restoration order are fixed. Original failing runs remain retained. **139 A,20 editor V and six future leaves remain**; this follow-up does not close physical-device/AT, reviewed visual-baseline, installed-consumer or owner/legal/production gates.
+

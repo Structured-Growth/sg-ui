@@ -1,0 +1,193 @@
+{
+  "baseDev": "bd169b54",
+  "status": "known-automated-failures-resolved",
+  "unitCheckpoint": {
+    "files": 297,
+    "passed": 1851,
+    "failed": 0,
+    "log": "units-final.log",
+    "laterChange": "Menu owner-realm HTMLElement type guard:17 affected unit tests passed after build type correction."
+  },
+  "buildChecks": [
+    {
+      "name": "library",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "build"
+      ],
+      "startedAt": "2026-10-16T23:45:58.110Z",
+      "completedAt": "2026-10-16T23:46:06.795Z",
+      "exitCode": 0
+    },
+    {
+      "name": "foundation",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "foundations:check"
+      ],
+      "startedAt": "2026-10-16T23:46:06.798Z",
+      "completedAt": "2026-10-16T23:46:12.205Z",
+      "exitCode": 0
+    },
+    {
+      "name": "tokens",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "tokens:check"
+      ],
+      "startedAt": "2026-10-16T23:46:12.205Z",
+      "completedAt": "2026-10-16T23:46:12.601Z",
+      "exitCode": 0
+    },
+    {
+      "name": "docs",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/docs",
+        "build"
+      ],
+      "startedAt": "2026-10-16T23:46:12.601Z",
+      "completedAt": "2026-10-16T23:46:30.716Z",
+      "exitCode": 0
+    },
+    {
+      "name": "native",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "exec",
+        "node",
+        "scripts/build-browser-docs.mjs"
+      ],
+      "startedAt": "2026-10-16T23:46:30.716Z",
+      "completedAt": "2026-10-16T23:46:35.838Z",
+      "exitCode": 0
+    },
+    {
+      "name": "browser-types",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "exec",
+        "tsc",
+        "--noEmit",
+        "-p",
+        "tests/browser/tsconfig.json"
+      ],
+      "startedAt": "2026-10-16T23:46:35.838Z",
+      "completedAt": "2026-10-16T23:46:37.471Z",
+      "exitCode": 0
+    },
+    {
+      "name": "package",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "exec",
+        "node",
+        "scripts/check-package.mjs",
+        "--retain-packed=/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave03-followup-package"
+      ],
+      "startedAt": "2026-10-16T23:46:37.471Z",
+      "completedAt": "2026-10-16T23:46:40.234Z",
+      "exitCode": 0
+    }
+  ],
+  "browserRuns": {
+    "packages/ui/artifacts/wave03-integration/followup-final-results.json": {
+      "sha256": "af50ca0dbfd79d38bb53cbfb18072cea76c151bf1f9842c97e2717273b91b170",
+      "stats": {
+        "startTime": "2026-10-16T23:46:43.616Z",
+        "duration": 123618.043,
+        "expected": 160,
+        "skipped": 1,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    "packages/ui/artifacts/wave03-integration/followup-color-results.json": {
+      "sha256": "129e3da3735becf00174e9dbd5d5d73ccecf92599190067b750f41636179c835",
+      "stats": {
+        "startTime": "2026-10-16T23:49:35.438Z",
+        "duration": 3419.105,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    "apps/docs/test-results/wave03-followup-results.json": {
+      "sha256": "68ce1788f6a64c3d41a6597550108d584acadfc62cd96971082657989ae295b1",
+      "stats": {
+        "startTime": "2026-10-16T23:40:09.984Z",
+        "duration": 58596.215,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      }
+    },
+    "apps/docs/test-results/wave03-followup-corrected-results.json": {
+      "sha256": "8d26fbbdee05392d0477a1e7d28277c20c7bd18bd8409d5aee5403223bab8c34",
+      "stats": {
+        "startTime": "2026-10-16T23:49:00.581Z",
+        "duration": 3127.014,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  },
+  "reconciledNative": {
+    "passedCases": 161,
+    "skippedCases": 1,
+    "unresolvedFailures": 0,
+    "explanation": "Final full run160pass/1fail/1skip; last WebKit CSS capability driver corrected and targeted color case passes all3engines. No unchanged160-case rerun. Firefox touch context is unsupported; WebKit forced-color-adjust branch remains explicitly unsupported, while keyboard/system-color/selection assertions pass."
+  },
+  "reconciledDocs": {
+    "passedCases": 11,
+    "unresolvedFailures": 0,
+    "explanation": "Eight initial cases passed, including94catalog routes/1138compilable source snapshots; three corrected Button/foundation cases then passed."
+  },
+  "acceptance": {
+    "closed": 181,
+    "total": 320,
+    "open": 139,
+    "editorVisualOpen": 20,
+    "future": 6,
+    "limitation": "No broader visual/operator/physical-device/AT/consumer/legal/owner approval inferred."
+  },
+  "logHashes": {
+    "docs/developer/final-acceptance/wave-03-followup/menu-type-guard-units.log": "ab7c5d79812134c783da0e923bea2cc7579d7c359dad27a3f98225577f923fc4",
+    "docs/developer/final-acceptance/wave-03-followup/docs-final.log": "23bea475b207bcb85a13e0c27a30a9184f7a9cc92d4f45f54bb68344b677f0cf",
+    "docs/developer/final-acceptance/wave-03-followup/editor-frame-restore-units.log": "92d844d08622e04ae04d7ecba942c2a8326b8355d4c8b36c9cdca8d18ef5cc84",
+    "docs/developer/final-acceptance/wave-03-followup/native-first.log": "1414b204e0d01673db5ad6a26d6b7bbe8c1caef3f5c6cefca488ffc00b2f7474",
+    "docs/developer/final-acceptance/wave-03-followup/units-final.log": "a8ab1edf90f816686eb77c168a0db9f8eb753b8e45a7dbf155c8f4a2eba8d631",
+    "docs/developer/final-acceptance/wave-03-followup/library-type-first.log": "7d42b668fdecbd0dab02e678c8d19f307ff8b46ef5209e5e41de6d8ede0d9ad0",
+    "docs/developer/final-acceptance/wave-03-followup/browser-types-corrected.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/developer/final-acceptance/wave-03-followup/tokens-final.log": "dd9264817799bb7456c7709e250f6e16a5e04c65e9011ca6379f1ecb08acc50a",
+    "docs/developer/final-acceptance/wave-03-followup/docs-corrected.log": "31eaded03723a9748f2ff8ffa8c61df1f753c3bfe52444eee2b5a7ac4fb01fb6",
+    "docs/developer/final-acceptance/wave-03-followup/browser-types-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/developer/final-acceptance/wave-03-followup/package-final.log": "e4481b45e7e572dc95cc5957924ae63f3de0c8ef4c28b1c651195004b342ac67",
+    "docs/developer/final-acceptance/wave-03-followup/library-final.log": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+    "docs/developer/final-acceptance/wave-03-followup/controls-button-token-unit.log": "e438b6aa0553189c95817067d19e01adb363fb97de92519ea352c8f59b73845d",
+    "docs/developer/final-acceptance/wave-03-followup/native-final.log": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c",
+    "docs/developer/final-acceptance/wave-03-followup/units-first.log": "a7f3b068339ad8caa37fc965021efabbedc47d0a832391d04a7b88e5d10c7c06",
+    "docs/developer/final-acceptance/wave-03-followup/native-color-corrected.log": "b2d687f0d19f7c61d141eb321af23b79f3ecedccde6f94882d1778eb0bb28ebc",
+    "docs/developer/final-acceptance/wave-03-followup/docs-first.log": "bb2d40423209180616be89210450859472fbcbbe17eb746e715d2dbc829e67d2",
+    "docs/developer/final-acceptance/wave-03-followup/foundation-final.log": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647"
+  },
+  "packageSha256": "e6efe78d6fc82c3ae4d628d51923f2a07c62c64c439e4e227b46a6f230f1d4c2",
+  "sourceInventory": "validated-source-inputs.json"
+}

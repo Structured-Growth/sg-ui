@@ -1,0 +1,27 @@
+{
+  "scope": "WebKit selector Tab boundary fixture correction",
+  "branch": "codex/acceptance-browser-followup",
+  "baseCommit": "bd169b54",
+  "initialEvidence": "../push-native-smoke.log",
+  "initialResult": "5passed/1failed:WebKitSelectShiftTab expected Before status focused; Chromium/Firefox Select pass.",
+  "diagnosis": "Native acceptance sentinel/reset buttons were raw HTML buttons with implicit tabindex, while the Select trigger and grid sentinels use owned ReactAria-backed buttons with explicit tab-stop behavior. WebKit default keyboard policy can skip implicit native buttons.",
+  "change": "Use public SGUI Button for before/reset sentinels in Select and ComboBox native fixtures. Reset retains type=reset and native form behavior. All test assertions unchanged; production Select source untouched in this followup.",
+  "sourceHashes": {
+    "apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx": "272f2249f4a44684a0ed4be43c2f2e1fe4aff246089cf877f05f8d320397c5a5",
+    "apps/docs/native-fixtures/scenarios/experimental/ComboBox/ComboBox.fixture.tsx": "66d13cb783853be6926666b5ffac45fb961e768e39788ee14e85dfecc8ead7c5"
+  },
+  "checks": [
+    {
+      "command": "git diff --check -- apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx apps/docs/native-fixtures/scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
+      "exitCode": 0
+    }
+  ],
+  "pending": "No WebKitSelect fixture failure remains onfreshcoordinatorbuild; originalfailure retained.",
+  "noRuntimeAcceptanceClaim": false,
+  "validation": {
+    "log": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+    "webkitSelect": "PASS case155",
+    "allEnginesSelect": "3/3pass",
+    "allSelectorContracts": "15/15pass"
+  }
+}

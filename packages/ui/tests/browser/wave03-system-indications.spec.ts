@@ -67,9 +67,12 @@ for (const side of ['start', 'end']) {
 test('color-data exception preserves system selection and keyboard focus', async ({ page }, info) => {
   await page.emulateMedia({ forcedColors: 'active' });
   await page.goto('/fixtures/?id=editors-textcolorpickercontrol--default');
-  const supported = await page.evaluate(() => matchMedia('(forced-colors: active)').matches);
-  await info.attach('forced-colors-capability', { body: JSON.stringify({ engine: info.project.name, supported }), contentType: 'application/json' });
-  test.skip(!supported, 'Engine did not apply forced-colors emulation; no preference acceptance claimed.');
+  const capability = await page.evaluate(() => ({
+    mediaActive: matchMedia('(forced-colors: active)').matches,
+    adjustmentProperty: CSS.supports('forced-color-adjust', 'none'),
+  }));
+  await info.attach('forced-colors-capability', { body: JSON.stringify({ engine: info.project.name, ...capability }), contentType: 'application/json' });
+  test.skip(!capability.mediaActive, 'Engine did not apply forced-colors emulation; no preference acceptance claimed.');
   await page.getByRole('button', { name: 'Text color', exact: true }).click();
   const primary = page.getByRole('button', { name: 'Primary', exact: true });
   await primary.click();
@@ -86,12 +89,21 @@ test('color-data exception preserves system selection and keyboard focus', async
     const colors: Record<string, string> = {};
     for (const name of ['Highlight', 'ButtonText']) { probe.style.color = name; colors[name] = getComputedStyle(probe).color; }
     probe.remove();
-    return { colors, controlAdjustment: css.forcedColorAdjust, chipAdjustment: chipCSS.forcedColorAdjust,
+    return { colors, controlAdjustment: css.getPropertyValue("forced-color-adjust"), chipAdjustment: chipCSS.getPropertyValue("forced-color-adjust"),
       outlineColor: css.outlineColor, outlineWidth: parseFloat(css.outlineWidth), outlineOffset: parseFloat(css.outlineOffset),
       borderColor: css.borderColor, borderStyle: css.borderStyle, borderWidth: parseFloat(css.borderWidth), chipBackground: chipCSS.backgroundColor };
   });
-  expect(observation.controlAdjustment).toBe('auto');
-  expect(observation.chipAdjustment).toBe('none');
+  if (capability.adjustmentProperty) {
+    expect(observation.controlAdjustment).toBe('auto');
+    expect(observation.chipAdjustment).toBe('none');
+  } else {
+    // Media-query emulation does not implement an unsupported CSS property.
+    // Keep native keyboard/selection and system-color geometry checks below;
+    // only the color-data opt-out branch lacks an engine acceptance result.
+    info.annotations.push({ type: 'unsupported-css-branch', description: 'forced-color-adjust is unsupported; control auto/chip none checks not executed. Keyboard selection, focus, and system-color geometry remain tested.' });
+    expect(observation.controlAdjustment).toBe('');
+    expect(observation.chipAdjustment).toBe('');
+  }
   expect(observation.outlineColor).toBe(observation.colors.Highlight);
   expect(observation.outlineWidth).toBeGreaterThanOrEqual(2);
   expect(observation.outlineOffset).toBeGreaterThanOrEqual(0);
@@ -104,5 +116,5 @@ test('color-data exception preserves system selection and keyboard focus', async
   await expect(primary).toHaveAttribute('aria-pressed', 'true');
   await page.keyboard.press('Escape');
   await expect(page.getByRole('button', { name: 'Text color', exact: true })).toBeFocused();
-  await info.attach('system-swatch-indications', { body: JSON.stringify(observation), contentType: 'application/json' });
+  await info.attach('system-swatch-indications', { body: JSON.stringify({ capability, observation, adjustmentBranch: capability.adjustmentProperty ? 'tested' : 'unsupported' }), contentType: 'application/json' });
 });

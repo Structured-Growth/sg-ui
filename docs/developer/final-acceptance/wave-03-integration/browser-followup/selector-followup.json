@@ -1,0 +1,59 @@
+{
+  "scope": "Followup after dev bd169b54; selector native failures",
+  "branch": "codex/acceptance-browser-followup",
+  "status": "source-frozen-17-units-and15-native-passed",
+  "findings": [
+    {
+      "case": "WebKitSelectShiftTab",
+      "classification": "fixture keyboard policy",
+      "actual": "Raw Before status button uses implicit native tab policy; owned trigger explicit0, Before skipped on WebKit.",
+      "change": "Public SGUI Button sentinels/reset in Select and ComboBox; unchanged ShiftTab/Tab/native reset assertions."
+    },
+    {
+      "case": "FirefoxComboBoxHome",
+      "classification": "platform driver",
+      "actual": "macOSFirefox Home leaves caret at3 rather than0.",
+      "change": "Use native macOS MetaArrowLeft/Right text-editing accelerators onDarwin, Home/End elsewhere; same0/3caretassertions."
+    },
+    {
+      "case": "MenuTab",
+      "classification": "production keyboard dismissal defect",
+      "actual": "RACcollection preserves menu while modalPopover trapsTab; originalSpace/typeahead nowpasses butTabfails.",
+      "change": "InternalMenuPopover ref capture listener closes synchronously, then focuses authoritative trigger and permits browserdefault/parentpropagation. Controlled rejection cancelsTabandretainsfocus. Native listener cleanup bound toref lifetime. No manual focus-stop enumeration.",
+      "unit": "17cases pass including3new forward/back keydown mutationandcontrolledrejectioncases.",
+      "native": "ForwardAfter and backwardBefore destination assertions retained/added; awaits freshbuildserialnative.",
+      "harness": "Initial React capture prop filtered by RAC. Native listener sees event. jsdomuserEvent.tab computes traversal fromremovedtarget and may focusbody/throw; units verify actualkeydown owned mutation/default contract, native browser assertsreal focus destination. Initial logs retained."
+    }
+  ],
+  "commands": [
+    {
+      "command": "PATH=/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin:$PATH node /tmp/sgui-calendar-validate.mjs pnpm --filter @structured-growth/sg-ui exec vitest run src/experimental/Menu/Menu.test.tsx",
+      "exitCode": 0,
+      "passed": 17,
+      "runtime": "Node24.21.0",
+      "log": "menu-units-final.log",
+      "warning": "Existing jsdom external-link navigation-notimplemented warning retained; no failed assertions."
+    }
+  ],
+  "sourceHashes": {
+    "packages/ui/src/experimental/Menu/Menu.tsx": "c1791ca484cd0631d9994417b69240fb6f4938afa4dd0cc31c67819ad80b8cfb",
+    "packages/ui/src/experimental/Menu/Menu.test.tsx": "d944225a253aba4e3d8d4ef2ab61f8c0eb567f1b7e33635c1ee391cc35bdcf97",
+    "packages/ui/tests/browser/wave03-selector-contracts.spec.ts": "49a719ee6ca3f426465f0953dc38d658d31924e122229a9a978be7c70d70edf5",
+    "apps/docs/content/component-usage/presentation.json": "b715b3e275b0ddb53d7c95ceeab22bb4eb24f96bfabf43d5c876e6b37ed18f3e",
+    "apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx": "272f2249f4a44684a0ed4be43c2f2e1fe4aff246089cf877f05f8d320397c5a5",
+    "apps/docs/native-fixtures/scenarios/experimental/ComboBox/ComboBox.fixture.tsx": "66d13cb783853be6926666b5ffac45fb961e768e39788ee14e85dfecc8ead7c5"
+  },
+  "pending": "No selector followup remains for these five native cases. Broader whole-acceptance/real-device/AT coverage unchanged; root handles unrelated remaining check and integration.",
+  "coordinatorNative": {
+    "log": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+    "selectorCases": 5,
+    "engines": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "passedExecutions": 15,
+    "actualChecks": "Menu forward/back Tab destination, command exact-once, disabled/typeahead/Escape; Select native form reset and controlled authority; ComboBox caret/filter/ID/reset; Popover/Tooltip IDREF/focus.",
+    "wholeSuite": "160passed/1skipped/1failed; unrelatedWebKitcolor-data failure belongs tocontrolsowner; notall-nativePASS."
+  }
+}

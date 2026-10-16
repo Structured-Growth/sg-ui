@@ -1970,3 +1970,7 @@ pass. Earlier89 native passes/8failures/1skip/64unrun are not a green complete
 matrix; corrected native/operator/consumer/visual/owner/legal gates stay open.
 User explicitly requested committing current work to dev and pushing it now.
 Personal .obsidian state excluded; main/tags/publication/version untouched.
+
+## Browser follow-up after dev snapshot bd169b54
+
+Known automated failures resolved:1,851 unit tests pass;161 native cases have passing evidence with one unsupported Firefox touch skip;11 docs cases pass, including94 routes/1,138 compiled source snapshots. Fresh build/type/foundation/token/docs/fixture/package checks pass. Retain full-run and targeted-rerun distinctions in [receipts](final-acceptance/wave-03-followup/validation-results.json). No broader acceptance-count changes:139 A,20 V and six future items remain.

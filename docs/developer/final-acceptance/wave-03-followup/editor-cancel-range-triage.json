@@ -1,0 +1,13 @@
+{
+  "status": "focused browser spec corrected; root fresh-suite still active, bounded rerun pending",
+  "failureContext": "packages/ui/artifacts/wave03-integration/followup-first/wave03-editor-selection-ac-cc080-and-cross-node-modal-ranges-chromium/error-context.md",
+  "diagnosis": "Modal native focus restoration precedes deferred editor range repair. Immediate DOM selection sample raced the documented task boundary; source already schedules restoration and previous native checks demonstrated eventual correct state.",
+  "change": "Poll exact full native range record before attaching and reasserting same record. No endpoint, focus, document, dismissal or containment assertions weakened; no arbitrary sleep or programmatic selection/focus repair.",
+  "sourceSHA256": "fa2418dc6e2d804ae40651bc5d6f7cca0e77b4ac7faf546b341eaa06e4cb5f4c",
+  "productionChanges": false,
+  "buildRequired": false,
+  "additionalWebKitFailure": "Pointer-invoked Insert may retain document focus on native macOS/WebKit; asserting Insert focus requires keyboard menu entry.",
+  "driverSetupCorrection": "Image and Columns use explicit keyboard trigger focus then Enter menu/item activation; Link retains pointer opening. No after-dismiss focus repair.",
+  "retainedCurrentFirstSuiteEvidence": "All3overlay cases passed all3engines; allremaining editor chrome/style/apply/invalidation/typing cases pass. Firefox cancelrange passed. Chromium immediate range sample and WebKit pointer focusdriver await bounded rerun.",
+  "globalRunnerError": "No worker/stray editor exception found; generic non-test error accompanies maxFailures8earlystop."
+}

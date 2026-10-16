@@ -32,8 +32,12 @@ async function select(page: Page, shape: 'caret' | 'same-node' | 'cross-node') {
 async function open(page: Page, command: 'Link' | 'Image' | 'Columns Layout') {
   if (command === 'Link') await toolbar(page).getByRole('button', { name: 'Edit link', exact: true }).click();
   else {
-    await toolbar(page).getByRole('button', { name: 'Insert', exact: true }).click();
-    await page.getByRole('menuitem', { name: command, exact: true }).click();
+    // Establish keyboard ownership for the insertion menu. Native macOS/WebKit
+    // pointer activation does not focus buttons, so it has a different return
+    // owner from keyboard activation. Link above intentionally covers pointer.
+    const trigger = toolbar(page).getByRole('button', { name: 'Insert', exact: true });
+    await trigger.focus(); await trigger.press('Enter');
+    await page.getByRole('menuitem', { name: command, exact: true }).press('Enter');
   }
   const dialog = page.getByRole('dialog', { name: command === 'Link' ? 'Insert Link' : command === 'Image' ? 'Insert Image' : 'Choose columns layout', exact: true });
   await expect(dialog).toBeVisible();
@@ -63,12 +67,16 @@ test('Cancel/Escape make no edit for caret, same-node and cross-node modal range
     // exact native selection endpoints without programmatic focus repair.
     const focus = command === 'Link' ? editor(page) : toolbar(page).getByRole('button', { name: 'Insert', exact: true });
     await expect(focus).toBeFocused();
-    const after = await editor(page).evaluate(node => {
+    const observeRange = () => editor(page).evaluate(node => {
       const s = window.getSelection()!;
       return { text: s.toString(), collapsed: s.isCollapsed, anchor: s.anchorOffset, focus: s.focusOffset,
         anchorText: s.anchorNode?.textContent, focusText: s.focusNode?.textContent,
         contained: !!s.anchorNode && !!s.focusNode && node.contains(s.anchorNode) && node.contains(s.focusNode) };
     });
+    // Modal teardown restores focus before the editor's deferred exact-range
+    // repair. Observe that final contract, rather than racing its task boundary.
+    await expect.poll(observeRange).toEqual(range);
+    const after = await observeRange();
     await info.attach(`${command}-${shape}-${dismiss}`, { body: JSON.stringify({ before: range, after, document: initial }), contentType: 'application/json' });
     expect(after).toEqual(range);
   }

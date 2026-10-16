@@ -13,8 +13,8 @@ for (const colorScheme of ['light', 'dark'] as const) {
     const resting = await background();
     await button.hover();
     await expect(button).toHaveAttribute('data-hovered');
+    await expect.poll(background).not.toBe(resting);
     const hovered = await background();
-    expect(hovered).not.toBe(resting);
     await page.mouse.move(0, 0);
     await expect(button).not.toHaveAttribute('data-hovered');
     // Native focus positions the existing fixed example, then actual Space holds a press.

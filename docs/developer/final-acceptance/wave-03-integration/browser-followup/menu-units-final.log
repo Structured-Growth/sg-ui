@@ -1,0 +1,16 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+
+ Test Files  1 passed (1)
+      Tests  17 passed (17)
+   Start at  18:42:58
+   Duration  1.06s (transform 56ms, setup 12ms, import 142ms, tests 725ms, environment 126ms)
+

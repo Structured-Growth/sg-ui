@@ -1,0 +1,52 @@
+
+> @structured-growth/sg-ui@0.0.0-development test /Users/thomashall/Repositories/sg-ui/packages/ui
+> vitest run
+
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+Error: Not implemented: window.scrollBy
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at /Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/Window.js:960:7
+    at scrollIntoViewIfNeeded (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:11985:21)
+    at updateDOMSelection (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:7905:7)
+    at $commitPendingUpdates (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8565:9)
+    at file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8841:9 undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+Error: Not implemented: window.scrollBy
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at /Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/Window.js:960:7
+    at scrollIntoViewIfNeeded (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:11985:21)
+    at updateDOMSelection (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:7905:7)
+    at $commitPendingUpdates (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8565:9)
+    at $beginUpdate (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8838:7)
+    at updateEditor (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8870:5)
+    at LexicalEditor.update (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:10881:5)
+    at /Users/thomashall/Repositories/sg-ui/packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.next100-regression.test.tsx:39:19
+    at /Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/@testing-library+react@16.3.3_@testing-library+dom@10.4.2_@types+react-dom@19.3.0_@type_a7723bbf6dc26ddd0886488d3f614815/node_modules/@testing-library/react/dist/act-compat.js:47:24 undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+
+ Test Files  297 passed (297)
+      Tests  1851 passed (1851)
+   Start at  18:44:51
+   Duration  38.59s (transform 8.27s, setup 2.17s, import 74.71s, tests 180.55s, environment 54.83s)
+

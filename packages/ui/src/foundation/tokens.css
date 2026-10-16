@@ -255,7 +255,7 @@
     --sgui-button-neutral-foreground: var(--sgui-text);
     --sgui-button-neutral-surface: var(--sgui-surface-subtle);
     --sgui-button-primary-foreground: var(--sgui-action);
-    --sgui-button-subtle-interaction-background: var(--sgui-surface-subtle);
+    --sgui-button-subtle-interaction-background: var(--sgui-surface-hover);
     --sgui-checkbox-border: var(--sgui-border);
     --sgui-checkbox-description-text: var(--sgui-text-muted);
     --sgui-checkbox-error-text: var(--sgui-danger);
@@ -606,7 +606,7 @@
     --sgui-button-neutral-foreground: var(--sgui-text);
     --sgui-button-neutral-surface: var(--sgui-surface-subtle);
     --sgui-button-primary-foreground: var(--sgui-action);
-    --sgui-button-subtle-interaction-background: var(--sgui-surface-subtle);
+    --sgui-button-subtle-interaction-background: var(--sgui-surface-hover);
     --sgui-checkbox-border: var(--sgui-border);
     --sgui-checkbox-description-text: var(--sgui-text-muted);
     --sgui-checkbox-error-text: var(--sgui-danger);
@@ -958,7 +958,7 @@
     --sgui-button-neutral-foreground: var(--sgui-text);
     --sgui-button-neutral-surface: var(--sgui-surface-subtle);
     --sgui-button-primary-foreground: var(--sgui-action);
-    --sgui-button-subtle-interaction-background: var(--sgui-surface-subtle);
+    --sgui-button-subtle-interaction-background: var(--sgui-surface-hover);
     --sgui-checkbox-border: var(--sgui-border);
     --sgui-checkbox-description-text: var(--sgui-text-muted);
     --sgui-checkbox-error-text: var(--sgui-danger);
@@ -1311,7 +1311,7 @@
     --sgui-button-neutral-foreground: var(--sgui-text);
     --sgui-button-neutral-surface: var(--sgui-surface-subtle);
     --sgui-button-primary-foreground: var(--sgui-action);
-    --sgui-button-subtle-interaction-background: var(--sgui-surface-subtle);
+    --sgui-button-subtle-interaction-background: var(--sgui-surface-hover);
     --sgui-checkbox-border: var(--sgui-border);
     --sgui-checkbox-description-text: var(--sgui-text-muted);
     --sgui-checkbox-error-text: var(--sgui-danger);
@@ -1651,7 +1651,7 @@
     --sgui-button-neutral-foreground: var(--sgui-text);
     --sgui-button-neutral-surface: var(--sgui-surface-subtle);
     --sgui-button-primary-foreground: var(--sgui-action);
-    --sgui-button-subtle-interaction-background: var(--sgui-surface-subtle);
+    --sgui-button-subtle-interaction-background: var(--sgui-surface-hover);
     --sgui-checkbox-border: var(--sgui-border);
     --sgui-checkbox-description-text: var(--sgui-text-muted);
     --sgui-checkbox-error-text: var(--sgui-danger);
@@ -1989,7 +1989,7 @@
     --sgui-button-neutral-foreground: var(--sgui-text);
     --sgui-button-neutral-surface: var(--sgui-surface-subtle);
     --sgui-button-primary-foreground: var(--sgui-action);
-    --sgui-button-subtle-interaction-background: var(--sgui-surface-subtle);
+    --sgui-button-subtle-interaction-background: var(--sgui-surface-hover);
     --sgui-checkbox-border: var(--sgui-border);
     --sgui-checkbox-description-text: var(--sgui-text-muted);
     --sgui-checkbox-error-text: var(--sgui-danger);

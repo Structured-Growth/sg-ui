@@ -1,0 +1,19 @@
+✔ generated files match the source (5.732709ms)
+✔ rejects missing references, cycles, invalid dimensions, type mismatch and unpaired themes (2.22ms)
+✔ proof text, action, error and focus combinations meet declared contrast thresholds (0.42275ms)
+✔ generation is deterministic and emits typed component and semantic tiers (6.160708ms)
+✔ public component metadata names the same scoped dependency that CSS consumes (3.434ms)
+✔ rejects unknown groups, malformed records and tier direction/type/parity violations (9.338042ms)
+✔ emitted component relationships rebind at scope, theme/system and density boundaries (4.419208ms)
+✔ palette/scale owns deduplicated shared values; component tier contains aliases only (0.237709ms)
+✔ preserves legacy resolved defaults and nesting selectors (2.82925ms)
+✔ public default theme snapshots are generated from the shipped shared and semantic source (2.044208ms)
+✔ interaction roles are paired, theme-backed and independently scoped from density (2.409875ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 78.420834

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "units",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "test"
+    ],
+    "startedAt": "2026-10-16T23:44:50.772Z",
+    "completedAt": "2026-10-16T23:45:29.929Z",
+    "exitCode": 0
+  },
+  {
+    "name": "library",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "build"
+    ],
+    "startedAt": "2026-10-16T23:45:29.931Z",
+    "completedAt": "2026-10-16T23:45:37.826Z",
+    "exitCode": 1
+  }
+]

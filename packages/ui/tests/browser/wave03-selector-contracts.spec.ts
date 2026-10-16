@@ -81,10 +81,11 @@ test('ComboBox text editing/filtering, duplicate IDs, description, reset and con
   await input.fill('Sam');
   await expect(page.getByRole('option', { name: 'Same', exact: true })).toHaveCount(2);
   await expect(page.getByRole('option', { name: 'Zulu', exact: true })).toHaveCount(0);
-  // With input focus Home/End edit text; do not apply Menu collection behavior.
-  await page.keyboard.press('Home');
+  // Use the OS text-editing accelerator: macOS Firefox treats Home/End as
+  // document navigation rather than text caret movement. Collection keys differ.
+  await page.keyboard.press(process.platform === 'darwin' ? 'Meta+ArrowLeft' : 'Home');
   expect(await input.evaluate(node => (node as HTMLInputElement).selectionStart)).toBe(0);
-  await page.keyboard.press('End');
+  await page.keyboard.press(process.platform === 'darwin' ? 'Meta+ArrowRight' : 'End');
   expect(await input.evaluate(node => (node as HTMLInputElement).selectionStart)).toBe(3);
   await page.keyboard.press('ArrowDown');
   await page.keyboard.press('ArrowDown');
@@ -146,9 +147,16 @@ test('Menu key endpoints/typeahead skip disabled commands; Space acts once and T
   await expect(trigger).toBeFocused();
   await expect(page.getByLabel('Command requests', { exact: true })).toHaveText('last');
   await page.keyboard.press('ArrowDown');
+  await expect(first).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(page.getByRole('menu')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'After commands', exact: true })).toBeFocused();
+  await trigger.focus();
+  await page.keyboard.press('ArrowDown'); await expect(first).toBeFocused();
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.getByRole('menu')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Before commands', exact: true })).toBeFocused();
+  await expect(page.getByLabel('Command requests', { exact: true })).toHaveText('last');
 });
 
 test('Popover exposes named dialog/form content and restores trigger after Escape', async ({ page }) => {

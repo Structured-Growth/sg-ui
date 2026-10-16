@@ -1725,7 +1725,7 @@ export const componentTokenReferences = {
   },
   "buttonSubtleInteractionBackground": {
     "tier": "semantic",
-    "token": "surfaceSubtle"
+    "token": "surfaceHover"
   },
   "checkboxBorder": {
     "tier": "semantic",

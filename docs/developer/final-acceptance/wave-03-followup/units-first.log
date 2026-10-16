@@ -1,0 +1,235 @@
+
+> @structured-growth/sg-ui@0.0.0-development test /Users/thomashall/Repositories/sg-ui/packages/ui
+> vitest run
+
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+ ❯ src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx (19 tests | 1 failed) 9871ms
+     × restores the exact caret after canceling a pointer-opened link draft 1561ms
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+Error: Not implemented: window.scrollBy
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at /Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/Window.js:960:7
+    at scrollIntoViewIfNeeded (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:11985:21)
+    at updateDOMSelection (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:7905:7)
+    at $commitPendingUpdates (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8565:9)
+    at file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8841:9 undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+Error: Not implemented: window.scrollBy
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at /Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/Window.js:960:7
+    at scrollIntoViewIfNeeded (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:11985:21)
+    at updateDOMSelection (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:7905:7)
+    at $commitPendingUpdates (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8565:9)
+    at $beginUpdate (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8838:7)
+    at updateEditor (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8870:5)
+    at LexicalEditor.update (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:10881:5)
+    at /Users/thomashall/Repositories/sg-ui/packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.next100-regression.test.tsx:39:19
+    at /Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/@testing-library+react@16.3.3_@testing-library+dom@10.4.2_@types+react-dom@19.3.0_@type_a7723bbf6dc26ddd0886488d3f614815/node_modules/@testing-library/react/dist/act-compat.js:47:24 undefined
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx > editor dialog host contracts > restores the exact caret after canceling a pointer-opened link draft
+AssertionError: expected [ +0, +0 ] to deeply equal [ 2, 2 ]
+
+Ignored nodes: comments, script, style
+[36m<html[39m
+  [33mstyle[39m=[32m""[39m
+[36m>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_root_a8f1e5"[39m
+        [33mdata-sgui-density[39m=[32m"comfortable"[39m
+        [33mdata-sgui-interaction[39m=[32m"auto"[39m
+        [33mdata-sgui-scope[39m=[32m""[39m
+        [33mdata-sgui-theme[39m=[32m"light"[39m
+        [33mdir[39m=[32m"ltr"[39m
+        [33mlang[39m=[32m"en-US"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_root_06b654"[39m
+          [33mdata-sgui-part[39m=[32m"editor-section"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33maria-label[39m=[32m"Text formatting"[39m
+            [33mclass[39m=[32m"_root_cf64a6"[39m
+            [33mdata-padding[39m=[32m"false"[39m
+            [33mdata-sgui-part[39m=[32m"formatting-toolbar"[39m
+            [33mrole[39m=[32m"group"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"_group_cf64a6"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33maria-label[39m=[32m"Undo"[39m
+                [33mclass[39m=[32m"_root_0829c1 _action_cf64a6"[39m
+                [33mdata-rac[39m=[32m""[39m
+                [33mdata-react-aria-pressable[39m=[32m"true"[39m
+                [33mdata-sgui-density[39m=[32m"compact"[39m
+                [33mdata-sgui-part[39m=[32m"button"[39m
+                [33mdata-tone[39m=[32m"neutral"[39m
+                [33mdata-variant[39m=[32m"text"[39m
+                [33mid[39m=[32m"react-aria-_r_0_"[39m
+                [33mtabindex[39m=[32m"0"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"_icon_0829c1"[39m
+                [36m>[39m
+                  [36m<svg[39m
+                    [33maria-hidden[39m=[32m"true"[39m
+                    [33mclass[39m=[32m"lucide lucide-undo-2 _root_11c4d4"[39m
+                    [33mdata-mirror-rtl[39m=[32m"true"[39m
+                    [33mfill[39m=[32m"none"[39m
+                    [33mfocusable[39m=[32m"false"[39m
+                    [33mheight[39m=[32m"1em"[39m
+                    [33mstroke[39m=[32m"currentColor"[39m
+                    [33mstroke-linecap[39m=[32m"round"[39m
+                    [33mstroke-linejoin[39m=[32m"round"[39m
+                    [33mstroke-width[39m=[32m"2"[39m
+                    [33mviewBox[39m=[32m"0 0 24 24"[39m
+                    [33mwidth[39m=[32m"1em"[39m
+                    [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                  [36m>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"M9 14 4 9l5-5"[39m
+                    [36m/>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5a5.5 5.5 0 0 1-5.5 5.5H11"[39m
+                    [36m/>[39m
+                  [36m</svg>[39m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"_label_0829c1"[39m
+                [36m/>[39m
+              [36m</button>[39m
+              [36m<button[39m
+                [33maria-label[39m=[32m"Redo"[39m
+                [33mclass[39m=[32m"_root_0829c1 _action_cf64a6"[39m
+                [33mdata-rac[39m=[32m""[39m
+                [33mdata-react-aria-pressable[39m=[32m"true"[39m
+                [33mdata-sgui-density[39m=[32m"compact"[39m
+                [33mdata-sgui-part[39m=[32m"button"[39m
+                [33mdata-tone[39m=[32m"neutral"[39m
+                [33mdata-variant[39m=[32m"text"[39m
+                [33mid[39m=[32m"react-aria-_r_2_"[39m
+                [33mtabindex[39m=[32m"0"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"_icon_0829c1"[39m
+                [36m>[39m
+                  [36m<svg[39m
+                    [33maria-hidden[39m=[32m"true"[39m
+                    [33mclass[39m=[32m"lucide lucide-redo-2 _root_11c4d4"[39m
+                    [33mdata-mirror-rtl[39m=[32m"true"[39m
+                    [33mfill[39m=[32m"none"[39m
+                    [33mfocusable[39m=[32m"false"[39m
+                    [33mheight[39m=[32m"1em"[39m
+                    [33mstroke[39m=[32m"currentColor"[39m
+                    [33mstroke-linecap[39m=[32m"round"[39m
+                    [33mstroke-linejoin[39m=[32m"round"[39m
+                    [33mstroke-width[39m=[32m"2"[39m
+                    [33mviewBox[39m=[32m"0 0 24 24"[39m
+                    [33mwidth[39m=[32m"1em"[39m
+                    [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+                  [36m>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"m15 14 5-5-5-5"[39m
+                    [36m/>[39m
+                    [36m<path[39m
+                      [33md[39m=[32m"M20 9H9.5A5.5 5.5 0 0 0 4 14.5A5.5 5.5 0 0 0 9.5 20H13"[39m
+                    [36m/>[39m
+                  [36m</svg>[39m
+                [36m</span>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"_label_0829c1"[39m
+                [36m/>[39m
+              [36m</button>[39m
+            [36m</div>[39m
+            [36m<template />[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"_root_a9c15a _root_16a99d _select_cf64a6"[39m
+              [33mdata-rac[39m=[32m""[39m
+            [36m>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_label_a9c15a"[39m
+                [33mid[39m=[32m"react-aria-_r_7_"[39m
+              [36m>[39m
+                [0mText style heading[0m
+              [36m</span>[39m
+              [36m<button[39m
+                [33maria-expanded[39m=[32m"false"[39m
+                [33maria-haspopup[39m=[32m"listbox"[39m
+                [33maria-labelledby[39m=[32m"react-aria-_r_b_ react-aria-_r_7_"[39m
+                [33mclass[39m=[32m"_input_a9c15a _trigger_16a99d"[39m
+                [33mdata-rac[39m=[32m""[39m
+                [33mdata-react-aria-pressable[39m=[32m"true"[39m
+                [33mid[39m=[32m"react-aria-_r_6_"[39m
+                [33mtabindex[39m=[32m"0"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33maria-hidden[39m=[32m"true"[39m
+                  [33mclass[39m=[32m"_sizer_16a99d"[39m
+                [36m>[39m
+                  [36m<span[39m
+                    [33mdata-label[39m=[32m"Select an option"[39m
+         ...
+
+- Expected
++ Received
+
+  [
+-   2,
+-   2,
++   0,
++   0,
+  ]
+
+ ❯ src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx:80:9
+     78|       const range = $getSelection();
+     79|       return $isRangeSelection(range) ? [range.anchor.offset, range.fo…
+     80|     })).toEqual([2, 2]));
+       |         ^
+     81|     expect(activeEditor!.getEditorState().toJSON()).toEqual(before);
+     82|   });
+ ❯ runWithExpensiveErrorDiagnosticsDisabled ../../node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback ../../node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback ../../node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 296 passed (297)
+      Tests  1 failed | 1850 passed (1851)
+   Start at  18:43:07
+   Duration  38.47s (transform 8.18s, setup 2.11s, import 76.60s, tests 178.69s, environment 54.63s)
+
+/Users/thomashall/Repositories/sg-ui/packages/ui:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @structured-growth/sg-ui@0.0.0-development test: `vitest run`
+Exit status 1

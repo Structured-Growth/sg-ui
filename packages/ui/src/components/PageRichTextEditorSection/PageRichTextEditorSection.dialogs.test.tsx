@@ -78,6 +78,14 @@ describe("editor dialog host contracts", () => {
       const range = $getSelection();
       return $isRangeSelection(range) ? [range.anchor.offset, range.focus.offset] : null;
     })).toEqual([2, 2]));
+    // Cross native FocusScope's restoration frame and the editor's follow-up
+    // repair; an early match must not conceal a later caret reset.
+    await act(async () => new Promise<void>(resolve => requestAnimationFrame(() =>
+      requestAnimationFrame(() => requestAnimationFrame(() => resolve())))));
+    expect(activeEditor!.getEditorState().read(() => {
+      const range = $getSelection();
+      return $isRangeSelection(range) ? [range.anchor.offset, range.focus.offset] : null;
+    })).toEqual([2, 2]);
     expect(activeEditor!.getEditorState().toJSON()).toEqual(before);
   });
 

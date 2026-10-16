@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "../../../types";
 import { useState } from "react";
 import { Select } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
+import { Button } from "@structured-growth/sg-ui/components/Button";
 const meta = { title: "Migration proofs/Select", component: Select, tags: ["autodocs"], decorators: [(Story) => <Provider><Story /></Provider>], args: { label: "Status", options: [{ id: "draft", label: "Draft" }, { id: "locked", label: "Unavailable", disabled: true }, { id: "active", label: "Active" }], defaultValue: "draft" } } satisfies Meta<typeof Select>;
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -21,12 +22,12 @@ export const ExplicitPortalDirections: Story = { render: () => <SelectorDirectio
 
 /** Private acceptance host: ID serialization and controlled authority, no persistence. */
 export const NativeContracts: Story = { render: () => { const [request, setRequest] = useState<string | null>(null); return <form aria-label="Status contract">
- <button type="button">Before status</button>
+ <Button>Before status</Button>
  <Select label="Identity status" name="identity" description="Choose a stable status ID" defaultValue="01" options={[
   { id: "01", label: "Same" }, { id: "blocked", label: "Unavailable", disabled: true },
   { id: "1", label: "Same" }, { id: "z", label: "Zulu" },
  ]} />
  <Select label="Host status" name="host" value={null} onValueChange={setRequest} options={[{ id: "01", label: "Same" }, { id: "1", label: "Same" }]} />
- <button type="reset">Reset status</button>
+ <Button type="reset">Reset status</Button>
  <output aria-label="Status request">{request}</output>
 </form>; } };

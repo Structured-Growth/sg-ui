@@ -9,7 +9,15 @@ test('auto coarse-pointer and explicit touch preserve control targets, tag spaci
     const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
     await page.goto('/fixtures/?id=migration-proofs-taggroup--target-sizing&embed=true&globals=a11y.manual:!true');
     const media = await page.evaluate(() => ({ coarse: matchMedia('(any-pointer: coarse)').matches, touch: navigator.maxTouchPoints }));
-    expect(media.coarse).toBe(true); expect(media.touch).toBeGreaterThan(0);
+    expect(media.coarse).toBe(true);
+    // WebKit desktop emulates touch and coarse-pointer media while reporting
+    // maxTouchPoints=0. Verify actual trusted touch dispatch rather than using
+    // that navigator hint as a prerequisite for executing the interaction audit.
+    await page.evaluate(() => {
+      const touches: { trusted: boolean; count: number }[] = [];
+      (window as unknown as { targetAuditTouches: typeof touches }).targetAuditTouches = touches;
+      document.addEventListener('touchstart', event => touches.push({ trusted: event.isTrusted, count: event.touches.length }), true);
+    });
     const measurements: unknown[] = [];
     for (const density of ['compact', 'comfortable']) for (const mode of ['auto', 'touch']) {
       const scope = page.getByTestId(`${density}-${mode}`);
@@ -54,8 +62,11 @@ test('auto coarse-pointer and explicit touch preserve control targets, tag spaci
       expect(actionBounds.width).toBeGreaterThanOrEqual(44); expect(actionBounds.height).toBeGreaterThanOrEqual(44);
       await action.tap(); await expect(scope.getByText('No tags', { exact: true })).toBeVisible();
     }
+    const touches = await page.evaluate(() => (window as unknown as { targetAuditTouches: { trusted: boolean; count: number }[] }).targetAuditTouches);
+    expect(touches).toHaveLength(28); // Seven actual single-touch activations in each of four scopes.
+    expect(touches.every(event => event.trusted && event.count === 1)).toBe(true);
     expect(errors).toEqual([]);
-    await info.attach('emulated-coarse-targets', { body: JSON.stringify({ media, measurements }), contentType: 'application/json' });
+    await info.attach('emulated-coarse-targets', { body: JSON.stringify({ media, touches, measurements }), contentType: 'application/json' });
   } finally { await context.close(); }
 });
 

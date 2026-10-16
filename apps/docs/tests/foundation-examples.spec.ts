@@ -18,7 +18,7 @@ test('published foundations expose matching source and independent native focus'
   for(const [id,title] of [['spacing','Production spacing scale'],['focus','Keyboard focus traversal'],['motion','Motion and system preferences']]) {
     const panel=page.locator(`#foundation-${id}`);
     await panel.getByRole('button',{name:`Show source: ${title}`,exact:true}).click();
-    const source=panel.getByRole('code',{name:`Source: ${title}`});
+    const source=panel.locator(`code[aria-label="Source: ${title}"]`);
     await expect(source).toContainText('@structured-growth/sg-ui');
     await expect(source).not.toContainText('demoTokens');
     sources.push({slug:`foundation-${id}`,source:(await source.textContent())!});

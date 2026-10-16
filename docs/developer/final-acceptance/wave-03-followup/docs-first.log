@@ -1,0 +1,132 @@
+[WebServer] (node:53725) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:53744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 11 tests using 1 worker
+
+(node:53755) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [chromium] › tests/button-neutral-pressed.spec.ts:5:3 › neutral filled Button has keyboard pressed feedback in light (658ms)
+(node:53775) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   2 [chromium] › tests/button-neutral-pressed.spec.ts:5:3 › neutral filled Button has keyboard pressed feedback in dark (570ms)
+(node:53784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+94 routes; 1138 public setup and initial/changed example source snapshots verified
+  ✓   3 [chromium] › tests/catalog.spec.ts:10:1 › all public component catalog routes render documented examples and compilable current source (41.6s)
+  ✓   4 [chromium] › tests/catalog.spec.ts:88:1 › catalog search, component navigation and wide previews remain usable on narrow screens (1.7s)
+  ✘   5 [chromium] › tests/foundation-examples.spec.ts:3:1 › published foundations expose matching source and independent native focus (5.4s)
+(node:54098) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [chromium] › tests/foundation-examples.spec.ts:29:1 › published motion uses production reduced-motion CSS (302ms)
+  ✓   7 [chromium] › tests/icons-acceptance.spec.ts:4:1 › icons: search, accessible label, live source/copy and panel independence (1.0s)
+  ✓   8 [chromium] › tests/scrollbar-layout.spec.ts:19:36 › page geometry stays stable during scroll locking at 1920px (1.4s)
+  ✓   9 [chromium] › tests/scrollbar-layout.spec.ts:19:36 › page geometry stays stable during scroll locking at 1280px (1.4s)
+  ✓  10 [chromium] › tests/scrollbar-layout.spec.ts:19:36 › page geometry stays stable during scroll locking at 375px (1.3s)
+  ✓  11 [chromium] › tests/scrollbar-layout.spec.ts:62:1 › AppModal preserves docs shell width through live locked viewport resize (857ms)
+
+
+  1) [chromium] › tests/button-neutral-pressed.spec.ts:5:3 › neutral filled Button has keyboard pressed feedback in light 
+
+    Error: expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not "rgb(243, 237, 247)"
+
+      15 |     await expect(button).toHaveAttribute('data-hovered');
+      16 |     const hovered = await background();
+    > 17 |     expect(hovered).not.toBe(resting);
+         |                         ^
+      18 |     await page.mouse.move(0, 0);
+      19 |     await expect(button).not.toHaveAttribute('data-hovered');
+      20 |     // Native focus positions the existing fixed example, then actual Space holds a press.
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/button-neutral-pressed.spec.ts:17:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/wave03-followup/button-neutral-pressed-neu-52e70-d-pressed-feedback-in-light-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/wave03-followup/button-neutral-pressed-neu-52e70-d-pressed-feedback-in-light-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/wave03-followup/button-neutral-pressed-neu-52e70-d-pressed-feedback-in-light-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/wave03-followup/button-neutral-pressed-neu-52e70-d-pressed-feedback-in-light-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/button-neutral-pressed.spec.ts:5:3 › neutral filled Button has keyboard pressed feedback in dark 
+
+    Error: expect(received).not.toBe(expected) // Object.is equality
+
+    Expected: not "rgb(43, 41, 48)"
+
+      15 |     await expect(button).toHaveAttribute('data-hovered');
+      16 |     const hovered = await background();
+    > 17 |     expect(hovered).not.toBe(resting);
+         |                         ^
+      18 |     await page.mouse.move(0, 0);
+      19 |     await expect(button).not.toHaveAttribute('data-hovered');
+      20 |     // Native focus positions the existing fixed example, then actual Space holds a press.
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/button-neutral-pressed.spec.ts:17:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/wave03-followup/button-neutral-pressed-neu-e15c9-rd-pressed-feedback-in-dark-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/wave03-followup/button-neutral-pressed-neu-e15c9-rd-pressed-feedback-in-dark-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/wave03-followup/button-neutral-pressed-neu-e15c9-rd-pressed-feedback-in-dark-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/wave03-followup/button-neutral-pressed-neu-e15c9-rd-pressed-feedback-in-dark-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › tests/foundation-examples.spec.ts:3:1 › published foundations expose matching source and independent native focus 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('#foundation-spacing').getByRole('code', { name: 'Source: Production spacing scale' })
+    Expected substring: "@structured-growth/sg-ui"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" locator('#foundation-spacing').getByRole('code', { name: 'Source: Production spacing scale' }) with timeout 5000ms
+      - waiting for locator('#foundation-spacing').getByRole('code', { name: 'Source: Production spacing scale' })
+
+
+      20 |     await panel.getByRole('button',{name:`Show source: ${title}`,exact:true}).click();
+      21 |     const source=panel.getByRole('code',{name:`Source: ${title}`});
+    > 22 |     await expect(source).toContainText('@structured-growth/sg-ui');
+         |                          ^
+      23 |     await expect(source).not.toContainText('demoTokens');
+      24 |     sources.push({slug:`foundation-${id}`,source:(await source.textContent())!});
+      25 |   }
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/foundation-examples.spec.ts:22:26
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/wave03-followup/foundation-examples-publis-fc5d9-nd-independent-native-focus-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/wave03-followup/foundation-examples-publis-fc5d9-nd-independent-native-focus-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/wave03-followup/foundation-examples-publis-fc5d9-nd-independent-native-focus-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/wave03-followup/foundation-examples-publis-fc5d9-nd-independent-native-focus-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [chromium] › tests/button-neutral-pressed.spec.ts:5:3 › neutral filled Button has keyboard pressed feedback in light 
+    [chromium] › tests/button-neutral-pressed.spec.ts:5:3 › neutral filled Button has keyboard pressed feedback in dark 
+    [chromium] › tests/foundation-examples.spec.ts:3:1 › published foundations expose matching source and independent native focus 
+  8 passed (58.6s)
+undefined
+/Users/thomashall/Repositories/sg-ui/apps/docs:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config ../../docs/developer/final-acceptance/wave-03-followup/docs.config.mjs

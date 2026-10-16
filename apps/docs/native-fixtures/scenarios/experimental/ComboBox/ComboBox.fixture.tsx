@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "../../../types";
 import { useState } from "react";
 import { ComboBox } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
+import { Button } from "@structured-growth/sg-ui/components/Button";
 const meta = { title: "Migration proofs/ComboBox", component: ComboBox, tags: ["autodocs"],
   decorators: [(Story) => <Provider><Story /></Provider>],
   args: { label: "Category", description: "Search the host-supplied options.", options: [
@@ -28,12 +29,12 @@ export const ExplicitPortalDirections: Story = { render: () => <SelectorDirectio
 
 /** Private acceptance host: local filtering, duplicate labels and native reset. */
 export const NativeContracts: Story = { render: () => { const [request, setRequest] = useState<string | null>(null); return <form aria-label="Category contract">
- <button type="button">Before category</button>
+ <Button>Before category</Button>
  <ComboBox label="Identity category" name="identity" description="Search stable category IDs" defaultValue="01" options={[
   { id: "01", label: "Same" }, { id: "blocked", label: "Unavailable", disabled: true },
   { id: "1", label: "Same" }, { id: "z", label: "Zulu" },
  ]} />
  <ComboBox label="Host category" name="host" value={null} onValueChange={setRequest} options={[{ id: "z", label: "Zulu" }]} />
- <button type="reset">Reset category</button>
+ <Button type="reset">Reset category</Button>
  <output aria-label="Category request">{request}</output>
 </form>; } };

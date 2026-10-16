@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { Menu } from "./Menu";
@@ -134,4 +134,27 @@ it("preserves target and rel for native link actions without routing other brows
   if (!screen.queryByRole("menu")) await user.click(screen.getByRole("button", { name: "Targets" }));
   const parent = screen.getByRole("menuitem", { name: "Parent" });
   expect(parent.getAttribute("rel")).toBe("help"); fireEvent.click(parent); expect(navigate).not.toHaveBeenCalled();
+});
+
+it.each([false,true])("dismisses on native Tab traversal (backward=%s) without invoking commands", async backward => {
+ const user=userEvent.setup(),action=vi.fn();
+ render(<><Button>Before</Button><Menu label="Tab commands" items={items} trigger={<Button>Tab actions</Button>} onAction={action}/><Button>After</Button></>);
+ act(()=>screen.getByRole("button",{name:"Tab actions"}).focus());
+ await user.keyboard("{ArrowDown}");
+ await waitFor(()=>expect(document.activeElement).toBe(screen.getByRole("menuitem",{name:"Edit"})));
+ // jsdom userEvent.tab computes navigation from the removed original menuitem.
+ // Verify the owned event boundary here; native browser coverage asserts the
+ // actual subsequent/previous document destination without synthetic traversal.
+ const event=new KeyboardEvent("keydown",{key:"Tab",shiftKey:backward,bubbles:true,cancelable:true});
+ fireEvent(document.activeElement!,event);
+ expect(screen.queryByRole("menu")).toBeNull();
+ expect(document.activeElement).toBe(screen.getByRole("button",{name:"Tab actions"}));
+ expect(event.defaultPrevented).toBe(false);expect(action).not.toHaveBeenCalled();
+});
+it("requests Tab dismissal without escaping a rejecting controlled menu host", async () => {
+ const user=userEvent.setup(),change=vi.fn();
+ render(<><Menu open onOpenChange={change} label="Held commands" items={items} trigger={<Button>Held actions</Button>}/><Button>After held menu</Button></>);
+ await waitFor(()=>expect(screen.getByRole("menu").contains(document.activeElement)).toBe(true));
+ await user.tab();expect(change).toHaveBeenLastCalledWith(false);expect(screen.getByRole("menu")).toBeTruthy();
+ expect(screen.getByRole("menu").contains(document.activeElement)).toBe(true);
 });
