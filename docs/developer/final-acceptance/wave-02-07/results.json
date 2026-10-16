@@ -1,0 +1,664 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-02-07",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "date": "2026-10-16",
+  "status": "complete-with-partial-obligations",
+  "summary": {
+    "complete": [
+      "A-C-13",
+      "A-C-21",
+      "A-B-09"
+    ],
+    "partial": [
+      "A-C-14",
+      "A-C-15",
+      "A-C-16",
+      "A-C-17",
+      "A-C-19",
+      "A-C-20",
+      "A-B-10"
+    ],
+    "blocked": []
+  },
+  "scope": "Ten assigned acceptance obligations; coordinator closure recommendations only. Only this directory written.",
+  "report": "report.md",
+  "contract": "execution-contracts.md",
+  "inspection": "inspection.json",
+  "postReviewDelta": "post-review-delta.json",
+  "artifacts": [
+    {
+      "path": "build-results.py",
+      "sha256": "269b5b9c266f206b1e907419af02affbe6e42feb7f6dc0935cf49ed92d799e86"
+    },
+    {
+      "path": "execution-contracts.md",
+      "sha256": "30b613a771b53bd05098d35a0e0a8991f0c7285ebd5edfcbfe72ad0cca9e2a43"
+    },
+    {
+      "path": "focus-patch-initial-failure.txt",
+      "sha256": "7e6d7c138cd6f5c0e7abab6b98ec40b870fe15f20fa041f5bd8f3f158f8029d9"
+    },
+    {
+      "path": "focus-patch-structure.json",
+      "sha256": "c8830799dcef4866f5b7b154ede481ce4e51883ffa9ac9d241bfce61a2d2d453"
+    },
+    {
+      "path": "inspect.py",
+      "sha256": "52beb0b3ab0f64a914d6fa186beb6e4ccc5ef0a288c207c9b2df1f6a8c9e512f"
+    },
+    {
+      "path": "inspection.json",
+      "sha256": "4b8558a517dacd1e553a96bafd4eb4400da7d8feeee6aaff08edfd4ae16f172e"
+    },
+    {
+      "path": "post-review-delta.json",
+      "sha256": "bfefd2d01900d0225f1740c6e71cc4b53e0d38e9ae52bf02e414fb3cd43bf09d"
+    },
+    {
+      "path": "proposed-focus-fallback.patch",
+      "sha256": "3822df38c531e0cc60fa51cebeed5217fe6afc0334b48a54d96e5881fbfcbe12"
+    },
+    {
+      "path": "report.md",
+      "sha256": "c2c17b38a6fa8bf058828b8503f0ddad9765d376f7f23d1e8b059072fbda7401"
+    },
+    {
+      "path": "ssr-attestation.json",
+      "sha256": "61eab553c42bc02158b2306d8caeec330865e42939ba63c83537f6c33596099d"
+    },
+    {
+      "path": "ssr-reference.json",
+      "sha256": "444cfd369db3b1a91ece7d6134be2b9c99c3a57e2d18c1761c08125ea56d1e47"
+    },
+    {
+      "path": "ssr-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "validation.json",
+      "sha256": "bb85bb084f1f4cfdc32bb1da8a68ddb49187cf9adc1ee8daffc377a742f357e9"
+    },
+    {
+      "path": "verify-focus-patch.mjs",
+      "sha256": "a89baa0040402b22e5812e654f9001037b50fb20ac610f8d30089a8e97847afc"
+    }
+  ],
+  "checksPerformed": [
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-02-07/inspect.py",
+      "exitCode": 0,
+      "result": "162 selected inputs, 86 reused CSS paths, 45-source SSR closure; no full inventory recapture."
+    },
+    {
+      "command": "node /Users/thomashall/Repositories/sg-ui/packages/ui/scripts/measure-migration-proofs.mjs > ssr-reference.json 2> ssr-stderr.txt",
+      "cwd": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-02-07",
+      "exitCode": 0,
+      "result": "Fresh bounded SSR only; Node26.5.0 AppleM4; consumers={}; no --record/build/install/server/pack. See ssr-attestation.json."
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-02-07/verify-focus-patch.mjs",
+      "attempt": 1,
+      "exitCode": 1,
+      "result": "Wrong new helper module-resolution base; fails before CSS checks. Preserved focus-patch-initial-failure.txt."
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-02-07/verify-focus-patch.mjs",
+      "attempt": 2,
+      "exitCode": 0,
+      "result": "Corrected helper; PostCSS in-memory candidate structure passes, no source application/native proof."
+    }
+  ],
+  "leaves": [
+    {
+      "id": "A-C-13",
+      "status": "complete",
+      "originalChecklistStatement": "- [ ] A-C-13 Reconcile original `C-13`: Evaluate `color-mix`/OKLCH for palette tooling and state derivation; preserve tested fallback/contrast behavior for supported browsers. Historical status: open.",
+      "originalRequirement": "Evaluate `color-mix`/OKLCH for palette tooling and state derivation; preserve tested fallback/contrast behavior for supported browsers.",
+      "findings": "Evaluated runtime color-mix, runtime OKLCH and offline authoring against hex-only alias pipeline. Retain reviewed literal state colors; zero shipping color-function matches. Existing unchanged named light/dark contrast tests and forced-color mappings provide the actual fallback; no syntax or support promise added. Evaluation decision recorded in execution-contracts.md D13.",
+      "sourceReferences": [
+        "packages/ui/scripts/tokens.mjs:29",
+        "packages/ui/scripts/tokens.test.mjs:24",
+        "packages/ui/src/foundation/tokens.json",
+        "packages/ui/src/foundation/tokens.css",
+        "docs/developer/react-aria-architecture.md:112"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/tokens.test.mjs:32"
+      ],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md",
+        "../fa04-original-check.txt",
+        "../fa04-package.txt",
+        "../parallel-11/report.md"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "No relevant native/consumer suite executed; retained results only for their recorded unchanged scopes."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open.",
+        "Decision/evaluation completion; no runtime color function introduced and no latest browser-support claim."
+      ],
+      "requiredSuccessors": []
+    },
+    {
+      "id": "A-C-14",
+      "status": "partial",
+      "originalChecklistStatement": "- [ ] A-C-14 Reconcile original `C-14`: Define progressive enhancement with `@supports`; do not adopt limited-support anchor positioning, style queries, or transitions as unconditional dependencies. Historical status: open.",
+      "originalRequirement": "Define progressive enhancement with `@supports`; do not adopt limited-support anchor positioning, style queries, or transitions as unconditional dependencies.",
+      "findings": "Zero listed anchor/style-query/view-transition features; one dvh @supports rule. F14-01: decorated input suppression is unconditional while replacement depends on :has. Supplied an unapplied guarded candidate and passing in-memory PostCSS structural check. Full/XL dvh fallback policy remains undefined; no current-engine failure claimed.",
+      "sourceReferences": [
+        "packages/ui/src/experimental/TextField/TextField.module.css:26",
+        "packages/ui/src/experimental/TextField/TextField.module.css:33",
+        "packages/ui/src/experimental/Dialog/Dialog.module.css:4",
+        "packages/ui/src/experimental/Dialog/Dialog.module.css:21",
+        "packages/ui/src/experimental/Popover/Popover.tsx:141"
+      ],
+      "testReferences": [
+        "docs/developer/final-acceptance/wave-02-07/verify-focus-patch.mjs",
+        "packages/ui/tests/browser/editor-focus-presentation.spec.ts"
+      ],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md",
+        "proposed-focus-fallback.patch",
+        "focus-patch-structure.json",
+        "focus-patch-initial-failure.txt"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "In-memory candidate PostCSS structural assertion passed after correcting helper module-resolution path; patch not applied."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open."
+      ],
+      "requiredSuccessors": [
+        "W207-C14"
+      ]
+    },
+    {
+      "id": "A-C-15",
+      "status": "partial",
+      "originalChecklistStatement": "- [ ] A-C-15 Reconcile original `C-15`: Use `:focus-visible` or owned accessible focus-state attributes; preserve visible focus when replacing current outline suppression. Historical status: open.",
+      "originalRequirement": "Use `:focus-visible` or owned accessible focus-state attributes; preserve visible focus when replacing current outline suppression.",
+      "findings": "All five outline-suppression candidate lines classified. Editor/Menu/TextField have intended owned replacements, with TextField conditional fallback issue. F15-01: empty grid-shell wrapper can receive fallback focus yet has outline:none and no local focus rule; native visible/clipping result not executed.",
+      "sourceReferences": [
+        "packages/ui/src/components/AppDataGridShell/AppDataGridShell.module.css:5",
+        "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx:174",
+        "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx:224",
+        "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.tsx:7",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css:30",
+        "packages/ui/src/experimental/Menu/Menu.module.css:5",
+        "packages/ui/src/experimental/TextField/TextField.module.css:26"
+      ],
+      "testReferences": [
+        "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.test.tsx",
+        "packages/ui/src/components/AppDataGridShell/AppDataGridShell.test.tsx:127",
+        "packages/ui/tests/browser/editor-focus-presentation.spec.ts",
+        "packages/ui/tests/browser/display-preferences.spec.ts"
+      ],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "No relevant native/consumer suite executed; retained results only for their recorded unchanged scopes."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open."
+      ],
+      "requiredSuccessors": [
+        "W207-C15"
+      ]
+    },
+    {
+      "id": "A-C-16",
+      "status": "partial",
+      "originalChecklistStatement": "- [ ] A-C-16 Reconcile original `C-16`: Define reduced-motion transitions, interruption/cancellation behavior, and focus timing; no motion runtime is added solely for simple CSS transitions. Historical status: open.",
+      "originalRequirement": "Define reduced-motion transitions, interruption/cancellation behavior, and focus timing; no motion runtime is added solely for simple CSS transitions.",
+      "findings": "Four motion-bearing stylesheets include reduction rules; no dedicated motion runtime dependency found. Completed missing seven-row interruption/cancellation/focus specification covering live preference, reverse navigation, rail, collapse, modal reopen and tooltip replacement. Native current-head sequence evidence and maintained-contract adoption remain missing.",
+      "sourceReferences": [
+        "packages/ui/src/components/Button/Button.module.css:21",
+        "packages/ui/src/experimental/Progress/Progress.module.css:10",
+        "packages/ui/src/components/SideNavigation/SideNavigation.module.css:10",
+        "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.module.css:8",
+        "packages/ui/src/experimental/Collapse/Collapse.tsx",
+        "packages/ui/src/experimental/Dialog/Dialog.tsx:52",
+        "packages/ui/src/experimental/Tooltip/Tooltip.tsx:33",
+        "packages/ui/package.json",
+        "pnpm-lock.yaml"
+      ],
+      "testReferences": [
+        "packages/ui/src/experimental/Dialog/Dialog.test.tsx:120",
+        "packages/ui/src/experimental/Tooltip/Tooltip.test.tsx:39",
+        "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.test.tsx",
+        "packages/ui/tests/browser/display-preferences.spec.ts:108",
+        "packages/ui/tests/browser/inventory-modal-boundaries.spec.ts"
+      ],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md",
+        "../../parallel-batch-105/acceptance-evidence.md"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "No relevant native/consumer suite executed; retained results only for their recorded unchanged scopes."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open."
+      ],
+      "requiredSuccessors": [
+        "W207-C16"
+      ]
+    },
+    {
+      "id": "A-C-17",
+      "status": "partial",
+      "originalChecklistStatement": "- [ ] A-C-17 Reconcile original `C-17`: Specify overlay stacking/portal ownership rather than maximum-integer z-index values; test nested dialog/menu/tooltip/editor overlays. Historical status: open.",
+      "originalRequirement": "Specify overlay stacking/portal ownership rather than maximum-integer z-index values; test nested dialog/menu/tooltip/editor overlays.",
+      "findings": "Portal propagation and 1400/1410 layer tokens defined; no max-integer z-index found in inspected set. Existing native subsets do not combine all dialog/menu/tooltip/editor ownership. Delivered one composed fixture/spec sequence including actual hit testing, inertness, selection return and scope changes.",
+      "sourceReferences": [
+        "docs/developer/react-aria-proof-controls.md:65",
+        "packages/ui/src/foundation/ThemeScope.tsx:23",
+        "packages/ui/src/foundation/tokens.json:317",
+        "packages/ui/src/experimental/Dialog/Dialog.module.css:2",
+        "packages/ui/src/experimental/Menu/Menu.module.css:4",
+        "packages/ui/src/experimental/Popover/Popover.module.css:2",
+        "packages/ui/src/experimental/Tooltip/Tooltip.module.css:8",
+        "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.module.css:2"
+      ],
+      "testReferences": [
+        "packages/ui/tests/browser/acceptance.spec.ts:63",
+        "packages/ui/tests/browser/batch05-portal-direction.spec.ts",
+        "packages/ui/src/experimental/Tooltip/Tooltip.test.tsx",
+        "packages/ui/tests/browser/token-tier-scope.spec.ts:120"
+      ],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md",
+        "../../parallel-batch-105/acceptance-evidence.md"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "No relevant native/consumer suite executed; retained results only for their recorded unchanged scopes."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open."
+      ],
+      "requiredSuccessors": [
+        "W207-C17"
+      ]
+    },
+    {
+      "id": "A-C-19",
+      "status": "partial",
+      "originalChecklistStatement": "- [ ] A-C-19 Reconcile original `C-19`: Verify CSP behavior, including unavoidable inline styles for placement/dynamic values; do not claim strict CSP support without testing. Historical status: open.",
+      "originalRequirement": "Verify CSP behavior, including unavoidable inline styles for placement/dynamic values; do not claim strict CSP support without testing.",
+      "findings": "Inline style/dynamic placement/custom variable/editor/host surfaces identified. No actual HTTP-header CSP consumer or violation result. Delivered restrictive, inline-style candidate and image-policy test matrix with required response/violation/runtime/geometry receipts. Strict CSP remains unclaimed and owner policy approval absent.",
+      "sourceReferences": [
+        "docs/developer/react-aria-proof-controls.md:43",
+        "packages/ui/src/foundation/ThemeScope.tsx:37",
+        "packages/ui/src/experimental/Popover/Popover.tsx:139",
+        "packages/ui/src/experimental/Dialog/Dialog.tsx:142",
+        "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx:77",
+        "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx:170"
+      ],
+      "testReferences": [],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md",
+        "../../parallel-batch-105/acceptance-evidence.md"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "No relevant native/consumer suite executed; retained results only for their recorded unchanged scopes."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open."
+      ],
+      "requiredSuccessors": [
+        "W207-C19"
+      ]
+    },
+    {
+      "id": "A-C-20",
+      "status": "partial",
+      "originalChecklistStatement": "- [ ] A-C-20 Reconcile original `C-20`: Verify compiled CSS distribution, consumer production builds, stylesheet deduplication, and tree-shaking behavior; CSS must not be removed as a false side effect. Historical status: open.",
+      "originalRequirement": "Verify compiled CSS distribution, consumer production builds, stylesheet deduplication, and tree-shaking behavior; CSS must not be removed as a false side effect.",
+      "findings": "Retained dated compiled distribution/sideEffects evidence; current stylesheet hash differs from FA-01, so old packed equality does not certify new bytes. Existing ten-entry Vite/dedup/pruning assertions lack current immutable-artifact execution. Delivered serial frozen-tarball/module-map/mixed-import receipt specification shared with icon bundle task.",
+      "sourceReferences": [
+        "packages/ui/scripts/css-modules.mjs:12",
+        "packages/ui/scripts/build.mjs",
+        "packages/ui/scripts/check-package.mjs",
+        "packages/ui/scripts/test-foundation-consumer.mjs:184",
+        "packages/ui/scripts/test-foundation-consumer.mjs:286",
+        "packages/ui/scripts/test-editor-consumer.mjs",
+        "packages/ui/package.json",
+        "docs/developer/react-aria-package-acceptance.md"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/css-modules.test.mjs",
+        "packages/ui/scripts/CSSPipeline.next100-regression.test.mjs",
+        "packages/ui/scripts/test-foundation-consumer.mjs:184",
+        "packages/ui/scripts/test-foundation-consumer.mjs:289"
+      ],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md",
+        "../fa04-original-check.txt",
+        "../fa04-package.txt",
+        "../parallel-11/report.md",
+        "../../parallel-batch-105/acceptance-evidence.md"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "No relevant native/consumer suite executed; retained results only for their recorded unchanged scopes."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open."
+      ],
+      "requiredSuccessors": [
+        "W207-C20-B10"
+      ]
+    },
+    {
+      "id": "A-C-21",
+      "status": "complete",
+      "originalChecklistStatement": "- [ ] A-C-21 Reconcile original `C-21`: [Decision] Keep CSS Modules as the default; adopt vanilla-extract or utility authoring only for an evidenced benefit and without imposing its toolchain on consumers. Historical status: checked.",
+      "originalRequirement": "[Decision] Keep CSS Modules as the default; adopt vanilla-extract or utility authoring only for an evidenced benefit and without imposing its toolchain on consumers.",
+      "findings": "Explicit decision retains CSS Modules default. PostCSS/Modules are dev-only build tools; emitted ESM class maps and public stylesheet impose no consumer CSS authoring toolchain. No evidenced benefit or introduced vanilla-extract/utility authoring system justifies a change.",
+      "sourceReferences": [
+        "docs/developer/react-aria-architecture.md:4",
+        "docs/developer/react-aria-architecture.md:112",
+        "docs/developer/component-architecture.md:17",
+        "packages/ui/scripts/css-modules.mjs:12",
+        "packages/ui/scripts/build.mjs",
+        "packages/ui/package.json"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/css-modules.test.mjs",
+        "packages/ui/scripts/CSSPipeline.next100-regression.test.mjs"
+      ],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md",
+        "../fa04-original-check.txt",
+        "../fa04-package.txt",
+        "../parallel-11/report.md"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "No relevant native/consumer suite executed; retained results only for their recorded unchanged scopes."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open.",
+        "Authoring decision completion; current production consumer build/dedup proof remains A-C-20."
+      ],
+      "requiredSuccessors": []
+    },
+    {
+      "id": "A-B-09",
+      "status": "complete",
+      "originalChecklistStatement": "- [ ] A-B-09 Reconcile original `B-09`: Audit focus removal, hover-only triggers, drag-only interactions, labels, contrast, and sticky content; document findings without claiming a conformance audit from source inspection alone. Historical status: open.",
+      "originalRequirement": "Audit focus removal, hover-only triggers, drag-only interactions, labels, contrast, and sticky content; document findings without claiming a conformance audit from source inspection alone.",
+      "findings": "Completed six-domain source risk audit and findings table: focus suppression, hover actions, keyboard alternatives to drag, contextual labels/description limits, named contrast versus host overrides, sticky/scroll obscuration. Identified F14-01/F15-01 and retained dedicated native/label/contrast/reflow successors. Audit closure is not defect remediation or accessibility conformance.",
+      "sourceReferences": [
+        "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx:174",
+        "packages/ui/src/foundation/Scrollbars.module.css",
+        "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx:106",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx:412",
+        "packages/ui/src/experimental/Tabs/Tabs.module.css:10",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css:67",
+        "docs/developer/final-acceptance/parallel-05/report.md",
+        "docs/developer/final-acceptance/parallel-08/report.md",
+        "docs/developer/final-acceptance/parallel-09/report.md",
+        "docs/developer/final-acceptance/parallel-10/report.md"
+      ],
+      "testReferences": [
+        "packages/ui/src/experimental/Tooltip/Tooltip.test.tsx:10",
+        "packages/ui/src/experimental/DateRangeSelector/RangeGestures.test.tsx",
+        "packages/ui/tests/browser/reorder.spec.ts",
+        "packages/ui/scripts/tokens.test.mjs:32",
+        "packages/ui/tests/browser/display-preferences.spec.ts"
+      ],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "No relevant native/consumer suite executed; retained results only for their recorded unchanged scopes."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open.",
+        "Complete means audit/findings only: W207-C14/C15 and all-export naming/native contrast/zoom/AT successors remain independent."
+      ],
+      "requiredSuccessors": []
+    },
+    {
+      "id": "A-B-10",
+      "status": "partial",
+      "originalChecklistStatement": "- [ ] A-B-10 Reconcile original `B-10`: Measure production consumer bundles, CSS, editor/grid imports, initial render, and interactive updates with reproducible fixtures. Historical status: open.",
+      "originalRequirement": "Measure production consumer bundles, CSS, editor/grid imports, initial render, and interactive updates with reproducible fixtures.",
+      "findings": "New bounded SSR run: medians 7.65ms/2.94ms/7.85ms/16.97ms/3.93ms for 100 Buttons/40 fields/200 options/1000 rows-page50/two months; 45 source inputs and compiled JS stable, stderr empty. Current CSS raw/gzip artifact reference captured. No consumer assets, editor timing or browser initial/update distribution measured.",
+      "sourceReferences": [
+        "packages/ui/scripts/measure-migration-proofs.mjs",
+        "docs/developer/react-aria-performance.md",
+        "docs/developer/migration-baseline/proof-measurements.json",
+        "packages/ui/scripts/test-foundation-consumer.mjs:184",
+        "packages/ui/scripts/test-editor-consumer.mjs",
+        "packages/ui/tests/browser/acceptance.spec.ts:140"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/measure-migration-proofs.mjs",
+        "packages/ui/tests/browser/acceptance.spec.ts:140"
+      ],
+      "testReferenceMeaning": "Paths show available assertions/fixtures; they are not new executions unless explicitly listed in checksPerformed.",
+      "evidence": [
+        "inspection.json",
+        "report.md",
+        "execution-contracts.md",
+        "ssr-reference.json",
+        "ssr-stderr.txt",
+        "ssr-attestation.json"
+      ],
+      "checksPerformed": [
+        "Scoped source/contract/test read and current selected hash comparison.",
+        "Fresh bounded local SSR benchmark; pre/post source/compiled JS hash attestation; no consumer arguments or --record."
+      ],
+      "inputHeadHostLimits": [
+        "Modified dev working-tree evidence at base head 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact selected hashes in inspection.json, not an immutable committed acceptance head.",
+        "No new native/browser/device/AT/remote CI/legal or production approval. Prior reports retain their original heads, hosts and absent-artifact limits.",
+        "Concurrent PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker/TextArea work is not certified by old built output. TextArea CSS and current stylesheet differ from FA baselines.",
+        "New local script/structural/SSR execution used Node26.5.0; not supported Node22/24 matrix acceptance.",
+        "Final review detected later AGENTS/DateField/DateFieldControl/TextDateField/TextArea CSS edits; post-review-delta.json preserves exact differences. Range SSR timing is a measured snapshot, not newer DateField source validation.",
+        "All 20 editor V leaves, unrelated acceptance obligations and production gates remain open."
+      ],
+      "requiredSuccessors": [
+        "W207-C20-B10"
+      ]
+    }
+  ],
+  "successors": [
+    {
+      "id": "W207-C14",
+      "requiredFor": [
+        "A-C-14"
+      ],
+      "deliverables": [
+        "Review/adopt D14 enhancement contract; integrate proposed-focus-fallback.patch or explicitly document selector baseline.",
+        "Resolve full/XL Dialog vh/dvh fallback policy.",
+        "Targeted base/enhanced/forced-color focus receipt with exact source/host/engine identities."
+      ],
+      "reproduction": "TextField.module.css lines26-27 suppression survives absent :has support while line33 baseline loses on specificity; candidate structurally guarded but unapplied.",
+      "detail": "execution-contracts.md#d14-progressive-enhancement-and-focus-fallback",
+      "prerequisites": [
+        "Source-edit ownership",
+        "Stable native fixture/browser window if implementation is changed"
+      ]
+    },
+    {
+      "id": "W207-C15",
+      "requiredFor": [
+        "A-C-15"
+      ],
+      "deliverables": [
+        "Native final-card removal/empty-page focus case, preserve outside host focus; capture active element/label/computed indicator/clipping/hit test.",
+        "Provide owned token indicator or alternate meaningful target if F15-01 confirmed; keep text editing unboxed.",
+        "Reuse existing field/menu/editor cases for keyboard visible focus in light/dark/forced colors."
+      ],
+      "reproduction": "AppDataGridShell.tsx 174-189 can choose entry wrapper at224; CSS content at5 has outline:none and no focus selector.",
+      "detail": "execution-contracts.md#d15-remaining-visible-focus-obligation",
+      "prerequisites": [
+        "Source/fixture edit ownership",
+        "Current stable native host; source is risk evidence, not confirmed native failure"
+      ]
+    },
+    {
+      "id": "W207-C16",
+      "requiredFor": [
+        "A-C-16"
+      ],
+      "deliverables": [
+        "Adopt D16 seven-row interruption/cancellation/focus table in maintained guidance.",
+        "Add missing rapid navigation reversal/rail/reopen cases; reuse existing reduced-motion/modal-boundary/Tooltip lifetime cases.",
+        "Retain current source+host three-engine results and actual frame/media/focus observations; physical/AT separate."
+      ],
+      "reproduction": "Existing preference spec covers live animation reduction but not full rapid-reversal/rail/reopen matrix.",
+      "detail": "execution-contracts.md#d16-motion-interruption-and-focus-contract-ready-for-adoption",
+      "prerequisites": [
+        "Guidance/fixture ownership",
+        "Coordinator native window"
+      ]
+    },
+    {
+      "id": "W207-C17",
+      "requiredFor": [
+        "A-C-17"
+      ],
+      "deliverables": [
+        "One public-component OverlayOwnership fixture and bounded overlay-ownership.spec.ts sequence.",
+        "Actual stacked hit targets/background inertness/scope variables/editor selection return/top-only dismissal/removed opener focus receipt.",
+        "Share scoped-portal receipt with P10-D16-01 rather than duplicate checks."
+      ],
+      "reproduction": "Nested popover and separate editor/tooltip tests do not compose all required overlay types; equal 1410 layers are not hit-test evidence.",
+      "detail": "execution-contracts.md#d17-one-combined-overlay-ownership-case",
+      "prerequisites": [
+        "Fixture/spec ownership and registry generation",
+        "Stable built native host and required engine window"
+      ]
+    },
+    {
+      "id": "W207-C19",
+      "requiredFor": [
+        "A-C-19"
+      ],
+      "deliverables": [
+        "Owner-reviewed supported script/style/image policy boundary.",
+        "Isolated packed production HTTP-header fixture and early securitypolicyviolation/runtime capture.",
+        "Per-policy startup/geometry/focus/theme/editor outcomes with exact package/source/headers/engine hashes; failures preserved."
+      ],
+      "reproduction": "ThemeScope/Popover/floating toolbar render inline dynamic styles; no CSP-header execution receipt exists.",
+      "detail": "execution-contracts.md#d19-csp-verification-boundary-and-executable-protocol",
+      "prerequisites": [
+        "Owner policy decision, not inferred security approval",
+        "Allocated pack/browser window; no dev/HMR/meta-policy shortcut"
+      ]
+    },
+    {
+      "id": "W207-C20-B10",
+      "requiredFor": [
+        "A-C-20",
+        "A-B-10"
+      ],
+      "deliverables": [
+        "One frozen build/tarball/source/manifest/lockfile receipt, serial current foundation React18/19 and editor consumer runs.",
+        "Ten entry module-ID/asset maps plus mixed/repeated/root/granular/dynamic import dedup/pruning/retained CSS evidence, coordinated with I-S1.",
+        "Raw/gzip bytes separating basic/shared/grid/editor; browser initial usable render and post-sort/filter/page/type/format timing distributions with workload/hardware/paint endpoints.",
+        "Review workspace cwd/output behavior of measure-migration-proofs before recording canonical baseline; add editor SSR subject if claimed."
+      ],
+      "reproduction": "Current styles.css differs from FA-01; FA-04 package equality is dated. New SSR consumers={} and no editor/browser timing. Existing15s grid smoke is a hang guard.",
+      "detail": "execution-contracts.md#d20--b10-current-artifact-consumer-and-performance-evidence",
+      "prerequisites": [
+        "Coordinator immutable candidate and exclusive pack/build/browser lease",
+        "Supported runtime/engine checks as separately scheduled; no comparative performance/SLA claim"
+      ]
+    }
+  ],
+  "restrictionsObserved": [
+    "No edit outside owned wave directory",
+    "No earlier report/shared checklist/ledger/metadata/manifest edit",
+    "No stage/commit/push/reset/clean/release/main/tag action",
+    "No install/shared rebuild/heavy suite/native/browser/consumer run",
+    "No server/remote CI/legal approval claim",
+    "No conversations/subagents/thread messaging",
+    "20 editor V obligations and production validation remain open"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-27",
+  "leaves": ["A-K-04", "A-K-07", "A-K-17"],
+  "integrationRequired": true,
+  "patch": "clipboard-contracts.patch",
+  "scope": "No production implementation change. Add clipboard transaction tests/fixtures, mode-specific consumer guidance and fix a contradictory stale two-digit-year sentence. Preserve accepted BUG0010/11 fixes and their receipts.",
+  "steps": [
+    {
+      "order": 1,
+      "cwd": "/Users/thomashall/Repositories/sg-ui",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-27/clipboard-contracts.patch",
+      "alreadyExecuted": true,
+      "result": "pass; read-only applicability check",
+      "next": "Coordinator reviews patch and verifies target base hashes before applying. No generated files or manifests are in the patch."
+    },
+    {
+      "order": 2,
+      "cwd": "packages/ui",
+      "command": "PATH=/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin:$PATH node /tmp/sgui-calendar-validate.mjs pnpm exec vitest run src/experimental/DatePicker/DateEntryClipboard.test.tsx",
+      "status": "pending integration and validation lease",
+      "expected": "One suite / four cases: synthetic date/time/range paste draft and accepted FormData; Enter avoids implicit submission; blur/Enter normalization; partial/invalid rejection; prevented versus accepted silent reset; inclusive DatePicker bounds and required/optional clearing.",
+      "alternativeBeforeIntegration": "From repository root with the same Node/lease wrapper: pnpm --filter @structured-growth/sg-ui exec vitest run --config ../../docs/developer/final-acceptance/wave-03-27/vitest.config.mjs",
+      "limit": "jsdom/userEvent paste is synthetic, never trusted clipboard or browser proof. Two attempted wrapper invocations stopped at EEXIST before Vitest started. Do not bypass/reclaim foreign leases."
+    },
+    {
+      "order": 3,
+      "cwd": "repository root",
+      "command": "pnpm --filter @structured-growth/docs catalog:check",
+      "status": "coordinator pending after guidance integration",
+      "expected": "Usage metadata retains valid catalog guidance and related links. No API/catalog regeneration required by a runtime/API change."
+    },
+    {
+      "order": 4,
+      "cwd": "packages/ui",
+      "command": "pnpm exec node scripts/build-browser-docs.mjs",
+      "status": "coordinator-only pending; preserve existing hosts and validation leases",
+      "expected": "Fixture typecheck/build succeeds and registers date-text-paste, time-text-paste and range-text-paste exports in the existing DatePicker native transactions module. Freeze new fixture build and record hashes. Reuse existing compiled library only if its hashes still match the integrated receipt."
+    },
+    {
+      "order": 5,
+      "cwd": "packages/ui",
+      "command": "pnpm exec tsc --noEmit -p tests/browser/tsconfig.json",
+      "status": "coordinator pending after patch integration",
+      "expected": "Native spec semantic typecheck passes. Prior syntax-only diagnostic is not this check."
+    },
+    {
+      "order": 6,
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/date-entry-clipboard.spec.ts --project=chromium --project=firefox --project=webkit",
+      "status": "coordinator pending with leased frozen private fixture host and actual clipboard capability",
+      "expected": "Four cases per engine, no retries: three trusted native clipboard transactions plus keyboard preset-description/draft/Cancel access. Each text case requires isTrusted=true and exact clipboard payload for each paste, accepted callbacks/FormData, Enter versus blur, blocked native invalid submission and silent reset. Preserve attached browser version/payload/error receipts on failure.",
+      "doNotSubstitute": "No dispatchEvent, fill of target, keyboard.insertText or synthetic paste in place of native clipboard. If platform clipboard cannot be exercised, record blocked instead of passing. Existing segmented native full-date paste case remains observation-only."
+    },
+    {
+      "order": 7,
+      "status": "external operator/AT environment pending",
+      "script": "AT-observation-worksheet.md",
+      "expected": "Named OS/browser/AT versions and actual speech for available/disabled preset descriptions, focused range previews, complete dates and unavailable reasons; non-hover disclosure and actual touch observations where available. No DOM description or emulated device result relabeled spoken/physical evidence."
+    }
+  ],
+  "reuse": [
+    "fix-08: 37 affected units and exact seven input hashes unchanged",
+    "coordinator-integration: 21 corrected native executions across three engines for availability/owned contracts, plus recorded enriched datetime cases; retain exact receipt scope",
+    "fix-09 Calendar focused DOM evidence, with coordinator's subsequent CalendarDate type correction",
+    "Unchanged existing DateRangeSelector preset/preview/reset assertions retain historical FA04 input/evidence mapping; do not rerun unchanged source to inflate evidence counts"
+  ],
+  "acceptanceRule": "Patch-only and syntax-only work does not close runtime leaves. Coordinator reconciles integrated checks, trusted clipboard and actual AT observations; no automatic checklist/count update, production promotion or release."
+}

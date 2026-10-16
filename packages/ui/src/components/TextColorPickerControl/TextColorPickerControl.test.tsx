@@ -31,6 +31,10 @@ describe("owned text color picker", () => {
     await user.clear(field); await user.type(field, "invalid");
     await user.click(screen.getByRole("button", { name: "Primary", exact: true }));
     expect(onChange).toHaveBeenCalledTimes(1);
+    const swatch = screen.getByRole("button", { name: "Primary", exact: true });
+    // Color-data opt-out belongs to a decorative child, never the focusable button.
+    expect(swatch.style.backgroundColor).toBe("");
+    expect(swatch.querySelector('[aria-hidden="true"]')?.getAttribute("style")).toContain("var(--sgui-action)");
     expect(field.getAttribute("aria-invalid")).not.toBe("true");
     expect(onChange).toHaveBeenLastCalledWith("var(--sgui-action)");
     expect(screen.getByRole("button", { name: "Primary", exact: true }).getAttribute("aria-pressed")).toBe("true");

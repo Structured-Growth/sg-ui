@@ -1,0 +1,532 @@
+{
+  "capturedAt": "2026-10-16T23:07:34.310771+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+      "prior": {}
+    },
+    {
+      "path": "README.md",
+      "sha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+      "prior": {}
+    },
+    {
+      "path": "apps/docs/content/catalog.json",
+      "sha256": "a2746b6f18f3828a2126191be41bfe8b5685dc38be70ba914f7b9c422709c35c",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "a2746b6f18f3828a2126191be41bfe8b5685dc38be70ba914f7b9c422709c35c",
+          "equal": true
+        }
+      },
+      "coordinatorIntegration": {
+        "sha256": "a2746b6f18f3828a2126191be41bfe8b5685dc38be70ba914f7b9c422709c35c",
+        "equal": true
+      }
+    },
+    {
+      "path": "apps/docs/content/component-usage/data.json",
+      "sha256": "650880558e4dfd705c417972d481cfebba091bba4e50f1e72c67a1d1c0c42152",
+      "prior": {}
+    },
+    {
+      "path": "apps/docs/examples/DialogPlayground.tsx",
+      "sha256": "716d126a4dd73b48af35732c209f7769b4c2b90bfeac9c46734934267054902b",
+      "prior": {}
+    },
+    {
+      "path": "apps/docs/examples/catalog/catalog-data.tsx",
+      "sha256": "a18a1ed73e319071b5cec6b840d6c2f629aa1518dd3a98f8d6c21cb19d5dc619",
+      "prior": {}
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
+      "sha256": "6e59a24dbd52b4d85d5769ad2009d4dc039c1792605261f92b6f72d15d3d0e5a",
+      "prior": {}
+    },
+    {
+      "path": "docs/developer/component-architecture.md",
+      "sha256": "fd4664e649a5f52e6dd77d5c5250a21a0e9cbacf330b9aeb62e2a1bcfc938829",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+          "equal": false
+        }
+      }
+    },
+    {
+      "path": "docs/developer/final-acceptance/coordinator-integration/evidence.json",
+      "sha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+      "prior": {}
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-06/report.md",
+      "sha256": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "prior": {}
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-06/results.json",
+      "sha256": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "prior": {}
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-09/report.md",
+      "sha256": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "prior": {}
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-09/results.json",
+      "sha256": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "prior": {}
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "sha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "prior": {}
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "sha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "prior": {}
+    },
+    {
+      "path": "docs/developer/react-aria-card-frames.md",
+      "sha256": "bc4220f14ad665c8380963f5306051320f1e88ca3b5fee057608185cee4a39fc",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "bc4220f14ad665c8380963f5306051320f1e88ca3b5fee057608185cee4a39fc",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "bc4220f14ad665c8380963f5306051320f1e88ca3b5fee057608185cee4a39fc",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "docs/developer/react-aria-data-toolbar.md",
+      "sha256": "7c80e7f363584d717df17550f99331c8a7639d458014a09a0be65f5624df0522",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "7c80e7f363584d717df17550f99331c8a7639d458014a09a0be65f5624df0522",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "7c80e7f363584d717df17550f99331c8a7639d458014a09a0be65f5624df0522",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "docs/developer/react-aria-final-acceptance.md",
+      "sha256": "f4c7d7f0759ccfd3b2be0829283151a7b8942ed8010e12591ce0236b34dc1fa8",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "2fbfe14bd54ca69f65061e020ae6b14336635fa253757a47011e744a939d0c7f",
+          "equal": false
+        },
+        "wave-02-09": {
+          "sha256": "2fbfe14bd54ca69f65061e020ae6b14336635fa253757a47011e744a939d0c7f",
+          "equal": false
+        },
+        "wave-02-15": {
+          "sha256": "2fbfe14bd54ca69f65061e020ae6b14336635fa253757a47011e744a939d0c7f",
+          "equal": false
+        }
+      }
+    },
+    {
+      "path": "docs/developer/react-aria-hardening-execution.md",
+      "sha256": "16a3b10142840081449ca0b0f14ea447320501f385c519d8dab5b0c91da528ea",
+      "prior": {
+        "wave-02-15": {
+          "sha256": "16a3b10142840081449ca0b0f14ea447320501f385c519d8dab5b0c91da528ea",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "docs/developer/react-aria-modal-container.md",
+      "sha256": "c21a713f39e8d9c1f97a14ec8c81e2d5e533da6bb031f50589905b555ccc0f96",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "c21a713f39e8d9c1f97a14ec8c81e2d5e533da6bb031f50589905b555ccc0f96",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "c21a713f39e8d9c1f97a14ec8c81e2d5e533da6bb031f50589905b555ccc0f96",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "docs/developer/react-aria-navigation-container.md",
+      "sha256": "3ec053e5e297ac7f160e4379a657a02badcc9ac1a8874a08deb86cf9fd60c6f0",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "3ec053e5e297ac7f160e4379a657a02badcc9ac1a8874a08deb86cf9fd60c6f0",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "3ec053e5e297ac7f160e4379a657a02badcc9ac1a8874a08deb86cf9fd60c6f0",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "docs/migration.md",
+      "sha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/dist/styles.css",
+      "sha256": "f7e2433696ce8d6ebd0cae60912c759f9ad83f66eb72453387a75ce557e0bb60",
+      "prior": {},
+      "coordinatorIntegration": {
+        "sha256": "f7e2433696ce8d6ebd0cae60912c759f9ad83f66eb72453387a75ce557e0bb60",
+        "equal": true
+      }
+    },
+    {
+      "path": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "prior": {
+        "wave-02-09": {
+          "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/playwright.config.ts",
+      "sha256": "2c0e2c3acb6e63f3b768b88ee40fe9c6c6f7f7073c0accbb7908349c36251478",
+      "prior": {
+        "wave-02-09": {
+          "sha256": "2c0e2c3acb6e63f3b768b88ee40fe9c6c6f7f7073c0accbb7908349c36251478",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/scripts/browser-validation-pool.mjs",
+      "sha256": "ebb6f119e1cbdfddb5aa7606af0794af45b7e5827873c93757790506ae38374f",
+      "prior": {}
+    },
+    {
+      "path": "packages/ui/src/components/AppModal/AppModal.module.css",
+      "sha256": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/components/AppPageTabs/AppPageTabs.module.css",
+      "sha256": "ae3fc31ebf5195afec47dcfb5c17ee86f4784848e3e970e06cfc33a28a5b9f1c",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "ae3fc31ebf5195afec47dcfb5c17ee86f4784848e3e970e06cfc33a28a5b9f1c",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "ae3fc31ebf5195afec47dcfb5c17ee86f4784848e3e970e06cfc33a28a5b9f1c",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/components/AppPageTabs/AppPageTabs.tsx",
+      "sha256": "15eeb772242aae11a8ed2ece0625c6423b5a43cc8789e5fc44542585a7099bbc",
+      "prior": {
+        "wave-02-15": {
+          "sha256": "15eeb772242aae11a8ed2ece0625c6423b5a43cc8789e5fc44542585a7099bbc",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.module.css",
+      "sha256": "58c6ec4b67a1a899948ebd172402c9c765b80477b7456beda7f09a5567c2be21",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "58c6ec4b67a1a899948ebd172402c9c765b80477b7456beda7f09a5567c2be21",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "58c6ec4b67a1a899948ebd172402c9c765b80477b7456beda7f09a5567c2be21",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css",
+      "sha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "sha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.module.css",
+      "sha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.module.css",
+      "sha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/experimental/Dialog/Dialog.module.css",
+      "sha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+          "equal": true
+        },
+        "wave-02-09": {
+          "sha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/experimental/Surface/Surface.module.css",
+      "sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+          "equal": true
+        },
+        "wave-02-09": {
+          "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.css",
+      "sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+      "prior": {
+        "wave-02-09": {
+          "sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.json",
+      "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+          "equal": true
+        },
+        "wave-02-09": {
+          "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+          "equal": true
+        },
+        "wave-02-15": {
+          "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/tests/browser/display-preferences.spec.ts",
+      "sha256": "c219f96dd6442bc112d57e01748eb394ac5c1e89f083a0c739e1f23bf7a60d02",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "c219f96dd6442bc112d57e01748eb394ac5c1e89f083a0c739e1f23bf7a60d02",
+          "equal": true
+        },
+        "wave-02-09": {
+          "sha256": "c219f96dd6442bc112d57e01748eb394ac5c1e89f083a0c739e1f23bf7a60d02",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/tests/browser/hardening-typography-table-presentation.spec.ts",
+      "sha256": "46fe07fe4b1fc3a6bf4b346feff1850f14b177443783bb0644e6e081cab16966",
+      "prior": {
+        "wave-02-09": {
+          "sha256": "46fe07fe4b1fc3a6bf4b346feff1850f14b177443783bb0644e6e081cab16966",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/tests/browser/modal-container-boundary.spec.ts",
+      "sha256": "a1ed468824c2b274b98facdd77700555dc668415306f01a84d943e147101ee45",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "a1ed468824c2b274b98facdd77700555dc668415306f01a84d943e147101ee45",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/tests/browser/navigation-shell-container-boundary.spec.ts",
+      "sha256": "cb17bbd62d84d645867d1f75db1ae6b115c2b2b8c60303d833786088583c199e",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "cb17bbd62d84d645867d1f75db1ae6b115c2b2b8c60303d833786088583c199e",
+          "equal": true
+        }
+      }
+    },
+    {
+      "path": "packages/ui/tests/browser/toolbar-container-boundary.spec.ts",
+      "sha256": "c7ee00bb6ee5cf977705ae44f7f5670a08087ddb5ab53c1c7e4558ea94f8b023",
+      "prior": {
+        "wave-02-06": {
+          "sha256": "c7ee00bb6ee5cf977705ae44f7f5670a08087ddb5ab53c1c7e4558ea94f8b023",
+          "equal": true
+        }
+      }
+    }
+  ],
+  "priorReportAssignmentChecks": [
+    {
+      "id": "A-D-09",
+      "path": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "expected": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "actual": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "equal": true
+    },
+    {
+      "id": "A-D-09",
+      "path": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "expected": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "actual": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "equal": true
+    },
+    {
+      "id": "A-C-08",
+      "path": "docs/developer/final-acceptance/wave-02-06/report.md",
+      "expected": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "actual": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "equal": true
+    },
+    {
+      "id": "A-C-08",
+      "path": "docs/developer/final-acceptance/wave-02-06/results.json",
+      "expected": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "actual": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "equal": true
+    },
+    {
+      "id": "A-C-12",
+      "path": "docs/developer/final-acceptance/wave-02-06/report.md",
+      "expected": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "actual": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "equal": true
+    },
+    {
+      "id": "A-C-12",
+      "path": "docs/developer/final-acceptance/wave-02-06/results.json",
+      "expected": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "actual": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "equal": true
+    },
+    {
+      "id": "A-X-05",
+      "path": "docs/developer/final-acceptance/wave-02-09/report.md",
+      "expected": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "actual": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "equal": true
+    },
+    {
+      "id": "A-X-05",
+      "path": "docs/developer/final-acceptance/wave-02-09/results.json",
+      "expected": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "actual": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "equal": true
+    }
+  ],
+  "missingHB16Manifest": true,
+  "limits": "Sequential selected-file capture in shared dirty checkout, not atomic snapshot. Mutable existing user3000 development host served asset hashes retained in reflow-results.json. Unchanged hashes permit retaining prior source evidence only within original limits; no full historical browser output attribution."
+}

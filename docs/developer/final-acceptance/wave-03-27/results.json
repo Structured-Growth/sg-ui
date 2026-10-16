@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-27",
+  "capturedAt": "2026-10-16T23:09:39.734874+00:00",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "workingTreeEvidence": true,
+  "scope": "Only A-K-04, A-K-07, A-K-17; writes exclusively in assigned evidence directory. No shared changes or runtime acceptance inferred.",
+  "leaves": [
+    {
+      "id": "A-K-04",
+      "originalRequirement": "- [ ] A-K-04 Reconcile original `K-04`: Support minimum/maximum, unavailable-date explanations, validation, required/optional input, and host-supplied availability without fetching business data. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Retained corrected availability results; prepared focused inclusive-boundary, outside-window and required/optional tests plus accurate validity/form guidance.",
+      "evidence": [
+        "input-receipt.json",
+        "report.md",
+        "clipboard-contracts.patch",
+        "syntax-results.json",
+        "units-first.txt",
+        "units-second.txt",
+        "validation-plan.json"
+      ],
+      "runtime": {
+        "actuallyUsed": "Node 24.21.0 / TypeScript 5.9.3 syntax diagnostics only",
+        "newUnitExecution": "not started; EEXIST canonical validation lease on both attempts",
+        "newNativeExecution": "not run",
+        "AT": "not observed",
+        "retained": "fix-08 Node24/Vitest4.1.11 37 units; fix-09 reason evidence and coordinator three-engine native receipts at matched hashes"
+      },
+      "integrationRequired": true,
+      "residualSuccessors": [
+        {
+          "id": "K04-window-submit-evidence",
+          "deliverable": "Integrate and execute exact min/max/required/optional assertions and date native clipboard bounds/form path; validate component usage metadata. Retain unchanged BUG0010/11 parity/disclosure evidence.",
+          "prerequisite": "Coordinator integration and validation lease; frozen clipboard-capable native host."
+        }
+      ]
+    },
+    {
+      "id": "A-K-07",
+      "originalRequirement": "- [ ] A-K-07 Reconcile original `K-07`: Keep typed/segmented input and calendar selection synchronized; define invalid/partial typing, paste, blur, and form submission behavior. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Prepared explicit text-versus-segment paste contracts, synthetic draft/reset tests and trusted native clipboard scenarios; stale contradictory DateField grammar guidance corrected.",
+      "evidence": [
+        "input-receipt.json",
+        "report.md",
+        "clipboard-contracts.patch",
+        "syntax-results.json",
+        "units-first.txt",
+        "units-second.txt",
+        "validation-plan.json"
+      ],
+      "runtime": {
+        "actuallyUsed": "Node 24.21.0 / TypeScript 5.9.3 syntax diagnostics only",
+        "newUnitExecution": "not started; EEXIST canonical validation lease on both attempts",
+        "newNativeExecution": "not run",
+        "AT": "not observed",
+        "retained": "fix-08 Node24/Vitest4.1.11 37 units; fix-09 reason evidence and coordinator three-engine native receipts at matched hashes"
+      },
+      "integrationRequired": true,
+      "residualSuccessors": [
+        {
+          "id": "K07-paste-contract",
+          "deliverable": "Integrate grammar/submission/reset guidance, run the four-case synthetic suite and three trusted date/time/range paste cases in each engine. Preserve observed clipboard payloads, callbacks, native form authority, reset and browser/source/build receipts.",
+          "prerequisite": "Canonical validation lease, fixture registration/build/typecheck and actual clipboard access; no synthetic substitution."
+        }
+      ]
+    },
+    {
+      "id": "A-K-17",
+      "originalRequirement": "- [ ] A-K-17 Reconcile original `K-17`: Define keyboard and non-hover access to availability explanations, range previews, and preset descriptions; rich date-cell decorations must not replace meaningful date labels. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Retained corrected reason access; prepared keyboard preset description/draft/Cancel native test and exact pending AT operator worksheet.",
+      "evidence": [
+        "input-receipt.json",
+        "report.md",
+        "clipboard-contracts.patch",
+        "syntax-results.json",
+        "units-first.txt",
+        "units-second.txt",
+        "validation-plan.json"
+      ],
+      "runtime": {
+        "actuallyUsed": "Node 24.21.0 / TypeScript 5.9.3 syntax diagnostics only",
+        "newUnitExecution": "not started; EEXIST canonical validation lease on both attempts",
+        "newNativeExecution": "not run",
+        "AT": "not observed",
+        "retained": "fix-08 Node24/Vitest4.1.11 37 units; fix-09 reason evidence and coordinator three-engine native receipts at matched hashes"
+      },
+      "integrationRequired": true,
+      "residualSuccessors": [
+        {
+          "id": "K17-native-and-AT",
+          "deliverable": "Integrate and execute keyboard preset-description native case; reconcile existing focused preview receipt; complete AT worksheet with actual speech and named environment. Preserve full date labels and disclosure access; physical touch requires actual device evidence.",
+          "prerequisite": "Frozen host plus operator/AT environment and device if claiming physical touch."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "complete": 0,
+    "partial": 3,
+    "blocked": 0,
+    "newUnitCasesPrepared": 4,
+    "newNativeCasesPrepared": 4,
+    "runtimeCasesExecuted": 0,
+    "integrationRequired": true
+  },
+  "inputComparison": {
+    "inputCount": 184,
+    "integratedMatches": 119,
+    "integratedDifferences": [],
+    "fix08Matches": 7,
+    "fix08Differences": [],
+    "wave02Matches": 82,
+    "wave02Differences": [
+      "AGENTS.md",
+      "apps/docs/examples/CalendarCompositionExamples.tsx",
+      "apps/docs/examples/catalog/forms-dates.tsx",
+      "docs/developer/react-aria-calendar-contracts.md",
+      "packages/ui/src/experimental/Calendar/Calendar.test.tsx",
+      "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "packages/ui/src/experimental/DateField/DateField.tsx",
+      "packages/ui/src/experimental/DateField/DateFieldControl.tsx",
+      "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "packages/ui/src/experimental/DatePicker/DatePicker.test.tsx",
+      "packages/ui/src/experimental/DatePicker/DatePicker.tsx"
+    ]
+  },
+  "commands": [
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-03-27/capture-receipt.py",
+      "result": "pass; bounded hashes only"
+    },
+    {
+      "command": "Node24 docs/developer/final-acceptance/wave-03-27/check-syntax.mjs",
+      "result": "pass; four files, zero syntax diagnostics; no semantic typecheck"
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-27/clipboard-contracts.patch",
+      "result": "pass; no application"
+    },
+    {
+      "command": "Node24 /tmp/sgui-calendar-validate.mjs pnpm --filter @structured-growth/sg-ui exec vitest run --config ../../docs/developer/final-acceptance/wave-03-27/vitest.config.mjs",
+      "attempts": 2,
+      "result": "EEXIST legacy validation lease before Vitest; no assertions executed",
+      "receipts": [
+        "units-first.txt",
+        "units-second.txt"
+      ]
+    }
+  ],
+  "artifacts": {
+    "AT-observation-worksheet.md": "ca8f948c2e2468b3a4b281531914c996a505acdbf9025c69db2ddb8a47d0df4f",
+    "acceptance.test.tsx": "dc72accaa1f4c77b08ca24f103cdc880bdf0fc88d3dbe672317fd27502d78198",
+    "assignment.json": "293c5b6f27f64798cd6e47cf5eecef21bfc89800f7de7289ce41fa45a7f1a7da",
+    "capture-receipt.py": "16ace854ab329eb7f5a39403e0af6e398ffb999dec98f1a5c8237528a31cc890",
+    "check-syntax.mjs": "5b7f7b2fb36dea1b7a3290e05232d7c767a4aea7768f2c321a98ec61034d0e2b",
+    "clipboard-contracts.patch": "76a9c0a89a97631c259d8bd7d3c509f51948a804c270bd99cb4076c1135290d9",
+    "input-receipt.json": "c2e961c654872230bf18a572baaa33b4169a5d951276b668ee97e28f8f95edf7",
+    "proposed-files/apps/docs/content/component-usage/forms.json": "0a7dad15e21aabd3a422eb2cd7612abbef282de36c04f3e160879a4a11706743",
+    "proposed-files/apps/docs/native-fixtures/scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx": "b7093c3b3621279e69eac407d12eb4c04190838dc0d586d71f9c4530f75e9708",
+    "proposed-files/docs/developer/react-aria-calendar-contracts.md": "c0550baa0353a78099c471284175d47bf2470f14aaf31950ac6c252b22583415",
+    "proposed-files/packages/ui/src/experimental/DatePicker/DateEntryClipboard.test.tsx": "be1f6504fe944288c8412e7f4ea04cca488fd2e517cb81795bea9e53ef287d04",
+    "proposed-files/packages/ui/tests/browser/date-entry-clipboard.spec.ts": "d42fdba65a8748e6a2f2444cc6ec6ae5eec218892ee0a67eb6b637813aed2a74",
+    "report.md": "578da37c221e71989581c4f4b786cb30939609629863b8222560a281c11b7330",
+    "syntax-results.json": "347d32966a5a2a7d949e4b74338d06ff9cbeb0dc63f025d97f5bb23d4f4036cc",
+    "syntax.txt": "34ded692f4b2143e3257737ae9b445a1551c1ef7a7de233eef03bc8375ccadd9",
+    "units-first.txt": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "units-second.txt": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "validation-plan.json": "84666a1bd5165258a348f0d641b88f7b516f842dada22751311004a8b7578010",
+    "vitest.config.mjs": "c2b51735982a016fe3ea92af3ebe26c62ce3c73afc2dce15d2dd9f2903cf3d00"
+  },
+  "sharedLedgerModified": false,
+  "productionReleaseAuthorized": false,
+  "limitations": [
+    "Patch not integrated. New unit/native assertions require runtime validation.",
+    "Validation lease occupied; never bypassed/reclaimed.",
+    "No builds, catalog generation, installs, browser servers, broad suites or Git mutation.",
+    "No spoken AT or physical-device result.",
+    "Retained results apply only to their matching scoped inputs and recorded environments."
+  ]
+}

@@ -1,0 +1,1519 @@
+{
+  "capturedAt": "2026-10-16T22:41:42.493734+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "fa02": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "matches_fa02": true
+    },
+    {
+      "path": "README.md",
+      "sha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+      "fa02": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/agent-guidance-migration.md",
+      "sha256": "c0c34780972520cb2370960db6d8f595567edc70dad859bff384e51ae008c74c",
+      "fa02": "c0c34780972520cb2370960db6d8f595567edc70dad859bff384e51ae008c74c",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/migration.md",
+      "sha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+      "fa02": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/github-setup.md",
+      "sha256": "61774acf9f71793668de883156e3e2f66adaf948f84645e6645e0c92285afeed",
+      "fa02": "61774acf9f71793668de883156e3e2f66adaf948f84645e6645e0c92285afeed",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/commercial-licensing.md",
+      "sha256": "71fc2a9e55e62ee0f6eb4a0947d876fcea4cb856338c76cfe56451ff6be2482d",
+      "fa02": "71fc2a9e55e62ee0f6eb4a0947d876fcea4cb856338c76cfe56451ff6be2482d",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/troubleshooting/validation.md",
+      "sha256": "2f6b81732ff3fb2626d7bad275c064006c0644dc79a2d0681ef91d137f22bd34",
+      "fa02": "2f6b81732ff3fb2626d7bad275c064006c0644dc79a2d0681ef91d137f22bd34",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/troubleshooting/firefox-profile-launch.md",
+      "sha256": "2c9bcfe5fe47a3b6217121322ee7d9ccaf051b5b7eaaf9f33186627ac1d0eafe",
+      "fa02": "2c9bcfe5fe47a3b6217121322ee7d9ccaf051b5b7eaaf9f33186627ac1d0eafe",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/component-architecture.md",
+      "sha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+      "fa02": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-component-recipe.md",
+      "sha256": "362ff60da1c740c55c87f5cddd1997e1a8c8209d573f62200f15701911ac2797",
+      "fa02": "362ff60da1c740c55c87f5cddd1997e1a8c8209d573f62200f15701911ac2797",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-adoption-checklist.md",
+      "sha256": "ccfc672a2b8f5952169f991aa045da8a4592e4fe4136496765e221ca94bb8bf6",
+      "fa02": "ccfc672a2b8f5952169f991aa045da8a4592e4fe4136496765e221ca94bb8bf6",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-theme.md",
+      "sha256": "8ab7ca01b35473b5a11ad6efeab55f338d334f0ac762be18e0500a91b0c002de",
+      "fa02": "8ab7ca01b35473b5a11ad6efeab55f338d334f0ac762be18e0500a91b0c002de",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-primitives.md",
+      "sha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "fa02": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-calendar-contracts.md",
+      "sha256": "5ecd4a8cc05e993f946e999be0736093f05ebef82db8e0244c7b5a97e95bbf02",
+      "fa02": "5ecd4a8cc05e993f946e999be0736093f05ebef82db8e0244c7b5a97e95bbf02",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-modal-shells.md",
+      "sha256": "a7fc757509cc1493909a26a3a04e76744b1331e903b020c7f3ed4808120bb335",
+      "fa02": "a7fc757509cc1493909a26a3a04e76744b1331e903b020c7f3ed4808120bb335",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-dependency-upgrades.md",
+      "sha256": "70506ed8250149a18c82d10023466e241da10e7ca1535b3bb4a3fc2e9f8f5b04",
+      "fa02": "70506ed8250149a18c82d10023466e241da10e7ca1535b3bb4a3fc2e9f8f5b04",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-license-inventory.md",
+      "sha256": "a6da4e49e9f506d54cfaaccf574ac5a7d62e7ecd4583546244614edce76b8b2d",
+      "fa02": "a6da4e49e9f506d54cfaaccf574ac5a7d62e7ecd4583546244614edce76b8b2d",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-server-components.md",
+      "sha256": "e94ae749e9e8e5dcf1f3e9bd3247c5ef166cab5931983e147b7b01c9cd4f74c1",
+      "fa02": "e94ae749e9e8e5dcf1f3e9bd3247c5ef166cab5931983e147b7b01c9cd4f74c1",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/react-aria-runtime-ci.md",
+      "sha256": "712971a2d5f77b644ccef5bc8f8593204ba2559599de65a3f226e81d1df5a7f1",
+      "fa02": "712971a2d5f77b644ccef5bc8f8593204ba2559599de65a3f226e81d1df5a7f1",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/docs-website.md",
+      "sha256": "cbb2a7dd72e300f6cfd6ff16ed6244c8d124461374b6b088d8b5a0fc3eedbfbd",
+      "fa02": "cbb2a7dd72e300f6cfd6ff16ed6244c8d124461374b6b088d8b5a0fc3eedbfbd",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/developer/docs-fixture-migration.md",
+      "sha256": "2b4f3848c9f9feec373cd4429172efa9b5c2dc068981425eb6868ba01ad3f502",
+      "fa02": "2b4f3848c9f9feec373cd4429172efa9b5c2dc068981425eb6868ba01ad3f502",
+      "matches_fa02": true
+    },
+    {
+      "path": "docs/extraction-manifest.json",
+      "sha256": "dd156daf1ed4403dd21af9349e21fad834660bea956fb08e4a03569a6d789066",
+      "fa02": "dd156daf1ed4403dd21af9349e21fad834660bea956fb08e4a03569a6d789066",
+      "matches_fa02": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/migration-manifest.json",
+      "sha256": "8da77b8ed3a84212b97237d5d8687a47e182bf5ad90cf5a08dd6007339e76bc8",
+      "fa02": "8da77b8ed3a84212b97237d5d8687a47e182bf5ad90cf5a08dd6007339e76bc8",
+      "matches_fa02": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/registry.json",
+      "sha256": "2fc499442e05a5c397dd1170a16d0ca3d2cda09dfb87abeda6deedb9879b7c7f",
+      "fa02": "2fc499442e05a5c397dd1170a16d0ca3d2cda09dfb87abeda6deedb9879b7c7f",
+      "matches_fa02": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/host.tsx",
+      "sha256": "393601956069cfe51267dda16187a5f224eedbb71f5d39dee9b3bfa4f19ef57d",
+      "fa02": "393601956069cfe51267dda16187a5f224eedbb71f5d39dee9b3bfa4f19ef57d",
+      "matches_fa02": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/README.md",
+      "sha256": "ee33b168b59d2d57f748190bba3695a984760a356ca7d52a27973742ae3028b8",
+      "fa02": "ee33b168b59d2d57f748190bba3695a984760a356ca7d52a27973742ae3028b8",
+      "matches_fa02": true
+    },
+    {
+      "path": "apps/docs/components/Example.tsx",
+      "sha256": "e199bfbbd90bd34e8b03de88b58b2160c0b9bd275eeb0e2a67b06b6d8ea9fc81",
+      "fa02": "e199bfbbd90bd34e8b03de88b58b2160c0b9bd275eeb0e2a67b06b6d8ea9fc81",
+      "matches_fa02": true
+    },
+    {
+      "path": "apps/docs/components/DemoSettings.tsx",
+      "sha256": "eabc6ad03444c15688ef7b81fb17184951a6a07be6a379b566bcc6a21f2e653b",
+      "fa02": "eabc6ad03444c15688ef7b81fb17184951a6a07be6a379b566bcc6a21f2e653b",
+      "matches_fa02": true
+    },
+    {
+      "path": "package.json",
+      "sha256": "375ae127c360f85769a9496c988be97ee26c7d0d7491b53a85613e02294c5acf",
+      "fa02": "375ae127c360f85769a9496c988be97ee26c7d0d7491b53a85613e02294c5acf",
+      "matches_fa02": true
+    },
+    {
+      "path": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "fa02": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "matches_fa02": true
+    },
+    {
+      "path": "apps/docs/package.json",
+      "sha256": "85b0024aeebd589d03200bac0e0bb3c94f210a29adef20d701bdb6f1b9f6a4f9",
+      "fa02": "85b0024aeebd589d03200bac0e0bb3c94f210a29adef20d701bdb6f1b9f6a4f9",
+      "matches_fa02": true
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "1dd21d1b751afc9d4f8e891a23675581b834a78624bc88790904210cfd4a6d22",
+      "fa02": "1dd21d1b751afc9d4f8e891a23675581b834a78624bc88790904210cfd4a6d22",
+      "matches_fa02": true
+    },
+    {
+      "path": ".github/workflows/ai-code.yml",
+      "sha256": "37f296fa1b12b8ae13837843ef63a4e8f397aa05082f2875f821d1cbdda9cb91",
+      "fa02": "37f296fa1b12b8ae13837843ef63a4e8f397aa05082f2875f821d1cbdda9cb91",
+      "matches_fa02": true
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "sha256": "d2efdd5ad32f00b4b8772ad57b3bc65d940b2a3c393c21c7d69e9b1e36d7a67b",
+      "fa02": "d2efdd5ad32f00b4b8772ad57b3bc65d940b2a3c393c21c7d69e9b1e36d7a67b",
+      "matches_fa02": true
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/ui-change.yml",
+      "sha256": "ee49adb9aef6a21ec98b5b183f683e31cef50cbe84729825320258721bdf00ae",
+      "fa02": "ee49adb9aef6a21ec98b5b183f683e31cef50cbe84729825320258721bdf00ae",
+      "matches_fa02": true
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "sha256": "c89dc8d326448e74be2e68664054e9716bdc536cdba7676c01b916ae57f561f8",
+      "fa02": "c89dc8d326448e74be2e68664054e9716bdc536cdba7676c01b916ae57f561f8",
+      "matches_fa02": true
+    },
+    {
+      "path": "packages/ui/scripts/check-foundations.mjs",
+      "sha256": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+      "fa02": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+      "matches_fa02": true
+    },
+    {
+      "path": "packages/ui/scripts/check-component-css.mjs",
+      "sha256": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+      "fa02": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+      "matches_fa02": true
+    },
+    {
+      "path": "packages/ui/scripts/react-stately-boundaries.test.mjs",
+      "sha256": "382aaf8965843142e1e72f2e684e8ec05c13c7522f7ab3baf9dcf58fe75ea3f9",
+      "fa02": "382aaf8965843142e1e72f2e684e8ec05c13c7522f7ab3baf9dcf58fe75ea3f9",
+      "matches_fa02": true
+    },
+    {
+      "path": "packages/ui/scripts/check-package.mjs",
+      "sha256": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+      "fa02": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+      "matches_fa02": true
+    },
+    {
+      "path": "packages/ui/scripts/test-foundation-consumer.mjs",
+      "sha256": "310c846c0932f086ca32969b44c5ed136c0cd2b11f26d400222f7d4d38805fcd",
+      "fa02": "310c846c0932f086ca32969b44c5ed136c0cd2b11f26d400222f7d4d38805fcd",
+      "matches_fa02": true
+    },
+    {
+      "path": "packages/ui/scripts/test-next-consumer.mjs",
+      "sha256": "be13a3e2f1c67da4f733c95dcfcff4667ca82613583171478ef00e4b5600bb65",
+      "fa02": "be13a3e2f1c67da4f733c95dcfcff4667ca82613583171478ef00e4b5600bb65",
+      "matches_fa02": true
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+      "fa02": null,
+      "matches_fa02": false
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+      "fa02": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+      "matches_fa02": true
+    }
+  ],
+  "markdown_scan": {
+    "documents": 439,
+    "paths": [
+      "README.md",
+      "AGENTS.md",
+      "docs/agent-guidance-migration.md",
+      "docs/commercial-licensing.md",
+      "docs/developer/backlog-execution-2026-10-15.md",
+      "docs/developer/component-architecture.md",
+      "docs/developer/dev-branch-consolidation.md",
+      "docs/developer/docs-fixture-migration.md",
+      "docs/developer/docs-website.md",
+      "docs/developer/hierarchical-menu-scope.md",
+      "docs/developer/parallel-batch-01/adapters.md",
+      "docs/developer/parallel-batch-01/calendar.md",
+      "docs/developer/parallel-batch-01/dialogs.md",
+      "docs/developer/parallel-batch-01/docs.md",
+      "docs/developer/parallel-batch-01/forms.md",
+      "docs/developer/parallel-batch-01/grid-focus.md",
+      "docs/developer/parallel-batch-01/grid-reorder.md",
+      "docs/developer/parallel-batch-01/packaging.md",
+      "docs/developer/parallel-batch-01/selectors.md",
+      "docs/developer/parallel-batch-01/translations.md",
+      "docs/developer/parallel-batch-02/architecture-docs.md",
+      "docs/developer/parallel-batch-03/setup-docs.md",
+      "docs/developer/parallel-batch-04/release-audit.md",
+      "docs/developer/parallel-batch-05/due-date.md",
+      "docs/developer/parallel-batch-05/firefox-runtime.md",
+      "docs/developer/parallel-batch-05/grid-busy.md",
+      "docs/developer/parallel-batch-05/grid-clipboard.md",
+      "docs/developer/parallel-batch-05/grid-processing.md",
+      "docs/developer/parallel-batch-05/grid-shell-state.md",
+      "docs/developer/parallel-batch-05/inventory-evidence.md",
+      "docs/developer/parallel-batch-05/native-reset.md",
+      "docs/developer/parallel-batch-05/portal-direction.md",
+      "docs/developer/parallel-batch-05/tabs-overflow.md",
+      "docs/developer/parallel-batch-06/grid-sort.md",
+      "docs/developer/parallel-batch-07/catalog-tabs.md",
+      "docs/developer/parallel-batch-07/progress-status.md",
+      "docs/developer/parallel-batch-08/due-label-composition.md",
+      "docs/developer/parallel-batch-08/grid-retry-focus.md",
+      "docs/developer/parallel-batch-08/selector-direction.md",
+      "docs/developer/parallel-batch-09/inventory-contract-wording.md",
+      "docs/developer/parallel-batch-10/auth-shell-reflow.md",
+      "docs/developer/parallel-batch-10/card-frame-reflow.md",
+      "docs/developer/parallel-batch-10/page-header-reflow.md",
+      "docs/developer/parallel-batch-100/acceptance-evidence.md",
+      "docs/developer/parallel-batch-101/acceptance-evidence.md",
+      "docs/developer/parallel-batch-102/acceptance-evidence.md",
+      "docs/developer/parallel-batch-103/acceptance-evidence.md",
+      "docs/developer/parallel-batch-104/acceptance-evidence.md",
+      "docs/developer/parallel-batch-105/acceptance-evidence.md",
+      "docs/developer/parallel-batch-106/acceptance-evidence.md",
+      "docs/developer/parallel-batch-107/acceptance-evidence.md",
+      "docs/developer/parallel-batch-108/acceptance-evidence.md",
+      "docs/developer/parallel-batch-109/acceptance-evidence.md",
+      "docs/developer/parallel-batch-11/account-action-lifetime.md",
+      "docs/developer/parallel-batch-11/async-direction.md",
+      "docs/developer/parallel-batch-11/editor-link-activation.md",
+      "docs/developer/parallel-batch-11/editor-serialization.md",
+      "docs/developer/parallel-batch-11/filter-draft-transactions.md",
+      "docs/developer/parallel-batch-11/grid-page-shrink.md",
+      "docs/developer/parallel-batch-11/icu-parser-boundaries.md",
+      "docs/developer/parallel-batch-11/public-api-reconciliation.md",
+      "docs/developer/parallel-batch-11/standalone-form-reset.md",
+      "docs/developer/parallel-batch-110/acceptance-evidence.md",
+      "docs/developer/parallel-batch-111/acceptance-evidence.md",
+      "docs/developer/parallel-batch-112/acceptance-evidence.md",
+      "docs/developer/parallel-batch-113/acceptance-evidence.md",
+      "docs/developer/parallel-batch-114/acceptance-evidence.md",
+      "docs/developer/parallel-batch-115/acceptance-evidence.md",
+      "docs/developer/parallel-batch-116/acceptance-evidence.md",
+      "docs/developer/parallel-batch-117/acceptance-evidence.md",
+      "docs/developer/parallel-batch-118/acceptance-evidence.md",
+      "docs/developer/parallel-batch-12/browser-pool.md",
+      "docs/developer/parallel-batch-120/acceptance-evidence.md",
+      "docs/developer/parallel-batch-121/acceptance-evidence.md",
+      "docs/developer/parallel-batch-122/acceptance-evidence.md",
+      "docs/developer/parallel-batch-123/acceptance-evidence.md",
+      "docs/developer/parallel-batch-124/acceptance-evidence.md",
+      "docs/developer/parallel-batch-125/acceptance-evidence.md",
+      "docs/developer/parallel-batch-126/acceptance-evidence.md",
+      "docs/developer/parallel-batch-127/acceptance-evidence.md",
+      "docs/developer/parallel-batch-128/acceptance-evidence.md",
+      "docs/developer/parallel-batch-129/acceptance-evidence.md",
+      "docs/developer/parallel-batch-13/card-collection.md",
+      "docs/developer/parallel-batch-13/columns-dialog.md",
+      "docs/developer/parallel-batch-13/control-badge.md",
+      "docs/developer/parallel-batch-13/control-box.md",
+      "docs/developer/parallel-batch-13/control-breadcrumbs.md",
+      "docs/developer/parallel-batch-13/control-button.md",
+      "docs/developer/parallel-batch-13/control-buttongroup.md",
+      "docs/developer/parallel-batch-13/control-card.md",
+      "docs/developer/parallel-batch-13/control-checkbox.md",
+      "docs/developer/parallel-batch-13/control-chip.md",
+      "docs/developer/parallel-batch-13/control-collapse.md",
+      "docs/developer/parallel-batch-13/control-datagrid.md",
+      "docs/developer/parallel-batch-13/control-disclosure.md",
+      "docs/developer/parallel-batch-13/control-iconbutton.md",
+      "docs/developer/parallel-batch-13/control-link.md",
+      "docs/developer/parallel-batch-13/control-list.md",
+      "docs/developer/parallel-batch-13/control-navigation.md",
+      "docs/developer/parallel-batch-13/control-pagination.md",
+      "docs/developer/parallel-batch-13/control-progress.md",
+      "docs/developer/parallel-batch-13/control-radiogroup.md",
+      "docs/developer/parallel-batch-13/control-splitaction.md",
+      "docs/developer/parallel-batch-13/control-stack.md",
+      "docs/developer/parallel-batch-13/control-status.md",
+      "docs/developer/parallel-batch-13/control-surface.md",
+      "docs/developer/parallel-batch-13/control-switch.md",
+      "docs/developer/parallel-batch-13/control-table.md",
+      "docs/developer/parallel-batch-13/control-taggroup.md",
+      "docs/developer/parallel-batch-13/control-textarea.md",
+      "docs/developer/parallel-batch-13/control-timefield.md",
+      "docs/developer/parallel-batch-13/control-togglebutton.md",
+      "docs/developer/parallel-batch-13/control-tooltip.md",
+      "docs/developer/parallel-batch-13/control-typography.md",
+      "docs/developer/parallel-batch-13/editable-title.md",
+      "docs/developer/parallel-batch-13/editor-layout.md",
+      "docs/developer/parallel-batch-13/formatting-toolbar.md",
+      "docs/developer/parallel-batch-13/logout-lifetime.md",
+      "docs/developer/parallel-batch-13/page-navigator.md",
+      "docs/developer/parallel-batch-13/persistent-state.md",
+      "docs/developer/parallel-batch-13/review-1.md",
+      "docs/developer/parallel-batch-13/review-2.md",
+      "docs/developer/parallel-batch-13/review-3.md",
+      "docs/developer/parallel-batch-130/acceptance-evidence.md",
+      "docs/developer/parallel-batch-131/acceptance-evidence.md",
+      "docs/developer/parallel-batch-132/acceptance-evidence.md",
+      "docs/developer/parallel-batch-133/acceptance-evidence.md",
+      "docs/developer/parallel-batch-134/acceptance-evidence.md",
+      "docs/developer/parallel-batch-136/acceptance-evidence.md",
+      "docs/developer/parallel-batch-137/acceptance-evidence.md",
+      "docs/developer/parallel-batch-138/acceptance-evidence.md",
+      "docs/developer/parallel-batch-14/api-guide-corrections.md",
+      "docs/developer/parallel-batch-14/async-native-busy.md",
+      "docs/developer/parallel-batch-14/client-page-shrink.md",
+      "docs/developer/parallel-batch-14/review-evidence.md",
+      "docs/developer/parallel-batch-14/review-runtime.md",
+      "docs/developer/parallel-batch-140/acceptance-evidence.md",
+      "docs/developer/parallel-batch-141/acceptance-evidence.md",
+      "docs/developer/parallel-batch-142/acceptance-evidence.md",
+      "docs/developer/parallel-batch-143/acceptance-evidence.md",
+      "docs/developer/parallel-batch-144/acceptance-evidence.md",
+      "docs/developer/parallel-batch-145/acceptance-evidence.md",
+      "docs/developer/parallel-batch-146/acceptance-evidence.md",
+      "docs/developer/parallel-batch-147/acceptance-evidence.md",
+      "docs/developer/parallel-batch-148/acceptance-evidence.md",
+      "docs/developer/parallel-batch-149/acceptance-evidence.md",
+      "docs/developer/parallel-batch-15/persistent-recovery.md",
+      "docs/developer/parallel-batch-150/acceptance-evidence.md",
+      "docs/developer/parallel-batch-151/acceptance-evidence.md",
+      "docs/developer/parallel-batch-153/acceptance-evidence.md",
+      "docs/developer/parallel-batch-154/acceptance-evidence.md",
+      "docs/developer/parallel-batch-155/acceptance-evidence.md",
+      "docs/developer/parallel-batch-156/acceptance-evidence.md",
+      "docs/developer/parallel-batch-157/acceptance-evidence.md",
+      "docs/developer/parallel-batch-158/acceptance-evidence.md",
+      "docs/developer/parallel-batch-159/acceptance-evidence.md",
+      "docs/developer/parallel-batch-16/runtime-review.md",
+      "docs/developer/parallel-batch-160/acceptance-evidence.md",
+      "docs/developer/parallel-batch-161/acceptance-evidence.md",
+      "docs/developer/parallel-batch-162/acceptance-evidence.md",
+      "docs/developer/parallel-batch-163/acceptance-evidence.md",
+      "docs/developer/parallel-batch-164/token-tiers-semantic-states.md",
+      "docs/developer/parallel-batch-165/toolbar-container-boundary.md",
+      "docs/developer/parallel-batch-167/navigation-shell-container-boundary.md",
+      "docs/developer/parallel-batch-168/modal-container-boundary.md",
+      "docs/developer/parallel-batch-169/css-lint-guards.md",
+      "docs/developer/parallel-batch-17/menu-autofocus.md",
+      "docs/developer/parallel-batch-170/tabs-orientation.md",
+      "docs/developer/parallel-batch-171/token-tier-scope.md",
+      "docs/developer/parallel-batch-172/css-guard-corrections.md",
+      "docs/developer/parallel-batch-173/checkpoint-recovery.md",
+      "docs/developer/parallel-batch-174/catalogue-color-typing.md",
+      "docs/developer/parallel-batch-175/column-order.md",
+      "docs/developer/parallel-batch-176/datepicker-clear.md",
+      "docs/developer/parallel-batch-177/baseline-host-flow.md",
+      "docs/developer/parallel-batch-178/token-live-transition.md",
+      "docs/developer/parallel-batch-179/manual-tabs-host-scroll.md",
+      "docs/developer/parallel-batch-18/standalone-reset-review.md",
+      "docs/developer/parallel-batch-180/manual-tabs-source-fix.md",
+      "docs/developer/parallel-batch-19/firefox-diagnostic-cleanup.md",
+      "docs/developer/parallel-batch-20/datefield-incomplete-reset.md",
+      "docs/developer/parallel-batch-21/datefield-public-hook-dependencies.md",
+      "docs/developer/parallel-batch-22/react-stately-boundary-guards.md",
+      "docs/developer/parallel-batch-23/hardware-scaled-browser-validation.md",
+      "docs/developer/parallel-batch-24/validation-throughput-audit.md",
+      "docs/developer/parallel-batch-25/timefield-reset.md",
+      "docs/developer/parallel-batch-26/grid-reset-type-route.md",
+      "docs/developer/parallel-batch-27/selector-story-client-boundary.md",
+      "docs/developer/parallel-batch-28/browser-scheduler-review.md",
+      "docs/developer/parallel-batch-29/inventory-acceptance-02-12.md",
+      "docs/developer/parallel-batch-30/inventory-acceptance-13-24.md",
+      "docs/developer/parallel-batch-31/inventory-acceptance-25-37.md",
+      "docs/developer/parallel-batch-32/primitive-switch-ref.md",
+      "docs/developer/parallel-batch-33/layout-replacement.md",
+      "docs/developer/parallel-batch-34/learner-grid-cells.md",
+      "docs/developer/parallel-batch-35/shell-responsive-native.md",
+      "docs/developer/parallel-batch-36/card-collection-native.md",
+      "docs/developer/parallel-batch-37/selection-boundary-native.md",
+      "docs/developer/parallel-batch-38/align-direction-native.md",
+      "docs/developer/parallel-batch-39/frame-resize-native.md",
+      "docs/developer/parallel-batch-40/modal-native-boundaries.md",
+      "docs/developer/parallel-batch-41/learner-card-native.md",
+      "docs/developer/parallel-batch-42/editor-chrome-native.md",
+      "docs/developer/parallel-batch-43/editor-table-history.md",
+      "docs/developer/parallel-batch-44/link-modal-native.md",
+      "docs/developer/parallel-batch-46/grid-shell-responsive.md",
+      "docs/developer/parallel-batch-47/toolbar-native-composition.md",
+      "docs/developer/parallel-batch-48/pointer-reorder-invalidation.md",
+      "docs/developer/parallel-batch-49/auth-embedded-host.md",
+      "docs/developer/parallel-batch-50/dialog-header-reflow.md",
+      "docs/developer/parallel-batch-51/supervisor-cleanup.md",
+      "docs/developer/parallel-batch-52/dialog-removed-opener.md",
+      "docs/developer/parallel-batch-53/selection-webkit-scroll.md",
+      "docs/developer/parallel-batch-54/learner-card-engine-parity.md",
+      "docs/developer/parallel-batch-55/link-webkit-selection.md",
+      "docs/developer/parallel-batch-56/toolbar-firefox-search-focus.md",
+      "docs/developer/parallel-batch-57/auth-firefox-keyboard-entry.md",
+      "docs/developer/parallel-batch-58/snapshot-case-filters.md",
+      "docs/developer/parallel-batch-59/pointer-drop-focus.md",
+      "docs/developer/parallel-batch-60/page-navigation-evidence.md",
+      "docs/developer/parallel-batch-61/keyboard-range-preview.md",
+      "docs/developer/parallel-batch-62/insert-menu-native-focus.md",
+      "docs/developer/parallel-batch-63/color-menu-native-transactions.md",
+      "docs/developer/parallel-batch-64/style-menu-native-selection.md",
+      "docs/developer/parallel-batch-65/side-navigation-native-flow.md",
+      "docs/developer/parallel-batch-66/instructor-card-native-presentation.md",
+      "docs/developer/parallel-batch-67/progress-steps-native-state.md",
+      "docs/developer/parallel-batch-68/pooled-touch-url.md",
+      "docs/developer/parallel-batch-69/range-preview-contract.md",
+      "docs/developer/parallel-batch-70/organization-switch-lifetime.md",
+      "docs/developer/parallel-batch-71/clipboard-pooled-origin.md",
+      "docs/developer/parallel-batch-72/editor-mixed-formatting.md",
+      "docs/developer/parallel-batch-73/datepicker-native-transactions.md",
+      "docs/developer/parallel-batch-74/calendar-native-locales.md",
+      "docs/developer/parallel-batch-75/inventory-contract-intent.md",
+      "docs/developer/parallel-batch-76/page-navigator-native-transactions.md",
+      "docs/developer/parallel-batch-77/document-heading-lifetime.md",
+      "docs/developer/parallel-batch-78/custom-router-native.md",
+      "docs/developer/parallel-batch-79/portal-webkit-return-focus.md",
+      "docs/developer/parallel-batch-80/editor-paragraph-transactions.md",
+      "docs/developer/parallel-batch-81/range-picker-controlled-transactions.md",
+      "docs/developer/parallel-batch-82/grid-server-response-races.md",
+      "docs/developer/parallel-batch-83/popover-native-collision.md",
+      "docs/developer/parallel-batch-84/packed-editor-hydration.md",
+      "docs/developer/parallel-batch-86/canonical-validation-leases.md",
+      "docs/developer/parallel-batch-87/editor-selection-driver.md",
+      "docs/developer/parallel-batch-88/range-exact-native-locator.md",
+      "docs/developer/parallel-batch-89/popover-scroll-anchor.md",
+      "docs/developer/parallel-batch-90/popover-scroll-positioning.md",
+      "docs/developer/parallel-batch-91/acceptance-evidence.md",
+      "docs/developer/parallel-batch-92/acceptance-evidence.md",
+      "docs/developer/parallel-batch-93/acceptance-evidence.md",
+      "docs/developer/parallel-batch-94/acceptance-evidence.md",
+      "docs/developer/parallel-batch-95/acceptance-evidence.md",
+      "docs/developer/parallel-batch-96/acceptance-evidence.md",
+      "docs/developer/parallel-batch-97/acceptance-evidence.md",
+      "docs/developer/parallel-batch-98/acceptance-evidence.md",
+      "docs/developer/parallel-batch-99/acceptance-evidence.md",
+      "docs/developer/parallel-migration-batches.md",
+      "docs/developer/parallel-next100/attested-frozen-checkpoint-continuation.md",
+      "docs/developer/parallel-next100/button-callback-source-fix.md",
+      "docs/developer/parallel-next100/consolidation-import-runner-fix.md",
+      "docs/developer/parallel-next100/daily-checkpoint-dfe9d8a.md",
+      "docs/developer/parallel-next100/daily-dfe9d8a-raw-artifact-recovery.md",
+      "docs/developer/parallel-next100/daily-owned-server-cleanup-fix.md",
+      "docs/developer/parallel-next100/next100-c01.md",
+      "docs/developer/parallel-next100/next100-c02.md",
+      "docs/developer/parallel-next100/next100-c03.md",
+      "docs/developer/parallel-next100/next100-c04.md",
+      "docs/developer/parallel-next100/next100-c05.md",
+      "docs/developer/parallel-next100/next100-c06.md",
+      "docs/developer/parallel-next100/next100-c07.md",
+      "docs/developer/parallel-next100/next100-c08.md",
+      "docs/developer/parallel-next100/next100-c09.md",
+      "docs/developer/parallel-next100/next100-c10.md",
+      "docs/developer/parallel-next100/next100-c11.md",
+      "docs/developer/parallel-next100/next100-c12.md",
+      "docs/developer/parallel-next100/next100-c13.md",
+      "docs/developer/parallel-next100/next100-c14.md",
+      "docs/developer/parallel-next100/next100-c15.md",
+      "docs/developer/parallel-next100/next100-c16.md",
+      "docs/developer/parallel-next100/next100-c17.md",
+      "docs/developer/parallel-next100/next100-c18.md",
+      "docs/developer/parallel-next100/next100-c19.md",
+      "docs/developer/parallel-next100/next100-c20.md",
+      "docs/developer/parallel-next100/next100-c21.md",
+      "docs/developer/parallel-next100/next100-c22.md",
+      "docs/developer/parallel-next100/next100-c23.md",
+      "docs/developer/parallel-next100/next100-c24.md",
+      "docs/developer/parallel-next100/next100-c25.md",
+      "docs/developer/parallel-next100/next100-c26.md",
+      "docs/developer/parallel-next100/next100-c27.md",
+      "docs/developer/parallel-next100/next100-c28.md",
+      "docs/developer/parallel-next100/next100-c29.md",
+      "docs/developer/parallel-next100/next100-c30.md",
+      "docs/developer/parallel-next100/next100-c31.md",
+      "docs/developer/parallel-next100/next100-c32.md",
+      "docs/developer/parallel-next100/next100-c33.md",
+      "docs/developer/parallel-next100/next100-c34.md",
+      "docs/developer/parallel-next100/next100-c35.md",
+      "docs/developer/parallel-next100/next100-c36.md",
+      "docs/developer/parallel-next100/next100-c37.md",
+      "docs/developer/parallel-next100/next100-p01.md",
+      "docs/developer/parallel-next100/next100-p02.md",
+      "docs/developer/parallel-next100/next100-p03.md",
+      "docs/developer/parallel-next100/next100-p04.md",
+      "docs/developer/parallel-next100/next100-p05.md",
+      "docs/developer/parallel-next100/next100-p06.md",
+      "docs/developer/parallel-next100/next100-p07-p08.md",
+      "docs/developer/parallel-next100/next100-p09.md",
+      "docs/developer/parallel-next100/next100-p10.md",
+      "docs/developer/parallel-next100/next100-p11.md",
+      "docs/developer/parallel-next100/next100-p12.md",
+      "docs/developer/parallel-next100/next100-p13.md",
+      "docs/developer/parallel-next100/next100-p14.md",
+      "docs/developer/parallel-next100/next100-p15.md",
+      "docs/developer/parallel-next100/next100-p16.md",
+      "docs/developer/parallel-next100/next100-p17.md",
+      "docs/developer/parallel-next100/next100-p18.md",
+      "docs/developer/parallel-next100/next100-p19.md",
+      "docs/developer/parallel-next100/next100-p20.md",
+      "docs/developer/parallel-next100/next100-p21.md",
+      "docs/developer/parallel-next100/next100-p22.md",
+      "docs/developer/parallel-next100/next100-p23.md",
+      "docs/developer/parallel-next100/next100-p24.md",
+      "docs/developer/parallel-next100/next100-p25.md",
+      "docs/developer/parallel-next100/next100-p26.md",
+      "docs/developer/parallel-next100/next100-p27.md",
+      "docs/developer/parallel-next100/next100-p28.md",
+      "docs/developer/parallel-next100/next100-p29.md",
+      "docs/developer/parallel-next100/next100-p30.md",
+      "docs/developer/parallel-next100/next100-p31.md",
+      "docs/developer/parallel-next100/next100-p32.md",
+      "docs/developer/parallel-next100/next100-p33.md",
+      "docs/developer/parallel-next100/next100-p34.md",
+      "docs/developer/parallel-next100/next100-p35.md",
+      "docs/developer/parallel-next100/next100-p36.md",
+      "docs/developer/parallel-next100/next100-p37.md",
+      "docs/developer/parallel-next100/next100-p38.md",
+      "docs/developer/parallel-next100/next100-p39.md",
+      "docs/developer/parallel-next100/next100-p40.md",
+      "docs/developer/parallel-next100/next100-p41.md",
+      "docs/developer/parallel-next100/next100-p42.md",
+      "docs/developer/parallel-next100/next100-p43.md",
+      "docs/developer/parallel-next100/next100-p44.md",
+      "docs/developer/parallel-next100/next100-p45.md",
+      "docs/developer/parallel-next100/next100-p46.md",
+      "docs/developer/parallel-next100/next100-p47.md",
+      "docs/developer/parallel-next100/next100-s01-s02.md",
+      "docs/developer/parallel-next100/next100-s03.md",
+      "docs/developer/parallel-next100/next100-s04-s05.md",
+      "docs/developer/parallel-next100/next100-s06-s07.md",
+      "docs/developer/parallel-next100/next100-s08.md",
+      "docs/developer/parallel-next100/next100-s09.md",
+      "docs/developer/parallel-next100/next100-s10-s11.md",
+      "docs/developer/parallel-next100/next100-s12-s13.md",
+      "docs/developer/parallel-next100/next100-s14.md",
+      "docs/developer/parallel-next100/next100-s15.md",
+      "docs/developer/parallel-next100/next100-s16.md",
+      "docs/developer/parallel-next100/next100-s17.md",
+      "docs/developer/parallel-next100/next100-s18.md",
+      "docs/developer/parallel-next100/post100-disclosure-proof-gap.md",
+      "docs/developer/parallel-next100/post100-native-fixture.md",
+      "docs/developer/parallel-next100/post100-textarea-native-driver-correction.md",
+      "docs/developer/parallel-next100/remaining-T-account-pending.md",
+      "docs/developer/parallel-next100/remaining-T-editor-native.md",
+      "docs/developer/parallel-next100/remaining-T-learner-props.md",
+      "docs/developer/parallel-next100/remaining-T-model-boundary.md",
+      "docs/developer/parallel-next100/retained-snapshot-fresh-proof-api.md",
+      "docs/developer/parallel-next100/textarea-form-owner-source-fix.md",
+      "docs/developer/persistent-view-state.md",
+      "docs/developer/react-aria-adoption-checklist.md",
+      "docs/developer/react-aria-architecture.md",
+      "docs/developer/react-aria-baseline-tasks.md",
+      "docs/developer/react-aria-browser-acceptance.md",
+      "docs/developer/react-aria-button.md",
+      "docs/developer/react-aria-calendar-contracts.md",
+      "docs/developer/react-aria-card-frames.md",
+      "docs/developer/react-aria-card-pagination.md",
+      "docs/developer/react-aria-catalog-grid.md",
+      "docs/developer/react-aria-checkpoint-recovery.md",
+      "docs/developer/react-aria-component-recipe.md",
+      "docs/developer/react-aria-css-lint.md",
+      "docs/developer/react-aria-data-toolbar.md",
+      "docs/developer/react-aria-dependency-upgrades.md",
+      "docs/developer/react-aria-development-validation.md",
+      "docs/developer/react-aria-due-date-acceptance.md",
+      "docs/developer/react-aria-editor-dialogs.md",
+      "docs/developer/react-aria-editor-layout.md",
+      "docs/developer/react-aria-editor-menus.md",
+      "docs/developer/react-aria-editor-section.md",
+      "docs/developer/react-aria-final-acceptance.md",
+      "docs/developer/react-aria-formatting-toolbar.md",
+      "docs/developer/react-aria-grid-cell-acceptance.md",
+      "docs/developer/react-aria-grid-contracts.md",
+      "docs/developer/react-aria-grid-decision.md",
+      "docs/developer/react-aria-grid-presets.md",
+      "docs/developer/react-aria-grid-reorder.md",
+      "docs/developer/react-aria-hardening-execution.md",
+      "docs/developer/react-aria-hardening-tasks.md",
+      "docs/developer/react-aria-host-adapter-acceptance.md",
+      "docs/developer/react-aria-i18n-acceptance.md",
+      "docs/developer/react-aria-icon-panel-navigation.md",
+      "docs/developer/react-aria-icons.md",
+      "docs/developer/react-aria-inventory-contract-reconciliation.md",
+      "docs/developer/react-aria-layout-actions.md",
+      "docs/developer/react-aria-license-inventory.md",
+      "docs/developer/react-aria-master-task-list.md",
+      "docs/developer/react-aria-migration-inventory-acceptance.md",
+      "docs/developer/react-aria-modal-container.md",
+      "docs/developer/react-aria-modal-shells.md",
+      "docs/developer/react-aria-navigation-container.md",
+      "docs/developer/react-aria-package-acceptance.md",
+      "docs/developer/react-aria-page-layout.md",
+      "docs/developer/react-aria-page-navigation.md",
+      "docs/developer/react-aria-pagination-state.md",
+      "docs/developer/react-aria-parallel-browser-validation.md",
+      "docs/developer/react-aria-performance.md",
+      "docs/developer/react-aria-primitives.md",
+      "docs/developer/react-aria-progress-avatar.md",
+      "docs/developer/react-aria-progress.md",
+      "docs/developer/react-aria-proof-controls.md",
+      "docs/developer/react-aria-public-api-reconciliation.md",
+      "docs/developer/react-aria-regression-tasks.md",
+      "docs/developer/react-aria-release-gate-audit.md",
+      "docs/developer/react-aria-remaining-controls.md",
+      "docs/developer/react-aria-removal-audit.md",
+      "docs/developer/react-aria-runtime-ci.md",
+      "docs/developer/react-aria-scope-ledger.md",
+      "docs/developer/react-aria-server-components.md",
+      "docs/developer/react-aria-tabs-orientation.md",
+      "docs/developer/react-aria-theme.md",
+      "docs/developer/react-aria-token-roles.md",
+      "docs/developer/structured-growth-style-guide.md",
+      "docs/developer/theme-token-pipeline.md",
+      "docs/github-setup.md",
+      "docs/migration.md",
+      "docs/troubleshooting/firefox-profile-launch.md",
+      "docs/troubleshooting/validation.md"
+    ],
+    "local_inline_links": 3721,
+    "missing": [
+      {
+        "source": "docs/developer/parallel-batch-10/card-frame-reflow.md",
+        "line": 18,
+        "target": "../../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-10/page-header-reflow.md",
+        "line": 31,
+        "target": "../../../packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+        "line": 59,
+        "target": "../../../packages/ui/src/foundation/ThemeScope.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+        "line": 60,
+        "target": "../../../packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+        "line": 66,
+        "target": "../../../.storybook/main.ts",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+        "line": 67,
+        "target": "../../../.storybook/preview.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+        "line": 68,
+        "target": "../../../packages/ui/src/experimental/Button/Button.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+        "line": 69,
+        "target": "../../../packages/ui/src/experimental/Button/Button.module.css",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+        "line": 70,
+        "target": "../../../packages/ui/src/experimental/Button/Button.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+        "line": 73,
+        "target": "../../../packages/ui/src/experimental/Surface/Surface.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+        "line": 74,
+        "target": "../../../packages/ui/src/experimental/Typography/Typography.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-103/acceptance-evidence.md",
+        "line": 155,
+        "target": "../../../.storybook/main.ts",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-104/acceptance-evidence.md",
+        "line": 34,
+        "target": "../../../packages/ui/src/experimental/Button/Button.module.css",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-105/acceptance-evidence.md",
+        "line": 11,
+        "target": "../../../packages/ui/src/experimental/Button/Button.module.css",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-107/acceptance-evidence.md",
+        "line": 36,
+        "target": "../../../packages/ui/src/components/SideNavigation/SideNavigation.organization-lifetime.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-108/acceptance-evidence.md",
+        "line": 22,
+        "target": "../../../packages/ui/src/i18n/Translations.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-108/acceptance-evidence.md",
+        "line": 130,
+        "target": "../../../packages/ui/src/experimental/Calendar/Calendar.native-locales.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-113/acceptance-evidence.md",
+        "line": 90,
+        "target": "../../../packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-113/acceptance-evidence.md",
+        "line": 93,
+        "target": "../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-113/acceptance-evidence.md",
+        "line": 97,
+        "target": "../../../packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-114/acceptance-evidence.md",
+        "line": 125,
+        "target": "../../../packages/ui/src/components/AppDataGrid/ownedGridInteraction.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-114/acceptance-evidence.md",
+        "line": 130,
+        "target": "../../../packages/ui/src/experimental/Button/Button.module.css",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-117/acceptance-evidence.md",
+        "line": 19,
+        "target": "../../../packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-118/acceptance-evidence.md",
+        "line": 43,
+        "target": "../../../packages/ui/src/experimental/DateField/DateField.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-118/acceptance-evidence.md",
+        "line": 47,
+        "target": "../../../packages/ui/src/experimental/Calendar/Calendar.native-locales.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-118/acceptance-evidence.md",
+        "line": 50,
+        "target": "../../../packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-118/acceptance-evidence.md",
+        "line": 55,
+        "target": "../../../packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-122/acceptance-evidence.md",
+        "line": 69,
+        "target": "../../../packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-122/acceptance-evidence.md",
+        "line": 72,
+        "target": "../../../packages/ui/src/experimental/Dialog/Dialog.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-122/acceptance-evidence.md",
+        "line": 79,
+        "target": "../../../packages/ui/src/experimental/Button/Button.module.css",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-124/acceptance-evidence.md",
+        "line": 15,
+        "target": "../../../playwright.config.ts",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-124/acceptance-evidence.md",
+        "line": 15,
+        "target": "../../../.storybook/preview.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-125/acceptance-evidence.md",
+        "line": 17,
+        "target": "../../../release.config.mjs",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-126/acceptance-evidence.md",
+        "line": 15,
+        "target": "../../../release.config.mjs",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-128/acceptance-evidence.md",
+        "line": 21,
+        "target": "../../../playwright.config.ts",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-128/acceptance-evidence.md",
+        "line": 24,
+        "target": "../../../release.config.mjs",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/control-box.md",
+        "line": 51,
+        "target": "../../../packages/ui/src/experimental/Box/Box.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/control-breadcrumbs.md",
+        "line": 36,
+        "target": "../../../packages/ui/src/experimental/Breadcrumbs/Breadcrumbs.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/control-iconbutton.md",
+        "line": 30,
+        "target": "../../../packages/ui/src/experimental/Button/Button.test.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/control-stack.md",
+        "line": 35,
+        "target": "../../../packages/ui/src/components/primitives/primitives.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/control-stack.md",
+        "line": 36,
+        "target": "../../../packages/ui/src/experimental/Stack/Stack.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/control-status.md",
+        "line": 43,
+        "target": "../../../packages/ui/src/experimental/Status/Status.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/control-surface.md",
+        "line": 54,
+        "target": "../../../packages/ui/src/experimental/Surface/Surface.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/control-table.md",
+        "line": 40,
+        "target": "../../../packages/ui/src/experimental/Table/Table.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/control-typography.md",
+        "line": 49,
+        "target": "../../../packages/ui/src/experimental/Typography/Typography.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/editor-layout.md",
+        "line": 51,
+        "target": "../../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-13/page-navigator.md",
+        "line": 52,
+        "target": "../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-134/acceptance-evidence.md",
+        "line": 212,
+        "target": "../../../release.config.mjs",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-153/acceptance-evidence.md",
+        "line": 7,
+        "target": "../../../packages/ui/src/foundation/FoundationCatalogue.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-158/acceptance-evidence.md",
+        "line": 14,
+        "target": "../../../packages/ui/src/foundation/FoundationCatalogue.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-175/column-order.md",
+        "line": 28,
+        "target": "../../../packages/ui/src/components/DataToolbar/DataToolbar.column-order.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-177/baseline-host-flow.md",
+        "line": 7,
+        "target": "../../../packages/ui/src/foundation/BaselineHostFlow.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-31/inventory-acceptance-25-37.md",
+        "line": 39,
+        "target": "../../../packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-33/layout-replacement.md",
+        "line": 19,
+        "target": "../../../packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-34/learner-grid-cells.md",
+        "line": 35,
+        "target": "../../../packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.native.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-35/shell-responsive-native.md",
+        "line": 18,
+        "target": "../../../packages/ui/src/components/AppShell/AppShell.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-36/card-collection-native.md",
+        "line": 24,
+        "target": "../../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-38/align-direction-native.md",
+        "line": 17,
+        "target": "../../../packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-39/frame-resize-native.md",
+        "line": 16,
+        "target": "../../../packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-40/modal-native-boundaries.md",
+        "line": 19,
+        "target": "../../../packages/ui/src/components/AppModal/AppModal.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-41/learner-card-native.md",
+        "line": 18,
+        "target": "../../../packages/ui/src/components/LearnerClassCard/LearnerClassCard.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-41/learner-card-native.md",
+        "line": 65,
+        "target": "/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/learner-card-native/evidence.json",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-41/learner-card-native.md",
+        "line": 66,
+        "target": "/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/learner-card-native/results.json",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-41/learner-card-native.md",
+        "line": 67,
+        "target": "/Users/thomashall/.codex/worktrees/batch45-shared-native-candidate/sg-ui/artifacts/browser-pool/400c7da0-2b1c-447c-8101-fbd7237b63c5/evidence.json",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-41/learner-card-native.md",
+        "line": 68,
+        "target": "/tmp/sgui-batch45-candidate-source-attribution.json",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-43/editor-table-history.md",
+        "line": 23,
+        "target": "../../../packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-48/pointer-reorder-invalidation.md",
+        "line": 10,
+        "target": "../../../packages/ui/src/components/AppDataGrid/AppDataGrid.reorder-invalidation.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-66/instructor-card-native-presentation.md",
+        "line": 31,
+        "target": "../../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-69/range-preview-contract.md",
+        "line": 21,
+        "target": "../../../packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-76/page-navigator-native-transactions.md",
+        "line": 27,
+        "target": "../../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-82/grid-server-response-races.md",
+        "line": 8,
+        "target": "../../../packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-83/popover-native-collision.md",
+        "line": 8,
+        "target": "../../../packages/ui/src/experimental/Popover/Popover.collision.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-90/popover-scroll-positioning.md",
+        "line": 41,
+        "target": "../../../packages/ui/src/experimental/Popover/Popover.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-94/acceptance-evidence.md",
+        "line": 19,
+        "target": "../../../packages/ui/src/experimental/Button/Button.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-94/acceptance-evidence.md",
+        "line": 28,
+        "target": "../../../packages/ui/src/experimental/Button/Button.test.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-94/acceptance-evidence.md",
+        "line": 78,
+        "target": "../../../playwright.config.ts",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-95/acceptance-evidence.md",
+        "line": 20,
+        "target": "../../../packages/ui/src/experimental/Button/Button.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-98/acceptance-evidence.md",
+        "line": 12,
+        "target": "../../../packages/ui/src/experimental/Button/Button.module.css",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-98/acceptance-evidence.md",
+        "line": 36,
+        "target": "../../../packages/ui/src/experimental/Button/Button.module.css",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-99/acceptance-evidence.md",
+        "line": 43,
+        "target": "../../../packages/ui/src/experimental/Button/Button.module.css",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-batch-99/acceptance-evidence.md",
+        "line": 54,
+        "target": "../../../packages/ui/src/experimental/Typography/Typography.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c01.md",
+        "line": 18,
+        "target": "../../../packages/ui/src/components/AppButton/AppButton.test.tsx#L10",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c01.md",
+        "line": 18,
+        "target": "../../../packages/ui/src/components/AppButton/AppButton.test.tsx#L37",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c01.md",
+        "line": 19,
+        "target": "../../../packages/ui/src/components/AppButton/AppButton.test.tsx#L49",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c01.md",
+        "line": 20,
+        "target": "../../../packages/ui/src/components/AppButton/AppButton.test.tsx#L23",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c01.md",
+        "line": 21,
+        "target": "../../../packages/ui/src/components/AppButton/AppButton.next100-regression.test.tsx#L11",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c01.md",
+        "line": 22,
+        "target": "../../../packages/ui/src/components/AppButton/AppButton.next100-regression.test.tsx#L30",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c11.md",
+        "line": 23,
+        "target": "../../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx:67",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c11.md",
+        "line": 24,
+        "target": "../../../packages/ui/tests/browser/inventory-card-collection.spec.ts:9",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c11.md",
+        "line": 27,
+        "target": "../../../packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.next100-regression.test.tsx:11",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c18.md",
+        "line": 37,
+        "target": "../../../packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-c18.md",
+        "line": 43,
+        "target": "../../../vitest.config.ts",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p07-p08.md",
+        "line": 9,
+        "target": "../../../packages/ui/src/experimental/Button/Button.test.tsx#L10",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p07-p08.md",
+        "line": 9,
+        "target": "../../../packages/ui/src/experimental/Button/Button.test.tsx#L37",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p07-p08.md",
+        "line": 9,
+        "target": "../../../packages/ui/src/experimental/Button/Button.test.tsx#L77",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p07-p08.md",
+        "line": 10,
+        "target": "../../../packages/ui/src/experimental/Button/Button.next100-regression.test.tsx#L10",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p07-p08.md",
+        "line": 10,
+        "target": "../../../packages/ui/src/experimental/Button/Button.test.tsx#L23",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p07-p08.md",
+        "line": 11,
+        "target": "../../../packages/ui/src/experimental/Button/Button.next100-regression.test.tsx#L10",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p07-p08.md",
+        "line": 11,
+        "target": "../../../packages/ui/src/experimental/Button/Button.test.tsx#L77",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p07-p08.md",
+        "line": 12,
+        "target": "../../../packages/ui/src/experimental/Button/Button.next100-regression.test.tsx#L40",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p07-p08.md",
+        "line": 12,
+        "target": "../../../packages/ui/src/experimental/Button/Button.test.tsx#L46",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p26.md",
+        "line": 20,
+        "target": "../../../packages/ui/src/experimental/Navigation/Navigation.test.tsx:10",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p26.md",
+        "line": 20,
+        "target": "../../../packages/ui/src/experimental/Navigation/Navigation.next100-regression.test.tsx:14",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p26.md",
+        "line": 21,
+        "target": "../../../packages/ui/src/experimental/Navigation/Navigation.test.tsx:25",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p26.md",
+        "line": 21,
+        "target": "../../../packages/ui/src/experimental/Disclosure/Disclosure.test.tsx:10",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p34.md",
+        "line": 27,
+        "target": "../../../packages/ui/src/experimental/Status/Status.next100-regression.test.tsx:9",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p34.md",
+        "line": 28,
+        "target": "../../../packages/ui/src/experimental/Status/Status.test.tsx:8",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-p34.md",
+        "line": 29,
+        "target": "../../../packages/ui/src/experimental/Status/Status.test.tsx:20",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-s04-s05.md",
+        "line": 21,
+        "target": "../../../packages/ui/src/adapters/NavigationAdapter.next100-regression.test.tsx:8",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/parallel-next100/next100-s16.md",
+        "line": 14,
+        "target": "../../../packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx:17",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/react-aria-inventory-contract-reconciliation.md",
+        "line": 73,
+        "target": "../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/react-aria-inventory-contract-reconciliation.md",
+        "line": 126,
+        "target": "../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/react-aria-inventory-contract-reconciliation.md",
+        "line": 191,
+        "target": "../../packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "line": 34,
+        "target": "../../packages/ui/src/components/AppButton/AppButton.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "line": 34,
+        "target": "../../packages/ui/src/components/AppButton/AppButton.test.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "line": 68,
+        "target": "../../packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/react-aria-progress.md",
+        "line": 221,
+        "target": "../../packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+        "exists": false
+      },
+      {
+        "source": "docs/developer/react-aria-release-gate-audit.md",
+        "line": 120,
+        "target": "../../release.config.mjs",
+        "exists": false
+      },
+      {
+        "source": "docs/github-setup.md",
+        "line": 138,
+        "target": "../release.config.mjs",
+        "exists": false
+      }
+    ],
+    "limits": "Path-existence only, outside fenced blocks; reference-style/HTML links, anchors, inline code paths and remote destinations not certified. Historical records may intentionally name retired destinations."
+  },
+  "fixture_mapping": {
+    "entries": 116,
+    "missing": []
+  },
+  "stale_active_candidates": [
+    {
+      "path": "AGENTS.md",
+      "line": 5,
+      "text": "pre-release work there; `codex/dev` is retired."
+    },
+    {
+      "path": "docs/agent-guidance-migration.md",
+      "line": 25,
+      "text": "| Testing Expectations | Carry meaningful behavior tests and updates to relevant tests when behavior changes. Keep stories updated in the same change. Guidance-only edits require document verification rather than new UI tests. |"
+    },
+    {
+      "path": "docs/agent-guidance-migration.md",
+      "line": 31,
+      "text": "| Component architecture document | Retain public exports, colocated stories, production scopes and host independence; use owned props/native refs, selective client boundaries and packed consumers. See the canonical component recipe. |"
+    },
+    {
+      "path": "docs/github-setup.md",
+      "line": 33,
+      "text": "the frozen lockfile, run `pnpm check` and `pnpm build-storybook`, then serially run"
+    },
+    {
+      "path": "docs/github-setup.md",
+      "line": 48,
+      "text": "| `sgui-storybook-node-22.12.0`, `sgui-storybook-node-24` | Built static Storybook after successful checks |"
+    },
+    {
+      "path": "docs/github-setup.md",
+      "line": 106,
+      "text": "`pnpm build-storybook`, then creates a draft PR on `ai/sgui-<run_id>`. Its generated"
+    },
+    {
+      "path": "docs/troubleshooting/validation.md",
+      "line": 13,
+      "text": "`pnpm check` and `pnpm build-storybook`. It does not run the full browser/packed"
+    },
+    {
+      "path": "docs/troubleshooting/validation.md",
+      "line": 31,
+      "text": "`pnpm test:browser` typechecks the suite and starts the static Storybook server on"
+    },
+    {
+      "path": "docs/troubleshooting/validation.md",
+      "line": 33,
+      "text": "`pnpm build-storybook` before starting the suite, and install its engines with"
+    },
+    {
+      "path": "docs/developer/component-architecture.md",
+      "line": 92,
+      "text": "During the user-authorized pre-production migration into `codex/dev`, follow the"
+    },
+    {
+      "path": "docs/developer/react-aria-dependency-upgrades.md",
+      "line": 133,
+      "text": "During the authorized pre-production `codex/dev` migration, choose meaningful"
+    },
+    {
+      "path": "docs/developer/react-aria-runtime-ci.md",
+      "line": 33,
+      "text": "`pnpm build-storybook`, then executes these packed consumer scripts serially:"
+    },
+    {
+      "path": "docs/developer/react-aria-runtime-ci.md",
+      "line": 58,
+      "text": "| `sgui-storybook-node-22.12.0`, `sgui-storybook-node-24` | Static Storybook output | All validation steps pass |"
+    },
+    {
+      "path": "docs/developer/react-aria-runtime-ci.md",
+      "line": 81,
+      "text": "| `sgui-storybook-node-22.12.0` | 11455873405 | 2026-10-21 01:56:56 |"
+    },
+    {
+      "path": "docs/developer/react-aria-runtime-ci.md",
+      "line": 84,
+      "text": "| `sgui-storybook-node-24` | 11455987943 | 2026-10-21 01:56:28 |"
+    },
+    {
+      "path": "docs/developer/docs-website.md",
+      "line": 861,
+      "text": "branch is `codex/dev` (no `dev` branch existed). Preserved its additional retained-"
+    }
+  ]
+}

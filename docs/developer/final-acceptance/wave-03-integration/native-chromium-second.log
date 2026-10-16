@@ -1,0 +1,519 @@
+[WebServer] (node:46655) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 54 tests using 1 worker
+
+(node:46656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/acceptance-touch-targets.spec.ts:4:1 › auto coarse-pointer and explicit touch preserve control targets, tag spacing, activation and focus (2.1s)
+  ✘   2 [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag (5.3s)
+(node:46732) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag (419ms)
+  ✓   4 [chromium] › tests/browser/action-notifications.spec.ts:10:1 › owned ordinary/composed callbacks notify exactly once per pointer, Enter and Space (360ms)
+  ✓   5 [chromium] › tests/browser/action-notifications.spec.ts:34:1 › submit/reset press precedes one native form event for pointer, Enter and Space (260ms)
+  ✓   6 [chromium] › tests/browser/action-notifications.spec.ts:46:1 › emulated touch invokes one ordinary, anchor, toggle and native-form activation (527ms)
+  ✓   7 [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize light/compact (479ms)
+  ✓   8 [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize light/comfortable (461ms)
+  ✓   9 [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize dark/compact (458ms)
+  ✓  10 [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize dark/comfortable (443ms)
+  ✓  11 [chromium] › tests/browser/card-container-boundary.spec.ts:7:1 › card query follows its allocation and preserves sibling and native focus (230ms)
+  ✓  12 [chromium] › tests/browser/date-entry-clipboard.spec.ts:15:22 › date: trusted text paste, native submit and reset preserve the accepted transaction (942ms)
+  ✓  13 [chromium] › tests/browser/date-entry-clipboard.spec.ts:15:22 › time: trusted text paste, native submit and reset preserve the accepted transaction (731ms)
+  ✓  14 [chromium] › tests/browser/date-entry-clipboard.spec.ts:15:22 › range: trusted text paste, native submit and reset preserve the accepted transaction (735ms)
+  ✓  15 [chromium] › tests/browser/date-entry-clipboard.spec.ts:57:1 › preset descriptions remain available during keyboard draft selection and Cancel (208ms)
+  ✓  16 [chromium] › tests/browser/editor-selection-editing-successors.spec.ts:5:1 › Escape from floating formatting returns to ordinary editing without a sticky selection (460ms)
+  ✓  17 [chromium] › tests/browser/editor-selection-editing-successors.spec.ts:33:1 › read-only invalidation removes floating actions and re-enabling preserves plain typing (596ms)
+  ✓  18 [chromium] › tests/browser/editor-style-range-transactions.spec.ts:11:3 › Uppercase respects native partial-run boundaries and saved history (444ms)
+  ✓  19 [chromium] › tests/browser/editor-style-range-transactions.spec.ts:11:3 › Clear Formatting respects native partial-run boundaries and saved history (461ms)
+  ✓  20 [chromium] › tests/browser/navigation-composed.spec.ts:18:3 › Fallback composed routes have one host owner for pointer and Enter (612ms)
+  ✓  21 [chromium] › tests/browser/navigation-composed.spec.ts:63:3 › Fallback consumer cancellation and callback order survive custom delegation (313ms)
+  ✓  22 [chromium] › tests/browser/navigation-composed.spec.ts:86:3 › Fallback modifier target download and external activation bypass host routing (395ms)
+  ✓  23 [chromium] › tests/browser/navigation-composed.spec.ts:18:3 › Custom composed routes have one host owner for pointer and Enter (732ms)
+  ✓  24 [chromium] › tests/browser/navigation-composed.spec.ts:63:3 › Custom consumer cancellation and callback order survive custom delegation (313ms)
+  ✓  25 [chromium] › tests/browser/navigation-composed.spec.ts:86:3 › Custom modifier target download and external activation bypass host routing (596ms)
+  ✓  26 [chromium] › tests/browser/navigation-locale-motion.spec.ts:7:3 › en-US: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation (214ms)
+  ✓  27 [chromium] › tests/browser/navigation-locale-motion.spec.ts:7:3 › ar-EG: drill motion mirrors, interrupted Back restores focus, reduced motion suppresses animation (209ms)
+  ✓  28 [chromium] › tests/browser/translations-locale-acceptance.spec.ts:16:3 › english-fallback: public locale, fixed date/number, count/clear and 320px reflow (420ms)
+  ✓  29 [chromium] › tests/browser/translations-locale-acceptance.spec.ts:16:3 › pseudo-localized-long-labels: public locale, fixed date/number, count/clear and 320px reflow (441ms)
+  ✓  30 [chromium] › tests/browser/translations-locale-acceptance.spec.ts:16:3 › arabic-plural-and-direction: public locale, fixed date/number, count/clear and 320px reflow (453ms)
+  ✓  31 [chromium] › tests/browser/wave03-18-primitives.spec.ts:3:1 › responsive container, nested surfaces, wrapping and native Tab order (157ms)
+  ✘  32 [chromium] › tests/browser/wave03-18-primitives.spec.ts:26:1 › grouped text associations, required validation, canceled multiline reset and replaced owner (30.1s)
+(node:46976) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  33 [chromium] › tests/browser/wave03-18-primitives.spec.ts:46:1 › empty and disabled required choices are host-gated; delegated reset restores latest default silently (30.1s)
+(node:47098) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  34 [chromium] › tests/browser/wave03-18-primitives.spec.ts:59:1 › controlled tab requests preserve host authority at both densities and orientations (171ms)
+(node:47103) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  35 [chromium] › tests/browser/wave03-editor-chrome-acceptance.spec.ts:32:1 › long chrome reflows in both production themes/densities and Arabic RTL (1.3s)
+  ✓  36 [chromium] › tests/browser/wave03-editor-chrome-acceptance.spec.ts:61:1 › host slot replacement retains draft, focused node and its independent scroll owner (266ms)
+  ✓  37 [chromium] › tests/browser/wave03-editor-chrome-acceptance.spec.ts:89:1 › pending and unavailable replacements suppress actions while preserving pressed state and zoom (418ms)
+  ✘  38 [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:43:1 › Cancel/Escape make no edit for caret, same-node and cross-node modal ranges (5.4s)
+(node:47154) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  39 [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:76:1 › link Apply targets caret, same-node and cross-node ranges without discarding adjacent formatting (6.0s)
+(node:47180) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  40 [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:121:1 › host read-only, document replacement and unmount invalidate pending modal drafts (5.6s)
+(node:47200) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  41 [chromium] › tests/browser/wave03-grid-successors.spec.ts:4:1 › native Tab and Shift+Tab enter and leave the remembered grid entry (404ms)
+  ✘  42 [chromium] › tests/browser/wave03-grid-successors.spec.ts:22:1 › selected focused row disappearance preserves sibling selection, focus ownership and scroll (5.3s)
+Testing stopped early after 8 maximum allowed failures.
+
+
+  1) [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag 
+
+    Error: expect(received).toBeCloseTo(expected, precision)
+
+    Expected: 523
+    Received: 539
+
+    Expected precision:    0
+    Expected difference: < 0.5
+    Received difference:   16
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      77 |     await expect(trigger).toBeFocused();
+      78 |     await trigger.click();
+    > 79 |     await expect.poll(async () => Number(await input.inputValue())).toBeCloseTo(before - 1, 0);
+         |                                                                     ^
+      80 |     await page.keyboard.press('Escape');
+      81 |     expect(await page.evaluate(() => (window as unknown as Window & { wave0310Drags: number }).wave0310Drags)).toBe(0);
+      82 |     await info.attach('non-drag-width', { body: JSON.stringify({ fixture: id, before, after: before - 1 }), contentType: 'application/json' });
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/acceptance-touch-targets.spec.ts:79:69
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/chromium-second/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/chromium-second/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/browser/wave03-18-primitives.spec.ts:26:1 › grouped text associations, required validation, canceled multiline reset and replaced owner 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.uncheck: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Cancel reset', { exact: true })
+        - locator resolved to <input checked title="" tabindex="0" type="checkbox" aria-labelledby="_r_1_" data-react-aria-pressable="true"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <span aria-hidden="true" class="sgui_indicator_1de517d4">✓</span> intercepts pointer events
+      - retrying click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div dir="ltr" lang="en-US" data-sgui-scope="" data-sgui-theme="light" data-sgui-interaction="auto" data-sgui-density="comfortable" class="sgui_root_96098259 sgui_scope_4c1123f0">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <span aria-hidden="true" class="sgui_indicator_1de517d4">✓</span> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        14 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <span aria-hidden="true" class="sgui_indicator_1de517d4">✓</span> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div dir="ltr" lang="en-US" data-sgui-scope="" data-sgui-theme="light" data-sgui-interaction="auto" data-sgui-density="comfortable" class="sgui_root_96098259 sgui_scope_4c1123f0">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <span aria-hidden="true" class="sgui_indicator_1de517d4">✓</span> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <span aria-hidden="true" class="sgui_indicator_1de517d4">✓</span> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <span aria-hidden="true" class="sgui_indicator_1de517d4">✓</span> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+
+      36 |   const requests=await page.getByLabel('Field requests').textContent();
+      37 |   await page.getByRole('button',{name:'Reset contact'}).click();await expect(summary).toHaveAttribute('aria-invalid','true');await expect(summary).toHaveValue('');
+    > 38 |   await page.getByLabel('Cancel reset',{exact:true}).uncheck();await page.getByRole('button',{name:'Reset contact'}).click();await expect(summary).toHaveValue('Initial summary');
+         |                                                      ^
+      39 |   await expect(summary).not.toHaveAttribute('aria-invalid','true');await expect(page.getByLabel('Field requests')).toHaveText(requests!);
+      40 |   await summary.fill('Draft');const latestRequests=await page.getByLabel('Field requests').textContent();
+      41 |   await page.getByRole('button',{name:'Replace form'}).click();await expect(summary).toHaveValue('Draft');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-18-primitives.spec.ts:38:54
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-18-primitives-group-b1595-ne-reset-and-replaced-owner-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/chromium-second/wave03-18-primitives-group-b1595-ne-reset-and-replaced-owner-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-18-primitives-group-b1595-ne-reset-and-replaced-owner-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/chromium-second/wave03-18-primitives-group-b1595-ne-reset-and-replaced-owner-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › tests/browser/wave03-18-primitives.spec.ts:46:1 › empty and disabled required choices are host-gated; delegated reset restores latest default silently 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.check: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('radio', { name: 'Live', exact: true })
+        - locator resolved to <input title="" required="" type="radio" value="live" tabindex="-1" name="delivery" data-react-aria-pressable="true" aria-describedby="react-aria6611598117-_r_g_"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <span aria-hidden="true" class="sgui_indicator_9604adf8"></span> intercepts pointer events
+      - retrying click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <div dir="ltr" lang="en-US" data-sgui-scope="" data-sgui-theme="light" data-sgui-interaction="auto" data-sgui-density="comfortable" class="sgui_root_96098259 sgui_scope_4c1123f0">…</div> intercepts pointer events
+      - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <span aria-hidden="true" class="sgui_indicator_9604adf8"></span> intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        14 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <span aria-hidden="true" class="sgui_indicator_9604adf8"></span> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <div dir="ltr" lang="en-US" data-sgui-scope="" data-sgui-theme="light" data-sgui-interaction="auto" data-sgui-density="comfortable" class="sgui_root_96098259 sgui_scope_4c1123f0">…</div> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <span aria-hidden="true" class="sgui_indicator_9604adf8"></span> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <span aria-hidden="true" class="sgui_indicator_9604adf8"></span> intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <span aria-hidden="true" class="sgui_indicator_9604adf8"></span> intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+
+
+      52 |   await page.getByRole('button',{name:'Enable choices'}).click();await expect(page.getByRole('radio',{name:'Self',exact:true})).not.toBeChecked();expect(await valid()).toBe(false);
+      53 |   await page.getByRole('button',{name:'Before choices'}).click();await page.keyboard.press('Tab');await expect(page.getByRole('radio',{name:'Self',exact:true})).toBeFocused();await expect(page.getByLabel('Radio requests')).toHaveText('[]');
+    > 54 |   await page.getByRole('radio',{name:'Live',exact:true}).check();const requests=await page.getByLabel('Radio requests').textContent();
+         |                                                          ^
+      55 |   await page.getByRole('button',{name:'Replace radio default'}).click();await page.getByRole('button',{name:'Reset choices'}).click();await expect(page.getByRole('radio',{name:'Live',exact:true})).toBeChecked();
+      56 |   await page.getByLabel('Cancel radio reset').uncheck();await page.getByRole('button',{name:'Reset choices'}).click();await expect(page.getByRole('radio',{name:'Review',exact:true})).toBeChecked();
+      57 |   expect(await data()).toEqual({delivery:'review'});await expect(page.getByLabel('Radio requests')).toHaveText(requests!);
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-18-primitives.spec.ts:54:58
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-18-primitives-empty-d1683-res-latest-default-silently-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/chromium-second/wave03-18-primitives-empty-d1683-res-latest-default-silently-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-18-primitives-empty-d1683-res-latest-default-silently-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/chromium-second/wave03-18-primitives-empty-d1683-res-latest-default-silently-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › tests/browser/wave03-18-primitives.spec.ts:59:1 › controlled tab requests preserve host authority at both densities and orientations 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('region', { name: 'compact horizontal automatic', exact: true }).getByLabel('Tab requests')
+    Expected: "[\"last\"]"
+    Error: strict mode violation: getByRole('region', { name: 'compact horizontal automatic', exact: true }).getByLabel('Tab requests') resolved to 2 elements:
+        1) <input title="" tabindex="0" type="checkbox" aria-labelledby="_r_0_" data-react-aria-pressable="true"/> aka getByRole('region', { name: 'compact horizontal automatic' }).getByRole('checkbox', { name: 'Accept tab requests' })
+        2) <output aria-label="Tab requests">["last"]</output> aka getByText('["last"]')
+
+    Call log:
+      - Expect "toHaveText" getByRole('region', { name: 'compact horizontal automatic', exact: true }).getByLabel('Tab requests') with timeout 5000ms
+      - waiting for getByRole('region', { name: 'compact horizontal automatic', exact: true }).getByLabel('Tab requests')
+
+
+      64 |     await first.focus();await page.keyboard.press(orientation==='horizontal'?'ArrowRight':'ArrowDown');await expect(last).toBeFocused();
+      65 |     if(activation==='manual')await page.keyboard.press('Enter');
+    > 66 |     await expect(first).toHaveAttribute('aria-selected','true');await expect(region.getByLabel('Tab requests')).toHaveText('["last"]');
+         |                                                                                                                 ^
+      67 |     await region.getByLabel('Accept tab requests').check();await first.focus();await page.keyboard.press(orientation==='horizontal'?'ArrowRight':'ArrowDown');
+      68 |     if(activation==='manual')await page.keyboard.press('Enter');await expect(last).toHaveAttribute('aria-selected','true');
+      69 |     await expect(region.getByRole('tabpanel')).toHaveText('Last content');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-18-primitives.spec.ts:66:113
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-18-primitives-contr-8fcee--densities-and-orientations-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/chromium-second/wave03-18-primitives-contr-8fcee--densities-and-orientations-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-18-primitives-contr-8fcee--densities-and-orientations-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/chromium-second/wave03-18-primitives-contr-8fcee--densities-and-orientations-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:43:1 › Cancel/Escape make no edit for caret, same-node and cross-node modal ranges 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Edit link', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Edit link', exact: true }) with timeout 5000ms
+      - waiting for getByRole('group', { name: 'Text formatting', exact: true }).getByRole('button', { name: 'Edit link', exact: true })
+        14 × locator resolved to <button data-rac="" tabindex="0" type="button" data-variant="text" data-tone="neutral" aria-label="Edit link" data-sgui-part="button" data-sgui-density="compact" id="react-aria197212186-_r_14_" data-react-aria-pressable="true" class="sgui_root_4900c47b sgui_action_5f7158ba">…</button>
+           - unexpected value "inactive"
+
+
+      62 |     // endpoint observations must survive, independent of whether caret is visible.
+      63 |     const focus = command === 'Link' ? toolbar(page).getByRole('button', { name: 'Edit link', exact: true }) : toolbar(page).getByRole('button', { name: 'Insert', exact: true });
+    > 64 |     await expect(focus).toBeFocused();
+         |                         ^
+      65 |     const after = await editor(page).evaluate(node => {
+      66 |       const s = window.getSelection()!;
+      67 |       return { text: s.toString(), collapsed: s.isCollapsed, anchor: s.anchorOffset, focus: s.focusOffset,
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts:64:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-cc080-and-cross-node-modal-ranges-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-cc080-and-cross-node-modal-ranges-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-cc080-and-cross-node-modal-ranges-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-cc080-and-cross-node-modal-ranges-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:76:1 › link Apply targets caret, same-node and cross-node ranges without discarding adjacent formatting 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('textbox', { name: 'Selection acceptance document', exact: true })
+    Timeout: 5000ms
+    - Expected  - 1
+    + Received  + 3
+
+    - Target paragraphAdjacent paragraph
+    + Target paragraph
+    +
+    + Adjacent paragraph
+
+    Call log:
+      - Expect "toHaveText" getByRole('textbox', { name: 'Selection acceptance document', exact: true }) with timeout 5000ms
+      - waiting for getByRole('textbox', { name: 'Selection acceptance document', exact: true })
+        14 × locator resolved to <div tabindex="0" role="textbox" spellcheck="true" contenteditable="true" data-focus-visible="true" data-lexical-editor="true" class="sgui_editable_3e23f37b" aria-label="Selection acceptance document">…</div>
+           - unexpected value "Target paragraph
+    
+    Adjacent paragraph"
+
+
+      103 |       // original text run's format/style. Do not equate URL wrapper shape with
+      104 |       // a promise to merge paragraphs or flatten rich text.
+    > 105 |       await expect(editor(page)).toHaveText('Target paragraphAdjacent paragraph');
+          |                                  ^
+      106 |       await expect(links).toHaveCount(2);
+      107 |       for (let index = 0; index < 2; index++) {
+      108 |         expect(after.root.children[index].children[0]).toMatchObject({ type: 'link', url: '/selected-guide' });
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts:105:34
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-3568a-carding-adjacent-formatting-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-3568a-carding-adjacent-formatting-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-3568a-carding-adjacent-formatting-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-3568a-carding-adjacent-formatting-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:121:1 › host read-only, document replacement and unmount invalidate pending modal drafts 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 4
+    + Received  + 0
+
+    @@ -14,12 +14,10 @@
+                },
+              ],
+              "direction": null,
+              "format": "left",
+              "indent": 0,
+    -         "textFormat": 1,
+    -         "textStyle": "color: var(--sgui-action);",
+              "type": "paragraph",
+              "version": 1,
+            },
+            Object {
+              "children": Array [
+    @@ -34,12 +32,10 @@
+                },
+              ],
+              "direction": null,
+              "format": "right",
+              "indent": 2,
+    -         "textFormat": 2,
+    -         "textStyle": "font-family: Georgia;",
+              "type": "paragraph",
+              "version": 1,
+            },
+          ],
+          "direction": null,
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      133 |     // Cross two frames/task delivery; no arbitrary wait or source-injected command.
+      134 |     await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+    > 135 |     await expect.poll(() => saved(page)).toEqual(before);
+          |                                          ^
+      136 |     await info.attach(`${command}-invalidation`, { body: JSON.stringify({ command, key, document: await saved(page) }), contentType: 'application/json' });
+      137 |   }
+      138 | });
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts:135:42
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-1d9e4-lidate-pending-modal-drafts-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-1d9e4-lidate-pending-modal-drafts-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-1d9e4-lidate-pending-modal-drafts-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/chromium-second/wave03-editor-selection-ac-1d9e4-lidate-pending-modal-drafts-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [chromium] › tests/browser/wave03-grid-successors.spec.ts:22:1 › selected focused row disappearance preserves sibling selection, focus ownership and scroll 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Array [
+    -   150,
+    -   120,
+    +   488,
+    +   160,
+      ]
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      35 |   await expect(grid.getByRole('checkbox', { name: 'Select Course 8', exact: true })).toHaveCount(0);
+      36 |   await expect.poll(() => grid.evaluate(node => node.contains(document.activeElement) && document.activeElement?.getAttribute('data-grid-field') === 'status')).toBe(true);
+    > 37 |   await expect.poll(() => container.evaluate(node => [node.scrollTop, node.scrollLeft])).toEqual(before);
+         |                                                                                          ^
+      38 |   await expect(sibling.getByRole('checkbox', { name: 'Select Course 2', exact: true })).toBeChecked();
+      39 |   await expect.poll(() => other.evaluate(node => [node.scrollTop, node.scrollLeft])).toEqual(otherBefore);
+      40 |   await info.attach('selected-removal', { body: JSON.stringify({ before, otherBefore,
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-grid-successors.spec.ts:37:90
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-grid-successors-sel-126fa--focus-ownership-and-scroll-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/chromium-second/wave03-grid-successors-sel-126fa--focus-ownership-and-scroll-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/chromium-second/wave03-grid-successors-sel-126fa--focus-ownership-and-scroll-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/chromium-second/wave03-grid-successors-sel-126fa--focus-ownership-and-scroll-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8 failed
+    [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag 
+    [chromium] › tests/browser/wave03-18-primitives.spec.ts:26:1 › grouped text associations, required validation, canceled multiline reset and replaced owner 
+    [chromium] › tests/browser/wave03-18-primitives.spec.ts:46:1 › empty and disabled required choices are host-gated; delegated reset restores latest default silently 
+    [chromium] › tests/browser/wave03-18-primitives.spec.ts:59:1 › controlled tab requests preserve host authority at both densities and orientations 
+    [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:43:1 › Cancel/Escape make no edit for caret, same-node and cross-node modal ranges 
+    [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:76:1 › link Apply targets caret, same-node and cross-node ranges without discarding adjacent formatting 
+    [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:121:1 › host read-only, document replacement and unmount invalidate pending modal drafts 
+    [chromium] › tests/browser/wave03-grid-successors.spec.ts:22:1 › selected focused row disappearance preserves sibling selection, focus ownership and scroll 
+  12 did not run
+  34 passed (1.8m)
+  1 error was not a part of any test, see above for details
+undefined
+/Users/thomashall/Repositories/sg-ui/packages/ui:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config ../../docs/developer/final-acceptance/wave-03-integration/native.config.mjs --project chromium --output artifacts/wave03-integration/chromium-second

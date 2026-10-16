@@ -1,0 +1,353 @@
+[WebServer] (node:44694) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 62 tests using 1 worker
+
+(node:44695) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/browser/acceptance-touch-targets.spec.ts:4:1 › auto coarse-pointer and explicit touch preserve control targets, tag spacing, activation and focus (2.0s)
+  ✘   2 [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag (5.3s)
+(node:44757) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   3 [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag (5.4s)
+(node:44794) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   4 [chromium] › tests/browser/action-notifications.spec.ts:10:1 › owned ordinary/composed callbacks notify exactly once per pointer, Enter and Space (387ms)
+  ✓   5 [chromium] › tests/browser/action-notifications.spec.ts:34:1 › submit/reset press precedes one native form event for pointer, Enter and Space (242ms)
+  ✓   6 [chromium] › tests/browser/action-notifications.spec.ts:46:1 › emulated touch invokes one ordinary, anchor, toggle and native-form activation (504ms)
+  ✘   7 [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize light/compact (5.4s)
+(node:44846) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   8 [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize light/comfortable (5.4s)
+(node:44935) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   9 [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize dark/compact (5.4s)
+(node:44951) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  10 [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize dark/comfortable (5.4s)
+(node:44977) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [chromium] › tests/browser/card-container-boundary.spec.ts:7:1 › card query follows its allocation and preserves sibling and native focus (259ms)
+  ✓  12 [chromium] › tests/browser/date-entry-clipboard.spec.ts:15:22 › date: trusted text paste, native submit and reset preserve the accepted transaction (940ms)
+  ✓  13 [chromium] › tests/browser/date-entry-clipboard.spec.ts:15:22 › time: trusted text paste, native submit and reset preserve the accepted transaction (737ms)
+  ✓  14 [chromium] › tests/browser/date-entry-clipboard.spec.ts:15:22 › range: trusted text paste, native submit and reset preserve the accepted transaction (740ms)
+  ✓  15 [chromium] › tests/browser/date-entry-clipboard.spec.ts:57:1 › preset descriptions remain available during keyboard draft selection and Cancel (214ms)
+  ✘  16 [chromium] › tests/browser/editor-selection-editing-successors.spec.ts:5:1 › Escape from floating formatting returns to ordinary editing without a sticky selection (5.5s)
+(node:45039) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  17 [chromium] › tests/browser/editor-selection-editing-successors.spec.ts:33:1 › read-only invalidation removes floating actions and re-enabling preserves plain typing (626ms)
+  ✓  18 [chromium] › tests/browser/editor-style-range-transactions.spec.ts:11:3 › Uppercase respects native partial-run boundaries and saved history (479ms)
+  ✓  19 [chromium] › tests/browser/editor-style-range-transactions.spec.ts:11:3 › Clear Formatting respects native partial-run boundaries and saved history (513ms)
+  ✓  20 [chromium] › tests/browser/navigation-composed.spec.ts:18:3 › Fallback composed routes have one host owner for pointer and Enter (713ms)
+  ✓  21 [chromium] › tests/browser/navigation-composed.spec.ts:63:3 › Fallback consumer cancellation and callback order survive custom delegation (312ms)
+  ✘  22 [chromium] › tests/browser/navigation-composed.spec.ts:86:3 › Fallback modifier target download and external activation bypass host routing (316ms)
+Testing stopped early after 8 maximum allowed failures.
+
+
+  1) [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: 'Width of Name', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: 'Width of Name', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Width of Name', exact: true })
+        14 × locator resolved to <button data-rac="" tabindex="0" type="button" data-variant="text" data-tone="neutral" aria-expanded="false" data-sgui-part="button" class="sgui_root_4900c47b" aria-label="Width of Name" id="react-aria6293506228-_r_16_" data-react-aria-pressable="true">…</button>
+           - unexpected value "inactive"
+
+
+      71 |     await page.getByRole('button', { name: 'Narrower by 1 pixel', exact: true }).click();
+      72 |     await expect(page.getByRole('dialog', { name: `Width of ${label}`, exact: true })).toHaveCount(0);
+    > 73 |     await expect(trigger).toBeFocused();
+         |                           ^
+      74 |     await trigger.click();
+      75 |     await expect.poll(async () => Number(await input.inputValue())).toBeCloseTo(before - 1, 0);
+      76 |     await page.keyboard.press('Escape');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/acceptance-touch-targets.spec.ts:73:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/traces/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/traces/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: 'Width of Status', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: 'Width of Status', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Width of Status', exact: true })
+        14 × locator resolved to <button data-rac="" tabindex="0" type="button" data-variant="text" data-tone="neutral" aria-expanded="false" data-sgui-part="button" class="sgui_root_4900c47b" aria-label="Width of Status" id="react-aria5312335695-_r_2d_" data-react-aria-pressable="true">…</button>
+           - unexpected value "inactive"
+
+
+      71 |     await page.getByRole('button', { name: 'Narrower by 1 pixel', exact: true }).click();
+      72 |     await expect(page.getByRole('dialog', { name: `Width of ${label}`, exact: true })).toHaveCount(0);
+    > 73 |     await expect(trigger).toBeFocused();
+         |                           ^
+      74 |     await trigger.click();
+      75 |     await expect.poll(async () => Number(await input.inputValue())).toBeCloseTo(before - 1, 0);
+      76 |     await page.keyboard.press('Escape');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/acceptance-touch-targets.spec.ts:73:27
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/acceptance-touch-targets-m-5b630-ixel-changes-without-a-drag-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/traces/acceptance-touch-targets-m-5b630-ixel-changes-without-a-drag-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/acceptance-touch-targets-m-5b630-ixel-changes-without-a-drag-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/traces/acceptance-touch-targets-m-5b630-ixel-changes-without-a-drag-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize light/compact 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..')
+    Expected: "true"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..') with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..')
+
+
+      16 |   const leap=page.getByRole('button',{name:'Wednesday, February 29, 1984',exact:true});
+      17 |   await leap.focus();await leap.press('Enter');
+    > 18 |   await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');
+         |                                    ^
+      19 |   for(const width of [360,1100]){
+      20 |    await page.setViewportSize({width,height:900});
+      21 |    await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/calendar-navigation-reflow.spec.ts:18:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/calendar-navigation-reflow-6b7b9-on-and-resize-light-compact-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/traces/calendar-navigation-reflow-6b7b9-on-and-resize-light-compact-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/calendar-navigation-reflow-6b7b9-on-and-resize-light-compact-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/traces/calendar-navigation-reflow-6b7b9-on-and-resize-light-compact-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize light/comfortable 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..')
+    Expected: "true"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..') with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..')
+
+
+      16 |   const leap=page.getByRole('button',{name:'Wednesday, February 29, 1984',exact:true});
+      17 |   await leap.focus();await leap.press('Enter');
+    > 18 |   await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');
+         |                                    ^
+      19 |   for(const width of [360,1100]){
+      20 |    await page.setViewportSize({width,height:900});
+      21 |    await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/calendar-navigation-reflow.spec.ts:18:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/calendar-navigation-reflow-41452-nd-resize-light-comfortable-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/traces/calendar-navigation-reflow-41452-nd-resize-light-comfortable-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/calendar-navigation-reflow-41452-nd-resize-light-comfortable-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/traces/calendar-navigation-reflow-41452-nd-resize-light-comfortable-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize dark/compact 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..')
+    Expected: "true"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..') with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..')
+
+
+      16 |   const leap=page.getByRole('button',{name:'Wednesday, February 29, 1984',exact:true});
+      17 |   await leap.focus();await leap.press('Enter');
+    > 18 |   await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');
+         |                                    ^
+      19 |   for(const width of [360,1100]){
+      20 |    await page.setViewportSize({width,height:900});
+      21 |    await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/calendar-navigation-reflow.spec.ts:18:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/calendar-navigation-reflow-1fb57-ion-and-resize-dark-compact-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/traces/calendar-navigation-reflow-1fb57-ion-and-resize-dark-compact-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/calendar-navigation-reflow-1fb57-ion-and-resize-dark-compact-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/traces/calendar-navigation-reflow-1fb57-ion-and-resize-dark-compact-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize dark/comfortable 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator: getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..')
+    Expected: "true"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..') with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Wednesday, February 29, 1984', exact: true }).locator('..')
+
+
+      16 |   const leap=page.getByRole('button',{name:'Wednesday, February 29, 1984',exact:true});
+      17 |   await leap.focus();await leap.press('Enter');
+    > 18 |   await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');
+         |                                    ^
+      19 |   for(const width of [360,1100]){
+      20 |    await page.setViewportSize({width,height:900});
+      21 |    await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/calendar-navigation-reflow.spec.ts:18:36
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/calendar-navigation-reflow-6d202-and-resize-dark-comfortable-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/traces/calendar-navigation-reflow-6d202-and-resize-dark-comfortable-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/calendar-navigation-reflow-6d202-and-resize-dark-comfortable-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/traces/calendar-navigation-reflow-6d202-and-resize-dark-comfortable-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) [chromium] › tests/browser/editor-selection-editing-successors.spec.ts:5:1 › Escape from floating formatting returns to ordinary editing without a sticky selection 
+
+    Error: expect(locator).not.toHaveAttribute(expected) failed
+
+    Locator:  getByRole('textbox', { name: 'Saved rich document', exact: true })
+    Expected: not "true"
+    Received: "true"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "not toHaveAttribute" getByRole('textbox', { name: 'Saved rich document', exact: true }) with timeout 5000ms
+      - waiting for getByRole('textbox', { name: 'Saved rich document', exact: true })
+        14 × locator resolved to <div tabindex="0" role="textbox" spellcheck="true" contenteditable="true" data-focus-visible="true" data-lexical-editor="true" class="sgui_editable_3e23f37b" aria-label="Saved rich document">…</div>
+           - unexpected value "true"
+
+
+      24 |   await expect.poll(() => page.evaluate(() => window.getSelection()?.isCollapsed)).toBe(true);
+      25 |   await expect(toolbar).toBeHidden();
+    > 26 |   await expect(editor).not.toHaveAttribute('data-focus-visible', 'true');
+         |                            ^
+      27 |   await page.keyboard.press('Backspace');
+      28 |   await expect(editor.locator('p').filter({ hasText: /^Edit this ending$/ })).toHaveCount(1);
+      29 |   await page.getByRole('button', { name: 'Reload saved document', exact: true }).click();
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/editor-selection-editing-successors.spec.ts:26:28
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/editor-selection-editing-s-8d761--without-a-sticky-selection-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/traces/editor-selection-editing-s-8d761--without-a-sticky-selection-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/editor-selection-editing-s-8d761--without-a-sticky-selection-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/traces/editor-selection-editing-s-8d761--without-a-sticky-selection-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) [chromium] › tests/browser/navigation-composed.spec.ts:86:3 › Fallback modifier target download and external activation bypass host routing 
+
+    Error: download.saveAs: canceled
+
+      108 |     const download = await pendingDownload;
+      109 |     const destination = info.outputPath('composed.txt');
+    > 110 |     await download.saveAs(destination);
+          |                    ^
+      111 |     expect(await readFile(destination, 'utf8')).toBe('SGUI composed host');
+      112 |     expect(await download.failure()).toBeNull();
+      113 |     expect(download.suggestedFilename()).toBe('composed.txt');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/navigation-composed.spec.ts:110:20
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/navigation-composed-Fallba-eb08f-ivation-bypass-host-routing-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/traces/navigation-composed-Fallba-eb08f-ivation-bypass-host-routing-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/traces/navigation-composed-Fallba-eb08f-ivation-bypass-host-routing-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/traces/navigation-composed-Fallba-eb08f-ivation-bypass-host-routing-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8 failed
+    [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag 
+    [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag 
+    [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize light/compact 
+    [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize light/comfortable 
+    [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize dark/compact 
+    [chromium] › tests/browser/calendar-navigation-reflow.spec.ts:3:2 › K05 month/year navigation and resize dark/comfortable 
+    [chromium] › tests/browser/editor-selection-editing-successors.spec.ts:5:1 › Escape from floating formatting returns to ordinary editing without a sticky selection 
+    [chromium] › tests/browser/navigation-composed.spec.ts:86:3 › Fallback modifier target download and external activation bypass host routing 
+  40 did not run
+  14 passed (49.7s)
+  1 error was not a part of any test, see above for details
+undefined
+/Users/thomashall/Repositories/sg-ui/packages/ui:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config ../../docs/developer/final-acceptance/wave-03-integration/native.config.mjs --project chromium

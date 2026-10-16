@@ -1,0 +1,348 @@
+# Final acceptance execution
+
+The user requested starting final acceptance on 2026-10-16. This authorizes
+bounded acceptance reconciliation while the 20 editor presentation/RTL leaves
+remain open; it does not waive them or authorize production promotion. Preserve
+the historical baseline and regression evidence. Close only the named result.
+
+## Resume ledger
+
+**Current: 181/320 A leaves closed; 139 A, 20 editor V and six future leaves remain.**
+
+
+### Wave 03 integration and dev commit — 2026-10-16
+
+All forty handoffs reviewed; compatible source, tests, docs, fixtures and workflow
+changes integrated. Fourteen original definition/documentation/boundary/inventory
+obligations close with [per-leaf decisions](final-acceptance/wave-03-integration/reconciliation.json).
+The current counter is **139 A remaining**, plus20 editor V and six future items.
+The full migration and production/release gates remain open.
+
+The [push evidence](final-acceptance/wave-03-integration/push-evidence.json) retains
+exact candidate hashes, fresh library/type/foundation/token/docs/native-fixture/
+package/browser-type/release-policy checks, the1843-pass initial unit checkpoint
+and corrected23-case grid suite,190 current editor cases and focused control
+regressions. Native execution exposed and corrected additional selection, typing
+focus, width/focus and reset defects. The earlier native run's89passes,8failures,
+one unsupported emulation skip and64unrun cases remain recorded as such; it is
+**not a green complete browser matrix**. Corrected/remaining native cases, real
+profile autofill, physical touch, spoken AT, visual-baseline review, installed
+consumer matrices and owner/legal/CI approval are still explicit follow-ups.
+
+At the user's request, this integrated development snapshot is committed to dev
+and pushed without waiting for the full remaining acceptance matrix. No main
+promotion, release/tag/publication or manual version change is authorized here.
+The optional native-nesting proposal remains deferred on its stated support-floor
+condition; its prepared evidence is retained. Historical snapshots are unchanged.
+
+### Wave 03 — forty conversations dispatched
+
+At the user's request, forty new local conversations now own all **153 remaining
+A leaves exactly once**. [Dispatch registry](final-acceptance/wave-03-dispatch.json)
+records every thread ID, full original obligation, prior successor/evidence and
+specific objective. [Initial status snapshot](final-acceptance/wave-03-started.json)
+confirms all forty started. Twenty editor V and six future items stay separate.
+No acceptance item closes merely by dispatch.
+
+Each conversation owns its numbered wave-03 evidence directory and prepares
+concrete implementation/test/documentation patches there. Shared production edits,
+fixture/catalog builds, native execution and acceptance-count updates remain
+coordinator-owned. This protects the uncommitted dev checkout from forty writers
+changing the same source or build output. The [shared instructions](final-acceptance/wave-03-instructions.txt)
+require exact hashes/limits, reuse of unchanged passing results, report.md,
+results.json and a runnable validation-plan.json for remaining integration. Human
+screen-reader observations, legal/owner decisions and release approvals cannot be
+inferred from automated work. Resume by reading the registry and delivered reports;
+apply/review compatible patches and run only affected validation before closure.
+
+Wave 02 is complete: the original 15 conversations reviewed all 282 remaining A
+leaves exactly once. [Assignments](final-acceptance/wave-02-dispatch.json) and
+[reconciliation](final-acceptance/wave-02-reconciliation.json) retain original
+statements, report hashes and concrete successors: 127 complete, 154 partial,
+one blocked at review. Twelve additional user-authorized conversations delivered
+bounded source/documentation fixes. Coordinator integration closes two further
+contract/publication leaves, A-G-02 and A-K-16, with their original requirements
+preserved in the [supplement](final-acceptance/coordinator-integration/supplemental-reconciliation.json).
+This pass therefore closes **129 of 282**, retaining 152 partial and one blocked.
+A-X-11 requires actual screen-reader/operator evidence; DOM/axe/source inspection
+does not replace it. No dispatch alone earns closure.
+
+### Integrated corrections and validation — 2026-10-16
+
+[Integration evidence](final-acceptance/coordinator-integration/evidence.json)
+records current source/output hashes, fresh Node 24 library/type, package-import/
+consumer type and packed-file checks, foundation guard, docs production/catalog
+build and private docs-native fixture build. Focused native checks pass in
+Chromium, Firefox and WebKit: seven cases per engine, **21 executions**. The
+original 21-case run is retained; after adding the datetime host-policy change
+assertion only that affected case was rerun in all three engines. Eighteen
+unaffected passes plus three enriched passes cover the final test scope. A first
+private CalendarCell date type build failure and a hidden-checkbox test-driver
+failure remain preserved with their corrections; neither is hidden by a retry.
+
+| Correction | Result / retained evidence |
+| --- | --- |
+| BUG-0008 | Disabled/read-only Clear and commit guards; [coordinator unit/browser receipts](final-acceptance/coordinator-fixes/evidence.json). |
+| BUG-0009 | TextArea decorative slots, multiline alignment, form/ref semantics and eight independent source-backed variants; same receipts. |
+| BUG-0010 | DatePicker availability across text, segments and datetime; [37 affected units](final-acceptance/fix-08/results.json), native form rejection/recovery and Apply host-policy change. |
+| BUG-0011 | Callback/static Calendar reason descriptions and visible-interval keyboard disclosure; [Calendar/locale units](final-acceptance/fix-09/results.json), native name/description/disclosure checks. |
+| BUG-0012 | Shared reserved utility IDs reject __reorder before processing/render; [123 grid units](final-acceptance/fix-10/results.json), fresh declaration/consumer-import validation. |
+
+After shared DateField changes, 24 directly affected composed/transaction unit
+cases also pass. Five bugs are resolved, but their broader component and
+cross-library matrices remain partial. Source-backed examples compile against
+public package exports. Native means desktop browser execution here; no physical
+touch device, spoken AT, remote CI, full packed-consumer engine matrix, production
+approval or release is implied. All work remains uncommitted on dev.
+
+All twelve follow-up reports are reviewed in the
+[seven initial fixes](final-acceptance/fix-dispatch.json),
+[two calendar fixes](final-acceptance/calendar-fix-dispatch.json),
+[grid fix](final-acceptance/grid-fix-dispatch.json) and
+[two documentation fixes](final-acceptance/docs-fix-dispatch.json) registries.
+They repair token schema/action/CSS/dependency guidance, 36 stale extraction
+manifest rows, Brush mapping, read-only policy, calendar limits and one maintained
+local link. Historical provenance and partial successors remain intact. Of the
+old local-link audit's 119 missing-target records, 118 remaining records are
+historical/excluded; do not relabel those as 118 current maintained-guide bugs.
+
+Resume only specific successors from the reconciliation. Three type-only source
+cycles/enforcement, broader API defaults/history, native/visual/device/AT work,
+legal/owner review and the twenty editor V leaves remain separate. Prepared
+report-only cycle/focus patches were not applied without an established fix scope.
+
+### Parallel dispatch — 2026-10-16
+
+At the user's explicit request, 15 separate local conversations were created.
+All 15 delivered report.md and results.json, now reviewed. The
+[dispatch registry](final-acceptance/dispatch-2026-10-16.json)
+records all thread IDs, 55 distinct assigned acceptance leaves and report ownership.
+Each owns only its numbered parallel-01 through parallel-15 evidence directory;
+source/shared-checklist edits, builds and broad suites are coordinator-owned to
+avoid concurrent mutation. Each must deliver report.md and results.json with
+complete/partial/blocked leaf outcomes, exact evidence limits and successors.
+The [coordinator reconciliation](final-acceptance/parallel-reconciliation-2026-10-16.json)
+preserves all 55 original checklist statements, report/result hashes, outcomes and
+successors. **32 leaves accepted complete; 23 remain partial; none was marked
+blocked.** Completed rows were removed from the active checklist. Reports close
+only their original architecture/contract/inventory criteria, not unperformed
+browser, device, AT or release gates. All 1,778 outputs still match FA-01; library
+input differences remain exactly FA-04's four test/fixture changes. No shared
+production code was changed by these conversations. FA-01–04 evidence is retained.
+
+### Earlier first-review checkpoint (superseded by wave 02 above)
+
+At that checkpoint: **38 A leaves closed; 282 A, 20 V and six future leaves remained**.
+BUG-0008/9 are now fixed with [durable receipts](final-acceptance/coordinator-fixes/evidence.json):
+31 affected unit cases and four native cases in each of Chromium, Firefox and
+WebKit pass. All six TextArea geometry captures are preserved there; rendered
+review corrected initial icon centering through a scoped CSS specificity fix.
+Cancel, controlled authority, native forms, decorative naming and sibling source
+isolation remain covered. This does not close the broader A-A-06/A-A-10 leaves.
+At that checkpoint, the next implementation priorities were BUG-0010/11 and
+BUG-0012; those corrections are now validated above. Follow remaining specific successors; do not
+repeat completed inventories or unrelated passing suites. A-B-05 now has a
+469-contract public snapshot and 678 default candidates; normalize the remaining
+defaults/historical breaking deltas rather than recapturing those inputs.
+
+| Report | Complete | Partial | Main unfinished result |
+| --- | ---: | ---: | --- |
+| parallel-01 | 1 | 1 | Exhaustive defaults and historical API delta. |
+| parallel-02 | 1 | 1 | Three type-only source cycles and missing future cycle enforcement. |
+| parallel-03 | 3 | 0 | Architectural boundary obligations closed; optional date-type guard improvement retained. |
+| parallel-04 | 0 | 2 | Disabled/read-only Clear defect, readonly policy exceptions and stale action guidance. |
+| parallel-05 | 0 | 3 | All-public prop/naming/hook coverage and TextArea icon contract mismatch. |
+| parallel-06 | 3 | 0 | Compatibility naming obligations closed. |
+| parallel-07 | 2 | 1 | Dependency upgrade/deduplication guidance. |
+| parallel-08 | 3 | 1 | Current token schema/DTCG subset documentation. |
+| parallel-09 | 3 | 1 | Actual zoom/text-spacing/font-substitution evidence. |
+| parallel-10 | 1 | 3 | Target geometry, portaled scopes and system-theme hydration evidence. |
+| parallel-11 | 5 | 1 | Utility-layer composition and Popover important-declaration exception. |
+| parallel-12 | 5 | 3 | Current bundle/optical/RTL checks and missing Brush mapping documentation. |
+| parallel-13 | 2 | 3 | Current routing browser evidence and retained async error diagnostics. |
+| parallel-14 | 2 | 1 | Pseudo-localized/Arabic native and AT evidence. |
+| parallel-15 | 1 | 2 | 36 stale extraction-manifest rows and source-bound reference lineage. |
+
+The partial leaves stay open. Source-only reviews are not conformance audits.
+The focused parallel-04 defect characterizations ran on Node 26/jsdom, outside
+the supported Node 22/24 validation matrix; they reproduce faults but do not
+replace supported-runtime or native browser checks. No completed broad suite was
+rerun. Evidence stores exact input/host limitations, including missing older raw
+artifacts, rather than silently treating historical receipts as current runs.
+
+Read this ledger before scheduling work. Completed inventories remain dated
+evidence; do not regenerate them just because unrelated documentation changed.
+For behavioral acceptance, compare the saved source/output hashes with the inputs
+used by the relevant check. Rerun only changed or failed scopes. A changed shared
+dependency may affect multiple scopes; record those explicitly. Do not count old
+CI runs, build-only checks or DOM emulation as new browser/device/AT results.
+Keep logs in this repository rather than relying only on temporary paths.
+
+| Batch | Status | Completed leaves / evidence | Resume action |
+| --- | --- | --- | --- |
+| FA-01 | Complete | A-B-01/02/04; [inventory](final-acceptance/2026-10-16-inventory.json), [package transcript](final-acceptance/fa01-package.txt) | Reuse unless a new package snapshot is explicitly needed. |
+| FA-02 | Complete | A-B-03; [source/dependency inventory](final-acceptance/2026-10-16-source-inventory.json), [capture receipt](final-acceptance/fa02-capture.txt), [foundation transcript](final-acceptance/fa02-foundations.txt) | Reconcile new source/dependency changes as deltas; do not restart the original scan. |
+| FA-03 | Complete | A-B-11; support boundaries below | Recheck only when peers, engines, CI targets or consumer fixtures change. |
+| FA-04 | Complete | A-B-06; original failure, corrected affected suites, subsequent build/package/release transcripts below | Reuse unaffected results; rerun only changed inputs. This is not full production acceptance. |
+
+
+## FA-01: repository, guidance and public-entry inventory
+
+Closed leaves: **A-B-01, A-B-02, A-B-04**. Source base:
+`540f47d4059a9cea8890b80927f34f51ef2fbc3e`, modified `dev` checkout.
+The [machine-readable snapshot](final-acceptance/2026-10-16-inventory.json)
+records its capture timestamp, complete porcelain status including untracked
+files, local tags, local origin/dev tracking SHA, package metadata, export
+conditions, runtime/declaration names and SHA-256 hashes of library inputs and
+built output. It is working-tree evidence, not a committed final artifact.
+The historical migration-baseline snapshot is unchanged.
+
+| Leaf | Result and evidence | Limits |
+| --- | --- | --- |
+| A-B-01 | Snapshot of Git status/tags, package dependencies/peers/engine/publication metadata and all 238 concrete JavaScript entry paths after expanding wildcard icons. Current branch dev; local HEAD and origin/dev tracking ref match; no local tags. | No network fetch or remote release discovery. No commit, reset, clean, staging, push, version change or publication. Existing personal workspace file remains untouched. |
+| A-B-02 | Reviewed root AGENTS.md, README.md, docs/migration.md, docs/developer/component-architecture.md and docs/agent-guidance-migration.md before this batch. Guidance retains owned APIs/styles, host boundaries, docs/native fixture provenance, branch/release rules and bounded validation. | Guidance review does not certify every component's conformance. |
+| A-B-04 | TypeScript-resolved declaration export inventory, cross-checked with imported runtime names for every concrete JS route. `/primitives` has 36 values and 43 type-only exports. All 96 source icon-path modules and 97 experimental icon-path modules have public wildcard routes, including helper modules ending in Icon. The experimental activityTypeIcon direct path exposes the existing activity helper rather than a new icon component. | Counts include aliases and compatibility/helper paths, not unique visual glyphs. No promise of full behavioral API reconciliation, catalog conformance or AT output. |
+
+The inventory script resolves reexports through the TypeScript checker rather
+than guessing names from text. Runtime value exports must match declared value
+exports exactly. It captures each entry's type-only names and declaration hash;
+full prop signatures/defaults/deprecations and breaking-change mapping remain
+**A-B-05 / A-Z-13**. Every output file is hashed, including maps and CSS. Source
+hashes include untracked library files; deleted files are recorded as null.
+Regenerating the snapshot intentionally captures a new working-tree state.
+
+Reproduction from repository root (Node 24 / pnpm 10.29.3):
+
+```sh
+pnpm --filter @structured-growth/sg-ui build
+pnpm --filter @structured-growth/sg-ui test:package
+pnpm --filter @structured-growth/sg-ui exec node scripts/capture-acceptance-inventory.mjs
+```
+
+Validation: reused the fresh library build from the immediately preceding gesture
+batch; no library implementation changed afterward. A fresh `test:package`
+passed entry imports, consumer typechecking, source/client boundary and owned
+declaration checks, emitted-reference checks, and actual packed-file equality
+including export conditions, CSS side effects and notices. Inventory capture
+passed all 238 declaration/runtime comparisons. Logs:
+`/tmp/acceptance-inventory-package.log` and
+`/tmp/acceptance-inventory-capture.log`. The older package guidance's AppButton
+entry was corrected to the actual `/components/Button` route. No notices removed.
+
+At the FA-01 handoff the next leaf was **A-B-03**, source/dependency/generated-artifact
+inventory including hidden configuration and transitive dependencies. Existing
+package output guards are useful evidence but do not cover that entire leaf.
+**A-B-06** was still open at that handoff: FA-01 did not run the complete unit/release-policy
+baseline or final docs-owned native matrix. **A-Z-08** remains open for historical
+and legal-reference reconciliation beyond emitted implementation checks. Final
+acceptance and release completion remain open, independently of these three
+inventory leaves. Remaining counts: **317 A, 20 V, six future leaves**.
+
+## FA-02: dependency, source and generated-output inventory
+
+Closed leaf: **A-B-03**. The source report records 1,720 maintained text files,
+5,005 import/reexport references (including dynamic/import-type syntax), 619 JSX
+class bindings, 960 CSS selectors and 435 files with DOM-access review candidates.
+It includes eight hidden configuration files, including all six GitHub workflows
+and templates, plus the lockfile and three workspace manifests. Personal Obsidian
+state, `.env` files and this audit's generated reports are explicitly excluded;
+no credentials were read. Ignored generated library outputs and declarations
+are already enumerated and hashed in FA-01 rather than scanned as source again.
+
+The installed workspace dependency inventory covers production, development and
+optional groups for root, library and docs: 586 distinct name/version nodes and
+985 observed dependency edges from `pnpm -r list --depth Infinity --json`.
+The lockfile has its own source hash. This describes installed resolutions and
+deduplicated graph observations, not a fresh frozen installation or registry
+vulnerability/license audit. No retired @mui/@emotion package occurs in that graph.
+
+All four ambient module declarations were inspected: library and fixture CSS
+module typing, fixture-host globals and the editor-chrome browser-test globals.
+None is retired-foundation augmentation. There are no computed production-library
+module references. The 30 files with retired-reference candidates are classified:
+19 documentation/historical, nine guards/tests and two legal files. No production
+library source or active configuration dependency match was found. Preserved legal
+text is inventory evidence; **A-Z-05/06/08** remain open for provenance/legal closure.
+DOM candidates are syntactic occurrences, including types and tests, not findings
+of unsafe browser-global execution. **A-B-09** and SSR/device checks remain separate.
+
+Reproduction: `pnpm --filter @structured-growth/sg-ui exec node scripts/capture-source-acceptance.mjs`.
+The AST/PostCSS capture succeeded and the existing foundation source/transitive/
+token/layer guard passed. No library runtime, styling, public API or dependency
+manifest changed in this batch. Counts describe this dated snapshot and are not
+permanent thresholds.
+
+## FA-03: explicit support promises
+
+Closed leaf: **A-B-11**, configuration and promise reconciliation only. Evidence:
+`packages/ui/package.json`, `.nvmrc`, `.github/workflows/ci.yml`, the library/docs
+Playwright configurations and the foundation/editor/Next packed-consumer scripts.
+Their current bytes are captured in FA-02. Existing detailed receipts remain in
+[runtime/CI guidance](react-aria-runtime-ci.md) and
+[server boundaries](react-aria-server-components.md); older runs validate only
+their recorded heads. No remote CI run was queried or claimed for this checkout.
+
+| Concern | Declared/configured boundary | Evidence limit |
+| --- | --- | --- |
+| React | Peers `^18.3.1 || ^19.0.0` for React and React DOM. Packed fixtures pin 18.3.1 and 19.2.3. | No new compatibility range; current-head packed execution remains a separate gate. |
+| Node | Consumer/tool engine >=22.12.0; CI matrix 22.12.0 and 24; local development/publishing uses Node 24 and pnpm 10.29.3. | Current local batch uses 24.21.0; it does not establish a fresh Node 22 run. Browser runtime does not require Node. |
+| TypeScript | ESM declarations; repository dependency ^5; packed API fixture pins 5.9.3 with React-version-matched types and skipLibCheck. | No tested broader TS-version matrix or unchecked upstream-declaration guarantee. |
+| Bundler | Packed Vite 7.3.1 consumers; explicit ESM exports and separate CSS import. | No CommonJS export condition or universal bundler claim. |
+| Next.js | Representative packed Next 16.4.0 / React 19.2.3 App Router fixture; docs use Next 16.4.0. | Host/example only; not a library runtime dependency or all-version guarantee. |
+| SSR | Ordinary packed React 18/19 SSR fixtures; hydration is a separate browser execution with --browser. | Building a hydration entry alone is not an executed hydration result. |
+| React Server Components | React 19 official Flight fixture; source-owned client boundaries checked by package audit. | Interactive callbacks belong to host Client Components; representative proof does not certify every export/composition as server-executable. |
+| Browsers | Library/native and packed browser gates configure Chromium, Firefox and WebKit desktop engines with no retries. Public docs smoke configures Chromium. | No minimum browser-version policy, actual Safari/iOS/Android certification, physical-device or spoken-AT claim follows from Playwright engine configuration. |
+| CI | Full jobs target main pushes, non-dev PRs and workflow_call. | Ordinary dev work does not imply automatic full CI execution; a configured matrix is not evidence of a completed run. |
+
+No new support promises, workflow changes or requirement reductions were made.
+
+## FA-04: local unit/package/release and replacement-host baseline
+
+Closed leaf: **A-B-06**. The first `pnpm --filter @structured-growth/sg-ui check`
+passed foundation/token guards, 32 foundation tests and production typechecking,
+then failed nine unit cases in four files: 1,729 passed / 1,738 total. That exact
+[failure transcript](final-acceptance/fa04-original-check.txt) remains preserved;
+the original all-in-one command is not represented as a green run.
+
+All failures were reconciled with already requested calendar contracts:
+
+- The native segment-transaction fixture now explicitly sets entryMode=segments.
+- The endpoint-segment regression explicitly enables showFields and segments.
+- Preset interaction tests query the shipped single-select option role.
+- The controlled replacement test asserts that unchanged Apply closes without a
+  redundant change request, then makes a real end-date edit, checks its exact
+  callback and verifies that hidden values still follow the rejecting host.
+
+No production implementation or assertion was disabled. The
+[input delta](final-acceptance/fa04-library-input-delta.json) identifies exactly
+four changed library inputs relative to FA-02: one source-context fixture and
+three tests. The [affected rerun](final-acceptance/fa04-calendar-rerun.txt) passed
+all ten cases across those four previously failing suites. Retain the 1,728 passing
+cases outside that affected set: combined, all 1,738 cases in 279 suites now have
+passing evidence for their current inputs. One originally passing case in an
+affected suite is counted only once. No second full unit run was needed.
+
+The remaining stages ran separately after correction:
+
+- [Release policy](final-acceptance/fa04-release.txt): four checks pass.
+- [Fresh library build](final-acceptance/fa04-library.txt): passes.
+- [Docs-owned native fixture build/typecheck](final-acceptance/fa04-fixtures.txt): passes.
+- [Fresh package audit](final-acceptance/fa04-package.txt): imports, consumer types,
+  source/client boundary checks and actual packed-file equality pass.
+
+All 1,778 freshly built output hashes were also compared with FA-01: zero changed
+or missing files. This confirms that the test/fixture reconciliation left the
+library distributable unchanged and supports retaining unaffected prior evidence.
+
+The [production docs build](final-acceptance/fa04-retained-docs-build.txt) is retained
+from the preceding gesture batch: no docs application or library runtime source
+changed in this acceptance batch. Source-context fixture/test changes above do
+not alter that production application. These builds replace the original B-06
+Storybook-build requirement under the approved docs-host migration; Storybook
+is not restored. The complete native browser and packed-consumer engine matrices
+remain separate gates. This local Node 24 evidence is not a new remote CI result.
+
+The original unit log also retains jsdom not-implemented scrollBy/navigation
+diagnostics in passing tests. Those are recorded environment limitations, not
+evidence of browser behavior. No test runner settings or console output were
+suppressed. No production/main promotion, version edit or publication occurred.

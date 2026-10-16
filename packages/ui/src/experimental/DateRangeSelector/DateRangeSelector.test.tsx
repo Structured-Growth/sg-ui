@@ -16,23 +16,23 @@ it("validates leap years, inclusive boundaries and unavailable dates without tim
 });
 it("keeps presets in a draft until Apply and Cancel restores committed values", async () => {
   const user = userEvent.setup(); const change = vi.fn(); const cancel = vi.fn();
-  render(<form data-testid="form"><DateRangeSelector label="Reporting dates" defaultValue={initial} presets={[preset]} name="range" onValueChange={change} onCancel={cancel} /></form>);
+  render(<form data-testid="form"><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Reporting dates" defaultValue={initial} presets={[preset]} name="range" onValueChange={change} onCancel={cancel} /></form>);
   expect(screen.getAllByRole("grid")).toHaveLength(2);
-  await user.click(screen.getByRole("button", { name: "March" }));
+  await user.click(screen.getByRole("option", { name: "March" }));
   expect(change).not.toHaveBeenCalled();
   const form = screen.getByTestId("form") as HTMLFormElement;
   expect(new FormData(form).get("range.start")).toBe(initial.start);
   await user.click(screen.getByRole("button", { name: "Cancel" })); expect(cancel).toHaveBeenCalledOnce();
   expect(screen.getByRole("status").textContent).toContain(initial.start);
-  await user.click(screen.getByRole("button", { name: "March" }));
+  await user.click(screen.getByRole("option", { name: "March" }));
   await user.click(screen.getByRole("button", { name: "Apply" })); expect(change).toHaveBeenLastCalledWith(preset.value);
   expect(new FormData(form).get("range.end")).toBe(preset.value.end);
 });
 it("disables presets crossing unavailable dates, announces explanations and enforces required selection", async () => {
   const user = userEvent.setup();
-  render(<DateRangeSelector label="Booking dates" defaultFocusedDate="2024-03-01" required presets={[preset]}
+  render(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Booking dates" defaultFocusedDate="2024-03-01" required presets={[preset]}
     unavailable={[{ date: "2024-03-15", reason: "Fully booked" }]} />);
-  expect((screen.getByRole("button", { name: "March" }) as HTMLButtonElement).disabled).toBe(true);
+  expect(screen.getByRole("option", { name: "March" }).getAttribute("aria-disabled")).toBe("true");
   expect((screen.getByRole("button", { name: "Apply" }) as HTMLButtonElement).disabled).toBe(true);
   await user.click(screen.getByText("Unavailable dates")); expect(screen.getByText("2024-03-15: Fully booked")).toBeTruthy();
   const unavailable = screen.getAllByRole("button").find(button => button.getAttribute("aria-label")?.includes("March 15"));
@@ -40,30 +40,30 @@ it("disables presets crossing unavailable dates, announces explanations and enfo
 });
 it("requests a controlled commit once without changing committed form values", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  const { rerender } = render(<form data-testid="form"><DateRangeSelector label="Dates" value={initial} presets={[preset]} name="dates" onValueChange={change} /></form>);
-  await user.click(screen.getByRole("button", { name: "March" })); await user.click(screen.getByRole("button", { name: "Apply" }));
+  const { rerender } = render(<form data-testid="form"><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" value={initial} presets={[preset]} name="dates" onValueChange={change} /></form>);
+  await user.click(screen.getByRole("option", { name: "March" })); await user.click(screen.getByRole("button", { name: "Apply" }));
   expect(change).toHaveBeenCalledExactlyOnceWith(preset.value);
   expect(new FormData(screen.getByTestId("form") as HTMLFormElement).get("dates.start")).toBe(initial.start);
-  rerender(<form data-testid="form"><DateRangeSelector label="Dates" value={preset.value} name="dates" onValueChange={change} /></form>);
+  rerender(<form data-testid="form"><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" value={preset.value} name="dates" onValueChange={change} /></form>);
   expect(screen.getByRole("status").textContent).toContain(preset.value.start);
 });
-it("exposes visible descriptions for available and disabled presets without changing their names", () => {
-  render(<DateRangeSelector label="Dates" presets={[
+it("exposes accessible descriptions for available and disabled presets without changing their names", () => {
+  render(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" presets={[
     { ...preset, description: "Inclusive March dates" },
     { id: "early", label: "Early March", description: "Before capacity closes", value: { start: "2024-03-01", end: "2024-03-14" } },
   ]} unavailable={[{ date: "2024-03-15", reason: "Fully booked" }]} />);
   for (const [name, description] of [["March", "Inclusive March dates"], ["Early March", "Before capacity closes"]]) {
-    const button = screen.getByRole("button", { name, exact: true });
+    const button = screen.getByRole("option", { name, exact: true });
     const text = screen.getByText(description);
     expect(button.getAttribute("aria-describedby")).toBe(text.id);
     expect(text.closest("[hidden]")).toBeNull();
     expect(button.hasAttribute("title")).toBe(false);
   }
-  expect((screen.getByRole("button", { name: "March", exact: true }) as HTMLButtonElement).disabled).toBe(true);
+  expect(screen.getByRole("option", { name: "March", exact: true }).getAttribute("aria-disabled")).toBe("true");
 });
 it("preserves full date labels and describes keyboard-focused unavailable days without editing the draft", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  render(<DateRangeSelector label="Dates" months={1} defaultFocusedDate="2024-03-14"
+  render(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={1} defaultFocusedDate="2024-03-14"
     unavailable={[{ date: "2024-03-15", reason: "Fully booked" }]} onValueChange={change} />);
   const date = screen.getByRole("button", { name: /Thursday, March 14, 2024/ });
   date.focus(); await user.keyboard("{ArrowRight}");
@@ -79,24 +79,24 @@ it("preserves full date labels and describes keyboard-focused unavailable days w
   expect(screen.queryByText("2024-03-15: Fully booked", { selector: "p" })).toBeNull();
 });
 it("updates and removes host availability descriptions while preserving the date button", async () => {
-  const { rerender } = render(<DateRangeSelector label="Dates" months={1} defaultFocusedDate="2024-03-15"
+  const { rerender } = render(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={1} defaultFocusedDate="2024-03-15"
     unavailable={[{ date: "2024-03-15", reason: "Fully booked" }]} />);
   const date = screen.getByRole("button", { name: /Friday, March 15, 2024/ });
   const reasonId = date.getAttribute("aria-describedby")!;
   expect(document.getElementById(reasonId)?.textContent).toBe("Fully booked");
-  rerender(<DateRangeSelector label="Dates" months={1} defaultFocusedDate="2024-03-15"
+  rerender(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={1} defaultFocusedDate="2024-03-15"
     unavailable={[{ date: "2024-03-15", reason: "Maintenance" }]} />);
   expect(screen.getByRole("button", { name: /Friday, March 15, 2024/ })).toBe(date);
   expect(document.getElementById(reasonId)?.textContent).toBe("Maintenance");
   expect(date.getAttribute("aria-describedby")).toBe(reasonId);
-  rerender(<DateRangeSelector label="Dates" months={1} defaultFocusedDate="2024-03-15" />);
+  rerender(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={1} defaultFocusedDate="2024-03-15" />);
   expect(date.hasAttribute("aria-describedby")).toBe(false);
   expect(document.getElementById(reasonId)).toBeNull();
   expect(date.hasAttribute("aria-disabled")).toBe(false);
 });
 it("previews a keyboard range across leap day without applying the previous draft", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  render(<form data-testid="form"><DateRangeSelector label="Dates" months={2} defaultValue={initial}
+  render(<form data-testid="form"><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={2} defaultValue={initial}
     defaultFocusedDate="2024-02-28" name="dates" onValueChange={change} /></form>);
   screen.getAllByRole("button", { name: /Wednesday, February 28, 2024/ }).find(button => !button.hasAttribute("data-outside-month"))!.focus();
   await user.keyboard("{Enter}{ArrowRight}");
@@ -112,7 +112,7 @@ it("previews a keyboard range across leap day without applying the previous draf
 });
 it("cancels an anchor and starts a fresh range rather than retaining an unfinished selection", async () => {
   const user = userEvent.setup();
-  render(<DateRangeSelector label="Dates" months={1} defaultValue={initial} presets={[preset]} />);
+  render(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={1} defaultValue={initial} presets={[preset]} />);
   screen.getAllByRole("button", { name: /Wednesday, February 28, 2024/ }).find(button => !button.hasAttribute("data-outside-month"))!.focus();
   await user.keyboard("{Enter}{ArrowLeft}{ArrowLeft}");
   expect(screen.getByText(/Range preview: 2024-02-27/)).toBeTruthy();
@@ -121,7 +121,7 @@ it("cancels an anchor and starts a fresh range rather than retaining an unfinish
   expect(screen.getByRole("status").textContent).toContain("2024-02-28 – 2024-02-29");
   screen.getAllByRole("button", { name: /Wednesday, February 28, 2024/ }).find(button => !button.hasAttribute("data-outside-month"))!.focus();
   await user.keyboard("{Enter}");
-  await user.click(screen.getByRole("button", { name: "March", exact: true }));
+  await user.click(screen.getByRole("option", { name: "March", exact: true }));
   expect(screen.queryByText(/Range preview:/)).toBeNull();
   expect((screen.getByRole("button", { name: "Apply" }) as HTMLButtonElement).disabled).toBe(false);
 });
@@ -136,8 +136,8 @@ it("validates century leap and month/year boundaries with inclusive unavailable 
 });
 it("resets standalone committed values, drafts and pending anchors through the native form", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  render(<form data-testid="form"><DateRangeSelector label="Dates" months={1} defaultValue={initial} presets={[preset]} name="dates" onValueChange={change} /><button type="reset">Reset dates</button></form>);
-  await user.click(screen.getByRole("button", { name: "March", exact: true }));
+  render(<form data-testid="form"><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={1} defaultValue={initial} presets={[preset]} name="dates" onValueChange={change} /><button type="reset">Reset dates</button></form>);
+  await user.click(screen.getByRole("option", { name: "March", exact: true }));
   await user.click(screen.getByRole("button", { name: "Apply" }));
   await user.click(screen.getByRole("button", { name: "Reset dates" }));
   expect(new FormData(screen.getByTestId("form") as HTMLFormElement).get("dates.start")).toBe(initial.start);
@@ -151,8 +151,8 @@ it("resets standalone committed values, drafts and pending anchors through the n
 });
 it("retains a draft on prevented native reset and clears the anchor on a changed host value", async () => {
   const user = userEvent.setup();
-  const { rerender } = render(<form onReset={event => event.preventDefault()}><DateRangeSelector label="Dates" value={initial} months={1} presets={[preset]} /><button type="reset">Reset dates</button></form>);
-  await user.click(screen.getByRole("button", { name: "March", exact: true }));
+  const { rerender } = render(<form onReset={event => event.preventDefault()}><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" value={initial} months={1} presets={[preset]} /><button type="reset">Reset dates</button></form>);
+  await user.click(screen.getByRole("option", { name: "March", exact: true }));
   await user.click(screen.getByRole("button", { name: "Reset dates" }));
   expect(screen.getByRole("status").textContent).toContain("2024-03-01 – 2024-03-31");
   expect(screen.getAllByRole("spinbutton", { name: /day/ })[1].getAttribute("aria-valuenow")).toBe("31");
@@ -160,16 +160,16 @@ it("retains a draft on prevented native reset and clears the anchor on a changed
   screen.getByRole("button", { name: /Friday, March 1, 2024/ }).focus();
   await user.keyboard("{Enter}");
   expect(screen.getByText(/Range preview:/)).toBeTruthy();
-  rerender(<form><DateRangeSelector label="Dates" value={{ ...initial }} months={1} /></form>);
+  rerender(<form><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" value={{ ...initial }} months={1} /></form>);
   expect(screen.getByText(/Range preview:/)).toBeTruthy();
-  expect(screen.getByText("2024-03-01 – 2024-03-31", { selector: "p" })).toBeTruthy();
-  rerender(<form><DateRangeSelector label="Dates" value={{ start: "2024-04-01", end: "2024-04-02" }} months={1} /></form>);
+  expect(screen.getByRole("status").textContent).toBe("2024-03-01 – ");
+  rerender(<form><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" value={{ start: "2024-04-01", end: "2024-04-02" }} months={1} /></form>);
   expect(screen.queryByText(/Range preview:/)).toBeNull();
   expect(screen.getByRole("status").textContent).toContain("2024-04-01 – 2024-04-02");
 });
 it("synchronizes segmented edits and refuses reversed drafts", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  render(<DateRangeSelector label="Dates" months={1} defaultValue={initial}
+  render(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={1} defaultValue={initial}
     onValueChange={change} />);
   const days = screen.getAllByRole("spinbutton", { name: /day/ });
   await user.click(days[1]); await user.keyboard("27");
@@ -179,18 +179,18 @@ it("synchronizes segmented edits and refuses reversed drafts", async () => {
 });
 it("cancels an unfinished range on leaving the calendar without inventing an endpoint", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  render(<><DateRangeSelector label="Dates" months={2} defaultValue={initial} onValueChange={change} /><button>Outside</button></>);
+  render(<><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={2} defaultValue={initial} onValueChange={change} /><button>Outside</button></>);
   screen.getAllByRole("button", { name: /Wednesday, February 28, 2024/ }).find(button => !button.hasAttribute("data-outside-month"))!.focus();
   await user.keyboard("{Enter}{ArrowRight}");
   expect(screen.getByText(/Range preview: 2024-02-28 – 2024-03-01/)).toBeTruthy();
   await user.click(screen.getByRole("button", { name: "Outside", exact: true }));
   expect(screen.queryByText(/Range preview:/)).toBeNull();
-  expect(screen.getByRole("status").textContent).toContain("2024-02-28 – 2024-02-29");
+  expect(screen.getByRole("status").textContent).toBe("2024-02-28 – ");
   expect(change).not.toHaveBeenCalled();
 });
 it("associates only the focused preview endpoint, keeping anchor, reverse preview and committed draft distinct", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  const { container } = render(<form data-testid="form"><DateRangeSelector label="Dates" months={2} defaultValue={initial}
+  const { container } = render(<form data-testid="form"><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={2} defaultValue={initial}
     defaultFocusedDate={initial.start} name="dates" onValueChange={change} /></form>);
   const day = (name: RegExp) => screen.getAllByRole("button", { name }).find(button => !button.hasAttribute("data-outside-month"))!;
   const descriptions = (button: HTMLElement) => (button.getAttribute("aria-describedby") ?? "").split(/\s+/).map(id => document.getElementById(id)?.textContent).filter(Boolean).join(" ");
@@ -199,7 +199,7 @@ it("associates only the focused preview endpoint, keeping anchor, reverse previe
   const endpoint = day(/Tuesday, February 27, 2024/);
   expect(document.activeElement).toBe(endpoint);
   expect(descriptions(endpoint)).toContain("Range preview: 2024-02-27 – 2024-02-28");
-  expect(descriptions(endpoint)).toContain("Anchor: 2024-02-28. Focused endpoint: 2024-02-27. Draft: 2024-02-28 – 2024-02-29.");
+  expect(descriptions(endpoint)).toContain("Anchor: 2024-02-28. Focused endpoint: 2024-02-27. Draft: 2024-02-28 – .");
   expect(descriptions(anchor)).not.toContain("Range preview:");
   expect(container.querySelector('[data-sgui-part="date-range-preview"]')?.hasAttribute("role")).toBe(false);
   expect(new FormData(screen.getByTestId("form") as HTMLFormElement).get("dates.end")).toBe(initial.end);
@@ -218,20 +218,20 @@ it("uses the constrained endpoint at unavailable boundaries and removes preview 
   const user = userEvent.setup(); const change = vi.fn();
   const props = { label: "Dates", months: 1 as const, value: initial, defaultFocusedDate: initial.start,
     unavailable: [{ date: "2024-03-01", reason: "Closed" }], onValueChange: change };
-  const { rerender } = render(<DateRangeSelector {...props} />);
+  const { rerender } = render(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" {...props} />);
   const anchor = screen.getByRole("button", { name: /Wednesday, February 28, 2024/ });
   anchor.focus(); await user.keyboard("{Enter}{ArrowRight}");
   const endpoint = screen.getByRole("button", { name: /Thursday, February 29, 2024/ });
   expect(document.activeElement).toBe(endpoint);
   expect(screen.getByText(/Anchor: 2024-02-28. Focused endpoint: 2024-02-29/)).toBeTruthy();
   expect((screen.getByRole("button", { name: "Apply" }) as HTMLButtonElement).disabled).toBe(true);
-  rerender(<DateRangeSelector {...props} value={{ ...initial }} />);
+  rerender(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" {...props} value={{ ...initial }} />);
   expect(screen.getByText(/Anchor: 2024-02-28/)).toBeTruthy();
   await user.click(screen.getByRole("button", { name: "Cancel" }));
   expect(screen.queryByText(/Anchor:/)).toBeNull();
   expect(endpoint.getAttribute("aria-describedby") ?? "").not.toContain("preview");
   anchor.focus(); await user.keyboard("{Enter}");
-  rerender(<DateRangeSelector {...props} value={{ start: "2024-02-20", end: "2024-02-21" }} />);
+  rerender(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" {...props} value={{ start: "2024-02-20", end: "2024-02-21" }} />);
   expect(screen.queryByText(/Anchor:/)).toBeNull();
   expect(screen.getByRole("status").textContent).toBe("2024-02-20 – 2024-02-21");
   expect(change).not.toHaveBeenCalled();

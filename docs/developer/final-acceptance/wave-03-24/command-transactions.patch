@@ -1,0 +1,381 @@
+--- a/docs/developer/react-aria-editor-menus.md
++++ b/docs/developer/react-aria-editor-menus.md
+@@ -28,7 +28,9 @@
+ `disabled` disables the trigger. Native button ref/class/style are supported.
+ Logical start/end icons follow the rendered direction; physical left/right retain
+ their meaning. Displayed shortcuts describe host editor commands; the menu does
+-not register global keyboard shortcuts.
++not register global keyboard shortcuts. In `PageRichTextEditorSection`, the
++alignment trigger follows the selected paragraph, including loaded documents and
++Undo/Redo; standalone controls still use the host-supplied `value`.
+ 
+ ## TextStyleMenuControl (M-30)
+ 
+@@ -40,6 +42,14 @@
+ component has no typeface selection API; typeface/heading controls remain owned
+ by the host formatting toolbar. Labels and decorative case samples use shared
+ tokens; shortcuts remain informational.
++
++In the supplied `PageRichTextEditorSection` host, case conversion and Clear
++Formatting operate on the selected characters, preserving unselected portions of
++boundary runs. Case conversion at a caret leaves existing text unchanged; Clear
++Formatting at a caret resets future typing without restyling the containing run.
++Case conversion preserves the directed range, including characters whose uppercase
++mapping expands (for example `ß` to `SS`). Standalone menus still delegate these
++semantics to their host callbacks.
+ 
+ ## TextColorPickerControl (M-29)
+ 
+--- /dev/null
++++ b/packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx
+@@ -0,0 +1,197 @@
++// @vitest-environment jsdom
++import { useEffect } from "react";
++import { afterAll, afterEach, beforeAll, expect, it, vi } from "vitest";
++import { act, cleanup, render, screen, waitFor } from "@testing-library/react";
++import userEvent from "@testing-library/user-event";
++import { $getRoot, $getSelection, $isRangeSelection, $isElementNode, $isTextNode, type LexicalEditor } from "lexical";
++import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
++import { Provider } from "../../experimental/Provider/Provider";
++import { PageRichTextEditorSection } from "./PageRichTextEditorSection.impl";
++import { serializeEditorDocument } from "./lexical/serializeEditorDocument";
++
++let editor: LexicalEditor | undefined;
++function CaptureEditor() {
++  const [value] = useLexicalComposerContext();
++  useEffect(() => { editor = value; }, [value]);
++  return null;
++}
++// Instrument the real host; do not mock commands, toolbar callbacks, history or plugins.
++vi.mock("./lexical/ExperienceEditorPlugins", async () => {
++  const actual = await vi.importActual<typeof import("./lexical/ExperienceEditorPlugins")>("./lexical/ExperienceEditorPlugins");
++  return { ExperienceEditorPlugins: (props: { onChange: (value: unknown) => void }) =>
++    <><CaptureEditor /><actual.ExperienceEditorPlugins {...props} /></> };
++});
++// Only floating geometry is outside this composed-unit boundary.
++vi.mock("../FloatingTextSelectionToolbar", () => ({ FloatingTextSelectionToolbar: () => null }));
++const originalRect = Range.prototype.getBoundingClientRect;
++beforeAll(() => { Range.prototype.getBoundingClientRect = () => new DOMRect(0, 0, 0, 0); });
++afterAll(() => { if (originalRect) Range.prototype.getBoundingClientRect = originalRect;
++  else delete (Range.prototype as Partial<Range>).getBoundingClientRect; });
++afterEach(() => { cleanup(); editor = undefined; });
++const run = { type: "text", version: 1, text: "pre miXeD post", detail: 0, format: 3, mode: "normal", style: "font-family: Georgia; color: #123456; background-color: #abcdef;" };
++const initial = { root: { type: "root", version: 1, direction: null, format: "", indent: 0,
++  children: [{ type: "paragraph", version: 1, direction: null, format: "", indent: 0, children: [run] }] } };
++function saved() { return serializeEditorDocument(editor!.getEditorState().toJSON()); }
++function chars() {
++  return editor!.getEditorState().read(() => $getRoot().getAllTextNodes().flatMap(node => {
++    const style = Object.fromEntries(node.getStyle().split(";").filter(part => part.trim()).map(part => {
++      const colon = part.indexOf(":"); return [part.slice(0, colon).trim(), part.slice(colon + 1).trim()];
++    }));
++    return [...node.getTextContent()].map(text => ({ text, format: node.getFormat(), style }));
++  }));
++}
++async function select(start = 4, end = 9, backwards = false) {
++  await waitFor(() => expect(editor).toBeTruthy());
++  await act(async () => {
++    editor!.getRootElement()!.focus();
++    editor!.update(() => {
++      const paragraph = $getRoot().getFirstChildOrThrow();
++      if (!$isElementNode(paragraph)) throw new Error("Expected paragraph");
++      const text = paragraph.getFirstChildOrThrow();
++      if (!$isTextNode(text)) throw new Error("Expected text");
++      text.select(backwards ? end : start, backwards ? start : end);
++    }, { discrete: true });
++  });
++}
++function selectionText() { return editor!.getEditorState().read(() => {
++  const selection = $getSelection();
++  if (!$isRangeSelection(selection)) throw new Error("Expected retained range");
++  return { text: selection.getTextContent(), backwards: selection.isBackward(), collapsed: selection.isCollapsed() };
++}); }
++const styleCases = [
++  ["Lowercase", "mixed", 3, null], ["Uppercase", "MIXED", 3, null], ["Capitalize", "Mixed", 3, null],
++  ["Strikethrough", "miXeD", 7, null], ["Subscript", "miXeD", 35, null], ["Superscript", "miXeD", 67, null],
++  ["Highlight", "miXeD", 3, "#fff59d"], ["Clear Formatting", "miXeD", 0, "clear"],
++  ["Code", "miXeD", 19, null],
++] as const;
++for (const [label, text, format, background] of styleCases) {
++  it(`${label} changes only selected characters, retains selection, history and host reload`, async () => {
++    const user = userEvent.setup(); const firstChange = vi.fn(); const currentChange = vi.fn();
++    const view = (value: unknown, key: string, onChange: (value: unknown) => void) =>
++      <Provider><PageRichTextEditorSection lexicalValue={value} editorKey={key} toolPreset="full" onLexicalChange={onChange} /></Provider>;
++    const rendered = render(view(initial, "source", firstChange));
++    await select(4, 9, true);
++    const before = saved(); const beforeChars = chars(); const originalEditor = editor;
++    rendered.rerender(view(initial, "source", currentChange));
++    firstChange.mockClear(); currentChange.mockClear();
++    if (label === "Code") await user.click(screen.getByRole("button", { name: "Inline code", exact: true }));
++    else {
++      await user.click(screen.getByRole("button", { name: "Text style", exact: true }));
++      await user.click(screen.getByRole("menuitem", { name: label, exact: true }));
++    }
++    const expected = beforeChars.map((character, index) => index < 4 || index >= 9 ? character : {
++      ...character, text: text[index - 4], format,
++      style: background === "clear" ? {} : background ? { ...character.style, "background-color": background } : character.style,
++    });
++    await waitFor(() => expect(chars()).toEqual(expected));
++    expect(selectionText()).toEqual({ text, backwards: label !== "Highlight", collapsed: false });
++    const changed = saved();
++    await waitFor(() => expect(currentChange).toHaveBeenLastCalledWith(changed));
++    expect(firstChange).not.toHaveBeenCalled();
++    await user.click(screen.getByRole("button", { name: "Undo", exact: true }));
++    await waitFor(() => expect(saved()).toEqual(before));
++    await user.click(screen.getByRole("button", { name: "Redo", exact: true }));
++    await waitFor(() => expect(saved()).toEqual(changed));
++    rendered.rerender(view(changed, "reloaded", currentChange));
++    await waitFor(() => expect(editor).not.toBe(originalEditor));
++    expect(saved()).toEqual(changed);
++    await user.click(screen.getByRole("button", { name: "Undo", exact: true }));
++    expect(saved()).toEqual(changed);
++  });
++}
++
++for (const [mode, property] of [["Text color", "color"], ["Background color", "background-color"]] as const) {
++  it(`${mode} commits and clears selected-run CSS through real history`, async () => {
++    const user = userEvent.setup(); const change = vi.fn();
++    const rendered = render(<Provider><PageRichTextEditorSection lexicalValue={initial} editorKey="colors" toolPreset="full" onLexicalChange={change} /></Provider>);
++    await select(); const before = saved(); const beforeChars = chars();
++    await user.click(screen.getByRole("button", { name: mode, exact: true }));
++    const field = screen.getByRole("textbox", { name: "Hex color" });
++    await user.clear(field); await user.type(field, "#336699{Enter}");
++    const expected = beforeChars.map((character, index) => index < 4 || index >= 9 ? character : {
++      ...character, style: { ...character.style, [property]: "#336699" },
++    });
++    await waitFor(() => expect(chars()).toEqual(expected));
++    expect(selectionText().text).toBe("miXeD");
++    const colored = saved();
++    await user.click(screen.getByRole("button", { name: "Clear", exact: true }));
++    const clearedChars = expected.map((character, index) => {
++      if (index < 4 || index >= 9) return character;
++      const style = { ...character.style }; delete style[property]; return { ...character, style };
++    });
++    await waitFor(() => expect(chars()).toEqual(clearedChars));
++    const cleared = saved();
++    await user.keyboard("{Escape}");
++    await user.click(screen.getByRole("button", { name: "Undo", exact: true }));
++    await waitFor(() => expect(saved()).toEqual(colored));
++    await user.click(screen.getByRole("button", { name: "Undo", exact: true }));
++    await waitFor(() => expect(saved()).toEqual(before));
++    await user.click(screen.getByRole("button", { name: "Redo", exact: true }));
++    await waitFor(() => expect(saved()).toEqual(colored));
++    await user.click(screen.getByRole("button", { name: "Redo", exact: true }));
++    await waitFor(() => expect(saved()).toEqual(cleared));
++    expect(change).toHaveBeenLastCalledWith(cleared);
++    const originalEditor = editor;
++    rendered.rerender(<Provider><PageRichTextEditorSection lexicalValue={cleared} editorKey="colors-reloaded" toolPreset="full" onLexicalChange={change} /></Provider>);
++    await waitFor(() => expect(editor).not.toBe(originalEditor));
++    expect(saved()).toEqual(cleared);
++    await user.click(screen.getByRole("button", { name: "Undo", exact: true }));
++    expect(saved()).toEqual(cleared);
++  });
++}
++
++it("case conversion expands only the selected Unicode run and retains the full transformed range", async () => {
++  const user = userEvent.setup();
++  const value = { root: { ...initial.root, children: [{ ...initial.root.children[0], children: [{ ...run, text: "aßz" }] }] } };
++  render(<Provider><PageRichTextEditorSection lexicalValue={value} editorKey="unicode" toolPreset="full" onLexicalChange={vi.fn()} /></Provider>);
++  await select(1, 2, true);
++  await user.click(screen.getByRole("button", { name: "Text style", exact: true }));
++  await user.click(screen.getByRole("menuitem", { name: "Uppercase", exact: true }));
++  await waitFor(() => expect(editor!.getEditorState().read(() => $getRoot().getTextContent())).toBe("aSSz"));
++  expect(selectionText()).toEqual({ text: "SS", backwards: true, collapsed: false });
++});
++
++for (const label of ["Uppercase", "Clear Formatting"]) {
++  it(`${label} at a caret preserves existing content`, async () => {
++    const user = userEvent.setup();
++    render(<Provider><PageRichTextEditorSection lexicalValue={initial} editorKey="caret" toolPreset="full" onLexicalChange={vi.fn()} /></Provider>);
++    await select(6, 6); const before = chars();
++    await user.click(screen.getByRole("button", { name: "Text style", exact: true }));
++    await user.click(screen.getByRole("menuitem", { name: label, exact: true }));
++    await waitFor(() => expect(chars()).toEqual(before));
++    expect(selectionText().collapsed).toBe(true);
++  });
++}
++
++for (const [label, format] of [["Left Align", "left"], ["Center Align", "center"], ["Right Align", "right"],
++  ["Justify Align", "justify"], ["Start Align", "start"], ["End Align", "end"]] as const) {
++  it(`${label} transforms the real selected paragraph and restores exact history`, async () => {
++    const user = userEvent.setup(); const change = vi.fn();
++    const value = { root: { ...initial.root, children: [{ ...initial.root.children[0], format: format === "right" ? "center" : "right" },
++      { ...initial.root.children[0], children: [{ ...run, text: "Adjacent paragraph" }] }] } };
++    const rendered = render(<Provider><PageRichTextEditorSection lexicalValue={value} editorKey="align" toolPreset="full" onLexicalChange={change} /></Provider>);
++    await select(); const before = saved();
++    const previousChars = chars();
++    await user.click(screen.getByRole("button", { name: format === "right" ? "Center Align" : "Right Align", exact: true }));
++    await user.click(screen.getByRole("menuitemradio", { name: label, exact: true }));
++    await waitFor(() => expect(saved().root.children[0]).toEqual({ ...before.root.children[0], format }));
++    expect(saved().root.children[1]).toEqual(before.root.children[1]);
++    expect(chars()).toEqual(previousChars);
++    expect(selectionText().text).toBe("miXeD");
++    const next = saved();
++    expect(screen.getByRole("button", { name: label, exact: true })).toBeTruthy();
++    expect(change).toHaveBeenLastCalledWith(next);
++    await user.click(screen.getByRole("button", { name: "Undo", exact: true }));
++    await waitFor(() => expect(saved()).toEqual(before));
++    expect(screen.getByRole("button", { name: format === "right" ? "Center Align" : "Right Align", exact: true })).toBeTruthy();
++    await user.click(screen.getByRole("button", { name: "Redo", exact: true }));
++    await waitFor(() => expect(saved()).toEqual(next));
++    expect(screen.getByRole("button", { name: label, exact: true })).toBeTruthy();
++    const originalEditor = editor;
++    rendered.rerender(<Provider><PageRichTextEditorSection lexicalValue={next} editorKey="align-reloaded" toolPreset="full" onLexicalChange={change} /></Provider>);
++    await waitFor(() => expect(editor).not.toBe(originalEditor));
++    expect(saved()).toEqual(next);
++    await user.click(screen.getByRole("button", { name: "Undo", exact: true }));
++    expect(saved()).toEqual(next);
++  });
++}
+--- a/packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx
++++ b/packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx
+@@ -164,7 +164,14 @@
+   if (!$isRangeSelection(selection)) {
+     return;
+   }
+-  const nodes = selection.getNodes();
++  // A caret changes future typing, never the entire containing text run.
++  if (selection.isCollapsed()) {
++    selection.setFormat(0);
++    selection.setStyle("");
++    return;
++  }
++  // Split boundary runs before mutating so unselected content retains its styles.
++  const nodes = selection.extract();
+   for (const node of nodes) {
+     if ($isTextNode(node)) {
+       for (const format of FORMAT_CLEAR_LIST) {
+@@ -175,13 +182,8 @@
+       node.setStyle("");
+     }
+   }
+-  $patchStyleText(selection, {
+-    [TEXT_VARIANT_MARKER_PROPERTY]: "",
+-    "background-color": "",
+-    color: "",
+-    "font-family": "",
+-    "font-size": "",
+-  });
++  selection.setFormat(0);
++  selection.setStyle("");
+ }
+ 
+ export type PageRichTextEditorSectionProps = {
+@@ -212,12 +214,14 @@
+ };
+ 
+ function ToolbarBridge({
++  onAlignmentChange,
+   onStateChange,
+   onReady,
+   onSelectionSnapshotChange,
+   readOnly,
+ }: {
+   readOnly: boolean;
++  onAlignmentChange: (next: AlignOption) => void;
+   onStateChange: (nextState: ToolbarState) => void;
+   onReady: (editor: LexicalEditor) => void;
+   onSelectionSnapshotChange: (snapshot: RangeSelectionSnapshot | null) => void;
+@@ -237,6 +241,7 @@
+           const selection = $getSelection();
+           if (!$isRangeSelection(selection)) {
+             onSelectionSnapshotChange(null);
++            onAlignmentChange("left");
+             onStateChange({
+               bold: false,
+               code: false,
+@@ -261,6 +266,7 @@
+           // Deleting a selected decorator can place the caret on the root.
+           // A root range is valid, but has no top-level parent to inspect.
+           const topLevel = anchorNode.getTopLevelElement();
++          onAlignmentChange($isElementNode(topLevel) ? topLevel.getFormatType() || "left" : "left");
+           const heading = $isHeadingNode(topLevel)
+             ? (topLevel.getTag() === "h1"
+                 ? "Heading 1"
+@@ -296,7 +302,7 @@
+         });
+       }),
+     );
+-  }, [editor, onSelectionSnapshotChange, onStateChange]);
++  }, [editor, onAlignmentChange, onSelectionSnapshotChange, onStateChange]);
+ 
+   return null;
+ }
+@@ -581,10 +587,18 @@
+       if (!$isRangeSelection(selection)) {
+         return;
+       }
+-      const nodes = selection.getNodes();
++      if (selection.isCollapsed()) return;
++      const nodes = selection.extract();
+       for (const node of nodes) {
+         if ($isTextNode(node)) {
++          const previousLength = node.getTextContentSize();
+           node.setTextContent(transform(node.getTextContent()));
++          // Case conversion can expand a character (for example ß → SS).
++          for (const point of [selection.anchor, selection.focus]) {
++            if (point.key === node.getKey() && point.offset === previousLength) {
++              point.set(node.getKey(), node.getTextContentSize(), "text");
++            }
++          }
+         }
+       }
+     });
+@@ -1031,7 +1045,7 @@
+                 onRequestLinkMouseDown={capturePendingLinkSelection}
+               />
+             )}
+-            <ToolbarBridge readOnly={readOnly}
++            <ToolbarBridge readOnly={readOnly} onAlignmentChange={setAlignment}
+               onReady={(editor) => setEditorRef(editor)}
+               onSelectionSnapshotChange={(snapshot) => {
+                 selectionSnapshotRef.current = snapshot;
+--- /dev/null
++++ b/packages/ui/tests/browser/editor-style-range-transactions.spec.ts
+@@ -0,0 +1,47 @@
++import { expect, test, type Page } from '@playwright/test';
++type Run = { text: string; format: number; style: string; type: string; version: number; detail: number; mode: string };
++type SavedDocument = { root: { children: { children: Run[] }[] } };
++async function saved(page: Page): Promise<SavedDocument> {
++  return JSON.parse((await page.getByLabel('Saved mixed formatting JSON').textContent())!);
++}
++function characters(value: SavedDocument) {
++  return value.root.children[0].children.flatMap(run => [...run.text].map(text => ({ ...run, text })));
++}
++for (const label of ['Uppercase', 'Clear Formatting'] as const) {
++  test(`${label} respects native partial-run boundaries and saved history`, async ({ page }, info) => {
++    await page.goto('/fixtures/?id=editors-pagerichtexteditorsection-mixed-formatting--mixed-run-history&globals=theme:light;a11y.manual:!true');
++    const editor = page.getByRole('textbox', { name: 'Mixed formatting document', exact: true });
++    await editor.click();
++    await expect(editor).toBeFocused();
++    await page.keyboard.press(process.platform === 'darwin' ? 'Meta+ArrowLeft' : 'Home');
++    await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowRight');
++    for (let index = 0; index < 'ld plain Ita'.length; index++) await page.keyboard.press('Shift+ArrowRight');
++    // Observe only. Selection setup uses native pointer/keyboard input.
++    await expect.poll(() => editor.evaluate(() => window.getSelection()?.toString())).toBe('ld plain Ita');
++    const before = await saved(page);
++    const expected = characters(before).map((character, index) => index < 2 || index >= 14 ? character : {
++      ...character, text: label === 'Uppercase' ? character.text.toUpperCase() : character.text,
++      format: label === 'Clear Formatting' ? 0 : character.format,
++      style: label === 'Clear Formatting' ? '' : character.style,
++    });
++    await page.getByRole('button', { name: 'Text style', exact: true }).click();
++    await page.keyboard.press(label === 'Uppercase' ? 'Home' : 'End');
++    if (label === 'Uppercase') await page.keyboard.press('ArrowDown');
++    await expect(page.getByRole('menuitem', { name: label, exact: true })).toBeFocused();
++    await page.keyboard.press('Enter');
++    await expect.poll(async () => characters(await saved(page))).toEqual(expected);
++    await expect(editor).toBeFocused();
++    await expect.poll(() => editor.evaluate(() => window.getSelection()?.toString())).toBe(label === 'Uppercase' ? 'LD PLAIN ITA' : 'ld plain Ita');
++    const changed = await saved(page);
++    await page.getByRole('button', { name: 'Undo', exact: true }).click();
++    await expect.poll(() => saved(page)).toEqual(before);
++    await page.getByRole('button', { name: 'Redo', exact: true }).click();
++    await expect.poll(() => saved(page)).toEqual(changed);
++    await page.getByRole('button', { name: 'Reload saved mixed document', exact: true }).click();
++    await expect.poll(() => saved(page)).toEqual(changed);
++    await expect(editor).toHaveText(label === 'Uppercase' ? 'BoLD PLAIN ITAlic' : 'Bold plain Italic');
++    await page.getByRole('button', { name: 'Undo', exact: true }).click();
++    await expect.poll(() => saved(page)).toEqual(changed);
++    await info.attach('style-range-before-after', { body: JSON.stringify({ before, changed }), contentType: 'application/json' });
++  });
++}

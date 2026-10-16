@@ -1,0 +1,103 @@
+{
+  "number": 25,
+  "title": "Editor selection nodes and input",
+  "ids": [
+    "A-M-25",
+    "A-M-34",
+    "A-E-02",
+    "A-E-05"
+  ],
+  "focus": "Finish node/plugin round trips, floating selection cleanup and real typing/IME/paste/readonly successors. Preserve no-highlight editing fix and normal keyboard editing; explicitly separate IME simulation from actual composition evidence.",
+  "directory": "docs/developer/final-acceptance/wave-03-25",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-M-25": "- [ ] A-M-25 Reconcile FloatingTextSelectionToolbar final acceptance: Selection anchoring, focus preservation, overlay cleanup, keyboard access. Link its `F-C25`, `T-C25` and `V-C25` evidence and any unresolved defects.",
+    "A-M-34": "- [ ] A-M-34 Reconcile PageRichTextEditorSection final acceptance: Editor composition, nodes/plugins, serialization and selection behavior. Link its `F-C34`, `T-C34` and `V-C34` evidence and any unresolved defects.",
+    "A-E-02": "- [ ] A-E-02 Reconcile original `E-02`: Preserve existing nodes/plugins: ImageNode, image insertion, horizontal-rule selection, editor configuration, and experience plugins; test saved-content round trips. Historical status: open.",
+    "A-E-05": "- [ ] A-E-05 Reconcile original `E-05`: Address IME composition, paste, keyboard shortcuts, read-only/disabled state, and toolbar accessibility without hijacking ordinary editing keys. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-M-25": {
+      "id": "A-M-25",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-M-25 Reconcile FloatingTextSelectionToolbar final acceptance: Selection anchoring, focus preservation, overlay cleanup, keyboard access. Link its `F-C25`, `T-C25` and `V-C25` evidence and any unresolved defects.",
+      "conversationNumber": 3,
+      "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+      "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+      "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+      "successors": [
+        {
+          "id": "W03-C25-V",
+          "deliverable": "Review selected-text geometry, wrapping and viewport/boundary collisions at narrow width, both themes/densities, and Arabic RTL names/order. Exercise Alt+F10, Escape, scroll while a toolbar button is focused and read-only/unmount cleanup using native selection.",
+          "acceptanceEvidenceRequired": "Close V-C25-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-M-34": {
+      "id": "A-M-34",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-M-34 Reconcile PageRichTextEditorSection final acceptance: Editor composition, nodes/plugins, serialization and selection behavior. Link its `F-C34`, `T-C34` and `V-C34` evidence and any unresolved defects.",
+      "conversationNumber": 3,
+      "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+      "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+      "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+      "successors": [
+        {
+          "id": "W03-C34-V",
+          "deliverable": "Review the full composed editor with saved rich content, narrow scroll region, table overflow, long translated controls, both themes/densities and Arabic RTL. Finish only missing E-02/04/05/06/07 successors below; do not rerun completed clipboard/image/selection cases.",
+          "acceptanceEvidenceRequired": "Close V-C34-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        },
+        {
+          "id": "W03-C34-E",
+          "deliverable": "Reconcile the missing E-family command/content/IME/trust rows from command-and-trust-matrix.md.",
+          "acceptanceEvidenceRequired": "Retain one result per missing row; no duplicate suite or broad parent closure from one fixture."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-E-02": {
+      "id": "A-E-02",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-E-02 Reconcile original `E-02`: Preserve existing nodes/plugins: ImageNode, image insertion, horizontal-rule selection, editor configuration, and experience plugins; test saved-content round trips. Historical status: open.",
+      "conversationNumber": 3,
+      "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+      "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+      "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+      "successors": [
+        {
+          "id": "W03-E02-ROUNDTRIP",
+          "deliverable": "Complete the node/plugin-to-fixture inventory in command-and-trust-matrix.md against approved consumer saved documents. Add missing schema/version/malformed input and node combinations only; preserve author metadata and public link spelling.",
+          "acceptanceEvidenceRequired": "Per missing document fixture: input JSON, registered type/plugin, output JSON comparison after edit/reload/read-only and error policy, exact source/test hashes; reuse existing golden round trips."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-E-05": {
+      "id": "A-E-05",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-E-05 Reconcile original `E-05`: Address IME composition, paste, keyboard shortcuts, read-only/disabled state, and toolbar accessibility without hijacking ordinary editing keys. Historical status: open.",
+      "conversationNumber": 3,
+      "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+      "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+      "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+      "successors": [
+        {
+          "id": "W03-E05-IME",
+          "deliverable": "An operator must exercise real OS IME composition (Japanese/Chinese/Korean as supported by host) in editable content/title/color draft, including Enter/Escape, conversion, paste, undo and read-only transitions.",
+          "acceptanceEvidenceRequired": "Named OS/browser/IME versions, text/caret/host callback outcomes; composing Enter never commits a title/color prematurely or replaces native editor conversion."
+        },
+        {
+          "id": "W03-E05-DEVICE-AT",
+          "deliverable": "Run the remaining physical-device clipboard and manual editor/toolbar screen-reader review with ordinary editing keys and Alt+F10/Escape.",
+          "acceptanceEvidenceRequired": "Operator/device/OS/browser/AT versions and spoken/focus findings; preserve missing outcomes rather than substituting axe or jsdom."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

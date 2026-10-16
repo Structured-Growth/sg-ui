@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "owner": "parallel-07",
+  "date": "2026-10-16",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "scope": "A-A-16, A-A-17, A-A-19 only; report dispositions for coordinator reconciliation.",
+  "summary": {
+    "complete": [
+      "A-A-16",
+      "A-A-17"
+    ],
+    "partial": [
+      "A-A-19"
+    ],
+    "blocked": []
+  },
+  "report": "report.md",
+  "receipt": "input-receipt.json",
+  "reproduction": "python3 docs/developer/final-acceptance/parallel-07/reconcile.py",
+  "checksPerformed": [
+    {
+      "kind": "read-only review",
+      "result": "Reviewed full original leaves and current architecture, contracts, source, tests, manifests and retained FA-01\u201304 evidence. Historical checkbox statuses were not treated as closure."
+    },
+    {
+      "kind": "bounded input hash reconciliation",
+      "command": "python3 docs/developer/final-acceptance/parallel-07/reconcile.py",
+      "result": {
+        "selectedRoots": 9,
+        "relativeImportClosureFiles": 256,
+        "unresolvedRelativeImports": 0,
+        "totalSelectedInputs": 276,
+        "changedInputs": [
+          "docs/developer/react-aria-final-acceptance.md",
+          "docs/developer/react-aria-hardening-tasks.md"
+        ],
+        "librarySourceTestConfigurationChanges": 0,
+        "selectedOutputHashesEqualFA01": 4
+      },
+      "limits": "Resolves saved FA-02 graph; not a regenerated full source/output inventory."
+    },
+    {
+      "kind": "retained test evidence review",
+      "sources": [
+        "../fa04-original-check.txt",
+        "../fa04-calendar-rerun.txt",
+        "../fa04-library-input-delta.json",
+        "../fa02-foundations.txt",
+        "../fa04-package.txt"
+      ],
+      "result": "Retained unaffected guard/type/unit/package evidence; no tests rerun because relevant selected inputs are unchanged."
+    },
+    {
+      "kind": "bounded production source search",
+      "pattern": "fetch\\(|axios|XMLHttpRequest|supabase|/api/|https?://",
+      "scope": "packages/ui/src .ts/.tsx excluding tests and native fixtures",
+      "result": "Only LinkUrlModal placeholder/URL normalization and local sentinel URL bases in link/image policy; no network-service implementation found by this textual search.",
+      "limits": "Not an exhaustive capability/security audit; links/images and host callbacks can cause requests."
+    },
+    {
+      "kind": "dependency policy consistency review",
+      "result": "Exact runtime/peer versions and duplicate/date identity policy present; root manifest link, retired branch and active Storybook instructions stale."
+    }
+  ],
+  "leaves": [
+    {
+      "id": "A-A-16",
+      "status": "complete",
+      "originalRequirement": "Keep replacement implementations swappable behind observable behavior tests; do not promise a later rewrite will be cost-free or entirely nonbreaking.",
+      "finding": "Owned props/values/native refs and internal interaction mappings plus behavior-oriented tests protect consumer outcomes; architecture and migration guidance explicitly name engineering cost, potential API changes and revalidation for future engine replacement.",
+      "sourceReferences": [
+        "docs/developer/react-aria-architecture.md:25-44,59-79,96-108",
+        "docs/migration.md:135-139",
+        "packages/ui/scripts/check-foundations.mjs:9-52,79-95",
+        "packages/ui/scripts/check-package.mjs:9-21,64-77"
+      ],
+      "testReferences": [
+        "packages/ui/src/components/Button/Button.public-contract.test.tsx:12-56",
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx:16-54",
+        "packages/ui/src/experimental/DataGrid/DataGrid.test.tsx:64-111",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.behavior.test.tsx:13-51"
+      ],
+      "evidence": [
+        "input-receipt.json",
+        "../fa04-original-check.txt",
+        "../fa02-foundations.txt",
+        "../fa04-package.txt"
+      ],
+      "limits": [
+        "Architecture/documentation reconciliation only; no new native/browser/device/AT result.",
+        "Working-tree evidence at the recorded head, with selected input hashes in input-receipt.json; not an immutable committed artifact.",
+        "FA-04 original full invocation failed; only the documented affected rerun resolves those failures. Selected passing tests are supported by the aggregate retained receipt, not fresh per-case traces.",
+        "All 20 editor V leaves and other unrelated acceptance obligations remain open; no release or production promotion authorized.",
+        "No engine replacement was attempted or certified. Selected tests demonstrate observable boundaries, not exhaustive all-component coverage."
+      ],
+      "requiredSuccessors": [],
+      "futureConditions": [
+        "Any future engine replacement must preserve meaningful observable contract tests, review intentional API breaks/migration markers and execute affected native/accessibility/SSR/package acceptance at its candidate head."
+      ]
+    },
+    {
+      "id": "A-A-17",
+      "status": "complete",
+      "originalRequirement": "Define extension points for advanced components without placing backend scheduling, booking, permission, or account logic inside UI controls.",
+      "finding": "Advanced grid row/render/state/reorder, calendar civil values/availability/presets/day content, editor JSON/assets/tool policy, account adapter and remote-search callbacks provide host extension boundaries. Backend reservations/conflicts/permissions/accounts/requests and persistence remain host-owned; UI owns drafts, presentation validation and local lifetimes.",
+      "sourceReferences": [
+        "docs/developer/react-aria-architecture.md:103-108",
+        "docs/developer/react-aria-catalog-grid.md:31-36",
+        "docs/developer/react-aria-grid-contracts.md:218-222",
+        "packages/ui/src/experimental/DataGrid/types.ts:3-47",
+        "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts:6-34",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx:24-100",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx:187-215",
+        "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx:12-65",
+        "docs/developer/react-aria-editor-section.md:55-65",
+        "packages/ui/src/adapters/accounts.tsx:3-29",
+        "packages/ui/src/experimental/SearchField/SearchField.tsx:18-60"
+      ],
+      "testReferences": [
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx:16-54",
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.behavior.test.tsx:38-51",
+        "packages/ui/src/components/ImageUploadModal/ImageUploadModal.test.tsx:56-107,153-177",
+        "packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx:15-63",
+        "packages/ui/src/adapters/accounts.test.tsx:9-44"
+      ],
+      "evidence": [
+        "input-receipt.json",
+        "../fa04-original-check.txt"
+      ],
+      "limits": [
+        "Architecture/documentation reconciliation only; no new native/browser/device/AT result.",
+        "Working-tree evidence at the recorded head, with selected input hashes in input-receipt.json; not an immutable committed artifact.",
+        "FA-04 original full invocation failed; only the documented affected rerun resolves those failures. Selected passing tests are supported by the aggregate retained receipt, not fresh per-case traces.",
+        "All 20 editor V leaves and other unrelated acceptance obligations remain open; no release or production promotion authorized.",
+        "UI disabled/readOnly/policy predicates do not enforce authorization. Editor resource-lifetime test mocks floating toolbar geometry; no focus/selection conformance inferred."
+      ],
+      "requiredSuccessors": [],
+      "futureConditions": [
+        "FUT-K-15 appointment/course-session compositions remain future; retain host booking/conflict/reservation/persistence ownership."
+      ],
+      "adjacentSuccessors": [
+        "P07-CALENDAR-DOC"
+      ]
+    },
+    {
+      "id": "A-A-19",
+      "status": "partial",
+      "originalRequirement": "Document package dependency placement, supported versions, upgrade policy, and deduplication requirements for React Aria and date utilities.",
+      "finding": "Correct exact runtime dependency/peer versions, compatible graph/date identity/duplicate review, frozen-install and behavioral upgrade policy exist. Central upgrade guide still identifies root package.json as authoritative for runtime inputs, requires removed Storybook host and names retired codex/dev branch.",
+      "sourceReferences": [
+        "packages/ui/package.json",
+        "package.json",
+        "pnpm-lock.yaml",
+        "README.md",
+        "docs/developer/react-aria-architecture.md:164-177",
+        "docs/developer/react-aria-dependency-upgrades.md:10,19,22,85-115,121-150,152-170"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/check-package.mjs",
+        "../fa04-package.txt"
+      ],
+      "evidence": [
+        "input-receipt.json",
+        "../2026-10-16-source-inventory.json",
+        "../fa04-package.txt"
+      ],
+      "limits": [
+        "Architecture/documentation reconciliation only; no new native/browser/device/AT result.",
+        "Working-tree evidence at the recorded head, with selected input hashes in input-receipt.json; not an immutable committed artifact.",
+        "FA-04 original full invocation failed; only the documented affected rerun resolves those failures. Selected passing tests are supported by the aggregate retained receipt, not fresh per-case traces.",
+        "All 20 editor V leaves and other unrelated acceptance obligations remain open; no release or production promotion authorized.",
+        "Retained dependency graph collapses name/version observations; no physical instance/peer-context deduplication guarantee or fresh installed graph claim. No upgrade, advisory, upstream support/EOL or latest-version review was performed.",
+        "A-L-09 human operational owner/security intake/cadence/backport decisions remain separate."
+      ],
+      "requiredSuccessors": [
+        "P07-A19-DOC"
+      ]
+    }
+  ],
+  "successors": [
+    {
+      "id": "P07-A19-DOC",
+      "requiredFor": [
+        "A-A-19"
+      ],
+      "status": "open",
+      "scope": "Documentation-only correction of docs/developer/react-aria-dependency-upgrades.md.",
+      "reproduction": "Compare lines 10,22,103,121-143 with packages/ui/package.json, root package.json, README workspace/docs section and AGENTS dev/native-fixture instructions.",
+      "changes": [
+        "Link ../../packages/ui/package.json as authoritative runtime/development/peer/export manifest; retain root pnpm-lock.yaml link.",
+        "Replace active Storybook/stories host instructions with docs examples, source-context unit fixtures and docs-owned static native fixtures. Use root forwarding commands and packages/ui cwd for direct scripts; preserve serialized build/fixture lease and no-rebuild-during-suite rules.",
+        "Replace codex/dev with dev and preserve explicit human production approval and automated version rules.",
+        "Retain compatible graph/date identity/duplicate/peer/engine review and no forced incompatible overrides; distinguish graph inventory from physical singleton proof."
+      ],
+      "validation": "Verify links/paths against current scripts, manifests, CI and AGENTS; no unrelated UI/unit/browser rerun needed for prose-only corrections. A-L-09 governance and production/runtime acceptance stay open."
+    },
+    {
+      "id": "P07-CALENDAR-DOC",
+      "requiredFor": [],
+      "status": "open",
+      "scope": "Adjacent optional cleanup owned by calendar documentation task.",
+      "reproduction": "react-aria-calendar-contracts.md:134-138 describes period/comparison selectors as deferred despite later shipped public composition sections.",
+      "changes": [
+        "Reconcile older limitation paragraph with later PeriodPicker, DateTimeRangePicker and DateRangeComparisonPicker contracts; distinguish host recurring availability from backend recurrence/booking scheduling."
+      ],
+      "validation": "Check wording against current public APIs and later contract sections without claiming new browser/AT results."
+    }
+  ],
+  "actionsNotPerformed": [
+    "No files outside parallel-07 edited",
+    "No stage/commit/push/reset/clean/worktree",
+    "No dependencies installed or changed",
+    "No build or shared generated output mutation",
+    "No broad/full/browser/consumer suites",
+    "No user server touched",
+    "No production/main/tag/publication change",
+    "No subagents or conversations spawned"
+  ]
+}

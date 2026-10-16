@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-35",
+  "capturedAt": "2026-10-16T23:09:17.274178+00:00",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "leaves": [
+    {
+      "id": "A-M-38",
+      "originalRequirement": "- [ ] A-M-38 Reconcile original `M-38`: Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively. Historical status: open.",
+      "status": "partial",
+      "outcome": "All37 original rows now retain the earlier F/T/V and acceptance references, per-row current source hashes, latest attributable local path commit, and the matching wave-02 leaf result/hash. No per-row human-reviewed PR attribution is fabricated.",
+      "evidence": [
+        "migration-trace.json",
+        "input-evidence.json",
+        "validation-plan.json"
+      ],
+      "commandsPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-35/audit-tracked.py",
+        "node docs/developer/final-acceptance/wave-03-35/join-exports.mjs",
+        "python3 docs/developer/final-acceptance/wave-03-35/build-deliverables.py",
+        "python3 docs/developer/final-acceptance/wave-03-35/test-audit-packed.py",
+        "node --check docs/developer/final-acceptance/wave-03-35/proposed-files/packages/ui/scripts/check-package.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-35/retain-packed-and-audit-docs.patch"
+      ],
+      "runtime": {
+        "node": "v26.5.0",
+        "python": "Python 3.9.6"
+      },
+      "hashEvidence": "input-evidence.json and artifact-manifest.json",
+      "proposedPatchNeedsIntegration": false,
+      "successors": [
+        {
+          "id": "W35-M38-REVIEW",
+          "requiredEvidence": "Coordinator/maintainer attach actual per-row reviewed PR/commit and row-specific retained validation receipts. Local commit history and initial draft PR1 do not establish review. Resolve original held criteria with current reports while retaining20 editor V and broader G/E/device/AT holds."
+        }
+      ],
+      "limits": [
+        "Working-tree/hash evidence; no commit/review approval inferred from HEAD.",
+        "No shared install/build/pack/catalog/native/consumer execution in this owner; synthetic archive tests validate the audit tool only.",
+        "Preserved legal/immutable historical references do not establish a retired runtime dependency. No notice deleted."
+      ]
+    },
+    {
+      "id": "A-Z-04",
+      "originalRequirement": "- [ ] A-Z-04 Reconcile original `Z-04`: Audit every tracked text/configuration file, including lockfile, workflows, scripts, docs, manifests, READMEs, templates and this task list, for `@mui`, case-insensitive branded names, `Mui*`, and Emotion references; inspect matches rather than hiding them with exclusions. [Classified audit](react-aria-removal-audit.md); historical/legal reconciliation remains Z-05/Z-06. Historical status: checked.",
+      "status": "complete",
+      "outcome": "Literal tracked-file audit completed without the prior personal/evidence exclusions:1657 tracked current text files,61 matching files,811 matching lines. Every match has a disposition; personal-state files have zero matches. No positive retired runtime/configuration requirement was found. Historical/legal names remain deliberately classified rather than erased.",
+      "evidence": [
+        "tracked-text-audit.json",
+        "input-evidence.json",
+        "validation-plan.json"
+      ],
+      "commandsPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-35/audit-tracked.py",
+        "node docs/developer/final-acceptance/wave-03-35/join-exports.mjs",
+        "python3 docs/developer/final-acceptance/wave-03-35/build-deliverables.py",
+        "python3 docs/developer/final-acceptance/wave-03-35/test-audit-packed.py",
+        "node --check docs/developer/final-acceptance/wave-03-35/proposed-files/packages/ui/scripts/check-package.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-35/retain-packed-and-audit-docs.patch"
+      ],
+      "runtime": {
+        "node": "v26.5.0",
+        "python": "Python 3.9.6"
+      },
+      "hashEvidence": "input-evidence.json and artifact-manifest.json",
+      "proposedPatchNeedsIntegration": false,
+      "successors": [],
+      "limits": [
+        "Working-tree/hash evidence; no commit/review approval inferred from HEAD.",
+        "No shared install/build/pack/catalog/native/consumer execution in this owner; synthetic archive tests validate the audit tool only.",
+        "Preserved legal/immutable historical references do not establish a retired runtime dependency. No notice deleted."
+      ]
+    },
+    {
+      "id": "A-Z-08",
+      "originalRequirement": "- [ ] A-Z-08 Reconcile original `Z-08`: Audit packed JavaScript, declarations, CSS, source maps, assets, README and notices for retired references and transitive code; ensure the release tarball has no old requirement. Historical status: open.",
+      "status": "partial",
+      "outcome": "Reused exact coordinator package/source/output evidence after zero input/output hash deltas. Delivered ready-to-apply package-audit retention patch and executable all-member tarball classifier with three passing focused tooling cases. No final durable candidate archive or legal-owner approval is asserted.",
+      "evidence": [
+        "retain-packed-and-audit-docs.patch",
+        "input-evidence.json",
+        "validation-plan.json"
+      ],
+      "commandsPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-35/audit-tracked.py",
+        "node docs/developer/final-acceptance/wave-03-35/join-exports.mjs",
+        "python3 docs/developer/final-acceptance/wave-03-35/build-deliverables.py",
+        "python3 docs/developer/final-acceptance/wave-03-35/test-audit-packed.py",
+        "node --check docs/developer/final-acceptance/wave-03-35/proposed-files/packages/ui/scripts/check-package.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-35/retain-packed-and-audit-docs.patch"
+      ],
+      "runtime": {
+        "node": "v26.5.0",
+        "python": "Python 3.9.6"
+      },
+      "hashEvidence": "input-evidence.json and artifact-manifest.json",
+      "proposedPatchNeedsIntegration": true,
+      "successors": [
+        {
+          "id": "W35-Z08-CANDIDATE",
+          "requiredEvidence": "Coordinator integrate patch, run existing package audit against frozen validated output with --retain-packed in a new directory, then run audit-packed.py on that exact archive. Retain archive SHA/file manifest and join installed dependency closure and owner-approved notice/source/asset provenance. Exact commands/assertions in validation-plan.json."
+        }
+      ],
+      "limits": [
+        "Working-tree/hash evidence; no commit/review approval inferred from HEAD.",
+        "No shared install/build/pack/catalog/native/consumer execution in this owner; synthetic archive tests validate the audit tool only.",
+        "Preserved legal/immutable historical references do not establish a retired runtime dependency. No notice deleted."
+      ]
+    },
+    {
+      "id": "A-Z-10",
+      "originalRequirement": "- [ ] A-Z-10 Reconcile original `Z-10`: Verify all current components/primitives/icons/helpers/presets/hooks/adapters are migrated or intentionally removed with a documented owned replacement and release impact. Historical status: open.",
+      "status": "partial",
+      "outcome": "Completed exhaustive baseline/current symbol successor:638 baseline route/name identities (266 names) joined to469 captured contracts; all238 current declaration entry name sets match. Aliases retained;12 absent baseline names each have an explicit owned replacement/guide/release impact. Added217 contracts are separately identified. Helpers, presets, hooks, adapters, model types, icon helper paths and experimental exports are included.",
+      "evidence": [
+        "public-symbol-dispositions.json",
+        "input-evidence.json",
+        "validation-plan.json"
+      ],
+      "commandsPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-35/audit-tracked.py",
+        "node docs/developer/final-acceptance/wave-03-35/join-exports.mjs",
+        "python3 docs/developer/final-acceptance/wave-03-35/build-deliverables.py",
+        "python3 docs/developer/final-acceptance/wave-03-35/test-audit-packed.py",
+        "node --check docs/developer/final-acceptance/wave-03-35/proposed-files/packages/ui/scripts/check-package.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-35/retain-packed-and-audit-docs.patch"
+      ],
+      "runtime": {
+        "node": "v26.5.0",
+        "python": "Python 3.9.6"
+      },
+      "hashEvidence": "input-evidence.json and artifact-manifest.json",
+      "proposedPatchNeedsIntegration": false,
+      "successors": [
+        {
+          "id": "W35-Z10-INTEGRATE",
+          "requiredEvidence": "Coordinator reconcile/apply the independently reviewed36 extraction metadata amendments and original Button-story assertion mapping from wave-02-14/parallel-15; accept the symbol dispositions with the corresponding implementation migration receipts. Inherited upstream prop/default compatibility and exhaustive breaking-release markers remain A-Z-13 and are not inferred from names. No whole-row behavioral acceptance follows from this join."
+        }
+      ],
+      "limits": [
+        "Working-tree/hash evidence; no commit/review approval inferred from HEAD.",
+        "No shared install/build/pack/catalog/native/consumer execution in this owner; synthetic archive tests validate the audit tool only.",
+        "Preserved legal/immutable historical references do not establish a retired runtime dependency. No notice deleted."
+      ]
+    }
+  ],
+  "summary": {
+    "complete": 1,
+    "partial": 3,
+    "blocked": 0
+  },
+  "integration": "Patch/proposed mirrors only; no production/source/test/docs edits outside this evidence directory. No shared checklist/count update.",
+  "substantiveDeliverables": [
+    "All-tracked no-exclusion reference classification",
+    "Full baseline/current public export identity and alias join",
+    "37-row per-path local commit and receipt trace",
+    "Optional exact tarball/file-hash retention patch",
+    "All-member archive classifier and focused synthetic regression tests",
+    "Current238-entry export delta check and four declaration delta dispositions"
+  ]
+}

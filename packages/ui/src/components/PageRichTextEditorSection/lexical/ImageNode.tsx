@@ -4,6 +4,7 @@ import { DecoratorNode, $applyNodeReplacement } from "lexical";
 import { Typography } from "../../../experimental/Typography/Typography";
 import { useTranslation } from "../../../i18n";
 import { isAllowedImageSource } from "./imageSourcePolicy";
+import { isImagePayload } from "./imagePayloadPolicy";
 import styles from "./ImageNode.module.css";
 
 export type SerializedImageNode = Spread<{
@@ -125,6 +126,8 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
 }
 
 export function $createImageNode(payload: ImagePayload) {
+  // Serialized JSON and host callbacks cross runtime boundaries despite TS declarations.
+  if (!isImagePayload(payload)) throw new TypeError("Invalid editor image payload");
   const imageNode = new ImageNode(
     payload.src,
     payload.altText ?? "",

@@ -580,6 +580,24 @@
       "original": "packages/ui/src/components/AppOperationSteps/AppOperationStepsNativeState.stories.fixture.tsx",
       "fixture": "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationStepsNativeState.fixture.fixture.tsx",
       "scenarioModule": false
+    },
+    {
+      "original": "apps/docs/native-fixtures/scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "scenarioModule": true,
+      "provenance": "New docs-owned acceptance scenario; no historical Storybook source."
+    },
+    {
+      "original": "apps/docs/native-fixtures/scenarios/foundation/VisualAcceptance.fixture.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/foundation/VisualAcceptance.fixture.tsx",
+      "scenarioModule": true,
+      "provenance": "New docs-owned acceptance scenario; no historical Storybook source."
+    },
+    {
+      "original": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx",
+      "scenarioModule": true,
+      "provenance": "New docs-owned acceptance scenario; no historical Storybook source."
     }
   ],
   "privateCompiledAliases": [

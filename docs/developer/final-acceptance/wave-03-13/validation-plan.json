@@ -1,0 +1,90 @@
+{
+  "status": "pending coordinator integration and runtime execution",
+  "writesOutsideOwnedDirectoryByThisChat": false,
+  "applyOrder": [
+    "scoped-css-corrections.patch",
+    "native-fixture.patch",
+    "documentation.patch"
+  ],
+  "optionalPatch": {
+    "path": "optional-native-nesting.patch",
+    "dependsOn": "scoped-css-corrections.patch",
+    "condition": "Owner selects native-nesting browser support boundary and coordinator validates chosen oldest engine versions. Do not apply merely to tick C-11."
+  },
+  "required": [
+    {
+      "cwd": "repository root",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-13/scoped-css-corrections.patch docs/developer/final-acceptance/wave-03-13/native-fixture.patch docs/developer/final-acceptance/wave-03-13/documentation.patch",
+      "assertions": [
+        "Reject if hashes/context changed; inspect rather than overwrite concurrent work."
+      ],
+      "executionOwner": "coordinator"
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec vitest run src/experimental/Popover/Popover.test.tsx src/experimental/Popover/Popover.collision.test.tsx src/experimental/TextField/TextField.test.tsx src/components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "runtime": "supported Node22/24, acquire existing validation lease per user instructions",
+      "assertions": [
+        "Preserve existing placement, dismissal, draft and disappearing-card focus assertions."
+      ],
+      "status": "not run"
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "node scripts/check-foundations.mjs",
+      "assertions": [
+        "Owned module, token and layer boundaries remain valid."
+      ],
+      "status": "not run"
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm build",
+      "assertions": [
+        "Fresh candidate compiled CSS/declarations; hash dist/styles.css and source inputs."
+      ],
+      "status": "not run; coordinator only"
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "node scripts/build-browser-docs.mjs --output-dir <coordinator-allocated-frozen-output>",
+      "assertions": [
+        "New CSSContract export discovers migration-proofs-popover--css-contract; public consumer fixture typecheck."
+      ],
+      "status": "not run; coordinator only"
+    },
+    {
+      "cwd": "repository root",
+      "command": "SGUI_BROWSER_BASE_URL=<coordinator-allocated-existing-host> node packages/ui/node_modules/@playwright/test/cli.js test --config=docs/developer/final-acceptance/wave-03-13/playwright.config.mjs",
+      "assertions": [
+        "12 executions total: four cases in three engines, zero retries.",
+        "Focus branch injection confirms baseline input ring when has enhancement is disabled; empty-card repair focuses visibly without clipping.",
+        "All four presentations retain geometry/draft/focus during resize/reopen.",
+        "Restrictive CSP confirms parser-created attribute violation and records actual dynamic-style outcomes; allow-style-attributes policy requires zero violations/runtime errors and four working focused overlays.",
+        "Save headers, response HTML hash, violations, errors, geometry, trace on failure and source/build hashes."
+      ],
+      "status": "listed only; no browser/server started"
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "node --test scripts/css-native-nesting.test.mjs",
+      "condition": "Only after optional native-nesting patch applied",
+      "assertions": [
+        "Production nesting exactly one explicit & child selector; compiled CSS retains it and scopes owner."
+      ],
+      "status": "not run; analogous installed pipeline transform passed in verify.mjs"
+    }
+  ],
+  "residualEvidence": [
+    "A-C-04: A-B-05 historical resolution-bound upstream declarations and inherited-key delta, then public contract consumer reconciliation.",
+    "A-C-11: chosen oldest native-nesting browser versions and rendered adornment sizing; Playwright engine names alone do not define minima.",
+    "A-C-14/15: existing unchanged editor/menu focus/preference evidence retains original limits; no all-library/device/AT conformance from this scoped fixture.",
+    "A-C-19: host chooses deployment header/assets policy, extends to required dynamic grid/editor/image/theme surfaces and verifies actual deployment headers before making a specific support promise."
+  ],
+  "packedValidation": "No new packed run performed or required merely to edit CSS. If a published/packed CSP support promise is proposed, coordinator must repeat the scoped header cases using the exact frozen tarball and deployment host, recording integrity and policies; do not infer it from source or linked workspace exports.",
+  "notAuthorizedHere": [
+    "shared install/build/catalog generation/server startup",
+    "source integration outside this owned directory",
+    "branch, commit, release or publication changes"
+  ]
+}

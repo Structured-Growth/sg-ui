@@ -1,0 +1,1077 @@
+{
+  "capturedAt": "2026-10-16T23:09:52.484681+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "platform": "macOS-27.0.1-arm64-arm-64bit",
+  "scope": "Owned evidence directory only; runtime copy with rewritten import locations, real Lexical plugins/history/callbacks",
+  "inputHashes": {
+    "docs/developer/react-aria-editor-menus.md": "25d680682c89c3a996887f6d60287305157fa86e89c82a2375a23ffbf37e239a",
+    "docs/developer/react-aria-formatting-toolbar.md": "e4cff6e856bfc93bfc7ab384f845106d2c47db7f9684ae20a8d20bc030caf462",
+    "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.next100-regression.test.tsx": "531342833dd6f9b56899ffa785a373550b4646ef575d487a5cb900497c3804bb",
+    "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.test.tsx": "14776150b445adf2b3b8ef61117dcf1fe1a12e65c02dcad1e34864d4465b4adc",
+    "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx": "327506bd28002617c84b95e511ca2e8d17260d7e0f0eac07c62615968b4c0467",
+    "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.native-fixture.tsx": "154958ed73cc7a36a77dbf5de41a6933eb88e1d39db81b1aed9c0877e6089cbc",
+    "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.test.tsx": "01418453f64b0984f0742d249f13716a6067d9e7c6823dc91f4c95e8344a4dc7",
+    "packages/ui/src/components/InsertContentMenuControl/index.ts": "dea9b7e43d5027b133ee8fd9e222b3161c746440867cec3e4225b95bec8ab37e",
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.test.tsx": "bf5acdcf53cf793d1546ee5b337d3f7b55a45535db86c339d113aa433f98eff0",
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.tsx": "95e343e1f38eebcb8a3014fe7a843dc3a05576512de1fb27d062b011df59dea1",
+    "packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx": "fe28a2d12c6f8943bc4b16e421b3cf02e0b2f4fbd25cb92658dade79f08f8d31",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx": "623ecdacf2d2f8e8a61fd9c38eafe88f03b602de5b0335801325f1624ce3b811",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx": "2b5691afd78c80795864e7e5ece23aff403c4d48071e6e72df239d00ddf28795",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": "03c3283c56104fee0b17ff39b8174eb933352a5cd1fc5fb51219e5036b9bfb65",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.native-fixture.tsx": "5aca8af3798c8f136185f3f321c6e1ddd3fe4e0b72c34cf6aa5e31b7ee45abf8",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.test.tsx": "7c11815bc6427cd3600df4098c6e1360528538c3ff88dbe77ade5eb34a2487e8",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.native-fixtures.ts": "da40807724e3e5f254c1310159d6c1434a7487a08480316c8f0dae8a2311daeb",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.next100-regression.test.tsx": "9acb1ab1a39b2c174dd7eb570fbb9d4cbcbfef5edc622a5f3eeb79403babc322",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.native-fixture.tsx": "1d4e7e0b1599952dc04c70231d07e963d5c09c8e047a6d4e1aebfa26b40801c3",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.scroll.test.tsx": "d3279262a1ba890201c03eb571430ecef0485f670de1c76cb4f58f722bcf49d0",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx": "d8dbe919f5e60f1711176f5d43a9b9e5dc2f6e899715db4a1635b33fb8d21c7d",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx": "16bc776d2918487ba72ce5180d759efc6205fcf8da7ffa08ee151c9ca16ae0e1",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+    "packages/ui/src/components/PageRichTextEditorSection/index.ts": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx": "a88e2c6eec3624a29c4f8f6e64c7cde24fc9e32de97419a359085976fe178b23",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx": "1c628ea3dd9d38ba95eb4dd34b616ea9bb9f9d045d86d7e1d5037f770c9fafb0",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx": "dc93ca33bcb27f19e374231a777432d2b717e28ef22b014e36cafe4c51fe5b25",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx": "9a27a72ffb2b94f1b4ca649edc1438597cc1034d03943ed818c76051f15678cd",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.module.css": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx": "244db3c5aff3fe30a58e07fd7251e6a6565ec221231ae5019b6787243555b6bd",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx": "547741b61c7a36a3873e0068d479c4e1dd4ac852fcfc8e0e227c82b5d694b34f",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts": "8f5286820349d68ba21b8eadb35b4723aeeb9c132b43fdf38dc2834dcf7837bb",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx": "34293bf4ab6b0d3e273c82ac374ed721020b55e48189ef5a6cca1593dd7e1714",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts": "3edab46c07bb2ea8a566292e00afdb683b5f53700a22df0824e5a7b4622fa6d1",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.test.ts": "4bc7e44328b4749b3512e5155ded653798ce48b0015f74de91bdc008f1a1de22",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.test.ts": "5e599f98aa1f48bf8e3e6797930aeb47790b00d47ded5250eb88e1ba641cea31",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.ts": "ef56953b5bc62531bc8ac841a9e6e940535f0bbab1fd0096a71c0776daeeaab1",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts": "675e661bd7200c01b6433dbbb2e3ce25da9fce46d0023a978987ff1a7e661b8f",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts": "679d75b3ebe56a158e63448ecf36626f87d3668822558817eed4c824860e164f",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.module.css": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.next100-regression.test.tsx": "1cef5c9f85d9e54b21d727501bdc1b3c9fa2ca8789066ede08bab95b620ad760",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx": "011bb91c68950f93c485a986428be52cd062cf22a66a86d40cab5693ef244263",
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx": "329d9b8ce5e52ce67e4391deadc84736d6d0494a0f9fd96fd2a98828e7353028",
+    "packages/ui/src/components/RichTextFormattingToolbar/index.ts": "838939d5c35c4fb41ae342ef16fff1c80bf1276a17b51af557930784346dd12a",
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.module.css": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.next100-regression.test.tsx": "32a876cf65e9e852d5730a8dd8dbbc60688a844694f23724ad91a560e5ed53df",
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx": "4b99c0caa978cdb30a4de3c0642315260793e3b35c18a3004efe682584123390",
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+    "packages/ui/src/components/TextAlignMenuControl/index.ts": "58d150ba924811cb33c347acf0c0256a71b1922bc819c531e95a6c2bfc94ba71",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx": "86834d142b544c70c23a6bc789ec9863beb9b5d7166e7d84349b8711c71e0c02",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.next100-regression.test.tsx": "29f5a276a7e4a39735c8da2fd26979696fefb16879a747a4b6e1088af8583e63",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx": "7ebcab160b0f3817ee60c2f6d6f1722254ca6eca0741c5dd63b3c8e99b386cec",
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx": "ff0e947da7358f2d1853cd465bbd4774c35cd7c109b37db834db7873d743d86b",
+    "packages/ui/src/components/TextColorPickerControl/index.ts": "2a0b5431a8d8bfe9b945c38e097ba1a3dad935ab65acc67efa4ca2670a78547c",
+    "packages/ui/src/components/TextStyleMenuControl/NativeSelection.module.css": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.module.css": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.next100-regression.test.tsx": "813540744f064d43396a9c85e118860a96c509c595d944cb56fa29c79001816e",
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx": "7e1a7f7cfd66d53d75dad025b5effd30d24e54b2a224677def714109873ae1d4",
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx": "7e95472cca2d25a816ed88fc751f7b8582543050448b97ac593b0518e5ab2428",
+    "packages/ui/src/components/TextStyleMenuControl/index.ts": "e3ddeceb90a169b07884677c5aa909b7e3c678802750e0347e1a0976d2578724",
+    "packages/ui/tests/browser/editor-mixed-formatting-history.spec.ts": "f27945fc6b5972a2c0b3070c615ac9a31bd2c817f9f65517e3e95b0e4455b220",
+    "packages/ui/tests/browser/editor-paragraph-transactions.spec.ts": "30895275b8d2f192becc4884648aab52372da496614d3282d83e5558e73c40c6",
+    "packages/ui/tests/browser/inventory-editor-table-history.spec.ts": "4f318d4e4c42394cf6c3234c23b9183c364cb86d12213ec7b2cfe792eec79c9f"
+  },
+  "priorWave02Comparison": {
+    "docs/developer/react-aria-editor-menus.md": {
+      "previous": "25d680682c89c3a996887f6d60287305157fa86e89c82a2375a23ffbf37e239a",
+      "current": "25d680682c89c3a996887f6d60287305157fa86e89c82a2375a23ffbf37e239a",
+      "unchanged": true
+    },
+    "docs/developer/react-aria-formatting-toolbar.md": {
+      "previous": "e4cff6e856bfc93bfc7ab384f845106d2c47db7f9684ae20a8d20bc030caf462",
+      "current": "e4cff6e856bfc93bfc7ab384f845106d2c47db7f9684ae20a8d20bc030caf462",
+      "unchanged": true
+    },
+    "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.next100-regression.test.tsx": {
+      "previous": "531342833dd6f9b56899ffa785a373550b4646ef575d487a5cb900497c3804bb",
+      "current": "531342833dd6f9b56899ffa785a373550b4646ef575d487a5cb900497c3804bb",
+      "unchanged": true
+    },
+    "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.test.tsx": {
+      "previous": "14776150b445adf2b3b8ef61117dcf1fe1a12e65c02dcad1e34864d4465b4adc",
+      "current": "14776150b445adf2b3b8ef61117dcf1fe1a12e65c02dcad1e34864d4465b4adc",
+      "unchanged": true
+    },
+    "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx": {
+      "previous": "327506bd28002617c84b95e511ca2e8d17260d7e0f0eac07c62615968b4c0467",
+      "current": "327506bd28002617c84b95e511ca2e8d17260d7e0f0eac07c62615968b4c0467",
+      "unchanged": true
+    },
+    "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.native-fixture.tsx": {
+      "previous": "154958ed73cc7a36a77dbf5de41a6933eb88e1d39db81b1aed9c0877e6089cbc",
+      "current": "154958ed73cc7a36a77dbf5de41a6933eb88e1d39db81b1aed9c0877e6089cbc",
+      "unchanged": true
+    },
+    "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.test.tsx": {
+      "previous": "01418453f64b0984f0742d249f13716a6067d9e7c6823dc91f4c95e8344a4dc7",
+      "current": "01418453f64b0984f0742d249f13716a6067d9e7c6823dc91f4c95e8344a4dc7",
+      "unchanged": true
+    },
+    "packages/ui/src/components/InsertContentMenuControl/index.ts": {
+      "previous": "dea9b7e43d5027b133ee8fd9e222b3161c746440867cec3e4225b95bec8ab37e",
+      "current": "dea9b7e43d5027b133ee8fd9e222b3161c746440867cec3e4225b95bec8ab37e",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.test.tsx": {
+      "previous": "bf5acdcf53cf793d1546ee5b337d3f7b55a45535db86c339d113aa433f98eff0",
+      "current": "bf5acdcf53cf793d1546ee5b337d3f7b55a45535db86c339d113aa433f98eff0",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.tsx": {
+      "previous": "95e343e1f38eebcb8a3014fe7a843dc3a05576512de1fb27d062b011df59dea1",
+      "current": "95e343e1f38eebcb8a3014fe7a843dc3a05576512de1fb27d062b011df59dea1",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx": {
+      "previous": "fe28a2d12c6f8943bc4b16e421b3cf02e0b2f4fbd25cb92658dade79f08f8d31",
+      "current": "fe28a2d12c6f8943bc4b16e421b3cf02e0b2f4fbd25cb92658dade79f08f8d31",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx": {
+      "previous": "623ecdacf2d2f8e8a61fd9c38eafe88f03b602de5b0335801325f1624ce3b811",
+      "current": "623ecdacf2d2f8e8a61fd9c38eafe88f03b602de5b0335801325f1624ce3b811",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx": {
+      "previous": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+      "current": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx": {
+      "previous": "2b5691afd78c80795864e7e5ece23aff403c4d48071e6e72df239d00ddf28795",
+      "current": "2b5691afd78c80795864e7e5ece23aff403c4d48071e6e72df239d00ddf28795",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": {
+      "previous": "03c3283c56104fee0b17ff39b8174eb933352a5cd1fc5fb51219e5036b9bfb65",
+      "current": "03c3283c56104fee0b17ff39b8174eb933352a5cd1fc5fb51219e5036b9bfb65",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.native-fixture.tsx": {
+      "previous": "5aca8af3798c8f136185f3f321c6e1ddd3fe4e0b72c34cf6aa5e31b7ee45abf8",
+      "current": "5aca8af3798c8f136185f3f321c6e1ddd3fe4e0b72c34cf6aa5e31b7ee45abf8",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.test.tsx": {
+      "previous": "7c11815bc6427cd3600df4098c6e1360528538c3ff88dbe77ade5eb34a2487e8",
+      "current": "7c11815bc6427cd3600df4098c6e1360528538c3ff88dbe77ade5eb34a2487e8",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css": {
+      "previous": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+      "current": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.native-fixtures.ts": {
+      "previous": "da40807724e3e5f254c1310159d6c1434a7487a08480316c8f0dae8a2311daeb",
+      "current": "da40807724e3e5f254c1310159d6c1434a7487a08480316c8f0dae8a2311daeb",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.next100-regression.test.tsx": {
+      "previous": "9acb1ab1a39b2c174dd7eb570fbb9d4cbcbfef5edc622a5f3eeb79403babc322",
+      "current": "9acb1ab1a39b2c174dd7eb570fbb9d4cbcbfef5edc622a5f3eeb79403babc322",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.native-fixture.tsx": {
+      "previous": "1d4e7e0b1599952dc04c70231d07e963d5c09c8e047a6d4e1aebfa26b40801c3",
+      "current": "1d4e7e0b1599952dc04c70231d07e963d5c09c8e047a6d4e1aebfa26b40801c3",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx": {
+      "previous": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd",
+      "current": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.scroll.test.tsx": {
+      "previous": "d3279262a1ba890201c03eb571430ecef0485f670de1c76cb4f58f722bcf49d0",
+      "current": "d3279262a1ba890201c03eb571430ecef0485f670de1c76cb4f58f722bcf49d0",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx": {
+      "previous": "d8dbe919f5e60f1711176f5d43a9b9e5dc2f6e899715db4a1635b33fb8d21c7d",
+      "current": "d8dbe919f5e60f1711176f5d43a9b9e5dc2f6e899715db4a1635b33fb8d21c7d",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx": {
+      "previous": "16bc776d2918487ba72ce5180d759efc6205fcf8da7ffa08ee151c9ca16ae0e1",
+      "current": "16bc776d2918487ba72ce5180d759efc6205fcf8da7ffa08ee151c9ca16ae0e1",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx": {
+      "previous": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+      "current": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/index.ts": {
+      "previous": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+      "current": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx": {
+      "previous": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+      "current": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx": {
+      "previous": "a88e2c6eec3624a29c4f8f6e64c7cde24fc9e32de97419a359085976fe178b23",
+      "current": "a88e2c6eec3624a29c4f8f6e64c7cde24fc9e32de97419a359085976fe178b23",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx": {
+      "previous": "1c628ea3dd9d38ba95eb4dd34b616ea9bb9f9d045d86d7e1d5037f770c9fafb0",
+      "current": "1c628ea3dd9d38ba95eb4dd34b616ea9bb9f9d045d86d7e1d5037f770c9fafb0",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx": {
+      "previous": "dc93ca33bcb27f19e374231a777432d2b717e28ef22b014e36cafe4c51fe5b25",
+      "current": "dc93ca33bcb27f19e374231a777432d2b717e28ef22b014e36cafe4c51fe5b25",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx": {
+      "previous": "9a27a72ffb2b94f1b4ca649edc1438597cc1034d03943ed818c76051f15678cd",
+      "current": "9a27a72ffb2b94f1b4ca649edc1438597cc1034d03943ed818c76051f15678cd",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.module.css": {
+      "previous": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+      "current": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx": {
+      "previous": "244db3c5aff3fe30a58e07fd7251e6a6565ec221231ae5019b6787243555b6bd",
+      "current": "244db3c5aff3fe30a58e07fd7251e6a6565ec221231ae5019b6787243555b6bd",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx": {
+      "previous": "547741b61c7a36a3873e0068d479c4e1dd4ac852fcfc8e0e227c82b5d694b34f",
+      "current": "547741b61c7a36a3873e0068d479c4e1dd4ac852fcfc8e0e227c82b5d694b34f",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts": {
+      "previous": "8f5286820349d68ba21b8eadb35b4723aeeb9c132b43fdf38dc2834dcf7837bb",
+      "current": "8f5286820349d68ba21b8eadb35b4723aeeb9c132b43fdf38dc2834dcf7837bb",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx": {
+      "previous": "34293bf4ab6b0d3e273c82ac374ed721020b55e48189ef5a6cca1593dd7e1714",
+      "current": "34293bf4ab6b0d3e273c82ac374ed721020b55e48189ef5a6cca1593dd7e1714",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts": {
+      "previous": "3edab46c07bb2ea8a566292e00afdb683b5f53700a22df0824e5a7b4622fa6d1",
+      "current": "3edab46c07bb2ea8a566292e00afdb683b5f53700a22df0824e5a7b4622fa6d1",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts": {
+      "previous": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce",
+      "current": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.test.ts": {
+      "previous": "4bc7e44328b4749b3512e5155ded653798ce48b0015f74de91bdc008f1a1de22",
+      "current": "4bc7e44328b4749b3512e5155ded653798ce48b0015f74de91bdc008f1a1de22",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts": {
+      "previous": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+      "current": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.test.ts": {
+      "previous": "5e599f98aa1f48bf8e3e6797930aeb47790b00d47ded5250eb88e1ba641cea31",
+      "current": "5e599f98aa1f48bf8e3e6797930aeb47790b00d47ded5250eb88e1ba641cea31",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.ts": {
+      "previous": "ef56953b5bc62531bc8ac841a9e6e940535f0bbab1fd0096a71c0776daeeaab1",
+      "current": "ef56953b5bc62531bc8ac841a9e6e940535f0bbab1fd0096a71c0776daeeaab1",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts": {
+      "previous": "675e661bd7200c01b6433dbbb2e3ce25da9fce46d0023a978987ff1a7e661b8f",
+      "current": "675e661bd7200c01b6433dbbb2e3ce25da9fce46d0023a978987ff1a7e661b8f",
+      "unchanged": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts": {
+      "previous": "679d75b3ebe56a158e63448ecf36626f87d3668822558817eed4c824860e164f",
+      "current": "679d75b3ebe56a158e63448ecf36626f87d3668822558817eed4c824860e164f",
+      "unchanged": true
+    },
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx": {
+      "previous": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "current": "0b029eed00463e7d81e3ab70ac7b55325c8171282e2ddb0617ab5b5d23b48345",
+      "unchanged": true
+    },
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.module.css": {
+      "previous": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+      "current": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+      "unchanged": true
+    },
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.next100-regression.test.tsx": {
+      "previous": "1cef5c9f85d9e54b21d727501bdc1b3c9fa2ca8789066ede08bab95b620ad760",
+      "current": "1cef5c9f85d9e54b21d727501bdc1b3c9fa2ca8789066ede08bab95b620ad760",
+      "unchanged": true
+    },
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx": {
+      "previous": "011bb91c68950f93c485a986428be52cd062cf22a66a86d40cab5693ef244263",
+      "current": "011bb91c68950f93c485a986428be52cd062cf22a66a86d40cab5693ef244263",
+      "unchanged": true
+    },
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx": {
+      "previous": "329d9b8ce5e52ce67e4391deadc84736d6d0494a0f9fd96fd2a98828e7353028",
+      "current": "329d9b8ce5e52ce67e4391deadc84736d6d0494a0f9fd96fd2a98828e7353028",
+      "unchanged": true
+    },
+    "packages/ui/src/components/RichTextFormattingToolbar/index.ts": {
+      "previous": "838939d5c35c4fb41ae342ef16fff1c80bf1276a17b51af557930784346dd12a",
+      "current": "838939d5c35c4fb41ae342ef16fff1c80bf1276a17b51af557930784346dd12a",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.module.css": {
+      "previous": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+      "current": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.next100-regression.test.tsx": {
+      "previous": "32a876cf65e9e852d5730a8dd8dbbc60688a844694f23724ad91a560e5ed53df",
+      "current": "32a876cf65e9e852d5730a8dd8dbbc60688a844694f23724ad91a560e5ed53df",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx": {
+      "previous": "4b99c0caa978cdb30a4de3c0642315260793e3b35c18a3004efe682584123390",
+      "current": "4b99c0caa978cdb30a4de3c0642315260793e3b35c18a3004efe682584123390",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx": {
+      "previous": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+      "current": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextAlignMenuControl/index.ts": {
+      "previous": "58d150ba924811cb33c347acf0c0256a71b1922bc819c531e95a6c2bfc94ba71",
+      "current": "58d150ba924811cb33c347acf0c0256a71b1922bc819c531e95a6c2bfc94ba71",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx": {
+      "previous": "86834d142b544c70c23a6bc789ec9863beb9b5d7166e7d84349b8711c71e0c02",
+      "current": "86834d142b544c70c23a6bc789ec9863beb9b5d7166e7d84349b8711c71e0c02",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css": {
+      "previous": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
+      "current": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.next100-regression.test.tsx": {
+      "previous": "29f5a276a7e4a39735c8da2fd26979696fefb16879a747a4b6e1088af8583e63",
+      "current": "29f5a276a7e4a39735c8da2fd26979696fefb16879a747a4b6e1088af8583e63",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx": {
+      "previous": "7ebcab160b0f3817ee60c2f6d6f1722254ca6eca0741c5dd63b3c8e99b386cec",
+      "current": "7ebcab160b0f3817ee60c2f6d6f1722254ca6eca0741c5dd63b3c8e99b386cec",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx": {
+      "previous": "ff0e947da7358f2d1853cd465bbd4774c35cd7c109b37db834db7873d743d86b",
+      "current": "ff0e947da7358f2d1853cd465bbd4774c35cd7c109b37db834db7873d743d86b",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextColorPickerControl/index.ts": {
+      "previous": "2a0b5431a8d8bfe9b945c38e097ba1a3dad935ab65acc67efa4ca2670a78547c",
+      "current": "2a0b5431a8d8bfe9b945c38e097ba1a3dad935ab65acc67efa4ca2670a78547c",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextStyleMenuControl/NativeSelection.module.css": {
+      "previous": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+      "current": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.module.css": {
+      "previous": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+      "current": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.next100-regression.test.tsx": {
+      "previous": "813540744f064d43396a9c85e118860a96c509c595d944cb56fa29c79001816e",
+      "current": "813540744f064d43396a9c85e118860a96c509c595d944cb56fa29c79001816e",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx": {
+      "previous": "7e1a7f7cfd66d53d75dad025b5effd30d24e54b2a224677def714109873ae1d4",
+      "current": "7e1a7f7cfd66d53d75dad025b5effd30d24e54b2a224677def714109873ae1d4",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx": {
+      "previous": "7e95472cca2d25a816ed88fc751f7b8582543050448b97ac593b0518e5ab2428",
+      "current": "7e95472cca2d25a816ed88fc751f7b8582543050448b97ac593b0518e5ab2428",
+      "unchanged": true
+    },
+    "packages/ui/src/components/TextStyleMenuControl/index.ts": {
+      "previous": "e3ddeceb90a169b07884677c5aa909b7e3c678802750e0347e1a0976d2578724",
+      "current": "e3ddeceb90a169b07884677c5aa909b7e3c678802750e0347e1a0976d2578724",
+      "unchanged": true
+    },
+    "packages/ui/tests/browser/editor-mixed-formatting-history.spec.ts": {
+      "previous": "f27945fc6b5972a2c0b3070c615ac9a31bd2c817f9f65517e3e95b0e4455b220",
+      "current": "f27945fc6b5972a2c0b3070c615ac9a31bd2c817f9f65517e3e95b0e4455b220",
+      "unchanged": true
+    },
+    "packages/ui/tests/browser/editor-paragraph-transactions.spec.ts": {
+      "previous": "30895275b8d2f192becc4884648aab52372da496614d3282d83e5558e73c40c6",
+      "current": "30895275b8d2f192becc4884648aab52372da496614d3282d83e5558e73c40c6",
+      "unchanged": true
+    },
+    "packages/ui/tests/browser/inventory-editor-table-history.spec.ts": {
+      "previous": "4f318d4e4c42394cf6c3234c23b9183c364cb86d12213ec7b2cfe792eec79c9f",
+      "current": "4f318d4e4c42394cf6c3234c23b9183c364cb86d12213ec7b2cfe792eec79c9f",
+      "unchanged": true
+    }
+  },
+  "coordinatorBuiltComparison": {
+    "packages/ui/dist/components/InsertContentMenuControl/InsertContentMenuControl.d.ts": {
+      "recorded": "35bd65c28742b2c98d875969f7b90af832ae3f247c4281972f89cd7c90cd701b",
+      "current": "35bd65c28742b2c98d875969f7b90af832ae3f247c4281972f89cd7c90cd701b",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/InsertContentMenuControl/InsertContentMenuControl.d.ts.map": {
+      "recorded": "abd9c8ea30cc9abca98a4dcea2cc08f2bc54c8e1b262155a3777ba580603449c",
+      "current": "abd9c8ea30cc9abca98a4dcea2cc08f2bc54c8e1b262155a3777ba580603449c",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/InsertContentMenuControl/InsertContentMenuControl.js": {
+      "recorded": "a17b2c1438fa91e4092df4951e54c2aec73e837ec43d221849ceca821ee105c4",
+      "current": "a17b2c1438fa91e4092df4951e54c2aec73e837ec43d221849ceca821ee105c4",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/InsertContentMenuControl/InsertContentMenuControl.js.map": {
+      "recorded": "d65f70280fae670f9320ec5dd1f89b3c350c68abd0f31f3edf19c663d9b5a743",
+      "current": "d65f70280fae670f9320ec5dd1f89b3c350c68abd0f31f3edf19c663d9b5a743",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/InsertContentMenuControl/index.d.ts": {
+      "recorded": "2ac9a1490e277ff1bf86afc899b507f4a2498bc2b4175b6f5d6002b5072e8f43",
+      "current": "2ac9a1490e277ff1bf86afc899b507f4a2498bc2b4175b6f5d6002b5072e8f43",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/InsertContentMenuControl/index.d.ts.map": {
+      "recorded": "ce758c9b3e3789cca430589b4667f507ed78f4b5343d6462a6600c444b0091d1",
+      "current": "ce758c9b3e3789cca430589b4667f507ed78f4b5343d6462a6600c444b0091d1",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/InsertContentMenuControl/index.js": {
+      "recorded": "2855ca6e15469d94e203009f0078489ecbecb0a363cab5ce2c73098d4e184865",
+      "current": "2855ca6e15469d94e203009f0078489ecbecb0a363cab5ce2c73098d4e184865",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/InsertContentMenuControl/index.js.map": {
+      "recorded": "8172a03c2e560506613f977e4be1b1c4d81975159c05a7bb5376bb2db24bf02f",
+      "current": "8172a03c2e560506613f977e4be1b1c4d81975159c05a7bb5376bb2db24bf02f",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/DocumentContentEditable.d.ts": {
+      "recorded": "1bdbc4c1c6563d6512c3e22a069b664b60152e186f74ef418f37ea801e8ea8be",
+      "current": "1bdbc4c1c6563d6512c3e22a069b664b60152e186f74ef418f37ea801e8ea8be",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/DocumentContentEditable.d.ts.map": {
+      "recorded": "a05ebbd4ce5885ed57a81ddf93399d68f43126dc106fbbd8bc6fcd0e05794b5f",
+      "current": "a05ebbd4ce5885ed57a81ddf93399d68f43126dc106fbbd8bc6fcd0e05794b5f",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/DocumentContentEditable.js": {
+      "recorded": "e14ebb84f3f8d25b44f403c2e4d19d93cb37c839198d16806a79ed1fbf30956c",
+      "current": "e14ebb84f3f8d25b44f403c2e4d19d93cb37c839198d16806a79ed1fbf30956c",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/DocumentContentEditable.js.map": {
+      "recorded": "9b6c9a8778577b6a2cf93befe62146759316d4f5b0b1eb6cd0321d3ac046ecb8",
+      "current": "9b6c9a8778577b6a2cf93befe62146759316d4f5b0b1eb6cd0321d3ac046ecb8",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.d.ts": {
+      "recorded": "58f5dbc88ae493b2a14cd4d91a1f1e65a8d71d6fa3297b8c30a0c4a5025586ec",
+      "current": "58f5dbc88ae493b2a14cd4d91a1f1e65a8d71d6fa3297b8c30a0c4a5025586ec",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.d.ts.map": {
+      "recorded": "981c005cb9f1fcc1eb1126805f77e97ca18a8baf27aaa89f07b1dc89cf606b00",
+      "current": "981c005cb9f1fcc1eb1126805f77e97ca18a8baf27aaa89f07b1dc89cf606b00",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.d.ts": {
+      "recorded": "7b3351a06e8dd457d3945a9ca9d37704fd65ed8249ebcf8e5c3d1ada334c0e93",
+      "current": "7b3351a06e8dd457d3945a9ca9d37704fd65ed8249ebcf8e5c3d1ada334c0e93",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.d.ts.map": {
+      "recorded": "4da10ea9100a7c4ab10e4de9175daf681513cb1d47d8aaa2fedd7e34bb41887a",
+      "current": "4da10ea9100a7c4ab10e4de9175daf681513cb1d47d8aaa2fedd7e34bb41887a",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.js": {
+      "recorded": "95536620324c22c782cf6a99dd968a4dd68616f5284ebff9229bd8d47fe0ac2f",
+      "current": "95536620324c22c782cf6a99dd968a4dd68616f5284ebff9229bd8d47fe0ac2f",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.js.map": {
+      "recorded": "6ea3507a31cb67601bd69956bffa8fa2c2f2646c3cbb866e02d05a09a079456f",
+      "current": "6ea3507a31cb67601bd69956bffa8fa2c2f2646c3cbb866e02d05a09a079456f",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.js": {
+      "recorded": "d21a5b99b8c7e8ad979bd35cc55b6e6a8bd8d9ab243a71474ec531d6d1e6bdfb",
+      "current": "d21a5b99b8c7e8ad979bd35cc55b6e6a8bd8d9ab243a71474ec531d6d1e6bdfb",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.js.map": {
+      "recorded": "f63c645ae0a9a43d9aebfdab3a3db5d5158edb7322c5c2ebec4c5ad1611d7798",
+      "current": "f63c645ae0a9a43d9aebfdab3a3db5d5158edb7322c5c2ebec4c5ad1611d7798",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css.js": {
+      "recorded": "e153f6f43eb73e047dc80590b5d604878929caff14a8e31c6940bd469454a702",
+      "current": "e153f6f43eb73e047dc80590b5d604878929caff14a8e31c6940bd469454a702",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/index.d.ts": {
+      "recorded": "e497caafcfd62ed3a4ed595072654f21d7000da3bf6df179f41615ba2763c543",
+      "current": "e497caafcfd62ed3a4ed595072654f21d7000da3bf6df179f41615ba2763c543",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/index.d.ts.map": {
+      "recorded": "c6448295cbc718e7560cc4ca992bc7888ce023a3501fa7d25dabe0ec539dedbc",
+      "current": "c6448295cbc718e7560cc4ca992bc7888ce023a3501fa7d25dabe0ec539dedbc",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/index.js": {
+      "recorded": "de02daa95e2b89553b7db5d84743500a269fe61b30f50826428c73b674fa84fe",
+      "current": "de02daa95e2b89553b7db5d84743500a269fe61b30f50826428c73b674fa84fe",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/index.js.map": {
+      "recorded": "1aa52b9651327dd55103ca714244ef621ccccd352a7542b47d5dc890a7ed86db",
+      "current": "1aa52b9651327dd55103ca714244ef621ccccd352a7542b47d5dc890a7ed86db",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.d.ts": {
+      "recorded": "4bcb80eb47b29b00d240a93eb59d54fa20320b382e4cc1b251adac04628f57bd",
+      "current": "4bcb80eb47b29b00d240a93eb59d54fa20320b382e4cc1b251adac04628f57bd",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.d.ts.map": {
+      "recorded": "3f0dea90680206e4353ee24db1f1663162377c6d3379828bb2ffbd1ca642a179",
+      "current": "3f0dea90680206e4353ee24db1f1663162377c6d3379828bb2ffbd1ca642a179",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.js": {
+      "recorded": "3faf76443fbc1bf680b1d1f1e26964d3ea0148ed728c0d8002fb2294a7103e58",
+      "current": "3faf76443fbc1bf680b1d1f1e26964d3ea0148ed728c0d8002fb2294a7103e58",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.js.map": {
+      "recorded": "e4f8a8619eef63036ffdc47a8414c634c8b2db0d1c059a384e7019aedf0c4537",
+      "current": "e4f8a8619eef63036ffdc47a8414c634c8b2db0d1c059a384e7019aedf0c4537",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.d.ts": {
+      "recorded": "c6bfd182760869d272871df95d1a24e9383dd62d9404da0f93c2852f8ea37ceb",
+      "current": "c6bfd182760869d272871df95d1a24e9383dd62d9404da0f93c2852f8ea37ceb",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.d.ts.map": {
+      "recorded": "144d096725dadf5ca105c0b2d8c7cdc89954eab835dc6513473bc5e89e47fc9d",
+      "current": "144d096725dadf5ca105c0b2d8c7cdc89954eab835dc6513473bc5e89e47fc9d",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.js": {
+      "recorded": "af7afaf1534184317f4df270f004db5cb30e29bfcf448bf1ccc032cf7a43afb0",
+      "current": "af7afaf1534184317f4df270f004db5cb30e29bfcf448bf1ccc032cf7a43afb0",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.js.map": {
+      "recorded": "6871912657444b75feae55e0e5546b20de721f0223add3a9107f0074dba90dfd",
+      "current": "6871912657444b75feae55e0e5546b20de721f0223add3a9107f0074dba90dfd",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.d.ts": {
+      "recorded": "85a3f0d70c272d94ef4bcd25a83a096d65b165105576e787ef7fba5f550c4370",
+      "current": "85a3f0d70c272d94ef4bcd25a83a096d65b165105576e787ef7fba5f550c4370",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.d.ts.map": {
+      "recorded": "c2d9f592936487f0a363a0714b787182f795cb184943872a0c974bc8ed6da499",
+      "current": "c2d9f592936487f0a363a0714b787182f795cb184943872a0c974bc8ed6da499",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.js": {
+      "recorded": "eff19492e2f807a9784de79900f7b4223c87aa7fc60062bec124fc1be1661120",
+      "current": "eff19492e2f807a9784de79900f7b4223c87aa7fc60062bec124fc1be1661120",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.js.map": {
+      "recorded": "8533e2f1444ed00364d11deca5b62d7dbb4911e946a3312a9fc3469e2bd6b1d4",
+      "current": "8533e2f1444ed00364d11deca5b62d7dbb4911e946a3312a9fc3469e2bd6b1d4",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageNode.d.ts": {
+      "recorded": "d59820087d6e8b4cb96074c307bb6f652c81358d469ba7bc033caf9f42a4b6a7",
+      "current": "d59820087d6e8b4cb96074c307bb6f652c81358d469ba7bc033caf9f42a4b6a7",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageNode.d.ts.map": {
+      "recorded": "b92e2a53a51f298163a88b7d3f2a188194aaec6c775bd9c818d6792f4167d4c2",
+      "current": "b92e2a53a51f298163a88b7d3f2a188194aaec6c775bd9c818d6792f4167d4c2",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageNode.js": {
+      "recorded": "bf3a1e60918b1305d57ec767459bd53660f5018454e9acc33df49bd3fa81aaab",
+      "current": "bf3a1e60918b1305d57ec767459bd53660f5018454e9acc33df49bd3fa81aaab",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageNode.js.map": {
+      "recorded": "43877ec15e9a1cb9cffd3de9a6c1df32527602c7aeb91da6b27dc81bd9678833",
+      "current": "43877ec15e9a1cb9cffd3de9a6c1df32527602c7aeb91da6b27dc81bd9678833",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageNode.module.css.js": {
+      "recorded": "4e4d1803f972e6e18c1ddb3fdf4cf21f455534a22759efb62461788d478efcde",
+      "current": "4e4d1803f972e6e18c1ddb3fdf4cf21f455534a22759efb62461788d478efcde",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.d.ts": {
+      "recorded": "8c749b05e27af3d92f6bc5c439563e5ecc4e5fcaf12e3c6b836f11d4bd9fef69",
+      "current": "8c749b05e27af3d92f6bc5c439563e5ecc4e5fcaf12e3c6b836f11d4bd9fef69",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.d.ts.map": {
+      "recorded": "06839c0ad16616c346dd3ec43e01c119449ee2b35f4b537d7af7fae940e0ac06",
+      "current": "06839c0ad16616c346dd3ec43e01c119449ee2b35f4b537d7af7fae940e0ac06",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.js": {
+      "recorded": "16dbe4911bbb3c47476dcdb292d104986ab807a484bcb7ccde67455cb303d4bb",
+      "current": "16dbe4911bbb3c47476dcdb292d104986ab807a484bcb7ccde67455cb303d4bb",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.js.map": {
+      "recorded": "ef04908b8b875f585bbe25de73983c748a6190a69e7b3ad27010d9671397ca3c",
+      "current": "ef04908b8b875f585bbe25de73983c748a6190a69e7b3ad27010d9671397ca3c",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/OwnedLinkNode.d.ts": {
+      "recorded": "a1612556d635673329b106c712639a694d0c7d1b02e54cafbc148ebe843761cb",
+      "current": "a1612556d635673329b106c712639a694d0c7d1b02e54cafbc148ebe843761cb",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/OwnedLinkNode.d.ts.map": {
+      "recorded": "74e8feda5403d39b199504b356bd9cec98742c5ccedc61a2d32700a170d42f7d",
+      "current": "74e8feda5403d39b199504b356bd9cec98742c5ccedc61a2d32700a170d42f7d",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/OwnedLinkNode.js": {
+      "recorded": "55e168ac397b1b199a53a56a55e05af4b81d74cab66deb1d338b00d772c62606",
+      "current": "55e168ac397b1b199a53a56a55e05af4b81d74cab66deb1d338b00d772c62606",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/OwnedLinkNode.js.map": {
+      "recorded": "246d6d6602bffc349586b04f4eb9b7e55748253c3969ef42015361f309fc9456",
+      "current": "246d6d6602bffc349586b04f4eb9b7e55748253c3969ef42015361f309fc9456",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/editorConfig.d.ts": {
+      "recorded": "ecd5e0710ab5a03ab1e481c7c0bfab9a9702c40db681877019cb589691d438a6",
+      "current": "ecd5e0710ab5a03ab1e481c7c0bfab9a9702c40db681877019cb589691d438a6",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/editorConfig.d.ts.map": {
+      "recorded": "00210655ed613eda1efdd70b74015c23eb2b6be0ad876cbee0827462d188cf5c",
+      "current": "00210655ed613eda1efdd70b74015c23eb2b6be0ad876cbee0827462d188cf5c",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/editorConfig.js": {
+      "recorded": "1c5b7b2232bb0217a9716c62fef20ecfc9cd42f06e8fe2ae35fb478cf7b5e16b",
+      "current": "1c5b7b2232bb0217a9716c62fef20ecfc9cd42f06e8fe2ae35fb478cf7b5e16b",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/editorConfig.js.map": {
+      "recorded": "c0b1a9e57b7d2522db4ec6d5c0fd15f7fb4d00643f181df58d8b5ca039b7762e",
+      "current": "c0b1a9e57b7d2522db4ec6d5c0fd15f7fb4d00643f181df58d8b5ca039b7762e",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/imageSourcePolicy.d.ts": {
+      "recorded": "ee3394b03c8ef8dfd0f3d2857fa1aef648eff65e826ff456d1a59e6ce2691bcf",
+      "current": "ee3394b03c8ef8dfd0f3d2857fa1aef648eff65e826ff456d1a59e6ce2691bcf",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/imageSourcePolicy.d.ts.map": {
+      "recorded": "97edc083c63651237b31183d121f3e022416448256f9ca5242d366c0aa0df4c9",
+      "current": "97edc083c63651237b31183d121f3e022416448256f9ca5242d366c0aa0df4c9",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/imageSourcePolicy.js": {
+      "recorded": "ecd5b59d54416151d4fc213dc604e654b5b6ba7a08791d41cd07f42c080db0b6",
+      "current": "ecd5b59d54416151d4fc213dc604e654b5b6ba7a08791d41cd07f42c080db0b6",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/imageSourcePolicy.js.map": {
+      "recorded": "9d25bd77f6e0a3cd85493790e5ec8eef54e2834829241fdb455cf5fff475576a",
+      "current": "9d25bd77f6e0a3cd85493790e5ec8eef54e2834829241fdb455cf5fff475576a",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/serializeEditorDocument.d.ts": {
+      "recorded": "d3703b53ddc559b45622df0cfab8e6503b5534523ad1ff7505df7ec31fe78f43",
+      "current": "d3703b53ddc559b45622df0cfab8e6503b5534523ad1ff7505df7ec31fe78f43",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/serializeEditorDocument.d.ts.map": {
+      "recorded": "d27a2ab52100f96efe112cd98df97487f6a77eebb4824c3b3c95ba323bd91dad",
+      "current": "d27a2ab52100f96efe112cd98df97487f6a77eebb4824c3b3c95ba323bd91dad",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/serializeEditorDocument.js": {
+      "recorded": "587852e448dbf6b7dd1a63a5c060ce90c1cc886f2021267d92f7e91b982fe4c5",
+      "current": "587852e448dbf6b7dd1a63a5c060ce90c1cc886f2021267d92f7e91b982fe4c5",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/PageRichTextEditorSection/lexical/serializeEditorDocument.js.map": {
+      "recorded": "193251650e072817d4d3a6090b12f8578d72598ae18a3d84832adfce7b8d77e4",
+      "current": "193251650e072817d4d3a6090b12f8578d72598ae18a3d84832adfce7b8d77e4",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.d.ts": {
+      "recorded": "bfc2a9203b9c9527893c9dc1a2b9cff6a7df4f245fb1c3bd3a68f385a881bc15",
+      "current": "bfc2a9203b9c9527893c9dc1a2b9cff6a7df4f245fb1c3bd3a68f385a881bc15",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.d.ts.map": {
+      "recorded": "4e5a012c0030d136e0fb028e520aa8b9cbb5e4e20cd10bfb96fd5789a8c7f131",
+      "current": "4e5a012c0030d136e0fb028e520aa8b9cbb5e4e20cd10bfb96fd5789a8c7f131",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.d.ts": {
+      "recorded": "7cd3f77da6009b7798e2795b5a1b7da82530ad59d3decc7f8fe65e09b782a6ae",
+      "current": "7cd3f77da6009b7798e2795b5a1b7da82530ad59d3decc7f8fe65e09b782a6ae",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.d.ts.map": {
+      "recorded": "81eeaaf6b0cea332ceecf3d5aca7fd0da1d96416c55e0da94b789b4842fa2e55",
+      "current": "81eeaaf6b0cea332ceecf3d5aca7fd0da1d96416c55e0da94b789b4842fa2e55",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.js": {
+      "recorded": "9483028443645cdc3737ce5c103ae652945d78d490ec8195a332335d536e2990",
+      "current": "9483028443645cdc3737ce5c103ae652945d78d490ec8195a332335d536e2990",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.js.map": {
+      "recorded": "dacca96de180ec548f82e8443239b3d1e7d42c7ba0e0cb3d0cbbb94dedd9e369",
+      "current": "dacca96de180ec548f82e8443239b3d1e7d42c7ba0e0cb3d0cbbb94dedd9e369",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.js": {
+      "recorded": "10c3e7acd34eef4acab78b6d05b757e03d58e3787a2197527a0a8b12f4092d5f",
+      "current": "10c3e7acd34eef4acab78b6d05b757e03d58e3787a2197527a0a8b12f4092d5f",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.js.map": {
+      "recorded": "b776b0b98fc37948a72e0ed51eada2baa6a846707c01a816767202640e2fb8bc",
+      "current": "b776b0b98fc37948a72e0ed51eada2baa6a846707c01a816767202640e2fb8bc",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.module.css.js": {
+      "recorded": "99c34a172d4308bcc516aaf3b517c4adfdfd51ddd38dc21f75d424621b322979",
+      "current": "99c34a172d4308bcc516aaf3b517c4adfdfd51ddd38dc21f75d424621b322979",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/index.d.ts": {
+      "recorded": "b15ef1abba8af216a9f691f83086bb3252b452b17ca1b9a0765d3516cbe2b062",
+      "current": "b15ef1abba8af216a9f691f83086bb3252b452b17ca1b9a0765d3516cbe2b062",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/index.d.ts.map": {
+      "recorded": "6d4989b9c246aa8cdace971f334e4aa67a8c1dd5731957ba346bf24d66694a0a",
+      "current": "6d4989b9c246aa8cdace971f334e4aa67a8c1dd5731957ba346bf24d66694a0a",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/index.js": {
+      "recorded": "c4a9a5c14599c0df758323595cb53668b9bd36e0a845678e2cbc76a47d7d8e5f",
+      "current": "c4a9a5c14599c0df758323595cb53668b9bd36e0a845678e2cbc76a47d7d8e5f",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/RichTextFormattingToolbar/index.js.map": {
+      "recorded": "beb356042d7be093b421b317b3e24bba6685581d26d7d9ac98a40bc1ae1841b5",
+      "current": "beb356042d7be093b421b317b3e24bba6685581d26d7d9ac98a40bc1ae1841b5",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextAlignMenuControl/TextAlignMenuControl.d.ts": {
+      "recorded": "4b9f1504ce09c47e1cfddb3ac1fe9a007cb998e8f5a817e650e5ae8b3ea9859d",
+      "current": "4b9f1504ce09c47e1cfddb3ac1fe9a007cb998e8f5a817e650e5ae8b3ea9859d",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextAlignMenuControl/TextAlignMenuControl.d.ts.map": {
+      "recorded": "d89abb13c258d31b7196f4abebcd04098932491107060b9188139854ff6ad270",
+      "current": "d89abb13c258d31b7196f4abebcd04098932491107060b9188139854ff6ad270",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextAlignMenuControl/TextAlignMenuControl.js": {
+      "recorded": "70d326bb1775c8042e4af82f5aba6b2caf88b03822a10cfb69bf7c01ed3c3e53",
+      "current": "70d326bb1775c8042e4af82f5aba6b2caf88b03822a10cfb69bf7c01ed3c3e53",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextAlignMenuControl/TextAlignMenuControl.js.map": {
+      "recorded": "581cf5d4c9a11afb3da1de15d306b1f4111edab8222f0a8c0490f246d5768f48",
+      "current": "581cf5d4c9a11afb3da1de15d306b1f4111edab8222f0a8c0490f246d5768f48",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextAlignMenuControl/TextAlignMenuControl.module.css.js": {
+      "recorded": "11a9b0b058430bad392f4abe5d2b5d508ced295d4a487f4de078af4936a8fe91",
+      "current": "11a9b0b058430bad392f4abe5d2b5d508ced295d4a487f4de078af4936a8fe91",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextAlignMenuControl/index.d.ts": {
+      "recorded": "14779dc5a1711ef249c4a0d3036d4d695d975c81b2f8e1df05debccea43681e1",
+      "current": "14779dc5a1711ef249c4a0d3036d4d695d975c81b2f8e1df05debccea43681e1",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextAlignMenuControl/index.d.ts.map": {
+      "recorded": "6641fb9eebe5638c60acbc10e31b280c329e11b53eadf3b471fdf41a7466ee0a",
+      "current": "6641fb9eebe5638c60acbc10e31b280c329e11b53eadf3b471fdf41a7466ee0a",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextAlignMenuControl/index.js": {
+      "recorded": "966761842ee4909dd548de410f9616f157cfaf52b71e7df4caf9485268f28c1b",
+      "current": "966761842ee4909dd548de410f9616f157cfaf52b71e7df4caf9485268f28c1b",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextAlignMenuControl/index.js.map": {
+      "recorded": "09cafe85db8c37f5f7a13d64ad1e0e9aa7a9cda16154996e7c3783a2405544ff",
+      "current": "09cafe85db8c37f5f7a13d64ad1e0e9aa7a9cda16154996e7c3783a2405544ff",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.d.ts": {
+      "recorded": "fe9db730185b1d07c8023360581dfa6fddacc42cda67134df4bf52a26baffaa0",
+      "current": "fe9db730185b1d07c8023360581dfa6fddacc42cda67134df4bf52a26baffaa0",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.d.ts.map": {
+      "recorded": "a3bfe3b4ff12e6cfbca7497387821e9268f4fa5d95bf236661df2a2d3ee098a9",
+      "current": "a3bfe3b4ff12e6cfbca7497387821e9268f4fa5d95bf236661df2a2d3ee098a9",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.impl.d.ts": {
+      "recorded": "ab9d902e69edb07e40a8aedf4c2247566a7015955adaf734e584769b18126235",
+      "current": "ab9d902e69edb07e40a8aedf4c2247566a7015955adaf734e584769b18126235",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.impl.d.ts.map": {
+      "recorded": "386aa8a7831bdab1890e9d64a10efe3e822f23a3bb9707036a1746433765992b",
+      "current": "386aa8a7831bdab1890e9d64a10efe3e822f23a3bb9707036a1746433765992b",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.impl.js": {
+      "recorded": "aa322ccc92c58ba07b7dd2d20437870c4e5845cead5f8fa64737fdab1a4c8733",
+      "current": "aa322ccc92c58ba07b7dd2d20437870c4e5845cead5f8fa64737fdab1a4c8733",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.impl.js.map": {
+      "recorded": "2dcf6e41cb68bc93e4d58e66c7e1e86461d3aae9fb6772a4214a8c3b2898d27c",
+      "current": "2dcf6e41cb68bc93e4d58e66c7e1e86461d3aae9fb6772a4214a8c3b2898d27c",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.js": {
+      "recorded": "7b60d7a33fe878dfa9597967f2b85a9e122db7f61ff3d6142601dbbd7fb9e2ec",
+      "current": "7b60d7a33fe878dfa9597967f2b85a9e122db7f61ff3d6142601dbbd7fb9e2ec",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.js.map": {
+      "recorded": "8c87b7db9e422ad8463cc7d3037e41df8d3507d06a32f6697cc10648fab52ec0",
+      "current": "8c87b7db9e422ad8463cc7d3037e41df8d3507d06a32f6697cc10648fab52ec0",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.module.css.js": {
+      "recorded": "42769f01f46719837813c5ba0573f1b8e96c27d331b11cef7689e7faf9ddbcf1",
+      "current": "42769f01f46719837813c5ba0573f1b8e96c27d331b11cef7689e7faf9ddbcf1",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/index.d.ts": {
+      "recorded": "04bd58a731953599b023ceb584c25517e1f8ee2c8664f96019eb38626a5bed56",
+      "current": "04bd58a731953599b023ceb584c25517e1f8ee2c8664f96019eb38626a5bed56",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/index.d.ts.map": {
+      "recorded": "91d8b626c8233cc0554a4022caf1810adb2c316f75b239e1f057e7768b0015b4",
+      "current": "91d8b626c8233cc0554a4022caf1810adb2c316f75b239e1f057e7768b0015b4",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/index.js": {
+      "recorded": "1d633c993a6aaa23cb35044b6719a2cd494775343504a543b867efe3b6b112c8",
+      "current": "1d633c993a6aaa23cb35044b6719a2cd494775343504a543b867efe3b6b112c8",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextColorPickerControl/index.js.map": {
+      "recorded": "88ae3a89b8e85c7d8e5d3d537d0d416d142fcd2515a7b7e14a286138ff58c085",
+      "current": "88ae3a89b8e85c7d8e5d3d537d0d416d142fcd2515a7b7e14a286138ff58c085",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/NativeSelection.module.css.js": {
+      "recorded": "07dabb74887787c403e28f4481c6f81c467137641dff2f2b31e8223485fc6cd8",
+      "current": "07dabb74887787c403e28f4481c6f81c467137641dff2f2b31e8223485fc6cd8",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/TextStyleMenuControl.d.ts": {
+      "recorded": "070e905a3a72b2bc563d5cf3c057aa2d0d11f80c24c1e4c815142f6533643f5f",
+      "current": "070e905a3a72b2bc563d5cf3c057aa2d0d11f80c24c1e4c815142f6533643f5f",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/TextStyleMenuControl.d.ts.map": {
+      "recorded": "634e95d1b116cdda1c290f56960ac69df7cd0263904ceba330217bc0c3711622",
+      "current": "634e95d1b116cdda1c290f56960ac69df7cd0263904ceba330217bc0c3711622",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/TextStyleMenuControl.js": {
+      "recorded": "dde9cdf62c39f7906eac02acf3d7ed1af3d909cb3c496829d81e1d5c438351a6",
+      "current": "dde9cdf62c39f7906eac02acf3d7ed1af3d909cb3c496829d81e1d5c438351a6",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/TextStyleMenuControl.js.map": {
+      "recorded": "f4a02ea9185faa5ab309ca674bce2b4bd94a3a922a5cb182d49eae9e1746ebdf",
+      "current": "f4a02ea9185faa5ab309ca674bce2b4bd94a3a922a5cb182d49eae9e1746ebdf",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/TextStyleMenuControl.module.css.js": {
+      "recorded": "f85930e96068ef2d85391cc684a61927306fd45839a882b82ffe273d48732997",
+      "current": "f85930e96068ef2d85391cc684a61927306fd45839a882b82ffe273d48732997",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/index.d.ts": {
+      "recorded": "ae84442b3b0a9ae772bda16c7235cabb5c804484fe59a95708fdbe1f5c76e37b",
+      "current": "ae84442b3b0a9ae772bda16c7235cabb5c804484fe59a95708fdbe1f5c76e37b",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/index.d.ts.map": {
+      "recorded": "1fcebf36758ea5098a6319932e6693994dbab34c02b0fe72361e462617985650",
+      "current": "1fcebf36758ea5098a6319932e6693994dbab34c02b0fe72361e462617985650",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/index.js": {
+      "recorded": "50bc2a8ec8075b999510fa025cafb19d0c5bcee7811ebb59c5164760cba79e81",
+      "current": "50bc2a8ec8075b999510fa025cafb19d0c5bcee7811ebb59c5164760cba79e81",
+      "unchanged": true
+    },
+    "packages/ui/dist/components/TextStyleMenuControl/index.js.map": {
+      "recorded": "0381c309998cd3de822d0ed6c0466e83866699e7c62774d73c552e9783cfffb1",
+      "current": "0381c309998cd3de822d0ed6c0466e83866699e7c62774d73c552e9783cfffb1",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/InsertContentMenuControl-D0mleBzt.js": {
+      "recorded": "9526974cf878c76ff8b39e01ca9a8a4017998ed1a71b92bbd12a1ba651a12a4a",
+      "current": "9526974cf878c76ff8b39e01ca9a8a4017998ed1a71b92bbd12a1ba651a12a4a",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/InsertContentMenuControl.fixture-By6n6im4.js": {
+      "recorded": "7f30a6bb2f3daaae1538e72a7d5ffd6ba822b35216537b7dd85d291d6fde0eb1",
+      "current": "7f30a6bb2f3daaae1538e72a7d5ffd6ba822b35216537b7dd85d291d6fde0eb1",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/PageRichTextEditorSection.fixture-Bz2EHnYx.js": {
+      "recorded": "b756a1b66be7a234147fe92a7a759ffc91954c54f42b61eb7228c55bc3ced0e5",
+      "current": "b756a1b66be7a234147fe92a7a759ffc91954c54f42b61eb7228c55bc3ced0e5",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/PageRichTextEditorSection.impl-b2J-b7O4.js": {
+      "recorded": "38b1ec8ada292fec33931137010707f1b81d219cc2dfc1a99f3a537304531ffe",
+      "current": "38b1ec8ada292fec33931137010707f1b81d219cc2dfc1a99f3a537304531ffe",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/PageRichTextEditorSection.mixed-formatting.fixture-BNhYIeE-.js": {
+      "recorded": "5ea87e5b6906bbcdd9799a1312a5186bbfb04a7a27511167c68b3a57148edd4b",
+      "current": "5ea87e5b6906bbcdd9799a1312a5186bbfb04a7a27511167c68b3a57148edd4b",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/PageRichTextEditorSection.paragraph-transactions.fixture-C_dtBYrr.js": {
+      "recorded": "612f0283173c198f16876c3e9e8c28020419452c5215f8cf291e9a9c500cbe5f",
+      "current": "612f0283173c198f16876c3e9e8c28020419452c5215f8cf291e9a9c500cbe5f",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/RichTextFormattingToolbar.fixture-Bu6COAQ4.js": {
+      "recorded": "4711dabbf0029e527b1251b23e7167e4f62b16cabb78201075292822d0a78896",
+      "current": "4711dabbf0029e527b1251b23e7167e4f62b16cabb78201075292822d0a78896",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/RichTextFormattingToolbar.impl-C2GZPkyH.js": {
+      "recorded": "d95b3ea6dc404e4e6024377293ac51e0dec0bea3ed10c2604bd44011233d332a",
+      "current": "d95b3ea6dc404e4e6024377293ac51e0dec0bea3ed10c2604bd44011233d332a",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/TextAlignMenuControl-CbeYnq8z.js": {
+      "recorded": "ac8432f41da8786cf89356fb2cd78b188c9cadb26ce557210e10df3faa19532e",
+      "current": "ac8432f41da8786cf89356fb2cd78b188c9cadb26ce557210e10df3faa19532e",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/TextAlignMenuControl.fixture-CspvNC-V.js": {
+      "recorded": "88303da07fcc2f768a8d79baa1c3bf378b85e9a37f89cd23a0d6e5a93074fcf7",
+      "current": "88303da07fcc2f768a8d79baa1c3bf378b85e9a37f89cd23a0d6e5a93074fcf7",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/TextColorPickerControl-BlDgZY9t.js": {
+      "recorded": "3693537c72a861068c51875fd17f7f3c3e6aa69e1bc41dd444f770e6911ce512",
+      "current": "3693537c72a861068c51875fd17f7f3c3e6aa69e1bc41dd444f770e6911ce512",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/TextColorPickerControl.fixture-DDxrQdTV.js": {
+      "recorded": "0c47f56c68e083b534b4c91000b3c7e98521a15d1014bf0160a94c2ca9b0a372",
+      "current": "0c47f56c68e083b534b4c91000b3c7e98521a15d1014bf0160a94c2ca9b0a372",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/TextStyleMenuControl-BOKQWzJf.js": {
+      "recorded": "01fc1ab8e4b076574e668207463bf8aded151518c2ae847946ef16370510c144",
+      "current": "01fc1ab8e4b076574e668207463bf8aded151518c2ae847946ef16370510c144",
+      "unchanged": true
+    },
+    "packages/ui/browser-docs-static/assets/TextStyleMenuControl.fixture-BXJaeX50.js": {
+      "recorded": "8aab8ec3fd434b91360689eec00535f7d0d2be3da1c050441ca07c4eae292dc0",
+      "current": "8aab8ec3fd434b91360689eec00535f7d0d2be3da1c050441ca07c4eae292dc0",
+      "unchanged": true
+    }
+  },
+  "artifacts": {
+    "assignment.json": "9a799ab6f3163285a85d6f7d43ca4b56923c2597a23c9eaf9e40832fe7942087",
+    "baseline-unit-final.log": "28776db196611e00dda661794d4dc94d4c8e95fb3181f6a216c66d607ec1ab41",
+    "baseline-unit-first-reproduction.log": "1f86c4256312deb3a87cff91eb1b35c89095050cd9df916464ddc43047eef22f",
+    "capture-evidence.py": "6a53f0ed10fbebd1a8af83a120ae05c74c29c02dbaaa21d17dc506eaff446d03",
+    "command-transactions.patch": "13f62c8dbcaa5d6a79a8bd612478d1c61033dbb71f95abaa8e244135e8959bf5",
+    "leased-final-02.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "leased-final-03.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "leased-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare-runtime.py": "58424efe2f76fd0539a8d765dc3c8273163d920e2b406a86493fce35cc3ec3bf",
+    "proposed-files/docs/developer/react-aria-editor-menus.md": "dcbdfe5487526c06f99822a732653db297715c92bb95cbc342f1823776ad1696",
+    "proposed-files/packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx": "0b366e44ca87a65d38557f7e62a6b650c18da8186bc93d270af7f2545e920b64",
+    "proposed-files/packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": "3fead1a0154a544b687a1d35170605b6909d7fad289cff87b0be459a67ed50f5",
+    "proposed-files/packages/ui/tests/browser/editor-style-range-transactions.spec.ts": "d2b077de55d5da916a2354608927c38dae7f4df57152fbefa1e8aa9d452acc0e",
+    "proposed-unit-02.log": "7326cbe178c2195c8bff1bc4b09d26c13f29c5dbb4b8abda7e534a5f111d6298",
+    "proposed-unit-03.log": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "proposed-unit-04.log": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "proposed-unit-05.log": "b962943113ff4ea08f36135623512dcb7f63d5a6a0234acdc20f9dcbe74e4a0e",
+    "proposed-unit-final.log": "b14cab587b8a390300b94ec614f6d33023a3fdcaf5a9a147072bdf90efec4d00",
+    "proposed-unit-first-pass.log": "4115a31b60090eae2b19627346f264fa635eb0f30eef2673884b2e98fec44c64",
+    "proposed-unit.log": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "report.md": "77ed3f7939b95dc4b51a7a8ca555cfeed35bb1963a9e532a588ba1dd34501df4",
+    "results.json": "e69e6fbe40ed8dee70a859c7e012dd81b5d310823230264b237d0020cffd98ee",
+    "run-validation.mjs": "af722027bfbec4105b5475278c92a647dc8df4b2639f111d9721e3afc87e8541",
+    "runtime/PageRichTextEditorSection.command-transactions.test.tsx": "dd0c436ff40443d5688d3b5998bb1f4717c48add283478b578a7edc0b5e40d17",
+    "runtime/PageRichTextEditorSection.impl.tsx": "fd80bd81be304bdd48c8f1de434de4636c93f4d177bc5ccc4189a57632030de1",
+    "runtime/baseline.impl.tsx": "232b533f1b980100709accd1df68f2fc662cb31c6aad1bda8b91c0633b65ab74",
+    "static-check.json": "b56132077078a1e189899fd2552196bee4768b27e87d8918c9029c174a1bc825",
+    "static-check.mjs": "f06f781f9025d937a3102ecfd370894e01f5d0316d138d6d150aedaf59301b78",
+    "unit-execution.json": "bc458c3c50c6e00129b8074e3a1324ef948e8daf9aa09a793b0bb093a3c76b58",
+    "validation-plan.json": "d3482cfe5982fb5d8fcf946219a69fd50b39c86946a3066cee50c590f9168473",
+    "vitest.baseline.config.mts": "ec19c55d9a7f13a46709a9442276e6c3e3bd7d1d1ab178c19ba40aeaa3610017",
+    "vitest.proposed.config.mts": "dce2466251bc75e0e7d38e18463c2789030a94c7f2295434c0a307767657bafa"
+  }
+}

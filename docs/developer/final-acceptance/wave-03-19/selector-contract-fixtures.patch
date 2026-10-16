@@ -1,0 +1,67 @@
+--- a/apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx
++++ b/apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx
+@@ -17,3 +17,16 @@
+ } };
+ 
+ export const ExplicitPortalDirections: Story = { render: () => <SelectorDirectionStory kind="select" /> };
++
++
++/** Private acceptance host: ID serialization and controlled authority, no persistence. */
++export const NativeContracts: Story = { render: () => { const [request, setRequest] = useState<string | null>(null); return <form aria-label="Status contract">
++ <button type="button">Before status</button>
++ <Select label="Identity status" name="identity" description="Choose a stable status ID" defaultValue="01" options={[
++  { id: "01", label: "Same" }, { id: "blocked", label: "Unavailable", disabled: true },
++  { id: "1", label: "Same" }, { id: "z", label: "Zulu" },
++ ]} />
++ <Select label="Host status" name="host" value={null} onValueChange={setRequest} options={[{ id: "01", label: "Same" }, { id: "1", label: "Same" }]} />
++ <button type="reset">Reset status</button>
++ <output aria-label="Status request">{request}</output>
++</form>; } };
+--- a/apps/docs/native-fixtures/scenarios/experimental/ComboBox/ComboBox.fixture.tsx
++++ b/apps/docs/native-fixtures/scenarios/experimental/ComboBox/ComboBox.fixture.tsx
+@@ -24,3 +24,16 @@
+ } };
+ 
+ export const ExplicitPortalDirections: Story = { render: () => <SelectorDirectionStory kind="combo" /> };
++
++
++/** Private acceptance host: local filtering, duplicate labels and native reset. */
++export const NativeContracts: Story = { render: () => { const [request, setRequest] = useState<string | null>(null); return <form aria-label="Category contract">
++ <button type="button">Before category</button>
++ <ComboBox label="Identity category" name="identity" description="Search stable category IDs" defaultValue="01" options={[
++  { id: "01", label: "Same" }, { id: "blocked", label: "Unavailable", disabled: true },
++  { id: "1", label: "Same" }, { id: "z", label: "Zulu" },
++ ]} />
++ <ComboBox label="Host category" name="host" value={null} onValueChange={setRequest} options={[{ id: "z", label: "Zulu" }]} />
++ <button type="reset">Reset category</button>
++ <output aria-label="Category request">{request}</output>
++</form>; } };
+--- a/apps/docs/native-fixtures/scenarios/experimental/Menu/Menu.fixture.tsx
++++ b/apps/docs/native-fixtures/scenarios/experimental/Menu/Menu.fixture.tsx
+@@ -1,3 +1,4 @@
++import { useState } from "react";
+ import type { Meta, StoryObj } from "../../../types";
+ import { Menu } from "@structured-growth/sg-ui/experimental";
+ import { Provider } from "@structured-growth/sg-ui/theme";
+@@ -16,3 +17,21 @@
+ 
+ export const RetryableActionError: Story = { args: { defaultOpen: true, errorMessage: "Unable to complete this action. Try again." } };
+ export const LinkTargets: Story = { args: { items: [{ id: "course", label: "Open course", href: "/courses/1" }, { id: "reference", label: "Open reference in a new tab", href: "https://example.com", target: "_blank", rel: "help" }] } };
++
++
++function NativeContractsExample() {
++ const [requests, setRequests] = useState<string[]>([]);
++ return <>
++  <Button>Before commands</Button>
++  <Menu label="Contract commands" trigger={<Button>Contract actions</Button>} items={[
++   { id: "blocked-first", label: "Unavailable first", disabled: true },
++   { id: "first", label: "First enabled" },
++   { id: "middle", label: "Unavailable middle", disabled: true },
++   { id: "last", label: "Last enabled" },
++   { id: "blocked-last", label: "Unavailable last", disabled: true },
++  ]} onAction={id => setRequests(previous => [...previous, id])} />
++  <Button>After commands</Button>
++  <output aria-label="Command requests">{requests.join(",")}</output>
++ </>;
++}
++export const NativeContracts: Story = { render: () => <NativeContractsExample /> };

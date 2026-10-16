@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
 import { Button } from "@structured-growth/sg-ui/components";
 import { PageRichTextEditorSection } from "@structured-growth/sg-ui/components";
@@ -34,3 +34,35 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 // native fixture host's production Provider supplies the owned scope and compiled styles.
 export const ParagraphCommandHistory: Story = { render: () => <ParagraphTransactionsHost /> };
+
+// Same accepted paragraph seed and public editor; adds host lifetime transitions.
+// Keyboard events bubble from native dialogs, so background controls need not be
+// programmatically clicked while the modal makes them inert.
+function SelectionAcceptanceHost() {
+  const [seed, setSeed] = useState<unknown>(PARAGRAPH_TRANSACTION_DOCUMENT);
+  const [value, setValue] = useState<unknown>(PARAGRAPH_TRANSACTION_DOCUMENT);
+  const [revision, setRevision] = useState(0);
+  const [readOnly, setReadOnly] = useState(false);
+  const [mounted, setMounted] = useState(true);
+  useEffect(() => {
+    const update = (event: KeyboardEvent) => {
+      if (!event.altKey) return;
+      if (event.code === "Digit1") { event.preventDefault(); setReadOnly(true); }
+      if (event.code === "Digit2") {
+        event.preventDefault();
+        setSeed(PARAGRAPH_TRANSACTION_DOCUMENT); setValue(PARAGRAPH_TRANSACTION_DOCUMENT);
+        setRevision(value => value + 1); setReadOnly(false);
+      }
+      if (event.code === "Digit3") { event.preventDefault(); setMounted(false); }
+    };
+    document.addEventListener("keydown", update);
+    return () => document.removeEventListener("keydown", update);
+  }, []);
+  return <div data-testid="selection-acceptance" data-revision={revision}>
+    {mounted && <PageRichTextEditorSection lexicalValue={seed} editorKey={`selection-acceptance-${revision}`}
+      readOnly={readOnly} onLexicalChange={setValue} toolPreset="full"
+      aria-label="Selection acceptance document" style={{ height: 460 }} />}
+    <pre aria-label="Selection acceptance JSON">{JSON.stringify(value)}</pre>
+  </div>;
+}
+export const SelectionAcceptance: Story = { render: () => <SelectionAcceptanceHost /> };

@@ -15,17 +15,22 @@ import styles from "./Popover.module.css";
 export interface PopoverProps {
   trigger: ReactElement<ButtonProps>;
   title: string;
+  /** Hide the visible heading while retaining title as the dialog accessible name. */
+  showTitle?: boolean;
   children: ReactNode;
   open?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
+  /** Auto uses a bottom drawer on narrow viewports. Dialog and drawer stay fixed; popover remains anchored. */
+  presentation?: "popover" | "dialog" | "drawer" | "auto";
   placement?: "bottom start" | "bottom end" | "top start" | "top end";
-  size?: "md" | "lg";
+  /** Content sizing follows its children up to the viewport width. */
+  size?: "md" | "lg" | "content";
 }
 
 // Mount the interaction hooks only while open, so the owned scroll subscription
 // and positioning observers have the same lifetime as the overlay.
-function OpenPopover({ title, children, placement, size }: Pick<PopoverProps, "title" | "children" | "placement" | "size">) {
+function OpenPopover({ title, showTitle = true, children, placement, size, presentation }: Pick<PopoverProps, "title" | "showTitle" | "children" | "placement" | "size" | "presentation">) {
   const state = useContext(OverlayTriggerStateContext)!;
   const context = useSlottedContext(PopoverContext)!;
   const triggerRef = context.triggerRef!;
@@ -45,6 +50,31 @@ function OpenPopover({ title, children, placement, size }: Pick<PopoverProps, "t
   }, state);
   const { overlayProps, placement: resolvedPlacement, triggerAnchorPoint, updatePosition } = useOverlayPosition({
     targetRef: triggerRef, overlayRef: popoverRef, placement, offset: 8, isOpen: state.isOpen, onClose: null,
+    getTargetRect: target => {
+      const rect = target.getBoundingClientRect();
+      const overlay = popoverRef.current;
+      if (!overlay) return rect;
+      const view = target.ownerDocument.defaultView!;
+      const viewport = view.visualViewport;
+      const top = (viewport?.offsetTop ?? 0) + 12;
+      const bottom = (viewport?.offsetTop ?? 0) + (viewport?.height ?? view.innerHeight) - 12;
+      // Responsive reflow can move the trigger outside its scrolled pane.
+      // Measure space from a viewport-bounded virtual anchor, otherwise an
+      // offscreen trigger incorrectly appears to have unlimited room above it.
+      const anchorTop = Math.max(top, Math.min(rect.top, bottom - rect.height));
+      const anchor = anchorTop === rect.top ? rect : new view.DOMRect(rect.x, anchorTop, rect.width, rect.height);
+      const border = overlay.offsetHeight - overlay.clientHeight;
+      const naturalHeight = overlay.scrollHeight + border;
+      // Let the native positioner flip whenever either side can fit. Otherwise
+      // shift along the main axis before constraining content to a scrollport.
+      if (naturalHeight <= Math.max(anchor.top - top - 8, bottom - anchor.bottom - 8)) return anchor;
+      const height = Math.min(naturalHeight, bottom - top);
+      const above = placement?.startsWith("top");
+      const preferredTop = above ? anchor.top - 8 - height : anchor.bottom + 8;
+      const fittedTop = Math.max(top, Math.min(preferredTop, bottom - height));
+      const targetTop = above ? fittedTop + height + 8 : fittedTop - rect.height - 8;
+      return new view.DOMRect(rect.x, targetTop, rect.width, rect.height);
+    },
   });
   useEffect(() => {
     const trigger = triggerRef.current;
@@ -113,22 +143,22 @@ function OpenPopover({ title, children, placement, size }: Pick<PopoverProps, "t
         "--trigger-width": `${triggerRef.current?.getBoundingClientRect().width ?? 0}px`,
         "--trigger-anchor-point": triggerAnchorPoint ? `${triggerAnchorPoint.x}px ${triggerAnchorPoint.y}px` : undefined,
       } as CSSProperties}
-        data-trigger="DialogTrigger" data-size={size} data-placement={resolvedPlacement ?? undefined} className={styles.root}>
+        data-trigger="DialogTrigger" data-presentation={presentation} data-size={size} data-placement={resolvedPlacement ?? undefined} className={styles.root}>
         <DismissButton onDismiss={state.close} />
-        <Dialog className={styles.dialog}><Heading slot="title" className={styles.title}>{title}</Heading>{children}</Dialog>
+        <Dialog className={styles.dialog} aria-label={showTitle ? undefined : title}>{showTitle && <Heading slot="title" className={styles.title}>{title}</Heading>}{children}</Dialog>
         <DismissButton onDismiss={state.close} />
       </div>
     </div>
   </Overlay>;
 }
 
-function PopoverContent(props: Pick<PopoverProps, "title" | "children" | "placement" | "size">) {
+function PopoverContent(props: Pick<PopoverProps, "title" | "showTitle" | "children" | "placement" | "size" | "presentation">) {
   const state = useContext(OverlayTriggerStateContext)!;
   return state.isOpen ? <OpenPopover {...props} /> : null;
 }
 
-export function Popover({ trigger, title, children, open, defaultOpen, onOpenChange, placement = "bottom start", size = "md" }: PopoverProps) {
+export function Popover({ trigger, title, showTitle = true, children, open, defaultOpen, onOpenChange, placement = "bottom start", size = "md", presentation = "popover" }: PopoverProps) {
   return <DialogTrigger isOpen={open} defaultOpen={defaultOpen} onOpenChange={onOpenChange}>
-    {trigger}<PopoverContent title={title} placement={placement} size={size}>{children}</PopoverContent>
+    {trigger}<PopoverContent presentation={presentation} title={title} showTitle={showTitle} placement={placement} size={size}>{children}</PopoverContent>
   </DialogTrigger>;
 }

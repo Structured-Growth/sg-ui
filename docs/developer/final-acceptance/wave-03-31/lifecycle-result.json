@@ -1,0 +1,24 @@
+{
+  "runtime": "v26.5.0",
+  "typescript": "5.9.3",
+  "kind": "pure Node transpiled ownership regression; fake event target and timers",
+  "original": {
+    "sha256": "f73f43437138a6c175115645456b378248171a4f6fdc0ae698b1c6deb0ae21ef",
+    "duplicateRelease": "fail",
+    "failure": "duplicate disposal removed the live sibling listener\n\n0 !== 1\n",
+    "repeatedLifetime": "pass"
+  },
+  "candidate": {
+    "sha256": "f210ef3198366ad9f4ad930bd3c0fa073f43ca4764da94985b57a3b04ee70217",
+    "duplicateRelease": "pass",
+    "repeatedLifetime": "pass",
+    "cycles": 100,
+    "remainingListeners": 0,
+    "remainingTimers": 0,
+    "remainingAttributes": 0
+  },
+  "limits": [
+    "Not executed Vitest, DOM/native browser, heap profiling or supported Node matrix.",
+    "Original source remains unchanged."
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "assignment": 2,
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "workingTreeEvidence": true,
+  "runtime": {
+    "node": "v26.5.0",
+    "typescript": "5.9.3",
+    "supportedRuntimeExecution": false
+  },
+  "scope": "Only A-A-03; proposal-only source/tooling/documentation patch; no central ledger edits",
+  "results": [
+    {
+      "id": "A-A-03",
+      "originalRequirement": "- [ ] A-A-03 Reconcile original `A-03`: Define one-way dependency boundaries; prevent root-barrel imports from internal implementations and prevent circular imports. Historical status: open.",
+      "status": "partial",
+      "outcome": "Rebased current DateField contract extraction, removed all three cycles in read-only overlay, implemented maintained compiler-resolved root/SCC enforcement and real-source regression mutations; not integrated.",
+      "patch": "cycle-enforcement.patch",
+      "patchNeedsIntegration": true,
+      "proposedFiles": [
+        "docs/developer/component-architecture.md",
+        "packages/ui/scripts/check-foundations.mjs",
+        "packages/ui/scripts/check-source-graph.mjs",
+        "packages/ui/scripts/check-source-graph.test.mjs",
+        "packages/ui/src/adapters/navigation.tsx",
+        "packages/ui/src/adapters/navigation.types.ts",
+        "packages/ui/src/adapters/navigationContext.ts",
+        "packages/ui/src/experimental/DateField/DateField.tsx",
+        "packages/ui/src/experimental/DateField/DateField.types.ts",
+        "packages/ui/src/experimental/DateField/TextDateField.tsx",
+        "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+        "packages/ui/src/experimental/TimeField/TimeField.tsx",
+        "packages/ui/src/experimental/TimeField/TimeField.types.ts"
+      ],
+      "evidence": [
+        "graph-validation.json",
+        "graph-validation.txt",
+        "typecheck.json",
+        "typecheck.txt",
+        "patch-check.txt",
+        "patch-input-hashes.json",
+        "input-reconciliation.json",
+        "artifact-hashes.json"
+      ],
+      "checks": [
+        {
+          "command": "node docs/developer/final-acceptance/wave-03-02/validate.mjs",
+          "result": "pass",
+          "runtime": "v26.5.0",
+          "currentModules": 424,
+          "currentRuntimeCycles": 0,
+          "currentTypeInvolvingCycles": 3,
+          "proposedModules": 427,
+          "proposedRuntimeCycles": 0,
+          "proposedTypeInvolvingCycles": 0
+        },
+        {
+          "command": "node docs/developer/final-acceptance/wave-03-02/typecheck.mjs",
+          "result": "pass",
+          "diagnostics": 0,
+          "sameContracts": true,
+          "contractViews": 8,
+          "identicalTranspiledImplementationModules": 6
+        },
+        {
+          "command": "git apply --check docs/developer/final-acceptance/wave-03-02/cycle-enforcement.patch",
+          "result": "pass",
+          "applied": false
+        }
+      ],
+      "residualSuccessors": [
+        "Coordinator reviews and integrates exact patch or rebases if any captured source hash changes.",
+        "Run integrated graph, negative/real-source regression, existing foundation and compiler checks on supported Node22/24.",
+        "Run the three existing affected component suites under the coordinator validation lease.",
+        "Build library, test packed exports/declarations and check catalog with fresh output; see validation-plan.json."
+      ],
+      "retainedFailures": [
+        "typecheck-harness-first-failure.txt",
+        "typecheck-harness-second-failure.txt",
+        "typecheck-harness-cwd-failure.txt",
+        "typecheck-harness-cwd-failure.json"
+      ],
+      "limits": [
+        "Pure Node26 source checks are not Node22/24 unit/native/browser evidence.",
+        "Unmarked references conservatively remain runtime-capable; no inferred compiler type erasure or external/CSS graph analysis.",
+        "Byte-identical transpileModule output is not a fresh production build or packed-consumer run.",
+        "No patch applied, no production/source/test/docs mutation outside this directory."
+      ]
+    }
+  ],
+  "validationPlan": "validation-plan.json",
+  "report": "report.md"
+}

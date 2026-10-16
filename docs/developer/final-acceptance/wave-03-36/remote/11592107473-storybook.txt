@@ -1,0 +1,1651 @@
+
+> @structured-growth/sg-ui@0.0.0-development build-storybook /home/runner/work/sg-ui/sg-ui
+> storybook build
+
+
+[90m┌[39m  Building storybook v10.6.1
+[90m│[39m
+[32m◇[39m  Cleaning outputDir: [36mstorybook-static[39m
+[90m│[39m
+[32m◇[39m  Loading presets
+[90m│[39m
+[32m◇[39m  Building manager..
+[90m│[39m
+[34m●[39m  Building open services..
+[90m│[39m
+[34m●[39m  Building preview..
+[90m│[39m  [43mVite[49m [36mvite v7.3.6 [32mbuilding client environment for production...[36m[39m
+[90m│[39m  [43mVite[49m transforming...
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/i18n/index.tsx (1:0): Error when using sourcemap for[39m
+[90m│[39m  [33mreporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/i18n/index.tsx (1:0): Module level directives cause errors[39m
+[90m│[39m  [33mwhen bundled, "use client" in "src/i18n/index.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/foundation/ThemeScope.tsx (1:0): Error when using sourcemap[39m
+[90m│[39m  [33mfor reporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/foundation/ThemeScope.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/foundation/ThemeScope.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/theme/AppThemeProvider.tsx (1:0): Error when using sourcemap[39m
+[90m│[39m  [33mfor reporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/theme/AppThemeProvider.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/theme/AppThemeProvider.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Provider/Provider.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Provider/Provider.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Provider/Provider.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppButton/AppButton.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppButton/AppButton.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppButton/AppButton.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/adapters/Link.tsx (1:0): Error when using sourcemap for[39m
+[90m│[39m  [33mreporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/adapters/Link.tsx (1:0): Module level directives cause errors[39m
+[90m│[39m  [33mwhen bundled, "use client" in "src/adapters/Link.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/adapters/accounts.tsx (1:0): Error when using sourcemap for[39m
+[90m│[39m  [33mreporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/adapters/accounts.tsx (1:0): Module level directives cause[39m
+[90m│[39m  [33merrors when bundled, "use client" in "src/adapters/accounts.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/adapters/navigation.tsx (1:0): Error when using sourcemap for[39m
+[90m│[39m  [33mreporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/adapters/navigation.tsx (1:0): Module level directives cause[39m
+[90m│[39m  [33merrors when bundled, "use client" in "src/adapters/navigation.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppInlineProgress/AppInlineProgress.tsx (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppInlineProgress/AppInlineProgress.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppInlineProgress/AppInlineProgress.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppOperationSteps/AppOperationSteps.tsx (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppOperationSteps/AppOperationSteps.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppOperationSteps/AppOperationSteps.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Button/Button.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Button/Button.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Button/Button.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGridShell/AppDataGridShell.tsx (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGridShell/AppDataGridShell.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppDataGridShell/AppDataGridShell.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/AppDataGrid.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/AppDataGrid.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppDataGrid/AppDataGrid.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppPageHeader/AppPageHeader.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppPageHeader/AppPageHeader.tsx (1:0): Module[39m
+[90m│[39m  [33mlevel directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppPageHeader/AppPageHeader.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGridRowDnd/DataGridDragHandle.tsx (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGridRowDnd/DataGridDragHandle.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppDataGridRowDnd/DataGridDragHandle.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/CardPaginationFooter/CardPaginationFooter.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/CardPaginationFooter/CardPaginationFooter.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/CardPaginationFooter/CardPaginationFooter.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppModal/AppModal.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppModal/AppModal.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppModal/AppModal.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TextField/TextField.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TextField/TextField.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/TextField/TextField.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Popover/Popover.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Popover/Popover.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Popover/Popover.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Menu/Menu.tsx (1:0): Error when using sourcemap[39m
+[90m│[39m  [33mfor reporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Menu/Menu.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Menu/Menu.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/ComboBox/ComboBox.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/ComboBox/ComboBox.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/ComboBox/ComboBox.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridParts.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridParts.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppDataGrid/ownedGridParts.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DataToolbar/DataToolbar.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DataToolbar/DataToolbar.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/DataToolbar/DataToolbar.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridLayoutController.ts (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridLayoutController.ts (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppDataGrid/ownedGridLayoutController.ts" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridController.ts (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridController.ts (1:0): Module[39m
+[90m│[39m  [33mlevel directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppDataGrid/ownedGridController.ts" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridInteraction.tsx (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridInteraction.tsx (1:0): Module[39m
+[90m│[39m  [33mlevel directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppDataGrid/ownedGridInteraction.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TextArea/TextArea.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TextArea/TextArea.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/TextArea/TextArea.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridCells.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridCells.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppDataGrid/ownedGridCells.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Progress/Progress.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Progress/Progress.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Progress/Progress.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33mnode_modules/.pnpm/react-error-boundary@6.1.6_@types+react@19.3.0_react@19.2.3/node_modules/react-error-boundary/dist/react-error-boundary.js[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"node_modules/.pnpm/react-error-boundary@6.1.6_@types+react@19.3.0_react@19.2.3/node_modules/react-error-boundary/dist/react-error-boundary.js"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/TextStyleMenuControl/TextStyleMenuControl.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/TextStyleMenuControl/TextStyleMenuControl.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/TextStyleMenuControl/TextStyleMenuControl.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DocumentEditorLayout/DocumentEditorLayout.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DocumentEditorLayout/DocumentEditorLayout.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/DocumentEditorLayout/DocumentEditorLayout.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AuthShell/AuthShell.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AuthShell/AuthShell.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AuthShell/AuthShell.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Link/Link.tsx (1:0): Error when using sourcemap[39m
+[90m│[39m  [33mfor reporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Link/Link.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Link/Link.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/ImageUploadModal/ImageUploadModal.tsx (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/ImageUploadModal/ImageUploadModal.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/ImageUploadModal/ImageUploadModal.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/LearnerClassCard/LearnerClassCard.tsx (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/LearnerClassCard/LearnerClassCard.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/LearnerClassCard/LearnerClassCard.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppPageTabs/AppPageTabs.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppPageTabs/AppPageTabs.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppPageTabs/AppPageTabs.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/ContentEditorChrome/ContentEditorChrome.tsx (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/ContentEditorChrome/ContentEditorChrome.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/ContentEditorChrome/ContentEditorChrome.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/LinkUrlModal/LinkUrlModal.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/LinkUrlModal/LinkUrlModal.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/LinkUrlModal/LinkUrlModal.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/TextAlignMenuControl/TextAlignMenuControl.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/TextAlignMenuControl/TextAlignMenuControl.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/TextAlignMenuControl/TextAlignMenuControl.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33mnode_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs[39m
+[90m│[39m  [33m(2:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/context.mjs"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33mnode_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs[39m
+[90m│[39m  [33m(2:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"node_modules/.pnpm/lucide-react@1.52.0_@types+react@19.3.0_react@19.2.3/node_modules/lucide-react/dist/esm/Icon.mjs"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/primitives/Progress.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/primitives/Progress.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/primitives/Progress.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Checkbox/Checkbox.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Checkbox/Checkbox.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Checkbox/Checkbox.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/InstructorClassCard/InstructorClassCard.tsx (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/InstructorClassCard/InstructorClassCard.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/InstructorClassCard/InstructorClassCard.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DateField/DateField.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DateField/DateField.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/DateField/DateField.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Dialog/Dialog.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Dialog/Dialog.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Dialog/Dialog.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/List/List.tsx (1:0): Error when using sourcemap[39m
+[90m│[39m  [33mfor reporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/List/List.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/List/List.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/IconButton/IconButton.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/IconButton/IconButton.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/IconButton/IconButton.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Switch/Switch.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Switch/Switch.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Switch/Switch.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Select/Select.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Select/Select.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Select/Select.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Tabs/Tabs.tsx (1:0): Error when using sourcemap[39m
+[90m│[39m  [33mfor reporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Tabs/Tabs.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Tabs/Tabs.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/adapters/navigationContext.ts (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/adapters/navigationContext.ts (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/adapters/navigationContext.ts" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Calendar/Calendar.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Calendar/Calendar.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Calendar/Calendar.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Tooltip/Tooltip.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Tooltip/Tooltip.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Tooltip/Tooltip.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/SideNavigation/SideNavigation.tsx (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/SideNavigation/SideNavigation.tsx (1:0): Module[39m
+[90m│[39m  [33mlevel directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/SideNavigation/SideNavigation.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/InsertContentMenuControl/InsertContentMenuControl.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/InsertContentMenuControl/InsertContentMenuControl.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/InsertContentMenuControl/InsertContentMenuControl.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DateRangeSelector/DateRangeSelector.tsx (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DateRangeSelector/DateRangeSelector.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/DateRangeSelector/DateRangeSelector.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DatePicker/DatePicker.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DatePicker/DatePicker.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/DatePicker/DatePicker.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Navigation/Navigation.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Navigation/Navigation.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Navigation/Navigation.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TimeField/TimeField.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TimeField/TimeField.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/TimeField/TimeField.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Breadcrumbs/Breadcrumbs.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Breadcrumbs/Breadcrumbs.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Breadcrumbs/Breadcrumbs.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/ToggleButton/ToggleButton.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/ToggleButton/ToggleButton.tsx (1:0): Module[39m
+[90m│[39m  [33mlevel directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/ToggleButton/ToggleButton.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/RadioGroup/RadioGroup.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/RadioGroup/RadioGroup.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/RadioGroup/RadioGroup.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Select/SelectorDirectionStory.tsx (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Select/SelectorDirectionStory.tsx (1:0): Module[39m
+[90m│[39m  [33mlevel directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Select/SelectorDirectionStory.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DateRangePicker/DateRangePicker.tsx (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DateRangePicker/DateRangePicker.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/DateRangePicker/DateRangePicker.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/SplitAction/SplitAction.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/SplitAction/SplitAction.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/SplitAction/SplitAction.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/DataToolbar/components/DataToolbarSelectionMenu.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/DataToolbar/components/DataToolbarSelectionMenu.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/InsertContentMenuControl/NativeInsertionHost.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/InsertContentMenuControl/NativeInsertionHost.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/InsertContentMenuControl/NativeInsertionHost.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DataGrid/DataGrid.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DataGrid/DataGrid.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/DataGrid/DataGrid.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/EditableTitleField/EditableTitleField.tsx (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/EditableTitleField/EditableTitleField.tsx (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/EditableTitleField/EditableTitleField.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TagGroup/TagGroup.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TagGroup/TagGroup.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/TagGroup/TagGroup.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Avatar/Avatar.tsx (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Avatar/Avatar.tsx (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Avatar/Avatar.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Pagination/Pagination.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Pagination/Pagination.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Pagination/Pagination.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/hooks/usePersistentPaginationModel.ts (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/hooks/usePersistentPaginationModel.ts (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/hooks/usePersistentPaginationModel.ts" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Disclosure/Disclosure.tsx (1:0): Error when[39m
+[90m│[39m  [33musing sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/Disclosure/Disclosure.tsx (1:0): Module level[39m
+[90m│[39m  [33mdirectives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/Disclosure/Disclosure.tsx" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TextField/useStandaloneFormReset.ts (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/TextField/useStandaloneFormReset.ts (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/TextField/useStandaloneFormReset.ts" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridPersistence.ts (1:0): Error[39m
+[90m│[39m  [33mwhen using sourcemap for reporting an error: Can't resolve original[39m
+[90m│[39m  [33mlocation of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/AppDataGrid/ownedGridPersistence.ts (1:0): Module[39m
+[90m│[39m  [33mlevel directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/components/AppDataGrid/ownedGridPersistence.ts" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/TextColorPickerControl/TextColorPickerControl.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/TextColorPickerControl/TextColorPickerControl.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/TextColorPickerControl/TextColorPickerControl.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DataToolbar/components/DataToolbarColumnsMenu.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DataToolbar/components/DataToolbarColumnsMenu.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/hooks/usePersistentState.ts (1:0): Error when using sourcemap[39m
+[90m│[39m  [33mfor reporting an error: Can't resolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/hooks/usePersistentState.ts (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/hooks/usePersistentState.ts" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DataToolbar/components/DataToolbarSortMenu.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DataToolbar/components/DataToolbarSortMenu.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/DataToolbar/components/DataToolbarSortMenu.tsx" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DataToolbar/components/DataToolbarFilterMenu.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/components/DataToolbar/components/DataToolbarFilterMenu.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min "src/components/DataToolbar/components/DataToolbarFilterMenu.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/useFormReset.ts (1:0): Error when using[39m
+[90m│[39m  [33msourcemap for reporting an error: Can't resolve original location of[39m
+[90m│[39m  [33merror.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/useFormReset.ts (1:0): Module level directives[39m
+[90m│[39m  [33mcause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/useFormReset.ts" was ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DateRangeSelector/useCalendarFormReset.ts (1:0):[39m
+[90m│[39m  [33mError when using sourcemap for reporting an error: Can't resolve[39m
+[90m│[39m  [33moriginal location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m [33msrc/experimental/DateRangeSelector/useCalendarFormReset.ts (1:0):[39m
+[90m│[39m  [33mModule level directives cause errors when bundled, "use client" in[39m
+[90m│[39m  [33m"src/experimental/DateRangeSelector/useCalendarFormReset.ts" was[39m
+[90m│[39m  [33mignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/TextColorPickerControl/TextColorPickerControl.impl.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/TextColorPickerControl/TextColorPickerControl.impl.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx[39m
+[90m│[39m  [33m(1:0): Error when using sourcemap for reporting an error: Can't[39m
+[90m│[39m  [33mresolve original location of error.[39m
+[90m│[39m
+[33m▲[39m  [43mVite[49m
+[90m│[39m  [33msrc/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx[39m
+[90m│[39m  [33m(1:0): Module level directives cause errors when bundled, "use client"[39m
+[90m│[39m  [33min[39m
+[90m│[39m  [33m"src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx"[39m
+[90m│[39m  [33mwas ignored.[39m
+[90m│[39m  [43mVite[49m [32m✓[39m 3494 modules transformed.
+[90m│[39m  [43mVite[49m rendering chunks...
+[90m│[39m  [43mVite[49m computing gzip size...
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[32miframe.html[39m[1m[2m[22m
+[90m│[39m  [2m18.82 kB[22m[1m[22m[2m │ gzip:   5.28 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTextArea-CCYaTVuH.css[39m[1m[2m[22m
+[90m│[39m  [2m0.08 kB[22m[1m[22m[2m │ gzip:   0.10 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDatePicker-BbUSrP35.css[39m[1m[2m[22m
+[90m│[39m  [2m0.10 kB[22m[1m[22m[2m │ gzip:   0.11 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mLinkUrlModal-CNVGb_YO.css[39m[1m[2m[22m
+[90m│[39m  [2m0.16 kB[22m[1m[22m[2m │ gzip:   0.15 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mcreateVector-CfwKTy1E.css[39m[1m[2m[22m
+[90m│[39m  [2m0.17 kB[22m[1m[22m[2m │ gzip:   0.15 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mBox-eYoO3XEW.css[39m[1m[2m[22m
+[90m│[39m  [2m0.18 kB[22m[1m[22m[2m │ gzip:   0.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAppDataGrid-D91V3Xyx.css[39m[1m[2m[22m
+[90m│[39m  [2m0.19 kB[22m[1m[22m[2m │ gzip:   0.15 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mIconButton-6p7qMeqq.css[39m[1m[2m[22m
+[90m│[39m  [2m0.20 kB[22m[1m[22m[2m │ gzip:   0.16 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAppInlineProgress-DM9QuI4c.css[39m[1m[2m[22m
+[90m│[39m  [2m0.23 kB[22m[1m[22m[2m │ gzip:   0.17 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTextStyleMenuControl-IhmZMXap.css[39m[1m[2m[22m
+[90m│[39m  [2m0.27 kB[22m[1m[22m[2m │ gzip:   0.17 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDivider-WCyJqy87.css[39m[1m[2m[22m
+[90m│[39m  [2m0.31 kB[22m[1m[22m[2m │ gzip:   0.20 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mStatus-BZL7biIh.css[39m[1m[2m[22m
+[90m│[39m  [2m0.32 kB[22m[1m[22m[2m │ gzip:   0.19 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mSelect-DUasZU7F.css[39m[1m[2m[22m
+[90m│[39m  [2m0.32 kB[22m[1m[22m[2m │ gzip:   0.21 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mBreadcrumbs-BPQPMy0o.css[39m[1m[2m[22m
+[90m│[39m  [2m0.34 kB[22m[1m[22m[2m │ gzip:   0.20 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDisclosure-CiTbTE69.css[39m[1m[2m[22m
+[90m│[39m  [2m0.35 kB[22m[1m[22m[2m │ gzip:   0.21 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDataToolbar-eVbzQP6e.css[39m[1m[2m[22m
+[90m│[39m  [2m0.39 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mCardPaginationFooter-CVZLLnoL.css[39m[1m[2m[22m
+[90m│[39m  [2m0.42 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mLink-BKL5nxDL.css[39m[1m[2m[22m
+[90m│[39m  [2m0.45 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mSurface-XlX-xAoS.css[39m[1m[2m[22m
+[90m│[39m  [2m0.47 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mEditableTitleField-BdmCwetZ.css[39m[1m[2m[22m
+[90m│[39m  [2m0.54 kB[22m[1m[22m[2m │ gzip:   0.27 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mClassCardFrame-Dc0y1Nso.css[39m[1m[2m[22m
+[90m│[39m  [2m0.56 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mList-C7TgZN-r.css[39m[1m[2m[22m
+[90m│[39m  [2m0.56 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTextAlignMenuControl-CqOzeh-9.css[39m[1m[2m[22m
+[90m│[39m  [2m0.58 kB[22m[1m[22m[2m │ gzip:   0.20 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTooltip-DcQ3qhSu.css[39m[1m[2m[22m
+[90m│[39m  [2m0.61 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mCardCollectionWithFooter-D1h5o_rU.css[39m[1m[2m[22m
+[90m│[39m  [2m0.62 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mNavigation-KZlXDQBi.css[39m[1m[2m[22m
+[90m│[39m  [2m0.63 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mFloatingTextSelectionToolbar-B2YE6YPD.css[39m[1m[2m[22m
+[90m│[39m  [2m0.72 kB[22m[1m[22m[2m │ gzip:   0.35 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDateField-CLiBfQ5g.css[39m[1m[2m[22m
+[90m│[39m  [2m0.77 kB[22m[1m[22m[2m │ gzip:   0.37 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mImageUploadModal-BKYSflZx.css[39m[1m[2m[22m
+[90m│[39m  [2m0.81 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mChip-CnGVdc34.css[39m[1m[2m[22m
+[90m│[39m  [2m0.87 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mNativeSelection-Col-VA7j.css[39m[1m[2m[22m
+[90m│[39m  [2m0.89 kB[22m[1m[22m[2m │ gzip:   0.37 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAppDataGridShell-1cfU32vl.css[39m[1m[2m[22m
+[90m│[39m  [2m0.89 kB[22m[1m[22m[2m │ gzip:   0.40 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAppOperationSteps-BBDINasi.css[39m[1m[2m[22m
+[90m│[39m  [2m0.90 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mStack-E9eb-Mfb.css[39m[1m[2m[22m
+[90m│[39m  [2m0.92 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mPopover-0pUp_kjS.css[39m[1m[2m[22m
+[90m│[39m  [2m0.93 kB[22m[1m[22m[2m │ gzip:   0.40 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAppShell-SXXbWnNk.css[39m[1m[2m[22m
+[90m│[39m  [2m0.94 kB[22m[1m[22m[2m │ gzip:   0.40 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mownedGridParts-DiP_XhhG.css[39m[1m[2m[22m
+[90m│[39m  [2m0.96 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mBadge-vv96qr_d.css[39m[1m[2m[22m
+[90m│[39m  [2m0.98 kB[22m[1m[22m[2m │ gzip:   0.44 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mPagination-CbM_iZFj.css[39m[1m[2m[22m
+[90m│[39m  [2m1.02 kB[22m[1m[22m[2m │ gzip:   0.43 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTable-DwjXy-RC.css[39m[1m[2m[22m
+[90m│[39m  [2m1.03 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAvatar-DFEUqEb9.css[39m[1m[2m[22m
+[90m│[39m  [2m1.13 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAppModal-LQMdyeWn.css[39m[1m[2m[22m
+[90m│[39m  [2m1.18 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDocumentEditorLayout-CjaqfuO0.css[39m[1m[2m[22m
+[90m│[39m  [2m1.19 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAppPageTabs-CTaJi1ZE.css[39m[1m[2m[22m
+[90m│[39m  [2m1.20 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mContentEditorChrome-Ab37suHq.css[39m[1m[2m[22m
+[90m│[39m  [2m1.21 kB[22m[1m[22m[2m │ gzip:   0.42 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mExperiencePageNavigator-I97W35--.css[39m[1m[2m[22m
+[90m│[39m  [2m1.22 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mLearnerClassCard-C9pVdvYH.css[39m[1m[2m[22m
+[90m│[39m  [2m1.30 kB[22m[1m[22m[2m │ gzip:   0.45 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAsyncMultiSelect-BJZYTVLP.css[39m[1m[2m[22m
+[90m│[39m  [2m1.31 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mButtonGroup-CrZFh-Aa.css[39m[1m[2m[22m
+[90m│[39m  [2m1.31 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAuthShell-DRGO-J4u.css[39m[1m[2m[22m
+[90m│[39m  [2m1.33 kB[22m[1m[22m[2m │ gzip:   0.52 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mSwitch-COP2YeRm.css[39m[1m[2m[22m
+[90m│[39m  [2m1.42 kB[22m[1m[22m[2m │ gzip:   0.52 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mAppPageHeader-DQHLVBqA.css[39m[1m[2m[22m
+[90m│[39m  [2m1.44 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mCheckbox-DM_fjK8g.css[39m[1m[2m[22m
+[90m│[39m  [2m1.44 kB[22m[1m[22m[2m │ gzip:   0.51 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mInstructorClassCard-DnCrIXGP.css[39m[1m[2m[22m
+[90m│[39m  [2m1.50 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDocumentEditorToolbar-CatpW2Nw.css[39m[1m[2m[22m
+[90m│[39m  [2m1.51 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTextField-Cij9yItD.css[39m[1m[2m[22m
+[90m│[39m  [2m1.51 kB[22m[1m[22m[2m │ gzip:   0.52 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mComboBox-BzFEBz_Q.css[39m[1m[2m[22m
+[90m│[39m  [2m1.51 kB[22m[1m[22m[2m │ gzip:   0.55 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDataGrid-DU-CRPZw.css[39m[1m[2m[22m
+[90m│[39m  [2m1.52 kB[22m[1m[22m[2m │ gzip:   0.54 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mRadioGroup-DTTuw_1j.css[39m[1m[2m[22m
+[90m│[39m  [2m1.53 kB[22m[1m[22m[2m │ gzip:   0.55 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTextColorPickerControl--eZuQbnn.css[39m[1m[2m[22m
+[90m│[39m  [2m1.56 kB[22m[1m[22m[2m │ gzip:   0.55 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mRichTextFormattingToolbar-CXP2B4nb.css[39m[1m[2m[22m
+[90m│[39m  [2m1.57 kB[22m[1m[22m[2m │ gzip:   0.56 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mToggleButton-Tlusqap-.css[39m[1m[2m[22m
+[90m│[39m  [2m1.64 kB[22m[1m[22m[2m │ gzip:   0.58 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mProgress-DSMy6tca.css[39m[1m[2m[22m
+[90m│[39m  [2m1.69 kB[22m[1m[22m[2m │ gzip:   0.58 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTagGroup-BLOqd0pi.css[39m[1m[2m[22m
+[90m│[39m  [2m2.00 kB[22m[1m[22m[2m │ gzip:   0.61 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mMenu-DZLPg62N.css[39m[1m[2m[22m
+[90m│[39m  [2m2.30 kB[22m[1m[22m[2m │ gzip:   0.78 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDialog-CvkNPNGq.css[39m[1m[2m[22m
+[90m│[39m  [2m2.33 kB[22m[1m[22m[2m │ gzip:   0.78 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mButton-Bmqqycq8.css[39m[1m[2m[22m
+[90m│[39m  [2m2.36 kB[22m[1m[22m[2m │ gzip:   0.74 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTabs-CPR0zAhx.css[39m[1m[2m[22m
+[90m│[39m  [2m2.54 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDateRangeSelector-DC_terZK.css[39m[1m[2m[22m
+[90m│[39m  [2m2.66 kB[22m[1m[22m[2m │ gzip:   0.84 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mTypography-Dj1gVpua.css[39m[1m[2m[22m
+[90m│[39m  [2m2.77 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mSideNavigation-Cj8Pqoz5.css[39m[1m[2m[22m
+[90m│[39m  [2m3.57 kB[22m[1m[22m[2m │ gzip:   1.02 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mPageRichTextEditorSection-Cy72N1os.css[39m[1m[2m[22m
+[90m│[39m  [2m4.10 kB[22m[1m[22m[2m │ gzip:   0.95 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mownedGridInteraction-Zj28B7K-.css[39m[1m[2m[22m
+[90m│[39m  [2m4.35 kB[22m[1m[22m[2m │ gzip:   1.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35mDataToolbar-CgWmNiS8.css[39m[1m[2m[22m
+[90m│[39m  [2m4.66 kB[22m[1m[22m[2m │ gzip:   1.12 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[35miframe-XXhJufMF.css[39m[1m[2m[22m
+[90m│[39m  [2m22.21 kB[22m[1m[22m[2m │ gzip:   1.67 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mnavigationContext-DWRf2aOE.js[39m[1m[2m[22m
+[90m│[39m  [2m0.09 kB[22m[1m[22m[2m │ gzip:   0.10 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mForm-BfuBbqgF.js[39m[1m[2m[22m
+[90m│[39m  [2m0.09 kB[22m[1m[22m[2m │ gzip:   0.10 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSelectionIndicator-YyPmyB0S.js[39m[1m[2m[22m
+[90m│[39m  [2m0.10 kB[22m[1m[22m[2m │ gzip:   0.11 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAutocomplete-DRJ04fLj.js[39m[1m[2m[22m
+[90m│[39m  [2m0.12 kB[22m[1m[22m[2m │ gzip:   0.11 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mindex-BsXMcVdK.js[39m[1m[2m[22m
+[90m│[39m  [2m0.13 kB[22m[1m[22m[2m │ gzip:   0.12 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mGroupIcon-B8hBMDaV.js[39m[1m[2m[22m
+[90m│[39m  [2m0.13 kB[22m[1m[22m[2m │ gzip:   0.13 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mPeopleIcon-B-2wBeRi.js[39m[1m[2m[22m
+[90m│[39m  [2m0.13 kB[22m[1m[22m[2m │ gzip:   0.13 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mRemoveIcon-BW4uwJu0.js[39m[1m[2m[22m
+[90m│[39m  [2m0.13 kB[22m[1m[22m[2m │ gzip:   0.13 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mMenuBookIcon-DuWXDodp.js[39m[1m[2m[22m
+[90m│[39m  [2m0.14 kB[22m[1m[22m[2m │ gzip:   0.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mcreateActionMenuColumn-DMriS0Ap.js[39m[1m[2m[22m
+[90m│[39m  [2m0.14 kB[22m[1m[22m[2m │ gzip:   0.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mExpandMoreIcon-DOLn63y3.js[39m[1m[2m[22m
+[90m│[39m  [2m0.14 kB[22m[1m[22m[2m │ gzip:   0.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mArrowDropDownIcon-C9OkSRly.js[39m[1m[2m[22m
+[90m│[39m  [2m0.14 kB[22m[1m[22m[2m │ gzip:   0.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mKeyboardArrowDownIcon-CEGUxgQJ.js[39m[1m[2m[22m
+[90m│[39m  [2m0.15 kB[22m[1m[22m[2m │ gzip:   0.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mfilterRuleValue-BjAHLo2m.js[39m[1m[2m[22m
+[90m│[39m  [2m0.15 kB[22m[1m[22m[2m │ gzip:   0.15 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mminus-DfZw1khT.js[39m[1m[2m[22m
+[90m│[39m  [2m0.16 kB[22m[1m[22m[2m │ gzip:   0.16 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mComboBox.module-C3BA_yc0.js[39m[1m[2m[22m
+[90m│[39m  [2m0.16 kB[22m[1m[22m[2m │ gzip:   0.12 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mchevron-down-t8YzmUPP.js[39m[1m[2m[22m
+[90m│[39m  [2m0.17 kB[22m[1m[22m[2m │ gzip:   0.16 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCheckIcon-9NBsybzL.js[39m[1m[2m[22m
+[90m│[39m  [2m0.19 kB[22m[1m[22m[2m │ gzip:   0.18 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextField.module-PLktdT2l.js[39m[1m[2m[22m
+[90m│[39m  [2m0.20 kB[22m[1m[22m[2m │ gzip:   0.13 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCircleIcon-DT2Pk-7C.js[39m[1m[2m[22m
+[90m│[39m  [2m0.20 kB[22m[1m[22m[2m │ gzip:   0.18 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mChevronRightIcon-Bc2MOOwv.js[39m[1m[2m[22m
+[90m│[39m  [2m0.21 kB[22m[1m[22m[2m │ gzip:   0.19 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSharedElementTransition-B80jOmnh.js[39m[1m[2m[22m
+[90m│[39m  [2m0.21 kB[22m[1m[22m[2m │ gzip:   0.19 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mgetScrollParent-ByVWK8lB.js[39m[1m[2m[22m
+[90m│[39m  [2m0.21 kB[22m[1m[22m[2m │ gzip:   0.17 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCloseIcon-Y4gvTB26.js[39m[1m[2m[22m
+[90m│[39m  [2m0.22 kB[22m[1m[22m[2m │ gzip:   0.19 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAddIcon-DT7X_gyg.js[39m[1m[2m[22m
+[90m│[39m  [2m0.22 kB[22m[1m[22m[2m │ gzip:   0.19 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museCollator-DRqn3eRu.js[39m[1m[2m[22m
+[90m│[39m  [2m0.24 kB[22m[1m[22m[2m │ gzip:   0.22 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mcolumns-3-mYIuYSUI.js[39m[1m[2m[22m
+[90m│[39m  [2m0.29 kB[22m[1m[22m[2m │ gzip:   0.23 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mContentCopyIcon-Bzs5eBPt.js[39m[1m[2m[22m
+[90m│[39m  [2m0.31 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSortIcon-06DWMbdA.js[39m[1m[2m[22m
+[90m│[39m  [2m0.31 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museSlot-DLQZT7M5.js[39m[1m[2m[22m
+[90m│[39m  [2m0.32 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mbook-open-DAO2MB-O.js[39m[1m[2m[22m
+[90m│[39m  [2m0.33 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museUpdateEffect-BoGV9VbI.js[39m[1m[2m[22m
+[90m│[39m  [2m0.33 kB[22m[1m[22m[2m │ gzip:   0.24 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mMoreVertIcon-D_MTdYpO.js[39m[1m[2m[22m
+[90m│[39m  [2m0.33 kB[22m[1m[22m[2m │ gzip:   0.23 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mHeading-CxDaDQWK.js[39m[1m[2m[22m
+[90m│[39m  [2m0.33 kB[22m[1m[22m[2m │ gzip:   0.27 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mText-BzcgJNCX.js[39m[1m[2m[22m
+[90m│[39m  [2m0.34 kB[22m[1m[22m[2m │ gzip:   0.26 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mformatter-L2YTDE3Q-C3gIRBK4.js[39m[1m[2m[22m
+[90m│[39m  [2m0.34 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36musers-CICFHjbN.js[39m[1m[2m[22m
+[90m│[39m  [2m0.34 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mEditIcon-D-gAxPec.js[39m[1m[2m[22m
+[90m│[39m  [2m0.34 kB[22m[1m[22m[2m │ gzip:   0.27 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museToggleState-B8YK4Yyv.js[39m[1m[2m[22m
+[90m│[39m  [2m0.35 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mBuildIcon-Dh5X7Yg3.js[39m[1m[2m[22m
+[90m│[39m  [2m0.37 kB[22m[1m[22m[2m │ gzip:   0.28 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mUploadFileIcon-BJ6q3zSY.js[39m[1m[2m[22m
+[90m│[39m  [2m0.43 kB[22m[1m[22m[2m │ gzip:   0.30 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museField-BRdsR8e2.js[39m[1m[2m[22m
+[90m│[39m  [2m0.44 kB[22m[1m[22m[2m │ gzip:   0.29 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDragIndicatorIcon-CZckZs5k.js[39m[1m[2m[22m
+[90m│[39m  [2m0.45 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museFormReset-BPmtUh6B.js[39m[1m[2m[22m
+[90m│[39m  [2m0.45 kB[22m[1m[22m[2m │ gzip:   0.29 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mdate-contract-BYSt-ZEQ.js[39m[1m[2m[22m
+[90m│[39m  [2m0.47 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mBox.stories-C66XKMhR.js[39m[1m[2m[22m
+[90m│[39m  [2m0.47 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mViewWeekIcon-DXd3ruW8.js[39m[1m[2m[22m
+[90m│[39m  [2m0.47 kB[22m[1m[22m[2m │ gzip:   0.35 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museHasTabbableChild-BP-Ko-XX.js[39m[1m[2m[22m
+[90m│[39m  [2m0.49 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museControlledState-BWyZQRwT.js[39m[1m[2m[22m
+[90m│[39m  [2m0.49 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mStack.stories-D0j35qOQ.js[39m[1m[2m[22m
+[90m│[39m  [2m0.50 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mFormatItalicIcon-yqtCRb7R.js[39m[1m[2m[22m
+[90m│[39m  [2m0.50 kB[22m[1m[22m[2m │ gzip:   0.32 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSurface.stories-Diqu2BNx.js[39m[1m[2m[22m
+[90m│[39m  [2m0.51 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mLinkIcon-BkWoKjNa.js[39m[1m[2m[22m
+[90m│[39m  [2m0.53 kB[22m[1m[22m[2m │ gzip:   0.33 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCard.stories-B7bXXMc3.js[39m[1m[2m[22m
+[90m│[39m  [2m0.53 kB[22m[1m[22m[2m │ gzip:   0.35 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCollapse-U1DYk5VO.js[39m[1m[2m[22m
+[90m│[39m  [2m0.59 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mFieldError-DOR9Q_3i.js[39m[1m[2m[22m
+[90m│[39m  [2m0.62 kB[22m[1m[22m[2m │ gzip:   0.40 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCalendarTodayIcon-D38tRFGC.js[39m[1m[2m[22m
+[90m│[39m  [2m0.64 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mUndoIcon-mslJHq8Q.js[39m[1m[2m[22m
+[90m│[39m  [2m0.66 kB[22m[1m[22m[2m │ gzip:   0.36 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museFilter-Dd_jiTQd.js[39m[1m[2m[22m
+[90m│[39m  [2m0.66 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSchoolIcon-CozrhL3V.js[39m[1m[2m[22m
+[90m│[39m  [2m0.66 kB[22m[1m[22m[2m │ gzip:   0.40 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mFormatIndentIncreaseIcon-Q17126xl.js[39m[1m[2m[22m
+[90m│[39m  [2m0.68 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mVisuallyHidden-KESHXXpI.js[39m[1m[2m[22m
+[90m│[39m  [2m0.69 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSuperscriptIcon-CgRncH6D.js[39m[1m[2m[22m
+[90m│[39m  [2m0.70 kB[22m[1m[22m[2m │ gzip:   0.39 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museStandaloneFormReset-M4cGOE5z.js[39m[1m[2m[22m
+[90m│[39m  [2m0.74 kB[22m[1m[22m[2m │ gzip:   0.43 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mLogoutIcon-Ca7Np0Sv.js[39m[1m[2m[22m
+[90m│[39m  [2m0.74 kB[22m[1m[22m[2m │ gzip:   0.43 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mFormatListNumberedIcon-B28cJt4o.js[39m[1m[2m[22m
+[90m│[39m  [2m0.76 kB[22m[1m[22m[2m │ gzip:   0.38 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mExploreIcon-DV3NeUka.js[39m[1m[2m[22m
+[90m│[39m  [2m0.76 kB[22m[1m[22m[2m │ gzip:   0.44 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mIconButton-DXEr5u-1.js[39m[1m[2m[22m
+[90m│[39m  [2m0.80 kB[22m[1m[22m[2m │ gzip:   0.46 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mIconButton.stories-B3k1n8MX.js[39m[1m[2m[22m
+[90m│[39m  [2m0.83 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mButtonGroup-Dfwrxeag.js[39m[1m[2m[22m
+[90m│[39m  [2m0.83 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mFormatColorTextIcon-qBVEDpei.js[39m[1m[2m[22m
+[90m│[39m  [2m0.84 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mHighlightIcon-MtBxhw_9.js[39m[1m[2m[22m
+[90m│[39m  [2m0.85 kB[22m[1m[22m[2m │ gzip:   0.47 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppInlineProgress-DxazEy01.js[39m[1m[2m[22m
+[90m│[39m  [2m0.87 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36manimation-CyxbmThh.js[39m[1m[2m[22m
+[90m│[39m  [2m0.88 kB[22m[1m[22m[2m │ gzip:   0.49 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mindex-CeQNYCvN.js[39m[1m[2m[22m
+[90m│[39m  [2m0.91 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDragAndDrop-Dxqt5UYi.js[39m[1m[2m[22m
+[90m│[39m  [2m0.96 kB[22m[1m[22m[2m │ gzip:   0.52 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mFormatAlignRightIcon-CTJzENT8.js[39m[1m[2m[22m
+[90m│[39m  [2m1.04 kB[22m[1m[22m[2m │ gzip:   0.44 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCollapse.stories-D17uElk9.js[39m[1m[2m[22m
+[90m│[39m  [2m1.13 kB[22m[1m[22m[2m │ gzip:   0.62 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDivider.stories-CNAquOoR.js[39m[1m[2m[22m
+[90m│[39m  [2m1.16 kB[22m[1m[22m[2m │ gzip:   0.64 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museButton-Bfz-u_A1.js[39m[1m[2m[22m
+[90m│[39m  [2m1.22 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mpreload-helper-PPVm8Dsz.js[39m[1m[2m[22m
+[90m│[39m  [2m1.23 kB[22m[1m[22m[2m │ gzip:   0.71 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDateRangePicker-emyucMrT.js[39m[1m[2m[22m
+[90m│[39m  [2m1.25 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mStatus-CEsneCaY.js[39m[1m[2m[22m
+[90m│[39m  [2m1.28 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppButton-voMua1f4.js[39m[1m[2m[22m
+[90m│[39m  [2m1.30 kB[22m[1m[22m[2m │ gzip:   0.55 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museLabels-tmRWdAGi.js[39m[1m[2m[22m
+[90m│[39m  [2m1.37 kB[22m[1m[22m[2m │ gzip:   0.56 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mBox-BbzCvwHm.js[39m[1m[2m[22m
+[90m│[39m  [2m1.40 kB[22m[1m[22m[2m │ gzip:   0.63 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSelectorDirectionStory-PZmprLWt.js[39m[1m[2m[22m
+[90m│[39m  [2m1.44 kB[22m[1m[22m[2m │ gzip:   0.79 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTypography.stories-B9vq1Fak.js[39m[1m[2m[22m
+[90m│[39m  [2m1.45 kB[22m[1m[22m[2m │ gzip:   0.68 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mWindowIcon-0IvxfJKB.js[39m[1m[2m[22m
+[90m│[39m  [2m1.49 kB[22m[1m[22m[2m │ gzip:   0.70 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mBadge-Cohmh1QO.js[39m[1m[2m[22m
+[90m│[39m  [2m1.50 kB[22m[1m[22m[2m │ gzip:   0.72 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mThemeScope.stories-D95n7-ss.js[39m[1m[2m[22m
+[90m│[39m  [2m1.52 kB[22m[1m[22m[2m │ gzip:   0.61 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTypefaces.stories-DeVslNTp.js[39m[1m[2m[22m
+[90m│[39m  [2m1.53 kB[22m[1m[22m[2m │ gzip:   0.73 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mStatus.stories-D3P3he4G.js[39m[1m[2m[22m
+[90m│[39m  [2m1.59 kB[22m[1m[22m[2m │ gzip:   0.76 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSplitAction-Cx1mhjfX.js[39m[1m[2m[22m
+[90m│[39m  [2m1.60 kB[22m[1m[22m[2m │ gzip:   0.70 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDatePicker-of1m_kR4.js[39m[1m[2m[22m
+[90m│[39m  [2m1.63 kB[22m[1m[22m[2m │ gzip:   0.85 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mformatDueDateLabel-VDYAfS8J.js[39m[1m[2m[22m
+[90m│[39m  [2m1.69 kB[22m[1m[22m[2m │ gzip:   0.75 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAvatar.stories-Mk487QsI.js[39m[1m[2m[22m
+[90m│[39m  [2m1.71 kB[22m[1m[22m[2m │ gzip:   0.68 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSurface-C2sIM_Nu.js[39m[1m[2m[22m
+[90m│[39m  [2m1.71 kB[22m[1m[22m[2m │ gzip:   0.66 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mBreadcrumbs.stories-DAFxFqpo.js[39m[1m[2m[22m
+[90m│[39m  [2m1.74 kB[22m[1m[22m[2m │ gzip:   0.88 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCardPaginationFooter.stories-BbBs8GMH.js[39m[1m[2m[22m
+[90m│[39m  [2m1.75 kB[22m[1m[22m[2m │ gzip:   0.81 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextArea-VV5bA0Qq.js[39m[1m[2m[22m
+[90m│[39m  [2m1.77 kB[22m[1m[22m[2m │ gzip:   0.91 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mClassCardFrame-BCS2vjns.js[39m[1m[2m[22m
+[90m│[39m  [2m1.81 kB[22m[1m[22m[2m │ gzip:   0.60 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCalendar.stories-BY1uEhyx.js[39m[1m[2m[22m
+[90m│[39m  [2m1.83 kB[22m[1m[22m[2m │ gzip:   0.87 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAvatar-CCR3Yl2D.js[39m[1m[2m[22m
+[90m│[39m  [2m1.84 kB[22m[1m[22m[2m │ gzip:   0.80 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTable.stories-B3jUj74p.js[39m[1m[2m[22m
+[90m│[39m  [2m1.86 kB[22m[1m[22m[2m │ gzip:   0.78 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppInlineProgress.stories-BOIp8Kar.js[39m[1m[2m[22m
+[90m│[39m  [2m1.88 kB[22m[1m[22m[2m │ gzip:   0.74 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mnavigation-fwd4i_bp.js[39m[1m[2m[22m
+[90m│[39m  [2m1.89 kB[22m[1m[22m[2m │ gzip:   0.70 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mProgress.stories-hFVnC45R.js[39m[1m[2m[22m
+[90m│[39m  [2m1.91 kB[22m[1m[22m[2m │ gzip:   0.71 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mInsertContentMenuControl-DEKhMw5B.js[39m[1m[2m[22m
+[90m│[39m  [2m2.01 kB[22m[1m[22m[2m │ gzip:   0.82 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDisclosure-B7Fk182r.js[39m[1m[2m[22m
+[90m│[39m  [2m2.09 kB[22m[1m[22m[2m │ gzip:   0.96 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museLocalizedStringFormatter-CDy3lu56.js[39m[1m[2m[22m
+[90m│[39m  [2m2.11 kB[22m[1m[22m[2m │ gzip:   0.98 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mList.stories-xZGrVAA_.js[39m[1m[2m[22m
+[90m│[39m  [2m2.13 kB[22m[1m[22m[2m │ gzip:   0.97 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museListState-BW4WSgoj.js[39m[1m[2m[22m
+[90m│[39m  [2m2.18 kB[22m[1m[22m[2m │ gzip:   0.91 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mLink-C3cJtfqV.js[39m[1m[2m[22m
+[90m│[39m  [2m2.18 kB[22m[1m[22m[2m │ gzip:   0.94 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museToggle-BKnnf5Kg.js[39m[1m[2m[22m
+[90m│[39m  [2m2.22 kB[22m[1m[22m[2m │ gzip:   0.96 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTypography-DP69VhZU.js[39m[1m[2m[22m
+[90m│[39m  [2m2.23 kB[22m[1m[22m[2m │ gzip:   0.71 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mList-BaqN4oR-.js[39m[1m[2m[22m
+[90m│[39m  [2m2.26 kB[22m[1m[22m[2m │ gzip:   0.85 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextField-UsasvCTb.js[39m[1m[2m[22m
+[90m│[39m  [2m2.32 kB[22m[1m[22m[2m │ gzip:   1.09 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppPageTabs-f9z3vbMF.js[39m[1m[2m[22m
+[90m│[39m  [2m2.35 kB[22m[1m[22m[2m │ gzip:   0.97 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mProgress-C_iTcb6u.js[39m[1m[2m[22m
+[90m│[39m  [2m2.40 kB[22m[1m[22m[2m │ gzip:   1.07 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mToggleButton.stories-CkgpzMqF.js[39m[1m[2m[22m
+[90m│[39m  [2m2.41 kB[22m[1m[22m[2m │ gzip:   0.93 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36musePersistentPaginationModel.stories-4sTYQpnT.js[39m[1m[2m[22m
+[90m│[39m  [2m2.42 kB[22m[1m[22m[2m │ gzip:   1.12 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mColumnsLayoutModal-vqdL7hiu.js[39m[1m[2m[22m
+[90m│[39m  [2m2.42 kB[22m[1m[22m[2m │ gzip:   0.91 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSwitch.stories-CF4P5WOH.js[39m[1m[2m[22m
+[90m│[39m  [2m2.44 kB[22m[1m[22m[2m │ gzip:   1.05 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mLearnerClassesDataGrid-Ddr_U8MO.js[39m[1m[2m[22m
+[90m│[39m  [2m2.57 kB[22m[1m[22m[2m │ gzip:   1.06 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mPaidIcon-BpX5bfcA.js[39m[1m[2m[22m
+[90m│[39m  [2m2.61 kB[22m[1m[22m[2m │ gzip:   1.02 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDisclosure.stories-d1rw94bZ.js[39m[1m[2m[22m
+[90m│[39m  [2m2.63 kB[22m[1m[22m[2m │ gzip:   1.10 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mPopover.stories-DAWgF7Ym.js[39m[1m[2m[22m
+[90m│[39m  [2m2.65 kB[22m[1m[22m[2m │ gzip:   1.24 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCard-CshrLCEg.js[39m[1m[2m[22m
+[90m│[39m  [2m2.71 kB[22m[1m[22m[2m │ gzip:   0.67 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mNavigation.stories-C7uff2oc.js[39m[1m[2m[22m
+[90m│[39m  [2m2.72 kB[22m[1m[22m[2m │ gzip:   1.27 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museTextField-BF742kbC.js[39m[1m[2m[22m
+[90m│[39m  [2m2.72 kB[22m[1m[22m[2m │ gzip:   1.22 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextField-B18ITV99.js[39m[1m[2m[22m
+[90m│[39m  [2m2.76 kB[22m[1m[22m[2m │ gzip:   1.08 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mStack-Cmi3BbGk.js[39m[1m[2m[22m
+[90m│[39m  [2m2.78 kB[22m[1m[22m[2m │ gzip:   0.87 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppButton.stories-Q3rRV10w.js[39m[1m[2m[22m
+[90m│[39m  [2m2.86 kB[22m[1m[22m[2m │ gzip:   1.10 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mColumnsLayoutModal.stories-D2TSrZPt.js[39m[1m[2m[22m
+[90m│[39m  [2m2.91 kB[22m[1m[22m[2m │ gzip:   1.37 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mChip.stories-BvHArDha.js[39m[1m[2m[22m
+[90m│[39m  [2m2.92 kB[22m[1m[22m[2m │ gzip:   1.16 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mBadge.stories-CIvMq8Wf.js[39m[1m[2m[22m
+[90m│[39m  [2m2.95 kB[22m[1m[22m[2m │ gzip:   1.05 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppThemeProvider.stories-JbEhGc2d.js[39m[1m[2m[22m
+[90m│[39m  [2m3.04 kB[22m[1m[22m[2m │ gzip:   1.40 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSplitAction.stories-1XmKS0Z6.js[39m[1m[2m[22m
+[90m│[39m  [2m3.04 kB[22m[1m[22m[2m │ gzip:   1.45 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextStyleMenuControl.stories-CbJWn2TW.js[39m[1m[2m[22m
+[90m│[39m  [2m3.07 kB[22m[1m[22m[2m │ gzip:   1.35 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mButtonGroup.stories-v9TSI0OV.js[39m[1m[2m[22m
+[90m│[39m  [2m3.12 kB[22m[1m[22m[2m │ gzip:   1.12 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mEditableTitleField.stories-BTGUUaZv.js[39m[1m[2m[22m
+[90m│[39m  [2m3.16 kB[22m[1m[22m[2m │ gzip:   1.24 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mLink.stories-DALAPizc.js[39m[1m[2m[22m
+[90m│[39m  [2m3.17 kB[22m[1m[22m[2m │ gzip:   1.30 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCardPaginationFooter-CAAObym5.js[39m[1m[2m[22m
+[90m│[39m  [2m3.27 kB[22m[1m[22m[2m │ gzip:   1.21 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mPopover-Dia6hmk-.js[39m[1m[2m[22m
+[90m│[39m  [2m3.29 kB[22m[1m[22m[2m │ gzip:   1.39 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mRadioGroup.stories-D39cM3YY.js[39m[1m[2m[22m
+[90m│[39m  [2m3.29 kB[22m[1m[22m[2m │ gzip:   1.35 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mEditableTitleField-BmbaAgii.js[39m[1m[2m[22m
+[90m│[39m  [2m3.33 kB[22m[1m[22m[2m │ gzip:   1.43 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mLearnerClassCard-DygPBXMv.js[39m[1m[2m[22m
+[90m│[39m  [2m3.40 kB[22m[1m[22m[2m │ gzip:   1.29 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mLearnerClassesDataGrid.stories-CD-1b5Wg.js[39m[1m[2m[22m
+[90m│[39m  [2m3.40 kB[22m[1m[22m[2m │ gzip:   1.64 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mscrollIntoView-CM1Amos7.js[39m[1m[2m[22m
+[90m│[39m  [2m3.43 kB[22m[1m[22m[2m │ gzip:   1.43 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTranslations.stories-5KhdCWr0.js[39m[1m[2m[22m
+[90m│[39m  [2m3.44 kB[22m[1m[22m[2m │ gzip:   1.34 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36musePersistentState-DWd_FQFA.js[39m[1m[2m[22m
+[90m│[39m  [2m3.45 kB[22m[1m[22m[2m │ gzip:   1.40 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36maccounts-DHpIaaaw.js[39m[1m[2m[22m
+[90m│[39m  [2m3.51 kB[22m[1m[22m[2m │ gzip:   0.77 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDatePicker.stories-DMIObyzw.js[39m[1m[2m[22m
+[90m│[39m  [2m3.53 kB[22m[1m[22m[2m │ gzip:   1.55 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mMenu.stories-DFlsuaSQ.js[39m[1m[2m[22m
+[90m│[39m  [2m3.55 kB[22m[1m[22m[2m │ gzip:   1.33 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mLinkUrlModal-DcQLdG-g.js[39m[1m[2m[22m
+[90m│[39m  [2m3.55 kB[22m[1m[22m[2m │ gzip:   1.55 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mownedGridParts.stories-Jkvd0WLn.js[39m[1m[2m[22m
+[90m│[39m  [2m3.57 kB[22m[1m[22m[2m │ gzip:   1.60 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mcreateVector-8BuYkKuy.js[39m[1m[2m[22m
+[90m│[39m  [2m3.57 kB[22m[1m[22m[2m │ gzip:   1.70 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCalendar-BWmtJyAE.js[39m[1m[2m[22m
+[90m│[39m  [2m3.64 kB[22m[1m[22m[2m │ gzip:   1.32 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mindex-DqNm206k.js[39m[1m[2m[22m
+[90m│[39m  [2m3.66 kB[22m[1m[22m[2m │ gzip:   1.38 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mDateRangePicker.controlled-transactions.stories-Djq0qu0R.js[39m[1m[2m[22m
+[90m│[39m  [2m3.72 kB[22m[1m[22m[2m │ gzip:   1.68 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mPagination.stories-D3AddbS6.js[39m[1m[2m[22m
+[90m│[39m  [2m3.83 kB[22m[1m[22m[2m │ gzip:   1.42 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextAlignMenuControl-fD1Ad2eW.js[39m[1m[2m[22m
+[90m│[39m  [2m3.86 kB[22m[1m[22m[2m │ gzip:   1.44 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextStyleMenuControl-BjpHdhba.js[39m[1m[2m[22m
+[90m│[39m  [2m3.88 kB[22m[1m[22m[2m │ gzip:   1.21 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppPageTabs.stories-C9jw071e.js[39m[1m[2m[22m
+[90m│[39m  [2m3.91 kB[22m[1m[22m[2m │ gzip:   1.52 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36madapters.stories-BSlTbIde.js[39m[1m[2m[22m
+[90m│[39m  [2m3.91 kB[22m[1m[22m[2m │ gzip:   1.66 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDateRangePicker.stories-CNclbwuo.js[39m[1m[2m[22m
+[90m│[39m  [2m4.04 kB[22m[1m[22m[2m │ gzip:   1.72 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mFloatingTextSelectionToolbar.stories-i97Rf5U3.js[39m[1m[2m[22m
+[90m│[39m  [2m4.06 kB[22m[1m[22m[2m │ gzip:   1.61 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSelect.stories-BAZVS_Ia.js[39m[1m[2m[22m
+[90m│[39m  [2m4.08 kB[22m[1m[22m[2m │ gzip:   1.65 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSwitch-DELAUo3g.js[39m[1m[2m[22m
+[90m│[39m  [2m4.11 kB[22m[1m[22m[2m │ gzip:   1.64 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mSideNavigation.organization-lifetime.stories-BMxkzfFQ.js[39m[1m[2m[22m
+[90m│[39m  [2m4.11 kB[22m[1m[22m[2m │ gzip:   1.88 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTabs.stories-D7hNCA4j.js[39m[1m[2m[22m
+[90m│[39m  [2m4.12 kB[22m[1m[22m[2m │ gzip:   1.27 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museFormValidation-LtmZLLOV.js[39m[1m[2m[22m
+[90m│[39m  [2m4.13 kB[22m[1m[22m[2m │ gzip:   1.60 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mPagination-CKA7s9of.js[39m[1m[2m[22m
+[90m│[39m  [2m4.17 kB[22m[1m[22m[2m │ gzip:   1.48 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36musePersistentState.stories-DzNm4wg1.js[39m[1m[2m[22m
+[90m│[39m  [2m4.18 kB[22m[1m[22m[2m │ gzip:   1.75 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mComboBox.stories-BeoY-GFB.js[39m[1m[2m[22m
+[90m│[39m  [2m4.20 kB[22m[1m[22m[2m │ gzip:   1.69 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mCalendar.native-locales.stories-D7D0SCyO.js[39m[1m[2m[22m
+[90m│[39m  [2m4.21 kB[22m[1m[22m[2m │ gzip:   1.64 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mtokens-kIfmxwAp.js[39m[1m[2m[22m
+[90m│[39m  [2m4.32 kB[22m[1m[22m[2m │ gzip:   0.59 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mDataToolbar.column-order.stories-CMzLaVtv.js[39m[1m[2m[22m
+[90m│[39m  [2m4.37 kB[22m[1m[22m[2m │ gzip:   2.00 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCheckbox.stories-B5UqTNiT.js[39m[1m[2m[22m
+[90m│[39m  [2m4.45 kB[22m[1m[22m[2m │ gzip:   1.61 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDateField-DnsaDb31.js[39m[1m[2m[22m
+[90m│[39m  [2m4.55 kB[22m[1m[22m[2m │ gzip:   1.74 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mProgressBar-BYZlLUW3.js[39m[1m[2m[22m
+[90m│[39m  [2m4.56 kB[22m[1m[22m[2m │ gzip:   1.96 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mDocumentEditorToolbar.heading-lifetime.stories-DItP2MJw.js[39m[1m[2m[22m
+[90m│[39m  [2m4.56 kB[22m[1m[22m[2m │ gzip:   2.12 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mButton.stories-Cxz0yhXV.js[39m[1m[2m[22m
+[90m│[39m  [2m4.66 kB[22m[1m[22m[2m │ gzip:   1.73 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDocumentEditorToolbar.stories-DabuondW.js[39m[1m[2m[22m
+[90m│[39m  [2m4.67 kB[22m[1m[22m[2m │ gzip:   1.85 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextArea.stories-CWdIVpBX.js[39m[1m[2m[22m
+[90m│[39m  [2m4.70 kB[22m[1m[22m[2m │ gzip:   1.72 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mNativeSelection.stories-CpK2GDEI.js[39m[1m[2m[22m
+[90m│[39m  [2m4.76 kB[22m[1m[22m[2m │ gzip:   2.10 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mTextColorPickerControl.stories-B0cf4RDO.js[39m[1m[2m[22m
+[90m│[39m  [2m4.78 kB[22m[1m[22m[2m │ gzip:   2.00 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mMenu-BHuW3Rqk.js[39m[1m[2m[22m
+[90m│[39m  [2m4.81 kB[22m[1m[22m[2m │ gzip:   1.93 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDataGridDragHandle.stories-RgK-Q6Nh.js[39m[1m[2m[22m
+[90m│[39m  [2m4.82 kB[22m[1m[22m[2m │ gzip:   2.25 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mLearnerClassesDataGrid.native.stories-CyRuj4Ng.js[39m[1m[2m[22m
+[90m│[39m  [2m4.91 kB[22m[1m[22m[2m │ gzip:   2.27 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mProvider.stories-B-12cl00.js[39m[1m[2m[22m
+[90m│[39m  [2m4.95 kB[22m[1m[22m[2m │ gzip:   2.09 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mImageUploadModal-qrbSQKhA.js[39m[1m[2m[22m
+[90m│[39m  [2m4.96 kB[22m[1m[22m[2m │ gzip:   2.00 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mInsertContentMenuControl.stories-CeB3bqLQ.js[39m[1m[2m[22m
+[90m│[39m  [2m4.97 kB[22m[1m[22m[2m │ gzip:   2.08 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mDatePicker.native-transactions.stories-C6hHt73p.js[39m[1m[2m[22m
+[90m│[39m  [2m5.01 kB[22m[1m[22m[2m │ gzip:   1.96 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mprimitives.stories-dszM7bgt.js[39m[1m[2m[22m
+[90m│[39m  [2m5.03 kB[22m[1m[22m[2m │ gzip:   2.12 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36micons.stories-DmanvGE1.js[39m[1m[2m[22m
+[90m│[39m  [2m5.15 kB[22m[1m[22m[2m │ gzip:   2.30 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mExperiencePageNavigator.stories-CsOPdYG_.js[39m[1m[2m[22m
+[90m│[39m  [2m5.16 kB[22m[1m[22m[2m │ gzip:   2.06 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mownedGridSortAcceptance.stories-BIYI-rTw.js[39m[1m[2m[22m
+[90m│[39m  [2m5.23 kB[22m[1m[22m[2m │ gzip:   2.32 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextAlignMenuControl.stories-DlExtH_z.js[39m[1m[2m[22m
+[90m│[39m  [2m5.33 kB[22m[1m[22m[2m │ gzip:   2.12 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextColorPickerControl-muiBKjOZ.js[39m[1m[2m[22m
+[90m│[39m  [2m5.41 kB[22m[1m[22m[2m │ gzip:   1.97 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mintlStrings-BTHtKwgC.js[39m[1m[2m[22m
+[90m│[39m  [2m5.63 kB[22m[1m[22m[2m │ gzip:   2.20 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mPageRichTextEditorSection.paragraph-transactions.stories-DeOFP7Wn.js[39m[1m[2m[22m
+[90m│[39m  [2m5.66 kB[22m[1m[22m[2m │ gzip:   2.41 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mButton-Duor_Vzc.js[39m[1m[2m[22m
+[90m│[39m  [2m5.68 kB[22m[1m[22m[2m │ gzip:   2.40 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mPageRichTextEditorSection.mixed-formatting.stories-D-m3BNyb.js[39m[1m[2m[22m
+[90m│[39m  [2m5.88 kB[22m[1m[22m[2m │ gzip:   2.48 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mfilterDOMProps-CIp6kbqd.js[39m[1m[2m[22m
+[90m│[39m  [2m5.91 kB[22m[1m[22m[2m │ gzip:   2.53 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mLearnerClassCard.stories-DSZV__EZ.js[39m[1m[2m[22m
+[90m│[39m  [2m5.94 kB[22m[1m[22m[2m │ gzip:   2.09 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mPopover.collision.stories-Dz7C9A6n.js[39m[1m[2m[22m
+[90m│[39m  [2m5.96 kB[22m[1m[22m[2m │ gzip:   2.18 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDialog.stories-SwwzAY-f.js[39m[1m[2m[22m
+[90m│[39m  [2m5.99 kB[22m[1m[22m[2m │ gzip:   2.44 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mExperiencePageNavigator-Cq8GmdJf.js[39m[1m[2m[22m
+[90m│[39m  [2m6.05 kB[22m[1m[22m[2m │ gzip:   2.18 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTable-CIRBU-Yv.js[39m[1m[2m[22m
+[90m│[39m  [2m6.06 kB[22m[1m[22m[2m │ gzip:   0.95 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppModal-BT3JVMjl.js[39m[1m[2m[22m
+[90m│[39m  [2m6.08 kB[22m[1m[22m[2m │ gzip:   1.67 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mownedGridProcessing.stories-BTd689Q8.js[39m[1m[2m[22m
+[90m│[39m  [2m6.09 kB[22m[1m[22m[2m │ gzip:   2.66 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDateField.stories-3q3Y9OED.js[39m[1m[2m[22m
+[90m│[39m  [2m6.17 kB[22m[1m[22m[2m │ gzip:   2.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mCheckbox-CnGK9x7G.js[39m[1m[2m[22m
+[90m│[39m  [2m6.45 kB[22m[1m[22m[2m │ gzip:   2.31 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mRichTextFormattingToolbar.stories-CgOBf51d.js[39m[1m[2m[22m
+[90m│[39m  [2m6.67 kB[22m[1m[22m[2m │ gzip:   2.67 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mImageUploadModal.stories-C9yt60EW.js[39m[1m[2m[22m
+[90m│[39m  [2m6.81 kB[22m[1m[22m[2m │ gzip:   2.19 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDocumentEditorToolbar-C6VzlhQP.js[39m[1m[2m[22m
+[90m│[39m  [2m7.02 kB[22m[1m[22m[2m │ gzip:   2.03 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mClassCardFrame.stories-gT97PThd.js[39m[1m[2m[22m
+[90m│[39m  [2m7.39 kB[22m[1m[22m[2m │ gzip:   2.54 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museLoadMoreSentinel-B4enHx1d.js[39m[1m[2m[22m
+[90m│[39m  [2m7.41 kB[22m[1m[22m[2m │ gzip:   2.22 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36micons.stories-DvE01P86.js[39m[1m[2m[22m
+[90m│[39m  [2m7.45 kB[22m[1m[22m[2m │ gzip:   2.89 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mownedGridParts-C35XnAis.js[39m[1m[2m[22m
+[90m│[39m  [2m7.65 kB[22m[1m[22m[2m │ gzip:   2.29 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mAppDataGrid.reorder-invalidation.stories-DyftzzMQ.js[39m[1m[2m[22m
+[90m│[39m  [2m7.84 kB[22m[1m[22m[2m │ gzip:   2.80 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mToggleButton-aOF9zAHw.js[39m[1m[2m[22m
+[90m│[39m  [2m7.90 kB[22m[1m[22m[2m │ gzip:   2.69 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAdminDataGridOptions.stories-k4EespeC.js[39m[1m[2m[22m
+[90m│[39m  [2m7.91 kB[22m[1m[22m[2m │ gzip:   2.32 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDocumentEditorLayout.stories-Dt621pYI.js[39m[1m[2m[22m
+[90m│[39m  [2m7.94 kB[22m[1m[22m[2m │ gzip:   2.64 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mInstructorClassCard.stories-DYho7iS8.js[39m[1m[2m[22m
+[90m│[39m  [2m8.01 kB[22m[1m[22m[2m │ gzip:   2.73 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSideNavigation.stories-CHcUWxDc.js[39m[1m[2m[22m
+[90m│[39m  [2m8.30 kB[22m[1m[22m[2m │ gzip:   3.03 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mownedGridState-Dk4_YSrd.js[39m[1m[2m[22m
+[90m│[39m  [2m8.51 kB[22m[1m[22m[2m │ gzip:   3.05 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppOperationSteps.stories-DEX5NaXu.js[39m[1m[2m[22m
+[90m│[39m  [2m8.56 kB[22m[1m[22m[2m │ gzip:   2.76 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mExperiencePageNavigator.native-transactions.stories-DZFnC-_B.js[39m[1m[2m[22m
+[90m│[39m  [2m8.59 kB[22m[1m[22m[2m │ gzip:   2.99 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mVpnKeyIcon-Cax-T_Mi.js[39m[1m[2m[22m
+[90m│[39m  [2m8.70 kB[22m[1m[22m[2m │ gzip:   3.29 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mBaselineHostFlow.stories-DS9UWrJr.js[39m[1m[2m[22m
+[90m│[39m  [2m8.86 kB[22m[1m[22m[2m │ gzip:   3.33 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTokenTierScope.stories-CfHXKNTE.js[39m[1m[2m[22m
+[90m│[39m  [2m8.98 kB[22m[1m[22m[2m │ gzip:   2.66 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mLinkUrlModal.stories-BXwS_mPY.js[39m[1m[2m[22m
+[90m│[39m  [2m9.14 kB[22m[1m[22m[2m │ gzip:   3.16 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAuthShell.stories-BR8nMmfe.js[39m[1m[2m[22m
+[90m│[39m  [2m9.23 kB[22m[1m[22m[2m │ gzip:   3.17 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDateRangeSelector-DwPa6lL3.js[39m[1m[2m[22m
+[90m│[39m  [2m9.37 kB[22m[1m[22m[2m │ gzip:   3.03 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppShell.stories-DxukHZdk.js[39m[1m[2m[22m
+[90m│[39m  [2m9.40 kB[22m[1m[22m[2m │ gzip:   3.00 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mRadioGroup-D47IJm_s.js[39m[1m[2m[22m
+[90m│[39m  [2m9.80 kB[22m[1m[22m[2m │ gzip:   3.52 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDateRangeSelector.stories-CsxdXqhT.js[39m[1m[2m[22m
+[90m│[39m  [2m9.82 kB[22m[1m[22m[2m │ gzip:   3.09 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTooltip.stories-B-26dEV8.js[39m[1m[2m[22m
+[90m│[39m  [2m9.97 kB[22m[1m[22m[2m │ gzip:   3.87 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mcreateCalendar-BG35Cy2s.js[39m[1m[2m[22m
+[90m│[39m  [2m10.00 kB[22m[1m[22m[2m │ gzip:   3.94 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museOverlayTriggerState-CF4zOQcM.js[39m[1m[2m[22m
+[90m│[39m  [2m10.12 kB[22m[1m[22m[2m │ gzip:   3.99 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTimeField.stories-oYzOB-16.js[39m[1m[2m[22m
+[90m│[39m  [2m10.14 kB[22m[1m[22m[2m │ gzip:   3.56 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mListBox-VHNpW1F3.js[39m[1m[2m[22m
+[90m│[39m  [2m10.32 kB[22m[1m[22m[2m │ gzip:   3.76 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppDataGrid.stories-y7Mvf6P5.js[39m[1m[2m[22m
+[90m│[39m  [2m10.38 kB[22m[1m[22m[2m │ gzip:   3.82 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDialog-BR6p6A3K.js[39m[1m[2m[22m
+[90m│[39m  [2m10.48 kB[22m[1m[22m[2m │ gzip:   3.63 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mCardCollectionWithFooter.stories-DaIZAv7C.js[39m[1m[2m[22m
+[90m│[39m  [2m10.80 kB[22m[1m[22m[2m │ gzip:   3.57 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTextField.stories-DQiiJYtJ.js[39m[1m[2m[22m
+[90m│[39m  [2m10.96 kB[22m[1m[22m[2m │ gzip:   3.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTabs-BDqDW1_9.js[39m[1m[2m[22m
+[90m│[39m  [2m11.07 kB[22m[1m[22m[2m │ gzip:   3.93 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mownedGridInteraction.stories-Ci-9ldrg.js[39m[1m[2m[22m
+[90m│[39m  [2m12.09 kB[22m[1m[22m[2m │ gzip:   4.41 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppPageHeader.stories-B9drtAzD.js[39m[1m[2m[22m
+[90m│[39m  [2m12.27 kB[22m[1m[22m[2m │ gzip:   3.58 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mownedGridCells.stories-D9v2YWIn.js[39m[1m[2m[22m
+[90m│[39m  [2m12.46 kB[22m[1m[22m[2m │ gzip:   4.43 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppModal.stories-HhebCFI7.js[39m[1m[2m[22m
+[90m│[39m  [2m12.79 kB[22m[1m[22m[2m │ gzip:   4.09 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mAppDataGridShell.server-response-races.stories-mkRv8UZ7.js[39m[1m[2m[22m
+[90m│[39m  [2m13.04 kB[22m[1m[22m[2m │ gzip:   4.90 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mFocusScope-WaIUqejB.js[39m[1m[2m[22m
+[90m│[39m  [2m13.47 kB[22m[1m[22m[2m │ gzip:   4.18 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSelect-BAaXxqjk.js[39m[1m[2m[22m
+[90m│[39m  [2m13.64 kB[22m[1m[22m[2m │ gzip:   4.86 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mContentEditorChrome.stories-CGY1QU9-.js[39m[1m[2m[22m
+[90m│[39m  [2m14.61 kB[22m[1m[22m[2m │ gzip:   5.14 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDataToolbar.stories-D4iEiJeu.js[39m[1m[2m[22m
+[90m│[39m  [2m14.72 kB[22m[1m[22m[2m │ gzip:   4.74 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAsyncMultiSelect.stories-Dgklq4k_.js[39m[1m[2m[22m
+[90m│[39m  [2m14.76 kB[22m[1m[22m[2m │ gzip:   4.66 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDataGrid.stories-BPe9ScEg.js[39m[1m[2m[22m
+[90m│[39m  [2m15.89 kB[22m[1m[22m[2m │ gzip:   5.52 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppDataGrid-2IsEY6FG.js[39m[1m[2m[22m
+[90m│[39m  [2m16.00 kB[22m[1m[22m[2m │ gzip:   3.72 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppDataGridShell.stories-BjJ32qzt.js[39m[1m[2m[22m
+[90m│[39m  [2m16.71 kB[22m[1m[22m[2m │ gzip:   5.37 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mFoundationCatalogue.stories-DikxA-7m.js[39m[1m[2m[22m
+[90m│[39m  [2m16.73 kB[22m[1m[22m[2m │ gzip:   4.51 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mRichTextFormattingToolbar.impl-JEd3J0V0.js[39m[1m[2m[22m
+[90m│[39m  [2m17.44 kB[22m[1m[22m[2m │ gzip:   3.15 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36museHighlightSelectionDescription-CzaTF5XV.js[39m[1m[2m[22m
+[90m│[39m  [2m17.48 kB[22m[1m[22m[2m │ gzip:   5.04 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museDateFormatter-BAS-L91g.js[39m[1m[2m[22m
+[90m│[39m  [2m19.50 kB[22m[1m[22m[2m │ gzip:   6.47 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mSideNavigation-6C_FDbZz.js[39m[1m[2m[22m
+[90m│[39m  [2m21.15 kB[22m[1m[22m[2m │ gzip:   5.64 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mAppDataGridShell-5sstImzf.js[39m[1m[2m[22m
+[90m│[39m  [2m21.96 kB[22m[1m[22m[2m │ gzip:   4.89 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mTagGroup.stories-BkWbqI18.js[39m[1m[2m[22m
+[90m│[39m  [2m22.80 kB[22m[1m[22m[2m │ gzip:   8.74 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mPageRichTextEditorSection.stories-OVYEVENk.js[39m[1m[2m[22m
+[90m│[39m  [2m27.07 kB[22m[1m[22m[2m │ gzip:   6.90 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[36mvite-inject-mocker-entry.js[39m[1m[2m[22m
+[90m│[39m  [2m28.11 kB[22m[1m[22m[2m │ gzip:   9.82 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mmatchers-JIUQ3HVY-N4FjKbka.js[39m[1m[2m[22m
+[90m│[39m  [2m29.23 kB[22m[1m[22m[2m │ gzip:  10.05 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museHover-BohmWr_r.js[39m[1m[2m[22m
+[90m│[39m  [2m29.58 kB[22m[1m[22m[2m │ gzip:  10.11 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mColor-6AOWCN3U-yF9X1Lbg.js[39m[1m[2m[22m
+[90m│[39m  [2m30.23 kB[22m[1m[22m[2m │ gzip:  11.49 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDataToolbar-DqaEFf0P.js[39m[1m[2m[22m
+[90m│[39m  [2m33.02 kB[22m[1m[22m[2m │ gzip:   6.55 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mWithTooltip-CDUNV5IS-DvC2eIVx.js[39m[1m[2m[22m
+[90m│[39m  [2m33.20 kB[22m[1m[22m[2m │ gzip:  11.69 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mMenu-CwTsLJjI.js[39m[1m[2m[22m
+[90m│[39m  [2m34.56 kB[22m[1m[22m[2m │ gzip:  13.51 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mComboBox-BnLVf992.js[39m[1m[2m[22m
+[90m│[39m  [2m39.32 kB[22m[1m[22m[2m │ gzip:  10.51 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museMultipleSelectionState-DZiqqzGK.js[39m[1m[2m[22m
+[90m│[39m  [2m41.00 kB[22m[1m[22m[2m │ gzip:  12.28 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDateRangeSelector.module-DAqaTSQ_.js[39m[1m[2m[22m
+[90m│[39m  [2m45.86 kB[22m[1m[22m[2m │ gzip:  13.65 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mownedGridInteraction-Cb2-pe9u.js[39m[1m[2m[22m
+[90m│[39m  [2m46.67 kB[22m[1m[22m[2m │ gzip:  11.71 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mindex-TD5eAT0Q.js[39m[1m[2m[22m
+[90m│[39m  [2m49.77 kB[22m[1m[22m[2m │ gzip:  13.21 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDateField.module-z3jxmakS.js[39m[1m[2m[22m
+[90m│[39m  [2m60.33 kB[22m[1m[22m[2m │ gzip:  20.04 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36msyntaxhighlighter-4REYKNEV-1fgsn1Td.js[39m[1m[2m[22m
+[90m│[39m  [2m78.05 kB[22m[1m[22m[2m │ gzip:  27.31 kB[22m
+[90m│[39m  [43mVite[49m
+[90m│[39m  [2mstorybook-static/[22m[2massets/[22m[36mPageRichTextEditorSection.impl-BFsuPgZF.js[39m[1m[2m[22m
+[90m│[39m  [2m172.17 kB[22m[1m[22m[2m │ gzip:  53.46 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mFloatingTextSelectionToolbar-D4EBG2u5.js[39m[1m[2m[22m
+[90m│[39m  [2m178.21 kB[22m[1m[22m[2m │ gzip:  57.97 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mreact-18-Dbd5dQoq.js[39m[1m[2m[22m
+[90m│[39m  [2m181.13 kB[22m[1m[22m[2m │ gzip:  57.03 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36museDragAndDrop-BnyUGG8y.js[39m[1m[2m[22m
+[90m│[39m  [2m207.46 kB[22m[1m[22m[2m │ gzip:  52.42 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36maxe-DcYv4LhG.js[39m[1m[33m[39m
+[90m│[39m  [33m675.80 kB[39m[22m[2m │ gzip: 193.80 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36mDocsRenderer-JROSPFPF-0VrtIJ7l.js[39m[1m[33m[39m
+[90m│[39m  [33m840.95 kB[39m[22m[2m │ gzip: 268.91 kB[22m
+[90m│[39m  [43mVite[49m [2mstorybook-static/[22m[2massets/[22m[36miframe-Ro-4YS22.js[39m
+[90m│[39m  [36m[39m[1m[33m1,212.93 kB[39m[22m[2m │ gzip: 346.24 kB[22m
+[90m│[39m
+[33m▲[39m  [43mVite[49m[33m
+[90m│[39m  (!) Some chunks are larger than 500 kB after minification. Consider:
+[90m│[39m  - Using dynamic import() to code-split the application
+[90m│[39m  - Use build.rollupOptions.output.manualChunks to improve chunking:
+[90m│[39m  ]8;;https://rollupjs.org/configuration-options/#output-manualchunkshttps://rollupjs.org/configuration-options/#output-manualchunks]8;;
+[90m│[39m  - Adjust chunk size limit for this warning via
+[90m│[39m  build.chunkSizeWarningLimit.[39m
+[90m│[39m  [43mVite[49m [32m✓ built in 1m 4s[39m
+[90m│[39m
+[34m●[39m  Storybook collects completely anonymous usage telemetry. We use it to
+[90m│[39m  shape Storybook's roadmap and prioritize features. You can learn more,
+[90m│[39m  including how to opt out, at ]8;;https://storybook.js.org/telemetryhttps://storybook.js.org/telemetry]8;;
+[90m│[39m
+[32m◇[39m  Output directory: /home/runner/work/sg-ui/sg-ui/storybook-static
+[90m│[39m
+[90m└[39m  Storybook build completed successfully
+

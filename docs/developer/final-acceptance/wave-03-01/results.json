@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "assignment": 1,
+  "title": "API defaults and breaking changes",
+  "status": "partial",
+  "workingTreeEvidence": true,
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "ownedDirectory": "docs/developer/final-acceptance/wave-03-01",
+  "patchIntegrationRequired": true,
+  "sourceModified": false,
+  "report": "report.md",
+  "results": [
+    {
+      "id": "A-B-05",
+      "originalRequirement": "- [ ] A-B-05 Reconcile original `B-05`: Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking. Historical status: open.",
+      "status": "partial",
+      "evidence": [
+        "normalized-defaults.json",
+        "normalized-contracts.json",
+        "reviewed-dispositions.json",
+        "family-policy.md",
+        "breaking-change-map.json",
+        "declaration-deltas.json",
+        "historical-dependency-boundary.json",
+        "consumer-guide.patch",
+        "consumer-contracts.tsx",
+        "typecheck.json",
+        "verification.json",
+        "command-results.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-01/normalize.mjs",
+        "node docs/developer/final-acceptance/wave-03-01/check-contracts.cjs",
+        "python3 docs/developer/final-acceptance/wave-03-01/check-evidence.py"
+      ],
+      "inputHashes": "input-comparison.json",
+      "remainingSuccessors": [
+        "Follow 431 derived fallback expressions and relevant context/CSS/composed/helper paths to per-symbol semantic defaults; use normalized-defaults.json IDs, not a recaptured inventory.",
+        "Resolve historical inherited prop/type closure using exact old versions in historical-dependency-boundary.json; finish removed/additive/preserved comparisons."
+      ],
+      "patchNeedsIntegration": true
+    },
+    {
+      "id": "A-A-08",
+      "originalRequirement": "- [ ] A-A-08 Reconcile original `A-08`: Define public variant, size, tone, density, placement, dismissal-reason, and validation contracts independently of any foundation. Historical status: open.",
+      "status": "partial",
+      "evidence": [
+        "normalized-defaults.json",
+        "normalized-contracts.json",
+        "reviewed-dispositions.json",
+        "family-policy.md",
+        "breaking-change-map.json",
+        "declaration-deltas.json",
+        "historical-dependency-boundary.json",
+        "consumer-guide.patch",
+        "consumer-contracts.tsx",
+        "typecheck.json",
+        "verification.json",
+        "command-results.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-01/normalize.mjs",
+        "node docs/developer/final-acceptance/wave-03-01/check-contracts.cjs",
+        "python3 docs/developer/final-acceptance/wave-03-01/check-evidence.py"
+      ],
+      "inputHashes": "input-comparison.json",
+      "remainingSuccessors": [
+        "Review complete alias/compound/context closure and validation/host-invalid/commit precedence beyond reviewed field families; proposed guide remains a bounded source definition.",
+        "Integrate the five-file consumer guide patch and preserve the DateField segments-default correction to prior evidence."
+      ],
+      "patchNeedsIntegration": true
+    },
+    {
+      "id": "A-Z-13",
+      "originalRequirement": "- [ ] A-Z-13 Reconcile original `Z-13`: Reconcile API snapshot with final declarations and consumer guide; verify every breaking change has migration instructions and correct Conventional Commit release marking. Historical status: open.",
+      "status": "partial",
+      "evidence": [
+        "normalized-defaults.json",
+        "normalized-contracts.json",
+        "reviewed-dispositions.json",
+        "family-policy.md",
+        "breaking-change-map.json",
+        "declaration-deltas.json",
+        "historical-dependency-boundary.json",
+        "consumer-guide.patch",
+        "consumer-contracts.tsx",
+        "typecheck.json",
+        "verification.json",
+        "command-results.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-01/normalize.mjs",
+        "node docs/developer/final-acceptance/wave-03-01/check-contracts.cjs",
+        "python3 docs/developer/final-acceptance/wave-03-01/check-evidence.py"
+      ],
+      "inputHashes": "input-comparison.json",
+      "remainingSuccessors": [
+        "Integrate/review consumer-guide.patch; retain checked copyable selection migration and current declaration delta explanations.",
+        "Complete inherited historical/default closure, then join every intentional released break to actual integration/squash title/footer and release range. Do not treat proposed title or HEAD feat! as universal coverage."
+      ],
+      "patchNeedsIntegration": true
+    }
+  ],
+  "commandsEvidence": "command-results.json",
+  "inputHashes": "input-comparison.json",
+  "artifactHashes": "artifact-hashes.json",
+  "validationPlan": "validation-plan.json",
+  "runtime": {
+    "node": "26.5.0",
+    "typescript": "5.9.3",
+    "kind": "static/compiler, not new supported-runtime/native/packed proof"
+  },
+  "retainedEvidence": {
+    "coordinator": "../coordinator-integration/evidence.json",
+    "inputHashMismatches": 0,
+    "reviewedBuiltDeclarationsMatching": 370,
+    "receiptHashesMatching": 15
+  },
+  "summary": {
+    "contracts": 469,
+    "candidates": 678,
+    "mappedMigrationDispositions": 19,
+    "proposedDocumentationFiles": 5,
+    "expectedRejectedContracts": 6
+  },
+  "limits": [
+    "No acceptance counts/checklists changed.",
+    "All patch changes remain unapplied; no runtime acceptance closure from patch-only evidence.",
+    "Existing snapshot has no deprecated tags; aliases are not automatically deprecated.",
+    "Initial-extraction comparison is not proof of a previously published version or legal/admin/production approval."
+  ]
+}

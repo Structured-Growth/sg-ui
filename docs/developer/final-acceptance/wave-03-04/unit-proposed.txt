@@ -1,0 +1,1768 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui
+
+stderr | docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAccount: retains Error(cause) once, suppresses repeats, shows safe error and explicitly retries
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+stderr | docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAccount: retains opaque once, suppresses repeats, shows safe error and explicitly retries
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+stderr | docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAccount: stale rejection remains diagnosed by host without altering the replacement owner
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+stderr | docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAllAccounts: retains Error(cause) once, suppresses repeats, shows safe error and explicitly retries
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+stderr | docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAllAccounts: retains opaque once, suppresses repeats, shows safe error and explicitly retries
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+stderr | docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAllAccounts: stale rejection remains diagnosed by host without altering the replacement owner
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+stderr | docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > onOrganizationChange: retains Error(cause) once, suppresses repeats, shows safe error and explicitly retries
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+stderr | docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > onOrganizationChange: retains opaque once, suppresses repeats, shows safe error and explicitly retries
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+stderr | docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > onOrganizationChange: stale rejection remains diagnosed by host without altering the replacement owner
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx (9 tests | 9 failed) 201ms
+   × logoutAccount: retains Error(cause) once, suppresses repeats, shows safe error and explicitly retries 64ms
+   × logoutAccount: retains opaque once, suppresses repeats, shows safe error and explicitly retries 22ms
+   × logoutAccount: stale rejection remains diagnosed by host without altering the replacement owner 19ms
+   × logoutAllAccounts: retains Error(cause) once, suppresses repeats, shows safe error and explicitly retries 16ms
+   × logoutAllAccounts: retains opaque once, suppresses repeats, shows safe error and explicitly retries 16ms
+   × logoutAllAccounts: stale rejection remains diagnosed by host without altering the replacement owner 17ms
+   × onOrganizationChange: retains Error(cause) once, suppresses repeats, shows safe error and explicitly retries 16ms
+   × onOrganizationChange: retains opaque once, suppresses repeats, shows safe error and explicitly retries 15ms
+   × onOrganizationChange: stale rejection remains diagnosed by host without altering the replacement owner 15ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAccount: retains Error(cause) once, suppresses repeats, shows safe error and explicitly retries
+TestingLibraryElementError: Unable to find an accessible element with the role "menuitem" and name "Logout (a@example.com)"
+
+Here are the accessible roles:
+
+  navigation:
+
+  Name "Main navigation":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Main navigation"[39m
+    [33mclass[39m=[32m"_root_d56aa9"[39m
+    [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Harry School":
+  [36m<button[39m
+    [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+    [33mdata-focused[39m=[32m"true"[39m
+    [33mdata-hovered[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_4_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Collapse navigation":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"true"[39m
+    [33maria-label[39m=[32m"Collapse navigation"[39m
+    [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_6_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_root_83033e"[39m
+      [33mdata-sgui-density[39m=[32m"comfortable"[39m
+      [33mdata-sgui-interaction[39m=[32m"auto"[39m
+      [33mdata-sgui-scope[39m=[32m""[39m
+      [33mdata-sgui-theme[39m=[32m"light"[39m
+      [33mdir[39m=[32m"ltr"[39m
+      [33mlang[39m=[32m"en-US"[39m
+    [36m>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"Main navigation"[39m
+        [33mclass[39m=[32m"_root_d56aa9"[39m
+        [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+          [33mdata-focused[39m=[32m"true"[39m
+          [33mdata-hovered[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_4_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"_root_370504"[39m
+              [33mdata-sgui-part[39m=[32m"avatar"[39m
+              [33mdata-shape[39m=[32m"circle"[39m
+              [33mdata-size[39m=[32m"medium"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"_fallback_370504"[39m
+              [36m>[39m
+                [0mAX[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_identity_d56aa9"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mHarry[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_organization_d56aa9"[39m
+              [36m>[39m
+                [0mSchool[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_63bc75"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_menuContent_d56aa9"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_scroll_d56aa9"[39m
+            [33mdata-sgui-part[39m=[32m"side-navigation-scroll"[39m
+          [36m/>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"true"[39m
+          [33maria-label[39m=[32m"Collapse navigation"[39m
+          [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_6_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left _root_63bc75"[39m
+              [33mdata-mirror-rtl[39m=[32m"true"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx:59:29
+     57|       const h = setup(operation); render(h.view()); const user = userE…
+     58|       await user.click(screen.getByRole("button", { name: "Harry Schoo…
+     59|       const target = screen.getByRole("menuitem", { name: labels[opera…
+       |                             ^
+     60|       await user.click(target); await user.click(target);
+     61|       for (const other of operations.filter(value => value !== operati…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAccount: retains opaque once, suppresses repeats, shows safe error and explicitly retries
+TestingLibraryElementError: Unable to find an accessible element with the role "menuitem" and name "Logout (a@example.com)"
+
+Here are the accessible roles:
+
+  navigation:
+
+  Name "Main navigation":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Main navigation"[39m
+    [33mclass[39m=[32m"_root_d56aa9"[39m
+    [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Harry School":
+  [36m<button[39m
+    [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+    [33mdata-focused[39m=[32m"true"[39m
+    [33mdata-hovered[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_c_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Collapse navigation":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"true"[39m
+    [33maria-label[39m=[32m"Collapse navigation"[39m
+    [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_e_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_root_83033e"[39m
+      [33mdata-sgui-density[39m=[32m"comfortable"[39m
+      [33mdata-sgui-interaction[39m=[32m"auto"[39m
+      [33mdata-sgui-scope[39m=[32m""[39m
+      [33mdata-sgui-theme[39m=[32m"light"[39m
+      [33mdir[39m=[32m"ltr"[39m
+      [33mlang[39m=[32m"en-US"[39m
+    [36m>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"Main navigation"[39m
+        [33mclass[39m=[32m"_root_d56aa9"[39m
+        [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+          [33mdata-focused[39m=[32m"true"[39m
+          [33mdata-hovered[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_c_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"_root_370504"[39m
+              [33mdata-sgui-part[39m=[32m"avatar"[39m
+              [33mdata-shape[39m=[32m"circle"[39m
+              [33mdata-size[39m=[32m"medium"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"_fallback_370504"[39m
+              [36m>[39m
+                [0mAX[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_identity_d56aa9"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mHarry[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_organization_d56aa9"[39m
+              [36m>[39m
+                [0mSchool[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_63bc75"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_menuContent_d56aa9"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_scroll_d56aa9"[39m
+            [33mdata-sgui-part[39m=[32m"side-navigation-scroll"[39m
+          [36m/>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"true"[39m
+          [33maria-label[39m=[32m"Collapse navigation"[39m
+          [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_e_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left _root_63bc75"[39m
+              [33mdata-mirror-rtl[39m=[32m"true"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx:59:29
+     57|       const h = setup(operation); render(h.view()); const user = userE…
+     58|       await user.click(screen.getByRole("button", { name: "Harry Schoo…
+     59|       const target = screen.getByRole("menuitem", { name: labels[opera…
+       |                             ^
+     60|       await user.click(target); await user.click(target);
+     61|       for (const other of operations.filter(value => value !== operati…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAccount: stale rejection remains diagnosed by host without altering the replacement owner
+TestingLibraryElementError: Unable to find an accessible element with the role "menuitem" and name "Logout (a@example.com)"
+
+Here are the accessible roles:
+
+  navigation:
+
+  Name "Main navigation":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Main navigation"[39m
+    [33mclass[39m=[32m"_root_d56aa9"[39m
+    [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Harry School":
+  [36m<button[39m
+    [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+    [33mdata-focused[39m=[32m"true"[39m
+    [33mdata-hovered[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_k_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Collapse navigation":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"true"[39m
+    [33maria-label[39m=[32m"Collapse navigation"[39m
+    [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_m_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_root_83033e"[39m
+      [33mdata-sgui-density[39m=[32m"comfortable"[39m
+      [33mdata-sgui-interaction[39m=[32m"auto"[39m
+      [33mdata-sgui-scope[39m=[32m""[39m
+      [33mdata-sgui-theme[39m=[32m"light"[39m
+      [33mdir[39m=[32m"ltr"[39m
+      [33mlang[39m=[32m"en-US"[39m
+    [36m>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"Main navigation"[39m
+        [33mclass[39m=[32m"_root_d56aa9"[39m
+        [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+          [33mdata-focused[39m=[32m"true"[39m
+          [33mdata-hovered[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_k_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"_root_370504"[39m
+              [33mdata-sgui-part[39m=[32m"avatar"[39m
+              [33mdata-shape[39m=[32m"circle"[39m
+              [33mdata-size[39m=[32m"medium"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"_fallback_370504"[39m
+              [36m>[39m
+                [0mAX[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_identity_d56aa9"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mHarry[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_organization_d56aa9"[39m
+              [36m>[39m
+                [0mSchool[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_63bc75"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_menuContent_d56aa9"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_scroll_d56aa9"[39m
+            [33mdata-sgui-part[39m=[32m"side-navigation-scroll"[39m
+          [36m/>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"true"[39m
+          [33maria-label[39m=[32m"Collapse navigation"[39m
+          [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_m_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left _root_63bc75"[39m
+              [33mdata-mirror-rtl[39m=[32m"true"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx:102:29
+    100|     const h = setup(operation); const rendered = render(h.view()); con…
+    101|     await user.click(screen.getByRole("button", { name: "Harry School"…
+    102|     await user.click(screen.getByRole("menuitem", { name: labels[opera…
+       |                             ^
+    103|     const replacement = setup(operation);
+    104|     rendered.rerender(h.view(replacement.host, replacement.change));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAllAccounts: retains Error(cause) once, suppresses repeats, shows safe error and explicitly retries
+TestingLibraryElementError: Unable to find an accessible element with the role "menuitem" and name "Log out of all accounts"
+
+Here are the accessible roles:
+
+  navigation:
+
+  Name "Main navigation":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Main navigation"[39m
+    [33mclass[39m=[32m"_root_d56aa9"[39m
+    [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Harry School":
+  [36m<button[39m
+    [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+    [33mdata-focused[39m=[32m"true"[39m
+    [33mdata-hovered[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_s_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Collapse navigation":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"true"[39m
+    [33maria-label[39m=[32m"Collapse navigation"[39m
+    [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_u_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_root_83033e"[39m
+      [33mdata-sgui-density[39m=[32m"comfortable"[39m
+      [33mdata-sgui-interaction[39m=[32m"auto"[39m
+      [33mdata-sgui-scope[39m=[32m""[39m
+      [33mdata-sgui-theme[39m=[32m"light"[39m
+      [33mdir[39m=[32m"ltr"[39m
+      [33mlang[39m=[32m"en-US"[39m
+    [36m>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"Main navigation"[39m
+        [33mclass[39m=[32m"_root_d56aa9"[39m
+        [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+          [33mdata-focused[39m=[32m"true"[39m
+          [33mdata-hovered[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_s_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"_root_370504"[39m
+              [33mdata-sgui-part[39m=[32m"avatar"[39m
+              [33mdata-shape[39m=[32m"circle"[39m
+              [33mdata-size[39m=[32m"medium"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"_fallback_370504"[39m
+              [36m>[39m
+                [0mAX[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_identity_d56aa9"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mHarry[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_organization_d56aa9"[39m
+              [36m>[39m
+                [0mSchool[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_63bc75"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_menuContent_d56aa9"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_scroll_d56aa9"[39m
+            [33mdata-sgui-part[39m=[32m"side-navigation-scroll"[39m
+          [36m/>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"true"[39m
+          [33maria-label[39m=[32m"Collapse navigation"[39m
+          [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_u_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left _root_63bc75"[39m
+              [33mdata-mirror-rtl[39m=[32m"true"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx:59:29
+     57|       const h = setup(operation); render(h.view()); const user = userE…
+     58|       await user.click(screen.getByRole("button", { name: "Harry Schoo…
+     59|       const target = screen.getByRole("menuitem", { name: labels[opera…
+       |                             ^
+     60|       await user.click(target); await user.click(target);
+     61|       for (const other of operations.filter(value => value !== operati…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAllAccounts: retains opaque once, suppresses repeats, shows safe error and explicitly retries
+TestingLibraryElementError: Unable to find an accessible element with the role "menuitem" and name "Log out of all accounts"
+
+Here are the accessible roles:
+
+  navigation:
+
+  Name "Main navigation":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Main navigation"[39m
+    [33mclass[39m=[32m"_root_d56aa9"[39m
+    [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Harry School":
+  [36m<button[39m
+    [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+    [33mdata-focused[39m=[32m"true"[39m
+    [33mdata-hovered[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_14_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Collapse navigation":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"true"[39m
+    [33maria-label[39m=[32m"Collapse navigation"[39m
+    [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_16_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_root_83033e"[39m
+      [33mdata-sgui-density[39m=[32m"comfortable"[39m
+      [33mdata-sgui-interaction[39m=[32m"auto"[39m
+      [33mdata-sgui-scope[39m=[32m""[39m
+      [33mdata-sgui-theme[39m=[32m"light"[39m
+      [33mdir[39m=[32m"ltr"[39m
+      [33mlang[39m=[32m"en-US"[39m
+    [36m>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"Main navigation"[39m
+        [33mclass[39m=[32m"_root_d56aa9"[39m
+        [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+          [33mdata-focused[39m=[32m"true"[39m
+          [33mdata-hovered[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_14_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"_root_370504"[39m
+              [33mdata-sgui-part[39m=[32m"avatar"[39m
+              [33mdata-shape[39m=[32m"circle"[39m
+              [33mdata-size[39m=[32m"medium"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"_fallback_370504"[39m
+              [36m>[39m
+                [0mAX[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_identity_d56aa9"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mHarry[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_organization_d56aa9"[39m
+              [36m>[39m
+                [0mSchool[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_63bc75"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_menuContent_d56aa9"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_scroll_d56aa9"[39m
+            [33mdata-sgui-part[39m=[32m"side-navigation-scroll"[39m
+          [36m/>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"true"[39m
+          [33maria-label[39m=[32m"Collapse navigation"[39m
+          [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_16_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left _root_63bc75"[39m
+              [33mdata-mirror-rtl[39m=[32m"true"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx:59:29
+     57|       const h = setup(operation); render(h.view()); const user = userE…
+     58|       await user.click(screen.getByRole("button", { name: "Harry Schoo…
+     59|       const target = screen.getByRole("menuitem", { name: labels[opera…
+       |                             ^
+     60|       await user.click(target); await user.click(target);
+     61|       for (const other of operations.filter(value => value !== operati…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > logoutAllAccounts: stale rejection remains diagnosed by host without altering the replacement owner
+TestingLibraryElementError: Unable to find an accessible element with the role "menuitem" and name "Log out of all accounts"
+
+Here are the accessible roles:
+
+  navigation:
+
+  Name "Main navigation":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Main navigation"[39m
+    [33mclass[39m=[32m"_root_d56aa9"[39m
+    [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Harry School":
+  [36m<button[39m
+    [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+    [33mdata-focused[39m=[32m"true"[39m
+    [33mdata-hovered[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_1c_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Collapse navigation":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"true"[39m
+    [33maria-label[39m=[32m"Collapse navigation"[39m
+    [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_1e_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_root_83033e"[39m
+      [33mdata-sgui-density[39m=[32m"comfortable"[39m
+      [33mdata-sgui-interaction[39m=[32m"auto"[39m
+      [33mdata-sgui-scope[39m=[32m""[39m
+      [33mdata-sgui-theme[39m=[32m"light"[39m
+      [33mdir[39m=[32m"ltr"[39m
+      [33mlang[39m=[32m"en-US"[39m
+    [36m>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"Main navigation"[39m
+        [33mclass[39m=[32m"_root_d56aa9"[39m
+        [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+          [33mdata-focused[39m=[32m"true"[39m
+          [33mdata-hovered[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_1c_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"_root_370504"[39m
+              [33mdata-sgui-part[39m=[32m"avatar"[39m
+              [33mdata-shape[39m=[32m"circle"[39m
+              [33mdata-size[39m=[32m"medium"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"_fallback_370504"[39m
+              [36m>[39m
+                [0mAX[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_identity_d56aa9"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mHarry[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_organization_d56aa9"[39m
+              [36m>[39m
+                [0mSchool[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_63bc75"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_menuContent_d56aa9"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_scroll_d56aa9"[39m
+            [33mdata-sgui-part[39m=[32m"side-navigation-scroll"[39m
+          [36m/>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"true"[39m
+          [33maria-label[39m=[32m"Collapse navigation"[39m
+          [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_1e_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left _root_63bc75"[39m
+              [33mdata-mirror-rtl[39m=[32m"true"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx:102:29
+    100|     const h = setup(operation); const rendered = render(h.view()); con…
+    101|     await user.click(screen.getByRole("button", { name: "Harry School"…
+    102|     await user.click(screen.getByRole("menuitem", { name: labels[opera…
+       |                             ^
+    103|     const replacement = setup(operation);
+    104|     rendered.rerender(h.view(replacement.host, replacement.change));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > onOrganizationChange: retains Error(cause) once, suppresses repeats, shows safe error and explicitly retries
+TestingLibraryElementError: Unable to find an accessible element with the role "menuitem" and name "Other (b@example.com)"
+
+Here are the accessible roles:
+
+  navigation:
+
+  Name "Main navigation":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Main navigation"[39m
+    [33mclass[39m=[32m"_root_d56aa9"[39m
+    [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Harry School":
+  [36m<button[39m
+    [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+    [33mdata-focused[39m=[32m"true"[39m
+    [33mdata-hovered[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_1k_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Collapse navigation":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"true"[39m
+    [33maria-label[39m=[32m"Collapse navigation"[39m
+    [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_1m_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_root_83033e"[39m
+      [33mdata-sgui-density[39m=[32m"comfortable"[39m
+      [33mdata-sgui-interaction[39m=[32m"auto"[39m
+      [33mdata-sgui-scope[39m=[32m""[39m
+      [33mdata-sgui-theme[39m=[32m"light"[39m
+      [33mdir[39m=[32m"ltr"[39m
+      [33mlang[39m=[32m"en-US"[39m
+    [36m>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"Main navigation"[39m
+        [33mclass[39m=[32m"_root_d56aa9"[39m
+        [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+          [33mdata-focused[39m=[32m"true"[39m
+          [33mdata-hovered[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_1k_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"_root_370504"[39m
+              [33mdata-sgui-part[39m=[32m"avatar"[39m
+              [33mdata-shape[39m=[32m"circle"[39m
+              [33mdata-size[39m=[32m"medium"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"_fallback_370504"[39m
+              [36m>[39m
+                [0mAX[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_identity_d56aa9"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mHarry[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_organization_d56aa9"[39m
+              [36m>[39m
+                [0mSchool[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_63bc75"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_menuContent_d56aa9"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_scroll_d56aa9"[39m
+            [33mdata-sgui-part[39m=[32m"side-navigation-scroll"[39m
+          [36m/>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"true"[39m
+          [33maria-label[39m=[32m"Collapse navigation"[39m
+          [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_1m_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left _root_63bc75"[39m
+              [33mdata-mirror-rtl[39m=[32m"true"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx:59:29
+     57|       const h = setup(operation); render(h.view()); const user = userE…
+     58|       await user.click(screen.getByRole("button", { name: "Harry Schoo…
+     59|       const target = screen.getByRole("menuitem", { name: labels[opera…
+       |                             ^
+     60|       await user.click(target); await user.click(target);
+     61|       for (const other of operations.filter(value => value !== operati…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > onOrganizationChange: retains opaque once, suppresses repeats, shows safe error and explicitly retries
+TestingLibraryElementError: Unable to find an accessible element with the role "menuitem" and name "Other (b@example.com)"
+
+Here are the accessible roles:
+
+  navigation:
+
+  Name "Main navigation":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Main navigation"[39m
+    [33mclass[39m=[32m"_root_d56aa9"[39m
+    [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Harry School":
+  [36m<button[39m
+    [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+    [33mdata-focused[39m=[32m"true"[39m
+    [33mdata-hovered[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_1s_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Collapse navigation":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"true"[39m
+    [33maria-label[39m=[32m"Collapse navigation"[39m
+    [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_1u_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_root_83033e"[39m
+      [33mdata-sgui-density[39m=[32m"comfortable"[39m
+      [33mdata-sgui-interaction[39m=[32m"auto"[39m
+      [33mdata-sgui-scope[39m=[32m""[39m
+      [33mdata-sgui-theme[39m=[32m"light"[39m
+      [33mdir[39m=[32m"ltr"[39m
+      [33mlang[39m=[32m"en-US"[39m
+    [36m>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"Main navigation"[39m
+        [33mclass[39m=[32m"_root_d56aa9"[39m
+        [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+          [33mdata-focused[39m=[32m"true"[39m
+          [33mdata-hovered[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_1s_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"_root_370504"[39m
+              [33mdata-sgui-part[39m=[32m"avatar"[39m
+              [33mdata-shape[39m=[32m"circle"[39m
+              [33mdata-size[39m=[32m"medium"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"_fallback_370504"[39m
+              [36m>[39m
+                [0mAX[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_identity_d56aa9"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mHarry[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_organization_d56aa9"[39m
+              [36m>[39m
+                [0mSchool[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_63bc75"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_menuContent_d56aa9"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_scroll_d56aa9"[39m
+            [33mdata-sgui-part[39m=[32m"side-navigation-scroll"[39m
+          [36m/>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"true"[39m
+          [33maria-label[39m=[32m"Collapse navigation"[39m
+          [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_1u_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left _root_63bc75"[39m
+              [33mdata-mirror-rtl[39m=[32m"true"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx:59:29
+     57|       const h = setup(operation); render(h.view()); const user = userE…
+     58|       await user.click(screen.getByRole("button", { name: "Harry Schoo…
+     59|       const target = screen.getByRole("menuitem", { name: labels[opera…
+       |                             ^
+     60|       await user.click(target); await user.click(target);
+     61|       for (const other of operations.filter(value => value !== operati…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx > onOrganizationChange: stale rejection remains diagnosed by host without altering the replacement owner
+TestingLibraryElementError: Unable to find an accessible element with the role "menuitem" and name "Other (b@example.com)"
+
+Here are the accessible roles:
+
+  navigation:
+
+  Name "Main navigation":
+  [36m<nav[39m
+    [33maria-label[39m=[32m"Main navigation"[39m
+    [33mclass[39m=[32m"_root_d56aa9"[39m
+    [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+  button:
+
+  Name "Harry School":
+  [36m<button[39m
+    [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+    [33mdata-focused[39m=[32m"true"[39m
+    [33mdata-hovered[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_24_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  Name "Collapse navigation":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"true"[39m
+    [33maria-label[39m=[32m"Collapse navigation"[39m
+    [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdata-sgui-part[39m=[32m"button"[39m
+    [33mdata-tone[39m=[32m"neutral"[39m
+    [33mdata-variant[39m=[32m"text"[39m
+    [33mid[39m=[32m"react-aria-_r_26_"[39m
+    [33mtabindex[39m=[32m"0"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"_root_83033e"[39m
+      [33mdata-sgui-density[39m=[32m"comfortable"[39m
+      [33mdata-sgui-interaction[39m=[32m"auto"[39m
+      [33mdata-sgui-scope[39m=[32m""[39m
+      [33mdata-sgui-theme[39m=[32m"light"[39m
+      [33mdir[39m=[32m"ltr"[39m
+      [33mlang[39m=[32m"en-US"[39m
+    [36m>[39m
+      [36m<nav[39m
+        [33maria-label[39m=[32m"Main navigation"[39m
+        [33mclass[39m=[32m"_root_d56aa9"[39m
+        [33mdata-sgui-part[39m=[32m"side-navigation"[39m
+      [36m>[39m
+        [36m<button[39m
+          [33mclass[39m=[32m"_root_ae419f _userTrigger_d56aa9"[39m
+          [33mdata-focused[39m=[32m"true"[39m
+          [33mdata-hovered[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_24_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"_root_370504"[39m
+              [33mdata-sgui-part[39m=[32m"avatar"[39m
+              [33mdata-shape[39m=[32m"circle"[39m
+              [33mdata-size[39m=[32m"medium"[39m
+            [36m>[39m
+              [36m<span[39m
+                [33maria-hidden[39m=[32m"true"[39m
+                [33mclass[39m=[32m"_fallback_370504"[39m
+              [36m>[39m
+                [0mAX[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m"_identity_d56aa9"[39m
+            [36m>[39m
+              [36m<span>[39m
+                [0mHarry[0m
+              [36m</span>[39m
+              [36m<span[39m
+                [33mclass[39m=[32m"_organization_d56aa9"[39m
+              [36m>[39m
+                [0mSchool[0m
+              [36m</span>[39m
+            [36m</span>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_63bc75"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"_menuContent_d56aa9"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"_scroll_d56aa9"[39m
+            [33mdata-sgui-part[39m=[32m"side-navigation-scroll"[39m
+          [36m/>[39m
+        [36m</div>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"true"[39m
+          [33maria-label[39m=[32m"Collapse navigation"[39m
+          [33mclass[39m=[32m"_root_ae419f _collapse_d56aa9"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdata-sgui-part[39m=[32m"button"[39m
+          [33mdata-tone[39m=[32m"neutral"[39m
+          [33mdata-variant[39m=[32m"text"[39m
+          [33mid[39m=[32m"react-aria-_r_26_"[39m
+          [33mtabindex[39m=[32m"0"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_label_ae419f"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-left _root_63bc75"[39m
+              [33mdata-mirror-rtl[39m=[32m"true"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m15 18-6-6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+      [36m</nav>[39m
+    [36m</div>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx:102:29
+    100|     const h = setup(operation); const rendered = render(h.view()); con…
+    101|     await user.click(screen.getByRole("button", { name: "Harry School"…
+    102|     await user.click(screen.getByRole("menuitem", { name: labels[opera…
+       |                             ^
+    103|     const replacement = setup(operation);
+    104|     rendered.rerender(h.view(replacement.host, replacement.change));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  9 failed | 2 passed (11)
+   Start at  18:05:54
+   Duration  1.61s (transform 291ms, setup 19ms, import 666ms, tests 344ms, environment 402ms)
+

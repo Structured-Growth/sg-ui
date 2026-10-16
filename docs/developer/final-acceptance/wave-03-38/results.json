@@ -1,0 +1,157 @@
+{
+  "wave": 38,
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "status": "reviewable-patch-artifacts",
+  "complete": 0,
+  "partial": 5,
+  "blocked": 0,
+  "leaves": [
+    {
+      "id": "A-R-07",
+      "originalRequirement": "- [ ] A-R-07 Reconcile original `R-07`: Regenerate the lockfile through the package manager and inspect resolved transitive dependencies, overrides, patched dependencies and optional packages. Historical status: open.",
+      "status": "partial",
+      "outcome": "Read-only full YAML topology audit: 585 package records, all with integrity, 589 snapshots; all three importers match manifests; 86 platform records, 109 optional snapshots, 53 peer contexts, 49 packages with peer declarations; no retired packages, overrides or patched dependencies. Source/installed lock hashes match and selected manifests/lock match prior evidence.",
+      "evidence": [
+        "evidence.json",
+        "lock-audit.json",
+        "capture.txt",
+        "remote-status.json",
+        "offline-release.txt",
+        "offline-release.test.mjs",
+        "release-guidance.patch",
+        "validation-plan.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-38/capture.mjs",
+        "python3 docs/developer/final-acceptance/wave-03-38/remote-status.py",
+        "node --test docs/developer/final-acceptance/wave-03-38/offline-release.test.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-38/release-guidance.patch"
+      ],
+      "runtime": "Node26.5.0 for lightweight offline audit/tests; Python3 public GETs. No Node22/24 support execution claimed.",
+      "inputHashes": "evidence.json inputs; prior hashes compared individually",
+      "residualSuccessors": [
+        "R-LOCK-GENERATE: authorized isolated package-manager generation plus fresh frozen installation receipt and physical platform-optional selections remain missing; shared regeneration prohibited."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "acceptanceClosed": false
+    },
+    {
+      "id": "A-R-15",
+      "originalRequirement": "- [ ] A-R-15 Reconcile original `R-15`: Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy. Historical status: open.",
+      "status": "partial",
+      "outcome": "Actual installed commit-analyzer and semantic-release version function pass both breaking markers: first publication 1.0.0, existing 1.4.2 becomes 2.0.0; maintenance loses release signal. Existing consumer migration mappings retained unchanged; proposed runbook names marker and required delta ledger.",
+      "evidence": [
+        "evidence.json",
+        "lock-audit.json",
+        "capture.txt",
+        "remote-status.json",
+        "offline-release.txt",
+        "offline-release.test.mjs",
+        "release-guidance.patch",
+        "validation-plan.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-38/capture.mjs",
+        "python3 docs/developer/final-acceptance/wave-03-38/remote-status.py",
+        "node --test docs/developer/final-acceptance/wave-03-38/offline-release.test.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-38/release-guidance.patch"
+      ],
+      "runtime": "Node26.5.0 for lightweight offline audit/tests; Python3 public GETs. No Node22/24 support execution claimed.",
+      "inputHashes": "evidence.json inputs; prior hashes compared individually",
+      "residualSuccessors": [
+        "R-BREAKING-OWNER: exhaustive normalized historical API/default/removal comparison, eventual analyzed merge marker and authoritative last publication decision remain owner/ledger work. Example marker is not an approved commit."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "acceptanceClosed": false
+    },
+    {
+      "id": "A-R-17",
+      "originalRequirement": "- [ ] A-R-17 Reconcile original `R-17`: Verify npm scope ownership, public access, trusted-publishing/token setup, GitHub release/tag permissions, provenance requirements, and commercial notices before publication. Historical status: open.",
+      "status": "partial",
+      "outcome": "Workflow/config permissions and public access reviewed; installed npm13.2.0 invokes direct npm publish with preferLocal, and installed npm dependency is11.21.0. Public GETs: npm404; GitHub tags/releases200 empty. Proposed prerequisite record covers actual scope/package control, direct publish vs staged permission, environment binding, token/2FA, effective npm CLI, GitHub rules, provenance and commercial notices.",
+      "evidence": [
+        "evidence.json",
+        "lock-audit.json",
+        "capture.txt",
+        "remote-status.json",
+        "offline-release.txt",
+        "offline-release.test.mjs",
+        "release-guidance.patch",
+        "validation-plan.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-38/capture.mjs",
+        "python3 docs/developer/final-acceptance/wave-03-38/remote-status.py",
+        "node --test docs/developer/final-acceptance/wave-03-38/offline-release.test.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-38/release-guidance.patch"
+      ],
+      "runtime": "Node26.5.0 for lightweight offline audit/tests; Python3 public GETs. No Node22/24 support execution claimed.",
+      "inputHashes": "evidence.json inputs; prior hashes compared individually",
+      "residualSuccessors": [
+        "R-OWNER: credentials route, scope/package access, trusted binding, effective CI CLI, tag/release policy and commercial/provenance decisions require authorized owner evidence. Public GETs and local package versions do not prove permission or registry absence."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "acceptanceClosed": false
+    },
+    {
+      "id": "A-R-26",
+      "originalRequirement": "- [ ] A-R-26 Reconcile original `R-26`: Define recovery from failed or partially completed publication, tag/package mismatch, and rollback/deprecation of a bad release; do not overwrite published versions. Historical status: open.",
+      "status": "partial",
+      "outcome": "Ready-to-apply maintained runbook and links replace undefined recovery guidance. Reconciled installed semantic-release25.0.9 tag/notes push before npm13.2.0 then GitHub12.0.10. Offline eight-state model covers no-state, tag-only, npm-only, missing GitHub, mismatch, bad version, unknown and complete.",
+      "evidence": [
+        "evidence.json",
+        "lock-audit.json",
+        "capture.txt",
+        "remote-status.json",
+        "offline-release.txt",
+        "offline-release.test.mjs",
+        "release-guidance.patch",
+        "validation-plan.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-38/capture.mjs",
+        "python3 docs/developer/final-acceptance/wave-03-38/remote-status.py",
+        "node --test docs/developer/final-acceptance/wave-03-38/offline-release.test.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-38/release-guidance.patch"
+      ],
+      "runtime": "Node26.5.0 for lightweight offline audit/tests; Python3 public GETs. No Node22/24 support execution claimed.",
+      "inputHashes": "evidence.json inputs; prior hashes compared individually",
+      "residualSuccessors": [
+        "R-RECOVERY-ADOPT: coordinator integrates patch; maintainer adopts it, assigns release/incident owners and records operator offline drill. Automated model is not human drill; no live action authorized."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "acceptanceClosed": false
+    },
+    {
+      "id": "A-R-28",
+      "originalRequirement": "- [ ] A-R-28 Reconcile original `R-28`: Validate release configuration safely without publishing while implementing it; explicitly control whether final migration merges will trigger the first public release or a subsequent major release. Historical status: open.",
+      "status": "partial",
+      "outcome": "Three offline tests execute actual installed analyzer/version inference without invoking semantic-release entrypoint or publish/verify lifecycle. Proposed procedure explicitly distinguishes first1.0.0 from subsequent breaking major and demands decision before main promotion. Existing workflow/release config unchanged; prior bounded policy receipt retained at matching inputs.",
+      "evidence": [
+        "evidence.json",
+        "lock-audit.json",
+        "capture.txt",
+        "remote-status.json",
+        "offline-release.txt",
+        "offline-release.test.mjs",
+        "release-guidance.patch",
+        "validation-plan.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-38/capture.mjs",
+        "python3 docs/developer/final-acceptance/wave-03-38/remote-status.py",
+        "node --test docs/developer/final-acceptance/wave-03-38/offline-release.test.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-38/release-guidance.patch"
+      ],
+      "runtime": "Node26.5.0 for lightweight offline audit/tests; Python3 public GETs. No Node22/24 support execution claimed.",
+      "inputHashes": "evidence.json inputs; prior hashes compared individually",
+      "residualSuccessors": [
+        "R-RELEASE-DECISION: owner reconciles authoritative remote/registry history, reviews final breaking ledger and required production checks, then records explicit first or subsequent release approval. No main promotion or publication is approved here."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "acceptanceClosed": false
+    }
+  ],
+  "sharedCheckoutMutations": "none; owned directory only",
+  "noChecklistOrCountChanges": true
+}

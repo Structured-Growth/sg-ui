@@ -1,0 +1,86 @@
+{
+  "files": [
+    {
+      "path": "docs/developer/react-aria-component-recipe.md",
+      "baseSha256": "362ff60da1c740c55c87f5cddd1997e1a8c8209d573f62200f15701911ac2797",
+      "proposedSha256": "0b2a54e214cf4d58f3fcebeb5870dc15f59b55a7207ed1287b3fe35418712e14"
+    },
+    {
+      "path": "docs/agent-guidance-migration.md",
+      "baseSha256": "c0c34780972520cb2370960db6d8f595567edc70dad859bff384e51ae008c74c",
+      "proposedSha256": "926565f63e5169a9d6908be0af2d177d2a7c8aaca65935d5f4ac8021a93cec7a"
+    },
+    {
+      "path": "docs/developer/component-architecture.md",
+      "baseSha256": "fd4664e649a5f52e6dd77d5c5250a21a0e9cbacf330b9aeb62e2a1bcfc938829",
+      "proposedSha256": "1c596245f7caf3265cd60bdc7218c2bf37a0660bf49d685f132e9fc7b662c2dd"
+    },
+    {
+      "path": "docs/github-setup.md",
+      "baseSha256": "e5518c6d2dcdea95a0b6b8788e30e63ea766bd1282fdd33b97cb26610c04d791",
+      "proposedSha256": "81d7acd215abe87f2af87ab5b6fed7c9e2719bd75d7d265c78efe699bad3a3ed"
+    },
+    {
+      "path": "docs/troubleshooting/validation.md",
+      "baseSha256": "2f6b81732ff3fb2626d7bad275c064006c0644dc79a2d0681ef91d137f22bd34",
+      "proposedSha256": "1bb2605f96a14d7a8336abad6c2ee0185aa6854e35e41ff81b0981f4481b8a44"
+    },
+    {
+      "path": "docs/troubleshooting/firefox-profile-launch.md",
+      "baseSha256": "2c9bcfe5fe47a3b6217121322ee7d9ccaf051b5b7eaaf9f33186627ac1d0eafe",
+      "proposedSha256": "21848c287e67f7cccf9ad7f3167886c7a6266f7a85f65f6caf7e2c0872cbdb54"
+    },
+    {
+      "path": "docs/developer/react-aria-license-inventory.md",
+      "baseSha256": "a6da4e49e9f506d54cfaaccf574ac5a7d62e7ecd4583546244614edce76b8b2d",
+      "proposedSha256": "b32f4fc5bfdb7d6c5cb7e9f4ca3783d57981c9635d7d57643d95a2170c492415"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/ui-change.yml",
+      "baseSha256": "ee49adb9aef6a21ec98b5b183f683e31cef50cbe84729825320258721bdf00ae",
+      "proposedSha256": "7a95850d587d962ed5d970cffb07626a2f0e0dec9f83235a4724be7fc23f11e5"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "baseSha256": "c89dc8d326448e74be2e68664054e9716bdc536cdba7676c01b916ae57f561f8",
+      "proposedSha256": "17a0f56f392b4be38911ab9e088bd1b8441760af83bd3486ace4d72061a592c8"
+    },
+    {
+      "path": "docs/commercial-licensing.md",
+      "baseSha256": "71fc2a9e55e62ee0f6eb4a0947d876fcea4cb856338c76cfe56451ff6be2482d",
+      "proposedSha256": "6652a8902f03af94453b7ffd3c2bd92fc89c30002022945530b984cfa35c5281"
+    },
+    {
+      "path": "docs/developer/react-aria-runtime-ci.md",
+      "baseSha256": "712971a2d5f77b644ccef5bc8f8593204ba2559599de65a3f226e81d1df5a7f1",
+      "proposedSha256": "775eed14f582dc2fa4432e94ded8345cf58883400665d1020832d7be0dd90067"
+    },
+    {
+      "path": "docs/migration.md",
+      "baseSha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+      "proposedSha256": "644ca47b848735bc51e5430c7794e7cdb36534c74d7da56126d938e241006f62"
+    }
+  ],
+  "skippedPriorReplacements": [
+    {
+      "path": "docs/github-setup.md",
+      "before": "../release.config.mjs",
+      "alreadyPresent": true
+    },
+    {
+      "path": "docs/developer/react-aria-dependency-upgrades.md",
+      "before": "Vite, Storybook, Playwright/axe",
+      "alreadyPresent": false
+    },
+    {
+      "path": "docs/developer/react-aria-dependency-upgrades.md",
+      "before": "Update affected stories and",
+      "alreadyPresent": false
+    },
+    {
+      "path": "docs/developer/react-aria-dependency-upgrades.md",
+      "before": "pre-production `codex/dev` migration",
+      "alreadyPresent": true
+    }
+  ]
+}

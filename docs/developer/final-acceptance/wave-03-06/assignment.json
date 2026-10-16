@@ -1,0 +1,82 @@
+{
+  "number": 6,
+  "title": "Distributed licenses and notices",
+  "ids": [
+    "A-L-01",
+    "A-L-02",
+    "A-L-04",
+    "A-Z-06"
+  ],
+  "focus": "Resolve concrete distributed license/notice findings, including reported @swc/helpers text. Draft exact notice additions/corrections based on installed license bytes and packed inventory; preserve potentially applicable notices and commercial terms. No legal approval inferred.",
+  "directory": "docs/developer/final-acceptance/wave-03-06",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-L-01": "- [ ] A-L-01 Reconcile original `L-01`: Verify the selected versions' actual licenses, including React Aria Components, hooks/state/date utilities, icon assets, grid engine, editor packages, and transitive distributed code. Historical status: open.",
+    "A-L-02": "- [ ] A-L-02 Reconcile original `L-02`: Preserve Apache 2.0 licenses and applicable notices; record modifications where required if upstream code is copied or changed rather than merely depended on. Historical status: open.",
+    "A-L-04": "- [ ] A-L-04 Reconcile original `L-04`: Refresh `THIRD_PARTY_NOTICES.md` from the final shipped dependency and asset inventory; remove a retired notice only after its code/assets are no longer distributed. Historical status: open.",
+    "A-Z-06": "- [ ] A-Z-06 Reconcile original `Z-06`: Remove obsolete notices only after confirming no associated source/assets remain in package or catalog; final third-party notices match shipped work. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-L-01": {
+      "id": "A-L-01",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-L-01 Reconcile original `L-01`: Verify the selected versions' actual licenses, including React Aria Components, hooks/state/date utilities, icon assets, grid engine, editor packages, and transitive distributed code. Historical status: open.",
+      "conversationNumber": 5,
+      "report": "docs/developer/final-acceptance/wave-02-05/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-05/results.json",
+      "reportSha256": "6db6ccb347cc72feb8f77eb373c44d9c997576efc0dc5793b2801c8edcbd9beb",
+      "resultsSha256": "f9284de3c93ea18d0e66f1ea7de12914e03ec2c8c5a4ef046af0e79596f9035a",
+      "successors": [
+        "Review runtime client-only provenance/legal text from an owner-verified upstream package/source; retain exact source/license evidence without guessing.",
+        "Map the 18 unmatched full texts and all relevant transitive bundled/copied code to the final distributed artifact and its required notices; classify development-only records separately.",
+        "Have designated license reviewer accept final per-version distribution/provenance conclusions; source metadata is insufficient for that decision."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-L-02": {
+      "id": "A-L-02",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-L-02 Reconcile original `L-02`: Preserve Apache 2.0 licenses and applicable notices; record modifications where required if upstream code is copied or changed rather than merely depended on. Historical status: open.",
+      "conversationNumber": 5,
+      "report": "docs/developer/final-acceptance/wave-02-05/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-05/results.json",
+      "reportSha256": "6db6ccb347cc72feb8f77eb373c44d9c997576efc0dc5793b2801c8edcbd9beb",
+      "resultsSha256": "f9284de3c93ea18d0e66f1ea7de12914e03ec2c8c5a4ef046af0e79596f9035a",
+      "successors": [
+        "Retain a provenance disposition for copied/adapted code and embedded NOTICE obligations across final shipped code/maps/assets, including whether any modification notices are required.",
+        "Reconfirm final candidate tarball byte retention after current coordinator source changes and owner-approved notice changes; do not delete preserved attribution based on package removal alone."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-L-04": {
+      "id": "A-L-04",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-L-04 Reconcile original `L-04`: Refresh `THIRD_PARTY_NOTICES.md` from the final shipped dependency and asset inventory; remove a retired notice only after its code/assets are no longer distributed. Historical status: open.",
+      "conversationNumber": 5,
+      "report": "docs/developer/final-acceptance/wave-02-05/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-05/results.json",
+      "reportSha256": "6db6ccb347cc72feb8f77eb373c44d9c997576efc0dc5793b2801c8edcbd9beb",
+      "resultsSha256": "f9284de3c93ea18d0e66f1ea7de12914e03ec2c8c5a4ef046af0e79596f9035a",
+      "successors": [
+        "Refresh both equal notice copies against owner-reviewed final artifact and provenance inventory; decide retained historical attribution individually, then keep pack equality.",
+        "Update stale current-dependency/proof wording in LICENSE section 7 and commercial guidance only through authorized owner/legal review; do not rewrite commercial rights as inventory automation.",
+        "Resolve grouped-heading parsing explicitly or teach the inventory parser about reviewed group mappings with fixtures; do not falsify one-heading-per-package findings as license omissions."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-Z-06": {
+      "id": "A-Z-06",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-06 Reconcile original `Z-06`: Remove obsolete notices only after confirming no associated source/assets remain in package or catalog; final third-party notices match shipped work. Historical status: open.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "attribution owner resolves derived/copied\nsource/assets and legal-text findings, legal owner approves retained/removed\nnotices and coordinated descriptions, then join approved text to final packed\nhashes. Local source absence does not supply legal approval."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

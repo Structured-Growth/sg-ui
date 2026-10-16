@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
 import { Menu } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
@@ -16,3 +17,21 @@ export const NativeAutofocus: Story = { args: { label: "Native focus actions", t
 
 export const RetryableActionError: Story = { args: { defaultOpen: true, errorMessage: "Unable to complete this action. Try again." } };
 export const LinkTargets: Story = { args: { items: [{ id: "course", label: "Open course", href: "/courses/1" }, { id: "reference", label: "Open reference in a new tab", href: "https://example.com", target: "_blank", rel: "help" }] } };
+
+
+function NativeContractsExample() {
+ const [requests, setRequests] = useState<string[]>([]);
+ return <>
+  <Button>Before commands</Button>
+  <Menu label="Contract commands" trigger={<Button>Contract actions</Button>} items={[
+   { id: "blocked-first", label: "Unavailable first", disabled: true },
+   { id: "first", label: "First enabled" },
+   { id: "middle", label: "Unavailable middle", disabled: true },
+   { id: "last", label: "Last enabled" },
+   { id: "blocked-last", label: "Unavailable last", disabled: true },
+  ]} onAction={id => setRequests(previous => [...previous, id])} />
+  <Button>After commands</Button>
+  <output aria-label="Command requests">{requests.join(",")}</output>
+ </>;
+}
+export const NativeContracts: Story = { render: () => <NativeContractsExample /> };

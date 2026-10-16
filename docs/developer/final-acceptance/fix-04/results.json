@@ -1,0 +1,76 @@
+{
+  "owner": "fix-04",
+  "date": "2026-10-16",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "scope": "A-A-19 / P07-A19-DOC documentation correction only; coordinator owns shared reconciliation",
+  "report": "report.md",
+  "status": "complete",
+  "leaves": [
+    {
+      "id": "A-A-19",
+      "status": "complete",
+      "originalRequirement": "Document package dependency placement, supported versions, upgrade policy, and deduplication requirements for React Aria and date utilities.",
+      "basis": "All five P07-A19-DOC requirements implemented in dependency guide; bounded manifest/lockfile/script/CI/link checks pass. Documentation obligation only; coordinator review/integration pending."
+    }
+  ],
+  "successors": [
+    {
+      "id": "P07-A19-DOC",
+      "status": "complete",
+      "requiredFor": [
+        "A-A-19"
+      ]
+    }
+  ],
+  "changes": [
+    "Correct authoritative library manifest and runtime/peer/dev/docs placement.",
+    "Keep pinned interaction/date and React support inputs grounded in unchanged manifests/lockfile.",
+    "Replace removed Storybook workflow with docs/native fixture commands, direct-script cwd and serialized leases.",
+    "Use dev integration; preserve human production approval, automated versioning and release-impact review.",
+    "Specify coordinated compatible graph/deduplication review, physical peer-context evidence limits and consumer lockfile/validation responsibility."
+  ],
+  "validations": [
+    {
+      "command": "python3 docs/developer/final-acceptance/fix-04/validate.py",
+      "result": "pass",
+      "checks": 55,
+      "localLinks": 19,
+      "receipt": "validation.json"
+    },
+    {
+      "command": "git diff --check -- docs/developer/react-aria-dependency-upgrades.md docs/developer/final-acceptance/fix-04",
+      "result": "pass"
+    },
+    {
+      "kind": "JSON metadata and touched-file hash verification",
+      "result": "pass"
+    }
+  ],
+  "retainedEvidence": [
+    "../parallel-07/report.md",
+    "../parallel-07/input-receipt.json",
+    "../2026-10-16-source-inventory.json"
+  ],
+  "remainingRequirements": [
+    "Coordinator review/integration and shared count reconciliation.",
+    "A-L-09 human governance/security intake/cadence/backport/disclosure decisions remain open.",
+    "Actual upgrade graph/peer-path, lockfile/frozen install, legal/notice/release-impact and affected behavioral/native/packed-consumer checks remain future requirements.",
+    "Full production validation, browser/device/IME/AT/manual/legal gates and 20 editor V leaves are not closed.",
+    "P07-CALENDAR-DOC remains with calendar documentation owner."
+  ],
+  "limits": [
+    "No dependency upgrade/install/change, runtime/browser/consumer/build execution, live topology scan, registry/advisory lookup or remote CI claim.",
+    "No approval, security/latest/EOL guarantee, physical singleton certification or coverage of concurrent source changes.",
+    "Only the assigned guide and fix-04 directory edited by this task; no source snapshots or shared acceptance ledgers edited.",
+    "No staging/commit/push/worktree/cleanup/version/release/server operations or new conversations/agents."
+  ],
+  "touchedFileHashes": {
+    "docs/developer/react-aria-dependency-upgrades.md": "0dc9a3a4684d92f55e0407562d0d85f39e8ee0ec23746719e690e70841bf81a5",
+    "docs/developer/final-acceptance/fix-04/before.json": "bfd40d3395fa2b6c9d816054d28e475c49c0e79224d338c0c3db50c024f70df6",
+    "docs/developer/final-acceptance/fix-04/report.md": "dba1813ebc274309d118611d5afabc9f253b79f25c3ac0ebd29a340a2e3c7919",
+    "docs/developer/final-acceptance/fix-04/validate.py": "8ff3fe5b5fcaa6cf51cdbebba1a3403e77437bd4480035e8d65ecdb3d8da0733",
+    "docs/developer/final-acceptance/fix-04/validation.json": "fa5fe34ad005e8d4d765c38de5e6b647de60cedc3e15a11926bb11aada04e499"
+  },
+  "hashScope": "All files written by this task except results.json itself (recursive self-hash omitted). Guide before hash is retained in before.json."
+}

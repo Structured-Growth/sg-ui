@@ -1,0 +1,43 @@
+--- a/LICENSE
++++ b/LICENSE
+@@ -78,8 +78,8 @@
+ 
+ 7. Third-party materials
+ 
+-The Software uses third-party packages, including React, MUI, Emotion and
+-Lexical. Those packages and any separately identified third-party materials
++The Software uses third-party packages, including React, React Aria, TanStack Table,
++Lucide and Lexical. Those packages and any separately identified third-party materials
+ remain governed by their own licenses and copyright notices. This notice does
+ not impose commercial-license restrictions on rights granted independently
+ by those third-party licenses. Preserve applicable third-party notices when
+--- a/packages/ui/LICENSE
++++ b/packages/ui/LICENSE
+@@ -78,8 +78,8 @@
+ 
+ 7. Third-party materials
+ 
+-The Software uses third-party packages, including React, MUI, Emotion and
+-Lexical. Those packages and any separately identified third-party materials
++The Software uses third-party packages, including React, React Aria, TanStack Table,
++Lucide and Lexical. Those packages and any separately identified third-party materials
+ remain governed by their own licenses and copyright notices. This notice does
+ not impose commercial-license restrictions on rights granted independently
+ by those third-party licenses. Preserve applicable third-party notices when
+--- a/docs/commercial-licensing.md
++++ b/docs/commercial-licensing.md
+@@ -16,9 +16,11 @@
+ notice acceptance and enforceability, and the agreement's commercial terms.
+ 
+ Third-party dependencies remain under their own licenses. SGUI's commercial
+-notice does not relicense React, MUI, Emotion, or Lexical. Full notices for the
+-current direct runtime/peer packages are included in THIRD_PARTY_NOTICES.md;
+-dependencies also distribute their own licenses.
++notice does not relicense independently licensed materials, including React,
++React Aria, TanStack Table, Lucide and Lexical. THIRD_PARTY_NOTICES.md retains
++current dependency notices, supplemental resolved dependency notices and
++historical attributions pending provenance review; dependencies also distribute
++their own licenses. Final notice completeness remains a review obligation.
+ 
+ References: [U.S. Copyright Office guidance](https://www.copyright.gov/circs/)
+ and [MIT license terms](https://opensource.org/license/mit).

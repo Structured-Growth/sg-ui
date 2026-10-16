@@ -1,0 +1,958 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-16T22:44:41.384027+00:00",
+  "owner": "wave-02-14",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "report": "report.md",
+  "summary": {
+    "assigned": 16,
+    "complete": 3,
+    "partial": 13,
+    "blocked": 0
+  },
+  "leaves": [
+    {
+      "id": "A-Z-01",
+      "status": "complete",
+      "originalRequirement": "Remove every direct/runtime/peer/dev/optional retired package and any remaining transitive dependency on it; include Emotion and all grid/icon packages.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "package.json",
+        "packages/ui/package.json",
+        "apps/docs/package.json",
+        "pnpm-lock.yaml",
+        "docs/developer/final-acceptance/2026-10-16-source-inventory.json"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/check-foundations.mjs",
+        "packages/ui/scripts/check-package.mjs"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-01 — complete.** FA-02 records 586 installed name/version nodes and 985\nedges with no retired component/grid/icon/Emotion package. Root/library/docs\nmanifests and lockfile retain their saved bytes; current library runtime/peer/dev/\noptional declarations contain no retired package. No dependency edit accompanies\nthe four coordinator fixes. FA-02 foundation and FA-04 package checks retain their\nrecorded source/transitive/declaration/output rejection evidence. This closes\nremoval from the reviewed dependency configuration/dated installed graph; it is\nnot a fresh physical-node_modules audit, license decision or registry publication.\nSuccessor: none for this leaf; a dependency/lock change requires a scoped delta.",
+      "successorDeliverables": [
+        "none for this leaf; a dependency/lock change requires a scoped delta."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-02",
+      "status": "complete",
+      "originalRequirement": "Remove retired imports/reexports, public names/types, declaration augmentation, theme aliases, internal class selectors, mocks and story requirements.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "packages/ui/scripts/check-foundations.mjs",
+        "packages/ui/scripts/check-package.mjs",
+        "packages/ui/src/theme/index.ts",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "reference-dispositions.json"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/check-package.mjs",
+        "packages/ui/src/components/AppPageHeader/AppPageHeader.ssr.test.tsx",
+        "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-02 — complete, implementation removal.** Reuse FA-02's 5,005 import/reexport\nreferences and four ambient declarations, and FA-04's fresh emitted/package audit.\nThere is no positive retired import/reexport/augmentation, retired class styling,\nold public theme-object export, retired mock or fixture runtime requirement in\nthat evidence. The supplemental cases in current product source are two negative\nSSR assertions and incidental `scaleMotionDuration` substrings; guard regexes\nreject old selectors rather than require them. Current four implementation deltas\nuse owned APIs/React Aria and add no retired foundation reference. Preserved\nAppThemeProvider is the owned Provider alias; its name is an intentional public\ncompatibility contract, not an old theme implementation. Storybook was replaced\nby the docs native host. Historic API names in migration instructions and\nnegative API proof cases are evidence, not shipped runtime requirements.\nSuccessor: none for this source-removal leaf. Z-07/08 separately require fresh\ncandidate artifacts; this result does not transfer old runtime passes to changed\ncode or waive legal/historical-reference reconciliation.",
+      "successorDeliverables": [
+        "none for this source-removal leaf. Z-07/08 separately require fresh\ncandidate artifacts; this result does not transfer old runtime passes to changed\ncode or waive legal/historical-reference reconciliation."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-03",
+      "status": "complete",
+      "originalRequirement": "Replace/remove `src/theme/mui-typography.ts`, `baseGridSx.ts`, and any filename whose branding or purpose belongs to the retired implementation; verify all referencing files. Physical removal and extraction destination/replacement reconciliation: [removal audit](react-aria-removal-audit.md).",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "docs/developer/react-aria-removal-audit.md",
+        "docs/extraction-manifest.json",
+        "docs/developer/final-acceptance/parallel-15/manifest-audit.json"
+      ],
+      "testReferences": [
+        "packages/ui/src/foundation/ThemeScope.test.tsx",
+        "packages/ui/src/theme/AppThemeProvider.test.tsx",
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-03 — complete.** Reuse the removal audit and parallel-15's 201-row manifest\nreconciliation. The typography augmentation, old grid styling helper/test and\nold theme implementation/test remain physically absent, with explicit existing\nowned token/scope/CSS/behavior replacements in their manifest rows. The row-DnD\nrename has an existing replacement. No branded production filename is reintroduced\nby the four scoped fixes. Saved import graph and foundation/package guards cover\nreferences; no old positive import remains. The 36 stale flags concern other\nstory/Button moves and do not invalidate these six correctly recorded removed/\nrenamed entries. Successor: none for physical removal; keep source provenance.",
+      "successorDeliverables": [
+        "none for physical removal; keep source provenance."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-04",
+      "status": "partial",
+      "originalRequirement": "Audit every tracked text/configuration file, including lockfile, workflows, scripts, docs, manifests, READMEs, templates and this task list, for `@mui`, case-insensitive branded names, `Mui*`, and Emotion references; inspect matches rather than hiding them with exclusions. [Classified audit](react-aria-removal-audit.md); historical/legal reconciliation remains Z-05/Z-06.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "reference-dispositions.json",
+        "packages/ui/scripts/capture-source-acceptance.mjs",
+        "docs/developer/final-acceptance/2026-10-16-source-inventory.json"
+      ],
+      "testReferences": [],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-04 — partial, literal all-tracked criterion.** FA-02 already classified 30\nreference-bearing files; the new supplemental check identifies 40 files with\nadditional matches. Every new match was inspected: legal text, historical records,\nremoved-API mappings, guard prohibitions, intentional Material Design demo\nidentity, two negative SSR assertions, `scaleMotionDuration` substring false\npositives, or four opaque lock integrity strings. No new active retired runtime\nrequirement was found. LICENSE files are now explicitly covered, correcting the\nold extension filter gap. Four tracked `.obsidian` files remain explicitly\nunread personal state; generated audit receipts remain evidence rather than\nproduct requirements. Therefore an unqualified claim of **every tracked text**\nwould still exceed this audit. Required successor: coordinator records a deliberate\npersonal/audit-record scope disposition or performs the exact residual tracked-file\ncheck without exposing private state, then reconciles this narrow remaining scope.\nDo not rerun the completed AST/dependency inventory or erase evidence matches.",
+      "successorDeliverables": [
+        "coordinator records a deliberate\npersonal/audit-record scope disposition or performs the exact residual tracked-file\ncheck without exposing private state, then reconciles this narrow remaining scope.\nDo not rerun the completed AST/dependency inventory or erase evidence matches."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-05",
+      "status": "partial",
+      "originalRequirement": "Rewrite historical manifest entries/document explanations where necessary for literal-reference removal while retaining source repository/commit provenance; do not rewrite Git history or invent provenance.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "manifest-amendments.json",
+        "reference-rewrite-proposals.json",
+        "docs/extraction-manifest.json",
+        "docs/developer/final-acceptance/parallel-15/report.md"
+      ],
+      "testReferences": [],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-05 — partial, reviewable amendments supplied.** The two source identities\nremain `Structured-Growth/learning-platform@8e63f1e16fc3d43d851908b312603a1099ca13d9`\nand initial SGUI extraction `21adebd61bedfc6a1ed395fe664ff4be83896821`.\n`manifest-amendments.json` progresses parallel-15's exact successor: 32 rows map\nto known migrated fixtures, three to Button source/test/index candidates, and the\nAppButton story has a separately identified current Button fixture requiring\nassertion mapping. All 36 proposed `present:false` amendments preserve original\nsource fields and include replacement metadata for review. They are not applied\nand do not certify assertion parity. The old historical records and baseline\nsnapshots still contain original names. `reference-rewrite-proposals.json` lists\ncurrent host/prose corrections and explicit preserve categories. Required\nsuccessors: apply/review the 36 rows, establish AppButton-story assertion mapping,\ncorrect active-current prose, and record the exact historical-reference policy\nconsistent with original provenance. Do not rewrite Git history or relabel\nbaseline captures as current. Literal zero-match closure has not been achieved.",
+      "successorDeliverables": [
+        "See explicit required successor in report; no implied closure."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-06",
+      "status": "partial",
+      "originalRequirement": "Remove obsolete notices only after confirming no associated source/assets remain in package or catalog; final third-party notices match shipped work.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "notice-review.json",
+        "LICENSE",
+        "packages/ui/LICENSE",
+        "THIRD_PARTY_NOTICES.md",
+        "packages/ui/THIRD_PARTY_NOTICES.md",
+        "docs/commercial-licensing.md",
+        "docs/developer/final-acceptance/wave-02-05/license-inventory.json",
+        "docs/developer/final-acceptance/wave-02-05/license-text-comparison.json"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/check-license-inventory.test.mjs"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-06 — partial, attribution-owner action required.** Both copies of LICENSE\nand both copies of THIRD_PARTY_NOTICES are byte-equal. Five preserved retired\nsections (Emotion react/styled, old component/icons/grid packages) have no current\nlocked dependency. `notice-review.json` gives each exact notice ID/line, an\nexplicit preserve decision, and the required extracted-source/asset-to-final-\npackage review before deletion. It reuses the legal reviewer's fresh locked/\ninstalled/text evidence; generic Adobe/TanStack/Lucide sections mean a parser or\nstring-containment miss alone cannot prove a missing obligation. LICENSE §7 and\ncommercial guidance still describe retired packages as current use; notices'\nintroduction says current direct packages and the Adobe section says proof\ndependencies. Concrete factual correction proposals are supplied without changing\ncommercial terms. Required successors: attribution owner resolves derived/copied\nsource/assets and legal-text findings, legal owner approves retained/removed\nnotices and coordinated descriptions, then join approved text to final packed\nhashes. Local source absence does not supply legal approval.",
+      "successorDeliverables": [
+        "attribution owner resolves derived/copied\nsource/assets and legal-text findings, legal owner approves retained/removed\nnotices and coordinated descriptions, then join approved text to final packed\nhashes. Local source absence does not supply legal approval."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-07",
+      "status": "partial",
+      "originalRequirement": "Delete/rebuild generated dist, Storybook and package output during verification; no stale artifact may pass as migrated source. Fresh build, executed static stories and eight new packed consumers in the [browser batch record](react-aria-progress.md#executable-browser-gates-and-removal-audit).",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "docs/developer/final-acceptance/fa04-library.txt",
+        "docs/developer/final-acceptance/fa04-fixtures.txt",
+        "evidence.json",
+        "packages/ui/scripts/build.mjs"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/check-package.mjs"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-07 — partial.** FA-04 records a fresh library build and docs-native fixture\nbuild, with all 1,778 outputs equal to FA-01 at that time. The package checker\ncompared actual packed bytes. That substantially progresses old batch133/134's\nmissing fresh-output successor. It is not the final candidate: four implementations\nnow differ while API declarations remain unchanged. Required successor after\nBUG-0008/9 settle: coordinator freezes source, rebuilds using the existing build\ncleanup behavior, records source/output deltas, fresh docs-native host identity\nwhere needed, and refreshes affected package/consumer scopes. No stale Storybook\nruntime is to be recreated. No deletion of shared outputs was attempted here.",
+      "successorDeliverables": [
+        "See explicit required successor in report; no implied closure."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-08",
+      "status": "partial",
+      "originalRequirement": "Audit packed JavaScript, declarations, CSS, source maps, assets, README and notices for retired references and transitive code; ensure the release tarball has no old requirement.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "packages/ui/scripts/check-package.mjs",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "notice-review.json",
+        "evidence.json"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/check-package.mjs"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-08 — partial.** FA-04's package receipt executed recursive retired-name\nchecks on JS/declarations/CSS/maps/assets, public imports/types, export conditions,\nCSS side effects, packed byte equality and README/LICENSE/notices preservation.\nThat is actual fresh technical artifact evidence for its earlier inputs, unlike\nold batch134's source-only review. It does not establish notice correctness,\nderived/binary asset provenance, or the new implementation bytes. Package audit's\ntemporary tarball is removed, so its success log and output hashes do not identify\na durable final release archive. Required successor: after legal/source fixes,\nretain the exact candidate tarball SHA-256/file manifest and per-file packed\nreference classifications, legal-file hashes/approval and frozen dependency\nclosure. Reuse unchanged FA receipts; do not claim release identity from `dist`.",
+      "successorDeliverables": [
+        "after legal/source fixes,\nretain the exact candidate tarball SHA-256/file manifest and per-file packed\nreference classifications, legal-file hashes/approval and frozen dependency\nclosure. Reuse unchanged FA receipts; do not claim release identity from `dist`."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-09",
+      "status": "partial",
+      "originalRequirement": "Verify a clean consumer can install and use core, grid, editor and date components without installing any retired package or styling runtime.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "packages/ui/scripts/test-foundation-consumer.mjs",
+        "packages/ui/scripts/test-editor-consumer.mjs",
+        "packages/ui/scripts/test-next-consumer.mjs",
+        "docs/developer/react-aria-runtime-ci.md",
+        "docs/developer/react-aria-server-components.md"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/test-foundation-consumer.mjs",
+        "packages/ui/scripts/test-editor-consumer.mjs",
+        "packages/ui/scripts/test-next-consumer.mjs"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-09 — partial.** Foundation/editor/Next consumer generators explicitly install\npacked React 18.3/19.2.3 consumers, exercise core/grid/date/editor exports and reject\nretired runtime dependencies. Historical runtime records describe executed matrix\npasses at named earlier heads; FA-04 supplies current-at-capture package imports\nand consumer typechecking. Neither script presence nor that package check is a\nnew clean install or supported consumer matrix pass after the four fixes.\nRequired successor: coordinator executes only affected clean packed consumers\nagainst the frozen candidate, preserving package hash, React/runtime/bundler\nversions, installed dependency graph and result logs. Full production supported-\nenvironment gates remain required independently of targeted development work.",
+      "successorDeliverables": [
+        "coordinator executes only affected clean packed consumers\nagainst the frozen candidate, preserving package hash, React/runtime/bundler\nversions, installed dependency graph and result logs. Full production supported-\nenvironment gates remain required independently of targeted development work."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-10",
+      "status": "partial",
+      "originalRequirement": "Verify all current components/primitives/icons/helpers/presets/hooks/adapters are migrated or intentionally removed with a documented owned replacement and release impact.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "docs/developer/final-acceptance/parallel-01/api-snapshot.json",
+        "docs/developer/final-acceptance/parallel-15/manifest-audit.json",
+        "manifest-amendments.json",
+        "docs/developer/react-aria-migration-inventory-acceptance.md"
+      ],
+      "testReferences": [],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-10 — partial.** FA-01 gives all concrete entry names including icon aliases/\ncompound paths; parallel-01 gives 469 contracts; FA-02 inventories maintained\nsource; parallel-15 preserves helper/preset/model/editor continuity and 201\nextraction rows. These advance old final-symbol-join prerequisites without\nrepeating M inventory runs. The 36 unapplied metadata amendments, unmapped original\nButton story assertions and nonexhaustive historical inherited-API closure prevent\nan all-symbol owned-replacement/release-impact verdict. Required successor: join\nbaseline export identities to the 469-contract snapshot with preserved/additive/\nremoved/replaced disposition, guide link, actual replacement and release impact\nfor every symbol; include non-component hooks/helpers/presets/adapters and new\nexperimental exports, then apply approved metadata amendments. No inference of\nbehavioral migration from a registered directory alone.",
+      "successorDeliverables": [
+        "join\nbaseline export identities to the 469-contract snapshot with preserved/additive/\nremoved/replaced disposition, guide link, actual replacement and release impact\nfor every symbol; include non-component hooks/helpers/presets/adapters and new\nexperimental exports, then apply approved metadata amendments. No inference of\nbehavioral migration from a registered directory alone."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-11",
+      "status": "partial",
+      "originalRequirement": "Confirm package/type/build/Storybook/browser/accessibility/visual/SSR/performance checks pass for supported environments; record any genuine limitations instead of weakening checks.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        ".github/workflows/ci.yml",
+        "docs/developer/react-aria-final-acceptance.md",
+        "docs/developer/react-aria-runtime-ci.md",
+        "docs/developer/final-acceptance/parallel-reconciliation-2026-10-16.json"
+      ],
+      "testReferences": [
+        ".github/workflows/ci.yml"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-11 — partial, full production prerequisites remain.** FA-01–04 and prior\nparallel reports retain package/type/unit/build/removal evidence and support\nboundaries; configured CI targets Node 22.12/24, React18/19, Chromium/Firefox/WebKit,\nSSR/Flight/Next and docs. It explicitly excludes ordinary `dev` PR CI by approved\npolicy. No fresh remote run, complete final engine/consumer matrix, reviewed\nvisual matrix, physical device or spoken AT evidence was obtained. Twenty editor\nV leaves remain open. Required successor: exact tested-head/input/output matrix\njoins retained unchanged results and changed-scope reruns, plus missing native,\naccessibility/visual/SSR/performance/operator results and explicit limits. A\nconfigured job or jsdom result cannot close these gates; no tests were weakened.",
+      "successorDeliverables": [
+        "exact tested-head/input/output matrix\njoins retained unchanged results and changed-scope reruns, plus missing native,\naccessibility/visual/SSR/performance/operator results and explicit limits. A\nconfigured job or jsdom result cannot close these gates; no tests were weakened."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-12",
+      "status": "partial",
+      "originalRequirement": "Review the plan against every conversation commitment and imported UI principle; resolve duplicates, gaps, incompatible rules and unsupported feature claims.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "AGENTS.md",
+        "docs/agent-guidance-migration.md",
+        "docs/developer/component-architecture.md",
+        "docs/developer/react-aria-inventory-contract-reconciliation.md"
+      ],
+      "testReferences": [],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-12 — partial.** The imported-principle mapping and root guidance distinguish\ncourse terminology, host-owned services, tokens/components, grid defaults, modal\nfocus/layout, translations and owned boundaries. The previous batch134\narchitecture-validation contradiction is **resolved in current prose**:\n`component-architecture.md:84–106` now follows targeted dev validation and preserves\nproduction checks. No successor should repeat that obsolete repair. Current\nAGENTS/README/CI use dev as integration, main as human-approved production.\nHowever local reports do not contain the complete human conversation commitment\nset; no report can invent missing approval/intent. Historical inventory wording\nquestions (page navigator boundaries, instructor-card fields and typeface naming)\nare explicitly retained in `react-aria-inventory-contract-reconciliation.md`.\nRequired successor: coordinator joins actual human commitments/owner decisions to\nnamed acceptance IDs and current source evidence, resolves retained intent rows,\nand documents approved exceptions without dropping requirements. Historical\nstatements such as “AppDataGrid still renders MUI X” in the dated early progress\nbatch remain dated history, not current implementation guidance.",
+      "successorDeliverables": [
+        "coordinator joins actual human commitments/owner decisions to\nnamed acceptance IDs and current source evidence, resolves retained intent rows,\nand documents approved exceptions without dropping requirements. Historical\nstatements such as “AppDataGrid still renders MUI X” in the dated early progress\nbatch remain dated history, not current implementation guidance."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-13",
+      "status": "partial",
+      "originalRequirement": "Reconcile API snapshot with final declarations and consumer guide; verify every breaking change has migration instructions and correct Conventional Commit release marking.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "breaking-change-review.json",
+        "docs/developer/final-acceptance/parallel-01/report.md",
+        "docs/developer/final-acceptance/parallel-01/api-snapshot.json",
+        "packages/ui/scripts/release-policy.test.mjs",
+        "docs/developer/final-acceptance/fa04-release.txt"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/release-policy.test.mjs"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-13 — partial, breaking ledger advanced.** Reuse the 469-contract/default-\ncandidate snapshot and parallel-01's exact old/current mappings. This receipt\nidentifies its four changed implementations; unchanged captured declarations do\nnot certify source/output synchronization. Existing concrete breaks include\nupstream theme objects/style props/types removed, onClick→onPress and modal\ncallback changes, grid models/IDs/accessors and selection default, persistence\nopt-in and page-size ordering. Parallel-01 correctly distinguishes the existing\nSet-valued selection callback from the removed engine model. Release-policy\ntranscript passes four analyzer/title tests; current HEAD has a `feat!:` title.\nThat proves the marker is recognized/present, **not** that every breaking change\nis correctly mapped to a release range. Required successor: normalize remaining\npublic defaults/inherited historical contracts; join every intentional break to a\ncopyable guide and actual commit/squash title/footer; update selection-default and\nstale host guidance, then verify fresh affected declarations after coordinator\nfixes. `breaking-change-review.json` provides a concrete candidate join to review;\nit is not an exhaustive accepted release manifest. No manual version edit.",
+      "successorDeliverables": [
+        "normalize remaining\npublic defaults/inherited historical contracts; join every intentional break to a\ncopyable guide and actual commit/squash title/footer; update selection-default and\nstale host guidance, then verify fresh affected declarations after coordinator\nfixes. `breaking-change-review.json` provides a concrete candidate join to review;\nit is not an exhaustive accepted release manifest. No manual version edit."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-14",
+      "status": "partial",
+      "originalRequirement": "Confirm commercial licensing and notices, public npm setup, Actions-only official builds/releases, draft AI PRs and no Changesets remain consistent.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "LICENSE",
+        "docs/commercial-licensing.md",
+        "packages/ui/package.json",
+        "packages/ui/release.config.mjs",
+        ".github/workflows/release.yml",
+        ".github/workflows/ai-code.yml",
+        "docs/github-setup.md"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/release-policy.test.mjs"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-14 — partial, configuration is not owner setup.** Current license metadata\nis `SEE LICENSE IN LICENSE`, publication access is public, root workspace is\nprivate, and no tracked Changesets path was found. Release config targets main\nwith Conventional Commits and an official tarball; workflow calls full CI before\npublish with full checkout history, serialized concurrency, contents/id-token\npermissions and npm token/provenance configuration. AI workflow produces draft PRs\nwith separate validation/evidence. These are configured controls; commercial\nlicense explicitly remains draft for legal review, notices have the discrepancies\nabove, npm scope/trusted publisher/secrets/effective tag permissions and branch\nprotections were not freshly verified. Required successor: owner records npm/\nGitHub effective settings and legal approval, fixes stale setup guide references\nand joins the reviewed workflow to exact future official artifact/run identity.\nDo not infer first publication has occurred from public-access configuration.",
+      "successorDeliverables": [
+        "owner records npm/\nGitHub effective settings and legal approval, fixes stale setup guide references\nand joins the reviewed workflow to exact future official artifact/run identity.\nDo not infer first publication has occurred from public-access configuration."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-15",
+      "status": "partial",
+      "originalRequirement": "Record final dependency/feature decisions, accepted test evidence, completed PRs, and explicitly deferred future tasks; no unchecked required migration item is dismissed as optional after the fact.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "docs/developer/react-aria-final-acceptance.md",
+        "docs/developer/final-acceptance/parallel-reconciliation-2026-10-16.json",
+        "results.json"
+      ],
+      "testReferences": [],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-15 — partial.** FA-01–04 resume ledger and the coordinator's first parallel\nreconciliation preserve exact evidence, accepted closures, partial successor work\nand 20 editor V leaves. This wave supplies sixteen explicit dispositions and\nconcrete amendment/review artifacts. Required successor: coordinator merges all\nwave reports by original ID, verifies hashes and source deltas, joins dependency/\nfeature decisions and actual completed PR/head evidence, and keeps every remaining\nrequired obligation open. New calendar features and experimental APIs do not\nsilently replace unaccepted old requirements. No historical open item was\nreclassified as optional for convenience here.",
+      "successorDeliverables": [
+        "coordinator merges all\nwave reports by original ID, verifies hashes and source deltas, joins dependency/\nfeature decisions and actual completed PR/head evidence, and keeps every remaining\nrequired obligation open. New calendar features and experimental APIs do not\nsilently replace unaccepted old requirements. No historical open item was\nreclassified as optional for convenience here."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    },
+    {
+      "id": "A-Z-16",
+      "status": "partial",
+      "originalRequirement": "Only then mark the migration complete. Publishing is performed through the configured release workflow when authorized release-worthy changes merge.",
+      "requirementSource": "docs/developer/react-aria-hardening-tasks.md",
+      "sourceAndEvidenceReferences": [
+        "AGENTS.md",
+        "docs/developer/react-aria-final-acceptance.md",
+        ".github/workflows/release.yml",
+        "packages/ui/release.config.mjs",
+        "results.json"
+      ],
+      "testReferences": [],
+      "checksActuallyPerformed": [
+        "Read full original requirement and cited source/contracts/retained receipts",
+        "Ran owned reconcile.py: saved-input hash delta, supplemental omitted-pattern text classification, prior manifest/API reconciliation and legal-review evidence reuse",
+        "No unit/browser/consumer/build/release command executed"
+      ],
+      "findings": "**A-Z-16 — partial, completion prerequisites unmet.** Z-04–15, editor V and broad\nproduction evidence above prevent migration completion. This report supplies no\ncompletion claim, release approval, version/tag/publish action or production\npromotion. Required successor: only after all required leaf/operator/legal/owner\nresults are reconciled, the human approves the release-worthy promotion and the\nconfigured workflow validates/publishes on main. Development acceptance work\ncontinues on dev. “Partial” records the unmet completion gate; it does not imply\npublishing is authorized or that the gate can be waived locally.",
+      "successorDeliverables": [
+        "only after all required leaf/operator/legal/owner\nresults are reconciled, the human approves the release-worthy promotion and the\nconfigured workflow validates/publishes on main. Development acceptance work\ncontinues on dev. “Partial” records the unmet completion gate; it does not imply\npublishing is authorized or that the gate can be waived locally."
+      ],
+      "inputHeadHostLimits": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "state": "shared modified dev; exact receipt hashes, not HEAD alone, identify inputs",
+        "sourceDeltas": [
+          {
+            "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+            "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+            "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+          },
+          {
+            "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+            "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+            "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+          },
+          {
+            "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+            "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+            "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+          },
+          {
+            "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+            "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+            "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+          }
+        ],
+        "host": "local Python source analysis; retained FA-04 Node24 results only for their recorded unchanged inputs",
+        "limits": [
+          "No fresh remote CI or registry/permission observation",
+          "No native/browser/device/spoken AT conformance",
+          "No legal-owner approval or permission to remove notices",
+          "Current changed source is not validated by unchanged stale declarations/old built output",
+          "20 editor V leaves remain required"
+        ]
+      }
+    }
+  ],
+  "newDeliverables": [
+    "evidence.json",
+    "reference-dispositions.json",
+    "manifest-amendments.json",
+    "reference-rewrite-proposals.json",
+    "notice-review.json",
+    "breaking-change-review.json"
+  ],
+  "coordinatorReconciliationRequired": true,
+  "noPublicationOrMigrationCompletionClaim": true,
+  "remainingEditorVLeaves": 20
+}

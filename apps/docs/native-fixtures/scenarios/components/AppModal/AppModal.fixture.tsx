@@ -2,6 +2,8 @@ import { SGTranslationProvider, formatIcuMessage } from "@structured-growth/sg-u
 import type { FixtureGlobals } from "../../../types";
 import type { Meta, StoryObj } from "../../../types";
 import { useEffect, useRef, useState } from "react";
+import { PageRichTextEditorSection } from "@structured-growth/sg-ui/components";
+import { Tooltip } from "@structured-growth/sg-ui/experimental";
 import { AppModal } from "@structured-growth/sg-ui/components";
 import { Button } from "@structured-growth/sg-ui/components";
 import { AppPageTabs } from "@structured-growth/sg-ui/components";
@@ -9,7 +11,7 @@ import { TextField } from "@structured-growth/sg-ui/experimental";
 import { Popover } from "@structured-growth/sg-ui/experimental";
 import { Menu } from "@structured-growth/sg-ui/experimental";
 import { ComboBox } from "@structured-growth/sg-ui/experimental";
-import { Provider } from "@structured-growth/sg-ui/theme";
+import { ThemeScope, Provider } from "@structured-growth/sg-ui/theme";
 const meta = { title: "Overlays/AppModal", component: AppModal, tags: ["autodocs"], args: { open: false, children: null } } satisfies Meta<typeof AppModal>;
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -43,28 +45,27 @@ export const TextReflow: Story = { render: () => <Preview tabs />, parameters: {
 
 export const ActionFocus: Story = { render: () => <Preview tabs autoFocusAction /> };
 
-function ContainerBoundaryPreview() {
-  const [open, setOpen] = useState<"narrow" | "wide" | null>(null);
-  const [width, setWidth] = useState(360);
+function ContainerSurface({ kind }: { kind: "narrow" | "wide" }) {
+  const [open, setOpen] = useState(false);
+  const [width, setWidth] = useState(kind === "narrow" ? 360 : 800);
   const [tab, setTab] = useState("details");
-  return <Provider>
-    <Button onPress={() => { setWidth(360); setOpen("narrow"); }}>Open narrow surface</Button>
-    <Button onPress={() => { setWidth(800); setOpen("wide"); }}>Open wide surface</Button>
-    <p>These independent dialogs portal into the overlay. Their actual surface widths, rather than the opener layout or viewport, select the footer arrangement.</p>
-    {(["narrow", "wide"] as const).map(kind => <AppModal key={kind} open={open === kind}
-      title={`${kind === "narrow" ? "Narrow" : "Wide"} surface settings`} subtitle="Resize this surface while keeping the viewport wide"
-      size="md" width={width} height={560} showCloseButton onClose={() => setOpen(null)}
-      steps={{ current: 2, total: 3, label: "Step 2 of 3: Review course settings" }}
-      secondaryAction={{ label: "Cancel changes", onPress: () => setOpen(null) }}
-      primaryAction={{ label: "Save course settings" }}>
+  return <>
+    <Button onPress={() => { setWidth(kind === "narrow" ? 360 : 800); setOpen(true); }}>Open {kind} surface</Button>
+    <AppModal open={open} title={`${kind === "narrow" ? "Narrow" : "Wide"} surface settings`}
+      subtitle="Resize this surface while keeping the viewport wide" size="md" width={width} height={560}
+      showCloseButton onClose={() => setOpen(false)} steps={{ current: 2, total: 3, label: "Step 2 of 3: Review course settings" }}
+      secondaryAction={{ label: "Cancel changes", onPress: () => setOpen(false) }} primaryAction={{ label: "Save course settings" }}>
       <Button onPress={() => setWidth(value => value === 360 ? 800 : 360)}>Toggle surface width</Button>
       <AppPageTabs label="Surface sections" value={tab} onChange={setTab} items={[
         { id: "details", label: "Details", content: <>{Array.from({ length: 20 }, (_, index) =>
           <TextField key={index} label={`Surface field ${index + 1}`} autoFocus={index === 0} />)}</> },
         { id: "access", label: "Access", content: <TextField label="Surface permission" /> },
       ]} />
-    </AppModal>)}
-  </Provider>;
+    </AppModal>
+  </>;
+}
+function ContainerBoundaryPreview() {
+  return <Provider><ContainerSurface kind="narrow" /><ContainerSurface kind="wide" /></Provider>;
 }
 
 export const ContainerBoundary: Story = { render: () => <ContainerBoundaryPreview />,
@@ -167,3 +168,64 @@ function LocalizedModal({globals}:{globals:FixtureGlobals}) {
  </SGTranslationProvider>;
 }
 export const LocalizedPresentation:Story={render:(_args,{globals})=><LocalizedModal globals={globals} />};
+
+// Acceptance-only host: each mounted composition owns its drafts and overlays.
+function OwnershipPreview() {
+  const [open, setOpen] = useState(false);
+  const [childOpen, setChildOpen] = useState(false);
+  const [alternate, setAlternate] = useState(false);
+  const [value, setValue] = useState<unknown>(null);
+  return <Provider>
+    <ThemeScope theme="light" density="comfortable" dir="ltr" lang="en-US">
+      <TextField label="Independent sibling" defaultValue="Sibling draft" />
+    </ThemeScope>
+    <ThemeScope theme={alternate ? "dark" : "light"} density={alternate ? "compact" : "comfortable"}
+      dir={alternate ? "rtl" : "ltr"} lang={alternate ? "ar-EG" : "en-US"}>
+      <Button onPress={() => setOpen(true)}>Open ownership modal</Button>
+      <AppModal open={open} title="Ownership settings" showCloseButton size="lg" onClose={() => setOpen(false)}>
+        <TextField label="Ownership name" autoFocus />
+        <Button onPress={() => setAlternate(next => !next)}>Change active scope</Button>
+        <Tooltip delay={0} closeDelay={0} trigger={<Button>Ownership help</Button>} content="Help for the current settings" />
+        <Menu label="Ownership actions" trigger={<Button>Ownership actions</Button>}
+          items={[{ id: "review", label: "Review ownership" }]} />
+        <PageRichTextEditorSection lexicalValue={value} onLexicalChange={setValue} editorKey="overlay-ownership"
+          aria-label="Ownership document" />
+        <Button onPress={() => setChildOpen(true)}>Open ownership child</Button>
+        <AppModal open={childOpen} title="Ownership child" showCloseButton onClose={() => setChildOpen(false)}>
+          <TextField label="Ownership child name" autoFocus />
+        </AppModal>
+      </AppModal>
+    </ThemeScope>
+  </Provider>;
+}
+export const Ownership: Story = { render: () => <OwnershipPreview /> };
+
+function ContractCase({ size, heightMode, custom = false }: {
+  size: "xs" | "sm" | "md" | "lg" | "xl" | "full";
+  heightMode: "auto" | "sm" | "md" | "lg"; custom?: boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  const [tab, setTab] = useState("details");
+  const id = `${size}-${heightMode}${custom ? "-custom" : ""}`;
+  return <>
+    <Button onPress={() => setOpen(true)}>Open {id}</Button>
+    <AppModal open={open} title={`Contract ${id}`} aria-label={`Contract ${id}`} size={size} heightMode={heightMode}
+      width={custom ? 540 : undefined} height={custom ? 440 : undefined} showCloseButton onClose={() => setOpen(false)}
+      headerContent={custom ? <Button>Custom header help</Button> : undefined}
+      footerContent={custom ? <Button onPress={() => setOpen(false)}>Custom done</Button> : undefined}
+      primaryAction={{ label: "Contract done", onPress: () => setOpen(false) }}>
+      <AppPageTabs label={`Contract sections ${id}`} value={tab} onChange={setTab} items={[
+        { id: "details", label: "Details", content: <>{Array.from({length: 10}, (_, index) =>
+          <TextField key={index} label={`Contract field ${index + 1}`} autoFocus={index === 0} />)}</> },
+        { id: "access", label: "Access", content: <TextField label="Contract permission" /> },
+      ]} />
+    </AppModal>
+  </>;
+}
+function ContractMatrixPreview() {
+  return <Provider>{(["xs", "sm", "md", "lg", "xl", "full"] as const).map(size =>
+    (["auto", "sm", "md", "lg"] as const).map(heightMode => <ContractCase key={`${size}-${heightMode}`} size={size} heightMode={heightMode} />))}
+    <ContractCase size="md" heightMode="lg" custom />
+  </Provider>;
+}
+export const ContractMatrix: Story = { render: () => <ContractMatrixPreview /> };

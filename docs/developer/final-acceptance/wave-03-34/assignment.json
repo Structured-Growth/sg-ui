@@ -1,0 +1,97 @@
+{
+  "number": 34,
+  "title": "Consumer guides recipes and doc integrity",
+  "ids": [
+    "A-W-06",
+    "A-W-07",
+    "A-W-13",
+    "A-W-17",
+    "A-W-18",
+    "A-W-19"
+  ],
+  "focus": "Repair remaining real current guidance/recipes/migration and source-backed commands/links from named successors. One maintained broken link was fixed;118 residual audit matches were historical/excluded. Do not blindly rewrite history. Produce concrete current guide patches and bounded link/type/command checks.",
+  "directory": "docs/developer/final-acceptance/wave-03-34",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-W-06": "- [ ] A-W-06 Reconcile original `W-06`: Update the source-guidance mapping to show each retained/adapted/omitted rule and why app database/API/login policies remain outside SGUI. Historical status: open.",
+    "A-W-07": "- [ ] A-W-07 Reconcile original `W-07`: Create one canonical component recipe: owned props, native attributes/refs, React Aria mapping, tokens/CSS, stories, behavior tests, public export, and acceptance criteria. Historical status: open.",
+    "A-W-13": "- [ ] A-W-13 Reconcile original `W-13`: Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults. Historical status: open.",
+    "A-W-17": "- [ ] A-W-17 Reconcile original `W-17`: Update component architecture, GitHub setup, commercial licensing, package fixtures, issue/PR templates, and troubleshooting for final behavior. Historical status: open.",
+    "A-W-18": "- [ ] A-W-18 Reconcile original `W-18`: Document known limitations, deferred features, support policy, deprecated names, release impact, and the cost/responsibility of eventually replacing React Aria. Historical status: open.",
+    "A-W-19": "- [ ] A-W-19 Reconcile original `W-19`: Check all local doc links, exported example types, referenced file paths, and commands; docs-only updates do not require unrelated UI tests. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-W-06": {
+      "id": "A-W-06",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-W-06 Reconcile original `W-06`: Update the source-guidance mapping to show each retained/adapted/omitted rule and why app database/API/login policies remain outside SGUI. Historical status: open.",
+      "conversationNumber": 13,
+      "report": "docs/developer/final-acceptance/wave-02-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-13/results.json",
+      "reportSha256": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+      "resultsSha256": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-W-07": {
+      "id": "A-W-07",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-W-07 Reconcile original `W-07`: Create one canonical component recipe: owned props, native attributes/refs, React Aria mapping, tokens/CSS, stories, behavior tests, public export, and acceptance criteria. Historical status: open.",
+      "conversationNumber": 13,
+      "report": "docs/developer/final-acceptance/wave-02-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-13/results.json",
+      "reportSha256": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+      "resultsSha256": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-W-13": {
+      "id": "A-W-13",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-W-13 Reconcile original `W-13`: Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults. Historical status: open.",
+      "conversationNumber": 13,
+      "report": "docs/developer/final-acceptance/wave-02-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-13/results.json",
+      "reportSha256": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+      "resultsSha256": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-W-17": {
+      "id": "A-W-17",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-W-17 Reconcile original `W-17`: Update component architecture, GitHub setup, commercial licensing, package fixtures, issue/PR templates, and troubleshooting for final behavior. Historical status: open.",
+      "conversationNumber": 13,
+      "report": "docs/developer/final-acceptance/wave-02-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-13/results.json",
+      "reportSha256": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+      "resultsSha256": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-W-18": {
+      "id": "A-W-18",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-W-18 Reconcile original `W-18`: Document known limitations, deferred features, support policy, deprecated names, release impact, and the cost/responsibility of eventually replacing React Aria. Historical status: open.",
+      "conversationNumber": 13,
+      "report": "docs/developer/final-acceptance/wave-02-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-13/results.json",
+      "reportSha256": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+      "resultsSha256": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-W-19": {
+      "id": "A-W-19",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-W-19 Reconcile original `W-19`: Check all local doc links, exported example types, referenced file paths, and commands; docs-only updates do not require unrelated UI tests. Historical status: open.",
+      "conversationNumber": 13,
+      "report": "docs/developer/final-acceptance/wave-02-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-13/results.json",
+      "reportSha256": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+      "resultsSha256": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

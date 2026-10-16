@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "owner": "parallel-06",
+  "scope": [
+    "A-A-12",
+    "A-A-13",
+    "A-A-14"
+  ],
+  "coordinatorReconciliationRequired": true,
+  "sharedFilesChanged": false,
+  "leaves": [
+    {
+      "id": "A-A-12",
+      "status": "complete",
+      "finding": "42 of 45 historical App-prefixed root exports retained; only AppButton, AppButtonProps and AppGridSortModel deliberately removed; documented owned replacements; no new SG-prefixed root names.",
+      "references": [
+        "packages/ui/src/components/index.ts",
+        "packages/ui/src/components/AppDataGrid/index.ts",
+        "docs/developer/react-aria-button.md:57",
+        "docs/developer/react-aria-catalog-grid.md:43",
+        "button-breaking-commit.txt"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/check-package.mjs:90",
+        "check-names.cjs",
+        "../fa01-package.txt",
+        "../fa04-package.txt"
+      ],
+      "successors": [
+        {
+          "id": "A-B-05/A-Z-13",
+          "scope": "Full signature and breaking prop reconciliation; retain explicit Button and grid sort mappings; no naming implementation gap."
+        }
+      ],
+      "evidence": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "branch": "dev",
+        "capturedAt": "2026-10-16T22:35:35.552Z",
+        "source": "modified working tree; FA-01 dated declaration/runtime snapshot, verified against unchanged built outputs",
+        "limits": [
+          "Naming and migration mappings only; full prop signatures remain A-B-05/A-Z-13",
+          "No new browser/device/AT or consumer-suite evidence",
+          "No production promotion or release; 20 editor V leaves remain open"
+        ],
+        "receipt": "evidence.json",
+        "originalRequirement": "docs/developer/react-aria-hardening-tasks.md:162"
+      },
+      "checksPerformed": [
+        "Historical per-route export AST reconciliation against FA-01 snapshot",
+        "Exact authorized removal/replacement name assertions",
+        "Documentation and source review",
+        "Retained package/unit receipts; no suites rerun"
+      ]
+    },
+    {
+      "id": "A-A-13",
+      "status": "complete",
+      "finding": "MuiLink/MuiLinkProps removed on all entry paths; zero retired branded names in 238 current entries; owned Link/LinkProps replacement and breaking migration documented.",
+      "references": [
+        "packages/ui/src/components/primitives/index.ts:9",
+        "packages/ui/src/experimental/Link/Link.tsx:6",
+        "packages/ui/src/adapters/Link.tsx",
+        "docs/developer/react-aria-primitives.md:29"
+      ],
+      "testReferences": [
+        "packages/ui/src/experimental/Link/Link.test.tsx",
+        "packages/ui/src/adapters/navigation.test.tsx",
+        "packages/ui/scripts/check-package.mjs:52",
+        "packages/ui/scripts/check-package.mjs:128",
+        "check-names.cjs",
+        "../fa04-package.txt"
+      ],
+      "successors": [
+        {
+          "id": "A-Z-08/legal leaves",
+          "scope": "Historical/provenance/notices reconciliation; preserve branded names in unchanged baseline evidence."
+        },
+        {
+          "id": "A-B-05/A-Z-13",
+          "scope": "Full anchor API and release migration reconciliation; no missing branded-export replacement."
+        }
+      ],
+      "evidence": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "branch": "dev",
+        "capturedAt": "2026-10-16T22:35:35.552Z",
+        "source": "modified working tree; FA-01 dated declaration/runtime snapshot, verified against unchanged built outputs",
+        "limits": [
+          "Naming and migration mappings only; full prop signatures remain A-B-05/A-Z-13",
+          "No new browser/device/AT or consumer-suite evidence",
+          "No production promotion or release; 20 editor V leaves remain open"
+        ],
+        "receipt": "evidence.json",
+        "originalRequirement": "docs/developer/react-aria-hardening-tasks.md:163"
+      },
+      "checksPerformed": [
+        "Historical per-route export AST reconciliation against FA-01 snapshot",
+        "Exact authorized removal/replacement name assertions",
+        "Documentation and source review",
+        "Retained package/unit receipts; no suites rerun"
+      ]
+    },
+    {
+      "id": "A-A-14",
+      "status": "complete",
+      "finding": "All 22 historical Class-related root exports and route-specific names retained; three added types describe existing Class compatibility components; six new learning exports use Course names; no Class removals.",
+      "references": [
+        "packages/ui/src/models.ts",
+        "packages/ui/src/components/AdminDataGridOptions.ts",
+        "packages/ui/src/components/InstructorDataGridOptions.ts",
+        "packages/ui/src/components/index.ts",
+        "docs/migration.md:73",
+        "docs/developer/react-aria-grid-presets.md:3",
+        "docs/developer/react-aria-architecture.md:58"
+      ],
+      "testReferences": [
+        "packages/ui/src/components/AdminDataGridOptions.test.tsx",
+        "packages/ui/src/components/ClassCardFrame/ClassCardFrame.test.tsx",
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx",
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+        "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+        "check-names.cjs",
+        "../fa04-original-check.txt",
+        "../fa04-package.txt"
+      ],
+      "successors": [
+        {
+          "id": "A-B-05",
+          "scope": "Reconcile full signatures while retaining existing host data identifiers; use Course names for future new learning APIs."
+        }
+      ],
+      "evidence": {
+        "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+        "branch": "dev",
+        "capturedAt": "2026-10-16T22:35:35.552Z",
+        "source": "modified working tree; FA-01 dated declaration/runtime snapshot, verified against unchanged built outputs",
+        "limits": [
+          "Naming and migration mappings only; full prop signatures remain A-B-05/A-Z-13",
+          "No new browser/device/AT or consumer-suite evidence",
+          "No production promotion or release; 20 editor V leaves remain open"
+        ],
+        "receipt": "evidence.json",
+        "originalRequirement": "docs/developer/react-aria-hardening-tasks.md:164"
+      },
+      "checksPerformed": [
+        "Historical per-route export AST reconciliation against FA-01 snapshot",
+        "Exact authorized removal/replacement name assertions",
+        "Documentation and source review",
+        "Retained package/unit receipts; no suites rerun"
+      ]
+    }
+  ],
+  "checks": {
+    "command": "node docs/developer/final-acceptance/parallel-06/check-names.cjs",
+    "exitCode": 0,
+    "assertions": "passed",
+    "historicalJSRoutes": 8,
+    "currentEntryPaths": 238,
+    "builtHashesCompared": 1778,
+    "builtDeltaCount": 0,
+    "sourceDeltas": [
+      {
+        "file": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.native-fixture.tsx",
+        "expected": "a2a5b401e865224e7582e29ef4183082bf0ba98584f832d8441ef626c07db6c4",
+        "actual": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1"
+      },
+      {
+        "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.controlled-transactions.test.tsx",
+        "expected": "9ce690c15f08731b249a6fbc91ac431d752bf84a2d8de60b108aadd957ca91aa",
+        "actual": "cd85cc5942f7a2d6b3501022daa481a257290855a65e99e42905827c2da05c5d"
+      },
+      {
+        "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.next100-regression.test.tsx",
+        "expected": "32a74d47624caa301d9a27989cf3b48267a95073a01850cb4dd10e41194131cf",
+        "actual": "e9f6569cad06689e8813dc8ea863d93b92bece994e267601327b022106f0f106"
+      },
+      {
+        "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.next100-regression.test.tsx",
+        "expected": "bad1a85dbf0e4991254b0d215d4097932fd9486e48637d8909297ba817095e8e",
+        "actual": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48"
+      }
+    ],
+    "deltaInterpretation": "Exactly the previously accepted FA-04 calendar fixture/test changes; none affects assigned naming scope.",
+    "newRuntimeOrBrowserTests": 0
+  },
+  "artifacts": [
+    "report.md",
+    "results.json",
+    "evidence.json",
+    "check-names.cjs",
+    "button-breaking-commit.txt"
+  ]
+}

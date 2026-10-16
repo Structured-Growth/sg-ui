@@ -1,0 +1,254 @@
+--- a/apps/docs/native-fixtures/scenarios/adapters/adapters.fixture.tsx
++++ b/apps/docs/native-fixtures/scenarios/adapters/adapters.fixture.tsx
+@@ -1,5 +1,8 @@
+ import type { Meta, StoryObj } from "../../types";
+ import { forwardRef, useRef, useState } from "react";
++import { SideNavigation } from "@structured-growth/sg-ui/components";
++import { Menu } from "@structured-growth/sg-ui/primitives";
++import { Breadcrumbs } from "@structured-growth/sg-ui/experimental";
+ import { Button } from "@structured-growth/sg-ui/components";
+ import { Link } from "@structured-growth/sg-ui/primitives";
+ import { SGLink as SGLink } from "@structured-growth/sg-ui/adapters";
+@@ -47,7 +50,7 @@
+     <output aria-label="Host navigation events" style={{ whiteSpace: "pre-wrap" }}>{events.join("\n")}</output>
+   </div>;
+ }
+-export const Routing: Story = { render: () => <RoutingExample /> };
++export const Routing: Story = { render: () => <><RoutingExample /><ComposedRoutingExample custom={false} /><ComposedRoutingExample custom /></> };
+ 
+ /** The host owns completion/error policy; no account network or storage is used. */
+ function AccountActions({ settle }: { settle: (fail: boolean) => void }) {
+@@ -84,3 +87,54 @@
+   </SGAccountProvider>;
+ }
+ export const AsyncAccounts: Story = { render: () => <AccountsExample /> };
++
++
++/** Bounded acceptance host: only this host updates pathname, never the document URL. */
++function ComposedPathname() { return <output aria-label="Composed pathname">{usePathname()}</output>; }
++function ComposedRoutingExample({ custom }: { custom: boolean }) {
++  const [pathname, setPathname] = useState("/composed/start");
++  const [events, setEvents] = useState<string[]>([]);
++  const anchor = useRef<HTMLAnchorElement>(null);
++  const record = (message: string) => setEvents(previous => [...previous, message]);
++  const navigate = (href: string, options?: { replace?: boolean }) => {
++    record(`${options?.replace ? "replace" : "push"}:${href}`);
++    setPathname(href);
++  };
++  return <section aria-label={custom ? "Custom composed routing" : "Fallback composed routing"}
++    onClick={event => {
++      if ((event.target as Element).closest("[data-observe-navigation]")) record(`bubble:${event.defaultPrevented}`);
++    }}>
++    <SGNavigationProvider value={{ pathname, navigate, Link: custom ? CustomLink : undefined }}>
++      <SideNavigation aria-label={custom ? "Custom course navigation" : "Fallback course navigation"}
++        model={{ user: { initials: "AH", name: "Acceptance host", organization: "Local fixture" },
++          rootMenu: { id: "courses", sections: [{ id: "courses", items: [
++            { id: "start", label: "Start course", href: "/composed/start" },
++            { id: "lesson", label: "Lesson course", href: "/composed/lesson" },
++          ] }] } }} onItemSelect={id => record(`select:${id}`)} />
++      <Breadcrumbs label="Composed breadcrumbs" items={[
++        { id: "library", label: "Course library", href: "/composed/library" },
++        { id: "current", label: "Current course" },
++      ]} />
++      <Menu label={custom ? "Custom route menu" : "Fallback route menu"}
++        trigger={<Button>Route actions</Button>} items={[
++          { id: "menu", label: "Replace menu course", href: "/composed/menu", replace: true },
++          { id: "disabled", label: "Unavailable course", href: "/composed/disabled", disabled: true },
++        ]} onAction={id => record(`action:${id}`)} />
++      <Link href="/composed/direct" replace ref={anchor} data-observe-navigation
++        onClick={event => record(`consumer:${event.defaultPrevented}`)}>Direct composed course</Link>
++      <Link href="/composed/canceled" data-observe-navigation onClick={event => {
++        record(`consumer:${event.defaultPrevented}`); event.preventDefault();
++      }}>Cancel composed course</Link>
++      <Link href="#composed-popup" target="_blank">Target composed course</Link>
++      <Link href="#composed-modifier">Modified composed course</Link>
++      <Link href="/composed-download.txt" download="composed.txt">Download composed course</Link>
++      <Link href="#composed-false" download={false}>False download composed course</Link>
++      <Link href="#composed-external" external>External composed course</Link>
++      <Button onPress={() => anchor.current?.focus()}>Focus composed link</Button>
++      <Button onPress={() => setPathname("/composed/lesson")}>Host replaces pathname</Button>
++      <Button onPress={() => setEvents([])}>Clear composed events</Button>
++      <ComposedPathname />
++      <output aria-label="Composed routing events" style={{ whiteSpace: "pre-wrap" }}>{events.join("\n")}</output>
++    </SGNavigationProvider>
++  </section>;
++}
+--- /dev/null
++++ b/packages/ui/tests/browser/navigation-composed.spec.ts
+@@ -0,0 +1,124 @@
++import { test, expect, type Page } from '@playwright/test';
++import { readFile } from 'node:fs/promises';
++
++const browserErrors = new WeakMap<Page, string[]>();
++test.beforeEach(({ page }) => {
++  const errors: string[] = [];
++  browserErrors.set(page, errors);
++  page.on('pageerror', error => errors.push(error.message));
++  page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
++});
++test.afterEach(async ({ page }, info) => {
++  const errors = browserErrors.get(page) ?? [];
++  await info.attach('browser-errors', { body: JSON.stringify(errors), contentType: 'application/json' });
++  expect(errors).toEqual([]);
++});
++
++for (const mode of ['Fallback', 'Custom']) {
++  test(`${mode} composed routes have one host owner for pointer and Enter`, async ({ page }, info) => {
++    await page.goto('/fixtures/?id=host-adapters-acceptance--routing&globals=a11y.manual:!true');
++    const host = page.getByRole('region', { name: `${mode} composed routing`, exact: true });
++    const events = host.getByLabel('Composed routing events');
++    const pathname = host.getByLabel('Composed pathname');
++    const initialURL = page.url();
++    const snapshots: unknown[] = [];
++    for (const activation of ['pointer', 'Enter']) {
++      for (const [name, href, notification] of [
++        ['Lesson course', '/composed/lesson', 'select:lesson'],
++        ['Course library', '/composed/library', undefined],
++        ['Replace menu course', '/composed/menu', 'action:menu'],
++      ] as const) {
++        await host.getByRole('button', { name: 'Clear composed events' }).click();
++        let destination;
++        if (name === 'Replace menu course') {
++          await host.getByRole('button', { name: 'Route actions', exact: true }).click();
++          const menu = page.getByRole('menu', { name: `${mode} route menu`, exact: true });
++          await expect(menu.getByRole('menuitem', { name: 'Unavailable course' })).toHaveAttribute('aria-disabled', 'true');
++          destination = menu.getByRole('menuitem', { name, exact: true });
++        } else destination = host.getByRole('link', { name, exact: true });
++        if (activation === 'pointer') await destination.click();
++        else { await destination.focus(); await page.keyboard.press('Enter'); }
++        await expect(pathname).toHaveText(href);
++        const route = `${name === 'Replace menu course' ? 'replace' : 'push'}:${href}`;
++        await expect.poll(async () => (await events.innerText()).split('\n').filter(Boolean).sort())
++          .toEqual([route, ...(notification ? [notification] : [])].sort());
++        if (name === 'Lesson course') await expect(destination).toHaveAttribute('aria-current', 'page');
++        await expect(page).toHaveURL(initialURL);
++        snapshots.push({ activation, name, pathname: await pathname.innerText(), events: await events.innerText() });
++      }
++    }
++    // Host pathname replacement updates selection without requesting a route or remounting the anchor.
++    const direct = host.getByRole('link', { name: 'Direct composed course', exact: true });
++    await direct.evaluate(node => node.setAttribute('data-retained-anchor', 'true'));
++    await host.getByRole('button', { name: 'Clear composed events' }).click();
++    await host.getByRole('button', { name: 'Host replaces pathname' }).click();
++    await expect(host.getByRole('link', { name: 'Lesson course', exact: true })).toHaveAttribute('aria-current', 'page');
++    await expect(events).toBeEmpty();
++    await expect(direct).toHaveAttribute('data-retained-anchor', 'true');
++    await host.getByRole('button', { name: 'Focus composed link' }).click();
++    await expect(direct).toBeFocused();
++    await info.attach('composed-route-outcomes', { body: JSON.stringify(snapshots, null, 2), contentType: 'application/json' });
++  });
++
++  test(`${mode} consumer cancellation and callback order survive custom delegation`, async ({ page }, info) => {
++    await page.goto('/fixtures/?id=host-adapters-acceptance--routing&globals=a11y.manual:!true');
++    const host = page.getByRole('region', { name: `${mode} composed routing`, exact: true });
++    const events = host.getByLabel('Composed routing events');
++    const direct = host.getByRole('link', { name: 'Direct composed course', exact: true });
++    const snapshots: string[] = [];
++    for (const activation of ['pointer', 'Enter']) {
++      await host.getByRole('button', { name: 'Clear composed events' }).click();
++      if (activation === 'pointer') await direct.click();
++      else { await direct.focus(); await page.keyboard.press('Enter'); }
++      await expect(events).toHaveText('consumer:false\nreplace:/composed/direct\nbubble:true');
++      snapshots.push(await events.innerText());
++      await host.getByRole('button', { name: 'Clear composed events' }).click();
++      const cancel = host.getByRole('link', { name: 'Cancel composed course', exact: true });
++      if (activation === 'pointer') await cancel.click();
++      else { await cancel.focus(); await page.keyboard.press('Enter'); }
++      await expect(events).toHaveText('consumer:false\nbubble:true');
++      await expect(host.getByLabel('Composed pathname')).toHaveText('/composed/direct');
++      snapshots.push(await events.innerText());
++    }
++    await info.attach('callback-order-outcomes', { body: JSON.stringify(snapshots), contentType: 'application/json' });
++  });
++
++  test(`${mode} modifier target download and external activation bypass host routing`, async ({ page, context }, info) => {
++    await page.goto('/fixtures/?id=host-adapters-acceptance--routing&globals=a11y.manual:!true');
++    const host = page.getByRole('region', { name: `${mode} composed routing`, exact: true });
++    const events = host.getByLabel('Composed routing events');
++    const popupURLs: string[] = [];
++    for (const [label, hash, modifiers] of [
++      ['Modified composed course', '#composed-modifier', ['ControlOrMeta']],
++      ['Target composed course', '#composed-popup', []],
++    ] as const) {
++      const pending = context.waitForEvent('page');
++      await host.getByRole('link', { name: label, exact: true }).click({ modifiers: [...modifiers] });
++      const popup = await pending;
++      await popup.waitForLoadState();
++      expect(new URL(popup.url()).hash).toBe(hash);
++      popupURLs.push(popup.url());
++      await popup.close();
++      await expect(events).toBeEmpty();
++    }
++    // Same-origin relative download reaches the custom Link, so its bypass contract is exercised.
++    await page.route('**/composed-download.txt', route => route.fulfill({ contentType: 'text/plain', body: 'SGUI composed host' }));
++    const pendingDownload = page.waitForEvent('download');
++    await host.getByRole('link', { name: 'Download composed course', exact: true }).click();
++    const download = await pendingDownload;
++    const destination = info.outputPath('composed.txt');
++    await download.saveAs(destination);
++    expect(await readFile(destination, 'utf8')).toBe('SGUI composed host');
++    expect(await download.failure()).toBeNull();
++    expect(download.suggestedFilename()).toBe('composed.txt');
++    await expect(events).toBeEmpty();
++    await host.getByRole('link', { name: 'False download composed course', exact: true }).click();
++    await expect(events).toHaveText('push:#composed-false');
++    await host.getByRole('button', { name: 'Clear composed events' }).click();
++    await host.getByRole('link', { name: 'External composed course', exact: true }).click();
++    await expect(page).toHaveURL(/#composed-external$/);
++    await expect(events).toBeEmpty();
++    await expect(host.getByLabel('Composed pathname')).toHaveText('#composed-false');
++    await info.attach('native-bypass-outcomes', { body: JSON.stringify({ popupURLs, filename: download.suggestedFilename(), bytes: await readFile(destination, 'utf8'), failure: await download.failure() }), contentType: 'application/json' });
++  });
++}
+--- a/docs/developer/react-aria-host-adapter-acceptance.md
++++ b/docs/developer/react-aria-host-adapter-acceptance.md
+@@ -36,6 +36,33 @@
+ An explicit styled `external={false}` still cannot send an absolute destination
+ through SGLink's router: use imperative host navigation when that is required.
+ 
++## Composed routes and callback boundaries
++
++Breadcrumbs and SideNavigation leaf links use the shared styled Link, including
++its host-provided custom Link when present. React Aria Menu route items instead
++call the same adapter's `navigate` directly for eligible relative primary
++activation. Menu does not render the custom Link. `onAction` is an item notification;
++a host must not also navigate to that same item's href from `onAction`. Keep
++application routing inside the adapter so a single activation requests one route.
++Modified activation, external URLs and non-self targets retain native semantics.
++Menu commands without href remain host actions.
++
++A custom Link owns cancellation and native bypass rules after receiving the
++consumer callback. Invoke `onClick` first, stop if it prevents default, and call
++`preventDefault()` before `navigate`. Preserve `replace`, all native anchor
++attributes, children and the anchor ref. React Aria interaction implementations
++remain internal; adding another routing provider is unnecessary for these owned
++components. Framework imports belong to the host application.
++
++The private adapter routing fixture additionally composes Menu, Breadcrumbs,
++SideNavigation and Link with both navigate-only and custom-Link adapters. The
++focused `tests/browser/navigation-composed.spec.ts` defines pointer/Enter exact
++counts, consumer cancellation/order, pathname replacement/selected state,
++anchor identity/ref focus, modifier/target popups and a same-origin download.
++These are runnable assertions, not a recorded browser pass until coordinator
++integration and native execution. The fixture's local pathname state represents
++host acceptance; it does not simulate framework history, persistence or a backend.
++
+ ## Account ownership
+ 
+ SGAccountProvider supplies presentation sessions and operation callbacks. The
+@@ -59,13 +86,13 @@
+   fallback in a Node environment without window.
+ - `src/adapters/accounts.test.tsx`: disabled fallback, exact presentation records,
+   lazy getters, callback arguments, pending promise identity and rejection reason.
+-- `src/adapters/adapters.stories.tsx`: production scoped routing and a host-controlled
++- `apps/docs/native-fixtures/scenarios/adapters/adapters.fixture.tsx`: production scoped routing and a host-controlled
+   async account example, with completion, rejection and retry.
+ - `tests/browser/batch01-adapters.spec.ts`: native Enter/hash navigation, styled
+   link keyboard routing, custom ref focus, replace/path updates, download bytes,
+   external document navigation and async account pending/retry.
+ 
+-The async story demonstrates host policy, not automatic adapter pending state.
++The async fixture demonstrates host policy, not automatic adapter pending state.
+ Real routers, auth services, physical devices, assistive technology and broader
+ Breadcrumbs/shell behavior remain outside this slice. No broad gate is marked
+ complete by this record.

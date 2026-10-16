@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "assignment": "parallel-03",
+  "capturedAt": "2026-10-16T22:35:00.393Z",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "status": "complete",
+  "summary": {
+    "productionSourceFiles": 424,
+    "declarationFiles": 423,
+    "publicEntriesReused": 238,
+    "publicReachableDeclarationFiles": 370,
+    "ariaImportReferences": 93,
+    "ariaImportFiles": 31,
+    "unregisteredAriaReferences": 0,
+    "forbiddenDeclarationImports": 0,
+    "publicNonReactExternalReferences": 0,
+    "changedSourceInputs": 4,
+    "changedBuiltOutputs": 0,
+    "newProductionFiles": 0
+  },
+  "leaves": [
+    {
+      "id": "A-A-04",
+      "status": "complete",
+      "originalCriterion": "React Aria confinement to interaction implementation; compositions consume owned contracts",
+      "sourceAndTestReferences": [
+        "packages/ui/scripts/check-foundations.mjs:9-49",
+        "packages/ui/src/experimental/Provider/Provider.tsx",
+        "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+        "packages/ui/scripts/react-stately-boundaries.test.mjs"
+      ],
+      "checksPerformed": [
+        "read original leaf and architectural contracts",
+        "read-only AST module/declaration graph audit",
+        "manual source payload/native-ref mapping review",
+        "compare current source/output hashes with FA-01/02; reconcile FA-04 delta"
+      ],
+      "actualFinding": "93 Aria/Stately references across 31 registered files; zero outside registry. Locale bridges do not expose collection/state objects.",
+      "evidence": [
+        "audit-evidence.json",
+        "report.md",
+        "../fa02-foundations.txt",
+        "../fa04-original-check.txt (passing foundation stages only; overall command failed)",
+        "../fa04-calendar-rerun.txt",
+        "../fa04-package.txt"
+      ],
+      "limits": [
+        "Modified working-tree evidence, not committed final artifact",
+        "No new runtime/browser/device/assistive-technology result",
+        "No closure of full API/default/deprecation, editor V, production or release gates"
+      ],
+      "requiredSuccessors": [],
+      "optionalSuccessors": [
+        "P03-GUARD-01"
+      ]
+    },
+    {
+      "id": "A-A-05",
+      "status": "complete",
+      "originalCriterion": "Owned props rather than wholesale upstream props; native attributes/ref mapping",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/Button/Button.tsx:8-21",
+        "packages/ui/dist/experimental/TextField/TextField.d.ts",
+        "packages/ui/dist/experimental/Select/Select.d.ts",
+        "docs/developer/react-aria-primitives.md:21-51"
+      ],
+      "checksPerformed": [
+        "read original leaf and architectural contracts",
+        "read-only AST module/declaration graph audit",
+        "manual source payload/native-ref mapping review",
+        "compare current source/output hashes with FA-01/02; reconcile FA-04 delta"
+      ],
+      "actualFinding": "423 declarations scanned; 42 interface heritage clauses and 175 explicit callback properties inventoried. No upstream widget prop inheritance; native wrapper attributes and DOM refs retained.",
+      "evidence": [
+        "audit-evidence.json",
+        "report.md",
+        "../fa02-foundations.txt",
+        "../fa04-original-check.txt (passing foundation stages only; overall command failed)",
+        "../fa04-calendar-rerun.txt",
+        "../fa04-package.txt"
+      ],
+      "limits": [
+        "Modified working-tree evidence, not committed final artifact",
+        "No new runtime/browser/device/assistive-technology result",
+        "No closure of full API/default/deprecation, editor V, production or release gates"
+      ],
+      "requiredSuccessors": [],
+      "optionalSuccessors": []
+    },
+    {
+      "id": "A-A-11",
+      "status": "complete",
+      "originalCriterion": "No unreviewed upstream collection/state/date/grid/event contract escapes",
+      "sourceAndTestReferences": [
+        "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+        "packages/ui/src/components/AppDataGrid/types.ts",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx:231-253",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx:28-30",
+        "docs/developer/react-aria-editor-section.md:45-58"
+      ],
+      "checksPerformed": [
+        "read original leaf and architectural contracts",
+        "read-only AST module/declaration graph audit",
+        "manual source payload/native-ref mapping review",
+        "compare current source/output hashes with FA-01/02; reconcile FA-04 delta"
+      ],
+      "actualFinding": "Zero forbidden engine references in all declarations; zero non-React external references across 370 public-reachable declaration files. Selection/date/drag payloads normalized; editor callback emits documented serialized JSON.",
+      "evidence": [
+        "audit-evidence.json",
+        "report.md",
+        "../fa02-foundations.txt",
+        "../fa04-original-check.txt (passing foundation stages only; overall command failed)",
+        "../fa04-calendar-rerun.txt",
+        "../fa04-package.txt"
+      ],
+      "limits": [
+        "Modified working-tree evidence, not committed final artifact",
+        "No new runtime/browser/device/assistive-technology result",
+        "No closure of full API/default/deprecation, editor V, production or release gates"
+      ],
+      "requiredSuccessors": [],
+      "optionalSuccessors": [
+        "P03-GUARD-01"
+      ]
+    }
+  ],
+  "reusedEvidence": [
+    "../2026-10-16-inventory.json",
+    "../2026-10-16-source-inventory.json",
+    "../fa01-package.txt",
+    "../fa02-foundations.txt",
+    "../fa04-original-check.txt",
+    "../fa04-calendar-rerun.txt",
+    "../fa04-library-input-delta.json",
+    "../fa04-package.txt"
+  ],
+  "inputLimits": {
+    "changedSourceInputs": [
+      {
+        "file": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.native-fixture.tsx",
+        "previous": "a2a5b401e865224e7582e29ef4183082bf0ba98584f832d8441ef626c07db6c4",
+        "current": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1"
+      },
+      {
+        "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.controlled-transactions.test.tsx",
+        "previous": "9ce690c15f08731b249a6fbc91ac431d752bf84a2d8de60b108aadd957ca91aa",
+        "current": "cd85cc5942f7a2d6b3501022daa481a257290855a65e99e42905827c2da05c5d"
+      },
+      {
+        "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.next100-regression.test.tsx",
+        "previous": "32a74d47624caa301d9a27989cf3b48267a95073a01850cb4dd10e41194131cf",
+        "current": "e9f6569cad06689e8813dc8ea863d93b92bece994e267601327b022106f0f106"
+      },
+      {
+        "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.next100-regression.test.tsx",
+        "previous": "bad1a85dbf0e4991254b0d215d4097932fd9486e48637d8909297ba817095e8e",
+        "current": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48"
+      }
+    ],
+    "changedBuiltOutputs": [],
+    "hashes": "audit-evidence.json#inputHashes",
+    "newProductionFiles": []
+  },
+  "successors": [
+    {
+      "id": "P03-GUARD-01",
+      "requiredForCurrentLeafCompletion": false,
+      "scope": "Future declaration guard coverage",
+      "finding": "assertOwnedDeclaration regex omits @internationalized/date although current declaration scan finds no escape",
+      "reproduction": "Compare packages/ui/scripts/check-package.mjs:10 regex with export type { CalendarDate } from '@internationalized/date';",
+      "action": "Add date-engine family to guard and synthetic negative case to scripts/react-stately-boundaries.test.mjs; run only that focused guard test"
+    }
+  ],
+  "newCommands": [
+    "node docs/developer/final-acceptance/parallel-03/audit.mjs (exit 0; read-only library/source analysis; writes owned audit-evidence.json)"
+  ],
+  "newRuntimeTestsRun": false,
+  "mutations": "Only docs/developer/final-acceptance/parallel-03/ files created; no shared metadata, source, build or release mutations"
+}

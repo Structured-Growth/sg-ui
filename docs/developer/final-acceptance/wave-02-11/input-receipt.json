@@ -1,0 +1,767 @@
+{
+  "capturedAt": "2026-10-16T22:42:36.990595+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "node": "v26.5.0",
+  "scope": "Bounded source/input comparison only. No built-output freshness assertion; concurrent BUG-0008/9 fixes are coordinator-owned.",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "fa04Expected": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "apps/docs/examples/AdvancedCalendarExamples.tsx",
+      "sha256": "1a3a86a7dae3382b6418c4fcb83ab6804d912c817e86e389d6c6f1c28fce9fd0",
+      "fa04Expected": "1a3a86a7dae3382b6418c4fcb83ab6804d912c817e86e389d6c6f1c28fce9fd0",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "apps/docs/examples/CalendarCompositionExamples.tsx",
+      "sha256": "fb1c3bb7cbc9d182441360093996ab915aedd76f020a2f2eef414ea90efdd49d",
+      "fa04Expected": "fb1c3bb7cbc9d182441360093996ab915aedd76f020a2f2eef414ea90efdd49d",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "apps/docs/examples/FormIntegrationExamples.tsx",
+      "sha256": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "fa04Expected": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "apps/docs/examples/LocalizedRangeExample.tsx",
+      "sha256": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+      "fa04Expected": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "apps/docs/examples/catalog/forms-dates.tsx",
+      "sha256": "3bf40ba915a42a39907e1dd897d44565d6e8b5c3a91f4e12f3a068f3c4ee52da",
+      "fa04Expected": "9de2c41d7d15256a400d88e2a084e5c04473953329bad5c214b9cb6cdfc4889b",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/Box/Box.fixture.tsx",
+      "sha256": "59152e4761657cf835bb86129cd3b7d70517620af6eb896a832814af41726da3",
+      "fa04Expected": "59152e4761657cf835bb86129cd3b7d70517620af6eb896a832814af41726da3",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "docs/developer/parallel-batch-61/keyboard-range-preview.md",
+      "sha256": "6b934d8c74e3f010d267e8f3070dfdbe5874468cd75beb8c3c6b387c9d75f9c9",
+      "fa04Expected": "6b934d8c74e3f010d267e8f3070dfdbe5874468cd75beb8c3c6b387c9d75f9c9",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "docs/developer/react-aria-calendar-contracts.md",
+      "sha256": "5ecd4a8cc05e993f946e999be0736093f05ebef82db8e0244c7b5a97e95bbf02",
+      "fa04Expected": "5ecd4a8cc05e993f946e999be0736093f05ebef82db8e0244c7b5a97e95bbf02",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "fa04Expected": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.native-locales.native-fixture.tsx",
+      "sha256": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "fa04Expected": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.native-locales.test.tsx",
+      "sha256": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "fa04Expected": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.next100-regression.test.tsx",
+      "sha256": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "fa04Expected": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.test.tsx",
+      "sha256": "b56db22bb4091fedb65956e22bf2b3ecbbc70670afc02fb68638274dfa202239",
+      "fa04Expected": "b56db22bb4091fedb65956e22bf2b3ecbbc70670afc02fb68638274dfa202239",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "sha256": "43ce7bdfa5d4652278983efdfb6eb94785ca5fa28f64d6b66dddf933c0d358b4",
+      "fa04Expected": "43ce7bdfa5d4652278983efdfb6eb94785ca5fa28f64d6b66dddf933c0d358b4",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/CalendarNavigation.test.tsx",
+      "sha256": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "fa04Expected": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/CalendarNavigation.tsx",
+      "sha256": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "fa04Expected": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.module.css",
+      "sha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "fa04Expected": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.next100-regression.test.tsx",
+      "sha256": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "fa04Expected": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.test.tsx",
+      "sha256": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "fa04Expected": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.tsx",
+      "sha256": "9cc5c4ba5f337787682ae31c482fdd0dc7295179859c33ad0a5b2b71fdb88e18",
+      "fa04Expected": "9cc5c4ba5f337787682ae31c482fdd0dc7295179859c33ad0a5b2b71fdb88e18",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateFieldControl.tsx",
+      "sha256": "8bbadd7bb5344a56df2682e2dce83e2c2ee5dc4dd07c0d74d1ad6e2973ca09c7",
+      "fa04Expected": "8bbadd7bb5344a56df2682e2dce83e2c2ee5dc4dd07c0d74d1ad6e2973ca09c7",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/TextDateField.test.tsx",
+      "sha256": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "fa04Expected": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "sha256": "c4cb4d163038104f730cdf4cb1ce6304de23707ae576c2f78ccd7590667ba718",
+      "fa04Expected": "c4cb4d163038104f730cdf4cb1ce6304de23707ae576c2f78ccd7590667ba718",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseDateText.test.ts",
+      "sha256": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "fa04Expected": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseDateText.ts",
+      "sha256": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "fa04Expected": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseRelativeDateText.test.ts",
+      "sha256": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "fa04Expected": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseRelativeDateText.ts",
+      "sha256": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "fa04Expected": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.module.css",
+      "sha256": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "fa04Expected": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.native-fixture.tsx",
+      "sha256": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1",
+      "fa04Expected": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1",
+      "matchesFA04": true,
+      "baseline": "FA04 delta"
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.test.tsx",
+      "sha256": "3d42cfe6beb54360a88d05709f03af51cee9b715e4ed79e8f928bbabed0b9e02",
+      "fa04Expected": "3d42cfe6beb54360a88d05709f03af51cee9b715e4ed79e8f928bbabed0b9e02",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.next100-regression.test.tsx",
+      "sha256": "c43242f8be95a16bd1251f2a573ec61ad3e599e236a1f3cb7d110c7f001a001d",
+      "fa04Expected": "c43242f8be95a16bd1251f2a573ec61ad3e599e236a1f3cb7d110c7f001a001d",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.test.tsx",
+      "sha256": "7841c9355332c8af7d611d6456e00f8af8ba873cf1622f059d1f58b6bc0ed294",
+      "fa04Expected": "7841c9355332c8af7d611d6456e00f8af8ba873cf1622f059d1f58b6bc0ed294",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "sha256": "b6ed8dcd06786b4c5599a832d33f4e3d71924bd4f3faec4fdd58fc306c832cf6",
+      "fa04Expected": "b6ed8dcd06786b4c5599a832d33f4e3d71924bd4f3faec4fdd58fc306c832cf6",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.test.tsx",
+      "sha256": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97",
+      "fa04Expected": "800f43e446cc9928428a8b6ca8d9c51996c2b5b5702d0cc485cda702568971b2",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "sha256": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73",
+      "fa04Expected": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.controlled-transactions.test.tsx",
+      "sha256": "cd85cc5942f7a2d6b3501022daa481a257290855a65e99e42905827c2da05c5d",
+      "fa04Expected": "cd85cc5942f7a2d6b3501022daa481a257290855a65e99e42905827c2da05c5d",
+      "matchesFA04": true,
+      "baseline": "FA04 delta"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.module.css",
+      "sha256": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+      "fa04Expected": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.next100-regression.test.tsx",
+      "sha256": "e9f6569cad06689e8813dc8ea863d93b92bece994e267601327b022106f0f106",
+      "fa04Expected": "e9f6569cad06689e8813dc8ea863d93b92bece994e267601327b022106f0f106",
+      "matchesFA04": true,
+      "baseline": "FA04 delta"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.test.tsx",
+      "sha256": "e8cee5760282c71ce7f6b54db9d1689b91b96d7a678b2d9017151b7d8da5411b",
+      "fa04Expected": "e8cee5760282c71ce7f6b54db9d1689b91b96d7a678b2d9017151b7d8da5411b",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "sha256": "d5c4eb8593ec44e45938e14b4dddc6b94f969890ebdf863d101f11b54cf638d4",
+      "fa04Expected": "d5c4eb8593ec44e45938e14b4dddc6b94f969890ebdf863d101f11b54cf638d4",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/parseDateRangeText.test.ts",
+      "sha256": "844368d1f0df2152f748680ec5c3e0f7ea97b2d1f83c0400a3c0d82278636863",
+      "fa04Expected": "844368d1f0df2152f748680ec5c3e0f7ea97b2d1f83c0400a3c0d82278636863",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/parseDateRangeText.ts",
+      "sha256": "6112e72b278b6c1b8c0444033a46bd3a2cc9cd26ac71e528768ba3dae65e3706",
+      "fa04Expected": "6112e72b278b6c1b8c0444033a46bd3a2cc9cd26ac71e528768ba3dae65e3706",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/CalendarFormValidity.tsx",
+      "sha256": "064064ff9187ed72a6635f8a16ef8a738b3391e9de1ec6c92ef88279fb5357fd",
+      "fa04Expected": "064064ff9187ed72a6635f8a16ef8a738b3391e9de1ec6c92ef88279fb5357fd",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateContracts.next100-regression.test.tsx",
+      "sha256": "545611ff1736d427a59992038af10fec7557084117d68443c675a8e8070d8615",
+      "fa04Expected": "545611ff1736d427a59992038af10fec7557084117d68443c675a8e8070d8615",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.behavior.test.tsx",
+      "sha256": "eb01a4b0bf0988bfce65316042642e0a5e030821b8f7a467e1789bb10105d1d8",
+      "fa04Expected": "eb01a4b0bf0988bfce65316042642e0a5e030821b8f7a467e1789bb10105d1d8",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css",
+      "sha256": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "fa04Expected": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.next100-regression.test.tsx",
+      "sha256": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48",
+      "fa04Expected": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48",
+      "matchesFA04": true,
+      "baseline": "FA04 delta"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.presets.test.tsx",
+      "sha256": "1a7588994d3d1232166bb568efb1c62ceab0b92a597f06aafe9a30d94622ac27",
+      "fa04Expected": "1a7588994d3d1232166bb568efb1c62ceab0b92a597f06aafe9a30d94622ac27",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.test.tsx",
+      "sha256": "0887d77989165887f0af6fc1305fb6fb783f72be7917f3ee09f823a4dd94c609",
+      "fa04Expected": "0887d77989165887f0af6fc1305fb6fb783f72be7917f3ee09f823a4dd94c609",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sha256": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "fa04Expected": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeGestures.test.tsx",
+      "sha256": "895b4a5e8fb92bfafb70710c1ab0da8e1ec24683eb6b2d0384eaf39849911f57",
+      "fa04Expected": "895b4a5e8fb92bfafb70710c1ab0da8e1ec24683eb6b2d0384eaf39849911f57",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx",
+      "sha256": "0b2427901464535d68154aa9c443b678ce8fd637b8394315532e673a654082fe",
+      "fa04Expected": "0b2427901464535d68154aa9c443b678ce8fd637b8394315532e673a654082fe",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+      "sha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "fa04Expected": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/relative-date-range.test.ts",
+      "sha256": "0799edaf12d45b62573c045509104118f31ccaf52e96a7b6d990a89c16690362",
+      "fa04Expected": "0799edaf12d45b62573c045509104118f31ccaf52e96a7b6d990a89c16690362",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/relative-date-range.ts",
+      "sha256": "f5be7ad2b944523a078af51c9a9574d1292232287fc3243dae0df7cb3f3a17ba",
+      "fa04Expected": "f5be7ad2b944523a078af51c9a9574d1292232287fc3243dae0df7cb3f3a17ba",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/useCalendarFormReset.ts",
+      "sha256": "b1abe36f849850e3aac5e1ddfef5b95d19cb8ba3cb538efebaafe91ea0b55cfc",
+      "fa04Expected": "b1abe36f849850e3aac5e1ddfef5b95d19cb8ba3cb538efebaafe91ea0b55cfc",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/useNarrowWeekdays.ts",
+      "sha256": "420bb3c06d07d3ae43942aa8a9b53e2de201e2e3e3a7226ba0aed48ece6640c6",
+      "fa04Expected": "420bb3c06d07d3ae43942aa8a9b53e2de201e2e3e3a7226ba0aed48ece6640c6",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.test.tsx",
+      "sha256": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68",
+      "fa04Expected": "e29d4f72d4c5289e0dd303533efeb69d8dc584ee83f6339acd1ce606de115c81",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "sha256": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e",
+      "fa04Expected": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.test.tsx",
+      "sha256": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6",
+      "fa04Expected": "2cba2152230fdedc180035e0f187316c7f6272a451efb6494d6170b1d1bc13a4",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "sha256": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e",
+      "fa04Expected": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.collision.native-fixture.tsx",
+      "sha256": "12912867c4160a01311bde996f9cdcd9d60da083f833b122e633f98a46b09957",
+      "fa04Expected": "12912867c4160a01311bde996f9cdcd9d60da083f833b122e633f98a46b09957",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.collision.test.tsx",
+      "sha256": "8465921f32b419aa9c2eb3705515c5aed81dea28241d627dde7b3f55186a2163",
+      "fa04Expected": "8465921f32b419aa9c2eb3705515c5aed81dea28241d627dde7b3f55186a2163",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+      "sha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "fa04Expected": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.next100-regression.test.tsx",
+      "sha256": "4fabd39e5a98861e5b3323e0573e352cd1880cd4efdcb5823a7327a1249a05f2",
+      "fa04Expected": "4fabd39e5a98861e5b3323e0573e352cd1880cd4efdcb5823a7327a1249a05f2",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.test.tsx",
+      "sha256": "10ac0d2290eb8b83452e8edbfe3fb3923b6a08453b7b38b51180ab2098efa102",
+      "fa04Expected": "10ac0d2290eb8b83452e8edbfe3fb3923b6a08453b7b38b51180ab2098efa102",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "sha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "fa04Expected": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.portal.test.tsx",
+      "sha256": "8d02e22204d6a947c396f6aa7d6390ec68a773f3d0285661b221b55ec3eb8b39",
+      "fa04Expected": "8d02e22204d6a947c396f6aa7d6390ec68a773f3d0285661b221b55ec3eb8b39",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.test.tsx",
+      "sha256": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df",
+      "fa04Expected": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.tsx",
+      "sha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "fa04Expected": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts",
+      "sha256": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "fa04Expected": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TextTimeField.test.tsx",
+      "sha256": "e102e986c1a3baa8085e8a05be1f78363a95912d2f21c63c609411f5fb2a9f58",
+      "fa04Expected": "e102e986c1a3baa8085e8a05be1f78363a95912d2f21c63c609411f5fb2a9f58",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "sha256": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "fa04Expected": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.module.css",
+      "sha256": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+      "fa04Expected": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.next100-regression.test.tsx",
+      "sha256": "78e7f7bd66eb5a19b87f3dc58ade48193c266070f8e0cb23325ed4504050e7c0",
+      "fa04Expected": "78e7f7bd66eb5a19b87f3dc58ade48193c266070f8e0cb23325ed4504050e7c0",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.test.tsx",
+      "sha256": "29629d10a46ed4acb972deb7b4fef79cf903346cf433f30417c10632e7812efb",
+      "fa04Expected": "29629d10a46ed4acb972deb7b4fef79cf903346cf433f30417c10632e7812efb",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.tsx",
+      "sha256": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "fa04Expected": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/parseTimeText.test.ts",
+      "sha256": "0854b13b7ca46d2fbfe9eb019d4b1a1e80c566aa7d181a9bc2cd142e58d57c00",
+      "fa04Expected": "0854b13b7ca46d2fbfe9eb019d4b1a1e80c566aa7d181a9bc2cd142e58d57c00",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/parseTimeText.ts",
+      "sha256": "abfe8cbc0e49cf3befe5626cdbcc21afea0495561d1c666d5046f664a0ec5b3b",
+      "fa04Expected": "abfe8cbc0e49cf3befe5626cdbcc21afea0495561d1c666d5046f664a0ec5b3b",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/index.ts",
+      "sha256": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+      "fa04Expected": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/useFormReset.ts",
+      "sha256": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+      "fa04Expected": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "fa04Expected": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/i18n/index.tsx",
+      "sha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "fa04Expected": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/utils/relative-dates.test.ts",
+      "sha256": "104d0c0448130c22f38db34b62da010449ea2339470842868028b916a51515d9",
+      "fa04Expected": "104d0c0448130c22f38db34b62da010449ea2339470842868028b916a51515d9",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/utils/relative-dates.ts",
+      "sha256": "1922bc80f9168a09eccd04aa5984973c6487b3482b38cf1135bf926a0f3339fd",
+      "fa04Expected": "1922bc80f9168a09eccd04aa5984973c6487b3482b38cf1135bf926a0f3339fd",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/tests/browser/batch01-calendar.spec.ts",
+      "sha256": "74f849836651a52540dfbe9d56d20a50ffdef9c6e1b74f3459327da4160b9287",
+      "fa04Expected": "74f849836651a52540dfbe9d56d20a50ffdef9c6e1b74f3459327da4160b9287",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/tests/browser/batch61-keyboard-range-preview.spec.ts",
+      "sha256": "645eac6761194b0a0d10d46f9e24db4c566ab4c0c6920720654f5db944e57214",
+      "fa04Expected": "645eac6761194b0a0d10d46f9e24db4c566ab4c0c6920720654f5db944e57214",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/tests/browser/calendar-native-locales.spec.ts",
+      "sha256": "be0ad0985d569b0225db8b1a229d56b1da7f1adda5dd258697c1dbedd1090e3a",
+      "fa04Expected": "be0ad0985d569b0225db8b1a229d56b1da7f1adda5dd258697c1dbedd1090e3a",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/tests/browser/calendar.spec.ts",
+      "sha256": "e74dddb13a84262b2cf8567d43449a375fc1f1645447b33e1dc8ffc79656ddc1",
+      "fa04Expected": "e74dddb13a84262b2cf8567d43449a375fc1f1645447b33e1dc8ffc79656ddc1",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/tests/browser/datepicker-native-transactions.spec.ts",
+      "sha256": "036adeee29b59e039ff2f34c75a01b9f773e06282f22f75b7827b837e2259318",
+      "fa04Expected": "036adeee29b59e039ff2f34c75a01b9f773e06282f22f75b7827b837e2259318",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/tests/browser/hardening-date-presentation.spec.ts",
+      "sha256": "a900f5eba095e135b49eb07c8f7a7bf9cfe61e83e7ff16c929174dede0b398c1",
+      "fa04Expected": "a900f5eba095e135b49eb07c8f7a7bf9cfe61e83e7ff16c929174dede0b398c1",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "fa04Expected": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "matchesFA04": true,
+      "baseline": "FA02/FA01"
+    }
+  ],
+  "differences": [
+    {
+      "path": "apps/docs/examples/catalog/forms-dates.tsx",
+      "sha256": "3bf40ba915a42a39907e1dd897d44565d6e8b5c3a91f4e12f3a068f3c4ee52da",
+      "fa04Expected": "9de2c41d7d15256a400d88e2a084e5c04473953329bad5c214b9cb6cdfc4889b",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.test.tsx",
+      "sha256": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97",
+      "fa04Expected": "800f43e446cc9928428a8b6ca8d9c51996c2b5b5702d0cc485cda702568971b2",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "sha256": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73",
+      "fa04Expected": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.test.tsx",
+      "sha256": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68",
+      "fa04Expected": "e29d4f72d4c5289e0dd303533efeb69d8dc584ee83f6339acd1ce606de115c81",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "sha256": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e",
+      "fa04Expected": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.test.tsx",
+      "sha256": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6",
+      "fa04Expected": "2cba2152230fdedc180035e0f187316c7f6272a451efb6494d6170b1d1bc13a4",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    },
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "sha256": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e",
+      "fa04Expected": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+      "matchesFA04": false,
+      "baseline": "FA02/FA01"
+    }
+  ],
+  "retainedEvidence": [
+    {
+      "path": "docs/developer/final-acceptance/fa04-original-check.txt",
+      "sha256": "1a3e5118eb2441e0b68b05063f42d2f0144bc4a5455e58c104560e735ff9f8bc"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+      "sha256": "77e779efbc7f2842cabaa4ba0e83ddae5faa8cce9f7075c0c38f56f105c208d9"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-library-input-delta.json",
+      "sha256": "7083b23a5ff0ad7f2912798fa943bb7b87ece435df620048a75727962260310d"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-library.txt",
+      "sha256": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-package.txt",
+      "sha256": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-fixtures.txt",
+      "sha256": "c4c855583016f98324a9518417d4e3465d9ac7835979f38c3df58329b937cf74"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-retained-docs-build.txt",
+      "sha256": "f7c2f6a25b775b674ae29ea8e8ad2237f880673cf2a058c9dd719548ad83ca6a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/parallel-04/report.md",
+      "sha256": "8d3a1464c05c0c2b6e4705ec031afcfea24b6ee34eae04737baa869236eddbda"
+    },
+    {
+      "path": "docs/developer/final-acceptance/parallel-11/report.md",
+      "sha256": "0a0fbbbeaa9b6f375a5e355cab2788d4855ec2e2c929dfd67ae65202ec66e565"
+    },
+    {
+      "path": "docs/developer/final-acceptance/parallel-reconciliation-2026-10-16.json",
+      "sha256": "4b8faea173248543601f4b00e4cbc3242fdf96c2c6216c675efe177f05b4221c"
+    }
+  ],
+  "newProbe": [
+    {
+      "path": "docs/developer/final-acceptance/wave-02-11/acceptance.test.tsx",
+      "sha256": "cc742055e2b63d83f4a05e0d159f88afb82a75f0ec207fe445338a9ae7fef627"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-11/vitest.config.mjs",
+      "sha256": "b4b778e59ac0b6f9de2ea1bf8668ac4f76d38e0d023d1ef768172cea44e6608e"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-11/probe.log",
+      "sha256": "8a5896b7ff620148cbcb9f40749bd9823f244f59206d554f94925ee3af0703f6"
+    }
+  ]
+}

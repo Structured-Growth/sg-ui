@@ -4,7 +4,7 @@ import { DateRangePicker } from "@structured-growth/sg-ui/experimental";
 import { Button } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
 const meta = { title: "Migration proofs/DateRangePicker", component: DateRangePicker, tags: ["autodocs"],
-  decorators: [(Story) => <Provider><Story /></Provider>], args: { label: "Reporting dates", defaultValue: { start: "2024-02-01", end: "2024-02-29" },
+  decorators: [(Story) => <Provider><Story /></Provider>], args: { entryMode: "segments", showFields: true, rangeClickBehavior: "restart", label: "Reporting dates", defaultValue: { start: "2024-02-01", end: "2024-02-29" },
     presets: [{ id: "march", label: "March", value: { start: "2024-03-01", end: "2024-03-31" } }] },
 } satisfies Meta<typeof DateRangePicker>;
 export default meta;

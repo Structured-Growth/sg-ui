@@ -1,0 +1,86 @@
+{
+  "assignment": 26,
+  "status": "partial",
+  "completedLeaves": 0,
+  "partialLeaves": 2,
+  "scope": "A-E-06 and A-E-07",
+  "results": [
+    {
+      "id": "A-E-06",
+      "status": "partial",
+      "originalRequirement": "- [ ] A-E-06 Reconcile original `E-06`: Define safe URL/protocol handling, image metadata/alt text, host upload callbacks, file validation, cancellation, and object-URL cleanup. Shared saved/pasted link policy and activation: [partial contract](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial). Saved image sources and upload-result retry: [partial image contract](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); [upload lifetime matrix](react-aria-editor-section.md#host-upload-lifetime-e-06-partial) covers stale results after cancellation/reset/read-only/unmount; [file presentation validation](react-aria-editor-dialogs.md#file-presentation-validation-e-06-partial) covers empty files and MIME/extension metadata; wider image/upload acceptance remains open. Historical status: open.",
+      "substantiveOutcome": "Prepared image runtime-shape guard at node factory and current host-upload boundary, retryable translated error, malformed saved-metadata and upload/retry regressions, valid escaped-description/metadata fidelity, consumer contract update.",
+      "patch": "image-runtime-shapes.patch",
+      "proposedIntegrationRequired": true,
+      "execution": {
+        "command": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-26/vitest.overlay.mjs",
+        "runtime": "Node 24.19.0 / Vitest 4.1.11 / jsdom",
+        "result": "2 suites, 27 tests passed in source overlay; current implementation yields 2 expected new-regression failures, 25 pass",
+        "receipts": [
+          "unit-overlay.txt",
+          "unit-baseline.txt",
+          "unit-overlay-first-failure.txt"
+        ]
+      },
+      "hashes": "evidence.json#inputHashes and #artifactHashes",
+      "acceptedEvidenceReused": "55/55 overlapping wave-02-03 inputs unchanged; retained URL/file/stale-upload matrix with original host/runtime limits. Coordinator integration evidence reviewed, scope only BUG0008\u20130012/A-G-02/A-K-16; no overlapping input hashes and no editor inference.",
+      "residualSuccessors": [
+        {
+          "id": "W03-E06-INTEGRATE",
+          "requirement": "Review/apply patch; run integrated type/import checks and focused browser metadata/retry case."
+        },
+        {
+          "id": "W03-E06-HOST",
+          "requirement": "Host/service policy and tested byte/type/size/dimension/authorization/network abort/stale-asset cleanup outcomes; no owner evidence supplied."
+        },
+        {
+          "id": "W03-E06-MATRIX",
+          "requirement": "Owner-approved encoded/redirect/resource policy and native new malformed-metadata variant; retained lifetime cases not repeated."
+        }
+      ],
+      "limitations": [
+        "Patch-only result does not close runtime acceptance.",
+        "No new browser/physical-device/AT/service/legal/owner approval.",
+        "Factory rejection is not atomic document validation; silent Lexical onError and downstream trust remain open."
+      ]
+    },
+    {
+      "id": "A-E-07",
+      "status": "partial",
+      "originalRequirement": "- [ ] A-E-07 Reconcile original `E-07`: Review rich-content rendering and trust boundaries; do not render arbitrary HTML or unsafe links merely because they arrived in a presentation model. Saved/pasted link destinations are governed by the [owned policy](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial), and image decoration by the [image source policy](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); broader rich-content acceptance remains open. Historical status: open.",
+      "substantiveOutcome": "Prepared image runtime-shape guard at node factory and current host-upload boundary, retryable translated error, malformed saved-metadata and upload/retry regressions, valid escaped-description/metadata fidelity, consumer contract update.",
+      "patch": "image-runtime-shapes.patch",
+      "proposedIntegrationRequired": true,
+      "execution": {
+        "command": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-26/vitest.overlay.mjs",
+        "runtime": "Node 24.19.0 / Vitest 4.1.11 / jsdom",
+        "result": "2 suites, 27 tests passed in source overlay; current implementation yields 2 expected new-regression failures, 25 pass",
+        "receipts": [
+          "unit-overlay.txt",
+          "unit-baseline.txt",
+          "unit-overlay-first-failure.txt"
+        ]
+      },
+      "hashes": "evidence.json#inputHashes and #artifactHashes",
+      "acceptedEvidenceReused": "55/55 overlapping wave-02-03 inputs unchanged; retained URL/file/stale-upload matrix with original host/runtime limits. Coordinator integration evidence reviewed, scope only BUG0008\u20130012/A-G-02/A-K-16; no overlapping input hashes and no editor inference.",
+      "residualSuccessors": [
+        {
+          "id": "W03-E07-INTEGRATE",
+          "requirement": "Apply and validate runtime-shape/escaped-description patch; it does not establish document-level recovery."
+        },
+        {
+          "id": "W03-E07-TRUST",
+          "requirement": "Owner policy for author CSS, malformed/unregistered node/version/whole-document rejection, remote/data/blob images and downstream JSON rendering; then approved hostile native corpus."
+        }
+      ],
+      "limitations": [
+        "Patch-only result does not close runtime acceptance.",
+        "No new browser/physical-device/AT/service/legal/owner approval.",
+        "Factory rejection is not atomic document validation; silent Lexical onError and downstream trust remain open."
+      ]
+    }
+  ],
+  "evidence": "evidence.json",
+  "validationPlan": "validation-plan.json",
+  "mutationBoundary": "Only docs/developer/final-acceptance/wave-03-26; no source/staging/branch/build/server/ledger changes."
+}

@@ -1,0 +1,50 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui
+
+ ❯ docs/developer/final-acceptance/wave-03-18/textarea-reset.test.tsx (2 tests | 2 failed) 149ms
+   × preserves native displayed validation when ancestor cancels reset, then clears on accepted reset 93ms
+   × follows a replacement external form with the same id and retains latest defaults and controlled authority 55ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-18/textarea-reset.test.tsx > preserves native displayed validation when ancestor cancels reset, then clears on accepted reset
+AssertionError: expected null to be 'true' // Object.is equality
+
+- Expected:
+"true"
+
++ Received:
+null
+
+ ❯ docs/developer/final-acceptance/wave-03-18/textarea-reset.test.tsx:19:46
+     17|   change.mockClear(); await user.click(screen.getByRole('button', {nam…
+     18|   await new Promise(resolve => setTimeout(resolve, 20));
+     19|   expect(input.getAttribute('aria-invalid')).toBe('true');
+       |                                              ^
+     20|   expect(input.getAttribute('aria-describedby')).toBeTruthy();
+     21|   expect(input).toHaveProperty('value',''); expect(change).not.toHaveB…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-18/textarea-reset.test.tsx > follows a replacement external form with the same id and retains latest defaults and controlled authority
+AssertionError: expected <textarea name="draft" …(11)></textarea> to have property "value" with value 'Edited'
+
+Expected: "Edited"
+Received: "Latest"
+
+ ❯ docs/developer/final-acceptance/wave-03-18/textarea-reset.test.tsx:38:84
+     36|   await user.clear(draft); await user.type(draft,'Edited');
+     37|   rerender(view(1,'Latest')); change.mockClear();
+     38|   old.reset(); await new Promise(resolve => setTimeout(resolve,20)); e…
+       |                                                                                    ^
+     39|   await user.click(screen.getByRole('button',{name:'Reset owner'}));
+     40|   await vi.waitFor(() => expect(draft).toHaveProperty('value','Latest'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed (2)
+   Start at  18:04:35
+   Duration  519ms (transform 39ms, setup 14ms, import 125ms, tests 149ms, environment 137ms)
+

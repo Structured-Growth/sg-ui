@@ -9,7 +9,13 @@ import { Button } from "../../components/Button/Button";
 import { Link } from "../../experimental/Link/Link";
 import { Menu, type MenuItem } from "../../experimental/Menu/Menu";
 import { Avatar } from "../../experimental/Avatar/Avatar";
-import { AccountCircleIcon, AddIcon, CheckIcon, ChevronRightIcon, ExpandMoreIcon, KeyboardArrowLeftIcon, LogoutIcon } from "../../experimental/icons";
+import { AccountCircleIcon } from "../../experimental/icons/AccountCircleIcon";
+import { AddIcon } from "../../experimental/icons/AddIcon";
+import { CheckIcon } from "../../experimental/icons/CheckIcon";
+import { ChevronRightIcon } from "../../experimental/icons/ChevronRightIcon";
+import { ExpandMoreIcon } from "../../experimental/icons/ExpandMoreIcon";
+import { KeyboardArrowLeftIcon } from "../../experimental/icons/KeyboardArrowLeftIcon";
+import { LogoutIcon } from "../../experimental/icons/LogoutIcon";
 import styles from "./SideNavigation.module.css";
 
 export type SideNavChildBehavior = "expand" | "drilldown";

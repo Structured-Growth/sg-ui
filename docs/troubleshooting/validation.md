@@ -9,38 +9,40 @@ See the [development validation policy](../developer/react-aria-development-vali
 
 ## Missing AI draft-PR checks
 
-The manual AI proposal job validates its patch allowlist, Conventional Commit title,
-`pnpm check` and `pnpm build-storybook`. It does not run the full browser/packed
-consumer gates. Inspect the PR's exact head and Actions checks before interpreting
-a generated success summary. For default-token opened/synchronize/reopened events,
-current [GitHub guidance](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
-describes approval-required runs. A user with write access can approve them where
-that prompt is offered. If runs or required contexts remain absent, report the
-head/event and missing check to an owner. Do not weaken protection or change tokens,
-secrets or workflow permissions as a component fix. Repository-specific default-token
-behavior remains unverified by this guidance.
+The manual AI flow validates its patch/title/package/native-fixture preflight in
+a fresh read-only **validate-proposal** job before draft creation. The write-only
+proposal phase executes trusted inline data handling and actions, with no install
+or generated-code validation. After draft creation the explicit **validate-draft**
+reusable CI call validates the resulting immutable draft head, including the full
+browser/packed-consumer matrix and Next.js docs. Inspect that caller's actual
+head, jobs and conclusions even if no default-token PR event runs. Missing, failed,
+queued or approval-pending validation never means success. A changed PR head or
+title needs corresponding new validation; the earlier receipt cannot certify it.
 
-Full CI display names are **Validate Node 22.12.0** and **Validate Node 24**;
-`validate` is their source job ID. The title job is **conventional-title**. Confirm
-contexts from a real run, particularly reusable release caller prefixes. Dev PRs
-have no required automatic checks during the user-authorized pause; retain local
-targeted evidence and do not interpret missing/cancelled runs as passes.
+Direct CI names are **Validate Node 22.12.0**, **Validate Node 24**, **Next.js docs**
+and the title job **conventional-title**. Confirm actual reusable caller prefixes
+and effective ruleset contexts from real runs. Production-bound maintainer
+infrastructure PRs retain these checks. Dev PR automatic CI/title runs remain paused
+under the authorized exception, while the explicit AI reusable call still runs.
+Report missing/failed required contexts to an owner with head/run/settings evidence;
+do not change secrets, protection or permissions to obtain a pass. Live repository
+permissions and default-token behavior require operator receipts.
 
 ## Browser server missing output or port in use
 
-`pnpm test:browser` typechecks the suite and starts the static Storybook server on
-`127.0.0.1:6173`; it does not build Storybook. Build current output with
-`pnpm build-storybook` before starting the suite, and install its engines with
+From `packages/ui`, `pnpm test:browser` typechecks the suite and starts the static docs-native fixture server on
+`127.0.0.1:6173`; it does not build native fixtures. Build current output with
+`pnpm build:browser-docs` before starting the suite, and install its engines with
 `pnpm exec playwright install --with-deps chromium firefox webkit` when needed.
 The harness has `reuseExistingServer: false`. Coordinate with the owner of an
 existing process rather than stopping another worker's server or reusing stale
-output. Never rebuild Storybook during a suite run. Retain failure reports/traces;
+output. Never rebuild native fixtures during a suite run. Retain failure reports/traces;
 do not skip an engine merely to obtain a pass. See [browser acceptance and local
 Firefox limits](../developer/react-aria-browser-acceptance.md).
 
 ## Packed-consumer failures or stale package contents
 
-The CI consumer scripts pack already built `dist`. Run `pnpm check` first and then
+Run direct consumer scripts from `packages/ui`. The CI consumer scripts pack already built `dist`. Run `pnpm check` first and then
 execute the affected script with its CI arguments, serially, without an overlapping
 library rebuild. The Node 24 foundation runs use `--browser` (and `--react18` for
 React 18.3); editor runs use only the corresponding React selector. Next.js has its
@@ -53,9 +55,10 @@ change and consumer evidence.
 
 Runtime/check/build/consumer logs upload even after failure as
 `sgui-validation-node-22.12.0` and `sgui-validation-node-24`; browser evidence is
-`sgui-browser-node-24`. Package and Storybook artifacts upload after success.
+`sgui-browser-node-24`. Package and native-fixture artifacts upload after success.
+The separate docs job uploads `sgui-docs-validation-node-24`, including logs, JSON and failure traces even on failure.
 Artifacts retain for 14 days, so expired or absent files need evidence from the
 producing run rather than an assumption that validation passed. Record exact
 commit, job/step, command and first actionable error. Do not log credentials or
-publish a package to diagnose validation. Publication recovery and owner identity
-are separate release tasks; this guide does not define a rollback procedure.
+publish a package to diagnose validation. For publication failure, use the independent observation table and owner-reviewed
+recovery procedure in [release recovery](release.md) before considering a retry.

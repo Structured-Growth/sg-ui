@@ -1,0 +1,32 @@
+[
+  {
+    "variant": "proposed",
+    "runtime": "v24.21.0",
+    "executable": "/Users/thomashall/Library/pnpm/store/v11/links/@/node/24.21.0/8e3363dcf6f5ccdfdbb0a5b55fe716a72499ddb103e848ba9405f4e34d178319/node_modules/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/vitest/vitest.mjs",
+      "run",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-24/vitest.proposed.config.mts",
+      "--maxWorkers",
+      "1"
+    ],
+    "exitCode": 0
+  },
+  {
+    "variant": "baseline",
+    "runtime": "v24.21.0",
+    "executable": "/Users/thomashall/Library/pnpm/store/v11/links/@/node/24.21.0/8e3363dcf6f5ccdfdbb0a5b55fe716a72499ddb103e848ba9405f4e34d178319/node_modules/node/bin/node",
+    "args": [
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/vitest/vitest.mjs",
+      "run",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-24/vitest.baseline.config.mts",
+      "--maxWorkers",
+      "1",
+      "-t",
+      "Uppercase changes|Lowercase changes|Capitalize changes|Clear Formatting changes|Unicode|at a caret|transforms the real selected paragraph"
+    ],
+    "exitCode": 1
+  }
+]

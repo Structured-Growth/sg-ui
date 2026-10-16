@@ -1,0 +1,65 @@
+{
+  "number": 16,
+  "title": "Navigation and routing acceptance",
+  "ids": [
+    "A-H-02",
+    "A-H-03",
+    "A-M-10"
+  ],
+  "focus": "Resolve modifier/download/target/callback ordering and navigation boundaries against public host adapter. Reuse exact native transfers already accepted; create targeted remaining behavior probes and fixes.",
+  "directory": "docs/developer/final-acceptance/wave-03-16",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-H-02": "- [ ] A-H-02 Reconcile original `H-02`: Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](react-aria-browser-acceptance.md). Historical status: checked.",
+    "A-H-03": "- [ ] A-H-03 Reconcile original `H-03`: Integrate React Aria routing where needed behind the existing host adapter; avoid two competing navigation systems or a runtime Next.js dependency. Historical status: open.",
+    "A-M-10": "- [ ] A-M-10 Reconcile ExperiencePageNavigator final acceptance: Previous/next boundaries, labels, disabled states, link/action semantics. Link its `F-C10`, `T-C10` and `V-C10` evidence and any unresolved defects."
+  },
+  "priorEvidence": {
+    "A-H-02": {
+      "id": "A-H-02",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-H-02 Reconcile original `H-02`: Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](react-aria-browser-acceptance.md). Historical status: checked.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Execute/reconcile current docs-host exact-byte download, modifier/target/external/default-prevention and callback-order cases across three configured engines after build lease; retain popup/download raw outcomes."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-H-03": {
+      "id": "A-H-03",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-H-03 Reconcile original `H-03`: Integrate React Aria routing where needed behind the existing host adapter; avoid two competing navigation systems or a runtime Next.js dependency. Historical status: open.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Implement/execute the bounded composed fixture in docs-native host, recording exactly-once pointer/Enter navigation and native bypass/ref/pathname behavior; keep framework dependency host-only."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-M-10": {
+      "id": "A-M-10",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-M-10 Reconcile ExperiencePageNavigator final acceptance: Previous/next boundaries, labels, disabled states, link/action semantics. Link its `F-C10`, `T-C10` and `V-C10` evidence and any unresolved defects.",
+      "conversationNumber": 1,
+      "report": "docs/developer/final-acceptance/wave-02-01/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-01/results.json",
+      "reportSha256": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1",
+      "resultsSha256": "40de9dd3ba5ed2e2f16b65bf791b9c745aa7e3e5fd8b4f7be97116049b412da1",
+      "successors": [
+        {
+          "id": "W02-01-C10-intent",
+          "deliverable": "Product/API owner must record either authoring-list scope with explicit disposition of previous/next and link clauses, or a separate host-controlled adjacent/route navigation contract. Then reconcile that approved criterion; if behavior is added, provide corresponding API/example/native boundary evidence.",
+          "prerequisite": "Specific owner requirement decision, not permission to perform read-only acceptance."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "number": 39,
+  "title": "Behavior test quality and false mocks",
+  "ids": [
+    "A-X-01"
+  ],
+  "focus": "Implement the remaining concrete test-quality successor using current report inventory; identify and replace narrow misleading implementation-mirroring assertions with behavior probes as reviewable patches. No wholesale test rewrite or broad rerun.",
+  "directory": "docs/developer/final-acceptance/wave-03-39",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-X-01": "- [ ] A-X-01 Reconcile original `X-01`: Replace implementation-mirroring tests with behavior tests where needed; avoid mocks that hide the very focus/keyboard behavior under migration. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-X-01": {
+      "id": "A-X-01",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-X-01 Reconcile original `X-01`: Replace implementation-mirroring tests with behavior tests where needed; avoid mocks that hide the very focus/keyboard behavior under migration. Historical status: open.",
+      "conversationNumber": 9,
+      "report": "docs/developer/final-acceptance/wave-02-09/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-09/results.json",
+      "reportSha256": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "resultsSha256": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

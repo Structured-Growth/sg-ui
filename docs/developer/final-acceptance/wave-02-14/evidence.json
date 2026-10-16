@@ -1,0 +1,348 @@
+{
+  "capturedAt": "2026-10-16T22:42:58.273939+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "inputs": [
+    {
+      "file": "AGENTS.md",
+      "sha256": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "fa02": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d"
+    },
+    {
+      "file": "README.md",
+      "sha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+      "fa02": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac"
+    },
+    {
+      "file": "LICENSE",
+      "sha256": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+      "fa02": null
+    },
+    {
+      "file": "THIRD_PARTY_NOTICES.md",
+      "sha256": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+      "fa02": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56"
+    },
+    {
+      "file": "packages/ui/LICENSE",
+      "sha256": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+      "fa02": null
+    },
+    {
+      "file": "packages/ui/THIRD_PARTY_NOTICES.md",
+      "sha256": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+      "fa02": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56"
+    },
+    {
+      "file": "package.json",
+      "sha256": "375ae127c360f85769a9496c988be97ee26c7d0d7491b53a85613e02294c5acf",
+      "fa02": "375ae127c360f85769a9496c988be97ee26c7d0d7491b53a85613e02294c5acf"
+    },
+    {
+      "file": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "fa02": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd"
+    },
+    {
+      "file": "apps/docs/package.json",
+      "sha256": "85b0024aeebd589d03200bac0e0bb3c94f210a29adef20d701bdb6f1b9f6a4f9",
+      "fa02": "85b0024aeebd589d03200bac0e0bb3c94f210a29adef20d701bdb6f1b9f6a4f9"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "fa02": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086"
+    },
+    {
+      "file": "docs/extraction-manifest.json",
+      "sha256": "dd156daf1ed4403dd21af9349e21fad834660bea956fb08e4a03569a6d789066",
+      "fa02": "dd156daf1ed4403dd21af9349e21fad834660bea956fb08e4a03569a6d789066"
+    },
+    {
+      "file": "docs/commercial-licensing.md",
+      "sha256": "71fc2a9e55e62ee0f6eb4a0947d876fcea4cb856338c76cfe56451ff6be2482d",
+      "fa02": "71fc2a9e55e62ee0f6eb4a0947d876fcea4cb856338c76cfe56451ff6be2482d"
+    },
+    {
+      "file": "docs/developer/react-aria-removal-audit.md",
+      "sha256": "95a0a88bb62e2f4af83fa6c93b58a29eed1873d1bc50d8432e6dd02f4081cdc7",
+      "fa02": "95a0a88bb62e2f4af83fa6c93b58a29eed1873d1bc50d8432e6dd02f4081cdc7"
+    },
+    {
+      "file": "docs/developer/react-aria-license-inventory.md",
+      "sha256": "a6da4e49e9f506d54cfaaccf574ac5a7d62e7ecd4583546244614edce76b8b2d",
+      "fa02": "a6da4e49e9f506d54cfaaccf574ac5a7d62e7ecd4583546244614edce76b8b2d"
+    },
+    {
+      "file": "docs/developer/react-aria-package-acceptance.md",
+      "sha256": "6d95974d317c58a2f7fb47db7f6bd3c956f3e4a61793e6fd74a46521e58438fd",
+      "fa02": "6d95974d317c58a2f7fb47db7f6bd3c956f3e4a61793e6fd74a46521e58438fd"
+    },
+    {
+      "file": "docs/developer/react-aria-runtime-ci.md",
+      "sha256": "712971a2d5f77b644ccef5bc8f8593204ba2559599de65a3f226e81d1df5a7f1",
+      "fa02": "712971a2d5f77b644ccef5bc8f8593204ba2559599de65a3f226e81d1df5a7f1"
+    },
+    {
+      "file": "docs/developer/react-aria-release-gate-audit.md",
+      "sha256": "d047c51974f149bdec05517c296641484a0b7116951d87b59627618c2db3508d",
+      "fa02": "d047c51974f149bdec05517c296641484a0b7116951d87b59627618c2db3508d"
+    },
+    {
+      "file": "docs/developer/react-aria-public-api-reconciliation.md",
+      "sha256": "661711f4fd5fc8b49378c7c5781d3d10f2e0a8f9c3deddc47d79543015d96d54",
+      "fa02": "661711f4fd5fc8b49378c7c5781d3d10f2e0a8f9c3deddc47d79543015d96d54"
+    },
+    {
+      "file": "docs/migration.md",
+      "sha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+      "fa02": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b"
+    },
+    {
+      "file": ".github/workflows/ci.yml",
+      "sha256": "1dd21d1b751afc9d4f8e891a23675581b834a78624bc88790904210cfd4a6d22",
+      "fa02": "1dd21d1b751afc9d4f8e891a23675581b834a78624bc88790904210cfd4a6d22"
+    },
+    {
+      "file": ".github/workflows/release.yml",
+      "sha256": "d2efdd5ad32f00b4b8772ad57b3bc65d940b2a3c393c21c7d69e9b1e36d7a67b",
+      "fa02": "d2efdd5ad32f00b4b8772ad57b3bc65d940b2a3c393c21c7d69e9b1e36d7a67b"
+    },
+    {
+      "file": ".github/workflows/ai-code.yml",
+      "sha256": "37f296fa1b12b8ae13837843ef63a4e8f397aa05082f2875f821d1cbdda9cb91",
+      "fa02": "37f296fa1b12b8ae13837843ef63a4e8f397aa05082f2875f821d1cbdda9cb91"
+    },
+    {
+      "file": "packages/ui/release.config.mjs",
+      "sha256": "d03806a55bf45d609a66ed46aa781192eb58eea7d3f018bb134a23785e007eac",
+      "fa02": "d03806a55bf45d609a66ed46aa781192eb58eea7d3f018bb134a23785e007eac"
+    },
+    {
+      "file": "packages/ui/scripts/check-package.mjs",
+      "sha256": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+      "fa02": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2"
+    },
+    {
+      "file": "packages/ui/scripts/check-foundations.mjs",
+      "sha256": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+      "fa02": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5"
+    },
+    {
+      "file": "packages/ui/scripts/release-policy.test.mjs",
+      "sha256": "e938736461886d296aa8b964ae02feb2d082f6205e6ba10d4038f48004fd335a",
+      "fa02": "e938736461886d296aa8b964ae02feb2d082f6205e6ba10d4038f48004fd335a"
+    },
+    {
+      "file": "packages/ui/scripts/test-foundation-consumer.mjs",
+      "sha256": "310c846c0932f086ca32969b44c5ed136c0cd2b11f26d400222f7d4d38805fcd",
+      "fa02": "310c846c0932f086ca32969b44c5ed136c0cd2b11f26d400222f7d4d38805fcd"
+    },
+    {
+      "file": "packages/ui/scripts/test-editor-consumer.mjs",
+      "sha256": "c8a7fa4b713ad1fda1b5ebab497cf85cb686dcabd34ef442ef940ee145056aae",
+      "fa02": "c8a7fa4b713ad1fda1b5ebab497cf85cb686dcabd34ef442ef940ee145056aae"
+    },
+    {
+      "file": "packages/ui/scripts/test-next-consumer.mjs",
+      "sha256": "be13a3e2f1c67da4f733c95dcfcff4667ca82613583171478ef00e4b5600bb65",
+      "fa02": "be13a3e2f1c67da4f733c95dcfcff4667ca82613583171478ef00e4b5600bb65"
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-package.txt",
+      "sha256": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-release.txt",
+      "sha256": "f7494ff1ade19dc2d0f8fc0079655bb8752e4a09c72e88d7e71c1aaa65b17789",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-original-check.txt",
+      "sha256": "1a3e5118eb2441e0b68b05063f42d2f0144bc4a5455e58c104560e735ff9f8bc",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+      "sha256": "77e779efbc7f2842cabaa4ba0e83ddae5faa8cce9f7075c0c38f56f105c208d9",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-library-input-delta.json",
+      "sha256": "7083b23a5ff0ad7f2912798fa943bb7b87ece435df620048a75727962260310d",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-library.txt",
+      "sha256": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-fixtures.txt",
+      "sha256": "c4c855583016f98324a9518417d4e3465d9ac7835979f38c3df58329b937cf74",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/parallel-01/report.md",
+      "sha256": "cb002835e3371fec990040b244e987db59c77ac8e6f3b8a2a9c82c51b3d2313a",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/parallel-01/api-snapshot.json",
+      "sha256": "617a3e059ec7e50cce563f3ac8859b64b0af3f3618a3216ef7e6b4927288ea3c",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/parallel-15/report.md",
+      "sha256": "b5875edfc2fcecbafaf3581d5b3b38d9357d253ae034e078c07f800c5dfbae3e",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/parallel-15/manifest-audit.json",
+      "sha256": "5c1da4edf5d4004468ce8885b43caddfa9a4d689c93b906dbb5c0be6e572c74b",
+      "fa02": null
+    },
+    {
+      "file": "docs/developer/final-acceptance/parallel-reconciliation-2026-10-16.json",
+      "sha256": "4b8faea173248543601f4b00e4cbc3242fdf96c2c6216c675efe177f05b4221c",
+      "fa02": null
+    }
+  ],
+  "fa02InputDeltas": [
+    {
+      "file": "apps/docs/content/component-usage/forms.json",
+      "fa02": "fbf3a1b2dd77e3354d135cc0a4c7858d5d8ef80df0ce6fe02567c8d168c04ce4",
+      "current": "e8848c6f62052da3ba92d6fbf76ae917e59c3b5357b48d88637e6e45ce47a3a9"
+    },
+    {
+      "file": "apps/docs/examples/FieldIconExamples.tsx",
+      "fa02": "f5df5405823534ef0cf7658a5d0c0e8a31bf6d923721090bbc2b2f0287b43178",
+      "current": "9c7e78502488b0fddb78d280dd5a790606caa0ecdeb2432201c0d004b1caebe6"
+    },
+    {
+      "file": "apps/docs/examples/catalog/forms-dates.tsx",
+      "fa02": "9de2c41d7d15256a400d88e2a084e5c04473953329bad5c214b9cb6cdfc4889b",
+      "current": "3bf40ba915a42a39907e1dd897d44565d6e8b5c3a91f4e12f3a068f3c4ee52da"
+    },
+    {
+      "file": "docs/developer/backlog-execution-2026-10-15.md",
+      "fa02": "103a748c0204dadb89bcfa80b5ad57c2463db8f1f490bec1ec3e40711bcb743c",
+      "current": "7ad123300486e36d4e313e9a6aa609c48409d50f6f28229fffe5925a4b12d503"
+    },
+    {
+      "file": "docs/developer/react-aria-final-acceptance.md",
+      "fa02": "9dd823406b170aa0cbc6d8b894197f1a44bf9ed030f99a8946bc775a8180ed77",
+      "current": "2fbfe14bd54ca69f65061e020ae6b14336635fa253757a47011e744a939d0c7f"
+    },
+    {
+      "file": "docs/developer/react-aria-hardening-tasks.md",
+      "fa02": "ba123d300eb97dc68df96a3d8787222af3b3779596c7fe45647e08a7d3f7c39c",
+      "current": "aed2321f4cf09fe8f0dbd61f9a1f8c8601afa19866acf0fa6407054fc9730010"
+    },
+    {
+      "file": "docs/developer/react-aria-progress.md",
+      "fa02": "df0ac0ccd4cd18cbbef5f5d61db10ea20548a1855aa1649fc15c31e387ee4ac0",
+      "current": "14c4c3606a5a2828a6f42dd8658c1f60d8c9536b4d9465218f071d0f6b4495e5"
+    },
+    {
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.native-fixture.tsx",
+      "fa02": "a2a5b401e865224e7582e29ef4183082bf0ba98584f832d8441ef626c07db6c4",
+      "current": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.test.tsx",
+      "fa02": "800f43e446cc9928428a8b6ca8d9c51996c2b5b5702d0cc485cda702568971b2",
+      "current": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "fa02": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+      "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.controlled-transactions.test.tsx",
+      "fa02": "9ce690c15f08731b249a6fbc91ac431d752bf84a2d8de60b108aadd957ca91aa",
+      "current": "cd85cc5942f7a2d6b3501022daa481a257290855a65e99e42905827c2da05c5d"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.next100-regression.test.tsx",
+      "fa02": "32a74d47624caa301d9a27989cf3b48267a95073a01850cb4dd10e41194131cf",
+      "current": "e9f6569cad06689e8813dc8ea863d93b92bece994e267601327b022106f0f106"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.next100-regression.test.tsx",
+      "fa02": "bad1a85dbf0e4991254b0d215d4097932fd9486e48637d8909297ba817095e8e",
+      "current": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.test.tsx",
+      "fa02": "e29d4f72d4c5289e0dd303533efeb69d8dc584ee83f6339acd1ce606de115c81",
+      "current": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "fa02": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+      "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.test.tsx",
+      "fa02": "2cba2152230fdedc180035e0f187316c7f6272a451efb6494d6170b1d1bc13a4",
+      "current": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6"
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "fa02": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+      "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+    },
+    {
+      "file": "packages/ui/src/experimental/TextArea/TextArea.module.css",
+      "fa02": "527915b32bb92251623eb07d1a902ca2eeee47763efbffb02f88b64270649fb0",
+      "current": "5e16dcb7938fdedab6efe8a6882b0294b9ae4040d795027dc8823c5d407b8fc7"
+    },
+    {
+      "file": "packages/ui/src/experimental/TextArea/TextArea.test.tsx",
+      "fa02": "27d6afb6c7375423536f46408bb36f2c2133dc45c0c46629dae907b011e80194",
+      "current": "6af2480609646f5ceef544f54a7e572afc12c94117a539e3d0a95562bdc4472f"
+    },
+    {
+      "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+      "fa02": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+      "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+    }
+  ],
+  "trackedFileCount": 1657,
+  "savedDependencyNodes": 586,
+  "savedDependencyEdges": 985,
+  "retiredDependencyNodes": [],
+  "apiSnapshotSourcesChanged": [
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+      "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+      "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+      "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+    },
+    {
+      "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+      "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+      "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+    }
+  ],
+  "apiSnapshotDeclarationsChanged": [],
+  "legalRootAndPackageCopiesEqual": {
+    "LICENSE": true,
+    "THIRD_PARTY_NOTICES.md": true
+  },
+  "noBuildOrTestRerun": true,
+  "supplementalFiles": 40,
+  "manifestAmendments": 36
+}

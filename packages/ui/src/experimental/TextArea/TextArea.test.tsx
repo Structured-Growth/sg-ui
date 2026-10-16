@@ -6,6 +6,23 @@ import { afterEach, expect, it, vi } from "vitest";
 import { TextArea } from "./TextArea";
 import { NativeReset } from "./TextArea.native-fixture";
 afterEach(cleanup);
+it("renders inherited decorative icons without changing multiline form, naming or ref semantics", async () => {
+ const ref=createRef<HTMLTextAreaElement>(),change=vi.fn(),user=userEvent.setup();
+ const {container,rerender}=render(<form><TextArea ref={ref} label="Notes" name="notes" description="Host guidance" defaultValue="First" rows={6} startIcon={<svg aria-label="Decorative leading icon"/>} endIcon={<svg aria-label="Decorative trailing icon"/>} onValueChange={change}/></form>);
+ const input=screen.getByRole('textbox',{name:'Notes'}) as HTMLTextAreaElement;
+ expect(ref.current).toBe(input);expect(input.rows).toBe(6);
+ const frame=container.querySelector('[data-sgui-part="field-icon-control"]')!;
+ expect(frame.firstElementChild?.getAttribute('aria-hidden')).toBe('true');
+ expect(frame.lastElementChild?.getAttribute('aria-hidden')).toBe('true');
+ expect(screen.queryByRole('img')).toBeNull();
+ await user.click(input);await user.keyboard('{End}{Enter}Second');
+ expect(change).toHaveBeenLastCalledWith('First\nSecond');
+ expect(new FormData(container.querySelector('form')!).get('notes')).toBe('First\nSecond');
+ rerender(<form><TextArea ref={ref} label="Notes" name="notes" value="Host" readOnly startIcon={<svg/>}/></form>);
+ expect(container.querySelectorAll('[data-sgui-part="field-end-icon"]')).toHaveLength(0);
+ expect(ref.current).toBe(screen.getByRole('textbox',{name:'Notes'}));
+ expect(new FormData(container.querySelector('form')!).get('notes')).toBe('Host');
+});
 it("preserves multiline values, native refs/submission and reset", async () => {
  const ref = createRef<HTMLTextAreaElement>(); const user = userEvent.setup(); const change = vi.fn(); const { container } = render(<form><TextArea ref={ref} label="Description" name="description" defaultValue="First line" onValueChange={change} rows={6} /><button type="reset">Reset</button></form>);
  const input = screen.getByRole("textbox", { name: "Description" }); expect(ref.current).toBe(input); expect(ref.current?.rows).toBe(6);

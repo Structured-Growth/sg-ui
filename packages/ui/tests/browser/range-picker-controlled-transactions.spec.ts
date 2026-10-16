@@ -44,7 +44,7 @@ async function beginPreview(page: Page) {
 
 test('rejected Apply requests once while submitted endpoints and reopened draft follow the host; accepted Apply commits', async ({ page }) => {
   await trigger(page).click();
-  await page.getByRole('button', { name: 'March', exact: true }).click();
+  await page.getByRole('option', { name: 'March', exact: true }).click();
   expect(await endpoints(page)).toEqual(initial);
   await page.getByRole('button', { name: 'Apply', exact: true }).click();
   await expect(requests(page)).toHaveText(JSON.stringify([march]));
@@ -58,7 +58,7 @@ test('rejected Apply requests once while submitted endpoints and reopened draft 
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
   await page.getByLabel('Accept range requests').check();
   await trigger(page).click();
-  await page.getByRole('button', { name: 'March', exact: true }).click();
+  await page.getByRole('option', { name: 'March', exact: true }).click();
   await page.getByRole('button', { name: 'Apply', exact: true }).click();
   await expect(requests(page)).toHaveText(JSON.stringify([march, march]));
   expect(await endpoints(page)).toEqual([march.start, march.end]);
@@ -99,7 +99,7 @@ test('real form.reset while calendar remains focused preserves prevented preview
   await expect(page.getByLabel('Reset prevention ledger')).toHaveText('[true]');
   await expect(endpoint).toBeFocused();
   await expect(preview(page)).toHaveText('Range preview: 2024-02-28 – 2024-03-01. Choose an end date to finish.');
-  await expect(draft(page)).toHaveText(initial.join(' – '));
+  await expect(draft(page)).toHaveText(initial[0]+' – ');
   await expect(page.getByRole('button', { name: 'Apply', exact: true })).toBeDisabled();
   expect(await endpoints(page)).toEqual(initial);
   // Complete the retained pending range to prove prevention did not discard it.

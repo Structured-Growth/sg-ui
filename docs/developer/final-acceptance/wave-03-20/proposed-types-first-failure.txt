@@ -1,0 +1,8 @@
+apps/docs/native-fixtures/tsconfig.json: 3 proposed roots; 0 diagnostics
+
+packages/ui/tests/browser/tsconfig.json: 1 proposed roots; 1 diagnostics
+[91merror[0m[90m TS2688: [0mCannot find type definition file for 'node'.
+  The file is in the program because:
+    Entry point of type library 'node' specified in compilerOptions
+
+Runtime v26.5.0; overlay only, no source writes or build

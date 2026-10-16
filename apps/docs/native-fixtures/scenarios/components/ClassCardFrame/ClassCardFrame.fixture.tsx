@@ -107,3 +107,21 @@ function ParentResizeExample({ layout }: { layout: "flex" | "grid" }) {
 
 export const FlexParentResize: Story = { render: () => <ParentResizeExample layout="flex" /> };
 export const GridParentResize: Story = { render: () => <ParentResizeExample layout="grid" /> };
+
+// A-C-08: independent allocated cards in one wide viewport. No ancestor query needed.
+function ContainerBoundaryExample() {
+  const [narrow, setNarrow] = useState(true);
+  return <div style={{ display: "grid", gap: 16 }}>
+    <Button onPress={() => setNarrow(value => !value)}>Resize first card host</Button>
+    {(["compact", "comfortable"] as const).map(density =>
+      <ThemeScope density={density} key={density}>
+        <div data-testid={`card-host-${density}`} style={{ inlineSize: density === "compact" && narrow ? 280 : 420, maxInlineSize: "100%" }}>
+          <ClassCardFrame
+            header={<Typography as="h3" variant="h5">International course plan for leadership and learning materials review</Typography>}
+            body={<Typography>خطة الدورة الدولية لتطوير مهارات القيادة والتعاون ومراجعة المواد التعليمية</Typography>}
+            footer={<Button>Open {density} course</Button>} />
+        </div>
+      </ThemeScope>)}
+  </div>;
+}
+export const ContainerBoundary: Story = { render: () => <ContainerBoundaryExample /> };

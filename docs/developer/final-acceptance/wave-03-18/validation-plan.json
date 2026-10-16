@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-18",
+  "status": "proposed patches validated in virtual source; integration and native execution pending",
+  "integration": {
+    "precondition": "Coordinator reviews exact current input hashes against input-evidence.json; do not overwrite concurrent edits. Apply only from repository root in an allocated integration window.",
+    "patchesInOrder": ["primitive-reset.patch", "focused-tests-fixtures.patch", "grouped-fields-docs.patch"],
+    "commands": [
+      "git apply --check docs/developer/final-acceptance/wave-03-18/primitive-reset.patch",
+      "git apply --check docs/developer/final-acceptance/wave-03-18/focused-tests-fixtures.patch",
+      "git apply --check docs/developer/final-acceptance/wave-03-18/grouped-fields-docs.patch"
+    ],
+    "notes": "These commands only check application. Production changes remain unapplied by this owner. The native fixture and grouped contact example add no new public primitive or prop. Review the internal-input-base/native-fieldset interpretation separately; this report cannot fabricate owner acceptance."
+  },
+  "focusedUnitsAfterIntegration": {
+    "cwd": "packages/ui",
+    "runtime": "Node 22.12+ or 24, using the existing coordinator validation lease",
+    "command": "pnpm exec vitest run src/experimental/TextField/TextField.test.tsx src/experimental/TextArea/TextArea.test.tsx src/experimental/RadioGroup/RadioGroup.test.tsx src/experimental/TextArea/TextArea.reset-ownership.test.tsx src/experimental/RadioGroup/RadioGroup.reset-edge.test.tsx --maxWorkers=1",
+    "expected": "33 tests pass; canceled reset preserves textarea error/draft and radio choice; accepted reset uses latest defaults; stale external textarea form cannot reset the field; no reset-as-edit callbacks; existing controlled/ref/form/option behavior retained."
+  },
+  "checksAfterIntegration": {
+    "commandsFromRepositoryRoot": [
+      "pnpm --filter @structured-growth/sg-ui typecheck",
+      "pnpm --filter @structured-growth/sg-ui foundations:check",
+      "pnpm --filter @structured-growth/sg-ui build",
+      "pnpm --filter @structured-growth/docs catalog:generate",
+      "pnpm --filter @structured-growth/docs catalog:check"
+    ],
+    "coordinatorBuild": "Build the docs-native fixture host once using existing production package outputs and assigned immutable browser window. Run the docs source compiler and affected text-field example isolation/source/copy smoke; do not claim catalog checks alone compiled the dynamic snippet.",
+    "packed": "The exported signatures are unchanged. Reuse current package receipt for unchanged exports; attach a fresh affected packed import/type/form-reset result if coordinator integration policy requires one for the changed implementation."
+  },
+  "native": {
+    "cwd": "packages/ui",
+    "command": "pnpm exec playwright test tests/browser/wave03-18-primitives.spec.ts --project=chromium --project=firefox --project=webkit --workers=1",
+    "setup": "Use the existing configurable immutable-host harness; save source, output, fixture host and runner hashes, raw logs and attachments. No per-chat server was started. New fixture source is apps/docs/native-fixtures/scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx.",
+    "cases": [
+      "Layout: 900/540px direction, actual child geometry and wrapping, nested independent light/dark surface resolution, semantic versus decorative divider roles, native Tab order, 200% rem text plus forced-color screenshot. This is not actual browser zoom or physical-device proof.",
+      "Grouped fields: distinct labels and shared legend/help, native required errors, textarea canceled validation reset then accepted reset, same-id external form replacement, stable host-controlled value and callback silence.",
+      "Radio edge: empty/all-disabled native validity/FormData and focus skipping; enabled empty group invalid; native Tab entry without callback; canceled ancestor reset retains edit; accepted latest default reset remains silent.",
+      "Controlled Tabs: compact/comfortable x horizontal/vertical x automatic/manual rejecting and accepting hosts, disabled skipping, focus outline and selection retained across resize. Preserve existing scroll/menu coverage rather than rebuild it in this spec."
+    ],
+    "reuseAndMissingTabScopes": "Reuse exact matching batch05-tabs-overflow, tabs-vertical-orientation and manual-tabs-host-scroll receipts where available. If the candidate's raw engine receipt is absent, run only missing cases from those existing specs in the same frozen window; inspect actual bounds/scroll and focus screenshots. Menu promotion remains covered by existing Tabs overflow native cases, not by the new controlled scroll fixture."
+  },
+  "externalOperator": {
+    "fixture": "/fixtures/?id=migration-proofs-primitive-acceptance--profile-autofill&globals=a11y.manual:!true",
+    "protocol": "operator-protocol.md",
+    "requiredEvidence": "Actual populated synthetic browser-profile autofill UI selection for uncontrolled/accepting/rejecting hosts; named browser/OS/operator; FormData/reset/submit observations. Scripted fill or autocomplete attributes do not count. Spoken label/group/error/tab output requires a separate actual AT operator record."
+  },
+  "acceptance": "All five original leaves remain partial. Patch-only fixes cannot close current runtime acceptance. No central count changes requested until integrated affected validation and original bounded missing obligations are substantiated."
+}

@@ -1,0 +1,121 @@
+{
+  "number": 32,
+  "title": "Packed consumers CSS and React versions",
+  "ids": [
+    "A-C-20",
+    "A-R-08",
+    "A-R-09",
+    "A-X-17",
+    "A-X-20",
+    "A-Z-09"
+  ],
+  "focus": "Work exact current packed-consumer/type/React18.3/19 matrix successors. Current package import/type/equality check passed but is not actual installed-consumer matrix. Prepare reproducible isolated consumer execution; no shared install/build outputs. Preserve CSS side-effect/tree-shaking evidence.",
+  "directory": "docs/developer/final-acceptance/wave-03-32",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-C-20": "- [ ] A-C-20 Reconcile original `C-20`: Verify compiled CSS distribution, consumer production builds, stylesheet deduplication, and tree-shaking behavior; CSS must not be removed as a false side effect. Historical status: open.",
+    "A-R-08": "- [ ] A-R-08 Reconcile original `R-08`: Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output. Historical status: checked.",
+    "A-R-09": "- [ ] A-R-09 Reconcile original `R-09`: Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape. Historical status: open.",
+    "A-X-17": "- [ ] A-X-17 Reconcile original `X-17`: Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version. Historical status: open.",
+    "A-X-20": "- [ ] A-X-20 Reconcile original `X-20`: Test API typing and package consumers, including generics, refs, callback payloads, CSS imports, isolated subpaths, and declaration dependency leakage. Historical status: open.",
+    "A-Z-09": "- [ ] A-Z-09 Reconcile original `Z-09`: Verify a clean consumer can install and use core, grid, editor and date components without installing any retired package or styling runtime. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-C-20": {
+      "id": "A-C-20",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-C-20 Reconcile original `C-20`: Verify compiled CSS distribution, consumer production builds, stylesheet deduplication, and tree-shaking behavior; CSS must not be removed as a false side effect. Historical status: open.",
+      "conversationNumber": 7,
+      "report": "docs/developer/final-acceptance/wave-02-07/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-07/results.json",
+      "reportSha256": "c2c17b38a6fa8bf058828b8503f0ddad9765d376f7f23d1e8b059072fbda7401",
+      "resultsSha256": "9ff22fb352cfbea66116133129a6ddc64ffd27856ba233e93d7ed406bfc4cf00",
+      "successors": [
+        "W207-C20-B10"
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-R-08": {
+      "id": "A-R-08",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-08 Reconcile original `R-08`: Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output. Historical status: checked.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-CONSUMER: coordinator performs one serial current-artifact validation across supported React18/19 Vite foundation/editor, React19 Flight and Next production/browser fixtures after final source build; retain manifest/source/output identity, command/runtime/engine/logs and actual packed bytes. Never rebuild dist while fixtures read it."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-R-09": {
+      "id": "A-R-09",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-09 Reconcile original `R-09`: Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape. Historical status: open.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-TYPES: decide explicit supported TS versions/options, retain current-artifact installed-package positive/negative API compilation on that range, and update contract snapshot only for changed declarations. Preserve optional P03-GUARD-01 rejection improvement without representing it as a known current leak."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-X-17": {
+      "id": "A-X-17",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-X-17 Reconcile original `X-17`: Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version. Historical status: open.",
+      "conversationNumber": 10,
+      "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+      "reportSha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+      "resultsSha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+      "successors": [
+        {
+          "id": "W02-10-X17",
+          "ownerOrPrerequisite": "Coordinator frozen package window after changed inputs settle",
+          "deliverable": "Reconcile current source/output against retained React18/19 consumer manifests; execute only affected consumer scopes with immutable tarball and serialized output ownership.",
+          "acceptanceEvidence": "Actual installed tarball SHA, React/type/TS versions, API negative/positive results and affected runtime/SSR/native hydration result with exact source/output IDs.",
+          "execution": "unrun"
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-X-20": {
+      "id": "A-X-20",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-X-20 Reconcile original `X-20`: Test API typing and package consumers, including generics, refs, callback payloads, CSS imports, isolated subpaths, and declaration dependency leakage. Historical status: open.",
+      "conversationNumber": 10,
+      "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+      "reportSha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+      "resultsSha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+      "successors": [
+        {
+          "id": "W02-10-X20",
+          "ownerOrPrerequisite": "Coordinator immutable new package snapshot only for changed inputs",
+          "deliverable": "After fixes settle, reconcile source/declaration changes and regenerate only affected package/API evidence if required. Keep unchanged grid API fixture evidence; include any new public props/types in the actual tarball fixture.",
+          "acceptanceEvidence": "Installed tarball hash, generic/ref/payload negative assertions, CSS emission, isolated module graphs and declaration leak result; no source-alias-only typecheck passed off as consumer proof.",
+          "execution": "unrun"
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-Z-09": {
+      "id": "A-Z-09",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-09 Reconcile original `Z-09`: Verify a clean consumer can install and use core, grid, editor and date components without installing any retired package or styling runtime. Historical status: open.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "coordinator executes only affected clean packed consumers\nagainst the frozen candidate, preserving package hash, React/runtime/bundler\nversions, installed dependency graph and result logs. Full production supported-\nenvironment gates remain required independently of targeted development work."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

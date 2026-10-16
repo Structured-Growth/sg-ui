@@ -40,6 +40,8 @@ secondary menu trigger in one outlined group with a shared divider. Primary and
 secondary callbacks are independent. Loading or disabling the primary also blocks
 the secondary trigger. Library-owned default menu labels use translation keys.
 
+Use a filled primary Button for the one dominant confirmation or completion action in a form/dialog, such as Save or Confirm. Use outlined or text neutral actions for adjacent alternatives and ordinary toolbar commands. SplitAction keeps its neutral outlined group, shared divider and text primary command; it does not gain filled emphasis merely because its primary callback performs persistence. Keep action prominence separate from semantic text tones.
+
 `Switch` and `RadioGroup` expose owned checked/value callbacks with native form
 participation. Radio values are stable strings supplied by the host. Disabled
 radios are skipped by arrow navigation; read-only controls keep their selection.

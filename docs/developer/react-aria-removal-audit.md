@@ -47,3 +47,49 @@ Other broad substring hits such as `decompressFromUint8Array` are unrelated.
 Do not patch vendored Storybook output or claim its text is the shipped library.
 This batch rebuilt dist/Storybook and produced eight fresh packed consumer
 fixtures, closing Z-07. Final complete tarball/legal reconciliation remains Z-08.
+
+## Current provenance supplement — 2026-10-16
+
+The counts and Storybook output references above retain their dated audit scope.
+Current source/scripts live under `packages/ui`; current private native scenarios
+live under `apps/docs/native-fixtures`. The extraction manifest now accounts for
+workspace moves and removed story modules. See [lineage reconciliation](extraction-lineage.md)
+for exact local AppButton story/unit dispositions and the upstream evidence limit.
+Keep original Git objects, source paths, snapshots and execution receipts unchanged.
+These precise historical identifiers do not establish active dependencies. Literal
+zero-reference policy and legal-notice approval remain separate open decisions.
+
+
+## Current workspace audit (2026-10-16)
+
+The dated Storybook/build paragraphs above describe the historical host and its
+artifacts. Current maintained code lives in `packages/ui`; the replacement native
+host lives in `apps/docs/native-fixtures`. No Storybook runtime is required.
+The current [tracked-text receipt](final-acceptance/wave-03-35/tracked-text-audit.json)
+reads all 1,657 tracked current text files, including hidden configuration,
+personal state and baseline records, without publishing personal contents.
+Its 811 matching lines in 61 files are classified; personal state has no matches.
+Names in immutable baselines, removed-API mappings, guards, independent demo
+identities, legal text and opaque integrity strings are retained as such. Owned
+`scaleMotionDuration` is a substring false positive. These matches do not supply
+an old runtime dependency. Legal/reference-owner decisions remain separate.
+The receipt describes its captured bytes; later changes require scoped delta review.
+
+The [symbol dispositions](final-acceptance/wave-03-35/public-symbol-dispositions.json)
+join all 638 baseline route/name identities to the 469 captured contracts,
+including aliases, helpers, presets, hooks, adapters and experimental exports.
+Retained names can have breaking owned contracts: `MenuItem` changed from a JSX
+component to an item-record type; `AppThemeProvider` aliases Provider. The twelve
+absent baseline names each have an explicit owned replacement and release impact.
+This symbol join does not certify inherited prop compatibility or complete row
+acceptance. Review attribution, extraction metadata and remaining V evidence
+are tracked independently.
+
+For a durable candidate receipt, after the coordinator freezes and validates the
+build, run `node scripts/check-package.mjs --retain-packed=/new/absolute/directory`
+from `packages/ui`. The optional destination must not exist. The existing package
+checks run unchanged, then retain that exact archive and every packed file hash.
+Archive reference classification is separately reproducible with
+`python3 docs/developer/final-acceptance/wave-03-35/audit-packed.py ARCHIVE --output docs/developer/final-acceptance/wave-03-35/candidate-audit.json`
+from the repository root. This does not authorize notice deletion or assert
+legal approval, frozen installed dependency closure, or a release identity.

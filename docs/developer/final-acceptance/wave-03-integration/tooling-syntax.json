@@ -1,0 +1,87 @@
+[
+  {
+    "path": "packages/ui/scripts/check-governance-policy.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/check-governance-policy.test.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/check-license-inventory.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/test-scoped-lifecycle-consumer.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/consumer-artifact.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/consumer-css-proof.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/consumer-types-proof.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/test-editor-consumer.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/test-foundation-consumer.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/test-next-consumer.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/check-package.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/ci-artifacts.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/ci-artifacts.test.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/ai-component-scope.test.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/tests/performance/vite.config.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/tests/performance/measure-browser.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  },
+  {
+    "path": "packages/ui/scripts/consumer-artifact.test.mjs",
+    "exitCode": 0,
+    "stderr": ""
+  }
+]

@@ -18,7 +18,7 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(fun
   { selected, defaultSelected, onSelectedChange, onPress, disabled, density, className, ...props }, ref,
 ) {
   return <AriaToggleButton {...props} ref={ref} isSelected={selected} defaultSelected={defaultSelected}
-    onChange={onSelectedChange} onPress={onPress} isDisabled={disabled}
+    onChange={onSelectedChange} onPress={onPress ? () => onPress() : undefined} isDisabled={disabled}
     className={[styles.button, className].filter(Boolean).join(" ")}
     data-sgui-density={density} data-sgui-part="toggle-button" />;
 });

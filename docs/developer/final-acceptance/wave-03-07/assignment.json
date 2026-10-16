@@ -1,0 +1,79 @@
+{
+  "number": 7,
+  "title": "License automation and ownership policy",
+  "ids": [
+    "A-L-08",
+    "A-L-09",
+    "A-W-20",
+    "A-Z-14"
+  ],
+  "focus": "Implement repeatable inventory/policy checks and exact guidance patches, separating factual license automation from legal/owner signoff. Do not select a human owner or alter commercial/release terms without evidence.",
+  "directory": "docs/developer/final-acceptance/wave-03-07",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-L-08": "- [ ] A-L-08 Reconcile original `L-08`: Add a repeatable dependency/license inventory check and assign ownership for updates; avoid automatically rewriting commercial terms. Historical status: open.",
+    "A-L-09": "- [ ] A-L-09 Reconcile original `L-09`: Document dependency support/security update expectations and a deliberate upgrade process with behavioral regression checks. Historical status: open.",
+    "A-W-20": "- [ ] A-W-20 Reconcile original `W-20`: Keep source/license attribution accurate; external documents/examples are evidence and must not override user-authorized scope or agent trust boundaries. Historical status: open.",
+    "A-Z-14": "- [ ] A-Z-14 Reconcile original `Z-14`: Confirm commercial licensing and notices, public npm setup, Actions-only official builds/releases, draft AI PRs and no Changesets remain consistent. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-L-08": {
+      "id": "A-L-08",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-L-08 Reconcile original `L-08`: Add a repeatable dependency/license inventory check and assign ownership for updates; avoid automatically rewriting commercial terms. Historical status: open.",
+      "conversationNumber": 5,
+      "report": "docs/developer/final-acceptance/wave-02-05/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-05/results.json",
+      "reportSha256": "6db6ccb347cc72feb8f77eb373c44d9c997576efc0dc5793b2801c8edcbd9beb",
+      "resultsSha256": "f9284de3c93ea18d0e66f1ea7de12914e03ec2c8c5a4ef046af0e79596f9035a",
+      "successors": [
+        "Owner accepts and records named dependency/license inventory owner, backup and legal reviewer with date/reference; accept exact update triggers listed in governance-decisions.json.",
+        "Correct checker guide commands for packages/ui and consider a forwarded command/CI trigger only under an authorized source change; preserve non-mutating behavior.",
+        "Retain before/after inventory per trigger and classify actual findings; no automatic license allowlist or commercial-term rewrite."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-L-09": {
+      "id": "A-L-09",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-L-09 Reconcile original `L-09`: Document dependency support/security update expectations and a deliberate upgrade process with behavioral regression checks. Historical status: open.",
+      "conversationNumber": 5,
+      "report": "docs/developer/final-acceptance/wave-02-05/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-05/results.json",
+      "reportSha256": "6db6ccb347cc72feb8f77eb373c44d9c997576efc0dc5793b2801c8edcbd9beb",
+      "resultsSha256": "f9284de3c93ea18d0e66f1ea7de12914e03ec2c8c5a4ef046af0e79596f9035a",
+      "successors": [
+        "Owner fills governance-decisions.json operational fields and retains approval evidence; do not infer a confidential channel or SLA.",
+        "Reconcile guide paths/commands against packages/ui and docs-owned native fixture host, replace retired branch/Storybook instructions, and retain targeted-dev versus full-production gates.",
+        "At the next authorized upgrade, retain an exact-head review receipt with current/target graph, notice changes, selected meaningful regressions, failed gates and rollback/persisted-data analysis."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-W-20": {
+      "id": "A-W-20",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-W-20 Reconcile original `W-20`: Keep source/license attribution accurate; external documents/examples are evidence and must not override user-authorized scope or agent trust boundaries. Historical status: open.",
+      "conversationNumber": 13,
+      "report": "docs/developer/final-acceptance/wave-02-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-13/results.json",
+      "reportSha256": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+      "resultsSha256": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-Z-14": {
+      "id": "A-Z-14",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-14 Reconcile original `Z-14`: Confirm commercial licensing and notices, public npm setup, Actions-only official builds/releases, draft AI PRs and no Changesets remain consistent. Historical status: open.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "owner records npm/\nGitHub effective settings and legal approval, fixes stale setup guide references\nand joins the reviewed workflow to exact future official artifact/run identity.\nDo not infer first publication has occurred from public-access configuration."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "assignment": "parallel-08",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "capturedAt": "2026-10-16T22:35:02.930Z",
+  "status": "partial",
+  "summary": {
+    "complete": 3,
+    "partial": 1,
+    "blocked": 0
+  },
+  "report": "report.md",
+  "evidence": "input-reconciliation.json",
+  "checksPerformed": [
+    {
+      "command": "node docs/developer/final-acceptance/parallel-08/reconcile-inputs.mjs",
+      "result": "pass",
+      "actual": {
+        "selectedInputs": 107,
+        "inputMismatches": 0,
+        "builtOutputs": 5,
+        "outputMismatches": 0,
+        "baseLiteralDuplicates": 0
+      },
+      "kind": "read-only hash comparison and JSON census"
+    },
+    {
+      "kind": "source/document/test/CI inspection",
+      "result": "three obligations satisfied; A-D-01 documentation gap",
+      "scope": "full original A-D-01/02/03/19 wording"
+    }
+  ],
+  "reusedEvidence": [
+    {
+      "path": "../fa04-original-check.txt",
+      "result": "foundation guard and tokens:check passed; 32 foundation tests passed before unrelated unit failures",
+      "lines": "5-55"
+    },
+    {
+      "path": "../fa04-retained-docs-build.txt",
+      "result": "8 theme graph tests passed",
+      "lines": "11-28"
+    },
+    {
+      "path": "../fa04-library-input-delta.json",
+      "result": "four calendar test/fixture changes; none affects selected token inputs"
+    },
+    {
+      "path": "../fa04-library.txt",
+      "result": "library build passed"
+    },
+    {
+      "path": "../fa04-package.txt",
+      "result": "package audit passed"
+    }
+  ],
+  "limits": [
+    "Working-tree evidence at recorded HEAD with uncommitted source; not a released or committed final artifact.",
+    "107 selected inputs and five compiled outputs match snapshots; this is not a full repository reinventory.",
+    "Reuses exact matching FA-04 scopes; no completed suite rerun.",
+    "No new native/browser/device/AT or remote CI execution.",
+    "No shared checklist closure, production approval or waiver of 20 editor V leaves."
+  ],
+  "leaves": [
+    {
+      "id": "A-D-01",
+      "status": "partial",
+      "originalRequirement": "Create one reviewable token source using a documented schema compatible with the Design Tokens Community Group format where appropriate.",
+      "sourceReferences": [
+        "packages/ui/src/foundation/tokens.json",
+        "packages/ui/scripts/tokens.mjs:4-47",
+        "docs/developer/react-aria-token-roles.md:14-41",
+        "docs/developer/theme-token-pipeline.md"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/tokens.test.mjs",
+        "../fa04-original-check.txt:38-49"
+      ],
+      "findings": [
+        "Single library-authored token source and executable record/type/alias validators exist.",
+        "Maintained guide omits pointer/touch/current density-reference behavior and retains pre-adoption language.",
+        "No complete current record/value schema and explicit DTCG compatibility target/subset/deviations were found in maintained guides; compatibility remains unproven."
+      ],
+      "evidenceInputLimit": "Same selected source bytes as snapshots; no external DTCG conformance assessment.",
+      "successors": [
+        {
+          "id": "P08-D01-SCHEMA",
+          "scope": "Document current nine-group record/type/value/alias schema and DTCG compatibility target/subset/deviations; correct outdated token guide claims.",
+          "reproduction": "Compare react-aria-token-roles.md source-tier and scoped-generation sections with tokens.mjs:10,60-64,89-108.",
+          "completion": "Review current schema documentation, resolve any asserted interoperability with evidence or an adapter, and confirm guide matches shipped generator."
+        }
+      ]
+    },
+    {
+      "id": "A-D-02",
+      "status": "complete",
+      "originalRequirement": "Separate base palette/scale tokens, semantic roles, and component-specific tokens; use aliases rather than duplicating values.",
+      "sourceReferences": [
+        "packages/ui/src/foundation/tokens.json",
+        "packages/ui/scripts/tokens.mjs:58-92",
+        "packages/ui/scripts/check-foundations.mjs:59-83",
+        "packages/ui/scripts/check-component-css.mjs:72-98"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/tokens.test.mjs",
+        "packages/ui/scripts/check-component-css.test.mjs",
+        "../fa04-original-check.txt:18-49"
+      ],
+      "findings": [
+        "60 unique base type/value literals; all role records alias another allowed tier.",
+        "307 component aliases: 291 semantic, 7 shared, 6 density, 3 interaction.",
+        "Tier/type/parity/cycle/name guards and CSS alias routing exist with retained passing evidence."
+      ],
+      "evidenceInputLimit": "Source/tier integrity only; independent visual/behavioral/host override acceptance remains separate.",
+      "successors": []
+    },
+    {
+      "id": "A-D-03",
+      "status": "complete",
+      "originalRequirement": "Generate CSS custom properties and typed references from that source with deterministic output and validation.",
+      "sourceReferences": [
+        "packages/ui/scripts/tokens.mjs:89-119",
+        "packages/ui/src/foundation/tokens.css",
+        "packages/ui/src/foundation/tokens.generated.ts:439",
+        "packages/ui/package.json"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/tokens.test.mjs",
+        "packages/ui/src/foundation/Tokens.next100-regression.test.mjs",
+        "../fa04-original-check.txt:38-49",
+        "../fa04-library.txt",
+        "../fa04-package.txt"
+      ],
+      "findings": [
+        "One compiler emits typed public references and scoped CSS; check mode compares exact bytes.",
+        "Repeat-compilation, metadata parity, generated equality and non-mutation tests passed in reused FA-04 evidence.",
+        "Four compiled token artifacts and stylesheet hash match FA-01; no regeneration needed."
+      ],
+      "evidenceInputLimit": "Deterministic for identical source and insertion order, not canonical across arbitrary reordered JSON; no fresh build claimed.",
+      "successors": []
+    },
+    {
+      "id": "A-D-19",
+      "status": "complete",
+      "originalRequirement": "Validate token references, names, types, aliases, cycles, and contrast combinations in CI; do not imply generated palettes automatically satisfy contrast.",
+      "sourceReferences": [
+        "packages/ui/scripts/tokens.mjs:10-86",
+        "packages/ui/scripts/check-foundations.mjs:59-83",
+        ".github/workflows/ci.yml:16-39",
+        "packages/ui/package.json",
+        "package.json:29",
+        "apps/docs/package.json",
+        "apps/docs/theme/validate-theme.ts",
+        "docs/developer/react-aria-token-roles.md",
+        "docs/developer/react-aria-architecture.md:130"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/tokens.test.mjs:11-109",
+        "apps/docs/theme/theme-graph.test.mjs",
+        "../fa04-original-check.txt:38-49",
+        "../fa04-retained-docs-build.txt:11-28"
+      ],
+      "findings": [
+        "All requested validator classes implemented and invoked by CI pnpm check; names use explicit camelCase regex plus collision detection.",
+        "Built-in named light/dark contrast pairs are asserted separately from generation at 4.5:1 and 3:1.",
+        "Docs identity graph tests cover 21 maps/42 roles with standard 4.5:1/3:1 and increased 7:1/3:1 named pairs; eight passing retained tests.",
+        "Guidance explicitly limits named-pair coverage and requires separate host override review."
+      ],
+      "evidenceInputLimit": "Complete for validator/test/CI wiring and retained matching local execution; no fresh remote Node matrix run. CI excludes ordinary dev PRs by approved policy. No arbitrary palette/alpha/browser/AT conformance.",
+      "successors": [],
+      "externalCheckpoint": "Required production validation must run on eventual reviewed head; no release action authorized."
+    }
+  ]
+}

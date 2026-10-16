@@ -1,0 +1,71 @@
+{
+  "task": "A-B-12",
+  "status": "partial",
+  "completedSuccessors": [
+    {
+      "id": "A-B-12/stale-presence-metadata",
+      "status": "complete",
+      "result": "36 stale presence/migration rows repaired; all original provenance and destination paths retained; all 201 presence flags and 53 replacement references validated."
+    },
+    {
+      "id": "A-B-12/local-button-unit-lineage",
+      "status": "complete",
+      "result": "Original local AppButton unit assertions exactly preserved in Button.public-contract.test.tsx after name substitution; no tests rerun."
+    }
+  ],
+  "remainingSuccessors": [
+    {
+      "id": "A-B-12/story-lineage",
+      "status": "open",
+      "requirement": "Original-platform source-commit-bound evidence or explicit reviewed reconciliation of proposed AppButton story mappings; no exact AppButton migration-manifest entry exists."
+    }
+  ],
+  "summary": {
+    "rows": 201,
+    "present": 159,
+    "absent": 42,
+    "presenceMismatches": 0,
+    "repairedRows": 36,
+    "exactStoryFixtureMappings": 32,
+    "renamedButtonRows": 3,
+    "qualifiedStoryMappingRows": 1,
+    "replacementReferencesChecked": 53,
+    "uniqueReplacementPathsChecked": 52
+  },
+  "validations": [
+    "Python JSON/provenance/row/path/hash assertions passed",
+    "Bounded local Git object history and assertion-continuity reads passed",
+    "git diff --check for owned paths passed"
+  ],
+  "reusedEvidence": [
+    "parallel-15/report.md",
+    "parallel-15/manifest-audit.json",
+    "FA-01\u201304 dated evidence retained without reruns"
+  ],
+  "changedMaintainedFiles": [
+    "docs/extraction-manifest.json"
+  ],
+  "receiptFiles": [
+    "docs/developer/final-acceptance/fix-05/button-lineage.json",
+    "docs/developer/final-acceptance/fix-05/changes.json",
+    "docs/developer/final-acceptance/fix-05/repair.py",
+    "docs/developer/final-acceptance/fix-05/report.md",
+    "docs/developer/final-acceptance/fix-05/validation.json"
+  ],
+  "touchedFileSha256": {
+    "docs/extraction-manifest.json": "6ae007599e1b32d547c26b2ef09accf8db493604c21b9558abec0ae8d3fb953a",
+    "docs/developer/final-acceptance/fix-05/button-lineage.json": "8254e283f9caa0b654f0a5cc94277b7bdd67c08f4b8859986147fb03fad98be4",
+    "docs/developer/final-acceptance/fix-05/changes.json": "5df7be3fbf3ea793cd3a20155cbf4639ab35e12d508537330af00a117879dd56",
+    "docs/developer/final-acceptance/fix-05/repair.py": "4bdd3ef4d9ea9d65b1e61a34a2c13e54be830bee26ba0649c05229eb2e3b805a",
+    "docs/developer/final-acceptance/fix-05/report.md": "ade822288811f753a7476ae4b4a0836867f443fd6cd7eb08d38c1fed4543ab93",
+    "docs/developer/final-acceptance/fix-05/validation.json": "9caf1a03607d1288b5b2063ecd520ef524ee65ebf8172f64dc7e4c3580318f27"
+  },
+  "hashNote": "results.json excluded from its own hash to avoid recursive self-hashing; all other touched files included.",
+  "limits": [
+    "Full A-B-12 remains partial",
+    "No independent original-platform provenance verification",
+    "No new test/build/browser/consumer/device/AT execution",
+    "No legal approval or remote CI claim",
+    "Shared acceptance counts and migration manifest untouched"
+  ]
+}

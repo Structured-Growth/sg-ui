@@ -3,7 +3,14 @@ import { forwardRef, useEffect, useRef, useState, type CSSProperties, type React
 import { Button } from "../../components/Button/Button";
 import { TextField } from "../../experimental/TextField/TextField";
 import { ToggleButton } from "../../experimental/ToggleButton/ToggleButton";
-import { CachedIcon, CloseIcon, FilterListIcon, SearchIcon, SortIcon, ViewColumnIcon, ViewListIcon, WindowIcon } from "../../experimental/icons";
+import { CachedIcon } from "../../experimental/icons/CachedIcon";
+import { CloseIcon } from "../../experimental/icons/CloseIcon";
+import { FilterListIcon } from "../../experimental/icons/FilterListIcon";
+import { SearchIcon } from "../../experimental/icons/SearchIcon";
+import { SortIcon } from "../../experimental/icons/SortIcon";
+import { ViewColumnIcon } from "../../experimental/icons/ViewColumnIcon";
+import { ViewListIcon } from "../../experimental/icons/ViewListIcon";
+import { WindowIcon } from "../../experimental/icons/WindowIcon";
 import { useTranslation } from "../../i18n";
 import { DataToolbarColumnsMenu, type DataToolbarColumnOption } from "./components/DataToolbarColumnsMenu";
 import { DataToolbarSortMenu, type DataToolbarSortOption, type DataToolbarSortRule } from "./components/DataToolbarSortMenu";

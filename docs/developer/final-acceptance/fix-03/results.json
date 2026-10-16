@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "owner": "fix-03",
+  "capturedAt": "2026-10-16T22:46:50.263759+00:00",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "workingTreeEvidence": true,
+  "sharedLedgerModified": false,
+  "changes": [
+    {
+      "path": "docs/developer/react-aria-css-composition.md",
+      "sha256": "72cf8c2871d06fe4c3c926cb4839c8fa804a24f61fba3b721cd056498f28eb66"
+    },
+    {
+      "path": "docs/developer/react-aria-css-lint.md",
+      "sha256": "6b6860ca63214f4c20aa16e1c77edc2fd92444fb7ac76da10ed42f3de52ae728"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-03/report.md",
+      "sha256": "09a934637565ace9a055fd7137b9700513b67b9cf5e2a27776dfddc3a846f03a"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-03/validate.py",
+      "sha256": "81b325107e72978bb2cee14def323ce1f06a080818a7845ff3e804fa195c9dc1"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-03/validation.json",
+      "sha256": "d556256910f9de7c8f14007b471d5052652bb7baba3f76cd90c7906c96f6b5d1"
+    }
+  ],
+  "hashBoundary": "All touched files except results.json are hashed here; results.json excludes its own digest.",
+  "leaves": [
+    {
+      "id": "A-C-07",
+      "status": "partial",
+      "successors": [
+        {
+          "id": "C07-doc-composition",
+          "status": "complete"
+        },
+        {
+          "id": "C07-popover-important",
+          "status": "partial",
+          "remaining": "Justify each of the 13 retained important geometry declarations or change positioning; affected unit/native reopen/resize evidence if code changes."
+        }
+      ]
+    },
+    {
+      "id": "A-C-18",
+      "status": "previously-complete",
+      "successors": [
+        {
+          "id": "C18-doc-drift",
+          "status": "complete"
+        }
+      ],
+      "evidence": "Reused accepted parallel-11 review and retained FA-04 fixture execution; not counted as a new leaf closure."
+    }
+  ],
+  "validation": [
+    {
+      "command": "python3 docs/developer/final-acceptance/fix-03/validate.py",
+      "exitCode": 0,
+      "receipt": "validation.json"
+    },
+    {
+      "command": "git diff --check -- docs/developer/react-aria-css-lint.md docs/developer/react-aria-css-composition.md docs/developer/final-acceptance/fix-03",
+      "exitCode": 0,
+      "limit": "Tracked diffs only; validator reads untracked guide."
+    }
+  ],
+  "remainingRequirements": [
+    "Coordinator architecture link",
+    "C07-popover-important engineering decision",
+    "Affected Popover unit/native checks if production code changes",
+    "Separate browser/host composition/writing-mode/zoom/focus/scroll/device/AT gates",
+    "Legal and remote CI/release requirements unchanged"
+  ],
+  "limits": [
+    "No source/generated output/shared ledger edits",
+    "No suite reruns/builds/install/server/Git mutations",
+    "No Popover necessity, native/browser/device/AT conformance or legal/remote CI claim",
+    "Popover.tsx current hash has no prior comparison in parallel-11 receipt"
+  ]
+}

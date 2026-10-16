@@ -1,0 +1,181 @@
+
+> @structured-growth/sg-ui@0.0.0-development check /home/runner/work/sg-ui/sg-ui
+> pnpm foundations:check && pnpm tokens:check && pnpm test:foundations && pnpm typecheck && pnpm test && pnpm test:release && pnpm build && pnpm test:package
+
+
+> @structured-growth/sg-ui@0.0.0-development foundations:check /home/runner/work/sg-ui/sg-ui
+> node scripts/check-foundations.mjs
+
+Owned foundation import, layer and token checks pass.
+
+> @structured-growth/sg-ui@0.0.0-development tokens:check /home/runner/work/sg-ui/sg-ui
+> node scripts/tokens.mjs --check
+
+
+> @structured-growth/sg-ui@0.0.0-development test:foundations /home/runner/work/sg-ui/sg-ui
+> node --test scripts/tokens.test.mjs scripts/css-modules.test.mjs scripts/packed-browser.test.mjs scripts/react-stately-boundaries.test.mjs src/foundation/Tokens.next100-regression.test.mjs scripts/CSSPipeline.next100-regression.test.mjs scripts/check-component-css.test.mjs
+
+TAP version 13
+# Subtest: emits real module maps with ordered layers, scoped normalization and logical token slots
+ok 1 - emits real module maps with ordered layers, scoped normalization and logical token slots
+  ---
+  duration_ms: 132.951828
+  ...
+# Subtest: resolves the public stylesheet export and consumes generated ESM class assets
+ok 2 - resolves the public stylesheet export and consumes generated ESM class assets
+  ---
+  duration_ms: 154.93425
+  ...
+# Subtest: repeated compilation is deterministic across roots and replaces stylesheet contents
+ok 3 - repeated compilation is deterministic across roots and replaces stylesheet contents
+  ---
+  duration_ms: 396.497716
+  ...
+# Subtest: owned layers, local descendants, variable math, inheritance and forced colors pass
+ok 4 - owned layers, local descendants, variable math, inheritance and forced colors pass
+  ---
+  duration_ms: 5.141068
+  ...
+# Subtest: every selector branch must be local; global wrappers and negative pseudos are not anchors
+ok 5 - every selector branch must be local; global wrappers and negative pseudos are not anchors
+  ---
+  duration_ms: 1.252561
+  ...
+# Subtest: host and retired selectors fail even underneath a local anchor
+ok 6 - host and retired selectors fail even underneath a local anchor
+  ---
+  duration_ms: 0.553877
+  ...
+# Subtest: layer and token checks remain enforced, including whitespace before token names
+ok 7 - layer and token checks remain enforced, including whitespace before token names
+  ---
+  duration_ms: 0.313588
+  ...
+# Subtest: typography literals, shorthand, token fallback and token decoration fail
+ok 8 - typography literals, shorthand, token fallback and token decoration fail
+  ---
+  duration_ms: 0.804651
+  ...
+# Subtest: comments are inert; diagnostics retain exact source locations and all violations
+ok 9 - comments are inert; diagnostics retain exact source locations and all violations
+  ---
+  duration_ms: 1.333491
+  ...
+# Subtest: percentage and dimension math offsets fail; unitless token arithmetic passes
+ok 10 - percentage and dimension math offsets fail; unitless token arithmetic passes
+  ---
+  duration_ms: 0.761738
+  ...
+# Subtest: quoted attribute data is inert but actual retired identifiers still fail
+ok 11 - quoted attribute data is inert but actual retired identifiers still fail
+  ---
+  duration_ms: 0.74354
+  ...
+# Subtest: only exact shared rich-document semantic declarations have a literal contract
+ok 12 - only exact shared rich-document semantic declarations have a literal contract
+  ---
+  duration_ms: 2.095629
+  ...
+# Subtest: module names are stable, namespaced and distinct between components
+ok 13 - module names are stable, namespaced and distinct between components
+  ---
+  duration_ms: 7.516206
+  ...
+# Subtest: packed server returns missing assets before headers and survives subsequent requests
+ok 14 - packed server returns missing assets before headers and survives subsequent requests
+  ---
+  duration_ms: 31.139988
+  ...
+# Subtest: registered DateField may use public lower-level state hooks internally
+ok 15 - registered DateField may use public lower-level state hooks internally
+  ---
+  duration_ms: 6.137356
+  ...
+# Subtest: ordinary owned modules and public contracts reject every state reference form
+ok 16 - ordinary owned modules and public contracts reject every state reference form
+  ---
+  duration_ms: 7.481834
+  ...
+# Subtest: actual source checker permits DateField but rejects visited and transitive helpers
+ok 17 - actual source checker permits DateField but rejects visited and transitive helpers
+  ---
+  duration_ms: 3096.980529
+  ...
+# Subtest: root, granular and grid declaration checks reject upstream escapes and retain owned contracts
+ok 18 - root, granular and grid declaration checks reject upstream escapes and retain owned contracts
+  ---
+  duration_ms: 257.415493
+  ...
+# Subtest: generated files match the source
+ok 19 - generated files match the source
+  ---
+  duration_ms: 6.506948
+  ...
+# Subtest: rejects missing references, cycles, invalid dimensions, type mismatch and unpaired themes
+ok 20 - rejects missing references, cycles, invalid dimensions, type mismatch and unpaired themes
+  ---
+  duration_ms: 2.004103
+  ...
+# Subtest: proof text, action, error and focus combinations meet declared contrast thresholds
+ok 21 - proof text, action, error and focus combinations meet declared contrast thresholds
+  ---
+  duration_ms: 0.886373
+  ...
+# Subtest: generation is deterministic and emits typed component and semantic tiers
+ok 22 - generation is deterministic and emits typed component and semantic tiers
+  ---
+  duration_ms: 4.310718
+  ...
+# Subtest: rejects unknown groups, malformed records and tier direction/type/parity violations
+ok 23 - rejects unknown groups, malformed records and tier direction/type/parity violations
+  ---
+  duration_ms: 9.514481
+  ...
+# Subtest: emitted component relationships rebind at scope, theme/system and density boundaries
+ok 24 - emitted component relationships rebind at scope, theme/system and density boundaries
+  ---
+  duration_ms: 3.398406
+  ...
+# Subtest: palette/scale owns deduplicated shared values; component tier contains aliases only
+ok 25 - palette/scale owns deduplicated shared values; component tier contains aliases only
+  ---
+  duration_ms: 0.417614
+  ...
+# Subtest: preserves every legacy scoped token literal and nesting selector
+ok 26 - preserves every legacy scoped token literal and nesting selector
+  ---
+  duration_ms: 1.979066
+  ...
+# node:internal/modules/esm/get_format:218
+#   throw new ERR_UNKNOWN_FILE_EXTENSION(ext, filepath);
+#         ^
+# TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /home/runner/work/sg-ui/sg-ui/src/foundation/tokens.generated.ts
+#     at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:218:9)
+#     at defaultGetFormat (node:internal/modules/esm/get_format:244:36)
+#     at defaultLoad (node:internal/modules/esm/load:122:22)
+#     at async ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:483:32) {
+#   code: 'ERR_UNKNOWN_FILE_EXTENSION'
+# }
+# Node.js v22.12.0
+# Subtest: src/foundation/Tokens.next100-regression.test.mjs
+not ok 7 - src/foundation/Tokens.next100-regression.test.mjs
+  ---
+  duration_ms: 26.154972
+  location: '/home/runner/work/sg-ui/sg-ui/src/foundation/Tokens.next100-regression.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 26
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3829.898385
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.

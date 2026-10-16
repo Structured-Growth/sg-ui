@@ -12,6 +12,7 @@ import { useTranslation } from "../../i18n";
 import { compareGridValues, filterGridRows } from "./row-processing";
 import { defaultGridState, type DataGridProps, type GridState } from "./types";
 import styles from "./DataGrid.module.css";
+import { GridColumnWidthControl } from "./GridColumnWidthControl";
 import { getGridFillColumn, retainGridFillColumn } from "./column-sizing";
 
 /** Migration integration proof. The host owns server requests and reorder persistence. */
@@ -21,6 +22,7 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
   const [internal, setInternal] = useState<GridState>(() => ({ ...defaultGridState, ...defaultState }));
   const current = state ?? internal;
   const resizing = useRef<string | null>(null);
+  const gridElement = useRef<HTMLDivElement>(null);
   function update(patch: Partial<GridState>) {
     const next = { ...current, ...patch };
     if (!state) setInternal(next);
@@ -54,7 +56,7 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
     const rest = current.sort.filter(rule => rule.column !== column);
     update({ page: 0, sort: previous?.direction === "desc" ? rest : [...rest, { column, direction: previous ? "desc" : "asc" }] });
   };
-  return <div className={styles.root}>
+  return <div ref={gridElement} className={styles.root}>
     <div className={styles.toolbar}>
       <TextField label={t("common.ui.search", { defaultMessage: "Search" })} type="search" value={current.search}
         onValueChange={search => update({ search, page: 0 })} disabled={loading} />
@@ -79,12 +81,22 @@ export function DataGrid<RowModel>({ label, rows, columns, getRowId, getRowLabel
         className={styles.table}>
         <TableHeader>
           <Column id="__selection" width={150} minWidth={100} className={styles.header}><Checkbox slot="selection" label={t("common.ui.selectPage", { defaultMessage: "Select page" })} /></Column>
-          {visible.map((column, index) => <Column key={column.id} id={column.id} isRowHeader={index === 0} textValue={column.label}
+          {visible.map((column, index) => <Column key={column.id} id={column.id} isRowHeader={index === 0} data-width-column-index={index} textValue={column.label}
             width={column.id === fillColumn ? "1fr" : current.widths[column.id] ?? column.width ?? "1fr"} minWidth={column.minWidth ?? (column.width === undefined ? 120 : 80)} maxWidth={column.maxWidth} className={styles.header}>
             <div className={styles.columnHeader}>{column.sortable !== false ? <Button variant="text" tone="neutral" onPress={() => toggleSort(column.id)} aria-label={t("common.ui.sortColumn", { defaultMessage: "Sort {label}", values: { label: column.label } })}>
               {column.label}{current.sort.find(rule => rule.column === column.id)?.direction === "asc" ? " ↑" : current.sort.some(rule => rule.column === column.id) ? " ↓" : ""}
               {current.sort.length > 1 && current.sort.some(rule => rule.column === column.id) && ` ${current.sort.findIndex(rule => rule.column === column.id) + 1}`}
-            </Button> : column.label}<span onFocusCapture={() => { resizing.current = column.id; }} onPointerDownCapture={() => { resizing.current = column.id; }} onKeyDownCapture={() => { resizing.current = column.id; }}><ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.label } })} /></span></div>
+            </Button> : column.label}<span onFocusCapture={() => { resizing.current = column.id; }} onPointerDownCapture={() => { resizing.current = column.id; }} onKeyDownCapture={() => { resizing.current = column.id; }}><ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.label } })} /></span><GridColumnWidthControl label={column.label}
+              width={() => {
+                const header = gridElement.current?.querySelector<HTMLElement>(`[data-width-column-index="${index}"]`);
+                // React Aria numeric column widths use the CSS width box. A
+                // bounding rectangle also includes padding for content-box
+                // headers and would add that padding again on every request.
+                const width = header && Number.parseFloat(header.ownerDocument.defaultView!.getComputedStyle(header).width);
+                return width && width > 0 ? width : current.widths[column.id] ?? column.width ?? 160;
+              }}
+              minWidth={column.minWidth ?? (column.width === undefined ? 120 : 80)} maxWidth={column.maxWidth}
+              onWidthChange={width => update({ widths: retainGridFillColumn(sizingColumns, { ...current.widths, [column.id]: width }, column.id) })} /></div>
           </Column>)}
           {(renderActions || onReorder) && <Column id="__actions" width={240} className={styles.header}>{t("common.ui.actions", { defaultMessage: "Actions" })}</Column>}
         </TableHeader>

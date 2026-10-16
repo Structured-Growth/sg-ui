@@ -27,5 +27,10 @@ export function observeScrollbarActivity(doc: Document): () => void {
   }
   const current = entry;
   current.users++;
-  return () => { if (--current.users === 0) current.release(); };
+  let released = false;
+  return () => {
+    if (released) return;
+    released = true;
+    if (--current.users === 0) current.release();
+  };
 }

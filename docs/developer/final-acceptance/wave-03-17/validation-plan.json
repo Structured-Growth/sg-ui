@@ -1,0 +1,57 @@
+{
+  "owner": "wave-03-17",
+  "status": "patch-prepared-not-integrated",
+  "requiredRuntime": "Coordinator Node 22.12+ or Node 24; new local pure-node evidence uses Node 26.5.0 and does not replace the supported matrix.",
+  "integration": {
+    "command": "git apply --check docs/developer/final-acceptance/wave-03-17/localization-direction.patch",
+    "thenCoordinatorOnly": "git apply docs/developer/final-acceptance/wave-03-17/localization-direction.patch",
+    "policy": "Review source hashes in input-receipt.json before applying. Six paths only. Do not apply mirrored files by copying their directory wholesale. Regenerate native registry via normal fixture build; do not replace migration provenance manifest."
+  },
+  "checks": [
+    {
+      "command": "TZ=UTC node docs/developer/final-acceptance/wave-03-17/check-built-locale.mjs",
+      "cwd": "repository root",
+      "expected": "20 deterministic ICU/SSR cases pass; Arabic exact categories/digits, fixture variable parity, number/date formatting, public Provider lang/dir from adapter locale.",
+      "alreadyExecuted": "Node 26.5.0 existing built output; built-locale-results.json"
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-17/check-proposals.cjs",
+      "cwd": "repository root",
+      "expected": "Zero TypeScript diagnostics for two fixture files and two focused specs against public declarations, valid PostCSS, mirrored motion/reduced-motion selectors.",
+      "alreadyExecuted": "Node 26.5.0 / TypeScript 5.9.3; proposal-check-results.json"
+    },
+    {
+      "command": "pnpm --filter @structured-growth/sg-ui foundations:check",
+      "cwd": "repository root",
+      "expected": "Owned CSS variables, import, token and component boundary guards pass after integration.",
+      "execution": "Coordinator supported-runtime validation lease only. Not run in this wave."
+    },
+    {
+      "command": "pnpm --filter @structured-growth/sg-ui build",
+      "cwd": "repository root",
+      "expected": "Fresh compiled SideNavigation CSS contains mirrored RTL offsets, public declarations remain buildable.",
+      "execution": "Coordinator shared build lease only. Not run in this wave."
+    },
+    {
+      "command": "pnpm --filter @structured-growth/sg-ui exec node scripts/build-browser-docs.mjs",
+      "cwd": "repository root",
+      "expected": "Fixture typecheck/build succeeds, generated registry includes existing translation IDs plus navigation-sidenavigation--english-drill-motion and navigation-sidenavigation--arabic-drill-motion.",
+      "execution": "Coordinator shared build lease only. Not run in this wave."
+    },
+    {
+      "command": "SGUI_BROWSER_BASE_URL=http://127.0.0.1:<coordinator-leased-port> pnpm --filter @structured-growth/sg-ui exec playwright test -c ../../docs/developer/final-acceptance/wave-03-17/focused-native.config.mjs",
+      "cwd": "repository root",
+      "expected": "Five focused cases per desktop engine: 3 translation scenarios plus 2 locale navigation scenarios; 15 executions with no retries. Retain JSON, traces, screenshots and exact build hash. Translation count cases use UTC and 320px; motion samples freeze actual native CSS animations at frame zero, interrupt with Back, restore focus, then verify reduced motion.",
+      "execution": "After integration, on coordinator leased fresh native host; config starts no server and rejects user port 3000. Not executed in this wave.",
+      "limits": "DOM keyboard, reflow, computed CSS and desktop engine evidence only; root-size 150% is not real browser zoom, physical touch, perceptual-motion approval or spoken AT."
+    },
+    {
+      "command": "Operator protocol: operator-record.md",
+      "expected": "Actual English and Arabic count/clear announcements with named AT/browser/OS/device/language and raw observations. Do not populate observations from expected DOM strings.",
+      "execution": "Unperformed; requires human operator."
+    }
+  ],
+  "retainedUnchangedEvidence": ["parallel-14/reconciliation.json ICU source/default validation and dated unit evidence", "wave-02-06/evidence.json RTL source review", "coordinator-integration/evidence.json unchanged selected built outputs"],
+  "remainingOutsidePatch": ["A-H-08 actual spoken AT evidence", "A-C-09 existing editor V RTL acceptance and broader candidate portal/arrow/placement execution; no blanket left/right replacement", "Supported-runtime rerun and native execution after patch integration"],
+  "packedValidation": "No public export/prop/packaging contract changes proposed. Reuse unchanged coordinator package audit; fresh CSS build plus targeted native host evidence is required. Expand packed validation only if integration changes emitted packaging or public contracts."
+}

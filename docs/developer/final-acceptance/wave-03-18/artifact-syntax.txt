@@ -1,0 +1,1 @@
+9 proposed TypeScript files transpile without syntax diagnostics. This is not a public API typecheck or native execution.

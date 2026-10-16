@@ -1,0 +1,146 @@
+{
+  "status": "snapshot-ready-with-open-browser-failures",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "buildChecks": [
+    {
+      "name": "library-final",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "build"
+      ],
+      "startedAt": "2026-10-16T23:33:41.684Z",
+      "completedAt": "2026-10-16T23:33:49.138Z",
+      "exitCode": 0
+    },
+    {
+      "name": "foundation-final",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "foundations:check"
+      ],
+      "startedAt": "2026-10-16T23:33:49.141Z",
+      "completedAt": "2026-10-16T23:33:55.080Z",
+      "exitCode": 0
+    },
+    {
+      "name": "tokens-final",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "tokens:check"
+      ],
+      "startedAt": "2026-10-16T23:33:55.081Z",
+      "completedAt": "2026-10-16T23:33:55.468Z",
+      "exitCode": 0
+    },
+    {
+      "name": "docs-final",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/docs",
+        "build"
+      ],
+      "startedAt": "2026-10-16T23:33:55.469Z",
+      "completedAt": "2026-10-16T23:34:12.074Z",
+      "exitCode": 0
+    },
+    {
+      "name": "native-final",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "exec",
+        "node",
+        "scripts/build-browser-docs.mjs"
+      ],
+      "startedAt": "2026-10-16T23:34:12.074Z",
+      "completedAt": "2026-10-16T23:34:17.431Z",
+      "exitCode": 0
+    },
+    {
+      "name": "browser-types-final",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "exec",
+        "tsc",
+        "--noEmit",
+        "-p",
+        "tests/browser/tsconfig.json"
+      ],
+      "startedAt": "2026-10-16T23:34:17.432Z",
+      "completedAt": "2026-10-16T23:34:18.897Z",
+      "exitCode": 0
+    },
+    {
+      "name": "package-final",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "exec",
+        "node",
+        "scripts/check-package.mjs",
+        "--retain-packed=/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave03-push-package"
+      ],
+      "startedAt": "2026-10-16T23:34:18.898Z",
+      "completedAt": "2026-10-16T23:34:21.636Z",
+      "exitCode": 0
+    },
+    {
+      "name": "release-policy-final",
+      "command": [
+        "pnpm",
+        "--filter",
+        "@structured-growth/sg-ui",
+        "test:release"
+      ],
+      "startedAt": "2026-10-16T23:34:21.636Z",
+      "completedAt": "2026-10-16T23:34:24.440Z",
+      "exitCode": 0
+    }
+  ],
+  "unitCheckpoint": {
+    "passed": 1843,
+    "failed": 1,
+    "correction": "Affected AppDataGrid suite rerun: 23 passed. Later focused editor, grid, and Select checks passed; no claim of a fresh full-suite green run."
+  },
+  "earlierNativeCheckpoint": {
+    "passed": 89,
+    "failed": 8,
+    "skipped": 1,
+    "notRun": 64
+  },
+  "latestNativeSmoke": {
+    "passed": 5,
+    "failed": 1,
+    "remainingFailure": "WebKit Select Shift+Tab expected Before status button focus; follow-up required."
+  },
+  "acceptance": {
+    "complete": 181,
+    "total": 320,
+    "open": 139,
+    "editorVisualOpen": 20,
+    "future": 6
+  },
+  "authorization": "User requested current work merged into dev and pushed, followed by test-failure fixes and a later validated dev merge. This is not release approval.",
+  "receiptSha256": {
+    "build-checkpoint-results.json": "1185dd709b85aaccb15057149e03cc5ffc356d06dd9e293585b21f82f0498323",
+    "units-checkpoint.log": "75ffea55b2e052b92d34cd0b7be6ba63bf0e11c6459efc5cd98df33e214eed43",
+    "editor-current-units.log": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d",
+    "selector-unit-final.log": "61e579c75a9a4310edb8d64b53d2a27b9293f20d48ea98e08d824b8621998763",
+    "push-native-smoke.log": "a6accb938935ad7d94287d6fcf63466ce5ab0db633d7de58a1827e9238949524",
+    "tracked-text-audit.json": "3c7284b2ba981c7626208e2f6a98b443ca8e83586aa015e49dd4c97840acfceb"
+  },
+  "packageSha256": "6fb54340e7e06c85d66c53620c288ed33b0ae99b7813f5a188568e45c7c85e2a",
+  "sourceInventory": "push-source-inputs.json",
+  "remaining": "Unrun/corrected browser cases, installed consumer matrices, dedicated visual baselines, physical-device/AT and other open acceptance obligations remain tracked."
+}

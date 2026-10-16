@@ -1,0 +1,19 @@
+{
+  "capturedAt": "2026-10-16T22:45:51.973866+00:00",
+  "status": "pass",
+  "checks": [
+    "Exactly 16 unique assigned leaf records",
+    "All required leaf fields and partial successors present",
+    "All evidence/file references and report Markdown links resolve",
+    "All captured source/test/spec/fixture hashes still match",
+    "All targeted built output hashes still match",
+    "All verified closures exclude the four concurrently fixed component directories"
+  ],
+  "artifactSha256": {
+    "evidence.json": "4059caf89f643582e20a576c7403c5e23d901ebd1a7e62de75f2042e4cd92b8d",
+    "report.md": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1",
+    "results.json": "40de9dd3ba5ed2e2f16b65bf791b9c745aa7e3e5fd8b4f7be97116049b412da1",
+    "reconcile.py": "0bbb11187d1db18b4c8cccf58b143802cdad8b90ff500b7d346c912274c5bec4"
+  },
+  "limits": "Report/data validation only; no library behavioral tests, browser, build or release execution."
+}

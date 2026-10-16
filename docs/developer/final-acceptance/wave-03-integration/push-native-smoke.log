@@ -1,0 +1,64 @@
+[WebServer] (node:51698) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 6 tests using 1 worker
+
+(node:51699) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [chromium] › tests/browser/wave03-grid-successors.spec.ts:5:1 › native Tab and Shift+Tab enter and leave the remembered grid entry (633ms)
+  ✓  2 [chromium] › tests/browser/wave03-selector-contracts.spec.ts:29:1 › Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority (508ms)
+(node:51726) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [firefox] › tests/browser/wave03-grid-successors.spec.ts:5:1 › native Tab and Shift+Tab enter and leave the remembered grid entry (1.0s)
+  ✓  4 [firefox] › tests/browser/wave03-selector-contracts.spec.ts:29:1 › Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority (481ms)
+(node:51748) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [webkit] › tests/browser/wave03-grid-successors.spec.ts:5:1 › native Tab and Shift+Tab enter and leave the remembered grid entry (1.0s)
+  ✘  6 [webkit] › tests/browser/wave03-selector-contracts.spec.ts:29:1 › Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority (5.3s)
+
+
+  1) [webkit] › tests/browser/wave03-selector-contracts.spec.ts:29:1 › Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: 'Before status', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: 'Before status', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Before status', exact: true })
+        14 × locator resolved to <button type="button">Before status</button>
+           - unexpected value "inactive"
+
+
+      33 |   await trigger.focus();
+      34 |   await page.keyboard.press('Shift+Tab');
+    > 35 |   await expect(page.getByRole('button', { name: 'Before status', exact: true })).toBeFocused();
+         |                                                                                  ^
+      36 |   await page.keyboard.press('Tab');
+      37 |   await expect(trigger).toBeFocused();
+      38 |   await page.keyboard.press('Space');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-selector-contracts.spec.ts:35:82
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/push-smoke/wave03-selector-contracts--6e69c-ve-rejecting-host-authority-webkit/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/push-smoke/wave03-selector-contracts--6e69c-ve-rejecting-host-authority-webkit/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/push-smoke/wave03-selector-contracts--6e69c-ve-rejecting-host-authority-webkit/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/push-smoke/wave03-selector-contracts--6e69c-ve-rejecting-host-authority-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests/browser/wave03-selector-contracts.spec.ts:29:1 › Select noneditable keys serialize distinct IDs, reset, and preserve rejecting host authority 
+  5 passed (10.9s)
+undefined
+/Users/thomashall/Repositories/sg-ui/packages/ui:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config ../../docs/developer/final-acceptance/wave-03-integration/native.config.mjs --grep Select noneditable|native Tab and Shift --output artifacts/wave03-integration/push-smoke

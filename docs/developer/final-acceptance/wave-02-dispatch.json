@@ -1,0 +1,1582 @@
+{
+  "date": "2026-10-16",
+  "base": "540f47d",
+  "scope": "Review all 282 remaining A leaves, retain existing evidence and exact partial/blocked successors; no shared production mutations by reviewers. Coordinator separately fixes BUG-0008/9.",
+  "jobs": [
+    {
+      "number": 1,
+      "threadId": "01a146d9-c262-74c0-9fa9-dec2461daeed",
+      "hostId": "local",
+      "ids": [
+        "A-M-01",
+        "A-M-02",
+        "A-M-03",
+        "A-M-04",
+        "A-M-05",
+        "A-M-06",
+        "A-M-07",
+        "A-M-08",
+        "A-M-09",
+        "A-M-10",
+        "A-M-11",
+        "A-M-12",
+        "A-M-13",
+        "A-M-14",
+        "A-M-15",
+        "A-B-07"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-01",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-M-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-03",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-04",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-05",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-06",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-07",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-09",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-10",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-11",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-12",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-13",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-14",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-15",
+          "status": "partial"
+        },
+        {
+          "id": "A-B-07",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "threadId": "01a146d9-ddd5-7fa1-a073-4d2ae536eafc",
+      "hostId": "local",
+      "ids": [
+        "A-M-16",
+        "A-M-17",
+        "A-M-18",
+        "A-M-19",
+        "A-M-20",
+        "A-B-08",
+        "A-G-01",
+        "A-G-02",
+        "A-G-03",
+        "A-G-04",
+        "A-G-05",
+        "A-G-06",
+        "A-G-07",
+        "A-G-08",
+        "A-G-09",
+        "A-G-10",
+        "A-G-11",
+        "A-G-12",
+        "A-G-13",
+        "A-G-14"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-02",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-M-16",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-17",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-18",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-19",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-20",
+          "status": "complete"
+        },
+        {
+          "id": "A-B-08",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-02",
+          "status": "partial"
+        },
+        {
+          "id": "A-G-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-04",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-05",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-06",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-07",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-08",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-09",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-10",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-11",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-12",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-13",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-14",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "threadId": "01a146d9-e12b-7070-b27a-7b707b9a0ebd",
+      "hostId": "local",
+      "ids": [
+        "A-M-21",
+        "A-M-22",
+        "A-M-23",
+        "A-M-24",
+        "A-M-25",
+        "A-M-26",
+        "A-M-27",
+        "A-M-28",
+        "A-M-29",
+        "A-M-30",
+        "A-M-31",
+        "A-M-32",
+        "A-M-33",
+        "A-M-34",
+        "A-E-01",
+        "A-E-02",
+        "A-E-03",
+        "A-E-04",
+        "A-E-05",
+        "A-E-06",
+        "A-E-07",
+        "A-E-08",
+        "A-E-09",
+        "A-E-10"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-03",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-M-21",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-22",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-23",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-24",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-25",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-26",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-27",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-28",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-29",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-30",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-31",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-32",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-33",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-34",
+          "status": "partial"
+        },
+        {
+          "id": "A-E-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-E-02",
+          "status": "partial"
+        },
+        {
+          "id": "A-E-03",
+          "status": "partial"
+        },
+        {
+          "id": "A-E-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-E-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-E-06",
+          "status": "partial"
+        },
+        {
+          "id": "A-E-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-E-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-E-09",
+          "status": "complete"
+        },
+        {
+          "id": "A-E-10",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "threadId": "01a146d9-e494-7bc3-ace7-15a9f6b08708",
+      "hostId": "local",
+      "ids": [
+        "A-M-35",
+        "A-M-36",
+        "A-M-37",
+        "A-M-38",
+        "A-M-39",
+        "A-M-40",
+        "A-M-41",
+        "A-M-42",
+        "A-M-43",
+        "A-M-44",
+        "A-P-01",
+        "A-P-02",
+        "A-P-03",
+        "A-P-04",
+        "A-P-05",
+        "A-P-06",
+        "A-P-07",
+        "A-P-08",
+        "A-P-09",
+        "A-P-10",
+        "A-P-11"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-04",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-M-35",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-36",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-37",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-38",
+          "status": "partial"
+        },
+        {
+          "id": "A-M-39",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-40",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-41",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-42",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-43",
+          "status": "complete"
+        },
+        {
+          "id": "A-M-44",
+          "status": "complete"
+        },
+        {
+          "id": "A-P-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-P-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-P-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-P-04",
+          "status": "complete"
+        },
+        {
+          "id": "A-P-05",
+          "status": "complete"
+        },
+        {
+          "id": "A-P-06",
+          "status": "complete"
+        },
+        {
+          "id": "A-P-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-P-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-P-09",
+          "status": "complete"
+        },
+        {
+          "id": "A-P-10",
+          "status": "complete"
+        },
+        {
+          "id": "A-P-11",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "threadId": "01a146d9-e78e-7393-9212-8391ff280150",
+      "hostId": "local",
+      "ids": [
+        "A-L-01",
+        "A-L-02",
+        "A-L-03",
+        "A-L-04",
+        "A-L-05",
+        "A-L-06",
+        "A-L-07",
+        "A-L-08",
+        "A-L-09",
+        "A-A-01",
+        "A-A-18"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-05",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-L-01",
+          "status": "partial"
+        },
+        {
+          "id": "A-L-02",
+          "status": "partial"
+        },
+        {
+          "id": "A-L-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-L-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-L-05",
+          "status": "complete"
+        },
+        {
+          "id": "A-L-06",
+          "status": "complete"
+        },
+        {
+          "id": "A-L-07",
+          "status": "complete"
+        },
+        {
+          "id": "A-L-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-L-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-A-18",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "threadId": "01a146d9-eb74-71e0-b70a-adf4155e9200",
+      "hostId": "local",
+      "ids": [
+        "A-D-04",
+        "A-D-05",
+        "A-D-06",
+        "A-D-13",
+        "A-D-14",
+        "A-D-15",
+        "A-D-18",
+        "A-D-20",
+        "A-C-03",
+        "A-C-04",
+        "A-C-08",
+        "A-C-09",
+        "A-C-10",
+        "A-C-11",
+        "A-C-12"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-06",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-D-04",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-05",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-06",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-13",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-14",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-15",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-18",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-20",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-C-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-10",
+          "status": "complete"
+        },
+        {
+          "id": "A-C-11",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-12",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "threadId": "01a146d9-ee6e-7a00-aed3-4504a913541a",
+      "hostId": "local",
+      "ids": [
+        "A-C-13",
+        "A-C-14",
+        "A-C-15",
+        "A-C-16",
+        "A-C-17",
+        "A-C-19",
+        "A-C-20",
+        "A-C-21",
+        "A-B-09",
+        "A-B-10"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-07",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-C-13",
+          "status": "complete"
+        },
+        {
+          "id": "A-C-14",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-15",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-16",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-17",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-19",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-20",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-21",
+          "status": "complete"
+        },
+        {
+          "id": "A-B-09",
+          "status": "complete"
+        },
+        {
+          "id": "A-B-10",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "threadId": "01a146d9-f209-7d81-9f1e-bd19ab757261",
+      "hostId": "local",
+      "ids": [
+        "A-H-09",
+        "A-H-10",
+        "A-H-11",
+        "A-H-12",
+        "A-H-13",
+        "A-H-14",
+        "A-H-15",
+        "A-H-16",
+        "A-H-17",
+        "A-U-01",
+        "A-U-02",
+        "A-U-03",
+        "A-U-04",
+        "A-U-05",
+        "A-U-06",
+        "A-U-07",
+        "A-U-08",
+        "A-U-09",
+        "A-U-10"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-08",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-H-09",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-10",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-11",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-12",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-13",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-14",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-15",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-16",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-17",
+          "status": "complete"
+        },
+        {
+          "id": "A-U-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-U-02",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-U-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-06",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-10",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "threadId": "01a146d9-f688-7233-82ad-c974b45bddb7",
+      "hostId": "local",
+      "ids": [
+        "A-U-11",
+        "A-U-12",
+        "A-U-13",
+        "A-U-14",
+        "A-U-15",
+        "A-U-16",
+        "A-U-17",
+        "A-U-18",
+        "A-U-19",
+        "A-U-20",
+        "A-X-01",
+        "A-X-02",
+        "A-X-03",
+        "A-X-04",
+        "A-X-05",
+        "A-X-06",
+        "A-X-07",
+        "A-X-08",
+        "A-X-09",
+        "A-X-10"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-09",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-U-11",
+          "status": "complete"
+        },
+        {
+          "id": "A-U-12",
+          "status": "complete"
+        },
+        {
+          "id": "A-U-13",
+          "status": "complete"
+        },
+        {
+          "id": "A-U-14",
+          "status": "complete"
+        },
+        {
+          "id": "A-U-15",
+          "status": "complete"
+        },
+        {
+          "id": "A-U-16",
+          "status": "complete"
+        },
+        {
+          "id": "A-U-17",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-18",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-19",
+          "status": "partial"
+        },
+        {
+          "id": "A-U-20",
+          "status": "complete"
+        },
+        {
+          "id": "A-X-01",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-02",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-03",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-06",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-10",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "threadId": "01a146d9-fa09-7e42-9810-c52c0a003b1c",
+      "hostId": "local",
+      "ids": [
+        "A-G-15",
+        "A-G-16",
+        "A-G-17",
+        "A-G-18",
+        "A-G-19",
+        "A-G-20",
+        "A-G-21",
+        "A-G-22",
+        "A-G-23",
+        "A-G-25",
+        "A-G-26",
+        "A-G-27",
+        "A-G-28",
+        "A-G-29",
+        "A-X-11",
+        "A-X-12",
+        "A-X-13",
+        "A-X-14",
+        "A-X-15",
+        "A-X-16",
+        "A-X-17",
+        "A-X-18",
+        "A-X-19",
+        "A-X-20",
+        "A-X-21"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-10",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-G-15",
+          "status": "partial"
+        },
+        {
+          "id": "A-G-16",
+          "status": "partial"
+        },
+        {
+          "id": "A-G-17",
+          "status": "partial"
+        },
+        {
+          "id": "A-G-18",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-19",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-20",
+          "status": "partial"
+        },
+        {
+          "id": "A-G-21",
+          "status": "partial"
+        },
+        {
+          "id": "A-G-22",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-23",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-25",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-26",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-27",
+          "status": "complete"
+        },
+        {
+          "id": "A-G-28",
+          "status": "partial"
+        },
+        {
+          "id": "A-G-29",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-11",
+          "status": "blocked"
+        },
+        {
+          "id": "A-X-12",
+          "status": "complete"
+        },
+        {
+          "id": "A-X-13",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-14",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-15",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-16",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-17",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-18",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-19",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-20",
+          "status": "partial"
+        },
+        {
+          "id": "A-X-21",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "threadId": "01a146d9-fe10-7691-a234-6eeae670913a",
+      "hostId": "local",
+      "ids": [
+        "A-K-01",
+        "A-K-02",
+        "A-K-03",
+        "A-K-04",
+        "A-K-05",
+        "A-K-06",
+        "A-K-07",
+        "A-K-08",
+        "A-K-09",
+        "A-K-10",
+        "A-K-11",
+        "A-K-12",
+        "A-K-16",
+        "A-K-17"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-11",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-K-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-K-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-K-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-K-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-K-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-K-06",
+          "status": "complete"
+        },
+        {
+          "id": "A-K-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-K-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-K-09",
+          "status": "complete"
+        },
+        {
+          "id": "A-K-10",
+          "status": "complete"
+        },
+        {
+          "id": "A-K-11",
+          "status": "complete"
+        },
+        {
+          "id": "A-K-12",
+          "status": "partial"
+        },
+        {
+          "id": "A-K-16",
+          "status": "partial"
+        },
+        {
+          "id": "A-K-17",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "threadId": "01a146da-01c9-7c03-a332-1aa941d52ee7",
+      "hostId": "local",
+      "ids": [
+        "A-R-01",
+        "A-R-02",
+        "A-R-03",
+        "A-R-04",
+        "A-R-05",
+        "A-R-06",
+        "A-R-07",
+        "A-R-08",
+        "A-R-09",
+        "A-R-10",
+        "A-R-11",
+        "A-R-12",
+        "A-R-13",
+        "A-R-14",
+        "A-R-15",
+        "A-R-16",
+        "A-R-17",
+        "A-R-18",
+        "A-R-19",
+        "A-R-20",
+        "A-R-21",
+        "A-R-22",
+        "A-R-23",
+        "A-R-24",
+        "A-R-25",
+        "A-R-26",
+        "A-R-27",
+        "A-R-28"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-12",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-R-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-03",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-05",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-06",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-10",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-11",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-12",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-13",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-14",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-15",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-16",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-17",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-18",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-19",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-20",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-21",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-22",
+          "status": "complete"
+        },
+        {
+          "id": "A-R-23",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-24",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-25",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-26",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-27",
+          "status": "partial"
+        },
+        {
+          "id": "A-R-28",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "threadId": "01a146da-05ff-75f2-ab36-841b2a109b9d",
+      "hostId": "local",
+      "ids": [
+        "A-W-01",
+        "A-W-02",
+        "A-W-03",
+        "A-W-04",
+        "A-W-05",
+        "A-W-06",
+        "A-W-07",
+        "A-W-08",
+        "A-W-09",
+        "A-W-10",
+        "A-W-11",
+        "A-W-12",
+        "A-W-13",
+        "A-W-14",
+        "A-W-15",
+        "A-W-16",
+        "A-W-17",
+        "A-W-18",
+        "A-W-19",
+        "A-W-20"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-13",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-W-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-04",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-05",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-06",
+          "status": "partial"
+        },
+        {
+          "id": "A-W-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-W-08",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-09",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-10",
+          "status": "partial"
+        },
+        {
+          "id": "A-W-11",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-12",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-13",
+          "status": "partial"
+        },
+        {
+          "id": "A-W-14",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-15",
+          "status": "complete"
+        },
+        {
+          "id": "A-W-16",
+          "status": "partial"
+        },
+        {
+          "id": "A-W-17",
+          "status": "partial"
+        },
+        {
+          "id": "A-W-18",
+          "status": "partial"
+        },
+        {
+          "id": "A-W-19",
+          "status": "partial"
+        },
+        {
+          "id": "A-W-20",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "threadId": "01a146da-0a1e-71b3-a70e-d582e4ccb3d1",
+      "hostId": "local",
+      "ids": [
+        "A-Z-01",
+        "A-Z-02",
+        "A-Z-03",
+        "A-Z-04",
+        "A-Z-05",
+        "A-Z-06",
+        "A-Z-07",
+        "A-Z-08",
+        "A-Z-09",
+        "A-Z-10",
+        "A-Z-11",
+        "A-Z-12",
+        "A-Z-13",
+        "A-Z-14",
+        "A-Z-15",
+        "A-Z-16"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-14",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-Z-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-Z-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-Z-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-Z-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-06",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-10",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-11",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-12",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-13",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-14",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-15",
+          "status": "partial"
+        },
+        {
+          "id": "A-Z-16",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "threadId": "01a146da-0e8b-7253-8022-b8af6bc8cd8c",
+      "hostId": "local",
+      "ids": [
+        "A-B-05",
+        "A-A-03",
+        "A-A-06",
+        "A-A-07",
+        "A-A-08",
+        "A-A-09",
+        "A-A-10",
+        "A-A-19",
+        "A-D-01",
+        "A-D-09",
+        "A-D-12",
+        "A-D-16",
+        "A-D-17",
+        "A-C-07",
+        "A-I-04",
+        "A-I-05",
+        "A-I-08",
+        "A-H-02",
+        "A-H-03",
+        "A-H-05",
+        "A-H-08",
+        "A-B-12",
+        "A-B-14"
+      ],
+      "directory": "docs/developer/final-acceptance/wave-02-15",
+      "status": "reviewed",
+      "outcomes": [
+        {
+          "id": "A-B-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-03",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-06",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-10",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-19",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-12",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-16",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-17",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-I-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-I-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-I-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-H-02",
+          "status": "partial"
+        },
+        {
+          "id": "A-H-03",
+          "status": "partial"
+        },
+        {
+          "id": "A-H-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-H-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-B-12",
+          "status": "partial"
+        },
+        {
+          "id": "A-B-14",
+          "status": "partial"
+        }
+      ]
+    }
+  ]
+}

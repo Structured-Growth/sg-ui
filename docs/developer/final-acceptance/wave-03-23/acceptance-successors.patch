@@ -1,0 +1,411 @@
+--- a/apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx
++++ b/apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx
+@@ -1,5 +1,8 @@
+ import { useEffect, useRef, useState } from "react";
+ import type { Meta, StoryObj } from "../../../types";
++import { AppModal, DocumentEditorLayout } from "@structured-growth/sg-ui/components";
++import { SGTranslationProvider, type SGTranslationAdapter } from "@structured-growth/sg-ui/i18n";
++import { ThemeScope } from "@structured-growth/sg-ui/theme";
+ import { Provider } from "@structured-growth/sg-ui/theme";
+ import { MenuBookIcon } from "@structured-growth/sg-ui/experimental/icons";
+ import { Typography } from "@structured-growth/sg-ui/experimental";
+@@ -80,3 +83,96 @@
+   </div>;
+ }
+ export const NativeHostComposition: Story = { render: () => <NativeEditorChromeHost /> };
++
++// Wave-03-23: real production scopes, public controls and a host-owned scroll pane.
++// Hotkeys model host updates without moving focus to an auxiliary fixture button.
++const arabicChrome: Record<string, string> = {
++  "common.ui.documentActions": "إجراءات المستند",
++  "common.ui.editTitle": "تعديل العنوان",
++  "common.ui.documentTitle": "عنوان المستند",
++  "common.ui.editor.documentToolbar": "أدوات تحرير المستند",
++  "common.ui.editor.zoomOut": "تصغير",
++  "common.ui.editor.zoomIn": "تكبير",
++  "common.ui.editor.zoom": "التكبير",
++  "common.ui.editor.heading": "نمط عنوان النص",
++  "common.ui.editor.documentHeading0": "نص عادي طويل لاختبار الالتفاف",
++  "common.ui.editor.documentHeading1": "عنوان أول",
++  "common.ui.editor.documentHeading2": "عنوان ثان",
++  "common.ui.editor.documentHeading3": "عنوان ثالث",
++  "common.ui.editor.documentHeading4": "عنوان رابع",
++  "common.ui.editor.documentHeading5": "عنوان خامس",
++  "common.ui.editor.bold": "عريض",
++  "common.ui.editor.italic": "مائل",
++  "common.ui.editor.bulletList": "قائمة نقطية",
++  "common.ui.editor.orderedList": "قائمة مرقمة",
++  "common.ui.editor.alignLeft": "محاذاة لليسار",
++  "common.ui.editor.alignCenter": "محاذاة للوسط",
++  "common.ui.editor.alignRight": "محاذاة لليمين",
++  "common.ui.editor.alignJustify": "ضبط المحاذاة",
++  "common.ui.editor.customComponent": "إضافة مكون مخصص مع تسمية عربية طويلة",
++};
++const englishChrome: Record<string, string> = {
++  "common.ui.editor.documentHeading0": "Normal text with a deliberately long translated heading label",
++  "common.ui.editor.customComponent": "Custom component with a deliberately long translated action label",
++};
++function ChromeAcceptanceHost() {
++  const arabic = new URLSearchParams(location.search).get("globals")?.includes("locale:ar") ?? false;
++  const [mode, setMode] = useState<"editable" | "pending" | "unavailable">("editable");
++  const [slots, setSlots] = useState(true);
++  const [open, setOpen] = useState(false);
++  const [bold, setBold] = useState(false);
++  const [heading, setHeading] = useState<"normal" | "h1" | "h2" | "h3" | "h4" | "h5">("normal");
++  const [zoom, setZoom] = useState(100);
++  const [title, setTitle] = useState(arabic
++    ? "عنوان مستند تعليمي طويل لاختبار التفاف العناوين وأزرار الحفظ داخل مساحة ضيقة"
++    : "A long course document title to inspect wrapping beside save and status actions");
++  const editor = useRef<HTMLTextAreaElement>(null);
++  const adapter: SGTranslationAdapter = {
++    locale: arabic ? "ar" : "en-US", useNamespace: () => {},
++    t: (key, options) => (arabic ? arabicChrome : englishChrome)[key] ?? options.defaultMessage,
++  };
++  const labels = arabic
++    ? { file: "ملف وإجراءات المستند الطويلة", save: "حفظ تغييرات المستند", status: "تم حفظ جميع تغييرات المستند محلياً في هذه المعاينة", doc: "محتوى المستند", scroll: "منطقة تمرير المستند", dialog: "إجراءات المستند", close: "إغلاق", unavailable: "إجراء غير متاح" }
++    : { file: "File and long document actions", save: "Save document changes", status: "All document changes saved locally in this preview", doc: "Acceptance document", scroll: "Acceptance scroll region", dialog: "Document command dialog", close: "Close", unavailable: "Unavailable command" };
++  useEffect(() => {
++    const update = (event: KeyboardEvent) => {
++      if (!event.altKey) return;
++      if (event.code === "Digit1") { event.preventDefault(); setSlots(value => !value); }
++      if (event.code === "Digit2") { event.preventDefault(); setMode("pending"); }
++      if (event.code === "Digit3") { event.preventDefault(); setMode("unavailable"); }
++      if (event.code === "Digit4") { event.preventDefault(); setMode("editable"); }
++    };
++    document.addEventListener("keydown", update);
++    return () => document.removeEventListener("keydown", update);
++  }, []);
++  const editable = mode === "editable";
++  return <SGTranslationProvider value={adapter}><ThemeScope dir={arabic ? "rtl" : "ltr"}>
++    <div data-testid="chrome-acceptance" data-mode={mode} style={{ maxWidth: "100%" }}>
++      <DocumentEditorLayout title={title} style={{ minHeight: 720 }}
++        headerRight={<Button disabled={!editable}>{labels.save}</Button>}
++        menuBar={slots ? <ContentEditorChrome icon={null} title={title} onTitleSave={setTitle} titleReadOnly={!editable}
++          rightSlot={<Typography role="status">{labels.status}</Typography>}
++          menuItems={[{ id: "file", label: labels.file, loading: mode === "pending", disabled: mode === "unavailable", "aria-haspopup": "dialog", "aria-expanded": open,
++            onPress: () => setOpen(true) }, { id: "missing", label: labels.unavailable }]} /> : undefined}
++        toolbar={slots ? <DocumentEditorToolbar canEdit={editable} headingValue={heading}
++          onHeadingChange={value => { setHeading(value); editor.current?.focus(); }}
++          actions={{ bold: { active: bold, onClick: () => { setBold(value => !value); editor.current?.focus(); } }, italic: { active: false }, bulletList: { active: false }, orderedList: { active: false } }}
++          zoomValue={zoom} onZoomIn={() => setZoom(value => value + 10)} onZoomOut={() => setZoom(value => value - 10)}
++          showCustomComponentAction statusLabel={labels.status} /> : undefined}>
++        <div data-testid="acceptance-scroll" role="region" aria-label={labels.scroll} tabIndex={0}
++          style={{ height: 220, overflow: "auto", minHeight: 0, padding: tokens.space2, boxSizing: "border-box" }}>
++          <textarea ref={editor} aria-label={labels.doc} defaultValue={arabic ? "نص المستند الأصلي" : "Original document draft"}
++            style={{ width: "100%", boxSizing: "border-box" }} />
++          {Array.from({ length: 18 }, (_, index) => <Typography key={index}>{index + 1}. {labels.status}</Typography>)}
++          <Button>{labels.save}</Button>
++        </div>
++      </DocumentEditorLayout>
++      <AppModal open={open} onClose={() => setOpen(false)} title={labels.dialog}
++        primaryAction={{ label: labels.save, loading: mode === "pending", disabled: !editable, onPress: () => setOpen(false) }}
++        secondaryAction={{ label: labels.close, onPress: () => setOpen(false) }}>
++        <Typography>{labels.status}</Typography>
++      </AppModal>
++    </div>
++  </ThemeScope></SGTranslationProvider>;
++}
++export const AcceptanceComposition: Story = { render: () => <ChromeAcceptanceHost /> };
+--- a/apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.fixture.tsx
++++ b/apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.fixture.tsx
+@@ -1,4 +1,4 @@
+-import { useState } from "react";
++import { useEffect, useState } from "react";
+ import type { Meta, StoryObj } from "../../../types";
+ import { Button } from "@structured-growth/sg-ui/components";
+ import { PageRichTextEditorSection } from "@structured-growth/sg-ui/components";
+@@ -34,3 +34,35 @@
+ type Story = StoryObj<typeof meta>;
+ // native fixture host's production Provider supplies the owned scope and compiled styles.
+ export const ParagraphCommandHistory: Story = { render: () => <ParagraphTransactionsHost /> };
++
++// Same accepted paragraph seed and public editor; adds host lifetime transitions.
++// Keyboard events bubble from native dialogs, so background controls need not be
++// programmatically clicked while the modal makes them inert.
++function SelectionAcceptanceHost() {
++  const [seed, setSeed] = useState<unknown>(PARAGRAPH_TRANSACTION_DOCUMENT);
++  const [value, setValue] = useState<unknown>(PARAGRAPH_TRANSACTION_DOCUMENT);
++  const [revision, setRevision] = useState(0);
++  const [readOnly, setReadOnly] = useState(false);
++  const [mounted, setMounted] = useState(true);
++  useEffect(() => {
++    const update = (event: KeyboardEvent) => {
++      if (!event.altKey) return;
++      if (event.code === "Digit1") { event.preventDefault(); setReadOnly(true); }
++      if (event.code === "Digit2") {
++        event.preventDefault();
++        setSeed(PARAGRAPH_TRANSACTION_DOCUMENT); setValue(PARAGRAPH_TRANSACTION_DOCUMENT);
++        setRevision(value => value + 1); setReadOnly(false);
++      }
++      if (event.code === "Digit3") { event.preventDefault(); setMounted(false); }
++    };
++    document.addEventListener("keydown", update);
++    return () => document.removeEventListener("keydown", update);
++  }, []);
++  return <div data-testid="selection-acceptance" data-revision={revision}>
++    {mounted && <PageRichTextEditorSection lexicalValue={seed} editorKey={`selection-acceptance-${revision}`}
++      readOnly={readOnly} onLexicalChange={setValue} toolPreset="full"
++      aria-label="Selection acceptance document" style={{ height: 460 }} />}
++    <pre aria-label="Selection acceptance JSON">{JSON.stringify(value)}</pre>
++  </div>;
++}
++export const SelectionAcceptance: Story = { render: () => <SelectionAcceptanceHost /> };
+--- /dev/null
++++ b/packages/ui/tests/browser/wave03-editor-chrome-acceptance.spec.ts
+@@ -0,0 +1,115 @@
++import { expect, test, type Locator } from '@playwright/test';
++
++const fixture = 'editors-contenteditorchrome--acceptance-composition';
++const labels = (arabic: boolean) => arabic ? {
++  file: 'ملف وإجراءات المستند الطويلة', save: 'حفظ تغييرات المستند', doc: 'محتوى المستند',
++  heading: 'نمط عنوان النص', bold: 'عريض', zoom: 'تكبير', group: 'إجراءات المستند',
++  tools: 'أدوات تحرير المستند', dialog: 'إجراءات المستند', close: 'إغلاق', edit: 'تعديل العنوان',
++} : {
++  file: 'File and long document actions', save: 'Save document changes', doc: 'Acceptance document',
++  heading: 'Text style heading', bold: 'Bold', zoom: 'Zoom in', group: 'Document actions',
++  tools: 'Document editing', dialog: 'Document command dialog', close: 'Close', edit: 'Edit title',
++};
++async function geometry(locator: Locator) {
++  return locator.evaluate(root => ({
++    rect: root.getBoundingClientRect().toJSON(), width: root.clientWidth, scrollWidth: root.scrollWidth,
++    parts: [...root.querySelectorAll<HTMLElement>('[data-sgui-part]')].map(node => ({
++      part: node.dataset.sguiPart, rect: node.getBoundingClientRect().toJSON(),
++      width: node.clientWidth, scrollWidth: node.scrollWidth,
++    })),
++    documentWidth: document.documentElement.scrollWidth, viewport: innerWidth,
++  }));
++}
++async function visibleFocus(control: Locator) {
++  await expect(control).toBeFocused();
++  expect(await control.evaluate(node => {
++    const r = node.getBoundingClientRect();
++    const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
++    return r.left >= -1 && r.right <= innerWidth + 1 && r.top >= -1 && r.bottom <= innerHeight + 1 && !!hit && node.contains(hit);
++  }), 'focused control is in viewport and unobscured').toBe(true);
++}
++
++test('long chrome reflows in both production themes/densities and Arabic RTL', async ({ page, browser }, info) => {
++  test.setTimeout(120_000);
++  const errors: string[] = [];
++  page.on('pageerror', error => errors.push(error.message));
++  for (const theme of ['light', 'dark']) for (const density of ['compact', 'comfortable']) for (const arabic of [false, true]) {
++    await page.setViewportSize({ width: 320, height: 1000 });
++    await page.goto(`/fixtures/?id=${fixture}&globals=theme:${theme};density:${density};locale:${arabic ? 'ar' : 'en-US'};direction:${arabic ? 'rtl' : 'ltr'};a11y.manual:!true`);
++    const host = page.getByTestId('chrome-acceptance');
++    const l = labels(arabic);
++    await expect(host).toBeVisible();
++    await expect(page.getByRole('group', { name: l.group, exact: true })).toBeVisible();
++    await expect(page.getByRole('group', { name: l.tools, exact: true })).toBeVisible();
++    expect(await host.evaluate(node => getComputedStyle(node).direction)).toBe(arabic ? 'rtl' : 'ltr');
++    await expect(host.locator('[data-sgui-part="content-editor-chrome"]')).toHaveCount(1);
++    const measured = await geometry(host);
++    expect(measured.documentWidth).toBeLessThanOrEqual(measured.viewport + 1);
++    for (const part of measured.parts.filter(part => part.width > 0)) {
++      expect(part.scrollWidth, `${part.part} does not overflow horizontally`).toBeLessThanOrEqual(part.width + 1);
++    }
++    // These are observed logical DOM order and translated names, not spoken AT.
++    const order = await host.locator('[data-sgui-part="editor-actions"] button').allTextContents();
++    expect(order[0]).toContain(l.file);
++    const id = `${theme}-${density}-${arabic ? 'ar' : 'en'}`;
++    await info.attach(`${id}-geometry`, { body: JSON.stringify({ browser: browser.version(), ...measured }), contentType: 'application/json' });
++    await info.attach(`${id}-chrome`, { body: await host.screenshot(), contentType: 'image/png' });
++  }
++  expect(errors).toEqual([]);
++});
++
++test('host slot replacement retains draft, focused node and its independent scroll owner', async ({ page }, info) => {
++  await page.setViewportSize({ width: 640, height: 1000 });
++  await page.goto(`/fixtures/?id=${fixture}&globals=theme:dark;density:compact;a11y.manual:!true`);
++  const editor = page.getByRole('textbox', { name: labels(false).doc, exact: true });
++  const original = await editor.elementHandle();
++  await editor.fill('Draft retained through all chrome replacements');
++  const scroll = page.getByTestId('acceptance-scroll');
++  await scroll.evaluate(node => { node.scrollTop = 160; node.focus({ preventScroll: true }); });
++  await expect(scroll).toBeFocused();
++  const top = await scroll.evaluate(node => node.scrollTop);
++  expect(top).toBeGreaterThan(0);
++  for (let index = 0; index < 2; index++) {
++    await page.keyboard.press('Alt+Digit1');
++    await expect(page.locator('[data-sgui-part="content-editor-chrome"]')).toHaveCount(index === 0 ? 0 : 1);
++    await expect(scroll).toBeFocused();
++    expect(await scroll.evaluate(node => node.scrollTop)).toBe(top);
++    expect(await editor.evaluate((node, previous) => node === previous, original)).toBe(true);
++    await expect(editor).toHaveValue('Draft retained through all chrome replacements');
++  }
++  // Native keyboard entry into heading completes its deferred host callback.
++  const heading = page.getByRole('button', { name: /Text style heading/ });
++  await heading.focus(); await heading.press('Enter');
++  await page.keyboard.press('ArrowDown'); await page.keyboard.press('Enter');
++  await expect(heading).toContainText('H1');
++  await visibleFocus(editor);
++  await info.attach('slot-replacement-geometry', { body: JSON.stringify(await geometry(page.getByTestId('chrome-acceptance'))), contentType: 'application/json' });
++});
++
++test('pending and unavailable replacements suppress actions while preserving pressed state and zoom', async ({ page }) => {
++  const l = labels(false);
++  await page.goto(`/fixtures/?id=${fixture}&globals=a11y.manual:!true`);
++  const bold = page.getByRole('button', { name: l.bold, exact: true });
++  await bold.click(); await expect(bold).toHaveAttribute('aria-pressed', 'true');
++  const file = page.getByRole('button', { name: l.file, exact: true });
++  await file.click();
++  const dialog = page.getByRole('dialog', { name: l.dialog, exact: true });
++  await expect(dialog).toBeVisible();
++  await page.keyboard.press('Alt+Digit2');
++  await expect(dialog.getByRole('button', { name: l.save, exact: true })).toBeDisabled();
++  await page.keyboard.press('Escape');
++  await expect(dialog).toHaveCount(0);
++  await expect(file).toBeDisabled();
++  await expect(bold).toBeDisabled();
++  await expect(bold).toHaveAttribute('aria-pressed', 'true');
++  await expect(page.getByRole('button', { name: l.edit, exact: true })).toBeDisabled();
++  await page.getByRole('button', { name: l.zoom, exact: true }).click();
++  await expect(page.getByLabel('Zoom', { exact: true })).toHaveText('110%');
++  await page.keyboard.press('Alt+Digit3');
++  await expect(file).toBeDisabled();
++  await page.keyboard.press('Alt+Digit4');
++  await expect(file).toBeEnabled();
++  await file.click(); await expect(dialog).toBeVisible();
++  await dialog.getByRole('button', { name: l.close, exact: true }).click();
++  await expect(file).toBeFocused();
++});
+--- /dev/null
++++ b/packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts
+@@ -0,0 +1,138 @@
++import { expect, test, type Page } from '@playwright/test';
++
++const url = '/fixtures/?id=editors-pagerichtexteditorsection-paragraph-transactions--selection-acceptance&globals=a11y.manual:!true';
++const editor = (page: Page) => page.getByRole('textbox', { name: 'Selection acceptance document', exact: true });
++const toolbar = (page: Page) => page.getByRole('group', { name: 'Text formatting', exact: true });
++const saved = async (page: Page) => JSON.parse((await page.getByLabel('Selection acceptance JSON').textContent())!);
++// Same native keyboard strategy as editor-paragraph-transactions / mixed-formatting;
++// DOM selection access observes only, never constructs or repairs a range.
++async function select(page: Page, shape: 'caret' | 'same-node' | 'cross-node') {
++  const root = editor(page);
++  await root.locator('p').first().locator('strong').click();
++  await page.keyboard.press(process.platform === 'darwin' ? 'Meta+ArrowUp' : 'Control+Home');
++  await expect.poll(() => page.evaluate(() => window.getSelection()?.isCollapsed)).toBe(true);
++  if (shape === 'cross-node') {
++    await page.keyboard.press('ControlOrMeta+A');
++    await expect.poll(() => page.evaluate(() => window.getSelection()?.toString())).toContain('Adjacent paragraph');
++  } else {
++    await page.keyboard.press('ArrowRight'); await page.keyboard.press('ArrowRight');
++    if (shape === 'same-node') for (let index = 0; index < 6; index++) await page.keyboard.press('Shift+ArrowRight');
++    await expect.poll(() => page.evaluate(() => window.getSelection()?.toString())).toBe(shape === 'caret' ? '' : 'rget p');
++  }
++  const before = await root.evaluate(node => {
++    const s = window.getSelection()!;
++    return { text: s.toString(), collapsed: s.isCollapsed, anchor: s.anchorOffset, focus: s.focusOffset,
++      anchorText: s.anchorNode?.textContent, focusText: s.focusNode?.textContent,
++      contained: !!s.anchorNode && !!s.focusNode && node.contains(s.anchorNode) && node.contains(s.focusNode) };
++  });
++  expect(before.contained).toBe(true);
++  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
++  return before;
++}
++async function open(page: Page, command: 'Link' | 'Image' | 'Columns Layout') {
++  if (command === 'Link') await toolbar(page).getByRole('button', { name: 'Edit link', exact: true }).click();
++  else {
++    await toolbar(page).getByRole('button', { name: 'Insert', exact: true }).click();
++    await page.getByRole('menuitem', { name: command, exact: true }).click();
++  }
++  const dialog = page.getByRole('dialog', { name: command === 'Link' ? 'Insert Link' : command === 'Image' ? 'Insert Image' : 'Choose columns layout', exact: true });
++  await expect(dialog).toBeVisible();
++  return dialog;
++}
++
++test('Cancel/Escape make no edit for caret, same-node and cross-node modal ranges', async ({ page }, info) => {
++  test.setTimeout(120_000);
++  // Six uncovered rows, not a command × range × dismissal Cartesian rerun.
++  const rows = [
++    ['Link', 'caret', 'Cancel'], ['Link', 'cross-node', 'Escape'],
++    ['Image', 'same-node', 'Cancel'], ['Image', 'cross-node', 'Escape'],
++    ['Columns Layout', 'caret', 'Escape'], ['Columns Layout', 'same-node', 'Cancel'],
++  ] as const;
++  for (const [command, shape, dismiss] of rows) {
++    await page.goto(url);
++    const range = await select(page, shape);
++    const initial = await saved(page);
++    const dialog = await open(page, command);
++    if (command === 'Link') await dialog.getByRole('textbox', { name: 'URL', exact: true }).fill('/discarded-draft');
++    if (dismiss === 'Escape') await page.keyboard.press('Escape');
++    else await dialog.getByRole('button', { name: 'Cancel', exact: true }).click();
++    await expect(dialog).toHaveCount(0);
++    await expect.poll(() => saved(page)).toEqual(initial);
++    // Modal focus returns to the public command owner. Native selection and
++    // endpoint observations must survive, independent of whether caret is visible.
++    const focus = command === 'Link' ? toolbar(page).getByRole('button', { name: 'Edit link', exact: true }) : toolbar(page).getByRole('button', { name: 'Insert', exact: true });
++    await expect(focus).toBeFocused();
++    const after = await editor(page).evaluate(node => {
++      const s = window.getSelection()!;
++      return { text: s.toString(), collapsed: s.isCollapsed, anchor: s.anchorOffset, focus: s.focusOffset,
++        anchorText: s.anchorNode?.textContent, focusText: s.focusNode?.textContent,
++        contained: !!s.anchorNode && !!s.focusNode && node.contains(s.anchorNode) && node.contains(s.focusNode) };
++    });
++    await info.attach(`${command}-${shape}-${dismiss}`, { body: JSON.stringify({ before: range, after, document: initial }), contentType: 'application/json' });
++    expect(after).toEqual(range);
++  }
++});
++
++test('link Apply targets caret, same-node and cross-node ranges without discarding adjacent formatting', async ({ page }, info) => {
++  test.setTimeout(90_000);
++  for (const shape of ['caret', 'same-node', 'cross-node'] as const) {
++    await page.goto(url);
++    const range = await select(page, shape);
++    const before = await saved(page);
++    const dialog = await open(page, 'Link');
++    const display = dialog.getByRole('textbox', { name: 'Display Text', exact: true });
++    if (shape === 'caret') await display.fill('Inserted guide');
++    if (shape === 'same-node') await expect(display).toHaveValue('rget p');
++    await dialog.getByRole('textbox', { name: 'URL', exact: true }).fill('/selected-guide');
++    await dialog.getByRole('button', { name: 'Apply', exact: true }).click();
++    await expect(dialog).toHaveCount(0);
++    const links = editor(page).locator('a[href="/selected-guide"]');
++    await expect(links.first()).toBeVisible();
++    const after = await saved(page);
++    if (shape === 'caret') {
++      await expect(editor(page)).toHaveText('TaInserted guiderget paragraphAdjacent paragraph');
++      await expect(links).toHaveText('Inserted guide');
++    } else if (shape === 'same-node') {
++      await expect(links).toHaveText('rget p');
++      await expect(editor(page)).toHaveText('Target paragraphAdjacent paragraph');
++      expect(after.root.children[0].children.find((node: { type: string }) => node.type === 'link').children).toEqual([
++        expect.objectContaining({ text: 'rget p', format: 1, style: 'color: var(--sgui-action);' }),
++      ]);
++    } else {
++      // Linking a cross-paragraph range keeps paragraph boundaries and each
++      // original text run's format/style. Do not equate URL wrapper shape with
++      // a promise to merge paragraphs or flatten rich text.
++      await expect(editor(page)).toHaveText('Target paragraphAdjacent paragraph');
++      await expect(links).toHaveCount(2);
++      for (let index = 0; index < 2; index++) {
++        expect(after.root.children[index].children[0]).toMatchObject({ type: 'link', url: '/selected-guide' });
++        expect(after.root.children[index].children[0].children).toEqual(before.root.children[index].children);
++      }
++    }
++    if (shape !== 'cross-node') {
++      expect(after.root.children[1]).toEqual(before.root.children[1]);
++      await expect(editor(page).locator('p').nth(1).locator('em')).toHaveText('Adjacent paragraph');
++    }
++    await expect(editor(page)).toBeFocused();
++    await info.attach(`${shape}-link-before-after`, { body: JSON.stringify({ range, before, after }), contentType: 'application/json' });
++  }
++});
++
++test('host read-only, document replacement and unmount invalidate pending modal drafts', async ({ page }, info) => {
++  for (const [command, key] of [['Link', 'Alt+Digit1'], ['Columns Layout', 'Alt+Digit2'], ['Image', 'Alt+Digit3']] as const) {
++    await page.goto(url);
++    await select(page, 'cross-node');
++    const before = await saved(page);
++    const dialog = await open(page, command);
++    if (command === 'Link') await dialog.getByRole('textbox', { name: 'URL', exact: true }).fill('/must-not-apply');
++    await page.keyboard.press(key);
++    await expect(dialog).toHaveCount(0);
++    if (command === 'Link') await expect(editor(page)).toHaveAttribute('contenteditable', 'false');
++    if (command === 'Columns Layout') await expect(page.getByTestId('selection-acceptance')).toHaveAttribute('data-revision', '1');
++    if (command === 'Image') await expect(editor(page)).toHaveCount(0);
++    // Cross two frames/task delivery; no arbitrary wait or source-injected command.
++    await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
++    await expect.poll(() => saved(page)).toEqual(before);
++    await info.attach(`${command}-invalidation`, { body: JSON.stringify({ command, key, document: await saved(page) }), contentType: 'application/json' });
++  }
++});

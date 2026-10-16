@@ -428,7 +428,13 @@ export const tokens = {
   "iconPanelNavigationIconSize": "var(--sgui-icon-panel-navigation-icon-size)",
   "iconPanelNavigationRailPadding": "var(--sgui-icon-panel-navigation-rail-padding)",
   "iconPanelNavigationLabelSize": "var(--sgui-icon-panel-navigation-label-size)",
-  "tabsMaximumTabWidth": "var(--sgui-tabs-maximum-tab-width)"
+  "tabsMaximumTabWidth": "var(--sgui-tabs-maximum-tab-width)",
+  "dateRangeSelectorPresetBorder": "var(--sgui-date-range-selector-preset-border)",
+  "searchFieldSurface": "var(--sgui-search-field-surface)",
+  "searchFieldText": "var(--sgui-search-field-text)",
+  "searchFieldBorder": "var(--sgui-search-field-border)",
+  "searchFieldFocusColor": "var(--sgui-search-field-focus-color)",
+  "searchFieldInteractionSurface": "var(--sgui-search-field-interaction-surface)"
 } as const;
 export type TokenName = keyof typeof tokens;
 /** Resolved built-in shared and color defaults; density and component aliases stay scope-owned. */
@@ -1120,7 +1126,13 @@ export const tokenTiers = {
     "iconPanelNavigationIconSize",
     "iconPanelNavigationRailPadding",
     "iconPanelNavigationLabelSize",
-    "tabsMaximumTabWidth"
+    "tabsMaximumTabWidth",
+    "dateRangeSelectorPresetBorder",
+    "searchFieldSurface",
+    "searchFieldText",
+    "searchFieldBorder",
+    "searchFieldFocusColor",
+    "searchFieldInteractionSurface"
   ]
 } as const;
 export type SemanticTokenName = typeof tokenTiers.semantic[number];
@@ -2330,5 +2342,29 @@ export const componentTokenReferences = {
   "tabsMaximumTabWidth": {
     "tier": "shared",
     "token": "tabMaximumWidth"
+  },
+  "dateRangeSelectorPresetBorder": {
+    "tier": "semantic",
+    "token": "divider"
+  },
+  "searchFieldSurface": {
+    "tier": "semantic",
+    "token": "surface"
+  },
+  "searchFieldText": {
+    "tier": "semantic",
+    "token": "text"
+  },
+  "searchFieldBorder": {
+    "tier": "semantic",
+    "token": "border"
+  },
+  "searchFieldFocusColor": {
+    "tier": "semantic",
+    "token": "focus"
+  },
+  "searchFieldInteractionSurface": {
+    "tier": "semantic",
+    "token": "surfaceSubtle"
   }
 } as const;

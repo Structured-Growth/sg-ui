@@ -1,0 +1,15 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const dir=__dirname,root=path.resolve(dir,'../../../..'),ui=path.join(root,'packages/ui');
+const ts=require(path.join(ui,'node_modules/typescript'));
+const file=path.join(dir,'consumer-contracts.tsx'),text=fs.readFileSync(file,'utf8');
+const options={strict:true,noEmit:true,skipLibCheck:true,jsx:ts.JsxEmit.ReactJSX,module:ts.ModuleKind.ESNext,moduleResolution:ts.ModuleResolutionKind.Bundler,target:ts.ScriptTarget.ES2022,types:[],paths:{'@structured-growth/sg-ui/experimental':[path.join(ui,'dist/experimental/index.d.ts')],'@structured-growth/sg-ui':[path.join(ui,'dist/index.d.ts')],'react':[path.join(ui,'node_modules/@types/react/index.d.ts')],'react/*':[path.join(ui,'node_modules/@types/react/*')]}};
+const program=ts.createProgram([file],options);
+const diagnostic=d=>({code:d.code,file:d.file?path.relative(root,d.file.fileName):null,line:d.file&&d.start!==undefined?d.file.getLineAndCharacterOfPosition(d.start).line+1:null,message:ts.flattenDiagnosticMessageText(d.messageText,'\n')});
+const diagnostics=ts.getPreEmitDiagnostics(program).map(diagnostic);
+const host=ts.createCompilerHost(options),read=host.readFile;host.readFile=p=>p===file?text.replaceAll('@ts-expect-error','expected rejection'):read(p);
+const rejected=ts.getPreEmitDiagnostics(ts.createProgram([file],options,host)).filter(d=>d.file?.fileName===file).map(diagnostic);
+const inputHashes=Object.fromEntries(program.getSourceFiles().filter(f=>f.fileName.startsWith(path.join(ui,'dist'))||f.fileName===file).map(f=>[path.relative(root,f.fileName),crypto.createHash('sha256').update(f.text).digest('hex')]));
+const result={runtime:process.version,typescript:ts.version,scope:'Current built-declaration consumer assignments; public package name mapped to current dist. No packed install, runtime, source build or supported-runtime suite.',diagnostics,negativeMarkers:(text.match(/@ts-expect-error/g)||[]).length,rejected,inputHashes};
+fs.writeFileSync(path.join(dir,'typecheck.json'),JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify({runtime:result.runtime,diagnostics,negativeMarkers:result.negativeMarkers,rejections:rejected.length}));
+process.exitCode=diagnostics.length||rejected.length!==result.negativeMarkers?1:0;

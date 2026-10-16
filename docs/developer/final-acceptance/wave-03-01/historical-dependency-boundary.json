@@ -1,0 +1,49 @@
+{
+  "commit": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+  "commands": [
+    "git show 21adebd61bedfc6a1ed395fe664ff4be83896821:package.json",
+    "git show 21adebd61bedfc6a1ed395fe664ff4be83896821:pnpm-lock.yaml"
+  ],
+  "blobHashes": {
+    "package.json": "5bac81fde31a6a7f9005035f6cc277bfa9179a1fb7c801df2881f7746322eaa3",
+    "pnpm-lock.yaml": "1be270223a2a1b9b0a3595ffef05e30c33ce75ff8a2c1c627d0ee5c89588c879"
+  },
+  "packages": [
+    {
+      "name": "@mui/material",
+      "peerRange": "^7.3.7",
+      "lockedVersion": "7.3.11",
+      "declarationsResolved": false,
+      "neededEvidence": "Immutable original package declarations/transitive inherited type closure at this exact resolution; do not substitute current online latest API."
+    },
+    {
+      "name": "@mui/icons-material",
+      "peerRange": "^7.3.7",
+      "lockedVersion": "7.3.11",
+      "declarationsResolved": false,
+      "neededEvidence": "Immutable original package declarations/transitive inherited type closure at this exact resolution; do not substitute current online latest API."
+    },
+    {
+      "name": "@mui/x-data-grid",
+      "peerRange": "^8.27.0",
+      "lockedVersion": "8.29.3",
+      "declarationsResolved": false,
+      "neededEvidence": "Immutable original package declarations/transitive inherited type closure at this exact resolution; do not substitute current online latest API."
+    },
+    {
+      "name": "@emotion/react",
+      "peerRange": "^11.14.0",
+      "lockedVersion": "11.14.0",
+      "declarationsResolved": false,
+      "neededEvidence": "Immutable original package declarations/transitive inherited type closure at this exact resolution; do not substitute current online latest API."
+    },
+    {
+      "name": "@emotion/styled",
+      "peerRange": "^11.14.1",
+      "lockedVersion": "11.14.1",
+      "declarationsResolved": false,
+      "neededEvidence": "Immutable original package declarations/transitive inherited type closure at this exact resolution; do not substitute current online latest API."
+    }
+  ],
+  "limits": "Local Git provenance only; no install, upstream fetch, external checkout, registry metadata or published-version claim."
+}

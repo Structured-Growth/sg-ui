@@ -99,6 +99,13 @@ describe("owned catalog row processing", () => {
     for (const fields of [["name", "name"], [" "], ["__selection"], ["__select__"], ["__drag"], ["__drag__"]])
       expect(() => process({ columns: fields.map(field => ({ field })) })).toThrow("column field");
   });
+  it.each(["client", "server"] as const)("rejects utility and legacy fields before reading %s rows", mode => {
+    for (const field of ["__selection", "__reorder", "__drag", "__select__", "__drag__"]) {
+      const getRowId = () => { throw new Error("Row traversal must follow column validation"); };
+      expect(() => process({ mode, columns: [{ field: "name" }, { field }], getRowId }))
+        .toThrow(`AppDataGrid column field is invalid or duplicated: ${field}`);
+    }
+  });
   it("allows any positive safe page size and rejects malformed page requests", () => {
     expect(process({ paginationModel: { page: 0, pageSize: 150 } }).rows).toEqual(rows);
     for (const paginationModel of [{ page: -1, pageSize: 10 }, { page: 0.5, pageSize: 10 }, { page: 0, pageSize: 0 }, { page: 0, pageSize: Infinity }])

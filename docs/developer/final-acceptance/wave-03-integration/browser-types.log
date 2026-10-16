@@ -1,0 +1,7 @@
+tests/browser/acceptance-touch-targets.spec.ts(66,148): error TS2352: Conversion of type 'Window & typeof globalThis' to type 'Window & { wave0310Drags: number; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'wave0310Drags' is missing in type 'Window & typeof globalThis' but required in type '{ wave0310Drags: number; }'.
+tests/browser/acceptance-touch-targets.spec.ts(77,39): error TS2352: Conversion of type 'Window & typeof globalThis' to type 'Window & { wave0310Drags: number; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property 'wave0310Drags' is missing in type 'Window & typeof globalThis' but required in type '{ wave0310Drags: number; }'.
+undefined
+/Users/thomashall/Repositories/sg-ui/packages/ui:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 2: tsc --noEmit -p tests/browser/tsconfig.json

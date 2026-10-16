@@ -1,0 +1,39 @@
+'use client';
+import {useState} from 'react';
+import {SearchField,TextField,Select,Checkbox,Button} from '@structured-growth/sg-ui/experimental';
+import {Box,Stack,Typography} from '@structured-growth/sg-ui/primitives';
+import {SchoolIcon} from '@structured-growth/sg-ui/icons';
+import type {Density} from '@structured-growth/sg-ui/theme';
+import {Example} from '../components/Example';
+import {exampleSource,literal} from './source';
+const items=[{id:'design',label:'Design systems',description:'Course library',keywords:['components','UI']},{id:'research',label:'User research',description:'Research methods',keywords:['interviews']},{id:'engineering',label:'Engineering',description:'Technical courses',keywords:['code']}];
+type Scenario='playground'|'compact'|'comfortable'|'remote';
+export function SearchFieldExamples(){return <Stack gap={4}>{(['playground','compact','comfortable','remote'] as const).map(scenario=><SearchExample key={scenario} scenario={scenario}/>)}<StandaloneSearchExample/></Stack>;}
+function SearchExample({scenario}:{scenario:Scenario}){
+ const [query,setQuery]=useState('');
+ const [label,setLabel]=useState('Find a course'),[placeholder,setPlaceholder]=useState('Search courses or aliases');
+ const [description,setDescription]=useState('Try components or interviews.');
+ const [density,setDensity]=useState<Density>(scenario==='comfortable'?'comfortable':'compact');
+ const [disabled,setDisabled]=useState(false),[readOnly,setReadOnly]=useState(false),[clear,setClear]=useState(true),[showResults,setShowResults]=useState(true),[icon,setIcon]=useState(false),[links,setLinks]=useState(false);
+ const [loading,setLoading]=useState(false),[error,setError]=useState(false);
+ const remote=scenario==='remote',playground=scenario==='playground';
+ const title=playground?'Prop playground':remote?'Host-filtered results and retry':`${density==='compact'?'Compact':'Comfortable'} search`;
+ const choices=items.map(item=>({...item,...(links?{href:`#${item.id}`}:{})}));
+ const results=remote?choices.filter(item=>item.label.toLowerCase().includes(query.toLowerCase())):choices;
+ const body=`<SearchField label={${literal(label)}} placeholder={${literal(placeholder)}} description={${literal(description)}} items={${remote?'items.filter(item=>item.label.toLowerCase().includes(query.toLowerCase()))':'items'}} value={query} onValueChange={setQuery} onResultSelect={item=>setQuery(item.label)} filter="${remote?'none':'contains'}" showResults={${showResults}} showClearButton={${clear}} disabled={${disabled}} readOnly={${readOnly}} loading={${error?'loading':loading}} errorMessage={${error?'error?"Search failed. Retry to restore local results.":undefined':'undefined'}}${error?' onRetry={error?()=>{setError(false);setLoading(false);}:undefined}':''}${icon?' endIcon={<SchoolIcon size={16}/>}':''}/>`;
+ const source=exampleSource({name:`SearchField${scenario}`,imports:["import {SearchField} from '@structured-growth/sg-ui/experimental';","import {Box} from '@structured-growth/sg-ui/primitives';",...(icon?["import {SchoolIcon} from '@structured-growth/sg-ui/icons';"]:[])],state:`  const items=${JSON.stringify(choices)};\n  const [query,setQuery]=useState(${literal(query)});${error?`\n  const [error,setError]=useState(true);\n  const [loading,setLoading]=useState(${loading});`:''}`,body:`<ThemeScope density="${density}">\n<Box style={{inlineSize:'24rem',maxInlineSize:'100%'}}>\n${body}\n</Box>\n</ThemeScope>`});
+ return <Example title={title} density={density} description={remote?'Host-filtered mode accepts results for the current query. This example filters local data; a production host owns fetching, cancellation and stale-response rejection.':'The standard component owns the input, clear action, alias matching, results dropdown, Arrow/Home/End/Escape keys and native result links or actions. Pick a result to put its label in this example field. Hosts supply data and navigation.'}
+ controls={playground?<Stack gap={3}><Stack direction="row" wrap gap={3}><TextField label="Example label" value={label} onValueChange={setLabel}/><TextField label="Placeholder text" value={placeholder} onValueChange={setPlaceholder}/><TextField label="Description" value={description} onValueChange={setDescription}/><Select label="Example density" options={[{id:'compact',label:'Compact'},{id:'comfortable',label:'Comfortable'}]} value={density} onValueChange={value=>setDensity(value==='comfortable'?'comfortable':'compact')}/></Stack><Stack direction="row" wrap gap={3}><Checkbox label="Disabled" checked={disabled} onCheckedChange={setDisabled}/><Checkbox label="Read only" checked={readOnly} onCheckedChange={setReadOnly}/><Checkbox label="Clear action" checked={clear} onCheckedChange={setClear}/><Checkbox label="Results dropdown" checked={showResults} onCheckedChange={setShowResults}/><Checkbox label="Trailing icon" checked={icon} onCheckedChange={setIcon}/><Checkbox label="Navigation links" checked={links} onCheckedChange={setLinks}/><Checkbox label="Loading" checked={loading} onCheckedChange={setLoading}/><Checkbox label="Request error" checked={error} onCheckedChange={setError}/></Stack></Stack>:remote?<Stack direction="row" gap={3}><Checkbox label="Mock loading" checked={loading} onCheckedChange={setLoading}/><Checkbox label="Mock error" checked={error} onCheckedChange={setError}/></Stack>:undefined} source={source}>
+ <Box style={{inlineSize:'24rem',maxInlineSize:'100%'}}><SearchField label={label} placeholder={placeholder} description={description} items={results} value={query} onValueChange={setQuery} onResultSelect={item=>setQuery(item.label)} filter={remote?'none':'contains'} showResults={showResults} showClearButton={clear} disabled={disabled} readOnly={readOnly} loading={loading} errorMessage={error?'Search failed. Retry to restore local results.':undefined} onRetry={error?()=>{setError(false);setLoading(false);}:undefined} endIcon={icon?<SchoolIcon size={16}/>:undefined}/></Box>
+ </Example>;
+}
+
+
+function StandaloneSearchExample(){
+ const [query,setQuery]=useState(''),[message,setMessage]=useState('');
+ const submit=(text:string)=>setMessage(text.trim()?`Search requested for “${text.trim()}”.`:'Enter a search term.');
+ const body=`<form onSubmit={event=>{event.preventDefault();submit(query);}}>\n<Stack align="start" gap={3}>\n<SearchField label="Search the course library" placeholder="Search courses" name="query" value={query} onValueChange={setQuery} showResults={false} onSearch={submit}/>\n<Button type="submit">Search courses</Button>\n{message&&<Typography role="status">{message}</Typography>}\n</Stack>\n</form>`;
+ return <Example title="Standalone search and submission" density="compact" description="The same public component can submit a query while a host renders results elsewhere. Enter or the form button requests a local operation; the host owns the actual search service." source={exampleSource({name:'StandaloneSearch',imports:["import {SearchField,Button} from '@structured-growth/sg-ui/experimental';","import {Box,Stack,Typography} from '@structured-growth/sg-ui/primitives';"],state:`  const [query,setQuery]=useState(${literal(query)});\n  const [message,setMessage]=useState(${literal(message)});\n  const submit=(text:string)=>setMessage(text.trim()?\`Search requested for “\${text.trim()}”.\`:'Enter a search term.');`,body:`<ThemeScope density="compact">\n<Box style={{inlineSize:'24rem',maxInlineSize:'100%'}}>\n${body}\n</Box>\n</ThemeScope>`})}>
+ <Box style={{inlineSize:'24rem',maxInlineSize:'100%'}}><form onSubmit={event=>{event.preventDefault();submit(query);}}><Stack align="start" gap={3}><SearchField label="Search the course library" placeholder="Search courses" name="query" value={query} onValueChange={setQuery} showResults={false} onSearch={submit}/><Button type="submit">Search courses</Button>{message&&<Typography role="status">{message}</Typography>}</Stack></form></Box>
+ </Example>;
+}

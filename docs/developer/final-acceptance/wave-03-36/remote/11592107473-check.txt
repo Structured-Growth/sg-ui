@@ -1,0 +1,686 @@
+
+> @structured-growth/sg-ui@0.0.0-development check /home/runner/work/sg-ui/sg-ui
+> pnpm foundations:check && pnpm tokens:check && pnpm test:foundations && pnpm typecheck && pnpm test && pnpm test:release && pnpm build && pnpm test:package
+
+
+> @structured-growth/sg-ui@0.0.0-development foundations:check /home/runner/work/sg-ui/sg-ui
+> node scripts/check-foundations.mjs
+
+Owned foundation import, layer and token checks pass.
+
+> @structured-growth/sg-ui@0.0.0-development tokens:check /home/runner/work/sg-ui/sg-ui
+> node scripts/tokens.mjs --check
+
+
+> @structured-growth/sg-ui@0.0.0-development test:foundations /home/runner/work/sg-ui/sg-ui
+> node --test scripts/tokens.test.mjs scripts/css-modules.test.mjs scripts/packed-browser.test.mjs scripts/react-stately-boundaries.test.mjs src/foundation/Tokens.next100-regression.test.mjs scripts/CSSPipeline.next100-regression.test.mjs scripts/check-component-css.test.mjs
+
+✔ emits real module maps with ordered layers, scoped normalization and logical token slots (165.438792ms)
+✔ resolves the public stylesheet export and consumes generated ESM class assets (171.87619ms)
+✔ repeated compilation is deterministic across roots and replaces stylesheet contents (514.445927ms)
+✔ owned layers, local descendants, variable math, inheritance and forced colors pass (5.740914ms)
+✔ every selector branch must be local; global wrappers and negative pseudos are not anchors (1.610109ms)
+✔ host and retired selectors fail even underneath a local anchor (0.833002ms)
+✔ layer and token checks remain enforced, including whitespace before token names (0.6303ms)
+✔ typography literals, shorthand, token fallback and token decoration fail (1.321459ms)
+✔ comments are inert; diagnostics retain exact source locations and all violations (1.566675ms)
+✔ percentage and dimension math offsets fail; unitless token arithmetic passes (2.413958ms)
+✔ quoted attribute data is inert but actual retired identifiers still fail (3.351975ms)
+✔ only exact shared rich-document semantic declarations have a literal contract (4.639864ms)
+✔ module names are stable, namespaced and distinct between components (10.243083ms)
+✔ packed server returns missing assets before headers and survives subsequent requests (69.950681ms)
+✔ registered DateField may use public lower-level state hooks internally (10.880313ms)
+✔ ordinary owned modules and public contracts reject every state reference form (17.296364ms)
+✔ actual source checker permits DateField but rejects visited and transitive helpers (3090.123707ms)
+✔ root, granular and grid declaration checks reject upstream escapes and retain owned contracts (217.473583ms)
+✔ generated files match the source (12.595504ms)
+✔ rejects missing references, cycles, invalid dimensions, type mismatch and unpaired themes (3.835275ms)
+✔ proof text, action, error and focus combinations meet declared contrast thresholds (1.661065ms)
+✔ generation is deterministic and emits typed component and semantic tiers (5.821284ms)
+✔ rejects unknown groups, malformed records and tier direction/type/parity violations (11.211357ms)
+✔ emitted component relationships rebind at scope, theme/system and density boundaries (3.327899ms)
+✔ palette/scale owns deduplicated shared values; component tier contains aliases only (0.441428ms)
+✔ preserves every legacy scoped token literal and nesting selector (2.280348ms)
+✔ disabled public references emit in both themes without mutating or leaking between compilations (21.17897ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3775.440995
+
+> @structured-growth/sg-ui@0.0.0-development typecheck /home/runner/work/sg-ui/sg-ui
+> tsc --noEmit
+
+
+> @structured-growth/sg-ui@0.0.0-development test /home/runner/work/sg-ui/sg-ui
+> vitest run
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/sg-ui/sg-ui[39m
+
+ [32m✓[39m src/components/AppDataGrid/ownedGridInteraction.test.tsx [2m([22m[2m23 tests[22m[2m)[22m[33m 4952[2mms[22m[39m
+   [33m[2m✓[22m[39m uses owned header sorting and client processing with original host rows [33m 538[2mms[22m[39m
+   [33m[2m✓[22m[39m retains off-page and disabled IDs while toggling only selectable page rows [33m 312[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps focused nested controls on stable rows and repairs deleted row focus in its own grid [33m 304[2mms[22m[39m
+   [33m[2m✓[22m[39m omits drag hooks without reorder and preserves header focus when host toggles reorder [33m 396[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps one retained-row announcement through failure and host retry without moving another grid's focus [33m 462[2mms[22m[39m
+   [33m[2m✓[22m[39m ends Retry focus ownership on deliberate host/independent focus with empty rows=false [33m 422[2mms[22m[39m
+   [33m[2m✓[22m[39m ends Retry focus ownership on deliberate host/independent focus with empty rows=true [33m 341[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGridShell/AppDataGridShell.test.tsx [2m([22m[2m25 tests[22m[2m)[22m[33m 7047[2mms[22m[39m
+   [33m[2m✓[22m[39m shares client page, selection and criteria between list and cards with one footer [33m 666[2mms[22m[39m
+   [33m[2m✓[22m[39m header sorting emits one combined transaction with page reset before criterion [33m 350[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps controlled view and selection authoritative while callback-only criteria stay writable [33m 553[2mms[22m[39m
+   [33m[2m✓[22m[39m orders controlled list filter and size requests without replacing host state [33m 666[2mms[22m[39m
+   [33m[2m✓[22m[39m orders controlled cards filter and size requests without replacing host state [33m 384[2mms[22m[39m
+   [33m[2m✓[22m[39m retains valid list selection through unknown totals, pending/error and disappearing host rows [33m 303[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates grid/card selection, sorting and filters with distinct persisted view keys [33m 814[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps a shrunk client page coherent with host acceptance=true [33m 405[2mms[22m[39m
+   [33m[2m✓[22m[39m accepts columns-menu order requests through the controlled shell while retaining locks, visibility and actions last [33m 540[2mms[22m[39m
+ [32m✓[39m src/experimental/AsyncMultiSelect/AsyncMultiSelect.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 1857[2mms[22m[39m
+   [33m[2m✓[22m[39m respects controlled selection and read-only state with a long result list [33m 734[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx [2m([22m[2m16 tests[22m[2m)[22m[33m 10242[2mms[22m[39m
+     [33m[2m✓[22m[39m rejects an unsupported host image address without insertion and retains the file and description for retry [33m 1012[2mms[22m[39m
+     [33m[2m✓[22m[39m retains local image URLs for read-only and undo, then releases them on document reset and unmount [33m 769[2mms[22m[39m
+     [33m[2m✓[22m[39m never releases host-owned image URLs [33m 370[2mms[22m[39m
+     [33m[2m✓[22m[39m stores accepted /courses/guide as /courses/guide in actual Lexical output [33m 1122[2mms[22m[39m
+     [33m[2m✓[22m[39m stores accepted www.example.org/guide as https://www.example.org/guide in actual Lexical output [33m 1160[2mms[22m[39m
+     [33m[2m✓[22m[39m persists an explicit image description "A diagram of a course" including decorative empty text [33m 464[2mms[22m[39m
+     [33m[2m✓[22m[39m isolates late 'success' after 'reset' from the next pending upload [33m 609[2mms[22m[39m
+     [33m[2m✓[22m[39m isolates late 'failure' after 'reset' from the next pending upload [33m 552[2mms[22m[39m
+     [33m[2m✓[22m[39m isolates late 'success' after 'readOnly' from the next pending upload [33m 515[2mms[22m[39m
+     [33m[2m✓[22m[39m isolates late 'failure' after 'readOnly' from the next pending upload [33m 518[2mms[22m[39m
+     [33m[2m✓[22m[39m isolates late 'success' after 'unmount' from the next pending upload [33m 558[2mms[22m[39m
+     [33m[2m✓[22m[39m isolates late 'failure' after 'unmount' from the next pending upload [33m 593[2mms[22m[39m
+     [33m[2m✓[22m[39m ignores a canceled host upload that later resolves after reopening [33m 427[2mms[22m[39m
+     [33m[2m✓[22m[39m ignores a canceled host upload that later rejects after reopening [33m 424[2mms[22m[39m
+   [33m[2m✓[22m[39m applies semantic color tokens and clears foreground/background through the real editor host [33m 862[2mms[22m[39m
+ [32m✓[39m src/experimental/DateRangeSelector/DateRangeSelector.test.tsx [2m([22m[2m16 tests[22m[2m)[22m[33m 4974[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps presets in a draft until Apply and Cancel restores committed values [33m 809[2mms[22m[39m
+   [33m[2m✓[22m[39m disables presets crossing unavailable dates, announces explanations and enforces required selection [33m 301[2mms[22m[39m
+   [33m[2m✓[22m[39m requests a controlled commit once without changing committed form values [33m 323[2mms[22m[39m
+   [33m[2m✓[22m[39m previews a keyboard range across leap day without applying the previous draft [33m 463[2mms[22m[39m
+   [33m[2m✓[22m[39m cancels an anchor and starts a fresh range rather than retaining an unfinished selection [33m 495[2mms[22m[39m
+   [33m[2m✓[22m[39m resets standalone committed values, drafts and pending anchors through the native form [33m 340[2mms[22m[39m
+   [33m[2m✓[22m[39m retains a draft on prevented native reset and clears the anchor on a changed host value [33m 427[2mms[22m[39m
+   [33m[2m✓[22m[39m cancels an unfinished range on leaving the calendar without inventing an endpoint [33m 343[2mms[22m[39m
+   [33m[2m✓[22m[39m associates only the focused preview endpoint, keeping anchor, reverse preview and committed draft distinct [33m 524[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridModel.test.ts [2m([22m[2m51 tests[22m[2m)[22m[32m 58[2mms[22m[39m
+ [32m✓[39m src/experimental/DateField/DateField.test.tsx [2m([22m[2m14 tests[22m[2m)[22m[33m 1070[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 2943[2mms[22m[39m
+     [33m[2m✓[22m[39m formats selected text, headings and font family through the real toolbar and serializes changes [33m 833[2mms[22m[39m
+     [33m[2m✓[22m[39m preserves differently formatted runs when linking, changing the URL and unlinking [33m 918[2mms[22m[39m
+     [33m[2m✓[22m[39m loads a new document and closes its dialogs when the host changes editorKey [33m 327[2mms[22m[39m
+     [33m[2m✓[22m[39m captures the selected link text before pointer focus and supports a keyboard dialog commit [33m 405[2mms[22m[39m
+ [32m✓[39m src/components/SideNavigation/SideNavigation.test.tsx [2m([22m[2m27 tests[22m[2m)[22m[33m 3510[2mms[22m[39m
+ [32m✓[39m src/hooks/usePersistentState.behavior.test.tsx [2m([22m[2m16 tests[22m[2m)[22m[32m 70[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridCells.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[33m 535[2mms[22m[39m
+ [32m✓[39m src/components/ImageUploadModal/ImageUploadModal.test.tsx [2m([22m[2m16 tests[22m[2m)[22m[33m 3045[2mms[22m[39m
+     [33m[2m✓[22m[39m selects a file and inserts through keyboard activation once with focus restoration [33m 383[2mms[22m[39m
+     [33m[2m✓[22m[39m retains a failed upload for retry and sends an optional trimmed image description [33m 316[2mms[22m[39m
+ [32m✓[39m src/experimental/TimeField/TimeField.test.tsx [2m([22m[2m15 tests[22m[2m)[22m[33m 1087[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridInteraction.drop-focus.test.tsx [2m([22m[2m24 tests[22m[2m)[22m[33m 4968[2mms[22m[39m
+   [33m[2m✓[22m[39m restores the preserved source handle after late collection focus for a stale dataset drop [33m 461[2mms[22m[39m
+   [33m[2m✓[22m[39m returns Strict Mode keyboard cancellation to the source after entering through a selected checkbox [33m 391[2mms[22m[39m
+ [32m✓[39m src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 3337[2mms[22m[39m
+   [33m[2m✓[22m[39m edits nested field/operator selections, applies only valid rules and never submits a host form [33m 893[2mms[22m[39m
+   [33m[2m✓[22m[39m supports enum multi-selection, nested Escape and All as no active rule [33m 412[2mms[22m[39m
+   [33m[2m✓[22m[39m cancels drafts, resets only drafts, sanitizes unknown fields/operators and clears valueless operators [33m 506[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps an open draft when host criteria change and reloads the latest host criteria after Cancel [33m 356[2mms[22m[39m
+ [32m✓[39m src/adapters/accounts.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[32m 35[2mms[22m[39m
+ [32m✓[39m src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 3099[2mms[22m[39m
+     [33m[2m✓[22m[39m adds unused fields, edits direction, removes a rule and applies only complete rules [33m 743[2mms[22m[39m
+     [33m[2m✓[22m[39m cancels edits and reloads the latest controlled value on reopening [33m 333[2mms[22m[39m
+     [33m[2m✓[22m[39m supports keyboard/non-drag priority changes and keeps rule identity through moves [33m 319[2mms[22m[39m
+     [33m[2m✓[22m[39m keeps placeholder rules incomplete and prevents duplicate fields [33m 363[2mms[22m[39m
+     [33m[2m✓[22m[39m counts and applies only current fields, valid directions and the first rule for each field [33m 330[2mms[22m[39m
+ [32m✓[39m src/components/AppModal/AppModal.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 1126[2mms[22m[39m
+ [32m✓[39m src/experimental/Dialog/Dialog.test.tsx [2m([22m[2m14 tests[22m[2m)[22m[33m 2136[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridController.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 54[2mms[22m[39m
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+ [32m✓[39m src/experimental/Menu/Menu.test.tsx [2m([22m[2m14 tests[22m[2m)[22m[33m 1375[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridPersistence.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[32m 59[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/AppDataGrid.reorder.test.tsx [2m([22m[2m21 tests[22m[2m)[22m[33m 4335[2mms[22m[39m
+     [33m[2m✓[22m[39m requests exact string IDs and host rows without mutating their order [33m 491[2mms[22m[39m
+     [33m[2m✓[22m[39m uses getRowId for requests and retains source-control focus through host commit and rollback [33m 370[2mms[22m[39m
+     [33m[2m✓[22m[39m restores focus to the source drag handle when its move control becomes disabled [33m 323[2mms[22m[39m
+     [33m[2m✓[22m[39m retains the source control through a host pending phase and async commit [33m 391[2mms[22m[39m
+     [33m[2m✓[22m[39m restores the source control after a pending optimistic reorder rolls back to the exact original array [33m 301[2mms[22m[39m
+ [32m✓[39m src/experimental/Popover/Popover.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 700[2mms[22m[39m
+ [32m✓[39m src/experimental/TextField/TextField.test.tsx [2m([22m[2m11 tests[22m[2m)[22m[33m 635[2mms[22m[39m
+ [32m✓[39m src/experimental/Checkbox/Checkbox.test.tsx [2m([22m[2m12 tests[22m[2m)[22m[33m 542[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 134[2mms[22m[39m
+Error: Not implemented: window.scrollBy
+    at module.exports (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at /home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/Window.js:960:7
+    at scrollIntoViewIfNeeded (file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:11985:21)
+    at updateDOMSelection (file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:7905:7)
+    at $commitPendingUpdates (file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8565:9)
+    at file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8841:9 undefined
+ [32m✓[39m src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 795[2mms[22m[39m
+[90mstderr[2m | src/experimental/Tabs/Tabs.test.tsx[2m > [22m[2mowned tabs proof[2m > [22m[2mkeeps manual activation separate from focus and honors controlled selection
+[22m[39mWARN: A component changed from uncontrolled to controlled.
+
+ [32m✓[39m src/components/AppDataGrid/AppDataGrid.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 2277[2mms[22m[39m
+     [33m[2m✓[22m[39m renders owned cells, real native refs, and requests footer page changes once [33m 426[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps a shrunk client page coherent with host acceptance=false [33m 337[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps a shrunk client page coherent with host acceptance=true [33m 408[2mms[22m[39m
+ [32m✓[39m src/experimental/Tabs/Tabs.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 702[2mms[22m[39m
+ [32m✓[39m src/i18n/icu.test.ts [2m([22m[2m43 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+ [32m✓[39m src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx [2m([22m[2m12 tests[22m[2m)[22m[33m 2335[2mms[22m[39m
+     [33m[2m✓[22m[39m names actions, exposes controlled pressed states and activates once by pointer and keyboard without submitting [33m 573[2mms[22m[39m
+     [33m[2m✓[22m[39m requests heading/font selections exactly once and preserves controlled values until the host updates [33m 314[2mms[22m[39m
+     [33m[2m✓[22m[39m composes checked styles, restricted indent and semantic color actions [33m 316[2mms[22m[39m
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.test.tsx[2m > [22m[2mcommits numeric widths through keyboard resize activation
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+ [32m✓[39m src/components/AuthShell/AuthShell.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 791[2mms[22m[39m
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.test.tsx[2m > [22m[2msorts multiple priorities and filters loaded client rows
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.test.tsx[2m > [22m[2mretains cross-page selection and distinguishes selecting the current page
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.test.tsx[2m > [22m[2mretains cross-page selection and distinguishes selecting the current page
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+ [32m✓[39m src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 1157[2mms[22m[39m
+     [33m[2m✓[22m[39m names actions and activates once by pointer and keyboard with controlled pressed states [33m 354[2mms[22m[39m
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.test.tsx[2m > [22m[2mretains cross-page selection and distinguishes selecting the current page
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.test.tsx[2m > [22m[2mpreserves server row order, emits owned callbacks and handles unknown totals
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+ [32m✓[39m src/utils/formatDueDateLabel.test.ts [2m([22m[2m44 tests[22m[2m)[22m[32m 44[2mms[22m[39m
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.test.tsx[2m > [22m[2misolates overlapping row keys and nested cell actions between independent grids
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+Draggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+ [32m✓[39m src/experimental/DataGrid/DataGrid.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 2912[2mms[22m[39m
+   [33m[2m✓[22m[39m commits numeric widths through keyboard resize activation [33m 375[2mms[22m[39m
+   [33m[2m✓[22m[39m cancels a keyboard drag without requesting a host reorder [33m 385[2mms[22m[39m
+   [33m[2m✓[22m[39m sorts multiple priorities and filters loaded client rows [33m 405[2mms[22m[39m
+   [33m[2m✓[22m[39m retains cross-page selection and distinguishes selecting the current page [33m 998[2mms[22m[39m
+   [33m[2m✓[22m[39m locks the first column, hides optional columns and exposes non-drag reordering [33m 361[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates overlapping row keys and nested cell actions between independent grids [33m 311[2mms[22m[39m
+ [32m✓[39m src/experimental/RadioGroup/RadioGroup.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 572[2mms[22m[39m
+[90mstderr[2m | src/experimental/ToggleButton/ToggleButton.test.tsx[2m > [22m[2mleaves controlled selection with the host and prevents disabled activation
+[22m[39mWARN: A component changed from controlled to uncontrolled.
+
+ [32m✓[39m src/components/SideNavigation/SideNavigation.organization-lifetime.test.tsx [2m([22m[2m19 tests[22m[2m)[22m[33m 2992[2mms[22m[39m
+   [33m[2m✓[22m[39m ignores obsolete switch success after callback and preserves the current operation [33m 424[2mms[22m[39m
+ [32m✓[39m src/experimental/ToggleButton/ToggleButton.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 509[2mms[22m[39m
+ [32m✓[39m src/components/ExperiencePageNavigator/ExperiencePageNavigator.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 1946[2mms[22m[39m
+   [33m[2m✓[22m[39m selects and adds once while commands remain separate from selection [33m 332[2mms[22m[39m
+   [33m[2m✓[22m[39m renames with a trimmed title on Enter and restores focus after dismissal [33m 395[2mms[22m[39m
+   [33m[2m✓[22m[39m cancels with Escape and ignores unchanged or blank titles [33m 455[2mms[22m[39m
+ [32m✓[39m src/components/InstructorClassCard/InstructorClassCard.test.tsx [2m([22m[2m21 tests[22m[2m)[22m[33m 362[2mms[22m[39m
+[90mstderr[2m | src/experimental/TextArea/TextArea.test.tsx[2m > [22m[2mkeeps controlled values and names/descriptions/errors associated
+[22m[39mIf you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+
+ [32m✓[39m src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1799[2mms[22m[39m
+   [33m[2m✓[22m[39m Bold preserves mixed-run text/styles, real history and host JSON reload [33m 797[2mms[22m[39m
+   [33m[2m✓[22m[39m Italic preserves mixed-run text/styles, real history and host JSON reload [33m 506[2mms[22m[39m
+   [33m[2m✓[22m[39m Underline preserves mixed-run text/styles, real history and host JSON reload [33m 464[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/components/RowSubHeader.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 630[2mms[22m[39m
+   [33m[2m✓[22m[39m requests canonical sort directions once and restores keyboard focus [33m 415[2mms[22m[39m
+ [32m✓[39m src/experimental/TextArea/TextArea.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 806[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridLayoutController.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 35[2mms[22m[39m
+ [32m✓[39m src/components/EditableTitleField/EditableTitleField.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 1048[2mms[22m[39m
+ [32m✓[39m src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 1470[2mms[22m[39m
+     [33m[2m✓[22m[39m opens through the native ref and invokes each formatting callback once [33m 823[2mms[22m[39m
+ [32m✓[39m src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 1276[2mms[22m[39m
+     [33m[2m✓[22m[39m keeps delimiter-bearing course IDs in one route segment and activates Details once [33m 426[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridParts.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 624[2mms[22m[39m
+   [33m[2m✓[22m[39m requests canonical sort directions once and restores keyboard focus [33m 402[2mms[22m[39m
+ [32m✓[39m src/components/LearnerClassCard/LearnerClassCard.due-label.test.tsx [2m([22m[2m12 tests[22m[2m)[22m[33m 378[2mms[22m[39m
+ [32m✓[39m src/experimental/ComboBox/ComboBox.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 933[2mms[22m[39m
+     [33m[2m✓[22m[39m filters options and commits the owned string ID with keyboard selection [33m 322[2mms[22m[39m
+ [32m✓[39m src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 1685[2mms[22m[39m
+     [33m[2m✓[22m[39m applies all six alignments and indent commands once, then restores focus [33m 1075[2mms[22m[39m
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+ [32m✓[39m src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.test.tsx [2m([22m[2m15 tests[22m[2m)[22m[33m 2574[2mms[22m[39m
+     [33m[2m✓[22m[39m delivers once to the current committed owner while preserving controlled heading and deferred focus [33m 353[2mms[22m[39m
+ [32m✓[39m src/components/AppPageTabs/AppPageTabs.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 427[2mms[22m[39m
+ [32m✓[39m src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 510[2mms[22m[39m
+ [32m✓[39m src/components/LinkUrlModal/LinkUrlModal.test.tsx [2m([22m[2m23 tests[22m[2m)[22m[33m 3592[2mms[22m[39m
+     [33m[2m✓[22m[39m applies trimmed host values once from the keyboard and restores trigger focus [33m 654[2mms[22m[39m
+ [32m✓[39m src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.next100-regression.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1880[2mms[22m[39m
+   [33m[2m✓[22m[39m composes host filter changes with learner paging, original rows, selection and native table props [33m 1106[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates sibling learner selection and paging and resets local state on remount [33m 542[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 4467[2mms[22m[39m
+   [33m[2m✓[22m[39m discards older success after newer success, retaining criteria, status, focus and independent view [33m 1416[2mms[22m[39m
+   [33m[2m✓[22m[39m discards older error after newer success, retaining criteria, status, focus and independent view [33m 858[2mms[22m[39m
+   [33m[2m✓[22m[39m discards success after replace without committing or redispatching [33m 451[2mms[22m[39m
+   [33m[2m✓[22m[39m discards error after replace without committing or redispatching [33m 425[2mms[22m[39m
+   [33m[2m✓[22m[39m discards success after unmount without committing or redispatching [33m 367[2mms[22m[39m
+   [33m[2m✓[22m[39m discards error after unmount without committing or redispatching [33m 360[2mms[22m[39m
+   [33m[2m✓[22m[39m obsolete settlement cannot clear a newer pending request or replace its committed error [33m 588[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridState.test.ts [2m([22m[2m18 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/experimental/Pagination/Pagination.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 460[2mms[22m[39m
+ [32m✓[39m src/components/TextColorPickerControl/TextColorPickerControl.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 1734[2mms[22m[39m
+     [33m[2m✓[22m[39m validates hex, associates errors, normalizes Enter and avoids a second blur commit [33m 582[2mms[22m[39m
+     [33m[2m✓[22m[39m commits owned swatches and native colors, and exposes clear and background reset [33m 345[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridSortAcceptance.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 2563[2mms[22m[39m
+   [33m[2m✓[22m[39m promotes a secondary header sort, exposes directions and toolbar priority, and processes one page-zero snapshot [33m 678[2mms[22m[39m
+   [33m[2m✓[22m[39m clears all rules through toolbar Reset/Apply and omits non-sortable choices [33m 439[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps controlled rules, indicators, priority and rows until the host accepts a request [33m 355[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 60[2mms[22m[39m
+ [32m✓[39m src/models.remaining-T-boundary.test.ts [2m([22m[2m2 tests[22m[2m)[22m[33m 689[2mms[22m[39m
+     [33m[2m✓[22m[39m keeps the actual model import and type dependency graph independent of host contracts [33m 681[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridPageShrink.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/experimental/DatePicker/DatePicker.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 1678[2mms[22m[39m
+   [33m[2m✓[22m[39m selects and clears the date, restores trigger focus and silently resets the native default [33m 648[2mms[22m[39m
+   [33m[2m✓[22m[39m preserves controlled authority on Clear and guards empty, required and read-only dates [33m 476[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps uncontrolled dates on prevented reset and resets silently [33m 363[2mms[22m[39m
+ [32m✓[39m src/experimental/Tooltip/Tooltip.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 404[2mms[22m[39m
+ [32m✓[39m src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 1188[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps locked columns disabled, toggles controlled visibility once and resets all columns [33m 336[2mms[22m[39m
+   [33m[2m✓[22m[39m searches literal host labels, reports no matches and clears search after dismissal [33m 394[2mms[22m[39m
+ [32m✓[39m src/experimental/Disclosure/Disclosure.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 390[2mms[22m[39m
+ [32m✓[39m src/components/ContentEditorChrome/ContentEditorChrome.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 427[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 1014[2mms[22m[39m
+     [33m[2m✓[22m[39m applies pointer formatting and Alt F10 keyboard formatting to the selected text [33m 570[2mms[22m[39m
+     [33m[2m✓[22m[39m prepares selected link text before pointer focus and commits the host dialog with Enter [33m 441[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[32m 35[2mms[22m[39m
+ [32m✓[39m src/experimental/TagGroup/TagGroup.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 661[2mms[22m[39m
+ [32m✓[39m src/components/SideNavigation/SideNavigation.helpers.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 807[2mms[22m[39m
+ [32m✓[39m src/hooks/usePersistentState.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/components/ExperiencePageNavigator/ExperiencePageNavigator.next100-regression.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1236[2mms[22m[39m
+   [33m[2m✓[22m[39m disables the last-row downward request and requests its preceding page without selecting [33m 305[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates overlapping page keys, callbacks and rename drafts across instances and remount [33m 675[2mms[22m[39m
+ [32m✓[39m src/components/CardPaginationFooter/CardPaginationFooter.test.tsx [2m([22m[2m7 tests[22m[2m)[22m[33m 365[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 1010[2mms[22m[39m
+   [33m[2m✓[22m[39m inserts twoEqual through the dialog, edits selected cell text, restores history and reloads the saved document [33m 1009[2mms[22m[39m
+ [32m✓[39m src/experimental/DatePicker/DatePicker.native-transactions.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1346[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps a partial keyboard draft out of civil callbacks and form data until all segments are complete [33m 318[2mms[22m[39m
+   [33m[2m✓[22m[39m reopens the calendar at the typed leap day then commits a cross-month date to the segments [33m 531[2mms[22m[39m
+   [33m[2m✓[22m[39m requests edits without replacing a controlled host value when the host rejects field and calendar changes [33m 301[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/AppDataGrid.cells.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 861[2mms[22m[39m
+   [33m[2m✓[22m[39m composes every owned public cell with safe content and independent nested actions [33m 825[2mms[22m[39m
+ [32m✓[39m src/components/AdminDataGridOptions.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[33m 458[2mms[22m[39m
+     [33m[2m✓[22m[39m locks the first text and action columns while letting hosts hide and reset another column [33m 447[2mms[22m[39m
+ [32m✓[39m src/experimental/DateRangePicker/DateRangePicker.controlled-transactions.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 2236[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps both hidden endpoints authoritative after rejected Apply and reopens the host commit [33m 1236[2mms[22m[39m
+   [33m[2m✓[22m[39m invalidates an open draft and unfinished anchor when host endpoints change [33m 586[2mms[22m[39m
+   [33m[2m✓[22m[39m retains an open draft on prevented native reset and closes on accepted reset without a controlled request [33m 412[2mms[22m[39m
+ [32m✓[39m src/experimental/Switch/Switch.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 450[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 1507[2mms[22m[39m
+   [33m[2m✓[22m[39m owned paragraph menu commands preserve the adjacent paragraph through history and saved reload [33m 1504[2mms[22m[39m
+ [32m✓[39m src/adapters/adapters.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[32m 130[2mms[22m[39m
+ [32m✓[39m src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1422[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps rejected host order authoritative and accepts the next adjacent request [33m 510[2mms[22m[39m
+   [33m[2m✓[22m[39m retains host changes to read-only during a portal edit, then permits selection [33m 450[2mms[22m[39m
+   [33m[2m✓[22m[39m re-enables the host through its explicit control after a live read-only menu dismissal [33m 318[2mms[22m[39m
+ [32m✓[39m src/components/DataToolbar/DataToolbar.native-composition.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 1347[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps independently hosted search and actions alive through an allocated host resize [33m 676[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps toolbar search through column navigation and resets only column query on dismissal [33m 457[2mms[22m[39m
+ [32m✓[39m src/experimental/Navigation/Navigation.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 130[2mms[22m[39m
+ [32m✓[39m src/components/AppShell/AppShell.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 376[2mms[22m[39m
+ [32m✓[39m src/components/DataToolbar/DataToolbar.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 761[2mms[22m[39m
+     [33m[2m✓[22m[39m composes columns and filter/sort popovers with host state and restores trigger focus [33m 340[2mms[22m[39m
+ [32m✓[39m src/experimental/SplitAction/SplitAction.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[33m 774[2mms[22m[39m
+ [32m✓[39m src/components/AppShell/AppShell.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 361[2mms[22m[39m
+Error: Not implemented: window.scrollBy
+    at module.exports (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at /home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/Window.js:960:7
+    at scrollIntoViewIfNeeded (file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:11985:21)
+    at updateDOMSelection (file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:7905:7)
+    at $commitPendingUpdates (file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8565:9)
+    at $beginUpdate (file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8838:7)
+    at updateEditor (file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8870:5)
+    at LexicalEditor.update (file:///home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:10881:5)
+    at /home/runner/work/sg-ui/sg-ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.next100-regression.test.tsx:39:19
+    at /home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/@testing-library+react@16.3.3_@testing-library+dom@10.4.2_@types+react-dom@19.3.0_@type_a7723bbf6dc26ddd0886488d3f614815/node_modules/@testing-library/react/dist/act-compat.js:47:24 undefined
+ [32m✓[39m src/components/GridPresets.next100-regression.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 634[2mms[22m[39m
+     [33m[2m✓[22m[39m consumes instructor course columns through host-owned toolbar state [33m 400[2mms[22m[39m
+ [32m✓[39m src/experimental/Select/Select.direction.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1478[2mms[22m[39m
+   [33m[2m✓[22m[39m select preserves en-US visual overrides and open focus through controlled host updates [33m 520[2mms[22m[39m
+   [33m[2m✓[22m[39m select preserves ar-EG visual overrides and open focus through controlled host updates [33m 318[2mms[22m[39m
+   [33m[2m✓[22m[39m combo preserves en-US visual overrides and open focus through controlled host updates [33m 348[2mms[22m[39m
+ [32m✓[39m src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 370[2mms[22m[39m
+   [33m[2m✓[22m[39m clears a collapsed selection and isolates commands and teardown between editor instances [33m 368[2mms[22m[39m
+ [32m✓[39m src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 209[2mms[22m[39m
+ [32m✓[39m src/components/CardPaginationFooter/CardPaginationFooter.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 286[2mms[22m[39m
+ [32m✓[39m src/experimental/Button/Button.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[33m 381[2mms[22m[39m
+ [32m✓[39m src/components/AppOperationSteps/AppOperationSteps.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 145[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/AppDataGrid.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 496[2mms[22m[39m
+   [33m[2m✓[22m[39m restores standalone persisted grids independently and remounts the complete reset defaults [33m 495[2mms[22m[39m
+ [32m✓[39m src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 751[2mms[22m[39m
+   [33m[2m✓[22m[39m selects exactly one preset with arrows, inserts once and returns focus [33m 458[2mms[22m[39m
+ [32m✓[39m src/i18n/index.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[32m 80[2mms[22m[39m
+ [32m✓[39m src/components/primitives/primitives.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 679[2mms[22m[39m
+   [33m[2m✓[22m[39m composes public form controls with keyboard string-ID selection and native reset [33m 377[2mms[22m[39m
+ [32m✓[39m src/experimental/TextArea/TextArea.next100-regression.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 315[2mms[22m[39m
+ [32m✓[39m src/experimental/Table/Table.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 109[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 104[2mms[22m[39m
+ [32m✓[39m src/experimental/Progress/Progress.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 148[2mms[22m[39m
+ [32m✓[39m src/components/ContentEditorChrome/ContentEditorChrome.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 491[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32m✓[39m src/experimental/DateRangePicker/DateRangePicker.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 1682[2mms[22m[39m
+   [33m[2m✓[22m[39m edits both owned endpoint fields as a draft and commits Clear as null [33m 930[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates sibling commits and resets draft state after an open instance unmounts [33m 750[2mms[22m[39m
+ [32m✓[39m src/experimental/ButtonGroup/ButtonGroup.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 198[2mms[22m[39m
+ [32m✓[39m src/experimental/Select/Select.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 674[2mms[22m[39m
+ [32m✓[39m src/components/TextColorPickerControl/TextColorPickerControl.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 1059[2mms[22m[39m
+     [33m[2m✓[22m[39m labels each remaining semantic preset and moves its exclusive selected state [33m 498[2mms[22m[39m
+     [33m[2m✓[22m[39m isolates controlled foreground/background values and discards an unmounted draft [33m 559[2mms[22m[39m
+ [32m✓[39m src/experimental/Pagination/Pagination.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 260[2mms[22m[39m
+ [32m✓[39m src/experimental/TimeField/TimeField.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 400[2mms[22m[39m
+ [32m✓[39m src/experimental/Card/Card.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 135[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 1458[2mms[22m[39m
+     [33m[2m✓[22m[39m releases only the replaced or unmounted editor's URLs while a sibling keeps its image and callback state [33m 1457[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridProcessing.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 1651[2mms[22m[39m
+   [33m[2m✓[22m[39m commits a custom page size as one pagination transaction with one combined request [33m 313[2mms[22m[39m
+   [33m[2m✓[22m[39m uses applied toolbar filter and sort rules to compute the visible page [33m 850[2mms[22m[39m
+ [32m✓[39m src/components/AppModal/AppModal.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 519[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps secondary pending actions and close/reopen callbacks local to each host-controlled modal [33m 518[2mms[22m[39m
+ [32m✓[39m src/experimental/Navigation/Navigation.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 234[2mms[22m[39m
+ [32m✓[39m src/components/InstructorClassCard/InstructorClassCard.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 183[2mms[22m[39m
+ [32m✓[39m src/components/LearnerClassCard/LearnerClassCard.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 314[2mms[22m[39m
+ [32m✓[39m src/components/InsertContentMenuControl/InsertContentMenuControl.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 613[2mms[22m[39m
+     [33m[2m✓[22m[39m opens from the native trigger and invokes insertion callbacks [33m 366[2mms[22m[39m
+ [32m✓[39m src/experimental/Tabs/Tabs.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 270[2mms[22m[39m
+ [32m✓[39m src/experimental/Calendar/Calendar.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 742[2mms[22m[39m
+   [33m[2m✓[22m[39m rejects dates outside min/max and unavailable dates while accepting both inclusive boundaries [33m 328[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates selection and visible month across siblings and restores defaults on keyed remount [33m 412[2mms[22m[39m
+ [32m✓[39m src/components/AppPageHeader/AppPageHeader.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 419[2mms[22m[39m
+ [32m✓[39m src/experimental/Switch/Switch.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 333[2mms[22m[39m
+ [32m✓[39m src/adapters/navigation.test.tsx [2m([22m[2m8 tests[22m[2m)[22m[32m 101[2mms[22m[39m
+ [32m✓[39m src/experimental/List/List.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 196[2mms[22m[39m
+ [32m✓[39m src/experimental/Button/Button.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 195[2mms[22m[39m
+ [32m✓[39m src/theme/AppThemeProvider.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 143[2mms[22m[39m
+ [32m✓[39m src/components/EditableTitleField/EditableTitleField.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 501[2mms[22m[39m
+ [32m✓[39m src/components/icons/icons.test.tsx [2m([22m[2m110 tests[22m[2m)[22m[32m 274[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx [2m([22m[2m6 tests[22m[2m)[22m[32m 54[2mms[22m[39m
+ [32m✓[39m src/experimental/Breadcrumbs/Breadcrumbs.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 132[2mms[22m[39m
+ [32m✓[39m src/components/LinkUrlModal/LinkUrlModal.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 815[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates sibling link drafts and callbacks and resets submission state after remount [33m 814[2mms[22m[39m
+ [32m✓[39m src/experimental/Calendar/Calendar.native-locales.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[33m 1622[2mms[22m[39m
+   [33m[2m✓[22m[39m selects and deselects noncontiguous days across two months without selecting focused days [33m 847[2mms[22m[39m
+   [33m[2m✓[22m[39m displays Hebrew civil dates and emits exact Gregorian leap-day values [33m 328[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/PageRichTextEditorSection.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 166[2mms[22m[39m
+ [32m✓[39m src/adapters/NavigationAdapter.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 164[2mms[22m[39m
+ [32m✓[39m src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 887[2mms[22m[39m
+     [33m[2m✓[22m[39m follows host history availability and pressed-state updates without inventing formatting state [33m 407[2mms[22m[39m
+     [33m[2m✓[22m[39m cancels an unmounted instance's queued choice while a Strict Mode sibling keeps its own value and callback [33m 478[2mms[22m[39m
+ [32m✓[39m src/components/TextStyleMenuControl/TextStyleMenuControl.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 746[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates sibling controlled state and callbacks across dismissal, unmount and remount [33m 533[2mms[22m[39m
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.next100-regression.test.tsx[2m > [22m[2maccepts complete controlled host snapshots and starts a fresh state on remount
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.next100-regression.test.tsx[2m > [22m[2maccepts complete controlled host snapshots and starts a fresh state on remount
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.next100-regression.test.tsx[2m > [22m[2maccepts complete controlled host snapshots and starts a fresh state on remount
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.next100-regression.test.tsx[2m > [22m[2maccepts complete controlled host snapshots and starts a fresh state on remount
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+[90mstderr[2m | src/experimental/DataGrid/DataGrid.next100-regression.test.tsx[2m > [22m[2maccepts complete controlled host snapshots and starts a fresh state on remount
+[22m[39mDraggable items in a Table must contain a <Button slot="drag"> element so that keyboard and screen reader users can drag them.
+
+ [32m✓[39m src/experimental/DataGrid/DataGrid.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 642[2mms[22m[39m
+   [33m[2m✓[22m[39m accepts complete controlled host snapshots and starts a fresh state on remount [33m 641[2mms[22m[39m
+ [32m✓[39m src/components/SideNavigation/SideNavigation.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 342[2mms[22m[39m
+   [33m[2m✓[22m[39m preserves public native refs and independent navigation state through sibling removal [33m 341[2mms[22m[39m
+ [32m✓[39m src/experimental/IconButton/IconButton.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 259[2mms[22m[39m
+ [32m✓[39m src/components/ClassCardFrame/ClassCardFrame.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 93[2mms[22m[39m
+ [32m✓[39m src/hooks/usePersistentPaginationModel.hook.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m src/experimental/Stack/Stack.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 95[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+ [32m✓[39m src/experimental/Popover/Popover.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 375[2mms[22m[39m
+   [33m[2m✓[22m[39m initializes defaultOpen once and keeps sibling open requests and child refs independent [33m 374[2mms[22m[39m
+ [32m✓[39m src/experimental/Menu/Menu.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 429[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridColumns.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/experimental/Link/Link.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 113[2mms[22m[39m
+ [32m✓[39m src/experimental/Avatar/Avatar.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 124[2mms[22m[39m
+ [32m✓[39m src/components/InsertContentMenuControl/InsertContentMenuControl.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 533[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates host callbacks and availability across instances and discards an unmounted open menu [33m 341[2mms[22m[39m
+ [32m✓[39m src/components/AppOperationSteps/AppOperationStepsNativeStateFixture.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 424[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps ordered noninteractive steps and host milestone identity while collections and progress change [33m 424[2mms[22m[39m
+ [32m✓[39m src/components/TextAlignMenuControl/TextAlignMenuControl.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 577[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates host values and callbacks and clears an unmounted open instance before remount [33m 576[2mms[22m[39m
+ [32m✓[39m src/adapters/account.remaining-T-pending.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 462[2mms[22m[39m
+   [33m[2m✓[22m[39m T-S05-02: presents pending logout, suppresses repeats and clears pending after host settlement [33m 461[2mms[22m[39m
+ [32m✓[39m src/components/LearnerClassCard/LearnerClassCard.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 274[2mms[22m[39m
+ [32m✓[39m src/experimental/TextField/TextField.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 259[2mms[22m[39m
+ [32m✓[39m src/components/AuthShell/AuthShell.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 339[2mms[22m[39m
+     [33m[2m✓[22m[39m isolates sibling host forms and preserves the surviving instance across removal and remount [33m 337[2mms[22m[39m
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/home/runner/work/sg-ui/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+ [32m✓[39m src/experimental/Link/Link.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 98[2mms[22m[39m
+ [32m✓[39m src/components/DocumentEditorLayout/DocumentEditorLayout.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 223[2mms[22m[39m
+ [32m✓[39m src/experimental/List/List.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 156[2mms[22m[39m
+ [32m✓[39m src/components/CardCollectionWithFooter/CardCollectionWithFooter.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 325[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates identical row IDs, controlled pagination and card drafts across sibling removal [33m 324[2mms[22m[39m
+ [32m✓[39m src/components/Typefaces/Typefaces.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 260[2mms[22m[39m
+ [32m✓[39m src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 404[2mms[22m[39m
+ [32m✓[39m src/experimental/DatePicker/DatePicker.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 809[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates sibling dates and form resets while an edited picker unmounts [33m 808[2mms[22m[39m
+ [32m✓[39m src/components/AppOperationSteps/AppOperationSteps.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 179[2mms[22m[39m
+ [32m✓[39m src/experimental/DateField/DateField.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 315[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates date drafts and form resets through sibling unmount and fresh remount [33m 314[2mms[22m[39m
+ [32m✓[39m src/experimental/DateRangeSelector/DateRangeSelector.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 725[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates sibling drafts and Cancel callbacks and preserves the survivor after unmount [33m 724[2mms[22m[39m
+ [32m✓[39m src/components/AppButton/AppButton.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 182[2mms[22m[39m
+ [32m✓[39m src/components/AppButton/AppButton.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 252[2mms[22m[39m
+ [32m✓[39m src/components/ClassCardFrame/ClassCardFrame.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 89[2mms[22m[39m
+ [32m✓[39m src/experimental/Status/Status.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 74[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 2064[2mms[22m[39m
+     [33m[2m✓[22m[39m applies an armed dataset replacement once without host move requests [33m 819[2mms[22m[39m
+     [33m[2m✓[22m[39m applies an armed identity replacement once without host move requests [33m 529[2mms[22m[39m
+     [33m[2m✓[22m[39m counts requests independently for grids with colliding IDs after replacement [33m 714[2mms[22m[39m
+ [32m✓[39m src/experimental/Calendar/Calendar.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 783[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps focus and selected date distinct and commits keyboard selection [33m 349[2mms[22m[39m
+ [32m✓[39m src/components/AppPageHeader/AppPageHeader.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 390[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates sibling header actions and releases the removed native ref [33m 388[2mms[22m[39m
+ [32m✓[39m src/experimental/Divider/Divider.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 84[2mms[22m[39m
+ [32m✓[39m src/experimental/Dialog/Dialog.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 201[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/GridCellsHelpers.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/experimental/Surface/Surface.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 102[2mms[22m[39m
+ [32m✓[39m src/components/DataToolbar/DataToolbar.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 395[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates sibling search state and callbacks, and resets only the replaced toolbar [33m 394[2mms[22m[39m
+ [32m✓[39m src/experimental/icons/icons.test.tsx [2m([22m[2m108 tests[22m[2m)[22m[33m 301[2mms[22m[39m
+ [32m✓[39m src/experimental/Collapse/Collapse.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 117[2mms[22m[39m
+ [32m✓[39m src/experimental/DateRangePicker/DateRangePicker.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 1410[2mms[22m[39m
+   [33m[2m✓[22m[39m cancels drafts, applies once, returns focus and resets native defaults [33m 1053[2mms[22m[39m
+   [33m[2m✓[22m[39m respects a host-prevented reset of uncontrolled committed state [33m 355[2mms[22m[39m
+ [32m✓[39m src/experimental/Badge/Badge.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 85[2mms[22m[39m
+ [32m✓[39m src/components/AppPageTabs/AppPageTabs.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 216[2mms[22m[39m
+ [32m✓[39m src/components/ColumnsLayoutModal/ColumnsLayoutModal.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 412[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates sibling drafts through teardown and accepts live host defaults and callbacks [33m 411[2mms[22m[39m
+ [32m✓[39m src/experimental/Box/Box.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 78[2mms[22m[39m
+ [32m✓[39m src/components/icons/icons.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[33m 422[2mms[22m[39m
+   [33m[2m✓[22m[39m resolves every individual public icon module to its catalog export on repeated imports [33m 336[2mms[22m[39m
+ [32m✓[39m src/experimental/IconButton/IconButton.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 221[2mms[22m[39m
+ [32m✓[39m src/experimental/SplitAction/SplitAction.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 468[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates host commands and clears an unmounted instance's open menu before remount [33m 467[2mms[22m[39m
+ [32m✓[39m src/components/DocumentEditorToolbar/DocumentEditorToolbar.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 508[2mms[22m[39m
+   [33m[2m✓[22m[39m isolates a queued heading request from sibling availability changes and unmount [33m 506[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGridRowDnd/DataGridDragHandle.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[33m 345[2mms[22m[39m
+ [32m✓[39m src/experimental/Checkbox/Checkbox.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 236[2mms[22m[39m
+ [32m✓[39m src/experimental/Chip/Chip.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 35[2mms[22m[39m
+ [32m✓[39m src/components/AppInlineProgress/AppInlineProgress.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 110[2mms[22m[39m
+ [32m✓[39m src/experimental/Badge/Badge.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 114[2mms[22m[39m
+ [32m✓[39m src/experimental/Disclosure/Disclosure.ssr.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/experimental/Provider/Provider.portal.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 421[2mms[22m[39m
+   [33m[2m✓[22m[39m keeps independently mounted scopes isolated across portal reopen and removal [33m 420[2mms[22m[39m
+ [32m✓[39m src/experimental/Avatar/Avatar.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 124[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/PageRichTextEditorSection.scroll.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 461[2mms[22m[39m
+ [32m✓[39m src/components/DataToolbar/buildColumnOptions.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/experimental/Progress/Progress.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 83[2mms[22m[39m
+ [32m✓[39m src/foundation/ThemeScope.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m src/experimental/Typography/Typography.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 33[2mms[22m[39m
+ [32m✓[39m src/experimental/icons/icons.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 74[2mms[22m[39m
+ [32m✓[39m src/experimental/RadioGroup/RadioGroup.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 136[2mms[22m[39m
+ [32m✓[39m src/experimental/ButtonGroup/ButtonGroup.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 151[2mms[22m[39m
+ [32m✓[39m src/experimental/Tooltip/Tooltip.lifetime.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 1135[2mms[22m[39m
+   [33m[2m✓[22m[39m does not deliver pending hover callbacks from a replaced or removed trigger [33m 1133[2mms[22m[39m
+ [32m✓[39m src/experimental/ToggleButton/ToggleButton.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 176[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 173[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/lexical/editorConfig.test.ts [2m([22m[2m1 test[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/components/AppInlineProgress/AppInlineProgress.test.tsx [2m([22m[2m3 tests[22m[2m)[22m[32m 121[2mms[22m[39m
+ [32m✓[39m src/experimental/DateRangeSelector/DateContracts.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/components/InsertContentMenuControl/NativeInsertionHost.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 412[2mms[22m[39m
+   [33m[2m✓[22m[39m uses current host callbacks while open, hands focus to the host dialog and returns after dismissal [33m 411[2mms[22m[39m
+ [32m✓[39m src/experimental/Popover/Popover.collision.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[33m 665[2mms[22m[39m
+ [32m✓[39m src/experimental/Typography/Typography.test.tsx [2m([22m[2m17 tests[22m[2m)[22m[32m 97[2mms[22m[39m
+ [32m✓[39m src/foundation/BaselineHostFlow.test.tsx [2m([22m[2m1 test[22m[2m)[22m[33m 781[2mms[22m[39m
+   [33m[2m✓[22m[39m connects section navigation, native form submission and the created course action to the editor [33m 779[2mms[22m[39m
+ [32m✓[39m src/experimental/Breadcrumbs/Breadcrumbs.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 118[2mms[22m[39m
+ [32m✓[39m src/components/AppShell/AppShell.ssr.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/experimental/Table/Table.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 98[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.test.ts [2m([22m[2m39 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/hooks/PaginationState.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/i18n/ICUFormatting.next100-regression.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/components/primitives/Progress.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 94[2mms[22m[39m
+ [32m✓[39m src/hooks/usePersistentPaginationModel.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+[90mstderr[2m | src/hooks/usePersistentPaginationModel.ssr.test.tsx[2m > [22m[2mrenders initial pagination on the server and restores only after hydration
+[22m[39mThe current testing environment is not configured to support act(...)
+
+[90mstderr[2m | src/hooks/usePersistentPaginationModel.ssr.test.tsx[2m > [22m[2mrenders initial pagination on the server and restores only after hydration
+[22m[39mThe current testing environment is not configured to support act(...)
+
+ [32m✓[39m src/hooks/usePersistentPaginationModel.ssr.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/components/LinkUrlModal/linkUrlPolicy.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/experimental/ssr.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 107[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/createActionMenuColumn.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/foundation/ThemeScope.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/experimental/Status/Status.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 64[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 234[2mms[22m[39m
+ [32m✓[39m src/public-exports.next100-regression.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/components/LearnerClassCard/formatDueDateLabel.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/experimental/Stack/Stack.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 87[2mms[22m[39m
+ [32m✓[39m src/experimental/Collapse/Collapse.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 97[2mms[22m[39m
+ [32m✓[39m src/experimental/Box/Box.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 80[2mms[22m[39m
+ [32m✓[39m src/experimental/Divider/Divider.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 94[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/createDataGridColumns.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/components/DataToolbar/filterRuleValue.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/experimental/Card/Card.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 73[2mms[22m[39m
+ [32m✓[39m src/experimental/Typography/Typography.ssr.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/experimental/Surface/Surface.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 73[2mms[22m[39m
+ [32m✓[39m src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/ownedGridInteraction.ssr.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 79[2mms[22m[39m
+ [32m✓[39m src/experimental/RadioGroup/RadioGroup.ssr.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/experimental/Chip/Chip.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 26[2mms[22m[39m
+ [32m✓[39m src/components/AppPageHeader/AppPageHeader.ssr.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/experimental/Provider/Provider.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/adapters/navigation.ssr.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/components/EditableTitleField/EditableTitleField.ssr.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 181[2mms[22m[39m
+ [32m✓[39m src/hooks/usePersistentState.ssr.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx [2m([22m[2m1 test[22m[2m)[22m[32m 2[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m257 passed[39m[22m[90m (257)[39m
+[2m      Tests [22m [1m[32m1640 passed[39m[22m[90m (1640)[39m
+[2m   Start at [22m 02:10:33
+[2m   Duration [22m 126.44s[2m (transform 6.69s, setup 1.45s, import 77.33s, tests 181.86s, environment 82.46s)[22m
+
+
+> @structured-growth/sg-ui@0.0.0-development test:release /home/runner/work/sg-ui/sg-ui
+> node --test scripts/release-policy.test.mjs
+
+✔ published release policy recognizes fixes, features and both breaking markers (14.38359ms)
+✔ maintenance and documentation do not publish a package (1.154259ms)
+✔ the largest change since the previous release determines the version bump (1.462713ms)
+✔ PR-title validation accepts release markers and rejects unparseable titles (3475.481429ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3715.553144
+
+> @structured-growth/sg-ui@0.0.0-development build /home/runner/work/sg-ui/sg-ui
+> node scripts/build.mjs
+
+
+> @structured-growth/sg-ui@0.0.0-development test:package /home/runner/work/sg-ui/sg-ui
+> node scripts/check-package.mjs
+
+All package entry points import successfully.
+Consumer imports and owned theme/typography contracts typecheck.
+Packed JS, declarations, CSS, maps and assets match the fresh build; exports and notices are retained.

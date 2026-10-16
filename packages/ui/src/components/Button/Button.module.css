@@ -26,7 +26,8 @@
   .root[data-tone="neutral"][data-variant] { color: var(--sgui-button-neutral-foreground); }
   .root[data-variant="outlined"] { border-color: var(--sgui-button-border); }
   .root[data-variant="outlined"][data-hovered], .root[data-variant="text"][data-hovered],
-  .root[data-tone="neutral"][data-hovered], .root[data-variant="outlined"][data-pressed],
+  .root[data-tone="neutral"][data-hovered], .root[data-tone="neutral"][data-pressed],
+  .root[data-variant="outlined"][data-pressed],
   .root[data-variant="text"][data-pressed] { background: var(--sgui-button-subtle-interaction-background); }
   .root[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-button-focus-color); outline-offset: var(--sgui-control-focus-offset); }
   .root[data-disabled] { opacity: 0.5; cursor: default; }

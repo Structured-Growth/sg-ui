@@ -1,0 +1,15 @@
+{
+  "docs/developer/component-architecture.md": "fd4664e649a5f52e6dd77d5c5250a21a0e9cbacf330b9aeb62e2a1bcfc938829",
+  "packages/ui/scripts/check-foundations.mjs": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+  "packages/ui/scripts/check-source-graph.mjs": null,
+  "packages/ui/scripts/check-source-graph.test.mjs": null,
+  "packages/ui/src/adapters/navigation.tsx": "6c961ccfaf1239ab7871c63d3593fd10dc4525dcbfec4b5965a59416c93e220e",
+  "packages/ui/src/adapters/navigation.types.ts": null,
+  "packages/ui/src/adapters/navigationContext.ts": "3c3d53cec33e349fe22893ea38a3a77b24a8fa6490759ea183257abc6b9956ec",
+  "packages/ui/src/experimental/DateField/DateField.tsx": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+  "packages/ui/src/experimental/DateField/DateField.types.ts": null,
+  "packages/ui/src/experimental/DateField/TextDateField.tsx": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+  "packages/ui/src/experimental/TimeField/TextTimeField.tsx": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+  "packages/ui/src/experimental/TimeField/TimeField.tsx": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+  "packages/ui/src/experimental/TimeField/TimeField.types.ts": null
+}

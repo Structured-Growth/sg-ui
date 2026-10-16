@@ -1,0 +1,96 @@
+{
+  "scope": "Explicit component-boundary evidence, not exhaustive all-export acceptance",
+  "rows": [
+    {
+      "boundary": "scope inheritance",
+      "path": "packages/ui/src/foundation/ThemeScope.next100-regression.test.tsx",
+      "assertion": "updates nested public scope overrides without leaking to a sibling and releases the native ref",
+      "evidenceAndLimit": "FA-04 unchanged-input evidence; compare input-reconciliation.json"
+    },
+    {
+      "boundary": "portal reopen/multiple roots",
+      "path": "packages/ui/src/experimental/Provider/Provider.portal.test.tsx",
+      "assertion": "keeps independently mounted scopes isolated across portal reopen and removal",
+      "evidenceAndLimit": "Existing test retained; execution not inferred from its source"
+    },
+    {
+      "boundary": "live nested portal",
+      "path": "packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx",
+      "assertion": "updates an open nested portal without remounting its menu or changing its sibling",
+      "evidenceAndLimit": "New source-backed pass: unit-evidence.json; native counterpart awaits coordinator"
+    },
+    {
+      "boundary": "StrictMode shared listener/timer",
+      "path": "packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx",
+      "assertion": "balances StrictMode document observation and cancels the last owner's scroll timer",
+      "evidenceAndLimit": "New source-backed pass: unit-evidence.json"
+    },
+    {
+      "boundary": "StrictMode drag preview",
+      "path": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx",
+      "assertion": "removes the native dragend listener and preview after cancellation, replacement and Strict Mode unmount",
+      "evidenceAndLimit": "Retain FA-04 only where hashes equal prior input snapshot"
+    },
+    {
+      "boundary": "independent grid IDs",
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx",
+      "assertion": "counts requests independently for grids with colliding IDs after replacement",
+      "evidenceAndLimit": "Retained source boundary; no broad rerun"
+    },
+    {
+      "boundary": "grid default/remount",
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.next100-regression.test.tsx",
+      "assertion": "restores standalone persisted grids independently and remounts the complete reset defaults",
+      "evidenceAndLimit": "Retained source boundary; remount for ownership switches per grid contracts"
+    },
+    {
+      "boundary": "controlled grid rejection",
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridPersistence.test.tsx",
+      "assertion": "saves reset defaults, suppresses an unchanged rejected snapshot, and resumes for an alternative",
+      "evidenceAndLimit": "Retained source boundary; no unsupported live ownership switching"
+    },
+    {
+      "boundary": "uncontrolled field/default/reset",
+      "path": "packages/ui/src/experimental/TextField/TextField.test.tsx",
+      "assertion": "honors delegated reset prevention and restores uncontrolled defaults without callbacks",
+      "evidenceAndLimit": "Default changes do not overwrite edits; native reset uses latest default"
+    },
+    {
+      "boundary": "controlled field/reassociation",
+      "path": "packages/ui/src/experimental/TextField/TextField.test.tsx",
+      "assertion": "keeps reassociated controlled values and native edit callbacks host-owned",
+      "evidenceAndLimit": "Host accepts next value; no local authority introduced"
+    },
+    {
+      "boundary": "multiline controlled/reset",
+      "path": "packages/ui/src/experimental/TextArea/TextArea.test.tsx",
+      "assertion": "retains controlled authority during reset on an externally associated form",
+      "evidenceAndLimit": "BUG0009 coordinator receipts retained, not relabeled a new runtime result"
+    },
+    {
+      "boundary": "menu controlled authority",
+      "path": "packages/ui/src/experimental/Menu/Menu.test.tsx",
+      "assertion": "keeps controlled open state under host authority",
+      "evidenceAndLimit": "Controlled host rejection supported; defaultOpen seeds uncontrolled instance"
+    },
+    {
+      "boundary": "menu deferred cleanup",
+      "path": "packages/ui/src/experimental/Menu/Menu.test.tsx",
+      "assertion": "discards deferred reconciliation after the menu lifetime ends",
+      "evidenceAndLimit": "Frame canceled at lifetime end"
+    },
+    {
+      "boundary": "SSR affected compositions",
+      "path": "packages/ui/src/experimental/Provider/Provider.composed-ssr.test.tsx",
+      "assertion": "imports and server-renders fixed composed values with an explicit host locale and system theme",
+      "evidenceAndLimit": "New Node pass after BUG0008/0009 fixes; no window/document before or after import/render"
+    },
+    {
+      "boundary": "native IDs/locale/date/system",
+      "path": "packages/ui/scripts/test-scoped-lifecycle-consumer.mjs",
+      "assertion": "server scope and field identity; stable course ID; unique IDs and all hydrated IDREFs; exact civil/datetime/JSON wire values",
+      "evidenceAndLimit": "Runnable proposed packed runner; UNRUN"
+    }
+  ],
+  "unsupportedTransition": "Grid ownership must stay fixed for an instance. Remount when ownership changes. No new all-control mode-switch promise."
+}

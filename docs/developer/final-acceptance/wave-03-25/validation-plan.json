@@ -1,0 +1,96 @@
+{
+  "status": "pending-coordinator-integration-and-validation",
+  "constraints": [
+    "Apply editor-successors.patch only after coordinator review; no source implementation change proposed.",
+    "Reuse current accepted unchanged suites. No broad build or browser server was launched in this chat.",
+    "Never bypass occupied shared validation leases. Use supported Node 22/24 and the coordinator admission policy."
+  ],
+  "patch": {
+    "file": "editor-successors.patch",
+    "targets": [
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.acceptance-successors.test.ts",
+      "packages/ui/tests/browser/editor-selection-editing-successors.spec.ts"
+    ],
+    "integrationRequired": true
+  },
+  "steps": [
+    {
+      "id": "artifact-syntax",
+      "cwd": "repository root",
+      "command": "node docs/developer/final-acceptance/wave-03-25/check-artifacts.cjs",
+      "result": "pass on Node 24.19.0; syntax/mirror only"
+    },
+    {
+      "id": "unit-before-integration",
+      "cwd": "repository root",
+      "command": "node /tmp/sgui-calendar-validate.mjs node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-25/vitest.config.mjs",
+      "result": "not-started: occupied lease, unit-run-1.txt; use the recorded Node24 bin on PATH",
+      "expected": [
+        "2 unit cases pass",
+        "Nested mixed lists, merged/header table metadata, decorative image IDs preserved after discrete text edit/reload/read-only",
+        "Unregistered node is reported; current engine behavior only, no new schema/version policy"
+      ]
+    },
+    {
+      "id": "unit-after-integration",
+      "cwd": "packages/ui",
+      "command": "node /tmp/sgui-calendar-validate.mjs pnpm exec vitest run src/components/PageRichTextEditorSection/lexical/editorConfig.acceptance-successors.test.ts",
+      "result": "pending",
+      "expected": [
+        "Same two cases pass through ordinary project config"
+      ]
+    },
+    {
+      "id": "native-build",
+      "cwd": "packages/ui",
+      "command": "pnpm exec node scripts/build-browser-docs.mjs",
+      "result": "coordinator only; build fresh if inspected source/fixture hashes differ from accepted host",
+      "expected": [
+        "Use public compiled exports and preserve existing no-highlight focus boundary"
+      ]
+    },
+    {
+      "id": "native-types",
+      "cwd": "packages/ui",
+      "command": "pnpm exec tsc --noEmit -p tests/browser/tsconfig.json",
+      "result": "pending after applying patch"
+    },
+    {
+      "id": "native-state-successors",
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/editor-selection-editing-successors.spec.ts",
+      "projects": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "result": "pending; shared server must be coordinated",
+      "expected": [
+        "2 cases per engine, retries 0",
+        "Escape returns focus; collapsed caret typing and Backspace edit expected ending, reload preserves result",
+        "No sticky toolbar or typing focus highlight",
+        "Read-only hides actions and rejects changes; re-enabling supports plain typing"
+      ],
+      "record": [
+        "engine/version",
+        "fixture/build/source hashes",
+        "saved JSON",
+        "trace/screenshot on failure"
+      ]
+    },
+    {
+      "id": "presentation-and-operator",
+      "protocol": "operator-validation.md",
+      "result": "pending actual geometry/screenshot review, translation host, real OS IME, physical-device clipboard and spoken AT; do not substitute synthetic events"
+    },
+    {
+      "id": "consumer-schema",
+      "result": "requires owner-supplied approved saved documents and unknown-version/malformed policy",
+      "expected": [
+        "Compare actual node/type/version inventory to existing golden and authored successor corpus; add only uncovered supported combinations"
+      ]
+    }
+  ],
+  "packedValidation": "No public API/runtime/dependency change proposed; no new packed gate requested beyond existing release obligations.",
+  "closure": "Patch application or syntax success alone closes none of the four original leaves."
+}

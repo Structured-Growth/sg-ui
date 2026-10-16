@@ -1,6 +1,6 @@
-# Component CSS guard scope (C-18 partial)
+# Component CSS guard scope (A-C-18 reconciled)
 
-`validateComponentCss` in `scripts/check-component-css.mjs` parses CSS with
+`validateComponentCss` in `packages/ui/scripts/check-component-css.mjs` parses CSS with
 PostCSS and returns source-located diagnostics without modifying it. The existing
 `foundations:check` invokes it for every `.module.css` in its audited directories:
 foundation, experimental, migrated catalog directories, icons, primitives and theme.
@@ -33,23 +33,30 @@ and local scoped element/global descendants remain valid. All CSS findings are
 collected before failure. The only literal typography contract is the exact
 shared rich-document mapping below; no whole-file exclusion applies.
 
-Run inert fixtures separately with Node 24:
+Run inert fixtures separately with Node 24 from `packages/ui`:
 
 ```sh
 node --test scripts/check-component-css.test.mjs
 node scripts/check-foundations.mjs
 ```
 
-The fixture file is not yet listed in the package's explicit `test:foundations`
-command; this bounded task cannot edit `package.json`. Coordinator follow-up must
-register it before claiming continuous fixture coverage.
+The fixture file is registered in `packages/ui/package.json`'s explicit
+`test:foundations` command, which `check` invokes. The retained
+[FA-04 transcript](final-acceptance/fa04-original-check.txt) records all ten
+component-CSS fixtures passing within its 32-test foundation stage on Node 24.
+The command later failed unrelated calendar unit cases; the complete original
+command is not a green result. The
+[parallel-11 review](final-acceptance/parallel-11/report.md#a-c-18--complete-bounded-lint-contract-independently-reconciled)
+independently reconciled registration and the bounded lint contract. Its dated
+inspection found all 85 then-existing library CSS Modules in registered directories.
+New directories still require registration; this is not automatic future coverage.
 
 ## Shared semantic rich-document styles
 
 AGENTS.md permits Typography variants, owned typography tokens **or shared
 component-level styles**. The existing PageRichTextEditorSection stylesheet is
 shared editable/read-only document presentation; `lexical/editorConfig.ts` maps
-saved Lexical formatting to these classes. This C-18 candidate contract preserves
+saved Lexical formatting to these classes. This reviewed C-18 contract preserves
 that formatting without changing CSS or generated tokens:
 
 | Exact selector | Property | Value | Semantic reason |
@@ -70,8 +77,8 @@ Existing heading tokens happen to weigh 700 but are heading roles, not bold
 semantics; they are customizable by consumers. Caption/overline size is `0.75rem`,
 not the lossless `0.75em` relative size required here. No appropriate existing
 semantic token mapping exists. Future semantic tokens can replace these three
-entries in a separately owned migration preserving presentation. This contract
-requires coordinator review and is not an exception for arbitrary literal styles.
+entries in a separately owned migration preserving presentation. The parallel-11 independent review accepted this narrow semantic contract under
+the shared-component-style allowance. It is not an exception for arbitrary literal styles.
 Positive and negative PostCSS fixtures cover its exact boundaries.
 
 ## Limits and acceptance
@@ -90,6 +97,9 @@ build-time guard. Source exceptions need narrow explicit review, not blanket ski
 [Batch 169 evidence](parallel-batch-169/css-lint-guards.md) records the prerequisite’s
 three source-red findings under its unconditional literal policy.
 [Batch 172 corrections](parallel-batch-172/css-guard-corrections.md) records the
-new exact-head outcome under this candidate shared-semantic contract. C-18 remains
-open pending independent review and package fixture registration, and broader acceptance remains open. Follow the
+historical outcome under the then-candidate shared-semantic contract. Those
+reports preserve the original pending registration/review context; the FA-04
+execution and parallel-11 review above supersede those pending statements.
+A-C-18 was accepted complete in the coordinator reconciliation; this documentation
+correction adds no test or browser evidence. Broader acceptance remains open. Follow the
 [development validation policy](react-aria-development-validation.md).

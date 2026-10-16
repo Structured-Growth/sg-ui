@@ -1,0 +1,9 @@
+const {createRequire}=require('node:module'),fs=require('node:fs'),path=require('node:path');
+const root=process.cwd(),out=path.resolve(__dirname),req=createRequire(path.resolve(root,'packages/ui/package.json')),ts=req('typescript');
+const native=path.resolve(out,'icons-native.spec.ts'),config=path.resolve(out,'playwright.config.ts'),docs=path.resolve(root,'apps/docs/tests/icons-acceptance.spec.ts');
+const proposed=path.resolve(out,'proposed-files/apps/docs/tests/icons-acceptance.spec.ts');
+const options={strict:true,noEmit:true,skipLibCheck:true,target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext,moduleResolution:ts.ModuleResolutionKind.Bundler,esModuleInterop:true,typeRoots:[path.resolve(root,'packages/ui/node_modules/@types')],types:['node'],paths:{'playwright/test':[createRequire(req.resolve('@playwright/test/package.json')).resolve('playwright/test').replace(/\.js$/,'.d.ts')]},lib:['lib.es2023.d.ts','lib.dom.d.ts']};
+const host=ts.createCompilerHost(options),get=host.getSourceFile.bind(host);host.getSourceFile=(file,...args)=>file===docs?ts.createSourceFile(file,fs.readFileSync(proposed,'utf8'),ts.ScriptTarget.Latest,true):get(file,...args);
+const diagnostics=ts.getPreEmitDiagnostics(ts.createProgram([native,config,docs],options,host)).map(d=>({file:d.file?.fileName,line:d.file&&d.start!==undefined?d.file.getLineAndCharacterOfPosition(d.start).line+1:null,code:d.code,message:ts.flattenDiagnosticMessageText(d.messageText,'\n')}));
+fs.writeFileSync(path.resolve(out,'artifact-typecheck.json'),JSON.stringify({runtime:process.version,typescript:ts.version,method:'strict noEmit TypeScript with proposed docs spec at its integration path; browser tests not executed',diagnostics},null,2)+'\n');
+console.log(JSON.stringify({diagnosticCount:diagnostics.length,diagnostics},null,2));process.exitCode=diagnostics.length?1:0;

@@ -1,0 +1,51 @@
+[WebServer] (node:47740) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:47741) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/browser/wave03-grid-successors.spec.ts:23:1 › selected focused row disappearance preserves sibling selection, focus ownership and scroll (5.7s)
+
+
+  1) [chromium] › tests/browser/wave03-grid-successors.spec.ts:23:1 › selected focused row disappearance preserves sibling selection, focus ownership and scroll 
+
+    Error: expect(locator).toBeChecked() failed
+
+    Locator:  getByRole('grid', { name: 'Independent focus courses', exact: true }).getByRole('checkbox', { name: 'Select Course 2', exact: true })
+    Expected: checked
+    Received: unchecked
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeChecked" getByRole('grid', { name: 'Independent focus courses', exact: true }).getByRole('checkbox', { name: 'Select Course 2', exact: true }) with timeout 5000ms
+      - waiting for getByRole('grid', { name: 'Independent focus courses', exact: true }).getByRole('checkbox', { name: 'Select Course 2', exact: true })
+        14 × locator resolved to <input title="" tabindex="0" type="checkbox" aria-label="Select" aria-labelledby="_r_ek_" id="react-aria8695919118-_r_ei_" data-react-aria-pressable="true"/>
+           - unexpected value "unchecked"
+
+
+      54 |   await expect.poll(visibleInPane).toBe(true);
+      55 |   await expect.poll(() => container.evaluate(node => [node.scrollTop, node.scrollLeft])).toEqual(before);
+    > 56 |   await expect(sibling.getByRole('checkbox', { name: 'Select Course 2', exact: true })).toBeChecked();
+         |                                                                                         ^
+      57 |   await expect.poll(() => other.evaluate(node => [node.scrollTop, node.scrollLeft])).toEqual(otherBefore);
+      58 |   await info.attach('selected-removal', { body: JSON.stringify({ before, otherBefore,
+      59 |     active: await page.evaluate(() => document.activeElement?.outerHTML) }), contentType: 'application/json' });
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-grid-successors.spec.ts:56:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/grid-visible-removal/wave03-grid-successors-sel-126fa--focus-ownership-and-scroll-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/grid-visible-removal/wave03-grid-successors-sel-126fa--focus-ownership-and-scroll-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/grid-visible-removal/wave03-grid-successors-sel-126fa--focus-ownership-and-scroll-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/grid-visible-removal/wave03-grid-successors-sel-126fa--focus-ownership-and-scroll-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › tests/browser/wave03-grid-successors.spec.ts:23:1 › selected focused row disappearance preserves sibling selection, focus ownership and scroll 

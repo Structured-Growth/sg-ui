@@ -39,6 +39,10 @@ valid within their recorded scope. This does not change F/T/V/A acceptance count
 
 The files are one backlog split for readability. They cover all 37 catalog directories, all 47 current experimental directories, and 18 supporting modules/concerns. IDs encode the inventory row, not a renamed public API. Matching `F-C01-01` and `T-C01-01` separate delivery of the same feature from deeper regression evidence. `V-*` adds native/visual evidence, and `A-E-06` closes the original E-06 obligation. Never add historical parent totals to the active child totals or report baseline percentage as overall acceptance.
 
+The user requested starting final acceptance on 2026-10-16. Bounded inventory
+reconciliation is recorded in [final acceptance execution](react-aria-final-acceptance.md);
+the remaining editor hardening and production gates are not waived.
+
 ## Every implementation chat closes a small task
 
 1. Select the earliest unfinished phase, then claim one specific open ID and list the files you will touch. Reference its legacy parent for context. Pick a task that can finish in one chat.

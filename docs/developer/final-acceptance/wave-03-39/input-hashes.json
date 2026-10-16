@@ -1,0 +1,126 @@
+{
+  "capturedAt": "2026-10-16T23:05:31.019562+00:00",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "docs/developer/react-aria-final-acceptance.md",
+      "sha256": "f4c7d7f0759ccfd3b2be0829283151a7b8942ed8010e12591ce0236b34dc1fa8",
+      "wave02Sha256": "2fbfe14bd54ca69f65061e020ae6b14336635fa253757a47011e744a939d0c7f",
+      "matchesWave02": false,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/coordinator-integration/evidence.json",
+      "sha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-09/report.md",
+      "sha256": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-09/results.json",
+      "sha256": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-09/input-evidence.json",
+      "sha256": "4ba93d99f9af13833f775f3827fc0b58d54dd5be44647ef9f5e9835e5ea54b73",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "sha256": "d400cbf32aacc9e2ac8337661f39d05f03af2b3646403230773720866a481905",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+      "sha256": "e058ffd31c42edf7a7aaccb9015c4129ec504df91dc43a2730a8f9f75c8eb33a",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.next100-regression.test.tsx",
+      "sha256": "6ea4695eefcf7617e8794c938e92df00c7c0fd2c16cf8d7a9acabcccaa21fc56",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx",
+      "sha256": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx",
+      "sha256": "623ecdacf2d2f8e8a61fd9c38eafe88f03b602de5b0335801325f1624ce3b811",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.drop-focus.test.tsx",
+      "sha256": "3c2e41a441f2f15b44db9dbfdab276caf0547be6e48518f993e8c50a4302a9c1",
+      "wave02Sha256": "3c2e41a441f2f15b44db9dbfdab276caf0547be6e48518f993e8c50a4302a9c1",
+      "matchesWave02": true,
+      "coordinatorSha256": "3c2e41a441f2f15b44db9dbfdab276caf0547be6e48518f993e8c50a4302a9c1"
+    },
+    {
+      "path": "packages/ui/tests/browser/batch01-grid-reorder.spec.ts",
+      "sha256": "e5e5c46fa4e6b8adede64443e4b543fa15aa28fb3a29d9af116f758d40eb18e0",
+      "wave02Sha256": "e5e5c46fa4e6b8adede64443e4b543fa15aa28fb3a29d9af116f758d40eb18e0",
+      "matchesWave02": true,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/tests/browser/editor-clipboard.spec.ts",
+      "sha256": "09177794e10d3e27de07318a579acf0914576628b14141c6b9615c9d99f85860",
+      "wave02Sha256": "09177794e10d3e27de07318a579acf0914576628b14141c6b9615c9d99f85860",
+      "matchesWave02": true,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/tests/browser/inventory-selection-boundary.spec.ts",
+      "sha256": "39e1a9a49a3d819f0b523b5d5880de6a0b82229f44bef1a903773efb6d796c91",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/vitest.config.ts",
+      "sha256": "dc98d777c10fc8a9a56d4fac1fe083d5080a225d03b17116b79526361d764142",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    },
+    {
+      "path": "packages/ui/scripts/vitest.setup.ts",
+      "sha256": "934423f290e0c24449113d75fd4afee4d3039df2482c13ced64b6262f5e9112e",
+      "wave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null
+    }
+  ]
+}

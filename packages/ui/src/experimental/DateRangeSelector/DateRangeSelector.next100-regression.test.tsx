@@ -23,10 +23,10 @@ it("isolates sibling drafts and Cancel callbacks and preserves the survivor afte
   </Provider>;
   const { rerender } = render(composition(true));
   const a = within(screen.getByTestId("a")); const b = within(screen.getByTestId("b"));
-  await user.click(a.getByRole("button", { name: "March", exact: true }));
+  await user.click(a.getByRole("option", { name: "March", exact: true }));
   expect(a.getByRole("status").textContent).toBe("2024-03-01 – 2024-03-31");
   expect(b.getByRole("status").textContent).toBe("2024-02-28 – 2024-02-29");
-  await user.click(b.getByRole("button", { name: "March", exact: true }));
+  await user.click(b.getByRole("option", { name: "March", exact: true }));
   await user.click(a.getByRole("button", { name: "Cancel", exact: true }));
   expect(cancelA).toHaveBeenCalledOnce(); expect(cancelB).not.toHaveBeenCalled();
   expect(a.getByRole("status").textContent).toBe("2024-02-28 – 2024-02-29");

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { afterAll, beforeAll, afterEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { $getRoot, $isElementNode, $isTextNode, type LexicalEditor } from "lexical";
+import { $getRoot, $getSelection, $isRangeSelection, $isElementNode, $isTextNode, type LexicalEditor } from "lexical";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { Provider } from "../../experimental/Provider/Provider";
 import { PageRichTextEditorSection } from "./PageRichTextEditorSection.impl";
@@ -62,16 +62,69 @@ function serializedChildren() {
 }
 
 describe("editor dialog host contracts", () => {
-  it("rejects an unsupported host image address without insertion and retains the file and description for retry", async () => {
+  it("restores the exact caret after canceling a pointer-opened link draft", async () => {
     const user = userEvent.setup();
-    const upload = vi.fn().mockResolvedValueOnce({ assetId: "bad", assetVersionId: "v1", src: "javascript:alert(1)" })
+    mount(); await selectText();
+    await act(async () => activeEditor!.update(() => {
+      const text = $getRoot().getFirstDescendant();
+      if (!$isTextNode(text)) throw new Error("Expected text");
+      text.select(2, 2);
+    }, { discrete: true }));
+    const before = activeEditor!.getEditorState().toJSON();
+    await user.click(screen.getByRole("button", { name: "Edit link", exact: true }));
+    await user.type(screen.getByRole("textbox", { name: "URL", exact: true }), "/discarded");
+    await user.click(screen.getByRole("button", { name: "Cancel", exact: true }));
+    await waitFor(() => expect(activeEditor!.getEditorState().read(() => {
+      const range = $getSelection();
+      return $isRangeSelection(range) ? [range.anchor.offset, range.focus.offset] : null;
+    })).toEqual([2, 2]));
+    expect(activeEditor!.getEditorState().toJSON()).toEqual(before);
+  });
+
+  it("links an unchanged cross-paragraph display draft without flattening formatted paragraphs", async () => {
+    const user = userEvent.setup();
+    const doc = structuredClone(initial);
+    doc.root.children[0].children[0] = { ...textNode, format: 1, style: "color: red;" };
+    doc.root.children.push({ ...structuredClone(initial.root.children[0]), children: [{ ...textNode, text: "Adjacent", format: 2, style: "font-family: Georgia;" }] });
+    render(<Provider><PageRichTextEditorSection lexicalValue={doc} editorKey="cross-link" toolPreset="full" onLexicalChange={() => {}} /></Provider>);
+    await waitFor(() => expect(activeEditor).toBeTruthy());
+    await act(async () => {
+      activeEditor!.getRootElement()?.focus();
+      activeEditor!.update(() => {
+        const first = $getRoot().getFirstDescendant();
+        const last = $getRoot().getLastDescendant();
+        if (!$isTextNode(first) || !$isTextNode(last)) throw new Error("Expected text endpoints");
+        const range = first.select(0, 0);
+        range.focus.set(last.getKey(), last.getTextContentSize(), "text");
+      }, { discrete: true });
+    });
+    const before = serializeEditorDocument(activeEditor!.getEditorState().toJSON());
+    await user.click(screen.getByRole("button", { name: "Edit link", exact: true }));
+    await user.type(screen.getByRole("textbox", { name: "URL", exact: true }), "/guide");
+    await user.click(screen.getByRole("button", { name: "Apply", exact: true }));
+    await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+    const after = serializeEditorDocument(activeEditor!.getEditorState().toJSON()) as any;
+    expect(after.root.children).toHaveLength(2);
+    for (let index = 0; index < 2; index++) {
+      expect(after.root.children[index].children[0]).toMatchObject({ type: "link", url: "/guide", children: before.root.children[index].children });
+    }
+  });
+
+  it.each([
+    { result: { assetId: "bad", assetVersionId: "v1", src: "javascript:alert(1)" },
+      error: "The uploaded image address is not supported. Try again." },
+    { result: { assetId: { unexpected: true }, assetVersionId: "v1", src: "/cover.png" },
+      error: "The uploaded image metadata is not supported. Try again." },
+  ])("rejects an unsupported host image result and retains the file and description for retry: $error", async ({ result, error }) => {
+    const user = userEvent.setup();
+    const upload = vi.fn().mockResolvedValueOnce(result)
       .mockResolvedValueOnce({ assetId: "good", assetVersionId: "v2", src: "/cover.png" });
     mount(upload); await selectText(); await openImageDialog(user);
     const file = new File(["image"], "cover.png", { type: "image/png" });
     await user.upload(screen.getByLabelText("Choose image"), file);
     await user.type(screen.getByRole("textbox", { name: "Image description" }), "Course cover");
     await user.click(within(screen.getByRole("dialog")).getByRole("button", { name: "Insert", exact: true }));
-    await waitFor(() => expect(screen.getByRole("alert").textContent).toBe("The uploaded image address is not supported. Try again."));
+    await waitFor(() => expect(screen.getByRole("alert").textContent).toBe(error));
     expect(screen.getByText("cover.png")).toBeTruthy();
     expect((screen.getByRole("textbox", { name: "Image description" }) as HTMLInputElement).value).toBe("Course cover");
     expect(JSON.stringify(serializeEditorDocument(activeEditor!.getEditorState().toJSON()))).not.toContain('"type":"image"');

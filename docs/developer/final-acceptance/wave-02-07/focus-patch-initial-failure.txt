@@ -1,0 +1,12 @@
+Command: node docs/developer/final-acceptance/wave-02-07/verify-focus-patch.mjs
+Exit: 1, before CSS checking
+Error: Cannot find module 'postcss'
+Require stack:
+- /Users/thomashall/packages/ui/package.json
+Node.js v26.5.0
+
+Cause: new owned helper used ../../../../../../packages/ui/package.json as its
+createRequire base, resolving above the repository. Corrected to
+../../../../packages/ui/package.json. No install, shared source or dependency
+change. The corrected second invocation exits 0; full structured result is
+focus-patch-structure.json. This is a helper failure, not an SGUI test failure.

@@ -9,7 +9,8 @@ in the unchanged three-engine CI matrix. See the
 ## Bounded reproduction
 
 Use the repository's installed, locked Playwright package with Node 24. The
-diagnostic does not need Storybook, a server, or a full test suite:
+diagnostic does not need a fixture build, a server, or a full test suite.
+Run this direct library script from `packages/ui`:
 
 ```sh
 node scripts/diagnose-firefox-profile.mjs --owner YOUR-CHAT-ID

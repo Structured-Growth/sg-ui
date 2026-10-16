@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "task": "K16-publish-reconciled-limits",
+  "status": "complete",
+  "parentLeaf": "A-K-16",
+  "parentOriginalObligation": "Publish feature limits honestly; React Aria provides useful building blocks, not a complete recurrence or resource-scheduling engine.",
+  "parentClosure": "Not independently proposed; coordinator reconciles A-K-16. Only named documentation successor closes here.",
+  "originalSuccessorDeliverable": "Replace outdated initial scope/availability/preset paragraphs using the supplied report wording; retain the meaningful experimental, matrix, native clipboard/AT and host-owned timezone/business-policy limitations. State shipped comparison/Gregorian period features, narrow English relative grammar and availability-callback gaps until fixed.",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "target": "docs/developer/react-aria-calendar-contracts.md",
+  "targetBeforeSha256": "5ecd4a8cc05e993f946e999be0736093f05ebef82db8e0244c7b5a97e95bbf02",
+  "targetAfterSha256": "f9827337a07c98681410bed8259269b238723906941cc012bc0efb62c0b4ecbf",
+  "checks": {
+    "command": "python3 docs/developer/final-acceptance/fix-11/check.py",
+    "exitCode": 0,
+    "kind": "Documentation/source inspection only",
+    "passed": 16,
+    "total": 16,
+    "localLinks": 9,
+    "inputHashDrift": {}
+  },
+  "evidence": {
+    "input-receipt.json": "8174da9c40530d33a49aa4f960e9cec26792822eebfa51e1972efa17ff8dbde1",
+    "checks.json": "b385d5159ae84ab2e81f32e818ba037c58add5745096c388c522a953a8e96e18",
+    "check.py": "74af4609ae18117a6383d873b6378e130ae68da3d26e2823203f8fdd52e8bf04",
+    "contract.patch": "f1e9497ea5bcd9b4cb498fee23357fd169b57dfee166ad62f1c9778031c03cf8",
+    "report.md": "12400551b37ba6ec22afe3823b4b4076ac87df18abfb0b05fd3600a17dc3317c"
+  },
+  "limits": [
+    "No new runtime, build, browser, native clipboard, AT, device, manual, remote CI, legal, production or release validation.",
+    "Concurrent availability fixes inspected as source only; no acceptance claimed.",
+    "Historical receipts remain dated; no old build coverage inferred.",
+    "No shared acceptance ledger/checklist/count changes."
+  ],
+  "remainingSuccessors": [
+    "BUG-0010 / K04-datepicker-entry-parity",
+    "BUG-0011 / K17-callback-reason-access",
+    "K07-paste-contract",
+    "K05-native-reflow-focus",
+    "K05-announcement-observation",
+    "K17-native-and-AT",
+    "K12 selected-composition behavior"
+  ],
+  "writes": [
+    "docs/developer/react-aria-calendar-contracts.md",
+    "docs/developer/final-acceptance/fix-11/"
+  ]
+}

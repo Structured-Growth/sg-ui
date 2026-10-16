@@ -1,0 +1,1900 @@
+{
+  "capturedAt": "2026-10-16T23:09:19.527371+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "scope": "Read-only bounded hash reconciliation. Matching inspected inputs retain their dated evidence; no complete transitive freshness/native/AT assertion. Proposed files are not integrated.",
+  "inputs": [
+    {
+      "path": "/tmp/sgui-calendar-validate.mjs",
+      "sha256": "eae18fcf50a41dac846996e946fd9fca5d280403930bb05a061fed0096777dd3",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "matchesWave02": false
+    },
+    {
+      "path": "apps/docs/content/component-usage/forms.json",
+      "sha256": "e8848c6f62052da3ba92d6fbf76ae917e59c3b5357b48d88637e6e45ce47a3a9",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "apps/docs/examples/AdvancedCalendarExamples.tsx",
+      "sha256": "1a3a86a7dae3382b6418c4fcb83ab6804d912c817e86e389d6c6f1c28fce9fd0",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "1a3a86a7dae3382b6418c4fcb83ab6804d912c817e86e389d6c6f1c28fce9fd0",
+      "matchesWave02": true
+    },
+    {
+      "path": "apps/docs/examples/CalendarCompositionExamples.tsx",
+      "sha256": "8b748c1d7dfc316440d07ffeaf4dcefdc9f12d77fbf9ad0005c48c96d5efb19f",
+      "integratedSha256": "8b748c1d7dfc316440d07ffeaf4dcefdc9f12d77fbf9ad0005c48c96d5efb19f",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "fb1c3bb7cbc9d182441360093996ab915aedd76f020a2f2eef414ea90efdd49d",
+      "matchesWave02": false
+    },
+    {
+      "path": "apps/docs/examples/FormIntegrationExamples.tsx",
+      "sha256": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "matchesWave02": true
+    },
+    {
+      "path": "apps/docs/examples/LocalizedRangeExample.tsx",
+      "sha256": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+      "matchesWave02": true
+    },
+    {
+      "path": "apps/docs/examples/catalog/forms-dates.tsx",
+      "sha256": "9a8e366ae6a23994897b05c5b71e8565e17306032f4b9ad7ef4921acc54f6671",
+      "integratedSha256": "9a8e366ae6a23994897b05c5b71e8565e17306032f4b9ad7ef4921acc54f6671",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "3bf40ba915a42a39907e1dd897d44565d6e8b5c3a91f4e12f3a068f3c4ee52da",
+      "matchesWave02": false
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/Box/Box.fixture.tsx",
+      "sha256": "59152e4761657cf835bb86129cd3b7d70517620af6eb896a832814af41726da3",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "59152e4761657cf835bb86129cd3b7d70517620af6eb896a832814af41726da3",
+      "matchesWave02": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+      "sha256": "477f8471eb68739ae69e90ade8dab4184387cc45199e12307ba9ef59b8c7c691",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "sha256": "2498d5dfe62cdf4333ee35887680a68788fd32caa5ac0c729bf3c1587419ec52",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "apps/docs/tests/date-picker-availability-parity.spec.ts",
+      "sha256": "4b12194e3acbfe941b27f06c7d5c2a55425f1ec905990221612f59425352e69f",
+      "integratedSha256": "4b12194e3acbfe941b27f06c7d5c2a55425f1ec905990221612f59425352e69f",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "docs/developer/parallel-batch-61/keyboard-range-preview.md",
+      "sha256": "6b934d8c74e3f010d267e8f3070dfdbe5874468cd75beb8c3c6b387c9d75f9c9",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "6b934d8c74e3f010d267e8f3070dfdbe5874468cd75beb8c3c6b387c9d75f9c9",
+      "matchesWave02": true
+    },
+    {
+      "path": "docs/developer/react-aria-calendar-contracts.md",
+      "sha256": "ed2097e296bfd9de3a2420b3283ae3c1da1f1defc3611d39df2fcba0e5bc0875",
+      "integratedSha256": "ed2097e296bfd9de3a2420b3283ae3c1da1f1defc3611d39df2fcba0e5bc0875",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "5ecd4a8cc05e993f946e999be0736093f05ebef82db8e0244c7b5a97e95bbf02",
+      "matchesWave02": false
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/Calendar.d.ts",
+      "sha256": "ca43961226eaf983c0a507dd7ff04da6ec8813d7593555c489a95f9714a047a4",
+      "integratedSha256": "ca43961226eaf983c0a507dd7ff04da6ec8813d7593555c489a95f9714a047a4",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/Calendar.d.ts.map",
+      "sha256": "9d1faf19af679773cc7570fe4f07a2031874a5de8a169af8c6e69e1a9f557653",
+      "integratedSha256": "9d1faf19af679773cc7570fe4f07a2031874a5de8a169af8c6e69e1a9f557653",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/Calendar.js",
+      "sha256": "5ce3fd67e2ac9365ac0588d5a6bb3d6d959ccba46a7430a98bf30cf97c7dc07d",
+      "integratedSha256": "5ce3fd67e2ac9365ac0588d5a6bb3d6d959ccba46a7430a98bf30cf97c7dc07d",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/Calendar.js.map",
+      "sha256": "bcf64b92b9f34eafb748f093065bd9c13e3bfda561f5e241584d09870c44c69f",
+      "integratedSha256": "bcf64b92b9f34eafb748f093065bd9c13e3bfda561f5e241584d09870c44c69f",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/CalendarNavigation.d.ts",
+      "sha256": "d772f86ff23fcad6aa6864b3619bc4552b874e84a26342a3a7c2b9786f51e44b",
+      "integratedSha256": "d772f86ff23fcad6aa6864b3619bc4552b874e84a26342a3a7c2b9786f51e44b",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/CalendarNavigation.d.ts.map",
+      "sha256": "839073303161635dd82f8682a323b11b871ff096473d14b3aa493b1e08a65e82",
+      "integratedSha256": "839073303161635dd82f8682a323b11b871ff096473d14b3aa493b1e08a65e82",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/CalendarNavigation.js",
+      "sha256": "107efa133f9ec98d481e1214e3cbe110ea1e8160cf8f975060090bc5b9fce92e",
+      "integratedSha256": "107efa133f9ec98d481e1214e3cbe110ea1e8160cf8f975060090bc5b9fce92e",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/CalendarNavigation.js.map",
+      "sha256": "0d3df6b25a002b95628ac89c022ab480970a1f299bd3250ba0f6aea20b0b4264",
+      "integratedSha256": "0d3df6b25a002b95628ac89c022ab480970a1f299bd3250ba0f6aea20b0b4264",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.d.ts",
+      "sha256": "a06b481b302482992d7a22dc568245474f57e7beb972ab0262a6efa84e9e6da3",
+      "integratedSha256": "a06b481b302482992d7a22dc568245474f57e7beb972ab0262a6efa84e9e6da3",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.d.ts.map",
+      "sha256": "10e8db3a0cf0ea94f476f75ef60040aabd4c2dbe59123a2fe8e7584b35f6519a",
+      "integratedSha256": "10e8db3a0cf0ea94f476f75ef60040aabd4c2dbe59123a2fe8e7584b35f6519a",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.js",
+      "sha256": "79d3a40cb04d0286ea480bd8f45c83b80e1f834fa71d8e8a2d26608f96492dba",
+      "integratedSha256": "79d3a40cb04d0286ea480bd8f45c83b80e1f834fa71d8e8a2d26608f96492dba",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.js.map",
+      "sha256": "c2dc1037c51ed3cbc7f3d8662737b9cf82aee8e988f6ea3afb6231c5c48decda",
+      "integratedSha256": "c2dc1037c51ed3cbc7f3d8662737b9cf82aee8e988f6ea3afb6231c5c48decda",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.module.css.js",
+      "sha256": "646a270074cc0d33d433ba1733b2e77cfe616a0bc3951f7b2664b2e49707aa94",
+      "integratedSha256": "646a270074cc0d33d433ba1733b2e77cfe616a0bc3951f7b2664b2e49707aa94",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateFieldControl.d.ts",
+      "sha256": "70ecb8545e0bb2f8cc6620a076b8661897a0d84b4db1116d258a111ba22201fb",
+      "integratedSha256": "70ecb8545e0bb2f8cc6620a076b8661897a0d84b4db1116d258a111ba22201fb",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateFieldControl.d.ts.map",
+      "sha256": "5b2cfe80695be3446b9cb7f1509cfac76df591fc81390d9eba2e8a062d30fea8",
+      "integratedSha256": "5b2cfe80695be3446b9cb7f1509cfac76df591fc81390d9eba2e8a062d30fea8",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateFieldControl.js",
+      "sha256": "999c04c990422f2a484d21604c81d4b4c7b4c3c6dbb3ac0cb8c8aed4721733b8",
+      "integratedSha256": "999c04c990422f2a484d21604c81d4b4c7b4c3c6dbb3ac0cb8c8aed4721733b8",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateFieldControl.js.map",
+      "sha256": "d72e2f304154dd38b42c4513851ca26edcc105de0e712d7eff06eff2e8c2c155",
+      "integratedSha256": "d72e2f304154dd38b42c4513851ca26edcc105de0e712d7eff06eff2e8c2c155",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/TextDateField.d.ts",
+      "sha256": "16208fdffc0b18dd3ace211770535dd40c6aacfffe5af62d234c5496b0dfb6d1",
+      "integratedSha256": "16208fdffc0b18dd3ace211770535dd40c6aacfffe5af62d234c5496b0dfb6d1",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/TextDateField.d.ts.map",
+      "sha256": "ad4a41273a0a8b999c4a9fdea595c70ffd2149fdf363bc4dde9db454e45fb87a",
+      "integratedSha256": "ad4a41273a0a8b999c4a9fdea595c70ffd2149fdf363bc4dde9db454e45fb87a",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/TextDateField.js",
+      "sha256": "da9ba124b9ae9fd1efc300073a19e2311d25241d107d0d6afa9ad8c1a506588d",
+      "integratedSha256": "da9ba124b9ae9fd1efc300073a19e2311d25241d107d0d6afa9ad8c1a506588d",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/TextDateField.js.map",
+      "sha256": "f3f1fc88a068344dffc2a82a3aa482375b7dd2a331b6b953e4f259c3fd79a6ee",
+      "integratedSha256": "f3f1fc88a068344dffc2a82a3aa482375b7dd2a331b6b953e4f259c3fd79a6ee",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseDateText.d.ts",
+      "sha256": "1d37b67e55189910d371ac6bb6e6c96225cf28d6d741803a733b625acaea339f",
+      "integratedSha256": "1d37b67e55189910d371ac6bb6e6c96225cf28d6d741803a733b625acaea339f",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseDateText.d.ts.map",
+      "sha256": "8e1fabae7d33009ab9d0c23015fcf5d8d4f5c451b8ec772711986a39093d9df4",
+      "integratedSha256": "8e1fabae7d33009ab9d0c23015fcf5d8d4f5c451b8ec772711986a39093d9df4",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseDateText.js",
+      "sha256": "4939f058ffaf2f41f52deaa9ce33459c723b5c7c14294ea94c312f06496db65d",
+      "integratedSha256": "4939f058ffaf2f41f52deaa9ce33459c723b5c7c14294ea94c312f06496db65d",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseDateText.js.map",
+      "sha256": "c1daf5eb6df7a9e8f0b31e90c3def6cb1171c8a2a7f2c07376d4db82c669f7d5",
+      "integratedSha256": "c1daf5eb6df7a9e8f0b31e90c3def6cb1171c8a2a7f2c07376d4db82c669f7d5",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseRelativeDateText.d.ts",
+      "sha256": "0fd9b37ea1de9d2d4fd05ccdacf5fb3c9317ba3924b27c43cd80adac4a16cf57",
+      "integratedSha256": "0fd9b37ea1de9d2d4fd05ccdacf5fb3c9317ba3924b27c43cd80adac4a16cf57",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseRelativeDateText.d.ts.map",
+      "sha256": "e2d77502f2daf45cb328d5f966d389dd71b939bc0d1b751cfb0a5dd9044d03ee",
+      "integratedSha256": "e2d77502f2daf45cb328d5f966d389dd71b939bc0d1b751cfb0a5dd9044d03ee",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseRelativeDateText.js",
+      "sha256": "7efa58c1e87fef1b96750e31f39a60cf15340573a978fbf99bd3e7c825d1c57a",
+      "integratedSha256": "7efa58c1e87fef1b96750e31f39a60cf15340573a978fbf99bd3e7c825d1c57a",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseRelativeDateText.js.map",
+      "sha256": "f1f9977f5476e481a3ce90030de4a81df6da1e0ee03396c0a852df62038d8520",
+      "integratedSha256": "f1f9977f5476e481a3ce90030de4a81df6da1e0ee03396c0a852df62038d8520",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.d.ts",
+      "sha256": "12020544bf17d840c7b8678e8790cd734a1131a8b34916efc2758349431b96be",
+      "integratedSha256": "12020544bf17d840c7b8678e8790cd734a1131a8b34916efc2758349431b96be",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.d.ts.map",
+      "sha256": "34d6e50b375c2007492be1bebd501b3af6e623a5f61b2f8d0a31c077b542e9a3",
+      "integratedSha256": "34d6e50b375c2007492be1bebd501b3af6e623a5f61b2f8d0a31c077b542e9a3",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.js",
+      "sha256": "351975ca691166d2b11644cfba3f49c61cd4c48ba772bf705e499afb9c47b7cb",
+      "integratedSha256": "351975ca691166d2b11644cfba3f49c61cd4c48ba772bf705e499afb9c47b7cb",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.js.map",
+      "sha256": "5e184676f7b0b21704b1fd2486c10fffbd3841137b07172a8d398ec6430391f2",
+      "integratedSha256": "5e184676f7b0b21704b1fd2486c10fffbd3841137b07172a8d398ec6430391f2",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.module.css.js",
+      "sha256": "c975784ba96a31a18ba0e9f45b304e069f36c39fa48945125238429c53f7c0cc",
+      "integratedSha256": "c975784ba96a31a18ba0e9f45b304e069f36c39fa48945125238429c53f7c0cc",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.d.ts",
+      "sha256": "a63c3cabd3b8cdd8e551ab37d4f731f4cf1a308f56e1316f32108b8a3b58957d",
+      "integratedSha256": "a63c3cabd3b8cdd8e551ab37d4f731f4cf1a308f56e1316f32108b8a3b58957d",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.d.ts.map",
+      "sha256": "eaacef5de67a75601f413d7585b8892d276a6a68d0319ddb67b07f5a24600f90",
+      "integratedSha256": "eaacef5de67a75601f413d7585b8892d276a6a68d0319ddb67b07f5a24600f90",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.js",
+      "sha256": "0390ab26201fb9a0f2c9f65ce72b29dc4a59997b459015c05a11a26e29c92e94",
+      "integratedSha256": "0390ab26201fb9a0f2c9f65ce72b29dc4a59997b459015c05a11a26e29c92e94",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.js.map",
+      "sha256": "84cb26852c30ef526dc7d7e8ff670abdaa64e0af856df5a737e55b00a1b5ecaf",
+      "integratedSha256": "84cb26852c30ef526dc7d7e8ff670abdaa64e0af856df5a737e55b00a1b5ecaf",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.module.css.js",
+      "sha256": "3c132d57789acfe9c56d6b3c2f016c1611bf8fd7cd4930bdd5c8bf56f1376b96",
+      "integratedSha256": "3c132d57789acfe9c56d6b3c2f016c1611bf8fd7cd4930bdd5c8bf56f1376b96",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/parseDateRangeText.d.ts",
+      "sha256": "1e2ae949422252244517b17098a4aa63538f11abb931c4f3a7d52849b6d172be",
+      "integratedSha256": "1e2ae949422252244517b17098a4aa63538f11abb931c4f3a7d52849b6d172be",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/parseDateRangeText.d.ts.map",
+      "sha256": "5ee83c793785bd8256516ab844562cde930668fe214a9958c71012eb0190fff5",
+      "integratedSha256": "5ee83c793785bd8256516ab844562cde930668fe214a9958c71012eb0190fff5",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/parseDateRangeText.js",
+      "sha256": "865f27251d54cdc6e57e9d00a4b7e7f4f8aac1677b4642c4d74a2e81b04b6fd3",
+      "integratedSha256": "865f27251d54cdc6e57e9d00a4b7e7f4f8aac1677b4642c4d74a2e81b04b6fd3",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/parseDateRangeText.js.map",
+      "sha256": "853c77d8e942364bc35ef80fe15e0bbd9dbf7f31699532bc6ff8772e37b005cd",
+      "integratedSha256": "853c77d8e942364bc35ef80fe15e0bbd9dbf7f31699532bc6ff8772e37b005cd",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/CalendarFormValidity.d.ts",
+      "sha256": "433ab816a48de8fe1873236ba8dcb2203d1148ac2c4a52fe6d8fc36b01d6574b",
+      "integratedSha256": "433ab816a48de8fe1873236ba8dcb2203d1148ac2c4a52fe6d8fc36b01d6574b",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/CalendarFormValidity.d.ts.map",
+      "sha256": "f4e6cf9fb6f296f751a584fc3c3f69ef2a40bca4072fd1b1148eb07033c0c1ad",
+      "integratedSha256": "f4e6cf9fb6f296f751a584fc3c3f69ef2a40bca4072fd1b1148eb07033c0c1ad",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/CalendarFormValidity.js",
+      "sha256": "efd0e0720f0a8af7a391360c02a401c68efdde8f7fa53481cfbfa477cdc2e7ef",
+      "integratedSha256": "efd0e0720f0a8af7a391360c02a401c68efdde8f7fa53481cfbfa477cdc2e7ef",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/CalendarFormValidity.js.map",
+      "sha256": "36242fd6dfe21d6d59a660794049454e032cc16e3cd6fa067288a803547f2597",
+      "integratedSha256": "36242fd6dfe21d6d59a660794049454e032cc16e3cd6fa067288a803547f2597",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.d.ts",
+      "sha256": "e2ad33d7d2df2a4cbb2915cc273a555baa9f50e85dfee125380f24168635b4cc",
+      "integratedSha256": "e2ad33d7d2df2a4cbb2915cc273a555baa9f50e85dfee125380f24168635b4cc",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.d.ts.map",
+      "sha256": "c498480d9f25b98e8a46f0cf342274aae428ede2e0fce3370e66a80a1d69bcb0",
+      "integratedSha256": "c498480d9f25b98e8a46f0cf342274aae428ede2e0fce3370e66a80a1d69bcb0",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.js",
+      "sha256": "fbe0e08a8900cef53776ffeb9fa0a555916e58a5ef26c464c80d5e7f77ec9250",
+      "integratedSha256": "fbe0e08a8900cef53776ffeb9fa0a555916e58a5ef26c464c80d5e7f77ec9250",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.js.map",
+      "sha256": "a78d19271ad8a90c2f5668ec150e1ffc9933d2ebf2d5e03b2195a47f3b75719a",
+      "integratedSha256": "a78d19271ad8a90c2f5668ec150e1ffc9933d2ebf2d5e03b2195a47f3b75719a",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.module.css.js",
+      "sha256": "39ceb67fa9b075c6595119a9c0fa4bb2f4d3a667812d8d4f21e892f2b33d4b69",
+      "integratedSha256": "39ceb67fa9b075c6595119a9c0fa4bb2f4d3a667812d8d4f21e892f2b33d4b69",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/RangeGestures.d.ts",
+      "sha256": "051295ead1fcc2816ecec6f635130c27a7565fb234677b72633390feb37b33c5",
+      "integratedSha256": "051295ead1fcc2816ecec6f635130c27a7565fb234677b72633390feb37b33c5",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/RangeGestures.d.ts.map",
+      "sha256": "d48ddc5f0213a1d7c1cc44f2c7be2659f1d1523b937dd40e16eca15459491c6a",
+      "integratedSha256": "d48ddc5f0213a1d7c1cc44f2c7be2659f1d1523b937dd40e16eca15459491c6a",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/RangeGestures.js",
+      "sha256": "93adcc5a48a2b63694ecf15d885a9ef8bb13f1178b5747abf0cb0fe1e0995cf2",
+      "integratedSha256": "93adcc5a48a2b63694ecf15d885a9ef8bb13f1178b5747abf0cb0fe1e0995cf2",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/RangeGestures.js.map",
+      "sha256": "744e178db5189cdce1e998617b086a91d7216b64ef39e9f320e4c6cb21631bc4",
+      "integratedSha256": "744e178db5189cdce1e998617b086a91d7216b64ef39e9f320e4c6cb21631bc4",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/date-contract.d.ts",
+      "sha256": "7d7e5931e1a01442b7f10002d2e826ce90bf478311d0fa964a2164940615221f",
+      "integratedSha256": "7d7e5931e1a01442b7f10002d2e826ce90bf478311d0fa964a2164940615221f",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/date-contract.d.ts.map",
+      "sha256": "bea0c3fd35b6d3969ad5db5957b5793e4a2cfced578d769bab4797378dea1d7e",
+      "integratedSha256": "bea0c3fd35b6d3969ad5db5957b5793e4a2cfced578d769bab4797378dea1d7e",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/date-contract.js",
+      "sha256": "c383ef2acc786e1a0a7f94383b7d3d04e2f9c53b2419216c5d9d4922cc01b7fb",
+      "integratedSha256": "c383ef2acc786e1a0a7f94383b7d3d04e2f9c53b2419216c5d9d4922cc01b7fb",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/date-contract.js.map",
+      "sha256": "3542eb717d9dcc433fa5b9480f03c1bfea4f78af9173f10f9c97c6279c2b54b5",
+      "integratedSha256": "3542eb717d9dcc433fa5b9480f03c1bfea4f78af9173f10f9c97c6279c2b54b5",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/relative-date-range.d.ts",
+      "sha256": "676ada15ca86937c7dd06329545f9fd6bd9c781cadb32e7d3b258e139b6744b3",
+      "integratedSha256": "676ada15ca86937c7dd06329545f9fd6bd9c781cadb32e7d3b258e139b6744b3",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/relative-date-range.d.ts.map",
+      "sha256": "481b0977f655ea6294b695e5084586d1adf4b65bdb9fc392862643f15012fbd4",
+      "integratedSha256": "481b0977f655ea6294b695e5084586d1adf4b65bdb9fc392862643f15012fbd4",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/relative-date-range.js",
+      "sha256": "5060f0865ee758b810de54a1c6ba2ea73bb4f0f956448c26c9c20b02c2930ce9",
+      "integratedSha256": "5060f0865ee758b810de54a1c6ba2ea73bb4f0f956448c26c9c20b02c2930ce9",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/relative-date-range.js.map",
+      "sha256": "e27f82c90b8b4359430bc8b24825a5f6a3f2e0a87d7879ccd76070ff807d3483",
+      "integratedSha256": "e27f82c90b8b4359430bc8b24825a5f6a3f2e0a87d7879ccd76070ff807d3483",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useCalendarFormReset.d.ts",
+      "sha256": "29f6c7f3e6abea761097a62db9fd9260c5220b4234ebc50137e9d44882dd98f3",
+      "integratedSha256": "29f6c7f3e6abea761097a62db9fd9260c5220b4234ebc50137e9d44882dd98f3",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useCalendarFormReset.d.ts.map",
+      "sha256": "b1f4fa167fb3ec1412bc42f04a067db5e8b39453decfb92366af54049b0bc6b6",
+      "integratedSha256": "b1f4fa167fb3ec1412bc42f04a067db5e8b39453decfb92366af54049b0bc6b6",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useCalendarFormReset.js",
+      "sha256": "822e97f70a1a071f93bb2f907bf707125685511d6400555326c4c76abeb2378f",
+      "integratedSha256": "822e97f70a1a071f93bb2f907bf707125685511d6400555326c4c76abeb2378f",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useCalendarFormReset.js.map",
+      "sha256": "311878ee95b5e70c24cc4e1910b62268897bb433c7bd4c85b175ec6771fd1c86",
+      "integratedSha256": "311878ee95b5e70c24cc4e1910b62268897bb433c7bd4c85b175ec6771fd1c86",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useNarrowWeekdays.d.ts",
+      "sha256": "5d74956c6277231c3191d47519af24647cc1c3ddc54e3e7bc6e2aa400588fb30",
+      "integratedSha256": "5d74956c6277231c3191d47519af24647cc1c3ddc54e3e7bc6e2aa400588fb30",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useNarrowWeekdays.d.ts.map",
+      "sha256": "71045cd5003d50fcd27bba1e305d994551ff73c8db8f1bac91aec0bbe9de09b7",
+      "integratedSha256": "71045cd5003d50fcd27bba1e305d994551ff73c8db8f1bac91aec0bbe9de09b7",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useNarrowWeekdays.js",
+      "sha256": "2a0d5d3f37f2203fd4c91b30da84a545e56407b6fbba7b2a4300f979c6381853",
+      "integratedSha256": "2a0d5d3f37f2203fd4c91b30da84a545e56407b6fbba7b2a4300f979c6381853",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useNarrowWeekdays.js.map",
+      "sha256": "e7cef9bdc7a185c64d60281154cc3829f9d86ce54859938351cb03eb89169683",
+      "integratedSha256": "e7cef9bdc7a185c64d60281154cc3829f9d86ce54859938351cb03eb89169683",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TextTimeField.d.ts",
+      "sha256": "4b8f77c6c16f7182c18afc435879a1d3a2ffdd3fe9ab1ab9e31780fe43517097",
+      "integratedSha256": "4b8f77c6c16f7182c18afc435879a1d3a2ffdd3fe9ab1ab9e31780fe43517097",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TextTimeField.d.ts.map",
+      "sha256": "654c8f29801bf826d0a572080fe5b757bb0f832e3389c10e0d9a7937c588af87",
+      "integratedSha256": "654c8f29801bf826d0a572080fe5b757bb0f832e3389c10e0d9a7937c588af87",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TextTimeField.js",
+      "sha256": "4f8f35b4bb45ffabafe1cd22a9a7c82dd8250ac444779332de50d9ebb56a7788",
+      "integratedSha256": "4f8f35b4bb45ffabafe1cd22a9a7c82dd8250ac444779332de50d9ebb56a7788",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TextTimeField.js.map",
+      "sha256": "e0d78169f440e09b63fe76d9baed38a035c68029e70b0bee4b34aec81bb49267",
+      "integratedSha256": "e0d78169f440e09b63fe76d9baed38a035c68029e70b0bee4b34aec81bb49267",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.d.ts",
+      "sha256": "03a59561181981942ebb091ba292308f4ca1587a0b308c408d0d77f9ec37d02c",
+      "integratedSha256": "03a59561181981942ebb091ba292308f4ca1587a0b308c408d0d77f9ec37d02c",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.d.ts.map",
+      "sha256": "dcc5f10823a8f323a2303b92baee62996fd788c642bfc139108ff34bd806fbb3",
+      "integratedSha256": "dcc5f10823a8f323a2303b92baee62996fd788c642bfc139108ff34bd806fbb3",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.js",
+      "sha256": "f4de1cf5a1e1427dc5969cb5903f3aeed11ab3c851a660c4429bab1d2975edb2",
+      "integratedSha256": "f4de1cf5a1e1427dc5969cb5903f3aeed11ab3c851a660c4429bab1d2975edb2",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.js.map",
+      "sha256": "7cc441ca78b6f89abbabbf57ad2ef448a399795693f8c6260ce79d6ef44f217e",
+      "integratedSha256": "7cc441ca78b6f89abbabbf57ad2ef448a399795693f8c6260ce79d6ef44f217e",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.module.css.js",
+      "sha256": "52e2f7e75b8a0a26c04637b7d43d5f9947c1c6dda0975ed667e097cf2e30ab04",
+      "integratedSha256": "52e2f7e75b8a0a26c04637b7d43d5f9947c1c6dda0975ed667e097cf2e30ab04",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/parseTimeText.d.ts",
+      "sha256": "68fbb0e25b5edd99ea7bd911b579129fb44baf7323a86aa0bbcadc7df867c469",
+      "integratedSha256": "68fbb0e25b5edd99ea7bd911b579129fb44baf7323a86aa0bbcadc7df867c469",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/parseTimeText.d.ts.map",
+      "sha256": "0c8f4f819d59211d9197877c878b4d9f0ff6568c25d01da2c19553369b85c9df",
+      "integratedSha256": "0c8f4f819d59211d9197877c878b4d9f0ff6568c25d01da2c19553369b85c9df",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/parseTimeText.js",
+      "sha256": "7d9126133959ce2cad25191f35cfd46e802e4537183fb08d455e68fafca772b0",
+      "integratedSha256": "7d9126133959ce2cad25191f35cfd46e802e4537183fb08d455e68fafca772b0",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/parseTimeText.js.map",
+      "sha256": "e78524d9a0f52dc254b2b2106c6f9d906a5d0da82cdea81ab4742f6d7e09fdc8",
+      "integratedSha256": "e78524d9a0f52dc254b2b2106c6f9d906a5d0da82cdea81ab4742f6d7e09fdc8",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/scripts/browser-validation-pool.mjs",
+      "sha256": "ebb6f119e1cbdfddb5aa7606af0794af45b7e5827873c93757790506ae38374f",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": null,
+      "matchesWave02": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.native-locales.native-fixture.tsx",
+      "sha256": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "integratedSha256": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.native-locales.test.tsx",
+      "sha256": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "integratedSha256": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.next100-regression.test.tsx",
+      "sha256": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "integratedSha256": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.test.tsx",
+      "sha256": "aa7955ad2270c2dd5f40634346063070cd9665f263816f4f58f8390dd8d4124d",
+      "integratedSha256": "aa7955ad2270c2dd5f40634346063070cd9665f263816f4f58f8390dd8d4124d",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "b56db22bb4091fedb65956e22bf2b3ecbbc70670afc02fb68638274dfa202239",
+      "matchesWave02": false
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "sha256": "240fc043652299746ce1b8554424f34750a24b48e13d48b42144f762bc9f94e8",
+      "integratedSha256": "240fc043652299746ce1b8554424f34750a24b48e13d48b42144f762bc9f94e8",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "43ce7bdfa5d4652278983efdfb6eb94785ca5fa28f64d6b66dddf933c0d358b4",
+      "matchesWave02": false
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/CalendarNavigation.test.tsx",
+      "sha256": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "integratedSha256": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/CalendarNavigation.tsx",
+      "sha256": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "integratedSha256": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.module.css",
+      "sha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "integratedSha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.next100-regression.test.tsx",
+      "sha256": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "integratedSha256": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.test.tsx",
+      "sha256": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "integratedSha256": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "matchesIntegrated": true,
+      "fix08Sha256": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "matchesFix08": true,
+      "wave02Sha256": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.tsx",
+      "sha256": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "integratedSha256": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "matchesIntegrated": true,
+      "fix08Sha256": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "matchesFix08": true,
+      "wave02Sha256": "9cc5c4ba5f337787682ae31c482fdd0dc7295179859c33ad0a5b2b71fdb88e18",
+      "matchesWave02": false
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateFieldControl.tsx",
+      "sha256": "fe95d976fdace22b54fed78bc1fab190f45b540a08ee63518dbfea0dd1323e9d",
+      "integratedSha256": "fe95d976fdace22b54fed78bc1fab190f45b540a08ee63518dbfea0dd1323e9d",
+      "matchesIntegrated": true,
+      "fix08Sha256": "fe95d976fdace22b54fed78bc1fab190f45b540a08ee63518dbfea0dd1323e9d",
+      "matchesFix08": true,
+      "wave02Sha256": "8bbadd7bb5344a56df2682e2dce83e2c2ee5dc4dd07c0d74d1ad6e2973ca09c7",
+      "matchesWave02": false
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/TextDateField.test.tsx",
+      "sha256": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "integratedSha256": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "matchesIntegrated": true,
+      "fix08Sha256": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "matchesFix08": true,
+      "wave02Sha256": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "sha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "integratedSha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "matchesIntegrated": true,
+      "fix08Sha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "matchesFix08": true,
+      "wave02Sha256": "c4cb4d163038104f730cdf4cb1ce6304de23707ae576c2f78ccd7590667ba718",
+      "matchesWave02": false
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseDateText.test.ts",
+      "sha256": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "integratedSha256": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseDateText.ts",
+      "sha256": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "integratedSha256": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseRelativeDateText.test.ts",
+      "sha256": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "integratedSha256": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseRelativeDateText.ts",
+      "sha256": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "integratedSha256": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.module.css",
+      "sha256": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "integratedSha256": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.native-fixture.tsx",
+      "sha256": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1",
+      "integratedSha256": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.test.tsx",
+      "sha256": "3d42cfe6beb54360a88d05709f03af51cee9b715e4ed79e8f928bbabed0b9e02",
+      "integratedSha256": "3d42cfe6beb54360a88d05709f03af51cee9b715e4ed79e8f928bbabed0b9e02",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "3d42cfe6beb54360a88d05709f03af51cee9b715e4ed79e8f928bbabed0b9e02",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.next100-regression.test.tsx",
+      "sha256": "c43242f8be95a16bd1251f2a573ec61ad3e599e236a1f3cb7d110c7f001a001d",
+      "integratedSha256": "c43242f8be95a16bd1251f2a573ec61ad3e599e236a1f3cb7d110c7f001a001d",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "c43242f8be95a16bd1251f2a573ec61ad3e599e236a1f3cb7d110c7f001a001d",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.test.tsx",
+      "sha256": "8904345f870d5ae9dd7f857cfc8cab94bdf2ce63b46c0f29714478701a50ad7d",
+      "integratedSha256": "8904345f870d5ae9dd7f857cfc8cab94bdf2ce63b46c0f29714478701a50ad7d",
+      "matchesIntegrated": true,
+      "fix08Sha256": "8904345f870d5ae9dd7f857cfc8cab94bdf2ce63b46c0f29714478701a50ad7d",
+      "matchesFix08": true,
+      "wave02Sha256": "7841c9355332c8af7d611d6456e00f8af8ba873cf1622f059d1f58b6bc0ed294",
+      "matchesWave02": false
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "sha256": "cc1cc4fd1264b16c391f04f34bdfdb5b2d409ba899a022fc83eaa2ad9d7d1dc3",
+      "integratedSha256": "cc1cc4fd1264b16c391f04f34bdfdb5b2d409ba899a022fc83eaa2ad9d7d1dc3",
+      "matchesIntegrated": true,
+      "fix08Sha256": "cc1cc4fd1264b16c391f04f34bdfdb5b2d409ba899a022fc83eaa2ad9d7d1dc3",
+      "matchesFix08": true,
+      "wave02Sha256": "b6ed8dcd06786b4c5599a832d33f4e3d71924bd4f3faec4fdd58fc306c832cf6",
+      "matchesWave02": false
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.test.tsx",
+      "sha256": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97",
+      "integratedSha256": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "sha256": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73",
+      "integratedSha256": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.controlled-transactions.test.tsx",
+      "sha256": "cd85cc5942f7a2d6b3501022daa481a257290855a65e99e42905827c2da05c5d",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "cd85cc5942f7a2d6b3501022daa481a257290855a65e99e42905827c2da05c5d",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.module.css",
+      "sha256": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.next100-regression.test.tsx",
+      "sha256": "e9f6569cad06689e8813dc8ea863d93b92bece994e267601327b022106f0f106",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "e9f6569cad06689e8813dc8ea863d93b92bece994e267601327b022106f0f106",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.test.tsx",
+      "sha256": "e8cee5760282c71ce7f6b54db9d1689b91b96d7a678b2d9017151b7d8da5411b",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "e8cee5760282c71ce7f6b54db9d1689b91b96d7a678b2d9017151b7d8da5411b",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "sha256": "d5c4eb8593ec44e45938e14b4dddc6b94f969890ebdf863d101f11b54cf638d4",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "d5c4eb8593ec44e45938e14b4dddc6b94f969890ebdf863d101f11b54cf638d4",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/parseDateRangeText.test.ts",
+      "sha256": "844368d1f0df2152f748680ec5c3e0f7ea97b2d1f83c0400a3c0d82278636863",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "844368d1f0df2152f748680ec5c3e0f7ea97b2d1f83c0400a3c0d82278636863",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/parseDateRangeText.ts",
+      "sha256": "6112e72b278b6c1b8c0444033a46bd3a2cc9cd26ac71e528768ba3dae65e3706",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "6112e72b278b6c1b8c0444033a46bd3a2cc9cd26ac71e528768ba3dae65e3706",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/CalendarFormValidity.tsx",
+      "sha256": "064064ff9187ed72a6635f8a16ef8a738b3391e9de1ec6c92ef88279fb5357fd",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "064064ff9187ed72a6635f8a16ef8a738b3391e9de1ec6c92ef88279fb5357fd",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateContracts.next100-regression.test.tsx",
+      "sha256": "545611ff1736d427a59992038af10fec7557084117d68443c675a8e8070d8615",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "545611ff1736d427a59992038af10fec7557084117d68443c675a8e8070d8615",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.behavior.test.tsx",
+      "sha256": "eb01a4b0bf0988bfce65316042642e0a5e030821b8f7a467e1789bb10105d1d8",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "eb01a4b0bf0988bfce65316042642e0a5e030821b8f7a467e1789bb10105d1d8",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css",
+      "sha256": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.next100-regression.test.tsx",
+      "sha256": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.presets.test.tsx",
+      "sha256": "1a7588994d3d1232166bb568efb1c62ceab0b92a597f06aafe9a30d94622ac27",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "1a7588994d3d1232166bb568efb1c62ceab0b92a597f06aafe9a30d94622ac27",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.test.tsx",
+      "sha256": "0887d77989165887f0af6fc1305fb6fb783f72be7917f3ee09f823a4dd94c609",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "0887d77989165887f0af6fc1305fb6fb783f72be7917f3ee09f823a4dd94c609",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sha256": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeGestures.test.tsx",
+      "sha256": "895b4a5e8fb92bfafb70710c1ab0da8e1ec24683eb6b2d0384eaf39849911f57",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "895b4a5e8fb92bfafb70710c1ab0da8e1ec24683eb6b2d0384eaf39849911f57",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx",
+      "sha256": "0b2427901464535d68154aa9c443b678ce8fd637b8394315532e673a654082fe",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "0b2427901464535d68154aa9c443b678ce8fd637b8394315532e673a654082fe",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+      "sha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/relative-date-range.test.ts",
+      "sha256": "0799edaf12d45b62573c045509104118f31ccaf52e96a7b6d990a89c16690362",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "0799edaf12d45b62573c045509104118f31ccaf52e96a7b6d990a89c16690362",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/relative-date-range.ts",
+      "sha256": "f5be7ad2b944523a078af51c9a9574d1292232287fc3243dae0df7cb3f3a17ba",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "f5be7ad2b944523a078af51c9a9574d1292232287fc3243dae0df7cb3f3a17ba",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/useCalendarFormReset.ts",
+      "sha256": "b1abe36f849850e3aac5e1ddfef5b95d19cb8ba3cb538efebaafe91ea0b55cfc",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "b1abe36f849850e3aac5e1ddfef5b95d19cb8ba3cb538efebaafe91ea0b55cfc",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/useNarrowWeekdays.ts",
+      "sha256": "420bb3c06d07d3ae43942aa8a9b53e2de201e2e3e3a7226ba0aed48ece6640c6",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "420bb3c06d07d3ae43942aa8a9b53e2de201e2e3e3a7226ba0aed48ece6640c6",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.test.tsx",
+      "sha256": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68",
+      "integratedSha256": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "sha256": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e",
+      "integratedSha256": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.test.tsx",
+      "sha256": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6",
+      "integratedSha256": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "sha256": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e",
+      "integratedSha256": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e",
+      "matchesIntegrated": true,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.collision.native-fixture.tsx",
+      "sha256": "12912867c4160a01311bde996f9cdcd9d60da083f833b122e633f98a46b09957",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "12912867c4160a01311bde996f9cdcd9d60da083f833b122e633f98a46b09957",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.collision.test.tsx",
+      "sha256": "8465921f32b419aa9c2eb3705515c5aed81dea28241d627dde7b3f55186a2163",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "8465921f32b419aa9c2eb3705515c5aed81dea28241d627dde7b3f55186a2163",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+      "sha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.next100-regression.test.tsx",
+      "sha256": "4fabd39e5a98861e5b3323e0573e352cd1880cd4efdcb5823a7327a1249a05f2",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "4fabd39e5a98861e5b3323e0573e352cd1880cd4efdcb5823a7327a1249a05f2",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.test.tsx",
+      "sha256": "10ac0d2290eb8b83452e8edbfe3fb3923b6a08453b7b38b51180ab2098efa102",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "10ac0d2290eb8b83452e8edbfe3fb3923b6a08453b7b38b51180ab2098efa102",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "sha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.portal.test.tsx",
+      "sha256": "8d02e22204d6a947c396f6aa7d6390ec68a773f3d0285661b221b55ec3eb8b39",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "8d02e22204d6a947c396f6aa7d6390ec68a773f3d0285661b221b55ec3eb8b39",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.test.tsx",
+      "sha256": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.tsx",
+      "sha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts",
+      "sha256": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TextTimeField.test.tsx",
+      "sha256": "e102e986c1a3baa8085e8a05be1f78363a95912d2f21c63c609411f5fb2a9f58",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "e102e986c1a3baa8085e8a05be1f78363a95912d2f21c63c609411f5fb2a9f58",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "sha256": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.module.css",
+      "sha256": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.next100-regression.test.tsx",
+      "sha256": "78e7f7bd66eb5a19b87f3dc58ade48193c266070f8e0cb23325ed4504050e7c0",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "78e7f7bd66eb5a19b87f3dc58ade48193c266070f8e0cb23325ed4504050e7c0",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.test.tsx",
+      "sha256": "29629d10a46ed4acb972deb7b4fef79cf903346cf433f30417c10632e7812efb",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "29629d10a46ed4acb972deb7b4fef79cf903346cf433f30417c10632e7812efb",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.tsx",
+      "sha256": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/parseTimeText.test.ts",
+      "sha256": "0854b13b7ca46d2fbfe9eb019d4b1a1e80c566aa7d181a9bc2cd142e58d57c00",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "0854b13b7ca46d2fbfe9eb019d4b1a1e80c566aa7d181a9bc2cd142e58d57c00",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/parseTimeText.ts",
+      "sha256": "abfe8cbc0e49cf3befe5626cdbcc21afea0495561d1c666d5046f664a0ec5b3b",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "abfe8cbc0e49cf3befe5626cdbcc21afea0495561d1c666d5046f664a0ec5b3b",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/index.ts",
+      "sha256": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/experimental/useFormReset.ts",
+      "sha256": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/i18n/index.tsx",
+      "sha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/utils/relative-dates.test.ts",
+      "sha256": "104d0c0448130c22f38db34b62da010449ea2339470842868028b916a51515d9",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "104d0c0448130c22f38db34b62da010449ea2339470842868028b916a51515d9",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/src/utils/relative-dates.ts",
+      "sha256": "1922bc80f9168a09eccd04aa5984973c6487b3482b38cf1135bf926a0f3339fd",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "1922bc80f9168a09eccd04aa5984973c6487b3482b38cf1135bf926a0f3339fd",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/tests/browser/batch01-calendar.spec.ts",
+      "sha256": "74f849836651a52540dfbe9d56d20a50ffdef9c6e1b74f3459327da4160b9287",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "74f849836651a52540dfbe9d56d20a50ffdef9c6e1b74f3459327da4160b9287",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/tests/browser/batch61-keyboard-range-preview.spec.ts",
+      "sha256": "645eac6761194b0a0d10d46f9e24db4c566ab4c0c6920720654f5db944e57214",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "645eac6761194b0a0d10d46f9e24db4c566ab4c0c6920720654f5db944e57214",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/tests/browser/calendar-native-locales.spec.ts",
+      "sha256": "be0ad0985d569b0225db8b1a229d56b1da7f1adda5dd258697c1dbedd1090e3a",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "be0ad0985d569b0225db8b1a229d56b1da7f1adda5dd258697c1dbedd1090e3a",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/tests/browser/calendar.spec.ts",
+      "sha256": "e74dddb13a84262b2cf8567d43449a375fc1f1645447b33e1dc8ffc79656ddc1",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "e74dddb13a84262b2cf8567d43449a375fc1f1645447b33e1dc8ffc79656ddc1",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/tests/browser/datepicker-native-transactions.spec.ts",
+      "sha256": "036adeee29b59e039ff2f34c75a01b9f773e06282f22f75b7827b837e2259318",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "036adeee29b59e039ff2f34c75a01b9f773e06282f22f75b7827b837e2259318",
+      "matchesWave02": true
+    },
+    {
+      "path": "packages/ui/tests/browser/hardening-date-presentation.spec.ts",
+      "sha256": "a900f5eba095e135b49eb07c8f7a7bf9cfe61e83e7ff16c929174dede0b398c1",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "a900f5eba095e135b49eb07c8f7a7bf9cfe61e83e7ff16c929174dede0b398c1",
+      "matchesWave02": true
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "integratedSha256": null,
+      "matchesIntegrated": null,
+      "fix08Sha256": null,
+      "matchesFix08": null,
+      "wave02Sha256": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "matchesWave02": true
+    }
+  ],
+  "retainedEvidence": {
+    "docs/developer/final-acceptance/coordinator-integration/evidence.json": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+    "docs/developer/final-acceptance/coordinator-integration/browsers-full.txt": "7e10ecbeda46f49b1df5c4368acf5efb1c12b2dfeec06d8ea85289a30f4b62fe",
+    "docs/developer/final-acceptance/coordinator-integration/composed-units.txt": "182e765e2bc1a24b3f15dba5cd6d7a2d21f2eea20fe5abf95be0c9f9c64c80d9",
+    "docs/developer/final-acceptance/fix-08/report.md": "e6b8cbe79907d882421cbf8b0cafc193c46770ec00256dd4998a61d60ba80f98",
+    "docs/developer/final-acceptance/fix-08/results.json": "83f0a27f1b3517f7bd0b9090b3d50198a194683a5487cd4cc286cd2d0cd80ae8",
+    "docs/developer/final-acceptance/fix-09/report.md": "d981fd4358284003ebb261e04564f5ee60d1a670112407cb4b81f720f67349d9",
+    "docs/developer/final-acceptance/fix-09/results.json": "aa117e50aaa7c721dd815158b72ac966cbecda9b744bb4419dd28b29ab94d371",
+    "docs/developer/final-acceptance/wave-02-11/report.md": "c17283d1f729a8f52177974debe0929003ccc57170dabb11bccf9527404d8611",
+    "docs/developer/final-acceptance/wave-02-11/results.json": "d344a5cf1d0ef6c1ecabb21b1afc06c41b74e3fee3973d47a204b9f027d03090",
+    "docs/developer/final-acceptance/fa04-calendar-rerun.txt": "77e779efbc7f2842cabaa4ba0e83ddae5faa8cce9f7075c0c38f56f105c208d9"
+  },
+  "artifacts": {
+    "docs/developer/final-acceptance/wave-03-27/check-syntax.mjs": "5b7f7b2fb36dea1b7a3290e05232d7c767a4aea7768f2c321a98ec61034d0e2b",
+    "docs/developer/final-acceptance/wave-03-27/units-second.txt": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "docs/developer/final-acceptance/wave-03-27/capture-receipt.py": "16ace854ab329eb7f5a39403e0af6e398ffb999dec98f1a5c8237528a31cc890",
+    "docs/developer/final-acceptance/wave-03-27/syntax.txt": "34ded692f4b2143e3257737ae9b445a1551c1ef7a7de233eef03bc8375ccadd9",
+    "docs/developer/final-acceptance/wave-03-27/units-first.txt": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "docs/developer/final-acceptance/wave-03-27/assignment.json": "293c5b6f27f64798cd6e47cf5eecef21bfc89800f7de7289ce41fa45a7f1a7da",
+    "docs/developer/final-acceptance/wave-03-27/AT-observation-worksheet.md": "ca8f948c2e2468b3a4b281531914c996a505acdbf9025c69db2ddb8a47d0df4f",
+    "docs/developer/final-acceptance/wave-03-27/syntax-results.json": "347d32966a5a2a7d949e4b74338d06ff9cbeb0dc63f025d97f5bb23d4f4036cc",
+    "docs/developer/final-acceptance/wave-03-27/acceptance.test.tsx": "dc72accaa1f4c77b08ca24f103cdc880bdf0fc88d3dbe672317fd27502d78198",
+    "docs/developer/final-acceptance/wave-03-27/validation-plan.json": "84666a1bd5165258a348f0d641b88f7b516f842dada22751311004a8b7578010",
+    "docs/developer/final-acceptance/wave-03-27/vitest.config.mjs": "c2b51735982a016fe3ea92af3ebe26c62ce3c73afc2dce15d2dd9f2903cf3d00",
+    "docs/developer/final-acceptance/wave-03-27/clipboard-contracts.patch": "76a9c0a89a97631c259d8bd7d3c509f51948a804c270bd99cb4076c1135290d9",
+    "docs/developer/final-acceptance/wave-03-27/proposed-files/docs/developer/react-aria-calendar-contracts.md": "c0550baa0353a78099c471284175d47bf2470f14aaf31950ac6c252b22583415",
+    "docs/developer/final-acceptance/wave-03-27/proposed-files/packages/ui/tests/browser/date-entry-clipboard.spec.ts": "d42fdba65a8748e6a2f2444cc6ec6ae5eec218892ee0a67eb6b637813aed2a74",
+    "docs/developer/final-acceptance/wave-03-27/proposed-files/packages/ui/src/experimental/DatePicker/DateEntryClipboard.test.tsx": "be1f6504fe944288c8412e7f4ea04cca488fd2e517cb81795bea9e53ef287d04",
+    "docs/developer/final-acceptance/wave-03-27/proposed-files/apps/docs/native-fixtures/scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx": "b7093c3b3621279e69eac407d12eb4c04190838dc0d586d71f9c4530f75e9708",
+    "docs/developer/final-acceptance/wave-03-27/proposed-files/apps/docs/content/component-usage/forms.json": "0a7dad15e21aabd3a422eb2cd7612abbef282de36c04f3e160879a4a11706743"
+  },
+  "summary": {
+    "inputCount": 184,
+    "integratedMatches": 119,
+    "integratedDifferences": [],
+    "fix08Matches": 7,
+    "fix08Differences": [],
+    "wave02Matches": 82,
+    "wave02Differences": [
+      "AGENTS.md",
+      "apps/docs/examples/CalendarCompositionExamples.tsx",
+      "apps/docs/examples/catalog/forms-dates.tsx",
+      "docs/developer/react-aria-calendar-contracts.md",
+      "packages/ui/src/experimental/Calendar/Calendar.test.tsx",
+      "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "packages/ui/src/experimental/DateField/DateField.tsx",
+      "packages/ui/src/experimental/DateField/DateFieldControl.tsx",
+      "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "packages/ui/src/experimental/DatePicker/DatePicker.test.tsx",
+      "packages/ui/src/experimental/DatePicker/DatePicker.tsx"
+    ]
+  }
+}

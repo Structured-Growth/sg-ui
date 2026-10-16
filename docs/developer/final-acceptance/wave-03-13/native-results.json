@@ -1,0 +1,351 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.5.0/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config=docs/developer/final-acceptance/wave-03-13/playwright.config.mjs",
+      "--list"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13/playwright.config.mjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13/native-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13",
+        "testIgnore": [],
+        "testMatch": [
+          "css-contracts.spec.mjs"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13/native-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13",
+        "testIgnore": [],
+        "testMatch": [
+          "css-contracts.spec.mjs"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13/native-output",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13",
+        "testIgnore": [],
+        "testMatch": [
+          "css-contracts.spec.mjs"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-13/native-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "css-contracts.spec.mjs",
+      "file": "css-contracts.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "decorated-field enhancement fallback and final-card repair retain a computed focus ring",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-b0df2e2bc18d36324cce",
+          "file": "css-contracts.spec.mjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "presentation geometry survives resize and reopen without replacing the focused draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-99238e1b2343096e28de",
+          "file": "css-contracts.spec.mjs",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "response-header CSP characterization: restrictive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-63e633798e3fd701f1bd",
+          "file": "css-contracts.spec.mjs",
+          "line": 47,
+          "column": 60
+        },
+        {
+          "title": "response-header CSP characterization: allow-style-attributes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-2a44c782447a5f8504fd",
+          "file": "css-contracts.spec.mjs",
+          "line": 47,
+          "column": 60
+        },
+        {
+          "title": "decorated-field enhancement fallback and final-card repair retain a computed focus ring",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-5934e852cda2bfadc8fc",
+          "file": "css-contracts.spec.mjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "presentation geometry survives resize and reopen without replacing the focused draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-483a7547f85b31107be8",
+          "file": "css-contracts.spec.mjs",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "response-header CSP characterization: restrictive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-89773072755426cb7538",
+          "file": "css-contracts.spec.mjs",
+          "line": 47,
+          "column": 60
+        },
+        {
+          "title": "response-header CSP characterization: allow-style-attributes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-aa50ab5c09c1abf1847b",
+          "file": "css-contracts.spec.mjs",
+          "line": 47,
+          "column": 60
+        },
+        {
+          "title": "decorated-field enhancement fallback and final-card repair retain a computed focus ring",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-ba38451c9df22f804bc5",
+          "file": "css-contracts.spec.mjs",
+          "line": 9,
+          "column": 1
+        },
+        {
+          "title": "presentation geometry survives resize and reopen without replacing the focused draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-047939fcd0b4512460db",
+          "file": "css-contracts.spec.mjs",
+          "line": 26,
+          "column": 1
+        },
+        {
+          "title": "response-header CSP characterization: restrictive",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-f9f8e915b6537520ee1e",
+          "file": "css-contracts.spec.mjs",
+          "line": 47,
+          "column": 60
+        },
+        {
+          "title": "response-header CSP characterization: allow-style-attributes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "9c32d01dc3ddca24251f-8725b4ba3fd144a40c76",
+          "file": "css-contracts.spec.mjs",
+          "line": 47,
+          "column": 60
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T23:07:34.537Z",
+    "duration": 26.172000000000025,
+    "expected": 0,
+    "skipped": 12,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

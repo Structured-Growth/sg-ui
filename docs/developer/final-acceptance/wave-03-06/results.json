@@ -1,0 +1,249 @@
+{
+  "schemaVersion": 1,
+  "assignment": 6,
+  "title": "Distributed licenses and notices",
+  "capturedAt": "2026-10-16T23:06:18.980977+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "runtime": {
+    "node": "24.19.0",
+    "typescript": "5.9.3",
+    "python": "3.9.6"
+  },
+  "ownedDirectory": "docs/developer/final-acceptance/wave-03-06",
+  "integrationRequired": true,
+  "sourceChangesApplied": false,
+  "legalApproval": false,
+  "countsChanged": false,
+  "priorHashComparisons": [
+    {
+      "leaf": "A-L-01",
+      "path": "docs/developer/final-acceptance/wave-02-05/report.md",
+      "sha256": "6db6ccb347cc72feb8f77eb373c44d9c997576efc0dc5793b2801c8edcbd9beb",
+      "matchesAssignment": true
+    },
+    {
+      "leaf": "A-L-01",
+      "path": "docs/developer/final-acceptance/wave-02-05/results.json",
+      "sha256": "f9284de3c93ea18d0e66f1ea7de12914e03ec2c8c5a4ef046af0e79596f9035a",
+      "matchesAssignment": true
+    },
+    {
+      "leaf": "A-L-02",
+      "path": "docs/developer/final-acceptance/wave-02-05/report.md",
+      "sha256": "6db6ccb347cc72feb8f77eb373c44d9c997576efc0dc5793b2801c8edcbd9beb",
+      "matchesAssignment": true
+    },
+    {
+      "leaf": "A-L-02",
+      "path": "docs/developer/final-acceptance/wave-02-05/results.json",
+      "sha256": "f9284de3c93ea18d0e66f1ea7de12914e03ec2c8c5a4ef046af0e79596f9035a",
+      "matchesAssignment": true
+    },
+    {
+      "leaf": "A-L-04",
+      "path": "docs/developer/final-acceptance/wave-02-05/report.md",
+      "sha256": "6db6ccb347cc72feb8f77eb373c44d9c997576efc0dc5793b2801c8edcbd9beb",
+      "matchesAssignment": true
+    },
+    {
+      "leaf": "A-L-04",
+      "path": "docs/developer/final-acceptance/wave-02-05/results.json",
+      "sha256": "f9284de3c93ea18d0e66f1ea7de12914e03ec2c8c5a4ef046af0e79596f9035a",
+      "matchesAssignment": true
+    },
+    {
+      "leaf": "A-Z-06",
+      "path": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "sha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "matchesAssignment": true
+    },
+    {
+      "leaf": "A-Z-06",
+      "path": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "sha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "matchesAssignment": true
+    }
+  ],
+  "checks": [
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-03-06/prepare.py",
+      "runtime": "3.9.6",
+      "exitCode": 0,
+      "result": "18 supplemental full legal texts;20 old blocks preserved;55/55 proposed normalized containment;1778/1778 coordinator dist hashes equal"
+    },
+    {
+      "command": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node docs/developer/final-acceptance/wave-03-06/inspect-output.mjs",
+      "runtime": "Node24.19.0 / TypeScript5.9.3",
+      "exitCode": 0,
+      "receipt": "output-ast.txt",
+      "result": "981 external AST references/17 names;846 maps/no sourcesContent"
+    },
+    {
+      "command": "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --test docs/developer/final-acceptance/wave-03-06/verify-notices.test.mjs",
+      "runtime": "Node24.19.0",
+      "exitCode": 0,
+      "tests": 3,
+      "passed": 3,
+      "receipt": "notice-tests-final.txt",
+      "priorReceipt": "notice-tests.txt",
+      "rerunReason": "Make baseline commercial-text assertion remain runnable after integration; rerun only affected document checks."
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-06/notices.patch",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-06/factual-descriptions.patch",
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "leaves": [
+    {
+      "id": "A-L-01",
+      "originalRequirement": "- [ ] A-L-01 Reconcile original `L-01`: Verify the selected versions' actual licenses, including React Aria Components, hooks/state/date utilities, icon assets, grid engine, editor packages, and transitive distributed code. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "All55 prior installed license input hashes unchanged;56 runtime/peer identities mapped;18 missing full texts proposed verbatim; AST external refs retained.",
+      "proposedPatchNeedsIntegration": true,
+      "patches": [
+        "notices.patch",
+        "factual-descriptions.patch"
+      ],
+      "evidence": [
+        "evidence.json",
+        "distribution-map.json",
+        "output-ast.json",
+        "notice-tests-final.txt",
+        "patch-checks.json"
+      ],
+      "commandsAndRuntime": "See shared checks below; Node24.19.0/TypeScript5.9.3; pure document/AST evidence only.",
+      "hashes": "evidence.json inputHashes and currentBuildHashes; artifactHashes below.",
+      "successors": [
+        "Obtain owner-verified upstream license/copyright/provenance bytes for client-only@0.0.1; no guessed React copyright.",
+        "Designated reviewer resolves copied/inline/asset/docs-bundle provenance and final per-version distribution/notice obligations.",
+        "Integrate accepted notices and join final archive identity to reviewed legal text."
+      ],
+      "noLegalApprovalInferred": true
+    },
+    {
+      "id": "A-L-02",
+      "originalRequirement": "- [ ] A-L-02 Reconcile original `L-02`: Preserve Apache 2.0 licenses and applicable notices; record modifications where required if upstream code is copied or changed rather than merely depended on. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Exact @swc/helpers0.5.23 Apache text and SWC copyright added in draft;20 existing legal blocks including Adobe retained;8 recursive Apache named-legal scans.",
+      "proposedPatchNeedsIntegration": true,
+      "patches": [
+        "notices.patch",
+        "factual-descriptions.patch"
+      ],
+      "evidence": [
+        "evidence.json",
+        "distribution-map.json",
+        "output-ast.json",
+        "notice-tests-final.txt",
+        "patch-checks.json"
+      ],
+      "commandsAndRuntime": "See shared checks below; Node24.19.0/TypeScript5.9.3; pure document/AST evidence only.",
+      "hashes": "evidence.json inputHashes and currentBuildHashes; artifactHashes below.",
+      "successors": [
+        "Integrate exact SWC/Adobe notice retention drafts and verify candidate packed bytes.",
+        "Resolve copied/adapted upstream file provenance, inline attributions and any required prominent modification statements; recursive named-file absence does not close this."
+      ],
+      "noLegalApprovalInferred": true
+    },
+    {
+      "id": "A-L-04",
+      "originalRequirement": "- [ ] A-L-04 Reconcile original `L-04`: Refresh `THIRD_PARTY_NOTICES.md` from the final shipped dependency and asset inventory; remove a retired notice only after its code/assets are no longer distributed. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Equal root/package notice mirrors;18 full-text additions;grouped headings replaced by recognized per-package headings and explicit shared-text references;old proof wording corrected.",
+      "proposedPatchNeedsIntegration": true,
+      "patches": [
+        "notices.patch",
+        "factual-descriptions.patch"
+      ],
+      "evidence": [
+        "evidence.json",
+        "distribution-map.json",
+        "output-ast.json",
+        "notice-tests-final.txt",
+        "patch-checks.json"
+      ],
+      "commandsAndRuntime": "See shared checks below; Node24.19.0/TypeScript5.9.3; pure document/AST evidence only.",
+      "hashes": "evidence.json inputHashes and currentBuildHashes; artifactHashes below.",
+      "successors": [
+        "Review/integrate both equal notice drafts plus separately review factual dependency-list patch.",
+        "Run scoped inventory/package checks and preserve final candidate archive/hash using validation-plan.json.",
+        "Resolve final provenance/reviewer decision; preserve retired attribution until associated source/assets are disposed."
+      ],
+      "noLegalApprovalInferred": true
+    },
+    {
+      "id": "A-Z-06",
+      "originalRequirement": "- [ ] A-Z-06 Reconcile original `Z-06`: Remove obsolete notices only after confirming no associated source/assets remain in package or catalog; final third-party notices match shipped work. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "All five retired attribution sections preserved;historical retention described explicitly;separate factual-only LICENSE/commercial guidance patch preserves commercial terms.",
+      "proposedPatchNeedsIntegration": true,
+      "patches": [
+        "notices.patch",
+        "factual-descriptions.patch"
+      ],
+      "evidence": [
+        "evidence.json",
+        "distribution-map.json",
+        "output-ast.json",
+        "notice-tests-final.txt",
+        "patch-checks.json"
+      ],
+      "commandsAndRuntime": "See shared checks below; Node24.19.0/TypeScript5.9.3; pure document/AST evidence only.",
+      "hashes": "evidence.json inputHashes and currentBuildHashes; artifactHashes below.",
+      "successors": [
+        "Retain all five historical sections unless source/asset provenance and reviewer decision authorize a specific deletion.",
+        "Review corrected historical/current descriptions, integrate accepted text and bind to final candidate legal-file/archive hashes."
+      ],
+      "noLegalApprovalInferred": true
+    }
+  ],
+  "artifactHashes": {
+    "assignment.json": "e663fe6a74182ee7a112342d39fad28d0f5ab5ac6732ead6afe8e8f8b274941a",
+    "baseline/LICENSE": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+    "baseline/THIRD_PARTY_NOTICES.md": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+    "distribution-map.json": "a8fee0852964aa4d253dc4a1dd67b93a141baca7af4f95e9eca9e1838ba05569",
+    "evidence.json": "2343fa6e85dfb9e6ea356acf60817c5d6f860161240bf1ec51cfd72e62d14441",
+    "factual-descriptions.patch": "cfd78a5639367e0e1875166214759bf32741288a6f1d336f685258fcadb2f87b",
+    "inspect-output.mjs": "e650151206bd3d789c9a4f2670e421043bf470322c422f12756fcfb7a3328f03",
+    "notice-tests-final.txt": "aa2ae3093407620c68fc6b96ca9ba623921a1061b7a8b15b0142e06e80c3e2a1",
+    "notice-tests.txt": "74859731cd0d680120997b2f2dbdc3fa353bc8835ae05af2977e8c57a3e25b23",
+    "notices.patch": "446058ef752a9b52c32317734dbd54af9ccd8564c16d8d690d4cca5820d6c36f",
+    "output-ast.json": "7f85fdb528604279e4b0d745b4ea65434640c9f148ecd6b0197252585ab483a0",
+    "output-ast.txt": "699b719372bd6367d4a3aa1978541f40c909a77c112372f10b8b8693342ff51c",
+    "patch-checks.json": "91fbb369cfee34d804f7aa0e0c2e6cb2961db90328dce6ab750cb67da3263f3c",
+    "prepare.py": "d994aa64e7a3c61f3328a8ab383038f87144fb0cfe16612ae2ef86c057342f94",
+    "proposed-files/LICENSE": "02dba5a498c5131d5426dcefdc9d58dc446a5e79bcea8fb9554ca98279b93567",
+    "proposed-files/THIRD_PARTY_NOTICES.md": "2f3a1e95fcb8ee4fef224b3e7dd4fb0fa60ee5bda9ac6708233c59c25cf03938",
+    "proposed-files/docs/commercial-licensing.md": "371b9529586d40bd192ef0aa2333a4572306a280df9c16321f09011a0023ac6d",
+    "proposed-files/packages/ui/LICENSE": "02dba5a498c5131d5426dcefdc9d58dc446a5e79bcea8fb9554ca98279b93567",
+    "proposed-files/packages/ui/THIRD_PARTY_NOTICES.md": "2f3a1e95fcb8ee4fef224b3e7dd4fb0fa60ee5bda9ac6708233c59c25cf03938",
+    "report.md": "cedd9c41a27f05376638c479a417ec5f0fcced6bde258feab03e4d7c730aea95",
+    "validation-plan.json": "c0609ec302b53cb0bbadb7aae7ab081b7755c52ecf09215a0bd8bbaed24cabbf",
+    "verify-notices.test.mjs": "b3e58e9a490280971ef967cc792ce8a7d39ccd9c7491f63a46b25921b99e2980",
+    "verify-packed-notices.mjs": "4ffefa208b6b79f126e8691fcbfe7d1294c325509c70c95b5ad32e7d96544663"
+  },
+  "validationPlan": "validation-plan.json",
+  "limits": [
+    "Patch-only drafts; no final candidate packing or approval.",
+    "No license text or third-party legal rights inferred for missing client-only bytes.",
+    "No removal of potentially applicable notices/commercial terms.",
+    "AST/map/source absence is not legal provenance evidence.",
+    "Retained coordinator actual-pack evidence belongs to unchanged original notice bytes, not proposed additions.",
+    "Only assignment directory written; no shared output/build/servers/Git state changed."
+  ],
+  "remainingValidation": [
+    "Review/integrate patches",
+    "Scoped inventory/package checks",
+    "Retain and verify final candidate archive",
+    "External provenance/reviewer evidence as itemized per leaf"
+  ]
+}

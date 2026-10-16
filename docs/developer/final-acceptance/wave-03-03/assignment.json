@@ -1,0 +1,67 @@
+{
+  "number": 3,
+  "title": "State naming and composition contracts",
+  "ids": [
+    "A-A-06",
+    "A-A-09",
+    "A-A-10"
+  ],
+  "focus": "Finish named successors in controlled/default/null/empty contracts, accessible naming and slots/ref/style coverage. BUG0008/9 are fixed; reuse their receipts and target remaining concrete gaps.",
+  "directory": "docs/developer/final-acceptance/wave-03-03",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-A-06": "- [ ] A-A-06 Reconcile original `A-06`: Standardize controlled/uncontrolled pairs, defaults, change callbacks, null/empty semantics, disabled/read-only/loading behavior, and stable IDs. Historical status: open.",
+    "A-A-09": "- [ ] A-A-09 Reconcile original `A-09`: Define accessible naming and description requirements for icon-only and compound controls; choose typed requirements where practical. Historical status: open.",
+    "A-A-10": "- [ ] A-A-10 Reconcile original `A-10`: Define composition and escape hatches: supported slots/parts, render callbacks, refs, `className`/part classes, CSS variables, and native `style` where needed. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-A-06": {
+      "id": "A-A-06",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-A-06 Reconcile original `A-06`: Standardize controlled/uncontrolled pairs, defaults, change callbacks, null/empty semantics, disabled/read-only/loading behavior, and stable IDs. Historical status: open.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Reconcile coordinator BUG-0008 runtime/native receipts against final source/output hashes.",
+        "Complete all-public-control null/default/reset/ID/hydration matrix and control-mode-stability exceptions, including grid/editor transitions; type projection/useId alone cannot settle runtime behavior.",
+        "Calendar source owner resolves W02-15-F1 date-prop typing and retains a targeted current-input type receipt; do not treat the final wave compiler invocation as passing."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-A-09": {
+      "id": "A-A-09",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-A-09 Reconcile original `A-09`: Define accessible naming and description requirements for icon-only and compound controls; choose typed requirements where practical. Historical status: open.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Finish compound/repeated row-action/editor/navigation-rail naming ownership, callback content and required descriptions against current public APIs.",
+        "Maintain runtime nonempty contextual label and host ID requirements; type checks do not prove computed/spoken names.",
+        "Calendar source owner resolves W02-15-F1 date-prop typing and retains a targeted current-input type receipt; do not treat the final wave compiler invocation as passing."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-A-10": {
+      "id": "A-A-10",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-A-10 Reconcile original `A-10`: Define composition and escape hatches: supported slots/parts, render callbacks, refs, `className`/part classes, CSS variables, and native `style` where needed. Historical status: open.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Reconcile BUG-0009 final implementation/CSS/render receipt, regenerated declarations/docs and source-copy evidence at final tested hashes.",
+        "Finish alias/compound native ref/part/style/render callback ownership inventory; index does not resolve arbitrary callback content or private DOM stability.",
+        "Calendar source owner resolves W02-15-F1 date-prop typing and retains a targeted current-input type receipt; do not treat the final wave compiler invocation as passing."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

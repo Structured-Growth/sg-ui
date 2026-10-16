@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "owner": "parallel-10",
+  "capturedAt": "2026-10-16T22:35:25.277612+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "workingTree": "Shared uncommitted checkout; individual file hashes bound this report, not HEAD alone.",
+  "baseline": "FA-01\u201304 reused; no completed suite rerun. FA-04 calendar delta is unrelated to scope implementations.",
+  "checksPerformed": [
+    "Read AGENTS.md, final acceptance ledger and full four original hardening leaves.",
+    "Inspected scope/provider/token/control/menu/portal source and representative SSR/native test assertions.",
+    "Compared listed SHA-256 inputs to FA-02 source inventory; recorded changed/uncaptured inputs explicitly.",
+    "Read retained FA-04 failure/reconciliation baseline and historical native/consumer receipts; checked referenced local artifact existence."
+  ],
+  "checksNotPerformed": [
+    "No new unit/native/browser/device/AT/consumer suite execution, build, install or server action.",
+    "No claim that test existence is execution or that historical narrative is current browser evidence."
+  ],
+  "historicalArtifactAvailability": {
+    "packages/ui/artifacts/backlog-2026-10-15-chromium-foundation": false,
+    "packages/ui/artifacts/backlog-2026-10-15-firefox-foundation": false,
+    "packages/ui/artifacts/backlog-2026-10-15-webkit-foundation": false,
+    "packages/ui/artifacts/backlog-2026-10-15-chromium-control-bounds": false,
+    "packages/ui/artifacts/backlog-2026-10-15-firefox-control-bounds": false,
+    "packages/ui/artifacts/backlog-2026-10-15-webkit-control-bounds": false
+  },
+  "inputs": [
+    {
+      "path": "README.md",
+      "sha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+      "fa02Sha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "docs/developer/react-aria-theme.md",
+      "sha256": "8ab7ca01b35473b5a11ad6efeab55f338d334f0ac762be18e0500a91b0c002de",
+      "fa02Sha256": "8ab7ca01b35473b5a11ad6efeab55f338d334f0ac762be18e0500a91b0c002de",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "docs/developer/react-aria-architecture.md",
+      "sha256": "fed6d21dc7abd8f895b27bb5e319981982092af6dbe5eaa4e5705622dad3a067",
+      "fa02Sha256": "fed6d21dc7abd8f895b27bb5e319981982092af6dbe5eaa4e5705622dad3a067",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "docs/developer/component-architecture.md",
+      "sha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+      "fa02Sha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "docs/developer/react-aria-hardening-tasks.md",
+      "sha256": "3431456fe6135c3412ce6cf76f4341209f1da2289afc7262454b11f3a82fdb4e",
+      "fa02Sha256": "ba123d300eb97dc68df96a3d8787222af3b3779596c7fe45647e08a7d3f7c39c",
+      "comparison": "changed"
+    },
+    {
+      "path": "docs/developer/react-aria-browser-acceptance.md",
+      "sha256": "5c9d9fb6549cf9f592e4d8615165260b1d08989491e427eb4b6b4b50080468b5",
+      "fa02Sha256": "5c9d9fb6549cf9f592e4d8615165260b1d08989491e427eb4b6b4b50080468b5",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "docs/developer/react-aria-server-components.md",
+      "sha256": "e94ae749e9e8e5dcf1f3e9bd3247c5ef166cab5931983e147b7b01c9cd4f74c1",
+      "fa02Sha256": "e94ae749e9e8e5dcf1f3e9bd3247c5ef166cab5931983e147b7b01c9cd4f74c1",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "docs/developer/backlog-execution-2026-10-15.md",
+      "sha256": "ec9c89610e27f7138638d7b563cb473300c342ef77237cb441dd3a085d9f46d9",
+      "fa02Sha256": "103a748c0204dadb89bcfa80b5ad57c2463db8f1f490bec1ec3e40711bcb743c",
+      "comparison": "changed"
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "fa02Sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.test.tsx",
+      "sha256": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f",
+      "fa02Sha256": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.next100-regression.test.tsx",
+      "sha256": "835209eb051493cd564ddba53ba9559497033d5d2e19e9e8443897211597cef1",
+      "fa02Sha256": "835209eb051493cd564ddba53ba9559497033d5d2e19e9e8443897211597cef1",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.json",
+      "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "fa02Sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.css",
+      "sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+      "fa02Sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.generated.ts",
+      "sha256": "2c63951228c23a40880bb2000686db160bc468aa584817cca262e8cb69df5a32",
+      "fa02Sha256": "2c63951228c23a40880bb2000686db160bc468aa584817cca262e8cb69df5a32",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.tsx",
+      "sha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "fa02Sha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Menu/Menu.tsx",
+      "sha256": "4a1c38174345a32cfaea5a05580c510f39275279bef7eebc1dbbec8d503b3490",
+      "fa02Sha256": "4a1c38174345a32cfaea5a05580c510f39275279bef7eebc1dbbec8d503b3490",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Menu/Menu.module.css",
+      "sha256": "229bcd8fb552cb23f8868c6d94d5f6bed43f238d9593ee76e0ccd797549cfdd5",
+      "fa02Sha256": "229bcd8fb552cb23f8868c6d94d5f6bed43f238d9593ee76e0ccd797549cfdd5",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Menu/Menu.next100-regression.test.tsx",
+      "sha256": "a6e247a9b5f9e176dd4e44e2aaad45fa308f92aa0590f329fee22ceee2dbc9d2",
+      "fa02Sha256": "a6e247a9b5f9e176dd4e44e2aaad45fa308f92aa0590f329fee22ceee2dbc9d2",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "sha256": "bc223424142f2ff7447a6770be25ae2258a9a1870226027430e7763b5ecf579f",
+      "fa02Sha256": "bc223424142f2ff7447a6770be25ae2258a9a1870226027430e7763b5ecf579f",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "sha256": "327506bd28002617c84b95e511ca2e8d17260d7e0f0eac07c62615968b4c0467",
+      "fa02Sha256": "327506bd28002617c84b95e511ca2e8d17260d7e0f0eac07c62615968b4c0467",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "sha256": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+      "fa02Sha256": "e692f8ae17c2b09babf5ea79fbe60d3d525da8b652ff4abbebbbdb121e2e7837",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "sha256": "7e95472cca2d25a816ed88fc751f7b8582543050448b97ac593b0518e5ab2428",
+      "fa02Sha256": "7e95472cca2d25a816ed88fc751f7b8582543050448b97ac593b0518e5ab2428",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.module.css",
+      "sha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "fa02Sha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+      "sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+      "fa02Sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Checkbox/Checkbox.module.css",
+      "sha256": "8b0d9c9987e140ac921ece1da8b3424976197820d38bfb690d364d0b4a9d48f8",
+      "fa02Sha256": "8b0d9c9987e140ac921ece1da8b3424976197820d38bfb690d364d0b4a9d48f8",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Switch/Switch.module.css",
+      "sha256": "753519a82ce1ea61d8d00b71afdb21c1d95cfaa31ae5141f9b59a38b99ca3f0a",
+      "fa02Sha256": "753519a82ce1ea61d8d00b71afdb21c1d95cfaa31ae5141f9b59a38b99ca3f0a",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/tests/browser/token-tier-scope.spec.ts",
+      "sha256": "f8e5046ff89e6632e148bded2246cf72ff26e000346beb62338af7bb873544f7",
+      "fa02Sha256": "f8e5046ff89e6632e148bded2246cf72ff26e000346beb62338af7bb873544f7",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/tests/browser/foundation-catalogue.spec.ts",
+      "sha256": "7efd3b57c7ef4fad7ae6f7c6ded50ffbf4b25a3a1e86a35570111e6623f5fde0",
+      "fa02Sha256": "7efd3b57c7ef4fad7ae6f7c6ded50ffbf4b25a3a1e86a35570111e6623f5fde0",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/tests/browser/hardening-control-geometry.spec.ts",
+      "sha256": "aad23588db120ca376065ff4e62d41eddad7e9c1a8de1b9deda06dec6b014a0e",
+      "fa02Sha256": "aad23588db120ca376065ff4e62d41eddad7e9c1a8de1b9deda06dec6b014a0e",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/scripts/test-foundation-consumer.mjs",
+      "sha256": "310c846c0932f086ca32969b44c5ed136c0cd2b11f26d400222f7d4d38805fcd",
+      "fa02Sha256": "310c846c0932f086ca32969b44c5ed136c0cd2b11f26d400222f7d4d38805fcd",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "sha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "fa02Sha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "sha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "fa02Sha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Tooltip/Tooltip.tsx",
+      "sha256": "432c9ccb28b951dfbca0ab271229f5f8d06cb7ff410fd339438d3dbb098f5e8c",
+      "fa02Sha256": "432c9ccb28b951dfbca0ab271229f5f8d06cb7ff410fd339438d3dbb098f5e8c",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/Select/Select.tsx",
+      "sha256": "06707c96ee18efb024dd7047cded38f2affab130b005b984d0d649e1e5d682b9",
+      "fa02Sha256": "06707c96ee18efb024dd7047cded38f2affab130b005b984d0d649e1e5d682b9",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/ComboBox/ComboBox.tsx",
+      "sha256": "347aa49e26de37415efdd64cd749cb38f0093c07c8f3bc2c99bfb6b60801d128",
+      "fa02Sha256": "347aa49e26de37415efdd64cd749cb38f0093c07c8f3bc2c99bfb6b60801d128",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "sha256": "96e092bb0aeb1fc084bfcf7f0a95a7e19c5fec172a2d074bbe43ee9d3b0b6e99",
+      "fa02Sha256": "96e092bb0aeb1fc084bfcf7f0a95a7e19c5fec172a2d074bbe43ee9d3b0b6e99",
+      "comparison": "unchanged"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-original-check.txt",
+      "sha256": "1a3e5118eb2441e0b68b05063f42d2f0144bc4a5455e58c104560e735ff9f8bc",
+      "fa02Sha256": null,
+      "comparison": "not_in_fa02"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+      "sha256": "77e779efbc7f2842cabaa4ba0e83ddae5faa8cce9f7075c0c38f56f105c208d9",
+      "fa02Sha256": null,
+      "comparison": "not_in_fa02"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-library-input-delta.json",
+      "sha256": "7083b23a5ff0ad7f2912798fa943bb7b87ece435df620048a75727962260310d",
+      "fa02Sha256": null,
+      "comparison": "not_in_fa02"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fa04-package.txt",
+      "sha256": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103",
+      "fa02Sha256": null,
+      "comparison": "not_in_fa02"
+    }
+  ],
+  "leaves": [
+    {
+      "id": "A-D-11",
+      "status": "complete",
+      "requirement": "Define compact/comfortable independently of brand; preserve compact menu compatibility explicitly; document general default.",
+      "findings": [
+        "ThemeScope context defaults to light/comfortable/auto and independently inherits or overrides theme, density and interaction mode.",
+        "Generic Menu has no compact default; its portal uses density ?? scope density. DataToolbarSelectionMenu, InsertContentMenuControl, TextAlignMenuControl and TextStyleMenuControl explicitly request compact compatibility.",
+        "Architecture lines 84\u201387 and theme density section document the general comfortable default and separate density from color identity. Compact/comfortable control defaults are 32/44px with 12/14px control text and 8/16px horizontal padding at a 16px root."
+      ],
+      "sourceReferences": [
+        "docs/developer/react-aria-theme.md",
+        "docs/developer/react-aria-architecture.md",
+        "docs/developer/component-architecture.md",
+        "packages/ui/src/foundation/ThemeScope.tsx",
+        "packages/ui/src/experimental/Menu/Menu.tsx",
+        "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+        "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+        "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+        "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx"
+      ],
+      "testReferences": [
+        "packages/ui/src/foundation/ThemeScope.test.tsx",
+        "packages/ui/src/foundation/ThemeScope.next100-regression.test.tsx",
+        "packages/ui/src/experimental/Menu/Menu.next100-regression.test.tsx",
+        "packages/ui/tests/browser/token-tier-scope.spec.ts:85"
+      ],
+      "evidence": "Source/hash reconciliation plus retained FA-04 unit baseline; historical bounded token/density native receipt retained separately. Closure is definition/compatibility policy, not all-component visual acceptance.",
+      "successors": []
+    },
+    {
+      "id": "A-D-12",
+      "status": "partial",
+      "requirement": "Important touch controls comfortably operable without density erasing minimum hit areas or keyboard focus.",
+      "findings": [
+        "Shared target floor is 2.75rem; explicit touch and auto under any-pointer:coarse set the floor. Explicit pointer remains a host override. Button uses minimum block and inline targets; TextField/Checkbox/Switch/Menu use minimum block targets; their focus rules remain present.",
+        "Existing control geometry test covers themes/densities/directions with explicit pointer/touch modes and enlarged text, plus real selection/checkbox/switch actions. It asserts field height >=44, not every target width or native auto policy.",
+        "No implementation defect proved by this inspection. Broad target/device conformance cannot be inferred from CSS or explicit touch fixtures."
+      ],
+      "sourceReferences": [
+        "docs/developer/react-aria-theme.md:85",
+        "packages/ui/src/foundation/tokens.css:2154",
+        "packages/ui/src/components/Button/Button.module.css:8",
+        "packages/ui/src/experimental/TextField/TextField.module.css:9",
+        "packages/ui/src/experimental/Menu/Menu.module.css:6"
+      ],
+      "testReferences": [
+        "packages/ui/tests/browser/hardening-control-geometry.spec.ts",
+        "packages/ui/tests/browser/foundation-catalogue.spec.ts",
+        "docs/developer/backlog-execution-2026-10-15.md:370"
+      ],
+      "evidence": "Historical bounded 16-config-per-engine control-bounds receipt retained; source contracts unchanged against FA-02 where captured. No new native, physical-device, AT or target conformance execution.",
+      "successors": [
+        {
+          "id": "P10-D12-01",
+          "task": "Add one bounded native auto-policy case in a coarse-capability context: compact Provider, Button/IconButton, checkbox/switch labels and menu option; verify media query, both target dimensions/hit activation and keyboard focus after opening the portal. Retain existing explicit touch geometry evidence.",
+          "reproduction": "Current hardening-control-geometry only loops mode pointer/touch and dimensions returns height but not width; inspect its test loop and touch assertion.",
+          "acceptance": "Durable dated source/host hashes and native receipt for auto policy; classify physical-device work separately and retain remaining specialized target obligations."
+        }
+      ]
+    },
+    {
+      "id": "A-D-16",
+      "status": "partial",
+      "requirement": "Scoped theme/density roots and nested overrides; overlays receive correct scope and variables.",
+      "findings": [
+        "ThemeScope merges parent custom --sgui-* style variables and inherited theme/density/interaction/dir/lang; useOverlayScope intentionally omits unrelated layout styles. Provider bridges host locale.",
+        "Dialog, Popover, Tooltip, Menu, Select, ComboBox and SearchField attach scope to their detached roots; Menu and SearchField support explicit local density.",
+        "Existing native portal test verifies a detached dark/compact dialog, custom semantic/component aliases, nested comfortable child, sibling isolation, no copied width and Escape focus return. It does not establish live nested scope changes for every detached overlay family."
+      ],
+      "sourceReferences": [
+        "packages/ui/src/foundation/ThemeScope.tsx:18",
+        "packages/ui/src/foundation/ThemeScope.tsx:45",
+        "packages/ui/src/experimental/Provider/Provider.tsx",
+        "packages/ui/src/experimental/Dialog/Dialog.tsx:138",
+        "packages/ui/src/experimental/Popover/Popover.tsx:141",
+        "packages/ui/src/experimental/Menu/Menu.tsx:79"
+      ],
+      "testReferences": [
+        "packages/ui/src/foundation/ThemeScope.next100-regression.test.tsx",
+        "packages/ui/tests/browser/token-tier-scope.spec.ts:120",
+        "docs/developer/backlog-execution-2026-10-15.md:168",
+        "docs/developer/backlog-execution-2026-10-15.md:193"
+      ],
+      "evidence": "FA-04 unchanged scope unit evidence reused. Historical three-engine foundation summary retained as historical only: its raw reports are absent locally, so a current immutable-host native attestation is not claimed.",
+      "successors": [
+        {
+          "id": "P10-D16-01",
+          "task": "Recover original token-tier portal receipt/source+host manifest if available; otherwise coordinator should schedule only the existing scoped-portal case against its reconciled host, then one composed case that opens a child menu/tooltip while changing nearest scope tokens/density and verifies sibling isolation.",
+          "reproduction": "token-tier-scope.spec.ts:120 opens one fixed Dialog; ThemeScope.next100 regression updates nested DOM scopes but does not open a body portal.",
+          "acceptance": "Exact tested source/host hashes, native engine scope and current portal token/attribute results; no all-overlay or device claim from source inspection."
+        }
+      ]
+    },
+    {
+      "id": "A-D-17",
+      "status": "partial",
+      "requirement": "Explicit light/dark/system, initial server theme, color-scheme and hydration without unwanted flashes/browser-global assumptions.",
+      "findings": [
+        "ColorTheme is light|dark|system; default light is deterministic on server/client. System resolves in CSS prefers-color-scheme; generated scopes set color-scheme light/dark. ThemeScope does not inspect matchMedia/window/document during render; scrollbar DOM observation is effect-owned.",
+        "Existing SSR ThemeScope test checks system markup and nested inheritance. Packed foundation browser fixture is explicitly dark and checks server scope identity/recoverable errors; it does not execute initial system preference coverage.",
+        "CSS-based system resolution avoids effect-driven light-to-dark reconciliation once stylesheet is loaded. Host stylesheet arrival and host persisted-preference initialization remain outside that proof; no no-flash measurement was performed."
+      ],
+      "sourceReferences": [
+        "packages/ui/src/foundation/ThemeScope.tsx:8",
+        "packages/ui/src/foundation/ThemeScope.tsx:18",
+        "packages/ui/src/foundation/tokens.css:770",
+        "packages/ui/src/foundation/tokens.css:1122",
+        "packages/ui/src/foundation/tokens.css:1124",
+        "docs/developer/react-aria-theme.md:19"
+      ],
+      "testReferences": [
+        "packages/ui/src/foundation/ThemeScope.test.tsx",
+        "packages/ui/scripts/test-foundation-consumer.mjs:83",
+        "packages/ui/scripts/test-foundation-consumer.mjs:302",
+        "docs/developer/react-aria-browser-acceptance.md:78"
+      ],
+      "evidence": "Retained FA-04 SSR/unit baseline and historical packed consumer description; builds/package audits do not establish executed current-head system-theme hydration or first paint.",
+      "successors": [
+        {
+          "id": "P10-D17-01",
+          "task": "Extend representative packed SSR fixture with theme=system and blocking production stylesheet; use light/dark preferences before navigation, compare no-JS first computed colors/color-scheme with hydrated colors, unchanged server root and zero recoverable errors. Also exercise preference change after hydration. Coordinator schedules bounded execution; do not rebuild or run consumers concurrently in this checkout.",
+          "reproduction": "test-foundation-consumer.mjs proof fixes Provider theme=\"dark\"; current ThemeScope system test only renders to string.",
+          "acceptance": "Dated raw browser receipt plus package/source hashes for first styled frame and hydration; document host-selected initial-theme/stylesheet assumptions rather than claim arbitrary-host no-flash guarantees."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "complete": 1,
+    "partial": 3,
+    "blocked": 0
+  },
+  "limitations": [
+    "Historical native checkpoint base is d3201f0f0ca68aa006a880a2f63a9dd8d8c8845e modified dev; current FA base is 540f47d4059a9cea8890b80927f34f51ef2fbc3e modified dev. Historical summaries cannot establish exact current tested input equivalence.",
+    "No shared counts/checklists modified. Twenty editor V leaves remain open; no production/release action."
+  ]
+}

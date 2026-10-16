@@ -1,0 +1,3 @@
+Initial read-only dependency probe: python3 -c 'import yaml; print(yaml.__version__)'
+ModuleNotFoundError: No module named 'yaml'
+Resolved by reading existing js-yaml4.3.2; no installation performed.

@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "runtime": "Node24.21.0",
+  "scope": "Current merged guidance/templates and read-only policy/license tools",
+  "sourceHashes": {
+    "docs/github-setup.md": "6ca4010bfea748437143d613e24a60a0b7ad08d376acddf586a274373240e195",
+    "docs/troubleshooting/validation.md": "5077548f0317622a528d775c994d8360044e8ac03baa9a558cc7729e6439ae3d",
+    "docs/developer/react-aria-governance-check.md": "5a8535219150a34dc069599b924bf5a975d3c12fdb92655c5cb80f9a61edeeeb",
+    "docs/agent-guidance-migration.md": "086d0bd3b755eb7ee1e7371d5c0c69803a72b0e030cf3872e5d75935e486a077",
+    "docs/developer/react-aria-component-recipe.md": "0b2a54e214cf4d58f3fcebeb5870dc15f59b55a7207ed1287b3fe35418712e14",
+    ".github/ISSUE_TEMPLATE/ui-change.yml": "c6feb2bf2cd0fea7e802ec0991ecbb91241e0d4f519eb194dfde2e18df9b397c",
+    ".github/pull_request_template.md": "01494ca03073c4d84b8bfbeb04af40f2d88a76f2ab573e6e14ad0d95e69076ae",
+    "docs/commercial-licensing.md": "6652a8902f03af94453b7ffd3c2bd92fc89c30002022945530b984cfa35c5281",
+    "docs/troubleshooting/release.md": "174bdfcb67544ff8964bc5cfa2e00a565a725008496f9d4a3f97a77dc95821d3",
+    ".github/workflows/ai-code.yml": "65dd6fec64db360daf711b9b4791be7b471b45d160565e6632e995d8d0638472",
+    ".github/workflows/ci.yml": "bc22e0d3c149a213febe427e3e4c18d450597494898b7430236c9d06f0bd60c0",
+    "packages/ui/scripts/check-governance-policy.mjs": "af7b7caf15bd4d87e340479978f85a5d8685b1b047315548647b213eb726d05a",
+    "packages/ui/scripts/check-license-inventory.mjs": "733da8f65e161f782402861440b4452802be5968b56cd75c42ce5290c3414590"
+  },
+  "commands": [
+    {
+      "command": "PATH=/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin:$PATH node --test packages/ui/scripts/check-governance-policy.test.mjs packages/ui/scripts/check-license-inventory.test.mjs packages/ui/scripts/ai-component-scope.test.mjs docs/developer/final-acceptance/wave-03-integration/tooling-workflows.test.mjs",
+      "exitCode": 0,
+      "passed": 24,
+      "log": "tooling-final-tests.txt"
+    },
+    {
+      "command": "PATH=/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin:$PATH node packages/ui/scripts/check-governance-policy.mjs .",
+      "exitCode": 0,
+      "findings": 0,
+      "log": "tooling-final-governance.json"
+    },
+    {
+      "command": "PATH=/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin:$PATH node packages/ui/scripts/check-license-inventory.mjs packages/ui",
+      "exitCode": 1,
+      "lockedIdentities": 585,
+      "findings": 92,
+      "findingClasses": {
+        "missing-license-file": 85,
+        "missing-package-provenance": 1,
+        "unknown-license": 1,
+        "unmatched-notice-reference": 5
+      },
+      "log": "tooling-final-license-inventory.json",
+      "meaning": "Known retained evidence findings, not an input/tool failure or legal approval. No notices removed."
+    },
+    {
+      "command": "git -c core.whitespace=cr-at-eol diff --check -- docs/github-setup.md docs/troubleshooting/validation.md docs/developer/react-aria-governance-check.md LICENSE packages/ui/LICENSE THIRD_PARTY_NOTICES.md packages/ui/THIRD_PARTY_NOTICES.md",
+      "exitCode": 0
+    }
+  ],
+  "localLinks": {
+    "count": 49,
+    "issues": [],
+    "receipt": "tooling-final-doc-links.json"
+  },
+  "legal": {
+    "receipt": "tooling-final-legal-bytes.json",
+    "copiesEqual": true,
+    "all20OriginalNoticeFencesExactIncludingCRLF": true,
+    "allOriginalLicenseTermsExceptExplicitDependencyListExact": true,
+    "note": "Whole legal files intentionally differ HEAD due coordinator provenance/dependency-list updates; no false unchanged-file claim and no legal edits by this worker."
+  },
+  "closureRecommendations": [
+    {
+      "id": "A-W-06",
+      "originalRequirement": "- [ ] A-W-06 Reconcile original `W-06`: Update the source-guidance mapping to show each retained/adapted/omitted rule and why app database/API/login policies remain outside SGUI. Historical status: open.",
+      "recommendation": "complete-documentation-only",
+      "basis": "Integrated source-guidance retained/adapted/omitted mapping preserves provenance and explicitly excludes database/API/login authority; local links resolve.",
+      "remainingSeparateGates": "Actual workflow runs/token isolation/branch protections, complete API delta matrix, installed consumers, provenance/legal/owner approval and broader doc scope stay under their original other leaves; no approval inferred."
+    },
+    {
+      "id": "A-W-07",
+      "originalRequirement": "- [ ] A-W-07 Reconcile original `W-07`: Create one canonical component recipe: owned props, native attributes/refs, React Aria mapping, tokens/CSS, stories, behavior tests, public export, and acceptance criteria. Historical status: open.",
+      "recommendation": "complete-documentation-only",
+      "basis": "Integrated canonical recipe covers owned native contracts, private React Aria mapping, tokens/CSS, public exports, source-backed independent docs/native examples, meaningful phased tests and acceptance boundaries. Local policy links resolve.",
+      "remainingSeparateGates": "Actual workflow runs/token isolation/branch protections, complete API delta matrix, installed consumers, provenance/legal/owner approval and broader doc scope stay under their original other leaves; no approval inferred."
+    },
+    {
+      "id": "A-W-17",
+      "originalRequirement": "- [ ] A-W-17 Reconcile original `W-17`: Update component architecture, GitHub setup, commercial licensing, package fixtures, issue/PR templates, and troubleshooting for final behavior. Historical status: open.",
+      "recommendation": "complete-documentation-only",
+      "basis": "Maintained architecture/setup/commercial/fixtures/templates/troubleshooting now describe shipped workspace/host/workflows with honest unverified owner/legal/platform boundaries. Duplicate setup paragraph removed; docs failure artifacts and library cwd documented. All named current guidance/template links resolve. This closes updating guidance, not correctness of unobserved external settings or future release artifacts.",
+      "remainingSeparateGates": "Actual workflow runs/token isolation/branch protections, complete API delta matrix, installed consumers, provenance/legal/owner approval and broader doc scope stay under their original other leaves; no approval inferred."
+    },
+    {
+      "id": "A-R-20",
+      "originalRequirement": "- [ ] A-R-20 Reconcile original `R-20`: Add task IDs, owned API requirements, story/behavior criteria, and validation evidence to AI task templates and generated PR expectations. Historical status: open.",
+      "recommendation": "complete-documentation-only",
+      "basis": "Integrated issue/PR form and AI prompt require task IDs, owned contracts, observable changed-state docs/native tests, exact validation identity/results and failed/unrun limits. Node24 VM tests demonstrate nonempty sections and inert hostile task text, not actual Actions execution.",
+      "remainingSeparateGates": "Actual workflow runs/token isolation/branch protections, complete API delta matrix, installed consumers, provenance/legal/owner approval and broader doc scope stay under their original other leaves; no approval inferred."
+    }
+  ],
+  "limitations": [
+    "Only49 local links and bounded Markdown heading slugs in named current guides/templates checked; no live external URL or all-doc catalog source/browser claim.",
+    "24 passing tool/VM cases do not establish actual remote job execution, credentials, legal permission, admin settings or release approval.",
+    "No heavy build/install/pack/server/browser/consumer/profile command. No acceptance ledgers changed."
+  ]
+}

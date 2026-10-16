@@ -1,0 +1,1 @@
+{"files":1720,"imports":5005,"augmentations":4,"classNames":619,"domCandidateFiles":435,"cssSelectors":960,"hiddenConfiguration":8,"retiredReferenceFiles":30,"dependencyNodes":586,"dependencyEdges":985}

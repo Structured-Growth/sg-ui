@@ -1,0 +1,50 @@
+{
+  "applied": false,
+  "preserveUnchanged": [
+    "Git history",
+    "original learner-platform repository/commit/source paths",
+    "dated baseline snapshots",
+    "dated acceptance receipts",
+    "negative regression guards",
+    "precise removed public API names needed by migration guides"
+  ],
+  "proposals": [
+    {
+      "file": "docs/extraction-manifest.json",
+      "deliverable": "Apply reviewed manifest-amendments.json rows; keep sourceRepository/sourceCommit/sourceRoot and source fields exactly unchanged. Do not rename historical source paths merely to erase a branded word."
+    },
+    {
+      "file": "docs/developer/react-aria-removal-audit.md",
+      "deliverable": "Add a current dated host/scope paragraph: Storybook output discussion is historical; current native host is apps/docs/native-fixtures and package guards are under packages/ui/scripts. Keep original dated counts separately."
+    },
+    {
+      "file": "docs/developer/react-aria-i18n-acceptance.md",
+      "deliverable": "Replace current fixture path/runtime references with migrated docs-native IDs while retaining 2026-10-07 Storybook execution as historical evidence (prior parallel-14 successor)."
+    },
+    {
+      "files": [
+        "LICENSE",
+        "packages/ui/LICENSE"
+      ],
+      "section": "7, current-use package list",
+      "proposal": "Replace the current-use list with a verified final dependency-family list after provenance review; preserve separate third-party rights and all commercial terms.",
+      "ownerRequired": true
+    },
+    {
+      "files": [
+        "THIRD_PARTY_NOTICES.md",
+        "packages/ui/THIRD_PARTY_NOTICES.md"
+      ],
+      "section": "Introduction / five retired sections / React Aria proof heading",
+      "proposal": "Describe retained historical/derived notices distinctly from current direct packages; relabel React Aria proof dependencies as current implementation dependencies once final coverage is verified.",
+      "ownerRequired": true
+    },
+    {
+      "file": "docs/commercial-licensing.md",
+      "section": "third-party paragraph",
+      "proposal": "Align current-use list and complete-notices claim to the reviewed final artifact; do not claim legal approval or publication from public package configuration.",
+      "ownerRequired": true
+    }
+  ],
+  "decisionStillRequired": "Accept explicit historical/legal-reference exceptions or define a provenance-preserving representation if literal zero retired-name text is demanded. Current reports do not silently waive the original Z-05 obligation."
+}

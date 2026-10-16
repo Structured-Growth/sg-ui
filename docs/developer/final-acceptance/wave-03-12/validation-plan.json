@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "status": "coordinator integration and execution required",
+  "apply": "Review system-indications.patch against patch-inputs.json; run git apply --check before coordinator applies. Do not overwrite shared files from mirrors. No integration performed by wave-03-12.",
+  "runtime": "Supported Node 24 (or Node 22 >=22.12), existing installed dependencies; no install needed",
+  "coordinatorSteps": [
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec vitest run src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "assertions": ["Existing hex/Enter/blur/host editability callbacks remain intact", "Preset sample is a decorative child and not the button background", "Selected preset retains aria-pressed and exactly one callback"]
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm build",
+      "reason": "Fresh package types/CSS needed for fixture consumer; retain input and output hashes"
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "node scripts/build-browser-docs.mjs",
+      "reason": "Existing FoundationCatalogue module is already manifest-registered; generator discovers its two added exports. No hand-edited registry or manifest is required. Capture generated registry and frozen host hashes."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/wave03-system-indications.spec.ts --project chromium --project firefox --project webkit",
+      "assertions": ["Both rail sides stop running animation under live reduced motion", "Controlled replacement repairs focus; hidden panels retain drafts", "Closing from host preserves host focus", "Frame-separated DOM activations cancel to final accepted closed state with stable settlement", "Selected color swatch has system-painted chrome, outward focus and double-border selection while only chip pixels opt out"],
+      "limits": "3 cases per engine; forced-color unsupported emulation produces explicit skip, never acceptance. Frame-separated DOM click is host activation characterization, not native pointer/device input. No shared runner or server launched in this chat."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/display-preferences.spec.ts --grep 'reduced motion stops|forced-colors preserves' --project chromium --project firefox --project webkit",
+      "reason": "Reuse existing 2 bounded preference cases for pending progress/Button and dialog focus. Execute only if current input/host equivalence cannot retain a matching receipt. Existing coordinator BUG0008-0012 browser scope is unrelated."
+    }
+  ],
+  "additionalRequiredEvidence": [
+    "Current host SideNavigation forward/Back before motion settlement, no stale focus callback; reuse matching existing receipt or add one bounded case in its owning spec. Rail case does not cover SideNavigation.",
+    "Reuse matching inventory-modal-boundaries/Tooltip lifetime evidence for immediate dismiss/reopen, removed opener and detached trigger cleanup; run changed scope only.",
+    "A-X-06 remains open for representative composed hover/pressed/disabled/error/loading contrast and non-color state checks beyond swatch selection; named token checks are not composited pixel measurements.",
+    "Operator OS high contrast and spoken AT observations only when claiming those environments; no emulation relabeled actual OS/device/AT."
+  ],
+  "receiptRequirements": ["Exact commands and supported runtime", "Source/package/fixture output hashes and host origin", "Engine versions, media capability, assertions/attachments/traces and all failures/skips", "No release, shared checklist or count mutation"]
+}

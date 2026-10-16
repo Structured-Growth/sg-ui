@@ -1,0 +1,20 @@
+{
+  "leaf_records": 20,
+  "complete": 11,
+  "partial": 9,
+  "blocked": 0,
+  "input_changes_during_review": [
+    {
+      "path": "AGENTS.md",
+      "originalSha256": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "finalSha256": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+      "change": "Coordinator appended BUG-0008 commit/Clear guards and BUG-0009 TextArea decorative icon guidance; existing guidance unchanged. Read final paragraph.",
+      "oldBytesAreFinalPrefix": true
+    }
+  ],
+  "missing_report_source_references": [],
+  "proposed_patch": "git apply --check passed; patch not applied",
+  "checks": "JSON records/requirements, path references, SHA-256 stability, report whitespace",
+  "verification_note": "Initial blanket whitespace assertion flagged normal unified-diff blank context lines. Excluded patch from prose whitespace check; kept required diff context unchanged.",
+  "result": "complete with explicitly attributed concurrent append; no missing report references"
+}

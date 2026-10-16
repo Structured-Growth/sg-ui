@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "assignment": 25,
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "workingTree": true,
+  "status": "partial",
+  "counts": {
+    "complete": 0,
+    "partial": 4,
+    "blocked": 0
+  },
+  "integrationRequired": true,
+  "filesChangedScope": "Only docs/developer/final-acceptance/wave-03-25; production/source/test changes exist only as proposed mirrors and unified patch",
+  "results": [
+    {
+      "id": "A-M-25",
+      "originalRequirement": "- [ ] A-M-25 Reconcile FloatingTextSelectionToolbar final acceptance: Selection anchoring, focus preservation, overlay cleanup, keyboard access. Link its `F-C25`, `T-C25` and `V-C25` evidence and any unresolved defects.",
+      "status": "partial",
+      "outcome": "Retain F-C25/T-C25 and later docs-host native boundary receipt; 48 overlapping inspected inputs match wave-02. Two proposed composed-browser cases add Escape-to-typing and read-only invalidation coverage without changing range/focus implementation. V-C25-04/05 presentation/RTL remains unexecuted.",
+      "retainedEvidence": {
+        "id": "A-M-25",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-M-25 Reconcile FloatingTextSelectionToolbar final acceptance: Selection anchoring, focus preservation, overlay cleanup, keyboard access. Link its `F-C25`, `T-C25` and `V-C25` evidence and any unresolved defects.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-C25-V",
+            "deliverable": "Review selected-text geometry, wrapping and viewport/boundary collisions at narrow width, both themes/densities, and Arabic RTL names/order. Exercise Alt+F10, Escape, scroll while a toolbar button is focused and read-only/unmount cleanup using native selection.",
+            "acceptanceEvidenceRequired": "Close V-C25-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "evidence.json",
+        "artifact-check.txt",
+        "unit-run-1.txt"
+      ],
+      "patches": [
+        "editor-successors.patch"
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeValidation": {
+        "syntax": "passed Node 24.19.0",
+        "unit": "not started: shared lease occupied",
+        "native": "not executed",
+        "IME": "no OS composition performed",
+        "deviceAT": "no operator evidence supplied"
+      },
+      "residualSuccessors": [
+        {
+          "id": "W03-C25-V",
+          "deliverable": "Review selected-text geometry, wrapping and viewport/boundary collisions at narrow width, both themes/densities, and Arabic RTL names/order. Exercise Alt+F10, Escape, scroll while a toolbar button is focused and read-only/unmount cleanup using native selection.",
+          "acceptanceEvidenceRequired": "Close V-C25-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ]
+    },
+    {
+      "id": "A-M-34",
+      "originalRequirement": "- [ ] A-M-34 Reconcile PageRichTextEditorSection final acceptance: Editor composition, nodes/plugins, serialization and selection behavior. Link its `F-C34`, `T-C34` and `V-C34` evidence and any unresolved defects.",
+      "status": "partial",
+      "outcome": "Retain F-C34/T-C34, existing rich-document and clipboard execution attribution from wave-02. Proposed node-combination and two native state tests add bounded missing evidence only after execution; V-C34-04/05 and broader E-family owner/operator rows remain partial.",
+      "retainedEvidence": {
+        "id": "A-M-34",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-M-34 Reconcile PageRichTextEditorSection final acceptance: Editor composition, nodes/plugins, serialization and selection behavior. Link its `F-C34`, `T-C34` and `V-C34` evidence and any unresolved defects.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-C34-V",
+            "deliverable": "Review the full composed editor with saved rich content, narrow scroll region, table overflow, long translated controls, both themes/densities and Arabic RTL. Finish only missing E-02/04/05/06/07 successors below; do not rerun completed clipboard/image/selection cases.",
+            "acceptanceEvidenceRequired": "Close V-C34-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+          },
+          {
+            "id": "W03-C34-E",
+            "deliverable": "Reconcile the missing E-family command/content/IME/trust rows from command-and-trust-matrix.md.",
+            "acceptanceEvidenceRequired": "Retain one result per missing row; no duplicate suite or broad parent closure from one fixture."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "evidence.json",
+        "artifact-check.txt",
+        "unit-run-1.txt"
+      ],
+      "patches": [
+        "editor-successors.patch"
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeValidation": {
+        "syntax": "passed Node 24.19.0",
+        "unit": "not started: shared lease occupied",
+        "native": "not executed",
+        "IME": "no OS composition performed",
+        "deviceAT": "no operator evidence supplied"
+      },
+      "residualSuccessors": [
+        {
+          "id": "W03-C34-V",
+          "deliverable": "Review the full composed editor with saved rich content, narrow scroll region, table overflow, long translated controls, both themes/densities and Arabic RTL. Finish only missing E-02/04/05/06/07 successors below; do not rerun completed clipboard/image/selection cases.",
+          "acceptanceEvidenceRequired": "Close V-C34-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        },
+        {
+          "id": "W03-C34-E",
+          "deliverable": "Reconcile the missing E-family command/content/IME/trust rows from command-and-trust-matrix.md.",
+          "acceptanceEvidenceRequired": "Retain one result per missing row; no duplicate suite or broad parent closure from one fixture."
+        }
+      ]
+    },
+    {
+      "id": "A-E-02",
+      "originalRequirement": "- [ ] A-E-02 Reconcile original `E-02`: Preserve existing nodes/plugins: ImageNode, image insertion, horizontal-rule selection, editor configuration, and experience plugins; test saved-content round trips. Historical status: open.",
+      "status": "partial",
+      "outcome": "Authored node-combination test preserves nested ordered/bullet lists, merged header table metadata, empty decorative alt and opaque asset IDs through edit/reload/read-only; rejects an unknown node via the current engine error. Proposed runnable tests are not approved consumer documents or a version/recovery policy. No full round-trip runtime result exists from this attempt.",
+      "retainedEvidence": {
+        "id": "A-E-02",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-E-02 Reconcile original `E-02`: Preserve existing nodes/plugins: ImageNode, image insertion, horizontal-rule selection, editor configuration, and experience plugins; test saved-content round trips. Historical status: open.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-E02-ROUNDTRIP",
+            "deliverable": "Complete the node/plugin-to-fixture inventory in command-and-trust-matrix.md against approved consumer saved documents. Add missing schema/version/malformed input and node combinations only; preserve author metadata and public link spelling.",
+            "acceptanceEvidenceRequired": "Per missing document fixture: input JSON, registered type/plugin, output JSON comparison after edit/reload/read-only and error policy, exact source/test hashes; reuse existing golden round trips."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "evidence.json",
+        "artifact-check.txt",
+        "unit-run-1.txt"
+      ],
+      "patches": [
+        "editor-successors.patch"
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeValidation": {
+        "syntax": "passed Node 24.19.0",
+        "unit": "not started: shared lease occupied",
+        "native": "not executed",
+        "IME": "no OS composition performed",
+        "deviceAT": "no operator evidence supplied"
+      },
+      "residualSuccessors": [
+        {
+          "id": "W03-E02-ROUNDTRIP",
+          "deliverable": "Complete the node/plugin-to-fixture inventory in command-and-trust-matrix.md against approved consumer saved documents. Add missing schema/version/malformed input and node combinations only; preserve author metadata and public link spelling.",
+          "acceptanceEvidenceRequired": "Per missing document fixture: input JSON, registered type/plugin, output JSON comparison after edit/reload/read-only and error policy, exact source/test hashes; reuse existing golden round trips."
+        }
+      ]
+    },
+    {
+      "id": "A-E-05",
+      "originalRequirement": "- [ ] A-E-05 Reconcile original `E-05`: Address IME composition, paste, keyboard shortcuts, read-only/disabled state, and toolbar accessibility without hijacking ordinary editing keys. Historical status: open.",
+      "status": "partial",
+      "outcome": "Existing paste/shortcut/read-only native evidence retained by unchanged inputs. Two real-key-gesture browser cases prepared; no synthetic IME test added or called real composition. Exact operator IME/content/title/color and physical clipboard/AT protocol prepared. Actual operator outcomes missing.",
+      "retainedEvidence": {
+        "id": "A-E-05",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-E-05 Reconcile original `E-05`: Address IME composition, paste, keyboard shortcuts, read-only/disabled state, and toolbar accessibility without hijacking ordinary editing keys. Historical status: open.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-E05-IME",
+            "deliverable": "An operator must exercise real OS IME composition (Japanese/Chinese/Korean as supported by host) in editable content/title/color draft, including Enter/Escape, conversion, paste, undo and read-only transitions.",
+            "acceptanceEvidenceRequired": "Named OS/browser/IME versions, text/caret/host callback outcomes; composing Enter never commits a title/color prematurely or replaces native editor conversion."
+          },
+          {
+            "id": "W03-E05-DEVICE-AT",
+            "deliverable": "Run the remaining physical-device clipboard and manual editor/toolbar screen-reader review with ordinary editing keys and Alt+F10/Escape.",
+            "acceptanceEvidenceRequired": "Operator/device/OS/browser/AT versions and spoken/focus findings; preserve missing outcomes rather than substituting axe or jsdom."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "evidence.json",
+        "artifact-check.txt",
+        "unit-run-1.txt"
+      ],
+      "patches": [
+        "editor-successors.patch"
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeValidation": {
+        "syntax": "passed Node 24.19.0",
+        "unit": "not started: shared lease occupied",
+        "native": "not executed",
+        "IME": "no OS composition performed",
+        "deviceAT": "no operator evidence supplied"
+      },
+      "residualSuccessors": [
+        {
+          "id": "W03-E05-IME",
+          "deliverable": "An operator must exercise real OS IME composition (Japanese/Chinese/Korean as supported by host) in editable content/title/color draft, including Enter/Escape, conversion, paste, undo and read-only transitions.",
+          "acceptanceEvidenceRequired": "Named OS/browser/IME versions, text/caret/host callback outcomes; composing Enter never commits a title/color prematurely or replaces native editor conversion."
+        },
+        {
+          "id": "W03-E05-DEVICE-AT",
+          "deliverable": "Run the remaining physical-device clipboard and manual editor/toolbar screen-reader review with ordinary editing keys and Alt+F10/Escape.",
+          "acceptanceEvidenceRequired": "Operator/device/OS/browser/AT versions and spoken/focus findings; preserve missing outcomes rather than substituting axe or jsdom."
+        }
+      ]
+    }
+  ],
+  "validationPlan": "validation-plan.json",
+  "inputHashEvidence": "evidence.json",
+  "limitations": [
+    "No shared build/install/server, git mutation or central checklist/count edit.",
+    "Lease admission failure was retained; no Vitest assertions ran.",
+    "No native engine, screenshot review, real IME, physical clipboard or spoken AT result inferred from syntax checks.",
+    "No source defect demonstrated by this bounded review; production no-highlight/range/focus implementation left unchanged."
+  ]
+}

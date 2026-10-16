@@ -1,0 +1,37 @@
+{
+  "scope": ["A-R-20", "A-R-21", "A-R-23", "A-R-27"],
+  "integrationRequired": true,
+  "productionPromotionAuthorized": false,
+  "local": [
+    {"command": "git apply --check docs/developer/final-acceptance/wave-03-37/workflow-trust-and-templates.patch", "expected": "Patch applies against the hashed input files. Rebase manually if another owner changed these files."},
+    {"command": "node --test packages/ui/scripts/ai-component-scope.test.mjs", "cwd": "repository root, after coordinator integration", "runtime": "Node 22.12.0 and Node 24", "expected": "8 inert VM/config tests pass; no network, credentials, Actions or generated components execute."},
+    {"command": "actionlint .github/workflows/ai-code.yml .github/workflows/ci.yml", "expected": "Actions expression/schema/shell review passes with installed reviewed actionlint. Not available in this worker; Psych syntax parsing is not a substitute."},
+    {"command": "node --test docs/developer/final-acceptance/wave-03-37/receipt.test.mjs", "expected": "Two offline structural tests reject missing, stale, skipped, failed, queued and mismatched-head evidence."}
+  ],
+  "coordinatorBuildNativePacked": {
+    "localBroadRerun": "Not requested solely for templates/workflow rearrangement. Existing unchanged checks remain configured.",
+    "remoteRequired": "Authorized operator separately exercises a harmless default-token draft from dev after review. Preserve exact dispatch SHA, proposal artifact ID/hash, preflight job conclusions, draft number/head, explicit validate-draft checkout-head summaries and both matrix/Next.js docs conclusions. Full CI itself builds fresh fixtures and runs native/packed consumers; do not dispatch from this worker or substitute local VM tests.",
+    "failureCases": ["Empty proposal or absent draft head aborts before reusable validation.", "Changed validation artifact patch fails original-byte comparison.", "Actual failed required check and missing required check block a production-bound PR; use existing authorized evidence where possible, never weaken protection to test."]
+  },
+  "securityOwnerReview": [
+    "Resolve and review third-party action source at actual commits, including codex-action sandbox/API key handling and create-pull-request output/commit behavior. Major-tag pin policy belongs to A-R-25, outside this slice.",
+    "Inspect effective token permissions for every job/step and absence of persisted Git credentials/API/PR/publishing secrets from generated-code validation; read-only github.token remains platform-provided.",
+    "Validate original/validated artifact integrity and semantic scope. Passing paths do not establish architectural safety; generated read-only jobs still execute untrusted code and may tamper with their local receipts.",
+    "Confirm no auto-merge or release effect, dev base, protected main, and normal maintainer infrastructure path."] ,
+  "ownerReadOnlyEvidenceCommands": [
+    "gh api repos/Structured-Growth/sg-ui/branches/main/protection/required_status_checks",
+    "gh api repos/Structured-Growth/sg-ui/rules/branches/main",
+    "gh api --paginate repos/Structured-Growth/sg-ui/rulesets",
+    "gh api repos/Structured-Growth/sg-ui/commits/ACTUAL_HEAD/check-runs",
+    "gh api repos/Structured-Growth/sg-ui/commits/ACTUAL_HEAD/status",
+    "gh api repos/Structured-Growth/sg-ui/actions/runs/ACTUAL_RUN/jobs",
+    "node docs/developer/final-acceptance/wave-03-37/verify-check-receipt.mjs /absolute/path/to/actual-redacted-operator-receipt.json"
+  ],
+  "requiredReceipt": {
+    "paths": "production-pr, maintainer-infrastructure-pr, main, default-token-ai-draft: exact head, runUrl, observedAt, logical-name to observed-context map and check name/head/status/conclusion/url. AI adds tokenKind=github.token, draft=true and explicitCallHead.",
+    "protection": "Owner/date, raw settings receipt path, effective required contexts after evaluating branch protection/rulesets/bypass, and actual failed-check/missing-check blocking observations with head/date/URL.",
+    "release": "Existing authorized release run URL/head and actual validation prerequisite before release, or leave unknown. Never publish as a probe.",
+    "devExceptionPreserved": true,
+    "limitations": "Offline verifier checks completeness/consistency, not authenticity, settings enforcement or owner approval. Do not fill observations from synthetic tests. Unknown stays open. No secrets in receipts."
+  }
+}

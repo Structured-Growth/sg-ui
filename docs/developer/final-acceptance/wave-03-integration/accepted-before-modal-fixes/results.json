@@ -1,0 +1,107 @@
+[
+  {
+    "name": "library-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "build"
+    ],
+    "startedAt": "2026-10-16T23:19:59.217Z",
+    "completedAt": "2026-10-16T23:20:06.256Z",
+    "exitCode": 0
+  },
+  {
+    "name": "foundation-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "foundations:check"
+    ],
+    "startedAt": "2026-10-16T23:20:06.257Z",
+    "completedAt": "2026-10-16T23:20:11.237Z",
+    "exitCode": 0
+  },
+  {
+    "name": "tokens-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "tokens:check"
+    ],
+    "startedAt": "2026-10-16T23:20:11.237Z",
+    "completedAt": "2026-10-16T23:20:11.631Z",
+    "exitCode": 0
+  },
+  {
+    "name": "docs-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/docs",
+      "build"
+    ],
+    "startedAt": "2026-10-16T23:20:11.631Z",
+    "completedAt": "2026-10-16T23:20:28.550Z",
+    "exitCode": 0
+  },
+  {
+    "name": "native-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "exec",
+      "node",
+      "scripts/build-browser-docs.mjs"
+    ],
+    "startedAt": "2026-10-16T23:20:28.550Z",
+    "completedAt": "2026-10-16T23:20:33.592Z",
+    "exitCode": 0
+  },
+  {
+    "name": "browser-types-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "exec",
+      "tsc",
+      "--noEmit",
+      "-p",
+      "tests/browser/tsconfig.json"
+    ],
+    "startedAt": "2026-10-16T23:20:33.592Z",
+    "completedAt": "2026-10-16T23:20:35.090Z",
+    "exitCode": 0
+  },
+  {
+    "name": "package-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "exec",
+      "node",
+      "scripts/check-package.mjs",
+      "--retain-packed=/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave03-frozen-package"
+    ],
+    "startedAt": "2026-10-16T23:20:35.090Z",
+    "completedAt": "2026-10-16T23:20:37.795Z",
+    "exitCode": 0
+  },
+  {
+    "name": "release-policy-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "test:release"
+    ],
+    "startedAt": "2026-10-16T23:20:37.795Z",
+    "completedAt": "2026-10-16T23:20:40.541Z",
+    "exitCode": 0
+  }
+]

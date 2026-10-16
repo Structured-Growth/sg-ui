@@ -1,0 +1,65 @@
+✖ current source policy passes deterministically without changing any input (1.421083ms)
+✖ mutated release, draft, attribution, package and task-data contracts produce distinct findings (1.637625ms)
+✖ source text is read as inert evidence; missing inputs fail explicitly (1.487708ms)
+✔ production dependency graph policy and real-source regressions (3778.115375ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 1
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3924.617584
+
+✖ failing tests:
+
+test at scripts/check-governance-policy.test.mjs:12:1
+✖ current source policy passes deterministically without changing any input (1.421083ms)
+  Error: ENOENT: no such file or directory, open '/Users/thomashall/Repositories/sg-ui/packages/ui/apps/docs/package.json'
+      at async open (node:internal/fs/promises:1345:25)
+      at async readFile (node:internal/fs/promises:1996:14)
+      at async file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-governance-policy.test.mjs:10:99
+      at async Promise.all (index 2)
+      at async load (file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-governance-policy.test.mjs:10:45)
+      at async TestContext.<anonymous> (file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-governance-policy.test.mjs:13:18)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/thomashall/Repositories/sg-ui/packages/ui/apps/docs/package.json'
+  }
+
+test at scripts/check-governance-policy.test.mjs:19:1
+✖ mutated release, draft, attribution, package and task-data contracts produce distinct findings (1.637625ms)
+  Error: ENOENT: no such file or directory, open '/Users/thomashall/Repositories/sg-ui/packages/ui/packages/ui/package.json'
+      at async open (node:internal/fs/promises:1345:25)
+      at async readFile (node:internal/fs/promises:1996:14)
+      at async file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-governance-policy.test.mjs:10:99
+      at async Promise.all (index 1)
+      at async load (file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-governance-policy.test.mjs:10:45)
+      at async TestContext.<anonymous> (file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-governance-policy.test.mjs:20:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/thomashall/Repositories/sg-ui/packages/ui/packages/ui/package.json'
+  }
+
+test at scripts/check-governance-policy.test.mjs:32:1
+✖ source text is read as inert evidence; missing inputs fail explicitly (1.487708ms)
+  Error: ENOENT: no such file or directory, open '/Users/thomashall/Repositories/sg-ui/packages/ui/packages/ui/package.json'
+      at async open (node:internal/fs/promises:1345:25)
+      at async readFile (node:internal/fs/promises:1996:14)
+      at async file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-governance-policy.test.mjs:10:99
+      at async Promise.all (index 1)
+      at async load (file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-governance-policy.test.mjs:10:45)
+      at async TestContext.<anonymous> (file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-governance-policy.test.mjs:35:17)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    errno: -2,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: '/Users/thomashall/Repositories/sg-ui/packages/ui/packages/ui/package.json'
+  }

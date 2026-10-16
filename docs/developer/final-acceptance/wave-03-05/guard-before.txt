@@ -1,0 +1,26 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Use individual icon modules in implementations:
+components/AppDataGrid/ownedGridInteraction.tsx:11: ../../experimental/icons
+components/AppDataGrid/ownedGridParts.tsx:9: ../../experimental/icons
+components/AppDataGridRowDnd/DataGridDragHandle.tsx:5: ../../experimental/icons
+components/DataToolbar/DataToolbar.tsx:6: ../../experimental/icons
+components/SideNavigation/SideNavigation.tsx:12: ../../experimental/icons
+
+5 !== 0
+
+    at file:///Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-05/proposed-files/packages/ui/scripts/check-icon-import-boundaries.mjs:34:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:569:25)
+    at async node:internal/modules/esm/loader:650:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 5,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.5.0

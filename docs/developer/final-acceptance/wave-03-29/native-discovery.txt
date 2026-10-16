@@ -1,0 +1,8 @@
+
+Error: Directory import '/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test' is not supported resolving ES modules imported from /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-29/grid-native-entry.spec.ts
+Did you mean to import "/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/@playwright+test@1.63.0/node_modules/@playwright/test/index.js"?
+    at eval (<anonymous>:1:1)
+
+Error: No tests found
+Listing tests:
+Total: 0 tests in 0 files

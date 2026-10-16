@@ -1,0 +1,294 @@
+{
+  "inline-progress": {
+    "when": "Use AppInlineProgress when a row, card or summary needs a compact percentage and progress bar, such as course completion. Use the generic Progress component when the amount is unknown or a different progress presentation is needed.",
+    "how": [
+      "Supply value as a percentage from 0 to 100; the component rounds and clamps the displayed amount.",
+      "Set barWidth only to fit the surrounding layout. The host calculates progress and updates value as work completes.",
+      "Keep context nearby so readers know what the percentage measures."
+    ],
+    "related": [
+      {
+        "slug": "progress",
+        "label": "Progress for other progress presentations"
+      }
+    ]
+  },
+  "operation-steps": {
+    "when": "Use AppOperationSteps to report the stages of an operation already underway, such as uploading, processing and reviewing a document. It displays progress; it does not navigate a form wizard.",
+    "how": [
+      "Pass steps with stable IDs, meaningful labels and pending, in_progress, completed or error status.",
+      "Update statuses from the host operation and use title or subtitle to explain the overall task.",
+      "Provide retry or recovery actions separately in the host UI. For a single form step, use ordinary form content rather than a step indicator."
+    ],
+    "related": [
+      {
+        "slug": "inline-progress",
+        "label": "AppInlineProgress for a percentage"
+      },
+      {
+        "slug": "dialog",
+        "label": "AppModal for a form workflow"
+      }
+    ]
+  },
+  "pagination-footer": {
+    "when": "Use AppPaginationFooter beneath a card collection or custom data view when people need a row count, page navigation and a page-size choice without a complete grid shell.",
+    "how": [
+      "Control the zero-based page and positive pageSize, supply pageSizeOptions, and accept changes through the pagination callbacks.",
+      "Pass totalCount for a known total. For an unknown server total, omit it and supply hasNextPage from the host response.",
+      "A page-size change requests page zero first. Use onPaginationModelChange to accept the combined page/size transition once, and disable the footer during loading."
+    ],
+    "related": [
+      {
+        "slug": "pagination",
+        "label": "Pagination for the navigation control"
+      },
+      {
+        "slug": "card-collection",
+        "label": "CardCollectionWithFooter for a complete client collection"
+      }
+    ]
+  },
+  "card-frame": {
+    "when": "Use ClassCardFrame to build a course card with a consistent header, body and optional footer when the instructor and learner card compositions do not match your content.",
+    "how": [
+      "Provide header and body content, and footer only when the card has actions or supporting information.",
+      "Keep links, buttons and their host callbacks inside the supplied slots. The frame does not load course data or make the entire card clickable.",
+      "Use width for the maximum card width and the native styling slots for context-specific layout. Supply a shrinkable block, flex item or grid track: the frame owns the sgui-class-card inline-size container and reduces header/body padding below 20rem of card width. Keep headings and action labels meaningful."
+    ],
+    "related": [
+      {
+        "slug": "instructor-card",
+        "label": "InstructorClassCard for instructor summaries"
+      },
+      {
+        "slug": "learner-card",
+        "label": "LearnerClassCard for learner progress"
+      }
+    ]
+  },
+  "instructor-card": {
+    "when": "Use InstructorClassCard in an instructor course overview to show course identity, lifecycle status, learner count and recent activity with one clear destination action.",
+    "how": [
+      "Supply the existing className title prop, siteName, learnerCount and one of the supported active, draft, closed or archived statuses.",
+      "Provide lastLearnerActivityLabel, actionLabel and actionHref from the host. Navigation uses the host routing adapter.",
+      "The component presents a summary; the host supplies data, permissions and the destination page."
+    ],
+    "related": [
+      {
+        "slug": "card-frame",
+        "label": "ClassCardFrame for a custom course card"
+      },
+      {
+        "slug": "learner-card",
+        "label": "LearnerClassCard for the learner view"
+      }
+    ]
+  },
+  "learner-card": {
+    "when": "Use LearnerClassCard to help a learner resume a course: it combines course and instructor names, completion percentage, the next activity and a due-date summary.",
+    "how": [
+      "Supply the course summary and progressPercent; the card does not calculate completion or fetch learner records.",
+      "Use detailsHref and continueHref for navigation, or onContinue for a host action. A continueHref opens a separate tab.",
+      "Coordinate dueAt, locale, timezone and referenceNow in the host, especially for SSR. Supply a stable reference clock when rendering time-relative labels.",
+      "The due-label matrix fixes referenceNow and shows overdue/today/tomorrow/later plus unavailable-date and missing-content fallbacks. The current dueAt API remains required; the example passes an empty string to exercise unavailable host data."
+    ],
+    "related": [
+      {
+        "slug": "learner-grid",
+        "label": "LearnerClassesDataGrid for a course collection"
+      },
+      {
+        "slug": "card-frame",
+        "label": "ClassCardFrame for custom content"
+      }
+    ]
+  },
+  "card-collection": {
+    "when": "Use CardCollectionWithFooter for a complete in-memory collection that should be shown as paged cards, with shared loading, empty-state and footer presentation.",
+    "how": [
+      "Pass the complete rows array, a stable getRowId and renderCard; the component slices the dataset for the selected page.",
+      "Control page and pageSize through the supplied callbacks. Keep row identity stable when data changes.",
+      "Provide loadingContent or emptyContent when the default course-oriented messages do not fit. Use a grid shell or host pagination for server-paged data."
+    ],
+    "related": [
+      {
+        "slug": "data-grid-shell",
+        "label": "AppDataGridShell for cards and table views"
+      },
+      {
+        "slug": "pagination-footer",
+        "label": "AppPaginationFooter for custom server views"
+      }
+    ]
+  },
+  "app-data-grid": {
+    "when": "Use AppDataGrid for an interactive tabular view with row selection, sorting, filtering and pagination. Choose AppDataGridShell when the view also needs a coordinated toolbar, footer and card/table switch.",
+    "how": [
+      "At least one data column remains flexible to fill the container. Resizing preserves the latest requested width and can release another width override; accept the complete onColumnWidthsChange snapshot, including omitted keys. Minimum widths allow horizontal scrolling on narrow screens.",
+      "Define owned columns and stable row IDs, give the grid a meaningful label, and provide room for its scrolling viewport.",
+      "In client mode, supply the dataset for local processing. In server mode, the host owns criteria, requests, totals and loading/error state.",
+      "Keep each state concern under one owner. Configure selection, column visibility and action columns explicitly; row reordering requires the supported complete-page dataset and host persistence.",
+      "Column sizing: width is the preferred starting size; minWidth and maxWidth bound resizing. For a fixed 96px action column, use width: 96, minWidth: 96, maxWidth: 96. A maxWidth alone limits growth but does not make the column fixed.",
+      "Leave at least one visible data column uncapped to fill the remaining container width. For example, keep Course flexible and Actions fixed. DataGrid columns without width share space; AppDataGrid uses flex: 1. Both use the same sizing policy. Fixed columns and maximum limits are never stretched to force a fill; if every column is fixed or capped, unused space can remain. Minimum widths produce horizontal scrolling when the container is too narrow.",
+      "Resizing commits the changed column and may release another flexible column’s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in.",
+      "Reorder controls wrap within their utility column when enlarged text or touch targets need more room. Rows grow to contain them; drag and Move controls retain their minimum targets without covering neighboring data."
+    ],
+    "related": [
+      {
+        "slug": "data-grid-shell",
+        "label": "AppDataGridShell for a complete data view"
+      },
+      {
+        "slug": "table",
+        "label": "Table for static tabular content"
+      }
+    ]
+  },
+  "data-grid-shell": {
+    "when": "Use AppDataGridShell as the complete data-view composition when a toolbar, table or cards, selection and pagination must share the same view state.",
+    "how": [
+      "Supply rows, columns and row identity, then add a card renderer through view.cards when people should switch presentations.",
+      "Use the shell's combined state/callback contract rather than independently controlling the toolbar, grid and footer with competing state.",
+      "For server mode, translate requested criteria into host requests and accept the resulting state. Opt into persistence with an isolated storage key; showResetView requests the complete declared default view.",
+      "The server example accepts the combined onStateChange transaction in one host criteria owner, processes local mock responses and guards stale success/error/pending completion. The persisted-view example uses an isolated storage key and declares complete reset defaults; selection and rows remain transient."
+    ],
+    "related": [
+      {
+        "slug": "app-data-grid",
+        "label": "AppDataGrid for the table renderer"
+      },
+      {
+        "slug": "data-toolbar",
+        "label": "DataToolbar for standalone compositions"
+      }
+    ]
+  },
+  "data-toolbar": {
+    "when": "Use DataToolbar above a collection when search, refresh, columns, sorting, filters or card/table view choices need a consistent place. It supplies controls, not data processing.",
+    "how": [
+      "Wire each enabled feature's options, controlled value and callback together. For example, filtering needs filterFields, filterRules and onFilterRulesChange.",
+      "Apply requested search, sort and filter changes in the host or shared grid state, resetting pagination to page zero when criteria change.",
+      "Use selectedCount and the left-content slots for selection feedback and host actions. Hide unsupported controls with their show props rather than leaving unexplained disabled actions."
+    ],
+    "related": [
+      {
+        "slug": "data-grid-shell",
+        "label": "AppDataGridShell for shared state ownership"
+      },
+      {
+        "slug": "selection-menu",
+        "label": "DataToolbarSelectionMenu for bulk selection choices"
+      }
+    ]
+  },
+  "selection-menu": {
+    "when": "Use DataToolbarSelectionMenu for a bulk-selection checkbox with a companion menu, such as selecting the current page or clearing the selection.",
+    "how": [
+      "Derive selectionState as none, some or all from the actual host selection; some produces the mixed checkbox state.",
+      "Supply translated options and handle onToggleSelection and onSelectOption in the same owner that stores selected row IDs.",
+      "Explain the selection scope in option labels. The component does not infer whether an option means visible rows, a page or the whole dataset."
+    ],
+    "related": [
+      {
+        "slug": "data-toolbar",
+        "label": "DataToolbar for placement in a data header"
+      },
+      {
+        "slug": "checkbox",
+        "label": "Checkbox for a simple selection control"
+      }
+    ]
+  },
+  "row-reorder": {
+    "when": "Use DataGridDragHandle as the row-specific reorder control inside an owned reorder-enabled grid. A handle alone does not implement dragging or persist an order.",
+    "how": [
+      "Supply a label that identifies the row and action, and attach the handle to the grid's supported drag slot or a host-owned Move action.",
+      "Enable reordering only for the supported complete single-page dataset, with criteria and selection compatible with reordering.",
+      "Accept reorder requests in the host, persist the order and handle rollback on failure. Provide the keyboard Move flow as well as pointer dragging.",
+      "Keep the handle and Move controls within the grid utility column. Enlarged text and touch targets can wrap the controls onto another line; allow row height to grow."
+    ],
+    "related": [
+      {
+        "slug": "app-data-grid",
+        "label": "AppDataGrid for row-reorder integration"
+      }
+    ]
+  },
+  "learner-grid": {
+    "when": "Use LearnerClassesDataGrid for a learner's course collection when the standard learner columns, progress and course actions match the product's needs.",
+    "how": [
+      "Supply learner course presentation rows rather than application API objects. The host maps records, navigation destinations and actions into the owned props.",
+      "Use client mode for a local collection, or server mode with controlled paginationModel and onPaginationModelChange for host-paged results.",
+      "Supply loading state and known totals, or hasNextPage for unknown totals. The host owns fetching and permissions; use AppDataGridShell for a different domain or column layout."
+    ],
+    "related": [
+      {
+        "slug": "learner-card",
+        "label": "LearnerClassCard for an individual summary"
+      },
+      {
+        "slug": "data-grid-shell",
+        "label": "AppDataGridShell for a custom collection"
+      }
+    ]
+  },
+  "processing-grid": {
+    "when": "Use the experimental DataGrid to explore the owned row-processing proof and its compact interaction contract. Use AppDataGrid or AppDataGridShell for catalog compositions with the current application-level contracts.",
+    "how": [
+      "Define GridColumn entries with stable IDs and getValue accessors, and supply getRowId and getRowLabel for the dataset.",
+      "Control the combined GridState or provide defaultState. In server mode, the host processes requested criteria and supplies page rows and total or hasNextPage.",
+      "Columns without a width share the available space; explicit widths and user resizing remain supported. The footer uses the shared Select and resets page zero when rows per page changes. Keep request and reorder persistence in the host. This experimental entry point is not interchangeable with AppDataGrid's props.",
+      "Column sizing: width is the preferred starting size; minWidth and maxWidth bound resizing. For a fixed 96px action column, use width: 96, minWidth: 96, maxWidth: 96. A maxWidth alone limits growth but does not make the column fixed.",
+      "Leave at least one visible data column uncapped to fill the remaining container width. For example, keep Course flexible and Actions fixed. DataGrid columns without width share space; AppDataGrid uses flex: 1. Both use the same sizing policy. Fixed columns and maximum limits are never stretched to force a fill; if every column is fixed or capped, unused space can remain. Minimum widths produce horizontal scrolling when the container is too narrow.",
+      "Resizing commits the changed column and may release another flexible column’s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in.",
+      "The grid scrollport contains both visible columns and the visually hidden native resize inputs, so wide columns do not increase the document width."
+    ],
+    "related": [
+      {
+        "slug": "app-data-grid",
+        "label": "AppDataGrid for catalog table contracts"
+      },
+      {
+        "slug": "data-grid-shell",
+        "label": "AppDataGridShell for a complete view"
+      }
+    ]
+  },
+  "row-subheader": {
+    "when": "Use RowSubHeader as a titled section header within a custom data-view composition, with an optional expand/collapse action and trailing summary or controls. It is not a table row or a complete grouped-grid implementation.",
+    "how": [
+      "Supply title and, when the section can collapse, controlled expanded state and onToggle. The host decides which section content is shown.",
+      "Use trailingContent for a count or related action, and titleVariant for an owned typography role.",
+      "Use onTitleDoubleClick only when the host provides a corresponding title action; titleTooltip adds supplementary title information."
+    ],
+    "related": [
+      {
+        "slug": "app-data-grid",
+        "label": "AppDataGrid for data rows"
+      },
+      {
+        "slug": "disclosure",
+        "label": "Disclosure for a self-contained expandable section"
+      }
+    ]
+  },
+  "grid-presets": {
+    "when": "Use the admin and instructor grid-option factories when a standard course or people view needs the shared column, sort and filter definitions instead of duplicating those choices.",
+    "how": [
+      "Choose the factory for the view, using the Course-named factories for course views. Pass the host translation function when labels should be localized.",
+      "Use the returned options together with the matching grid and toolbar state. Preserve the first text/action column visibility locks and canonical status choices.",
+      "The presets define presentation options, not API requests or permissions. Adapt host data and accept criteria changes outside the factory."
+    ],
+    "related": [
+      {
+        "slug": "data-toolbar",
+        "label": "DataToolbar for preset options"
+      },
+      {
+        "slug": "data-grid-shell",
+        "label": "AppDataGridShell for coordinated processing"
+      }
+    ]
+  }
+}

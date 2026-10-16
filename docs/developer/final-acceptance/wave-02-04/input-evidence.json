@@ -1,0 +1,1818 @@
+{
+  "capturedAt": "2026-10-16T22:42:27.421374+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "sourceState": "Existing modified working tree; hashes are authority, not HEAD alone.",
+  "comparisonBasis": "FA-02 inputHashes overlaid with FA-04 four corrections",
+  "selectedInputs": [
+    {
+      "path": "apps/docs/examples/AsyncSearchExample.tsx",
+      "sha256": "e8edae785c0154835e6c997853fccd4427e3b0b882a8525f669ac7a314273809",
+      "baselineSha256": "e8edae785c0154835e6c997853fccd4427e3b0b882a8525f669ac7a314273809",
+      "comparison": "same"
+    },
+    {
+      "path": "apps/docs/examples/FormIntegrationExamples.tsx",
+      "sha256": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "baselineSha256": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "comparison": "same"
+    },
+    {
+      "path": "apps/docs/examples/LocalizedRangeExample.tsx",
+      "sha256": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+      "baselineSha256": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+      "comparison": "same"
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx",
+      "sha256": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5",
+      "baselineSha256": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5",
+      "comparison": "same"
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/Dialog/Dialog.fixture.tsx",
+      "sha256": "f71f44346461123377d79f1d7e3717d95658f088d293a47aeab8fa0ff8bc167e",
+      "baselineSha256": "f71f44346461123377d79f1d7e3717d95658f088d293a47aeab8fa0ff8bc167e",
+      "comparison": "same"
+    },
+    {
+      "path": "docs/developer/migration-baseline/proof-measurements.json",
+      "sha256": "bf3324efb29928ca9219db37a2fa876f85dcb65b3d63b83be3f603d207d9eb9e",
+      "baselineSha256": "bf3324efb29928ca9219db37a2fa876f85dcb65b3d63b83be3f603d207d9eb9e",
+      "comparison": "same"
+    },
+    {
+      "path": "docs/developer/react-aria-performance.md",
+      "sha256": "e5db08b70b11ac0b9756e3ce52bb4f9495d20ff90a648a1e70657381c3c85e7b",
+      "baselineSha256": "e5db08b70b11ac0b9756e3ce52bb4f9495d20ff90a648a1e70657381c3c85e7b",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "baselineSha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/scripts/check-foundations.mjs",
+      "sha256": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+      "baselineSha256": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/scripts/check-package.mjs",
+      "sha256": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+      "baselineSha256": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/scripts/measure-migration-proofs.mjs",
+      "sha256": "9ec0d2803c3a81e6a44588874e119325b06b7f668bf13f6ac1552c359c1077ea",
+      "baselineSha256": "9ec0d2803c3a81e6a44588874e119325b06b7f668bf13f6ac1552c359c1077ea",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AdminDataGridOptions.test.tsx",
+      "sha256": "e818d505ae98d47a037d0d3d38f54ee8843e2992bf8cae9c452685295df10c31",
+      "baselineSha256": "e818d505ae98d47a037d0d3d38f54ee8843e2992bf8cae9c452685295df10c31",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AdminDataGridOptions.ts",
+      "sha256": "12c4381484c8a4d8306aea9801f87f545a9db534e90f9ac08bf2cec2a897f4cf",
+      "baselineSha256": "12c4381484c8a4d8306aea9801f87f545a9db534e90f9ac08bf2cec2a897f4cf",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.cells.test.tsx",
+      "sha256": "50411f27e10ecf69d65d6037c35b1d7ae5e35f2bc838ac5071ccf5ad951289c7",
+      "baselineSha256": "50411f27e10ecf69d65d6037c35b1d7ae5e35f2bc838ac5071ccf5ad951289c7",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css",
+      "sha256": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc",
+      "baselineSha256": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.next100-regression.test.tsx",
+      "sha256": "f016c7f9fc5294dfd0a3b47c31cad4ad05052e222dcca6fb2614aa9565300ba8",
+      "baselineSha256": "f016c7f9fc5294dfd0a3b47c31cad4ad05052e222dcca6fb2614aa9565300ba8",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx",
+      "sha256": "73832a65b2bfd53b6fa57e33d999d1333574f51683798b08b0c8a70e7174804f",
+      "baselineSha256": "73832a65b2bfd53b6fa57e33d999d1333574f51683798b08b0c8a70e7174804f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder-invalidation.native-fixture.tsx",
+      "sha256": "33334189dbd068f34f5c441b5984a7fb6c6da73bb1c288ae49b4bfde2a615c19",
+      "baselineSha256": "33334189dbd068f34f5c441b5984a7fb6c6da73bb1c288ae49b4bfde2a615c19",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder.test.tsx",
+      "sha256": "7cc80265830cce5df17b616c52637f4a6fdb2250c86d8bf89a7ef8411f5ae6e0",
+      "baselineSha256": "7cc80265830cce5df17b616c52637f4a6fdb2250c86d8bf89a7ef8411f5ae6e0",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "sha256": "d5037a206368dde03af63d5e755d035311b9818c4595fbc67593a69775bf91aa",
+      "baselineSha256": "d5037a206368dde03af63d5e755d035311b9818c4595fbc67593a69775bf91aa",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "sha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "baselineSha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/GridCellsHelpers.next100-regression.test.tsx",
+      "sha256": "ab344fda214773482cfbbecb892a2128a269a078b690bb0ff86e78e4640cb182",
+      "baselineSha256": "ab344fda214773482cfbbecb892a2128a269a078b690bb0ff86e78e4640cb182",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "sha256": "6adeb894520f6d34bb177a513f120bf89a52eaf95acf6129f87e70d57079f0ff",
+      "baselineSha256": "6adeb894520f6d34bb177a513f120bf89a52eaf95acf6129f87e70d57079f0ff",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.tsx",
+      "sha256": "e3f639d3516c5adf36454ea7ef0a27b1e77b25c2d9311624864228baec77d845",
+      "baselineSha256": "e3f639d3516c5adf36454ea7ef0a27b1e77b25c2d9311624864228baec77d845",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "sha256": "bbbae32777886e2dab28ea195167d21ffe31db84bfd2a652dc70d12a6d8dd152",
+      "baselineSha256": "bbbae32777886e2dab28ea195167d21ffe31db84bfd2a652dc70d12a6d8dd152",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/TableNoResults.tsx",
+      "sha256": "f2c723f330a1bb21ee8a450c9f621c8b7ed66688191f1b943c209ca5a56522cb",
+      "baselineSha256": "f2c723f330a1bb21ee8a450c9f621c8b7ed66688191f1b943c209ca5a56522cb",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "sha256": "776625df452784fffe7d566e31f646a6fff640f9e8370e633db56d5f9322a3bb",
+      "baselineSha256": "776625df452784fffe7d566e31f646a6fff640f9e8370e633db56d5f9322a3bb",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "sha256": "c49ea8d2f73aa85645e863d941027f8b2a5a9e2db9b03fdeea7b923bae30b9d1",
+      "baselineSha256": "c49ea8d2f73aa85645e863d941027f8b2a5a9e2db9b03fdeea7b923bae30b9d1",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "sha256": "18d31e73fdaf015bc5b4446fa37ffe56f6071b9574801f0473e1064e1c4afa3b",
+      "baselineSha256": "18d31e73fdaf015bc5b4446fa37ffe56f6071b9574801f0473e1064e1c4afa3b",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "sha256": "87f4867b7864c4ab007f2a13be1d3d20986396a1f4b90061263960c4aeb06765",
+      "baselineSha256": "87f4867b7864c4ab007f2a13be1d3d20986396a1f4b90061263960c4aeb06765",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "sha256": "178e8df394721e98d2d62c98a001274e82b4654450ee762aef9936b851ab5b53",
+      "baselineSha256": "178e8df394721e98d2d62c98a001274e82b4654450ee762aef9936b851ab5b53",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "sha256": "2fa3fe41c943818ad8e8100e4f297ee3ac372a191c684eb05817009ec8c4e98a",
+      "baselineSha256": "2fa3fe41c943818ad8e8100e4f297ee3ac372a191c684eb05817009ec8c4e98a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "sha256": "9a287d5aeb703204fad7fde5e6c6fe6007950beb5eb77740edcf8b44a4bd2014",
+      "baselineSha256": "9a287d5aeb703204fad7fde5e6c6fe6007950beb5eb77740edcf8b44a4bd2014",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "sha256": "67cba7196c22dfcc0f1453b5f38d0628e213a32f85d546779b6ce3ba478102bb",
+      "baselineSha256": "67cba7196c22dfcc0f1453b5f38d0628e213a32f85d546779b6ce3ba478102bb",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "sha256": "1b60d263dad853970a98382d7dae449fe0f24b6eea7830a9569c27fd7fe2e720",
+      "baselineSha256": "1b60d263dad853970a98382d7dae449fe0f24b6eea7830a9569c27fd7fe2e720",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "sha256": "e49181b31008b2031e1ebb8845705e1326fed4bf3ad2a4bfee6d26e09cb69fe4",
+      "baselineSha256": "e49181b31008b2031e1ebb8845705e1326fed4bf3ad2a4bfee6d26e09cb69fe4",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/OwnedTableCell.tsx",
+      "sha256": "82faacdc9e01b5deb19c5317fdf41eeccf404d03bdba7a73a6960e609028c12e",
+      "baselineSha256": "82faacdc9e01b5deb19c5317fdf41eeccf404d03bdba7a73a6960e609028c12e",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "sha256": "0983840615a415c632bb8a39831da0b2f5dd2baf391e6a3e827c565dc1668f65",
+      "baselineSha256": "0983840615a415c632bb8a39831da0b2f5dd2baf391e6a3e827c565dc1668f65",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "sha256": "058ea55f1af0ddcf680351ee5a3b72a1709c93241bf6fa20e7da54fa08aaa894",
+      "baselineSha256": "058ea55f1af0ddcf680351ee5a3b72a1709c93241bf6fa20e7da54fa08aaa894",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "sha256": "63e50e4fcaa14b1c907beaec6a5e6554d665f2dee944f7a2a5d0456cd1c3b2e9",
+      "baselineSha256": "63e50e4fcaa14b1c907beaec6a5e6554d665f2dee944f7a2a5d0456cd1c3b2e9",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "sha256": "ee35a9941b5786e01203e24449417661aad54f9976ce0e4b4e2dd09d238efcad",
+      "baselineSha256": "ee35a9941b5786e01203e24449417661aad54f9976ce0e4b4e2dd09d238efcad",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/index.ts",
+      "sha256": "1b7658d63b6e842a4fc1eac68e06a70e2a5c7c7f06cc59d67cee3edb65021e52",
+      "baselineSha256": "1b7658d63b6e842a4fc1eac68e06a70e2a5c7c7f06cc59d67cee3edb65021e52",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "sha256": "e6cbd368d6dd165cd4ddeebdcc41ec6dd2a802d3190bc9e9fd24cc8629bf1ca2",
+      "baselineSha256": "e6cbd368d6dd165cd4ddeebdcc41ec6dd2a802d3190bc9e9fd24cc8629bf1ca2",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.test.ts",
+      "sha256": "fb74775861a05fccab7112fc4a0753ba040ab58eaca952318645f9d7ac228ecb",
+      "baselineSha256": "fb74775861a05fccab7112fc4a0753ba040ab58eaca952318645f9d7ac228ecb",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.ts",
+      "sha256": "05710e5771d036bf013295ee2559162bc0872148ce72c0acd6b4970819ab61de",
+      "baselineSha256": "05710e5771d036bf013295ee2559162bc0872148ce72c0acd6b4970819ab61de",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/createDataGridColumns.test.tsx",
+      "sha256": "59dfe41426416b2f074f541f2a232d5181b5b30dcf7e3d8fcdc05168ce8e82dd",
+      "baselineSha256": "59dfe41426416b2f074f541f2a232d5181b5b30dcf7e3d8fcdc05168ce8e82dd",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/createDataGridColumns.tsx",
+      "sha256": "18b31b203789b1d3f3150af4a56b4bbf2a48168e13ee917b9d546f1f553db48a",
+      "baselineSha256": "18b31b203789b1d3f3150af4a56b4bbf2a48168e13ee917b9d546f1f553db48a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/index.ts",
+      "sha256": "a2deaf6fc79d796eea826f707dd6103000f878f93a0ae624f7612986a47b394d",
+      "baselineSha256": "a2deaf6fc79d796eea826f707dd6103000f878f93a0ae624f7612986a47b394d",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css",
+      "sha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b",
+      "baselineSha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridCells.test.tsx",
+      "sha256": "eaf5aa24f2cf0651fe5f11c3ce23306e3842961bbc54b626d1e096770e246f52",
+      "baselineSha256": "eaf5aa24f2cf0651fe5f11c3ce23306e3842961bbc54b626d1e096770e246f52",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "sha256": "f50829dbb7f1ce7942b87a7ffd1102c9721a3686d955b786731b944207ee0947",
+      "baselineSha256": "f50829dbb7f1ce7942b87a7ffd1102c9721a3686d955b786731b944207ee0947",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridColumns.test.ts",
+      "sha256": "5ef01f4eeff2a0fa2beec2042a640e49e8b01ffb192633618c4c5d3a62b5ecaa",
+      "baselineSha256": "5ef01f4eeff2a0fa2beec2042a640e49e8b01ffb192633618c4c5d3a62b5ecaa",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts",
+      "sha256": "405ae6441b3635ce9b4e76d18c509c813664535f84422d2b454718743b638094",
+      "baselineSha256": "405ae6441b3635ce9b4e76d18c509c813664535f84422d2b454718743b638094",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridController.test.ts",
+      "sha256": "5534ec921137592213a557d239d060b535849ce256ed3759d2118e426ccccdda",
+      "baselineSha256": "5534ec921137592213a557d239d060b535849ce256ed3759d2118e426ccccdda",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridController.ts",
+      "sha256": "cd099ccba9c0c15cd7adf4ba2a8537ac08e08500b98cb7df4f0ae130a87cb5fe",
+      "baselineSha256": "cd099ccba9c0c15cd7adf4ba2a8537ac08e08500b98cb7df4f0ae130a87cb5fe",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.drop-focus.test.tsx",
+      "sha256": "3c2e41a441f2f15b44db9dbfdab276caf0547be6e48518f993e8c50a4302a9c1",
+      "baselineSha256": "3c2e41a441f2f15b44db9dbfdab276caf0547be6e48518f993e8c50a4302a9c1",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+      "sha256": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080",
+      "baselineSha256": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.ssr.test.tsx",
+      "sha256": "497d829d4c4223942da5ef96b4bfe9cdefb887ad4ca3e49a1ebc4cb67a0c4fcc",
+      "baselineSha256": "497d829d4c4223942da5ef96b4bfe9cdefb887ad4ca3e49a1ebc4cb67a0c4fcc",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+      "sha256": "502aa0db80b9d7bb3d7b8c3b46441130203bda77a3825f4db9a3698b3f6be414",
+      "baselineSha256": "502aa0db80b9d7bb3d7b8c3b46441130203bda77a3825f4db9a3698b3f6be414",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "sha256": "d3fef23868311eaa9a608478aa0061f181dc77d981354589f41b71835d524c66",
+      "baselineSha256": "d3fef23868311eaa9a608478aa0061f181dc77d981354589f41b71835d524c66",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridLayoutController.test.tsx",
+      "sha256": "e0361aefb394c6676a1bfe4dfb6452092f66107ad80f60ab279af8d39951203b",
+      "baselineSha256": "e0361aefb394c6676a1bfe4dfb6452092f66107ad80f60ab279af8d39951203b",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridLayoutController.ts",
+      "sha256": "f1cb9e117f5d1c85103918c8ad1864bbd9ef97cf59b51f4415ac9610580fe5f6",
+      "baselineSha256": "f1cb9e117f5d1c85103918c8ad1864bbd9ef97cf59b51f4415ac9610580fe5f6",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridModel.test.ts",
+      "sha256": "fc1a6eb8574b81b6efe1f856651f190cfdb34219b2dfc4b3c6ebc96227c1c96e",
+      "baselineSha256": "fc1a6eb8574b81b6efe1f856651f190cfdb34219b2dfc4b3c6ebc96227c1c96e",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridModel.ts",
+      "sha256": "ceb26de693e468cc5fc16dcb06f5098499041fb11d27f88ba5aaa054912b3586",
+      "baselineSha256": "ceb26de693e468cc5fc16dcb06f5098499041fb11d27f88ba5aaa054912b3586",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridPageShrink.test.tsx",
+      "sha256": "0f2ba19f06af55d24f5e9783c1e91f490037eb559c2465fa415a9175e1d9f904",
+      "baselineSha256": "0f2ba19f06af55d24f5e9783c1e91f490037eb559c2465fa415a9175e1d9f904",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css",
+      "sha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085",
+      "baselineSha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.test.tsx",
+      "sha256": "88659b0ebd8ac8b8b4d737fcea71e0958d2a47d3c5d2d94660a85e689e72af38",
+      "baselineSha256": "88659b0ebd8ac8b8b4d737fcea71e0958d2a47d3c5d2d94660a85e689e72af38",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "sha256": "dd8cfbaf97e8c0152dc714e84d1df20cf92263f601453e41c96dddf55d3acecf",
+      "baselineSha256": "dd8cfbaf97e8c0152dc714e84d1df20cf92263f601453e41c96dddf55d3acecf",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridPersistence.test.tsx",
+      "sha256": "90e357fbdf04190c2d7b630258c49fc2ff47785310965942bcde49a586b61d0b",
+      "baselineSha256": "90e357fbdf04190c2d7b630258c49fc2ff47785310965942bcde49a586b61d0b",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridPersistence.ts",
+      "sha256": "05811040bbcba9eb7c3f464811adcc54d33e16c6ebb2bfacb20c4b37a4400c89",
+      "baselineSha256": "05811040bbcba9eb7c3f464811adcc54d33e16c6ebb2bfacb20c4b37a4400c89",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridProcessing.native-fixture.tsx",
+      "sha256": "e38dad5d84ab67e369734de2f5a6d37e83045fbce5ce56f82ba2f7ddf4698b68",
+      "baselineSha256": "e38dad5d84ab67e369734de2f5a6d37e83045fbce5ce56f82ba2f7ddf4698b68",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridProcessing.test.tsx",
+      "sha256": "2d0538f78a75726fce7e5d965863d7d5ea10e9d2352a6db740c62ebb901178b7",
+      "baselineSha256": "2d0538f78a75726fce7e5d965863d7d5ea10e9d2352a6db740c62ebb901178b7",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridReset.ts",
+      "sha256": "d683cbe17207a19f2431914582a03d384798dbe7bbfe40f61084e2be025e4211",
+      "baselineSha256": "d683cbe17207a19f2431914582a03d384798dbe7bbfe40f61084e2be025e4211",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.native-fixture.tsx",
+      "sha256": "65d041dfa8a00d0bd07bd01bae9e58ba6eaf2136be6466bd3567ce5c7d6359a8",
+      "baselineSha256": "65d041dfa8a00d0bd07bd01bae9e58ba6eaf2136be6466bd3567ce5c7d6359a8",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.test.tsx",
+      "sha256": "c9d4596a4393409acb583dceb4d8c70f6c481d45fc8bf90c1cd8e95f133c831b",
+      "baselineSha256": "c9d4596a4393409acb583dceb4d8c70f6c481d45fc8bf90c1cd8e95f133c831b",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridState.test.ts",
+      "sha256": "fe4c15e57a5e333ebce68fa7505410f68c5de44ff028b69d3c9c3e252368cda3",
+      "baselineSha256": "fe4c15e57a5e333ebce68fa7505410f68c5de44ff028b69d3c9c3e252368cda3",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridState.ts",
+      "sha256": "c3b812ba75bc21ebbbb95cf54a384eb695be18b4446c4173b92aea8f681750db",
+      "baselineSha256": "c3b812ba75bc21ebbbb95cf54a384eb695be18b4446c4173b92aea8f681750db",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/types.ts",
+      "sha256": "caa0e32e6ea070a4e2d2859ed553e778db9b9d06ce5a99a59f72e2dc409831a3",
+      "baselineSha256": "caa0e32e6ea070a4e2d2859ed553e778db9b9d06ce5a99a59f72e2dc409831a3",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.module.css",
+      "sha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "baselineSha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.next100-regression.test.tsx",
+      "sha256": "e86ac2867cf0bd924de3d6f85d42328eda4e4cae7b35fed3b9a12e85ccf8b293",
+      "baselineSha256": "e86ac2867cf0bd924de3d6f85d42328eda4e4cae7b35fed3b9a12e85ccf8b293",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.public-contract.next100-regression.test.tsx",
+      "sha256": "8817778de0c641797cd03cc78ad5ec4eb0fc36102e22458b6a443235d4045175",
+      "baselineSha256": "8817778de0c641797cd03cc78ad5ec4eb0fc36102e22458b6a443235d4045175",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.public-contract.test.tsx",
+      "sha256": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6",
+      "baselineSha256": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.test.tsx",
+      "sha256": "f96820a030a0442a7b8928fae9082cfac2332e3e8ff1765f4790b1afce417c98",
+      "baselineSha256": "f96820a030a0442a7b8928fae9082cfac2332e3e8ff1765f4790b1afce417c98",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.tsx",
+      "sha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "baselineSha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/Button/index.ts",
+      "sha256": "e3b3d627a1fef1bfc1a6056115b697444e0383549cce84e243abe2f4b34522cb",
+      "baselineSha256": "e3b3d627a1fef1bfc1a6056115b697444e0383549cce84e243abe2f4b34522cb",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.module.css",
+      "sha256": "ed9842b74c5b1137b81e89ce8a6e0727cf7d9f1fca2fdefed54fca5f946bf392",
+      "baselineSha256": "ed9842b74c5b1137b81e89ce8a6e0727cf7d9f1fca2fdefed54fca5f946bf392",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.native-composition.test.tsx",
+      "sha256": "5b2bc0db7af28b33505f998df20f07837a9833aa22f685d726e4598293b6be61",
+      "baselineSha256": "5b2bc0db7af28b33505f998df20f07837a9833aa22f685d726e4598293b6be61",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.native-fixture.tsx",
+      "sha256": "d9b8de44e04997f48a4e29c9c166c8c350459a1788cacc6e36e3adb928b58d81",
+      "baselineSha256": "d9b8de44e04997f48a4e29c9c166c8c350459a1788cacc6e36e3adb928b58d81",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.next100-regression.test.tsx",
+      "sha256": "0de098cf684c05af225212a840323c15b8cbf4e3413f74e65bf3c4326cad87f3",
+      "baselineSha256": "0de098cf684c05af225212a840323c15b8cbf4e3413f74e65bf3c4326cad87f3",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.test.tsx",
+      "sha256": "506c75e35f9fa061b5716943df4ebd56eec0c9158d8790a592f05e8ad9ac2f74",
+      "baselineSha256": "506c75e35f9fa061b5716943df4ebd56eec0c9158d8790a592f05e8ad9ac2f74",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "sha256": "b6a964f7a4187b65892932c38ff50f5d2af6b7c08d1c4b5c54809f9ad58453a3",
+      "baselineSha256": "b6a964f7a4187b65892932c38ff50f5d2af6b7c08d1c4b5c54809f9ad58453a3",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/buildColumnOptions.test.ts",
+      "sha256": "41e1d0ee624696bf2329f4718eef37a52345fb7cbd543724bd9528e9f98833d5",
+      "baselineSha256": "41e1d0ee624696bf2329f4718eef37a52345fb7cbd543724bd9528e9f98833d5",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/buildColumnOptions.ts",
+      "sha256": "ddee77ff3511abf8bac19b395d824e34dd5da5bea816586f6def0271115436ac",
+      "baselineSha256": "ddee77ff3511abf8bac19b395d824e34dd5da5bea816586f6def0271115436ac",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.module.css",
+      "sha256": "132b25a748e4be0d7beaa0584b96d0fc5b1804360a5e9bc4210c02155b803dae",
+      "baselineSha256": "132b25a748e4be0d7beaa0584b96d0fc5b1804360a5e9bc4210c02155b803dae",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "sha256": "80a1d26a39f9b47cd34f6db656446e200bbda99c01b7f4e7eb0efd725d75e323",
+      "baselineSha256": "80a1d26a39f9b47cd34f6db656446e200bbda99c01b7f4e7eb0efd725d75e323",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "sha256": "95fa326ee237555bee7066f59b34326da7630d44742d803b518e57030430ea89",
+      "baselineSha256": "95fa326ee237555bee7066f59b34326da7630d44742d803b518e57030430ea89",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.module.css",
+      "sha256": "4d1c495ff22633ccad86f0b7309ae472b6e6819086d72b77c55a18525daacfe9",
+      "baselineSha256": "4d1c495ff22633ccad86f0b7309ae472b6e6819086d72b77c55a18525daacfe9",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "sha256": "fbf86172168e5dcb41e681266190a9c446e093d9c0ca4be41687f2d4e8f4af8a",
+      "baselineSha256": "fbf86172168e5dcb41e681266190a9c446e093d9c0ca4be41687f2d4e8f4af8a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "sha256": "e4711ac3016cd0fcfef549cea04c70b1b1402aa110ba1772ef1a8bb4f919e0b6",
+      "baselineSha256": "e4711ac3016cd0fcfef549cea04c70b1b1402aa110ba1772ef1a8bb4f919e0b6",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.module.css",
+      "sha256": "ebbd58249d65f4f3d18eef372d55f530799b300091fc18f18be18043e90a7386",
+      "baselineSha256": "ebbd58249d65f4f3d18eef372d55f530799b300091fc18f18be18043e90a7386",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "sha256": "3b49298106758f7337c14577068dad6d438a68e3dc4f35249cca344a0be4a76a",
+      "baselineSha256": "3b49298106758f7337c14577068dad6d438a68e3dc4f35249cca344a0be4a76a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "sha256": "bc223424142f2ff7447a6770be25ae2258a9a1870226027430e7763b5ecf579f",
+      "baselineSha256": "bc223424142f2ff7447a6770be25ae2258a9a1870226027430e7763b5ecf579f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.module.css",
+      "sha256": "101dc6f3286638f5ae8cd617e0a95e73fc4b21dfb72d210157aff4015eca2283",
+      "baselineSha256": "101dc6f3286638f5ae8cd617e0a95e73fc4b21dfb72d210157aff4015eca2283",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "sha256": "d45a63070fbc3b0a1a126366de0da78c103f585c4c47a4d49c2aff779dc283ba",
+      "baselineSha256": "d45a63070fbc3b0a1a126366de0da78c103f585c4c47a4d49c2aff779dc283ba",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "sha256": "d31c4e4569f81bb159d71417b682f6c51cdcae4d0d780cf6ed5a436d70746ead",
+      "baselineSha256": "d31c4e4569f81bb159d71417b682f6c51cdcae4d0d780cf6ed5a436d70746ead",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/filterRuleValue.test.ts",
+      "sha256": "125c61a3b84bb78a9887daf8ea914700ac5e8a951b8919b9beba79f176209cec",
+      "baselineSha256": "125c61a3b84bb78a9887daf8ea914700ac5e8a951b8919b9beba79f176209cec",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/filterRuleValue.ts",
+      "sha256": "c1dea0a7962f30acc9486cab0bcdf4856f5a8926d0b415373cb6581027852cef",
+      "baselineSha256": "c1dea0a7962f30acc9486cab0bcdf4856f5a8926d0b415373cb6581027852cef",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/index.ts",
+      "sha256": "fa444da74872b83ca9de7a330dce07b3584ba7a994e2a1917c3f8c7c3ec18c93",
+      "baselineSha256": "fa444da74872b83ca9de7a330dce07b3584ba7a994e2a1917c3f8c7c3ec18c93",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/InstructorDataGridOptions.ts",
+      "sha256": "e99c9507ec11a5ed4a4e26dd45daf42ad3b556f4bfd32ffce7c105ca25bebda3",
+      "baselineSha256": "e99c9507ec11a5ed4a4e26dd45daf42ad3b556f4bfd32ffce7c105ca25bebda3",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/Typefaces/Typefaces.native-fixture.tsx",
+      "sha256": "2d4c6245e676f2de54f08ff38f278f1aabb23c5711e99550d19295a9b225ebbb",
+      "baselineSha256": "2d4c6245e676f2de54f08ff38f278f1aabb23c5711e99550d19295a9b225ebbb",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/Typefaces/Typefaces.next100-regression.test.tsx",
+      "sha256": "67593526a0f585f249c11f22a476bc78ad7eb11d947909456d67eff1b7458457",
+      "baselineSha256": "67593526a0f585f249c11f22a476bc78ad7eb11d947909456d67eff1b7458457",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/icons/activityTypeIcon.tsx",
+      "sha256": "d3bb50e68519c742bb0218a0e94f6af1747753f36f7b32517c67eec175065631",
+      "baselineSha256": "d3bb50e68519c742bb0218a0e94f6af1747753f36f7b32517c67eec175065631",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/icons/icons.next100-regression.test.tsx",
+      "sha256": "105a5331ea3b41b04c1916a60fb7aaeddb00a791fa2441336402d3bffb750921",
+      "baselineSha256": "105a5331ea3b41b04c1916a60fb7aaeddb00a791fa2441336402d3bffb750921",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/icons/icons.test.tsx",
+      "sha256": "d520fdd990c9f2f0c541e60077107dfa4e294dcc16ecf7bcfda8f72b45b82d22",
+      "baselineSha256": "d520fdd990c9f2f0c541e60077107dfa4e294dcc16ecf7bcfda8f72b45b82d22",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/icons/index.ts",
+      "sha256": "b7d4778305ea33e1f654974a256e0ebfbb08c8010f36a409e5f4f4d533a7dd50",
+      "baselineSha256": "b7d4778305ea33e1f654974a256e0ebfbb08c8010f36a409e5f4f4d533a7dd50",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/index.ts",
+      "sha256": "0a8051ed4144c27675bcdd63e1e57473779cda36f2d89f19a0adca833bb6c46a",
+      "baselineSha256": "0a8051ed4144c27675bcdd63e1e57473779cda36f2d89f19a0adca833bb6c46a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/primitives/Progress.test.tsx",
+      "sha256": "65cd35f194e1d6dbe13c6f7fc2dbce987e98140a52dc3cf0783880ed296b0c1d",
+      "baselineSha256": "65cd35f194e1d6dbe13c6f7fc2dbce987e98140a52dc3cf0783880ed296b0c1d",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/primitives/Progress.tsx",
+      "sha256": "1a5782829df5aec1f1fbed7882bdb5d2ef2e7f7befedb37f4167786182f3b46c",
+      "baselineSha256": "1a5782829df5aec1f1fbed7882bdb5d2ef2e7f7befedb37f4167786182f3b46c",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/primitives/index.ts",
+      "sha256": "fee6f7642c4b73916defbe8b408cd3c076acb11e43f5c25205f1fdb589599276",
+      "baselineSha256": "fee6f7642c4b73916defbe8b408cd3c076acb11e43f5c25205f1fdb589599276",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/components/primitives/primitives.test.tsx",
+      "sha256": "0c62d6a9d8fff45cea45486c8306dacaf7cad129b766f2f23aa8620ec3b7bf88",
+      "baselineSha256": "0c62d6a9d8fff45cea45486c8306dacaf7cad129b766f2f23aa8620ec3b7bf88",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.module.css",
+      "sha256": "81be5ada4edd588e3fa308fc30f764551466b31b20a2fb13fe0ce62094de5cb6",
+      "baselineSha256": "81be5ada4edd588e3fa308fc30f764551466b31b20a2fb13fe0ce62094de5cb6",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.native-fixture.tsx",
+      "sha256": "d7f775f4f8053573660a9a7d83dd24c400baa4c96ead6ef0afc633d37b22a683",
+      "baselineSha256": "d7f775f4f8053573660a9a7d83dd24c400baa4c96ead6ef0afc633d37b22a683",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.test.tsx",
+      "sha256": "d7c1c3b157b0f62d39f373112c063480c54a7c0aa5c57523e8fe54a8c1d6f720",
+      "baselineSha256": "d7c1c3b157b0f62d39f373112c063480c54a7c0aa5c57523e8fe54a8c1d6f720",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+      "sha256": "c56ed46ae5584adca2cdd7b0f56c9f4f4d29a064b2843da35d7f0b64f1a8462f",
+      "baselineSha256": "c56ed46ae5584adca2cdd7b0f56c9f4f4d29a064b2843da35d7f0b64f1a8462f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.native-locales.native-fixture.tsx",
+      "sha256": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "baselineSha256": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.native-locales.test.tsx",
+      "sha256": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "baselineSha256": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.next100-regression.test.tsx",
+      "sha256": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "baselineSha256": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.test.tsx",
+      "sha256": "b56db22bb4091fedb65956e22bf2b3ecbbc70670afc02fb68638274dfa202239",
+      "baselineSha256": "b56db22bb4091fedb65956e22bf2b3ecbbc70670afc02fb68638274dfa202239",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "sha256": "43ce7bdfa5d4652278983efdfb6eb94785ca5fa28f64d6b66dddf933c0d358b4",
+      "baselineSha256": "43ce7bdfa5d4652278983efdfb6eb94785ca5fa28f64d6b66dddf933c0d358b4",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/CalendarNavigation.test.tsx",
+      "sha256": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "baselineSha256": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/CalendarNavigation.tsx",
+      "sha256": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "baselineSha256": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DataGrid/DataGrid.module.css",
+      "sha256": "171dff4fd01ad38a471f860439f7662cef7b037da2dc73d9025b96a76a7cf14f",
+      "baselineSha256": "171dff4fd01ad38a471f860439f7662cef7b037da2dc73d9025b96a76a7cf14f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DataGrid/DataGrid.next100-regression.test.tsx",
+      "sha256": "4e111a12032586a907399b3643ccaf7d75a660e9cbb4f6234d9ccb92b5539698",
+      "baselineSha256": "4e111a12032586a907399b3643ccaf7d75a660e9cbb4f6234d9ccb92b5539698",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DataGrid/DataGrid.test.tsx",
+      "sha256": "89f977dcbe20b815a1d98a8d9035712810c2cfd828ed92c62cd469a5bfb3cab0",
+      "baselineSha256": "89f977dcbe20b815a1d98a8d9035712810c2cfd828ed92c62cd469a5bfb3cab0",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "sha256": "e82c4f20a319486fb42bd895c9060ae5b4ad7db22e8bc6d825c96369df07f379",
+      "baselineSha256": "e82c4f20a319486fb42bd895c9060ae5b4ad7db22e8bc6d825c96369df07f379",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DataGrid/column-sizing.ts",
+      "sha256": "0b7919fb819cfdb65af2a757af87049fba0bfe8ec05ec0dad99c1e05a862825f",
+      "baselineSha256": "0b7919fb819cfdb65af2a757af87049fba0bfe8ec05ec0dad99c1e05a862825f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DataGrid/row-processing.ts",
+      "sha256": "b6e474d51aaf58fd90821e6f57a9f25e3ddcb511f63afa850d5ef6dcdebc6c0f",
+      "baselineSha256": "b6e474d51aaf58fd90821e6f57a9f25e3ddcb511f63afa850d5ef6dcdebc6c0f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DataGrid/types.ts",
+      "sha256": "ec7b7da8e89ae41795c62a3d458d3e7cb541fbbc58ea723ac5c20b3182ffd1f4",
+      "baselineSha256": "ec7b7da8e89ae41795c62a3d458d3e7cb541fbbc58ea723ac5c20b3182ffd1f4",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.module.css",
+      "sha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "baselineSha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.next100-regression.test.tsx",
+      "sha256": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "baselineSha256": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.test.tsx",
+      "sha256": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "baselineSha256": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.tsx",
+      "sha256": "9cc5c4ba5f337787682ae31c482fdd0dc7295179859c33ad0a5b2b71fdb88e18",
+      "baselineSha256": "9cc5c4ba5f337787682ae31c482fdd0dc7295179859c33ad0a5b2b71fdb88e18",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateFieldControl.tsx",
+      "sha256": "8bbadd7bb5344a56df2682e2dce83e2c2ee5dc4dd07c0d74d1ad6e2973ca09c7",
+      "baselineSha256": "8bbadd7bb5344a56df2682e2dce83e2c2ee5dc4dd07c0d74d1ad6e2973ca09c7",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/TextDateField.test.tsx",
+      "sha256": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "baselineSha256": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "sha256": "c4cb4d163038104f730cdf4cb1ce6304de23707ae576c2f78ccd7590667ba718",
+      "baselineSha256": "c4cb4d163038104f730cdf4cb1ce6304de23707ae576c2f78ccd7590667ba718",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseDateText.test.ts",
+      "sha256": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "baselineSha256": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseDateText.ts",
+      "sha256": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "baselineSha256": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseRelativeDateText.test.ts",
+      "sha256": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "baselineSha256": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseRelativeDateText.ts",
+      "sha256": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "baselineSha256": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/CalendarFormValidity.tsx",
+      "sha256": "064064ff9187ed72a6635f8a16ef8a738b3391e9de1ec6c92ef88279fb5357fd",
+      "baselineSha256": "064064ff9187ed72a6635f8a16ef8a738b3391e9de1ec6c92ef88279fb5357fd",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateContracts.next100-regression.test.tsx",
+      "sha256": "545611ff1736d427a59992038af10fec7557084117d68443c675a8e8070d8615",
+      "baselineSha256": "545611ff1736d427a59992038af10fec7557084117d68443c675a8e8070d8615",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.behavior.test.tsx",
+      "sha256": "eb01a4b0bf0988bfce65316042642e0a5e030821b8f7a467e1789bb10105d1d8",
+      "baselineSha256": "eb01a4b0bf0988bfce65316042642e0a5e030821b8f7a467e1789bb10105d1d8",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css",
+      "sha256": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "baselineSha256": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.next100-regression.test.tsx",
+      "sha256": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48",
+      "baselineSha256": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.presets.test.tsx",
+      "sha256": "1a7588994d3d1232166bb568efb1c62ceab0b92a597f06aafe9a30d94622ac27",
+      "baselineSha256": "1a7588994d3d1232166bb568efb1c62ceab0b92a597f06aafe9a30d94622ac27",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.test.tsx",
+      "sha256": "0887d77989165887f0af6fc1305fb6fb783f72be7917f3ee09f823a4dd94c609",
+      "baselineSha256": "0887d77989165887f0af6fc1305fb6fb783f72be7917f3ee09f823a4dd94c609",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "sha256": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "baselineSha256": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeGestures.test.tsx",
+      "sha256": "895b4a5e8fb92bfafb70710c1ab0da8e1ec24683eb6b2d0384eaf39849911f57",
+      "baselineSha256": "895b4a5e8fb92bfafb70710c1ab0da8e1ec24683eb6b2d0384eaf39849911f57",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx",
+      "sha256": "0b2427901464535d68154aa9c443b678ce8fd637b8394315532e673a654082fe",
+      "baselineSha256": "0b2427901464535d68154aa9c443b678ce8fd637b8394315532e673a654082fe",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+      "sha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "baselineSha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/relative-date-range.test.ts",
+      "sha256": "0799edaf12d45b62573c045509104118f31ccaf52e96a7b6d990a89c16690362",
+      "baselineSha256": "0799edaf12d45b62573c045509104118f31ccaf52e96a7b6d990a89c16690362",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/relative-date-range.ts",
+      "sha256": "f5be7ad2b944523a078af51c9a9574d1292232287fc3243dae0df7cb3f3a17ba",
+      "baselineSha256": "f5be7ad2b944523a078af51c9a9574d1292232287fc3243dae0df7cb3f3a17ba",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/useCalendarFormReset.ts",
+      "sha256": "b1abe36f849850e3aac5e1ddfef5b95d19cb8ba3cb538efebaafe91ea0b55cfc",
+      "baselineSha256": "b1abe36f849850e3aac5e1ddfef5b95d19cb8ba3cb538efebaafe91ea0b55cfc",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/useNarrowWeekdays.ts",
+      "sha256": "420bb3c06d07d3ae43942aa8a9b53e2de201e2e3e3a7226ba0aed48ece6640c6",
+      "baselineSha256": "420bb3c06d07d3ae43942aa8a9b53e2de201e2e3e3a7226ba0aed48ece6640c6",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Dialog/Dialog.module.css",
+      "sha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+      "baselineSha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Dialog/Dialog.next100-regression.test.tsx",
+      "sha256": "973290c225b9d3b5b453366e883dc984611e746ff54cd5d9818b285c88239f84",
+      "baselineSha256": "973290c225b9d3b5b453366e883dc984611e746ff54cd5d9818b285c88239f84",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Dialog/Dialog.test.tsx",
+      "sha256": "d5b73b2cd05067b944d94bc212733519a398e641d217574e2869b97bac20960f",
+      "baselineSha256": "d5b73b2cd05067b944d94bc212733519a398e641d217574e2869b97bac20960f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "sha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "baselineSha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+      "sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+      "baselineSha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.next100-regression.test.tsx",
+      "sha256": "97029552e9867941b210c81632f86d72af072fdddedf455eb266a209ff24c4be",
+      "baselineSha256": "97029552e9867941b210c81632f86d72af072fdddedf455eb266a209ff24c4be",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.test.tsx",
+      "sha256": "57114e7a42400c4fb226137fdb3b6374894dd61834d1b6c6f5faf4c19d40245d",
+      "baselineSha256": "57114e7a42400c4fb226137fdb3b6374894dd61834d1b6c6f5faf4c19d40245d",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.tsx",
+      "sha256": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+      "baselineSha256": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts",
+      "sha256": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "baselineSha256": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Typography/Typography.module.css",
+      "sha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "baselineSha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Typography/Typography.next100-regression.test.tsx",
+      "sha256": "fc59b16b28760b9552a01e37714812cf9228d7f5a89077b7febe887110c1bf37",
+      "baselineSha256": "fc59b16b28760b9552a01e37714812cf9228d7f5a89077b7febe887110c1bf37",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Typography/Typography.ssr.test.tsx",
+      "sha256": "a6b351164eb35a17a46c22c1cba8fd5a85efa97e4b6b4dbb592968a88b5c8506",
+      "baselineSha256": "a6b351164eb35a17a46c22c1cba8fd5a85efa97e4b6b4dbb592968a88b5c8506",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Typography/Typography.test.tsx",
+      "sha256": "b37560c72ef1f10b2d9542254a37a030e221c8ea88daed3ba35b112548d54001",
+      "baselineSha256": "b37560c72ef1f10b2d9542254a37a030e221c8ea88daed3ba35b112548d54001",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/Typography/Typography.tsx",
+      "sha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "baselineSha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/experimental/index.ts",
+      "sha256": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+      "baselineSha256": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/PaginationState.next100-regression.test.tsx",
+      "sha256": "080ee269a7c47da595457efa4c143b49913bbc4dcafbb17ee89566c22eb67f2b",
+      "baselineSha256": "080ee269a7c47da595457efa4c143b49913bbc4dcafbb17ee89566c22eb67f2b",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/index.ts",
+      "sha256": "5d358dba438df28d51248e01402a76098c3a87015052aaf620d7bf9dc54927ef",
+      "baselineSha256": "5d358dba438df28d51248e01402a76098c3a87015052aaf620d7bf9dc54927ef",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/paginationModel.ts",
+      "sha256": "83393ba591fb78a58d2fddcc279a4388ae659998503ac4076d20d90eb4a3fc6a",
+      "baselineSha256": "83393ba591fb78a58d2fddcc279a4388ae659998503ac4076d20d90eb4a3fc6a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/usePersistentPaginationModel.hook.test.ts",
+      "sha256": "99a51a08606478045c41cb50a0b64f4fc2ee07ed530b1f35f0b312503635028a",
+      "baselineSha256": "99a51a08606478045c41cb50a0b64f4fc2ee07ed530b1f35f0b312503635028a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/usePersistentPaginationModel.ssr.test.tsx",
+      "sha256": "1959f84f0c2725fa51ffb000fa0e5b2030d14f39a9b2bfa7b97bbf2437d5cfca",
+      "baselineSha256": "1959f84f0c2725fa51ffb000fa0e5b2030d14f39a9b2bfa7b97bbf2437d5cfca",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/usePersistentPaginationModel.test.ts",
+      "sha256": "64336173a1827a0e6c6e12c5640674d294ea9b2ed946789ac60613f93934d852",
+      "baselineSha256": "64336173a1827a0e6c6e12c5640674d294ea9b2ed946789ac60613f93934d852",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/usePersistentPaginationModel.ts",
+      "sha256": "76f4c23e47ac60f2c7084adb16116493910b18f432ccdd37691d90f6f184e872",
+      "baselineSha256": "76f4c23e47ac60f2c7084adb16116493910b18f432ccdd37691d90f6f184e872",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/usePersistentState.behavior.test.tsx",
+      "sha256": "e4c2bf6d2e3cc83bc702ff5b9c93c8b31bcee2dad17f4fd823a07f72031965e1",
+      "baselineSha256": "e4c2bf6d2e3cc83bc702ff5b9c93c8b31bcee2dad17f4fd823a07f72031965e1",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/usePersistentState.ssr.test.tsx",
+      "sha256": "ea0bb3ebef04d622f69b2953befc7930e61a76aa572829f6c7214946e6dc8e24",
+      "baselineSha256": "ea0bb3ebef04d622f69b2953befc7930e61a76aa572829f6c7214946e6dc8e24",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/usePersistentState.test.ts",
+      "sha256": "a342dfdf56cfb83e309359483a0e95f11af8802c3f570322272361dfd756d91a",
+      "baselineSha256": "a342dfdf56cfb83e309359483a0e95f11af8802c3f570322272361dfd756d91a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/hooks/usePersistentState.ts",
+      "sha256": "64ac3e729235f826115afd9c5affa9a58c4085e01054be5e7f37583989fbb02d",
+      "baselineSha256": "64ac3e729235f826115afd9c5affa9a58c4085e01054be5e7f37583989fbb02d",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/AccessTimeFilledIcon.tsx",
+      "sha256": "b30d363ffb4b70812a0e699a839e4cbcc82327f93b4ea0710f48564ef79c0572",
+      "baselineSha256": "b30d363ffb4b70812a0e699a839e4cbcc82327f93b4ea0710f48564ef79c0572",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/AccountCircleIcon.tsx",
+      "sha256": "5d12d30d1e16f5645be0f685e3a81a33fcd90bb446576d5bd2405a392ec2b61e",
+      "baselineSha256": "5d12d30d1e16f5645be0f685e3a81a33fcd90bb446576d5bd2405a392ec2b61e",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/AddIcon.tsx",
+      "sha256": "6dc2b8d8f2c796126e3608626f0df65fd328b748cb584d78795c9f3c68d0933e",
+      "baselineSha256": "6dc2b8d8f2c796126e3608626f0df65fd328b748cb584d78795c9f3c68d0933e",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ApartmentIcon.tsx",
+      "sha256": "ccd226045bbe60a8438d22751458bb7318f5c82566e9f91f2a3ef4ffab46c628",
+      "baselineSha256": "ccd226045bbe60a8438d22751458bb7318f5c82566e9f91f2a3ef4ffab46c628",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ArrowDropDownIcon.tsx",
+      "sha256": "aef26e18d5c3d02cf1c18f00ca036702e00e928bf96fbcc98ae4947217c8ca1f",
+      "baselineSha256": "aef26e18d5c3d02cf1c18f00ca036702e00e928bf96fbcc98ae4947217c8ca1f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ArrowForwardIcon.tsx",
+      "sha256": "b1014d045d3c14f156f87f24a01860e1918b6507bd38d849ebd2ff66fce8c8b1",
+      "baselineSha256": "b1014d045d3c14f156f87f24a01860e1918b6507bd38d849ebd2ff66fce8c8b1",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/AssignmentTurnedInIcon.tsx",
+      "sha256": "d12d547b9e4c7b6c9a147bba6b68f1c301a7bccce17acc4bb1be8b800a6d0fa8",
+      "baselineSha256": "d12d547b9e4c7b6c9a147bba6b68f1c301a7bccce17acc4bb1be8b800a6d0fa8",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/AutoStoriesIcon.tsx",
+      "sha256": "f6e665300176e562a609f8514dd7b746c2d8df3f8161f1613f859be1fadd9d10",
+      "baselineSha256": "f6e665300176e562a609f8514dd7b746c2d8df3f8161f1613f859be1fadd9d10",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/BookIcon.tsx",
+      "sha256": "89fe5da517f448158c1c6611f574b1f78ae78645818b7ea93ce48426752a50a5",
+      "baselineSha256": "89fe5da517f448158c1c6611f574b1f78ae78645818b7ea93ce48426752a50a5",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/BrushIcon.tsx",
+      "sha256": "d788ce80b7f91e6a3564d5cca6f4db4b2d6c4feca57a84ad4f823c0ab5723cfa",
+      "baselineSha256": "d788ce80b7f91e6a3564d5cca6f4db4b2d6c4feca57a84ad4f823c0ab5723cfa",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/BuildIcon.tsx",
+      "sha256": "ea15a9000b909940398470da849ee1047bbd87401389828479b085a88b9a8ddf",
+      "baselineSha256": "ea15a9000b909940398470da849ee1047bbd87401389828479b085a88b9a8ddf",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/BusinessCenterIcon.tsx",
+      "sha256": "14254df0ec43745d55aca0dc1bd49ea85589e978ceab4fb1af7bb6c012fd8be2",
+      "baselineSha256": "14254df0ec43745d55aca0dc1bd49ea85589e978ceab4fb1af7bb6c012fd8be2",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/CachedIcon.tsx",
+      "sha256": "9af21c7193ac7f39b1bd1f84b76e3992de3f603aa67424fd1487491a937d5b5a",
+      "baselineSha256": "9af21c7193ac7f39b1bd1f84b76e3992de3f603aa67424fd1487491a937d5b5a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/CalendarTodayIcon.tsx",
+      "sha256": "ba2734b53a967f548e0202431ed0520119114b4e91e732bceb64a9a3b786726e",
+      "baselineSha256": "ba2734b53a967f548e0202431ed0520119114b4e91e732bceb64a9a3b786726e",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/CheckIcon.tsx",
+      "sha256": "2d672b21f48402e731aafc117a39a91cb52d053cb512c80fc4454d80a919c962",
+      "baselineSha256": "2d672b21f48402e731aafc117a39a91cb52d053cb512c80fc4454d80a919c962",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ChevronRightIcon.tsx",
+      "sha256": "e0dfc94ba5885628802d85540771026c3deb79ce829e526784a1a4508c792487",
+      "baselineSha256": "e0dfc94ba5885628802d85540771026c3deb79ce829e526784a1a4508c792487",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/CircleIcon.tsx",
+      "sha256": "de80750522c4e8bd11c03fbc368976e9d15e83d50d1e3eb8d88b46699a49d937",
+      "baselineSha256": "de80750522c4e8bd11c03fbc368976e9d15e83d50d1e3eb8d88b46699a49d937",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ClassIcon.tsx",
+      "sha256": "a32b192b9d671359c4565b522154a35b76f20a57509bc33787d29a568201e4ea",
+      "baselineSha256": "a32b192b9d671359c4565b522154a35b76f20a57509bc33787d29a568201e4ea",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/CloseIcon.tsx",
+      "sha256": "90d337cebab9fecdef7217e7f3c6e7d0b3c0baf56b7ec0f1569cdd33e27185b7",
+      "baselineSha256": "90d337cebab9fecdef7217e7f3c6e7d0b3c0baf56b7ec0f1569cdd33e27185b7",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/CodeIcon.tsx",
+      "sha256": "aae2acec4e54b3e2e71dea1ec22871b0ca5b1c80713b897b58d912517f3dadc0",
+      "baselineSha256": "aae2acec4e54b3e2e71dea1ec22871b0ca5b1c80713b897b58d912517f3dadc0",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ComputerIcon.tsx",
+      "sha256": "2a39f2cffa247cb47b84f870df0c638c79b366f48f1326f7e5dc0d992a3e7090",
+      "baselineSha256": "2a39f2cffa247cb47b84f870df0c638c79b366f48f1326f7e5dc0d992a3e7090",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ContentCopyIcon.tsx",
+      "sha256": "f126895f4bf3babf9a1ff7d0d41cb816243b7b9747ba374658d50705e62d27cf",
+      "baselineSha256": "f126895f4bf3babf9a1ff7d0d41cb816243b7b9747ba374658d50705e62d27cf",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/CorporateFareIcon.tsx",
+      "sha256": "6bd5843bb26d30f73bf745b150008b68ddb42ce08b0f91f318af84f76a0dad5e",
+      "baselineSha256": "6bd5843bb26d30f73bf745b150008b68ddb42ce08b0f91f318af84f76a0dad5e",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/DashboardIcon.tsx",
+      "sha256": "511711823f6dff48c7d6ef06b14dfe44380a3d5cd7d75b14d6f2f5a224e34713",
+      "baselineSha256": "511711823f6dff48c7d6ef06b14dfe44380a3d5cd7d75b14d6f2f5a224e34713",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/DeleteOutlineIcon.tsx",
+      "sha256": "8485db4a0b33370f671ff7129860766f30411f197d28304ef5d47080897d5236",
+      "baselineSha256": "8485db4a0b33370f671ff7129860766f30411f197d28304ef5d47080897d5236",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/DescriptionIcon.tsx",
+      "sha256": "c3d38f847819af8510254d2f7c1fb802fcff612b871555604583b5b40c70167d",
+      "baselineSha256": "c3d38f847819af8510254d2f7c1fb802fcff612b871555604583b5b40c70167d",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/DescriptionOutlinedIcon.tsx",
+      "sha256": "ee7254e8be8a39b285e0c39d0e826b2017c5615474f079521f63ed313d2c8883",
+      "baselineSha256": "ee7254e8be8a39b285e0c39d0e826b2017c5615474f079521f63ed313d2c8883",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/DnsIcon.tsx",
+      "sha256": "5b880c3129e82f24a86fd1352b90f60bdf63cc304f1082e63507a18ee9ff9044",
+      "baselineSha256": "5b880c3129e82f24a86fd1352b90f60bdf63cc304f1082e63507a18ee9ff9044",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/DragIndicatorIcon.tsx",
+      "sha256": "7a8c376f5a5896102ce7a8ef4930f34de2427a283a9cc8675caebf45159b566b",
+      "baselineSha256": "7a8c376f5a5896102ce7a8ef4930f34de2427a283a9cc8675caebf45159b566b",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/EditIcon.tsx",
+      "sha256": "fc3c1510a3c736b38f765a40733490bcd2f743f9cd559b05a980793869eb7220",
+      "baselineSha256": "fc3c1510a3c736b38f765a40733490bcd2f743f9cd559b05a980793869eb7220",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/EventIcon.tsx",
+      "sha256": "33cdeb5cea9beec90ecda2c6bac4ffc351ffe86e37aeebd34a7a97bd684ce6e2",
+      "baselineSha256": "33cdeb5cea9beec90ecda2c6bac4ffc351ffe86e37aeebd34a7a97bd684ce6e2",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ExpandLessIcon.tsx",
+      "sha256": "4b12b1c19ddcf1ab5abe0cfffb4dfae25f60e82510773ab7691b4423bdee5996",
+      "baselineSha256": "4b12b1c19ddcf1ab5abe0cfffb4dfae25f60e82510773ab7691b4423bdee5996",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ExpandMoreIcon.tsx",
+      "sha256": "a0691c3a58c087f23c1e855e4cb91754d1401ed15d5a67c3174c5c0af22d324a",
+      "baselineSha256": "a0691c3a58c087f23c1e855e4cb91754d1401ed15d5a67c3174c5c0af22d324a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ExploreIcon.tsx",
+      "sha256": "cc9c2da68cb532985678f3d2b442aeef03e828d675fd2fb3b31c1fe65f14f8bd",
+      "baselineSha256": "cc9c2da68cb532985678f3d2b442aeef03e828d675fd2fb3b31c1fe65f14f8bd",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FactCheckOutlinedIcon.tsx",
+      "sha256": "23f28ce888f5bc89692fc756f4f75f6eb2aaeabb79332fc0a1a81c659d83625d",
+      "baselineSha256": "23f28ce888f5bc89692fc756f4f75f6eb2aaeabb79332fc0a1a81c659d83625d",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FilterListIcon.tsx",
+      "sha256": "b655807649ce84596b7962618b94c0c3740c60cf7fc32414135520e2f6f57ded",
+      "baselineSha256": "b655807649ce84596b7962618b94c0c3740c60cf7fc32414135520e2f6f57ded",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FontDownloadIcon.tsx",
+      "sha256": "900426f9ff8d96ba216e44249ef266b1c11ebecefd7e23c8d0075dfb1d9fd0f7",
+      "baselineSha256": "900426f9ff8d96ba216e44249ef266b1c11ebecefd7e23c8d0075dfb1d9fd0f7",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatAlignCenterIcon.tsx",
+      "sha256": "6da84204c459921c1b3710c5b509e7b39a2ad1ac9bcdaf01988363d4263218f1",
+      "baselineSha256": "6da84204c459921c1b3710c5b509e7b39a2ad1ac9bcdaf01988363d4263218f1",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatAlignJustifyIcon.tsx",
+      "sha256": "08d334f2e582c4ac116711d83e49f4dd635dcc6ba2496ff1ee47ba991ce1a8da",
+      "baselineSha256": "08d334f2e582c4ac116711d83e49f4dd635dcc6ba2496ff1ee47ba991ce1a8da",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatAlignLeftIcon.tsx",
+      "sha256": "4271595f7ab8dccdcb3bf3bcfec40672e1c071930ced6f26b82b4aa4899a2e24",
+      "baselineSha256": "4271595f7ab8dccdcb3bf3bcfec40672e1c071930ced6f26b82b4aa4899a2e24",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatAlignRightIcon.tsx",
+      "sha256": "d4c2dcfc5fd16befc368b8faaa3149b061fbd34b4e9b93c6d012563a9e7b4c82",
+      "baselineSha256": "d4c2dcfc5fd16befc368b8faaa3149b061fbd34b4e9b93c6d012563a9e7b4c82",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatBoldIcon.tsx",
+      "sha256": "e69fd9649b8d7127b7d59ac9a8fa74f82697f8a9ebb1f975d975e96d8195d2de",
+      "baselineSha256": "e69fd9649b8d7127b7d59ac9a8fa74f82697f8a9ebb1f975d975e96d8195d2de",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatClearIcon.tsx",
+      "sha256": "85fca4c2301b78645f9663e463699756da63cfa0be21a7d2a9dd9363d1935160",
+      "baselineSha256": "85fca4c2301b78645f9663e463699756da63cfa0be21a7d2a9dd9363d1935160",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatColorFillIcon.tsx",
+      "sha256": "59d0542af2d02156a143559886ba933f69de54fa5a919ac78238def78f178bef",
+      "baselineSha256": "59d0542af2d02156a143559886ba933f69de54fa5a919ac78238def78f178bef",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatColorTextIcon.tsx",
+      "sha256": "7c67ab7550070fedfd3f6125aff01fe93f1171f91e7ff57f997de7d2d2bcfa30",
+      "baselineSha256": "7c67ab7550070fedfd3f6125aff01fe93f1171f91e7ff57f997de7d2d2bcfa30",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatIndentDecreaseIcon.tsx",
+      "sha256": "17532568ee6b5f1262286ffc09c5a7ca0ea3055534b769c321d596412a563afb",
+      "baselineSha256": "17532568ee6b5f1262286ffc09c5a7ca0ea3055534b769c321d596412a563afb",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatIndentIncreaseIcon.tsx",
+      "sha256": "ec561543f8a61d2414c07df9e20d4f9d5bb0fc7efc390899f7afb63b39b269dc",
+      "baselineSha256": "ec561543f8a61d2414c07df9e20d4f9d5bb0fc7efc390899f7afb63b39b269dc",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatItalicIcon.tsx",
+      "sha256": "709099234bde8b4d8b729ce20f834823c8c8c87fe49886bd54333a2795b96182",
+      "baselineSha256": "709099234bde8b4d8b729ce20f834823c8c8c87fe49886bd54333a2795b96182",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatListBulletedIcon.tsx",
+      "sha256": "15e62f0bb96863b290abb5a4b01298bc9fa3b3008c156df875c27c86c54d1ba5",
+      "baselineSha256": "15e62f0bb96863b290abb5a4b01298bc9fa3b3008c156df875c27c86c54d1ba5",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatListNumberedIcon.tsx",
+      "sha256": "9c20abc31bf218e8c45a5d67d3382f1f1674d01e299aea1522ecf35768e4d566",
+      "baselineSha256": "9c20abc31bf218e8c45a5d67d3382f1f1674d01e299aea1522ecf35768e4d566",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatSizeIcon.tsx",
+      "sha256": "d6c93132872ab7933545210832bf77bd924bdfc932d6dec0b1cf42323f36ef44",
+      "baselineSha256": "d6c93132872ab7933545210832bf77bd924bdfc932d6dec0b1cf42323f36ef44",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatStrikethroughIcon.tsx",
+      "sha256": "d258943e14f0dce36cef3e9ccb030ed58931c409f1196558c578bd7a4b2faa02",
+      "baselineSha256": "d258943e14f0dce36cef3e9ccb030ed58931c409f1196558c578bd7a4b2faa02",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/FormatUnderlinedIcon.tsx",
+      "sha256": "b1ea2740718dc057c79afd1c81f42cea2f4a6fff71fa78020a92802a31fcac53",
+      "baselineSha256": "b1ea2740718dc057c79afd1c81f42cea2f4a6fff71fa78020a92802a31fcac53",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/GroupIcon.tsx",
+      "sha256": "97a345f3f49855cdf66593c4fd06aa9d0ea3f40a813f718f2cefd76488f80066",
+      "baselineSha256": "97a345f3f49855cdf66593c4fd06aa9d0ea3f40a813f718f2cefd76488f80066",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/HighlightIcon.tsx",
+      "sha256": "24a8a3f4a499df63b12d913d2460be5f5ad8be5cf90a519684a55f85ddd8fe26",
+      "baselineSha256": "24a8a3f4a499df63b12d913d2460be5f5ad8be5cf90a519684a55f85ddd8fe26",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/HorizontalRuleIcon.tsx",
+      "sha256": "8352c8620311da0f9d61b22240bfab9dc440a9bfdd8098deb3807044cf5c0930",
+      "baselineSha256": "8352c8620311da0f9d61b22240bfab9dc440a9bfdd8098deb3807044cf5c0930",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ImageIcon.tsx",
+      "sha256": "c317a521991d7dd3e16a42a842338504284a20ef8961388675d734c7ef26edbd",
+      "baselineSha256": "c317a521991d7dd3e16a42a842338504284a20ef8961388675d734c7ef26edbd",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/KeyboardArrowDownIcon.tsx",
+      "sha256": "e7340c5b60b5c2bb4ac5786c49eea5147c8bc11ffa9754473a48a3c58c36e466",
+      "baselineSha256": "e7340c5b60b5c2bb4ac5786c49eea5147c8bc11ffa9754473a48a3c58c36e466",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/KeyboardArrowLeftIcon.tsx",
+      "sha256": "c29436e385bff7f3c7b99880246d6e83f31ebdb154ebf16ed0dd42fae8228d41",
+      "baselineSha256": "c29436e385bff7f3c7b99880246d6e83f31ebdb154ebf16ed0dd42fae8228d41",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/LinkIcon.tsx",
+      "sha256": "d1c7f7e7c5f9bb70331ff6f2d57518d192652a165300e00e995551484cb2b552",
+      "baselineSha256": "d1c7f7e7c5f9bb70331ff6f2d57518d192652a165300e00e995551484cb2b552",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/LockIcon.tsx",
+      "sha256": "e2bf92c70c6609f3f62af91918dcebb7d587778689f5cefd084804fe53a70785",
+      "baselineSha256": "e2bf92c70c6609f3f62af91918dcebb7d587778689f5cefd084804fe53a70785",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/LockResetIcon.tsx",
+      "sha256": "89b212130f7bdb6aed45be9a487d5289c3131a8374bc6bf06b2c7b62540eb50e",
+      "baselineSha256": "89b212130f7bdb6aed45be9a487d5289c3131a8374bc6bf06b2c7b62540eb50e",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/LogoutIcon.tsx",
+      "sha256": "2629479b2f414667f1d2c184dfc41067ac2443ee157f8e88a0c3b9ba0a267582",
+      "baselineSha256": "2629479b2f414667f1d2c184dfc41067ac2443ee157f8e88a0c3b9ba0a267582",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ManageAccountsIcon.tsx",
+      "sha256": "6dde8b9fd4b11f0ecf28e478f15e3331b11f733ac877b0a38100ec6917343186",
+      "baselineSha256": "6dde8b9fd4b11f0ecf28e478f15e3331b11f733ac877b0a38100ec6917343186",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/MenuBookIcon.tsx",
+      "sha256": "f9d1bab72cec90cebb34500b39b0bce71998ce1cc2332eb7cedd74f577dd00b2",
+      "baselineSha256": "f9d1bab72cec90cebb34500b39b0bce71998ce1cc2332eb7cedd74f577dd00b2",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/MenuBookOutlinedIcon.tsx",
+      "sha256": "1d183d355e6076d2103b8c6116aab2e4e24f90b676d92c518d426e518bb995a3",
+      "baselineSha256": "1d183d355e6076d2103b8c6116aab2e4e24f90b676d92c518d426e518bb995a3",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/MoreHorizIcon.tsx",
+      "sha256": "22cc28ea76681d153e1cd290f04b5776efddd221f9fbe989f5596efd4ef6adc4",
+      "baselineSha256": "22cc28ea76681d153e1cd290f04b5776efddd221f9fbe989f5596efd4ef6adc4",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/MoreVertIcon.tsx",
+      "sha256": "350496743424478ab612f4ca4d2f81a8444471daaaccff519a8628edbf02e263",
+      "baselineSha256": "350496743424478ab612f4ca4d2f81a8444471daaaccff519a8628edbf02e263",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/PaidIcon.tsx",
+      "sha256": "79ddf721f11efc28206da5e81ea9d2fe37883d38870bc4b213e74a584ccba019",
+      "baselineSha256": "79ddf721f11efc28206da5e81ea9d2fe37883d38870bc4b213e74a584ccba019",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/PeopleIcon.tsx",
+      "sha256": "4b52031105217e8c98d94e0633b2a954f83140d08fcb521b44d9933bca55e415",
+      "baselineSha256": "4b52031105217e8c98d94e0633b2a954f83140d08fcb521b44d9933bca55e415",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/PersonAddIcon.tsx",
+      "sha256": "9ddb4c4adcae4682461df704d287a87e9710361e9aac416f38e28c14c8f4407a",
+      "baselineSha256": "9ddb4c4adcae4682461df704d287a87e9710361e9aac416f38e28c14c8f4407a",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/PersonIcon.tsx",
+      "sha256": "6807b24898973e8076bddc04dcc860d9b1296c271513500a3014853076942ef3",
+      "baselineSha256": "6807b24898973e8076bddc04dcc860d9b1296c271513500a3014853076942ef3",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/PhotoCameraBackIcon.tsx",
+      "sha256": "4ba7e72d139912baf9b44e60c8267f9a20a9f8a04e28a5200937eaac839776bf",
+      "baselineSha256": "4ba7e72d139912baf9b44e60c8267f9a20a9f8a04e28a5200937eaac839776bf",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/QuizOutlinedIcon.tsx",
+      "sha256": "a596ae61fa2a3b1e8ec3e1c2f97b40b6b9e3175793ac485c5126d4471857efff",
+      "baselineSha256": "a596ae61fa2a3b1e8ec3e1c2f97b40b6b9e3175793ac485c5126d4471857efff",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/RedoIcon.tsx",
+      "sha256": "eeaf7e03fe143dd068cd559c96913aee3c14ab7203caa6e20d66362d4d8a2e76",
+      "baselineSha256": "eeaf7e03fe143dd068cd559c96913aee3c14ab7203caa6e20d66362d4d8a2e76",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/RemoveIcon.tsx",
+      "sha256": "3c0d1c9f26bf881517ef259726eebe0e32d3751ece31ca3388023060641792ac",
+      "baselineSha256": "3c0d1c9f26bf881517ef259726eebe0e32d3751ece31ca3388023060641792ac",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/SchoolIcon.tsx",
+      "sha256": "0c15bc9873a4054ee85487ccdaf70731d3c4b695801c4c836039c65872e343c5",
+      "baselineSha256": "0c15bc9873a4054ee85487ccdaf70731d3c4b695801c4c836039c65872e343c5",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ScienceOutlinedIcon.tsx",
+      "sha256": "04972085008432059792f3bb3e12418ccfe309b3bb691191c459553ef857bd0e",
+      "baselineSha256": "04972085008432059792f3bb3e12418ccfe309b3bb691191c459553ef857bd0e",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/SearchIcon.tsx",
+      "sha256": "e29d0eaf781f962ed80eb5e24e4fd94ddff387242aba6ceb006242e37cf7c2e5",
+      "baselineSha256": "e29d0eaf781f962ed80eb5e24e4fd94ddff387242aba6ceb006242e37cf7c2e5",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/SortIcon.tsx",
+      "sha256": "657f5ac50353d2a238ac7a0b2ca2f8694d60e7b22b00328015141e22809db33f",
+      "baselineSha256": "657f5ac50353d2a238ac7a0b2ca2f8694d60e7b22b00328015141e22809db33f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/StarIcon.tsx",
+      "sha256": "ba40c57e646ee1e40d4856794e89f8bda490c1282d4e9e816f3ec138211b4d4f",
+      "baselineSha256": "ba40c57e646ee1e40d4856794e89f8bda490c1282d4e9e816f3ec138211b4d4f",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/SubscriptIcon.tsx",
+      "sha256": "f732cd413ffc2fbe90d0df4006f7dd100c383e6e6f1e12575c99cb998fdaf363",
+      "baselineSha256": "f732cd413ffc2fbe90d0df4006f7dd100c383e6e6f1e12575c99cb998fdaf363",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/SuperscriptIcon.tsx",
+      "sha256": "9e89fae9280fd2d070b7f65d0dc763646d6f9274c65e69dd323c165884385447",
+      "baselineSha256": "9e89fae9280fd2d070b7f65d0dc763646d6f9274c65e69dd323c165884385447",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/TaskAltIcon.tsx",
+      "sha256": "3aa8d4b02736aadfc7db5d917058969708b33a49ce458f248a2e6c97e9fdf58d",
+      "baselineSha256": "3aa8d4b02736aadfc7db5d917058969708b33a49ce458f248a2e6c97e9fdf58d",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/TerminalIcon.tsx",
+      "sha256": "bb8d63135c59d3056deb87ae1e790d3b5e226491b873d4f5473f717eebd06318",
+      "baselineSha256": "bb8d63135c59d3056deb87ae1e790d3b5e226491b873d4f5473f717eebd06318",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/TranslateIcon.tsx",
+      "sha256": "c5012330ee8f3424c32017df59c69732df3c4fa53e8b7af61da04de32f6119bd",
+      "baselineSha256": "c5012330ee8f3424c32017df59c69732df3c4fa53e8b7af61da04de32f6119bd",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/TuneIcon.tsx",
+      "sha256": "d7cf31d41d3466200b78942f82fcae28010b2cac86741c89ccee723b0486f26d",
+      "baselineSha256": "d7cf31d41d3466200b78942f82fcae28010b2cac86741c89ccee723b0486f26d",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/UndoIcon.tsx",
+      "sha256": "b65119e5c91a8e6f779a263e6c543381809f6d862d08df1ce4ebcd9f7a09d375",
+      "baselineSha256": "b65119e5c91a8e6f779a263e6c543381809f6d862d08df1ce4ebcd9f7a09d375",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/UploadFileIcon.tsx",
+      "sha256": "015ef1336cbf0b3c4a519710b73e007a2dcc37f5727417a090c34a99eb32207c",
+      "baselineSha256": "015ef1336cbf0b3c4a519710b73e007a2dcc37f5727417a090c34a99eb32207c",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ViewColumnIcon.tsx",
+      "sha256": "b29c66498f4a802a7507a521d48d22ddcb58a71153d245d1333b102692689a20",
+      "baselineSha256": "b29c66498f4a802a7507a521d48d22ddcb58a71153d245d1333b102692689a20",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ViewListIcon.tsx",
+      "sha256": "1b5426c0715653622fe2adafdbfdb793543879f9fa8be2454b3412a5e4eb0068",
+      "baselineSha256": "1b5426c0715653622fe2adafdbfdb793543879f9fa8be2454b3412a5e4eb0068",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/ViewWeekIcon.tsx",
+      "sha256": "998c07622e2b48ba9efdf044582920ad4f2c58c10cb6948cf6ea1af66bd73133",
+      "baselineSha256": "998c07622e2b48ba9efdf044582920ad4f2c58c10cb6948cf6ea1af66bd73133",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/VisibilityOffIcon.tsx",
+      "sha256": "d369276a9b736f4043c88a9449908ba9aecfaa94d8e7353f60fd06ee6abb3c3c",
+      "baselineSha256": "d369276a9b736f4043c88a9449908ba9aecfaa94d8e7353f60fd06ee6abb3c3c",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/VpnKeyIcon.tsx",
+      "sha256": "e13e418eddb04a42523a478141c10954bcf5962dcf070879b0885a6e2cad58a2",
+      "baselineSha256": "e13e418eddb04a42523a478141c10954bcf5962dcf070879b0885a6e2cad58a2",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/WindowIcon.tsx",
+      "sha256": "19573fdf3dd418089c0c9ad52a03a15f2fdc891791c88a61534b334e1ca70440",
+      "baselineSha256": "19573fdf3dd418089c0c9ad52a03a15f2fdc891791c88a61534b334e1ca70440",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/WorkOutlineOutlinedIcon.tsx",
+      "sha256": "8a07a1837b9ed2b959d3055c9950f2122aa98507b1fb0220ad9764b326fc4633",
+      "baselineSha256": "8a07a1837b9ed2b959d3055c9950f2122aa98507b1fb0220ad9764b326fc4633",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/icons/index.ts",
+      "sha256": "f51711190ee506fe41777833c22a898d3ff91231bc575cfbffd02065e31f4b6b",
+      "baselineSha256": "f51711190ee506fe41777833c22a898d3ff91231bc575cfbffd02065e31f4b6b",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/index.ts",
+      "sha256": "7267aef5c095814b4e399459e064dc91c9c48c91a4e3f2feee215def3dc43bc3",
+      "baselineSha256": "7267aef5c095814b4e399459e064dc91c9c48c91a4e3f2feee215def3dc43bc3",
+      "comparison": "same"
+    },
+    {
+      "path": "packages/ui/src/models.ts",
+      "sha256": "e8802b99e081c5cff9ab9d9259fe15a3f95d1bad8dbffb9e8a0c0114c9767414",
+      "baselineSha256": "e8802b99e081c5cff9ab9d9259fe15a3f95d1bad8dbffb9e8a0c0114c9767414",
+      "comparison": "same"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "baselineSha256": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "comparison": "same"
+    }
+  ],
+  "concurrentControlsExcluded": [
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.test.tsx",
+      "sha256": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "sha256": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.test.tsx",
+      "sha256": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "sha256": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.test.tsx",
+      "sha256": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "sha256": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.module.css",
+      "sha256": "5e16dcb7938fdedab6efe8a6882b0294b9ae4040d795027dc8823c5d407b8fc7",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.native-fixture.tsx",
+      "sha256": "5bed0953d6cf4ada4d0eb1ae124f593627d981a720956a98d22d52b5f29f65af",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.next100-regression.test.tsx",
+      "sha256": "6ca44fdf2c3da1e79abcbd1fc67231759e0487b00b508b4b2d24a4fa1464f41c",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.test.tsx",
+      "sha256": "6af2480609646f5ceef544f54a7e572afc12c94117a539e3d0a95562bdc4472f",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+      "sha256": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6",
+      "reuse": "Excluded: coordinator-owned concurrent BUG-0008/0009 changes; old output is not proof of new source."
+    }
+  ],
+  "summary": {
+    "same": 290,
+    "changed": 0,
+    "not-in-snapshot": 0
+  },
+  "checksActuallyRun": [
+    "Read original 21 leaf statements and source/test/contract/accepted receipts",
+    "Selected SHA-256 input comparisons only; no repeated source/dependency/export inventory",
+    "37-row migration tracking index constructed from existing scope ledger and snapshot",
+    "Referenced historical raw artifact directories checked for availability; hb16/backlog artifacts absent at documented paths"
+  ],
+  "noNewTestExecution": true
+}

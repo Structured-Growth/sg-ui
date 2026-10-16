@@ -12,7 +12,7 @@ export function useStandaloneFormReset(ref: RefObject<HTMLElement | null>, reset
   // form attribute changes or a host replaces the associated form element.
   useNativeLayoutEffect(() => {
     const element = ref.current;
-    const form = element instanceof HTMLInputElement ? element.form : element?.closest("form");
+    const form = (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) ? element.form : element?.closest("form");
     if (binding.current?.form === form) return;
     binding.current?.dispose();
     const pending = new Set<ReturnType<typeof setTimeout>>();

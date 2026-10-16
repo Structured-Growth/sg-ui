@@ -1,0 +1,365 @@
+diff --git a/docs/developer/react-aria-theme.md b/docs/developer/react-aria-theme.md
+--- a/docs/developer/react-aria-theme.md
++++ b/docs/developer/react-aria-theme.md
+@@ -29,6 +29,33 @@
+ layout styles such as padding remain at the source root. There is no global CSS
+ baseline or runtime stylesheet injection. Applications own body/background/font
+ loading and any reset they require.
++
++### Initial server appearance and live overlay updates
++
++Render the same `theme`, density, host locale, initial field values and civil-date
++anchors on the server and first client render. The default theme is `light`;
++`system` keeps that literal setting in markup and lets the loaded stylesheet
++resolve `prefers-color-scheme` and `color-scheme`. It needs no preference read in
++render or effect to choose the initial colors. Explicit `light` and `dark` scopes
++retain their own color scheme when the system preference changes.
++
++Load `styles.css` in the document's initial stylesheet path before showing the
++interface. A late stylesheet, client-only preference restoration or a different
++server/client host locale can cause a visible change outside the scope contract.
++If a host persists an explicit theme, serialize the server's chosen value for the
++first client render; apply later user changes through props. The host also owns
++locale negotiation and timezone conversion. Supply civil `referenceDate` values
++for calendar workflows rather than deriving an initial view from a client clock.
++
++An already open owned overlay receives subsequent context changes to theme,
++density, language, direction and inline `--sgui-*` overrides. A nested explicit
++theme or density still wins, and sibling scopes stay independent. Arbitrary CSS
++classes and layout styles do not transfer across portals: express portaled color
++customization through owned variables on Provider/ThemeScope. The grid state
++contract fixes controlled/uncontrolled ownership per instance; remount when changing
++that ownership. Other controls retain their documented value/default/reset contracts;
++a theme change does not authorize changing their ownership. Controlled hosts must
++accept a requested value before it becomes authoritative.
+ 
+ | Removed API | Owned mapping |
+ | --- | --- |
+diff --git a/packages/ui/scripts/scope-hydration-proof.jsx b/packages/ui/scripts/scope-hydration-proof.jsx
+new file mode 100644
+--- /dev/null
++++ b/packages/ui/scripts/scope-hydration-proof.jsx
+@@ -0,0 +1,31 @@
++import React from 'react';
++import { Provider, ThemeScope } from '@structured-growth/sg-ui/theme';
++import { SGTranslationProvider } from '@structured-growth/sg-ui/i18n';
++import { Button } from '@structured-growth/sg-ui/components/Button';
++import { TextArea, TextField, DateField, PeriodPicker, DateTimeRangePicker, DateRangeComparisonPicker, Popover, Menu } from '@structured-growth/sg-ui/experimental';
++export const comparison = { primary: { start: '2024-02-28', end: '2024-02-29' }, comparison: { start: '2024-02-26', end: '2024-02-27' }, mode: 'previous-period' };
++export function Proof({ locale = 'ar-EG', theme = 'system' }) {
++  const [changed, setChanged] = React.useState(false);
++  React.useEffect(() => {
++    const update = () => setChanged(true);
++    document.addEventListener('sgui-acceptance-scope-update', update);
++    window.scopeHydrated = true;
++    return () => document.removeEventListener('sgui-acceptance-scope-update', update);
++  }, []);
++  return <React.StrictMode><SGTranslationProvider value={{ locale: changed ? 'fr-FR' : locale, t: (_key, options) => options.defaultMessage, useNamespace: () => {} }}>
++    <Provider data-testid="owner" theme={changed ? 'dark' : theme} density={changed ? 'compact' : 'comfortable'}
++      style={{ width: '31rem', '--sgui-menu-background': changed ? '#172554' : '#fff7ed' }}>
++      <ThemeScope data-testid="inherited"><TextField label="Course name" name="course" defaultValue="Science" description="Host description" />
++        <TextArea label="Notes" name="notes" defaultValue="Leap day" />
++        <DateField label="Leap date" name="date" defaultValue="2024-02-29" />
++        <PeriodPicker label="Month" unit="month" referenceDate="2024-02-29" name="month" defaultValue={{ start: '2024-02-01', end: '2024-02-29' }} />
++        <DateTimeRangePicker label="Appointment" referenceDate="2024-02-29" name="appointment" defaultValue={{ start: '2024-02-29T09:15:00', end: '2024-02-29T10:30:00' }} />
++        <DateRangeComparisonPicker label="Comparison" name="comparison" defaultValue={comparison} />
++        <Popover title="Scope help" trigger={<Button>Open help</Button>}><ThemeScope>
++          <Menu label="Scope actions" trigger={<Button>Open actions</Button>} items={[{ id: 'review', label: 'Review' }]} />
++        </ThemeScope></Popover>
++      </ThemeScope>
++      <ThemeScope data-testid="fixed" theme="light" density="comfortable"><Button>Fixed action</Button></ThemeScope>
++    </Provider>
++  </SGTranslationProvider><Provider data-testid="sibling" theme="light" density="comfortable"><TextField label="Sibling course" defaultValue="Mathematics" /></Provider></React.StrictMode>;
++}
+diff --git a/packages/ui/scripts/test-scoped-lifecycle-consumer.mjs b/packages/ui/scripts/test-scoped-lifecycle-consumer.mjs
+new file mode 100644
+--- /dev/null
++++ b/packages/ui/scripts/test-scoped-lifecycle-consumer.mjs
+@@ -0,0 +1,159 @@
++// Run after an immutable packed React 18/19 fixture has been installed by the coordinator.
++// No install, package build, fixed port or modification of the original Proof is performed here.
++import assert from 'node:assert/strict';
++import { createHash } from 'node:crypto';
++import { createRequire } from 'node:module';
++import { readFile, writeFile, mkdir, copyFile, readdir } from 'node:fs/promises';
++import { dirname, join, resolve } from 'node:path';
++import { fileURLToPath } from 'node:url';
++import { chromium, firefox, webkit, expect } from '@playwright/test';
++import { staticConsumer } from './packed-browser.mjs';
++const args = process.argv.slice(2);
++assert.equal(args.length, 2, 'Usage: node scripts/test-scoped-lifecycle-consumer.mjs /absolute/installed-packed-fixture /absolute/fresh-evidence-directory');
++assert(args.every(path => path.startsWith('/')), 'Use absolute paths');
++const [fixture, output] = args.map(path => resolve(path));
++const own = dirname(fileURLToPath(import.meta.url));
++const requireFixture = createRequire(join(fixture, 'package.json'));
++const { createServer, build } = await import(requireFixture.resolve('vite'));
++const React = await import(requireFixture.resolve('react'));
++const { renderToString } = await import(requireFixture.resolve('react-dom/server'));
++assert(['18.3.1', '19.2.3'].includes(React.version), `Unreviewed fixture React version ${React.version}`);
++assert.equal(typeof window, 'undefined'); assert.equal(typeof document, 'undefined');
++await mkdir(output, { recursive: false }); // Fail rather than overwrite a previous receipt.
++const root = join(fixture, `scope-proof-${Date.now()}`);
++await mkdir(root);
++await copyFile(join(own, 'scope-hydration-proof.jsx'), join(root, 'Proof.jsx'));
++const proofHash = createHash('sha256').update(await readFile(join(root, 'Proof.jsx'))).digest('hex');
++const packageJson = requireFixture.resolve('@structured-growth/sg-ui');
++const packageEntryHash = createHash('sha256').update(await readFile(packageJson)).digest('hex');
++async function hashTree(directory) {
++  const hashes = {};
++  async function visit(path, prefix = '') {
++    for (const entry of (await readdir(path, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name))) {
++      const key = prefix + entry.name;
++      if (entry.isDirectory()) await visit(join(path, entry.name), key + '/');
++      else if (entry.isFile()) hashes[key] = createHash('sha256').update(await readFile(join(path, entry.name))).digest('hex');
++    }
++  }
++  await visit(directory);
++  return hashes;
++}
++const packageOutputHashes = await hashTree(dirname(packageJson));
++const fixtureManifestHash = createHash('sha256').update(await readFile(join(fixture, 'package.json'))).digest('hex');
++const results = { packageOutputHashes, fixtureManifestHash, node: process.version, react: React.version, proofHash, packageEntry: packageJson, packageEntryHash, fixture, root, cases: [] };
++try {
++  for (const locale of ['ar-EG', 'fr-FR']) {
++    const props = { locale, theme: 'system' };
++    const server = await createServer({ root, server: { middlewareMode: true }, appType: 'custom' });
++    let html;
++    try {
++      const { Proof } = await server.ssrLoadModule('/Proof.jsx');
++      html = renderToString(React.createElement(Proof, props));
++    } finally { await server.close(); }
++    assert.equal(typeof window, 'undefined'); assert.equal(typeof document, 'undefined');
++    assert(html.includes('data-sgui-theme="system"') && html.includes(`lang="${locale}"`));
++    assert(html.includes('2024-02-29T09:15:00') && html.includes('Leap day'));
++    await writeFile(join(root, 'main.jsx'), `import React from 'react';
++import { hydrateRoot } from 'react-dom/client';
++import { Proof } from './Proof.jsx';
++import '@structured-growth/sg-ui/styles.css';
++window.scopeErrors = [];
++window.scopeReactRoot = hydrateRoot(document.getElementById('root'), <Proof {...${JSON.stringify(props)}} />, {onRecoverableError(error){window.scopeErrors.push(String(error));}});
++`);
++    await writeFile(join(root, 'index.html'), `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><link rel="icon" href="data:,"><title>Scoped lifecycle proof</title></head><body><div id="root">${html}</div><script type="module" src="/main.jsx"></script></body></html>`);
++    const dist = join(root, `dist-${locale}`);
++    await build({ root, build: { outDir: dist, emptyOutDir: true } });
++    results.builds ??= {};
++    results.builds[locale] = await hashTree(dist);
++    // The production build links the extracted stylesheet in head. The JS gate below
++    // captures a styled server frame; it does not measure every physical paint.
++    await staticConsumer(dist, async url => {
++      for (const engine of ['chromium', 'firefox', 'webkit']) {
++        const browser = await ({ chromium, firefox, webkit })[engine].launch();
++        try {
++          for (const preference of ['light', 'dark']) {
++            const context = await browser.newContext({ colorScheme: preference, reducedMotion: 'reduce', hasTouch: false });
++            const page = await context.newPage();
++            const errors = [];
++            page.on('pageerror', error => errors.push(error.message));
++            page.on('console', message => { if (['error', 'warning'].includes(message.type())) errors.push(message.text()); });
++            let release;
++            const gate = new Promise(resolve => { release = resolve; });
++            await page.route('**/*.js', async route => { await gate; await route.continue(); });
++            try {
++              await page.goto(url, { waitUntil: 'commit' });
++              const owner = page.getByTestId('owner');
++              await expect(owner).toBeAttached();
++              const computed = locator => locator.evaluate(element => {
++                const css = getComputedStyle(element);
++                return { scheme: css.colorScheme, color: css.color, background: css.backgroundColor };
++              });
++              await expect.poll(async () => (await computed(owner)).scheme).toBe(preference);
++              assert.equal(await page.evaluate(() => window.scopeHydrated), undefined, 'JS gate failed');
++              const before = await computed(owner);
++              assert.equal((await computed(page.getByTestId('fixed'))).scheme, 'light');
++              await page.evaluate(() => {
++                window.scopeServerOwner = document.querySelector('[data-testid="owner"]');
++                window.scopeServerField = document.querySelector('input[name="course"]');
++              });
++              const fieldID = await page.getByRole('textbox', { name: 'Course name', exact: true }).getAttribute('id');
++              const preIDs = await page.locator('[id]').evaluateAll(nodes => nodes.map(node => node.id));
++              assert.equal(new Set(preIDs).size, preIDs.length, 'Duplicate server IDs');
++              assert.equal(await page.locator('[name="date"]').inputValue(), '2024-02-29');
++              assert.equal(await page.locator('[name="appointment.start"]').inputValue(), '2024-02-29T09:15:00');
++              assert.deepEqual(JSON.parse(await page.locator('[name="comparison"]').inputValue()), { primary: { start: '2024-02-28', end: '2024-02-29' }, comparison: { start: '2024-02-26', end: '2024-02-27' }, mode: 'previous-period' });
++              release();
++              await expect.poll(() => page.evaluate(() => window.scopeHydrated)).toBe(true);
++              assert(await owner.evaluate(element => element === window.scopeServerOwner), 'Server scope replaced');
++              assert(await page.locator('input[name="course"]').evaluate(element => element === window.scopeServerField), 'Server field replaced');
++              await expect(page.getByRole('textbox', { name: 'Course name', exact: true })).toHaveAttribute('id', fieldID);
++              assert.deepEqual(await computed(owner), before, 'Hydration changed initial theme');
++              await expect(owner).toHaveAttribute('lang', locale);
++              await expect(owner).toHaveAttribute('dir', locale === 'ar-EG' ? 'rtl' : 'ltr');
++              await expect(page.getByRole('textbox', { name: 'Notes', exact: true })).toHaveValue('Leap day');
++              const nextPreference = preference === 'dark' ? 'light' : 'dark';
++              await page.emulateMedia({ colorScheme: nextPreference });
++              await expect.poll(async () => (await computed(owner)).scheme).toBe(nextPreference);
++              assert.equal((await computed(page.getByTestId('fixed'))).scheme, 'light');
++              const siblingBefore = await computed(page.getByTestId('sibling'));
++              await page.getByRole('button', { name: 'Open help', exact: true }).click();
++              await page.getByRole('button', { name: 'Open actions', exact: true }).click();
++              const menu = page.getByRole('menu', { name: 'Scope actions', exact: true });
++              await expect(menu).toBeVisible();
++              await menu.evaluate(element => { window.scopeOpenMenu = element; });
++              // Host-side state changes while modal content is open; deliberately
++              // programmatic rather than misreported as a user click through inert content.
++              await page.evaluate(() => document.dispatchEvent(new Event('sgui-acceptance-scope-update')));
++              await expect(owner).toHaveAttribute('lang', 'fr-FR');
++              await page.emulateMedia({ colorScheme: 'light' });
++              await expect.poll(async () => (await computed(owner)).scheme).toBe('dark');
++              assert.equal((await computed(page.getByTestId('fixed'))).scheme, 'light');
++              const portal = menu.locator('xpath=ancestor::*[@data-sgui-scope][1]');
++              await expect(portal).toHaveAttribute('data-sgui-theme', 'dark');
++              await expect(portal).toHaveAttribute('data-sgui-density', 'compact');
++              await expect(portal).toHaveAttribute('dir', 'ltr');
++              await expect(portal).toHaveAttribute('lang', 'fr-FR');
++              assert(await menu.evaluate(element => element === window.scopeOpenMenu), 'Live menu remounted');
++              await expect.poll(async () => (await computed(portal)).background).toBe('rgb(23, 37, 84)');
++              assert.equal(await portal.evaluate(element => element.style.width), '', 'Layout leaked to portal');
++              assert.deepEqual(await computed(page.getByTestId('sibling')), siblingBefore, 'Sibling theme leaked');
++              await page.keyboard.press('Escape'); await expect(menu).toHaveCount(0);
++              await expect(page.getByRole('button', { name: 'Open actions', exact: true })).toBeFocused();
++              await page.keyboard.press('Escape');
++              await expect(page.getByRole('button', { name: 'Open help', exact: true })).toBeFocused();
++              const ids = await page.locator('[id]').evaluateAll(nodes => nodes.map(node => node.id));
++              assert.equal(new Set(ids).size, ids.length, 'Duplicate hydrated IDs');
++              assert(await page.locator('[aria-labelledby], [aria-describedby]').evaluateAll(nodes => nodes.every(node => ['aria-labelledby', 'aria-describedby'].every(attr => (node.getAttribute(attr) ?? '').split(/\s+/).filter(Boolean).every(id => document.getElementById(id))))), 'Unresolved hydrated IDREF');
++              assert.deepEqual(await page.evaluate(() => window.scopeErrors), [], 'Recoverable hydration errors');
++              assert.deepEqual(errors, [], 'Browser diagnostics');
++              results.cases.push({ locale, engine, browser: browser.version(), preference, nextPreference, prehydrationStyled: before, passed: true });
++            } finally { release(); await context.close(); }
++          }
++        } finally { await browser.close(); }
++      }
++    });
++  }
++  assert.deepEqual(await hashTree(dirname(packageJson)), packageOutputHashes, 'Installed package output changed during validation');
++  results.status = 'passed';
++} catch (error) { results.status = 'failed'; results.failure = String(error.stack ?? error); throw error; }
++finally { await writeFile(join(output, 'scope-lifecycle.json'), JSON.stringify(results, null, 2)); }
+diff --git a/packages/ui/src/experimental/Provider/Provider.composed-ssr.test.tsx b/packages/ui/src/experimental/Provider/Provider.composed-ssr.test.tsx
+new file mode 100644
+--- /dev/null
++++ b/packages/ui/src/experimental/Provider/Provider.composed-ssr.test.tsx
+@@ -0,0 +1,24 @@
++import { expect, it } from "vitest";
++import { createElement } from "react";
++import { renderToString } from "react-dom/server";
++it("imports and server-renders fixed composed values with an explicit host locale and system theme", async () => {
++  expect(typeof window).toBe("undefined");
++  expect(typeof document).toBe("undefined");
++  const [{ Provider }, { SGTranslationProvider }, { PeriodPicker }, { DateTimeRangePicker }, { DateRangeComparisonPicker }, { TextArea }] = await Promise.all([
++    import("./Provider"), import("../../i18n"), import("../PeriodPicker/PeriodPicker"),
++    import("../DateTimeRangePicker/DateTimeRangePicker"), import("../DateRangeComparisonPicker/DateRangeComparisonPicker"), import("../TextArea/TextArea"),
++  ]);
++  const comparison = { primary: { start: "2024-02-28", end: "2024-02-29" }, comparison: { start: "2024-02-26", end: "2024-02-27" }, mode: "previous-period" as const };
++  const html = renderToString(createElement(SGTranslationProvider, { value: { locale: "ar-EG", t: (_key, options) => options.defaultMessage, useNamespace: () => {} }, children:
++    <Provider theme="system" density="compact">
++      <PeriodPicker label="Month" unit="month" referenceDate="2024-02-29" name="month" defaultValue={{ start: "2024-02-01", end: "2024-02-29" }} />
++      <DateTimeRangePicker label="Appointment" referenceDate="2024-02-29" name="appointment" defaultValue={{ start: "2024-02-29T09:15:00", end: "2024-02-29T10:30:00" }} />
++      <DateRangeComparisonPicker label="Comparison" name="comparison" defaultValue={comparison} />
++      <TextArea label="Notes" name="notes" defaultValue="Leap day" />
++    </Provider> }));
++  expect(html).toContain('data-sgui-theme="system"');
++  expect(html).toContain('lang="ar-EG"'); expect(html).toContain('dir="rtl"');
++  for (const value of ["2024-02-29", "2024-02-29T09:15:00", "2024-02-29T10:30:00", "Leap day"]) expect(html).toContain(value);
++  for (const name of ["month.start", "month.end", "appointment.start", "appointment.end", "comparison", "notes"]) expect(html).toContain(`name="${name}"`);
++  expect(typeof window).toBe("undefined"); expect(typeof document).toBe("undefined");
++});
+diff --git a/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx b/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx
+new file mode 100644
+--- /dev/null
++++ b/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx
+@@ -0,0 +1,55 @@
++// @vitest-environment jsdom
++import { StrictMode } from "react";
++import { afterEach, expect, it } from "vitest";
++import { cleanup, render, screen, waitFor } from "@testing-library/react";
++import userEvent from "@testing-library/user-event";
++import { SGTranslationProvider } from "../../i18n";
++import { ThemeScope } from "../../foundation/ThemeScope";
++import { Provider } from "./Provider";
++import { Popover } from "../Popover/Popover";
++import { Menu } from "../Menu/Menu";
++import { Button } from "../../components/Button/Button";
++afterEach(cleanup);
++
++it("updates an open nested portal without remounting its menu or changing its sibling", async () => {
++  const user = userEvent.setup();
++  const tree = (changed: boolean) => <StrictMode>
++    <SGTranslationProvider value={{ locale: changed ? "ar-EG" : "en-US", t: (_key, options) => options.defaultMessage, useNamespace: () => {} }}>
++      <Provider theme={changed ? "dark" : "light"} density={changed ? "compact" : "comfortable"}
++        dir={changed ? "rtl" : "ltr"} style={{ width: "31rem", "--sgui-menu-background": changed ? "#172554" : "#fff7ed" }}>
++        <Popover title="Scope help" trigger={<Button>Open help</Button>}>
++          <ThemeScope><Menu label="Scope actions" trigger={<Button>Open actions</Button>}
++            items={[{ id: "review", label: "Review" }]} /></ThemeScope>
++        </Popover>
++      </Provider>
++    </SGTranslationProvider>
++    <Provider theme="light" density="comfortable" data-testid="sibling" style={{ "--sgui-menu-background": "#ffffff" }} />
++  </StrictMode>;
++  const view = render(tree(false));
++  const sibling = view.getByTestId("sibling");
++  const before = sibling.outerHTML;
++  await user.click(screen.getByRole("button", { name: "Open help" }));
++  const dialog = screen.getByRole("dialog", { name: "Scope help" });
++  await user.click(screen.getByRole("button", { name: "Open actions" }));
++  const menu = screen.getByRole("menu", { name: "Scope actions" });
++  const id = menu.getAttribute("aria-labelledby");
++  view.rerender(tree(true));
++  expect(screen.getByRole("menu", { name: "Scope actions" })).toBe(menu);
++  expect(screen.getByRole("dialog", { name: "Scope help", hidden: true })).toBe(dialog);
++  expect(menu.getAttribute("aria-labelledby")).toBe(id);
++  expect(document.getElementById(id!)).not.toBeNull();
++  const portal = menu.closest<HTMLElement>("[data-sgui-scope]")!;
++  expect(portal.getAttribute("data-sgui-theme")).toBe("dark");
++  expect(portal.getAttribute("data-sgui-density")).toBe("compact");
++  expect(portal.getAttribute("dir")).toBe("rtl");
++  expect(portal.getAttribute("lang")).toBe("ar-EG");
++  expect(portal.style.getPropertyValue("--sgui-menu-background")).toBe("#172554");
++  expect(portal.style.width).toBe("");
++  expect(sibling.outerHTML).toBe(before);
++  await user.keyboard("{Escape}");
++  expect(screen.queryByRole("menu")).toBeNull();
++  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Open actions" })));
++  await user.keyboard("{Escape}");
++  await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
++  await waitFor(() => expect(document.activeElement).toBe(screen.getByRole("button", { name: "Open help" })));
++});
+diff --git a/packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx b/packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx
+new file mode 100644
+--- /dev/null
++++ b/packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx
+@@ -0,0 +1,34 @@
++// @vitest-environment jsdom
++import { StrictMode } from "react";
++import { cleanup, render } from "@testing-library/react";
++import { afterEach, expect, it, vi } from "vitest";
++import { ThemeScope } from "./ThemeScope";
++afterEach(() => { cleanup(); vi.restoreAllMocks(); vi.useRealTimers(); });
++it("balances StrictMode document observation and cancels the last owner's scroll timer", () => {
++  vi.useFakeTimers();
++  const add = vi.spyOn(document, "addEventListener");
++  const remove = vi.spyOn(document, "removeEventListener");
++  const active = () => {
++    const listeners = new Set(add.mock.calls.filter(([type]) => type === "scroll").map(([, listener]) => listener));
++    for (const [type, listener] of remove.mock.calls) if (type === "scroll") listeners.delete(listener);
++    return listeners.size;
++  };
++  const first = render(<StrictMode><ThemeScope><ThemeScope data-testid="pane" /></ThemeScope></StrictMode>);
++  const second = render(<StrictMode><ThemeScope data-testid="survivor" /></StrictMode>);
++  expect(active()).toBe(1);
++  const pane = first.getByTestId("pane");
++  pane.dispatchEvent(new Event("scroll"));
++  expect(pane.hasAttribute("data-sgui-scrolling")).toBe(true);
++  first.unmount();
++  expect(active()).toBe(1);
++  const survivor = second.getByTestId("survivor");
++  survivor.dispatchEvent(new Event("scroll"));
++  expect(survivor.hasAttribute("data-sgui-scrolling")).toBe(true);
++  second.unmount();
++  expect(active()).toBe(0);
++  expect(pane.hasAttribute("data-sgui-scrolling")).toBe(false);
++  expect(survivor.hasAttribute("data-sgui-scrolling")).toBe(false);
++  expect(vi.getTimerCount()).toBe(0);
++  survivor.dispatchEvent(new Event("scroll"));
++  expect(survivor.hasAttribute("data-sgui-scrolling")).toBe(false);
++});

@@ -1,0 +1,244 @@
+{
+  "checks": [
+    {
+      "name": "react-aria-components: exact runtime placement/version",
+      "result": "pass"
+    },
+    {
+      "name": "react-aria-components: importer lock resolution",
+      "result": "pass"
+    },
+    {
+      "name": "react-aria: exact runtime placement/version",
+      "result": "pass"
+    },
+    {
+      "name": "react-aria: importer lock resolution",
+      "result": "pass"
+    },
+    {
+      "name": "react-stately: exact runtime placement/version",
+      "result": "pass"
+    },
+    {
+      "name": "react-stately: importer lock resolution",
+      "result": "pass"
+    },
+    {
+      "name": "@internationalized/date: exact runtime placement/version",
+      "result": "pass"
+    },
+    {
+      "name": "@internationalized/date: importer lock resolution",
+      "result": "pass"
+    },
+    {
+      "name": "only React peers and matching development inputs",
+      "result": "pass"
+    },
+    {
+      "name": "development-only CSS compilation",
+      "result": "pass"
+    },
+    {
+      "name": "private docs Next placement",
+      "result": "pass"
+    },
+    {
+      "name": "root build:browser-docs exists",
+      "result": "pass"
+    },
+    {
+      "name": "root test:browser exists",
+      "result": "pass"
+    },
+    {
+      "name": "root build:docs exists",
+      "result": "pass"
+    },
+    {
+      "name": "root native commands forward to library",
+      "result": "pass"
+    },
+    {
+      "name": "fresh build before native fixture generation",
+      "result": "pass"
+    },
+    {
+      "name": "browser selection forwards to Playwright",
+      "result": "pass"
+    },
+    {
+      "name": "workflow path: packages/ui/scripts/build-browser-docs.mjs",
+      "result": "pass"
+    },
+    {
+      "name": "workflow path: packages/ui/scripts/serve-browser-docs.mjs",
+      "result": "pass"
+    },
+    {
+      "name": "workflow path: packages/ui/scripts/test-foundation-consumer.mjs",
+      "result": "pass"
+    },
+    {
+      "name": "workflow path: packages/ui/scripts/test-editor-consumer.mjs",
+      "result": "pass"
+    },
+    {
+      "name": "workflow path: packages/ui/scripts/test-next-consumer.mjs",
+      "result": "pass"
+    },
+    {
+      "name": "workflow path: packages/ui/tests/browser/reorder.spec.ts",
+      "result": "pass"
+    },
+    {
+      "name": "workflow path: apps/docs/native-fixtures/tsconfig.json",
+      "result": "pass"
+    },
+    {
+      "name": "workflow path: apps/docs/native-fixtures/vite.config.ts",
+      "result": "pass"
+    },
+    {
+      "name": "configured static host and engines",
+      "result": "pass"
+    },
+    {
+      "name": "CI native host/runtime/cwd commands",
+      "result": "pass"
+    },
+    {
+      "name": "no retired branch or active Storybook instructions",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../../packages/ui/package.json",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../../pnpm-lock.yaml",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../../package.json",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../../apps/docs/package.json",
+      "result": "pass"
+    },
+    {
+      "name": "local link: react-aria-package-acceptance.md",
+      "result": "pass"
+    },
+    {
+      "name": "local link: react-aria-server-components.md",
+      "result": "pass"
+    },
+    {
+      "name": "local link: react-aria-final-acceptance.md#fa-02-dependency-source-and-generated-output-inventory",
+      "result": "pass"
+    },
+    {
+      "name": "heading anchor: fa-02-dependency-source-and-generated-output-inventory",
+      "result": "pass"
+    },
+    {
+      "name": "local link: final-acceptance/parallel-07/input-receipt.json",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../github-setup.md#manual-ai-task-and-draft-review",
+      "result": "pass"
+    },
+    {
+      "name": "heading anchor: manual-ai-task-and-draft-review",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../../.github/ISSUE_TEMPLATE/ui-change.yml",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../commercial-licensing.md",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../../LICENSE",
+      "result": "pass"
+    },
+    {
+      "name": "local link: react-aria-architecture.md#dependency-and-license-policy",
+      "result": "pass"
+    },
+    {
+      "name": "heading anchor: dependency-and-license-policy",
+      "result": "pass"
+    },
+    {
+      "name": "local link: react-aria-removal-audit.md",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../github-setup.md#automatic-versioning-and-release-flow",
+      "result": "pass"
+    },
+    {
+      "name": "heading anchor: automatic-versioning-and-release-flow",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../../.github/workflows/ci.yml",
+      "result": "pass"
+    },
+    {
+      "name": "local link: react-aria-development-validation.md",
+      "result": "pass"
+    },
+    {
+      "name": "local link: ../../.nvmrc",
+      "result": "pass"
+    },
+    {
+      "name": "local link: react-aria-runtime-ci.md",
+      "result": "pass"
+    },
+    {
+      "name": "manifest/lock unchanged from retained FA-02/parallel-07: package.json",
+      "result": "pass"
+    },
+    {
+      "name": "manifest/lock unchanged from retained FA-02/parallel-07: packages/ui/package.json",
+      "result": "pass"
+    },
+    {
+      "name": "manifest/lock unchanged from retained FA-02/parallel-07: apps/docs/package.json",
+      "result": "pass"
+    },
+    {
+      "name": "manifest/lock unchanged from retained FA-02/parallel-07: pnpm-lock.yaml",
+      "result": "pass"
+    }
+  ],
+  "passed": 55,
+  "linksChecked": 19,
+  "inputHashes": {
+    "package.json": "375ae127c360f85769a9496c988be97ee26c7d0d7491b53a85613e02294c5acf",
+    "packages/ui/package.json": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+    "apps/docs/package.json": "85b0024aeebd589d03200bac0e0bb3c94f210a29adef20d701bdb6f1b9f6a4f9",
+    "pnpm-lock.yaml": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+    "AGENTS.md": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+    ".github/workflows/ci.yml": "1dd21d1b751afc9d4f8e891a23675581b834a78624bc88790904210cfd4a6d22",
+    "packages/ui/playwright.config.ts": "2c0e2c3acb6e63f3b768b88ee40fe9c6c6f7f7073c0accbb7908349c36251478",
+    "packages/ui/scripts/build-browser-docs.mjs": "bc1819ebd891d35520e0b005c9c669682ce6e7ed5c209c6c08a14048991727e7",
+    "docs/developer/react-aria-development-validation.md": "492831a4608d9c246eddf89177b77d8ffcaaaa3265f79d464d90be5bfd071ab7",
+    "docs/developer/final-acceptance/parallel-07/report.md": "9f48b3604fbd7bd0c52f60e1d195d80066abd8ff39339da2d896d3e82ef71ad9",
+    "docs/developer/final-acceptance/parallel-07/input-receipt.json": "f80c273b8989e9bd8a41e91f20b6f7e80a6eddbff8487ccc99c19c5cb2f0d63e",
+    "docs/developer/final-acceptance/2026-10-16-source-inventory.json": "78209ab5ca848b857bd36310bd0c0bd546aaac91d69d72b4320bb0db091cb156"
+  },
+  "guideHash": "0dc9a3a4684d92f55e0407562d0d85f39e8ee0ec23746719e690e70841bf81a5",
+  "limits": [
+    "Text/configuration checks only; no installs, live topology, upgrades, registry, runtime/browser/consumer or remote CI execution."
+  ]
+}

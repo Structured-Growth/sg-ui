@@ -1,0 +1,12 @@
+✔ workflow YAML parses; all external action references match captured upstream commits (4.747792ms)
+✔ event paths, token permissions, validation dependency and AI safeguards stay intact (2.242125ms)
+✔ fresh-output receipt precedes success uploads; failures retain logs and docs traces (0.3915ms)
+✔ all proposed shell run blocks pass bash syntax parsing without execution (60.714ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.309375

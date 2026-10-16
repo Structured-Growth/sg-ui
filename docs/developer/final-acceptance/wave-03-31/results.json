@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-31",
+  "capturedAt": "2026-10-16T23:07:28.990622+00:00",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "scope": "Only owned evidence directory changed; all production/test/docs changes unapplied patches/mirrors. No ledger/count changes.",
+  "leaves": [
+    {
+      "id": "A-B-10",
+      "originalRequirement": "- [ ] A-B-10 Reconcile original `B-10`: Measure production consumer bundles, CSS, editor/grid imports, initial render, and interactive updates with reproducible fixtures. Historical status: open.",
+      "status": "partial",
+      "evidence": [
+        "report.md",
+        "input-evidence.json",
+        "local-ssr.json",
+        "local-measurement-receipt.json",
+        "budgets.json",
+        "production-profiling.patch"
+      ],
+      "runtime": "Node26.5.0 analysis only; Darwin27 arm64 Apple M4 10 logical CPUs/24GiB; React19.2.3 NODE_ENV=production SSR",
+      "successors": [
+        "Integrate profiling patch; run immutable production browser fixture and current packed editor/grid/root consumer asset measurement."
+      ],
+      "patchIntegrationRequired": true,
+      "nativeOrSupportedMatrixAcceptanceClosed": false
+    },
+    {
+      "id": "A-P-08",
+      "originalRequirement": "- [ ] A-P-08 Reconcile original `P-08`: Set reproducible performance budgets from baseline and representative consumer hardware; do not invent universal speed or size rankings. Historical status: open.",
+      "status": "partial",
+      "evidence": [
+        "report.md",
+        "input-evidence.json",
+        "local-ssr.json",
+        "local-measurement-receipt.json",
+        "budgets.json",
+        "production-profiling.patch"
+      ],
+      "runtime": "Node26.5.0 analysis only; Darwin27 arm64 Apple M4 10 logical CPUs/24GiB; React19.2.3 NODE_ENV=production SSR",
+      "successors": [
+        "Select representative slower consumer hardware with owner; run stable matching baseline/candidate twice and approve timing/memory investigation limits."
+      ],
+      "patchIntegrationRequired": true,
+      "nativeOrSupportedMatrixAcceptanceClosed": false
+    },
+    {
+      "id": "A-G-20",
+      "originalRequirement": "- [ ] A-G-20 Reconcile original `G-20`: Benchmark large row/column counts and frequent updates, including selection and text input; compare production builds against the baseline. Historical status: open.",
+      "status": "partial",
+      "evidence": [
+        "report.md",
+        "input-evidence.json",
+        "local-ssr.json",
+        "local-measurement-receipt.json",
+        "budgets.json",
+        "production-profiling.patch"
+      ],
+      "runtime": "Node26.5.0 analysis only; Darwin27 arm64 Apple M4 10 logical CPUs/24GiB; React19.2.3 NODE_ENV=production SSR",
+      "successors": [
+        "Execute prepared workloads with matching immutable baseline; record initial/input/selection/sort/50-update distributions and hardware/browser/source hashes."
+      ],
+      "patchIntegrationRequired": true,
+      "nativeOrSupportedMatrixAcceptanceClosed": false
+    },
+    {
+      "id": "A-X-19",
+      "originalRequirement": "- [ ] A-X-19 Reconcile original `X-19`: Record performance and memory budgets, profile large grids/selectors, and test listener/observer/timer/object-URL cleanup during mount/unmount. Historical status: open.",
+      "status": "partial",
+      "evidence": [
+        "report.md",
+        "input-evidence.json",
+        "local-ssr.json",
+        "local-measurement-receipt.json",
+        "budgets.json",
+        "lifecycle-result.json",
+        "scrollbar-disposal.patch",
+        "observer-cleanup.patch"
+      ],
+      "runtime": "Node26.5.0 analysis only; Darwin27 arm64 Apple M4 10 logical CPUs/24GiB; React19.2.3 NODE_ENV=production SSR",
+      "successors": [
+        "Integrate disposal fix and observer test; run focused Node22/24 Vitest via lease, reusing existing upload URL/late-settlement and toolbar queued-command cases.",
+        "Profile real browser retained owners/heap plateau across repeated grid/selector/portal/upload disposal, separately from uninstrumented latency."
+      ],
+      "patchIntegrationRequired": true,
+      "nativeOrSupportedMatrixAcceptanceClosed": false
+    }
+  ],
+  "checksPerformed": [
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-31/verify-lifecycle.mjs",
+      "result": "pass after harness ES2022 correction; current duplicate disposal fails as expected, candidate passes; 100 lifetimes zero resources",
+      "receipt": "lifecycle-result.json"
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-31/measure-local.mjs",
+      "result": "pass bounded local production SSR/CSS analysis;1827 selected hash paths stable and zero coordinator-built delta",
+      "receipt": "local-measurement-receipt.json"
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-31/check-fixture-types.mjs",
+      "result": "pass strict noEmit virtual proposed fixture against current public declarations",
+      "receipt": "fixture-typecheck.txt"
+    },
+    {
+      "command": "node --check proposed browser runner and Vite config; git apply --check each of three patches",
+      "result": "pass; not applied"
+    }
+  ],
+  "notRun": [
+    "Supported Node22/24 unit runner",
+    "Build/install/catalog generation",
+    "Browser/device/AT or physical paint/INP",
+    "Packed consumer asset matrix",
+    "Real heap/memory profiling",
+    "Owner performance budget approval"
+  ],
+  "validationPlan": "validation-plan.json",
+  "retainedFailure": "harness-first-failure.txt",
+  "summary": {
+    "complete": 0,
+    "partial": 4,
+    "blocked": 0
+  },
+  "artifactHashes": {
+    "add-observer-regression.py": "0479c3923c3e64450cfd43f9c7945fe43547c5ac3728dda413feb9666e30c87b",
+    "assignment.json": "1d6fd4b5b3d8f16a8f3842af1516c417544699a730b7414e5e2bfd0987985546",
+    "budgets.json": "bd772b5be73d74ae5d6db28b370aee4ee81342c24fb502afb090e517c152196d",
+    "check-fixture-types.mjs": "3cdedcd80e0c2a22a9b95d542a4ac23d887a2a0e6cbaa1764a8a6ed25a86352b",
+    "finish-artifacts.py": "99f50b1f4bc6851709765de82d233d88d72380971f2aec9687a804edb54747de",
+    "fixture-typecheck.txt": "7c9457e5482b00286d41d96cf05c01da0b05e77980520d17a182d7723527a972",
+    "harness-first-failure.txt": "fc07d1ae604613eea9b3ebf574807f7c288f461fb5e49149a10238a8b2d51f68",
+    "input-evidence.json": "a6592f7f174b80089ef5d1bc331bd0a53e5b7a4b9645026ec579c8795f694a0b",
+    "lifecycle-result.json": "86ceb959be2c2b0fdcde00c6f6c7b22ef42c250b7da76c0eca004515af06d270",
+    "local-measurement-receipt.json": "41f0f13240ac54e9522b1d19b8e085c332fdd3c15faa9d64f59b74a3f755695d",
+    "local-ssr.json": "2acc9aaefe7b54f86247fbe47b33eca41fd99394581d2384166a65f6a611439d",
+    "measure-local.mjs": "f1a599e39aa939668fde7b4f0df01e7f6e528ba57308d0a489bdcd729e4698fd",
+    "observer-cleanup.patch": "4e99b1799f26ce2e9d33fcc80168bc805a73b7c8d14717dec29d1da363895a63",
+    "prepare.py": "c3094b8d913b542bcfbf4f1a67601d2276340b83d3e6bd6df830d817bd3aab61",
+    "production-profiling.patch": "12b67c797c4a60f5d438c4d7c7af2fd45b6a5b1cfd37c9162eff0f3119ed5e02",
+    "proposed-files/docs/developer/react-aria-performance.md": "dd7a4019b70e10de332f34b94488027ef9979e645b0b377d9a235937c2fe5de2",
+    "proposed-files/packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx": "b69525b86346c167bb94ce1c6a8b4d038d8fb754a39272965aab1f4f7af8e5f8",
+    "proposed-files/packages/ui/src/foundation/scrollbar-activity.test.ts": "7b2d46d08567a57f467bf5882cd283ca4dfe6a2acef7f5017868ecf1f3b5e0a0",
+    "proposed-files/packages/ui/src/foundation/scrollbar-activity.ts": "f210ef3198366ad9f4ad930bd3c0fa073f43ca4764da94985b57a3b04ee70217",
+    "proposed-files/packages/ui/tests/performance/fixture.tsx": "0c14a0e2018c9711b385b85f9be5fdc23ec072e435f31324c2952d0e3b003478",
+    "proposed-files/packages/ui/tests/performance/index.html": "a8c3f3b25b4e902a49e370d949215b52d8baed026dbf66fd3371c2795d6cfa73",
+    "proposed-files/packages/ui/tests/performance/measure-browser.mjs": "cb8a0c83cbae5f860099a1ee24d071a8720b2a092b23c907cb15102dab2723d4",
+    "proposed-files/packages/ui/tests/performance/vite.config.mjs": "b4c4194ff657b879f42afe3ac0bfa268833e08e78e14c3d20884242ca3782f06",
+    "report.md": "4ba67e87994fef55b190f0af8c3200d141434cd9330e90f94a2c7d9ad627d242",
+    "scrollbar-disposal.patch": "e291aae95caf627019fe7fdc832fab478cafedc4aee9af6afe42d1894b4eecce",
+    "validation-plan.json": "0a10309a276b4871c48f33c7c1651427fdc238e51a12d81344fbf7bb736dde9d",
+    "verify-lifecycle.mjs": "dcfe27dcb655f879b3e819316acb0a057ea17170afceb55548005f7340e57203"
+  }
+}

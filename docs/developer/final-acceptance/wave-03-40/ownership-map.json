@@ -1,0 +1,1512 @@
+{
+  "assignments": [
+    {
+      "number": 1,
+      "title": "API defaults and breaking changes",
+      "ids": [
+        "A-B-05",
+        "A-A-08",
+        "A-Z-13"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-01/assignment.json",
+      "assignmentSha256": "cc35d829887f595b5f871d33b6e89c6dab817c48acb55ba698df09e65818cad8",
+      "report": "docs/developer/final-acceptance/wave-03-01/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-01/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 2,
+      "title": "Dependency cycles and enforcement",
+      "ids": [
+        "A-A-03"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-02/assignment.json",
+      "assignmentSha256": "4888e15983c3fff2059756c3f619b30914cdc23d487e73ffddf9b79d32357274",
+      "report": "docs/developer/final-acceptance/wave-03-02/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-02/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 3,
+      "title": "State naming and composition contracts",
+      "ids": [
+        "A-A-06",
+        "A-A-09",
+        "A-A-10"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-03/assignment.json",
+      "assignmentSha256": "56b74021e5f4ed6987a361acd5170cc8dd677f7986bd01a425611d047594a243",
+      "report": "docs/developer/final-acceptance/wave-03-03/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-03/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 4,
+      "title": "Press and asynchronous action behavior",
+      "ids": [
+        "A-A-07",
+        "A-H-05"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-04/assignment.json",
+      "assignmentSha256": "4eb019948e9d12355f1f2a2366a9dc31226b9f1dcd7268a59fb8c8b06cc03625",
+      "report": "docs/developer/final-acceptance/wave-03-04/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-04/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 5,
+      "title": "Granular imports and heavy boundaries",
+      "ids": [
+        "A-A-18",
+        "A-E-08",
+        "A-I-04",
+        "A-R-03",
+        "A-R-04"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-05/assignment.json",
+      "assignmentSha256": "1b22506d2e79342a5d89fc6d7163f86531641937627565684769c85066f22424",
+      "report": "docs/developer/final-acceptance/wave-03-05/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-05/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 6,
+      "title": "Distributed licenses and notices",
+      "ids": [
+        "A-L-01",
+        "A-L-02",
+        "A-L-04",
+        "A-Z-06"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-06/assignment.json",
+      "assignmentSha256": "e663fe6a74182ee7a112342d39fad28d0f5ab5ac6732ead6afe8e8f8b274941a",
+      "report": "docs/developer/final-acceptance/wave-03-06/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-06/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 7,
+      "title": "License automation and ownership policy",
+      "ids": [
+        "A-L-08",
+        "A-L-09",
+        "A-W-20",
+        "A-Z-14"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-07/assignment.json",
+      "assignmentSha256": "7c56649e0e3c024a7693baa4414906849b2b49a0712bcd726d2f0ddc492051bc",
+      "report": "docs/developer/final-acceptance/wave-03-07/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-07/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 8,
+      "title": "Foundation scales and visual states",
+      "ids": [
+        "A-D-06",
+        "A-D-13",
+        "A-D-15"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-08/assignment.json",
+      "assignmentSha256": "d574058eaf3efc44bf886713c772ebc6ce301d0ca49f997fd8956e973e158f64",
+      "report": "docs/developer/final-acceptance/wave-03-08/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-08/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 9,
+      "title": "Zoom reflow and containment",
+      "ids": [
+        "A-D-09",
+        "A-C-08",
+        "A-C-12",
+        "A-X-05"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-09/assignment.json",
+      "assignmentSha256": "055e9240a088239d63289f1f304addcec9e422b8b9ec4addff74a402c1933258",
+      "report": "docs/developer/final-acceptance/wave-03-09/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-09/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 10,
+      "title": "Touch targets and drag alternatives",
+      "ids": [
+        "A-D-12",
+        "A-U-17",
+        "A-X-07",
+        "A-X-08"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-10/assignment.json",
+      "assignmentSha256": "ddf5ecab11c834f557909af1b986c863b993f71c394f92006be9f4ad6050c8ee",
+      "report": "docs/developer/final-acceptance/wave-03-10/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-10/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 11,
+      "title": "Nested scopes hydration and isolation",
+      "ids": [
+        "A-D-16",
+        "A-D-17",
+        "A-X-16",
+        "A-X-18"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-11/assignment.json",
+      "assignmentSha256": "4516efb48706a1e8f9ced28b1bec7b9d62ce242320f6b2a8db2ae88a92c1ebaa",
+      "report": "docs/developer/final-acceptance/wave-03-11/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-11/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 12,
+      "title": "Motion contrast and system indications",
+      "ids": [
+        "A-C-16",
+        "A-D-18",
+        "A-X-06"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-12/assignment.json",
+      "assignmentSha256": "99052e9f2ec7d71a2211b6819803ad7fddb0e8fc38e35c5f9c00e1b4bf3b1c5d",
+      "report": "docs/developer/final-acceptance/wave-03-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-12/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 13,
+      "title": "CSS composition CSP and focus",
+      "ids": [
+        "A-C-04",
+        "A-C-07",
+        "A-C-11",
+        "A-C-14",
+        "A-C-15",
+        "A-C-19"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-13/assignment.json",
+      "assignmentSha256": "7269653eb196a150726f05c501ad5b08618087e5cbff872eb8a8c047097ab2b1",
+      "report": "docs/developer/final-acceptance/wave-03-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-13/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 14,
+      "title": "Overlay focus collision and modality",
+      "ids": [
+        "A-C-17",
+        "A-U-08",
+        "A-U-19",
+        "A-X-04",
+        "A-M-08"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-14/assignment.json",
+      "assignmentSha256": "b08b9e01e36c26f16fb6693fdd952abf932922c505ccd1c77ebac53717c4cb98",
+      "report": "docs/developer/final-acceptance/wave-03-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-14/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 15,
+      "title": "Icon optics assets and bundles",
+      "ids": [
+        "A-I-05",
+        "A-I-08"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-15/assignment.json",
+      "assignmentSha256": "814acf53d5b978e542b920e9b8712c00866cb1c3fbdf76fcfc057924f9860a57",
+      "report": "docs/developer/final-acceptance/wave-03-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-15/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 16,
+      "title": "Navigation and routing acceptance",
+      "ids": [
+        "A-H-02",
+        "A-H-03",
+        "A-M-10"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-16/assignment.json",
+      "assignmentSha256": "b5d98593a0b91250c759c6fff7a75f8744d5ec4fb8286e1f4ed930813085da99",
+      "report": "docs/developer/final-acceptance/wave-03-16/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-16/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 17,
+      "title": "Localization ICU and RTL",
+      "ids": [
+        "A-H-08",
+        "A-C-09"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-17/assignment.json",
+      "assignmentSha256": "f215d58d4cc1d42f7b461372c58823027ecbbb0d99d0d7abb54ff950da5cf7c0",
+      "report": "docs/developer/final-acceptance/wave-03-17/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-17/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 18,
+      "title": "Primitive forms and layout",
+      "ids": [
+        "A-U-02",
+        "A-U-04",
+        "A-U-05",
+        "A-U-09",
+        "A-U-18"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-18/assignment.json",
+      "assignmentSha256": "ccf4b2ad3140ced9f214ed26bfa32fb3f251db707a7a8d91eeb250aab46579f0",
+      "report": "docs/developer/final-acceptance/wave-03-18/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-18/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 19,
+      "title": "Selectors menus and keyboard semantics",
+      "ids": [
+        "A-U-06",
+        "A-U-07",
+        "A-X-02",
+        "A-X-03"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-19/assignment.json",
+      "assignmentSha256": "f39f717a1fc5bcca9fb8872830b0070b72f6327b79dfbcf7e6e8c3b97bc04301",
+      "report": "docs/developer/final-acceptance/wave-03-19/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-19/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 20,
+      "title": "Grid state focus and actions",
+      "ids": [
+        "A-M-16",
+        "A-G-15",
+        "A-G-16",
+        "A-G-21",
+        "A-G-28",
+        "A-G-29"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-20/assignment.json",
+      "assignmentSha256": "56add4d5571490beca7d24222ec74858819b868672efffb3cc7a5230417cd5de",
+      "report": "docs/developer/final-acceptance/wave-03-20/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-20/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 21,
+      "title": "Grid reorder acceptance",
+      "ids": [
+        "A-M-18",
+        "A-G-17"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-21/assignment.json",
+      "assignmentSha256": "461ac11b48b5bbfbf5e36cdcfa0eb8c0adf6c96745563de73669911874d0db99",
+      "report": "docs/developer/final-acceptance/wave-03-21/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-21/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 22,
+      "title": "Cards progress and step presentation",
+      "ids": [
+        "A-M-03",
+        "A-M-14",
+        "A-M-15"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-22/assignment.json",
+      "assignmentSha256": "c6e42000f6524c4b2196cfb25ed9719e7b23345660d16f708c2ad2f483514561",
+      "report": "docs/developer/final-acceptance/wave-03-22/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-22/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 23,
+      "title": "Editor layout chrome and focus",
+      "ids": [
+        "A-M-21",
+        "A-M-22",
+        "A-M-23",
+        "A-E-03"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-23/assignment.json",
+      "assignmentSha256": "eb411734317456e1c4f085a4b30dee62e6ebcb7d521d90e06f4eb2d521c74422",
+      "report": "docs/developer/final-acceptance/wave-03-23/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-23/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 24,
+      "title": "Editor formatting command behavior",
+      "ids": [
+        "A-M-26",
+        "A-M-27",
+        "A-M-28",
+        "A-M-29",
+        "A-M-30",
+        "A-E-04"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-24/assignment.json",
+      "assignmentSha256": "9a799ab6f3163285a85d6f7d43ca4b56923c2597a23c9eaf9e40832fe7942087",
+      "report": "docs/developer/final-acceptance/wave-03-24/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-24/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 25,
+      "title": "Editor selection nodes and input",
+      "ids": [
+        "A-M-25",
+        "A-M-34",
+        "A-E-02",
+        "A-E-05"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-25/assignment.json",
+      "assignmentSha256": "d251598898fe8be4147da9dbe30eaf0e2449f47366bb7b19d8d8871b5eaba8aa",
+      "report": "docs/developer/final-acceptance/wave-03-25/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-25/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 26,
+      "title": "Editor content and upload trust",
+      "ids": [
+        "A-E-06",
+        "A-E-07"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-26/assignment.json",
+      "assignmentSha256": "865741da5486b850b3d24a45f7d91d978bd1ad9d650c9d99bc2e46dea99ce8cf",
+      "report": "docs/developer/final-acceptance/wave-03-26/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-26/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 27,
+      "title": "Calendar availability input and explanations",
+      "ids": [
+        "A-K-04",
+        "A-K-07",
+        "A-K-17"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-27/assignment.json",
+      "assignmentSha256": "293c5b6f27f64798cd6e47cf5eecef21bfc89800f7de7289ce41fa45a7f1a7da",
+      "report": "docs/developer/final-acceptance/wave-03-27/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-27/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 28,
+      "title": "Calendar periods navigation and boundaries",
+      "ids": [
+        "A-K-05",
+        "A-K-08",
+        "A-K-12"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-28/assignment.json",
+      "assignmentSha256": "f9c5ad82422a19be076f9d386cc9861670c1c2da7fa6c37782292c7d9f2a8d13",
+      "report": "docs/developer/final-acceptance/wave-03-28/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-28/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 29,
+      "title": "Native browser and screen-reader coverage",
+      "ids": [
+        "A-X-09",
+        "A-X-10",
+        "A-X-11",
+        "A-X-13",
+        "A-X-15",
+        "A-B-07"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-29/assignment.json",
+      "assignmentSha256": "71d2dfd483561f2f2fb271246763b13533dd96ee4a63c84c2cbc6937b3cb09e6",
+      "report": "docs/developer/final-acceptance/wave-03-29/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-29/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 30,
+      "title": "Visual matrices and prototype scope",
+      "ids": [
+        "A-D-20",
+        "A-X-14",
+        "A-P-07",
+        "A-P-11"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-30/assignment.json",
+      "assignmentSha256": "9b3c12ce7bec32596b856e08f4a9965d8f3b077762894677db38bd0116c62f37",
+      "report": "docs/developer/final-acceptance/wave-03-30/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-30/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 31,
+      "title": "Performance memory and benchmark budgets",
+      "ids": [
+        "A-B-10",
+        "A-P-08",
+        "A-G-20",
+        "A-X-19"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-31/assignment.json",
+      "assignmentSha256": "1d6fd4b5b3d8f16a8f3842af1516c417544699a730b7414e5e2bfd0987985546",
+      "report": "docs/developer/final-acceptance/wave-03-31/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-31/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 32,
+      "title": "Packed consumers CSS and React versions",
+      "ids": [
+        "A-C-20",
+        "A-R-08",
+        "A-R-09",
+        "A-X-17",
+        "A-X-20",
+        "A-Z-09"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-32/assignment.json",
+      "assignmentSha256": "551b7cdec22b8d9226caeb61d1012ddf0e9d5bcc1ee9456d40c6ff04b60d3acd",
+      "report": "docs/developer/final-acceptance/wave-03-32/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-32/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 33,
+      "title": "Extraction and replacement provenance",
+      "ids": [
+        "A-B-12",
+        "A-B-14",
+        "A-W-10",
+        "A-W-16",
+        "A-Z-05"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-33/assignment.json",
+      "assignmentSha256": "b7c92ad88b6be0e2a7d305bf06085d4bb7781a6e31827abcffc76a5de3e169b9",
+      "report": "docs/developer/final-acceptance/wave-03-33/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-33/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 34,
+      "title": "Consumer guides recipes and doc integrity",
+      "ids": [
+        "A-W-06",
+        "A-W-07",
+        "A-W-13",
+        "A-W-17",
+        "A-W-18",
+        "A-W-19"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-34/assignment.json",
+      "assignmentSha256": "d84d18276e4ec2988b7d994a40823b7d2c39b7d797ad690c39c08a9196ccbd63",
+      "report": "docs/developer/final-acceptance/wave-03-34/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-34/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 35,
+      "title": "Complete source and packed removal audit",
+      "ids": [
+        "A-M-38",
+        "A-Z-04",
+        "A-Z-08",
+        "A-Z-10"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-35/assignment.json",
+      "assignmentSha256": "11b414d3f6cdc56db956bba08b9e210ac10032acda8b72329777456a5c9b1114",
+      "report": "docs/developer/final-acceptance/wave-03-35/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-35/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 36,
+      "title": "CI artifacts caching and dependency pins",
+      "ids": [
+        "A-R-12",
+        "A-R-24",
+        "A-R-25",
+        "A-Z-07"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-36/assignment.json",
+      "assignmentSha256": "e56644cace7caaac7c40fa1b898ca9f7831aeb39f3888ccfcfcbe75cea3ca032",
+      "report": "docs/developer/final-acceptance/wave-03-36/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-36/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 37,
+      "title": "AI workflow trust and required checks",
+      "ids": [
+        "A-R-20",
+        "A-R-21",
+        "A-R-23",
+        "A-R-27"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-37/assignment.json",
+      "assignmentSha256": "a2174c82d52cf149bd973a46ae3b7d4ae7657e849755a87e922b9e40daa738bb",
+      "report": "docs/developer/final-acceptance/wave-03-37/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-37/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 38,
+      "title": "Release configuration and recovery",
+      "ids": [
+        "A-R-07",
+        "A-R-15",
+        "A-R-17",
+        "A-R-26",
+        "A-R-28"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-38/assignment.json",
+      "assignmentSha256": "804eb8f5c7ef27dd28d3c73a3c6d79edbd28f6829f4944ae4d5317ca032995e0",
+      "report": "docs/developer/final-acceptance/wave-03-38/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-38/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 39,
+      "title": "Behavior test quality and false mocks",
+      "ids": [
+        "A-X-01"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-39/assignment.json",
+      "assignmentSha256": "a508caee133556f31d16ec54f2d8edb3c127143ce307f8fd8acdeb1bce7ba2aa",
+      "report": "docs/developer/final-acceptance/wave-03-39/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-39/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    },
+    {
+      "number": 40,
+      "title": "Final commitments evidence and gate synthesis",
+      "ids": [
+        "A-Z-11",
+        "A-Z-12",
+        "A-Z-15",
+        "A-Z-16"
+      ],
+      "assignment": "docs/developer/final-acceptance/wave-03-40/assignment.json",
+      "assignmentSha256": "c40330f23d56ad84d754522602a6d29d0738365b7b6068b8fc33ccf51c01ee57",
+      "report": "docs/developer/final-acceptance/wave-03-40/report.md",
+      "results": "docs/developer/final-acceptance/wave-03-40/results.json",
+      "authority": "Assigned successor scope only; no completion inferred from dispatch."
+    }
+  ],
+  "requiredA": [
+    {
+      "id": "A-M-03",
+      "requirement": "Reconcile AppOperationSteps final acceptance: State announcements, completed/error/active visuals, hide single-step numbering. Link its `F-C03`, `T-C03` and `V-C03` evidence and any unresolved defects.",
+      "owner": 22
+    },
+    {
+      "id": "A-M-08",
+      "requirement": "Reconcile AppModal final acceptance: Owned close reasons/size/parts, focus, sticky tabs, scroll, actions and steps. Link its `F-C08`, `T-C08` and `V-C08` evidence and any unresolved defects.",
+      "owner": 14
+    },
+    {
+      "id": "A-M-10",
+      "requirement": "Reconcile ExperiencePageNavigator final acceptance: Previous/next boundaries, labels, disabled states, link/action semantics. Link its `F-C10`, `T-C10` and `V-C10` evidence and any unresolved defects.",
+      "owner": 16
+    },
+    {
+      "id": "A-M-14",
+      "requirement": "Reconcile InstructorClassCard final acceptance: Status/menu/actions, callbacks, long text, date and icon fallbacks. Link its `F-C14`, `T-C14` and `V-C14` evidence and any unresolved defects.",
+      "owner": 22
+    },
+    {
+      "id": "A-M-15",
+      "requirement": "Reconcile LearnerClassCard final acceptance: Progress/due labels/status/actions, translation, accessible interactive regions. Link its `F-C15`, `T-C15` and `V-C15` evidence and any unresolved defects.",
+      "owner": 22
+    },
+    {
+      "id": "A-M-16",
+      "requirement": "Reconcile AppDataGrid final acceptance: Complete owned grid implementation, types and helpers; follow G tasks. Link its `F-C16`, `T-C16` and `V-C16` evidence and any unresolved defects.",
+      "owner": 20
+    },
+    {
+      "id": "A-M-18",
+      "requirement": "Reconcile AppDataGridRowDnd final acceptance: Replace DOM selectors/ghost styling; keyboard/touch/reorder/cancel behavior. Link its `F-C18`, `T-C18` and `V-C18` evidence and any unresolved defects.",
+      "owner": 21
+    },
+    {
+      "id": "A-M-21",
+      "requirement": "Reconcile DocumentEditorLayout final acceptance: Tokenized menu/toolbar/content layout and scroll boundaries. Link its `F-C21`, `T-C21` and `V-C21` evidence and any unresolved defects.",
+      "owner": 23
+    },
+    {
+      "id": "A-M-22",
+      "requirement": "Reconcile DocumentEditorToolbar final acceptance: Owned buttons/menus/toggles, formatting state, responsive overflow. Link its `F-C22`, `T-C22` and `V-C22` evidence and any unresolved defects.",
+      "owner": 23
+    },
+    {
+      "id": "A-M-23",
+      "requirement": "Reconcile ContentEditorChrome final acceptance: Menu composition, editor focus, disabled/loading actions, semantic structure. Link its `F-C23`, `T-C23` and `V-C23` evidence and any unresolved defects.",
+      "owner": 23
+    },
+    {
+      "id": "A-M-25",
+      "requirement": "Reconcile FloatingTextSelectionToolbar final acceptance: Selection anchoring, focus preservation, overlay cleanup, keyboard access. Link its `F-C25`, `T-C25` and `V-C25` evidence and any unresolved defects.",
+      "owner": 25
+    },
+    {
+      "id": "A-M-26",
+      "requirement": "Reconcile RichTextFormattingToolbar final acceptance: All formatting actions, mixed/active/disabled state, Lexical commands. Link its `F-C26`, `T-C26` and `V-C26` evidence and any unresolved defects.",
+      "owner": 24
+    },
+    {
+      "id": "A-M-27",
+      "requirement": "Reconcile InsertContentMenuControl final acceptance: Menu commands and insertion focus, disabled actions and announcements. Link its `F-C27`, `T-C27` and `V-C27` evidence and any unresolved defects.",
+      "owner": 24
+    },
+    {
+      "id": "A-M-28",
+      "requirement": "Reconcile TextAlignMenuControl final acceptance: Alignment/indent commands, active state, direction-aware presentation. Link its `F-C28`, `T-C28` and `V-C28` evidence and any unresolved defects.",
+      "owner": 24
+    },
+    {
+      "id": "A-M-29",
+      "requirement": "Reconcile TextColorPickerControl final acceptance: Foreground/background modes, clear/reset, swatches and accessible color control. Link its `F-C29`, `T-C29` and `V-C29` evidence and any unresolved defects.",
+      "owner": 24
+    },
+    {
+      "id": "A-M-30",
+      "requirement": "Reconcile TextStyleMenuControl final acceptance: Style/typeface options, tokenized labels, selection and focus behavior. Link its `F-C30`, `T-C30` and `V-C30` evidence and any unresolved defects.",
+      "owner": 24
+    },
+    {
+      "id": "A-M-34",
+      "requirement": "Reconcile PageRichTextEditorSection final acceptance: Editor composition, nodes/plugins, serialization and selection behavior. Link its `F-C34`, `T-C34` and `V-C34` evidence and any unresolved defects.",
+      "owner": 25
+    },
+    {
+      "id": "A-B-05",
+      "requirement": "Reconcile original `B-05`: Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking. Historical status: open.",
+      "owner": 1
+    },
+    {
+      "id": "A-B-07",
+      "requirement": "Reconcile original `B-07`: Capture representative screenshots and browser interactions for light/dark UI, compact/comfortable controls, editors, navigation, modals, and grids. Historical status: open.",
+      "owner": 29
+    },
+    {
+      "id": "A-B-10",
+      "requirement": "Reconcile original `B-10`: Measure production consumer bundles, CSS, editor/grid imports, initial render, and interactive updates with reproducible fixtures. Historical status: open.",
+      "owner": 31
+    },
+    {
+      "id": "A-B-12",
+      "requirement": "Reconcile original `B-12`: Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move. Historical status: open.",
+      "owner": 33
+    },
+    {
+      "id": "A-B-14",
+      "requirement": "Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "owner": 33
+    },
+    {
+      "id": "A-A-03",
+      "requirement": "Reconcile original `A-03`: Define one-way dependency boundaries; prevent root-barrel imports from internal implementations and prevent circular imports. Historical status: open.",
+      "owner": 2
+    },
+    {
+      "id": "A-A-06",
+      "requirement": "Reconcile original `A-06`: Standardize controlled/uncontrolled pairs, defaults, change callbacks, null/empty semantics, disabled/read-only/loading behavior, and stable IDs. Historical status: open.",
+      "owner": 3
+    },
+    {
+      "id": "A-A-07",
+      "requirement": "Reconcile original `A-07`: Specify native click versus normalized press semantics without surprising consumers; prevent duplicate callback invocation and document keyboard/touch activation. Historical status: open.",
+      "owner": 4
+    },
+    {
+      "id": "A-A-08",
+      "requirement": "Reconcile original `A-08`: Define public variant, size, tone, density, placement, dismissal-reason, and validation contracts independently of any foundation. Historical status: open.",
+      "owner": 1
+    },
+    {
+      "id": "A-A-09",
+      "requirement": "Reconcile original `A-09`: Define accessible naming and description requirements for icon-only and compound controls; choose typed requirements where practical. Historical status: open.",
+      "owner": 3
+    },
+    {
+      "id": "A-A-10",
+      "requirement": "Reconcile original `A-10`: Define composition and escape hatches: supported slots/parts, render callbacks, refs, `className`/part classes, CSS variables, and native `style` where needed. Historical status: open.",
+      "owner": 3
+    },
+    {
+      "id": "A-A-18",
+      "requirement": "Reconcile original `A-18`: Keep heavyweight modules out of basic-control dependency paths; decide which require separate subpaths versus separate packages. Historical status: open.",
+      "owner": 5
+    },
+    {
+      "id": "A-L-01",
+      "requirement": "Reconcile original `L-01`: Verify the selected versions' actual licenses, including React Aria Components, hooks/state/date utilities, icon assets, grid engine, editor packages, and transitive distributed code. Historical status: open.",
+      "owner": 6
+    },
+    {
+      "id": "A-L-02",
+      "requirement": "Reconcile original `L-02`: Preserve Apache 2.0 licenses and applicable notices; record modifications where required if upstream code is copied or changed rather than merely depended on. Historical status: open.",
+      "owner": 6
+    },
+    {
+      "id": "A-L-04",
+      "requirement": "Reconcile original `L-04`: Refresh `THIRD_PARTY_NOTICES.md` from the final shipped dependency and asset inventory; remove a retired notice only after its code/assets are no longer distributed. Historical status: open.",
+      "owner": 6
+    },
+    {
+      "id": "A-L-08",
+      "requirement": "Reconcile original `L-08`: Add a repeatable dependency/license inventory check and assign ownership for updates; avoid automatically rewriting commercial terms. Historical status: open.",
+      "owner": 7
+    },
+    {
+      "id": "A-L-09",
+      "requirement": "Reconcile original `L-09`: Document dependency support/security update expectations and a deliberate upgrade process with behavioral regression checks. Historical status: open.",
+      "owner": 7
+    },
+    {
+      "id": "A-D-06",
+      "requirement": "Reconcile original `D-06`: Define a consistent spacing, sizing, radius, elevation, border, icon, and motion scale; reconcile the current differing button/card radii intentionally. Historical status: open.",
+      "owner": 8
+    },
+    {
+      "id": "A-D-09",
+      "requirement": "Reconcile original `D-09`: Use rem-based text sizing and layouts that tolerate zoom, text spacing changes, long labels, and font substitution. Historical status: open.",
+      "owner": 9
+    },
+    {
+      "id": "A-D-12",
+      "requirement": "Reconcile original `D-12`: Make important touch controls comfortably operable; density must not erase minimum hit areas or keyboard focus indicators. Historical status: open.",
+      "owner": 10
+    },
+    {
+      "id": "A-D-13",
+      "requirement": "Reconcile original `D-13`: Define neutral split actions with shared border/divider and readable theme-aware primary text; define filled emphasis for contexts that genuinely need it. Historical status: open.",
+      "owner": 8
+    },
+    {
+      "id": "A-D-15",
+      "requirement": "Reconcile original `D-15`: Design complete hover, focus, pressed, selected, disabled, read-only, invalid, pending, empty, loading, and error states; never rely on color alone for meaning. Historical status: open.",
+      "owner": 8
+    },
+    {
+      "id": "A-D-16",
+      "requirement": "Reconcile original `D-16`: Define scoped theme/density roots and nested overrides; ensure portaled overlays receive the correct scope and variables. Historical status: open.",
+      "owner": 11
+    },
+    {
+      "id": "A-D-17",
+      "requirement": "Reconcile original `D-17`: Specify explicit light/dark/system settings, initial server theme, `color-scheme`, and hydration behavior without unwanted flashes or browser-global assumptions. Historical status: open.",
+      "owner": 11
+    },
+    {
+      "id": "A-D-18",
+      "requirement": "Reconcile original `D-18`: Support reduced motion and forced-colors/high-contrast environments; avoid suppressing essential system indications. Historical status: open.",
+      "owner": 12
+    },
+    {
+      "id": "A-D-20",
+      "requirement": "Reconcile original `D-20`: Publish foundation stories for palettes, typography, spacing, density, surfaces, focus, and motion, all consuming production tokens. Historical status: open.",
+      "owner": 30
+    },
+    {
+      "id": "A-C-04",
+      "requirement": "Reconcile original `C-04`: Replace `sx`, `paperSx`, theme callbacks, object-style overrides, and retired DOM selectors with owned contracts and component styles; map each removed public styling prop. Historical status: open.",
+      "owner": 13
+    },
+    {
+      "id": "A-C-07",
+      "requirement": "Reconcile original `C-07`: Document stylesheet composition across library themes, components, utilities, and consumer overrides; avoid escalating specificity or routine `!important`. Historical status: checked.",
+      "owner": 13
+    },
+    {
+      "id": "A-C-08",
+      "requirement": "Reconcile original `C-08`: Use container size queries for reusable card, toolbar, navigation, and modal compositions; choose/document containment boundaries so consumers know what supplies the container. Historical status: open.",
+      "owner": 9
+    },
+    {
+      "id": "A-C-09",
+      "requirement": "Reconcile original `C-09`: Use logical properties and direction-aware icons/placement for RTL; do not assume physical left/right always means start/end. Historical status: open.",
+      "owner": 17
+    },
+    {
+      "id": "A-C-11",
+      "requirement": "Reconcile original `C-11`: Use native nesting with documented tooling/browser support; keep selector depth shallow and component ownership obvious. Historical status: open.",
+      "owner": 13
+    },
+    {
+      "id": "A-C-12",
+      "requirement": "Reconcile original `C-12`: Use fluid sizing such as `clamp` where beneficial without preventing text zoom; establish mobile/reflow fallbacks. Historical status: open.",
+      "owner": 9
+    },
+    {
+      "id": "A-C-14",
+      "requirement": "Reconcile original `C-14`: Define progressive enhancement with `@supports`; do not adopt limited-support anchor positioning, style queries, or transitions as unconditional dependencies. Historical status: open.",
+      "owner": 13
+    },
+    {
+      "id": "A-C-15",
+      "requirement": "Reconcile original `C-15`: Use `:focus-visible` or owned accessible focus-state attributes; preserve visible focus when replacing current outline suppression. Historical status: open.",
+      "owner": 13
+    },
+    {
+      "id": "A-C-16",
+      "requirement": "Reconcile original `C-16`: Define reduced-motion transitions, interruption/cancellation behavior, and focus timing; no motion runtime is added solely for simple CSS transitions. Historical status: open.",
+      "owner": 12
+    },
+    {
+      "id": "A-C-17",
+      "requirement": "Reconcile original `C-17`: Specify overlay stacking/portal ownership rather than maximum-integer z-index values; test nested dialog/menu/tooltip/editor overlays. Historical status: open.",
+      "owner": 14
+    },
+    {
+      "id": "A-C-19",
+      "requirement": "Reconcile original `C-19`: Verify CSP behavior, including unavoidable inline styles for placement/dynamic values; do not claim strict CSP support without testing. Historical status: open.",
+      "owner": 13
+    },
+    {
+      "id": "A-C-20",
+      "requirement": "Reconcile original `C-20`: Verify compiled CSS distribution, consumer production builds, stylesheet deduplication, and tree-shaking behavior; CSS must not be removed as a false side effect. Historical status: open.",
+      "owner": 32
+    },
+    {
+      "id": "A-I-04",
+      "requirement": "Reconcile original `I-04`: Keep icons individually importable; avoid pulling an entire icon catalog into basic components. Historical status: checked.",
+      "owner": 5
+    },
+    {
+      "id": "A-I-05",
+      "requirement": "Reconcile original `I-05`: Establish consistent optical size, weight, alignment, RTL mirroring policy, and theme contrast. Historical status: open.",
+      "owner": 15
+    },
+    {
+      "id": "A-I-08",
+      "requirement": "Reconcile original `I-08`: Add icon catalog, accessibility, and bundle checks; update notices for all shipped vector assets. Historical status: open.",
+      "owner": 15
+    },
+    {
+      "id": "A-H-02",
+      "requirement": "Reconcile original `H-02`: Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](react-aria-browser-acceptance.md). Historical status: checked.",
+      "owner": 16
+    },
+    {
+      "id": "A-H-03",
+      "requirement": "Reconcile original `H-03`: Integrate React Aria routing where needed behind the existing host adapter; avoid two competing navigation systems or a runtime Next.js dependency. Historical status: open.",
+      "owner": 16
+    },
+    {
+      "id": "A-H-05",
+      "requirement": "Reconcile original `H-05`: Define pending/error handling for asynchronous host actions without duplicating requests or swallowing useful errors. Historical status: open.",
+      "owner": 4
+    },
+    {
+      "id": "A-H-08",
+      "requirement": "Reconcile original `H-08`: Validate ICU variables, pluralization, selection counts, date/number formatting, long labels, RTL, and pseudo-localized stories. Historical status: open.",
+      "owner": 17
+    },
+    {
+      "id": "A-P-07",
+      "requirement": "Reconcile original `P-07`: Include keyboard, screen-reader, zoom, touch, dark theme, reduced-motion, SSR/hydration, and production bundle checks in prototype findings. Historical status: open.",
+      "owner": 30
+    },
+    {
+      "id": "A-P-08",
+      "requirement": "Reconcile original `P-08`: Set reproducible performance budgets from baseline and representative consumer hardware; do not invent universal speed or size rankings. Historical status: open.",
+      "owner": 31
+    },
+    {
+      "id": "A-P-11",
+      "requirement": "Reconcile original `P-11`: Document prototype outcomes, API changes, limitations, and accessibility gaps; do not call prototype completion a production feature release. Historical status: open.",
+      "owner": 30
+    },
+    {
+      "id": "A-U-02",
+      "requirement": "Reconcile original `U-02`: Implement Box/container, Stack, surface/Paper, card/content, separator/Divider, and responsive layout primitives with scoped styles. Historical status: open.",
+      "owner": 18
+    },
+    {
+      "id": "A-U-04",
+      "requirement": "Reconcile original `U-04`: Implement TextField, input base, labels, descriptions, validation errors, required state, textarea, and grouped fields with correct associations. Historical status: open.",
+      "owner": 18
+    },
+    {
+      "id": "A-U-05",
+      "requirement": "Reconcile original `U-05`: Implement Checkbox, mixed state, Switch, RadioGroup, and label composition; document keyboard and form-submission semantics. Historical status: open.",
+      "owner": 18
+    },
+    {
+      "id": "A-U-06",
+      "requirement": "Reconcile original `U-06`: Implement Select and searchable ComboBox/Autocomplete; define value identity, filtering ownership, empty/loading/error, multiple selection where required, and disabled options. Historical status: open.",
+      "owner": 19
+    },
+    {
+      "id": "A-U-07",
+      "requirement": "Reconcile original `U-07`: Implement Menu/MenuItem, submenus when required, Popover, and Tooltip; distinguish menu commands from arbitrary form content in a popover. Historical status: open.",
+      "owner": 19
+    },
+    {
+      "id": "A-U-08",
+      "requirement": "Reconcile original `U-08`: Implement dialog primitives and modal composition with title/description, dismissal reasons, initial/return focus, scroll locking, background interaction handling, and nested overlays. Historical status: open.",
+      "owner": 14
+    },
+    {
+      "id": "A-U-09",
+      "requirement": "Reconcile original `U-09`: Implement Tabs with correct roles, panels, orientation, activation mode, disabled tabs, focus visibility, and overflow behavior. Historical status: open.",
+      "owner": 18
+    },
+    {
+      "id": "A-U-17",
+      "requirement": "Reconcile original `U-17`: Provide consistent focus ring, target size, disabled styling, validation, status announcement, and pointer/keyboard interactions across primitives. Historical status: open.",
+      "owner": 10
+    },
+    {
+      "id": "A-U-18",
+      "requirement": "Reconcile original `U-18`: Preserve native form participation, reset behavior, autofill, names/values, and submit behavior; test controlled and uncontrolled variants. Historical status: open.",
+      "owner": 18
+    },
+    {
+      "id": "A-U-19",
+      "requirement": "Reconcile original `U-19`: Define overlay collision/placement behavior at narrow widths and browser zoom; preserve theme/locale in portals and avoid clipped popovers. Historical status: open.",
+      "owner": 14
+    },
+    {
+      "id": "A-M-38",
+      "requirement": "Reconcile original `M-38`: Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively. Historical status: open.",
+      "owner": 35
+    },
+    {
+      "id": "A-G-15",
+      "requirement": "Reconcile original `G-15`: Support empty, no-results, loading, refresh, error, and row-subheader states with appropriate announcements and preserved context. Historical status: open.",
+      "owner": 20
+    },
+    {
+      "id": "A-G-16",
+      "requirement": "Reconcile original `G-16`: Define keyboard navigation, tab stops, focus retention after updates, row actions, and table versus interactive-grid semantics based on actual behavior. Historical status: open.",
+      "owner": 20
+    },
+    {
+      "id": "A-G-17",
+      "requirement": "Reconcile original `G-17`: Define row reordering for pointer, touch, keyboard and non-drag actions; announce changes, support cancel, and define behavior when sorting/filtering/pagination is active. Historical status: open.",
+      "owner": 21
+    },
+    {
+      "id": "A-G-20",
+      "requirement": "Reconcile original `G-20`: Benchmark large row/column counts and frequent updates, including selection and text input; compare production builds against the baseline. Historical status: open.",
+      "owner": 31
+    },
+    {
+      "id": "A-G-21",
+      "requirement": "Reconcile original `G-21`: Preserve link adapter semantics, visible focus, copy success/error feedback, escaped JSON/text, date localization, and image fallback behavior in cells. Historical status: open.",
+      "owner": 20
+    },
+    {
+      "id": "A-G-28",
+      "requirement": "Reconcile original `G-28`: Define cancel/error/optimistic-update behavior for host-driven row actions and reorder requests; restore or reconcile visible state when persistence fails. Historical status: open.",
+      "owner": 20
+    },
+    {
+      "id": "A-G-29",
+      "requirement": "Reconcile original `G-29`: Define focus and scroll preservation when data refreshes, pages change, columns hide, or a selected row disappears; test multiple independent grids. Historical status: open.",
+      "owner": 20
+    },
+    {
+      "id": "A-K-04",
+      "requirement": "Reconcile original `K-04`: Support minimum/maximum, unavailable-date explanations, validation, required/optional input, and host-supplied availability without fetching business data. Historical status: open.",
+      "owner": 27
+    },
+    {
+      "id": "A-K-05",
+      "requirement": "Reconcile original `K-05`: Support multi-month presentation, responsive container sizing, month/year navigation, keyboard navigation, focus return, and meaningful date announcements. Historical status: open.",
+      "owner": 28
+    },
+    {
+      "id": "A-K-07",
+      "requirement": "Reconcile original `K-07`: Keep typed/segmented input and calendar selection synchronized; define invalid/partial typing, paste, blur, and form submission behavior. Historical status: open.",
+      "owner": 27
+    },
+    {
+      "id": "A-K-08",
+      "requirement": "Reconcile original `K-08`: Test leap years, month boundaries, daylight-saving gaps/overlaps, date-only timezone independence, midnight ranges, and inclusive/exclusive endpoints. Historical status: open.",
+      "owner": 28
+    },
+    {
+      "id": "A-K-12",
+      "requirement": "Reconcile original `K-12`: [Decision] Define whether multiple arbitrary dates, comparison periods, fiscal periods, or month/year-only selectors belong in the first advanced release; implement selected features with proof of behavior. Historical status: open.",
+      "owner": 28
+    },
+    {
+      "id": "A-K-17",
+      "requirement": "Reconcile original `K-17`: Define keyboard and non-hover access to availability explanations, range previews, and preset descriptions; rich date-cell decorations must not replace meaningful date labels. Historical status: open.",
+      "owner": 27
+    },
+    {
+      "id": "A-E-02",
+      "requirement": "Reconcile original `E-02`: Preserve existing nodes/plugins: ImageNode, image insertion, horizontal-rule selection, editor configuration, and experience plugins; test saved-content round trips. Historical status: open.",
+      "owner": 25
+    },
+    {
+      "id": "A-E-03",
+      "requirement": "Reconcile original `E-03`: Replace editor toolbars, menus, modals, palettes and selection overlays with owned controls while preserving selection across commands and modal dismissal. Historical status: open.",
+      "owner": 23
+    },
+    {
+      "id": "A-E-04",
+      "requirement": "Reconcile original `E-04`: Cover undo/redo, links, lists, code, tables, alignment, indentation, colors, and inline formatting that current consumers use. Historical status: open.",
+      "owner": 24
+    },
+    {
+      "id": "A-E-05",
+      "requirement": "Reconcile original `E-05`: Address IME composition, paste, keyboard shortcuts, read-only/disabled state, and toolbar accessibility without hijacking ordinary editing keys. Historical status: open.",
+      "owner": 25
+    },
+    {
+      "id": "A-E-06",
+      "requirement": "Reconcile original `E-06`: Define safe URL/protocol handling, image metadata/alt text, host upload callbacks, file validation, cancellation, and object-URL cleanup. Shared saved/pasted link policy and activation: [partial contract](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial). Saved image sources and upload-result retry: [partial image contract](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); [upload lifetime matrix](react-aria-editor-section.md#host-upload-lifetime-e-06-partial) covers stale results after cancellation/reset/read-only/unmount; [file presentation validation](react-aria-editor-dialogs.md#file-presentation-validation-e-06-partial) covers empty files and MIME/extension metadata; wider image/upload acceptance remains open. Historical status: open.",
+      "owner": 26
+    },
+    {
+      "id": "A-E-07",
+      "requirement": "Reconcile original `E-07`: Review rich-content rendering and trust boundaries; do not render arbitrary HTML or unsafe links merely because they arrived in a presentation model. Saved/pasted link destinations are governed by the [owned policy](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial), and image decoration by the [image source policy](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); broader rich-content acceptance remains open. Historical status: open.",
+      "owner": 26
+    },
+    {
+      "id": "A-E-08",
+      "requirement": "Reconcile original `E-08`: Put editor-only dependencies behind a granular import boundary and assess whether separate packages are required to avoid mandatory installation weight. Historical status: open.",
+      "owner": 5
+    },
+    {
+      "id": "A-X-01",
+      "requirement": "Reconcile original `X-01`: Replace implementation-mirroring tests with behavior tests where needed; avoid mocks that hide the very focus/keyboard behavior under migration. Historical status: open.",
+      "owner": 39
+    },
+    {
+      "id": "A-X-02",
+      "requirement": "Reconcile original `X-02`: Define keyboard contracts and verify Tab/Shift+Tab, arrows, Home/End, Enter/Space, Escape, and typeahead where appropriate. Historical status: open.",
+      "owner": 19
+    },
+    {
+      "id": "A-X-03",
+      "requirement": "Reconcile original `X-03`: Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics. Historical status: open.",
+      "owner": 19
+    },
+    {
+      "id": "A-X-04",
+      "requirement": "Reconcile original `X-04`: Verify initial focus, return focus, focus after removal/reorder/update, trapped focus in modals, and nested-overlay dismissal ordering. Historical status: open.",
+      "owner": 14
+    },
+    {
+      "id": "A-X-05",
+      "requirement": "Reconcile original `X-05`: Ensure sticky headers/footers do not obscure focused controls; verify zoom/reflow/text-spacing behavior and scroll padding where needed. Historical status: open.",
+      "owner": 9
+    },
+    {
+      "id": "A-X-06",
+      "requirement": "Reconcile original `X-06`: Verify text/non-text contrast, visible focus, high contrast/forced colors, reduced motion, and state meaning beyond color. Historical status: open.",
+      "owner": 12
+    },
+    {
+      "id": "A-X-07",
+      "requirement": "Reconcile original `X-07`: Verify target size/spacing against WCAG requirements and aim for comfortable primary touch targets; test coarse-pointer use rather than shrinking every hit area with density. Historical status: open.",
+      "owner": 10
+    },
+    {
+      "id": "A-X-08",
+      "requirement": "Reconcile original `X-08`: Provide both keyboard and single-pointer non-drag alternatives for drag operations where required; keyboard support alone does not satisfy every dragging requirement. Historical status: open.",
+      "owner": 10
+    },
+    {
+      "id": "A-X-09",
+      "requirement": "Reconcile original `X-09`: Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient. Historical status: open.",
+      "owner": 29
+    },
+    {
+      "id": "A-X-10",
+      "requirement": "Reconcile original `X-10`: Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage. Historical status: open.",
+      "owner": 29
+    },
+    {
+      "id": "A-X-11",
+      "requirement": "Reconcile original `X-11`: Perform manual screen-reader reviews of representative dialogs, selectors, calendars, navigation, tables and editors; document platform/version and findings. Historical status: open.",
+      "owner": 29
+    },
+    {
+      "id": "A-X-13",
+      "requirement": "Reconcile original `X-13`: Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency. Historical status: open.",
+      "owner": 29
+    },
+    {
+      "id": "A-X-14",
+      "requirement": "Reconcile original `X-14`: Add visual regression coverage for light/dark, density, narrow/wide containers, long/pseudo-localized labels, RTL, focus/error/loading/empty/selected states. Historical status: open.",
+      "owner": 30
+    },
+    {
+      "id": "A-X-15",
+      "requirement": "Reconcile original `X-15`: Require deliberate review of screenshot changes; do not automatically accept new snapshots to silence regressions. Historical status: open.",
+      "owner": 29
+    },
+    {
+      "id": "A-X-16",
+      "requirement": "Reconcile original `X-16`: Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions. Historical status: open.",
+      "owner": 11
+    },
+    {
+      "id": "A-X-17",
+      "requirement": "Reconcile original `X-17`: Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version. Historical status: open.",
+      "owner": 32
+    },
+    {
+      "id": "A-X-18",
+      "requirement": "Reconcile original `X-18`: Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values. Historical status: checked.",
+      "owner": 11
+    },
+    {
+      "id": "A-X-19",
+      "requirement": "Reconcile original `X-19`: Record performance and memory budgets, profile large grids/selectors, and test listener/observer/timer/object-URL cleanup during mount/unmount. Historical status: open.",
+      "owner": 31
+    },
+    {
+      "id": "A-X-20",
+      "requirement": "Reconcile original `X-20`: Test API typing and package consumers, including generics, refs, callback payloads, CSS imports, isolated subpaths, and declaration dependency leakage. Historical status: open.",
+      "owner": 32
+    },
+    {
+      "id": "A-R-03",
+      "requirement": "Reconcile original `R-03`: Design root and granular entry points for core, theme/tokens/styles, primitives, icons, hooks, adapters, i18n, grid, editor and learning compositions. Historical status: open.",
+      "owner": 5
+    },
+    {
+      "id": "A-R-04",
+      "requirement": "Reconcile original `R-04`: Ensure barrels do not accidentally pull interactive/heavyweight dependencies into presentation-only imports or make server consumers import all editors. Historical status: open.",
+      "owner": 5
+    },
+    {
+      "id": "A-R-07",
+      "requirement": "Reconcile original `R-07`: Regenerate the lockfile through the package manager and inspect resolved transitive dependencies, overrides, patched dependencies and optional packages. Historical status: open.",
+      "owner": 38
+    },
+    {
+      "id": "A-R-08",
+      "requirement": "Reconcile original `R-08`: Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output. Historical status: checked.",
+      "owner": 32
+    },
+    {
+      "id": "A-R-09",
+      "requirement": "Reconcile original `R-09`: Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape. Historical status: open.",
+      "owner": 32
+    },
+    {
+      "id": "A-R-12",
+      "requirement": "Reconcile original `R-12`: Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](react-aria-runtime-ci.md). Historical status: checked.",
+      "owner": 36
+    },
+    {
+      "id": "A-R-15",
+      "requirement": "Reconcile original `R-15`: Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy. Historical status: open.",
+      "owner": 38
+    },
+    {
+      "id": "A-R-17",
+      "requirement": "Reconcile original `R-17`: Verify npm scope ownership, public access, trusted-publishing/token setup, GitHub release/tag permissions, provenance requirements, and commercial notices before publication. Historical status: open.",
+      "owner": 38
+    },
+    {
+      "id": "A-R-20",
+      "requirement": "Reconcile original `R-20`: Add task IDs, owned API requirements, story/behavior criteria, and validation evidence to AI task templates and generated PR expectations. Historical status: open.",
+      "owner": 37
+    },
+    {
+      "id": "A-R-21",
+      "requirement": "Reconcile original `R-21`: Preserve minimal workflow permissions, trusted/untrusted input separation, credential isolation, separate validation, and draft-PR review; never auto-merge AI proposals. Historical status: open.",
+      "owner": 37
+    },
+    {
+      "id": "A-R-23",
+      "requirement": "Reconcile original `R-23`: Verify AI-created draft PR validation even when default-token PR creation does not trigger another workflow; do not rely on absent CI events. Historical status: open.",
+      "owner": 37
+    },
+    {
+      "id": "A-R-24",
+      "requirement": "Reconcile original `R-24`: Update workflow timeouts/artifact handling as browser checks expand; cache by lockfile and avoid stale build outputs masking missing CSS or dependencies. Historical status: open.",
+      "owner": 36
+    },
+    {
+      "id": "A-R-25",
+      "requirement": "Reconcile original `R-25`: Pin/review workflow dependencies according to repository policy and validate proposed workflow changes without weakening protections to make checks pass. Historical status: open.",
+      "owner": 36
+    },
+    {
+      "id": "A-R-26",
+      "requirement": "Reconcile original `R-26`: Define recovery from failed or partially completed publication, tag/package mismatch, and rollback/deprecation of a bad release; do not overwrite published versions. Historical status: open.",
+      "owner": 38
+    },
+    {
+      "id": "A-R-27",
+      "requirement": "Reconcile original `R-27`: Ensure release-blocking checks actually run on the PR and main paths, including AI proposals and maintainer infrastructure PRs; check branch-protection names against the final workflow jobs. Historical status: open.",
+      "owner": 37
+    },
+    {
+      "id": "A-R-28",
+      "requirement": "Reconcile original `R-28`: Validate release configuration safely without publishing while implementing it; explicitly control whether final migration merges will trigger the first public release or a subsequent major release. Historical status: open.",
+      "owner": 38
+    },
+    {
+      "id": "A-W-06",
+      "requirement": "Reconcile original `W-06`: Update the source-guidance mapping to show each retained/adapted/omitted rule and why app database/API/login policies remain outside SGUI. Historical status: open.",
+      "owner": 34
+    },
+    {
+      "id": "A-W-07",
+      "requirement": "Reconcile original `W-07`: Create one canonical component recipe: owned props, native attributes/refs, React Aria mapping, tokens/CSS, stories, behavior tests, public export, and acceptance criteria. Historical status: open.",
+      "owner": 34
+    },
+    {
+      "id": "A-W-10",
+      "requirement": "Reconcile original `W-10`: Retain the 33 existing story files or document deliberate replacements; add missing catalog coverage for primitives, adapters, calendars and grid helpers. Historical status: open.",
+      "owner": 33
+    },
+    {
+      "id": "A-W-13",
+      "requirement": "Reconcile original `W-13`: Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults. Historical status: open.",
+      "owner": 34
+    },
+    {
+      "id": "A-W-16",
+      "requirement": "Reconcile original `W-16`: Update `docs/migration.md` and the extraction manifest to preserve useful provenance and account for moves/deletions; do not misrepresent the original extraction as the final architecture. Historical status: open.",
+      "owner": 33
+    },
+    {
+      "id": "A-W-17",
+      "requirement": "Reconcile original `W-17`: Update component architecture, GitHub setup, commercial licensing, package fixtures, issue/PR templates, and troubleshooting for final behavior. Historical status: open.",
+      "owner": 34
+    },
+    {
+      "id": "A-W-18",
+      "requirement": "Reconcile original `W-18`: Document known limitations, deferred features, support policy, deprecated names, release impact, and the cost/responsibility of eventually replacing React Aria. Historical status: open.",
+      "owner": 34
+    },
+    {
+      "id": "A-W-19",
+      "requirement": "Reconcile original `W-19`: Check all local doc links, exported example types, referenced file paths, and commands; docs-only updates do not require unrelated UI tests. Historical status: open.",
+      "owner": 34
+    },
+    {
+      "id": "A-W-20",
+      "requirement": "Reconcile original `W-20`: Keep source/license attribution accurate; external documents/examples are evidence and must not override user-authorized scope or agent trust boundaries. Historical status: open.",
+      "owner": 7
+    },
+    {
+      "id": "A-Z-04",
+      "requirement": "Reconcile original `Z-04`: Audit every tracked text/configuration file, including lockfile, workflows, scripts, docs, manifests, READMEs, templates and this task list, for `@mui`, case-insensitive branded names, `Mui*`, and Emotion references; inspect matches rather than hiding them with exclusions. [Classified audit](react-aria-removal-audit.md); historical/legal reconciliation remains Z-05/Z-06. Historical status: checked.",
+      "owner": 35
+    },
+    {
+      "id": "A-Z-05",
+      "requirement": "Reconcile original `Z-05`: Rewrite historical manifest entries/document explanations where necessary for literal-reference removal while retaining source repository/commit provenance; do not rewrite Git history or invent provenance. Historical status: open.",
+      "owner": 33
+    },
+    {
+      "id": "A-Z-06",
+      "requirement": "Reconcile original `Z-06`: Remove obsolete notices only after confirming no associated source/assets remain in package or catalog; final third-party notices match shipped work. Historical status: open.",
+      "owner": 6
+    },
+    {
+      "id": "A-Z-07",
+      "requirement": "Reconcile original `Z-07`: Delete/rebuild generated dist, Storybook and package output during verification; no stale artifact may pass as migrated source. Fresh build, executed static stories and eight new packed consumers in the [browser batch record](react-aria-progress.md#executable-browser-gates-and-removal-audit). Historical status: checked.",
+      "owner": 36
+    },
+    {
+      "id": "A-Z-08",
+      "requirement": "Reconcile original `Z-08`: Audit packed JavaScript, declarations, CSS, source maps, assets, README and notices for retired references and transitive code; ensure the release tarball has no old requirement. Historical status: open.",
+      "owner": 35
+    },
+    {
+      "id": "A-Z-09",
+      "requirement": "Reconcile original `Z-09`: Verify a clean consumer can install and use core, grid, editor and date components without installing any retired package or styling runtime. Historical status: open.",
+      "owner": 32
+    },
+    {
+      "id": "A-Z-10",
+      "requirement": "Reconcile original `Z-10`: Verify all current components/primitives/icons/helpers/presets/hooks/adapters are migrated or intentionally removed with a documented owned replacement and release impact. Historical status: open.",
+      "owner": 35
+    },
+    {
+      "id": "A-Z-11",
+      "requirement": "Reconcile original `Z-11`: Confirm package/type/build/Storybook/browser/accessibility/visual/SSR/performance checks pass for supported environments; record any genuine limitations instead of weakening checks. Historical status: open.",
+      "owner": 40
+    },
+    {
+      "id": "A-Z-12",
+      "requirement": "Reconcile original `Z-12`: Review the plan against every conversation commitment and imported UI principle; resolve duplicates, gaps, incompatible rules and unsupported feature claims. Historical status: open.",
+      "owner": 40
+    },
+    {
+      "id": "A-Z-13",
+      "requirement": "Reconcile original `Z-13`: Reconcile API snapshot with final declarations and consumer guide; verify every breaking change has migration instructions and correct Conventional Commit release marking. Historical status: open.",
+      "owner": 1
+    },
+    {
+      "id": "A-Z-14",
+      "requirement": "Reconcile original `Z-14`: Confirm commercial licensing and notices, public npm setup, Actions-only official builds/releases, draft AI PRs and no Changesets remain consistent. Historical status: open.",
+      "owner": 7
+    },
+    {
+      "id": "A-Z-15",
+      "requirement": "Reconcile original `Z-15`: Record final dependency/feature decisions, accepted test evidence, completed PRs, and explicitly deferred future tasks; no unchecked required migration item is dismissed as optional after the fact. Historical status: open.",
+      "owner": 40
+    },
+    {
+      "id": "A-Z-16",
+      "requirement": "Reconcile original `Z-16`: Only then mark the migration complete. Publishing is performed through the configured release workflow when authorized release-worthy changes merge. Historical status: open.",
+      "owner": 40
+    }
+  ],
+  "requiredEditorV": [
+    {
+      "id": "V-C21-04",
+      "requirement": "Review DocumentEditorLayout light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 23,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C21-05",
+      "requirement": "Review DocumentEditorLayout translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 23,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C22-04",
+      "requirement": "Review DocumentEditorToolbar light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 23,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C22-05",
+      "requirement": "Review DocumentEditorToolbar translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 23,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C23-04",
+      "requirement": "Review ContentEditorChrome light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 23,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C23-05",
+      "requirement": "Review ContentEditorChrome translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 23,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C25-04",
+      "requirement": "Review FloatingTextSelectionToolbar light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 25,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C25-05",
+      "requirement": "Review FloatingTextSelectionToolbar translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 25,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C26-04",
+      "requirement": "Review RichTextFormattingToolbar light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C26-05",
+      "requirement": "Review RichTextFormattingToolbar translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C27-04",
+      "requirement": "Review InsertContentMenuControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C27-05",
+      "requirement": "Review InsertContentMenuControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C28-04",
+      "requirement": "Review TextAlignMenuControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C28-05",
+      "requirement": "Review TextAlignMenuControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C29-04",
+      "requirement": "Review TextColorPickerControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C29-05",
+      "requirement": "Review TextColorPickerControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C30-04",
+      "requirement": "Review TextStyleMenuControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C30-05",
+      "requirement": "Review TextStyleMenuControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 24,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C34-04",
+      "requirement": "Review PageRichTextEditorSection light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.",
+      "acceptanceOwner": 25,
+      "status": "open; separate V evidence required"
+    },
+    {
+      "id": "V-C34-05",
+      "requirement": "Review PageRichTextEditorSection translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.",
+      "acceptanceOwner": 25,
+      "status": "open; separate V evidence required"
+    }
+  ],
+  "future": [
+    {
+      "id": "FUT-A-20",
+      "requirement": "[Future] Document how tokens/CSS and framework-independent models could be shared with other frameworks; require separate wrappers, tests, and support policy before claiming such support."
+    },
+    {
+      "id": "FUT-D-21",
+      "requirement": "[Future] Define a token-to-design-tool export workflow if Figma integration is introduced; no parallel manually maintained palette."
+    },
+    {
+      "id": "FUT-G-24",
+      "requirement": "[Future] Record export/import, aggregation/pivoting, tree data, range selection, clipboard paste, formulas, undo, and spreadsheet navigation as separate features unless explicitly selected."
+    },
+    {
+      "id": "FUT-K-13",
+      "requirement": "[Future] Define recurrence UI separately: frequency, intervals, days, count/until, exceptions, preview, and explicit host-owned recurrence processing."
+    },
+    {
+      "id": "FUT-K-14",
+      "requirement": "[Future] Evaluate a resource/week/day scheduler separately from date selection: overlapping events, time slots, capacity, drag/resize, keyboard alternatives, and virtualization."
+    },
+    {
+      "id": "FUT-K-15",
+      "requirement": "[Future] Define appointment/course-session/booking compositions through data/callbacks and generic models; availability computation, conflicts, reservations, permissions, and persistence stay host-owned."
+    }
+  ]
+}

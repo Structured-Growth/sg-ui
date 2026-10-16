@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-11",
+  "capturedAt": "2026-10-16T23:09:05.424517+00:00",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "scope": "Only exclusive evidence directory changed; unapplied source/test/documentation proposal",
+  "summary": {
+    "complete": 0,
+    "partial": 4,
+    "blocked": 0,
+    "newSourceBackedTestsPassed": 3,
+    "newNativeCasesExecuted": 0
+  },
+  "leaves": [
+    {
+      "id": "A-D-16",
+      "originalRequirement": "- [ ] A-D-16 Reconcile original `D-16`: Define scoped theme/density roots and nested overrides; ensure portaled overlays receive the correct scope and variables. Historical status: open.",
+      "status": "partial",
+      "outcome": "Live nested portal source behavior now passes; existing nested/static computed portal contracts retained.",
+      "evidence": [
+        "unit-evidence.json",
+        "units-final.txt",
+        "input-reconciliation.json",
+        "lifecycle-matrix.json"
+      ],
+      "commands": "See unit-evidence.json exact executed command and validation-plan.json pending coordinator commands",
+      "runtime": "Node24.21.0 / React19.2.3 / Vitest4.1.11; jsdom for portal/cleanup, Node for SSR",
+      "patchNeedsIntegration": true,
+      "residualSuccessors": [
+        {
+          "id": "W03-11-A-D-16",
+          "requirement": "Integrate patch; recover matching raw prior static token-tier portal result or run its single existing case; execute proposed live portal computed-style/focus case on frozen packed output.",
+          "execution": "unrun",
+          "owner": "Coordinator immutable packed/native validation window"
+        }
+      ],
+      "limits": "New source-backed tests only; no new native/packed/React18/all-export/first-physical-paint evidence."
+    },
+    {
+      "id": "A-D-17",
+      "originalRequirement": "- [ ] A-D-17 Reconcile original `D-17`: Specify explicit light/dark/system settings, initial server theme, `color-scheme`, and hydration behavior without unwanted flashes or browser-global assumptions. Historical status: open.",
+      "status": "partial",
+      "outcome": "Deterministic system markup/locale SSR passes, and concrete initial stylesheet/server-setting guidance plus a gated hydration fixture are ready.",
+      "evidence": [
+        "unit-evidence.json",
+        "units-final.txt",
+        "input-reconciliation.json",
+        "lifecycle-matrix.json"
+      ],
+      "commands": "See unit-evidence.json exact executed command and validation-plan.json pending coordinator commands",
+      "runtime": "Node24.21.0 / React19.2.3 / Vitest4.1.11; jsdom for portal/cleanup, Node for SSR",
+      "patchNeedsIntegration": true,
+      "residualSuccessors": [
+        {
+          "id": "W03-11-A-D-17",
+          "requirement": "Integrate guidance and fixture; execute styled prehydration/system preference and explicit child-theme checks against immutable packed React18/19 consumers. Initial CSS link timing remains host-owned.",
+          "execution": "unrun",
+          "owner": "Coordinator immutable packed/native validation window"
+        }
+      ],
+      "limits": "New source-backed tests only; no new native/packed/React18/all-export/first-physical-paint evidence."
+    },
+    {
+      "id": "A-X-16",
+      "originalRequirement": "- [ ] A-X-16 Reconcile original `X-16`: Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions. Historical status: open.",
+      "status": "partial",
+      "outcome": "Exact lifecycle matrix and passing live portal/two-root StrictMode observer cleanup successors supplied. Existing grid ownership/default/rejection/remount boundaries retained.",
+      "evidence": [
+        "unit-evidence.json",
+        "units-final.txt",
+        "input-reconciliation.json",
+        "lifecycle-matrix.json"
+      ],
+      "commands": "See unit-evidence.json exact executed command and validation-plan.json pending coordinator commands",
+      "runtime": "Node24.21.0 / React19.2.3 / Vitest4.1.11; jsdom for portal/cleanup, Node for SSR",
+      "patchNeedsIntegration": true,
+      "residualSuccessors": [
+        {
+          "id": "W03-11-A-X-16",
+          "requirement": "Integrate tests; execute proposed native nested update/ID/focus slice. Broader component-specific lifecycle coverage remains bounded by mapped retained evidence; do not claim every public control ownership transition.",
+          "execution": "unrun",
+          "owner": "Coordinator immutable packed/native validation window"
+        }
+      ],
+      "limits": "New source-backed tests only; no new native/packed/React18/all-export/first-physical-paint evidence."
+    },
+    {
+      "id": "A-X-18",
+      "originalRequirement": "- [ ] A-X-18 Reconcile original `X-18`: Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values. Historical status: checked.",
+      "status": "partial",
+      "outcome": "Affected composed imports/render now execute without browser globals and preserve explicit Arabic locale/system/date/multiline values. Runnable native hydration/ID checks supplied.",
+      "evidence": [
+        "unit-evidence.json",
+        "units-final.txt",
+        "input-reconciliation.json",
+        "lifecycle-matrix.json"
+      ],
+      "commands": "See unit-evidence.json exact executed command and validation-plan.json pending coordinator commands",
+      "runtime": "Node24.21.0 / React19.2.3 / Vitest4.1.11; jsdom for portal/cleanup, Node for SSR",
+      "patchNeedsIntegration": true,
+      "residualSuccessors": [
+        {
+          "id": "W03-11-A-X-18",
+          "requirement": "Execute packed native fixture for supported React versions with exact tarball/build/host hashes; require preserved server nodes/IDs, exact wire values and zero recoverable errors. No current React18 or native hydration pass is claimed.",
+          "execution": "unrun",
+          "owner": "Coordinator immutable packed/native validation window"
+        }
+      ],
+      "limits": "New source-backed tests only; no new native/packed/React18/all-export/first-physical-paint evidence."
+    }
+  ],
+  "validation": {
+    "unitStatus": "passed",
+    "recordedInputs": 60,
+    "changedDuringRun": [],
+    "receipt": "unit-evidence.json",
+    "patchCheck": "git apply --check exit0; unapplied",
+    "nativeRunnerSyntax": "node --check exit0; unexecuted native runner"
+  },
+  "patch": "scoped-lifecycle.patch",
+  "validationPlan": "validation-plan.json",
+  "inputReconciliation": "input-reconciliation.json",
+  "artifactsSha256": {
+    "assignment.json": "4516efb48706a1e8f9ced28b1bec7b9d62ce242320f6b2a8db2ae88a92c1ebaa",
+    "input-reconciliation.json": "566abd015e85b773fb5ab7c01d66d6aafe6d0fb77be41f78267da9d28aafcfa5",
+    "lifecycle-matrix.json": "156ea2927b20a940eab6fb02dc30b161ba2f89b059b3499067208e8b2571df6f",
+    "native-runner-syntax.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "patch-check.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proposed-files/docs/developer/react-aria-theme.md": "6a0b25808d472a517ada54a3811787a5ef15efc43da4a9b5d46fdaf45b7e4b33",
+    "proposed-files/packages/ui/scripts/scope-hydration-proof.jsx": "aa8c07ff2075e6a40972d26c1afa1d3d6330171af4136b712a2100b04fbe1c90",
+    "proposed-files/packages/ui/scripts/test-scoped-lifecycle-consumer.mjs": "2c36a5a2e90980d462aa1589b38cc1fdec4de7413e0c4ccd6241534df1b653c4",
+    "proposed-files/packages/ui/src/experimental/Provider/Provider.composed-ssr.test.tsx": "0d2363bdad5bcbe3f3440d9a17108fff1509fd8cc8e13456f4fb86dce3f7a41b",
+    "proposed-files/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx": "a859b1e693a493a70dd2e51cacd3f78ce96f54e4f7c7ed2f9abb0ac6c6837e3c",
+    "proposed-files/packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx": "13be06df7ea48caf52776205f078fc5f5d06284fb7aca0c34f9f0b3d8b7f2b84",
+    "report.md": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+    "run-proposal-tests.mjs": "ad8d2e0ed3382362bd6ade779bc5215161b1d9d1229d54306317a666c3452cf0",
+    "runtime-packages.json": "403f51951b6e46e9715139449a69ad397c48f832fc10acfe5b48c08fbd1c0ef7",
+    "scoped-lifecycle.patch": "676fc1c1f71d6234310670e0898405976d6a4b1aaffc57438a4362503c71573f",
+    "unit-evidence.json": "0dddb457a6d733a5c0ac4f95cae90188f3af8bb0506e2dd7e48a75d4661662d5",
+    "units-fifth.txt": "0a8f393e0f2e66dc65388596b0bb199750addd599d5d9cd06a0236d03e3d4bc9",
+    "units-final-driver.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "units-final.txt": "9a8f7e3ae07fcc90e7028e73e3ad81af3d4723a484c8a34b681117ea4cc3ddfc",
+    "units-first.txt": "9b26182993befa7fdc227f2437e73cd06a16cdd730eda1c8cd4de9446c1f85ac",
+    "units-fourth.txt": "840b09a6081b2ca51c9a3b42a08bd8316c34bac9b605697d4476a3c9c949e954",
+    "units-live-portal-final.txt": "7ac258ed7cc593268603e80cb622b4cb02f93a9e86c231110e178344a1a837a8",
+    "units-second.txt": "379a6c2f933bae5de791064dc65eaab5a27a92f48bd35218be2aed92cd38d897",
+    "units-third.txt": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "validation-plan.json": "1fa8a60e28639fd8f78db060e1882ac53e0e9688540a534ea7b4e8640363ce8a",
+    "vitest.proposal.config.mjs": "29530b7237c58515a3330dc94137c96dd2ddb17cde80495858b994e0d43dae4d"
+  },
+  "limits": [
+    "Patch integration and native runtime acceptance pending",
+    "No central ledger/count changes",
+    "No native/AT/device/real zoom/production claims",
+    "Retained receipt hashes remain dated; new Node tests do not relabel prior native evidence"
+  ]
+}

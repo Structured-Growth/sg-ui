@@ -8,7 +8,7 @@ import type { AppDataGridRowDragConfig } from "./types";
 import { CheckboxContext } from "react-aria-components/Checkbox";
 import { Menu } from "../../experimental/Menu/Menu";
 import { Button } from "../../components/Button/Button";
-import { ArrowDropDownIcon } from "../../experimental/icons";
+import { ArrowDropDownIcon } from "../../experimental/icons/ArrowDropDownIcon";
 import { Checkbox } from "../../experimental/Checkbox/Checkbox";
 import { useTranslation } from "../../i18n";
 import { changeOwnedGridHeaderSort, measureOwnedGridWidths, retainOwnedGridFlexColumn, type OwnedGridPresentationColumn } from "./ownedGridColumns";
@@ -17,6 +17,7 @@ import { getOwnedGridPageSelection, selectOwnedGridPage } from "./ownedGridState
 import { useOwnedGridController, type OwnedGridControllerOptions } from "./ownedGridController";
 import { useOwnedGridLayoutController, type OwnedGridLayoutControllerOptions } from "./ownedGridLayoutController";
 import { OwnedGridCell, type OwnedGridCellProps } from "./ownedGridCells";
+import { GridColumnWidthControl } from "../../experimental/DataGrid/GridColumnWidthControl";
 import { OwnedGridHeaderSortMenu, OwnedGridStatus } from "./ownedGridParts";
 import type { OwnedGridTransition } from "./ownedGridState";
 import styles from "./ownedGridInteraction.module.css";
@@ -94,6 +95,10 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
   }, []);
   const setContainer = useCallback((node: HTMLDivElement | null) => {
     container.current = node;
+    // Firefox otherwise adds the overflow pane as an implicit native Tab stop.
+    // The interaction wrapper filters tabIndex; this owned native ref delegates
+    // collection entry to the table while preserving programmatic pane focus.
+    if (node) node.tabIndex = -1;
     if (typeof forwardedRef === "function") forwardedRef(node); else if (forwardedRef) forwardedRef.current = node;
   }, [forwardedRef]);
   const setTable = useCallback((node: HTMLDivElement | HTMLTableElement | null) => {
@@ -345,6 +350,8 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
       focus.current = { rowId: cell?.dataset.gridRow, field: cell?.dataset.gridField, element,
         index: cell ? [...cell.querySelectorAll("button, a, input, [role='slider']")].indexOf(element) : -1 };
     }}>{status && !noRows && <OwnedGridStatus ref={statusNode} state={status} message={errorMessage} onRetry={onRetry} />}
+    {/* Firefox otherwise inserts an implicit Tab stop on the native scroll pane.
+        The table owns collection entry; the pane remains programmatically focusable. */}
     <ResizableTableContainer ref={setContainer} className={[styles.container, className].filter(Boolean).join(" ")} style={style}
     data-sgui-part="grid-container" onResize={widths => {
       const active = table.current?.contains(document.activeElement) ? (document.activeElement as HTMLElement)?.closest<HTMLElement>("[data-grid-field]")?.dataset.gridField : undefined;
@@ -394,7 +401,9 @@ function Interaction<RowModel>(props: OwnedGridInteractionProps<RowModel>, forwa
               {column.sortable !== false ? <OwnedGridHeaderSortMenu label={column.headerName ?? column.field} sortDirection={direction}
                 onSortSelect={direction => dispatch({ type: "sort", value: changeOwnedGridHeaderSort(state.sortRules, column.field, direction) })} /> : <span>{column.headerName ?? column.field}</span>}
               <span onFocusCapture={() => { resizing.current = column.field; }} onPointerDownCapture={() => { resizing.current = column.field; }} onKeyDownCapture={() => { resizing.current = column.field; }}><ColumnResizer className={styles.resizer} aria-label={t("common.ui.resizeColumn", { defaultMessage: "Resize {label}", values: { label: column.headerName ?? column.field } })}
-                /></span>
+                /></span><GridColumnWidthControl label={column.headerName ?? column.field}
+                width={() => measured[column.field]!} minWidth={column.minWidth ?? 80} maxWidth={column.maxWidth}
+                onWidthChange={width => setWidths(availableWidth > 0 ? retainOwnedGridFlexColumn(visible, { ...layout.widths, [column.field]: width }, column.field) : { ...layout.widths, [column.field]: width })} />
             </div>
           </Column>;
         })}

@@ -1,0 +1,18 @@
+{
+  "assignment.json": "b5d98593a0b91250c759c6fff7a75f8744d5ec4fb8286e1f4ed930813085da99",
+  "capture-inputs.py": "e2c0b436b60f0ceea535b4642a9305367f14828629e652e2d0827b16c01f50a4",
+  "check-proposals.cjs": "8878001685b94f99ea8f8ab2ed5068adea39ca037c07a5dfaec05ba326acbd2a",
+  "input-receipt.json": "ad96529546f46c776bf33fd18d789afee4b1e5551bfee31f4e46ca9e0a65d863",
+  "navigation-composed.spec.ts": "648fcbae432ef0a8943a604a7161e908adaf00b08e2d109fc9e413acb80cc491",
+  "patch-check.json": "ca64199f1dc0ee0c80fe1b4385775178552a2a71b832a407bae17861c3b5e4d8",
+  "proposal-typecheck-first-failure.txt": "208c87b9963c0c0e72da34e9a210cdedb0b7f4fa68b34261bbd7381d5a4a56a0",
+  "proposal-typecheck-initial-diagnostics.json": "e3e3b04d2e7aeee0a00ab1e74cd03cfae235025af51c071132649f2af8522ed3",
+  "proposal-typecheck.json": "2f694ce034da21ee0ba7ee92ddd9a2173a69f023bab7eb1815da88e3c186971b",
+  "proposed-files/apps/docs/native-fixtures/scenarios/adapters/adapters.fixture.tsx": "d69d211fdc2bb651f9f23d06b7ac6e5599a9e65b3943a55e05c27c272d4c8973",
+  "proposed-files/docs/developer/react-aria-host-adapter-acceptance.md": "bbc56fc06dc0bc77c7435c1ce977d8ddb91fc4ed2a5e645b0f891e42f53f5b20",
+  "proposed-files/packages/ui/tests/browser/navigation-composed.spec.ts": "648fcbae432ef0a8943a604a7161e908adaf00b08e2d109fc9e413acb80cc491",
+  "report.md": "f7c9aa4652a41e17cc4c594098ad2d09a453589eb1e61a3d59d62ce91a571c56",
+  "results.json": "ce76230ef2791bf351766fc38601c1d09b2c71e1a846a67327a7a4f3a345d555",
+  "routing-probes.patch": "92f8ef94441f05b71cf3604bd099b9cd58086101f1a74c9d7a340e9f58cba593",
+  "validation-plan.json": "2e2524060a745079d7d0fa297ff84a95655070b56b99cdb131b781ae26e854fb"
+}

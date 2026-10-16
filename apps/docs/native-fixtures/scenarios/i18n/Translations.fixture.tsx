@@ -11,8 +11,10 @@ const pseudo = "{n, plural, =0 {⟦Nöö rööws sëëlëëctëëd — ëëxpà�
 function Example() {
   const [n, setCount] = useState(0);
   const { t } = useTranslation();
-  return <Stack gap={2} style={{ maxWidth: 320 }}>
-    <Typography aria-live="polite">{t("grid.selection", { defaultMessage: english, namespace: "grid", values: { n } })}</Typography>
+  return <Stack gap={2} data-testid="translation-example" style={{ maxWidth: 320 }}>
+    <Typography role="status" aria-live="polite">{t("grid.selection", { defaultMessage: english, namespace: "grid", values: { n } })}</Typography>
+    <Typography data-testid="localized-number">{t("grid.total", { defaultMessage: "{total, number}", namespace: "grid", values: { total: 12345.5 } })}</Typography>
+    <Typography data-testid="localized-date">{t("grid.date", { defaultMessage: "{date, date}", namespace: "grid", values: { date: new Date("2026-10-16T12:00:00Z") } })}</Typography>
     <Button onPress={() => setCount(count => count + 1)}>{t("grid.selectNext", { defaultMessage: "Select another row", namespace: "grid" })}</Button>
     <Button variant="outlined" onPress={() => setCount(0)}>{t("grid.clear", { defaultMessage: "Clear selection", namespace: "grid" })}</Button>
   </Stack>;
@@ -22,5 +24,5 @@ const meta = { title: "Foundations/Translations", component: Example, tags: ["au
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const EnglishFallback: Story = { render: () => <SGTranslationProvider value={fallback}><Provider><Example /></Provider></SGTranslationProvider> };
-export const PseudoLocalizedLongLabels: Story = { render: () => <SGTranslationProvider value={{ ...fallback, t: (key, options) => key === "grid.selection" ? formatIcuMessage(pseudo, "en-US", options.values) : `⟦${options.defaultMessage} — expanded label⟧` }}><Provider><Example /></Provider></SGTranslationProvider> };
-export const ArabicPluralAndDirection: Story = { render: () => <SGTranslationProvider value={{ ...fallback, locale: "ar-EG", t: (key, options) => key === "grid.selection" ? formatIcuMessage(arabic, "ar-EG", options.values) : key === "grid.clear" ? "مسح التحديد" : "حدد صفًا آخر" }}><Provider><Example /></Provider></SGTranslationProvider> };
+export const PseudoLocalizedLongLabels: Story = { render: () => <SGTranslationProvider value={{ ...fallback, t: (key, options) => key === "grid.selection" ? formatIcuMessage(pseudo, "en-US", options.values) : key === "grid.total" || key === "grid.date" ? formatIcuMessage(options.defaultMessage, "en-US", options.values) : `⟦${options.defaultMessage} — expanded label⟧` }}><Provider><Example /></Provider></SGTranslationProvider> };
+export const ArabicPluralAndDirection: Story = { render: () => <SGTranslationProvider value={{ ...fallback, locale: "ar-EG", t: (key, options) => key === "grid.selection" ? formatIcuMessage(arabic, "ar-EG", options.values) : key === "grid.total" || key === "grid.date" ? formatIcuMessage(options.defaultMessage, "ar-EG", options.values) : key === "grid.clear" ? "مسح التحديد" : "حدد صفًا آخر" }}><Provider><Example /></Provider></SGTranslationProvider> };

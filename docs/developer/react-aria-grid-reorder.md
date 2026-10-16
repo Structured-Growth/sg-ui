@@ -20,7 +20,13 @@ can override the handle name; `isRowDraggable` restricts sources, and
 Reordering requires a complete client dataset on page zero fitting in one page,
 with no search, filters or sorting, at most one selected ID, and no loading,
 refreshing or error state. Controls remain visible but disabled outside this
-boundary. Server pages cannot define a complete host order. Only one source row
+boundary. Sorting or filtering that happens to preserve the visible row order
+still disables reordering. A page-size reduction that creates multiple pages
+also disables it; the grid does not interpret a move as a page-local reorder,
+clear criteria, or change the current page to make a drag possible. Clear the
+criteria and show the complete dataset on page zero to re-enable controls.
+A criteria change during a drag must not request a host move while that boundary
+is active. Start a new interaction after restoring an eligible collection. Server pages cannot define a complete host order. Only one source row
 is moved; invalid/missing/self/adjacent no-op targets emit no callback. Replacing
 rows or the identity function during a drag invalidates the captured order.
 
@@ -88,7 +94,11 @@ check native drag-end preview/listener cleanup, replacement, browser drag-image
 errors and Strict Mode unmount. Existing `tests/browser/reorder.spec.ts` retains
 trusted native pointer and emulated touchscreen Move coverage.
 
+The existing `inventory-pointer-reorder-invalidation.spec.ts` separately covers
+trusted pointer dataset/identity replacement and cancellation over a second grid
+with colliding row IDs. These pointer checks do not establish touch cancellation.
+
 This slice does not establish physical-device long-press dragging, spoken
-screen-reader announcements, cross-grid cancellation, every dataset-change
+screen-reader announcements, every dataset-change
 boundary or production network race reconciliation. G-17/G-18/G-28/X-08 and the
 broader G/U/X/R/Z gates remain open beyond this representative evidence.

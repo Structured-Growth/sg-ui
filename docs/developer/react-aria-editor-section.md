@@ -33,6 +33,9 @@ host translation adapter with English fallbacks.
 The toolbar remains outside a single scrolling viewport. The viewport is a named,
 keyboard-focusable region with a visible focus outline, including in read-only
 mode; native PageDown scrolling is covered by the browser acceptance suite.
+The editable document uses input-aware focus visibility: pointer entry, typing
+and caret movement do not activate its bounding outline. Tab navigation retains
+a visible document focus indicator; the text caret and selection remain native.
 Give the section a
 bounded height or a zero-minimum flex parent. ContentEditable and its placeholder
 share a positioned document container. Narrow tables scroll within the viewport;
@@ -160,6 +163,29 @@ require accepted PNGs to decode, rejected sources to create no resource request,
 unchanged saved metadata after reload, and successful retry with the original
 description. E-06/E-07 remain open for file/content validation, author styles and
 broader rich-content acceptance.
+
+## Runtime image metadata (E-06/E-07 partial)
+
+The image factory checks runtime field shapes for saved imports and insertion commands.
+`src` must be a string; optional description and asset IDs must be strings or null;
+optional dimensions must be finite numbers or null. Missing/null optional values keep
+the existing empty-description/null-metadata defaults. Valid values are preserved,
+including decorative empty alt text. This check does not authorize assets, validate
+image bytes, impose dimension/size bounds or migrate unsupported document versions.
+Malformed saved image fields throw an internal TypeError before node creation; this
+is not atomic document validation or a user-facing recovery API. Hosts must validate
+untrusted whole documents before passing them to the editor and retain the original
+when parsing fails. The section currently supplies a silent Lexical error handler;
+this patch does not certify whole-document failure/recovery behavior.
+
+Malformed current upload metadata leaves the file/description available for retry
+and reports a translated error before insertion. Stale results are ignored before
+metadata validation. No host-created URL or asset is released by this check.
+
+React escapes image attributes; serialized JSON remains data, not sanitized HTML.
+Downstream renderers must independently enforce context-specific URL/style policy.
+Author CSS, node/version policy, byte/dimension restrictions, host CSP, remote image
+redirects, transport abort and stale-asset deletion remain explicit host decisions.
 
 ## Host upload lifetime (E-06 partial)
 

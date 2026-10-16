@@ -1,0 +1,433 @@
+--- a/docs/developer/component-architecture.md
++++ b/docs/developer/component-architecture.md
+@@ -28,6 +28,18 @@
+ Basic controls must not import grid/editor code. React Aria collection/state/date
+ objects and full upstream prop types never become public contracts. Source uses
+ relative imports and sibling entry points, not the package root or host aliases.
++The foundation check resolves every production TypeScript/JavaScript module reference
++using the library compiler options. Internal references to `src/index.ts` or the
++package root are forbidden at any depth, including aliases, type imports, reexports,
++side effects and dynamic imports. Both runtime cycles and cycles involving erased
++type edges are forbidden; reports distinguish these graphs rather than claiming
++a type-only return edge is a runtime cycle. Extract shared contracts to dependency
++leaves and preserve public type reexports. Nonliteral module references fail the
++audit because their targets cannot be established. Tests and native fixtures are
++outside this production graph. Run `node scripts/check-source-graph.mjs` and
++`node --test scripts/check-source-graph.test.mjs` from `packages/ui`; both checks
++also run through `foundations:check`.
++
+ The public primitives/icons and catalog use strict source/transitive/declaration
+ checks; `/experimental` preserves proofs, not a parallel visual system.
+ 
+--- a/packages/ui/scripts/check-foundations.mjs
++++ b/packages/ui/scripts/check-foundations.mjs
+@@ -5,6 +5,8 @@
+ import typescript from 'typescript';
+ import { validateComponentCss } from './check-component-css.mjs';
+ import { compileTokens } from './tokens.mjs';
++import { assertSourceGraph, inspectSourceGraph } from './check-source-graph.mjs';
++import { runSourceGraphRegression } from './check-source-graph.test.mjs';
+ 
+ const interactionFiles = new Set(['SearchField', 'TextField', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'DateField', 'TimeField', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'Menu', 'Switch', 'RadioGroup', 'Select', 'TextArea', 'ToggleButton', 'Tooltip', 'TagGroup', 'Progress']
+   .map(name => `src/experimental/${name}/${name}.tsx`));
+@@ -52,6 +54,8 @@
+ }
+ 
+ export async function checkFoundations() {
++assertSourceGraph(inspectSourceGraph());
++runSourceGraphRegression();
+ // Relative parsing, civil validation and arithmetic must remain owned and dependency-free.
+ const relativeDateSource = 'src/utils/relative-dates.ts';
+ assert.equal(moduleReferences(relativeDateSource, await readFile(relativeDateSource, 'utf8')).length, 0,
+@@ -68,7 +72,6 @@
+     else if (accept(entry.name) && /\.(tsx?|css)$/.test(path)) {
+       const code = await readFile(path, 'utf8');
+       assert(!/@mui|@emotion|Mui[A-Z]|\bsx[=:]/.test(code), `Retired styling/foundation in ${path}`);
+-      assert(!/from\s+["'](?:@structured-growth\/sg-ui|\.\.\/index|\.\.\/\.\.\/index)["']/.test(code), `Internal root import in ${path}`);
+       assertInteractionBoundary(path, code);
+       if (componentFiles.has(path) || path === 'src/foundation/ThemeScope.tsx') {
+         await access(path.replace(/\.tsx$/, '.test.tsx')).catch(() => {
+--- /dev/null
++++ b/packages/ui/scripts/check-source-graph.mjs
+@@ -0,0 +1,117 @@
++import assert from 'node:assert/strict';
++import { readFileSync } from 'node:fs';
++import { resolve, relative } from 'node:path';
++import { pathToFileURL } from 'node:url';
++import ts from 'typescript';
++
++const slash = path => path.replaceAll('\\', '/');
++export const isProductionModule = path => /\.[cm]?[jt]sx?$/.test(path)
++  && !/(?:^|\/)(?:__tests__|__fixtures__)(?:\/|$)|\.(?:test|spec|stories)(?:\.|$)|\.native-fixture/.test(slash(path));
++
++/** Explicit type syntax is erased; unmarked imports conservatively remain runtime edges. */
++export function moduleReferences(file, code, compilerOptions = {}) {
++  const source = ts.createSourceFile(file, code, ts.ScriptTarget.Latest, true);
++  const references = [];
++  function visit(node) {
++    let literal, kind, typeOnly = false;
++    if (ts.isImportDeclaration(node)) {
++      literal = node.moduleSpecifier; kind = 'import';
++      const clause = node.importClause;
++      typeOnly = Boolean(clause?.isTypeOnly || (!compilerOptions.verbatimModuleSyntax && !clause?.name && clause?.namedBindings
++        && ts.isNamedImports(clause.namedBindings) && clause.namedBindings.elements.length
++        && clause.namedBindings.elements.every(element => element.isTypeOnly)));
++    } else if (ts.isExportDeclaration(node) && node.moduleSpecifier) {
++      literal = node.moduleSpecifier; kind = 'reexport';
++      typeOnly = Boolean(node.isTypeOnly || (!compilerOptions.verbatimModuleSyntax && node.exportClause && ts.isNamedExports(node.exportClause)
++        && node.exportClause.elements.length && node.exportClause.elements.every(element => element.isTypeOnly)));
++    } else if (ts.isImportTypeNode(node)) {
++      literal = ts.isLiteralTypeNode(node.argument) ? node.argument.literal : node.argument;
++      kind = 'import-type'; typeOnly = true;
++    } else if (ts.isImportEqualsDeclaration(node) && ts.isExternalModuleReference(node.moduleReference)) {
++      literal = node.moduleReference.expression; kind = 'import-equals'; typeOnly = node.isTypeOnly;
++    } else if (ts.isCallExpression(node) && (node.expression.kind === ts.SyntaxKind.ImportKeyword
++      || (ts.isIdentifier(node.expression) && node.expression.text === 'require'))) {
++      literal = node.arguments[0]; kind = node.expression.kind === ts.SyntaxKind.ImportKeyword ? 'dynamic-import' : 'require';
++    }
++    if (kind) references.push({ kind, typeOnly, specifier: literal && ts.isStringLiteralLike(literal) ? literal.text : null,
++      line: source.getLineAndCharacterOfPosition(node.getStart(source)).line + 1 });
++    ts.forEachChild(node, visit);
++  }
++  visit(source);
++  return references;
++}
++
++export function stronglyConnectedComponents(files, edges) {
++  const adjacent = new Map(files.map(file => [file, []]));
++  for (const edge of edges) adjacent.get(edge.file)?.push(edge.target);
++  let next = 0;
++  const indices = new Map(), low = new Map(), stack = [], active = new Set(), cycles = [];
++  function visit(file) {
++    indices.set(file, next); low.set(file, next++); stack.push(file); active.add(file);
++    for (const target of adjacent.get(file) ?? []) {
++      if (!indices.has(target)) { visit(target); low.set(file, Math.min(low.get(file), low.get(target))); }
++      else if (active.has(target)) low.set(file, Math.min(low.get(file), indices.get(target)));
++    }
++    if (low.get(file) === indices.get(file)) {
++      const members = []; let member;
++      do { member = stack.pop(); active.delete(member); members.push(member); } while (member !== file);
++      if (members.length > 1 || adjacent.get(file)?.includes(file)) cycles.push(members.sort());
++    }
++  }
++  for (const file of files) if (!indices.has(file)) visit(file);
++  return cycles.sort((a, b) => a[0].localeCompare(b[0]));
++}
++
++/** overlays are a read-only test seam: keys are absolute source paths, values are proposed text. */
++export function inspectSourceGraph(root = process.cwd(), { overlays = new Map(), compilerOptions } = {}) {
++  root = resolve(root);
++  const sourceRoot = resolve(root, 'src');
++  const config = ts.readConfigFile(resolve(root, 'tsconfig.json'), ts.sys.readFile);
++  if (config.error) throw new Error(ts.flattenDiagnosticMessageText(config.error.messageText, '\n'));
++  const parsed = ts.parseJsonConfigFileContent(config.config, ts.sys, root);
++  assert.equal(parsed.errors.length, 0, 'Invalid source graph compiler configuration');
++  const options = compilerOptions ?? parsed.options;
++  const host = { ...ts.sys, fileExists: file => overlays.has(resolve(file)) || ts.sys.fileExists(file),
++    readFile: file => overlays.get(resolve(file)) ?? ts.sys.readFile(file) };
++  const files = [...new Set([...ts.sys.readDirectory(sourceRoot, ['.ts', '.tsx', '.mts', '.cts', '.js', '.jsx', '.mjs', '.cjs']),
++    ...overlays.keys()].filter(file => file.startsWith(sourceRoot + '/') && isProductionModule(file)))].sort();
++  const production = new Set(files);
++  const rootBarrel = resolve(sourceRoot, 'index.ts');
++  const edges = [], violations = [], contents = {};
++  const name = file => slash(relative(root, file));
++  for (const file of files) {
++    const code = host.readFile(file); assert.notEqual(code, undefined, `Missing module ${file}`);
++    contents[name(file)] = code;
++    for (const ref of moduleReferences(file, code, options)) {
++      const entry = { file: name(file), ...ref };
++      if (ref.specifier === null) { violations.push({ ...entry, reason: 'Nonliteral module reference cannot be audited' }); continue; }
++      const target = ts.resolveModuleName(ref.specifier, file, options, host).resolvedModule?.resolvedFileName;
++      const rootReference = ref.specifier === '@structured-growth/sg-ui' || (target && resolve(target) === rootBarrel);
++      if (rootReference) violations.push({ ...entry, reason: 'Internal reference to package root barrel' });
++      if (target && production.has(resolve(target))) edges.push({ ...entry, target: name(resolve(target)) });
++      else if (ref.specifier.startsWith('.') && !/\.(?:css|json|svg|png|jpe?g|gif|webp)$/.test(ref.specifier)) {
++        violations.push({ ...entry, reason: target ? 'Production reference resolves outside production graph' : 'Unresolved local module' });
++      }
++    }
++  }
++  const names = files.map(name);
++  const runtimeCycles = stronglyConnectedComponents(names, edges.filter(edge => !edge.typeOnly));
++  const allCycles = stronglyConnectedComponents(names, edges);
++  // A mixed SCC may contain a runtime subcycle: keep the full SCC and its runtime SCCs separate.
++  const typeInvolvingCycles = allCycles.filter(members => edges.some(edge => edge.typeOnly
++    && members.includes(edge.file) && members.includes(edge.target)));
++  return { files: names, edges, violations, runtimeCycles, typeInvolvingCycles, allCycles, contents };
++}
++
++export function assertSourceGraph(graph) {
++  const problems = graph.violations.map(item => `${item.file}:${item.line}: ${item.reason} (${item.specifier})`);
++  problems.push(...graph.runtimeCycles.map(cycle => `Runtime cycle: ${cycle.join(' -> ')}`));
++  problems.push(...graph.typeInvolvingCycles.map(cycle => `Type-involving cycle (also forbidden): ${cycle.join(' -> ')}`));
++  assert.equal(problems.length, 0, problems.join('\n'));
++}
++
++if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
++  const graph = inspectSourceGraph();
++  assertSourceGraph(graph);
++  console.log(`Source dependency graph passes: ${graph.files.length} production modules; ${graph.edges.length} local edges; no runtime or type-involving cycles.`);
++}
+--- /dev/null
++++ b/packages/ui/scripts/check-source-graph.test.mjs
+@@ -0,0 +1,74 @@
++import assert from 'node:assert/strict';
++import { resolve } from 'node:path';
++import { pathToFileURL } from 'node:url';
++import { test } from 'node:test';
++import ts from 'typescript';
++import { assertSourceGraph, inspectSourceGraph, moduleReferences } from './check-source-graph.mjs';
++
++export function runSourceGraphRegression(root = process.cwd(), overlays = new Map()) {
++  const baseline = inspectSourceGraph(root, { overlays });
++  assertSourceGraph(baseline);
++  const inspect = (changes, compilerOptions) => inspectSourceGraph(root, {
++    overlays: new Map([...overlays, ...Object.entries(changes).map(([file, code]) => [resolve(root, file), code])]), compilerOptions,
++  });
++  const a = 'src/__cycle_guard_a.ts', b = 'src/__cycle_guard_b.ts', c = 'src/__cycle_guard_c.ts';
++  const cycle = inspect({ [a]: 'import "./__cycle_guard_b";', [b]: 'import "./__cycle_guard_a";' });
++  assert.deepEqual(cycle.runtimeCycles, [[a, b]]);
++  assert.throws(() => assertSourceGraph(cycle), /Runtime cycle/);
++  const three = inspect({ [a]: 'export * from "./__cycle_guard_b";', [b]: 'void import("./__cycle_guard_c");', [c]: 'require("./__cycle_guard_a");' });
++  assert.deepEqual(three.runtimeCycles, [[a, b, c]]);
++  const erased = inspect({ [a]: 'export type A = import("./__cycle_guard_b").B;', [b]: 'import type { A } from "./__cycle_guard_a"; export type B = A;' });
++  assert.deepEqual(erased.runtimeCycles, []);
++  assert.deepEqual(erased.typeInvolvingCycles, [[a, b]]);
++  assert.throws(() => assertSourceGraph(erased), /Type-involving cycle/);
++  const mixed = inspect({ [a]: 'import {type B} from "./__cycle_guard_b"; export type A = B;', [b]: 'export * from "./__cycle_guard_a";' });
++  assert.deepEqual(mixed.runtimeCycles, []);
++  assert.deepEqual(mixed.allCycles, [[a, b]]);
++  const acyclic = inspect({ [a]: 'export * from "./__cycle_guard_b";', [b]: 'export type { C } from "./__cycle_guard_c";', [c]: 'export type C = string;' });
++  assertSourceGraph(acyclic);
++  const self = inspect({ [a]: 'import "./__cycle_guard_a";' });
++  assert.deepEqual(self.runtimeCycles, [[a]]);
++  // Resolve real deep implementation paths, explicit .js suffix, import type, side effect, reexport and dynamic syntax.
++  const deep = 'src/components/PageRichTextEditorSection/lexical/__cycle_guard.ts';
++  for (const code of ['import type { ButtonProps as Renamed } from "../../../index";',
++    'type T = import("../../../index.js").ButtonProps;', 'import "../../../index";',
++    'export * from "../../../index";', 'import "../../../";', 'void import("../../../index");',
++    'import Root = require("../../../index");', 'import type { ButtonProps } from "@structured-growth/sg-ui";']) {
++    const graph = inspect({ [deep]: code });
++    assert(graph.violations.some(item => item.file === deep && item.reason.includes('root barrel')), code);
++    assert.throws(() => assertSourceGraph(graph), /root barrel/);
++  }
++  // A renamed module alias is resolved through compiler options, rather than matched as text.
++  const aliased = inspect({ [deep]: 'import type { ButtonProps } from "renamed-root";' }, {
++    moduleResolution: ts.ModuleResolutionKind.Bundler, module: ts.ModuleKind.ESNext, baseUrl: resolve(root), paths: { 'renamed-root': ['src/index.ts'] },
++  });
++  assert(aliased.violations.some(item => item.reason.includes('root barrel')));
++  assert(inspect({ [a]: 'void import(someComputedPath);' }).violations.some(item => item.reason.includes('Nonliteral')));
++  assert(inspect({ [a]: 'import "./does-not-exist";' }).violations.some(item => item.reason.includes('Unresolved')));
++  // Restore each original return edge in the REAL current graph. All three must fail as type-involving only.
++  for (const [file, before, after, pair] of [
++    ['src/experimental/DateField/TextDateField.tsx', './DateField.types', './DateField', ['src/experimental/DateField/DateField.tsx', 'src/experimental/DateField/TextDateField.tsx']],
++    ['src/experimental/TimeField/TextTimeField.tsx', './TimeField.types', './TimeField', ['src/experimental/TimeField/TextTimeField.tsx', 'src/experimental/TimeField/TimeField.tsx']],
++    ['src/adapters/navigationContext.ts', './navigation.types', './navigation', ['src/adapters/navigation.tsx', 'src/adapters/navigationContext.ts']],
++  ]) {
++    assert(baseline.contents[file].includes(before));
++    const graph = inspect({ [file]: baseline.contents[file].replace(before, after) });
++    assert.deepEqual(graph.runtimeCycles, []);
++    assert(graph.typeInvolvingCycles.some(cycle => JSON.stringify(cycle) === JSON.stringify(pair.sort())));
++    assert.throws(() => assertSourceGraph(graph), /Type-involving cycle/);
++  }
++  const field = 'src/experimental/DateField/TextDateField.tsx';
++  const runtime = inspect({ [field]: baseline.contents[field] + '\nimport "./DateField";\n' });
++  assert(runtime.runtimeCycles.some(cycle => cycle.includes(field) && cycle.includes('src/experimental/DateField/DateField.tsx')));
++  // Fixtures cannot leak into production even when newly added to src.
++  const excluded = inspect({ 'src/__cycle_guard.test.ts': 'import "./index";', 'src/__cycle_guard.native-fixture.tsx': 'import "./index";', 'src/__cycle_guard.native-fixtures.ts': 'import "./index";' });
++  assertSourceGraph(excluded);
++  const refs = moduleReferences('src/kinds.ts', 'import { type A } from "a"; export { type B } from "b"; import {} from "c"; export {} from "d"; import type X = require("e");');
++  assert.deepEqual(refs.map(ref => ref.typeOnly), [true, true, false, false, true]);
++  assert.deepEqual(moduleReferences('src/inline-types.ts', 'import { type A } from "a"; export { type B } from "b";',
++    { verbatimModuleSyntax: true }).map(ref => ref.typeOnly), [false, false]);
++  return { modules: baseline.files.length, edges: baseline.edges.length, checks: 'cycles, resolved roots, import forms, real source mutations and fixture exclusion' };
++}
++if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
++  test('production dependency graph policy and real-source regressions', () => runSourceGraphRegression());
++}
+--- a/packages/ui/src/adapters/navigation.tsx
++++ b/packages/ui/src/adapters/navigation.tsx
+@@ -1,12 +1,8 @@
+ "use client";
+-import { useContext, type AnchorHTMLAttributes, type ComponentType, type ReactNode, type RefAttributes } from "react";
++import { useContext, type ReactNode } from "react";
+ import { NavigationContext } from "./navigationContext";
+-export type SGLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & RefAttributes<HTMLAnchorElement> & { href: string; replace?: boolean };
+-export type SGNavigationAdapter = {
+-  pathname: string;
+-  navigate: (href: string, options?: { replace?: boolean }) => void;
+-  Link?: ComponentType<SGLinkProps>;
+-};
++import type { SGNavigationAdapter } from "./navigation.types";
++export type { SGLinkProps, SGNavigationAdapter } from "./navigation.types";
+ const defaultAdapter: SGNavigationAdapter = {
+   pathname: "/",
+   navigate: (href, options) => { if (typeof window !== "undefined") { if (options?.replace) window.location.replace(href); else window.location.assign(href); } },
+--- /dev/null
++++ b/packages/ui/src/adapters/navigation.types.ts
+@@ -0,0 +1,7 @@
++import type { AnchorHTMLAttributes, ComponentType, RefAttributes } from "react";
++export type SGLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & RefAttributes<HTMLAnchorElement> & { href: string; replace?: boolean };
++export type SGNavigationAdapter = {
++  pathname: string;
++  navigate: (href: string, options?: { replace?: boolean }) => void;
++  Link?: ComponentType<SGLinkProps>;
++};
+--- a/packages/ui/src/adapters/navigationContext.ts
++++ b/packages/ui/src/adapters/navigationContext.ts
+@@ -1,6 +1,6 @@
+ "use client";
+ import { createContext } from "react";
+-import type { SGNavigationAdapter } from "./navigation";
++import type { SGNavigationAdapter } from "./navigation.types";
+ 
+ /** Null preserves native anchors when the host has not supplied routing. */
+ export const NavigationContext = createContext<SGNavigationAdapter | null>(null);
+--- a/packages/ui/src/experimental/DateField/DateField.tsx
++++ b/packages/ui/src/experimental/DateField/DateField.tsx
+@@ -13,31 +13,8 @@
+ import field from "../TextField/TextField.module.css";
+ import styles from "./DateField.module.css";
+ 
+-export interface DateFieldProps {
+-  label: string;
+-  /** Date-only text accepts ISO, locale-ordered numeric dates and named months; normalizes on blur/Enter. Two-digit years use the fixed 1950–2049 window. */
+-  entryMode?: "segments" | "text";
+-  /** Host-supplied YYYY-MM-DD anchor for relative text. No implicit clock; omit to disable relative phrases. */
+-  referenceDate?: string;
+-  /** Reports entry validity so a composed workflow can guard its commit action. */
+-  onValidityChange?: (valid: boolean) => void;
+-  /** date: YYYY-MM-DD; datetime: YYYY-MM-DDTHH:mm:ss without timezone. */
+-  kind?: "date" | "datetime";
+-  value?: string | null;
+-  defaultValue?: string | null;
+-  onValueChange?: (value: string | null) => void;
+-  min?: string;
+-  max?: string;
+-  name?: string;
+-  /** Optional host help text. No automatic format instructions are shown. */
+-  description?: string;
+-  errorMessage?: string;
+-  invalid?: boolean;
+-  required?: boolean;
+-  disabled?: boolean;
+-  readOnly?: boolean;
+-  hourCycle?: 12 | 24;
+-}
++import type { DateFieldProps } from "./DateField.types";
++export type { DateFieldProps } from "./DateField.types";
+ /** Internal native segment; field and segment hooks share the same interaction state. */
+ function NativeDateSegment({ segment, state }: { segment: DateSegment; state: DateFieldState }) {
+   const ref = useRef<HTMLSpanElement>(null);
+--- /dev/null
++++ b/packages/ui/src/experimental/DateField/DateField.types.ts
+@@ -0,0 +1,25 @@
++export interface DateFieldProps {
++  label: string;
++  /** Date-only text accepts ISO, locale-ordered numeric dates and named months; normalizes on blur/Enter. Two-digit years use the fixed 1950–2049 window. */
++  entryMode?: "segments" | "text";
++  /** Host-supplied YYYY-MM-DD anchor for relative text. No implicit clock; omit to disable relative phrases. */
++  referenceDate?: string;
++  /** Reports entry validity so a composed workflow can guard its commit action. */
++  onValidityChange?: (valid: boolean) => void;
++  /** date: YYYY-MM-DD; datetime: YYYY-MM-DDTHH:mm:ss without timezone. */
++  kind?: "date" | "datetime";
++  value?: string | null;
++  defaultValue?: string | null;
++  onValueChange?: (value: string | null) => void;
++  min?: string;
++  max?: string;
++  name?: string;
++  /** Optional host help text. No automatic format instructions are shown. */
++  description?: string;
++  errorMessage?: string;
++  invalid?: boolean;
++  required?: boolean;
++  disabled?: boolean;
++  readOnly?: boolean;
++  hourCycle?: 12 | 24;
++}
+--- a/packages/ui/src/experimental/DateField/TextDateField.tsx
++++ b/packages/ui/src/experimental/DateField/TextDateField.tsx
+@@ -2,7 +2,7 @@
+ import { forwardRef, useContext, useEffect, useId, useImperativeHandle, useRef, useState } from "react";
+ import { useTranslation } from "../../i18n";
+ import { useStandaloneFormReset } from "../TextField/useStandaloneFormReset";
+-import type { DateFieldProps } from "./DateField";
++import type { DateFieldProps } from "./DateField.types";
+ import { DateFieldControl, DateFieldValidationContext } from "./DateFieldControl";
+ import { formatDateText, parseDateText } from "./parseDateText";
+ import { isDateOnly } from "../DateRangeSelector/date-contract";
+--- a/packages/ui/src/experimental/TimeField/TextTimeField.tsx
++++ b/packages/ui/src/experimental/TimeField/TextTimeField.tsx
+@@ -1,6 +1,6 @@
+ "use client";
+ import {forwardRef,useEffect,useId,useImperativeHandle,useRef,useState} from "react";
+-import type {TimeFieldProps} from "./TimeField";
++import type {TimeFieldProps} from "./TimeField.types";
+ import {parseTimeText,formatTimeText,isClockTime} from "./parseTimeText";
+ import {useStandaloneFormReset} from "../TextField/useStandaloneFormReset";
+ import {useTranslation} from "../../i18n";
+--- a/packages/ui/src/experimental/TimeField/TimeField.tsx
++++ b/packages/ui/src/experimental/TimeField/TimeField.tsx
+@@ -13,31 +13,8 @@
+ import field from "../TextField/TextField.module.css";
+ import styles from "../DateField/DateField.module.css";
+ 
+-export interface TimeFieldProps {
+-  label: string;
+-  /** Textbox with optional selection popup by default; segments retains native segmented entry. */
+-  entryMode?: "text" | "segments";
+-  /** Local clock time HH:mm:ss; this is not an instant. */
+-  value?: string | null;
+-  defaultValue?: string | null;
+-  onValueChange?: (value: string | null) => void;
+-  /** Minute choices in text-mode popup, 1–60. Existing non-step minutes remain editable. This is a suggestion increment, not a rounding rule. */
+-  minuteStep?: number;
+-  /** Return an unavailable reason for a canonical HH:mm:ss time. The host can close over the selected date. */
+-  getTimeUnavailableReason?: (time:string) => string | undefined;
+-  min?: string;
+-  max?: string;
+-  name?: string;
+-  description?: string;
+-  errorMessage?: string;
+-  invalid?: boolean;
+-  required?: boolean;
+-  disabled?: boolean;
+-  readOnly?: boolean;
+-  hourCycle?: 12 | 24;
+-  /** Reports complete, valid clock entry, including partial segment edits. */
+-  onValidityChange?: (valid: boolean) => void;
+-}
++import type { TimeFieldProps } from "./TimeField.types";
++export type { TimeFieldProps } from "./TimeField.types";
+ /** Segments share the clock state; no DOM draft reconstruction is needed. */
+ function NativeTimeSegment({ segment, state }: { segment: DateSegment; state: TimeFieldState }) {
+   const ref = useRef<HTMLSpanElement>(null);
+--- /dev/null
++++ b/packages/ui/src/experimental/TimeField/TimeField.types.ts
+@@ -0,0 +1,25 @@
++export interface TimeFieldProps {
++  label: string;
++  /** Textbox with optional selection popup by default; segments retains native segmented entry. */
++  entryMode?: "text" | "segments";
++  /** Local clock time HH:mm:ss; this is not an instant. */
++  value?: string | null;
++  defaultValue?: string | null;
++  onValueChange?: (value: string | null) => void;
++  /** Minute choices in text-mode popup, 1–60. Existing non-step minutes remain editable. This is a suggestion increment, not a rounding rule. */
++  minuteStep?: number;
++  /** Return an unavailable reason for a canonical HH:mm:ss time. The host can close over the selected date. */
++  getTimeUnavailableReason?: (time:string) => string | undefined;
++  min?: string;
++  max?: string;
++  name?: string;
++  description?: string;
++  errorMessage?: string;
++  invalid?: boolean;
++  required?: boolean;
++  disabled?: boolean;
++  readOnly?: boolean;
++  hourCycle?: 12 | 24;
++  /** Reports complete, valid clock entry, including partial segment edits. */
++  onValidityChange?: (valid: boolean) => void;
++}

@@ -100,7 +100,7 @@ export const forcedColors:SemanticMap = {
 };
 export const themeIdentitySettings:Record<ThemeIdentity,{fontFamily:string;controlRadius:string;fieldRadius:string}> = {
   none:{fontFamily:defaultThemeTokens.light['--sgui-font-family'],controlRadius:defaultThemeTokens.light['--sgui-control-radius'],fieldRadius:defaultThemeTokens.light['--sgui-field-radius']},
-  material:{fontFamily:'Roboto, "Noto Sans", Arial, sans-serif',controlRadius:'1.5rem',fieldRadius:'0.25rem'},
+  material:{fontFamily:'Roboto, "Noto Sans", Arial, sans-serif',controlRadius:'1.5rem',fieldRadius:'1.5rem'},
   apple:{fontFamily:'-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',controlRadius:'0.625rem',fieldRadius:'0.5rem'},
   editorial:{fontFamily:'Georgia, "Times New Roman", serif',controlRadius:'0.125rem',fieldRadius:'0.125rem'},
   'structured-growth':{fontFamily:'"Geist", "Geist Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',controlRadius:'0.375rem',fieldRadius:'0.375rem'},

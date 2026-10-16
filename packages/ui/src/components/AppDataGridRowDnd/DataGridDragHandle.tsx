@@ -2,7 +2,7 @@
 
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 import { Button as AriaButton } from "react-aria-components/Button";
-import { DragIndicatorIcon } from "../../experimental/icons";
+import { DragIndicatorIcon } from "../../experimental/icons/DragIndicatorIcon";
 import styles from "./DataGridDragHandle.module.css";
 
 /** Owned reorder action. The host supplies the translated row-specific name. */
@@ -21,7 +21,7 @@ export const DataGridDragHandle = forwardRef<HTMLButtonElement, DataGridDragHand
     // Table's drag slot defaults to pointer pass-through. In a composed cell
     // that targets the wrapper instead and suppresses the first native drag.
     style={slot === "drag" ? { pointerEvents: "auto", ...style } : style}
-    onPress={onPress} className={[styles.handle, className].filter(Boolean).join(" ")}
+    onPress={onPress ? () => onPress() : undefined} className={[styles.handle, className].filter(Boolean).join(" ")}
     data-sgui-part="grid-drag-handle" data-dragging={dragging || undefined}>
     <DragIndicatorIcon aria-hidden="true" />
   </AriaButton>;

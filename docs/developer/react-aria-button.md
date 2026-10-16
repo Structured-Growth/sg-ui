@@ -35,14 +35,24 @@ import { Button } from "@structured-growth/sg-ui/components/Button";
 </Provider>;
 ```
 
-Existing editor menu compositions obtain their anchor through a native ref instead
-of a press event. Host callbacks elsewhere in the library remain host-owned; their
-contracts are not automatically converted by this action migration.
+`ContentEditorChrome` renders the owned `Button` for each menu action. Its
+`ContentEditorChromeMenuItem.onPress(anchor: HTMLButtonElement)` callback receives
+the native button from an internal ref on each activation. Replace the former
+`onClick(event)` handler with `onPress(anchor)` and use `anchor` where the host
+previously used `event.currentTarget` to position its menu. The underlying
+`Button.onPress()` receives no event or anchor argument; the composition supplies
+the anchor explicitly. Disabled, loading and unavailable actions suppress the
+callback. `ContentEditorChrome` itself forwards a native `HTMLDivElement` ref;
+that container ref is separate from each menu action's button anchor.
 
-ContentEditorChrome continues to use its legacy button internally for its existing
-MouseEvent-based menu callback contract, which can supply an anchor to the host.
-That composition remains unmigrated; its later migration must explicitly map this
-contract. Other Button consumers use the owned action API in this batch.
+Host callbacks elsewhere in the library remain host-owned; their contracts are
+not automatically converted by this action migration. For selection actions,
+[ToggleButton](react-aria-remaining-controls.md#toggle-actions-and-tooltip-descriptions)
+separates `onSelectedChange(boolean)` from `onPress()`. Supplying both requests
+two distinct notifications, each once per activation; their relative ordering is
+not a public contract. `ToggleButton.onPress()` and
+`DataGridDragHandle.onPress()` discard the internal press event. The drag handle
+retains its native `onKeyDown` event escape hatch for host reorder controls.
 
 ## Native form activation ordering
 

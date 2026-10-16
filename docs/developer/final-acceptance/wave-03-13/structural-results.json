@@ -1,0 +1,15 @@
+{
+  "runtime": "v26.5.0",
+  "status": "pass",
+  "assertions": [
+    "Original unsupported-has outline suppression reproduced by AST/cascade premise",
+    "Candidate guards suppression and retains independent input ring",
+    "Empty-grid wrapper has inset token focus outline",
+    "Only position/inset/block-cap important exceptions remain; vh precedes dvh",
+    "XL/full dialog fallback explicit",
+    "Installed production PostCSS Modules keeps native nesting and scopes owner"
+  ],
+  "importantDeclarations": 12,
+  "outputSha256": "d0d6b14ab92d576b9d9a920e961770b6d38bd3a232b5cddc1b727886efe7ce1e",
+  "limits": "Pure Node/PostCSS structural checks. No browser CSS parsing, computed focus, native geometry, supported Node matrix or minimum browser-version proof."
+}

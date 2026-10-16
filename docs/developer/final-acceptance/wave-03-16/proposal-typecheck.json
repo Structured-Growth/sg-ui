@@ -1,0 +1,11 @@
+{
+  "kind": "read-only TypeScript proposal overlay; no runtime or native execution",
+  "node": "v26.5.0",
+  "typescript": "5.9.3",
+  "command": "node docs/developer/final-acceptance/wave-03-16/check-proposals.cjs",
+  "inputs": {
+    "apps/docs/native-fixtures/scenarios/adapters/adapters.fixture.tsx": "d69d211fdc2bb651f9f23d06b7ac6e5599a9e65b3943a55e05c27c272d4c8973",
+    "packages/ui/tests/browser/navigation-composed.spec.ts": "648fcbae432ef0a8943a604a7161e908adaf00b08e2d109fc9e413acb80cc491"
+  },
+  "diagnostics": []
+}

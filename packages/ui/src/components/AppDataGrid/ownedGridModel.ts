@@ -36,6 +36,12 @@ export type OwnedGridProcessingResult<Row> = {
   paginationModel: OwnedGridPaginationModel;
 };
 
+// Current collection utility IDs plus reserved legacy selection/drag identifiers.
+const reservedOwnedGridFields = new Set(["__selection", "__reorder", "__drag", "__select__", "__drag__"]);
+export function isReservedOwnedGridField(field: string): boolean {
+  return reservedOwnedGridFields.has(field);
+}
+
 const positiveInteger = (value: number) => Number.isSafeInteger(value) && value > 0;
 export function normalizeGridPageSizeOptions(options: readonly OwnedGridPageSizeOption[] = []): Array<{ value: number; label: string }> {
   const seen = new Set<number>();
@@ -185,7 +191,7 @@ export function processOwnedGridRows<Row>(options: OwnedGridProcessingOptions<Ro
     throw new Error("AppDataGrid pagination requires a nonnegative page and positive safe integer pageSize.");
   const fields = new Set<string>();
   for (const column of columns) {
-    if (!column.field.trim() || ["__selection", "__drag", "__select__", "__drag__"].includes(column.field) || fields.has(column.field))
+    if (!column.field.trim() || isReservedOwnedGridField(column.field) || fields.has(column.field))
       throw new Error(`AppDataGrid column field is invalid or duplicated: ${column.field}`);
     fields.add(column.field);
   }

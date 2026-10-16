@@ -28,7 +28,9 @@ indent/outdent commands. Missing callbacks disable commands. New `canIndent` and
 `disabled` disables the trigger. Native button ref/class/style are supported.
 Logical start/end icons follow the rendered direction; physical left/right retain
 their meaning. Displayed shortcuts describe host editor commands; the menu does
-not register global keyboard shortcuts.
+not register global keyboard shortcuts. In `PageRichTextEditorSection`, the
+alignment trigger follows the selected paragraph, including loaded documents and
+Undo/Redo; standalone controls still use the host-supplied `value`.
 
 ## TextStyleMenuControl (M-30)
 
@@ -40,6 +42,14 @@ ordinary commands. Clear formatting remains a separate command. The existing
 component has no typeface selection API; typeface/heading controls remain owned
 by the host formatting toolbar. Labels and decorative case samples use shared
 tokens; shortcuts remain informational.
+
+In the supplied `PageRichTextEditorSection` host, case conversion and Clear
+Formatting operate on the selected characters, preserving unselected portions of
+boundary runs. Case conversion at a caret leaves existing text unchanged; Clear
+Formatting at a caret resets future typing without restyling the containing run.
+Case conversion preserves the directed range, including characters whose uppercase
+mapping expands (for example `ß` to `SS`). Standalone menus still delegate these
+semantics to their host callbacks.
 
 ## TextColorPickerControl (M-29)
 

@@ -1,0 +1,1242 @@
+[
+  {
+    "originalId": "M-01",
+    "functionalityGroup": "F-C01",
+    "regressionGroup": "T-C01",
+    "hardeningGroup": "V-C01",
+    "historicalDirectory": "AppButton",
+    "currentDirectory": "Button",
+    "originalFocus": "Owned button props, variants/tones, native form behavior, press/click mapping",
+    "implementationFiles": [
+      "packages/ui/src/components/Button/Button.tsx",
+      "packages/ui/src/components/Button/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/Button/Button.next100-regression.test.tsx",
+      "packages/ui/src/components/Button/Button.public-contract.next100-regression.test.tsx",
+      "packages/ui/src/components/Button/Button.public-contract.test.tsx",
+      "packages/ui/src/components/Button/Button.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-02",
+    "functionalityGroup": "F-C02",
+    "regressionGroup": "T-C02",
+    "hardeningGroup": "V-C02",
+    "historicalDirectory": "AppInlineProgress",
+    "currentDirectory": "AppInlineProgress",
+    "originalFocus": "Progress/status semantics, reduced motion, tokenized label/layout",
+    "implementationFiles": [
+      "packages/ui/src/components/AppInlineProgress/AppInlineProgress.tsx",
+      "packages/ui/src/components/AppInlineProgress/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AppInlineProgress/AppInlineProgress.next100-regression.test.tsx",
+      "packages/ui/src/components/AppInlineProgress/AppInlineProgress.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-03",
+    "functionalityGroup": "F-C03",
+    "regressionGroup": "T-C03",
+    "hardeningGroup": "V-C03",
+    "historicalDirectory": "AppOperationSteps",
+    "currentDirectory": "AppOperationSteps",
+    "originalFocus": "State announcements, completed/error/active visuals, hide single-step numbering",
+    "implementationFiles": [
+      "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "packages/ui/src/components/AppOperationSteps/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AppOperationSteps/AppOperationSteps.next100-regression.test.tsx",
+      "packages/ui/src/components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "packages/ui/src/components/AppOperationSteps/AppOperationStepsNativeStateFixture.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-04",
+    "functionalityGroup": "F-C04",
+    "regressionGroup": "T-C04",
+    "hardeningGroup": "V-C04",
+    "historicalDirectory": "AppPageHeader",
+    "currentDirectory": "AppPageHeader",
+    "originalFocus": "Breadcrumbs, actions, metadata, primary/subpage hierarchy, responsive wrapping",
+    "implementationFiles": [
+      "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "packages/ui/src/components/AppPageHeader/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AppPageHeader/AppPageHeader.next100-regression.test.tsx",
+      "packages/ui/src/components/AppPageHeader/AppPageHeader.ssr.test.tsx",
+      "packages/ui/src/components/AppPageHeader/AppPageHeader.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-05",
+    "functionalityGroup": "F-C05",
+    "regressionGroup": "T-C05",
+    "hardeningGroup": "V-C05",
+    "historicalDirectory": "AppPageTabs",
+    "currentDirectory": "AppPageTabs",
+    "originalFocus": "Tab/panel wiring, selected/disabled state, density, keyboard/overflow behavior",
+    "implementationFiles": [
+      "packages/ui/src/components/AppPageTabs/AppPageTabs.tsx",
+      "packages/ui/src/components/AppPageTabs/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AppPageTabs/AppPageTabs.next100-regression.test.tsx",
+      "packages/ui/src/components/AppPageTabs/AppPageTabs.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-06",
+    "functionalityGroup": "F-C06",
+    "regressionGroup": "T-C06",
+    "hardeningGroup": "V-C06",
+    "historicalDirectory": "AppShell",
+    "currentDirectory": "AppShell",
+    "originalFocus": "Landmark/layout semantics, responsive navigation, main-content reflow",
+    "implementationFiles": [
+      "packages/ui/src/components/AppShell/AppShell.tsx",
+      "packages/ui/src/components/AppShell/AppShellMain.tsx",
+      "packages/ui/src/components/AppShell/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AppShell/AppShell.next100-regression.test.tsx",
+      "packages/ui/src/components/AppShell/AppShell.ssr.test.tsx",
+      "packages/ui/src/components/AppShell/AppShell.test.tsx",
+      "packages/ui/src/components/AppShell/AppShellMain.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-07",
+    "functionalityGroup": "F-C07",
+    "regressionGroup": "T-C07",
+    "hardeningGroup": "V-C07",
+    "historicalDirectory": "AuthShell",
+    "currentDirectory": "AuthShell",
+    "originalFocus": "Presentation-only shell, no login flow/session behavior, resilient content sizing",
+    "implementationFiles": [
+      "packages/ui/src/components/AuthShell/AuthShell.tsx",
+      "packages/ui/src/components/AuthShell/index.ts",
+      "packages/ui/src/components/AuthShell/revealFocusedControl.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AuthShell/AuthShell.next100-regression.test.tsx",
+      "packages/ui/src/components/AuthShell/AuthShell.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-08",
+    "functionalityGroup": "F-C08",
+    "regressionGroup": "T-C08",
+    "hardeningGroup": "V-C08",
+    "historicalDirectory": "AppModal",
+    "currentDirectory": "AppModal",
+    "originalFocus": "Owned close reasons/size/parts, focus, sticky tabs, scroll, actions and steps",
+    "implementationFiles": [
+      "packages/ui/src/components/AppModal/AppModal.tsx",
+      "packages/ui/src/components/AppModal/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AppModal/AppModal.next100-regression.test.tsx",
+      "packages/ui/src/components/AppModal/AppModal.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-09",
+    "functionalityGroup": "F-C09",
+    "regressionGroup": "T-C09",
+    "hardeningGroup": "V-C09",
+    "historicalDirectory": "SideNavigation",
+    "currentDirectory": "SideNavigation",
+    "originalFocus": "Selection/expansion, router/account adapters, organization menu, keyboard and collapse",
+    "implementationFiles": [
+      "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+      "packages/ui/src/components/SideNavigation/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/SideNavigation/SideNavigation.helpers.test.ts",
+      "packages/ui/src/components/SideNavigation/SideNavigation.next100-regression.test.tsx",
+      "packages/ui/src/components/SideNavigation/SideNavigation.organization-lifetime.test.tsx",
+      "packages/ui/src/components/SideNavigation/SideNavigation.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-10",
+    "functionalityGroup": "F-C10",
+    "regressionGroup": "T-C10",
+    "hardeningGroup": "V-C10",
+    "historicalDirectory": "ExperiencePageNavigator",
+    "currentDirectory": "ExperiencePageNavigator",
+    "originalFocus": "Previous/next boundaries, labels, disabled states, link/action semantics",
+    "implementationFiles": [
+      "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "packages/ui/src/components/ExperiencePageNavigator/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.native-transactions.test.tsx",
+      "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.next100-regression.test.tsx",
+      "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx",
+      "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-11",
+    "functionalityGroup": "F-C11",
+    "regressionGroup": "T-C11",
+    "hardeningGroup": "V-C11",
+    "historicalDirectory": "CardCollectionWithFooter",
+    "currentDirectory": "CardCollectionWithFooter",
+    "originalFocus": "Responsive/container layout, keys, empty/loading states, pagination integration",
+    "implementationFiles": [
+      "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "packages/ui/src/components/CardCollectionWithFooter/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.next100-regression.test.tsx",
+      "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-12",
+    "functionalityGroup": "F-C12",
+    "regressionGroup": "T-C12",
+    "hardeningGroup": "V-C12",
+    "historicalDirectory": "CardPaginationFooter",
+    "currentDirectory": "CardPaginationFooter",
+    "originalFocus": "Owned pagination, labels/counts, disabled boundaries, unknown totals",
+    "implementationFiles": [
+      "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "packages/ui/src/components/CardPaginationFooter/index.ts",
+      "packages/ui/src/components/CardPaginationFooter/pagination.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.next100-regression.test.tsx",
+      "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-13",
+    "functionalityGroup": "F-C13",
+    "regressionGroup": "T-C13",
+    "hardeningGroup": "V-C13",
+    "historicalDirectory": "ClassCardFrame",
+    "currentDirectory": "ClassCardFrame",
+    "originalFocus": "Owned surface/spacing, image/content slots, responsive width and constants",
+    "implementationFiles": [
+      "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "packages/ui/src/components/ClassCardFrame/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/ClassCardFrame/ClassCardFrame.next100-regression.test.tsx",
+      "packages/ui/src/components/ClassCardFrame/ClassCardFrame.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-14",
+    "functionalityGroup": "F-C14",
+    "regressionGroup": "T-C14",
+    "hardeningGroup": "V-C14",
+    "historicalDirectory": "InstructorClassCard",
+    "currentDirectory": "InstructorClassCard",
+    "originalFocus": "Status/menu/actions, callbacks, long text, date and icon fallbacks",
+    "implementationFiles": [
+      "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx",
+      "packages/ui/src/components/InstructorClassCard/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/InstructorClassCard/InstructorClassCard.next100-regression.test.tsx",
+      "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-15",
+    "functionalityGroup": "F-C15",
+    "regressionGroup": "T-C15",
+    "hardeningGroup": "V-C15",
+    "historicalDirectory": "LearnerClassCard",
+    "currentDirectory": "LearnerClassCard",
+    "originalFocus": "Progress/due labels/status/actions, translation, accessible interactive regions",
+    "implementationFiles": [
+      "packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx",
+      "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.ts",
+      "packages/ui/src/components/LearnerClassCard/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/LearnerClassCard/LearnerClassCard.due-label.test.tsx",
+      "packages/ui/src/components/LearnerClassCard/LearnerClassCard.next100-regression.test.tsx",
+      "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.test.ts"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-16",
+    "functionalityGroup": "F-C16",
+    "regressionGroup": "T-C16",
+    "hardeningGroup": "V-C16",
+    "historicalDirectory": "AppDataGrid",
+    "currentDirectory": "AppDataGrid",
+    "originalFocus": "Complete owned grid implementation, types and helpers; follow G tasks",
+    "implementationFiles": [
+      "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "packages/ui/src/components/AppDataGrid/components/RowSubHeader.tsx",
+      "packages/ui/src/components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "packages/ui/src/components/AppDataGrid/components/TableNoResults.tsx",
+      "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/OwnedTableCell.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/index.ts",
+      "packages/ui/src/components/AppDataGrid/createActionMenuColumn.ts",
+      "packages/ui/src/components/AppDataGrid/createDataGridColumns.tsx",
+      "packages/ui/src/components/AppDataGrid/index.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridController.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridLayoutController.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridModel.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridPersistence.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridReset.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridState.ts",
+      "packages/ui/src/components/AppDataGrid/types.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AppDataGrid/AppDataGrid.cells.test.tsx",
+      "packages/ui/src/components/AppDataGrid/AppDataGrid.next100-regression.test.tsx",
+      "packages/ui/src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx",
+      "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder.test.tsx",
+      "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "packages/ui/src/components/AppDataGrid/GridCellsHelpers.next100-regression.test.tsx",
+      "packages/ui/src/components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "packages/ui/src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "packages/ui/src/components/AppDataGrid/createActionMenuColumn.test.ts",
+      "packages/ui/src/components/AppDataGrid/createDataGridColumns.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridCells.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridColumns.test.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridController.test.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridInteraction.drop-focus.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridInteraction.ssr.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridLayoutController.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridModel.test.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridPageShrink.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridParts.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridPersistence.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridProcessing.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.test.tsx",
+      "packages/ui/src/components/AppDataGrid/ownedGridState.test.ts"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-17",
+    "functionalityGroup": "F-C17",
+    "regressionGroup": "T-C17",
+    "hardeningGroup": "V-C17",
+    "historicalDirectory": "AppDataGridShell",
+    "currentDirectory": "AppDataGridShell",
+    "originalFocus": "Grid/card modes, shared state, toolbar/footer, responsive shell",
+    "implementationFiles": [
+      "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "packages/ui/src/components/AppDataGridShell/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx",
+      "packages/ui/src/components/AppDataGridShell/AppDataGridShell.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-18",
+    "functionalityGroup": "F-C18",
+    "regressionGroup": "T-C18",
+    "hardeningGroup": "V-C18",
+    "historicalDirectory": "AppDataGridRowDnd",
+    "currentDirectory": "AppDataGridRowDnd",
+    "originalFocus": "Replace DOM selectors/ghost styling; keyboard/touch/reorder/cancel behavior",
+    "implementationFiles": [
+      "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "packages/ui/src/components/AppDataGridRowDnd/index.ts",
+      "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.test.tsx",
+      "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-19",
+    "functionalityGroup": "F-C19",
+    "regressionGroup": "T-C19",
+    "hardeningGroup": "V-C19",
+    "historicalDirectory": "LearnerClassesDataGrid",
+    "currentDirectory": "LearnerClassesDataGrid",
+    "originalFocus": "Owned model/columns, date/link/action cells, host callbacks and state",
+    "implementationFiles": [
+      "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "packages/ui/src/components/LearnerClassesDataGrid/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.next100-regression.test.tsx",
+      "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-20",
+    "functionalityGroup": "F-C20",
+    "regressionGroup": "T-C20",
+    "hardeningGroup": "V-C20",
+    "historicalDirectory": "DataToolbar",
+    "currentDirectory": "DataToolbar",
+    "originalFocus": "Search, refresh, selection/sort/filter/columns menus, badge, view switching",
+    "implementationFiles": [
+      "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "packages/ui/src/components/DataToolbar/buildColumnOptions.ts",
+      "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "packages/ui/src/components/DataToolbar/filterRuleValue.ts",
+      "packages/ui/src/components/DataToolbar/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/DataToolbar/DataToolbar.native-composition.test.tsx",
+      "packages/ui/src/components/DataToolbar/DataToolbar.next100-regression.test.tsx",
+      "packages/ui/src/components/DataToolbar/DataToolbar.test.tsx",
+      "packages/ui/src/components/DataToolbar/buildColumnOptions.test.ts",
+      "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "packages/ui/src/components/DataToolbar/filterRuleValue.test.ts"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-21",
+    "functionalityGroup": "F-C21",
+    "regressionGroup": "T-C21",
+    "hardeningGroup": "V-C21",
+    "historicalDirectory": "DocumentEditorLayout",
+    "currentDirectory": "DocumentEditorLayout",
+    "originalFocus": "Tokenized menu/toolbar/content layout and scroll boundaries",
+    "implementationFiles": [
+      "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "packages/ui/src/components/DocumentEditorLayout/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.next100-regression.test.tsx",
+      "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C21-04",
+        "requirement": "Review DocumentEditorLayout light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C21-05",
+        "requirement": "Review DocumentEditorLayout translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-22",
+    "functionalityGroup": "F-C22",
+    "regressionGroup": "T-C22",
+    "hardeningGroup": "V-C22",
+    "historicalDirectory": "DocumentEditorToolbar",
+    "currentDirectory": "DocumentEditorToolbar",
+    "originalFocus": "Owned buttons/menus/toggles, formatting state, responsive overflow",
+    "implementationFiles": [
+      "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "packages/ui/src/components/DocumentEditorToolbar/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.heading-lifetime.test.tsx",
+      "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.next100-regression.test.tsx",
+      "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C22-04",
+        "requirement": "Review DocumentEditorToolbar light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C22-05",
+        "requirement": "Review DocumentEditorToolbar translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-23",
+    "functionalityGroup": "F-C23",
+    "regressionGroup": "T-C23",
+    "hardeningGroup": "V-C23",
+    "historicalDirectory": "ContentEditorChrome",
+    "currentDirectory": "ContentEditorChrome",
+    "originalFocus": "Menu composition, editor focus, disabled/loading actions, semantic structure",
+    "implementationFiles": [
+      "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "packages/ui/src/components/ContentEditorChrome/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.next100-regression.test.tsx",
+      "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C23-04",
+        "requirement": "Review ContentEditorChrome light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C23-05",
+        "requirement": "Review ContentEditorChrome translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-24",
+    "functionalityGroup": "F-C24",
+    "regressionGroup": "T-C24",
+    "hardeningGroup": "V-C24",
+    "historicalDirectory": "EditableTitleField",
+    "currentDirectory": "EditableTitleField",
+    "originalFocus": "Controlled edit/commit/cancel, keyboard and blur behavior, validation",
+    "implementationFiles": [
+      "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "packages/ui/src/components/EditableTitleField/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/EditableTitleField/EditableTitleField.next100-regression.test.tsx",
+      "packages/ui/src/components/EditableTitleField/EditableTitleField.ssr.test.tsx",
+      "packages/ui/src/components/EditableTitleField/EditableTitleField.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-25",
+    "functionalityGroup": "F-C25",
+    "regressionGroup": "T-C25",
+    "hardeningGroup": "V-C25",
+    "historicalDirectory": "FloatingTextSelectionToolbar",
+    "currentDirectory": "FloatingTextSelectionToolbar",
+    "originalFocus": "Selection anchoring, focus preservation, overlay cleanup, keyboard access",
+    "implementationFiles": [
+      "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "packages/ui/src/components/FloatingTextSelectionToolbar/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.next100-regression.test.tsx",
+      "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C25-04",
+        "requirement": "Review FloatingTextSelectionToolbar light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C25-05",
+        "requirement": "Review FloatingTextSelectionToolbar translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-26",
+    "functionalityGroup": "F-C26",
+    "regressionGroup": "T-C26",
+    "hardeningGroup": "V-C26",
+    "historicalDirectory": "RichTextFormattingToolbar",
+    "currentDirectory": "RichTextFormattingToolbar",
+    "originalFocus": "All formatting actions, mixed/active/disabled state, Lexical commands",
+    "implementationFiles": [
+      "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "packages/ui/src/components/RichTextFormattingToolbar/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.next100-regression.test.tsx",
+      "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C26-04",
+        "requirement": "Review RichTextFormattingToolbar light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C26-05",
+        "requirement": "Review RichTextFormattingToolbar translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-27",
+    "functionalityGroup": "F-C27",
+    "regressionGroup": "T-C27",
+    "hardeningGroup": "V-C27",
+    "historicalDirectory": "InsertContentMenuControl",
+    "currentDirectory": "InsertContentMenuControl",
+    "originalFocus": "Menu commands and insertion focus, disabled actions and announcements",
+    "implementationFiles": [
+      "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "packages/ui/src/components/InsertContentMenuControl/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.next100-regression.test.tsx",
+      "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.test.tsx",
+      "packages/ui/src/components/InsertContentMenuControl/NativeInsertionHost.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C27-04",
+        "requirement": "Review InsertContentMenuControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C27-05",
+        "requirement": "Review InsertContentMenuControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-28",
+    "functionalityGroup": "F-C28",
+    "regressionGroup": "T-C28",
+    "hardeningGroup": "V-C28",
+    "historicalDirectory": "TextAlignMenuControl",
+    "currentDirectory": "TextAlignMenuControl",
+    "originalFocus": "Alignment/indent commands, active state, direction-aware presentation",
+    "implementationFiles": [
+      "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "packages/ui/src/components/TextAlignMenuControl/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.next100-regression.test.tsx",
+      "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C28-04",
+        "requirement": "Review TextAlignMenuControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C28-05",
+        "requirement": "Review TextAlignMenuControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-29",
+    "functionalityGroup": "F-C29",
+    "regressionGroup": "T-C29",
+    "hardeningGroup": "V-C29",
+    "historicalDirectory": "TextColorPickerControl",
+    "currentDirectory": "TextColorPickerControl",
+    "originalFocus": "Foreground/background modes, clear/reset, swatches and accessible color control",
+    "implementationFiles": [
+      "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "packages/ui/src/components/TextColorPickerControl/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.next100-regression.test.tsx",
+      "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C29-04",
+        "requirement": "Review TextColorPickerControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C29-05",
+        "requirement": "Review TextColorPickerControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-30",
+    "functionalityGroup": "F-C30",
+    "regressionGroup": "T-C30",
+    "hardeningGroup": "V-C30",
+    "historicalDirectory": "TextStyleMenuControl",
+    "currentDirectory": "TextStyleMenuControl",
+    "originalFocus": "Style/typeface options, tokenized labels, selection and focus behavior",
+    "implementationFiles": [
+      "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "packages/ui/src/components/TextStyleMenuControl/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.next100-regression.test.tsx",
+      "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C30-04",
+        "requirement": "Review TextStyleMenuControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C30-05",
+        "requirement": "Review TextStyleMenuControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-31",
+    "functionalityGroup": "F-C31",
+    "regressionGroup": "T-C31",
+    "hardeningGroup": "V-C31",
+    "historicalDirectory": "ColumnsLayoutModal",
+    "currentDirectory": "ColumnsLayoutModal",
+    "originalFocus": "Layout presets, selected state, validation and modal Apply/Cancel",
+    "implementationFiles": [
+      "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "packages/ui/src/components/ColumnsLayoutModal/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.next100-regression.test.tsx",
+      "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-32",
+    "functionalityGroup": "F-C32",
+    "regressionGroup": "T-C32",
+    "hardeningGroup": "V-C32",
+    "historicalDirectory": "ImageUploadModal",
+    "currentDirectory": "ImageUploadModal",
+    "originalFocus": "File selection/preview/errors, host upload callback, image alt text and cancellation",
+    "implementationFiles": [
+      "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "packages/ui/src/components/ImageUploadModal/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/ImageUploadModal/ImageUploadModal.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-33",
+    "functionalityGroup": "F-C33",
+    "regressionGroup": "T-C33",
+    "hardeningGroup": "V-C33",
+    "historicalDirectory": "LinkUrlModal",
+    "currentDirectory": "LinkUrlModal",
+    "originalFocus": "URL validation, protocol policy, edit/remove and focus restoration",
+    "implementationFiles": [
+      "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "packages/ui/src/components/LinkUrlModal/index.ts",
+      "packages/ui/src/components/LinkUrlModal/linkUrlPolicy.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/LinkUrlModal/LinkUrlModal.next100-regression.test.tsx",
+      "packages/ui/src/components/LinkUrlModal/LinkUrlModal.test.tsx",
+      "packages/ui/src/components/LinkUrlModal/linkUrlPolicy.test.ts"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-34",
+    "functionalityGroup": "F-C34",
+    "regressionGroup": "T-C34",
+    "hardeningGroup": "V-C34",
+    "historicalDirectory": "PageRichTextEditorSection",
+    "currentDirectory": "PageRichTextEditorSection",
+    "originalFocus": "Editor composition, nodes/plugins, serialization and selection behavior",
+    "implementationFiles": [
+      "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/index.ts",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.ts",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.next100-regression.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.scroll.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.test.ts",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.test.ts",
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [
+      {
+        "id": "V-C34-04",
+        "requirement": "Review PageRichTextEditorSection light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task."
+      },
+      {
+        "id": "V-C34-05",
+        "requirement": "Review PageRichTextEditorSection translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful."
+      }
+    ],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-35",
+    "functionalityGroup": "F-C35",
+    "regressionGroup": "T-C35",
+    "hardeningGroup": "V-C35",
+    "historicalDirectory": "Typefaces",
+    "currentDirectory": "Typefaces",
+    "originalFocus": "Foundation catalog using new theme/tokens and native typography contract",
+    "implementationFiles": [],
+    "testFiles": [
+      "packages/ui/src/components/Typefaces/Typefaces.next100-regression.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-36",
+    "functionalityGroup": "F-C36",
+    "regressionGroup": "T-C36",
+    "hardeningGroup": "V-C36",
+    "historicalDirectory": "icons",
+    "currentDirectory": "icons",
+    "originalFocus": "Complete direct/public icon mapping and activity-type behavior",
+    "implementationFiles": [
+      "packages/ui/src/components/icons/activityTypeIcon.tsx",
+      "packages/ui/src/components/icons/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/icons/icons.next100-regression.test.tsx",
+      "packages/ui/src/components/icons/icons.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  },
+  {
+    "originalId": "M-37",
+    "functionalityGroup": "F-C37",
+    "regressionGroup": "T-C37",
+    "hardeningGroup": "V-C37",
+    "historicalDirectory": "primitives",
+    "currentDirectory": "primitives",
+    "originalFocus": "Replace every reexport with an owned implementation/type or documented removal",
+    "implementationFiles": [
+      "packages/ui/src/components/primitives/Progress.tsx",
+      "packages/ui/src/components/primitives/index.ts"
+    ],
+    "testFiles": [
+      "packages/ui/src/components/primitives/Progress.test.tsx",
+      "packages/ui/src/components/primitives/primitives.test.tsx"
+    ],
+    "initialPRAttribution": {
+      "url": "https://github.com/Structured-Growth/sg-ui/pull/1",
+      "evidence": "docs/developer/react-aria-scope-ledger.md and react-aria-progress.md",
+      "limit": "Historical documentary attribution, not a fresh remote PR review or per-row merge-SHA receipt."
+    },
+    "baselineReceipt": "docs/developer/react-aria-baseline-tasks.md (all 570 accepted; deleted individual F entries are not reconstructed)",
+    "regressionReceipt": "docs/developer/react-aria-regression-tasks.md (all 570 accepted; deleted individual T entries are not reconstructed)",
+    "validationReceipt": "docs/developer/final-acceptance/fa04-original-check.txt plus fa04-calendar-rerun.txt; docs/developer/backlog-execution-2026-10-15.md for named native batches",
+    "openHardeningLeaves": [],
+    "acceptanceDisposition": "Held for the separate assigned A-M row review; directory/source presence never closes whole-row acceptance.",
+    "trackingSuccessor": "Attach attributable row-specific reviewed PR/head and validation receipt where not already present in migration-inventory-acceptance.md; preserve named outstanding V/G/E/device/AT conditions."
+  }
+]

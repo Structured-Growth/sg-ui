@@ -1,0 +1,181 @@
+{
+  "capturedAt": "2026-10-16T23:08:15.274981+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "runtime": {
+    "node": "v26.5.0",
+    "python": "Python 3.9.6"
+  },
+  "inputs": {
+    "docs/developer/final-acceptance/wave-02-04/report.md": "d888f41635a12997a75365e77a190027605c89f55de82914b27c64900f8aa71e",
+    "docs/developer/final-acceptance/wave-02-04/results.json": "0bea75b0e02bf148a1ec92ceedbfdc0befd66465d46fa92e9df5d1e904e8d6e8",
+    "docs/developer/final-acceptance/wave-02-04/migration-index.json": "6ef33ef76d23bd7b920f49924db3bb30feef73837287de15a8604bd2174e2b7a",
+    "docs/developer/final-acceptance/wave-02-14/report.md": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+    "docs/developer/final-acceptance/wave-02-14/results.json": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+    "docs/developer/final-acceptance/parallel-01/api-snapshot.json": "617a3e059ec7e50cce563f3ac8859b64b0af3f3618a3216ef7e6b4927288ea3c",
+    "docs/developer/migration-baseline/public-api.json": "6d3bebe13d4bcb997d3433cdbd5a3be723eb81c66938579a6475f4ce25b7734c",
+    "docs/developer/migration-baseline/package.json": "4275ce0177a70921b970648eaaadc809091946bc8c03b7ace7638d22656c4c2e",
+    "docs/developer/final-acceptance/coordinator-integration/evidence.json": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+    "docs/extraction-manifest.json": "6ae007599e1b32d547c26b2ef09accf8db493604c21b9558abec0ae8d3fb953a",
+    "packages/ui/package.json": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+    "pnpm-lock.yaml": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+    "packages/ui/scripts/check-package.mjs": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+    "LICENSE": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+    "THIRD_PARTY_NOTICES.md": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+    "packages/ui/LICENSE": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+    "packages/ui/THIRD_PARTY_NOTICES.md": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56"
+  },
+  "coordinatorInputDeltas": [],
+  "coordinatorLibraryOutputDeltas": [],
+  "apiDeclarationDeltas": [
+    {
+      "file": "packages/ui/dist/components/AppDataGrid/ownedGridModel.d.ts",
+      "receiptSha256": "73fa915c65d1598c470dfc3ee571213b5650acd206f1cf5af44ef1e1992e7e2b",
+      "currentSha256": "16454689fe21539de9882b7b9fe154e9740d9927d793d73525ca953272ce354f"
+    },
+    {
+      "file": "packages/ui/dist/components/AppDataGrid/ownedGridColumns.d.ts",
+      "receiptSha256": "14d80bc52a07c99cb5f75f14bde3e55718a3c51c47f698d6a91e3c48579e98ce",
+      "currentSha256": "8119deac7e2e2775a17a3f648bdd1ef2ae19cfdaf8d9dcb4a124b22cc8248350"
+    },
+    {
+      "file": "packages/ui/dist/experimental/DateField/DateField.d.ts",
+      "receiptSha256": "915eee67519c06b355d7c795e0a42efd1b145f3b6deb988dbbb89c699e96c9fe",
+      "currentSha256": "a06b481b302482992d7a22dc568245474f57e7beb972ab0262a6efa84e9e6da3"
+    },
+    {
+      "file": "packages/ui/dist/experimental/Calendar/Calendar.d.ts",
+      "receiptSha256": "db21d064c2f3c12e53efd8b562377b304b0ea7014bf57d779c854b9e487b49bd",
+      "currentSha256": "ca43961226eaf983c0a507dd7ff04da6ec8813d7593555c489a95f9714a047a4"
+    }
+  ],
+  "apiSourceDeltas": [
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts",
+      "receiptSha256": "405ae6441b3635ce9b4e76d18c509c813664535f84422d2b454718743b638094",
+      "currentSha256": "2e4387c46c499ba3cd74414d0be738ac3de244bb3fbaccf7653d6eef68eb1df1"
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridModel.ts",
+      "receiptSha256": "ceb26de693e468cc5fc16dcb06f5098499041fb11d27f88ba5aaa054912b3586",
+      "currentSha256": "4c004cf96d4b3c038266505bbaa6d58fbee9b0cfd6303f3bcc81f5d33fab2f22"
+    },
+    {
+      "file": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "receiptSha256": "43ce7bdfa5d4652278983efdfb6eb94785ca5fa28f64d6b66dddf933c0d358b4",
+      "currentSha256": "240fc043652299746ce1b8554424f34750a24b48e13d48b42144f762bc9f94e8"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateField/DateField.tsx",
+      "receiptSha256": "9cc5c4ba5f337787682ae31c482fdd0dc7295179859c33ad0a5b2b71fdb88e18",
+      "currentSha256": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateField/DateFieldControl.tsx",
+      "receiptSha256": "8bbadd7bb5344a56df2682e2dce83e2c2ee5dc4dd07c0d74d1ad6e2973ca09c7",
+      "currentSha256": "fe95d976fdace22b54fed78bc1fab190f45b540a08ee63518dbfea0dd1323e9d"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "receiptSha256": "c4cb4d163038104f730cdf4cb1ce6304de23707ae576c2f78ccd7590667ba718",
+      "currentSha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a"
+    },
+    {
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "receiptSha256": "b6ed8dcd06786b4c5599a832d33f4e3d71924bd4f3faec4fdd58fc306c832cf6",
+      "currentSha256": "cc1cc4fd1264b16c391f04f34bdfdb5b2d409ba899a022fc83eaa2ad9d7d1dc3"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "receiptSha256": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+      "currentSha256": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "receiptSha256": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+      "currentSha256": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "receiptSha256": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+      "currentSha256": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+    },
+    {
+      "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+      "receiptSha256": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+      "currentSha256": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+    }
+  ],
+  "reusedCoordinatorValidation": [
+    {
+      "check": "Library build including declarations",
+      "result": "pass",
+      "receipt": "library-build.txt",
+      "command": "pnpm --filter @structured-growth/sg-ui build"
+    },
+    {
+      "check": "Foundation import/layer/token guard",
+      "result": "pass",
+      "receipt": "foundations.txt"
+    },
+    {
+      "check": "Package imports, consumer import typechecks, packed-file equality",
+      "result": "pass",
+      "receipt": "package.txt",
+      "command": "pnpm --filter @structured-growth/sg-ui test:package"
+    },
+    {
+      "check": "Docs generation, example isolation, catalog/public API checks and production build",
+      "result": "pass",
+      "receipt": "docs-build.txt",
+      "command": "pnpm --filter @structured-growth/docs build",
+      "pages": 94,
+      "exampleOwners": 160
+    },
+    {
+      "check": "Docs-owned private browser fixture build",
+      "result": "pass",
+      "receipt": "native-fixture-build.txt",
+      "command": "pnpm --filter @structured-growth/sg-ui exec node scripts/build-browser-docs.mjs"
+    },
+    {
+      "check": "Affected composed transaction units after shared DateField changes",
+      "result": "pass",
+      "receipt": "composed-units.txt",
+      "suites": 5,
+      "tests": 24
+    },
+    {
+      "check": "Original targeted native suite",
+      "result": "pass",
+      "receipt": "browsers-full.txt",
+      "json": "browsers-full-results.json",
+      "executions": 21,
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "casesPerEngine": 7,
+      "retries": 0
+    },
+    {
+      "check": "Enriched datetime host-policy-change case",
+      "result": "pass",
+      "receipts": [
+        "datetime-chromium.txt",
+        "datetime-firefox-webkit.txt"
+      ],
+      "json": "datetime-firefox-webkit-results.json",
+      "executions": 3,
+      "retries": 0,
+      "reconciliation": "Retain18 unaffected passes from the full run and replace its3 datetime passes with the enriched case results. Current final scope is21 executions, not24 distinct cases. First external host-policy checkbox change uses visible user click; second host-policy change while popup is open is a programmatic native input click simulating host update."
+    }
+  ],
+  "priorReportHashMatchesAssignment": {
+    "A-M-38": true,
+    "A-Z-04": true,
+    "A-Z-08": true,
+    "A-Z-10": true
+  },
+  "noBuildInstallPackOrBrowserExecuted": true
+}

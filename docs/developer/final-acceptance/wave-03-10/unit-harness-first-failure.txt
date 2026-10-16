@@ -1,0 +1,50 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+ ❯ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx (0 test)
+ ❯ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx [ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx ]
+Error: Failed to resolve import "react/jsx-dev-runtime" from "docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx:9:9
+  1  |  import { Fragment, jsxDEV } from "react/jsx-dev-runtime";
+     |                                    ^
+  2  |  import { afterEach, expect, it, vi } from "vitest";
+  3  |  import { cleanup, render, screen } from "@testing-library/react";
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx [ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx ]
+Error: Failed to resolve import "react/jsx-dev-runtime" from "docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx:13:31
+  1  |  import { jsxDEV } from "react/jsx-dev-runtime";
+     |                          ^
+  2  |  import { afterEach, expect, it, vi } from "vitest";
+  3  |  import { cleanup, render, screen } from "@testing-library/react";
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  no tests
+   Start at  18:05:57
+   Duration  859ms (transform 22ms, setup 33ms, import 0ms, tests 0ms, environment 504ms)
+

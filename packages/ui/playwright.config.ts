@@ -10,6 +10,8 @@ if (!Number.isInteger(port) || port < 1024 || port > 65535 ||
 
 export default defineConfig({
   testDir: './tests/browser',
+  // Deliberately reviewed external baselines run via playwright.visual-acceptance.config.ts.
+  testIgnore: 'visual-acceptance.spec.ts',
   forbidOnly: Boolean(process.env.CI),
   workers: 1,
   retries: 0,

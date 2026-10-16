@@ -1,0 +1,761 @@
+{
+  "savedClassifications": [
+    {
+      "file": "THIRD_PARTY_NOTICES.md",
+      "count": 5,
+      "classification": "legal"
+    },
+    {
+      "file": "docs/developer/migration-baseline/inventory.json",
+      "count": 801,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/migration-baseline/package.json",
+      "count": 11,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/migration-baseline/public-api.json",
+      "count": 112,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-batch-105/acceptance-evidence.md",
+      "count": 2,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-batch-112/acceptance-evidence.md",
+      "count": 2,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-batch-116/acceptance-evidence.md",
+      "count": 1,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-batch-125/acceptance-evidence.md",
+      "count": 2,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-batch-133/acceptance-evidence.md",
+      "count": 12,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-batch-91/acceptance-evidence.md",
+      "count": 2,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-batch-92/acceptance-evidence.md",
+      "count": 1,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-batch-95/acceptance-evidence.md",
+      "count": 7,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-batch-97/acceptance-evidence.md",
+      "count": 3,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c37.md",
+      "count": 1,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/react-aria-card-pagination.md",
+      "count": 1,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/react-aria-css-lint.md",
+      "count": 1,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/react-aria-hardening-tasks.md",
+      "count": 4,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/react-aria-primitives.md",
+      "count": 2,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/developer/react-aria-scope-ledger.md",
+      "count": 6,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "docs/extraction-manifest.json",
+      "count": 6,
+      "classification": "documentation-or-historical"
+    },
+    {
+      "file": "packages/ui/THIRD_PARTY_NOTICES.md",
+      "count": 5,
+      "classification": "legal"
+    },
+    {
+      "file": "packages/ui/scripts/capture-source-acceptance.mjs",
+      "count": 4,
+      "classification": "guard-or-test"
+    },
+    {
+      "file": "packages/ui/scripts/check-component-css.test.mjs",
+      "count": 7,
+      "classification": "guard-or-test"
+    },
+    {
+      "file": "packages/ui/scripts/check-foundations.mjs",
+      "count": 4,
+      "classification": "guard-or-test"
+    },
+    {
+      "file": "packages/ui/scripts/check-package.mjs",
+      "count": 9,
+      "classification": "guard-or-test"
+    },
+    {
+      "file": "packages/ui/scripts/package-consumer.tsx",
+      "count": 1,
+      "classification": "guard-or-test"
+    },
+    {
+      "file": "packages/ui/scripts/react-stately-boundaries.test.mjs",
+      "count": 2,
+      "classification": "guard-or-test"
+    },
+    {
+      "file": "packages/ui/scripts/test-editor-consumer.mjs",
+      "count": 5,
+      "classification": "guard-or-test"
+    },
+    {
+      "file": "packages/ui/scripts/test-foundation-consumer.mjs",
+      "count": 5,
+      "classification": "guard-or-test"
+    },
+    {
+      "file": "packages/ui/scripts/test-next-consumer.mjs",
+      "count": 2,
+      "classification": "guard-or-test"
+    }
+  ],
+  "supplementalPattern": "mui|emotion|material-ui|material design|basegridsx",
+  "supplementalMatches": [
+    {
+      "file": "AGENTS.md",
+      "sha256": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "classification": "agent-policy-prohibition",
+      "hits": [
+        {
+          "line": 218,
+          "text": "sgui.components layer, generated tokens and native refs. Do not introduce MUI,"
+        },
+        {
+          "line": 219,
+          "text": "Emotion, sx or upstream public types. Implementation migration does not close"
+        },
+        {
+          "line": 404,
+          "text": "  their layout with raw MUI in every composition."
+        }
+      ],
+      "reviewDisposition": "prohibitions on retired foundation; no positive import/styling instruction"
+    },
+    {
+      "file": "LICENSE",
+      "sha256": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+      "classification": "legal-preserve",
+      "hits": [
+        {
+          "line": 81,
+          "text": "The Software uses third-party packages, including React, MUI, Emotion and"
+        }
+      ],
+      "reviewDisposition": "retain pending associated-source/asset provenance and legal-owner review; stale current-use descriptions are separately identified"
+    },
+    {
+      "file": "THIRD_PARTY_NOTICES.md",
+      "sha256": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+      "classification": "legal-preserve",
+      "hits": [
+        {
+          "line": 10,
+          "text": "Copyright (c) Emotion team and other contributors"
+        },
+        {
+          "line": 36,
+          "text": "Copyright (c) Emotion team and other contributors"
+        },
+        {
+          "line": 348,
+          "text": "Copyright (c) 2020 Material-UI SAS"
+        }
+      ],
+      "reviewDisposition": "retain pending associated-source/asset provenance and legal-owner review; stale current-use descriptions are separately identified"
+    },
+    {
+      "file": "apps/docs/components/demo-theme.ts",
+      "sha256": "2aaef71b7db20b31c8161e86ab85172d7a98c3d5dfc7a2ffc9dc49eb9241e39d",
+      "classification": "opaque-integrity-or-config-review",
+      "hits": [
+        {
+          "line": 10,
+          "text": "  {id:'material', label:'Material Design'},"
+        }
+      ],
+      "reviewDisposition": "Material Design is an intentional independent docs demo identity/test label, not retired implementation use"
+    },
+    {
+      "file": "apps/docs/native-fixtures/token-source.json",
+      "sha256": "1b22596dbf77a1904ac1c01026089b55190fb417a2ab6e00ddddce9b636c1d94",
+      "classification": "opaque-integrity-or-config-review",
+      "hits": [
+        {
+          "line": 107,
+          "text": "    \"scaleMotionDuration\": {"
+        },
+        {
+          "line": 287,
+          "text": "      \"$value\": \"{base.scaleMotionDuration}\""
+        }
+      ],
+      "reviewDisposition": "false-positive: scaleMotionDuration contains emotion across the word boundary; owned motion token, no retired code"
+    },
+    {
+      "file": "apps/docs/tests/scrollbar-layout.spec.ts",
+      "sha256": "b377b73c98ddcafd64683613dd2deefabf6203be39f3db6e0f2f20c9db4f067d",
+      "classification": "opaque-integrity-or-config-review",
+      "hits": [
+        {
+          "line": 40,
+          "text": "  await select.click();await expect(page.getByRole('option',{name:'Material Design',exact:true})).toBeVisible();"
+        }
+      ],
+      "reviewDisposition": "Material Design is an intentional independent docs demo identity/test label, not retired implementation use"
+    },
+    {
+      "file": "apps/docs/tests/theme-pipeline.spec.ts",
+      "sha256": "31921a5be42f1b978272c356fa3d0187f904839adcf259fd6973b83d7d82bc0d",
+      "classification": "opaque-integrity-or-config-review",
+      "hits": [
+        {
+          "line": 14,
+          "text": "  await expect(page.getByRole('main')).not.toContainText(/Apple Human Interface|Material Design color reference|These are SGUI interpretations/);"
+        }
+      ],
+      "reviewDisposition": "Material Design is an intentional independent docs demo identity/test label, not retired implementation use"
+    },
+    {
+      "file": "docs/commercial-licensing.md",
+      "sha256": "71fc2a9e55e62ee0f6eb4a0947d876fcea4cb856338c76cfe56451ff6be2482d",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 19,
+          "text": "notice does not relicense React, MUI, Emotion, or Lexical. Full notices for the"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/docs-website.md",
+      "sha256": "cbb2a7dd72e300f6cfd6ff16ed6244c8d124461374b6b088d8b5a0fc3eedbfbd",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 16,
+          "text": "layout. No external font request, runtime styling engine or copied MUI UI is used."
+        },
+        {
+          "line": 29,
+          "text": "MUI X's public docs workspace is the structural reference. The current catalog has"
+        },
+        {
+          "line": 492,
+          "text": "The toolbar now offers Material Design (default), Apple Human Interface and the"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/parallel-batch-02/architecture-docs.md",
+      "sha256": "dda4e9f7d51a6fbca8844e91a6f50439a8911f6dde788b98a03c7adea3843477",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 55,
+          "text": "- PASS: package dependency inspection confirms no retired MUI/Emotion runtime,"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/parallel-batch-102/acceptance-evidence.md",
+      "sha256": "b8e67fb9e0f9139e93b16bca6761205a25f864811a19ca4aae76b912f174f8c7",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 15,
+          "text": "| C-04 | Partial: inspected replacements and named mappings supported; exhaustive public styling-map acceptance unproven | Current src search finds no exact retired `sx`/`paperSx` API, positive retired foundation import or Mui selector. Baseline declared `sx` (grid), `paperSx` (modal), `headerSx`/`bodySx`/`footerSx` (card frame); replacement docs explicitly map those. Button, primitives, theme, layout/editor and grid docs describe native contracts and deliberate inherited-prop removal. Foundation guard rejects retired styling/imports transitively. | Complete baseline-to-current mapping of every inherited public styling prop has not been demonstrated by the grouped removal docs. Historical baseline, legal names and negative tests are not runtime remnants. Root owns a separate exhaustive mapping/declaration acceptance review; no product defect is inferred and no production-source fix is requested here. Exact-head guard/build/declaration/packed results remain unrun. |"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/parallel-batch-129/acceptance-evidence.md",
+      "sha256": "4ed34bd0df127534543a77751b25d7a4d8ef83f958ec5681e1e28a12c158688a",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 13,
+          "text": "| W-01 | **Partial; actual active-guidance inconsistency** | `AGENTS.md` lines 23–42 prohibit host dependencies and retired foundation additions; 99–113 require owned styling/public imports; 128–141 correctly defer true pinning; 332 removes old theme objects/augmentation. All 67 local link targets checked across the three guidance files below exist. However lines 287–308 still say the legacy grid renderer/types/helpers and shell integration are pending, contradicting lines 310–315 declaring whole-directory migration. Lines 37–42 still describe an incremental/new-module exception after line 109 says the whole catalog is owned. | Coordinator-authorized guidance reconciliation in **AGENTS.md only**, then static consistency/link review. Retain broad acceptance limits, but remove or explicitly historical-label obsolete implementation-status exceptions. Existing `sx`/MUI mentions are prohibitions or migration contrasts, not observed permission to import them; this review does not claim every transitive guidance reference was audited. |"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/parallel-batch-130/acceptance-evidence.md",
+      "sha256": "93dcae0b7190d04a7f06f7425da6be88f29db6cd85834c78230992335c301c12",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 21,
+          "text": "- `assertOwnedDeclaration` rejects named React Aria/Stately/react-types/MUI/Emotion/Lucide/TanStack references. The package checker audits root/public exports, recursive theme/experimental/catalog declaration directories and explicit internal owned grid declarations. It depends on fresh emitted output and is not a source-only proof that declaration generation passed."
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/parallel-batch-132/acceptance-evidence.md",
+      "sha256": "c6add32a729458d04b05335e5ea2e6d303905db938d294e8b4e069e9232cb7f6",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 16,
+          "text": "| W-17 | Partial | [Architecture](../component-architecture.md), [GitHub setup](../../github-setup.md), [commercial guide](../../commercial-licensing.md), [PR template](../../../.github/pull_request_template.md), [issue form](../../../.github/ISSUE_TEMPLATE/ui-change.yml), [troubleshooting](../../troubleshooting/validation.md), and three packed consumer generators (blob table). Source has owned contracts, CSS/scope, draft PR/release boundaries, packed fixtures and exact-head evidence limits. | Commercial guide still says full notices cover current direct runtime/peer packages while naming MUI/Emotion; those packages are absent from current package dependencies. Notices deliberately retain them and label React Aria as migration proof dependencies. Do not remove legal text without owner attribution review. Architecture validation paragraph still requests full check/Storybook for every code/build change, conflicting with current targeted dev policy. Root must reconcile final wording and legal/owner conclusions; fixture source existence is not current packed execution acceptance. |"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/parallel-batch-133/acceptance-evidence.md",
+      "sha256": "ec4a9e1fd3ef4fb61b7c48f644145c6abae3452388c38f01f1d1dc77010b031b",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 19,
+          "text": "| Z-02 | **Partial; tracked implementation removal supported.** Current `src` and `.storybook` search has only two negative SSR assertions against `Mui`; no positive retired import/reexport, selector, mock or story requirement matched. No matching tracked filename in those trees. Public theme exports owned Provider/ThemeScope; AppThemeProvider is deliberately the same owned Provider under its preserved public name, not a former theme object. Current package dependency groups contain no retired packages. Existing guards inspect source/transitive imports and emitted declarations/output. | Fresh emitted declarations, CSS, maps, package export surface and tarball at the reviewed/integrated head remain unrun. The preserved AppThemeProvider name is intentional per the [theme mapping](../react-aria-theme.md), not an instruction to remove compatible names. Coordinator owns the validation window; no whole-parent completion inferred from guards or search. |"
+        },
+        {
+          "line": 66,
+          "text": "  Both reject `Mui` in SSR markup. This is lexical inspection, not AST/type or"
+        },
+        {
+          "line": 67,
+          "text": "  runtime validation. A simpler branded search omitted these bare `Mui` literals;"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/parallel-batch-134/acceptance-evidence.md",
+      "sha256": "9f21e7ab3f6d4343bbf28d961ceb5e54d9c05f72889c06e953cd573e25279922",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 42,
+          "text": "Emotion react/styled and the former icons/material/grid packages. No hit appeared"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/parallel-batch-97/acceptance-evidence.md",
+      "sha256": "4940f6bcaf742b137472a08927b96744828ce682d87f01804a4de629a12b66cb",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 12,
+          "text": "| L-03 | Fully supported for the repository requirement to preserve and distinguish terms | [LICENSE](../../../LICENSE) §§1–3 require a written commercial agreement for original SGUI materials; §7 excludes separately licensed third-party rights from commercial restrictions. [README](../../../README.md) prominently states commercial licensing; [package metadata](../../../package.json) uses `SEE LICENSE IN LICENSE` and includes LICENSE/notices in its file list. Notices explicitly distinguish SGUI wrappers/styles from Adobe, TanStack and Lucide code. | This establishes the stated source/document boundary, not enforceability, publisher identity, customer agreement coverage or final publication. [Commercial licensing](../../commercial-licensing.md) explicitly requires counsel review before publication/customer use. Its MUI/Emotion examples and LICENSE §7 dependency examples remain stale; inventory wording belongs to the bounded legal reconciliation, without weakening §7. |"
+        },
+        {
+          "line": 13,
+          "text": "| L-04 | Partial; actual notice reconciliation missing | [Notices](../../../THIRD_PARTY_NOTICES.md) retain full MIT text for five retired packages, Apache-2.0 text, TanStack MIT and Lucide ISC/Feather MIT. Current package/lockfile contain the owned dependencies. [Removal audit](../react-aria-removal-audit.md) explicitly preserves retired notices pending provenance review and leaves Z-06/Z-08 open. | Notices still call TanStack an experimental grid dependency and Adobe packages migration proofs. Their opening claims a current direct inventory while listing retired Emotion/MUI sections. Final shipped direct/transitive/code/asset inventory and removal disposition are absent. Root may assign exclusive edits to `THIRD_PARTY_NOTICES.md`, `docs/commercial-licensing.md` and, only with legal-owner review of stale examples, LICENSE §7; preserve all substantive commercial terms and required upstream notices. Compare resolved package license/NOTICE files with the exact final tarball, retained byte hashes and asset/source provenance before removing any retired section. No deletion is authorized by this report. |"
+        },
+        {
+          "line": 15,
+          "text": "| L-06 | Partial; selected-engine licensing decision supported | [Grid decision](../react-aria-grid-decision.md) names L-06, selects TanStack Table 8.21.3 with React Aria 1.21.1, assigns ownership, and explicitly says both TanStack packages use MIT, no commercial feature tier is used and no Enterprise dependency is added. TanStack MIT text in notices includes distribution/sublicensing rights independently of SGUI terms. Current grid imports confirm those engines; package/lockfile contain no MUI X Pro/Premium, AG Grid Enterprise or license-key dependency. | The retained candidate comparison covers React Aria/TanStack capabilities, not an explicit retired Community/Enterprise tier and redistribution comparison. Decision first appears in the same implementation commit `51734ed691ac2b6c383b70c5152e32c1c22f33e5`; an independently retained decision *before* selection is not established. Root may assign only `docs/developer/react-aria-grid-decision.md` to record legacy Community versus paid tiers, selected MIT redistribution obligations and deferred features, with exact version license evidence and owner review. Do not fabricate historical sequencing or infer paid tier acceptance from feature names. No engine change is indicated. |"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-button.md",
+      "sha256": "3b587278e52fc5680b2756d44f604598f7d223b47caec0138e69a61cbefe1d96",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 7,
+          "text": "This is a breaking contract change from the extracted MUI wrapper:"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-card-frames.md",
+      "sha256": "bc4220f14ad665c8380963f5306051320f1e88ca3b5fee057608185cee4a39fc",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 5,
+          "text": "cards in the owned `Provider` or `ThemeScope`. The legacy MUI theme no longer"
+        },
+        {
+          "line": 26,
+          "text": "(for example `{ padding: 16 }`), without MUI shorthand or theme string resolution."
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-css-lint.md",
+      "sha256": "f8875e607c410a7cd7f62fc1378142a848a64e0e36d6999b0c6ef958fb3b0676",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 19,
+          "text": "  functional pseudos. Retired `Mui` selectors, `.css-*`, `.jss-*` and `data-emotion`"
+        },
+        {
+          "line": 22,
+          "text": "  quotes remain checked, including `[data-emotion=\"cache\"]`. The existing broader source retired-name"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-editor-menus.md",
+      "sha256": "25d680682c89c3a996887f6d60287305157fa86e89c82a2375a23ffbf37e239a",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 62,
+          "text": "instead of MUI palette references. Previously stored MUI token strings are not"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-formatting-toolbar.md",
+      "sha256": "e4cff6e856bfc93bfc7ab384f845106d2c47db7f9684ae20a8d20bc030caf462",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 61,
+          "text": "on MUI selectors, theme overrides or Emotion with owned tokens and native"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-hardening-tasks.md",
+      "sha256": "aed2321f4cf09fe8f0dbd61f9a1f8c8601afa19866acf0fa6407054fc9730010",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 390,
+          "text": "- [ ] A-Z-01 Reconcile original `Z-01`: Remove every direct/runtime/peer/dev/optional retired package and any remaining transitive dependency on it; include Emotion and all grid/icon packages. Historical status: checked."
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-icons.md",
+      "sha256": "f329801a2787636cfa218b59268de5375a78d4b893b388932b5c0b0d63ae25fd",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 8,
+          "text": "There is no MUI icon implementation or upstream SVG prop type in these entry points."
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-master-task-list.md",
+      "sha256": "99dad5bafa04b3d613265ac29788103ec331028ba5f60f3e63df54517ced5171",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 92,
+          "text": "- Remove the entire existing MUI foundation: Material components, X DataGrid,"
+        },
+        {
+          "line": 93,
+          "text": "  icons, Emotion, augmentation, public type coupling, styling selectors, tests,"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-package-acceptance.md",
+      "sha256": "6d95974d317c58a2f7fb47db7f6bd3c956f3e4a61793e6fd74a46521e58438fd",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 67,
+          "text": "Emotion and the former component/grid packages). The current README has no"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-page-layout.md",
+      "sha256": "d794323b80dead3432b7408b1ebbf5bdeab80baca3e57567f1ac7e5fef681893",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 26,
+          "text": "and comfortable explicitly override it. This replaces MUI-specific heights with"
+        },
+        {
+          "line": 31,
+          "text": "The former MUI DOM/classes and incidental styling are removed. Use the native"
+        },
+        {
+          "line": 58,
+          "text": "The former MUI DOM/classes and fixed pixel title/grid dimensions are removed."
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-page-navigation.md",
+      "sha256": "d905f33d7f1ec812167ff5dbf01f79e3bbb322ac26bd20b929bbe2177e135cb3",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 9,
+          "text": "This is a breaking visual-foundation requirement. MUI theme overrides and internal"
+        },
+        {
+          "line": 10,
+          "text": "MUI classes no longer style the navigator. `className`, native `style`, and"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-primitives.md",
+      "sha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 11,
+          "text": "where useful; none accepts the inherited MUI prop surface, `sx`, theme callbacks,"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-progress-avatar.md",
+      "sha256": "dfe8ecf91528b6cb966eb1b2cf56d5d352ab703d8ca7098769eb2b14fa935f08",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 81,
+          "text": "foundation visual scope instead of MUI theme styling. They retain their existing"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-progress.md",
+      "sha256": "14c4c3606a5a2828a6f42dd8658c1f60d8c9536b4d9465218f071d0f6b4495e5",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 923,
+          "text": "completed catalog migration. AppDataGrid still renders MUI X and exports legacy"
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-removal-audit.md",
+      "sha256": "95a0a88bb62e2f4af83fa6c93b58a29eed1873d1bc50d8432e6dd02f4081cdc7",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 44,
+          "text": "The generated Storybook includes Emotion in its own vendored DocsRenderer and"
+        },
+        {
+          "line": 46,
+          "text": "Other broad substring hits such as `decompressFromUint8Array` are unrelated."
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "docs/developer/react-aria-scope-ledger.md",
+      "sha256": "ab787efc9e381efd39f2080a63f69888f6cd688c6c3f8f396ba5fee60d899c29",
+      "classification": "historical-or-migration-guidance",
+      "hits": [
+        {
+          "line": 28,
+          "text": "- Remove the entire existing MUI foundation: Material components, X DataGrid,"
+        },
+        {
+          "line": 29,
+          "text": "  icons, Emotion, augmentation, public type coupling, styling selectors, tests,"
+        },
+        {
+          "line": 551,
+          "text": "- [x] Z-01 Remove every direct/runtime/peer/dev/optional retired package and any remaining transitive dependency on it; include Emotion and all grid/icon packages."
+        }
+      ],
+      "reviewDisposition": "historical receipt, removed-API migration mapping, source of design-reference inspiration, or explicit removal requirement; retain dated evidence, rewrite inaccurate current-use assertions only"
+    },
+    {
+      "file": "packages/ui/LICENSE",
+      "sha256": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+      "classification": "legal-preserve",
+      "hits": [
+        {
+          "line": 81,
+          "text": "The Software uses third-party packages, including React, MUI, Emotion and"
+        }
+      ],
+      "reviewDisposition": "retain pending associated-source/asset provenance and legal-owner review; stale current-use descriptions are separately identified"
+    },
+    {
+      "file": "packages/ui/THIRD_PARTY_NOTICES.md",
+      "sha256": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+      "classification": "legal-preserve",
+      "hits": [
+        {
+          "line": 10,
+          "text": "Copyright (c) Emotion team and other contributors"
+        },
+        {
+          "line": 36,
+          "text": "Copyright (c) Emotion team and other contributors"
+        },
+        {
+          "line": 348,
+          "text": "Copyright (c) 2020 Material-UI SAS"
+        }
+      ],
+      "reviewDisposition": "retain pending associated-source/asset provenance and legal-owner review; stale current-use descriptions are separately identified"
+    },
+    {
+      "file": "packages/ui/scripts/check-component-css.mjs",
+      "sha256": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+      "classification": "guard-or-negative-test",
+      "hits": [
+        {
+          "line": 81,
+          "text": "      if (/\\.Mui[A-Z][\\w-]*|\\.(?:css|jss)-[\\w-]+|\\[\\s*data-emotion(?=[\\s~|^$*=\\]])/.test(withoutQuotedData(selector))) fail(rule, `Retired foundation selector: ${selector}`);"
+        }
+      ],
+      "reviewDisposition": "executable rejection assertion/guard, not a retired runtime requirement"
+    },
+    {
+      "file": "packages/ui/src/components/AppPageHeader/AppPageHeader.ssr.test.tsx",
+      "sha256": "20e2c41182c4afbc90cd0e06f1b2c81687f2fb18577ff6aaf9b36f48f4c62f64",
+      "classification": "guard-or-negative-test",
+      "hits": [
+        {
+          "line": 8,
+          "text": "  expect(html).toContain('<h1'); expect(html).toContain('aria-current=\"page\"'); expect(html).not.toContain(\"Mui\");"
+        }
+      ],
+      "reviewDisposition": "executable rejection assertion/guard, not a retired runtime requirement"
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx",
+      "sha256": "1e885a2a07534cf4c26c306e7f4c67898c13f7865f3449c4888315b19ac47875",
+      "classification": "guard-or-negative-test",
+      "hits": [
+        {
+          "line": 10,
+          "text": "  expect(markup).toContain(\"Page 1\"); expect(markup).not.toContain(\"Mui\");"
+        }
+      ],
+      "reviewDisposition": "executable rejection assertion/guard, not a retired runtime requirement"
+    },
+    {
+      "file": "packages/ui/src/foundation/tokens.json",
+      "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "classification": "source-review",
+      "hits": [
+        {
+          "line": 107,
+          "text": "    \"scaleMotionDuration\": {"
+        },
+        {
+          "line": 307,
+          "text": "      \"$value\": \"{base.scaleMotionDuration}\""
+        }
+      ],
+      "reviewDisposition": "false-positive: scaleMotionDuration contains emotion across the word boundary; owned motion token, no retired code"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "classification": "opaque-integrity-or-config-review",
+      "hits": [
+        {
+          "line": 881,
+          "text": "    resolution: {integrity: sha512-ByP1v7YL5SMveFPP7+sj0/ZuWCOOg/Chs4NafOMpq6WNIM/hdGY0S7C0TCGDBWu1aGmOxmUIhMx3cO+IdwYZ1Q==}"
+        },
+        {
+          "line": 907,
+          "text": "    resolution: {integrity: sha512-AzsuD9OfxTOZMMvTRhlN3oHBwOmFN7tDh27LzqmHt4+uOgPhJT7ZM7/kVs/8/o0WxayMUIk3hBmCFRHv1FUoag==}"
+        },
+        {
+          "line": 1728,
+          "text": "    resolution: {integrity: sha512-Yg7+ztRkqslMAS2iFaU+Oa4KTSidr63OsFGlOrJoW981kIYO3CGCS3wA95P1mUi/IVSJkn0D479KTJpVpvFNuw==}"
+        },
+        {
+          "line": 2855,
+          "text": "    resolution: {integrity: sha512-q/UYvr1gOk4XII+Cu1CW2dINjYqJJFifTzogEaIARznrvX7uOlHsdTEXcnOBMuIsrCGEEKdNxi74kyMLZlKVfw==}"
+        }
+      ],
+      "reviewDisposition": "four opaque integrity-string substrings; not package keys or dependency requirements"
+    }
+  ],
+  "excludedExplicitly": [
+    {
+      "file": ".obsidian/app.json",
+      "reason": "personal state/credential boundary; not read"
+    },
+    {
+      "file": ".obsidian/appearance.json",
+      "reason": "personal state/credential boundary; not read"
+    },
+    {
+      "file": ".obsidian/core-plugins.json",
+      "reason": "personal state/credential boundary; not read"
+    },
+    {
+      "file": ".obsidian/workspace.json",
+      "reason": "personal state/credential boundary; not read"
+    }
+  ],
+  "nonUtf8OrBinary": [],
+  "limits": "Reuses prior narrow-match classifications. Supplemental rows only contain cases omitted by the old case-sensitive pattern or extension filter. No credential/personal state was read."
+}

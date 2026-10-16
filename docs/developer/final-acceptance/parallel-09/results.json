@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-16T22:35:26.227659+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "scope": "Dirty shared dev checkout; only parallel-09 files written. Recommendations for coordinator; shared acceptance state unchanged.",
+  "summary": {
+    "complete": 3,
+    "partial": 1,
+    "blocked": 0
+  },
+  "checks": {
+    "source_hash_comparisons": [
+      {
+        "path": "README.md",
+        "sha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+        "fa02_sha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+        "matches_fa02": true
+      },
+      {
+        "path": "docs/migration.md",
+        "sha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+        "fa02_sha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+        "matches_fa02": true
+      },
+      {
+        "path": "docs/developer/react-aria-architecture.md",
+        "sha256": "fed6d21dc7abd8f895b27bb5e319981982092af6dbe5eaa4e5705622dad3a067",
+        "fa02_sha256": "fed6d21dc7abd8f895b27bb5e319981982092af6dbe5eaa4e5705622dad3a067",
+        "matches_fa02": true
+      },
+      {
+        "path": "docs/developer/component-architecture.md",
+        "sha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+        "fa02_sha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+        "matches_fa02": true
+      },
+      {
+        "path": "apps/docs/content/component-usage/presentation.json",
+        "sha256": "a001e5adc88f7485b15f1680e1bc65c95ffab207601879914e8289c7e5ea83be",
+        "fa02_sha256": "a001e5adc88f7485b15f1680e1bc65c95ffab207601879914e8289c7e5ea83be",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Typography/Typography.tsx",
+        "sha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+        "fa02_sha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Typography/Typography.module.css",
+        "sha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+        "fa02_sha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Typography/Typography.test.tsx",
+        "sha256": "b37560c72ef1f10b2d9542254a37a030e221c8ea88daed3ba35b112548d54001",
+        "fa02_sha256": "b37560c72ef1f10b2d9542254a37a030e221c8ea88daed3ba35b112548d54001",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Typography/Typography.ssr.test.tsx",
+        "sha256": "a6b351164eb35a17a46c22c1cba8fd5a85efa97e4b6b4dbb592968a88b5c8506",
+        "fa02_sha256": "a6b351164eb35a17a46c22c1cba8fd5a85efa97e4b6b4dbb592968a88b5c8506",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Typography/Typography.next100-regression.test.tsx",
+        "sha256": "fc59b16b28760b9552a01e37714812cf9228d7f5a89077b7febe887110c1bf37",
+        "fa02_sha256": "fc59b16b28760b9552a01e37714812cf9228d7f5a89077b7febe887110c1bf37",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/components/Typefaces/Typefaces.next100-regression.test.tsx",
+        "sha256": "67593526a0f585f249c11f22a476bc78ad7eb11d947909456d67eff1b7458457",
+        "fa02_sha256": "67593526a0f585f249c11f22a476bc78ad7eb11d947909456d67eff1b7458457",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/components/Typefaces/Typefaces.native-fixture.tsx",
+        "sha256": "2d4c6245e676f2de54f08ff38f278f1aabb23c5711e99550d19295a9b225ebbb",
+        "fa02_sha256": "2d4c6245e676f2de54f08ff38f278f1aabb23c5711e99550d19295a9b225ebbb",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Table/Table.module.css",
+        "sha256": "93f7d9b1f79855e5f017993f0d7328646a257376e3fd9087eb01c556fd09e38f",
+        "fa02_sha256": "93f7d9b1f79855e5f017993f0d7328646a257376e3fd9087eb01c556fd09e38f",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+        "sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+        "fa02_sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/foundation/tokens.json",
+        "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+        "fa02_sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/foundation/tokens.css",
+        "sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+        "fa02_sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/foundation/tokens.generated.ts",
+        "sha256": "2c63951228c23a40880bb2000686db160bc468aa584817cca262e8cb69df5a32",
+        "fa02_sha256": "2c63951228c23a40880bb2000686db160bc468aa584817cca262e8cb69df5a32",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/components/primitives/index.ts",
+        "sha256": "fee6f7642c4b73916defbe8b408cd3c076acb11e43f5c25205f1fdb589599276",
+        "fa02_sha256": "fee6f7642c4b73916defbe8b408cd3c076acb11e43f5c25205f1fdb589599276",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/primitives/index.ts",
+        "sha256": "2ec179615d99b8f20cfb5702735ed57eabd4e5cc77b31c506ce5c1d57560947b",
+        "fa02_sha256": "2ec179615d99b8f20cfb5702735ed57eabd4e5cc77b31c506ce5c1d57560947b",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/src/experimental/index.ts",
+        "sha256": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+        "fa02_sha256": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/tests/browser/hardening-typography-table-presentation.spec.ts",
+        "sha256": "46fe07fe4b1fc3a6bf4b346feff1850f14b177443783bb0644e6e081cab16966",
+        "fa02_sha256": "46fe07fe4b1fc3a6bf4b346feff1850f14b177443783bb0644e6e081cab16966",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/tests/browser/display-preferences.spec.ts",
+        "sha256": "c219f96dd6442bc112d57e01748eb394ac5c1e89f083a0c739e1f23bf7a60d02",
+        "fa02_sha256": "c219f96dd6442bc112d57e01748eb394ac5c1e89f083a0c739e1f23bf7a60d02",
+        "matches_fa02": true
+      },
+      {
+        "path": "apps/docs/native-fixtures/scenarios/experimental/Box/Box.fixture.tsx",
+        "sha256": "59152e4761657cf835bb86129cd3b7d70517620af6eb896a832814af41726da3",
+        "fa02_sha256": "59152e4761657cf835bb86129cd3b7d70517620af6eb896a832814af41726da3",
+        "matches_fa02": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Typography/Typography.d.ts",
+        "sha256": "5250013c1b21c137622f9798e3d1f462ad4cdfb83b42347eb81e4cd47095fe01",
+        "fa01_sha256": "5250013c1b21c137622f9798e3d1f462ad4cdfb83b42347eb81e4cd47095fe01",
+        "matches_fa01": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Typography/Typography.js",
+        "sha256": "df68ce369672778d9ca28965ab3197fdada515aaf44f794904217e0f06131674",
+        "fa01_sha256": "df68ce369672778d9ca28965ab3197fdada515aaf44f794904217e0f06131674",
+        "matches_fa01": true
+      },
+      {
+        "path": "packages/ui/dist/styles.css",
+        "sha256": "46571eccc80b3c701981a6c86b5192c72744240f7084c51db10790d0e70af2ee",
+        "fa01_sha256": "46571eccc80b3c701981a6c86b5192c72744240f7084c51db10790d0e70af2ee",
+        "matches_fa01": true
+      }
+    ],
+    "resolved_shared_typography_metrics": {
+      "fontFamily": "\"Geist\", \"Geist Fallback\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "bodySize": "1rem",
+      "labelSize": "0.875rem",
+      "bodyLineHeight": 1.6,
+      "labelLineHeight": 1.45,
+      "labelWeight": 500,
+      "actionWeight": 600,
+      "headingSize": "1.25rem",
+      "headingLineHeight": 1.4,
+      "h1Size": "2.5rem",
+      "h1LineHeight": 1.2,
+      "h1Weight": 700,
+      "h2Size": "2rem",
+      "h2LineHeight": 1.25,
+      "h2Weight": 700,
+      "h3Size": "1.75rem",
+      "h3LineHeight": 1.3,
+      "h3Weight": 600,
+      "h4Size": "1.5rem",
+      "h4LineHeight": 1.35,
+      "h4Weight": 600,
+      "h5Size": "1.25rem",
+      "h5LineHeight": 1.4,
+      "h5Weight": 600,
+      "h6Size": "1.125rem",
+      "h6LineHeight": 1.45,
+      "h6Weight": 600,
+      "body1Size": "1rem",
+      "body1LineHeight": 1.6,
+      "body1Weight": 400,
+      "body2Size": "0.875rem",
+      "body2LineHeight": 1.55,
+      "body2Weight": 400,
+      "bodyAlt2Size": "0.875rem",
+      "bodyAlt2LineHeight": 1.45,
+      "bodyAlt2Weight": 500,
+      "subtitle1Size": "1rem",
+      "subtitle1LineHeight": 1.5,
+      "subtitle1Weight": 500,
+      "subtitle2Size": "0.875rem",
+      "subtitle2LineHeight": 1.45,
+      "subtitle2Weight": 600,
+      "captionSize": "0.75rem",
+      "captionLineHeight": 1.4,
+      "captionWeight": 400,
+      "overlineSize": "0.75rem",
+      "overlineLineHeight": 1.4,
+      "overlineWeight": 600,
+      "buttonSize": "0.875rem",
+      "buttonLineHeight": 1.45,
+      "buttonWeight": 600,
+      "codeSize": "0.875rem",
+      "codeLineHeight": 1.5,
+      "codeWeight": 400,
+      "codeFontFamily": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+      "pointerTargetSize": "0rem",
+      "touchTargetSize": "2.75rem",
+      "pointerNavigationIconSize": "1rem",
+      "touchNavigationIconSize": "1.25rem",
+      "compactControlTextSize": "0.75rem",
+      "comfortableControlTextSize": "0.875rem"
+    },
+    "font_loader_scan": {
+      "scope": "packages/ui/src text TS/TSX/CSS/JSON/JS; font binaries under same scope",
+      "matches": [],
+      "font_binaries": []
+    },
+    "hb16_receipt_paths": {
+      "packages/ui/artifacts/hb16-2026-10-16/manifest.json": false,
+      "packages/ui/artifacts/hb16-2026-10-16/chromium/results.json": false,
+      "packages/ui/artifacts/hb16-2026-10-16/webkit-verified/results.json": false,
+      "packages/ui/artifacts/hb16-2026-10-16/firefox-corrected/results.json": false
+    }
+  },
+  "leaves": [
+    {
+      "id": "A-D-07",
+      "status": "complete",
+      "finding": "All requested roles are defined by owned tokens/components: h1-h6, body1/body2/bodyAlt2, label/control text, caption, table mapping and monospace code. bodyAlt2 is an owned union member; no augmentation is required. Table is a component mapping, not a promised table Typography variant.",
+      "source_refs": [
+        "packages/ui/src/experimental/Typography/Typography.tsx",
+        "packages/ui/src/experimental/Typography/Typography.module.css",
+        "packages/ui/src/experimental/Table/Table.module.css",
+        "packages/ui/src/experimental/TextField/TextField.module.css",
+        "packages/ui/src/foundation/tokens.json",
+        "packages/ui/src/components/primitives/index.ts",
+        "packages/ui/src/primitives/index.ts",
+        "packages/ui/src/experimental/index.ts"
+      ],
+      "test_refs": [
+        "packages/ui/src/experimental/Typography/Typography.test.tsx",
+        "packages/ui/src/experimental/Typography/Typography.ssr.test.tsx",
+        "packages/ui/src/experimental/Typography/Typography.next100-regression.test.tsx",
+        "packages/ui/src/components/Typefaces/Typefaces.next100-regression.test.tsx"
+      ],
+      "evidence": "Definition/declaration inspection plus unchanged FA-02 typography test inputs and retained FA-04 unit/package receipts; selected built declarations hash compared with FA-01. No test rerun.",
+      "limits": "Narrow definition criterion only; no full type-attribute usability or rendered accessibility certification.",
+      "successors": []
+    },
+    {
+      "id": "A-D-08",
+      "status": "complete",
+      "finding": "Consumer usage, architecture and public JSDoc explicitly separate as from variant. Typography defaults every visual role to p; as=h2/variant=h1 keeps native h2 semantics. Current Typefaces native fixture uses h2/h5 and h3/body2 with paragraph samples.",
+      "source_refs": [
+        "docs/migration.md",
+        "docs/developer/react-aria-architecture.md",
+        "docs/developer/component-architecture.md",
+        "apps/docs/content/component-usage/presentation.json",
+        "packages/ui/src/experimental/Typography/Typography.tsx",
+        "packages/ui/src/components/Typefaces/Typefaces.native-fixture.tsx"
+      ],
+      "test_refs": [
+        "packages/ui/src/experimental/Typography/Typography.test.tsx",
+        "packages/ui/src/experimental/Typography/Typography.ssr.test.tsx",
+        "packages/ui/src/experimental/Typography/Typography.next100-regression.test.tsx",
+        "packages/ui/src/components/Typefaces/Typefaces.next100-regression.test.tsx"
+      ],
+      "evidence": "Read documentation and implementation; retained tests assert independent h2 hierarchy and lifecycle updates. FA-04 covers unchanged test inputs.",
+      "limits": "Host owns document hierarchy. This does not accept every composition or spoken AT heading navigation.",
+      "successors": []
+    },
+    {
+      "id": "A-D-09",
+      "status": "partial",
+      "finding": "Resolved typography sizes are rem, line heights unitless; Typography wraps anywhere unless noWrap is requested. Native HB-16 reports 8 cases per engine at 360px/150% root text with English/Arabic, both themes/densities, 15 roles and table keyboard scrolling. These are bounded historical report claims; referenced HB-16 raw receipts are absent here. Actual zoom and substituted-font tolerance remain unestablished.",
+      "source_refs": [
+        "packages/ui/src/experimental/Typography/Typography.module.css",
+        "packages/ui/src/experimental/Table/Table.module.css",
+        "packages/ui/src/experimental/TextField/TextField.module.css",
+        "packages/ui/src/foundation/tokens.json",
+        "packages/ui/tests/browser/hardening-typography-table-presentation.spec.ts",
+        "packages/ui/tests/browser/display-preferences.spec.ts",
+        "apps/docs/native-fixtures/scenarios/experimental/Box/Box.fixture.tsx"
+      ],
+      "test_refs": [
+        "packages/ui/tests/browser/hardening-typography-table-presentation.spec.ts",
+        "packages/ui/tests/browser/display-preferences.spec.ts"
+      ],
+      "evidence": "Retain backlog HB-16 and batch99 D-09 evidence; inspect permanent assertions rather than rerun passed native checks. Existing display-preferences spec exercises 200% root text and explicit spacing in modal scope; its source is not a new pass.",
+      "limits": "Root font scaling is not browser chrome zoom. HB-16 supplies no explicit font substitution or text-spacing override. No current native run, physical device, AT or all-catalog claim.",
+      "successors": [
+        {
+          "id": "D09-EVIDENCE",
+          "task": "Coordinator locates/archive original HB-16 immutable host manifest, results and reviewed captures; compare relevant transitive inputs before relying on results for this checkout. Do not rerun unchanged completed cases solely because local receipts are absent."
+        },
+        {
+          "id": "D09-ZOOM-FONTS",
+          "task": "Schedule bounded native/manual acceptance for actual browser zoom (200%/400% with recorded CSS viewport), explicit WCAG text spacing and unavailable Geist/system/monospace font substitution. Use long English/Arabic labels across both densities in Typography/fields/navigation/table/modal; assert content/targets/focus remain reachable, expected internal scrolling and no accidental document overflow. Record exact head, host/output hashes, actual computed font and screenshots; file concrete component fixes only for observed failures."
+        }
+      ]
+    },
+    {
+      "id": "A-D-10",
+      "status": "complete",
+      "finding": "README and architecture assign optional Geist loading to host; production font stack deliberately falls through Geist/Geist Fallback to platform/system sans-serif. Code uses owned monospace stack. Scoped production source scan finds no font downloader, @font-face or font binaries; no SGUI font asset is required.",
+      "source_refs": [
+        "README.md",
+        "docs/developer/react-aria-architecture.md",
+        "packages/ui/src/experimental/Typography/Typography.module.css",
+        "packages/ui/src/foundation/tokens.json",
+        "packages/ui/src/foundation/tokens.css",
+        "packages/ui/src/foundation/tokens.generated.ts"
+      ],
+      "test_refs": [
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "evidence": "Current source scan and resolved tokens, supplemented by retained FA-01 built hashes and FA-04 package receipt.",
+      "limits": "Host-selected font asset licensing/loading is host-owned. This is the library strategy criterion, not a browser-network or host license audit; substituted metrics remain D-09.",
+      "successors": []
+    }
+  ],
+  "execution": {
+    "fresh_test_runs": 0,
+    "browser_runs": 0,
+    "builds": 0,
+    "installs": 0,
+    "reused": [
+      "FA-01",
+      "FA-02",
+      "FA-04",
+      "HB-16 report",
+      "parallel-batch-99",
+      "parallel-batch-100"
+    ]
+  }
+}

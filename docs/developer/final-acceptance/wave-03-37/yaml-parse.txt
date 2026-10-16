@@ -1,0 +1,3 @@
+Parsed docs/developer/final-acceptance/wave-03-37/proposed-files/.github/workflows/ai-code.yml
+Parsed docs/developer/final-acceptance/wave-03-37/proposed-files/.github/workflows/ci.yml
+Parsed docs/developer/final-acceptance/wave-03-37/proposed-files/.github/ISSUE_TEMPLATE/ui-change.yml

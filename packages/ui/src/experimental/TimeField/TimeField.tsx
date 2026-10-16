@@ -1,5 +1,6 @@
 "use client";
-import { forwardRef, useCallback, useRef, useState, useMemo } from "react";
+import { forwardRef, useCallback, useRef, useState, useMemo, useEffect } from "react";
+import { TextTimeField } from "./TextTimeField";
 import { parseTime, toCalendarDateTime, today, getLocalTimeZone } from "@internationalized/date";
 import { useTimeField, useDateSegment } from "react-aria/useTimeField";
 import { useLocale } from "react-aria/I18nProvider";
@@ -12,23 +13,8 @@ import { useTranslation } from "../../i18n";
 import field from "../TextField/TextField.module.css";
 import styles from "../DateField/DateField.module.css";
 
-export interface TimeFieldProps {
-  label: string;
-  /** Local clock time HH:mm:ss; this is not an instant. */
-  value?: string | null;
-  defaultValue?: string | null;
-  onValueChange?: (value: string | null) => void;
-  min?: string;
-  max?: string;
-  name?: string;
-  description?: string;
-  errorMessage?: string;
-  invalid?: boolean;
-  required?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
-  hourCycle?: 12 | 24;
-}
+import type { TimeFieldProps } from "./TimeField.types";
+export type { TimeFieldProps } from "./TimeField.types";
 /** Segments share the clock state; no DOM draft reconstruction is needed. */
 function NativeTimeSegment({ segment, state }: { segment: DateSegment; state: TimeFieldState }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -41,8 +27,8 @@ function NativeTimeSegment({ segment, state }: { segment: DateSegment; state: Ti
     data-invalid={state.isInvalid || undefined}>{segment.text}</span>;
 }
 
-export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function TimeField({ label, value, defaultValue,
-  onValueChange, min, max, name, description, errorMessage, invalid, required, disabled, readOnly, hourCycle }, ref) {
+const SegmentedTimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function TimeField({ label, value, defaultValue,
+  onValueChange, min, max, name, description, errorMessage, invalid, required, disabled, readOnly, hourCycle, onValidityChange, getTimeUnavailableReason }, ref) {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const safeParse = (raw: string | null | undefined) => {
@@ -77,15 +63,16 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function Tim
   const currentValue = value === undefined ? internal : value;
   // Stable parsing keeps unrelated host renders from clearing partial segments.
   const parsedValue = useMemo(() => safeParse(currentValue), [currentValue]);
+  const unavailableReason=currentValue?getTimeUnavailableReason?.(currentValue):undefined;
   const invalidInput = value === undefined ? invalidDefault : Boolean(value && !parsedValue);
   const invalidBounds = Boolean((min && !safeParse(min)) || (max && !safeParse(max)));
   const validationMessage = errorMessage ?? ((invalidInput || invalidBounds)
     ? t("common.ui.invalidTime", { defaultMessage: "Enter a valid time." }) : undefined);
   const options = {
-    label, description, errorMessage: validationMessage, name,
+    label, description, errorMessage: unavailableReason??validationMessage, name,
     minValue: safeParse(min) ?? undefined, maxValue: safeParse(max) ?? undefined,
     granularity: "second" as const, hourCycle,
-    isInvalid: invalid || invalidInput || invalidBounds || undefined,
+    isInvalid: invalid || Boolean(unavailableReason) || invalidInput || invalidBounds || undefined,
     isRequired: required, isDisabled: disabled, isReadOnly: readOnly,
     validationBehavior: "native" as const,
   };
@@ -97,6 +84,9 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function Tim
       setInvalidDefault(false); onValueChange?.(next);
     },
   });
+  const complete = state.segments.every(segment => !segment.isEditable || !segment.isPlaceholder);
+  const valid = complete && !invalid && !invalidInput && !invalidBounds && !unavailableReason && !state.realtimeValidation.isInvalid;
+  useEffect(() => { onValidityChange?.(valid); }, [valid, onValidityChange]);
   // Only the owned form transaction may reset value/validation. Blocking the
   // field hook's reset setters also preserves incomplete engine segment state
   // when a delegated host handler prevents reset. Segment edit commands remain.
@@ -114,4 +104,9 @@ export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function Tim
     {description && <div {...descriptionProps} className={field.description}>{description}</div>}
     {isInvalid && <div {...errorMessageProps} className={field.error}>{validationMessage ?? validationErrors.join(" ")}</div>}
   </div>;
+});
+
+export const TimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function TimeField(props,ref) {
+ const {locale}=useLocale();
+ return props.entryMode==="segments"?<SegmentedTimeField {...props} ref={ref}/>:<TextTimeField {...props} locale={locale} ref={ref}/>;
 });

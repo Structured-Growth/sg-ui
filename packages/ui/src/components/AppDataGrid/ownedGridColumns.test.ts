@@ -9,6 +9,10 @@ describe("owned catalog column contracts", () => {
   it("rejects duplicate, reserved and invalid sizing definitions", () => {
     for (const columns of [[{ field: "a" }, { field: "a" }], [{ field: "__selection" }], [{ field: " " }], [{ field: "a", width: Infinity }], [{ field: "a", flex: 0 }], [{ field: "a", minWidth: 200, maxWidth: 100 }]]) expect(() => createOwnedGridColumns(columns)).toThrow();
   });
+  it.each(["__selection", "__reorder", "__drag", "__select__", "__drag__"])("rejects utility or legacy field %s in presentation columns", field => {
+    expect(() => createOwnedGridColumns([{ field: "name" }, { field }]))
+      .toThrow(`AppDataGrid column field is invalid or duplicated: ${field}`);
+  });
   it("locks first text and action columns, drops stale fields, and places actions last", () => {
     const columns = [{ field: "score", cellType: "custom" as const }, { field: "name", cellType: "text" as const }, { field: "status" }, createOwnedGridActionMenuColumn({ getMenuActions: () => [] })];
     const result = normalizeOwnedGridLayout(columns, { visibility: { name: false, actions: false, status: false, stale: true }, order: ["actions", "status", "status", "stale"], widths: { score: 20, stale: 100, name: NaN } });

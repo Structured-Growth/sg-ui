@@ -89,7 +89,7 @@ const [pageSize, setPageSize] = useState(25);
 const [selected, setSelected] = useState('overview');
 const [title, setTitle] = useState("Course details");
 const [placement, setPlacement] = useState<"bottom start" | "bottom end" | "top start" | "top end">("bottom start");
-const [size, setSize] = useState<"md" | "lg">("md");
+const [size, setSize] = useState<"md" | "lg" | "content">("md");
 const imports = ["import { Popover, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
 return <Example title="Compact and comfortable comparison" description="The same props in independent density scopes." source={source({name:"PopoverPlaygroundDensities", imports, state, body:`<Stack gap={3}>
@@ -106,15 +106,17 @@ const [open, setOpen] = useState(false);
 const [page, setPage] = useState(0);
 const [pageSize, setPageSize] = useState(25);
 const [selected, setSelected] = useState('overview');
+const [presentation,setPresentation]=useState<"popover"|"dialog"|"drawer"|"auto">("popover");
+const [showTitle, setShowTitle] = useState(true);
 const [title, setTitle] = useState("Course details");
 const [placement, setPlacement] = useState<"bottom start" | "bottom end" | "top start" | "top end">("bottom start");
-const [size, setSize] = useState<"md" | "lg">("md");
+const [size, setSize] = useState<"md" | "lg" | "content">("md");
 const imports = ["import { Popover, Stack, Typography, Button } from '@structured-growth/sg-ui/experimental';"];
 const state = `  const [action, setAction] = useState(${literal(action)});\n  const [open, setOpen] = useState(${open});\n  const [page, setPage] = useState(${page});\n  const [pageSize, setPageSize] = useState(${pageSize});\n  const [selected, setSelected] = useState(${literal(selected)});`;
-return <Example title="Prop playground" description="Anchored supplementary content with keyboard dismissal." density={density} controls={<Stack direction="row" wrap gap={3}><TextField label="title" value={title} onValueChange={setTitle} /><Select label="placement" value={placement} options={[{"id": "bottom start", "label": "bottom start"}, {"id": "bottom end", "label": "bottom end"}, {"id": "top start", "label": "top start"}, {"id": "top end", "label": "top end"}]} onValueChange={value => setPlacement(value as "bottom start" | "bottom end" | "top start" | "top end")} /><Select label="size" value={size} options={[{"id": "md", "label": "md"}, {"id": "lg", "label": "lg"}]} onValueChange={value => setSize(value as "md" | "lg")} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"PopoverPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
-<Popover title={${literal(title)}} placement={${literal(placement)}} size={${literal(size)}} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover>
+return <Example title="Prop playground" description="Anchored supplementary content with keyboard dismissal." density={density} controls={<Stack direction="row" wrap gap={3}><Select label="presentation" value={presentation} options={["popover","dialog","drawer","auto"].map(id=>({id,label:id}))} onValueChange={v=>setPresentation(v as typeof presentation)}/><Checkbox label="Show title" checked={showTitle} onCheckedChange={setShowTitle}/><TextField label="title" value={title} onValueChange={setTitle} /><Select label="placement" value={placement} options={[{"id": "bottom start", "label": "bottom start"}, {"id": "bottom end", "label": "bottom end"}, {"id": "top start", "label": "top start"}, {"id": "top end", "label": "top end"}]} onValueChange={value => setPlacement(value as "bottom start" | "bottom end" | "top start" | "top end")} /><Select label="size" value={size} options={[{"id": "md", "label": "md"}, {"id": "lg", "label": "lg"}, {"id": "content", "label": "Content width"}]} onValueChange={value => setSize(value as "md" | "lg" | "content")} /><Select label="Preview density" value={density} options={[{id:"comfortable",label:"Comfortable"},{id:"compact",label:"Compact"}]} onValueChange={value => setDensity(value as Density)} /></Stack>} source={source({name:"PopoverPlayground", imports, state, body:`<ThemeScope density=${literal(density)}>
+<Popover presentation=${literal(presentation)} showTitle={${showTitle}} title={${literal(title)}} placement={${literal(placement)}} size={${literal(size)}} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover>
 </ThemeScope>`})}>
-<Popover title={title} placement={placement} size={size} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover>
+<Popover presentation={presentation} showTitle={showTitle} title={title} placement={placement} size={size} trigger={<Button variant="outlined">Show details</Button>}><Stack gap={3}><Typography>12 lessons · Updated today</Typography><Button onPress={() => setAction("Added to reading list")}>Add to reading list</Button></Stack></Popover>
     </Example>;
 }
 

@@ -1,3 +1,5 @@
+import { Provider } from "@structured-growth/sg-ui/theme";
+import { SGTranslationProvider, formatIcuMessage } from "@structured-growth/sg-ui/i18n";
 import { useMemo, useRef, useState } from "react";
 import { SGAccountProvider, type SGAccountAdapter, SGNavigationProvider } from "@structured-growth/sg-ui/adapters";
 import type { Meta, StoryObj } from "../../../types";
@@ -227,4 +229,14 @@ function NativeHierarchyExample() {
     <Text aria-label="Host item selections">{JSON.stringify(selections)}</Text>
     <Text aria-label="Native navigation ref">{rootRef}</Text>
   </SGNavigationProvider>;
+}
+
+/** Locale comes from the public translation adapter, without a visual dir override. */
+export const EnglishDrillMotion: Story = { render: () => <LocaleHierarchy locale="en-US" /> };
+export const ArabicDrillMotion: Story = { render: () => <LocaleHierarchy locale="ar-EG" /> };
+function LocaleHierarchy({ locale }: { locale: string }) {
+  return <SGTranslationProvider value={{ locale, useNamespace: () => {},
+    t: (_key, options) => formatIcuMessage(options.defaultMessage, locale, options.values) }}>
+    <Provider data-testid="navigation-locale"><NativeHierarchyExample /></Provider>
+  </SGTranslationProvider>;
 }

@@ -17,6 +17,9 @@ interface FieldOptions extends Pick<InputHTMLAttributes<HTMLInputElement>,
   value?: string;
   defaultValue?: string;
   onValueChange?: (value: string) => void;
+  /** Decorative icons at the logical start/end; keep actions outside these aria-hidden slots. */
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
   description?: ReactNode;
   errorMessage?: string;
   invalid?: boolean;
@@ -32,7 +35,7 @@ export type TextFieldProps = FieldOptions & (
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function TextField(
   { label, description, errorMessage, invalid, density, className, inputClassName,
-    disabled, readOnly, required, value, defaultValue, onValueChange, form, inputMode, ...props }, ref,
+    disabled, readOnly, required, value, defaultValue, onValueChange, form, inputMode, startIcon, endIcon, ...props }, ref,
 ) {
   const input = useRef<HTMLInputElement>(null);
   useImperativeHandle(ref, () => input.current!);
@@ -47,21 +50,26 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
     const message = input.current?.getAttribute("aria-invalid") === "true" ? input.current.validationMessage : "";
     return message ? () => setPreservedError(message) : undefined;
   });
+  const control = <Input ref={input} form={form} inputMode={inputMode} onChange={event => {
+    // Only native edits request host changes. Engine reset callbacks may
+    // still originate from a previously associated form.
+    const next = event.currentTarget.value;
+    setPreservedError(undefined);
+    if (value === undefined) setInternal(next);
+    onValueChange?.(next);
+  }} className={[styles.input, inputClassName].filter(Boolean).join(" ")}
+    data-sgui-part="input" />;
   return (
     <AriaTextField {...props} value={value === undefined ? internal : value}
       isDisabled={disabled} isReadOnly={readOnly} isRequired={required} isInvalid={preservedError ? true : invalid}
       validationBehavior="native" className={[styles.root, className].filter(Boolean).join(" ")}
       data-sgui-density={density} data-sgui-part="field">
       {label && <Label className={styles.label}>{label}</Label>}
-      <Input ref={input} form={form} inputMode={inputMode} onChange={event => {
-        // Only native edits request host changes. Engine reset callbacks may
-        // still originate from a previously associated form.
-        const next = event.currentTarget.value;
-        setPreservedError(undefined);
-        if (value === undefined) setInternal(next);
-        onValueChange?.(next);
-      }} className={[styles.input, inputClassName].filter(Boolean).join(" ")}
-        data-sgui-part="input" />
+      {startIcon || endIcon ? <div className={styles.decoratedControl} data-sgui-part="field-icon-control">
+        {startIcon && <span className={styles.adornment} data-sgui-part="field-start-icon" aria-hidden="true">{startIcon}</span>}
+        {control}
+        {endIcon && <span className={styles.adornment} data-sgui-part="field-end-icon" aria-hidden="true">{endIcon}</span>}
+      </div> : control}
       {description && <Text slot="description" className={styles.description}>{description}</Text>}
       <FieldError className={styles.error}>{errorMessage ?? preservedError}</FieldError>
     </AriaTextField>

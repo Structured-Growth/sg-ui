@@ -1,9 +1,10 @@
 "use client";
-import { forwardRef, useContext, useEffect, useId, useLayoutEffect, useRef, type CSSProperties } from "react";
+import { forwardRef, useContext, useEffect, useId, useLayoutEffect, useRef, useState, useImperativeHandle, type CSSProperties } from "react";
 import { RadioGroup as AriaRadioGroup, Radio, RadioGroupStateContext } from "react-aria-components/RadioGroup";
 import { Label } from "react-aria-components/Label";
 import { Text } from "react-aria-components/Text";
 import { FieldError } from "react-aria-components/FieldError";
+import { useStandaloneFormReset } from "../TextField/useStandaloneFormReset";
 import styles from "./RadioGroup.module.css";
 const useOptionsLayoutEffect = typeof document === "undefined" ? useEffect : useLayoutEffect;
 export interface RadioOption { value: string; label: string; disabled?: boolean; }
@@ -54,11 +55,29 @@ function RadioOptions({ options, orientation, name }: { options: readonly RadioO
   </div>;
 }
 export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function RadioGroup({ label, options, value, defaultValue, onValueChange, disabled, readOnly, required, invalid, name, description, errorMessage, orientation = "vertical", className, style }, ref) {
+  const root = useRef<HTMLDivElement>(null);
+  useImperativeHandle(ref, () => root.current!, []);
+  const [internal, setInternal] = useState<string | null>(defaultValue ?? null);
+  const [preservedError, setPreservedError] = useState<string | undefined>();
+  const resetting = useStandaloneFormReset(root, () => {
+    if (value === undefined) setInternal(defaultValue ?? null);
+    setPreservedError(undefined);
+  }, () => {
+    const input = root.current?.querySelector<HTMLInputElement>('input:not(:disabled)');
+    const message = root.current?.getAttribute("aria-invalid") === "true" ? input?.validationMessage : "";
+    return message ? () => setPreservedError(message) : undefined;
+  });
+  const change = (next: string) => {
+    if (resetting.current) return;
+    setPreservedError(undefined);
+    if (value === undefined) setInternal(next);
+    onValueChange?.(next);
+  };
   const generatedName = useId();
   const formName = name ?? generatedName;
-  return <AriaRadioGroup ref={ref} value={value} defaultValue={defaultValue} onChange={onValueChange} isDisabled={disabled} isReadOnly={readOnly} isRequired={required} isInvalid={invalid} name={formName} orientation={orientation}
+  return <AriaRadioGroup ref={root} value={value === undefined ? internal : value} onChange={change} isDisabled={disabled} isReadOnly={readOnly} isRequired={required} isInvalid={preservedError ? true : invalid} name={formName} orientation={orientation}
     validationBehavior="native" className={[styles.root, className].filter(Boolean).join(" ")} style={style}>
     <Label className={styles.label}>{label}</Label><RadioOptions options={options} orientation={orientation} name={formName} />
-    {description && <Text slot="description" className={styles.description}>{description}</Text>}<FieldError className={styles.error}>{errorMessage}</FieldError>
+    {description && <Text slot="description" className={styles.description}>{description}</Text>}<FieldError className={styles.error}>{errorMessage ?? preservedError}</FieldError>
   </AriaRadioGroup>;
 });

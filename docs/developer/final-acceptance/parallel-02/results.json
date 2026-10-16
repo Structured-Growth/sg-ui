@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "completedAt": "2026-10-16T22:36:10.830Z",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "workingTreeEvidence": true,
+  "assignedLeaves": [
+    "A-A-02",
+    "A-A-03"
+  ],
+  "scope": "Only parallel-02 outputs written; read-only production source analysis; no behavioral, native, browser, device or AT conformance claim.",
+  "sourceInventory": {
+    "path": "docs/developer/final-acceptance/2026-10-16-source-inventory.json",
+    "capturedAt": "2026-10-16T22:23:01.865Z",
+    "sha256": "78209ab5ca848b857bd36310bd0c0bd546aaac91d69d72b4320bb0db091cb156"
+  },
+  "inputHashEvidence": "graph-evidence.json",
+  "checks": [
+    {
+      "name": "New bounded source graph analysis",
+      "command": "node docs/developer/final-acceptance/parallel-02/analyze.cjs",
+      "result": "pass",
+      "summary": {
+        "productionFiles": 424,
+        "moduleReferences": 1608,
+        "resolvedInternalEdges": 1146,
+        "changedProductionInputsVsFA02": 0,
+        "unresolvedReferences": 0,
+        "computedReferences": 0,
+        "rootBarrelImports": 0,
+        "valueSyntaxCycles": 0,
+        "sourceCycles": 3
+      },
+      "evidence": [
+        "graph-check.txt",
+        "graph-evidence.json"
+      ]
+    },
+    {
+      "name": "Final source hash stability comparison",
+      "result": "pass",
+      "changed": []
+    },
+    {
+      "name": "Retained guard execution",
+      "result": "reused",
+      "evidence": [
+        "../fa02-foundations.txt",
+        "../fa04-original-check.txt:6-57"
+      ],
+      "limits": "No rerun. FA04 original command later failed unit tests; only successful early guard/test stages reused. Supporting implementation/guard/test/config hashes compared with FA02 in graph-evidence.json."
+    }
+  ],
+  "leaves": [
+    {
+      "id": "A-A-02",
+      "status": "complete",
+      "originalRequirement": "Establish layers: tokens/styles; native presentation primitives; interaction primitives; composed UI; optional grid/editor/learning extensions; host adapters.",
+      "findings": "All requested roles are documented and map to shipped modules; source location is not the role. Experimental DataGrid is a specialist, so its TanStack dependency is expected.",
+      "sourceReferences": [
+        "docs/developer/react-aria-architecture.md:25-46",
+        "docs/developer/component-architecture.md:14-35",
+        "packages/ui/src/foundation/tokens.css:2",
+        "packages/ui/src/experimental/Box/Box.tsx",
+        "packages/ui/src/components/primitives/index.ts",
+        "packages/ui/src/components/Button/Button.tsx",
+        "packages/ui/src/components/AppShell/AppShell.tsx",
+        "packages/ui/src/components/AppDataGrid",
+        "packages/ui/src/components/PageRichTextEditorSection",
+        "packages/ui/src/adapters/navigation.tsx",
+        "packages/ui/src/i18n/index.tsx"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/tokens.test.mjs",
+        "packages/ui/scripts/css-modules.test.mjs",
+        "packages/ui/scripts/react-stately-boundaries.test.mjs"
+      ],
+      "evidence": [
+        "graph-evidence.json",
+        "../fa02-foundations.txt",
+        "../fa04-original-check.txt:6-57",
+        "report.md"
+      ],
+      "limits": "Named layer-establishment obligation only; general enforcement, payload isolation, packaging and behavior remain separate.",
+      "successors": []
+    },
+    {
+      "id": "A-A-03",
+      "status": "partial",
+      "originalRequirement": "Define one-way dependency boundaries; prevent root-barrel imports from internal implementations and prevent circular imports.",
+      "findings": "Direction documented; current graph has zero root imports and zero value-syntax cycles. Three source cycles have explicit type-only return edges. Maintained guard lacks source-cycle detection and general layer enforcement; root-import rejection covers only some syntax/paths and selected visited directories.",
+      "sourceReferences": [
+        "docs/developer/react-aria-architecture.md:25-46",
+        "docs/developer/component-architecture.md:27-35",
+        "packages/ui/scripts/check-foundations.mjs:68",
+        "packages/ui/scripts/check-foundations.mjs:89"
+      ],
+      "testReferences": [
+        "packages/ui/scripts/react-stately-boundaries.test.mjs"
+      ],
+      "unresolvedCycles": [
+        {
+          "members": [
+            "packages/ui/src/adapters/navigation.tsx",
+            "packages/ui/src/adapters/navigationContext.ts"
+          ],
+          "edges": [
+            {
+              "file": "packages/ui/src/adapters/navigation.tsx",
+              "line": 3,
+              "kind": "import",
+              "specifier": "./navigationContext",
+              "typeOnly": false,
+              "target": "packages/ui/src/adapters/navigationContext.ts"
+            },
+            {
+              "file": "packages/ui/src/adapters/navigationContext.ts",
+              "line": 3,
+              "kind": "import",
+              "specifier": "./navigation",
+              "typeOnly": true,
+              "target": "packages/ui/src/adapters/navigation.tsx"
+            }
+          ]
+        },
+        {
+          "members": [
+            "packages/ui/src/experimental/DateField/DateField.tsx",
+            "packages/ui/src/experimental/DateField/TextDateField.tsx"
+          ],
+          "edges": [
+            {
+              "file": "packages/ui/src/experimental/DateField/DateField.tsx",
+              "line": 11,
+              "kind": "import",
+              "specifier": "./TextDateField",
+              "typeOnly": false,
+              "target": "packages/ui/src/experimental/DateField/TextDateField.tsx"
+            },
+            {
+              "file": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+              "line": 5,
+              "kind": "import",
+              "specifier": "./DateField",
+              "typeOnly": true,
+              "target": "packages/ui/src/experimental/DateField/DateField.tsx"
+            }
+          ]
+        },
+        {
+          "members": [
+            "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+            "packages/ui/src/experimental/TimeField/TimeField.tsx"
+          ],
+          "edges": [
+            {
+              "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+              "line": 3,
+              "kind": "import",
+              "specifier": "./TimeField",
+              "typeOnly": true,
+              "target": "packages/ui/src/experimental/TimeField/TimeField.tsx"
+            },
+            {
+              "file": "packages/ui/src/experimental/TimeField/TimeField.tsx",
+              "line": 3,
+              "kind": "import",
+              "specifier": "./TextTimeField",
+              "typeOnly": false,
+              "target": "packages/ui/src/experimental/TimeField/TextTimeField.tsx"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        "graph-evidence.json",
+        "report.md"
+      ],
+      "limits": "Type-only cycles are not demonstrated runtime cycles. No implicit waiver of full original source-cycle obligation. Current compliance does not prove future prevention.",
+      "successors": [
+        {
+          "id": "AA03-S1",
+          "task": "Extract navigation/DateField/TimeField contract types into independent leaves preserving public exports, or obtain explicit type-cycle policy; verify chosen SCC policy and affected API/types/tests."
+        },
+        {
+          "id": "AA03-S2",
+          "task": "Implement resolved root-target and production source cycle guards, including all maintained production files and all import syntaxes; add bounded negative and positive fixture checks."
+        },
+        {
+          "id": "AA03-S3",
+          "task": "Encode role direction with explicit Button/Provider/experimental DataGrid mapping; reject basic-to-specialist inversions and prove with targeted fixtures, coordinated with A-A-18/A-R-04."
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    "report.md",
+    "results.json",
+    "graph-evidence.json",
+    "graph-check.txt",
+    "analyze.cjs"
+  ],
+  "changesOutsideOwnedDirectory": false,
+  "productionActions": false
+}

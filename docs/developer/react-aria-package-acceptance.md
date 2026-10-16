@@ -31,7 +31,7 @@ Each of these imports receives a separate Vite production library build:
 
 - `/tokens`, `/theme`, `/primitives` (Typography), `/icons/AddIcon`
 - `/hooks`, `/adapters`, `/i18n`
-- `/components/AppButton`, `/components/ClassCardFrame`
+- `/components/Button`, `/components/ClassCardFrame`
 - `/components/AppDataGrid`
 
 The audit inspects resolved module IDs before minification instead of searching
@@ -50,6 +50,11 @@ These commands build hydration entries; browser hydration is established only
 when browser checks are separately executed.
 
 ## Boundaries still requiring decisions
+
+See the [import recipes and package decision proposal](react-aria-import-boundaries.md)
+for the measured single-package tradeoff, the compatibility-preserving recommendation
+and the alternative required for a dependency-light core installation. Maintainer
+acceptance and focused packed output validation remain pending.
 
 Granular imports avoid editor code in basic consumer module graphs, but the
 manifest still declares `lexical` and `@lexical/*` as direct dependencies. A basic
@@ -75,3 +80,11 @@ This assignment does not delete or rewrite legal notices.
 Results for this slice are recorded in [the packaging batch report](parallel-batch-01/packaging.md).
 Local checks do not establish a subsequent CI run, publication readiness,
 a broader TypeScript matrix, or browser/device/assistive-technology acceptance.
+
+## Current acceptance inventory — 2026-10-16
+
+The [first final-acceptance batch](react-aria-final-acceptance.md) captures the
+modified `dev` checkout, package metadata, runtime/declaration export names and
+direct icon modules. Its fresh package audit imports declared routes, typechecks
+the existing consumer fixture and verifies packed bytes against the current build.
+It does not close the remaining editor presentation or broad release gates.

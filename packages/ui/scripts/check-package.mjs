@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
+import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import ts from 'typescript';
 
@@ -19,7 +20,7 @@ export async function checkOwnedDeclarations(dir) {
     }
   }
 }
-export async function checkPackage() {
+export async function checkPackage({ retainPackedDirectory } = {}) {
 // Directives belong to source implementations, never to a build-time directory rule.
 async function checkClientBoundaries(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {
@@ -158,6 +159,36 @@ try {
   }
   const topLevel = await readdir(packedRoot);
   assert(topLevel.every(name => ['dist', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'README.md', 'package.json'].includes(name)), 'Unexpected source/configuration shipped');
+  if (retainPackedDirectory) {
+    // A fresh destination prevents accidental replacement of earlier candidate evidence.
+    const destination = resolve(retainPackedDirectory);
+    await mkdir(destination);
+    const archive = await readFile(join(packedAudit, tarballs[0]));
+    const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
+    const files = [];
+    async function recordFiles(directory, prefix = '') {
+      const entries = (await readdir(directory, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name));
+      for (const entry of entries) {
+        const path = join(directory, entry.name);
+        const relativePath = prefix ? `${prefix}/${entry.name}` : entry.name;
+        if (entry.isDirectory()) await recordFiles(path, relativePath);
+        else {
+          assert(entry.isFile(), `Unexpected packed member: ${relativePath}`);
+          const bytes = await readFile(path);
+          files.push({ path: relativePath, bytes: bytes.length, sha256: sha256(bytes) });
+        }
+      }
+    }
+    await recordFiles(packedRoot);
+    await copyFile(join(packedAudit, tarballs[0]), join(destination, tarballs[0]));
+    await writeFile(join(destination, 'packed-audit.json'), JSON.stringify({
+      schemaVersion: 1, capturedAt: new Date().toISOString(), runtime: process.version,
+      archive: tarballs[0], archiveSha256: sha256(archive), files,
+      technicalPackageAudit: 'passed', legalApproval: false,
+      limits: ['Exact development candidate; not an official release or legal/asset-provenance approval.'],
+    }, null, 2) + '\n');
+    console.log(`Retained exact candidate archive and SHA-256 file manifest in ${destination}`);
+  }
   console.log('Packed JS, declarations, CSS, maps and assets match the fresh build; exports and notices are retained.');
 } finally {
   await rm(packedAudit, { recursive: true, force: true });
@@ -165,5 +196,7 @@ try {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  await checkPackage();
+  const args = process.argv.slice(2);
+  assert(args.length <= 1 && args.every(arg => arg.startsWith('--retain-packed=') && arg.length > '--retain-packed='.length), 'Usage: node scripts/check-package.mjs [--retain-packed=/new/absolute/directory]');
+  await checkPackage({ retainPackedDirectory: args[0]?.slice('--retain-packed='.length) });
 }

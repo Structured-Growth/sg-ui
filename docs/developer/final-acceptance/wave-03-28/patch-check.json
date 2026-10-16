@@ -1,0 +1,35 @@
+[
+  {
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "docs/developer/final-acceptance/wave-03-28/boundaries.patch"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "docs/developer/final-acceptance/wave-03-28/contracts.patch"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "docs/developer/final-acceptance/wave-03-28/native-navigation.patch"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

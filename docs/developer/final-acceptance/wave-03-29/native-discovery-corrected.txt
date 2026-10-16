@@ -1,0 +1,11 @@
+
+SyntaxError: Named export 'expect' not found. The requested module '../../../../packages/ui/node_modules/@playwright/test/index.js' is a CommonJS module, which may not support all module.exports as named exports.
+CommonJS modules can always be imported via the default export, for example using:
+
+import pkg from '../../../../packages/ui/node_modules/@playwright/test/index.js';
+const { test, expect } = pkg;
+
+
+Error: No tests found
+Listing tests:
+Total: 0 tests in 0 files

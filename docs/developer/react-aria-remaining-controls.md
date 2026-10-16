@@ -65,10 +65,19 @@ English defaults; `label` names independent pagination landmarks. Buttons use
 
 ## Toggle actions and tooltip descriptions
 
-`ToggleButton` exposes `selected`, `defaultSelected`, `onSelectedChange(boolean)`
-and a native button ref. It is an editor/action control, not a serialized form
-field, and never submits its containing form. Standalone toggles expose
-`aria-pressed` and activate once by pointer, Enter or Space.
+`ToggleButton` exposes `selected`, `defaultSelected`, `onSelectedChange(boolean)`,
+`onPress()` and a native `HTMLButtonElement` ref. It is an editor/action control,
+not a serialized form field, and never submits its containing form. Standalone
+toggles expose `aria-pressed` and activate once by pointer, Enter or Space.
+
+`onSelectedChange(nextSelected)` requests a selection change; controlled `selected`
+remains host-owned until the host supplies the new value. `onPress()` reports the
+action without an event or selection argument. When both callbacks are supplied,
+a standalone toggle activation sends one selection request and one action
+notification, each once. These serve distinct purposes; put a selection update in
+`onSelectedChange` and avoid repeating the same side effect in both callbacks.
+Disabled activation invokes neither callback. Callback ordering is not a public
+contract; use the boolean argument of `onSelectedChange` for the requested state.
 
 `ToggleButtonGroup` takes string-ID `options`, controlled `selectedIds` or
 `defaultSelectedIds`, and `onSelectionChange(string[])`. Single selection uses

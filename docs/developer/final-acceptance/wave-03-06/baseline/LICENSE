@@ -1,0 +1,99 @@
+STRUCTURED GROWTH UI COMMERCIAL LICENSE
+Version 1.0 — October 5, 2026
+
+Copyright (c) 2026 Structured Growth. All rights reserved.
+
+1. Scope
+
+This notice applies to Structured Growth UI (SGUI), including the original
+library source code, compiled package, components, themes, documentation and
+other original materials supplied with it (the "Software"). "Licensor" means
+the Software's copyright owner or its authorized licensing entity, identified
+in the applicable written commercial agreement. Third-party materials are
+excluded from this license as described in Section 7.
+
+2. A commercial agreement is required
+
+You must obtain a valid written commercial license agreement from Licensor
+before using the Software. Public availability of the source code or npm
+package, downloading the package, purchasing an unrelated product, or receiving
+a copy from someone else does not grant a license to use the Software.
+
+This notice alone does not grant permission to develop with, execute, copy,
+modify, integrate, deploy, distribute, sublicense or sell the Software. No
+free, trial, evaluation, educational or noncommercial license is granted by
+this notice. Rights available under mandatory applicable law remain unaffected.
+
+3. Licensed use
+
+If you have a valid written commercial agreement with Licensor, you may use
+the Software only within the rights expressly granted by that agreement and
+subject to its conditions. That agreement determines the licensed entity,
+authorized developers and contractors, permitted applications and deployments,
+distribution rights, fees, license duration, support and renewal terms.
+
+Embedding the Software in a browser application, server-rendered application,
+application bundle or other product requires the applicable agreement to
+permit that use and distribution. Your application's end users need not obtain
+a separate developer license solely to use an application where your agreement
+expressly authorizes that application's distribution and end-user execution.
+
+4. Restrictions
+
+Except where your written commercial agreement expressly permits it or
+mandatory applicable law provides otherwise, you may not:
+
+(a) redistribute, publish, sell, sublicense or provide the Software as a
+    standalone library, component collection, source package or substitute
+    for the Software;
+(b) transfer your license or grant other persons independent rights to use
+    the Software;
+(c) use the Software outside the entity, developer, application, deployment
+    or time limits stated in your agreement; or
+(d) remove or alter copyright, ownership or license notices supplied with
+    the Software.
+
+Any permitted modification remains subject to this notice and your commercial
+agreement to the extent it contains or derives from the Software. Licensor
+retains ownership of the Software; this notice does not transfer ownership of
+independently created application code or third-party materials.
+
+5. End of licensed rights
+
+When your commercial agreement expires or terminates, your rights to use the
+Software end except for rights expressly stated to survive in that agreement
+or provided by mandatory applicable law. Continued development, deployment,
+distribution, maintenance of existing applications, and retention of copies
+are governed by the applicable agreement's termination and survival terms.
+
+6. Warranty and liability
+
+Except as expressly stated in your written commercial agreement and to the
+extent permitted by applicable law, the Software is provided "as is" without
+warranties of merchantability, fitness for a particular purpose or
+noninfringement. Except as stated in that agreement and to the extent permitted
+by applicable law, Licensor is not liable for indirect, incidental, special
+or consequential losses arising from the Software. Nothing in this notice
+limits liability or rights that cannot lawfully be excluded or limited.
+
+7. Third-party materials
+
+The Software uses third-party packages, including React, MUI, Emotion and
+Lexical. Those packages and any separately identified third-party materials
+remain governed by their own licenses and copyright notices. This notice does
+not impose commercial-license restrictions on rights granted independently
+by those third-party licenses. Preserve applicable third-party notices when
+required by their licenses. See THIRD_PARTY_NOTICES.md and the license files
+provided with the dependencies.
+
+8. Order of precedence and licensing inquiries
+
+A written commercial agreement signed or otherwise validly accepted by
+Licensor and the licensee controls if it conflicts with this notice. No other
+statement changes this notice unless authorized in writing by Licensor.
+Governing law, dispute resolution and the parties' legal identities are
+specified in that agreement rather than assumed by this notice.
+
+To obtain a license, contact Structured Growth through the official contact
+channel identified by the Software's publisher. Until an agreement is obtained,
+no use license is granted by this notice.

@@ -1,0 +1,1048 @@
+{
+  "capturedAt": "2026-10-16T23:05:00.793037+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "runtime": "Node v24.21.0 for focused checks; default shell Node v26.5.0 not used for acceptance",
+  "basis": "wave-02-01 exact hashes; no rerun of retained accepted units/native scopes",
+  "components": {
+    "AppOperationSteps": {
+      "paths": [
+        "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
+        "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationStepsNativeState.fixture.fixture.tsx",
+        "packages/ui/dist/components/AppOperationSteps/AppOperationSteps.d.ts",
+        "packages/ui/dist/components/AppOperationSteps/AppOperationSteps.js",
+        "packages/ui/dist/components/AppOperationSteps/index.d.ts",
+        "packages/ui/dist/components/AppOperationSteps/index.js",
+        "packages/ui/dist/experimental/Box/Box.d.ts",
+        "packages/ui/dist/experimental/Box/Box.js",
+        "packages/ui/dist/experimental/Progress/Progress.d.ts",
+        "packages/ui/dist/experimental/Progress/Progress.js",
+        "packages/ui/dist/experimental/Surface/Surface.d.ts",
+        "packages/ui/dist/experimental/Surface/Surface.js",
+        "packages/ui/dist/experimental/Typography/Typography.d.ts",
+        "packages/ui/dist/experimental/Typography/Typography.js",
+        "packages/ui/dist/experimental/icons/CheckIcon.d.ts",
+        "packages/ui/dist/experimental/icons/CheckIcon.js",
+        "packages/ui/dist/experimental/icons/CircleIcon.d.ts",
+        "packages/ui/dist/experimental/icons/CircleIcon.js",
+        "packages/ui/dist/experimental/icons/CloseIcon.d.ts",
+        "packages/ui/dist/experimental/icons/CloseIcon.js",
+        "packages/ui/dist/experimental/icons/createVector.d.ts",
+        "packages/ui/dist/experimental/icons/createVector.js",
+        "packages/ui/dist/i18n/icu.d.ts",
+        "packages/ui/dist/i18n/icu.js",
+        "packages/ui/dist/i18n/index.d.ts",
+        "packages/ui/dist/i18n/index.js",
+        "packages/ui/src/components/AppOperationSteps/AppOperationSteps.module.css",
+        "packages/ui/src/components/AppOperationSteps/AppOperationSteps.next100-regression.test.tsx",
+        "packages/ui/src/components/AppOperationSteps/AppOperationSteps.test.tsx",
+        "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx",
+        "packages/ui/src/components/AppOperationSteps/AppOperationStepsNativeStateFixture.test.tsx",
+        "packages/ui/src/components/AppOperationSteps/index.ts",
+        "packages/ui/src/experimental/Box/Box.module.css",
+        "packages/ui/src/experimental/Box/Box.tsx",
+        "packages/ui/src/experimental/Progress/Progress.module.css",
+        "packages/ui/src/experimental/Progress/Progress.tsx",
+        "packages/ui/src/experimental/Surface/Surface.module.css",
+        "packages/ui/src/experimental/Surface/Surface.tsx",
+        "packages/ui/src/experimental/Typography/Typography.module.css",
+        "packages/ui/src/experimental/Typography/Typography.tsx",
+        "packages/ui/src/experimental/icons/CheckIcon.tsx",
+        "packages/ui/src/experimental/icons/CircleIcon.tsx",
+        "packages/ui/src/experimental/icons/CloseIcon.tsx",
+        "packages/ui/src/experimental/icons/createVector.tsx",
+        "packages/ui/src/experimental/icons/icons.module.css",
+        "packages/ui/src/i18n/icu.ts",
+        "packages/ui/src/i18n/index.tsx",
+        "packages/ui/tests/browser/batch07-progress-status.spec.ts",
+        "packages/ui/tests/browser/batch67-progress-steps-native-state.spec.ts",
+        "packages/ui/tests/browser/hardening-progress-presentation.spec.ts"
+      ],
+      "changed": [],
+      "uncompared": [],
+      "testTitleReferences": {
+        "packages/ui/src/components/AppOperationSteps/AppOperationSteps.next100-regression.test.tsx": [
+          {
+            "line": 9,
+            "text": "it(\"preserves host label order and isolates replacement, removal and remount with shared step IDs\", () => {"
+          }
+        ],
+        "packages/ui/src/components/AppOperationSteps/AppOperationSteps.test.tsx": [
+          {
+            "line": 10,
+            "text": "it(\"renders ordered steps with accessible status text and a named loading indicator\", () => {"
+          },
+          {
+            "line": 27,
+            "text": "it(\"preserves a single operation without step-count labels and supports empty/SSR states\", () => {"
+          },
+          {
+            "line": 36,
+            "text": "it(\"keeps host-owned milestone announcements separate from quiet step and percentage updates\", () => {"
+          },
+          {
+            "line": 65,
+            "text": "it(\"translates error status without a library live region or numbering\", () => {"
+          }
+        ],
+        "packages/ui/src/components/AppOperationSteps/AppOperationStepsNativeStateFixture.test.tsx": [
+          {
+            "line": 8,
+            "text": "it(\"keeps ordered noninteractive steps and host milestone identity while collections and progress change\", async () => {"
+          }
+        ],
+        "packages/ui/tests/browser/batch07-progress-status.spec.ts": [
+          {
+            "line": 12,
+            "text": "test(`inline percentage layout and token styles remain native and quiet: ${theme}`, async ({ page }) => {"
+          },
+          {
+            "line": 44,
+            "text": "test(`operation states distinguish icons and owned tones without numbering: ${theme}`, async ({ page }) => {"
+          },
+          {
+            "line": 83,
+            "text": "test('native host transitions retain focus and a mounted milestone region; a single step has no count', async ({ page }) => {"
+          }
+        ],
+        "packages/ui/tests/browser/hardening-progress-presentation.spec.ts": [
+          {
+            "line": 5,
+            "text": "test(`progress/status presentation: ${theme}/${density}/${locale}`, async ({ page }, info) => {"
+          }
+        ],
+        "packages/ui/tests/browser/batch67-progress-steps-native-state.spec.ts": [
+          {
+            "line": 27,
+            "text": "test(`mutable progress/ordered steps survive native reflow: ${theme}/${density}`, async ({ page }) => {"
+          }
+        ]
+      }
+    },
+    "InstructorClassCard": {
+      "paths": [
+        "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx",
+        "packages/ui/dist/adapters/Link.d.ts",
+        "packages/ui/dist/adapters/Link.js",
+        "packages/ui/dist/adapters/navigationContext.d.ts",
+        "packages/ui/dist/adapters/navigationContext.js",
+        "packages/ui/dist/components/ClassCardFrame/ClassCardFrame.d.ts",
+        "packages/ui/dist/components/ClassCardFrame/ClassCardFrame.js",
+        "packages/ui/dist/components/ClassCardFrame/index.d.ts",
+        "packages/ui/dist/components/ClassCardFrame/index.js",
+        "packages/ui/dist/components/InstructorClassCard/InstructorClassCard.d.ts",
+        "packages/ui/dist/components/InstructorClassCard/InstructorClassCard.js",
+        "packages/ui/dist/components/InstructorClassCard/index.d.ts",
+        "packages/ui/dist/components/InstructorClassCard/index.js",
+        "packages/ui/dist/experimental/Avatar/Avatar.d.ts",
+        "packages/ui/dist/experimental/Avatar/Avatar.js",
+        "packages/ui/dist/experimental/Box/Box.d.ts",
+        "packages/ui/dist/experimental/Box/Box.js",
+        "packages/ui/dist/experimental/Card/Card.d.ts",
+        "packages/ui/dist/experimental/Card/Card.js",
+        "packages/ui/dist/experimental/Link/Link.d.ts",
+        "packages/ui/dist/experimental/Link/Link.js",
+        "packages/ui/dist/experimental/Surface/Surface.d.ts",
+        "packages/ui/dist/experimental/Surface/Surface.js",
+        "packages/ui/dist/experimental/Typography/Typography.d.ts",
+        "packages/ui/dist/experimental/Typography/Typography.js",
+        "packages/ui/dist/experimental/icons/AutoStoriesIcon.d.ts",
+        "packages/ui/dist/experimental/icons/AutoStoriesIcon.js",
+        "packages/ui/dist/experimental/icons/CalendarTodayIcon.d.ts",
+        "packages/ui/dist/experimental/icons/CalendarTodayIcon.js",
+        "packages/ui/dist/experimental/icons/createVector.d.ts",
+        "packages/ui/dist/experimental/icons/createVector.js",
+        "packages/ui/dist/i18n/icu.d.ts",
+        "packages/ui/dist/i18n/icu.js",
+        "packages/ui/dist/i18n/index.d.ts",
+        "packages/ui/dist/i18n/index.js",
+        "packages/ui/src/adapters/Link.tsx",
+        "packages/ui/src/adapters/navigationContext.ts",
+        "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css",
+        "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx",
+        "packages/ui/src/components/ClassCardFrame/index.ts",
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.module.css",
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.next100-regression.test.tsx",
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx",
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx",
+        "packages/ui/src/components/InstructorClassCard/index.ts",
+        "packages/ui/src/experimental/Avatar/Avatar.module.css",
+        "packages/ui/src/experimental/Avatar/Avatar.tsx",
+        "packages/ui/src/experimental/Box/Box.module.css",
+        "packages/ui/src/experimental/Box/Box.tsx",
+        "packages/ui/src/experimental/Card/Card.tsx",
+        "packages/ui/src/experimental/Link/Link.module.css",
+        "packages/ui/src/experimental/Link/Link.tsx",
+        "packages/ui/src/experimental/Surface/Surface.module.css",
+        "packages/ui/src/experimental/Surface/Surface.tsx",
+        "packages/ui/src/experimental/Typography/Typography.module.css",
+        "packages/ui/src/experimental/Typography/Typography.tsx",
+        "packages/ui/src/experimental/icons/AutoStoriesIcon.tsx",
+        "packages/ui/src/experimental/icons/CalendarTodayIcon.tsx",
+        "packages/ui/src/experimental/icons/createVector.tsx",
+        "packages/ui/src/experimental/icons/icons.module.css",
+        "packages/ui/src/i18n/icu.ts",
+        "packages/ui/src/i18n/index.tsx",
+        "packages/ui/tests/browser/batch66-instructor-card-native-presentation.spec.ts",
+        "packages/ui/tests/browser/hardening-card-presentation.spec.ts"
+      ],
+      "changed": [],
+      "uncompared": [],
+      "testTitleReferences": {
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.next100-regression.test.tsx": [
+          {
+            "line": 16,
+            "text": "it(\"preserves complete long host presentation strings in the named card regions\", () => {"
+          },
+          {
+            "line": 32,
+            "text": "it(\"keeps sibling host routes isolated through updates, removal and remount\", async () => {"
+          }
+        ],
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx": [
+          {
+            "line": 12,
+            "text": "it(\"shows metadata and routes a keyboard-activated link through the host\", async () => {"
+          },
+          {
+            "line": 21,
+            "text": "it(\"hides learner metadata for archived cards and preserves custom host labels\", () => {"
+          },
+          {
+            "line": 29,
+            "text": "it(\"forwards translation namespace and interpolation values and supports SSR\", () => {"
+          },
+          {
+            "line": 62,
+            "text": "it('uses host translations for status/activity/action and forwards complete interpolation', () => {"
+          },
+          {
+            "line": 88,
+            "text": "it('renders an explicit native Intl host date across locales without changing it', () => {"
+          },
+          {
+            "line": 99,
+            "text": "it('falls back to English labels when the host lookup fails', () => {"
+          }
+        ],
+        "packages/ui/tests/browser/batch66-instructor-card-native-presentation.spec.ts": [
+          {
+            "line": 24,
+            "text": "test(`${theme}/${density}/${textSize}px instructor host model retains native focus and one route request`, async ({ page }) => {"
+          },
+          {
+            "line": 74,
+            "text": "test('native Intl host date and host missing/invalid fallbacks remain complete text', async ({ page }) => {"
+          }
+        ],
+        "packages/ui/tests/browser/hardening-card-presentation.spec.ts": [
+          {
+            "line": 5,
+            "text": "test(`${kind} card collection: ${theme}/${density}/${locale}`,async({page},info)=>{"
+          }
+        ]
+      }
+    },
+    "LearnerClassCard": {
+      "paths": [
+        "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx",
+        "packages/ui/dist/adapters/Link.d.ts",
+        "packages/ui/dist/adapters/Link.js",
+        "packages/ui/dist/adapters/navigationContext.d.ts",
+        "packages/ui/dist/adapters/navigationContext.js",
+        "packages/ui/dist/components/Button/Button.d.ts",
+        "packages/ui/dist/components/Button/Button.js",
+        "packages/ui/dist/components/ClassCardFrame/ClassCardFrame.d.ts",
+        "packages/ui/dist/components/ClassCardFrame/ClassCardFrame.js",
+        "packages/ui/dist/components/ClassCardFrame/index.d.ts",
+        "packages/ui/dist/components/ClassCardFrame/index.js",
+        "packages/ui/dist/components/LearnerClassCard/LearnerClassCard.d.ts",
+        "packages/ui/dist/components/LearnerClassCard/LearnerClassCard.js",
+        "packages/ui/dist/components/LearnerClassCard/formatDueDateLabel.d.ts",
+        "packages/ui/dist/components/LearnerClassCard/formatDueDateLabel.js",
+        "packages/ui/dist/components/LearnerClassCard/index.d.ts",
+        "packages/ui/dist/components/LearnerClassCard/index.js",
+        "packages/ui/dist/experimental/Avatar/Avatar.d.ts",
+        "packages/ui/dist/experimental/Avatar/Avatar.js",
+        "packages/ui/dist/experimental/Box/Box.d.ts",
+        "packages/ui/dist/experimental/Box/Box.js",
+        "packages/ui/dist/experimental/Card/Card.d.ts",
+        "packages/ui/dist/experimental/Card/Card.js",
+        "packages/ui/dist/experimental/Link/Link.d.ts",
+        "packages/ui/dist/experimental/Link/Link.js",
+        "packages/ui/dist/experimental/Progress/Progress.d.ts",
+        "packages/ui/dist/experimental/Progress/Progress.js",
+        "packages/ui/dist/experimental/Surface/Surface.d.ts",
+        "packages/ui/dist/experimental/Surface/Surface.js",
+        "packages/ui/dist/experimental/Typography/Typography.d.ts",
+        "packages/ui/dist/experimental/Typography/Typography.js",
+        "packages/ui/dist/experimental/icons/ArrowForwardIcon.d.ts",
+        "packages/ui/dist/experimental/icons/ArrowForwardIcon.js",
+        "packages/ui/dist/experimental/icons/EventIcon.d.ts",
+        "packages/ui/dist/experimental/icons/EventIcon.js",
+        "packages/ui/dist/experimental/icons/ExploreIcon.d.ts",
+        "packages/ui/dist/experimental/icons/ExploreIcon.js",
+        "packages/ui/dist/experimental/icons/createVector.d.ts",
+        "packages/ui/dist/experimental/icons/createVector.js",
+        "packages/ui/dist/i18n/icu.d.ts",
+        "packages/ui/dist/i18n/icu.js",
+        "packages/ui/dist/i18n/index.d.ts",
+        "packages/ui/dist/i18n/index.js",
+        "packages/ui/dist/utils/formatDueDateLabel.d.ts",
+        "packages/ui/dist/utils/formatDueDateLabel.js",
+        "packages/ui/src/adapters/Link.tsx",
+        "packages/ui/src/adapters/navigationContext.ts",
+        "packages/ui/src/components/Button/Button.module.css",
+        "packages/ui/src/components/Button/Button.tsx",
+        "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css",
+        "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx",
+        "packages/ui/src/components/ClassCardFrame/index.ts",
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.due-label.test.tsx",
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.module.css",
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.next100-regression.test.tsx",
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx",
+        "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.test.ts",
+        "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.ts",
+        "packages/ui/src/components/LearnerClassCard/index.ts",
+        "packages/ui/src/experimental/Avatar/Avatar.module.css",
+        "packages/ui/src/experimental/Avatar/Avatar.tsx",
+        "packages/ui/src/experimental/Box/Box.module.css",
+        "packages/ui/src/experimental/Box/Box.tsx",
+        "packages/ui/src/experimental/Card/Card.tsx",
+        "packages/ui/src/experimental/Link/Link.module.css",
+        "packages/ui/src/experimental/Link/Link.tsx",
+        "packages/ui/src/experimental/Progress/Progress.module.css",
+        "packages/ui/src/experimental/Progress/Progress.tsx",
+        "packages/ui/src/experimental/Surface/Surface.module.css",
+        "packages/ui/src/experimental/Surface/Surface.tsx",
+        "packages/ui/src/experimental/Typography/Typography.module.css",
+        "packages/ui/src/experimental/Typography/Typography.tsx",
+        "packages/ui/src/experimental/icons/ArrowForwardIcon.tsx",
+        "packages/ui/src/experimental/icons/EventIcon.tsx",
+        "packages/ui/src/experimental/icons/ExploreIcon.tsx",
+        "packages/ui/src/experimental/icons/createVector.tsx",
+        "packages/ui/src/experimental/icons/icons.module.css",
+        "packages/ui/src/i18n/icu.ts",
+        "packages/ui/src/i18n/index.tsx",
+        "packages/ui/src/utils/formatDueDateLabel.ts",
+        "packages/ui/tests/browser/hardening-card-presentation.spec.ts",
+        "packages/ui/tests/browser/inventory-learner-card.spec.ts"
+      ],
+      "changed": [],
+      "uncompared": [],
+      "testTitleReferences": {
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.due-label.test.tsx": [
+          {
+            "line": 25,
+            "text": "it(\"replaces locale and translator independently while preserving the card and host callback contract\", () => {"
+          },
+          {
+            "line": 62,
+            "text": "it(\"replaces a translated unavailable label and restores the provider-free fallback\", () => {"
+          },
+          {
+            "line": 95,
+            "text": "it(\"uses the declared current clock for an invalid reference without treating it as a due-date failure\", () => {"
+          }
+        ],
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.next100-regression.test.tsx": [
+          {
+            "line": 10,
+            "text": "it(\"isolates sibling card values and current host callbacks across replacement and unmount\", async () => {"
+          }
+        ],
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx": [
+          {
+            "line": 12,
+            "text": "it(\"uses normalized progress semantics, course heading and host translation values\", () => {"
+          },
+          {
+            "line": 31,
+            "text": "it(\"invokes continue once by keyboard when no destination is supplied\", async () => {"
+          },
+          {
+            "line": 37,
+            "text": "it(\"routes details, falls back to continueHref, and preserves native isolated continue links\", async () => {"
+          }
+        ],
+        "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.test.ts": [
+          {
+            "line": 5,
+            "text": "it(\"formats an imminent date through the shared helper\", () => {"
+          },
+          {
+            "line": 9,
+            "text": "it(\"preserves the shared formatter and JSON due-date contract with English fallback\", () => {"
+          }
+        ],
+        "packages/ui/tests/browser/inventory-learner-card.spec.ts": [
+          {
+            "line": 16,
+            "text": "test(`browser ICU ${locale} replaces due text while the same action retains keyboard focus`, async ({ page }) => {"
+          },
+          {
+            "line": 50,
+            "text": "test('invalid host locale and failed lookup retain English browser date fallback', async ({ page }) => {"
+          },
+          {
+            "line": 57,
+            "text": "test(`${destinations} preserves Details route and native isolated Continue activation`, async ({ page, context, browserName }) => {"
+          },
+          {
+            "line": 93,
+            "text": "test('no destinations exposes two keyboard buttons and invokes Continue once per native activation', async ({ page }) => {"
+          }
+        ],
+        "packages/ui/tests/browser/hardening-card-presentation.spec.ts": [
+          {
+            "line": 5,
+            "text": "test(`${kind} card collection: ${theme}/${density}/${locale}`,async({page},info)=>{"
+          }
+        ]
+      }
+    }
+  },
+  "files": {
+    "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx": {
+      "sha256": "f5a644682231bb219661ee059c1fa1a372fc87fdd3211c22afefaab1145e3153",
+      "priorSha256": "f5a644682231bb219661ee059c1fa1a372fc87fdd3211c22afefaab1145e3153",
+      "matchesPrior": true
+    },
+    "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationStepsNativeState.fixture.fixture.tsx": {
+      "sha256": "e3a6a66f6947fcf42d71396e33fd8f096f7be804a5e5eabb7f1248af23b57350",
+      "priorSha256": "e3a6a66f6947fcf42d71396e33fd8f096f7be804a5e5eabb7f1248af23b57350",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/AppOperationSteps/AppOperationSteps.d.ts": {
+      "sha256": "4f8d01b91baf0bd34ff569889dc6086ddb8ef702bf1360d041bccf5743a4ab6f",
+      "priorSha256": "4f8d01b91baf0bd34ff569889dc6086ddb8ef702bf1360d041bccf5743a4ab6f",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/AppOperationSteps/AppOperationSteps.js": {
+      "sha256": "43040c8c5f2b696ac85f638022ee5e3817d7453732b6967a0aafc2a9cbbbcd37",
+      "priorSha256": "43040c8c5f2b696ac85f638022ee5e3817d7453732b6967a0aafc2a9cbbbcd37",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/AppOperationSteps/index.d.ts": {
+      "sha256": "ba83b59ccf297b23fff193a5fbf7575f6961e375255ded0750548e5d8bb4aae9",
+      "priorSha256": "ba83b59ccf297b23fff193a5fbf7575f6961e375255ded0750548e5d8bb4aae9",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/AppOperationSteps/index.js": {
+      "sha256": "65b46eca0f5836bb5ab870bff1e087b240c8c46eec2170cf0fdba5d1673a94b5",
+      "priorSha256": "65b46eca0f5836bb5ab870bff1e087b240c8c46eec2170cf0fdba5d1673a94b5",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Box/Box.d.ts": {
+      "sha256": "5de5fddf047cf9ed88d8f1536a0396b4d55d7863106484d84a4afdd284414ab9",
+      "priorSha256": "5de5fddf047cf9ed88d8f1536a0396b4d55d7863106484d84a4afdd284414ab9",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Box/Box.js": {
+      "sha256": "3d99df442d34c1810271f93c2b2390f88be94329d0555dcf48bb15df23790629",
+      "priorSha256": "3d99df442d34c1810271f93c2b2390f88be94329d0555dcf48bb15df23790629",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Progress/Progress.d.ts": {
+      "sha256": "40c09a7518cb9de3406ed4fc2a50275aadd9b36e700b62a633f80eb2bc6650e9",
+      "priorSha256": "40c09a7518cb9de3406ed4fc2a50275aadd9b36e700b62a633f80eb2bc6650e9",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Progress/Progress.js": {
+      "sha256": "2072f4a529dcc43d36d162400bfa09e88c82eb4b60145498758c01e03a08abe2",
+      "priorSha256": "2072f4a529dcc43d36d162400bfa09e88c82eb4b60145498758c01e03a08abe2",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Surface/Surface.d.ts": {
+      "sha256": "9262d86062d18c35da9e2419f553de8c82151df979e6f303d7cdc5b2885283da",
+      "priorSha256": "9262d86062d18c35da9e2419f553de8c82151df979e6f303d7cdc5b2885283da",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Surface/Surface.js": {
+      "sha256": "c5747b119102fee46dabc3def402cf3b1653de5b529c4200c84545742aa73435",
+      "priorSha256": "c5747b119102fee46dabc3def402cf3b1653de5b529c4200c84545742aa73435",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Typography/Typography.d.ts": {
+      "sha256": "5250013c1b21c137622f9798e3d1f462ad4cdfb83b42347eb81e4cd47095fe01",
+      "priorSha256": "5250013c1b21c137622f9798e3d1f462ad4cdfb83b42347eb81e4cd47095fe01",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Typography/Typography.js": {
+      "sha256": "df68ce369672778d9ca28965ab3197fdada515aaf44f794904217e0f06131674",
+      "priorSha256": "df68ce369672778d9ca28965ab3197fdada515aaf44f794904217e0f06131674",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/CheckIcon.d.ts": {
+      "sha256": "52be72c4fd0545ae39a843f901c51501526cf1e97d6030230eeb727582bed9e7",
+      "priorSha256": "52be72c4fd0545ae39a843f901c51501526cf1e97d6030230eeb727582bed9e7",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/CheckIcon.js": {
+      "sha256": "487c1c5f8543faf061ebb5dde107dc70f07a5c84c8ab2f5be3bf3817a4373c99",
+      "priorSha256": "487c1c5f8543faf061ebb5dde107dc70f07a5c84c8ab2f5be3bf3817a4373c99",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/CircleIcon.d.ts": {
+      "sha256": "3a9ae8165e28de3b8b18e58538acdc4e09abad8898d9900dfb86df8545d35e15",
+      "priorSha256": "3a9ae8165e28de3b8b18e58538acdc4e09abad8898d9900dfb86df8545d35e15",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/CircleIcon.js": {
+      "sha256": "f258ee7e4c9b05851e97925c4c9d9fc010dc9fd45de8fbf2ed2c9362919bccee",
+      "priorSha256": "f258ee7e4c9b05851e97925c4c9d9fc010dc9fd45de8fbf2ed2c9362919bccee",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/CloseIcon.d.ts": {
+      "sha256": "492c0c6bfb88457521b8b494df5046a42d0cb252905dfca3f041f015161e918e",
+      "priorSha256": "492c0c6bfb88457521b8b494df5046a42d0cb252905dfca3f041f015161e918e",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/CloseIcon.js": {
+      "sha256": "35f6a2c0683260c1db526120c689d7a0bda75d994f1c3a388b5d3ab0ce30473e",
+      "priorSha256": "35f6a2c0683260c1db526120c689d7a0bda75d994f1c3a388b5d3ab0ce30473e",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/createVector.d.ts": {
+      "sha256": "89657289e0452dbeb35e845b08eef6d4191a3ba071ec4868d280744c8c67f24c",
+      "priorSha256": "89657289e0452dbeb35e845b08eef6d4191a3ba071ec4868d280744c8c67f24c",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/createVector.js": {
+      "sha256": "fb1c2123133ba8d1063e09e7456ab8e9f859737cdc560effcc8a980a5aa1fb46",
+      "priorSha256": "fb1c2123133ba8d1063e09e7456ab8e9f859737cdc560effcc8a980a5aa1fb46",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/i18n/icu.d.ts": {
+      "sha256": "41b48d791f3bbd57e89869b93f1f6537c286b66057179c376777816c39e48b1e",
+      "priorSha256": "41b48d791f3bbd57e89869b93f1f6537c286b66057179c376777816c39e48b1e",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/i18n/icu.js": {
+      "sha256": "e3f3a7f7ab109d64125feeda92d44c685c7a1dfac8e7666f2f654854240b129f",
+      "priorSha256": "e3f3a7f7ab109d64125feeda92d44c685c7a1dfac8e7666f2f654854240b129f",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/i18n/index.d.ts": {
+      "sha256": "99d6b1d8f7d8d73f63b82c4f1f9fe8926fe0a8e31a2dafd82a125df19149dd72",
+      "priorSha256": "99d6b1d8f7d8d73f63b82c4f1f9fe8926fe0a8e31a2dafd82a125df19149dd72",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/i18n/index.js": {
+      "sha256": "f77a8c99c425a9237fbdf27b8e86ae4a3309294696672779687aaba87dea8eb7",
+      "priorSha256": "f77a8c99c425a9237fbdf27b8e86ae4a3309294696672779687aaba87dea8eb7",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationSteps.module.css": {
+      "sha256": "e0a0677b0175a30e17cc59802bbeab41280005d56b9c017b714117459bde43e5",
+      "priorSha256": "e0a0677b0175a30e17cc59802bbeab41280005d56b9c017b714117459bde43e5",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationSteps.next100-regression.test.tsx": {
+      "sha256": "fd8ccb629d9e5e05f498ed1493837c462ee9d4fc24bccc385e447700c9e0ade8",
+      "priorSha256": "fd8ccb629d9e5e05f498ed1493837c462ee9d4fc24bccc385e447700c9e0ade8",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationSteps.test.tsx": {
+      "sha256": "498d58da377732e82524c09f86b06ff417d9c44f866427626ef62c568a0a97c2",
+      "priorSha256": "498d58da377732e82524c09f86b06ff417d9c44f866427626ef62c568a0a97c2",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx": {
+      "sha256": "4c587494a81e0c80dc5e131f71bcf540fde80a6af95886aaa1d19053f03d0eea",
+      "priorSha256": "4c587494a81e0c80dc5e131f71bcf540fde80a6af95886aaa1d19053f03d0eea",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationStepsNativeStateFixture.test.tsx": {
+      "sha256": "3a31d948736490d245d7ad2776956572181aa37fedb889c9eb8ae7c16bf03ac4",
+      "priorSha256": "3a31d948736490d245d7ad2776956572181aa37fedb889c9eb8ae7c16bf03ac4",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/AppOperationSteps/index.ts": {
+      "sha256": "8833c0ea9958554e5c947daa5257dfa30c6ee57f60e8b92e45e42daf35fd95f2",
+      "priorSha256": "8833c0ea9958554e5c947daa5257dfa30c6ee57f60e8b92e45e42daf35fd95f2",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Box/Box.module.css": {
+      "sha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "priorSha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Box/Box.tsx": {
+      "sha256": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "priorSha256": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Progress/Progress.module.css": {
+      "sha256": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "priorSha256": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Progress/Progress.tsx": {
+      "sha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "priorSha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Surface/Surface.module.css": {
+      "sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "priorSha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Surface/Surface.tsx": {
+      "sha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "priorSha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Typography/Typography.module.css": {
+      "sha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "priorSha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Typography/Typography.tsx": {
+      "sha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "priorSha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/CheckIcon.tsx": {
+      "sha256": "50d4d4cf59175484cb3ffef7a4f01603e739e314449b89f29a99faa4971e2282",
+      "priorSha256": "50d4d4cf59175484cb3ffef7a4f01603e739e314449b89f29a99faa4971e2282",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/CircleIcon.tsx": {
+      "sha256": "020a564830b57e78447a05d710d8b9b46fc699a9c68f29205aded674862d7cd9",
+      "priorSha256": "020a564830b57e78447a05d710d8b9b46fc699a9c68f29205aded674862d7cd9",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/CloseIcon.tsx": {
+      "sha256": "fd7e9c95627d6c023e0243efddddb0c0a4d2f010a01c2790757c11e4a1869f68",
+      "priorSha256": "fd7e9c95627d6c023e0243efddddb0c0a4d2f010a01c2790757c11e4a1869f68",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/createVector.tsx": {
+      "sha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "priorSha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/icons.module.css": {
+      "sha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "priorSha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "matchesPrior": true
+    },
+    "packages/ui/src/i18n/icu.ts": {
+      "sha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "priorSha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "matchesPrior": true
+    },
+    "packages/ui/src/i18n/index.tsx": {
+      "sha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "priorSha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "matchesPrior": true
+    },
+    "packages/ui/tests/browser/batch07-progress-status.spec.ts": {
+      "sha256": "e692d3fe969c625f0a1a9395d452a73bb4fac55d7958c530c86600d14cf29126",
+      "priorSha256": "e692d3fe969c625f0a1a9395d452a73bb4fac55d7958c530c86600d14cf29126",
+      "matchesPrior": true
+    },
+    "packages/ui/tests/browser/batch67-progress-steps-native-state.spec.ts": {
+      "sha256": "83d1cf6f44de6f56ba87e1aa56f854c989b279410484da37dc57b0713d00f554",
+      "priorSha256": "83d1cf6f44de6f56ba87e1aa56f854c989b279410484da37dc57b0713d00f554",
+      "matchesPrior": true
+    },
+    "packages/ui/tests/browser/hardening-progress-presentation.spec.ts": {
+      "sha256": "88118b8979c6c65fa1d51fedb7aaa8910f897cca5be6da7e297b5fc5e56a8627",
+      "priorSha256": "88118b8979c6c65fa1d51fedb7aaa8910f897cca5be6da7e297b5fc5e56a8627",
+      "matchesPrior": true
+    },
+    "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx": {
+      "sha256": "120e2b2068429b56e732c962099380168d021ea6bcc73fe101ab6e1c5d732bd3",
+      "priorSha256": "120e2b2068429b56e732c962099380168d021ea6bcc73fe101ab6e1c5d732bd3",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/adapters/Link.d.ts": {
+      "sha256": "3949e7b53ff79152d10bc7acbc065182dac4a234d006d78ebba3cfdde8579c48",
+      "priorSha256": "3949e7b53ff79152d10bc7acbc065182dac4a234d006d78ebba3cfdde8579c48",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/adapters/Link.js": {
+      "sha256": "643087f91117781222284c132f7a45605803f3bb994bf7f5394fd4b157b32180",
+      "priorSha256": "643087f91117781222284c132f7a45605803f3bb994bf7f5394fd4b157b32180",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/adapters/navigationContext.d.ts": {
+      "sha256": "c6b8cb079444ddc29a8666126655983cb53de920a9cde5b3f10b73b0725f8e94",
+      "priorSha256": "c6b8cb079444ddc29a8666126655983cb53de920a9cde5b3f10b73b0725f8e94",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/adapters/navigationContext.js": {
+      "sha256": "5bd8048156009f399b32a0177f520548d57a6e8dd82d531be5c70bd72543c649",
+      "priorSha256": "5bd8048156009f399b32a0177f520548d57a6e8dd82d531be5c70bd72543c649",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/ClassCardFrame/ClassCardFrame.d.ts": {
+      "sha256": "48b4e27f736bf42a245724a2cdf80440b8bcb47d5d90f4b332f7385185ac2b24",
+      "priorSha256": "48b4e27f736bf42a245724a2cdf80440b8bcb47d5d90f4b332f7385185ac2b24",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/ClassCardFrame/ClassCardFrame.js": {
+      "sha256": "b65f725861760c79587f1af811e05b1365bc3228239afe72fc3c853c370419ee",
+      "priorSha256": "b65f725861760c79587f1af811e05b1365bc3228239afe72fc3c853c370419ee",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/ClassCardFrame/index.d.ts": {
+      "sha256": "5b26c89393a78e0bf8bbc7a17e251f65947eb331a26f441b64013702bcb3e1ab",
+      "priorSha256": "5b26c89393a78e0bf8bbc7a17e251f65947eb331a26f441b64013702bcb3e1ab",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/ClassCardFrame/index.js": {
+      "sha256": "57bdbbf5c1d1e78e7d724d321f0d469e6ab4a85342057ebfa97cd7a48e0c8a67",
+      "priorSha256": "57bdbbf5c1d1e78e7d724d321f0d469e6ab4a85342057ebfa97cd7a48e0c8a67",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/InstructorClassCard/InstructorClassCard.d.ts": {
+      "sha256": "72e0fa10fd800b029714073e558e88864967b3f98762296af286d387ce392a37",
+      "priorSha256": "72e0fa10fd800b029714073e558e88864967b3f98762296af286d387ce392a37",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/InstructorClassCard/InstructorClassCard.js": {
+      "sha256": "50fa4feb4edd63b3a511fd559563094c613d07d6b1f3a4f75babe319236b6a13",
+      "priorSha256": "50fa4feb4edd63b3a511fd559563094c613d07d6b1f3a4f75babe319236b6a13",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/InstructorClassCard/index.d.ts": {
+      "sha256": "b78aaf4da9efbc08a37ae1f99dab2d0a72293ef1a23fc41e33ca127a54d918bc",
+      "priorSha256": "b78aaf4da9efbc08a37ae1f99dab2d0a72293ef1a23fc41e33ca127a54d918bc",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/InstructorClassCard/index.js": {
+      "sha256": "2635cdca57d3bb266be96c451483d3c4953e447f9cde91584aba6d467491beb5",
+      "priorSha256": "2635cdca57d3bb266be96c451483d3c4953e447f9cde91584aba6d467491beb5",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Avatar/Avatar.d.ts": {
+      "sha256": "be0cf7398a68e187d3d5990a9eca33ee9774b19197d8d2bcfd23b0524e3faddd",
+      "priorSha256": "be0cf7398a68e187d3d5990a9eca33ee9774b19197d8d2bcfd23b0524e3faddd",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Avatar/Avatar.js": {
+      "sha256": "c9e5587d9fa74be6e106f12db71672149553775460c69269f53fac9d2f3290cf",
+      "priorSha256": "c9e5587d9fa74be6e106f12db71672149553775460c69269f53fac9d2f3290cf",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Card/Card.d.ts": {
+      "sha256": "f57750f9ef444cd9cf778aaec4186620984452e1a0cd6cf055ee7d632c975632",
+      "priorSha256": "f57750f9ef444cd9cf778aaec4186620984452e1a0cd6cf055ee7d632c975632",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Card/Card.js": {
+      "sha256": "77c3c58f85cb462606c4d95c9736fd798d0a428bd1da5f4718f3a6637ba0bee0",
+      "priorSha256": "77c3c58f85cb462606c4d95c9736fd798d0a428bd1da5f4718f3a6637ba0bee0",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Link/Link.d.ts": {
+      "sha256": "4adef5a4637f4dcadf80589478dd295938ab165cb1a6450b0de014c8e41aeeaa",
+      "priorSha256": "4adef5a4637f4dcadf80589478dd295938ab165cb1a6450b0de014c8e41aeeaa",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/Link/Link.js": {
+      "sha256": "e9216aa6d8ce2dcbb3def5b408582f5c188157aa4136a1494c875ddf1c3d9993",
+      "priorSha256": "e9216aa6d8ce2dcbb3def5b408582f5c188157aa4136a1494c875ddf1c3d9993",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/AutoStoriesIcon.d.ts": {
+      "sha256": "69d08f30bd753a744107e86587a79f9877af6d0ff71d956986c56521f262d736",
+      "priorSha256": "69d08f30bd753a744107e86587a79f9877af6d0ff71d956986c56521f262d736",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/AutoStoriesIcon.js": {
+      "sha256": "0120697f2c7c4b42b0c3d012eab5715abb6435089a2528e31cd2b84fb735881a",
+      "priorSha256": "0120697f2c7c4b42b0c3d012eab5715abb6435089a2528e31cd2b84fb735881a",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/CalendarTodayIcon.d.ts": {
+      "sha256": "1c8dccc73ee3931ebba87ec64769e2d637c9107e052322ba5719bfbd830b124e",
+      "priorSha256": "1c8dccc73ee3931ebba87ec64769e2d637c9107e052322ba5719bfbd830b124e",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/CalendarTodayIcon.js": {
+      "sha256": "60518c9c14a0d229fb35e27c759700ca5492b19f22480e660db947c15929f0e3",
+      "priorSha256": "60518c9c14a0d229fb35e27c759700ca5492b19f22480e660db947c15929f0e3",
+      "matchesPrior": true
+    },
+    "packages/ui/src/adapters/Link.tsx": {
+      "sha256": "632109fad519074531c2f305903bc2304a6ab01157a89950428d702adb3c05fa",
+      "priorSha256": "632109fad519074531c2f305903bc2304a6ab01157a89950428d702adb3c05fa",
+      "matchesPrior": true
+    },
+    "packages/ui/src/adapters/navigationContext.ts": {
+      "sha256": "3c3d53cec33e349fe22893ea38a3a77b24a8fa6490759ea183257abc6b9956ec",
+      "priorSha256": "3c3d53cec33e349fe22893ea38a3a77b24a8fa6490759ea183257abc6b9956ec",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css": {
+      "sha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+      "priorSha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx": {
+      "sha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "priorSha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/ClassCardFrame/index.ts": {
+      "sha256": "9a0141c4afc56915be74a66b57630fd3d1e70ae73288e92d5dc9e5dd8405dda9",
+      "priorSha256": "9a0141c4afc56915be74a66b57630fd3d1e70ae73288e92d5dc9e5dd8405dda9",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.module.css": {
+      "sha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+      "priorSha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.next100-regression.test.tsx": {
+      "sha256": "af85e2e39fd26cf11712bb267fd3c14f48155e851c38304ba486cf4dd0e591dd",
+      "priorSha256": "af85e2e39fd26cf11712bb267fd3c14f48155e851c38304ba486cf4dd0e591dd",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx": {
+      "sha256": "92419daa31d4bb30afd5f797397369bc2665b91b96b3e437a29a592f7e2ae3df",
+      "priorSha256": "92419daa31d4bb30afd5f797397369bc2665b91b96b3e437a29a592f7e2ae3df",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx": {
+      "sha256": "f9b093771537cc25300fd72fc6644aa7d3a0decf9cac4800803c75486d7d9ea4",
+      "priorSha256": "f9b093771537cc25300fd72fc6644aa7d3a0decf9cac4800803c75486d7d9ea4",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/InstructorClassCard/index.ts": {
+      "sha256": "c826fe269c3bc7e60248bec0d1faefb31af15691d76371a6fe79ed632a84ec69",
+      "priorSha256": "c826fe269c3bc7e60248bec0d1faefb31af15691d76371a6fe79ed632a84ec69",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Avatar/Avatar.module.css": {
+      "sha256": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+      "priorSha256": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Avatar/Avatar.tsx": {
+      "sha256": "ca0185286a915d55bc1d28db61a186b4f0d63f9bbd14c6e84833a92043e561a0",
+      "priorSha256": "ca0185286a915d55bc1d28db61a186b4f0d63f9bbd14c6e84833a92043e561a0",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Card/Card.tsx": {
+      "sha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "priorSha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Link/Link.module.css": {
+      "sha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "priorSha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/Link/Link.tsx": {
+      "sha256": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "priorSha256": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/AutoStoriesIcon.tsx": {
+      "sha256": "eb010b657f0123485eb1ec4e065a79a7e9813fce021dec03c50e7bc5df2b9080",
+      "priorSha256": "eb010b657f0123485eb1ec4e065a79a7e9813fce021dec03c50e7bc5df2b9080",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/CalendarTodayIcon.tsx": {
+      "sha256": "2ad6b009a5623e2a4c2e6489bab7039c4e410c126261230dc1d7639dbf1d5b98",
+      "priorSha256": "2ad6b009a5623e2a4c2e6489bab7039c4e410c126261230dc1d7639dbf1d5b98",
+      "matchesPrior": true
+    },
+    "packages/ui/tests/browser/batch66-instructor-card-native-presentation.spec.ts": {
+      "sha256": "813339005089bd68c1ddfb5a34533daac28d8635675ea93841a6e30ce07bf20b",
+      "priorSha256": "813339005089bd68c1ddfb5a34533daac28d8635675ea93841a6e30ce07bf20b",
+      "matchesPrior": true
+    },
+    "packages/ui/tests/browser/hardening-card-presentation.spec.ts": {
+      "sha256": "9dc03b22b81c4890d70925eec6a6fa0ee4c12188a96607f4b0504e82db853b64",
+      "priorSha256": "9dc03b22b81c4890d70925eec6a6fa0ee4c12188a96607f4b0504e82db853b64",
+      "matchesPrior": true
+    },
+    "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx": {
+      "sha256": "28e01b7ee86f3a626894cc41277c4c58d01a269a06494b970d215fbc53edcd15",
+      "priorSha256": "28e01b7ee86f3a626894cc41277c4c58d01a269a06494b970d215fbc53edcd15",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/Button/Button.d.ts": {
+      "sha256": "5bc1f054c34b64bae517fa59b186156828261046538177b87e51a83f97f5cef3",
+      "priorSha256": "5bc1f054c34b64bae517fa59b186156828261046538177b87e51a83f97f5cef3",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/Button/Button.js": {
+      "sha256": "ec342e76b70513f35ab6ce4da37bb33e552cf0a0118abd85bf5659eeb037da4a",
+      "priorSha256": "ec342e76b70513f35ab6ce4da37bb33e552cf0a0118abd85bf5659eeb037da4a",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/LearnerClassCard/LearnerClassCard.d.ts": {
+      "sha256": "622143c9482b6ec789559fb52ab89f832719c586596c5b68bbedef2b67ccbbca",
+      "priorSha256": "622143c9482b6ec789559fb52ab89f832719c586596c5b68bbedef2b67ccbbca",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/LearnerClassCard/LearnerClassCard.js": {
+      "sha256": "c1e867723c3dcf917568d6bdde848fa2dce7783f32f08151e56b425ebf67ce0b",
+      "priorSha256": "c1e867723c3dcf917568d6bdde848fa2dce7783f32f08151e56b425ebf67ce0b",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/LearnerClassCard/formatDueDateLabel.d.ts": {
+      "sha256": "148a90aa808da64bd51fff44375077b5ddd46ac79e261eed10e9b0ef26c47494",
+      "priorSha256": "148a90aa808da64bd51fff44375077b5ddd46ac79e261eed10e9b0ef26c47494",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/LearnerClassCard/formatDueDateLabel.js": {
+      "sha256": "23ce5e0fefdcbc909568fc565d0430923d15fb098e0b4da2e54beddd0ace26e8",
+      "priorSha256": "23ce5e0fefdcbc909568fc565d0430923d15fb098e0b4da2e54beddd0ace26e8",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/LearnerClassCard/index.d.ts": {
+      "sha256": "509ed4cd35404f877bd89a69b6c610d87dcf844ace3d295be2bff9d3af7a1a60",
+      "priorSha256": "509ed4cd35404f877bd89a69b6c610d87dcf844ace3d295be2bff9d3af7a1a60",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/components/LearnerClassCard/index.js": {
+      "sha256": "b093a256ae5346bbf28a6b28a585af5821d9b36fb3241193bc0f59a453289043",
+      "priorSha256": "b093a256ae5346bbf28a6b28a585af5821d9b36fb3241193bc0f59a453289043",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/ArrowForwardIcon.d.ts": {
+      "sha256": "416e6de6f1952dc8ec65e53d1be40a453dd2eacf97d4d511d5650b837351400e",
+      "priorSha256": "416e6de6f1952dc8ec65e53d1be40a453dd2eacf97d4d511d5650b837351400e",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/ArrowForwardIcon.js": {
+      "sha256": "9599760e3ec433dfa791732de9c86f0840d43a3d7d1775e611a06d2ab626bb14",
+      "priorSha256": "9599760e3ec433dfa791732de9c86f0840d43a3d7d1775e611a06d2ab626bb14",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/EventIcon.d.ts": {
+      "sha256": "74a3e935970222a1a6a07544868105a6db6b2a27359dd8490358448863a18e13",
+      "priorSha256": "74a3e935970222a1a6a07544868105a6db6b2a27359dd8490358448863a18e13",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/EventIcon.js": {
+      "sha256": "1291736b3333023982e52191f5b99f26bdbae27097845626fd464d48cafbc2c9",
+      "priorSha256": "1291736b3333023982e52191f5b99f26bdbae27097845626fd464d48cafbc2c9",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/ExploreIcon.d.ts": {
+      "sha256": "387cbde43470cdbbad3adfc1bf4f7ae83928567f92efa0b4e5f63e654659ba84",
+      "priorSha256": "387cbde43470cdbbad3adfc1bf4f7ae83928567f92efa0b4e5f63e654659ba84",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/experimental/icons/ExploreIcon.js": {
+      "sha256": "ee8acc17ebc454dd7c9ed2ae70068c5706604dfad82c03b3f1b01652c5b64f1a",
+      "priorSha256": "ee8acc17ebc454dd7c9ed2ae70068c5706604dfad82c03b3f1b01652c5b64f1a",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/utils/formatDueDateLabel.d.ts": {
+      "sha256": "6d635799627752b6dc76358bcf36d24e4c30f5783ba140af17a1700200bedd60",
+      "priorSha256": "6d635799627752b6dc76358bcf36d24e4c30f5783ba140af17a1700200bedd60",
+      "matchesPrior": true
+    },
+    "packages/ui/dist/utils/formatDueDateLabel.js": {
+      "sha256": "1980c6a19d9a6b85e1dec9a46e314431977b0f9f4eb17ef4d330fe9c7f914d42",
+      "priorSha256": "1980c6a19d9a6b85e1dec9a46e314431977b0f9f4eb17ef4d330fe9c7f914d42",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/Button/Button.module.css": {
+      "sha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "priorSha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/Button/Button.tsx": {
+      "sha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "priorSha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.due-label.test.tsx": {
+      "sha256": "fcea8b73b5dbe8bff7d878b04736a781bd9ccd6b58cee138a8dae6b32fa6240b",
+      "priorSha256": "fcea8b73b5dbe8bff7d878b04736a781bd9ccd6b58cee138a8dae6b32fa6240b",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.module.css": {
+      "sha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+      "priorSha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.next100-regression.test.tsx": {
+      "sha256": "b865ba533b3111bcae11a58638981341c5d1ee36882109a32183706ef9fc569c",
+      "priorSha256": "b865ba533b3111bcae11a58638981341c5d1ee36882109a32183706ef9fc569c",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx": {
+      "sha256": "afdc59040905de45239131823fe3e6dad8a760b47c0e6a011e9e968c64e1c644",
+      "priorSha256": "afdc59040905de45239131823fe3e6dad8a760b47c0e6a011e9e968c64e1c644",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx": {
+      "sha256": "7522eb8f6b20ebbd4a5ba0c4c1f95a9a5312c268499e52ba9da0866c8e2b35ce",
+      "priorSha256": "7522eb8f6b20ebbd4a5ba0c4c1f95a9a5312c268499e52ba9da0866c8e2b35ce",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.test.ts": {
+      "sha256": "67b5e1cabd33cf9c08004d3389432f5b6c2099ca201045101472f40a36fc36e4",
+      "priorSha256": "67b5e1cabd33cf9c08004d3389432f5b6c2099ca201045101472f40a36fc36e4",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.ts": {
+      "sha256": "8c73d81c224a3699b663420afb2d98a3c5bc39de87a6746ef7f5cb394a10b408",
+      "priorSha256": "8c73d81c224a3699b663420afb2d98a3c5bc39de87a6746ef7f5cb394a10b408",
+      "matchesPrior": true
+    },
+    "packages/ui/src/components/LearnerClassCard/index.ts": {
+      "sha256": "4110712966b9a9e157ed3e861f3cb24ee31a91876b15e9509415707dd5448283",
+      "priorSha256": "4110712966b9a9e157ed3e861f3cb24ee31a91876b15e9509415707dd5448283",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/ArrowForwardIcon.tsx": {
+      "sha256": "880e91c1bd4de73c0734a053cd8d8f0b992151157bb1a126e3af891550b9980a",
+      "priorSha256": "880e91c1bd4de73c0734a053cd8d8f0b992151157bb1a126e3af891550b9980a",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/EventIcon.tsx": {
+      "sha256": "590816fc6f2bb6f4821ebd4d76a530dc7e550cb1e384cacd1f2bdb82b3dd87a5",
+      "priorSha256": "590816fc6f2bb6f4821ebd4d76a530dc7e550cb1e384cacd1f2bdb82b3dd87a5",
+      "matchesPrior": true
+    },
+    "packages/ui/src/experimental/icons/ExploreIcon.tsx": {
+      "sha256": "0cf70dac5718bea260d316901d73f2f435bf18c2c3847e7fa0e7c1a734d5e920",
+      "priorSha256": "0cf70dac5718bea260d316901d73f2f435bf18c2c3847e7fa0e7c1a734d5e920",
+      "matchesPrior": true
+    },
+    "packages/ui/src/utils/formatDueDateLabel.ts": {
+      "sha256": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "priorSha256": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "matchesPrior": true
+    },
+    "packages/ui/tests/browser/inventory-learner-card.spec.ts": {
+      "sha256": "4ca4826ceae63a6f531fd405ecfd56a4a68042fd7d7098a3517fd35023e46d21",
+      "priorSha256": "4ca4826ceae63a6f531fd405ecfd56a4a68042fd7d7098a3517fd35023e46d21",
+      "matchesPrior": true
+    },
+    "AGENTS.md": {
+      "sha256": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3"
+    },
+    "docs/developer/react-aria-final-acceptance.md": {
+      "sha256": "f4c7d7f0759ccfd3b2be0829283151a7b8942ed8010e12591ce0236b34dc1fa8"
+    },
+    "docs/developer/final-acceptance/wave-03-22/assignment.json": {
+      "sha256": "c6e42000f6524c4b2196cfb25ed9719e7b23345660d16f708c2ad2f483514561"
+    },
+    "docs/developer/final-acceptance/wave-02-01/report.md": {
+      "sha256": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1"
+    },
+    "docs/developer/final-acceptance/wave-02-01/results.json": {
+      "sha256": "40de9dd3ba5ed2e2f16b65bf791b9c745aa7e3e5fd8b4f7be97116049b412da1"
+    },
+    "docs/developer/final-acceptance/wave-02-01/evidence.json": {
+      "sha256": "4059caf89f643582e20a576c7403c5e23d901ebd1a7e62de75f2042e4cd92b8d"
+    },
+    "docs/developer/final-acceptance/coordinator-integration/evidence.json": {
+      "sha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503"
+    }
+  }
+}

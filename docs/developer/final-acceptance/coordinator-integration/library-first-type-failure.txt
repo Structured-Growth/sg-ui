@@ -1,0 +1,29 @@
+
+> @structured-growth/sg-ui@0.0.0-development build /Users/thomashall/Repositories/sg-ui/packages/ui
+> node scripts/build.mjs
+
+src/experimental/Calendar/Calendar.tsx(88,34): error TS2322: Type 'DateValue' is not assignable to type 'CalendarDate'.
+  Type 'CalendarDateTime' is not assignable to type 'CalendarDate'.
+    Property '#private' in type 'CalendarDateTime' refers to a different member that cannot be accessed from within type 'CalendarDate'.
+node:internal/errors:986
+  const err = new Error(message);
+              ^
+
+Error: Command failed: pnpm exec tsc -p tsconfig.build.json
+    at genericNodeError (node:internal/errors:986:15)
+    at wrappedFn (node:internal/errors:540:14)
+    at checkExecSyncError (node:child_process:942:11)
+    at execFileSync (node:child_process:978:15)
+    at file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/build.mjs:7:1 {
+  status: 2,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 98590,
+  stdout: null,
+  stderr: null
+}
+
+Node.js v24.21.0
+/Users/thomashall/Repositories/sg-ui/packages/ui:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @structured-growth/sg-ui@0.0.0-development build: `node scripts/build.mjs`
+Exit status 1

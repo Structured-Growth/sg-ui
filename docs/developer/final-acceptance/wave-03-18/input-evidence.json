@@ -1,0 +1,1129 @@
+{
+  "capturedAt": "2026-10-16T23:07:52.369494+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "executionRuntime": "Node v24.19.0 / Vitest v4.1.11 / jsdom (see raw logs)",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/content/component-usage/forms.json",
+      "sha256": "e8848c6f62052da3ba92d6fbf76ae917e59c3b5357b48d88637e6e45ce47a3a9",
+      "priorWave02Sha256": "e8848c6f62052da3ba92d6fbf76ae917e59c3b5357b48d88637e6e45ce47a3a9",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/examples/catalog/forms-dates.tsx",
+      "sha256": "9a8e366ae6a23994897b05c5b71e8565e17306032f4b9ad7ef4921acc54f6671",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "9a8e366ae6a23994897b05c5b71e8565e17306032f4b9ad7ef4921acc54f6671",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/Tabs/Tabs.fixture.tsx",
+      "sha256": "06265cc5e266f543882436ba9bc2f9614f7eb5348f07de630316211f8a48e1a6",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/coordinator-integration/browsers-full.txt",
+      "sha256": "7e10ecbeda46f49b1df5c4368acf5efb1c12b2dfeec06d8ea85289a30f4b62fe",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/coordinator-integration/evidence.json",
+      "sha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-08/report.md",
+      "sha256": "1b69b7a507672116740568d2bb833a5d0e8a7b79e7b37eec524013bae1e8ff37",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-08/results.json",
+      "sha256": "56ffe426fd848a3f840aa42ff589b25714e009f957e750b0641520190f122c04",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-09/report.md",
+      "sha256": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-09/results.json",
+      "sha256": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/parallel-batch-170/tabs-orientation.md",
+      "sha256": "590a9e175f6ac7d2b4cf98863e7f8602e636c1a7ccefe0fa6b01589a0cbe2a66",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/parallel-batch-179/manual-tabs-host-scroll.md",
+      "sha256": "bb237692af208de1a09e330f87e1e69e9f6c235eca8a2cf97609f8e2575395a5",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/react-aria-final-acceptance.md",
+      "sha256": "f4c7d7f0759ccfd3b2be0829283151a7b8942ed8010e12591ce0236b34dc1fa8",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/dist/experimental/Box/Box.d.ts",
+      "sha256": "5de5fddf047cf9ed88d8f1536a0396b4d55d7863106484d84a4afdd284414ab9",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "5de5fddf047cf9ed88d8f1536a0396b4d55d7863106484d84a4afdd284414ab9",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Box/Box.d.ts.map",
+      "sha256": "b728c8763df9b74374bb186dd2ecd43c768e9556bf40349b212534126f81666f",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "b728c8763df9b74374bb186dd2ecd43c768e9556bf40349b212534126f81666f",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Box/Box.js",
+      "sha256": "3d99df442d34c1810271f93c2b2390f88be94329d0555dcf48bb15df23790629",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "3d99df442d34c1810271f93c2b2390f88be94329d0555dcf48bb15df23790629",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Box/Box.js.map",
+      "sha256": "4ea0bd729fd121628c913945eed207bdfd1f999c02b40d584211a4d53374ca79",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "4ea0bd729fd121628c913945eed207bdfd1f999c02b40d584211a4d53374ca79",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Box/Box.module.css.js",
+      "sha256": "b11c59a61b65f78dd9cddd96590e90c2c7410b4773a9b30928a146915f021eba",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "b11c59a61b65f78dd9cddd96590e90c2c7410b4773a9b30928a146915f021eba",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Card/Card.d.ts",
+      "sha256": "f57750f9ef444cd9cf778aaec4186620984452e1a0cd6cf055ee7d632c975632",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "f57750f9ef444cd9cf778aaec4186620984452e1a0cd6cf055ee7d632c975632",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Card/Card.d.ts.map",
+      "sha256": "c30d02e7995cb99c5704a77c8da1d87fc19404dc2265a6255562a0ea2e4b9e03",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "c30d02e7995cb99c5704a77c8da1d87fc19404dc2265a6255562a0ea2e4b9e03",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Card/Card.js",
+      "sha256": "77c3c58f85cb462606c4d95c9736fd798d0a428bd1da5f4718f3a6637ba0bee0",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "77c3c58f85cb462606c4d95c9736fd798d0a428bd1da5f4718f3a6637ba0bee0",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Card/Card.js.map",
+      "sha256": "96aa32e996cfad5a2b4790dc5cd4d2272b2916eaa435316ebf497f44c262d349",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "96aa32e996cfad5a2b4790dc5cd4d2272b2916eaa435316ebf497f44c262d349",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Checkbox/Checkbox.d.ts",
+      "sha256": "1850d59d693b321d34cd3386106b33d02040778415fcecb7e4357972beb7c9bd",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "1850d59d693b321d34cd3386106b33d02040778415fcecb7e4357972beb7c9bd",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Checkbox/Checkbox.d.ts.map",
+      "sha256": "bffd8f125271bf21f3feee957f10f64a3a4152e8ce77b1e9899b2a3027998ee9",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "bffd8f125271bf21f3feee957f10f64a3a4152e8ce77b1e9899b2a3027998ee9",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Checkbox/Checkbox.js",
+      "sha256": "645d2ceb1b6f3bedb35d4f8588ef48024a96ef714276f78a7d167e842734c84a",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "645d2ceb1b6f3bedb35d4f8588ef48024a96ef714276f78a7d167e842734c84a",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Checkbox/Checkbox.js.map",
+      "sha256": "e26c84a3f8f3f7ab3630eaa42b383034918eac3792d475efa44d7236cfdab1d1",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "e26c84a3f8f3f7ab3630eaa42b383034918eac3792d475efa44d7236cfdab1d1",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Checkbox/Checkbox.module.css.js",
+      "sha256": "9d8866bc1c2291c286f7cb053b08a1b003af66c4225fde175c632fa132c5fe12",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "9d8866bc1c2291c286f7cb053b08a1b003af66c4225fde175c632fa132c5fe12",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Divider/Divider.d.ts",
+      "sha256": "54b36f37ba55480cdb6e45edc1b4b908cad41d1a3a14cc09cec62849f1e056ea",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "54b36f37ba55480cdb6e45edc1b4b908cad41d1a3a14cc09cec62849f1e056ea",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Divider/Divider.d.ts.map",
+      "sha256": "cab7ab1b25421130e647b5762e34f201f65f570ef79fc58fa8e898c473a933e9",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "cab7ab1b25421130e647b5762e34f201f65f570ef79fc58fa8e898c473a933e9",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Divider/Divider.js",
+      "sha256": "c6c948d4850c63096961f8817b73d50025d09bbe1647bc5a60ecbe38e7e21c57",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "c6c948d4850c63096961f8817b73d50025d09bbe1647bc5a60ecbe38e7e21c57",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Divider/Divider.js.map",
+      "sha256": "a7af3b1f00d868382eaf750176fb29ca32529ea6cf6ce876851a69b1bb31f54c",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "a7af3b1f00d868382eaf750176fb29ca32529ea6cf6ce876851a69b1bb31f54c",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Divider/Divider.module.css.js",
+      "sha256": "f6460f33c89255eccf1b8c5dac2523751a10cea605549c462590982899ce9769",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "f6460f33c89255eccf1b8c5dac2523751a10cea605549c462590982899ce9769",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/RadioGroup/RadioGroup.d.ts",
+      "sha256": "c82bdc0ddcc3729e1c6bc26360f479def8c3ccff60a5c1a45bfe62826fd68be7",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "c82bdc0ddcc3729e1c6bc26360f479def8c3ccff60a5c1a45bfe62826fd68be7",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/RadioGroup/RadioGroup.d.ts.map",
+      "sha256": "757829010901b471772f060c2c07500e54de1720810f7473f79de4eb0e1dca48",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "757829010901b471772f060c2c07500e54de1720810f7473f79de4eb0e1dca48",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/RadioGroup/RadioGroup.js",
+      "sha256": "3212d62a6fb4c7ab686568abd007c5555e04aa07846b3037928fbcdce4a3734e",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "3212d62a6fb4c7ab686568abd007c5555e04aa07846b3037928fbcdce4a3734e",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/RadioGroup/RadioGroup.js.map",
+      "sha256": "dca92f687abc5916bf0f70a8ec28d43383fcbe863313aa7736b78163df7ef300",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "dca92f687abc5916bf0f70a8ec28d43383fcbe863313aa7736b78163df7ef300",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/RadioGroup/RadioGroup.module.css.js",
+      "sha256": "3055ab4bfdfc61d74320fa9fa3e5062999b3da46e19ac0d454ae7378914ed729",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "3055ab4bfdfc61d74320fa9fa3e5062999b3da46e19ac0d454ae7378914ed729",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Stack/Stack.d.ts",
+      "sha256": "4cf5b42ff568d35a186dc6c56701ac4359b51ce613d7c4f399cd422d05c03371",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "4cf5b42ff568d35a186dc6c56701ac4359b51ce613d7c4f399cd422d05c03371",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Stack/Stack.d.ts.map",
+      "sha256": "22747d106abb1c4e00c6cc51c6501ae819490622d7759cdcc4daf164e83eada5",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "22747d106abb1c4e00c6cc51c6501ae819490622d7759cdcc4daf164e83eada5",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Stack/Stack.js",
+      "sha256": "b46ec04b6d5678f404a268e6dde914eca60ac3a11b9ac9218525b61c4e0441e4",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "b46ec04b6d5678f404a268e6dde914eca60ac3a11b9ac9218525b61c4e0441e4",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Stack/Stack.js.map",
+      "sha256": "9f61b3a2a3ba67d57ebdcb43d3cc6932211c4de0cc4e0a7006014b090ca0ed98",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "9f61b3a2a3ba67d57ebdcb43d3cc6932211c4de0cc4e0a7006014b090ca0ed98",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Stack/Stack.module.css.js",
+      "sha256": "94364ecc6476a1c19516dd1671ade53a0828a813e1e06ac844da6f1b46f22ac8",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "94364ecc6476a1c19516dd1671ade53a0828a813e1e06ac844da6f1b46f22ac8",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Surface/Surface.d.ts",
+      "sha256": "9262d86062d18c35da9e2419f553de8c82151df979e6f303d7cdc5b2885283da",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "9262d86062d18c35da9e2419f553de8c82151df979e6f303d7cdc5b2885283da",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Surface/Surface.d.ts.map",
+      "sha256": "ed7fd91829cd3f66212eba37b91af1740d39f4cbfae632fdaace42395f536717",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "ed7fd91829cd3f66212eba37b91af1740d39f4cbfae632fdaace42395f536717",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Surface/Surface.js",
+      "sha256": "c5747b119102fee46dabc3def402cf3b1653de5b529c4200c84545742aa73435",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "c5747b119102fee46dabc3def402cf3b1653de5b529c4200c84545742aa73435",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Surface/Surface.js.map",
+      "sha256": "9ea4f545d86ba3db9cd5410acced02f913a89333a0652f9391e247d9cd8e14cf",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "9ea4f545d86ba3db9cd5410acced02f913a89333a0652f9391e247d9cd8e14cf",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Surface/Surface.module.css.js",
+      "sha256": "a23be0811af112d3ee7e38b5598a1e5ba90634a8e1d3f5aa09fe9d32073566a4",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "a23be0811af112d3ee7e38b5598a1e5ba90634a8e1d3f5aa09fe9d32073566a4",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Switch/Switch.d.ts",
+      "sha256": "a9337e81bcc330fee9819281ffd769b5f18a574c6ef3fb4cfc960e23cfcdcdfe",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "a9337e81bcc330fee9819281ffd769b5f18a574c6ef3fb4cfc960e23cfcdcdfe",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Switch/Switch.d.ts.map",
+      "sha256": "d2233fa43d85b8f4ac9835cd3ceb5bc1c9a1fe15918cfb825972d08ca9fe27f8",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "d2233fa43d85b8f4ac9835cd3ceb5bc1c9a1fe15918cfb825972d08ca9fe27f8",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Switch/Switch.js",
+      "sha256": "f68a79c07815a9cfedb4c31b00ae5b73867156995694c4d14fc2ec0266b3fb1a",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "f68a79c07815a9cfedb4c31b00ae5b73867156995694c4d14fc2ec0266b3fb1a",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Switch/Switch.js.map",
+      "sha256": "19d8f4dec0ae751cda654337c0274a259e02428df08a010f40d5baf3778c743f",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "19d8f4dec0ae751cda654337c0274a259e02428df08a010f40d5baf3778c743f",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Switch/Switch.module.css.js",
+      "sha256": "9caf99c6a3945b0a7e79e8bc63b7de3728372cceb433bae69d09f9dfc0f1cd0d",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "9caf99c6a3945b0a7e79e8bc63b7de3728372cceb433bae69d09f9dfc0f1cd0d",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/Tabs.d.ts",
+      "sha256": "7c974d9948fe802b5f742f382a275987951aacdc681f9f2f5b0be115faa8514f",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "7c974d9948fe802b5f742f382a275987951aacdc681f9f2f5b0be115faa8514f",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/Tabs.d.ts.map",
+      "sha256": "de4987a84303fbf1f49b2970ff1a54bb9054843a2a67214b3cce1ca5c84cad03",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "de4987a84303fbf1f49b2970ff1a54bb9054843a2a67214b3cce1ca5c84cad03",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/Tabs.js",
+      "sha256": "1793e0dd400dd48b04a091fd859dad5804d8f73a0cc1465f6e7cbbdc041879f6",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "1793e0dd400dd48b04a091fd859dad5804d8f73a0cc1465f6e7cbbdc041879f6",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/Tabs.js.map",
+      "sha256": "92239ce17fa9c21b91604615b49506645128f700f89fc8642f9464c74e502745",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "92239ce17fa9c21b91604615b49506645128f700f89fc8642f9464c74e502745",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/Tabs.module.css.js",
+      "sha256": "a168ba4bee36da945ab3034a84424b35f6b0e3c56cfd31f814227220c42f8db9",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "a168ba4bee36da945ab3034a84424b35f6b0e3c56cfd31f814227220c42f8db9",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/scrollTabIntoView.d.ts",
+      "sha256": "6ec57cd91164df3e1e7fe661586311b27e1b5e2d39dfd9cbf60a5d9dc975825d",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "6ec57cd91164df3e1e7fe661586311b27e1b5e2d39dfd9cbf60a5d9dc975825d",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/scrollTabIntoView.d.ts.map",
+      "sha256": "65123d22c7db5f49d9c42e1834286ae376e9a7010db80cb029efa82035f79371",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "65123d22c7db5f49d9c42e1834286ae376e9a7010db80cb029efa82035f79371",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/scrollTabIntoView.js",
+      "sha256": "8bf5ef32f33e5243de0716a3577785690e747205b3bd9747310f8e87c6e51b85",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "8bf5ef32f33e5243de0716a3577785690e747205b3bd9747310f8e87c6e51b85",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/scrollTabIntoView.js.map",
+      "sha256": "100f8f96322adfa48e3220519bde9eace0fe8421438151e071052afa5d3e65f5",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "100f8f96322adfa48e3220519bde9eace0fe8421438151e071052afa5d3e65f5",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/tab-overflow.d.ts",
+      "sha256": "ad9c921651bc089ca74a80d796587f7c506f9a8acf09aa5af15bef214002d196",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "ad9c921651bc089ca74a80d796587f7c506f9a8acf09aa5af15bef214002d196",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/tab-overflow.d.ts.map",
+      "sha256": "59c51f2fa87b10280131c52bb37e5c57788961a527c94686b6d802830926a21f",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "59c51f2fa87b10280131c52bb37e5c57788961a527c94686b6d802830926a21f",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/tab-overflow.js",
+      "sha256": "a269ea5b37d81a3a73e16a7ce83c32190b029dc9d028e78debee906eb7120556",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "a269ea5b37d81a3a73e16a7ce83c32190b029dc9d028e78debee906eb7120556",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/tab-overflow.js.map",
+      "sha256": "9dfe1b4e614bb2917711133bac9fde11ba31d73c9594af85caa6ea4bd6427f8c",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "9dfe1b4e614bb2917711133bac9fde11ba31d73c9594af85caa6ea4bd6427f8c",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/useTabOverflow.d.ts",
+      "sha256": "9b7b043ca3da78d4381160e724c9b720496f213118155ec2416978c17cc5f36d",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "9b7b043ca3da78d4381160e724c9b720496f213118155ec2416978c17cc5f36d",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/useTabOverflow.d.ts.map",
+      "sha256": "8cadaffa3d3a40b8a1e48dd2eafb5d9a6fe306602950bf463aa437106950de28",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "8cadaffa3d3a40b8a1e48dd2eafb5d9a6fe306602950bf463aa437106950de28",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/useTabOverflow.js",
+      "sha256": "c51930d5843d0d22335092765e9c14ed56e437cedba8dbca0779c811f1a0eb23",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "c51930d5843d0d22335092765e9c14ed56e437cedba8dbca0779c811f1a0eb23",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Tabs/useTabOverflow.js.map",
+      "sha256": "a029afcea6a8cd9541d77dfbcdbee08f1bd4ed4f55b0cdf0210afea0ee4e54d9",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "a029afcea6a8cd9541d77dfbcdbee08f1bd4ed4f55b0cdf0210afea0ee4e54d9",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextArea/TextArea.d.ts",
+      "sha256": "71c2fa90c71c0fc00502c13825f71c8522eb4137b866a18f6590d9abb1636efe",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "71c2fa90c71c0fc00502c13825f71c8522eb4137b866a18f6590d9abb1636efe",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextArea/TextArea.d.ts.map",
+      "sha256": "e54c7b8cb62f4607cbbb8b95a75751c29d0a64024b5e5f67a1514906b32d85d3",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "e54c7b8cb62f4607cbbb8b95a75751c29d0a64024b5e5f67a1514906b32d85d3",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextArea/TextArea.js",
+      "sha256": "87e80aca433650d81c5d8d3e132921c2639e968696fc75cb741aaf31d31c62af",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "87e80aca433650d81c5d8d3e132921c2639e968696fc75cb741aaf31d31c62af",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextArea/TextArea.js.map",
+      "sha256": "e3bb601344385ff09426c78ea605c376acdb8f17fae1f7598b1fc30eb0fe295a",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "e3bb601344385ff09426c78ea605c376acdb8f17fae1f7598b1fc30eb0fe295a",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextArea/TextArea.module.css.js",
+      "sha256": "8097830d82a91b4c51b4b5a001fc305a17fc33f244681d0e710c4e0df1e74ca1",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "8097830d82a91b4c51b4b5a001fc305a17fc33f244681d0e710c4e0df1e74ca1",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextField/TextField.d.ts",
+      "sha256": "9e782c82e72290f502b127adfbc78434db83c5a0fa9c99a2c161382c5ca66bac",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "9e782c82e72290f502b127adfbc78434db83c5a0fa9c99a2c161382c5ca66bac",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextField/TextField.d.ts.map",
+      "sha256": "c3e7053750a6737ac2e1730be19bb0f04bce1ccdb44bd7169a1677d37853b1a4",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "c3e7053750a6737ac2e1730be19bb0f04bce1ccdb44bd7169a1677d37853b1a4",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextField/TextField.js",
+      "sha256": "4a2d9ee2fcfc6c4c280dbc520b4672df1857ab047e54afcc8dde182e67a0774e",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "4a2d9ee2fcfc6c4c280dbc520b4672df1857ab047e54afcc8dde182e67a0774e",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextField/TextField.js.map",
+      "sha256": "d9d5fd9075cf3ac74760a29f70613b7c9ff6cf029f413a74983ea1b9c7a8a044",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "d9d5fd9075cf3ac74760a29f70613b7c9ff6cf029f413a74983ea1b9c7a8a044",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextField/TextField.module.css.js",
+      "sha256": "3973b864ba930943e698bf33a6246f5bac22f890e3ffcdfd85544e824bc7ac09",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "3973b864ba930943e698bf33a6246f5bac22f890e3ffcdfd85544e824bc7ac09",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextField/useStandaloneFormReset.d.ts",
+      "sha256": "53e73921f017efcfd6007da9b8b8994a3abd4fa07c82b58a27568404e7f42b06",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "53e73921f017efcfd6007da9b8b8994a3abd4fa07c82b58a27568404e7f42b06",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextField/useStandaloneFormReset.d.ts.map",
+      "sha256": "782767553d210f20731b9e32e38ff959fa4dcbc63fa9bc12653aceb3de51124d",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "782767553d210f20731b9e32e38ff959fa4dcbc63fa9bc12653aceb3de51124d",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextField/useStandaloneFormReset.js",
+      "sha256": "2860e9a0b00df036dfedba2b51f280c233530e422521967fb0fa7de3a83cfb6f",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "2860e9a0b00df036dfedba2b51f280c233530e422521967fb0fa7de3a83cfb6f",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TextField/useStandaloneFormReset.js.map",
+      "sha256": "f5900979fb4b9e47b75f6705041ae74d330424d7a106d6328e20a0157140612e",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "f5900979fb4b9e47b75f6705041ae74d330424d7a106d6328e20a0157140612e",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/styles.css",
+      "sha256": "f7e2433696ce8d6ebd0cae60912c759f9ad83f66eb72453387a75ce557e0bb60",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": "f7e2433696ce8d6ebd0cae60912c759f9ad83f66eb72453387a75ce557e0bb60",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Box/Box.module.css",
+      "sha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "priorWave02Sha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Box/Box.next100-regression.test.tsx",
+      "sha256": "d523db0e5c9724ce2d8555dfb532c22441efe7e0166bf94faca7d59f21e891ff",
+      "priorWave02Sha256": "d523db0e5c9724ce2d8555dfb532c22441efe7e0166bf94faca7d59f21e891ff",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Box/Box.test.tsx",
+      "sha256": "1750ee10ecf30e5640f138dc7b873a3f1b295044c509969b82650cdc9486078f",
+      "priorWave02Sha256": "1750ee10ecf30e5640f138dc7b873a3f1b295044c509969b82650cdc9486078f",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Box/Box.tsx",
+      "sha256": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "priorWave02Sha256": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Card/Card.next100-regression.test.tsx",
+      "sha256": "11b87f5f04a9f2a885c11bb43c3ec5ddbc6948d6e32e2ecc23bb443c6346f0ae",
+      "priorWave02Sha256": "11b87f5f04a9f2a885c11bb43c3ec5ddbc6948d6e32e2ecc23bb443c6346f0ae",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Card/Card.test.tsx",
+      "sha256": "f92a1ce14ad244f89c596795a6f88ae705df989cc891f397807a4a246bf899b1",
+      "priorWave02Sha256": "f92a1ce14ad244f89c596795a6f88ae705df989cc891f397807a4a246bf899b1",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Card/Card.tsx",
+      "sha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "priorWave02Sha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Checkbox/Checkbox.module.css",
+      "sha256": "8b0d9c9987e140ac921ece1da8b3424976197820d38bfb690d364d0b4a9d48f8",
+      "priorWave02Sha256": "8b0d9c9987e140ac921ece1da8b3424976197820d38bfb690d364d0b4a9d48f8",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Checkbox/Checkbox.next100-regression.test.tsx",
+      "sha256": "ecc839abccdbf83805e1dc409f397309017b91092fcf58854234b37408d03a2e",
+      "priorWave02Sha256": "ecc839abccdbf83805e1dc409f397309017b91092fcf58854234b37408d03a2e",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Checkbox/Checkbox.test.tsx",
+      "sha256": "73a9e26adce2de59b7fdc8d8e23746f6b4c5ce5706414a14d518dc81ca1c1ee4",
+      "priorWave02Sha256": "73a9e26adce2de59b7fdc8d8e23746f6b4c5ce5706414a14d518dc81ca1c1ee4",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Checkbox/Checkbox.tsx",
+      "sha256": "3a70b70ed3e1f3a34db29ab4541ce8345c08e75f5485d7903419041b00f64565",
+      "priorWave02Sha256": "3a70b70ed3e1f3a34db29ab4541ce8345c08e75f5485d7903419041b00f64565",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Divider/Divider.module.css",
+      "sha256": "e00a2b884cc794fc12953a5a42fd1d9e1a6e4ca1b07b57cec87d0db8e2414a9a",
+      "priorWave02Sha256": "e00a2b884cc794fc12953a5a42fd1d9e1a6e4ca1b07b57cec87d0db8e2414a9a",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Divider/Divider.next100-regression.test.tsx",
+      "sha256": "2b0e1b2388bd6c95096c44e6a0457c00b5fdbc336f1d6595b437082f682a1023",
+      "priorWave02Sha256": "2b0e1b2388bd6c95096c44e6a0457c00b5fdbc336f1d6595b437082f682a1023",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Divider/Divider.test.tsx",
+      "sha256": "e246678d11ed2576c16ca2b9e780f73808b17e22d5e5d28b1186ae219d6bc0b0",
+      "priorWave02Sha256": "e246678d11ed2576c16ca2b9e780f73808b17e22d5e5d28b1186ae219d6bc0b0",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Divider/Divider.tsx",
+      "sha256": "a530e9ae9fef9b82a46a277a61788f585a9fde38d60d64c029706f7cfd3fcc21",
+      "priorWave02Sha256": "a530e9ae9fef9b82a46a277a61788f585a9fde38d60d64c029706f7cfd3fcc21",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/RadioGroup/RadioGroup.module.css",
+      "sha256": "dffcd4c643a702354c947e42ae1857173ee2203f815f39607116e954310e334e",
+      "priorWave02Sha256": "dffcd4c643a702354c947e42ae1857173ee2203f815f39607116e954310e334e",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/RadioGroup/RadioGroup.next100-regression.test.tsx",
+      "sha256": "ff36a657da2c4c03676251eaa4235d1f1ef3364e4c6f4ae58fc9ec746df8f193",
+      "priorWave02Sha256": "ff36a657da2c4c03676251eaa4235d1f1ef3364e4c6f4ae58fc9ec746df8f193",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/RadioGroup/RadioGroup.ssr.test.tsx",
+      "sha256": "b076d7c25fd45677a092904ba9420f526b7dbbaceeaef125e4cc97cff6acca9d",
+      "priorWave02Sha256": "b076d7c25fd45677a092904ba9420f526b7dbbaceeaef125e4cc97cff6acca9d",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/RadioGroup/RadioGroup.test.tsx",
+      "sha256": "f20502f31982f53c03b5c2ce13f6e53e02790d0ac88838358a01aa0a9f0de8b2",
+      "priorWave02Sha256": "f20502f31982f53c03b5c2ce13f6e53e02790d0ac88838358a01aa0a9f0de8b2",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx",
+      "sha256": "56667fa20f96c11151fb8a1697cfdefefc668d3a03ab2edb78105eded65d15c5",
+      "priorWave02Sha256": "56667fa20f96c11151fb8a1697cfdefefc668d3a03ab2edb78105eded65d15c5",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Stack/Stack.module.css",
+      "sha256": "7e1c5f10ce20cfa74cfdd6f064c6f6ee32c926202638fcb7338e2a01caa53eba",
+      "priorWave02Sha256": "7e1c5f10ce20cfa74cfdd6f064c6f6ee32c926202638fcb7338e2a01caa53eba",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Stack/Stack.next100-regression.test.tsx",
+      "sha256": "d39ba98bc75f1b2630286420d30c5296f59cd63beea6083834933862fbbc371a",
+      "priorWave02Sha256": "d39ba98bc75f1b2630286420d30c5296f59cd63beea6083834933862fbbc371a",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Stack/Stack.test.tsx",
+      "sha256": "4adc73023e245556e662c440105e121673f9592dc8caae3752901912846a19c4",
+      "priorWave02Sha256": "4adc73023e245556e662c440105e121673f9592dc8caae3752901912846a19c4",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Stack/Stack.tsx",
+      "sha256": "9289e8b6bd6eabd45434700705e71689218d1762e70aeb332919d61ae1242e57",
+      "priorWave02Sha256": "9289e8b6bd6eabd45434700705e71689218d1762e70aeb332919d61ae1242e57",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Surface/Surface.module.css",
+      "sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "priorWave02Sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Surface/Surface.next100-regression.test.tsx",
+      "sha256": "acf3a6fb28345c4140a19e1e289af94ef6cf6c0dbf7ee201e1e77b9ae0aee72d",
+      "priorWave02Sha256": "acf3a6fb28345c4140a19e1e289af94ef6cf6c0dbf7ee201e1e77b9ae0aee72d",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Surface/Surface.test.tsx",
+      "sha256": "409d1f702c586deee73772d96178b892030aa6f1cf90725df574613ec6f0440e",
+      "priorWave02Sha256": "409d1f702c586deee73772d96178b892030aa6f1cf90725df574613ec6f0440e",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Surface/Surface.tsx",
+      "sha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "priorWave02Sha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Switch/Switch.module.css",
+      "sha256": "753519a82ce1ea61d8d00b71afdb21c1d95cfaa31ae5141f9b59a38b99ca3f0a",
+      "priorWave02Sha256": "753519a82ce1ea61d8d00b71afdb21c1d95cfaa31ae5141f9b59a38b99ca3f0a",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Switch/Switch.next100-regression.test.tsx",
+      "sha256": "45d7ba3e9bda443d70cebec2e9d744b919a6ebe9dafcedc4ef31fca3f515976d",
+      "priorWave02Sha256": "45d7ba3e9bda443d70cebec2e9d744b919a6ebe9dafcedc4ef31fca3f515976d",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Switch/Switch.test.tsx",
+      "sha256": "f4cfc189d90147849426072fcf1d45c715985054548511479be226f21bb6d2a0",
+      "priorWave02Sha256": "f4cfc189d90147849426072fcf1d45c715985054548511479be226f21bb6d2a0",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Switch/Switch.tsx",
+      "sha256": "e5a187404032d1d5b7e00feba9e96eb905376274aa635dd30070ae0f85392b5f",
+      "priorWave02Sha256": "e5a187404032d1d5b7e00feba9e96eb905376274aa635dd30070ae0f85392b5f",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Tabs/Tabs.module.css",
+      "sha256": "3a8d0e005dc7a99a0711d6873eecb3448cd7357195b9c8d9995edc7c5453f447",
+      "priorWave02Sha256": "3a8d0e005dc7a99a0711d6873eecb3448cd7357195b9c8d9995edc7c5453f447",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Tabs/Tabs.next100-regression.test.tsx",
+      "sha256": "eca8df88a2bb35e86e564cff215a7419efb555f06b7f87ef15732321ef5d68ac",
+      "priorWave02Sha256": "eca8df88a2bb35e86e564cff215a7419efb555f06b7f87ef15732321ef5d68ac",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Tabs/Tabs.test.tsx",
+      "sha256": "af6544e1645f9c9468cfef764a6e242a5a2272238e63d3eea115120e25a4c414",
+      "priorWave02Sha256": "af6544e1645f9c9468cfef764a6e242a5a2272238e63d3eea115120e25a4c414",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Tabs/Tabs.tsx",
+      "sha256": "4ee65b9e3d010c45a80682a58e6a52c509bafbfd92a1af1578de70a29d87e726",
+      "priorWave02Sha256": "4ee65b9e3d010c45a80682a58e6a52c509bafbfd92a1af1578de70a29d87e726",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Tabs/scrollTabIntoView.ts",
+      "sha256": "5730dbfc9024dd98ff9381d716bafb62c230b3fbaf289016b27e6d327b410618",
+      "priorWave02Sha256": "5730dbfc9024dd98ff9381d716bafb62c230b3fbaf289016b27e6d327b410618",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Tabs/tab-overflow.test.ts",
+      "sha256": "220eaf2fa277819c160d798f1cf558ec20344c2d888ff127842f5045dc0cf093",
+      "priorWave02Sha256": "220eaf2fa277819c160d798f1cf558ec20344c2d888ff127842f5045dc0cf093",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Tabs/tab-overflow.ts",
+      "sha256": "6ab6bd0a97d72506a8ec39d905ac20ae90a6bea7bff96f071d8bdf18000adec5",
+      "priorWave02Sha256": "6ab6bd0a97d72506a8ec39d905ac20ae90a6bea7bff96f071d8bdf18000adec5",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Tabs/useTabOverflow.ts",
+      "sha256": "5a2b347c2e28c44bd296cd0d74e5e2b5444d525ba20e1b0d1c715a25359046f1",
+      "priorWave02Sha256": "5a2b347c2e28c44bd296cd0d74e5e2b5444d525ba20e1b0d1c715a25359046f1",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.module.css",
+      "sha256": "4a4ee923a7aff6b8b6ff947afdd646eb6e3b3e7823667e32dedc6759a470a569",
+      "priorWave02Sha256": "5e16dcb7938fdedab6efe8a6882b0294b9ae4040d795027dc8823c5d407b8fc7",
+      "matchesWave02": false,
+      "coordinatorSha256": "4a4ee923a7aff6b8b6ff947afdd646eb6e3b3e7823667e32dedc6759a470a569",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.native-fixture.tsx",
+      "sha256": "5bed0953d6cf4ada4d0eb1ae124f593627d981a720956a98d22d52b5f29f65af",
+      "priorWave02Sha256": "5bed0953d6cf4ada4d0eb1ae124f593627d981a720956a98d22d52b5f29f65af",
+      "matchesWave02": true,
+      "coordinatorSha256": "5bed0953d6cf4ada4d0eb1ae124f593627d981a720956a98d22d52b5f29f65af",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.next100-regression.test.tsx",
+      "sha256": "6ca44fdf2c3da1e79abcbd1fc67231759e0487b00b508b4b2d24a4fa1464f41c",
+      "priorWave02Sha256": "6ca44fdf2c3da1e79abcbd1fc67231759e0487b00b508b4b2d24a4fa1464f41c",
+      "matchesWave02": true,
+      "coordinatorSha256": "6ca44fdf2c3da1e79abcbd1fc67231759e0487b00b508b4b2d24a4fa1464f41c",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.test.tsx",
+      "sha256": "6af2480609646f5ceef544f54a7e572afc12c94117a539e3d0a95562bdc4472f",
+      "priorWave02Sha256": "6af2480609646f5ceef544f54a7e572afc12c94117a539e3d0a95562bdc4472f",
+      "matchesWave02": true,
+      "coordinatorSha256": "6af2480609646f5ceef544f54a7e572afc12c94117a539e3d0a95562bdc4472f",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+      "sha256": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6",
+      "priorWave02Sha256": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6",
+      "matchesWave02": true,
+      "coordinatorSha256": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+      "sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+      "priorWave02Sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.next100-regression.test.tsx",
+      "sha256": "97029552e9867941b210c81632f86d72af072fdddedf455eb266a209ff24c4be",
+      "priorWave02Sha256": "97029552e9867941b210c81632f86d72af072fdddedf455eb266a209ff24c4be",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.test.tsx",
+      "sha256": "57114e7a42400c4fb226137fdb3b6374894dd61834d1b6c6f5faf4c19d40245d",
+      "priorWave02Sha256": "57114e7a42400c4fb226137fdb3b6374894dd61834d1b6c6f5faf4c19d40245d",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.tsx",
+      "sha256": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+      "priorWave02Sha256": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts",
+      "sha256": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "priorWave02Sha256": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "matchesWave02": true,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/useFormReset.ts",
+      "sha256": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/batch01-forms.spec.ts",
+      "sha256": "9b70767be1c029e914e814d4e457b4bdf6a16c6e32f6001ea1ccdb2e2dc7d24d",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/batch05-native-reset.spec.ts",
+      "sha256": "170d797a516b649e6cc91bf307d1834b9511e9bc819f8b5ee345259bd0efc291",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/batch05-tabs-overflow.spec.ts",
+      "sha256": "cff9a99ddd83ea8d61f8c4b64f9a6ef8893f001c7e79df927563de07b9b48522",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/batch11-standalone-reset.spec.ts",
+      "sha256": "6aa8b5d2e868e7bac07d4d1d5e4a62595b4e2fd52bd6af615714b57b500ba7b6",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/tabs-vertical-orientation.spec.ts",
+      "sha256": "fceb951714a4f90d30fa434f48c9be0d21524a5d56800aaffb3dfbed204c0267",
+      "priorWave02Sha256": null,
+      "matchesWave02": null,
+      "coordinatorSha256": null,
+      "matchesCoordinator": null
+    }
+  ],
+  "method": "Sequential SHA-256 capture of scoped inputs/output; read-only comparison. No atomic shared-checkout guarantee. Output equality preserves only named unchanged prior receipt scope; no new native validation."
+}

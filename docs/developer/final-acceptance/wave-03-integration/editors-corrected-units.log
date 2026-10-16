@@ -1,0 +1,16 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+Error: Not implemented: window.scrollBy
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at /Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/Window.js:960:7
+    at scrollIntoViewIfNeeded (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:11985:21)
+    at updateDOMSelection (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:7905:7)
+    at $commitPendingUpdates (file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8565:9)
+    at file:///Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/lexical@0.41.0/node_modules/lexical/Lexical.dev.mjs:8841:9 undefined
+
+ Test Files  2 passed (2)
+      Tests  10 passed (10)
+   Start at  18:13:11
+   Duration  765ms (transform 101ms, setup 15ms, import 273ms, tests 240ms, environment 125ms)
+

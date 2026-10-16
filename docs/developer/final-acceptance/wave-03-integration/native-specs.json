@@ -1,0 +1,20 @@
+[
+  "packages/ui/tests/browser/acceptance-touch-targets.spec.ts",
+  "packages/ui/tests/browser/action-notifications.spec.ts",
+  "packages/ui/tests/browser/calendar-navigation-reflow.spec.ts",
+  "packages/ui/tests/browser/card-container-boundary.spec.ts",
+  "packages/ui/tests/browser/date-entry-clipboard.spec.ts",
+  "packages/ui/tests/browser/editor-selection-editing-successors.spec.ts",
+  "packages/ui/tests/browser/editor-style-range-transactions.spec.ts",
+  "packages/ui/tests/browser/navigation-composed.spec.ts",
+  "packages/ui/tests/browser/navigation-locale-motion.spec.ts",
+  "packages/ui/tests/browser/translations-locale-acceptance.spec.ts",
+  "packages/ui/tests/browser/visual-acceptance.spec.ts",
+  "packages/ui/tests/browser/wave03-18-primitives.spec.ts",
+  "packages/ui/tests/browser/wave03-editor-chrome-acceptance.spec.ts",
+  "packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts",
+  "packages/ui/tests/browser/wave03-grid-successors.spec.ts",
+  "packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+  "packages/ui/tests/browser/wave03-selector-contracts.spec.ts",
+  "packages/ui/tests/browser/wave03-system-indications.spec.ts"
+]

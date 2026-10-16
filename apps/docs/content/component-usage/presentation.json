@@ -7,7 +7,8 @@
       "Add decorative startIcon or endIcon alongside the text. Use IconButton when the action has no visible text label.",
       "Keep native submit/reset behavior explicit with type and let the host form own its submission handler.",
       "Use startIcon and endIcon for optional leading and trailing decoration. Keep a visible text label: icon slots are hidden from assistive technology. Loading replaces startIcon with progress but preserves endIcon.",
-      "Use the named examples to reference a specific configuration. Native submit/reset buttons belong inside a host-owned form."
+      "Use the named examples to reference a specific configuration. Native submit/reset buttons belong inside a host-owned form.",
+      "Use a filled primary Button for the one dominant confirmation or completion action in a form/dialog, such as Save or Confirm. Use outlined or text neutral actions for adjacent alternatives and ordinary toolbar commands. SplitAction keeps its neutral outlined group, shared divider and text primary command; it does not gain filled emphasis merely because its primary callback performs persistence. Keep action prominence separate from semantic text tones."
     ],
     "related": [
       {
@@ -75,9 +76,13 @@
     "when": "Use Popover to show interactive details or a small task beside the control that opened it, such as a course summary or settings panel. It is an anchored dialog, not a list of menu commands or a hover-only description.",
     "how": [
       "Provide a Button-compatible trigger, a meaningful title and the content. Keep the trigger stable so positioning and closing can refer back to its native element.",
-      "Choose bottom start, bottom end, top start or top end placement and md or lg size. The overlay follows its trigger when the containing region scrolls.",
+      "Choose bottom start, bottom end, top start or top end placement and md, lg or content size. The overlay follows its trigger when the containing region scrolls.",
       "Use open and onOpenChange together for controlled state, or defaultOpen for an initial uncontrolled state. Keep form drafts and action callbacks outside the popover.",
-      "Place the trigger inside the intended Provider or ThemeScope; the portaled content inherits that scope. Leave keyboard dismissal and focus containment to the overlay."
+      "Place the trigger inside the intended Provider or ThemeScope; the portaled content inherits that scope. Leave keyboard dismissal and focus containment to the overlay.",
+      "Positioning flips to the opposite side when it fits. When neither side fits, the popover shifts within the visible viewport, potentially overlapping its trigger, before adding vertical scrolling. Keep essential content and actions usable when the full content is taller than the viewport.",
+      "showTitle defaults to true. Set it to false to omit the visible heading while retaining title as the accessible dialog name.",
+      "Use size=\"content\" for content with an owned intrinsic width, such as a multi-column calendar. It grows to its children up to the viewport width; the children must reflow within that bound. md retains the small maximum and lg retains its fixed wide allocation.",
+      "presentation defaults to popover. dialog centers the same native dialog; drawer fixes it to the bottom; auto uses a drawer below 40rem. Responsive presentation preserves child drafts and focus ownership because it does not remount content. Large content scrolls within the viewport."
     ],
     "related": [
       {

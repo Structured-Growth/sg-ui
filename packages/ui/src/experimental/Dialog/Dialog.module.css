@@ -18,6 +18,10 @@
   .description { color: var(--sgui-dialog-description-text); font-size: var(--sgui-label-size); }
   .body { flex: 1 1 auto; min-block-size: 0; overflow: auto; padding: var(--sgui-space4); }
   .footer { flex: none; padding: var(--sgui-space4); border-block-start: 1px solid var(--sgui-dialog-divider); display: flex; justify-content: flex-end; gap: var(--sgui-space2); }
-  @supports not (height: 100dvh) { .modal { max-block-size: calc(100vh - 2rem); } }
+  @supports not (height: 100dvh) {
+    .modal { max-block-size: calc(100vh - 2rem); }
+    .modal[data-size="xl"] { block-size: 92vh; }
+    .modal[data-size="full"] { block-size: 100vh; max-block-size: 100vh; }
+  }
   @media (forced-colors: active) { .modal { border: 1px solid CanvasText; } }
 }

@@ -1,12 +1,8 @@
 "use client";
-import { useContext, type AnchorHTMLAttributes, type ComponentType, type ReactNode, type RefAttributes } from "react";
+import { useContext, type ReactNode } from "react";
 import { NavigationContext } from "./navigationContext";
-export type SGLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & RefAttributes<HTMLAnchorElement> & { href: string; replace?: boolean };
-export type SGNavigationAdapter = {
-  pathname: string;
-  navigate: (href: string, options?: { replace?: boolean }) => void;
-  Link?: ComponentType<SGLinkProps>;
-};
+import type { SGNavigationAdapter } from "./navigation.types";
+export type { SGLinkProps, SGNavigationAdapter } from "./navigation.types";
 const defaultAdapter: SGNavigationAdapter = {
   pathname: "/",
   navigate: (href, options) => { if (typeof window !== "undefined") { if (options?.replace) window.location.replace(href); else window.location.assign(href); } },

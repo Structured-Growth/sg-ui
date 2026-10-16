@@ -10,6 +10,7 @@ import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { $createParagraphNode, $createTextNode, $getRoot, $isTextNode, $getSelection, type LexicalEditor } from "lexical";
 import { Provider } from "../../experimental/Provider/Provider";
+import { EXPERIENCE_EDITOR_THEME } from "../PageRichTextEditorSection/lexical/editorConfig";
 import { FloatingTextSelectionToolbar, type FloatingTextSelectionToolbarProps } from "./FloatingTextSelectionToolbar";
 let editor: LexicalEditor;
 let selectionRect = new DOMRect(100, 120, 90, 20);
@@ -26,7 +27,7 @@ afterEach(() => { cleanup(); selectionRect = new DOMRect(100, 120, 90, 20); });
 function Capture() { const [value] = useLexicalComposerContext(); useEffect(() => { editor = value; }, [value]); return null; }
 function mount(props: FloatingTextSelectionToolbarProps = {}) {
   const ref=createRef<HTMLDivElement>();
-  const result=render(<Provider><LexicalComposer initialConfig={{ namespace: "floating-test", onError: error => { throw error; }, editorState: () => $getRoot().append($createParagraphNode().append($createTextNode("Guide text"))) }}><Capture /><FloatingTextSelectionToolbar {...props} ref={ref} /><RichTextPlugin ErrorBoundary={LexicalErrorBoundary} contentEditable={<ContentEditable aria-label="Document" />} placeholder={null} /></LexicalComposer><button>Outside</button></Provider>);
+  const result=render(<Provider><LexicalComposer initialConfig={{ namespace: "floating-test", theme: EXPERIENCE_EDITOR_THEME, onError: error => { throw error; }, editorState: () => $getRoot().append($createParagraphNode().append($createTextNode("Guide text"))) }}><Capture /><FloatingTextSelectionToolbar {...props} ref={ref} /><RichTextPlugin ErrorBoundary={LexicalErrorBoundary} contentEditable={<ContentEditable aria-label="Document" />} placeholder={null} /></LexicalComposer><button>Outside</button></Provider>);
   return {...result,ref};
 }
 async function select() {
@@ -34,6 +35,15 @@ async function select() {
   await waitFor(() => expect(screen.getByRole("group",{name:"Selection formatting"})).toBeTruthy());
 }
 const text = () => editor.getEditorState().read(() => $getRoot().getTextContent());
+// Assert the exact rendered formatting scope without relying on serialized flags
+// or Lexical's choice of text-node boundaries. Formatting the whole paragraph
+// must fail even if the selected word is also bold.
+function renderedFormatting() {
+  const root = editor.getRootElement()!;
+  const content = (selector: string) => Array.from(root.querySelectorAll(selector), node => node.textContent).join("");
+  return { text: root.textContent, bold: content("strong, b, .editor-text-bold"), italic: content("em, i, .editor-text-italic") };
+}
+const selectedFormatting = (italic = false) => ({ text: "Guide text", bold: "Guide", italic: italic ? "Guide" : "" });
 describe("floating selection formatting", () => {
   it("hides inactive actions from keyboard and applies a pointer command to the selected text", async () => {
     const user=userEvent.setup(); const {ref}=mount({className:"host",style:{margin:2}});
@@ -41,7 +51,7 @@ describe("floating selection formatting", () => {
     expect(ref.current?.className).toContain("host"); expect(ref.current?.style.margin).toBe("2px");
     expect((screen.getByRole("button",{name:"Edit link"}) as HTMLButtonElement).disabled).toBe(true);
     await user.click(screen.getByRole("button",{name:"Bold"}));
-    await waitFor(()=>expect(JSON.stringify(editor.getEditorState().toJSON())).toContain('"format":1'));
+    await waitFor(()=>expect(renderedFormatting()).toEqual(selectedFormatting()));
     expect(text()).toBe("Guide text"); expect(screen.getByRole("button",{name:"Bold"}).getAttribute("aria-pressed")).toBe("true");
   });
   it("offers Alt F10 keyboard access, preserves selection across focus and defers Enter refocus", async () => {
@@ -50,11 +60,13 @@ describe("floating selection formatting", () => {
     const bold=screen.getByRole("button",{name:"Bold"}); expect(document.activeElement).toBe(bold);
     fireEvent.keyDown(bold,{key:"Enter",code:"Enter"}); expect(document.activeElement).toBe(bold); expect(text()).toBe("Guide text");
     fireEvent.keyUp(bold,{key:"Enter",code:"Enter"});
-    await waitFor(()=>expect(JSON.stringify(editor.getEditorState().toJSON())).toContain('"format":1'));
+    await waitFor(()=>expect(renderedFormatting()).toEqual(selectedFormatting()));
+    await waitFor(() => expect(document.activeElement).toBe(editor.getRootElement()));
     fireEvent.keyDown(editor.getRootElement()!,{key:"F10",altKey:true});
     await user.keyboard("{Tab} ");
-    await waitFor(()=>expect(JSON.stringify(editor.getEditorState().toJSON())).toContain('"format":3'));
+    await waitFor(()=>expect(renderedFormatting()).toEqual(selectedFormatting(true)));
     expect(text()).toBe("Guide text");
+    await waitFor(() => expect(document.activeElement).toBe(editor.getRootElement()));
   });
   it("restores selection for links, calls pointer preparation once and supports keyboard activation", async () => {
     const user=userEvent.setup(); const link=vi.fn(),prepare=vi.fn(); mount({onRequestLink:link,onRequestLinkMouseDown:prepare}); await select();
@@ -118,7 +130,30 @@ describe("floating selection formatting", () => {
       const bold=screen.getByRole("button",{name:"Bold"}); bold.focus();
       fireEvent.keyDown(bold,{key:"Enter",code:"Enter"}); fireEvent.keyUp(bold,{key:"Enter",code:"Enter"});
       unmount(); await act(async()=>{vi.runAllTimers();});
-      expect(JSON.stringify(editor.getEditorState().toJSON())).toContain('"format":0');
+      expect(text()).toBe("Guide text");
+      expect(editor.getEditorState().read(() => $getRoot().getAllTextNodes().every(node => !node.hasFormat("bold") && !node.hasFormat("italic")))).toBe(true);
     } finally { vi.useRealTimers(); }
   });
+});
+
+it("disconnects the selection toolbar measurement observer on unmount", async () => {
+  const instances: { targets: Element[]; disconnect: ReturnType<typeof vi.fn> }[] = [];
+  class MeasurementObserver {
+    targets: Element[] = [];
+    disconnect = vi.fn();
+    constructor() { instances.push(this); }
+    observe(target: Element) { this.targets.push(target); }
+    unobserve() {}
+  }
+  vi.stubGlobal("ResizeObserver", MeasurementObserver);
+  let dispose: (() => void) | undefined;
+  try {
+    const view = mount(); dispose = view.unmount;
+    await select();
+    const toolbar = screen.getByRole("group", { name: "Selection formatting" });
+    const measurement = instances.find(instance => instance.targets.includes(toolbar));
+    expect(measurement).toBeDefined();
+    view.unmount(); dispose = undefined;
+    expect(measurement!.disconnect).toHaveBeenCalledTimes(1);
+  } finally { dispose?.(); vi.unstubAllGlobals(); }
 });

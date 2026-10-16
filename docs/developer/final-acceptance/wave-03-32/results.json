@@ -1,0 +1,316 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-32",
+  "capturedAt": "2026-10-16T23:07:53.063971+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "workingTreeEvidence": true,
+  "summary": {
+    "complete": 0,
+    "partial": 6,
+    "blocked": 0
+  },
+  "runtime": "Node26.5.0 preparation tests/syntax only; no supported-runtime consumer matrix execution",
+  "scope": "Prepared exact installed-consumer successors; no shared source or generated output edits.",
+  "reusedEvidence": [
+    "Four prior reports/results match assignment hashes.",
+    "Coordinator Node24 library build/package import/type/packed equality receipt retained for matching 112 recorded inputs/1778 library outputs.",
+    "292 private fixture outputs and15 receipt hashes match coordinator."
+  ],
+  "checksActuallyPerformed": [
+    "python3 docs/developer/final-acceptance/wave-03-32/inspect.py",
+    "node --test docs/developer/final-acceptance/wave-03-32/consumer-artifact.test.mjs:2 pass",
+    "node --check on all six proposed scripts and run-matrix.mjs:pass",
+    "git apply --check docs/developer/final-acceptance/wave-03-32/immutable-consumers.patch:pass"
+  ],
+  "validationReceipts": [
+    "inspection.json",
+    "preparation-checks.txt",
+    "preparation-checks.json",
+    "helper-tests.txt"
+  ],
+  "patch": "immutable-consumers.patch",
+  "proposedPatchNeedsIntegration": true,
+  "standaloneExecution": "run-matrix.mjs stages proposed-file mirrors directly; no shared patch application needed for coordinator validation.",
+  "validationPlan": "validation-plan.json",
+  "limits": [
+    "No install/build/pack/browser/server started.",
+    "Preparation tests on Node26 do not establish supported Node22/24 matrix acceptance.",
+    "New consumer CSS/types proofs and matrix driver have not executed against an installed tarball.",
+    "TS5.9.3 strict with skipLibCheck only; broader TS policy remains undecided.",
+    "Retained scope hashes do not attest every concurrent working-tree source input.",
+    "No device/AT/legal/admin/remoteCI/production approval or release."
+  ],
+  "leaves": [
+    {
+      "id": "A-C-20",
+      "originalRequirement": "- [ ] A-C-20 Reconcile original `C-20`: Verify compiled CSS distribution, consumer production builds, stylesheet deduplication, and tree-shaking behavior; CSS must not be removed as a false side effect. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Added installed stylesheet-only versus root/granular/repeated/dynamic CSS equality proof; preserved existing ten-entry graph and icon pruning assertions with saved module IDs.",
+      "priorEvidence": {
+        "id": "A-C-20",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-C-20 Reconcile original `C-20`: Verify compiled CSS distribution, consumer production builds, stylesheet deduplication, and tree-shaking behavior; CSS must not be removed as a false side effect. Historical status: open.",
+        "conversationNumber": 7,
+        "report": "docs/developer/final-acceptance/wave-02-07/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-07/results.json",
+        "reportSha256": "c2c17b38a6fa8bf058828b8503f0ddad9765d376f7f23d1e8b059072fbda7401",
+        "resultsSha256": "9ff22fb352cfbea66116133129a6ddc64ffd27856ba233e93d7ed406bfc4cf00",
+        "successors": [
+          "W207-C20-B10"
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "evidence": [
+        "report.md",
+        "inspection.json",
+        "immutable-consumers.patch",
+        "proposed-files/packages/ui/scripts",
+        "run-matrix.mjs",
+        "preparation-checks.json",
+        "validation-plan.json"
+      ],
+      "checksActuallyPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-32/inspect.py",
+        "node --test docs/developer/final-acceptance/wave-03-32/consumer-artifact.test.mjs:2 pass",
+        "node --check on all six proposed scripts and run-matrix.mjs:pass",
+        "git apply --check docs/developer/final-acceptance/wave-03-32/immutable-consumers.patch:pass"
+      ],
+      "runtime": "Node26.5.0 preparation tests/syntax only; no supported-runtime consumer matrix execution",
+      "inputHashes": "inspection.json inspectedInputs/priorConsumerInputs/coordinatorComparison",
+      "artifactHashes": "artifact-hashes.json",
+      "remainingSuccessors": [
+        "W03-32-CSS: Execute frozen-candidate production builds and inspect identical single CSS asset hashes, token/class retention, isolated graphs and unused vector pruning."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeAcceptanceClosed": false
+    },
+    {
+      "id": "A-R-08",
+      "originalRequirement": "- [ ] A-R-08 Reconcile original `R-08`: Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output. Historical status: checked.",
+      "status": "partial",
+      "substantiveOutcome": "Prepared one-tarball serial independent installs for React18/19 foundation/editor Vite plus React19 Next/SSR/Flight, retaining Next output and all logs.",
+      "priorEvidence": {
+        "id": "A-R-08",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-R-08 Reconcile original `R-08`: Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output. Historical status: checked.",
+        "conversationNumber": 12,
+        "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+        "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+        "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+        "successors": [
+          "R-CONSUMER: coordinator performs one serial current-artifact validation across supported React18/19 Vite foundation/editor, React19 Flight and Next production/browser fixtures after final source build; retain manifest/source/output identity, command/runtime/engine/logs and actual packed bytes. Never rebuild dist while fixtures read it."
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "evidence": [
+        "report.md",
+        "inspection.json",
+        "immutable-consumers.patch",
+        "proposed-files/packages/ui/scripts",
+        "run-matrix.mjs",
+        "preparation-checks.json",
+        "validation-plan.json"
+      ],
+      "checksActuallyPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-32/inspect.py",
+        "node --test docs/developer/final-acceptance/wave-03-32/consumer-artifact.test.mjs:2 pass",
+        "node --check on all six proposed scripts and run-matrix.mjs:pass",
+        "git apply --check docs/developer/final-acceptance/wave-03-32/immutable-consumers.patch:pass"
+      ],
+      "runtime": "Node26.5.0 preparation tests/syntax only; no supported-runtime consumer matrix execution",
+      "inputHashes": "inspection.json inspectedInputs/priorConsumerInputs/coordinatorComparison",
+      "artifactHashes": "artifact-hashes.json",
+      "remainingSuccessors": [
+        "W03-32-MATRIX: Coordinator executes five supported-runtime consumer scopes; retain tarball, manifests/locks, installed graph, logs, SSR/Flight/production/browser results."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeAcceptanceClosed": false
+    },
+    {
+      "id": "A-R-09",
+      "originalRequirement": "- [ ] A-R-09 Reconcile original `R-09`: Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Added installed declaration hash/deny-pattern scan and exact React/types/TS receipt; retains API negative/positive compilation with TS5.9.3 strict/Bundler/react-jsx/skipLibCheck.",
+      "priorEvidence": {
+        "id": "A-R-09",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-R-09 Reconcile original `R-09`: Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape. Historical status: open.",
+        "conversationNumber": 12,
+        "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+        "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+        "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+        "successors": [
+          "R-TYPES: decide explicit supported TS versions/options, retain current-artifact installed-package positive/negative API compilation on that range, and update contract snapshot only for changed declarations. Preserve optional P03-GUARD-01 rejection improvement without representing it as a known current leak."
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "evidence": [
+        "report.md",
+        "inspection.json",
+        "immutable-consumers.patch",
+        "proposed-files/packages/ui/scripts",
+        "run-matrix.mjs",
+        "preparation-checks.json",
+        "validation-plan.json"
+      ],
+      "checksActuallyPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-32/inspect.py",
+        "node --test docs/developer/final-acceptance/wave-03-32/consumer-artifact.test.mjs:2 pass",
+        "node --check on all six proposed scripts and run-matrix.mjs:pass",
+        "git apply --check docs/developer/final-acceptance/wave-03-32/immutable-consumers.patch:pass"
+      ],
+      "runtime": "Node26.5.0 preparation tests/syntax only; no supported-runtime consumer matrix execution",
+      "inputHashes": "inspection.json inspectedInputs/priorConsumerInputs/coordinatorComparison",
+      "artifactHashes": "artifact-hashes.json",
+      "remainingSuccessors": [
+        "W03-32-TYPES: Execute pinned installed API matrix; explicitly settle additional supported TS versions/options and validate chosen range. No broader range or skipLibCheck=false acceptance inferred."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeAcceptanceClosed": false
+    },
+    {
+      "id": "A-X-17",
+      "originalRequirement": "- [ ] A-X-17 Reconcile original `X-17`: Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Prepared real React18.3.1/19.2.3 installed fixtures sharing one tarball identity with exact matching runtime/type versions retained.",
+      "priorEvidence": {
+        "id": "A-X-17",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-X-17 Reconcile original `X-17`: Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version. Historical status: open.",
+        "conversationNumber": 10,
+        "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+        "reportSha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+        "resultsSha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+        "successors": [
+          {
+            "id": "W02-10-X17",
+            "ownerOrPrerequisite": "Coordinator frozen package window after changed inputs settle",
+            "deliverable": "Reconcile current source/output against retained React18/19 consumer manifests; execute only affected consumer scopes with immutable tarball and serialized output ownership.",
+            "acceptanceEvidence": "Actual installed tarball SHA, React/type/TS versions, API negative/positive results and affected runtime/SSR/native hydration result with exact source/output IDs.",
+            "execution": "unrun"
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "evidence": [
+        "report.md",
+        "inspection.json",
+        "immutable-consumers.patch",
+        "proposed-files/packages/ui/scripts",
+        "run-matrix.mjs",
+        "preparation-checks.json",
+        "validation-plan.json"
+      ],
+      "checksActuallyPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-32/inspect.py",
+        "node --test docs/developer/final-acceptance/wave-03-32/consumer-artifact.test.mjs:2 pass",
+        "node --check on all six proposed scripts and run-matrix.mjs:pass",
+        "git apply --check docs/developer/final-acceptance/wave-03-32/immutable-consumers.patch:pass"
+      ],
+      "runtime": "Node26.5.0 preparation tests/syntax only; no supported-runtime consumer matrix execution",
+      "inputHashes": "inspection.json inspectedInputs/priorConsumerInputs/coordinatorComparison",
+      "artifactHashes": "artifact-hashes.json",
+      "remainingSuccessors": [
+        "W03-32-REACT: Execute both versions SSR/hydration/behavior on Node22.12.0/24 with chromium/firefox/webkit and no retries."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeAcceptanceClosed": false
+    },
+    {
+      "id": "A-X-20",
+      "originalRequirement": "- [ ] A-X-20 Reconcile original `X-20`: Test API typing and package consumers, including generics, refs, callback payloads, CSS imports, isolated subpaths, and declaration dependency leakage. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Retains existing generic/ref/callback/expected-negative fixture and adds per-subpath module graph/CSS plus installed declaration receipts.",
+      "priorEvidence": {
+        "id": "A-X-20",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-X-20 Reconcile original `X-20`: Test API typing and package consumers, including generics, refs, callback payloads, CSS imports, isolated subpaths, and declaration dependency leakage. Historical status: open.",
+        "conversationNumber": 10,
+        "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+        "reportSha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+        "resultsSha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+        "successors": [
+          {
+            "id": "W02-10-X20",
+            "ownerOrPrerequisite": "Coordinator immutable new package snapshot only for changed inputs",
+            "deliverable": "After fixes settle, reconcile source/declaration changes and regenerate only affected package/API evidence if required. Keep unchanged grid API fixture evidence; include any new public props/types in the actual tarball fixture.",
+            "acceptanceEvidence": "Installed tarball hash, generic/ref/payload negative assertions, CSS emission, isolated module graphs and declaration leak result; no source-alias-only typecheck passed off as consumer proof.",
+            "execution": "unrun"
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "evidence": [
+        "report.md",
+        "inspection.json",
+        "immutable-consumers.patch",
+        "proposed-files/packages/ui/scripts",
+        "run-matrix.mjs",
+        "preparation-checks.json",
+        "validation-plan.json"
+      ],
+      "checksActuallyPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-32/inspect.py",
+        "node --test docs/developer/final-acceptance/wave-03-32/consumer-artifact.test.mjs:2 pass",
+        "node --check on all six proposed scripts and run-matrix.mjs:pass",
+        "git apply --check docs/developer/final-acceptance/wave-03-32/immutable-consumers.patch:pass"
+      ],
+      "runtime": "Node26.5.0 preparation tests/syntax only; no supported-runtime consumer matrix execution",
+      "inputHashes": "inspection.json inspectedInputs/priorConsumerInputs/coordinatorComparison",
+      "artifactHashes": "artifact-hashes.json",
+      "remainingSuccessors": [
+        "W03-32-API: Execute installed candidate generic/ref/payload/negative API cases, CSS proofs and isolated graph/declaration checks; update only affected contracts if source changes."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeAcceptanceClosed": false
+    },
+    {
+      "id": "A-Z-09",
+      "originalRequirement": "- [ ] A-Z-09 Reconcile original `Z-09`: Verify a clean consumer can install and use core, grid, editor and date components without installing any retired package or styling runtime. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Prepared independent core/grid/date/editor installs with full dependency graph capture and nested retired dependency rejection.",
+      "priorEvidence": {
+        "id": "A-Z-09",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-Z-09 Reconcile original `Z-09`: Verify a clean consumer can install and use core, grid, editor and date components without installing any retired package or styling runtime. Historical status: open.",
+        "conversationNumber": 14,
+        "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+        "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+        "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+        "successors": [
+          "coordinator executes only affected clean packed consumers\nagainst the frozen candidate, preserving package hash, React/runtime/bundler\nversions, installed dependency graph and result logs. Full production supported-\nenvironment gates remain required independently of targeted development work."
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "evidence": [
+        "report.md",
+        "inspection.json",
+        "immutable-consumers.patch",
+        "proposed-files/packages/ui/scripts",
+        "run-matrix.mjs",
+        "preparation-checks.json",
+        "validation-plan.json"
+      ],
+      "checksActuallyPerformed": [
+        "python3 docs/developer/final-acceptance/wave-03-32/inspect.py",
+        "node --test docs/developer/final-acceptance/wave-03-32/consumer-artifact.test.mjs:2 pass",
+        "node --check on all six proposed scripts and run-matrix.mjs:pass",
+        "git apply --check docs/developer/final-acceptance/wave-03-32/immutable-consumers.patch:pass"
+      ],
+      "runtime": "Node26.5.0 preparation tests/syntax only; no supported-runtime consumer matrix execution",
+      "inputHashes": "inspection.json inspectedInputs/priorConsumerInputs/coordinatorComparison",
+      "artifactHashes": "artifact-hashes.json",
+      "remainingSuccessors": [
+        "W03-32-CLEAN: Execute actual core/grid/date/editor consumer builds/SSR/hydration and confirm installed graph has no retired foundation/styling runtime."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "runtimeAcceptanceClosed": false
+    }
+  ]
+}

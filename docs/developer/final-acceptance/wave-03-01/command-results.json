@@ -1,0 +1,32 @@
+[
+  {
+    "command": "node docs/developer/final-acceptance/wave-03-01/normalize.mjs",
+    "exitCode": 0,
+    "stdout": "{\"contracts\":469,\"candidates\":678,\"counts\":{\"derived-fallback-requires-dataflow\":431,\"public-composed-default\":15,\"implementation-parameter-default\":25,\"public-parameter-default\":194,\"local-binding-default\":5,\"superseded-expression\":3,\"shared-icon-default\":5},\"sourceDeltas\":11,\"declarationDeltas\":4,\"runtime\":\"v26.5.0\"}\n",
+    "stderr": ""
+  },
+  {
+    "command": "python3 docs/developer/final-acceptance/wave-03-01/map-breaking.py",
+    "exitCode": 0,
+    "stdout": "19 concrete migration/release dispositions; 4 declaration deltas\n",
+    "stderr": ""
+  },
+  {
+    "command": "python3 docs/developer/final-acceptance/wave-03-01/prepare-patch.py",
+    "exitCode": 0,
+    "stdout": "Prepared 5 documentation files; patch unapplied.\n",
+    "stderr": ""
+  },
+  {
+    "command": "node docs/developer/final-acceptance/wave-03-01/check-contracts.cjs",
+    "exitCode": 0,
+    "stdout": "{\"runtime\":\"v26.5.0\",\"diagnostics\":[],\"negativeMarkers\":6,\"rejections\":6}\n",
+    "stderr": ""
+  },
+  {
+    "command": "python3 docs/developer/final-acceptance/wave-03-01/check-evidence.py",
+    "exitCode": 0,
+    "stdout": "PASS: 678 candidate dispositions, 469 contract IDs/routes, 370 coordinator declaration hashes, 15 retained receipts, 6 rejected contracts, exact guide snippet, unapplied patch.\n",
+    "stderr": ""
+  }
+]

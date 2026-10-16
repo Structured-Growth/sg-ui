@@ -1,0 +1,113 @@
+{
+  "status": "pass",
+  "scope": "Read-only evidence integrity, normalization shape, exact guide snippet equality and unapplied patch applicability. No runtime/native assertion.",
+  "candidates": 678,
+  "contracts": 469,
+  "comparedDeclarations": 370,
+  "coordinatorReceiptChecks": {
+    "browsers-full-results.json": {
+      "expected": "d1edf643d50878a3d9a2d02c33c52381fd2130cfa6bdf3315db719d2ce06a420",
+      "current": "d1edf643d50878a3d9a2d02c33c52381fd2130cfa6bdf3315db719d2ce06a420"
+    },
+    "browsers-full.txt": {
+      "expected": "7e10ecbeda46f49b1df5c4368acf5efb1c12b2dfeec06d8ea85289a30f4b62fe",
+      "current": "7e10ecbeda46f49b1df5c4368acf5efb1c12b2dfeec06d8ea85289a30f4b62fe"
+    },
+    "composed-units.txt": {
+      "expected": "182e765e2bc1a24b3f15dba5cd6d7a2d21f2eea20fe5abf95be0c9f9c64c80d9",
+      "current": "182e765e2bc1a24b3f15dba5cd6d7a2d21f2eea20fe5abf95be0c9f9c64c80d9"
+    },
+    "datetime-chromium.txt": {
+      "expected": "c3a1b818053ea01e70f910974402c160a3e2dd39a0f4c6f5eb47272989dfe5f4",
+      "current": "c3a1b818053ea01e70f910974402c160a3e2dd39a0f4c6f5eb47272989dfe5f4"
+    },
+    "datetime-driver-context.md": {
+      "expected": "fb8fa2de22ad49a25c162aa541559fcb9f16856d3fe96071aa1ac63c16f79605",
+      "current": "fb8fa2de22ad49a25c162aa541559fcb9f16856d3fe96071aa1ac63c16f79605"
+    },
+    "datetime-driver-failure.txt": {
+      "expected": "4e6f7875dcc2972ac4786533a5369512d2a952302a9e04ae84a281f087f3525e",
+      "current": "4e6f7875dcc2972ac4786533a5369512d2a952302a9e04ae84a281f087f3525e"
+    },
+    "datetime-firefox-webkit-results.json": {
+      "expected": "263b6251b20b2e2e08a8fd93a704817bea2dfa90476046eafcc6776c5d21ad93",
+      "current": "263b6251b20b2e2e08a8fd93a704817bea2dfa90476046eafcc6776c5d21ad93"
+    },
+    "datetime-firefox-webkit.txt": {
+      "expected": "2c7bfc86eec7f94be104880895bb325b05dde033f87a646f2e269db5687afd65",
+      "current": "2c7bfc86eec7f94be104880895bb325b05dde033f87a646f2e269db5687afd65"
+    },
+    "docs-build.txt": {
+      "expected": "1a2801708b449e517354065c57448a22d911fa0491b882ae5973b419bc030063",
+      "current": "1a2801708b449e517354065c57448a22d911fa0491b882ae5973b419bc030063"
+    },
+    "foundations.txt": {
+      "expected": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647",
+      "current": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647"
+    },
+    "library-build.txt": {
+      "expected": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+      "current": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a"
+    },
+    "library-first-type-failure.txt": {
+      "expected": "fd16cc6c97ee464087412722926d0ece2c1fb8d3ff9f6bb1d01227f3965c5e2a",
+      "current": "fd16cc6c97ee464087412722926d0ece2c1fb8d3ff9f6bb1d01227f3965c5e2a"
+    },
+    "native-fixture-build.txt": {
+      "expected": "8ca656c8b6e4d98c38cbb433643cf361df64f8496bbe64d16739b83acbfbf4cc",
+      "current": "8ca656c8b6e4d98c38cbb433643cf361df64f8496bbe64d16739b83acbfbf4cc"
+    },
+    "package.txt": {
+      "expected": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103",
+      "current": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103"
+    },
+    "supplemental-reconciliation.json": {
+      "expected": "cd1442476bdd25f5a798a676d19baf87055abe1b64c85d9347c5d1403dc29048",
+      "current": "cd1442476bdd25f5a798a676d19baf87055abe1b64c85d9347c5d1403dc29048"
+    }
+  },
+  "patchCheck": {
+    "command": "git apply --check docs/developer/final-acceptance/wave-03-01/consumer-guide.patch",
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "compilerExpectedRejections": [
+    {
+      "code": 2353,
+      "file": "docs/developer/final-acceptance/wave-03-01/consumer-contracts.tsx",
+      "line": 33,
+      "message": "Object literal may only specify known properties, and 'onClick' does not exist in type 'ButtonProps'."
+    },
+    {
+      "code": 2322,
+      "file": "docs/developer/final-acceptance/wave-03-01/consumer-contracts.tsx",
+      "line": 35,
+      "message": "Type '\"contained\"' is not assignable to type '\"text\" | \"outlined\" | \"filled\" | undefined'."
+    },
+    {
+      "code": 2322,
+      "file": "docs/developer/final-acceptance/wave-03-01/consumer-contracts.tsx",
+      "line": 37,
+      "message": "Type '\"sm\"' is not assignable to type '\"md\" | \"lg\" | \"content\" | undefined'."
+    },
+    {
+      "code": 2322,
+      "file": "docs/developer/final-acceptance/wave-03-01/consumer-contracts.tsx",
+      "line": 39,
+      "message": "Type '\"backdropClick\"' is not assignable to type 'DialogDismissReason'."
+    },
+    {
+      "code": 2322,
+      "file": "docs/developer/final-acceptance/wave-03-01/consumer-contracts.tsx",
+      "line": 41,
+      "message": "Type '(_event: unknown, _reason: string) => void' is not assignable to type '(reason: DialogDismissReason) => void'.\n  Target signature provides too few arguments. Expected 2 or more, but got 1."
+    },
+    {
+      "code": 2322,
+      "file": "docs/developer/final-acceptance/wave-03-01/consumer-contracts.tsx",
+      "line": 43,
+      "message": "Type '(row: { id: number; name: string; }) => number' is not assignable to type '(row: { id: number; name: string; }) => string'.\n  Type 'number' is not assignable to type 'string'."
+    }
+  ]
+}

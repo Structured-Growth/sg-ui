@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-16",
+  "status": "prepared-not-executed",
+  "integrationRequired": true,
+  "patch": "routing-probes.patch",
+  "paths": [
+    "apps/docs/native-fixtures/scenarios/adapters/adapters.fixture.tsx",
+    "packages/ui/tests/browser/navigation-composed.spec.ts",
+    "docs/developer/react-aria-host-adapter-acceptance.md"
+  ],
+  "preconditions": [
+    "Coordinator reviews/applies unified patch; no patch applied by this chat.",
+    "Use supported Node 22.12+ or Node 24 and the existing validation lease; never reclaim a foreign owner.",
+    "Build one immutable docs-owned fixture host after integration; keep user server 3000 untouched.",
+    "Snapshot integrated source/build hashes before/after native runs and retain Playwright JSON, traces and attachments."
+  ],
+  "commandsAfterIntegration": [
+    {
+      "cwd": ".",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-16/routing-probes.patch",
+      "purpose": "Recheck context before coordinator applies."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec node scripts/build-browser-docs.mjs",
+      "purpose": "Coordinator fixture build only; no library runtime changed by patch."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec tsc --noEmit -p tests/browser/tsconfig.json",
+      "purpose": "Native spec typecheck."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/navigation-composed.spec.ts",
+      "purpose": "6 focused new cases, 18 planned executions across Chromium/Firefox/WebKit, retries zero."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/batch01-adapters.spec.ts --grep '^(host adapter preserves native navigation|custom host router Link)'",
+      "purpose": "2 existing adapter cases per engine after extending their fixture; preserve old assertions."
+    }
+  ],
+  "expectedAssertions": {
+    "composed": [
+      "Pointer/Enter routes from Breadcrumbs and SideNavigation each call navigate once.",
+      "SideNavigation selection notification once; selected aria-current follows accepted pathname.",
+      "React Aria Menu relative href requests one replace route and one item notification; disabled item remains disabled.",
+      "Host pathname replacement requests no route, retains anchor DOM identity, forwards focus through native ref."
+    ],
+    "ordering": [
+      "Consumer sees unprevented event before navigate, ancestor bubble sees prevented event.",
+      "Consumer cancellation emits no navigate in either adapter mode for pointer and Enter."
+    ],
+    "native": [
+      "ControlOrMeta and _blank open actual native pages with expected hashes and no host route.",
+      "Relative same-origin named download passes through custom Link and saves exact bytes SGUI composed host.",
+      "download=false routes exactly once; explicit external hash follows native navigation.",
+      "Retain raw popup URLs, saved file, download failure and filename plus console/pageerror receipts."
+    ]
+  },
+  "reuse": [
+    "Historical three-engine exact-byte empty/named/boolean transfer receipt (CI 37560065588) retains its original head and host; do not rerun it as a generic transfer audit.",
+    "36 parallel-13 scoped inputs unchanged; retained units remain dated evidence.",
+    "ExperiencePageNavigator 28-file saved runtime closure unchanged: retain F-C10/T-C10/V-C10 authoring-list evidence, without calling it previous/next routing proof."
+  ],
+  "packedConsumer": "No new runtime/API/dependency surface; no new packed-consumer run requested for this fixture/spec/docs-only patch.",
+  "ownerDecision": {
+    "leaf": "A-M-10",
+    "required": "Record explicit scope disposition of previous/next boundaries and link semantics, or supply a separately approved adjacent navigation API. Existing reorder boundaries cannot satisfy adjacent route navigation.",
+    "implementationUntilDecision": "Keep current public authoring-list API; no invented previous/next/href props."
+  },
+  "limits": [
+    "No native cases executed in this chat.",
+    "TypeScript overlay passed on Node26.5.0/TypeScript5.9.3; this is not a supported-runtime/native run.",
+    "No checklist/count or release changes."
+  ]
+}

@@ -24,3 +24,16 @@ export const Independent: Story = { render: () => {
 } };
 
 export const ExplicitPortalDirections: Story = { render: () => <SelectorDirectionStory kind="combo" /> };
+
+
+/** Private acceptance host: local filtering, duplicate labels and native reset. */
+export const NativeContracts: Story = { render: () => { const [request, setRequest] = useState<string | null>(null); return <form aria-label="Category contract">
+ <button type="button">Before category</button>
+ <ComboBox label="Identity category" name="identity" description="Search stable category IDs" defaultValue="01" options={[
+  { id: "01", label: "Same" }, { id: "blocked", label: "Unavailable", disabled: true },
+  { id: "1", label: "Same" }, { id: "z", label: "Zulu" },
+ ]} />
+ <ComboBox label="Host category" name="host" value={null} onValueChange={setRequest} options={[{ id: "z", label: "Zulu" }]} />
+ <button type="reset">Reset category</button>
+ <output aria-label="Category request">{request}</output>
+</form>; } };

@@ -1,0 +1,224 @@
+{
+  "runtime": "v26.5.0",
+  "method": "Static React SSR fixture from current compiled public exports; generated only, no browser executed",
+  "count": 96,
+  "names": [
+    "AccessTimeFilledIcon",
+    "AccountCircleIcon",
+    "AddIcon",
+    "ApartmentIcon",
+    "ArrowDropDownIcon",
+    "ArrowForwardIcon",
+    "AssignmentTurnedInIcon",
+    "AutoStoriesIcon",
+    "BookIcon",
+    "BrushIcon",
+    "BuildIcon",
+    "BusinessCenterIcon",
+    "CachedIcon",
+    "CalendarTodayIcon",
+    "CheckIcon",
+    "ChevronRightIcon",
+    "CircleIcon",
+    "ClassIcon",
+    "CloseIcon",
+    "CodeIcon",
+    "ComputerIcon",
+    "ContentCopyIcon",
+    "CorporateFareIcon",
+    "DashboardIcon",
+    "DeleteOutlineIcon",
+    "DescriptionIcon",
+    "DescriptionOutlinedIcon",
+    "DnsIcon",
+    "DragIndicatorIcon",
+    "EditIcon",
+    "EventIcon",
+    "ExpandLessIcon",
+    "ExpandMoreIcon",
+    "ExploreIcon",
+    "FactCheckOutlinedIcon",
+    "FilterListIcon",
+    "FontDownloadIcon",
+    "FormatAlignCenterIcon",
+    "FormatAlignJustifyIcon",
+    "FormatAlignLeftIcon",
+    "FormatAlignRightIcon",
+    "FormatBoldIcon",
+    "FormatClearIcon",
+    "FormatColorFillIcon",
+    "FormatColorTextIcon",
+    "FormatIndentDecreaseIcon",
+    "FormatIndentIncreaseIcon",
+    "FormatItalicIcon",
+    "FormatListBulletedIcon",
+    "FormatListNumberedIcon",
+    "FormatSizeIcon",
+    "FormatStrikethroughIcon",
+    "FormatUnderlinedIcon",
+    "GroupIcon",
+    "HighlightIcon",
+    "HorizontalRuleIcon",
+    "ImageIcon",
+    "KeyboardArrowDownIcon",
+    "KeyboardArrowLeftIcon",
+    "LinkIcon",
+    "LockIcon",
+    "LockResetIcon",
+    "LogoutIcon",
+    "ManageAccountsIcon",
+    "MenuBookIcon",
+    "MenuBookOutlinedIcon",
+    "MoreHorizIcon",
+    "MoreVertIcon",
+    "PaidIcon",
+    "PeopleIcon",
+    "PersonAddIcon",
+    "PersonIcon",
+    "PhotoCameraBackIcon",
+    "QuizOutlinedIcon",
+    "RedoIcon",
+    "RemoveIcon",
+    "SchoolIcon",
+    "ScienceOutlinedIcon",
+    "SearchIcon",
+    "SortIcon",
+    "StarIcon",
+    "SubscriptIcon",
+    "SuperscriptIcon",
+    "TaskAltIcon",
+    "TerminalIcon",
+    "TranslateIcon",
+    "TuneIcon",
+    "UndoIcon",
+    "UploadFileIcon",
+    "ViewColumnIcon",
+    "ViewListIcon",
+    "ViewWeekIcon",
+    "VisibilityOffIcon",
+    "VpnKeyIcon",
+    "WindowIcon",
+    "WorkOutlineOutlinedIcon"
+  ],
+  "mirrored": [
+    "ArrowForwardIcon",
+    "ChevronRightIcon",
+    "FormatIndentDecreaseIcon",
+    "FormatIndentIncreaseIcon",
+    "KeyboardArrowLeftIcon",
+    "LogoutIcon",
+    "RedoIcon",
+    "UndoIcon"
+  ],
+  "matrices": 12,
+  "svgCount": 1225,
+  "themeCases": [
+    {
+      "identity": "none",
+      "theme": "light",
+      "contrast": "standard"
+    },
+    {
+      "identity": "none",
+      "theme": "light",
+      "contrast": "increased"
+    },
+    {
+      "identity": "none",
+      "theme": "dark",
+      "contrast": "standard"
+    },
+    {
+      "identity": "none",
+      "theme": "dark",
+      "contrast": "increased"
+    },
+    {
+      "identity": "material",
+      "theme": "light",
+      "contrast": "standard"
+    },
+    {
+      "identity": "material",
+      "theme": "light",
+      "contrast": "increased"
+    },
+    {
+      "identity": "material",
+      "theme": "dark",
+      "contrast": "standard"
+    },
+    {
+      "identity": "material",
+      "theme": "dark",
+      "contrast": "increased"
+    },
+    {
+      "identity": "apple",
+      "theme": "light",
+      "contrast": "standard"
+    },
+    {
+      "identity": "apple",
+      "theme": "light",
+      "contrast": "increased"
+    },
+    {
+      "identity": "apple",
+      "theme": "dark",
+      "contrast": "standard"
+    },
+    {
+      "identity": "apple",
+      "theme": "dark",
+      "contrast": "increased"
+    },
+    {
+      "identity": "editorial",
+      "theme": "light",
+      "contrast": "standard"
+    },
+    {
+      "identity": "editorial",
+      "theme": "light",
+      "contrast": "increased"
+    },
+    {
+      "identity": "editorial",
+      "theme": "dark",
+      "contrast": "standard"
+    },
+    {
+      "identity": "editorial",
+      "theme": "dark",
+      "contrast": "increased"
+    },
+    {
+      "identity": "structured-growth",
+      "theme": "light",
+      "contrast": "standard"
+    },
+    {
+      "identity": "structured-growth",
+      "theme": "light",
+      "contrast": "increased"
+    },
+    {
+      "identity": "structured-growth",
+      "theme": "dark",
+      "contrast": "standard"
+    },
+    {
+      "identity": "structured-growth",
+      "theme": "dark",
+      "contrast": "increased"
+    },
+    {
+      "identity": "none",
+      "theme": "light",
+      "contrast": "increased",
+      "forced": true
+    }
+  ],
+  "sha256": "371fd61f6d10f5df894be61f1d76f7d8e87869a6806ad54d9bd07fd948d0b32a"
+}

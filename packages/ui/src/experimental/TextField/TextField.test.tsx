@@ -151,3 +151,14 @@ it("keeps reassociated controlled values and native edit callbacks host-owned", 
   expect(input.value).toBe("Host"); expect(change).not.toHaveBeenCalled();
   await user.type(input, "X"); expect(change).toHaveBeenLastCalledWith("HostX"); expect(input.value).toBe("Host");
 });
+
+it("keeps placeholder, native edits and reset with decorative icons outside the accessible name", async () => {
+ const user=userEvent.setup(),change=vi.fn();
+ render(<form data-testid="icons"><TextField label="Search courses" placeholder="Find a course" name="query" startIcon={<svg role="img" aria-label="Leading decoration"/>} endIcon={<svg role="img" aria-label="Trailing decoration"/>} onValueChange={change}/><button type="reset">Reset</button></form>);
+ const input=screen.getByRole("textbox",{name:"Search courses"}) as HTMLInputElement;
+ expect(input.placeholder).toBe("Find a course");expect(screen.queryByRole("img")).toBeNull();
+ await user.type(input,"Design");expect(change).toHaveBeenLastCalledWith("Design");
+ expect(new FormData(screen.getByTestId("icons") as HTMLFormElement).get("query")).toBe("Design");
+ await user.tab();expect(document.activeElement).toBe(screen.getByRole("button",{name:"Reset"}));
+ await user.click(screen.getByRole("button",{name:"Reset"}));await waitFor(()=>expect(input.value).toBe(""));
+});

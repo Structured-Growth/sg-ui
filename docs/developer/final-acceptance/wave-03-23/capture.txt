@@ -1,0 +1,1 @@
+{"inputs": 96, "priorCompared": 94, "priorChanged": [], "coordinatorCompared": 0, "coordinatorChanged": [], "targets": 4}

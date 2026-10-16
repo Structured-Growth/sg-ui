@@ -1,0 +1,2350 @@
+{
+  "capturedAt": "2026-10-16T22:35:59.312Z",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "inputs": [
+    {
+      "file": "packages/ui/src/i18n/index.tsx",
+      "sha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "fa02": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/i18n/index.test.tsx",
+      "sha256": "46c42efbff24a08f2bb2d99eda6c250090bf0437e60010585f30f0c010b04ec1",
+      "fa02": "46c42efbff24a08f2bb2d99eda6c250090bf0437e60010585f30f0c010b04ec1",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/i18n/icu.ts",
+      "sha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "fa02": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/i18n/icu.test.ts",
+      "sha256": "5fa50058428933c231d9ef21632dd06c1e7a945f61d22b478685c08abc4919fe",
+      "fa02": "5fa50058428933c231d9ef21632dd06c1e7a945f61d22b478685c08abc4919fe",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/i18n/ICUFormatting.next100-regression.test.tsx",
+      "sha256": "9e42efa51fcaed8683b90ed404f41c345599282e88209b099d1b0acacb462585",
+      "fa02": "9e42efa51fcaed8683b90ed404f41c345599282e88209b099d1b0acacb462585",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Provider/Provider.tsx",
+      "sha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "fa02": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Provider/Provider.test.tsx",
+      "sha256": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df",
+      "fa02": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/foundation/ThemeScope.tsx",
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "fa02": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/foundation/ThemeScope.test.tsx",
+      "sha256": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f",
+      "fa02": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "sha256": "f50829dbb7f1ce7942b87a7ffd1102c9721a3686d955b786731b944207ee0947",
+      "fa02": "f50829dbb7f1ce7942b87a7ffd1102c9721a3686d955b786731b944207ee0947",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx",
+      "sha256": "7522eb8f6b20ebbd4a5ba0c4c1f95a9a5312c268499e52ba9da0866c8e2b35ce",
+      "fa02": "7522eb8f6b20ebbd4a5ba0c4c1f95a9a5312c268499e52ba9da0866c8e2b35ce",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/src/utils/formatDueDateLabel.ts",
+      "sha256": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "fa02": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/i18n/Translations.fixture.tsx",
+      "sha256": "99f58b1ae3db393b5549a321321672a0197258661a24fe9c5b6b1431fa21fe95",
+      "fa02": "99f58b1ae3db393b5549a321321672a0197258661a24fe9c5b6b1431fa21fe95",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/vitest.config.ts",
+      "sha256": "dc98d777c10fc8a9a56d4fac1fe083d5080a225d03b17116b79526361d764142",
+      "fa02": "dc98d777c10fc8a9a56d4fac1fe083d5080a225d03b17116b79526361d764142",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/scripts/vitest.setup.ts",
+      "sha256": "934423f290e0c24449113d75fd4afee4d3039df2482c13ced64b6262f5e9112e",
+      "fa02": "934423f290e0c24449113d75fd4afee4d3039df2482c13ced64b6262f5e9112e",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "fa02": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "fa02": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "unchangedFromFA02": true
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-original-check.txt",
+      "sha256": "1a3e5118eb2441e0b68b05063f42d2f0144bc4a5455e58c104560e735ff9f8bc",
+      "fa02": null,
+      "unchangedFromFA02": false
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-library-input-delta.json",
+      "sha256": "7083b23a5ff0ad7f2912798fa943bb7b87ece435df620048a75727962260310d",
+      "fa02": null,
+      "unchangedFromFA02": false
+    },
+    {
+      "file": "docs/developer/final-acceptance/fa04-fixtures.txt",
+      "sha256": "c4c855583016f98324a9518417d4e3465d9ac7835979f38c3df58329b937cf74",
+      "fa02": null,
+      "unchangedFromFA02": false
+    }
+  ],
+  "formatter": {
+    "file": "packages/ui/dist/i18n/icu.js",
+    "sha256": "e3f3a7f7ab109d64125feeda92d44c685c7a1dfac8e7666f2f654854240b129f",
+    "fa01": "e3f3a7f7ab109d64125feeda92d44c685c7a1dfac8e7666f2f654854240b129f",
+    "unchangedFromFA01": true
+  },
+  "literalDefaults": [
+    {
+      "file": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "line": 52,
+      "key": "common.ui.documentActions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "line": 35,
+      "key": "common.ui.editor.textStyle",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "line": 37,
+      "key": "common.ui.editor.lowercase",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "line": 38,
+      "key": "common.ui.editor.uppercase",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "line": 39,
+      "key": "common.ui.editor.capitalize",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "line": 40,
+      "key": "common.ui.editor.strikethrough",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "line": 41,
+      "key": "common.ui.editor.subscript",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "line": 42,
+      "key": "common.ui.editor.superscript",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "line": 43,
+      "key": "common.ui.editor.highlight",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "line": 44,
+      "key": "common.ui.editor.clearFormatting",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "line": 27,
+      "key": "common.ui.toolbar.selectRows",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "line": 28,
+      "key": "common.ui.toolbar.selectionOptions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "line": 82,
+      "key": "common.ui.toolbar.selected",
+      "variables": [
+        "count"
+      ],
+      "valuesKeys": [
+        "count"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx",
+      "line": 65,
+      "key": "common.ui.panelNavigation",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx",
+      "line": 79,
+      "key": "common.ui.closePanel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "line": 54,
+      "key": "common.ui.editor.outdent",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "line": 55,
+      "key": "common.ui.editor.indent",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "line": 57,
+      "key": "common.ui.editor.alignment",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.tsx",
+      "line": 18,
+      "key": "common.ui.progress",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 49,
+      "key": "experience.pages.editName",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 60,
+      "key": "experience.pages.title",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 62,
+      "key": "common.ui.add",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 67,
+      "key": "experience.pages.actions",
+      "variables": [
+        "title"
+      ],
+      "valuesKeys": [
+        "title"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 82,
+      "key": "experience.pages.position",
+      "variables": [
+        "number"
+      ],
+      "valuesKeys": [
+        "number"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 83,
+      "key": "experience.pages.active",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 89,
+      "key": "common.ui.remove",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 90,
+      "key": "experience.pages.moveUp",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 91,
+      "key": "experience.pages.moveDown",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 106,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 107,
+      "key": "common.ui.save",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "line": 109,
+      "key": "experience.pages.name",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "line": 45,
+      "key": "common.ui.editor.backgroundColor",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "line": 46,
+      "key": "common.ui.editor.textColor",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "line": 90,
+      "key": "common.ui.editor.hexColor",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "line": 92,
+      "key": "common.ui.editor.invalidHexColor",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "line": 95,
+      "key": "common.ui.editor.themeColors",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "line": 100,
+      "key": "common.ui.editor.customColor",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "line": 105,
+      "key": "common.ui.clear",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "line": 106,
+      "key": "common.ui.reset",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "line": 89,
+      "key": "common.ui.documentTitle",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "line": 93,
+      "key": "common.ui.titleSaveFailed",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "line": 94,
+      "key": "common.ui.savingTitle",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "line": 95,
+      "key": "common.ui.untitledDocument",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "line": 97,
+      "key": "common.ui.editTitle",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "line": 31,
+      "key": "common.ui.headerSort.column",
+      "variables": [
+        "column"
+      ],
+      "valuesKeys": [
+        "column"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "line": 38,
+      "key": "common.ui.headerSort.ascending",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "line": 39,
+      "key": "common.ui.headerSort.descending",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "line": 40,
+      "key": "common.ui.headerSort.clear",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "line": 74,
+      "key": "common.ui.grid.retry",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "line": 102,
+      "key": "common.ui.grid.editSectionTitle",
+      "variables": [
+        "section"
+      ],
+      "valuesKeys": [
+        "section"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 232,
+      "key": "common.ui.grid.reorderRequested",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 377,
+      "key": "common.ui.grid.selection",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 378,
+      "key": "common.ui.selectPage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 380,
+      "key": "common.ui.grid.selectionActions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 381,
+      "key": "common.ui.grid.selectionActions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 382,
+      "key": "common.ui.selectPage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 383,
+      "key": "common.ui.selectNone",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 386,
+      "key": "common.ui.grid.reorder",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 386,
+      "key": "common.ui.grid.reorder",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 396,
+      "key": "common.ui.resizeColumn",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 406,
+      "key": "common.ui.selectRow",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 410,
+      "key": "common.ui.dragRow",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 412,
+      "key": "common.ui.moveUp",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "line": 415,
+      "key": "common.ui.moveDown",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "line": 110,
+      "key": "common.ui.common.copy",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "line": 113,
+      "key": "common.ui.grid.copySuccess",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "line": 114,
+      "key": "common.ui.grid.copyError",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "line": 126,
+      "key": "common.ui.grid.namedRowActions",
+      "variables": [
+        "row"
+      ],
+      "valuesKeys": [
+        "row"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "line": 127,
+      "key": "common.ui.grid.rowActions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "line": 73,
+      "key": "common.ui.grid.resetView",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx",
+      "line": 86,
+      "key": "card.learnersCount",
+      "variables": [
+        "count"
+      ],
+      "valuesKeys": [
+        "count"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx",
+      "line": 89,
+      "key": "card.lastLearnerActivity.label",
+      "variables": [
+        "value"
+      ],
+      "valuesKeys": [
+        "value"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/Button/Button.tsx",
+      "line": 43,
+      "key": "common.ui.pending",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 87,
+      "key": "common.ui.insertImage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 89,
+      "key": "common.ui.uploadingImage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 89,
+      "key": "common.ui.insert",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 91,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 95,
+      "key": "common.ui.imageDropHint",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 97,
+      "key": "common.ui.searchFiles",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 99,
+      "key": "common.ui.imageFormats",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 100,
+      "key": "common.ui.chooseImage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 106,
+      "key": "common.ui.imageFileSize",
+      "variables": [
+        "size"
+      ],
+      "valuesKeys": [
+        "size"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 110,
+      "key": "common.ui.imageDescription",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 111,
+      "key": "common.ui.imageDescriptionHint",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 114,
+      "key": "common.ui.imageFileRequired",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "line": 114,
+      "key": "common.ui.imageUploadFailed",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "line": 35,
+      "key": "common.ui.cards.loading",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "line": 37,
+      "key": "common.ui.cards.empty",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "line": 26,
+      "key": "editor.insert.menu",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "line": 28,
+      "key": "editor.insert.image",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "line": 29,
+      "key": "editor.insert.horizontalRule",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "line": 30,
+      "key": "editor.insert.columnsLayout",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "line": 19,
+      "key": "common.ui.operation.pending",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "line": 20,
+      "key": "common.ui.operation.inProgress",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "line": 21,
+      "key": "common.ui.operation.error",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "line": 22,
+      "key": "common.ui.operation.completed",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "line": 31,
+      "key": "common.ui.showPath",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "line": 32,
+      "key": "common.ui.moreActions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "line": 37,
+      "key": "common.ui.breadcrumbs",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "line": 30,
+      "key": "common.ui.columnsLayoutTitle",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "line": 31,
+      "key": "common.ui.insert",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "line": 32,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "line": 33,
+      "key": "common.ui.columnsLayoutPreset",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppPageTabs/AppPageTabs.tsx",
+      "line": 33,
+      "key": "common.ui.pageTabs",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "line": 54,
+      "key": "common.ui.insertLink",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "line": 55,
+      "key": "common.ui.apply",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "line": 56,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "line": 63,
+      "key": "common.ui.linkDisplayText",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "line": 65,
+      "key": "common.ui.linkUrl",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "line": 67,
+      "key": "common.ui.invalidLinkUrl",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "line": 35,
+      "key": "common.ui.pagination.unknownTotal",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "line": 36,
+      "key": "common.ui.pagination.displayedRows",
+      "variables": [
+        "count",
+        "from",
+        "to"
+      ],
+      "valuesKeys": [
+        "from",
+        "to",
+        "count"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "line": 1014,
+      "key": "editor.documentScrollRegion",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "line": 1045,
+      "key": "editor.document",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "line": 1050,
+      "key": "editor.placeholder",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "line": 1114,
+      "key": "editor.imageSourceRejected",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "line": 1128,
+      "key": "editor.imageUploadFailed",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "line": 50,
+      "key": "common.ui.modalStep",
+      "variables": [
+        "current",
+        "total"
+      ],
+      "valuesKeys": [
+        "current",
+        "total"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "line": 39,
+      "key": "common.ui.year",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "line": 40,
+      "key": "common.ui.month",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "line": 40,
+      "key": "common.ui.quarter",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "line": 40,
+      "key": "common.ui.quarterNumber",
+      "variables": [
+        "number"
+      ],
+      "valuesKeys": [
+        "number"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "line": 42,
+      "key": "common.ui.periodUnavailable",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "line": 44,
+      "key": "common.ui.clear",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "line": 45,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "line": 46,
+      "key": "common.ui.apply",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "line": 207,
+      "key": "common.ui.grid.resetView",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "line": 41,
+      "key": "editor.imageUnavailable",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Breadcrumbs/Breadcrumbs.tsx",
+      "line": 16,
+      "key": "common.ui.breadcrumbs",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "line": 39,
+      "key": "common.ui.pagination",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "line": 41,
+      "key": "common.ui.noPages",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "line": 42,
+      "key": "common.ui.pageNumber",
+      "variables": [
+        "page"
+      ],
+      "valuesKeys": [
+        "page"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "line": 43,
+      "key": "common.ui.pageOfCount",
+      "variables": [
+        "count",
+        "page"
+      ],
+      "valuesKeys": [
+        "page",
+        "count"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "line": 45,
+      "key": "common.ui.pageSize",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "line": 53,
+      "key": "common.ui.firstPage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "line": 54,
+      "key": "common.ui.previousPage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "line": 55,
+      "key": "common.ui.nextPage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "line": 56,
+      "key": "common.ui.lastPage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 279,
+      "key": "common.ui.dateRangePreview",
+      "variables": [
+        "end",
+        "start"
+      ],
+      "valuesKeys": [
+        "start",
+        "end"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 283,
+      "key": "common.ui.dateRangePreviewContext",
+      "variables": [
+        "anchor",
+        "draft",
+        "endpoint"
+      ],
+      "valuesKeys": [
+        "anchor",
+        "endpoint",
+        "draft"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 286,
+      "key": "common.ui.noDates",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 289,
+      "key": "common.ui.datePresets",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 290,
+      "key": "common.ui.datePresets",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 291,
+      "key": "common.ui.presetCategory",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 292,
+      "key": "common.ui.datePresets",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 310,
+      "key": "common.ui.previousMonth",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 312,
+      "key": "common.ui.nextMonth",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 320,
+      "key": "common.ui.rangeGestureHelp",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 327,
+      "key": "common.ui.editRangeEndpoint",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 328,
+      "key": "common.ui.startDate",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 329,
+      "key": "common.ui.endDate",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 332,
+      "key": "common.ui.startDate",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 334,
+      "key": "common.ui.endDate",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 342,
+      "key": "common.ui.previousMonths",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 343,
+      "key": "common.ui.browseMonths",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 344,
+      "key": "common.ui.nextMonths",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 348,
+      "key": "common.ui.rangeMonth",
+      "variables": [
+        "label",
+        "number"
+      ],
+      "valuesKeys": [
+        "label",
+        "number"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 358,
+      "key": "common.ui.unavailableDates",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 367,
+      "key": "common.ui.noDates",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 368,
+      "key": "common.ui.invalidRangeGesture",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 369,
+      "key": "common.ui.invalidDateRange",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 372,
+      "key": "common.ui.clear",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 373,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "line": 376,
+      "key": "common.ui.apply",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeSelector/CalendarFormValidity.tsx",
+      "line": 8,
+      "key": "common.ui.calendarRequiredValue",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/Select/Select.tsx",
+      "line": 43,
+      "key": "common.ui.selectOption",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Select/Select.tsx",
+      "line": 61,
+      "key": "common.ui.noOptions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Select/Select.tsx",
+      "line": 66,
+      "key": "common.ui.noOptions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TagGroup/TagGroup.tsx",
+      "line": 49,
+      "key": "common.ui.noTags",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TagGroup/TagGroup.tsx",
+      "line": 53,
+      "key": "common.ui.removeTag",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "line": 42,
+      "key": "common.ui.startDate",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "line": 42,
+      "key": "common.ui.endDate",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "line": 43,
+      "key": "common.ui.startTime",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "line": 43,
+      "key": "common.ui.endTime",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "line": 45,
+      "key": "common.ui.completeDateTimeRange",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "line": 46,
+      "key": "common.ui.clear",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "line": 46,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "line": 46,
+      "key": "common.ui.apply",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+      "line": 58,
+      "key": "common.ui.selectedOptions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+      "line": 60,
+      "key": "common.ui.removeOption",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+      "line": 66,
+      "key": "common.ui.loadingOptions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+      "line": 67,
+      "key": "common.ui.noOptions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+      "line": 68,
+      "key": "common.ui.optionCount",
+      "variables": [
+        "count"
+      ],
+      "valuesKeys": [
+        "count"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+      "line": 71,
+      "key": "common.ui.retry",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "line": 54,
+      "key": "common.ui.chooseDate",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "line": 60,
+      "key": "common.ui.time",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "line": 64,
+      "key": "common.ui.apply",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "line": 65,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "line": 70,
+      "key": "common.ui.clear",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/SplitAction/SplitAction.tsx",
+      "line": 26,
+      "key": "common.ui.moreActions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Tabs/Tabs.tsx",
+      "line": 47,
+      "key": "common.ui.moreTabs",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 42,
+      "key": "common.ui.primaryPeriod",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 43,
+      "key": "common.ui.compareWith",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 44,
+      "key": "common.ui.noComparison",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 44,
+      "key": "common.ui.previousPeriod",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 44,
+      "key": "common.ui.previousYear",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 44,
+      "key": "common.ui.customPeriod",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 45,
+      "key": "common.ui.comparisonPeriod",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 46,
+      "key": "common.ui.completeComparison",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 47,
+      "key": "common.ui.clear",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 47,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "line": 47,
+      "key": "common.ui.apply",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "line": 51,
+      "key": "common.ui.previousMonth",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "line": 53,
+      "key": "common.ui.nextMonth",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "line": 66,
+      "key": "common.ui.unavailableDates",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/ComboBox/ComboBox.tsx",
+      "line": 65,
+      "key": "common.ui.showOptions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/ComboBox/ComboBox.tsx",
+      "line": 72,
+      "key": "common.ui.noOptions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "line": 48,
+      "key": "common.ui.invalidDateRangeText",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "line": 100,
+      "key": "common.ui.chooseDate",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "line": 101,
+      "key": "common.ui.noDates",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "line": 108,
+      "key": "common.ui.dateRangeTextFormats",
+      "variables": [
+        "example"
+      ],
+      "valuesKeys": [
+        "example"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "line": 109,
+      "key": "common.ui.relativeRangeTextFormats",
+      "variables": [
+        "referenceDate",
+        "weekday"
+      ],
+      "valuesKeys": [
+        "referenceDate",
+        "weekday"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "line": 143,
+      "key": "common.ui.dialog",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "line": 149,
+      "key": "common.ui.close",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "line": 149,
+      "key": "common.ui.close",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "line": 101,
+      "key": "common.ui.searchResultCount",
+      "variables": [
+        "count"
+      ],
+      "valuesKeys": [
+        "count"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "line": 110,
+      "key": "common.ui.searchPlaceholder",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "line": 114,
+      "key": "common.ui.clearSearch",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "line": 119,
+      "key": "common.ui.searchResults",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "line": 120,
+      "key": "common.ui.searchLoading",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "line": 120,
+      "key": "common.ui.searchEmpty",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/SearchField/SearchField.tsx",
+      "line": 121,
+      "key": "common.ui.retry",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TimeField.tsx",
+      "line": 93,
+      "key": "common.ui.invalidTime",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "line": 32,
+      "key": "common.ui.invalidTime",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "line": 33,
+      "key": "common.ui.timeTextFormats",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "line": 64,
+      "key": "common.ui.chooseTime",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "line": 66,
+      "key": "common.ui.hour",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "line": 67,
+      "key": "common.ui.minute",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "line": 68,
+      "key": "common.ui.dayPeriod",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "line": 69,
+      "key": "common.ui.second",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "line": 72,
+      "key": "common.ui.apply",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "line": 73,
+      "key": "common.ui.cancel",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateField/DateField.tsx",
+      "line": 89,
+      "key": "common.ui.invalidDate",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "line": 36,
+      "key": "common.ui.invalidDate",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 59,
+      "key": "common.ui.search",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 61,
+      "key": "common.ui.refresh",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 62,
+      "key": "common.ui.columns",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 62,
+      "key": "common.ui.columns",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 66,
+      "key": "common.ui.selectedCount",
+      "variables": [
+        "count"
+      ],
+      "valuesKeys": [
+        "count"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 67,
+      "key": "common.ui.selectNone",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 81,
+      "key": "common.ui.selectPage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 84,
+      "key": "common.ui.sortColumn",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 87,
+      "key": "common.ui.resizeColumn",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 89,
+      "key": "common.ui.actions",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 91,
+      "key": "common.ui.loading",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 91,
+      "key": "common.ui.noResults",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 93,
+      "key": "common.ui.dragRow",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 93,
+      "key": "common.ui.selectRow",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 96,
+      "key": "common.ui.moveUp",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 98,
+      "key": "common.ui.moveDown",
+      "variables": [
+        "label"
+      ],
+      "valuesKeys": [
+        "label"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 106,
+      "key": "common.ui.pageNumber",
+      "variables": [
+        "page"
+      ],
+      "valuesKeys": [
+        "page"
+      ],
+      "missingLiteralValues": []
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 107,
+      "key": "common.ui.pageSize",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 110,
+      "key": "common.ui.previousPage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+      "line": 111,
+      "key": "common.ui.nextPage",
+      "variables": [],
+      "valuesKeys": null,
+      "missingLiteralValues": null
+    }
+  ],
+  "parseErrors": [],
+  "missingLiteralValues": []
+}

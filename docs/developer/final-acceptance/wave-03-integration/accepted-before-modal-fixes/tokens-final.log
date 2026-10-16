@@ -1,0 +1,4 @@
+
+> @structured-growth/sg-ui@0.0.0-development tokens:check /Users/thomashall/Repositories/sg-ui/packages/ui
+> node scripts/tokens.mjs --check
+

@@ -19,7 +19,7 @@ for (const theme of ['light', 'dark']) {
   test(`preset explanations are visible and associated before native keyboard commit: ${theme}`, async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 720 });
     await story(page, theme);
-    const blocked = page.getByRole('button', { name: 'February reporting period', exact: true });
+    const blocked = page.getByRole('option', { name: 'February reporting period', exact: true });
     const blockedDescription = 'Includes the unavailable capacity date.';
     const early = page.getByRole('button', { name: 'Early February', exact: true });
     const earlyDescription = 'First two weeks, before capacity closes.';

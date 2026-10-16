@@ -240,3 +240,11 @@ it("keeps native busy state independent through failure, retry and host success"
  unmount();
  expect(list.isConnected).toBe(false);
 });
+
+it("forwards query placeholder and decorative icons without changing the search label", async () => {
+ const change=vi.fn(),user=userEvent.setup();
+ render(<AsyncMultiSelect label="Find subjects" placeholder="Search subjects" query="" onQueryChange={change} options={[]} startIcon={<svg role="img" aria-label="Decoration"/>} endIcon={<svg role="img" aria-label="Other decoration"/>}/>);
+ const input=screen.getByRole("searchbox",{name:"Find subjects"}) as HTMLInputElement;
+ expect(input.placeholder).toBe("Search subjects");expect(screen.queryByRole("img")).toBeNull();
+ await user.type(input,"D");expect(change).toHaveBeenCalledWith("D");
+});

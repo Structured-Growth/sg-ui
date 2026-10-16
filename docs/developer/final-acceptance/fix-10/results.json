@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "owner": "fix-10",
+  "capturedAt": "2026-10-16T22:48:57.422232+00:00",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "workingTreeEvidence": true,
+  "bugId": "BUG-0012",
+  "sourceDefect": "GRID-R1",
+  "status": "source-fix-and-focused-unit-regression-complete",
+  "sharedLedgerModified": false,
+  "validators": [
+    "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts",
+    "packages/ui/src/components/AppDataGrid/ownedGridModel.ts"
+  ],
+  "changes": [
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts",
+      "sha256": "2e4387c46c499ba3cd74414d0be738ac3de244bb3fbaccf7653d6eef68eb1df1",
+      "baseHeadSha256": "405ae6441b3635ce9b4e76d18c509c813664535f84422d2b454718743b638094"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridModel.ts",
+      "sha256": "4c004cf96d4b3c038266505bbaa6d58fbee9b0cfd6303f3bcc81f5d33fab2f22",
+      "baseHeadSha256": "ceb26de693e468cc5fc16dcb06f5098499041fb11d27f88ba5aaa054912b3586"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridColumns.test.ts",
+      "sha256": "843ab60b9eec94d197434ae2d4fab82a592463192f08dfbe2eef7dd57675d52d",
+      "baseHeadSha256": "5ef01f4eeff2a0fa2beec2042a640e49e8b01ffb192633618c4c5d3a62b5ecaa"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridModel.test.ts",
+      "sha256": "a89ca00e31961124db51e6b48391a9f6d3819dae990bc83e2b3bc46b607ca3cd",
+      "baseHeadSha256": "fc1a6eb8574b81b6efe1f856651f190cfdb34219b2dfc4b3c6ebc96227c1c96e"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.utility-collision.test.tsx",
+      "sha256": "cb56bb01cca4a2da8f121471ef0614894f006dcb7101a567087f8ead9cd4037f",
+      "baseHeadSha256": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-10/affected-unit-tests.txt",
+      "sha256": "d2fd88e12562b901fab896b9096336428cd77bb62631e3ba80fc2d629b96a85d",
+      "baseHeadSha256": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-10/failing-first.txt",
+      "sha256": "3e1947613a7aa6f9ccd4cc1e400a5b312c0c4fc3d80aef1edb1ba8e6db884dfe",
+      "baseHeadSha256": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-10/report.md",
+      "sha256": "8c3c45c41a33deb8544c30908306f9e299163c1a146f91d6189dc1d42e864c70",
+      "baseHeadSha256": null
+    }
+  ],
+  "hashBoundary": "All touched files except results.json hashed; this JSON excludes its own digest. Base hashes are HEAD contents, not a snapshot of unrelated shared changes.",
+  "supportingTestInputs": [
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "sha256": "d5037a206368dde03af63d5e755d035311b9818c4595fbc67593a69775bf91aa"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder.test.tsx",
+      "sha256": "7cc80265830cce5df17b616c52637f4a6fdb2250c86d8bf89a7ef8411f5ae6e0"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+      "sha256": "502aa0db80b9d7bb3d7b8c3b46441130203bda77a3825f4db9a3698b3f6be414"
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridProcessing.test.tsx",
+      "sha256": "2d0538f78a75726fce7e5d965863d7d5ea10e9d2352a6db740c62ebb901178b7"
+    }
+  ],
+  "validation": [
+    {
+      "phase": "failing-first",
+      "cwd": "packages/ui",
+      "command": "PATH=/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin:$PATH pnpm exec vitest run src/components/AppDataGrid/ownedGridColumns.test.ts src/components/AppDataGrid/ownedGridModel.test.ts src/components/AppDataGrid/AppDataGrid.utility-collision.test.tsx",
+      "exitCode": 1,
+      "suites": 3,
+      "tests": 66,
+      "failed": 4,
+      "passed": 62,
+      "receipt": "failing-first.txt"
+    },
+    {
+      "phase": "after-fix",
+      "cwd": "packages/ui",
+      "command": "PATH=/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin:$PATH pnpm exec vitest run src/components/AppDataGrid/ownedGridColumns.test.ts src/components/AppDataGrid/ownedGridModel.test.ts src/components/AppDataGrid/AppDataGrid.utility-collision.test.tsx src/components/AppDataGrid/AppDataGrid.test.tsx src/components/AppDataGrid/AppDataGrid.reorder.test.tsx src/components/AppDataGrid/ownedGridInteraction.test.tsx src/components/AppDataGrid/ownedGridProcessing.test.tsx",
+      "exitCode": 0,
+      "suites": 7,
+      "tests": 123,
+      "passed": 123,
+      "receipt": "affected-unit-tests.txt"
+    },
+    {
+      "command": "git diff --check -- packages/ui/src/components/AppDataGrid/ownedGridColumns.ts packages/ui/src/components/AppDataGrid/ownedGridModel.ts packages/ui/src/components/AppDataGrid/ownedGridColumns.test.ts packages/ui/src/components/AppDataGrid/ownedGridModel.test.ts",
+      "exitCode": 0
+    }
+  ],
+  "runtime": {
+    "node": "v24.21.0",
+    "vitest": "4.1.11"
+  },
+  "leaves": [
+    {
+      "id": "A-G-02",
+      "status": "partial",
+      "fixedSuccessor": "GRID-R1",
+      "limits": "No broader grid acceptance closure; coordinator build/type validation pending."
+    },
+    {
+      "id": "A-M-16",
+      "status": "partial",
+      "fixedSuccessor": "GRID-R1",
+      "limits": "No broader grid acceptance closure; coordinator build/type validation pending."
+    }
+  ],
+  "limits": [
+    "SSR public composition and unit tests only; no native/browser/device/AT conformance claim.",
+    "No builds/types/packed consumers/full suites run.",
+    "No shared ledger/checklist/generated/runtime manifest edits or Git mutations."
+  ]
+}

@@ -2,6 +2,7 @@ import {Surface} from '@structured-growth/sg-ui/experimental';
 import {Stack,Typography,Link} from '@structured-growth/sg-ui/primitives';
 import {DocPage,Code} from '../../components/DocPage';
 import {ThemePipelineExplorer} from '../../components/ThemePipelineExplorer';
+import {FoundationExamples} from '../../components/FoundationExamples';
 export const metadata={title:'Theming'};
 
 export default function Page() {
@@ -90,6 +91,7 @@ One component dependency:
     </Stack></Surface>
 
     <ThemePipelineExplorer />
+    <FoundationExamples />
     <Stack direction="row" wrap gap={3}><Link href="/docs/components/button">Inspect themed buttons →</Link><Link href="/docs/components/dialog">Inspect themed overlay portals →</Link></Stack>
   </DocPage>;
 }

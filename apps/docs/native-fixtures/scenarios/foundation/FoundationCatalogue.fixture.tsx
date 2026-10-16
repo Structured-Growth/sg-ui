@@ -11,6 +11,8 @@ import { Stack } from "@structured-growth/sg-ui/experimental";
 import { Surface } from "@structured-growth/sg-ui/experimental";
 import { Typography } from "@structured-growth/sg-ui/experimental";
 
+import { IconPanelNavigation } from "@structured-growth/sg-ui/components";
+
 const themes = ["light", "dark"] as const;
 const densities = ["compact", "comfortable"] as const;
 const palette = ["surface", "surfaceSubtle", "text", "textMuted", "border", "divider",
@@ -192,3 +194,20 @@ export const MotionAndPreferences: Story = {
     else expect(animation).not.toBe("none");
   },
 };
+
+// New acceptance host, separate from historical foundation scenarios.
+function MotionCancellationExample({ side }: { side: "start" | "end" }) {
+  const [activeId, setActiveId] = useState<string | null>(null);
+  return <ThemeScope>
+    <Button onPress={() => setActiveId(null)}>Close from host</Button>
+    <IconPanelNavigation aria-label="Motion tools" side={side} activeId={activeId} onActiveIdChange={setActiveId} items={[
+      { id: "notes", label: "Notes", icon: <span>N</span>, content: <>
+        <label>Notes draft<input defaultValue="Keep notes" /></label>
+        <Button onPress={() => setActiveId("tasks")}>Switch to tasks</Button>
+      </> },
+      { id: "tasks", label: "Tasks", icon: <span>T</span>, content: <label>Tasks draft<input defaultValue="Keep tasks" /></label> },
+    ]} />
+  </ThemeScope>;
+}
+export const MotionCancellationStart: Story = { render: () => <MotionCancellationExample side="start" /> };
+export const MotionCancellationEnd: Story = { render: () => <MotionCancellationExample side="end" /> };

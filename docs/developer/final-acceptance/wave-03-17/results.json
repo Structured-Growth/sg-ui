@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-17",
+  "counts": {
+    "complete": 0,
+    "partial": 2,
+    "blocked": 0
+  },
+  "sharedSourceModified": false,
+  "patchApplied": false,
+  "checks": [
+    {
+      "command": "TZ=UTC node docs/developer/final-acceptance/wave-03-17/check-built-locale.mjs",
+      "result": "pass",
+      "runtime": "Node 26.5.0; ICU 78.3; TZ UTC",
+      "evidence": [
+        "built-locale-results.json",
+        "built-locale.txt"
+      ],
+      "assertions": "20 deterministic ICU/SSR output cases using existing built public i18n/theme export routes; not native or supported-runtime matrix"
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-17/check-proposals.cjs",
+      "result": "pass",
+      "runtime": "Node 26.5.0 / TypeScript 5.9.3 / installed PostCSS",
+      "evidence": [
+        "proposal-check-results.json",
+        "proposal-check.txt"
+      ],
+      "assertions": "Four proposed fixture/spec files: zero type diagnostics; CSS parses with RTL motion variables and reduced-motion declarations"
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-17/localization-direction.patch",
+      "result": "pass",
+      "runtime": "local git; exit 0",
+      "evidence": [
+        "patch-check.txt"
+      ],
+      "assertions": "Patch applies to recorded inputs; not applied"
+    }
+  ],
+  "results": [
+    {
+      "id": "A-H-08",
+      "originalRequirement": "- [ ] A-H-08 Reconcile original `H-08`: Validate ICU variables, pluralization, selection counts, date/number formatting, long labels, RTL, and pseudo-localized stories. Historical status: open.",
+      "status": "partial",
+      "outcome": "Prepared pseudo/English/Arabic native spec, fixed UTC date/number fixture additions, and current-built deterministic ICU/public Provider SSR evidence.",
+      "patchIntegrationRequired": true,
+      "patch": "localization-direction.patch",
+      "evidence": [
+        "input-receipt.json",
+        "built-locale-results.json",
+        "proposal-check-results.json",
+        "patch-check.txt"
+      ],
+      "commands": [
+        {
+          "command": "TZ=UTC node docs/developer/final-acceptance/wave-03-17/check-built-locale.mjs",
+          "result": "pass",
+          "runtime": "Node 26.5.0; ICU 78.3; TZ UTC",
+          "evidence": [
+            "built-locale-results.json",
+            "built-locale.txt"
+          ],
+          "assertions": "20 deterministic ICU/SSR output cases using existing built public i18n/theme export routes; not native or supported-runtime matrix"
+        },
+        {
+          "command": "node docs/developer/final-acceptance/wave-03-17/check-proposals.cjs",
+          "result": "pass",
+          "runtime": "Node 26.5.0 / TypeScript 5.9.3 / installed PostCSS",
+          "evidence": [
+            "proposal-check-results.json",
+            "proposal-check.txt"
+          ],
+          "assertions": "Four proposed fixture/spec files: zero type diagnostics; CSS parses with RTL motion variables and reduced-motion declarations"
+        },
+        {
+          "command": "git apply --check docs/developer/final-acceptance/wave-03-17/localization-direction.patch",
+          "result": "pass",
+          "runtime": "local git; exit 0",
+          "evidence": [
+            "patch-check.txt"
+          ],
+          "assertions": "Patch applies to recorded inputs; not applied"
+        }
+      ],
+      "successors": [
+        {
+          "id": "W03-17-H08-NATIVE",
+          "requirement": "Coordinator integrates six-path patch, builds library/native fixtures and executes three locale scenarios across Chromium/Firefox/WebKit; review reflow captures.",
+          "status": "prepared-not-executed"
+        },
+        {
+          "id": "W03-17-H08-AT",
+          "requirement": "Human operator records actual English/Arabic increment and clear speech with AT/browser/OS/device/language versions per operator-record.md.",
+          "status": "external-evidence-missing"
+        }
+      ],
+      "limits": [
+        "Patch-only work is not runtime acceptance closure.",
+        "No native browser/device, spoken AT, real zoom, hydration, packed consumer rerun, legal/admin approval or production release claimed.",
+        "New pure-node checks use Node 26.5.0; supported Node 22/24 validation remains coordinator-owned."
+      ]
+    },
+    {
+      "id": "A-C-09",
+      "originalRequirement": "- [ ] A-C-09 Reconcile original `C-09`: Use logical properties and direction-aware icons/placement for RTL; do not assume physical left/right always means start/end. Historical status: open.",
+      "status": "partial",
+      "outcome": "Prepared exact SideNavigation RTL motion CSS fix and two focused native locale/motion/interrupted-Back/reduced-motion cases; physical coordinate math untouched.",
+      "patchIntegrationRequired": true,
+      "patch": "localization-direction.patch",
+      "evidence": [
+        "input-receipt.json",
+        "built-locale-results.json",
+        "proposal-check-results.json",
+        "patch-check.txt"
+      ],
+      "commands": [
+        {
+          "command": "TZ=UTC node docs/developer/final-acceptance/wave-03-17/check-built-locale.mjs",
+          "result": "pass",
+          "runtime": "Node 26.5.0; ICU 78.3; TZ UTC",
+          "evidence": [
+            "built-locale-results.json",
+            "built-locale.txt"
+          ],
+          "assertions": "20 deterministic ICU/SSR output cases using existing built public i18n/theme export routes; not native or supported-runtime matrix"
+        },
+        {
+          "command": "node docs/developer/final-acceptance/wave-03-17/check-proposals.cjs",
+          "result": "pass",
+          "runtime": "Node 26.5.0 / TypeScript 5.9.3 / installed PostCSS",
+          "evidence": [
+            "proposal-check-results.json",
+            "proposal-check.txt"
+          ],
+          "assertions": "Four proposed fixture/spec files: zero type diagnostics; CSS parses with RTL motion variables and reduced-motion declarations"
+        },
+        {
+          "command": "git apply --check docs/developer/final-acceptance/wave-03-17/localization-direction.patch",
+          "result": "pass",
+          "runtime": "local git; exit 0",
+          "evidence": [
+            "patch-check.txt"
+          ],
+          "assertions": "Patch applies to recorded inputs; not applied"
+        }
+      ],
+      "successors": [
+        {
+          "id": "W03-17-C09-MOTION",
+          "requirement": "Integrate patch and execute two locale motion specs across desktop engines against fresh compiled CSS.",
+          "status": "prepared-not-executed"
+        },
+        {
+          "id": "W03-17-C09-BROAD",
+          "requirement": "Reconcile remaining editor V RTL and candidate portal/arrow/placement checks separately using current-input native receipts.",
+          "status": "not-closed-by-this-bounded-patch"
+        }
+      ],
+      "limits": [
+        "Patch-only work is not runtime acceptance closure.",
+        "No native browser/device, spoken AT, real zoom, hydration, packed consumer rerun, legal/admin approval or production release claimed.",
+        "New pure-node checks use Node 26.5.0; supported Node 22/24 validation remains coordinator-owned."
+      ]
+    }
+  ],
+  "validationPlan": "validation-plan.json",
+  "report": "report.md",
+  "artifactSha256": {
+    "assignment.json": "f215d58d4cc1d42f7b461372c58823027ecbbb0d99d0d7abb54ff950da5cf7c0",
+    "built-locale-results.json": "ad71fa570f1f25166b7f07c39231d9cb1889e861605d245534722503704db286",
+    "built-locale.txt": "2a5a5c2f0f61b2a7993622dd05f0c27db3fda4bea4518f096bd8fc6ee3906aff",
+    "check-built-locale.mjs": "a4472514d969d8b796c5ae49b8f2983fa214bc276d57ce4088ea9ccfee2fb21c",
+    "check-proposals.cjs": "f05230e5660ee29b5a92d9d7b1b0de25a06968e81b98dab24158b8e8ca9d327b",
+    "focused-native.config.mjs": "a98acd446ff3af2f928718205d39822657e65db9e70d99affdfd17d16a9aece2",
+    "input-receipt.json": "3bd34e9e1f4e6badd73ae643c602db20397aab231c687ee5f8ddef9b014c6d93",
+    "localization-direction.patch": "6a3e9e588167b88cf65ca6b672baed9145c7ec2bd9a74ce4604871b622378063",
+    "operator-record.md": "f191c111327a696e3ec05a86cbea4d370bf086dd6ba63e04ae40fc83200925f7",
+    "patch-check.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.py": "38067b1d0e87e96e842b862dc32474932b7f26cfe1add6bd49729b8e846f3f97",
+    "proposal-check-results.json": "16a05d59e127b108e9df2721feac17c0c28813287797c2c094fe141886bf54a0",
+    "proposal-check.txt": "16a05d59e127b108e9df2721feac17c0c28813287797c2c094fe141886bf54a0",
+    "proposed-files/apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx": "d82cfba8be4f38f8e0c24b9d4fd854dd37d0c833b4d7251775452b5edd9e0a60",
+    "proposed-files/apps/docs/native-fixtures/scenarios/i18n/Translations.fixture.tsx": "625636f384a6bd48c249ab9fe7735bdbb69ae2b941a6117585ae1d84ed1b1038",
+    "proposed-files/docs/developer/react-aria-i18n-acceptance.md": "77007fbeede6aa2a98bdb4f0b720076308a9c47f8ad802be0fa5ef136bbe7779",
+    "proposed-files/packages/ui/src/components/SideNavigation/SideNavigation.module.css": "ff4b0772ac5ef50f8967e42b086acc100142d44e6a8bb4f4ae4428846c16da22",
+    "proposed-files/packages/ui/tests/browser/navigation-locale-motion.spec.ts": "76ae006bcc4b7081c19db06aacddac3167f5f4e094cba9a6d52799072cc1737c",
+    "proposed-files/packages/ui/tests/browser/translations-locale-acceptance.spec.ts": "c14b8f2db567fc4d5dfe8e56343f4f3fa8c8fcca02b23b19877af1178a334e1b",
+    "report.md": "c8b63fc5a3bbc62c75fbbabb4959d066def18e6ef18c8fdf5c659becc970469c",
+    "validation-plan.json": "aba1cb0b9d36f3cc093687588046a93a0020f10f5b07b7acb26752e5086b1920"
+  }
+}

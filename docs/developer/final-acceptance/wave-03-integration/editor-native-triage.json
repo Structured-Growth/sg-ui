@@ -1,0 +1,17 @@
+{
+  "status": "native-reproduced defect fixed in source; focused unit/build/native rerun pending coordinator lease",
+  "failure": "Escape return sets keyboard entry ring; subsequent ordinary typing leaves ring visible",
+  "failedTest": "editor-selection-editing-successors.spec.ts:5",
+  "context": "packages/ui/artifacts/wave03-integration/traces/editor-selection-editing-s-8d761--without-a-sticky-selection-chromium/error-context.md",
+  "retainedNativePasses": [
+    "read-only invalidation removes floating actions and re-enabling preserves plain typing",
+    "Uppercase respects native partial-run boundaries and saved history",
+    "Clear Formatting respects native partial-run boundaries and saved history"
+  ],
+  "sourceSHA256": {
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.tsx": "442561ce61fb2972317c64b023ddc4d8e5596e092dc16c9b4a89da9dd6ad7dfb",
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.test.tsx": "9799cc5bf1ee8be6daea9d5931e64767fc08c74696825f3f543fae91540e3baa"
+  },
+  "unitAttempt": "EEXIST canonical lease denial before runner started; editor-typing-focus.log",
+  "limits": "188 earlier passing unit cases are preceding snapshot, not pass evidence for this new typing-focus change; root must run changed unit and native case after fresh builds"
+}

@@ -1,0 +1,73 @@
+{
+  "number": 22,
+  "title": "Cards progress and step presentation",
+  "ids": [
+    "A-M-03",
+    "A-M-14",
+    "A-M-15"
+  ],
+  "focus": "Close remaining card/menu/long-text/fallback and step status/announcement successors with meaningful current evidence and concrete defect patches; do not repeat accepted units solely for credit.",
+  "directory": "docs/developer/final-acceptance/wave-03-22",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-M-03": "- [ ] A-M-03 Reconcile AppOperationSteps final acceptance: State announcements, completed/error/active visuals, hide single-step numbering. Link its `F-C03`, `T-C03` and `V-C03` evidence and any unresolved defects.",
+    "A-M-14": "- [ ] A-M-14 Reconcile InstructorClassCard final acceptance: Status/menu/actions, callbacks, long text, date and icon fallbacks. Link its `F-C14`, `T-C14` and `V-C14` evidence and any unresolved defects.",
+    "A-M-15": "- [ ] A-M-15 Reconcile LearnerClassCard final acceptance: Progress/due labels/status/actions, translation, accessible interactive regions. Link its `F-C15`, `T-C15` and `V-C15` evidence and any unresolved defects."
+  },
+  "priorEvidence": {
+    "A-M-03": {
+      "id": "A-M-03",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-M-03 Reconcile AppOperationSteps final acceptance: State announcements, completed/error/active visuals, hide single-step numbering. Link its `F-C03`, `T-C03` and `V-C03` evidence and any unresolved defects.",
+      "conversationNumber": 1,
+      "report": "docs/developer/final-acceptance/wave-02-01/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-01/results.json",
+      "reportSha256": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1",
+      "resultsSha256": "40de9dd3ba5ed2e2f16b65bf791b9c745aa7e3e5fd8b4f7be97116049b412da1",
+      "successors": [
+        {
+          "id": "W02-01-C03-AT",
+          "deliverable": "Operator receipt naming OS/browser/AT versions, source/fixture hashes and observed pending\u2192active\u2192completed/error\u2192retry speech. Confirm milestone once, quiet percentage ticks and retained keyboard focus. Reuse existing Transitions fixture; do not add an unsolicited component live region.",
+          "prerequisite": "Human/operator session with actual supported screen reader; DOM assertions cannot substitute."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-M-14": {
+      "id": "A-M-14",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-M-14 Reconcile InstructorClassCard final acceptance: Status/menu/actions, callbacks, long text, date and icon fallbacks. Link its `F-C14`, `T-C14` and `V-C14` evidence and any unresolved defects.",
+      "conversationNumber": 1,
+      "report": "docs/developer/final-acceptance/wave-02-01/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-01/results.json",
+      "reportSha256": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1",
+      "resultsSha256": "40de9dd3ba5ed2e2f16b65bf791b9c745aa7e3e5fd8b4f7be97116049b412da1",
+      "successors": [
+        {
+          "id": "W02-01-C14-intent",
+          "deliverable": "Owner disposition table for menu, callbacks, date fallback and icon fallback: identify the existing actionHref/router and host-formatted/fallback text/fixed assets, or specify a separately approved extension. Link later batch66/HB-12 results to supported presentation clauses; implement/test only approved additions.",
+          "prerequisite": "Specific product/API scope decision. No source change authorized by a checklist wording mismatch alone."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-M-15": {
+      "id": "A-M-15",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-M-15 Reconcile LearnerClassCard final acceptance: Progress/due labels/status/actions, translation, accessible interactive regions. Link its `F-C15`, `T-C15` and `V-C15` evidence and any unresolved defects.",
+      "conversationNumber": 1,
+      "report": "docs/developer/final-acceptance/wave-02-01/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-01/results.json",
+      "reportSha256": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1",
+      "resultsSha256": "40de9dd3ba5ed2e2f16b65bf791b9c745aa7e3e5fd8b4f7be97116049b412da1",
+      "successors": [
+        {
+          "id": "W02-01-C15-status",
+          "deliverable": "Record whether status means the existing progress/due presentation, with exact semantic/due/action test references, or an additional lifecycle status contract. If the latter, specify host-owned status API and acceptance criteria before implementation; retain the completed native ICU/destination proof.",
+          "prerequisite": "Coordinator/product scope attribution, not another unit/browser rerun of already-passing native flows."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

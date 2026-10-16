@@ -743,6 +743,13 @@
           "description": "Title supplied by the application."
         },
         {
+          "name": "showTitle",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "true",
+          "description": "Hide the visible heading while retaining title as the dialog accessible name."
+        },
+        {
           "name": "children",
           "type": "ReactNode",
           "required": true,
@@ -771,6 +778,13 @@
           "description": "Host callback; the signature specifies its arguments."
         },
         {
+          "name": "presentation",
+          "type": "\"auto\" | \"popover\" | \"dialog\" | \"drawer\" | undefined",
+          "required": false,
+          "default": "\"popover\"",
+          "description": "Auto uses a bottom drawer on narrow viewports. Dialog and drawer stay fixed; popover remains anchored."
+        },
+        {
           "name": "placement",
           "type": "\"bottom start\" | \"bottom end\" | \"top start\" | \"top end\" | undefined",
           "required": false,
@@ -779,10 +793,10 @@
         },
         {
           "name": "size",
-          "type": "\"md\" | \"lg\" | undefined",
+          "type": "\"md\" | \"lg\" | \"content\" | undefined",
           "required": false,
           "default": "\"md\"",
-          "description": "See the type and source-backed examples for this option."
+          "description": "Content sizing follows its children up to the viewport width."
         }
       ],
       "native": []
@@ -3701,6 +3715,8 @@
         }
       ],
       "native": [
+        "popover",
+        "content",
         "defaultChecked",
         "defaultValue",
         "suppressContentEditableWarning",
@@ -3719,7 +3735,6 @@
         "translate",
         "radioGroup",
         "about",
-        "content",
         "datatype",
         "inlist",
         "prefix",
@@ -3739,7 +3754,6 @@
         "results",
         "security",
         "unselectable",
-        "popover",
         "popoverTargetAction",
         "popoverTarget",
         "inert",
@@ -5562,6 +5576,8 @@
         }
       ],
       "native": [
+        "popover",
+        "content",
         "defaultChecked",
         "defaultValue",
         "suppressContentEditableWarning",
@@ -5580,7 +5596,6 @@
         "translate",
         "radioGroup",
         "about",
-        "content",
         "datatype",
         "inlist",
         "prefix",
@@ -5600,7 +5615,6 @@
         "results",
         "security",
         "unselectable",
-        "popover",
         "popoverTargetAction",
         "popoverTarget",
         "inert",
@@ -6217,6 +6231,8 @@
         }
       ],
       "native": [
+        "popover",
+        "content",
         "defaultChecked",
         "defaultValue",
         "suppressContentEditableWarning",
@@ -6235,7 +6251,6 @@
         "translate",
         "radioGroup",
         "about",
-        "content",
         "datatype",
         "inlist",
         "prefix",
@@ -6255,7 +6270,6 @@
         "results",
         "security",
         "unselectable",
-        "popover",
         "popoverTargetAction",
         "popoverTarget",
         "inert",
@@ -6589,6 +6603,8 @@
         }
       ],
       "native": [
+        "popover",
+        "content",
         "defaultChecked",
         "defaultValue",
         "suppressContentEditableWarning",
@@ -6607,7 +6623,6 @@
         "translate",
         "radioGroup",
         "about",
-        "content",
         "datatype",
         "inlist",
         "prefix",
@@ -6627,7 +6642,6 @@
         "results",
         "security",
         "unselectable",
-        "popover",
         "popoverTargetAction",
         "popoverTarget",
         "inert",
@@ -6960,6 +6974,8 @@
         }
       ],
       "native": [
+        "popover",
+        "content",
         "defaultChecked",
         "defaultValue",
         "suppressContentEditableWarning",
@@ -6978,7 +6994,6 @@
         "translate",
         "radioGroup",
         "about",
-        "content",
         "datatype",
         "inlist",
         "prefix",
@@ -6998,7 +7013,6 @@
         "results",
         "security",
         "unselectable",
-        "popover",
         "popoverTargetAction",
         "popoverTarget",
         "inert",
@@ -7299,6 +7313,8 @@
         }
       ],
       "native": [
+        "popover",
+        "content",
         "defaultChecked",
         "defaultValue",
         "suppressContentEditableWarning",
@@ -7316,7 +7332,6 @@
         "translate",
         "radioGroup",
         "about",
-        "content",
         "datatype",
         "inlist",
         "prefix",
@@ -7336,7 +7351,6 @@
         "results",
         "security",
         "unselectable",
-        "popover",
         "popoverTargetAction",
         "popoverTarget",
         "inert",
@@ -8707,6 +8721,8 @@
         }
       ],
       "native": [
+        "popover",
+        "content",
         "defaultChecked",
         "defaultValue",
         "suppressContentEditableWarning",
@@ -8723,7 +8739,6 @@
         "translate",
         "radioGroup",
         "about",
-        "content",
         "datatype",
         "inlist",
         "prefix",
@@ -8743,7 +8758,6 @@
         "results",
         "security",
         "unselectable",
-        "popover",
         "popoverTargetAction",
         "popoverTarget",
         "inert",
@@ -9268,6 +9282,553 @@
       ]
     }
   ],
+  "period-picker": [
+    {
+      "names": [
+        "PeriodPicker"
+      ],
+      "from": "@structured-growth/sg-ui/experimental",
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "unit",
+          "type": "\"week\" | \"month\" | \"quarter\" | \"year\"",
+          "required": true,
+          "default": "—",
+          "description": "Select a whole calendar period; week starts Monday unless firstDayOfWeek overrides it."
+        },
+        {
+          "name": "value",
+          "type": "DateRange | null | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultValue",
+          "type": "DateRange | null | undefined",
+          "required": false,
+          "default": "null",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: DateRange | null) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "referenceDate",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Civil anchor for the initial view. Supply this for deterministic SSR; never interpreted as an instant."
+        },
+        {
+          "name": "firstDayOfWeek",
+          "type": "\"sun\" | \"mon\" | undefined",
+          "required": false,
+          "default": "'mon'",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "presentation",
+          "type": "\"auto\" | \"popover\" | \"dialog\" | \"drawer\" | undefined",
+          "required": false,
+          "default": "'popover'",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "min",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "max",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "unavailable",
+          "type": "readonly DateAvailability[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "rangeLength",
+          "type": "DateRangeLength | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "getDateUnavailableReason",
+          "type": "DateAvailabilityRule | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        }
+      ],
+      "native": []
+    }
+  ],
+  "date-time-range-picker": [
+    {
+      "names": [
+        "DateTimeRangePicker"
+      ],
+      "from": "@structured-growth/sg-ui/experimental",
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "value",
+          "type": "DateTimeRange | null | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultValue",
+          "type": "DateTimeRange | null | undefined",
+          "required": false,
+          "default": "null",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: DateTimeRange | null) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "min",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Local YYYY-MM-DDTHH:mm:ss bounds. Hosts own timezone conversion and DST disambiguation."
+        },
+        {
+          "name": "max",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "minuteStep",
+          "type": "number | undefined",
+          "required": false,
+          "default": "15",
+          "description": "Suggested minute choices (1–60); arbitrary typed minutes remain valid unless a rule rejects them."
+        },
+        {
+          "name": "hourCycle",
+          "type": "12 | 24 | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "referenceDate",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "presentation",
+          "type": "\"auto\" | \"popover\" | \"dialog\" | \"drawer\" | undefined",
+          "required": false,
+          "default": "'popover'",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "getDateTimeUnavailableReason",
+          "type": "((value: string, endpoint: \"start\" | \"end\") => string | undefined) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Endpoint-aware local datetime restriction; return the host's translated reason or undefined."
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "unavailable",
+          "type": "readonly DateAvailability[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "getDateUnavailableReason",
+          "type": "DateAvailabilityRule | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        }
+      ],
+      "native": []
+    }
+  ],
+  "date-range-comparison-picker": [
+    {
+      "names": [
+        "DateRangeComparisonPicker"
+      ],
+      "from": "@structured-growth/sg-ui/experimental",
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "value",
+          "type": "DateRangeComparison | null | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultValue",
+          "type": "DateRangeComparison | null | undefined",
+          "required": false,
+          "default": "null",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: DateRangeComparison | null) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "rangeProps",
+          "type": "Omit<DateRangePickerProps, \"name\" | \"disabled\" | \"label\" | \"value\" | \"defaultValue\" | \"onValueChange\" | \"readOnly\" | \"required\"> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Shared restrictions and calendar configuration; the composition owns each child value and commit callbacks."
+        },
+        {
+          "name": "presentation",
+          "type": "\"auto\" | \"popover\" | \"dialog\" | \"drawer\" | undefined",
+          "required": false,
+          "default": "'popover'",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        }
+      ],
+      "native": []
+    }
+  ],
+  "search-field": [
+    {
+      "names": [
+        "SearchField"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "items",
+          "type": "readonly SearchFieldItem[] | undefined",
+          "required": false,
+          "default": "[]",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "showResults",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "true",
+          "description": "Disable the dropdown when a host renders its search results elsewhere."
+        },
+        {
+          "name": "value",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "defaultValue",
+          "type": "string | undefined",
+          "required": false,
+          "default": "\"\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((query: string) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "onResultSelect",
+          "type": "((item: SearchFieldItem) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "onSearch",
+          "type": "((query: string) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Enter in the input requests host-owned full-search behavior when provided."
+        },
+        {
+          "name": "filter",
+          "type": "\"none\" | \"contains\" | undefined",
+          "required": false,
+          "default": "\"contains\"",
+          "description": "Contains searches label/keywords locally; none accepts host-filtered remote results."
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "description",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "resultsLabel",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "emptyMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "resultCountLabel",
+          "type": "((count: number) => string) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "loading",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host-controlled pending presentation."
+        },
+        {
+          "name": "errorMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onRetry",
+          "type": "(() => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "showClearButton",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "true",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "density",
+          "type": "Density | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Local density; otherwise use the surrounding scope."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "startIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "<SearchIcon size={16}/>",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "endIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "label",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "aria-label",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLInputElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
   "text-field": [
     {
       "names": [
@@ -9303,6 +9864,20 @@
           "required": false,
           "default": "—",
           "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "startIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Decorative icons at the logical start/end; keep actions outside these aria-hidden slots."
+        },
+        {
+          "name": "endIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
         },
         {
           "name": "description",
@@ -9403,13 +9978,6 @@
           "description": "Host callback; the signature specifies its arguments."
         },
         {
-          "name": "placeholder",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
           "name": "readOnly",
           "type": "boolean | undefined",
           "required": false,
@@ -9419,6 +9987,13 @@
         {
           "name": "required",
           "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -9531,6 +10106,20 @@
           "description": "Label supplied by the application."
         },
         {
+          "name": "startIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Decorative icons at the logical start/end; keep actions outside these aria-hidden slots."
+        },
+        {
+          "name": "endIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
           "name": "aria-label",
           "type": "string | undefined",
           "required": false,
@@ -9580,11 +10169,11 @@
           "description": "Host callback; the signature specifies its arguments."
         },
         {
-          "name": "placeholder",
-          "type": "string | undefined",
+          "name": "onValueChange",
+          "type": "((value: string) => void) | undefined",
           "required": false,
           "default": "—",
-          "description": "See the type and source-backed examples for this option."
+          "description": "Host callback; the signature specifies its arguments."
         },
         {
           "name": "readOnly",
@@ -9599,27 +10188,6 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "minLength",
-          "type": "number | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "maxLength",
-          "type": "number | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "onValueChange",
-          "type": "((value: string) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
         },
         {
           "name": "description",
@@ -9638,6 +10206,27 @@
         {
           "name": "invalid",
           "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "minLength",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "maxLength",
+          "type": "number | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -9724,6 +10313,20 @@
         {
           "name": "placeholder",
           "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "startIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Decorative logical start/end icons; the dropdown chevron remains visible."
+        },
+        {
+          "name": "endIcon",
+          "type": "ReactNode",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -9844,6 +10447,20 @@
         {
           "name": "placeholder",
           "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "startIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Decorative icons inside the input; the separate dropdown action remains available."
+        },
+        {
+          "name": "endIcon",
+          "type": "ReactNode",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -10019,6 +10636,27 @@
         {
           "name": "description",
           "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "placeholder",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "startIcon",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Decorative icons forwarded to the query TextField."
+        },
+        {
+          "name": "endIcon",
+          "type": "ReactNode",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -10722,10 +11360,31 @@
           "description": "Label supplied by the application."
         },
         {
+          "name": "entryMode",
+          "type": "\"text\" | \"segments\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Date-only text accepts ISO, locale-ordered numeric dates and named months; normalizes on blur/Enter. Two-digit years use the fixed 1950–2049 window."
+        },
+        {
+          "name": "referenceDate",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host-supplied YYYY-MM-DD anchor for relative text. No implicit clock; omit to disable relative phrases."
+        },
+        {
+          "name": "onValidityChange",
+          "type": "((valid: boolean) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Reports entry validity so a composed workflow can guard its commit action."
+        },
+        {
           "name": "kind",
           "type": "\"date\" | \"datetime\" | undefined",
           "required": false,
-          "default": "\"date\"",
+          "default": "—",
           "description": "date: YYYY-MM-DD; datetime: YYYY-MM-DDTHH:mm:ss without timezone."
         },
         {
@@ -10775,7 +11434,7 @@
           "type": "string | undefined",
           "required": false,
           "default": "—",
-          "description": "See the type and source-backed examples for this option."
+          "description": "Optional host help text. No automatic format instructions are shown."
         },
         {
           "name": "errorMessage",
@@ -10848,6 +11507,13 @@
           "description": "Label supplied by the application."
         },
         {
+          "name": "entryMode",
+          "type": "\"text\" | \"segments\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Textbox with optional selection popup by default; segments retains native segmented entry."
+        },
+        {
           "name": "value",
           "type": "string | null | undefined",
           "required": false,
@@ -10867,6 +11533,20 @@
           "required": false,
           "default": "—",
           "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "minuteStep",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Minute choices in text-mode popup, 1–60. Existing non-step minutes remain editable. This is a suggestion increment, not a rounding rule."
+        },
+        {
+          "name": "getTimeUnavailableReason",
+          "type": "((time: string) => string | undefined) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Return an unavailable reason for a canonical HH:mm:ss time. The host can close over the selected date."
         },
         {
           "name": "min",
@@ -10939,6 +11619,13 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "onValidityChange",
+          "type": "((valid: boolean) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Reports complete, valid clock entry, including partial segment edits."
+        },
+        {
           "name": "ref",
           "type": "Ref<HTMLDivElement> | undefined",
           "required": false,
@@ -10967,6 +11654,27 @@
           "description": "Label supplied by the application."
         },
         {
+          "name": "showTitle",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Show a visible calendar title in addition to its accessible label. Defaults to false."
+        },
+        {
+          "name": "navigation",
+          "type": "\"arrows\" | \"month-year\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Optional direct month/year jumps; arrows remain available."
+        },
+        {
+          "name": "visibleYears",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Number of localized years offered around focus, constrained by min/max. Defaults to 120."
+        },
+        {
           "name": "min",
           "type": "string | undefined",
           "required": false,
@@ -10976,6 +11684,20 @@
         {
           "name": "max",
           "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "getDateUnavailableReason",
+          "type": "DateAvailabilityRule | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "renderDayContent",
+          "type": "((date: DateOnly) => ReactNode) | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -11010,7 +11732,7 @@
         },
         {
           "name": "months",
-          "type": "1 | 2 | undefined",
+          "type": "1 | 2 | 3 | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -11077,6 +11799,55 @@
       "kind": "component",
       "props": [
         {
+          "name": "showTitle",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Show one visible dropdown title. The field label remains visible. Defaults to false."
+        },
+        {
+          "name": "entryMode",
+          "type": "\"text\" | \"segments\" | undefined",
+          "required": false,
+          "default": "\"text\"",
+          "description": "Flexible date text by default; choose segments for segmented entry. Datetime remains segmented."
+        },
+        {
+          "name": "presentation",
+          "type": "\"auto\" | \"popover\" | \"dialog\" | \"drawer\" | undefined",
+          "required": false,
+          "default": "\"popover\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "getDateUnavailableReason",
+          "type": "DateAvailabilityRule | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "renderDayContent",
+          "type": "((date: DateOnly) => ReactNode) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "navigation",
+          "type": "\"arrows\" | \"month-year\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "visibleYears",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
           "name": "unavailable",
           "type": "readonly DateAvailability[] | undefined",
           "required": false,
@@ -11091,25 +11862,32 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "name",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "disabled",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Controls availability of the interaction."
-        },
-        {
           "name": "label",
           "type": "string",
           "required": true,
           "default": "—",
           "description": "Label supplied by the application."
+        },
+        {
+          "name": "referenceDate",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host-supplied YYYY-MM-DD anchor for relative text. No implicit clock; omit to disable relative phrases."
+        },
+        {
+          "name": "onValidityChange",
+          "type": "((valid: boolean) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Reports entry validity so a composed workflow can guard its commit action."
+        },
+        {
+          "name": "kind",
+          "type": "\"date\" | \"datetime\" | undefined",
+          "required": false,
+          "default": "\"date\"",
+          "description": "date: YYYY-MM-DD; datetime: YYYY-MM-DDTHH:mm:ss without timezone."
         },
         {
           "name": "value",
@@ -11126,7 +11904,49 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "readOnly",
+          "name": "onValueChange",
+          "type": "((value: string | null) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "min",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "max",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "name",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "description",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Optional host help text. No automatic format instructions are shown."
+        },
+        {
+          "name": "errorMessage",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "invalid",
           "type": "boolean | undefined",
           "required": false,
           "default": "—",
@@ -11140,11 +11960,58 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "onValueChange",
-          "type": "((value: string | null) => void) | undefined",
+          "name": "disabled",
+          "type": "boolean | undefined",
           "required": false,
           "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "hourCycle",
+          "type": "12 | 24 | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        }
+      ],
+      "native": []
+    }
+  ],
+  "date-range-picker": [
+    {
+      "names": [
+        "DateRangePicker"
+      ],
+      "from": "@structured-growth/sg-ui/experimental",
+      "kind": "component",
+      "props": [
+        {
+          "name": "showFields",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Endpoint fields inside the dropdown are hidden by default; enable flexible text fields with showFields."
+        },
+        {
+          "name": "fieldMode",
+          "type": "\"text\" | \"button\" | undefined",
+          "required": false,
+          "default": "\"text\"",
+          "description": "Editable range textbox by default; button retains a selection-only trigger."
+        },
+        {
+          "name": "presentation",
+          "type": "\"auto\" | \"popover\" | \"dialog\" | \"drawer\" | undefined",
+          "required": false,
+          "default": "\"popover\"",
+          "description": "Anchored by default; auto uses a drawer on narrow screens without losing the draft."
         },
         {
           "name": "description",
@@ -11168,31 +12035,12 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "min",
-          "type": "string | undefined",
+          "name": "onValidityChange",
+          "type": "((valid: boolean) => void) | undefined",
           "required": false,
           "default": "—",
-          "description": "See the type and source-backed examples for this option."
+          "description": "Host callback; the signature specifies its arguments."
         },
-        {
-          "name": "max",
-          "type": "string | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        }
-      ],
-      "native": []
-    }
-  ],
-  "date-range-picker": [
-    {
-      "names": [
-        "DateRangePicker"
-      ],
-      "from": "@structured-growth/sg-ui/experimental",
-      "kind": "component",
-      "props": [
         {
           "name": "name",
           "type": "string | undefined",
@@ -11215,6 +12063,13 @@
           "description": "Label supplied by the application."
         },
         {
+          "name": "navigation",
+          "type": "\"arrows\" | \"month-year\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Optional direct month/year jumps; arrows remain available."
+        },
+        {
           "name": "value",
           "type": "DateRange | null | undefined",
           "required": false,
@@ -11227,27 +12082,6 @@
           "required": false,
           "default": "null",
           "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "readOnly",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "required",
-          "type": "boolean | undefined",
-          "required": false,
-          "default": "—",
-          "description": "See the type and source-backed examples for this option."
-        },
-        {
-          "name": "onValueChange",
-          "type": "((value: DateRange | null) => void) | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Host callback; the signature specifies its arguments."
         },
         {
           "name": "min",
@@ -11264,11 +12098,172 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "rangeLength",
+          "type": "DateRangeLength | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Fixed length completes on the first click and relocates on later clicks. Days are inclusive; nights are endpoint distance. Bounded length validates every input, preset and gesture."
+        },
+        {
           "name": "unavailable",
           "type": "readonly DateAvailability[] | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "getDateUnavailableReason",
+          "type": "DateAvailabilityRule | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host-owned recurring/selection-aware availability. Return a reason, or undefined when allowed. Checked throughout the interval, including text and presets."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((value: DateRange | null) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "required",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "showTitle",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Show a visible section title in addition to its accessible label. Defaults to false."
+        },
+        {
+          "name": "visibleYears",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Number of localized years offered around focus, constrained by min/max. Defaults to 120."
+        },
+        {
+          "name": "entryMode",
+          "type": "\"text\" | \"segments\" | undefined",
+          "required": false,
+          "default": "\"text\"",
+          "description": "Endpoint entry defaults to flexible date-only text. Use segments explicitly for segmented input."
+        },
+        {
+          "name": "referenceDate",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Shared host-supplied YYYY-MM-DD anchor for both relative text endpoints."
+        },
+        {
+          "name": "rangeClickBehavior",
+          "type": "\"restart\" | \"adjust-end\" | \"adjust-start\" | \"adjust-boundaries\" | \"active-endpoint\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Calendar clicks after a complete draft. Defaults to \"adjust-end\".\nWith no complete range, the first click anchors a date and the second completes\nthe inclusive range in either direction (5th then 1st becomes 1st–5th).\nGiven 7th–16th:\n- \"restart\": any click starts a new incomplete range.\n- \"adjust-end\": 13th becomes 7th–13th; 20th becomes 7th–20th;\n  5th restarts at 5th with an empty end. Clicking the start also restarts there.\n- \"adjust-start\": 5th becomes 5th–16th; 13th becomes 13th–16th;\n  20th restarts at 20th with an empty end. Clicking the end also restarts there.\n- \"adjust-boundaries\": 5th becomes 5th–16th; 13th becomes 7th–13th;\n  20th becomes 7th–20th. Clicking the start produces a one-day range;\n  clicking the end leaves the range unchanged. Calendar clicks never clear it.\n- \"active-endpoint\": edits activeEndpoint. Start intent with 5th becomes\n  5th–16th; end intent with 13th becomes 7th–13th. Crossing the other\n  boundary restarts at the clicked date with an empty end. Equality gives\n  a one-day range. Initial two-click creation still works in either direction.\nApplies to pointer and keyboard activation, not typed endpoints or presets.\nChanges remain drafts until Apply unless commitBehavior=\"immediate\";\nvalidation, Cancel and Clear still apply."
+        },
+        {
+          "name": "activeEndpoint",
+          "type": "\"start\" | \"end\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Used with rangeClickBehavior=\"active-endpoint\". Start/End controls and field focus express which boundary calendar activations edit. Controlled when supplied."
+        },
+        {
+          "name": "defaultActiveEndpoint",
+          "type": "\"start\" | \"end\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onActiveEndpointChange",
+          "type": "((endpoint: \"start\" | \"end\") => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "selectionUnit",
+          "type": "\"week\" | \"month\" | \"quarter\" | \"year\" | \"day\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Calendar activation can select a whole Gregorian week/month/quarter/year. Defaults to individual days. Length constraints still validate the complete period."
+        },
+        {
+          "name": "showActions",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Hide Clear/Cancel/Apply when the enclosing composition owns actions. Defaults true."
+        },
+        {
+          "name": "rangeDragBehavior",
+          "type": "RangeDragBehavior | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Completed-range dragging. In move-and-resize (default), drag the first/last day to resize and an interior day to move. Shift+drag moves from any selected day. Fixed duration makes endpoint drags move the whole range; bounded length pushes the opposite boundary at min/max. A one-day range grows toward the dragged date. Move translates any selected day; resize enables endpoints only. Shift+Left/Right moves; Alt+Left/Right edits end; Alt+Shift edits start, with the same duration limits. Invalid drops roll back; Escape cancels."
+        },
+        {
+          "name": "renderDayContent",
+          "type": "((date: DateOnly) => ReactNode) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Decorative supplemental content inside a day cell. Its complete accessible date name remains intact; meaningful availability belongs in getDateUnavailableReason."
+        },
+        {
+          "name": "calendarNavigation",
+          "type": "\"linked\" | \"independent\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Linked months advance together; independent months have separate navigation and may be nonconsecutive."
+        },
+        {
+          "name": "calendarLayout",
+          "type": "\"scroll\" | \"paged\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Paged months or a vertical scrolling month browser. Scrolling uses scrollMonths consecutive months."
+        },
+        {
+          "name": "scrollMonths",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Number of months in the scrolling browser, 1–120. Default 12."
+        },
+        {
+          "name": "commitBehavior",
+          "type": "\"apply\" | \"immediate\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Apply keeps drafts local; immediate commits complete valid calendar/preset selections. Manual invalid edits never commit."
+        },
+        {
+          "name": "onDraftChange",
+          "type": "((range: DateRange | null) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Reports local drafts for host integration; does not imply persistence."
+        },
+        {
+          "name": "presetGroups",
+          "type": "readonly DateRangePresetGroup[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Grouped/nested host presets. Category selection displays its resolved choices; labels and relative policies remain host-owned."
         },
         {
           "name": "presets",
@@ -11278,8 +12273,15 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "presetPlacement",
+          "type": "\"end\" | \"above\" | \"side\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Defaults to side (logical start); narrow hosts wrap it above. End follows the calendars."
+        },
+        {
           "name": "months",
-          "type": "1 | 2 | undefined",
+          "type": "1 | 2 | 3 | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -11316,6 +12318,153 @@
           "required": true,
           "default": "—",
           "description": "Label supplied by the application."
+        },
+        {
+          "name": "showTitle",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Show a visible section title in addition to its accessible label. Defaults to false."
+        },
+        {
+          "name": "navigation",
+          "type": "\"arrows\" | \"month-year\" | undefined",
+          "required": false,
+          "default": "\"arrows\"",
+          "description": "Optional direct month/year jumps; arrows remain available."
+        },
+        {
+          "name": "visibleYears",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Number of localized years offered around focus, constrained by min/max. Defaults to 120."
+        },
+        {
+          "name": "entryMode",
+          "type": "\"text\" | \"segments\" | undefined",
+          "required": false,
+          "default": "\"text\"",
+          "description": "Endpoint entry defaults to flexible date-only text. Use segments explicitly for segmented input."
+        },
+        {
+          "name": "referenceDate",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Shared host-supplied YYYY-MM-DD anchor for both relative text endpoints."
+        },
+        {
+          "name": "rangeClickBehavior",
+          "type": "\"restart\" | \"adjust-end\" | \"adjust-start\" | \"adjust-boundaries\" | \"active-endpoint\" | undefined",
+          "required": false,
+          "default": "\"adjust-end\"",
+          "description": "Calendar clicks after a complete draft. Defaults to \"adjust-end\".\nWith no complete range, the first click anchors a date and the second completes\nthe inclusive range in either direction (5th then 1st becomes 1st–5th).\nGiven 7th–16th:\n- \"restart\": any click starts a new incomplete range.\n- \"adjust-end\": 13th becomes 7th–13th; 20th becomes 7th–20th;\n  5th restarts at 5th with an empty end. Clicking the start also restarts there.\n- \"adjust-start\": 5th becomes 5th–16th; 13th becomes 13th–16th;\n  20th restarts at 20th with an empty end. Clicking the end also restarts there.\n- \"adjust-boundaries\": 5th becomes 5th–16th; 13th becomes 7th–13th;\n  20th becomes 7th–20th. Clicking the start produces a one-day range;\n  clicking the end leaves the range unchanged. Calendar clicks never clear it.\n- \"active-endpoint\": edits activeEndpoint. Start intent with 5th becomes\n  5th–16th; end intent with 13th becomes 7th–13th. Crossing the other\n  boundary restarts at the clicked date with an empty end. Equality gives\n  a one-day range. Initial two-click creation still works in either direction.\nApplies to pointer and keyboard activation, not typed endpoints or presets.\nChanges remain drafts until Apply unless commitBehavior=\"immediate\";\nvalidation, Cancel and Clear still apply."
+        },
+        {
+          "name": "activeEndpoint",
+          "type": "\"start\" | \"end\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Used with rangeClickBehavior=\"active-endpoint\". Start/End controls and field focus express which boundary calendar activations edit. Controlled when supplied."
+        },
+        {
+          "name": "defaultActiveEndpoint",
+          "type": "\"start\" | \"end\" | undefined",
+          "required": false,
+          "default": "\"end\"",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onActiveEndpointChange",
+          "type": "((endpoint: \"start\" | \"end\") => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "selectionUnit",
+          "type": "\"week\" | \"month\" | \"quarter\" | \"year\" | \"day\" | undefined",
+          "required": false,
+          "default": "\"day\"",
+          "description": "Calendar activation can select a whole Gregorian week/month/quarter/year. Defaults to individual days. Length constraints still validate the complete period."
+        },
+        {
+          "name": "showFields",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "true",
+          "description": "Show editable endpoint fields. Defaults true inline; DateRangePicker defaults false to avoid repeating its range textbox. entryMode defaults to flexible text."
+        },
+        {
+          "name": "showActions",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "true",
+          "description": "Hide Clear/Cancel/Apply when the enclosing composition owns actions. Defaults true."
+        },
+        {
+          "name": "rangeDragBehavior",
+          "type": "RangeDragBehavior | undefined",
+          "required": false,
+          "default": "\"move-and-resize\"",
+          "description": "Completed-range dragging. In move-and-resize (default), drag the first/last day to resize and an interior day to move. Shift+drag moves from any selected day. Fixed duration makes endpoint drags move the whole range; bounded length pushes the opposite boundary at min/max. A one-day range grows toward the dragged date. Move translates any selected day; resize enables endpoints only. Shift+Left/Right moves; Alt+Left/Right edits end; Alt+Shift edits start, with the same duration limits. Invalid drops roll back; Escape cancels."
+        },
+        {
+          "name": "rangeLength",
+          "type": "DateRangeLength | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Fixed length completes on the first click and relocates on later clicks. Days are inclusive; nights are endpoint distance. Bounded length validates every input, preset and gesture."
+        },
+        {
+          "name": "getDateUnavailableReason",
+          "type": "DateAvailabilityRule | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host-owned recurring/selection-aware availability. Return a reason, or undefined when allowed. Checked throughout the interval, including text and presets."
+        },
+        {
+          "name": "renderDayContent",
+          "type": "((date: DateOnly) => ReactNode) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Decorative supplemental content inside a day cell. Its complete accessible date name remains intact; meaningful availability belongs in getDateUnavailableReason."
+        },
+        {
+          "name": "calendarNavigation",
+          "type": "\"linked\" | \"independent\" | undefined",
+          "required": false,
+          "default": "\"linked\"",
+          "description": "Linked months advance together; independent months have separate navigation and may be nonconsecutive."
+        },
+        {
+          "name": "calendarLayout",
+          "type": "\"scroll\" | \"paged\" | undefined",
+          "required": false,
+          "default": "\"paged\"",
+          "description": "Paged months or a vertical scrolling month browser. Scrolling uses scrollMonths consecutive months."
+        },
+        {
+          "name": "scrollMonths",
+          "type": "number | undefined",
+          "required": false,
+          "default": "12",
+          "description": "Number of months in the scrolling browser, 1–120. Default 12."
+        },
+        {
+          "name": "commitBehavior",
+          "type": "\"apply\" | \"immediate\" | undefined",
+          "required": false,
+          "default": "\"apply\"",
+          "description": "Apply keeps drafts local; immediate commits complete valid calendar/preset selections. Manual invalid edits never commit."
+        },
+        {
+          "name": "onDraftChange",
+          "type": "((range: DateRange | null) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Reports local drafts for host integration; does not imply persistence."
         },
         {
           "name": "value",
@@ -11367,6 +12516,13 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "presetGroups",
+          "type": "readonly DateRangePresetGroup[] | undefined",
+          "required": false,
+          "default": "[]",
+          "description": "Grouped/nested host presets. Category selection displays its resolved choices; labels and relative policies remain host-owned."
+        },
+        {
           "name": "presets",
           "type": "readonly DateRangePreset[] | undefined",
           "required": false,
@@ -11374,8 +12530,15 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "presetPlacement",
+          "type": "\"end\" | \"above\" | \"side\" | undefined",
+          "required": false,
+          "default": "\"side\"",
+          "description": "Defaults to side (logical start); narrow hosts wrap it above. End follows the calendars."
+        },
+        {
           "name": "months",
-          "type": "1 | 2 | undefined",
+          "type": "1 | 2 | 3 | undefined",
           "required": false,
           "default": "2",
           "description": "See the type and source-backed examples for this option."
@@ -11418,6 +12581,54 @@
         {
           "name": "name",
           "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        }
+      ],
+      "native": []
+    },
+    {
+      "names": [
+        "getRelativeDateRange"
+      ],
+      "from": "@structured-growth/sg-ui/experimental",
+      "kind": "function",
+      "props": [
+        {
+          "name": "referenceDate",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "__1",
+          "type": "RelativeDateRangeOptions",
+          "required": true,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        }
+      ],
+      "native": []
+    },
+    {
+      "names": [
+        "getDateRangeLength"
+      ],
+      "from": "@structured-growth/sg-ui/experimental",
+      "kind": "function",
+      "props": [
+        {
+          "name": "value",
+          "type": "DateRange",
+          "required": true,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "unit",
+          "type": "\"days\" | \"nights\" | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -13527,6 +14738,8 @@
         }
       ],
       "native": [
+        "popover",
+        "content",
         "defaultChecked",
         "defaultValue",
         "suppressContentEditableWarning",
@@ -13545,7 +14758,6 @@
         "translate",
         "radioGroup",
         "about",
-        "content",
         "datatype",
         "inlist",
         "prefix",
@@ -13565,7 +14777,6 @@
         "results",
         "security",
         "unselectable",
-        "popover",
         "popoverTargetAction",
         "popoverTarget",
         "inert",

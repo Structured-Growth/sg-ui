@@ -1,0 +1,43 @@
+@layer sgui.components {
+  .sgui_root_465d70f3 { --field-edge-padding: max(var(--sgui-control-padding), min(var(--sgui-field-control-radius), calc(max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)) / 2))); display: flex; flex-direction: column; gap: var(--sgui-space1); color: var(--sgui-field-text); font-family: var(--sgui-font-family); }
+  .sgui_label_465d70f3, .sgui_description_465d70f3, .sgui_error_465d70f3 { font-size: var(--sgui-control-text-size); line-height: var(--sgui-label-line-height); }
+  .sgui_label_465d70f3 { font-weight: var(--sgui-label-weight); }
+  .sgui_input_465d70f3 {
+    box-sizing: border-box;
+    min-inline-size: 0;
+    inline-size: 100%;
+    min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size));
+    padding-block: var(--sgui-space1);
+    padding-inline: var(--field-edge-padding);
+    border: 1px solid var(--sgui-field-border);
+    border-radius: var(--sgui-field-control-radius);
+    color: var(--sgui-field-text);
+    background: var(--sgui-field-background);
+    font-family: var(--sgui-font-family);
+    font-size: var(--sgui-control-text-size);
+    font-weight: var(--sgui-body1-weight);
+    line-height: var(--sgui-label-line-height);
+  }
+  .sgui_input_465d70f3::placeholder { color: var(--sgui-text-field-placeholder-text); opacity: 1; }
+  .sgui_adornment_465d70f3 { display: inline-flex; align-items: center; justify-content: center; flex: none; inline-size: var(--sgui-space4); block-size: var(--sgui-space4); pointer-events: none; }
+  .sgui_adornment_465d70f3 { & > svg { inline-size: 100%; block-size: 100%; } }
+  .sgui_decoratedControl_465d70f3 { display: flex; align-items: center; gap: var(--sgui-space2); flex: 1; min-inline-size: 0; box-sizing: border-box; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline: var(--field-edge-padding); border: 1px solid var(--sgui-field-border); border-radius: var(--sgui-field-control-radius); background: var(--sgui-field-background); }
+  .sgui_decoratedControl_465d70f3 > .sgui_input_465d70f3 { flex: 1; inline-size: 0; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); margin-block: -1px; border: 0; border-radius: 0; padding-inline: 0; background: transparent; }
+  /* Keep the input ring unless the decorated wrapper can replace it. */
+  @supports selector(:has(*)) {
+    .sgui_decoratedControl_465d70f3 > .sgui_input_465d70f3[data-focus-visible], .sgui_decoratedControl_465d70f3 > .sgui_input_465d70f3:focus-visible { outline: none; }
+    .sgui_decoratedControl_465d70f3:has(.sgui_input_465d70f3[data-focus-visible]), .sgui_decoratedControl_465d70f3:has(.sgui_input_465d70f3:focus-visible) { outline: var(--sgui-control-focus-width) solid var(--sgui-text-field-focus-color); outline-offset: var(--sgui-control-focus-offset); }
+    .sgui_decoratedControl_465d70f3:has(.sgui_input_465d70f3[readonly]) { background: var(--sgui-text-field-read-only-surface); }
+  }
+  .sgui_root_465d70f3[data-invalid] .sgui_decoratedControl_465d70f3 { border-color: var(--sgui-text-field-invalid-border); }
+  .sgui_controlGroup_465d70f3 { display: flex; align-items: stretch; min-inline-size: 0; border-color: var(--sgui-field-border); border-radius: var(--sgui-field-control-radius); background: var(--sgui-field-background); }
+  .sgui_controlGroup_465d70f3 > .sgui_input_465d70f3 { flex: 1; inline-size: 0; border-inline-end-width: 0; padding-inline-end: var(--sgui-control-padding); border-color: inherit; border-start-end-radius: 0; border-end-end-radius: 0; }
+  .sgui_root_465d70f3[data-invalid] .sgui_controlGroup_465d70f3 { border-color: var(--sgui-text-field-invalid-border); }
+  .sgui_input_465d70f3[data-focus-visible], .sgui_input_465d70f3:focus-visible { outline: var(--sgui-control-focus-width) solid var(--sgui-text-field-focus-color); outline-offset: var(--sgui-control-focus-offset); }
+  .sgui_root_465d70f3[data-invalid] .sgui_input_465d70f3 { border-color: var(--sgui-text-field-invalid-border); }
+  .sgui_root_465d70f3[data-disabled] { opacity: 0.5; }
+  .sgui_input_465d70f3[readonly] { background: var(--sgui-text-field-read-only-surface); }
+  .sgui_description_465d70f3 { color: var(--sgui-text-field-description-text); }
+  .sgui_error_465d70f3 { color: var(--sgui-text-field-error-text); }
+  @media (forced-colors: active) { .sgui_input_465d70f3, .sgui_controlGroup_465d70f3, .sgui_decoratedControl_465d70f3 { border-color: FieldText; } .sgui_decoratedControl_465d70f3:has(.sgui_input_465d70f3[data-focus-visible]), .sgui_decoratedControl_465d70f3:has(.sgui_input_465d70f3:focus-visible) { outline-color: Highlight; } .sgui_input_465d70f3[data-focus-visible], .sgui_input_465d70f3:focus-visible { outline-color: Highlight; } .sgui_root_465d70f3[data-disabled] { color: GrayText; opacity: 1; } }
+}

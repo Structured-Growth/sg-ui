@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-08",
+  "integrationRequired": true,
+  "sourceMutationsPerformed": false,
+  "supportedRuntime": "Node 24 (or supported Node22 >=22.12), pnpm10.29.3; coordinator chooses its existing supported runtime, no install requested",
+  "patch": "docs/developer/final-acceptance/wave-03-08/implementation.patch",
+  "preconditions": [
+    "Coordinator reviews the seven-file patch and compares captured base input hashes with current dirty dev files; other wave owners may propose overlapping theme/actions/usage documentation changes.",
+    "Keep the shared Material control radius, field radius and authored/generated tokens unchanged. No regeneration is required for this patch.",
+    "Use the existing validation lease for supported units/build/native work. Do not reclaim a busy lease or run competing hosts. Preserve user server3000."
+  ],
+  "checksAlreadyPerformed": [
+    { "cwd": ".", "command": "node docs/developer/final-acceptance/wave-03-08/checks/scoped-validation.mjs", "receipt": "scoped-validation.txt", "runtime": "Node26.5.0 darwin/arm64", "scope": "Bounded PostCSS authored-selector cascade, 214 public names x11 decisions, existing reference paths, docs links/JSON, TypeScript syntax transpilation only; no browser/AT claims. Baseline CSS is the captured before-files snapshot; candidate comes from proposed-files." },
+    { "cwd": ".", "command": "git apply --check docs/developer/final-acceptance/wave-03-08/implementation.patch", "receipt": "patch-check.txt", "result": "pass; exit0, empty output" }
+  ],
+  "coordinatorSteps": [
+    {
+      "id": "review-and-integrate",
+      "cwd": ".",
+      "commands": [
+        "git apply --check docs/developer/final-acceptance/wave-03-08/implementation.patch",
+        "git apply docs/developer/final-acceptance/wave-03-08/implementation.patch"
+      ],
+      "expected": "Apply only after review/reconciliation. One CSS selector addition, Button usage and action guidance, theme entry links, two new developer contracts, one focused native regression. No token/generated output changes."
+    },
+    {
+      "id": "fresh-candidate-and-catalog",
+      "cwd": ".",
+      "commands": [
+        "pnpm --filter @structured-growth/sg-ui build",
+        "pnpm --filter @structured-growth/docs catalog:check",
+        "pnpm --filter @structured-growth/docs build"
+      ],
+      "expected": "Fresh compiled CSS consumed by docs, updated usage guidance accepted by catalog, public declarations/example source compile, docs production build succeeds. If composition/API generation is already fresh and unchanged, reuse it; do not edit generated output manually. These builds are coordinator-owned and were not run by this wave."
+    },
+    {
+      "id": "focused-native-regression",
+      "cwd": "apps/docs",
+      "commands": [
+        "SGUI_ACCEPTANCE_BASE_URL=http://127.0.0.1:3100 pnpm exec playwright test --config=../../docs/developer/final-acceptance/wave-03-08/checks/playwright.config.ts"
+      ],
+      "host": "Coordinator supplies its fresh production docs host at the stated URL, or substitutes the actual coordinated URL. Config deliberately has no webServer/startup step.",
+      "expected": "Two cases per engine, Chromium/Firefox/WebKit, no retries: light/dark neutral-filled View details reference has distinct resting vs hovered background; with pointer away actual held Space sets pressed and the same subtle background, keeps visible focus, and release restores rest. Record build/input/engine hashes, screenshots/trace on failure. No device/AT/real zoom inferred."
+    },
+    {
+      "id": "retained-evidence",
+      "commands": [],
+      "expected": "Retain unchanged Button/SplitAction behavior unit evidence after comparing source/test/transitive inputs, rather than rerunning unchanged activation cases solely for CSS/prose. Retain BUG0008/0009 bounded receipts only for matching inputs; integration/native scopes overlap and must not be added into inflated counts."
+    }
+  ],
+  "remainingD15Successors": [
+    { "owner": "ToggleButton and ToggleButtonGroup", "deliverable": "Add a reviewed structural selected indicator independent of selected colors and outer focus ring; verify selected/unselected, selected+focus and disabled states with unchanged accessible names/layout." },
+    { "owner": "ListItemButton and NavigationItem", "deliverable": "Add a consistent non-color selected/current marker with logical direction; check ordinary and forced-color presentation separately and preserve website no-underline policy." },
+    { "owner": "Calendar plus single-day calendar consumers", "deliverable": "Define and validate a non-color single-day selected indicator. Do not treat range endpoint shape or forced-color-only outlines as standard single-day proof." },
+    { "owner": "State applicability acceptance", "deliverable": "Review all214 named rows and their per-state source/child/host/N/A decisions against current public contracts; retain existing exact behavior evidence, then execute only identified missing native states. Matrix and referenced tests are not a whole-library runtime or AT certificate." }
+  ],
+  "closurePolicy": "All three A leaves remain partial until coordinator integrates/reviews their specific deliverables. A-D15 additionally retains the named visual successors and bounded native evidence. No central checklist/count is changed by this report."
+}

@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "owner": "fix-09",
+  "defect": "BUG-0011",
+  "leaf": "A-K-17",
+  "successor": "K17-callback-reason-access",
+  "status": "implemented-focused-dom-pass",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "capturedAt": "2026-10-16T22:48:52.183318+00:00",
+  "changedFiles": [
+    "packages/ui/src/experimental/Calendar/Calendar.tsx",
+    "packages/ui/src/experimental/Calendar/Calendar.test.tsx",
+    "docs/developer/final-acceptance/fix-09/report.md",
+    "docs/developer/final-acceptance/fix-09/results.json"
+  ],
+  "sha256": {
+    "packages/ui/src/experimental/Calendar/Calendar.tsx": "5b0bd8fabb64db833a9f0f28db5a78b549b0bf5b619d9ef8992b13203fc86178",
+    "packages/ui/src/experimental/Calendar/Calendar.test.tsx": "aa7955ad2270c2dd5f40634346063070cd9665f263816f4f58f8390dd8d4124d",
+    "packages/ui/src/experimental/Calendar/Calendar.native-locales.test.tsx": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+    "packages/ui/src/experimental/Calendar/Calendar.native-locales.native-fixture.tsx": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+    "packages/ui/src/experimental/DatePicker/DatePicker.tsx": "cc1cc4fd1264b16c391f04f34bdfdb5b2d409ba899a022fc83eaa2ad9d7d1dc3"
+  },
+  "reportSha256": "d981fd4358284003ebb261e04564f5ee60d1a670112407cb4b81f720f67349d9",
+  "validation": {
+    "runtime": "Node v24.21.0",
+    "runner": "Vitest v4.1.11 / jsdom",
+    "cwd": "packages/ui",
+    "finalCalendar": {
+      "command": "pnpm exec vitest run src/experimental/Calendar/Calendar.test.tsx",
+      "passed": 10,
+      "failed": 0,
+      "durationSeconds": 1.12,
+      "runnerStart": "17:48:22"
+    },
+    "retainedAffectedLocale": {
+      "command": "pnpm exec vitest run src/experimental/Calendar/Calendar.test.tsx src/experimental/Calendar/Calendar.native-locales.test.tsx",
+      "filesPassed": 2,
+      "testsPassed": 9,
+      "localeTests": 5,
+      "durationSeconds": 1.37,
+      "runnerStart": "17:47:31",
+      "note": "Same runtime implementation; subsequent edits added Calendar tests and removed one blank line."
+    },
+    "diffCheck": "passed"
+  },
+  "limitations": [
+    "No native browser, physical touch or spoken AT execution",
+    "No shared build or production typecheck under instructed affected-suites-only scope",
+    "Dynamic disclosure enumerates visible interval only",
+    "DatePicker shared source may change after captured hash"
+  ],
+  "followUps": [
+    "Coordinator integrated build and docs fixture validation",
+    "K17-native-and-AT bounded keyboard/touch/spoken-output acceptance",
+    "Reconcile DatePicker hash after its assigned worker completes"
+  ]
+}

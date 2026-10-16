@@ -1,0 +1,27 @@
+[WebServer] (node:95511) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:95533) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:95539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › period-picker: an open panel respects later disabled and read-only state (1.1s)
+  ✓   2 [chromium] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › date-time-range-picker: an open panel respects later disabled and read-only state (686ms)
+  ✓   3 [chromium] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › date-range-comparison-picker: an open panel respects later disabled and read-only state (670ms)
+  ✓   4 [chromium] › tests/acceptance-picker-field-fixes.spec.ts:31:1 › TextArea icon slots preserve multiline geometry, focus, source and sibling state (1.9s)
+(node:95563) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [firefox] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › period-picker: an open panel respects later disabled and read-only state (1.4s)
+  ✓   6 [firefox] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › date-time-range-picker: an open panel respects later disabled and read-only state (922ms)
+  ✓   7 [firefox] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › date-range-comparison-picker: an open panel respects later disabled and read-only state (823ms)
+  ✓   8 [firefox] › tests/acceptance-picker-field-fixes.spec.ts:31:1 › TextArea icon slots preserve multiline geometry, focus, source and sibling state (2.4s)
+(node:95629) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [webkit] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › period-picker: an open panel respects later disabled and read-only state (1.3s)
+  ✓  10 [webkit] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › date-time-range-picker: an open panel respects later disabled and read-only state (772ms)
+  ✓  11 [webkit] › tests/acceptance-picker-field-fixes.spec.ts:6:2 › date-range-comparison-picker: an open panel respects later disabled and read-only state (739ms)
+  ✓  12 [webkit] › tests/acceptance-picker-field-fixes.spec.ts:31:1 › TextArea icon slots preserve multiline geometry, focus, source and sibling state (2.1s)
+
+  12 passed (18.1s)

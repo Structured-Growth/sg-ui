@@ -1,0 +1,42 @@
+{
+  "runtime": "v24.21.0",
+  "typescript": "5.9.3",
+  "scope": "TS transpilation syntax only; no public type or behavior proof",
+  "checks": [
+    {
+      "path": "docs/developer/final-acceptance/wave-03-04/proposed-files/apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx",
+      "sha256": "184af11e15e2b1a73abea55d7921e54949f1d910d504271608c4f598124b62d0",
+      "diagnostics": []
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-04/proposed-files/packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.activation.test.tsx",
+      "sha256": "d19ad0b76d33fc113827ebf1d313f7793d317d73298341ae3f1bc72d30d71df6",
+      "diagnostics": []
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-04/proposed-files/packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "sha256": "b69a38d070ff85cb62447fe1a1c344ebbf2d6a9a8ec4ae8e6d5af6fc294cb8e2",
+      "diagnostics": []
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-04/proposed-files/packages/ui/src/components/SideNavigation/SideNavigation.action-diagnostics.test.tsx",
+      "sha256": "9300a845cf5586a673280ea3afce093770f2709b39617a884d9a4945316b263f",
+      "diagnostics": []
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-04/proposed-files/packages/ui/src/experimental/ToggleButton/ToggleButton.notifications.test.tsx",
+      "sha256": "4b9055e5886dc12d8ddaf45cc6600f83392f1dc7a50fe0033784052795606b04",
+      "diagnostics": []
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-04/proposed-files/packages/ui/src/experimental/ToggleButton/ToggleButton.tsx",
+      "sha256": "f93a552afb444876b4aeacc2d0501048c0fc2a0d9ad693bb7168cb75efb1c373",
+      "diagnostics": []
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-04/proposed-files/packages/ui/tests/browser/action-notifications.spec.ts",
+      "sha256": "5501b8f4ceb6674a67eab5aff4c3eb1e0cc68cde915de7052a4c18e62fee1014",
+      "diagnostics": []
+    }
+  ]
+}

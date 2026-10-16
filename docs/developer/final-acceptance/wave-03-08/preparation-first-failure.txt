@@ -1,0 +1,12 @@
+Preserved report-owned preparation failure (from tool output, 2026-10-16):
+Traceback (most recent call last):
+  File "build-state-matrix.py", line 71, in <module>
+    src=sources(name); state,notes=make(slug,name,e,src)
+  File "build-state-matrix.py", line 10, in sources
+    found=[p for p,t in texts.items() if re.search(...re.escape(n)...)]
+NameError: free variable 'n' referenced before assignment in enclosing scope
+
+Cause: n=alias.get(name,name) was accidentally on the same Python line after
+if name=='SGLink': return [...]. It executed only in the early-return branch.
+Corrected into a separate unconditional statement. Matrix regeneration then passed
+with 214 rows and zero unresolved source paths. No shared implementation changed.

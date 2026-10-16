@@ -1,0 +1,19 @@
+{
+  "acceptance-successors.patch": "efa31b600a11a2fd8f43e29bb5170baf312ec11e79db497584c9776b7ef07f00",
+  "artifact-check.txt": "ed5783be24a9426510583bd2474172b020a9539da182061cf7fc42a2bfa507f3",
+  "assignment.json": "eb411734317456e1c4f085a4b30dee62e6ebcb7d521d90e06f4eb2d521c74422",
+  "capture-evidence.py": "3adbe3a0a531bac235d2c584e903afe684098fbf06d50e02a5e6c6d19d8074ab",
+  "capture.txt": "22ef2586a1a873ae31ac6ac002a6c6442a0512412d98eeca4692b56beaba97d9",
+  "check-proposals.mjs": "f76b04973df8533d01d64ff5461497c815db1ec2ce4bcd3208ef1dfada4bd5e1",
+  "evidence.json": "3d4539ac2099aa707f915fda7cdca45f3ee8926162764f98ea8de0425fac5a08",
+  "patch-check.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "proposed-files/apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx": "194beb0534e51d4f1719d6370499c3f079affeb6f3946b197df5baec96383ada",
+  "proposed-files/apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.fixture.tsx": "8f982b558075651414618df464d6535f88ebb330d4cb62c93e5760fdcd860215",
+  "proposed-files/packages/ui/tests/browser/wave03-editor-chrome-acceptance.spec.ts": "39efc57c77942e97953ea1933c170b808af941a278fd8a38d78567b7320313ab",
+  "proposed-files/packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts": "2ebe9416e826e0501dcd21dcfe0c7d57ad058f931638f3993212ea33b9a4b1bd",
+  "report.md": "911cd31ac161e5fd3e72b398543f87597918bc475cc780b4ef432062c1fd3e1f",
+  "results.json": "12273a3b655d759db88d0a46247d6c15e8fec4ea214c9a69f9322c9baeda96da",
+  "static-validation-first-failure.txt": "afeb786055bb18fc8b84baf042026d25ca1e00c2294d21c0bb0b00532c4ca147",
+  "static-validation.txt": "7177c2a2df49e92587f5358384dfcd45a7313f5540b9bcf7770c82a4d0f08eff",
+  "validation-plan.json": "a00a6de1747ecb45f6132665ddc85a9513d9a6ced98d67c92b5d1629cf48d5b0"
+}

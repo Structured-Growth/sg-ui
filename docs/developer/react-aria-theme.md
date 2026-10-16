@@ -30,6 +30,33 @@ layout styles such as padding remain at the source root. There is no global CSS
 baseline or runtime stylesheet injection. Applications own body/background/font
 loading and any reset they require.
 
+### Initial server appearance and live overlay updates
+
+Render the same `theme`, density, host locale, initial field values and civil-date
+anchors on the server and first client render. The default theme is `light`;
+`system` keeps that literal setting in markup and lets the loaded stylesheet
+resolve `prefers-color-scheme` and `color-scheme`. It needs no preference read in
+render or effect to choose the initial colors. Explicit `light` and `dark` scopes
+retain their own color scheme when the system preference changes.
+
+Load `styles.css` in the document's initial stylesheet path before showing the
+interface. A late stylesheet, client-only preference restoration or a different
+server/client host locale can cause a visible change outside the scope contract.
+If a host persists an explicit theme, serialize the server's chosen value for the
+first client render; apply later user changes through props. The host also owns
+locale negotiation and timezone conversion. Supply civil `referenceDate` values
+for calendar workflows rather than deriving an initial view from a client clock.
+
+An already open owned overlay receives subsequent context changes to theme,
+density, language, direction and inline `--sgui-*` overrides. A nested explicit
+theme or density still wins, and sibling scopes stay independent. Arbitrary CSS
+classes and layout styles do not transfer across portals: express portaled color
+customization through owned variables on Provider/ThemeScope. The grid state
+contract fixes controlled/uncontrolled ownership per instance; remount when changing
+that ownership. Other controls retain their documented value/default/reset contracts;
+a theme change does not authorize changing their ownership. Controlled hosts must
+accept a requested value before it becomes authoritative.
+
 | Removed API | Owned mapping |
 | --- | --- |
 | `theme`, `lightTheme`, `darkTheme`, upstream ThemeProvider/theme objects | theme setting on Provider/ThemeScope |
@@ -155,3 +182,43 @@ DOM measurement and follows font, density and option changes during SSR and on t
 client. Host CSS on the field can set a fixed width or maximum width; the selected
 value truncates with an ellipsis inside that constraint, and the popup retains
 complete option labels within its viewport bounds.
+
+
+## Foundation geometry and motion scales
+
+See [the scale contract](react-aria-foundation-scales.md) for spacing, density,
+radius, border, icon, elevation and motion decisions, including intentionally
+local indicator constants. See [state applicability](react-aria-state-applicability.md)
+for public parts, non-color indicators and outstanding visual-state evidence.
+
+## Motion interruption and system indications
+
+Simple visual effects use compiled CSS and the owned motion duration; no motion
+runtime or transition-end callback gates an action, dismissal or focus update.
+A live reduced-motion preference cancels running navigation, spinner and progress
+animations and button transitions. Pending/indeterminate semantics remain present;
+ordinary animation resumes only while the corresponding state still requires it.
+
+SideNavigation forward/Back changes select the latest menu immediately. Focus
+belongs to the current menu, without a delayed animation callback. IconPanelNavigation
+shows only the accepted active panel: hidden mounted panels retain drafts and stay
+out of Tab order. Closing from within a panel returns focus to its trigger; replacing
+the panel from within moves focus to the accepted panel's trigger. Closing from an
+already focused host control preserves that host focus. These changes do not wait
+for animation completion. Collapse hides/unmounts immediately; the host chooses a
+replacement focus destination when it removes the focused descendant.
+
+Dialog/Popover use native interaction focus restoration at dismissal. Dialog's
+removed-opener repair runs after native restoration and inert cleanup and must
+preserve valid host or surviving-overlay focus, including immediate reopen. Tooltip
+trigger replacement/unmount invalidates delayed open/close callbacks; a tooltip
+never becomes an interactive focus destination.
+
+Forced colors take priority over identity and explicit contrast preferences.
+Exceptions belong to actual color data or explicit system-color painting. Color
+picker swatches preserve only their decorative chip pixels; their interactive
+border, selected double border and outward keyboard focus ring use system colors.
+The accessible preset name and aria-pressed state remain independent of the sample.
+Hosts own contrast validation for custom token overrides and application content.
+Browser media emulation verifies CSS preference handling; actual OS high contrast,
+spoken assistive technology and physical devices require separately recorded runs.

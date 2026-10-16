@@ -1,0 +1,47 @@
+{
+  "command": "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-21/vitest.proposal.config.mjs",
+  "cwd": "/Users/thomashall/Repositories/sg-ui",
+  "runtime": "Node v24.21.0",
+  "versions": {
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "vitest": "4.1.11",
+    "jsdom": "26.1.0",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.1"
+  },
+  "result": "pass",
+  "suites": 1,
+  "tests": 7,
+  "durationSeconds": 2.28,
+  "log": "unit-attempt-4.txt",
+  "classification": "jsdom DOM behavior; no native/device/AT claim",
+  "proposalImports": "Vitest config remaps the two relative imports to current production sources; bare imports resolve from packages/ui. No production module is mocked.",
+  "attempts": [
+    {
+      "log": "unit-attempt-1.txt",
+      "result": "config resolution error; zero tests"
+    },
+    {
+      "log": "unit-attempt-2.txt",
+      "result": "proposal dependency resolution error; zero tests"
+    },
+    {
+      "log": "unit-attempt-3.txt",
+      "result": "lease occupied; no command started; no lease bypass/reclaim"
+    },
+    {
+      "log": "unit-attempt-4.txt",
+      "result": "all seven pass"
+    }
+  ],
+  "patchCheck": {
+    "command": "git apply --check docs/developer/final-acceptance/wave-03-21/reorder-policy.patch",
+    "exitCode": 0,
+    "applied": false
+  },
+  "recorderSyntax": {
+    "command": "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node --check docs/developer/final-acceptance/wave-03-21/physical-input-recorder.js",
+    "exitCode": 0
+  }
+}

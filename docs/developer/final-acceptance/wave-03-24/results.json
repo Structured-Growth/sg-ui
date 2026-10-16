@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-16T23:09:36.289666+00:00",
+  "assignment": "wave-03-24",
+  "status": "partial",
+  "counts": {
+    "complete": 0,
+    "partial": 6,
+    "blocked": 0
+  },
+  "patch": "command-transactions.patch",
+  "patchApplied": false,
+  "integrationRequired": true,
+  "filesProposed": [
+    "docs/developer/react-aria-editor-menus.md",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+    "packages/ui/tests/browser/editor-style-range-transactions.spec.ts"
+  ],
+  "runtime": {
+    "node": "24.21.0",
+    "react": "19.2.3",
+    "lexical": "0.41.0",
+    "vitest": "4.1.11",
+    "jsdom": "26.1.0",
+    "typescript": "5.9.3",
+    "nativeEngine": null
+  },
+  "validation": {
+    "proposedUnit": {
+      "passed": 20,
+      "failed": 0,
+      "log": "proposed-unit-final.log"
+    },
+    "baselineSelectedSubset": {
+      "passed": 1,
+      "failed": 12,
+      "skipped": 7,
+      "log": "baseline-unit-final.log",
+      "meaning": "Discriminates six range/caret/Unicode assertions and six initial alignment active-value assertions; not a broad baseline suite."
+    },
+    "syntax": "static-check.json; not full typecheck",
+    "patchCheck": "git apply --check passed; no apply",
+    "commands": "unit-execution.json; run-validation.mjs; validation-plan.json",
+    "unexecuted": [
+      "Integrated-source suites",
+      "Full typecheck",
+      "Fresh public/native fixture build",
+      "Two native browser cases across three engines",
+      "V presentation/RTL/operator criteria"
+    ]
+  },
+  "priorEvidenceChecks": [
+    {
+      "path": "docs/developer/final-acceptance/wave-02-03/report.md",
+      "expected": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+      "actual": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+      "unchanged": true
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-03/results.json",
+      "expected": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+      "actual": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+      "unchanged": true
+    }
+  ],
+  "results": [
+    {
+      "id": "A-M-26",
+      "originalRequirement": "- [ ] A-M-26 Reconcile RichTextFormattingToolbar final acceptance: All formatting actions, mixed/active/disabled state, Lexical commands. Link its `F-C26`, `T-C26` and `V-C26` evidence and any unresolved defects.",
+      "status": "partial",
+      "outcome": "Real inline/style/color toolbar transactions and current controlled callback added; range and alignment source fix proposed.",
+      "retainedEvidence": {
+        "id": "A-M-26",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-M-26 Reconcile RichTextFormattingToolbar final acceptance: All formatting actions, mixed/active/disabled state, Lexical commands. Link its `F-C26`, `T-C26` and `V-C26` evidence and any unresolved defects.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-C26-V",
+            "deliverable": "Review long text/typeface/color/menu content, responsive wrapping, both themes/densities and translated RTL order. Reconcile each active/mixed/disabled action against the editor command matrix in this report; retain incomplete combinations under A-E-04.",
+            "acceptanceEvidenceRequired": "Close V-C26-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+          },
+          {
+            "id": "W03-C26-E",
+            "deliverable": "Reconcile the missing E-family command/content/IME/trust rows from command-and-trust-matrix.md.",
+            "acceptanceEvidenceRequired": "Retain one result per missing row; no duplicate suite or broad parent closure from one fixture."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "proposed-unit-final.log",
+        "baseline-unit-final.log",
+        "unit-execution.json",
+        "static-check.json",
+        "evidence.json"
+      ],
+      "sourceHashes": "evidence.json inputHashes/artifacts",
+      "residualSuccessors": [
+        "W03-C26-V",
+        "W03-C26-E",
+        "Integrate patch and rerun affected composed tests"
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "nativeOrOperatorRemaining": true
+    },
+    {
+      "id": "A-M-27",
+      "originalRequirement": "- [ ] A-M-27 Reconcile InsertContentMenuControl final acceptance: Menu commands and insertion focus, disabled actions and announcements. Link its `F-C27`, `T-C27` and `V-C27` evidence and any unresolved defects.",
+      "status": "partial",
+      "outcome": "Retained unchanged accepted insertion/focus/disabled and twoEqual real insertion history; no duplicate insertion test.",
+      "retainedEvidence": {
+        "id": "A-M-27",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-M-27 Reconcile InsertContentMenuControl final acceptance: Menu commands and insertion focus, disabled actions and announcements. Link its `F-C27`, `T-C27` and `V-C27` evidence and any unresolved defects.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-C27-V",
+            "deliverable": "Review translated long insertion labels and keyboard focus at narrow width in both themes/densities and Arabic RTL. In the composed host confirm one named insertion result announcement and correct editor/dialog return focus.",
+            "acceptanceEvidenceRequired": "Close V-C27-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "evidence.json prior-input reconciliation"
+      ],
+      "sourceHashes": "evidence.json inputHashes/artifacts",
+      "residualSuccessors": [
+        "W03-C27-V: composed native long-label/RTL/density/theme plus named announcement and editor/dialog return focus"
+      ],
+      "proposedPatchNeedsIntegration": false,
+      "nativeOrOperatorRemaining": true
+    },
+    {
+      "id": "A-M-28",
+      "originalRequirement": "- [ ] A-M-28 Reconcile TextAlignMenuControl final acceptance: Alignment/indent commands, active state, direction-aware presentation. Link its `F-C28`, `T-C28` and `V-C28` evidence and any unresolved defects.",
+      "status": "partial",
+      "outcome": "Six real physical/logical alignment transaction/history/reload cases pass; proposed bridge fixes baseline active-value mismatch.",
+      "retainedEvidence": {
+        "id": "A-M-28",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-M-28 Reconcile TextAlignMenuControl final acceptance: Alignment/indent commands, active state, direction-aware presentation. Link its `F-C28`, `T-C28` and `V-C28` evidence and any unresolved defects.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-C28-V",
+            "deliverable": "Review all physical/logical icons and translated long labels at narrow width, both themes/densities and RTL. Confirm single checked alignment, logical placement, native keyboard focus/return and disabled indent/outdent.",
+            "acceptanceEvidenceRequired": "Close V-C28-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "proposed-unit-final.log",
+        "baseline-unit-final.log",
+        "unit-execution.json",
+        "static-check.json",
+        "evidence.json"
+      ],
+      "sourceHashes": "evidence.json inputHashes/artifacts",
+      "residualSuccessors": [
+        "Integrate selected-block alignment bridge",
+        "W03-C28-V"
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "nativeOrOperatorRemaining": true
+    },
+    {
+      "id": "A-M-29",
+      "originalRequirement": "- [ ] A-M-29 Reconcile TextColorPickerControl final acceptance: Foreground/background modes, clear/reset, swatches and accessible color control. Link its `F-C29`, `T-C29` and `V-C29` evidence and any unresolved defects.",
+      "status": "partial",
+      "outcome": "Both real selected-run foreground/background commit/Clear/history/reload cases pass; retain reset/swatch controls evidence.",
+      "retainedEvidence": {
+        "id": "A-M-29",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-M-29 Reconcile TextColorPickerControl final acceptance: Foreground/background modes, clear/reset, swatches and accessible color control. Link its `F-C29`, `T-C29` and `V-C29` evidence and any unresolved defects.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-C29-V",
+            "deliverable": "Review foreground and background popovers with long labels at narrow width, both themes/densities and Arabic RTL; verify focus/error/swatch contrast. Obtain an operator/platform record for actual native OS color chooser keyboard and AT interaction separately from DOM change events.",
+            "acceptanceEvidenceRequired": "Close V-C29-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+          },
+          {
+            "id": "W03-C29-NATIVE-COLOR",
+            "deliverable": "Record actual native color chooser operation on named OS/browser with keyboard and spoken AT.",
+            "acceptanceEvidenceRequired": "Operator, OS/browser/AT versions, focus/confirm/cancel behavior for foreground/background; browser input change events alone insufficient."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "proposed-unit-final.log",
+        "baseline-unit-final.log",
+        "unit-execution.json",
+        "static-check.json",
+        "evidence.json"
+      ],
+      "sourceHashes": "evidence.json inputHashes/artifacts",
+      "residualSuccessors": [
+        "Integrate and rerun color transaction tests",
+        "W03-C29-V",
+        "W03-C29-NATIVE-COLOR operator/OS/browser/AT record"
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "nativeOrOperatorRemaining": true
+    },
+    {
+      "id": "A-M-30",
+      "originalRequirement": "- [ ] A-M-30 Reconcile TextStyleMenuControl final acceptance: Style/typeface options, tokenized labels, selection and focus behavior. Link its `F-C30`, `T-C30` and `V-C30` evidence and any unresolved defects.",
+      "status": "partial",
+      "outcome": "All eight style commands covered with real selected-run mutations/history/reload; Unicode, partial-run and caret fixes proposed.",
+      "retainedEvidence": {
+        "id": "A-M-30",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-M-30 Reconcile TextStyleMenuControl final acceptance: Style/typeface options, tokenized labels, selection and focus behavior. Link its `F-C30`, `T-C30` and `V-C30` evidence and any unresolved defects.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-C30-V",
+            "deliverable": "Review long translated style labels/case glyphs and checked/disabled choices at narrow width in both themes/densities and Arabic RTL; verify native selection survives command/return focus. Reconcile the old typeface shorthand to the already approved split in central acceptance wording.",
+            "acceptanceEvidenceRequired": "Close V-C30-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "proposed-unit-final.log",
+        "baseline-unit-final.log",
+        "unit-execution.json",
+        "static-check.json",
+        "evidence.json"
+      ],
+      "sourceHashes": "evidence.json inputHashes/artifacts",
+      "residualSuccessors": [
+        "Integrate patch and run two-case native range spec",
+        "W03-C30-V"
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "nativeOrOperatorRemaining": true
+    },
+    {
+      "id": "A-E-04",
+      "originalRequirement": "- [ ] A-E-04 Reconcile original `E-04`: Cover undo/redo, links, lists, code, tables, alignment, indentation, colors, and inline formatting that current consumers use. Historical status: open.",
+      "status": "partial",
+      "outcome": "Retain accepted link/list/table/indent/mixed cases; fill named style/inline-code/color/alignment gaps with real transaction results.",
+      "retainedEvidence": {
+        "id": "A-E-04",
+        "status": "partial",
+        "originalChecklistText": "- [ ] A-E-04 Reconcile original `E-04`: Cover undo/redo, links, lists, code, tables, alignment, indentation, colors, and inline formatting that current consumers use. Historical status: open.",
+        "conversationNumber": 3,
+        "report": "docs/developer/final-acceptance/wave-02-03/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-03/results.json",
+        "reportSha256": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+        "resultsSha256": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+        "successors": [
+          {
+            "id": "W03-E04-COMMANDS",
+            "deliverable": "Use the command matrix to obtain current consumer-required combinations; reconcile selection boundaries/active-mixed-disabled values and real undo/redo for remaining list/code/table/alignment/color/inline commands. No blanket every-permutation expansion.",
+            "acceptanceEvidenceRequired": "Each missing named command scenario shows exact JSON/text/style before/after, selection retention, undo/redo and editorKey reload; reuse existing table/mixed/paragraph native receipts."
+          }
+        ],
+        "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+      },
+      "newEvidence": [
+        "proposed-unit-final.log",
+        "baseline-unit-final.log",
+        "unit-execution.json",
+        "static-check.json",
+        "evidence.json"
+      ],
+      "sourceHashes": "evidence.json inputHashes/artifacts",
+      "residualSuccessors": [
+        "Integrate and validate exact named cases",
+        "Obtain consumer-required block-code/list/table combinations and fill only unrepresented rows"
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "nativeOrOperatorRemaining": true
+    }
+  ],
+  "limits": [
+    "Own directory only; shared source remains unchanged.",
+    "All 71 prior input hashes unchanged; 121 inspected coordinator build/output hashes unchanged.",
+    "Proposed source executed only through owned runtime import rewrite/alias.",
+    "No DOM evidence relabeled native/AT/device/zoom; no fabricated owner approvals."
+  ]
+}

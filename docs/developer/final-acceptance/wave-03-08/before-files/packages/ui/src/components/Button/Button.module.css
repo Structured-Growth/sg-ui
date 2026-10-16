@@ -1,0 +1,40 @@
+@layer sgui.components {
+  .root {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sgui-space2);
+    min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size));
+    min-inline-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size));
+    padding-block: var(--sgui-space1);
+    padding-inline: var(--sgui-control-padding);
+    border: 1px solid transparent;
+    border-radius: var(--sgui-button-radius);
+    font-family: var(--sgui-font-family);
+    font-size: var(--sgui-control-text-size);
+    font-weight: var(--sgui-action-weight);
+    line-height: var(--sgui-label-line-height);
+    background: var(--sgui-button-primary-background);
+    color: var(--sgui-button-primary-text);
+    cursor: pointer;
+    transition: background-color var(--sgui-motion-duration);
+  }
+  .root[data-hovered], .root[data-pressed] { background: var(--sgui-button-primary-hover-background); }
+  .root[data-tone="neutral"] { background: var(--sgui-button-neutral-surface); color: var(--sgui-button-neutral-foreground); }
+  .root[data-variant="outlined"], .root[data-variant="text"] { background: transparent; color: var(--sgui-button-primary-foreground); }
+  .root[data-tone="neutral"][data-variant] { color: var(--sgui-button-neutral-foreground); }
+  .root[data-variant="outlined"] { border-color: var(--sgui-button-border); }
+  .root[data-variant="outlined"][data-hovered], .root[data-variant="text"][data-hovered],
+  .root[data-tone="neutral"][data-hovered], .root[data-variant="outlined"][data-pressed],
+  .root[data-variant="text"][data-pressed] { background: var(--sgui-button-subtle-interaction-background); }
+  .root[data-focus-visible] { outline: var(--sgui-control-focus-width) solid var(--sgui-button-focus-color); outline-offset: var(--sgui-control-focus-offset); }
+  .root[data-disabled] { opacity: 0.5; cursor: default; }
+  .root[data-pending] { cursor: progress; }
+  .label { overflow-wrap: anywhere; }
+  .icon { display: inline-flex; flex: none; }
+  .spinner { inline-size: 1em; block-size: 1em; border: 2px solid currentColor; border-inline-end-color: transparent; border-radius: 50%; animation: spin 800ms linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .root { transition: none; } .spinner { animation: none; } }
+  @media (forced-colors: active) { .root { border-color: ButtonText; } .root[data-focus-visible] { outline-color: Highlight; } .root[data-disabled] { color: GrayText; opacity: 1; } }
+}

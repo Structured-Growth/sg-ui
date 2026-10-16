@@ -1,0 +1,395 @@
+{
+  "capturedAt": "2026-10-16T23:06:43.590532+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "runtime": "Node 24.19.0, Vitest 4.1.11, jsdom; read-only source overlay",
+  "inputHashes": {
+    "AGENTS.md": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+    "docs/developer/final-acceptance/coordinator-integration/evidence.json": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+    "docs/developer/final-acceptance/wave-02-03/command-and-trust-matrix.md": "ddcd726bfe969e86ad22e4d05178a2fa95e8354502c54ca286119b957d1b0018",
+    "docs/developer/final-acceptance/wave-02-03/report.md": "145b6bf0df9befd2567a79fbf5fcc782acbfa40afcc1e346d80366daa72dd161",
+    "docs/developer/final-acceptance/wave-02-03/results.json": "f3a7e8207e0b53a78359e36d3ce33e0ca02861ff53efb34c105046962bd6f8c1",
+    "docs/developer/react-aria-editor-dialogs.md": "e607f2b0ab8ccca4a4feea00664f9d8382b9a22a582d703d8df555a8ea0e9ceb",
+    "docs/developer/react-aria-editor-section.md": "7bd3d21c62d88ce03d9feb694dad264a56de2d5e588aee73f7cdd7884ba44f17",
+    "docs/developer/react-aria-final-acceptance.md": "f4c7d7f0759ccfd3b2be0829283151a7b8942ed8010e12591ce0236b34dc1fa8",
+    "packages/ui/scripts/browser-validation-pool.mjs": "ebb6f119e1cbdfddb5aa7606af0794af45b7e5827873c93757790506ae38374f",
+    "packages/ui/src/components/ImageUploadModal/ImageUploadModal.module.css": "0e66b06df36269c7cc6c48ab92f21b668e71d5e147033c569f0aca8155262c53",
+    "packages/ui/src/components/ImageUploadModal/ImageUploadModal.test.tsx": "e0d4bd057de6dac6e42234fe0e6419e1a5a2f0e2942bc1bcd351dfdd477c30d8",
+    "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx": "4ef979f654b81adbfc13cf8c0aef1a92f9a488ae8537724e1a87122d499336b6",
+    "packages/ui/src/components/ImageUploadModal/index.ts": "2996ede013f9514eab3026e2ba0111c6d803b543a9a64302cf9a6ecb6035395a",
+    "packages/ui/src/components/LinkUrlModal/LinkUrlModal.module.css": "b22ee7ba4c242d3cbcef64c24137bec97382d55f09842242744b5cde9ed1be5a",
+    "packages/ui/src/components/LinkUrlModal/LinkUrlModal.next100-regression.test.tsx": "844dc7551a12a0150f0bb8061266c7cbbb3fffe6a671a05c90c10186b64999b4",
+    "packages/ui/src/components/LinkUrlModal/LinkUrlModal.test.tsx": "9ba0eb14b35d4aed3abacf7a30bd510747aa0bbf4855b6391aa3dc142b1250b5",
+    "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx": "8d68877da83015915608e0c60b26b10c9d755694d54243acb03b7e14b58f0965",
+    "packages/ui/src/components/LinkUrlModal/index.ts": "9c2e34a9a5c6bf40b63882457555ddce958f6b9625e4e42497cf0bdfd3934b6c",
+    "packages/ui/src/components/LinkUrlModal/linkUrlPolicy.test.ts": "fc0e1314acfbae45350027aa77dd9f7a8c286f0dc5a572827f9f55f2aa4917c4",
+    "packages/ui/src/components/LinkUrlModal/linkUrlPolicy.ts": "eef38a8ce8cc6074157d5b16b9005ceeba5aef1501b59da273cd873674809c9b",
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.test.tsx": "bf5acdcf53cf793d1546ee5b337d3f7b55a45535db86c339d113aa433f98eff0",
+    "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.tsx": "95e343e1f38eebcb8a3014fe7a843dc3a05576512de1fb27d062b011df59dea1",
+    "packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx": "fe28a2d12c6f8943bc4b16e421b3cf02e0b2f4fbd25cb92658dade79f08f8d31",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx": "623ecdacf2d2f8e8a61fd9c38eafe88f03b602de5b0335801325f1624ce3b811",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx": "2b5691afd78c80795864e7e5ece23aff403c4d48071e6e72df239d00ddf28795",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": "03c3283c56104fee0b17ff39b8174eb933352a5cd1fc5fb51219e5036b9bfb65",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.native-fixture.tsx": "5aca8af3798c8f136185f3f321c6e1ddd3fe4e0b72c34cf6aa5e31b7ee45abf8",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.test.tsx": "7c11815bc6427cd3600df4098c6e1360528538c3ff88dbe77ade5eb34a2487e8",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.native-fixtures.ts": "da40807724e3e5f254c1310159d6c1434a7487a08480316c8f0dae8a2311daeb",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.next100-regression.test.tsx": "9acb1ab1a39b2c174dd7eb570fbb9d4cbcbfef5edc622a5f3eeb79403babc322",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.native-fixture.tsx": "1d4e7e0b1599952dc04c70231d07e963d5c09c8e047a6d4e1aebfa26b40801c3",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.scroll.test.tsx": "d3279262a1ba890201c03eb571430ecef0485f670de1c76cb4f58f722bcf49d0",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx": "d8dbe919f5e60f1711176f5d43a9b9e5dc2f6e899715db4a1635b33fb8d21c7d",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx": "16bc776d2918487ba72ce5180d759efc6205fcf8da7ffa08ee151c9ca16ae0e1",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+    "packages/ui/src/components/PageRichTextEditorSection/index.ts": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx": "a88e2c6eec3624a29c4f8f6e64c7cde24fc9e32de97419a359085976fe178b23",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx": "1c628ea3dd9d38ba95eb4dd34b616ea9bb9f9d045d86d7e1d5037f770c9fafb0",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx": "dc93ca33bcb27f19e374231a777432d2b717e28ef22b014e36cafe4c51fe5b25",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx": "9a27a72ffb2b94f1b4ca649edc1438597cc1034d03943ed818c76051f15678cd",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.module.css": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx": "244db3c5aff3fe30a58e07fd7251e6a6565ec221231ae5019b6787243555b6bd",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx": "547741b61c7a36a3873e0068d479c4e1dd4ac852fcfc8e0e227c82b5d694b34f",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts": "8f5286820349d68ba21b8eadb35b4723aeeb9c132b43fdf38dc2834dcf7837bb",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx": "34293bf4ab6b0d3e273c82ac374ed721020b55e48189ef5a6cca1593dd7e1714",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts": "3edab46c07bb2ea8a566292e00afdb683b5f53700a22df0824e5a7b4622fa6d1",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.test.ts": "4bc7e44328b4749b3512e5155ded653798ce48b0015f74de91bdc008f1a1de22",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.test.ts": "5e599f98aa1f48bf8e3e6797930aeb47790b00d47ded5250eb88e1ba641cea31",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.ts": "ef56953b5bc62531bc8ac841a9e6e940535f0bbab1fd0096a71c0776daeeaab1",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts": "675e661bd7200c01b6433dbbb2e3ce25da9fce46d0023a978987ff1a7e661b8f",
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts": "679d75b3ebe56a158e63448ecf36626f87d3668822558817eed4c824860e164f",
+    "packages/ui/tests/browser/editor-image-lifecycle.spec.ts": "e881a6011cae9428db3aaf929eac5c67dfd19bc78b27b23d70a27a1d2adb0194",
+    "packages/ui/tests/browser/editor-image-sources.spec.ts": "6dc9b3fbfca435adb316687fd1d84508f3b9e724aa4b0c717534570d48ff2793",
+    "packages/ui/tests/browser/editor-upload-lifecycle.spec.ts": "b6108d13b59f43dcdda542971091db108b3543687f9c6e6319ed01b60cdb8a75",
+    "packages/ui/tests/browser/image-upload-validation.spec.ts": "7d616fab296b6ddc4599229dcf4cf20d6d175d8b8f69cfe23dc55ab2d5d5e9eb"
+  },
+  "retainedEvidenceComparisons": {
+    "wave02": {
+      "AGENTS.md": {
+        "saved": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+        "current": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+        "unchanged": true
+      },
+      "docs/developer/react-aria-editor-dialogs.md": {
+        "saved": "e607f2b0ab8ccca4a4feea00664f9d8382b9a22a582d703d8df555a8ea0e9ceb",
+        "current": "e607f2b0ab8ccca4a4feea00664f9d8382b9a22a582d703d8df555a8ea0e9ceb",
+        "unchanged": true
+      },
+      "docs/developer/react-aria-editor-section.md": {
+        "saved": "7bd3d21c62d88ce03d9feb694dad264a56de2d5e588aee73f7cdd7884ba44f17",
+        "current": "7bd3d21c62d88ce03d9feb694dad264a56de2d5e588aee73f7cdd7884ba44f17",
+        "unchanged": true
+      },
+      "packages/ui/src/components/ImageUploadModal/ImageUploadModal.module.css": {
+        "saved": "0e66b06df36269c7cc6c48ab92f21b668e71d5e147033c569f0aca8155262c53",
+        "current": "0e66b06df36269c7cc6c48ab92f21b668e71d5e147033c569f0aca8155262c53",
+        "unchanged": true
+      },
+      "packages/ui/src/components/ImageUploadModal/ImageUploadModal.test.tsx": {
+        "saved": "e0d4bd057de6dac6e42234fe0e6419e1a5a2f0e2942bc1bcd351dfdd477c30d8",
+        "current": "e0d4bd057de6dac6e42234fe0e6419e1a5a2f0e2942bc1bcd351dfdd477c30d8",
+        "unchanged": true
+      },
+      "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx": {
+        "saved": "4ef979f654b81adbfc13cf8c0aef1a92f9a488ae8537724e1a87122d499336b6",
+        "current": "4ef979f654b81adbfc13cf8c0aef1a92f9a488ae8537724e1a87122d499336b6",
+        "unchanged": true
+      },
+      "packages/ui/src/components/ImageUploadModal/index.ts": {
+        "saved": "2996ede013f9514eab3026e2ba0111c6d803b543a9a64302cf9a6ecb6035395a",
+        "current": "2996ede013f9514eab3026e2ba0111c6d803b543a9a64302cf9a6ecb6035395a",
+        "unchanged": true
+      },
+      "packages/ui/src/components/LinkUrlModal/LinkUrlModal.module.css": {
+        "saved": "b22ee7ba4c242d3cbcef64c24137bec97382d55f09842242744b5cde9ed1be5a",
+        "current": "b22ee7ba4c242d3cbcef64c24137bec97382d55f09842242744b5cde9ed1be5a",
+        "unchanged": true
+      },
+      "packages/ui/src/components/LinkUrlModal/LinkUrlModal.next100-regression.test.tsx": {
+        "saved": "844dc7551a12a0150f0bb8061266c7cbbb3fffe6a671a05c90c10186b64999b4",
+        "current": "844dc7551a12a0150f0bb8061266c7cbbb3fffe6a671a05c90c10186b64999b4",
+        "unchanged": true
+      },
+      "packages/ui/src/components/LinkUrlModal/LinkUrlModal.test.tsx": {
+        "saved": "9ba0eb14b35d4aed3abacf7a30bd510747aa0bbf4855b6391aa3dc142b1250b5",
+        "current": "9ba0eb14b35d4aed3abacf7a30bd510747aa0bbf4855b6391aa3dc142b1250b5",
+        "unchanged": true
+      },
+      "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx": {
+        "saved": "8d68877da83015915608e0c60b26b10c9d755694d54243acb03b7e14b58f0965",
+        "current": "8d68877da83015915608e0c60b26b10c9d755694d54243acb03b7e14b58f0965",
+        "unchanged": true
+      },
+      "packages/ui/src/components/LinkUrlModal/index.ts": {
+        "saved": "9c2e34a9a5c6bf40b63882457555ddce958f6b9625e4e42497cf0bdfd3934b6c",
+        "current": "9c2e34a9a5c6bf40b63882457555ddce958f6b9625e4e42497cf0bdfd3934b6c",
+        "unchanged": true
+      },
+      "packages/ui/src/components/LinkUrlModal/linkUrlPolicy.test.ts": {
+        "saved": "fc0e1314acfbae45350027aa77dd9f7a8c286f0dc5a572827f9f55f2aa4917c4",
+        "current": "fc0e1314acfbae45350027aa77dd9f7a8c286f0dc5a572827f9f55f2aa4917c4",
+        "unchanged": true
+      },
+      "packages/ui/src/components/LinkUrlModal/linkUrlPolicy.ts": {
+        "saved": "eef38a8ce8cc6074157d5b16b9005ceeba5aef1501b59da273cd873674809c9b",
+        "current": "eef38a8ce8cc6074157d5b16b9005ceeba5aef1501b59da273cd873674809c9b",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.test.tsx": {
+        "saved": "bf5acdcf53cf793d1546ee5b337d3f7b55a45535db86c339d113aa433f98eff0",
+        "current": "bf5acdcf53cf793d1546ee5b337d3f7b55a45535db86c339d113aa433f98eff0",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/DocumentContentEditable.tsx": {
+        "saved": "95e343e1f38eebcb8a3014fe7a843dc3a05576512de1fb27d062b011df59dea1",
+        "current": "95e343e1f38eebcb8a3014fe7a843dc3a05576512de1fb27d062b011df59dea1",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx": {
+        "saved": "fe28a2d12c6f8943bc4b16e421b3cf02e0b2f4fbd25cb92658dade79f08f8d31",
+        "current": "fe28a2d12c6f8943bc4b16e421b3cf02e0b2f4fbd25cb92658dade79f08f8d31",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx": {
+        "saved": "623ecdacf2d2f8e8a61fd9c38eafe88f03b602de5b0335801325f1624ce3b811",
+        "current": "623ecdacf2d2f8e8a61fd9c38eafe88f03b602de5b0335801325f1624ce3b811",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx": {
+        "saved": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+        "current": "1ad57adb6e2177d00862a65c8cf70deb015068e60395f28603c6a77fad7e1d5c",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx": {
+        "saved": "2b5691afd78c80795864e7e5ece23aff403c4d48071e6e72df239d00ddf28795",
+        "current": "2b5691afd78c80795864e7e5ece23aff403c4d48071e6e72df239d00ddf28795",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": {
+        "saved": "03c3283c56104fee0b17ff39b8174eb933352a5cd1fc5fb51219e5036b9bfb65",
+        "current": "03c3283c56104fee0b17ff39b8174eb933352a5cd1fc5fb51219e5036b9bfb65",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.native-fixture.tsx": {
+        "saved": "5aca8af3798c8f136185f3f321c6e1ddd3fe4e0b72c34cf6aa5e31b7ee45abf8",
+        "current": "5aca8af3798c8f136185f3f321c6e1ddd3fe4e0b72c34cf6aa5e31b7ee45abf8",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.test.tsx": {
+        "saved": "7c11815bc6427cd3600df4098c6e1360528538c3ff88dbe77ade5eb34a2487e8",
+        "current": "7c11815bc6427cd3600df4098c6e1360528538c3ff88dbe77ade5eb34a2487e8",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css": {
+        "saved": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+        "current": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.native-fixtures.ts": {
+        "saved": "da40807724e3e5f254c1310159d6c1434a7487a08480316c8f0dae8a2311daeb",
+        "current": "da40807724e3e5f254c1310159d6c1434a7487a08480316c8f0dae8a2311daeb",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.next100-regression.test.tsx": {
+        "saved": "9acb1ab1a39b2c174dd7eb570fbb9d4cbcbfef5edc622a5f3eeb79403babc322",
+        "current": "9acb1ab1a39b2c174dd7eb570fbb9d4cbcbfef5edc622a5f3eeb79403babc322",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.native-fixture.tsx": {
+        "saved": "1d4e7e0b1599952dc04c70231d07e963d5c09c8e047a6d4e1aebfa26b40801c3",
+        "current": "1d4e7e0b1599952dc04c70231d07e963d5c09c8e047a6d4e1aebfa26b40801c3",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx": {
+        "saved": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd",
+        "current": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.scroll.test.tsx": {
+        "saved": "d3279262a1ba890201c03eb571430ecef0485f670de1c76cb4f58f722bcf49d0",
+        "current": "d3279262a1ba890201c03eb571430ecef0485f670de1c76cb4f58f722bcf49d0",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx": {
+        "saved": "d8dbe919f5e60f1711176f5d43a9b9e5dc2f6e899715db4a1635b33fb8d21c7d",
+        "current": "d8dbe919f5e60f1711176f5d43a9b9e5dc2f6e899715db4a1635b33fb8d21c7d",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx": {
+        "saved": "16bc776d2918487ba72ce5180d759efc6205fcf8da7ffa08ee151c9ca16ae0e1",
+        "current": "16bc776d2918487ba72ce5180d759efc6205fcf8da7ffa08ee151c9ca16ae0e1",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx": {
+        "saved": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+        "current": "444c156a66281def43c29bc8ae5d631a1794ef388c5d74c18c9332f98d75d240",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/index.ts": {
+        "saved": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+        "current": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx": {
+        "saved": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+        "current": "31c8e90cba0d0ab91a59ca02822f6970639ae94b8d486784486a92068658dce2",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx": {
+        "saved": "a88e2c6eec3624a29c4f8f6e64c7cde24fc9e32de97419a359085976fe178b23",
+        "current": "a88e2c6eec3624a29c4f8f6e64c7cde24fc9e32de97419a359085976fe178b23",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx": {
+        "saved": "1c628ea3dd9d38ba95eb4dd34b616ea9bb9f9d045d86d7e1d5037f770c9fafb0",
+        "current": "1c628ea3dd9d38ba95eb4dd34b616ea9bb9f9d045d86d7e1d5037f770c9fafb0",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx": {
+        "saved": "dc93ca33bcb27f19e374231a777432d2b717e28ef22b014e36cafe4c51fe5b25",
+        "current": "dc93ca33bcb27f19e374231a777432d2b717e28ef22b014e36cafe4c51fe5b25",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx": {
+        "saved": "9a27a72ffb2b94f1b4ca649edc1438597cc1034d03943ed818c76051f15678cd",
+        "current": "9a27a72ffb2b94f1b4ca649edc1438597cc1034d03943ed818c76051f15678cd",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.module.css": {
+        "saved": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+        "current": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx": {
+        "saved": "244db3c5aff3fe30a58e07fd7251e6a6565ec221231ae5019b6787243555b6bd",
+        "current": "244db3c5aff3fe30a58e07fd7251e6a6565ec221231ae5019b6787243555b6bd",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx": {
+        "saved": "547741b61c7a36a3873e0068d479c4e1dd4ac852fcfc8e0e227c82b5d694b34f",
+        "current": "547741b61c7a36a3873e0068d479c4e1dd4ac852fcfc8e0e227c82b5d694b34f",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.test.ts": {
+        "saved": "8f5286820349d68ba21b8eadb35b4723aeeb9c132b43fdf38dc2834dcf7837bb",
+        "current": "8f5286820349d68ba21b8eadb35b4723aeeb9c132b43fdf38dc2834dcf7837bb",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx": {
+        "saved": "34293bf4ab6b0d3e273c82ac374ed721020b55e48189ef5a6cca1593dd7e1714",
+        "current": "34293bf4ab6b0d3e273c82ac374ed721020b55e48189ef5a6cca1593dd7e1714",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.test.ts": {
+        "saved": "3edab46c07bb2ea8a566292e00afdb683b5f53700a22df0824e5a7b4622fa6d1",
+        "current": "3edab46c07bb2ea8a566292e00afdb683b5f53700a22df0824e5a7b4622fa6d1",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts": {
+        "saved": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce",
+        "current": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.test.ts": {
+        "saved": "4bc7e44328b4749b3512e5155ded653798ce48b0015f74de91bdc008f1a1de22",
+        "current": "4bc7e44328b4749b3512e5155ded653798ce48b0015f74de91bdc008f1a1de22",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts": {
+        "saved": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+        "current": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.test.ts": {
+        "saved": "5e599f98aa1f48bf8e3e6797930aeb47790b00d47ded5250eb88e1ba641cea31",
+        "current": "5e599f98aa1f48bf8e3e6797930aeb47790b00d47ded5250eb88e1ba641cea31",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.ts": {
+        "saved": "ef56953b5bc62531bc8ac841a9e6e940535f0bbab1fd0096a71c0776daeeaab1",
+        "current": "ef56953b5bc62531bc8ac841a9e6e940535f0bbab1fd0096a71c0776daeeaab1",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts": {
+        "saved": "675e661bd7200c01b6433dbbb2e3ce25da9fce46d0023a978987ff1a7e661b8f",
+        "current": "675e661bd7200c01b6433dbbb2e3ce25da9fce46d0023a978987ff1a7e661b8f",
+        "unchanged": true
+      },
+      "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts": {
+        "saved": "679d75b3ebe56a158e63448ecf36626f87d3668822558817eed4c824860e164f",
+        "current": "679d75b3ebe56a158e63448ecf36626f87d3668822558817eed4c824860e164f",
+        "unchanged": true
+      },
+      "packages/ui/tests/browser/editor-image-lifecycle.spec.ts": {
+        "saved": "e881a6011cae9428db3aaf929eac5c67dfd19bc78b27b23d70a27a1d2adb0194",
+        "current": "e881a6011cae9428db3aaf929eac5c67dfd19bc78b27b23d70a27a1d2adb0194",
+        "unchanged": true
+      },
+      "packages/ui/tests/browser/editor-image-sources.spec.ts": {
+        "saved": "6dc9b3fbfca435adb316687fd1d84508f3b9e724aa4b0c717534570d48ff2793",
+        "current": "6dc9b3fbfca435adb316687fd1d84508f3b9e724aa4b0c717534570d48ff2793",
+        "unchanged": true
+      },
+      "packages/ui/tests/browser/editor-upload-lifecycle.spec.ts": {
+        "saved": "b6108d13b59f43dcdda542971091db108b3543687f9c6e6319ed01b60cdb8a75",
+        "current": "b6108d13b59f43dcdda542971091db108b3543687f9c6e6319ed01b60cdb8a75",
+        "unchanged": true
+      },
+      "packages/ui/tests/browser/image-upload-validation.spec.ts": {
+        "saved": "7d616fab296b6ddc4599229dcf4cf20d6d175d8b8f69cfe23dc55ab2d5d5e9eb",
+        "current": "7d616fab296b6ddc4599229dcf4cf20d6d175d8b8f69cfe23dc55ab2d5d5e9eb",
+        "unchanged": true
+      }
+    },
+    "coordinator": {}
+  },
+  "artifactHashes": {
+    "assignment.json": "865741da5486b850b3d24a45f7d91d978bd1ad9d650c9d99bc2e46dea99ce8cf",
+    "capture.py": "6d2114cc3de13324e91b0c6d84db6bce6c9d261fc9e7875dfbe0620f79b87452",
+    "image-runtime-shapes.patch": "dfdfcec783578309c45c320aa066c2570e5918d5e919e1b3d9065f860d83d6f9",
+    "patch-check.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.py": "5d95335c4505d3eedd595b6b14beec88e90f00853ecce9dc5c67fc7ac934490d",
+    "proposed-files/docs/developer/react-aria-editor-section.md": "0869745b2f269e4ff4b4470ce67df257a146ff7004315e962cd79f005920bb42",
+    "proposed-files/packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx": "adb3ef86fe2112e21a8bf0cecad3e6a3412b02e8a60f23b2979047fbc3953b11",
+    "proposed-files/packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": "79b5a3dcaac58f0e95ea1a845673f37611b93d1cac9c08c008769d353e64f87b",
+    "proposed-files/packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx": "50bedefc5519fd9a1584ecc21d764d3a7026dfc0cd8395712c10db636b104ae4",
+    "proposed-files/packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx": "a8c17fbe35ada8fd518358d90100418f2ce49ff167e30ffe28f9395612e9198c",
+    "proposed-files/packages/ui/src/components/PageRichTextEditorSection/lexical/imagePayloadPolicy.ts": "a11473b0bb8f0195b56ba7b6eb516507599881473c40fa5ea391fe672bf282f1",
+    "report.md": "8cc22aae684d7f4c98dbe35b25729140812d2c9f37416f40469e3950e3514753",
+    "results.json": "64d8cba25e685f71693a17dd20c1453069a6517920ef668f2639903521079987",
+    "runtime.txt": "b7677d3ec37ee1897ba07dc2cfe8292fe421c9ac93396cca5bbece486d1a2a41",
+    "trust-review.md": "9c724eb8708bfb0ef8fb36fa42c454107fe698febddd09e8c907bbf3acf593f3",
+    "unit-baseline.txt": "0702d1ec4f454ecc33d8063c04e145b4418c38047f5a25c3537c0a8e03cfdfcb",
+    "unit-overlay-first-failure.txt": "67327b68570e2b3c8cfcd9cb0af8e78df8f81a3bff3bd9a1d3572e66005cd636",
+    "unit-overlay.txt": "f6413e3ad2fa341e54bd63b780aade3845ccc51db47d2891cc8b765c40c91326",
+    "validation-plan.json": "3d0e4b6c8cfa784489dba583ccf19a93468667bb049fda1c2de38adb4889313e",
+    "vitest.overlay.mjs": "2400c3c6bcbd7c71929426d85490d746ff0a930eec5e7f27dc558eaaf493dd47",
+    "write-results.py": "887661db45337434f8db385c09383b4fd2cd59cde47b0fc3c9eb97976e746d73"
+  },
+  "patchApplyCheck": "git apply --check docs/developer/final-acceptance/wave-03-26/image-runtime-shapes.patch (exit 0)",
+  "execution": {
+    "patchedOverlay": {
+      "files": 2,
+      "passed": 27,
+      "failed": 0,
+      "log": "unit-overlay.txt"
+    },
+    "newTestsAgainstCurrentSource": {
+      "files": 2,
+      "passed": 25,
+      "failed": 2,
+      "expectedFailure": true,
+      "log": "unit-baseline.txt"
+    },
+    "initialHarnessFailure": "unit-overlay-first-failure.txt: resolver omitted ./lexical/ path; corrected only overlay config"
+  },
+  "limits": [
+    "No production file changed; proposed patch has not been integrated.",
+    "No browser/build/install/typecheck/native/AT/service execution.",
+    "Existing accepted receipts retain their original source/host limits.",
+    "No host policy or owner approval fabricated."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "status": "unrun",
+  "operator": null,
+  "reviewedAt": null,
+  "osVersion": null,
+  "browserVersion": null,
+  "atVersion": null,
+  "keyboardAndMode": null,
+  "speechSettings": null,
+  "sourceManifestSha256": null,
+  "hostManifestSha256": null,
+  "categories": [
+    {
+      "category": "dialogs",
+      "fixtureId": "migration-proofs-dialog--nested-form",
+      "urlPath": "/fixtures/?id=migration-proofs-dialog--nested-form&embed=true",
+      "steps": [],
+      "actualSpokenOutput": null,
+      "focusSequence": null,
+      "recordingReferences": [],
+      "findings": [],
+      "status": "unrun"
+    },
+    {
+      "category": "selectors",
+      "fixtureId": "migration-proofs-select--independent",
+      "urlPath": "/fixtures/?id=migration-proofs-select--independent&embed=true",
+      "steps": [],
+      "actualSpokenOutput": null,
+      "focusSequence": null,
+      "recordingReferences": [],
+      "findings": [],
+      "status": "unrun"
+    },
+    {
+      "category": "calendars",
+      "fixtureId": "migration-proofs-daterangeselector--availability",
+      "urlPath": "/fixtures/?id=migration-proofs-daterangeselector--availability&embed=true",
+      "steps": [],
+      "actualSpokenOutput": null,
+      "focusSequence": null,
+      "recordingReferences": [],
+      "findings": [],
+      "status": "unrun"
+    },
+    {
+      "category": "navigation",
+      "fixtureId": "navigation-sidenavigation--native-hierarchy",
+      "urlPath": "/fixtures/?id=navigation-sidenavigation--native-hierarchy&embed=true",
+      "steps": [],
+      "actualSpokenOutput": null,
+      "focusSequence": null,
+      "recordingReferences": [],
+      "findings": [],
+      "status": "unrun"
+    },
+    {
+      "category": "tables",
+      "fixtureId": "migration-proofs-catalog-grid-interaction--focus-retention",
+      "urlPath": "/fixtures/?id=migration-proofs-catalog-grid-interaction--focus-retention&embed=true",
+      "steps": [],
+      "actualSpokenOutput": null,
+      "focusSequence": null,
+      "recordingReferences": [],
+      "findings": [],
+      "status": "unrun"
+    },
+    {
+      "category": "editors",
+      "fixtureId": "editors-pagerichtexteditorsection--full-tools",
+      "urlPath": "/fixtures/?id=editors-pagerichtexteditorsection--full-tools&embed=true",
+      "steps": [],
+      "actualSpokenOutput": null,
+      "focusSequence": null,
+      "recordingReferences": [],
+      "findings": [],
+      "status": "unrun"
+    }
+  ]
+}

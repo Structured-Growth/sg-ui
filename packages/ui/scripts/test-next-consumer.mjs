@@ -1,3 +1,4 @@
+import { consumerFixture, consumerTarball } from './consumer-artifact.mjs';
 import assert from 'node:assert/strict';
 import { execFileSync, spawn } from 'node:child_process';
 import { mkdtemp, mkdir, readdir, readFile, writeFile, rm } from 'node:fs/promises';
@@ -9,18 +10,14 @@ import { expect } from '@playwright/test';
 import { packedBrowsers } from './packed-browser.mjs';
 
 // Next is fixture-only: the package keeps React/React DOM as its only peers.
-const fixture = await mkdtemp(join(tmpdir(), 'sgui-next-consumer-'));
+const fixture = await consumerFixture('sgui-next-consumer-');
 const env = { ...process.env, NEXT_TELEMETRY_DISABLED: '1', npm_config_auto_install_peers: 'false' };
 let server;
 try {
-  const pack = join(fixture, 'pack');
-  await mkdir(pack);
-  execFileSync('pnpm', ['pack', '--pack-destination', pack], { stdio: 'pipe' });
-  const tarball = (await readdir(pack)).find(name => name.endsWith('.tgz'));
-  assert(tarball, 'Pack did not produce a tarball');
-  await writeFile(join(fixture, 'package.json'), JSON.stringify({
+  const artifact = await consumerTarball(fixture);
+await writeFile(join(fixture, 'package.json'), JSON.stringify({
     name: 'sgui-next-consumer', private: true, type: 'module', packageManager: 'pnpm@10.29.3',
-    dependencies: { '@structured-growth/sg-ui': `file:${join(pack, tarball)}`, next: '16.4.0', react: '19.2.3', 'react-dom': '19.2.3' },
+    dependencies: { '@structured-growth/sg-ui': `file:${artifact}`, next: '16.4.0', react: '19.2.3', 'react-dom': '19.2.3' },
   }));
   await writeFile(join(fixture, '.npmrc'), 'auto-install-peers=false\n');
   await writeFile(join(fixture, 'next.config.mjs'), 'export default { experimental: { cpus: 1 } };\n');
@@ -151,7 +148,7 @@ export default function Client({children}) {
   console.log('Packed Next 16.4.0 production App Router server/client boundaries passed.');
 } finally {
   if (server && server.exitCode === null) { const exited = once(server, 'exit'); server.kill('SIGTERM'); await exited; }
-  await rm(fixture, { recursive: true, force: true });
+  if (!process.env.SGUI_CONSUMER_ROOT) await rm(fixture, { recursive: true, force: true });
 }
 
 async function assertRelationships(page, hydrated) {

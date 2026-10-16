@@ -20,3 +20,5 @@ export { Tooltip, type TooltipProps } from "../../experimental/Tooltip/Tooltip";
 export { Button, type ButtonProps } from "../../components/Button/Button";
 export { Provider, type ProviderProps } from "../../experimental/Provider/Provider";
 export { ThemeScope, type ThemeScopeProps } from "../../foundation/ThemeScope";
+
+export { SearchField, type SearchFieldProps, type SearchFieldItem } from "../../experimental/SearchField/SearchField";

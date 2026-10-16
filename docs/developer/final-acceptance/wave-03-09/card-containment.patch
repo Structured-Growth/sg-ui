@@ -1,0 +1,129 @@
+--- a/packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css
++++ b/packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css
+@@ -1,8 +1,13 @@
+ @layer sgui.components {
+-  .root { inline-size: 100%; box-sizing: border-box; min-inline-size: 0; overflow: hidden; }
++  .root { container: sgui-class-card / inline-size; inline-size: 100%; box-sizing: border-box; min-inline-size: 0; overflow: hidden; }
+   .header, .body, .footer { min-inline-size: 0; overflow-wrap: anywhere; }
+   .header img, .body img, .footer img { max-inline-size: 100%; block-size: auto; }
+   .header, .body { padding: var(--sgui-space4); }
+   .header, .footer { background: var(--sgui-class-card-frame-subtle-background); }
++  /* The allocated card width, rather than the viewport, chooses slot spacing.
++     Only owned slot padding adapts; host slot content keeps its own layout. */
++  @container sgui-class-card (inline-size < 20rem) {
++    .header, .body { padding: var(--sgui-space3); }
++  }
+   .footer { padding: var(--sgui-space2) var(--sgui-space3); }
+ }
+--- a/docs/developer/react-aria-card-frames.md
++++ b/docs/developer/react-aria-card-frames.md
+@@ -12,6 +12,32 @@
+ 420 pixels, while the frame can shrink to fit its container. The minimum constant
+ is available for host layout choices and is not imposed on narrow containers.
+ `width` still accepts a pixel number. Long card headings wrap within the header.
++
++The frame owns the named `sgui-class-card` inline-size query boundary. The host
++allocates its width through a block, a flex item with `min-inline-size: 0`, or a
++`minmax(0, 1fr)` grid track. The frame fills that allocation up to its maximum;
++inline-size containment does not derive an intrinsic width from slot content, so
++an intrinsically sized/shrink-to-fit host must supply a width. Below 20rem of card
++content width, owned header/body padding changes from space4 to space3. Footer
++padding and host-provided slot layout remain unchanged. Resizing one card does
++not choose the spacing of a sibling. Native slot styles can override this padding.
++
++`CardCollectionWithFooter` keeps its fluid `auto-fill`/`minmax` grid; the collection
++allocates tracks and each ClassCardFrame adapts its own slots. Generic Card is a
++surface primitive and does not add containment to arbitrary consumer layouts.
++Toolbar, navigation-shell and modal query boundaries remain documented in
++[toolbar](react-aria-data-toolbar.md), [navigation](react-aria-navigation-container.md)
++and [modal](react-aria-modal-container.md) contracts.
++
++Text roles use rem-backed tokens; the card maximum is a compatibility pixel prop,
++not a fixed text size. The rem query threshold follows root text enlargement.
++Keep mobile layouts shrinkable and allow long labels to wrap. Do not add a
++viewport-only font-size clamp: there is no demonstrated benefit over the owned
++rem scale, and it can defeat text enlargement. Existing `min(100%, ...)` overlay
++widths and the fluid collection grid provide the useful fluid sizing. At short
++heights retain independent tab-panel scrolling and the whole-dialog fallback.
++Browser zoom must be validated using browser controls; root font-size overrides
++and a 320 CSS-pixel viewport are separate reflow checks.
+ 
+ | Previous frame styling | Owned mapping |
+ | --- | --- |
+--- a/apps/docs/content/component-usage/data.json
++++ b/apps/docs/content/component-usage/data.json
+@@ -54,7 +54,7 @@
+     "how": [
+       "Provide header and body content, and footer only when the card has actions or supporting information.",
+       "Keep links, buttons and their host callbacks inside the supplied slots. The frame does not load course data or make the entire card clickable.",
+-      "Use width for the maximum card width and the native styling slots for context-specific layout. Keep headings and action labels meaningful."
++      "Use width for the maximum card width and the native styling slots for context-specific layout. Supply a shrinkable block, flex item or grid track: the frame owns the sgui-class-card inline-size container and reduces header/body padding below 20rem of card width. Keep headings and action labels meaningful."
+     ],
+     "related": [
+       {
+--- a/apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx
++++ b/apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx
+@@ -107,3 +107,21 @@
+ 
+ export const FlexParentResize: Story = { render: () => <ParentResizeExample layout="flex" /> };
+ export const GridParentResize: Story = { render: () => <ParentResizeExample layout="grid" /> };
++
++// A-C-08: independent allocated cards in one wide viewport. No ancestor query needed.
++function ContainerBoundaryExample() {
++  const [narrow, setNarrow] = useState(true);
++  return <div style={{ display: "grid", gap: 16 }}>
++    <Button onPress={() => setNarrow(value => !value)}>Resize first card host</Button>
++    {(["compact", "comfortable"] as const).map(density =>
++      <ThemeScope density={density} key={density}>
++        <div data-testid={`card-host-${density}`} style={{ inlineSize: density === "compact" && narrow ? 280 : 420, maxInlineSize: "100%" }}>
++          <ClassCardFrame
++            header={<Typography as="h3" variant="h5">International course plan for leadership and learning materials review</Typography>}
++            body={<Typography>خطة الدورة الدولية لتطوير مهارات القيادة والتعاون ومراجعة المواد التعليمية</Typography>}
++            footer={<Button>Open {density} course</Button>} />
++        </div>
++      </ThemeScope>)}
++  </div>;
++}
++export const ContainerBoundary: Story = { render: () => <ContainerBoundaryExample /> };
+--- /dev/null
++++ b/packages/ui/tests/browser/card-container-boundary.spec.ts
+@@ -0,0 +1,39 @@
++import { test, expect, type Locator } from '@playwright/test';
++
++async function padding(card: Locator) {
++  return card.locator('[data-sgui-part="class-card-header"]').evaluate(e => parseFloat(getComputedStyle(e).paddingInlineStart));
++}
++
++test('card query follows its allocation and preserves sibling and native focus', async ({ page }, info) => {
++  await page.setViewportSize({ width: 1440, height: 900 });
++  await page.goto('/fixtures/?id=components-classcardframe--container-boundary');
++  const firstHost = page.getByTestId('card-host-compact');
++  const secondHost = page.getByTestId('card-host-comfortable');
++  const first = firstHost.locator('[data-sgui-part="class-card-frame"]');
++  const second = secondHost.locator('[data-sgui-part="class-card-frame"]');
++  for (const card of [first, second]) {
++    await expect(card).toHaveCSS('container-name', 'sgui-class-card');
++    await expect(card).toHaveCSS('container-type', 'inline-size');
++    expect(await card.evaluate(e => e.scrollWidth <= e.clientWidth + 1)).toBe(true);
++  }
++  const tokens = await first.evaluate(e => {
++    const s = getComputedStyle(e); const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
++    return { narrow: parseFloat(s.getPropertyValue('--sgui-space3')) * rem, wide: parseFloat(s.getPropertyValue('--sgui-space4')) * rem };
++  });
++  expect(await padding(first)).toBeCloseTo(tokens.narrow, 1);
++  expect(await padding(second)).toBeCloseTo(tokens.wide, 1);
++  const button = first.getByRole('button', { name: 'Open compact course' });
++  await button.focus(); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Tab');
++  await expect(button).toBeFocused();
++  // Host layout update deliberately keeps the focused native element mounted.
++  await firstHost.evaluate(e => { e.style.inlineSize = '420px'; });
++  await expect.poll(() => padding(first)).toBeCloseTo(tokens.wide, 1);
++  await expect(button).toBeFocused();
++  expect(await padding(second)).toBeCloseTo(tokens.wide, 1);
++  await page.addStyleTag({ content: 'html {font-size:200%} [data-sgui-part="class-card-frame"] * {font-family:monospace!important;line-height:1.5!important;letter-spacing:.12em!important;word-spacing:.16em!important} [data-sgui-part="class-card-frame"] p {margin-block-end:2em!important}' });
++  await expect.poll(() => padding(first)).toBeCloseTo(tokens.narrow * 2, 1);
++  for (const card of [first, second]) expect(await card.evaluate(e => e.scrollWidth <= e.clientWidth + 1)).toBe(true);
++  await expect(button).toBeFocused();
++  expect(await button.evaluate(e => { const r=e.getBoundingClientRect(),p=e.closest('[data-sgui-part="class-card-frame"]')!.getBoundingClientRect(),s=getComputedStyle(e),ring=parseFloat(s.outlineWidth)+Math.max(0,parseFloat(s.outlineOffset)||0);return r.left-ring>=p.left && r.right+ring<=p.right; })).toBe(true);
++  await info.attach('card-container-enlarged', { body: await firstHost.screenshot(), contentType: 'image/png' });
++});

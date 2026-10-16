@@ -87,13 +87,13 @@ test('all public component catalog routes render documented examples and compila
 
 test('catalog search, component navigation and wide previews remain usable on narrow screens',async({page})=>{
  await page.goto('/docs/components');
- await page.getByRole('textbox',{name:'Find a component',exact:true}).fill('Autocomplete');
+ await page.getByRole('searchbox',{name:'Find a component',exact:true}).fill('Autocomplete');
  await expect(page.getByRole('status')).toHaveText('1 component pages');
  await page.getByRole('main').getByRole('link',{name:'ComboBox',exact:true}).click();
  await expect(page.getByRole('heading',{level:1,name:exampleName('ComboBox')})).toBeVisible();
  const navigation=page.getByRole('navigation',{name:'Documentation'});
- await navigation.getByRole('textbox',{name:'Find in navigation'}).fill('DataToolbar');
- await navigation.getByRole('link',{name:'DataToolbar',exact:true}).click();
+ await navigation.getByRole('searchbox',{name:'Find in navigation'}).fill('DataToolbar');
+ await page.getByRole('region',{name:'Component search results',exact:true}).getByRole('link',{name:'DataToolbar',exact:true}).click();
  await expect(page.getByRole('heading',{level:1,name:exampleName('DataToolbar'),exact:true})).toBeVisible();
  await page.setViewportSize({width:375,height:812});
  for(const slug of ['button-group','tabs','radio-group','toggle-button-group','data-grid-shell','calendar','page-rich-text-editor-section']) {

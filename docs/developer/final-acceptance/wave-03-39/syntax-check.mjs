@@ -1,0 +1,10 @@
+import { createRequire } from 'node:module';
+import { readFile } from 'node:fs/promises';
+const require = createRequire(new URL('../../../../packages/ui/package.json', import.meta.url));
+const ts = require('typescript');
+const file = new URL('./proposed-files/packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx', import.meta.url);
+const result = ts.transpileModule(await readFile(file, 'utf8'), { fileName: 'probe.test.tsx', reportDiagnostics: true, compilerOptions: { jsx: ts.JsxEmit.ReactJSX, target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext } });
+const errors = (result.diagnostics ?? []).filter(item => item.category === ts.DiagnosticCategory.Error);
+for (const error of errors) console.log(ts.flattenDiagnosticMessageText(error.messageText, '\n'));
+console.log(JSON.stringify({ check: 'TSX transpile syntax only; no type/runtime acceptance', errors: errors.length }));
+process.exitCode = errors.length ? 1 : 0;

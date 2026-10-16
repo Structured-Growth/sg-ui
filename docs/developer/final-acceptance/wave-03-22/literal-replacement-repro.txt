@@ -1,0 +1,6 @@
+{
+  "runtime": "v24.21.0",
+  "expected": "Last Learner Activity: Draft {value} $& $$ $` $' <review>",
+  "actualBefore": "Last Learner Activity: Draft Draft {value} {value} $ Last Learner Activity: Draft   $& $$ $` $' <review> <review> $& $$ $` $' <review>",
+  "result": "Confirmed: post-format replacement corrupts literal host content; formatter output is already final."
+}

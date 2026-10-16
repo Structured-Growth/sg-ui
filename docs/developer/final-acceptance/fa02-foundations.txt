@@ -1,0 +1,5 @@
+
+> @structured-growth/sg-ui@0.0.0-development foundations:check /Users/thomashall/Repositories/sg-ui/packages/ui
+> node scripts/check-foundations.mjs
+
+Owned foundation import, layer and token checks pass.

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "assignment": "fix-01",
+  "leaf": "A-D-01",
+  "successor": "P08-D01-SCHEMA",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "capturedAt": "2026-10-16T22:46:42.899348+00:00",
+  "status": "complete",
+  "integrationStatus": "recommendation pending coordinator review; no shared counts/checklists edited",
+  "closedScope": [
+    "P08-D01-SCHEMA",
+    "A-D-01 original single-source/current-schema documentation obligation"
+  ],
+  "changes": [
+    "Updated maintained token guide with all nine groups, record/value schema, ignored metadata and validation limits.",
+    "Documented aliases, direction, parity/topology, naming/collisions, determinism and private/public generated outputs.",
+    "Corrected pre-adoption and flattened-density claims; documented density/interaction/scope/overlay policy.",
+    "Completed semantic table with textSubtle; clarified selected component table and generation commands.",
+    "Researched primary DTCG Format Module 2025.10; stated adaptations/unsupported forms and absence of interchange promise."
+  ],
+  "checksPerformed": [
+    {
+      "command": "node docs/developer/final-acceptance/fix-01/validate-doc.mjs",
+      "result": "pass",
+      "actual": {
+        "groups": 9,
+        "semanticTableRows": 42,
+        "selectedComponentMappings": 34,
+        "localLinks": 3,
+        "interactionDefaults": 4,
+        "retainedMatchingInputs": 5
+      },
+      "evidence": "doc-validation.json",
+      "kind": "documentation/source comparisons; no compiler or suite execution"
+    },
+    {
+      "command": "git diff --check -- docs/developer/react-aria-token-roles.md docs/developer/final-acceptance/fix-01",
+      "result": "pass"
+    },
+    {
+      "kind": "manual source/compiler/ThemeScope/package export and primary-specification review",
+      "result": "pass within documented scope"
+    }
+  ],
+  "primarySpecification": {
+    "url": "https://www.designtokens.org/tr/2025.10/format/",
+    "sections": [
+      "5",
+      "6",
+      "7",
+      "8",
+      "9.6"
+    ],
+    "reviewedOn": "2026-10-16",
+    "claim": "adapted conventions only; no interchange/conforming-reader claim"
+  },
+  "reusedEvidence": [
+    {
+      "path": "../parallel-08/input-reconciliation.json",
+      "result": "five selected current token inputs match retained hashes"
+    },
+    {
+      "path": "../fa04-original-check.txt",
+      "lines": "5\u201355",
+      "result": "retained foundation/token guards and 32 foundation tests pass; enclosing command later failed unrelated units"
+    },
+    {
+      "path": "../fa04-retained-docs-build.txt",
+      "lines": "11\u201328",
+      "result": "retained eight theme graph tests pass; not rerun"
+    }
+  ],
+  "touchedFiles": [
+    {
+      "path": "docs/developer/react-aria-token-roles.md",
+      "sha256": "d5cebcfd7f2be57b705223d15639c6497aac49256b0741bd1b46f047709ab1c9"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-01/report.md",
+      "sha256": "2c1ad926b8063d651d06852e50c53ff8b331eee3848d8f3b44539b64d76178e2"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-01/validate-doc.mjs",
+      "sha256": "f88ac710a2919f34a69d4bdb5e87ab37ade0ab995628408c06b62947fd34e058"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-01/doc-validation.json",
+      "sha256": "475b3726d98770d0c3646bee798d7e040e9a0e282fee85c08b865cd405fe1ea8"
+    },
+    {
+      "path": "docs/developer/final-acceptance/fix-01/results.json",
+      "sha256": null,
+      "reason": "self-hash omitted to avoid recursive hash; all other touched files hashed"
+    }
+  ],
+  "remainingRequirements": [
+    "Coordinator reviews/integrates closure; shared leaf counts are unchanged by this task.",
+    "Other token test/browser/portal/visual/state/forced-color/host-override and alpha-contrast acceptance remains separate.",
+    "Physical-device and actual assistive-technology evidence remains separate.",
+    "Any future DTCG interchange promise needs an adapter and round-trip/conversion fixtures.",
+    "Eventual production-head validation and remote CI remain required; no new remote result claimed.",
+    "Legal/business approval and 20 editor V leaves are not closed or waived."
+  ],
+  "limits": [
+    "Documentation-only working-tree change; no runtime/public API or generated output mutation.",
+    "No install/build/broad test/browser/consumer/server action.",
+    "No stage/commit/push/cleanup/worktree/version/tag/release action.",
+    "Current check runtime is recorded in doc-validation.json; no supported-runtime matrix run claimed."
+  ]
+}

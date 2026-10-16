@@ -6,9 +6,9 @@ body:
     attributes:
       value: |
         This form records a request; it does not start AI implementation.
-        The existing AI workflow is manually dispatched from Actions on main.
-        See [GitHub setup](https://github.com/Structured-Growth/sg-ui/blob/main/docs/github-setup.md)
-        and the [component recipe](https://github.com/Structured-Growth/sg-ui/blob/main/docs/developer/react-aria-component-recipe.md).
+        The existing AI workflow is manually dispatched from Actions on dev.
+        See [GitHub setup](https://github.com/Structured-Growth/sg-ui/blob/dev/docs/github-setup.md)
+        and the [component recipe](https://github.com/Structured-Growth/sg-ui/blob/dev/docs/developer/react-aria-component-recipe.md).
         Include only acceptance gates relevant to this request; broader backlog gates remain separate.
   - type: textarea
     id: request
@@ -37,8 +37,8 @@ body:
   - type: textarea
     id: evidence
     attributes:
-      label: Stories and validation evidence
-      description: Identify relevant stories/tests or reproduction links and planned checks. Guidance-only work verifies links/paths/commands/exports and form structure; pre-production dev tasks use targeted tests and relevant guards/browser/build/consumer checks. Full validation occurs at occasional coordinator checkpoints and before production. Record results in the PR.
+      label: Docs examples, fixtures and validation evidence
+      description: Identify docs playground/reference examples, source-context unit fixtures, docs-owned native scenarios or reproduction links and exact behavior cases. Source/copy must match rendered props and state. Record tested head/base and patch identity, commands/results and unrun or failed checks. Guidance-only work verifies links/paths/commands/exports and form structure; pre-production dev tasks use targeted tests and relevant guards/browser/build/consumer checks. Full validation occurs at occasional coordinator checkpoints and before production. Record results in the PR.
   - type: textarea
     id: remaining-gates
     attributes:

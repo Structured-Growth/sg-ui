@@ -410,6 +410,7 @@
   "page-rich-text-editor-section": {
     "when": "Use PageRichTextEditorSection when a page needs an integrated Lexical rich-text document editor with owned formatting and insertion controls. It is a complete editor section, unlike the standalone toolbar and chrome components that require an existing editor host.",
     "how": [
+      "The document outline indicates keyboard navigation into the editor. Clicking to edit, typing and moving the caret do not activate that outline; the native caret and selection remain visible. The separate document scroll region keeps its keyboard focus indicator in editable and read-only modes.",
       "Seed the document with lexicalValue and persist serialized edits from onLexicalChange. The editor remains internally live: changing lexicalValue alone does not replace its document or selection; change editorKey to load a different document.",
       "Give the section a bounded height or a zero-minimum flex parent, and supply a meaningful aria-label. Use readOnly to change the existing editor's availability rather than mounting a separate view solely to disable editing.",
       "Choose toolPreset and supported control overrides for the workflow. The section composes selection handling, toolbars, and editor dialogs; avoid adding a second disconnected toolbar that does not share its editor state.",

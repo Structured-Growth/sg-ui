@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "status": "prepared-not-executed",
+  "exclusiveOwnerDirectory": "docs/developer/final-acceptance/wave-03-19",
+  "integrationRequired": true,
+  "patchesInOrder": ["selector-contract-fixtures.patch", "selector-contract-tests.patch"],
+  "preflight": "Recheck patch context and inspected input hashes before integration; source/fixture edits by other owners may invalidate context. Do not regenerate proposals over newer shared source.",
+  "coordinatorSteps": [
+    {
+      "action": "Apply the two reviewed patches from repository root during coordinator integration",
+      "command": "git apply docs/developer/final-acceptance/wave-03-19/selector-contract-fixtures.patch docs/developer/final-acceptance/wave-03-19/selector-contract-tests.patch"
+    },
+    {
+      "action": "Under the existing coordinator build lease, use fresh public output if component source changed; regenerate/build the private fixture registry once",
+      "commands": ["pnpm --filter @structured-growth/sg-ui build", "pnpm --filter @structured-growth/sg-ui exec node scripts/build-browser-docs.mjs"],
+      "note": "Library build can be reused only when source/output equivalence is established. Fixture build is required for the three new NativeContracts exports. No manifest edit is needed: existing scenario modules are already registered. No generated registry or built files are supplied in these patches."
+    },
+    {
+      "action": "Serve one frozen docs-owned fixture build under coordinator ownership; record host origin, all build hashes, Node/Playwright/browser versions and exact working input hashes",
+      "note": "No server was started in this assignment. Never use or restart user port 3000. The runner requires an explicit existing loopback origin and has no webServer launcher."
+    },
+    {
+      "action": "Run the bounded native selection using the coordinator's admitted browser session",
+      "command": "SGUI_BROWSER_BASE_URL=http://127.0.0.1:6173/ node packages/ui/node_modules/@playwright/test/cli.js test --config=docs/developer/final-acceptance/wave-03-19/selector-contracts.config.cjs",
+      "cwd": "/Users/thomashall/Repositories/sg-ui",
+      "runtime": "Supported Node 22.12+ or 24; frozen installed Playwright engines",
+      "expected": "8 cases per engine, 24 executions total, zero retries: 5 proposed selector/menu/Popover/Tooltip cases, existing ComboBox disabled keyboard case, existing Async race and busy cases. Any failure remains an unaccepted result with raw trace/log. Do not interpret configuration as executed proof.",
+      "outputs": ["native-results.json", "native-artifacts/", "coordinator-saved stdout/stderr"]
+    }
+  ],
+  "separateSuccessors": [
+    "Retain valid unchanged batch17 Menu programmatic autofocus and batch13 Tooltip keyed-lifetime native receipts, or schedule only their missing cases; the eight-case runner does not claim them.",
+    "HM-F-01 through HM-F-04 standalone drilldown implementation, public examples/exports and Back focus/motion remain unimplemented; no Menu hierarchy acceptance follows from this flat command case.",
+    "A-X-02 editor/grid and remaining all-library keyboard paths remain outside this selected delta.",
+    "A-X-03 full composed heading/landmark/native-validation and spoken AT matrix remains outside these cases; record operator OS/browser/AT versions and actual results."
+  ],
+  "notRequiredForThisPatch": "No dependency install, broad unit suite, catalog generation or production docs build is needed for private test-only fixtures unless integration reveals an actual public contract change. No new public exports are proposed."
+}

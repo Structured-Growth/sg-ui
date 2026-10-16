@@ -1,0 +1,22 @@
+✔ emitted prompt preserves hostile-looking task data and spells out semantic scope/evidence (1.013667ms)
+✔ capture and proposal enforce the same permitted component paths and shared-path exclusions (19.326459ms)
+✔ PR body retains multiline author evidence as data and selects only the title (0.739875ms)
+✔ missing/empty sections and absent title fail instead of generating a misleading PR (6.750625ms)
+✔ receipt carries exact proposal identity, actual configured checks, run link and limitations (0.620125ms)
+✔ generated validation is separate from write credentials and draft head calls full CI explicitly (0.115917ms)
+✔ write job rejects patch bytes replaced during generated validation (0.6995ms)
+✔ missing draft identity fails before the full CI call (0.380334ms)
+✔ current source policy passes deterministically without changing any input (9.918625ms)
+✔ mutated release, draft, attribution, package and task-data contracts produce distinct findings (1.521833ms)
+✔ source text is read as inert evidence; missing inputs fail explicitly (13.414459ms)
+✔ clean start removes stale dist, native host and tarballs; receipt binds current inputs and bytes (42.830333ms)
+✔ changed source or missing stylesheet cannot produce a successful receipt (20.811958ms)
+✔ extra stale package and symlink output fail closed (19.883875ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.169917

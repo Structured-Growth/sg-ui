@@ -13,5 +13,5 @@ const Data=dynamic(()=>import('../examples/catalog/catalog-data').then(m=>({slug
 export function CatalogPlayground({slug,group,phase,title,primary='Prop playground'}:{slug:string;group:string;phase?:ExamplePhase;title?:string;primary?:string}) {
  const Family=slug==='dialog'?AppModalExamples:group==='presentation'?Presentation:group==='forms'?Forms:group==='editor'?Editor:Data;
  const children=<Family slug={slug}/>;
- return phase ? <Box className={styles.catalogPhase} data-catalog-phase={phase}><ExamplePresentation phase={phase} title={title??slug} primary={primary}>{children}</ExamplePresentation></Box> : children;
+ return phase ? <Box className={styles.catalogPhase} data-catalog-phase={phase} data-catalog-component={slug}><ExamplePresentation phase={phase} title={title??slug} primary={primary}>{children}</ExamplePresentation></Box> : children;
 }

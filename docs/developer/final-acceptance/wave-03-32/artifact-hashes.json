@@ -1,0 +1,22 @@
+{
+  "report.md": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+  "assignment.json": "551b7cdec22b8d9226caeb61d1012ddf0e9d5bcc1ee9456d40c6ff04b60d3acd",
+  "results.json": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+  "inspection.txt": "5372cdb82b1b0ee8313e482dea6d0a6dc4f522a6601cf7a8dc18e66cfd906f21",
+  "preparation-checks.json": "d094aa9c8b0559386e806f3f14c7ba7cce97511517a3e2ba271311762cb58481",
+  "immutable-consumers.patch": "8eba81e15359738977b1a143d53eb5809c69f2f77dd674d2126acfeb74a8f861",
+  "README.md": "e681ac63855f1f2b0fb87cba01957890a162ff90d081cb903c68825e9d820abb",
+  "preparation-checks.txt": "128943ba81f45bb68a13834e4cae6a33836b0f1b0877ced6056ba52a96a395a1",
+  "inspect.py": "02608c5c4924391b33930b79c9813f17c26753c1d737ee1aae1c94d57486a4ee",
+  "validation-plan.json": "ddcdbd2229c5154126990da1c78b3f228939434bd41db54d620ceaee21eb19ab",
+  "consumer-artifact.test.mjs": "fb39a45ce5d9dde18cd13d3d8b56752ac53a388b152891874eeec457814a4899",
+  "inspection.json": "a9201431a9f51485d5b538c8a25e7582d7b91b6b39cf296c36971596b81f8cf1",
+  "helper-tests.txt": "a91aa49fa8f6ad95a750632677e32a4d094f21a2000eea5c694da44cd9547cdc",
+  "run-matrix.mjs": "267822341104feb84ee9d9b215df1cda74722b490d648d21f69d1dc0a0025fcc",
+  "proposed-files/packages/ui/scripts/test-editor-consumer.mjs": "ed6ed6ee4b9c7a2bba477747fd968c52d9349eea9ed77df003940dbef4d436b4",
+  "proposed-files/packages/ui/scripts/consumer-css-proof.mjs": "ee05184f617d297d5dbcc1c18cb175b3202375fc2102fb3c4d6fdccb60d7390e",
+  "proposed-files/packages/ui/scripts/test-next-consumer.mjs": "8a7ead40c945be22248934a8b6898066e98cc2bb5b9cdfbae7855dc04708f073",
+  "proposed-files/packages/ui/scripts/consumer-artifact.mjs": "a1f498fb664f338817dd97b6390024ee72455f24514178c0abe8fd69ac2cae19",
+  "proposed-files/packages/ui/scripts/consumer-types-proof.mjs": "ea302fa97fa29f1d19464a1d7b771d23140313278732dfa501d67b1f4d3fbe05",
+  "proposed-files/packages/ui/scripts/test-foundation-consumer.mjs": "f11a4905d06a49437affa9794f173ff783e8f3caec34ff8b578e00bd196cf79f"
+}

@@ -94,3 +94,11 @@ it("keeps Turkish locale filtering while its popup uses an RTL visual override",
   await user.keyboard("{ArrowDown}{Enter}");
   expect((screen.getByRole("combobox") as HTMLInputElement).value).toBe("Isparta");
 });
+
+it("filters and selects with placeholder and two decorative icons", async () => {
+ const user=userEvent.setup(),change=vi.fn();
+ render(<ComboBox label="Subject" placeholder="Find a subject" options={options} startIcon={<svg role="img" aria-label="Decoration"/>} endIcon={<svg role="img" aria-label="Other decoration"/>} onValueChange={change}/>);
+ const input=screen.getByRole("combobox",{name:"Subject"}) as HTMLInputElement;
+ expect(input.placeholder).toBe("Find a subject");expect(screen.queryByRole("img")).toBeNull();
+ await user.type(input,"Sci");await user.keyboard("{ArrowDown}{Enter}");expect(change).toHaveBeenLastCalledWith("science");
+});

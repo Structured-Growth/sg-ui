@@ -1,0 +1,603 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-10-16T22:44:22.297173+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "scope": "wave-02-09 only; recommendations, not shared acceptance or production closure",
+  "summary": {
+    "complete": 7,
+    "partial": 13,
+    "blocked": 0
+  },
+  "checks": {
+    "input_evidence": "input-evidence.json",
+    "new_test_runs": 0,
+    "browser_runs": 0,
+    "builds": 0,
+    "installs": 0,
+    "remote_ci_queries": 0,
+    "additional_leaf_references": 16
+  },
+  "leaves": [
+    {
+      "id": "A-U-11",
+      "status": "complete",
+      "original_requirement": "Implement List/list items, navigation items, disclosure/Collapse, and selected/expanded state without misusing menu semantics for navigation.",
+      "findings": "Native ul/li lists, nav/anchor navigation with host current route, and Disclosure/Collapse implement selected/expanded state without navigation menu roles. List actions use aria-pressed; route links use aria-current=page. Collapse uses hidden or opt-in unmount. Disclosure links trigger/panel IDs and repairs focus on host collapse while respecting later outside focus.",
+      "source_references": [
+        "packages/ui/src/experimental/List/List.tsx",
+        "packages/ui/src/experimental/Navigation/Navigation.tsx",
+        "packages/ui/src/experimental/Disclosure/Disclosure.tsx",
+        "packages/ui/src/experimental/Collapse/Collapse.tsx"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/List/List.test.tsx",
+        "packages/ui/src/experimental/Navigation/Navigation.test.tsx",
+        "packages/ui/src/experimental/Disclosure/Disclosure.test.tsx",
+        "packages/ui/src/experimental/Collapse/Collapse.test.tsx"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. HB-11 reports 8 cases per engine at 360px/150% text in both themes/densities/locales; it is retained report evidence, not a fresh exact-host pass.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": []
+    },
+    {
+      "id": "A-U-12",
+      "status": "complete",
+      "original_requirement": "Implement Chip/Tag, Badge, and removable tokens with accessible action labels and predictable focus after removal.",
+      "findings": "Chip is deliberately passive; removable tokens are TagGroup. Badge preserves zero/text, names an optional group and preserves anchor names. TagGroup exposes host remove labels, translated Remove {label}, string ID requests, disabled/read-only removal policy and adjacent/empty-list focus. Tests cover accepted/rejected Delete/Backspace, pointer removal, sibling isolation and next/previous/empty focus.",
+      "source_references": [
+        "packages/ui/src/experimental/Chip/Chip.tsx",
+        "packages/ui/src/experimental/Badge/Badge.tsx",
+        "packages/ui/src/experimental/TagGroup/TagGroup.tsx"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/Chip/Chip.test.tsx",
+        "packages/ui/src/experimental/Badge/Badge.test.tsx",
+        "packages/ui/src/experimental/TagGroup/TagGroup.test.tsx"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Existing batch13-control-taggroup.spec.ts is native assertion coverage; no current native or spoken-AT claim.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": []
+    },
+    {
+      "id": "A-U-13",
+      "status": "complete",
+      "original_requirement": "Implement progress indicators and status messages; distinguish determinate progress from loading and avoid noisy live-region announcements.",
+      "findings": "Progress distinguishes undefined/nonfinite loading from determinate zero, clamps values and normalizes invalid bounds; exposes names/valueText without a live region. Status defaults announcement=off; opt-in polite/status or assertive/alert is atomic. Contract comments prohibit progress-tick announcements. This closes the implementation/noisy-default requirement, not spoken announcement conformance.",
+      "source_references": [
+        "packages/ui/src/experimental/Progress/Progress.tsx",
+        "packages/ui/src/experimental/Status/Status.tsx"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/Progress/Progress.test.tsx",
+        "packages/ui/src/experimental/Status/Status.test.tsx"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. HB-07 retains 8 Chromium localized narrow/enlarged presentation passes, native state/value and atomic-region assertions. No speech result follows.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": []
+    },
+    {
+      "id": "A-U-14",
+      "status": "complete",
+      "original_requirement": "Implement Avatar/image fallbacks and accessible image labeling; keep sizing and aspect ratio stable while loading.",
+      "findings": "Avatar owns one named role=img root or decorative aria-hidden root. Inner image and fallback are hidden from AT; load reveals absolute image, error removes it, changed src remounts image state. CSS fixes small/medium/large square dimensions and aspect-ratio:1, making loading independent of intrinsic image size.",
+      "source_references": [
+        "packages/ui/src/experimental/Avatar/Avatar.tsx",
+        "packages/ui/src/experimental/Avatar/Avatar.module.css"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/Avatar/Avatar.test.tsx",
+        "packages/ui/src/experimental/Avatar/Avatar.next100-regression.test.tsx"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Load/error/source-replacement and one-name/root stability have DOM evidence; geometric stability is source-defined, not newly browser-measured.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": []
+    },
+    {
+      "id": "A-U-15",
+      "status": "complete",
+      "original_requirement": "Implement semantic table parts and pagination primitives with owned contracts; do not export an engine's low-level table types as SGUI's entire API.",
+      "findings": "Table/table sections/row/caption/th/td use native elements, native refs, scope/headers/spans and owned props. Pagination is host-controlled zero-based with one-based presentation, known/unknown totals, safe sizes, disabled/boundary controls and atomic page-zero/size transaction. No engine low-level table type is the public API.",
+      "source_references": [
+        "packages/ui/src/experimental/Table/Table.tsx",
+        "packages/ui/src/experimental/Pagination/Pagination.tsx",
+        "packages/ui/src/components/primitives/index.ts"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/Table/Table.test.tsx",
+        "packages/ui/src/experimental/Pagination/Pagination.test.tsx"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Parallel-03 confirms public declarations have no non-React upstream type dependency; HB-16 retains native table header associations/scroll/reveal evidence (report-only here).",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": []
+    },
+    {
+      "id": "A-U-16",
+      "status": "complete",
+      "original_requirement": "Implement toggle buttons/groups for editor and view-mode controls with pressed state and appropriate single/multiple selection semantics.",
+      "findings": "ToggleButton owns selected/defaultSelected/onSelectedChange and aria-pressed via React Aria. ToggleButtonGroup owns string IDs, single/multiple selection, allowEmpty, disabled options and orientation. Tests cover one Enter/Space toggle, host rejection, multiple selection, required single, RTL/vertical arrows, disabled skipping/fieldset, repeated IDs and remount defaults. Commands remain non-submit buttons.",
+      "source_references": [
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.test.tsx",
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.next100-regression.test.tsx"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Parallel-04 independently characterizes distinct onPress and onSelectedChange calls; two notifications are intentional, not duplicate activation.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": []
+    },
+    {
+      "id": "A-U-17",
+      "status": "partial",
+      "original_requirement": "Provide consistent focus ring, target size, disabled styling, validation, status announcement, and pointer/keyboard interactions across primitives.",
+      "findings": "Shared focus/interaction tokens and owned validation/status primitives exist. Progress since batch111: auto/pointer/touch policy, 2.75rem touch minimum, control-text metrics and portal propagation replace its old no-coarse-pointer observation. HB-15/17 report target/bounds fixes. Consistency across every primitive/state and speech remains unverified.",
+      "source_references": [
+        "packages/ui/src/experimental/TextField/TextField.tsx",
+        "packages/ui/src/experimental/Checkbox/Checkbox.tsx",
+        "packages/ui/src/experimental/Switch/Switch.tsx",
+        "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx",
+        "packages/ui/src/experimental/Status/Status.tsx",
+        "packages/ui/src/foundation/ThemeScope.tsx",
+        "packages/ui/src/foundation/tokens.css"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/TextField/TextField.test.tsx",
+        "packages/ui/src/experimental/Checkbox/Checkbox.test.tsx",
+        "packages/ui/src/experimental/Switch/Switch.test.tsx",
+        "packages/ui/src/experimental/RadioGroup/RadioGroup.test.tsx",
+        "packages/ui/src/experimental/Status/Status.test.tsx"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Parallel-08 retained named token-pair checks; HB-15/17 native report slices. Token existence is not measured target/contrast conformance.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Current TextArea and three picker inputs differ from FA-02; their state guards/style changes await coordinator correction receipts. Do not apply FA-04 output evidence to those changes.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "U17-MATRIX: produce per-public-primitive focus/disabled/error/status/target/keyboard/pointer evidence rows using operator-cases.md; attach existing valid receipts before scheduling only uncovered/changed scopes. Include inline-link/indicator hit-area exceptions and named AT status results."
+      ]
+    },
+    {
+      "id": "A-U-18",
+      "status": "partial",
+      "original_requirement": "Preserve native form participation, reset behavior, autofill, names/values, and submit behavior; test controlled and uncontrolled variants.",
+      "findings": "Native input/form/name/value, controlled/default, reset prevention/reassociation and explicit submit/reset have extensive retained assertions. Progressed manual successor into concrete autofill observation protocol in operator-cases.md and categorized current test entry points. autocomplete forwarding is not real populated-profile autofill. TextArea and three picker fixes are changed inputs; current-head form closure is not established.",
+      "source_references": [
+        "packages/ui/src/experimental/TextField/TextField.tsx",
+        "packages/ui/src/experimental/TextArea/TextArea.tsx",
+        "packages/ui/src/experimental/Checkbox/Checkbox.tsx",
+        "packages/ui/src/experimental/Switch/Switch.tsx",
+        "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx",
+        "packages/ui/src/experimental/Select/Select.tsx",
+        "packages/ui/src/experimental/ComboBox/ComboBox.tsx",
+        "packages/ui/src/components/Button/Button.tsx"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/TextField/TextField.test.tsx",
+        "packages/ui/src/experimental/TextArea/TextArea.test.tsx",
+        "packages/ui/src/experimental/Checkbox/Checkbox.test.tsx",
+        "packages/ui/src/experimental/Switch/Switch.test.tsx",
+        "packages/ui/src/experimental/RadioGroup/RadioGroup.test.tsx",
+        "packages/ui/src/experimental/Select/Select.test.tsx",
+        "packages/ui/src/experimental/ComboBox/ComboBox.test.tsx",
+        "packages/ui/tests/browser/batch01-forms.spec.ts",
+        "packages/ui/tests/browser/batch05-native-reset.spec.ts",
+        "packages/ui/tests/browser/batch11-standalone-reset.spec.ts"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Parallel-04 state/activation characterization retained; no complete native autofill receipt.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Concurrent TextArea and picker changes invalidate their original implementation/test hashes. Browser autofill and password-manager behavior need actual operator/browser evidence.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "U18-AUTOFILL: execute protocol AF-1 with populated browser profile; retain accepted/rejecting controlled and uncontrolled values/callbacks/FormData, reset and submit observations without storing profile secrets.",
+        "U18-CHANGED: coordinator attach BUG-0008/0009 expected-zero-edit and corrected TextArea receipts; rebuild once in an authorized window and verify only affected form/native transactions. Preserve unchanged form evidence."
+      ]
+    },
+    {
+      "id": "A-U-19",
+      "status": "partial",
+      "original_requirement": "Define overlay collision/placement behavior at narrow widths and browser zoom; preserve theme/locale in portals and avoid clipped popovers.",
+      "findings": "Popover defines four owned placements, md/lg/content sizing and popover/dialog/drawer/auto presentation (auto drawer below 40rem). One position owner clamps an offscreen anchor to visualViewport, flips/shifts then scroll-constrains; ancestor scroll updates are owned/cleaned. ThemeScope copies theme/density/interaction/variables, dir/lang into portals. Native collision spec already covers four placements, light/dark, LTR/RTL, enlarged text, edge/scroll hosts, bounds/hit testing and retained draft/focus. Actual browser zoom and full overlay families remain open.",
+      "source_references": [
+        "packages/ui/src/experimental/Popover/Popover.tsx",
+        "packages/ui/src/experimental/Menu/Menu.tsx",
+        "packages/ui/src/experimental/Tooltip/Tooltip.tsx",
+        "packages/ui/src/foundation/ThemeScope.tsx"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/Popover/Popover.test.tsx",
+        "packages/ui/src/experimental/Menu/Menu.test.tsx",
+        "packages/ui/src/experimental/Tooltip/Tooltip.test.tsx",
+        "packages/ui/tests/browser/popover-native-collision.spec.ts"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Existing collision assertion map is reused; its source is not a new passing native execution.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "U19-ZOOM: collect actual browser zoom/visualViewport collision results for Popover, Menu, Tooltip, ComboBox/Select and date overlays; include nested scopes, independent scrolling, viewport resize and focus return. Reuse existing collision case assertions, retain exact host/source/engine receipt, add cases only for uncovered composition behavior."
+      ]
+    },
+    {
+      "id": "A-U-20",
+      "status": "complete",
+      "original_requirement": "Make temporary migration shims explicit and internal where possible; remove all shims that depend on the retired foundation before completion.",
+      "findings": "Retired-foundation dependency removal is established by FA-02 source/dependency inventory and FA-04 foundation/package guards, supplemented by parallel-03 declaration/API closure. Explicit AppThemeProvider is a preserved public alias of owned Provider, not a retired bridge. Internal ownedGridPersistence converts four legacy presentation keys, normalizes owned state and deliberately refuses retired sort/filter models; it is not a foundation shim. Keep both; deleting them would remove supported compatibility without satisfying a missing runtime dependency.",
+      "source_references": [
+        "packages/ui/src/theme/AppThemeProvider.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridPersistence.ts",
+        "packages/ui/scripts/check-foundations.mjs",
+        "docs/migration.md",
+        "docs/developer/react-aria-removal-audit.md"
+      ],
+      "test_references": [
+        "packages/ui/src/components/AppDataGrid/ownedGridPersistence.test.tsx"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. FA-02 installed graph has no MUI/Emotion; parallel-03 public declaration scan reports no escaping engine types. Relevant alias/persistence/guard inputs remain unchanged.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "No repeat all-source scan or rebuilt-output claim. Current independent bug fixes do not reintroduce retired imports in the inspected scopes; wider legal/historical-reference acceptance remains separate.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": []
+    },
+    {
+      "id": "A-X-01",
+      "status": "partial",
+      "original_requirement": "Replace implementation-mirroring tests with behavior tests where needed; avoid mocks that hide the very focus/keyboard behavior under migration.",
+      "findings": "Purpose-specific current census finds 17 vi.mock calls across source *.test.tsx files. No experimental primitive test replaces an interaction module. Grid drop-focus wrapper delegates the real useDragAndDrop but exposes callbacks: useful lifecycle characterization, not trusted drag. Editor tests remove floating toolbar and instrument Lexical/plugins, so they cannot prove hidden toolbar focus/selection. This advances batch121 successor with exact path/line census and classification rather than another suite.",
+      "source_references": [
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.drop-focus.test.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.floating.test.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx"
+      ],
+      "test_references": [
+        "packages/ui/tests/browser/editor-clipboard.spec.ts",
+        "packages/ui/tests/browser/batch01-grid-reorder.spec.ts"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Mock locations and primitive assertion titles captured in input-evidence.json; historical batch121 native insertion is a bounded report receipt.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X01-REVIEW: retain the instrumentation tests, but attach real unmocked floating-toolbar focus/selection and native drag evidence to their requirements. Review remaining component assertions against named behavior, identify any assertion that only mirrors implementation, and replace only those concrete gaps. Keep 20 editor V leaves open."
+      ]
+    },
+    {
+      "id": "A-X-02",
+      "status": "partial",
+      "original_requirement": "Define keyboard contracts and verify Tab/Shift+Tab, arrows, Home/End, Enter/Space, Escape, and typeahead where appropriate.",
+      "findings": "Current contracts/assertions cover Tab directions, arrows/Home/End, Enter/Space/Escape in appropriate controls. Batch121 typeahead successor exists as acceptance-pack-121.spec.ts and now uses the docs /fixtures host; it checks enabled Menu match, disabled-only match, dismissal and return focus. Search found no other explicit typeahead-named source/spec assertion; this bounded text result does not prove absent implicit coverage. No retained execution for that prepared case was established here.",
+      "source_references": [
+        "packages/ui/src/experimental/Menu/Menu.tsx",
+        "packages/ui/src/experimental/Select/Select.tsx",
+        "packages/ui/src/experimental/ComboBox/ComboBox.tsx",
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx",
+        "packages/ui/src/experimental/Disclosure/Disclosure.tsx"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/Menu/Menu.test.tsx",
+        "packages/ui/src/experimental/Select/Select.test.tsx",
+        "packages/ui/src/experimental/ComboBox/ComboBox.test.tsx",
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.test.tsx",
+        "packages/ui/src/experimental/Disclosure/Disclosure.test.tsx",
+        "packages/ui/tests/browser/acceptance-pack-121.spec.ts"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Historical batch121 prepared-case status remains UNRUN in that report. HB-11 adds navigation/disclosure native report evidence, not complete collection/typeahead closure.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X02-KEYS: execute existing Menu typeahead case only if no valid coordinator receipt exists; retain current docs-host provenance. Explicitly map noneditable Select/Menu typeahead versus editable ComboBox/SearchField text input, Tab/Shift+Tab, Home/End, activation and Escape per control. Fill uncovered keys, including editor/grid paths, with focused native evidence."
+      ]
+    },
+    {
+      "id": "A-X-03",
+      "status": "partial",
+      "original_requirement": "Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics.",
+      "findings": "Primitive names, descriptions, native roles/state and form associations are covered in focused tests; Typography semantic hierarchy was completed in parallel-09. HB-07/11/16 add localized status/nav/table reports, beyond batch122 historical slices. Full composed names/IDREF/heading/landmark/state matrix and actual announcements are missing. BUG-0008/9 corrections must be attributed separately.",
+      "source_references": [
+        "packages/ui/src/experimental/Status/Status.tsx",
+        "packages/ui/src/experimental/TextField/TextField.tsx",
+        "packages/ui/src/experimental/Navigation/Navigation.tsx",
+        "packages/ui/src/experimental/Disclosure/Disclosure.tsx",
+        "packages/ui/src/experimental/Table/Table.tsx",
+        "packages/ui/src/experimental/Progress/Progress.tsx"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/Status/Status.test.tsx",
+        "packages/ui/src/experimental/TextField/TextField.test.tsx",
+        "packages/ui/src/experimental/Navigation/Navigation.test.tsx",
+        "packages/ui/src/experimental/Disclosure/Disclosure.test.tsx",
+        "packages/ui/src/experimental/Table/Table.test.tsx",
+        "packages/ui/src/experimental/Progress/Progress.test.tsx",
+        "packages/ui/tests/browser/acceptance.spec.ts"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Named token/DOM/axe results cannot establish speech; historical batch122 modal-validation slices are bounded to their old candidate heads.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X03-SEMANTICS: produce per-route/state name/description IDREF and heading/landmark audit for docs compositions; use SEM-1 and AT-1 in operator-cases.md for native validation and pending/error/success speech, recording browser/AT/OS versions and host-supplied labels. Do not certify announcement timing from aria-live alone."
+      ]
+    },
+    {
+      "id": "A-X-04",
+      "status": "partial",
+      "original_requirement": "Verify initial focus, return focus, focus after removal/reorder/update, trapped focus in modals, and nested-overlay dismissal ordering.",
+      "findings": "TagGroup accepted/rejected removal and Disclosure host-collapse recovery have focused retained evidence. Dialog/Popover own containment/dismissal/recovery; grid owns reorder/update focus repair. HB-17 reports repaired wrapped reorder targets and native focus regressions. Historical batch122 removed-opener/mixed-modal slices and current test files do not cover every overlay/grid/update composition or editor flow.",
+      "source_references": [
+        "packages/ui/src/experimental/TagGroup/TagGroup.tsx",
+        "packages/ui/src/experimental/Disclosure/Disclosure.tsx",
+        "packages/ui/src/experimental/Dialog/Dialog.tsx",
+        "packages/ui/src/experimental/Popover/Popover.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx"
+      ],
+      "test_references": [
+        "packages/ui/src/experimental/TagGroup/TagGroup.test.tsx",
+        "packages/ui/src/experimental/Disclosure/Disclosure.test.tsx",
+        "packages/ui/src/experimental/Dialog/Dialog.test.tsx",
+        "packages/ui/src/experimental/Popover/Popover.test.tsx",
+        "packages/ui/tests/browser/batch52-dialog-removed-opener.spec.ts",
+        "packages/ui/tests/browser/batch01-grid-reorder.spec.ts"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. HB-11/17 report native slices; no fresh execution or complete device/AT focus behavior.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X04-FOCUS: reconcile FOCUS-1 transition rows with existing nested/removed-opener/grid receipts, then execute only changed or uncovered transitions; require initial/trapped/return/removal/reorder focus and nested topmost Escape/outside ordering, with actual focused element and two-frame stability. Include host explicit focus destinations and 20 editor V leaves separately."
+      ]
+    },
+    {
+      "id": "A-X-05",
+      "status": "partial",
+      "original_requirement": "Ensure sticky headers/footers do not obscure focused controls; verify zoom/reflow/text-spacing behavior and scroll padding where needed.",
+      "findings": "Earlier parallel-09 already kept D-09 partial; rem metrics and 150% root-text presentation are retained. HB-08/09/10/18 add narrow header/shell/modal/editor-dialog reflow reports; HB-18 includes the discovered textarea focus-outline clipping repair. display-preferences covers 200% root text plus text spacing. Actual browser chrome zoom and complete sticky/focus/scrollport coverage remain absent.",
+      "source_references": [
+        "packages/ui/src/experimental/Dialog/Dialog.module.css",
+        "packages/ui/src/components/AppShell/AppShellMain.tsx",
+        "packages/ui/src/components/AppPageHeader/AppPageHeader.module.css"
+      ],
+      "test_references": [
+        "packages/ui/tests/browser/display-preferences.spec.ts",
+        "packages/ui/tests/browser/hardening-header-tabs-presentation.spec.ts",
+        "packages/ui/tests/browser/hardening-shell-presentation.spec.ts"
+      ],
+      "evidence": "Reuse parallel-09 D09 successors and HB reports; current TextArea changes are outside older output acceptance. Root font scaling is not actual browser zoom.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "No actual chrome zoom, physical-device or all-catalog reflow pass. Current TextArea focus/style fixes need new affected-input receipts.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X05-ZOOM: perform ZOOM-1 operator transitions at actual 200%/400% zoom and explicit spacing, with independent panes, sticky chrome, overlay opening/dismissal and viewport resize. Record focused control bounds/ring and scroll owner. Locate HB receipts before considering any repeat of completed enlargement checks."
+      ]
+    },
+    {
+      "id": "A-X-06",
+      "status": "partial",
+      "original_requirement": "Verify text/non-text contrast, visible focus, high contrast/forced colors, reduced motion, and state meaning beyond color.",
+      "findings": "Parallel-08 supports named token contrast checks and docs 21-map theme assertions. Controls implement forced-colors/reduced-motion and explicit selected/disabled/error/state semantics. Historical batch122 header ratios and later HB screenshots cover selected contexts, not all composited text/non-text/focus states. Source does not certify actual OS high contrast or state meaning without color.",
+      "source_references": [
+        "packages/ui/src/foundation/tokens.json",
+        "packages/ui/src/experimental/Progress/Progress.module.css",
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css",
+        "apps/docs/theme/theme-graph.test.mjs"
+      ],
+      "test_references": [
+        "packages/ui/scripts/tokens.test.mjs",
+        "packages/ui/tests/browser/display-preferences.spec.ts"
+      ],
+      "evidence": "Reuse FA-04 foundation and retained docs theme checks via parallel-08; no repeated contrast test run, browser measurement or OS/AT session.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X06-MEDIA: execute MEDIA-1 for computed text/non-text/focus pairs through hover/pressed/selected/disabled/error/loading in representative composed controls and supplied surfaces; retain actual forced-colors/high-contrast and reduced-motion observations and grayscale/non-color cues. Separate host override responsibility; repair only observed failing pair/state."
+      ]
+    },
+    {
+      "id": "A-X-07",
+      "status": "partial",
+      "original_requirement": "Verify target size/spacing against WCAG requirements and aim for comfortable primary touch targets; test coarse-pointer use rather than shrinking every hit area with density.",
+      "findings": "Batch123 old finding of no coarse-pointer branch is superseded: generated any-pointer:coarse auto scope plus explicit touch mode bind 2.75rem target minimum. HB-15 calendar and HB-17 grid reports assert computed >=44px controls in both axes and containment; HB-17 found overlap despite initial passing checks and corrected it. No blanket WCAG compliance follows: links, resizers, indicators plus labels, adjacent spacing and exceptions require geometry review.",
+      "source_references": [
+        "packages/ui/src/foundation/ThemeScope.tsx",
+        "packages/ui/src/foundation/tokens.css",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx"
+      ],
+      "test_references": [
+        "packages/ui/tests/browser/hardening-grid-presentation.spec.ts",
+        "packages/ui/tests/browser/hardening-date-presentation.spec.ts"
+      ],
+      "evidence": "HB-15/17 retained report evidence; declared 44px minimum and touchscreen emulation are not physical touch usability or a complete target/spacing audit.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X07-TARGETS: use TARGET-1 to record actual hit rectangles/spacing/overlap for inline links, field labels/indicators, grid resize handles, calendar dates, menus and primary actions across compact/comfortable and auto coarse/explicit touch. Record chosen applicable WCAG requirement/exception rationale with accessibility owner; obtain named physical primary-touch observations."
+      ]
+    },
+    {
+      "id": "A-X-08",
+      "status": "partial",
+      "original_requirement": "Provide both keyboard and single-pointer non-drag alternatives for drag operations where required; keyboard support alone does not satisfy every dragging requirement.",
+      "findings": "Advanced prior batch123 investigation: both DataGrid renderers expose ColumnResizer and keyboard/pointer resize ownership, while inspected DataToolbarColumnsMenu has visibility and order Move buttons but no width entry/step action. Grid row reorder and ExperiencePageNavigator expose pointer-clickable Move up/down alternatives; range dragging has endpoint fields/day-click policies plus keyboard Shift/Alt arrows. Exact equivalent duration-preserving range move for a no-fields host is not established. See drag-alternatives table in operator-cases.md.",
+      "source_references": [
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+        "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+        "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+        "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+        "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx"
+      ],
+      "test_references": [
+        "packages/ui/tests/browser/reorder.spec.ts",
+        "packages/ui/tests/browser/batch01-grid-reorder.spec.ts",
+        "packages/ui/tests/browser/batch61-keyboard-range-preview.spec.ts"
+      ],
+      "evidence": "FA-04 corrected aggregate baseline (1,738 cases/279 suites) and package receipts reused only for unchanged inputs. Original all-in-one run failed calendar cases; affected correction/rerun remains separate. Individual passing suite counts are not reconstructed from compact logs. Historical batch123 Chromium emulated-touch Move case is bounded report evidence; no new drag/touch result.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X08-RESIZE: accessibility/product owner decides required single-pointer non-drag width path. Existing resizer press interaction must first be observed natively; if it does not expose an equivalent non-drag action, implement owned numeric width/step/reset controls invoking the same bounded/flexible width core and complete-snapshot callback. Test pointer-only edits, min/max/fill preservation, keyboard alternative and rejection. Do not assume keyboard resize satisfies pointer alternative.",
+        "X08-RANGE: document/verify equivalent move/resize result through endpoint/day controls under fields hidden, fixed/bounded length and active-endpoint policies. Add a non-drag action only where equivalence is missing; retain native pointer evidence and cancellation.",
+        "X08-INVENTORY: complete editor-image/table resizing and any host drag-only extension inventory; do not infer it from row reorder."
+      ]
+    },
+    {
+      "id": "A-X-09",
+      "status": "partial",
+      "original_requirement": "Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient.",
+      "findings": "Real native infrastructure/specs and retained HB reports cover actual pointer/keys/focus/layout/portals; grid touch and clipboard historical slices remain distinct. DOM tests, event injection and fixture builds are not native passes. Current shared acceptance preserved 20 editor V gaps; actual clipboard denial/OS prompts/IME and physical touch cannot be inferred from source.",
+      "source_references": [
+        "packages/ui/playwright.config.ts",
+        "apps/docs/playwright.config.ts"
+      ],
+      "test_references": [
+        "packages/ui/tests/browser/acceptance.spec.ts",
+        "packages/ui/tests/browser/reorder.spec.ts",
+        "packages/ui/tests/browser/editor-clipboard.spec.ts",
+        "packages/ui/tests/browser/batch05-grid-clipboard.spec.ts",
+        "packages/ui/tests/browser/popover-native-collision.spec.ts"
+      ],
+      "evidence": "Reuse existing HB and batch123 reports, with exact historical head/output limits. No remote/browser/clipboard/device action performed.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X09-NATIVE: assemble evidence rows by pointer/touch/focus/layout/portal/clipboard capability from retained manifests; identify changed scopes before authorized bounded native runs. Collect CLIP-1 OS/browser permission/denial and actual transfer observations; preserve editor V obligations and physical touch distinction."
+      ]
+    },
+    {
+      "id": "A-X-10",
+      "status": "partial",
+      "original_requirement": "Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage.",
+      "findings": "Supported engine infrastructure is established: Playwright Chromium/Firefox/WebKit projects, one worker, zero retries, loopback docs-owned host and failure traces; CI installs engines. FA-03 defines React/Node/browser support boundaries. HB reports contain later three-engine slices. No current remote CI, physical Safari/iOS/Android or named spoken AT coverage is established.",
+      "source_references": [
+        "packages/ui/playwright.config.ts",
+        ".github/workflows/ci.yml",
+        "docs/developer/react-aria-runtime-ci.md",
+        "docs/developer/react-aria-browser-acceptance.md"
+      ],
+      "test_references": [
+        "packages/ui/tests/browser/acceptance.spec.ts"
+      ],
+      "evidence": "Configuration and report evidence only; WebKit engine is not branded Safari or iOS; axe is not AT. No external review/owner signoff is implied.",
+      "checks_performed": [
+        "Read full original leaf and cited source/assertions",
+        "Compare scoped input hashes with FA-02; see input-evidence.json",
+        "Reconcile retained reports without rerunning passed suites"
+      ],
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "input_limits": "Unchanged selected inputs retain FA-04 aggregate unit evidence. No new runtime/native/device/AT result. Full transitive host/build equivalence is not established.",
+      "host_limits": "Modified shared dev checkout; no shared outputs rebuilt. Concurrent BUG-0008/0009 changes are excluded from old-output acceptance.",
+      "successor_deliverables": [
+        "X10-SUPPORT: accessibility/QA owner names supported browser/OS/device/AT pairings and completes AT-1/TOUCH-1 records, or documents explicitly scoped unsupported combinations. Coordinator archives valid three-engine source/build/results receipts and runs only changed/uncovered checks before future full production gate."
+      ]
+    }
+  ]
+}

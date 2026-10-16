@@ -1,0 +1,180 @@
+{
+  "status": "Findings delivered; A-P-07/08/11 remain partial for named missing execution/documentation.",
+  "proofs": [
+    {
+      "id": "A-P-01",
+      "outcome": "Representative Button/TextField proof exists with owned narrow props, generated token styles, compiled component layer, public exports and real focus/action/label/form assertions.",
+      "apiAndLimitReferences": [
+        "packages/ui/src/components/Button/Button.tsx",
+        "packages/ui/src/experimental/TextField/TextField.tsx",
+        "packages/ui/src/components/Button/Button.module.css",
+        "packages/ui/src/foundation/tokens.json"
+      ],
+      "testReferences": [
+        "packages/ui/src/components/Button/Button.test.tsx",
+        "packages/ui/src/experimental/TextField/TextField.test.tsx"
+      ]
+    },
+    {
+      "id": "A-P-02",
+      "outcome": "The transferred NestedForm proof contains validation, Tabs, ComboBox and nested Popover. Retained real-control tests exercise focus/containment/restoration, nested Escape and dismissal; recorded native proof tests scrolling separately from jsdom.",
+      "apiAndLimitReferences": [
+        "apps/docs/native-fixtures/scenarios/experimental/Dialog/Dialog.fixture.tsx",
+        "packages/ui/src/experimental/Dialog/Dialog.tsx",
+        "docs/developer/react-aria-proof-controls.md"
+      ],
+      "testReferences": [
+        "packages/ui/src/experimental/Dialog/Dialog.test.tsx",
+        "packages/ui/src/experimental/Popover/Popover.test.tsx",
+        "packages/ui/src/experimental/Tabs/Tabs.test.tsx",
+        "packages/ui/src/experimental/ComboBox/ComboBox.test.tsx",
+        "packages/ui/tests/browser/batch01-dialogs.spec.ts",
+        "packages/ui/tests/browser/batch50-dialog-header-reflow.spec.ts"
+      ]
+    },
+    {
+      "id": "A-P-03",
+      "outcome": "Host-supplied query/loading/results proof covers superseded abort/late success/failure rejection, empty/error/retry, selection outside current results, 200-row long lists, keyboard selection and focus restoration.",
+      "apiAndLimitReferences": [
+        "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx",
+        "apps/docs/examples/AsyncSearchExample.tsx"
+      ],
+      "testReferences": [
+        "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.test.tsx",
+        "packages/ui/tests/browser/batch14-async-busy.spec.ts"
+      ]
+    },
+    {
+      "id": "A-P-04",
+      "outcome": "Advanced selector proof includes multi-month ranges, presets/unavailable dates, draft Apply/Cancel, host locales/directions and explicit-timezone conversion examples.",
+      "apiAndLimitReferences": [
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+        "apps/docs/examples/LocalizedRangeExample.tsx",
+        "apps/docs/examples/FormIntegrationExamples.tsx",
+        "docs/developer/react-aria-calendar-contracts.md"
+      ],
+      "testReferences": [
+        "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.test.tsx",
+        "packages/ui/src/experimental/DateField/DateField.test.tsx",
+        "packages/ui/src/experimental/DateRangeSelector/DateContracts.next100-regression.test.tsx",
+        "packages/ui/tests/browser/calendar-native-locales.spec.ts"
+      ]
+    },
+    {
+      "id": "A-P-05",
+      "outcome": "Version-specific requirement review proves standard installed Calendar multiple selection rather than assuming it needs custom state. Segmented field state/custom range gestures are lower-level owned compositions where needed; fiscal/business calendars remain host presets.",
+      "apiAndLimitReferences": [
+        "packages/ui/src/experimental/Calendar/Calendar.tsx",
+        "packages/ui/src/experimental/DateField/DateField.tsx",
+        "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx",
+        "docs/developer/react-aria-calendar-contracts.md"
+      ],
+      "testReferences": [
+        "packages/ui/src/experimental/Calendar/Calendar.test.tsx",
+        "packages/ui/src/experimental/DateRangeSelector/RangeGestures.test.tsx",
+        "packages/ui/src/experimental/DateRangeSelector/DateContracts.next100-regression.test.tsx"
+      ]
+    },
+    {
+      "id": "A-P-06",
+      "outcome": "Concrete candidate checklist compares React Aria alone, TanStack alone and combined proof for all named selection/server/multi-sort/filter/visibility/resize/actions/reorder concerns.",
+      "apiAndLimitReferences": [
+        "docs/developer/react-aria-grid-decision.md",
+        "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+        "packages/ui/src/experimental/DataGrid/row-processing.ts"
+      ],
+      "testReferences": [
+        "packages/ui/src/experimental/DataGrid/DataGrid.test.tsx",
+        "packages/ui/src/experimental/DataGrid/DataGrid.next100-regression.test.tsx"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "concern": "keyboard",
+      "availableEvidence": "Implemented proofs and retained unit/native receipts: Button click/Enter/Space, nested overlay Escape, async selection, range commits, grid resize/reorder.",
+      "missingOrLimit": "No new native replay; report old/new hosts separately.",
+      "receipt": "react-aria-progress.md; backlog-execution-2026-10-15.md HB-14/15/17"
+    },
+    {
+      "concern": "screen-reader",
+      "availableEvidence": "Roles, labels, descriptions, live status and focus assertions exist.",
+      "missingOrLimit": "Missing named operator/AT-version spoken output for composed prototypes. DOM assertions are insufficient.",
+      "receipt": "react-aria-browser-acceptance.md; react-aria-proof-controls.md"
+    },
+    {
+      "concern": "zoom",
+      "availableEvidence": "Accepted 150% root-text/360px geometry and later enlarged-text matrices.",
+      "missingOrLimit": "Actual browser zoom differs from CSS text enlargement; no whole-prototype zoom receipt asserted.",
+      "receipt": "backlog-execution-2026-10-15.md HB-03\u201305/HB-16"
+    },
+    {
+      "concern": "touch",
+      "availableEvidence": "Automated touch-context target/gesture/non-drag alternatives reported.",
+      "missingOrLimit": "Physical hardware/OS/browser gestures and responsiveness are not proven.",
+      "receipt": "backlog-execution-2026-10-15.md; react-aria-browser-acceptance.md"
+    },
+    {
+      "concern": "dark",
+      "availableEvidence": "Owned tokens and portal/theme preservation, screenshot reviews recorded across named engines.",
+      "missingOrLimit": "Only named configurations; not every consumer override.",
+      "receipt": "backlog-execution-2026-10-15.md HB-13/14/15/16"
+    },
+    {
+      "concern": "reduced-motion",
+      "availableEvidence": "Foundation motion preference contracts and CSS/token guards exist; foundation browser suite has preference scenarios.",
+      "missingOrLimit": "Need attributable prototype-specific native preference findings before broad coverage claim.",
+      "receipt": "react-aria-progress.md; packages/ui/tests/browser/foundation-catalogue.spec.ts"
+    },
+    {
+      "concern": "SSR/hydration",
+      "availableEvidence": "Historical packed React18/19 and server-boundary receipts, current saved package and SSR unit evidence.",
+      "missingOrLimit": "Hydration entry build alone is not executed hydration; concurrent four-control outputs excluded.",
+      "receipt": "react-aria-server-components.md; final-acceptance/fa04-package.txt"
+    },
+    {
+      "concern": "production bundles",
+      "availableEvidence": "Historical composed packed gzip reference: React18 JS162102 bytes, React19 JS176968, CSS4795; current FA package equality for saved snapshot.",
+      "missingOrLimit": "Not current minimal imports, current performance or representative slower hardware.",
+      "receipt": "migration-baseline/proof-measurements.json; react-aria-performance.md"
+    }
+  ],
+  "performance": {
+    "referenceTimestamp": "2026-10-06T03:25:45.631Z",
+    "machine": "Apple M4 arm64 macOS Node26.5.0",
+    "method": "3 warmups, 9 synchronous SSR samples; median and maximum (field named p90); production composed assets measured as gzip.",
+    "localInvestigationBudgetsMs": {
+      "buttons100": 8,
+      "fields40": 6,
+      "asyncOptions200": 18,
+      "grid1000Page50": 34,
+      "rangeTwoMonths": 10
+    },
+    "transferInvestigationBudgetsKiB": {
+      "javascript": 215,
+      "css": 8
+    },
+    "notEstablished": [
+      "Current source/asset-hashed baseline",
+      "Representative slower consumer hardware",
+      "Native interaction/update latency and memory",
+      "CI noise/enforcement thresholds"
+    ],
+    "replayLimit": "Do not execute against old concurrent-source dist. Script imports packages/ui/dist but mkdir/--record use relative docs path; output/cwd must be explicit and historical record preserved."
+  },
+  "currentDocumentationCorrections": [
+    {
+      "file": "docs/developer/react-aria-calendar-contracts.md",
+      "oldParagraph": "134\u2013138 calls comparison periods and month/year-only selectors unshipped/deferred",
+      "currentTruth": "575 onward documents PeriodPicker and DateRangeComparisonPicker; navigation=month-year and whole Gregorian periods exist. Fiscal/business/recurrence/resource-booking policies remain host-owned/deferred.",
+      "successor": "W04-P11-DOCS"
+    },
+    {
+      "file": "docs/developer/react-aria-button.md",
+      "oldParagraph": "42\u201345 describes legacy ContentEditorChrome MouseEvent contract",
+      "currentTruth": "ContentEditorChrome uses owned Button onPress(anchor), captured by native ref.",
+      "successor": "parallel-04 P04-S4 / W04-P11-DOCS"
+    }
+  ],
+  "productionBoundary": "Prototype proof does not release a feature or complete acceptance; 20 editor V leaves, remaining A leaves and future production validation/human approval remain. No new remote CI, legal approval or release claim."
+}

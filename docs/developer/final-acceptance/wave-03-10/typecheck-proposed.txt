@@ -1,0 +1,2 @@
+Syntax/transpile diagnostics: 0 across 7 proposed TypeScript files
+Overlay production typecheck passed (proposed files plus current transitive source; no build/emission).

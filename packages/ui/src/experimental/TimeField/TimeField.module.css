@@ -1,0 +1,7 @@
+@layer sgui.components {
+ .trigger { padding-inline-end: var(--field-edge-padding); align-self: stretch; border-radius: 0; border-start-end-radius: var(--sgui-field-control-radius); border-end-end-radius: var(--sgui-field-control-radius); }
+ .trigger[data-variant] { border-color: inherit; }
+ .options { display: flex; flex-wrap: wrap; align-items: end; gap: var(--sgui-space2); min-inline-size: 0; }
+ .options > * { flex: 1 1 4.5rem; min-inline-size: 0; }
+ .actions { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); margin-block-start: var(--sgui-space3); }
+}

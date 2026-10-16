@@ -1,0 +1,7 @@
+{
+  "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+  "docs/developer/react-aria-card-frames.md": "bc4220f14ad665c8380963f5306051320f1e88ca3b5fee057608185cee4a39fc",
+  "apps/docs/content/component-usage/data.json": "650880558e4dfd705c417972d481cfebba091bba4e50f1e72c67a1d1c0c42152",
+  "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx": "6e59a24dbd52b4d85d5769ad2009d4dc039c1792605261f92b6f72d15d3d0e5a",
+  "packages/ui/tests/browser/card-container-boundary.spec.ts": null
+}

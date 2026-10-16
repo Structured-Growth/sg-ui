@@ -1,0 +1,1263 @@
+{
+  "capturedAt": "2026-10-16T22:35:07.369Z",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "limits": "Read-only source/output comparison and PostCSS inventory; not a build, test rerun, specificity calculator, browser, device or AT result.",
+  "sourceComparison": {
+    "files": 103,
+    "differences": [],
+    "entries": [
+      {
+        "path": "README.md",
+        "sha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+        "snapshotSha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+        "unchanged": true
+      },
+      {
+        "path": "docs/developer/component-architecture.md",
+        "sha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+        "snapshotSha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+        "unchanged": true
+      },
+      {
+        "path": "docs/developer/react-aria-adoption-checklist.md",
+        "sha256": "ccfc672a2b8f5952169f991aa045da8a4592e4fe4136496765e221ca94bb8bf6",
+        "snapshotSha256": "ccfc672a2b8f5952169f991aa045da8a4592e4fe4136496765e221ca94bb8bf6",
+        "unchanged": true
+      },
+      {
+        "path": "docs/developer/react-aria-architecture.md",
+        "sha256": "fed6d21dc7abd8f895b27bb5e319981982092af6dbe5eaa4e5705622dad3a067",
+        "snapshotSha256": "fed6d21dc7abd8f895b27bb5e319981982092af6dbe5eaa4e5705622dad3a067",
+        "unchanged": true
+      },
+      {
+        "path": "docs/developer/react-aria-css-lint.md",
+        "sha256": "f8875e607c410a7cd7f62fc1378142a848a64e0e36d6999b0c6ef958fb3b0676",
+        "snapshotSha256": "f8875e607c410a7cd7f62fc1378142a848a64e0e36d6999b0c6ef958fb3b0676",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/package.json",
+        "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+        "snapshotSha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/scripts/CSSPipeline.next100-regression.test.mjs",
+        "sha256": "e2815a8fd55c4bbb46299f73a204aa9cc095cfd8032d734032b2ffe000ef5486",
+        "snapshotSha256": "e2815a8fd55c4bbb46299f73a204aa9cc095cfd8032d734032b2ffe000ef5486",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/scripts/build.mjs",
+        "sha256": "ac269499dcb3c6c1cea5fb054253831c2913543390dc896480a9adb0228207da",
+        "snapshotSha256": "ac269499dcb3c6c1cea5fb054253831c2913543390dc896480a9adb0228207da",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/scripts/check-component-css.mjs",
+        "sha256": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+        "snapshotSha256": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/scripts/check-component-css.test.mjs",
+        "sha256": "0d7247cd0eea8364a93c232d76719c2c4ae6f7d4ebc6406dd637289510c09f2d",
+        "snapshotSha256": "0d7247cd0eea8364a93c232d76719c2c4ae6f7d4ebc6406dd637289510c09f2d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/scripts/check-foundations.mjs",
+        "sha256": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+        "snapshotSha256": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/scripts/check-package.mjs",
+        "sha256": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+        "snapshotSha256": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/scripts/css-modules.mjs",
+        "sha256": "5ab55de118449a64ea5c2ecc8476cca80b393639f59ff945f2f646c77c39c568",
+        "snapshotSha256": "5ab55de118449a64ea5c2ecc8476cca80b393639f59ff945f2f646c77c39c568",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/scripts/css-modules.test.mjs",
+        "sha256": "2f91c4d625f54d219c55b514de7799996077e9044ba0ed6f3b267ce5db2e6e1f",
+        "snapshotSha256": "2f91c4d625f54d219c55b514de7799996077e9044ba0ed6f3b267ce5db2e6e1f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/scripts/tokens.mjs",
+        "sha256": "9c25b916daa9dc1a677b79ed5d7baa909ed44a21d85442a7979342e2b1ba228a",
+        "snapshotSha256": "9c25b916daa9dc1a677b79ed5d7baa909ed44a21d85442a7979342e2b1ba228a",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css",
+        "sha256": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc",
+        "snapshotSha256": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css",
+        "sha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b",
+        "snapshotSha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+        "sha256": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080",
+        "snapshotSha256": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css",
+        "sha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085",
+        "snapshotSha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.module.css",
+        "sha256": "bb6d4898cf884dd1a410454fc10610a1cdbf014749ee487e79c18c1a5c650c48",
+        "snapshotSha256": "bb6d4898cf884dd1a410454fc10610a1cdbf014749ee487e79c18c1a5c650c48",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.module.css",
+        "sha256": "0ae9c4b48c71058f778d507bb34deae364e82c2a39cd35d9fa05e9f3da4908e2",
+        "snapshotSha256": "0ae9c4b48c71058f778d507bb34deae364e82c2a39cd35d9fa05e9f3da4908e2",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.module.css",
+        "sha256": "cccff884aaf2bdeaac8e00a7b0e89a17f56109f975d56272cad59779b97ed78f",
+        "snapshotSha256": "cccff884aaf2bdeaac8e00a7b0e89a17f56109f975d56272cad59779b97ed78f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppModal/AppModal.module.css",
+        "sha256": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+        "snapshotSha256": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.module.css",
+        "sha256": "e0a0677b0175a30e17cc59802bbeab41280005d56b9c017b714117459bde43e5",
+        "snapshotSha256": "e0a0677b0175a30e17cc59802bbeab41280005d56b9c017b714117459bde43e5",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppPageHeader/AppPageHeader.module.css",
+        "sha256": "2e2709d1ee526adec4057142d65f3ef9696f1604b92df57b473cc4c0717723ed",
+        "snapshotSha256": "2e2709d1ee526adec4057142d65f3ef9696f1604b92df57b473cc4c0717723ed",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppPageTabs/AppPageTabs.module.css",
+        "sha256": "ae3fc31ebf5195afec47dcfb5c17ee86f4784848e3e970e06cfc33a28a5b9f1c",
+        "snapshotSha256": "ae3fc31ebf5195afec47dcfb5c17ee86f4784848e3e970e06cfc33a28a5b9f1c",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AppShell/AppShell.module.css",
+        "sha256": "2b20ca5fcab874c3e2866da3688d535fec432e5ebc8bfc180900425363b0c2e7",
+        "snapshotSha256": "2b20ca5fcab874c3e2866da3688d535fec432e5ebc8bfc180900425363b0c2e7",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/AuthShell/AuthShell.module.css",
+        "sha256": "0b3dabe1d8d5807515dedfb497431bf4b82378d16aaf040d00a5576c828aeb6e",
+        "snapshotSha256": "0b3dabe1d8d5807515dedfb497431bf4b82378d16aaf040d00a5576c828aeb6e",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/Button/Button.module.css",
+        "sha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+        "snapshotSha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.module.css",
+        "sha256": "58c6ec4b67a1a899948ebd172402c9c765b80477b7456beda7f09a5567c2be21",
+        "snapshotSha256": "58c6ec4b67a1a899948ebd172402c9c765b80477b7456beda7f09a5567c2be21",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.module.css",
+        "sha256": "78b126fcce49c46fe97af8d42e00ce02ef77892912df085a4e677cf61e6b5c63",
+        "snapshotSha256": "78b126fcce49c46fe97af8d42e00ce02ef77892912df085a4e677cf61e6b5c63",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css",
+        "sha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+        "snapshotSha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.module.css",
+        "sha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+        "snapshotSha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DataToolbar/DataToolbar.module.css",
+        "sha256": "ed9842b74c5b1137b81e89ce8a6e0727cf7d9f1fca2fdefed54fca5f946bf392",
+        "snapshotSha256": "ed9842b74c5b1137b81e89ce8a6e0727cf7d9f1fca2fdefed54fca5f946bf392",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.module.css",
+        "sha256": "132b25a748e4be0d7beaa0584b96d0fc5b1804360a5e9bc4210c02155b803dae",
+        "snapshotSha256": "132b25a748e4be0d7beaa0584b96d0fc5b1804360a5e9bc4210c02155b803dae",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.module.css",
+        "sha256": "4d1c495ff22633ccad86f0b7309ae472b6e6819086d72b77c55a18525daacfe9",
+        "snapshotSha256": "4d1c495ff22633ccad86f0b7309ae472b6e6819086d72b77c55a18525daacfe9",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.module.css",
+        "sha256": "ebbd58249d65f4f3d18eef372d55f530799b300091fc18f18be18043e90a7386",
+        "snapshotSha256": "ebbd58249d65f4f3d18eef372d55f530799b300091fc18f18be18043e90a7386",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.module.css",
+        "sha256": "101dc6f3286638f5ae8cd617e0a95e73fc4b21dfb72d210157aff4015eca2283",
+        "snapshotSha256": "101dc6f3286638f5ae8cd617e0a95e73fc4b21dfb72d210157aff4015eca2283",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.module.css",
+        "sha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+        "snapshotSha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.module.css",
+        "sha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+        "snapshotSha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/EditableTitleField/EditableTitleField.module.css",
+        "sha256": "3f9c8484c374ff521906bff63849ba274bde4d97f4ff6a2fbc58aeed11e1e8ef",
+        "snapshotSha256": "3f9c8484c374ff521906bff63849ba274bde4d97f4ff6a2fbc58aeed11e1e8ef",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.module.css",
+        "sha256": "da80cd9f48337e9446e92b842a44a27179e18243373f2ffcf90376ca84036bde",
+        "snapshotSha256": "da80cd9f48337e9446e92b842a44a27179e18243373f2ffcf90376ca84036bde",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.module.css",
+        "sha256": "790ff260c6749b2571a4139e37175e38cf85be8471f28e936232bdc55c46902b",
+        "snapshotSha256": "790ff260c6749b2571a4139e37175e38cf85be8471f28e936232bdc55c46902b",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.module.css",
+        "sha256": "ba518e55050e2e443f1defd0f8656d88cb730f68cb38829b8803c29190324123",
+        "snapshotSha256": "ba518e55050e2e443f1defd0f8656d88cb730f68cb38829b8803c29190324123",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.module.css",
+        "sha256": "0e66b06df36269c7cc6c48ab92f21b668e71d5e147033c569f0aca8155262c53",
+        "snapshotSha256": "0e66b06df36269c7cc6c48ab92f21b668e71d5e147033c569f0aca8155262c53",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.module.css",
+        "sha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+        "snapshotSha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.module.css",
+        "sha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+        "snapshotSha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.module.css",
+        "sha256": "b22ee7ba4c242d3cbcef64c24137bec97382d55f09842242744b5cde9ed1be5a",
+        "snapshotSha256": "b22ee7ba4c242d3cbcef64c24137bec97382d55f09842242744b5cde9ed1be5a",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css",
+        "sha256": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+        "snapshotSha256": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.module.css",
+        "sha256": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+        "snapshotSha256": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.module.css",
+        "sha256": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+        "snapshotSha256": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/SideNavigation/SideNavigation.module.css",
+        "sha256": "4a975c632190d5d6fb5e4590bf3de1feb318d3c18146123cfddc6b03b421e97c",
+        "snapshotSha256": "4a975c632190d5d6fb5e4590bf3de1feb318d3c18146123cfddc6b03b421e97c",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.module.css",
+        "sha256": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+        "snapshotSha256": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css",
+        "sha256": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
+        "snapshotSha256": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/TextStyleMenuControl/NativeSelection.module.css",
+        "sha256": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+        "snapshotSha256": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.module.css",
+        "sha256": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+        "snapshotSha256": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.module.css",
+        "sha256": "81be5ada4edd588e3fa308fc30f764551466b31b20a2fb13fe0ce62094de5cb6",
+        "snapshotSha256": "81be5ada4edd588e3fa308fc30f764551466b31b20a2fb13fe0ce62094de5cb6",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Avatar/Avatar.module.css",
+        "sha256": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+        "snapshotSha256": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Badge/Badge.module.css",
+        "sha256": "72bb3bef4c59adac3cf00e22d57eba0f718ee2b2d4a145fadf53e2174d33569c",
+        "snapshotSha256": "72bb3bef4c59adac3cf00e22d57eba0f718ee2b2d4a145fadf53e2174d33569c",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Box/Box.module.css",
+        "sha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+        "snapshotSha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Breadcrumbs/Breadcrumbs.module.css",
+        "sha256": "c52233743315eb70d79f8502aadd8d36e46aa4937edc242f0286e9fe335864d2",
+        "snapshotSha256": "c52233743315eb70d79f8502aadd8d36e46aa4937edc242f0286e9fe335864d2",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/ButtonGroup/ButtonGroup.module.css",
+        "sha256": "8e563eb47f5fd4dc9e25c53f24efe8fa50bd7a7e8aa542cab7ae2d7e5f0a2768",
+        "snapshotSha256": "8e563eb47f5fd4dc9e25c53f24efe8fa50bd7a7e8aa542cab7ae2d7e5f0a2768",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Checkbox/Checkbox.module.css",
+        "sha256": "8b0d9c9987e140ac921ece1da8b3424976197820d38bfb690d364d0b4a9d48f8",
+        "snapshotSha256": "8b0d9c9987e140ac921ece1da8b3424976197820d38bfb690d364d0b4a9d48f8",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Chip/Chip.module.css",
+        "sha256": "ec87b3e13dd6ecaa8bac01dc2f715985b1f393a2dc7a3b186e236a239dde5f8d",
+        "snapshotSha256": "ec87b3e13dd6ecaa8bac01dc2f715985b1f393a2dc7a3b186e236a239dde5f8d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/ComboBox/ComboBox.module.css",
+        "sha256": "9650640895f0a314057755458209e981e6243c29245c7fce59a6a1b7ea7cc8ab",
+        "snapshotSha256": "9650640895f0a314057755458209e981e6243c29245c7fce59a6a1b7ea7cc8ab",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/DataGrid/DataGrid.module.css",
+        "sha256": "171dff4fd01ad38a471f860439f7662cef7b037da2dc73d9025b96a76a7cf14f",
+        "snapshotSha256": "171dff4fd01ad38a471f860439f7662cef7b037da2dc73d9025b96a76a7cf14f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/DateField/DateField.module.css",
+        "sha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+        "snapshotSha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/DatePicker/DatePicker.module.css",
+        "sha256": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+        "snapshotSha256": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.module.css",
+        "sha256": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+        "snapshotSha256": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css",
+        "sha256": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+        "snapshotSha256": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Dialog/Dialog.module.css",
+        "sha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+        "snapshotSha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Disclosure/Disclosure.module.css",
+        "sha256": "becd7049da0f47dd10ae46a74dadfd40867ce59081901af1b0dd0a258e221fa1",
+        "snapshotSha256": "becd7049da0f47dd10ae46a74dadfd40867ce59081901af1b0dd0a258e221fa1",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Divider/Divider.module.css",
+        "sha256": "e00a2b884cc794fc12953a5a42fd1d9e1a6e4ca1b07b57cec87d0db8e2414a9a",
+        "snapshotSha256": "e00a2b884cc794fc12953a5a42fd1d9e1a6e4ca1b07b57cec87d0db8e2414a9a",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/IconButton/IconButton.module.css",
+        "sha256": "053adb67f0134ccc244ad9eda90e8b2ab737effa519fb9b4dcf0c93ff17b015d",
+        "snapshotSha256": "053adb67f0134ccc244ad9eda90e8b2ab737effa519fb9b4dcf0c93ff17b015d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Link/Link.module.css",
+        "sha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+        "snapshotSha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/List/List.module.css",
+        "sha256": "265b37711f9a11952006706d311e85bf2e9adceee0ce03418cd8f7a6b15937a4",
+        "snapshotSha256": "265b37711f9a11952006706d311e85bf2e9adceee0ce03418cd8f7a6b15937a4",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Menu/Menu.module.css",
+        "sha256": "229bcd8fb552cb23f8868c6d94d5f6bed43f238d9593ee76e0ccd797549cfdd5",
+        "snapshotSha256": "229bcd8fb552cb23f8868c6d94d5f6bed43f238d9593ee76e0ccd797549cfdd5",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Navigation/Navigation.module.css",
+        "sha256": "500062dd46338240136c4366503e032a30c43b8218e028330e69e6262569bd34",
+        "snapshotSha256": "500062dd46338240136c4366503e032a30c43b8218e028330e69e6262569bd34",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Pagination/Pagination.module.css",
+        "sha256": "6ec65bdd80f3af459b2d7a23731078efe96e92ba1e7582f263a82f0aeb5980ca",
+        "snapshotSha256": "6ec65bdd80f3af459b2d7a23731078efe96e92ba1e7582f263a82f0aeb5980ca",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "sha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+        "snapshotSha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Progress/Progress.module.css",
+        "sha256": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+        "snapshotSha256": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/RadioGroup/RadioGroup.module.css",
+        "sha256": "dffcd4c643a702354c947e42ae1857173ee2203f815f39607116e954310e334e",
+        "snapshotSha256": "dffcd4c643a702354c947e42ae1857173ee2203f815f39607116e954310e334e",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/SearchField/SearchField.module.css",
+        "sha256": "8924889ddb237258631afa21ef1195613fea1a44a343ed9367842236e5692ee4",
+        "snapshotSha256": "8924889ddb237258631afa21ef1195613fea1a44a343ed9367842236e5692ee4",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Select/Select.module.css",
+        "sha256": "bfb0b58f466fed4ec85c2e826a7acff33cff8ba284609bda793594658b41e2a3",
+        "snapshotSha256": "bfb0b58f466fed4ec85c2e826a7acff33cff8ba284609bda793594658b41e2a3",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Stack/Stack.module.css",
+        "sha256": "7e1c5f10ce20cfa74cfdd6f064c6f6ee32c926202638fcb7338e2a01caa53eba",
+        "snapshotSha256": "7e1c5f10ce20cfa74cfdd6f064c6f6ee32c926202638fcb7338e2a01caa53eba",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Status/Status.module.css",
+        "sha256": "d0f3fff16a2dbbe665efdd0ec8520d6446b4cd977d69fb77b0a8a7c228b8f328",
+        "snapshotSha256": "d0f3fff16a2dbbe665efdd0ec8520d6446b4cd977d69fb77b0a8a7c228b8f328",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Surface/Surface.module.css",
+        "sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+        "snapshotSha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Switch/Switch.module.css",
+        "sha256": "753519a82ce1ea61d8d00b71afdb21c1d95cfaa31ae5141f9b59a38b99ca3f0a",
+        "snapshotSha256": "753519a82ce1ea61d8d00b71afdb21c1d95cfaa31ae5141f9b59a38b99ca3f0a",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Table/Table.module.css",
+        "sha256": "93f7d9b1f79855e5f017993f0d7328646a257376e3fd9087eb01c556fd09e38f",
+        "snapshotSha256": "93f7d9b1f79855e5f017993f0d7328646a257376e3fd9087eb01c556fd09e38f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Tabs/Tabs.module.css",
+        "sha256": "3a8d0e005dc7a99a0711d6873eecb3448cd7357195b9c8d9995edc7c5453f447",
+        "snapshotSha256": "3a8d0e005dc7a99a0711d6873eecb3448cd7357195b9c8d9995edc7c5453f447",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/TagGroup/TagGroup.module.css",
+        "sha256": "6ac25518cf42e2389730b310758564193a4796e3cfbd396c2b679c0a430a5e4f",
+        "snapshotSha256": "6ac25518cf42e2389730b310758564193a4796e3cfbd396c2b679c0a430a5e4f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/TextArea/TextArea.module.css",
+        "sha256": "527915b32bb92251623eb07d1a902ca2eeee47763efbffb02f88b64270649fb0",
+        "snapshotSha256": "527915b32bb92251623eb07d1a902ca2eeee47763efbffb02f88b64270649fb0",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/TextField/TextField.module.css",
+        "sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+        "snapshotSha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/TimeField/TimeField.module.css",
+        "sha256": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+        "snapshotSha256": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css",
+        "sha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+        "snapshotSha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Tooltip/Tooltip.module.css",
+        "sha256": "d5306f0a210618ab3e970c2dbfdeaeb127cec6d68827710b557521ebea24b85f",
+        "snapshotSha256": "d5306f0a210618ab3e970c2dbfdeaeb127cec6d68827710b557521ebea24b85f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/Typography/Typography.module.css",
+        "sha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+        "snapshotSha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/experimental/icons/icons.module.css",
+        "sha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+        "snapshotSha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/foundation/Scrollbars.module.css",
+        "sha256": "a368a8e3d3eacee33e83b532211e909cbec5c94f18f76097e3b4c6c99ce3864f",
+        "snapshotSha256": "a368a8e3d3eacee33e83b532211e909cbec5c94f18f76097e3b4c6c99ce3864f",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/foundation/ThemeScope.module.css",
+        "sha256": "eccd34329fc6f7e8e3933db5271b141bc07e16f1da3501ebdda011466d673052",
+        "snapshotSha256": "eccd34329fc6f7e8e3933db5271b141bc07e16f1da3501ebdda011466d673052",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/foundation/tokens.css",
+        "sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+        "snapshotSha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/src/foundation/tokens.json",
+        "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+        "snapshotSha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/tsconfig.build.json",
+        "sha256": "fa7f914abf9c520bacd686edbddca76b34e7f919a782c413c51f25231e3c8bb5",
+        "snapshotSha256": "fa7f914abf9c520bacd686edbddca76b34e7f919a782c413c51f25231e3c8bb5",
+        "unchanged": true
+      }
+    ]
+  },
+  "outputComparison": {
+    "files": 86,
+    "differences": [],
+    "entries": [
+      {
+        "path": "packages/ui/dist/components/AppDataGrid/AppDataGrid.module.css.js",
+        "sha256": "b5a84d83920b31c75e4a2b39e8e475cec3b47f93882d4d44dea6b4270b4da032",
+        "snapshotSha256": "b5a84d83920b31c75e4a2b39e8e475cec3b47f93882d4d44dea6b4270b4da032",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppDataGrid/ownedGridCells.module.css.js",
+        "sha256": "9649b0c4faedd4665d9ee8eb9ef6953d41a7c81594c9cc0cf79079a3224f70fa",
+        "snapshotSha256": "9649b0c4faedd4665d9ee8eb9ef6953d41a7c81594c9cc0cf79079a3224f70fa",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppDataGrid/ownedGridInteraction.module.css.js",
+        "sha256": "da73af7b6d39d856114aa3573b4dfe82418e07f85f5bece63631eb21a9a72d6b",
+        "snapshotSha256": "da73af7b6d39d856114aa3573b4dfe82418e07f85f5bece63631eb21a9a72d6b",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppDataGrid/ownedGridParts.module.css.js",
+        "sha256": "92085e6d15efd997b2bafb8cef61be39af94e2b0c6492a3b9c2646c1a8b00b3b",
+        "snapshotSha256": "92085e6d15efd997b2bafb8cef61be39af94e2b0c6492a3b9c2646c1a8b00b3b",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppDataGridRowDnd/DataGridDragHandle.module.css.js",
+        "sha256": "3507d7e149edc9d5b3d6c0f275d664fce0e238482648ad0d59606124aec2db44",
+        "snapshotSha256": "3507d7e149edc9d5b3d6c0f275d664fce0e238482648ad0d59606124aec2db44",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppDataGridShell/AppDataGridShell.module.css.js",
+        "sha256": "65d4c835172d409e895c432fbaea811c057a91216b79d24f60d0697a6897d7c6",
+        "snapshotSha256": "65d4c835172d409e895c432fbaea811c057a91216b79d24f60d0697a6897d7c6",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppInlineProgress/AppInlineProgress.module.css.js",
+        "sha256": "f11b21a84eefa24f43cfbca7e49846d18c3e39093541812cfef6f557a3838c90",
+        "snapshotSha256": "f11b21a84eefa24f43cfbca7e49846d18c3e39093541812cfef6f557a3838c90",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppModal/AppModal.module.css.js",
+        "sha256": "c9b1640da512b844a53194b70feb7b90c1acb9340bf8c03f3495ad6da5d36941",
+        "snapshotSha256": "c9b1640da512b844a53194b70feb7b90c1acb9340bf8c03f3495ad6da5d36941",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppOperationSteps/AppOperationSteps.module.css.js",
+        "sha256": "9388b877f9d3b3dbb5a41eebaedf8552cd07bda83151e601fe165947b6dc1040",
+        "snapshotSha256": "9388b877f9d3b3dbb5a41eebaedf8552cd07bda83151e601fe165947b6dc1040",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppPageHeader/AppPageHeader.module.css.js",
+        "sha256": "7fd492407ad23e8f8d69f8e5b23b50b9e500ef72905cb77400d90937d207a0b1",
+        "snapshotSha256": "7fd492407ad23e8f8d69f8e5b23b50b9e500ef72905cb77400d90937d207a0b1",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppPageTabs/AppPageTabs.module.css.js",
+        "sha256": "3b1472bad30a155f6daf0ff4ef0dd6ba1229dfd903099bc5439920ab4e37a43b",
+        "snapshotSha256": "3b1472bad30a155f6daf0ff4ef0dd6ba1229dfd903099bc5439920ab4e37a43b",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AppShell/AppShell.module.css.js",
+        "sha256": "78a17c06e7564cf8a0ed1c2a1717e9a75571c4b5d33434973e2a052592df0724",
+        "snapshotSha256": "78a17c06e7564cf8a0ed1c2a1717e9a75571c4b5d33434973e2a052592df0724",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/AuthShell/AuthShell.module.css.js",
+        "sha256": "50ed0f86b635df175d8975e660fdf6cd20d0d241852fb1ab32dd3f95600de427",
+        "snapshotSha256": "50ed0f86b635df175d8975e660fdf6cd20d0d241852fb1ab32dd3f95600de427",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/Button/Button.module.css.js",
+        "sha256": "e44a39ba06f2103ea9e237b891b534d48d74a8e42986a85a1c0c421d636a9daf",
+        "snapshotSha256": "e44a39ba06f2103ea9e237b891b534d48d74a8e42986a85a1c0c421d636a9daf",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/CardCollectionWithFooter/CardCollectionWithFooter.module.css.js",
+        "sha256": "78e1b9eb9ff64934b619512263c8b35afec60621844fcd1b02e3d95861a3e784",
+        "snapshotSha256": "78e1b9eb9ff64934b619512263c8b35afec60621844fcd1b02e3d95861a3e784",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/CardPaginationFooter/CardPaginationFooter.module.css.js",
+        "sha256": "a2a187801534cbab58d9380b0039ece83f03ef9d3723075e169a2623f52898c5",
+        "snapshotSha256": "a2a187801534cbab58d9380b0039ece83f03ef9d3723075e169a2623f52898c5",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/ClassCardFrame/ClassCardFrame.module.css.js",
+        "sha256": "e56192c5d436afb4d69f198bb5a6fba37b9a7c61e62797f22e61048e6770c2b6",
+        "snapshotSha256": "e56192c5d436afb4d69f198bb5a6fba37b9a7c61e62797f22e61048e6770c2b6",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/ContentEditorChrome/ContentEditorChrome.module.css.js",
+        "sha256": "c7918372fdad658f5ead5aa52af9ad02ee2b1587690d772c6c7884c2a312cb8e",
+        "snapshotSha256": "c7918372fdad658f5ead5aa52af9ad02ee2b1587690d772c6c7884c2a312cb8e",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/DataToolbar/components/DataToolbarColumnsMenu.module.css.js",
+        "sha256": "e65add2d72e2358b15dfec7a198ff575de84f3b2e5a2115737d5ae539f20d99a",
+        "snapshotSha256": "e65add2d72e2358b15dfec7a198ff575de84f3b2e5a2115737d5ae539f20d99a",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/DataToolbar/components/DataToolbarFilterMenu.module.css.js",
+        "sha256": "213903fc09befeface6d80d434aa8e6a6b475b1b526cb4ebb04d3cae06d59782",
+        "snapshotSha256": "213903fc09befeface6d80d434aa8e6a6b475b1b526cb4ebb04d3cae06d59782",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/DataToolbar/components/DataToolbarSelectionMenu.module.css.js",
+        "sha256": "f5322148a22f270e9897dc5ee0189939ce0b12a5f1a95bab155a204a0156183b",
+        "snapshotSha256": "f5322148a22f270e9897dc5ee0189939ce0b12a5f1a95bab155a204a0156183b",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/DataToolbar/components/DataToolbarSortMenu.module.css.js",
+        "sha256": "559217c2c6a711de5b2a75387a3559fe1fcf542468ab30a32a6211bc219be4b0",
+        "snapshotSha256": "559217c2c6a711de5b2a75387a3559fe1fcf542468ab30a32a6211bc219be4b0",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/DataToolbar/DataToolbar.module.css.js",
+        "sha256": "cec5fcc9da64a535952a609a1fedfafc3c24c767c2b659c9fcb2eb2a5a568c1a",
+        "snapshotSha256": "cec5fcc9da64a535952a609a1fedfafc3c24c767c2b659c9fcb2eb2a5a568c1a",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/DocumentEditorLayout/DocumentEditorLayout.module.css.js",
+        "sha256": "5333ef01ba974fe53cf71ed81a7f94d06d53856647baf7c945059e3172c88e81",
+        "snapshotSha256": "5333ef01ba974fe53cf71ed81a7f94d06d53856647baf7c945059e3172c88e81",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/DocumentEditorToolbar/DocumentEditorToolbar.module.css.js",
+        "sha256": "783c8373fda040e605eefacd3ee6f150b18920bad0fb9a4526d26c1099bc24ab",
+        "snapshotSha256": "783c8373fda040e605eefacd3ee6f150b18920bad0fb9a4526d26c1099bc24ab",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/EditableTitleField/EditableTitleField.module.css.js",
+        "sha256": "80d33995a042d1b465d540ed4bf33616f3d07c62fb2439ba0a36b87b92661c11",
+        "snapshotSha256": "80d33995a042d1b465d540ed4bf33616f3d07c62fb2439ba0a36b87b92661c11",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/ExperiencePageNavigator/ExperiencePageNavigator.module.css.js",
+        "sha256": "ad6737cb3a0b048c48d981a95ee5fc0263789305b5f7be660f8fc6860123f88a",
+        "snapshotSha256": "ad6737cb3a0b048c48d981a95ee5fc0263789305b5f7be660f8fc6860123f88a",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.module.css.js",
+        "sha256": "81723634df3ab276d3ef487ed44c622a26a344162a04f6104d0beebdbffc365e",
+        "snapshotSha256": "81723634df3ab276d3ef487ed44c622a26a344162a04f6104d0beebdbffc365e",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/IconPanelNavigation/IconPanelNavigation.module.css.js",
+        "sha256": "3b393be779247d50d4c0498a8c495c224a4318ec323db1dcff41bcb2b9c77a76",
+        "snapshotSha256": "3b393be779247d50d4c0498a8c495c224a4318ec323db1dcff41bcb2b9c77a76",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/ImageUploadModal/ImageUploadModal.module.css.js",
+        "sha256": "e7b900ba647ff44b6205f603dbe5d4f743606ebfb6e7870d6f81337cf5c749dc",
+        "snapshotSha256": "e7b900ba647ff44b6205f603dbe5d4f743606ebfb6e7870d6f81337cf5c749dc",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/InstructorClassCard/InstructorClassCard.module.css.js",
+        "sha256": "c1db6393de311b131a2dae84846c2b6575c1cf109aac44c9c20a30d66d85537e",
+        "snapshotSha256": "c1db6393de311b131a2dae84846c2b6575c1cf109aac44c9c20a30d66d85537e",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/LearnerClassCard/LearnerClassCard.module.css.js",
+        "sha256": "e4ade1a1bc6db5b3fa443c669465a0b06bf3d51312dbd0cc58888b3b14701cb3",
+        "snapshotSha256": "e4ade1a1bc6db5b3fa443c669465a0b06bf3d51312dbd0cc58888b3b14701cb3",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/LinkUrlModal/LinkUrlModal.module.css.js",
+        "sha256": "a4fd3e38a7fba4ccd288d440d6dbee25959b1971d49f1b9033c0da36aa3733b7",
+        "snapshotSha256": "a4fd3e38a7fba4ccd288d440d6dbee25959b1971d49f1b9033c0da36aa3733b7",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/PageRichTextEditorSection/lexical/ImageNode.module.css.js",
+        "sha256": "4e4d1803f972e6e18c1ddb3fdf4cf21f455534a22759efb62461788d478efcde",
+        "snapshotSha256": "4e4d1803f972e6e18c1ddb3fdf4cf21f455534a22759efb62461788d478efcde",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css.js",
+        "sha256": "e153f6f43eb73e047dc80590b5d604878929caff14a8e31c6940bd469454a702",
+        "snapshotSha256": "e153f6f43eb73e047dc80590b5d604878929caff14a8e31c6940bd469454a702",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/RichTextFormattingToolbar/RichTextFormattingToolbar.module.css.js",
+        "sha256": "99c34a172d4308bcc516aaf3b517c4adfdfd51ddd38dc21f75d424621b322979",
+        "snapshotSha256": "99c34a172d4308bcc516aaf3b517c4adfdfd51ddd38dc21f75d424621b322979",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/SideNavigation/SideNavigation.module.css.js",
+        "sha256": "cf871fc6924c06513589f4a4f1395cf62a2391505e368006a2136889a8801619",
+        "snapshotSha256": "cf871fc6924c06513589f4a4f1395cf62a2391505e368006a2136889a8801619",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/TextAlignMenuControl/TextAlignMenuControl.module.css.js",
+        "sha256": "11a9b0b058430bad392f4abe5d2b5d508ced295d4a487f4de078af4936a8fe91",
+        "snapshotSha256": "11a9b0b058430bad392f4abe5d2b5d508ced295d4a487f4de078af4936a8fe91",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.module.css.js",
+        "sha256": "42769f01f46719837813c5ba0573f1b8e96c27d331b11cef7689e7faf9ddbcf1",
+        "snapshotSha256": "42769f01f46719837813c5ba0573f1b8e96c27d331b11cef7689e7faf9ddbcf1",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/TextStyleMenuControl/NativeSelection.module.css.js",
+        "sha256": "07dabb74887787c403e28f4481c6f81c467137641dff2f2b31e8223485fc6cd8",
+        "snapshotSha256": "07dabb74887787c403e28f4481c6f81c467137641dff2f2b31e8223485fc6cd8",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/components/TextStyleMenuControl/TextStyleMenuControl.module.css.js",
+        "sha256": "f85930e96068ef2d85391cc684a61927306fd45839a882b82ffe273d48732997",
+        "snapshotSha256": "f85930e96068ef2d85391cc684a61927306fd45839a882b82ffe273d48732997",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/AsyncMultiSelect/AsyncMultiSelect.module.css.js",
+        "sha256": "21a2ed615ed299ed378465bfa866fddebcb9f50cb7ab7f575e8a5ab133fe93c4",
+        "snapshotSha256": "21a2ed615ed299ed378465bfa866fddebcb9f50cb7ab7f575e8a5ab133fe93c4",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Avatar/Avatar.module.css.js",
+        "sha256": "0778744d09cd235408bb7bf6a95e6e1b768d0fcd59e39475c3fd5a187e627904",
+        "snapshotSha256": "0778744d09cd235408bb7bf6a95e6e1b768d0fcd59e39475c3fd5a187e627904",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Badge/Badge.module.css.js",
+        "sha256": "ff2e00a8c305eb4e0b6f69e40bdc39b338558296343b9c531751cad6f3452873",
+        "snapshotSha256": "ff2e00a8c305eb4e0b6f69e40bdc39b338558296343b9c531751cad6f3452873",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Box/Box.module.css.js",
+        "sha256": "b11c59a61b65f78dd9cddd96590e90c2c7410b4773a9b30928a146915f021eba",
+        "snapshotSha256": "b11c59a61b65f78dd9cddd96590e90c2c7410b4773a9b30928a146915f021eba",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Breadcrumbs/Breadcrumbs.module.css.js",
+        "sha256": "eb730475e51be2d6d74ab5f90ab15dece4f7e97470c520f082ca5c65133c19a7",
+        "snapshotSha256": "eb730475e51be2d6d74ab5f90ab15dece4f7e97470c520f082ca5c65133c19a7",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/ButtonGroup/ButtonGroup.module.css.js",
+        "sha256": "c13ada1e58d865f16a9c450c535d8b367543cf122f7cdb8a0651f63e90970251",
+        "snapshotSha256": "c13ada1e58d865f16a9c450c535d8b367543cf122f7cdb8a0651f63e90970251",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Checkbox/Checkbox.module.css.js",
+        "sha256": "9d8866bc1c2291c286f7cb053b08a1b003af66c4225fde175c632fa132c5fe12",
+        "snapshotSha256": "9d8866bc1c2291c286f7cb053b08a1b003af66c4225fde175c632fa132c5fe12",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Chip/Chip.module.css.js",
+        "sha256": "54dcee8ca32950e823be1f30375842fb57d7aefc9c662959f34b0e49bc120a57",
+        "snapshotSha256": "54dcee8ca32950e823be1f30375842fb57d7aefc9c662959f34b0e49bc120a57",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/ComboBox/ComboBox.module.css.js",
+        "sha256": "166449ff394c5adc8a806c16e8d065a78454506f731b882c741e1890547b3330",
+        "snapshotSha256": "166449ff394c5adc8a806c16e8d065a78454506f731b882c741e1890547b3330",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/DataGrid/DataGrid.module.css.js",
+        "sha256": "89c745d1fc00110c17074eb01705f40c66f530baedbd38f1a5fed579e068aede",
+        "snapshotSha256": "89c745d1fc00110c17074eb01705f40c66f530baedbd38f1a5fed579e068aede",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/DateField/DateField.module.css.js",
+        "sha256": "646a270074cc0d33d433ba1733b2e77cfe616a0bc3951f7b2664b2e49707aa94",
+        "snapshotSha256": "646a270074cc0d33d433ba1733b2e77cfe616a0bc3951f7b2664b2e49707aa94",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/DatePicker/DatePicker.module.css.js",
+        "sha256": "c975784ba96a31a18ba0e9f45b304e069f36c39fa48945125238429c53f7c0cc",
+        "snapshotSha256": "c975784ba96a31a18ba0e9f45b304e069f36c39fa48945125238429c53f7c0cc",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.module.css.js",
+        "sha256": "3c132d57789acfe9c56d6b3c2f016c1611bf8fd7cd4930bdd5c8bf56f1376b96",
+        "snapshotSha256": "3c132d57789acfe9c56d6b3c2f016c1611bf8fd7cd4930bdd5c8bf56f1376b96",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.module.css.js",
+        "sha256": "39ceb67fa9b075c6595119a9c0fa4bb2f4d3a667812d8d4f21e892f2b33d4b69",
+        "snapshotSha256": "39ceb67fa9b075c6595119a9c0fa4bb2f4d3a667812d8d4f21e892f2b33d4b69",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Dialog/Dialog.module.css.js",
+        "sha256": "2c4ed3292631b244e7b764d4bcdc873993f0887d7df67cfb9d1041a3f0a20fa7",
+        "snapshotSha256": "2c4ed3292631b244e7b764d4bcdc873993f0887d7df67cfb9d1041a3f0a20fa7",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Disclosure/Disclosure.module.css.js",
+        "sha256": "c8c58f83fbce6abbdf55383de6a1f960e0eda646d9d4814fe97b1cba1b7aab2c",
+        "snapshotSha256": "c8c58f83fbce6abbdf55383de6a1f960e0eda646d9d4814fe97b1cba1b7aab2c",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Divider/Divider.module.css.js",
+        "sha256": "f6460f33c89255eccf1b8c5dac2523751a10cea605549c462590982899ce9769",
+        "snapshotSha256": "f6460f33c89255eccf1b8c5dac2523751a10cea605549c462590982899ce9769",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/IconButton/IconButton.module.css.js",
+        "sha256": "099e00a8132a40d8abf72ad304395695dffae4ab5f1eb24cad1106e106808343",
+        "snapshotSha256": "099e00a8132a40d8abf72ad304395695dffae4ab5f1eb24cad1106e106808343",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/icons/icons.module.css.js",
+        "sha256": "cf9161bf693dad9be77a8265e69500b62ddcc64cc7258ebc5a00eede00eee887",
+        "snapshotSha256": "cf9161bf693dad9be77a8265e69500b62ddcc64cc7258ebc5a00eede00eee887",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Link/Link.module.css.js",
+        "sha256": "88c7f4d639a1d3152ebebf1c1eebe936ef7d7d4a9c32ceaad610f41557c8ee7d",
+        "snapshotSha256": "88c7f4d639a1d3152ebebf1c1eebe936ef7d7d4a9c32ceaad610f41557c8ee7d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/List/List.module.css.js",
+        "sha256": "8b640142139f3bca3f66add318620f27f8a06bef62ade719112169c146713eaf",
+        "snapshotSha256": "8b640142139f3bca3f66add318620f27f8a06bef62ade719112169c146713eaf",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Menu/Menu.module.css.js",
+        "sha256": "a7565586bd4a4d5c533b7b83ed432fc006c46833fe0ee3530acfb72aef704dc6",
+        "snapshotSha256": "a7565586bd4a4d5c533b7b83ed432fc006c46833fe0ee3530acfb72aef704dc6",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Navigation/Navigation.module.css.js",
+        "sha256": "e32ef611aeb07ea0012bc7012b9512d93c404610d1851a3c40a4169633ed4b82",
+        "snapshotSha256": "e32ef611aeb07ea0012bc7012b9512d93c404610d1851a3c40a4169633ed4b82",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Pagination/Pagination.module.css.js",
+        "sha256": "8e1a0c2425a4ab7f8f83dde98b5d80c506aeaa53ae5c2220757922aa12180e31",
+        "snapshotSha256": "8e1a0c2425a4ab7f8f83dde98b5d80c506aeaa53ae5c2220757922aa12180e31",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Popover/Popover.module.css.js",
+        "sha256": "4c399d43db8b823e1bf86435fd2fa41123ed9c5060d3579515459b6ec11bd1b5",
+        "snapshotSha256": "4c399d43db8b823e1bf86435fd2fa41123ed9c5060d3579515459b6ec11bd1b5",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Progress/Progress.module.css.js",
+        "sha256": "dfcf3398b394a2c50c43a33e67dad62fef30cf4ba76a5e1eb887e3958f9a9a79",
+        "snapshotSha256": "dfcf3398b394a2c50c43a33e67dad62fef30cf4ba76a5e1eb887e3958f9a9a79",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/RadioGroup/RadioGroup.module.css.js",
+        "sha256": "3055ab4bfdfc61d74320fa9fa3e5062999b3da46e19ac0d454ae7378914ed729",
+        "snapshotSha256": "3055ab4bfdfc61d74320fa9fa3e5062999b3da46e19ac0d454ae7378914ed729",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/SearchField/SearchField.module.css.js",
+        "sha256": "0fafe4d7005baa2f36f7f98b51314f740a06591e14fd68ddfe3a601bd3702402",
+        "snapshotSha256": "0fafe4d7005baa2f36f7f98b51314f740a06591e14fd68ddfe3a601bd3702402",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Select/Select.module.css.js",
+        "sha256": "d4a830e84b6982a385d8e840ed0716ab63834a678290ef2a77bae740347c0bd1",
+        "snapshotSha256": "d4a830e84b6982a385d8e840ed0716ab63834a678290ef2a77bae740347c0bd1",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Stack/Stack.module.css.js",
+        "sha256": "94364ecc6476a1c19516dd1671ade53a0828a813e1e06ac844da6f1b46f22ac8",
+        "snapshotSha256": "94364ecc6476a1c19516dd1671ade53a0828a813e1e06ac844da6f1b46f22ac8",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Status/Status.module.css.js",
+        "sha256": "f4aefee29c0b690921bf2c9c7cfc2da0e87ae5d386417a2116fe7426621928bf",
+        "snapshotSha256": "f4aefee29c0b690921bf2c9c7cfc2da0e87ae5d386417a2116fe7426621928bf",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Surface/Surface.module.css.js",
+        "sha256": "a23be0811af112d3ee7e38b5598a1e5ba90634a8e1d3f5aa09fe9d32073566a4",
+        "snapshotSha256": "a23be0811af112d3ee7e38b5598a1e5ba90634a8e1d3f5aa09fe9d32073566a4",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Switch/Switch.module.css.js",
+        "sha256": "9caf99c6a3945b0a7e79e8bc63b7de3728372cceb433bae69d09f9dfc0f1cd0d",
+        "snapshotSha256": "9caf99c6a3945b0a7e79e8bc63b7de3728372cceb433bae69d09f9dfc0f1cd0d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Table/Table.module.css.js",
+        "sha256": "a95434e240da26e75efc2281be2fa2f3a51303451a83bbb60b097334e6e737af",
+        "snapshotSha256": "a95434e240da26e75efc2281be2fa2f3a51303451a83bbb60b097334e6e737af",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Tabs/Tabs.module.css.js",
+        "sha256": "a168ba4bee36da945ab3034a84424b35f6b0e3c56cfd31f814227220c42f8db9",
+        "snapshotSha256": "a168ba4bee36da945ab3034a84424b35f6b0e3c56cfd31f814227220c42f8db9",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/TagGroup/TagGroup.module.css.js",
+        "sha256": "598974437a77680d377455e16f3a3c99134ae09f0304e0c71bee58c48eb5cdf5",
+        "snapshotSha256": "598974437a77680d377455e16f3a3c99134ae09f0304e0c71bee58c48eb5cdf5",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/TextArea/TextArea.module.css.js",
+        "sha256": "f856e72f3fbbaabd4a28cdfff65ef9db7a38136bc5809b25587703c1935d8d77",
+        "snapshotSha256": "f856e72f3fbbaabd4a28cdfff65ef9db7a38136bc5809b25587703c1935d8d77",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/TextField/TextField.module.css.js",
+        "sha256": "3973b864ba930943e698bf33a6246f5bac22f890e3ffcdfd85544e824bc7ac09",
+        "snapshotSha256": "3973b864ba930943e698bf33a6246f5bac22f890e3ffcdfd85544e824bc7ac09",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/TimeField/TimeField.module.css.js",
+        "sha256": "52e2f7e75b8a0a26c04637b7d43d5f9947c1c6dda0975ed667e097cf2e30ab04",
+        "snapshotSha256": "52e2f7e75b8a0a26c04637b7d43d5f9947c1c6dda0975ed667e097cf2e30ab04",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/ToggleButton/ToggleButton.module.css.js",
+        "sha256": "c0f08647f589c3200499f57b21ae1455de8a2556f7d5ea2684c736a3c44c016d",
+        "snapshotSha256": "c0f08647f589c3200499f57b21ae1455de8a2556f7d5ea2684c736a3c44c016d",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Tooltip/Tooltip.module.css.js",
+        "sha256": "7c914284fb4c0d765d5a3443ae40536aec0a16ee7ce22b3ecc83ae27a5b5d148",
+        "snapshotSha256": "7c914284fb4c0d765d5a3443ae40536aec0a16ee7ce22b3ecc83ae27a5b5d148",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/experimental/Typography/Typography.module.css.js",
+        "sha256": "b04202c824b15aa0d746cadf5f68e722774f3101f6e0fca649114f58c3b7f100",
+        "snapshotSha256": "b04202c824b15aa0d746cadf5f68e722774f3101f6e0fca649114f58c3b7f100",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/foundation/Scrollbars.module.css.js",
+        "sha256": "048c246b54650a902a6cef992869fb6afbe7f2933f49fd7c35bedba5bc0e17cb",
+        "snapshotSha256": "048c246b54650a902a6cef992869fb6afbe7f2933f49fd7c35bedba5bc0e17cb",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/foundation/ThemeScope.module.css.js",
+        "sha256": "281c824a88e2d006aa092061aa2ce73d254b7c5bcb2e2ce162a9ece9590d4817",
+        "snapshotSha256": "281c824a88e2d006aa092061aa2ce73d254b7c5bcb2e2ce162a9ece9590d4817",
+        "unchanged": true
+      },
+      {
+        "path": "packages/ui/dist/styles.css",
+        "sha256": "46571eccc80b3c701981a6c86b5192c72744240f7084c51db10790d0e70af2ee",
+        "snapshotSha256": "46571eccc80b3c701981a6c86b5192c72744240f7084c51db10790d0e70af2ee",
+        "unchanged": true
+      }
+    ]
+  },
+  "css": {
+    "files": 86,
+    "modules": 85,
+    "uncoveredModules": [],
+    "nonModules": [
+      "packages/ui/src/foundation/tokens.css"
+    ],
+    "emittedRuleCount": 930,
+    "emittedLayers": [
+      "sgui.tokens, sgui.components",
+      "sgui.tokens",
+      "sgui.components"
+    ],
+    "unlayeredRules": [],
+    "idSelectorCandidates": [],
+    "hostSelectorCandidates": [],
+    "uncompiledModuleSyntax": false,
+    "important": [
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 6,
+        "selector": ".root[data-presentation=\"dialog\"]",
+        "property": "position",
+        "value": "fixed"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 6,
+        "selector": ".root[data-presentation=\"dialog\"]",
+        "property": "inset",
+        "value": "50% auto auto 50%"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 6,
+        "selector": ".root[data-presentation=\"dialog\"]",
+        "property": "max-block-size",
+        "value": "calc(100dvh - 2rem)"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 7,
+        "selector": ".root[data-presentation=\"drawer\"]",
+        "property": "position",
+        "value": "fixed"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 7,
+        "selector": ".root[data-presentation=\"drawer\"]",
+        "property": "inset",
+        "value": "auto 0 0"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 7,
+        "selector": ".root[data-presentation=\"drawer\"]",
+        "property": "inline-size",
+        "value": "100%"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 7,
+        "selector": ".root[data-presentation=\"drawer\"]",
+        "property": "max-inline-size",
+        "value": "100%"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 7,
+        "selector": ".root[data-presentation=\"drawer\"]",
+        "property": "max-block-size",
+        "value": "90dvh"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 8,
+        "selector": ".root[data-presentation=\"auto\"]",
+        "property": "position",
+        "value": "fixed"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 8,
+        "selector": ".root[data-presentation=\"auto\"]",
+        "property": "inset",
+        "value": "auto 0 0"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 8,
+        "selector": ".root[data-presentation=\"auto\"]",
+        "property": "inline-size",
+        "value": "100%"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 8,
+        "selector": ".root[data-presentation=\"auto\"]",
+        "property": "max-inline-size",
+        "value": "100%"
+      },
+      {
+        "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+        "line": 8,
+        "selector": ".root[data-presentation=\"auto\"]",
+        "property": "max-block-size",
+        "value": "90dvh"
+      }
+    ]
+  }
+}

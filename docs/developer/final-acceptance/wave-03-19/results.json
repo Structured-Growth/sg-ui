@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-16T23:06:28.122933+00:00",
+  "owner": "wave-03-19",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "changesAppliedOutsideOwnerDirectory": false,
+  "integrationRequired": true,
+  "productionChangesProposed": false,
+  "summary": "Two ready-to-apply test/fixture patches, five native cases, a bounded eight-case/engine runner and exact matrix delta. All original leaves remain partial pending native execution and broader residual requirements.",
+  "validation": [
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-19/check-artifacts.cjs",
+      "result": "pass",
+      "receipt": "static-types.txt",
+      "runtime": "Node v26.5.0 / TypeScript 5.9.3",
+      "assertions": "Three fixture mirrors and one native spec typecheck using virtual logical source paths and current built public declarations; zero diagnostics. Static compiler evidence only, no supported-runtime behavioral or browser claim."
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-19/selector-contract-fixtures.patch docs/developer/final-acceptance/wave-03-19/selector-contract-tests.patch",
+      "result": "pass",
+      "receipt": "patch-check.txt",
+      "assertions": "Both proposed patches apply cleanly to inspected current working files; no patch applied."
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-19/check-runner.cjs",
+      "result": "pass",
+      "receipt": "runner-check.txt",
+      "runtime": "Node v26.5.0",
+      "assertions": "Static full-title grep selects exactly 8 cases x 3 configured engines; missing origin and user port3000 rejected; no browser/server execution."
+    }
+  ],
+  "retainedFailure": {
+    "receipt": "static-types-first-failure.txt",
+    "reason": "Checker initially resolved node types from repo root instead of configured workspace directory. Corrected checker getCurrentDirectory; unchanged proposed artifacts pass. Not a production failure."
+  },
+  "inputComparison": {
+    "wave02_08": {
+      "unchanged": 33,
+      "changed": 0
+    },
+    "wave02_09": {
+      "unchanged": 27,
+      "changed": 0
+    },
+    "coordinator": {
+      "compared": 36,
+      "unchanged": 36,
+      "changed": 0
+    },
+    "limits": "Only overlapping scoped source/module/fixture hashes compared; no complete transitive frozen host equivalence established."
+  },
+  "leaves": [
+    {
+      "id": "A-U-06",
+      "originalRequirement": "- [ ] A-U-06 Reconcile original `U-06`: Implement Select and searchable ComboBox/Autocomplete; define value identity, filtering ownership, empty/loading/error, multiple selection where required, and disabled options. Historical status: open.",
+      "status": "partial",
+      "outcome": "Prepared Select and ComboBox native identity/filter/reset/host-authority cases with public-import fixture additions; reused existing AsyncMultiSelect race/busy tests. No production defect was established by static review.",
+      "evidence": [
+        "input-evidence.json",
+        "matrix-delta.md",
+        "static-types.txt",
+        "patch-check.txt",
+        "validation-plan.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-19/check-artifacts.cjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-19/selector-contract-fixtures.patch docs/developer/final-acceptance/wave-03-19/selector-contract-tests.patch"
+      ],
+      "runtime": "Node v26.5.0 / TypeScript 5.9.3",
+      "hashes": "input-evidence.json contains per-file SHA-256 and prior/coordinator comparisons; artifactHashes contains exact proposed file hashes.",
+      "residualSuccessors": [
+        "Integrate patches, build frozen fixture host, run eight-case engine selection and save raw native evidence.",
+        "Record actual option/busy speech and physical mobile entry separately when required."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "nativeAcceptanceClosed": false
+    },
+    {
+      "id": "A-U-07",
+      "originalRequirement": "- [ ] A-U-07 Reconcile original `U-07`: Implement Menu/MenuItem, submenus when required, Popover, and Tooltip; distinguish menu commands from arbitrary form content in a popover. Historical status: open.",
+      "status": "partial",
+      "outcome": "Prepared flat Menu keyboard/callback test plus Popover named-dialog/form-content and Tooltip supplementary-description tests. Explicitly retained required standalone hierarchy gap; no unsupported submenu API introduced.",
+      "evidence": [
+        "input-evidence.json",
+        "matrix-delta.md",
+        "static-types.txt",
+        "patch-check.txt",
+        "validation-plan.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-19/check-artifacts.cjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-19/selector-contract-fixtures.patch docs/developer/final-acceptance/wave-03-19/selector-contract-tests.patch"
+      ],
+      "runtime": "Node v26.5.0 / TypeScript 5.9.3",
+      "hashes": "input-evidence.json contains per-file SHA-256 and prior/coordinator comparisons; artifactHashes contains exact proposed file hashes.",
+      "residualSuccessors": [
+        "HM-F-01\u201304 owned drilldown implementation and public examples/Back focus remain unimplemented.",
+        "Run focused Menu/Popover/Tooltip cases; retain matching native autofocus/lifetime receipts or execute their missing bounded cases."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "nativeAcceptanceClosed": false
+    },
+    {
+      "id": "A-X-02",
+      "originalRequirement": "- [ ] A-X-02 Reconcile original `X-02`: Define keyboard contracts and verify Tab/Shift+Tab, arrows, Home/End, Enter/Space, Escape, and typeahead where appropriate. Historical status: open.",
+      "status": "partial",
+      "outcome": "Added exact selected-control key matrix and runnable tests distinguishing editable ComboBox cursor/text behavior from Select/Menu collection keys. New Menu case asserts disabled endpoints, both arrows, Home/End, two typeahead lifetimes, Space callback once, Enter/Escape/Tab dismissal.",
+      "evidence": [
+        "input-evidence.json",
+        "matrix-delta.md",
+        "static-types.txt",
+        "patch-check.txt",
+        "validation-plan.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-19/check-artifacts.cjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-19/selector-contract-fixtures.patch docs/developer/final-acceptance/wave-03-19/selector-contract-tests.patch"
+      ],
+      "runtime": "Node v26.5.0 / TypeScript 5.9.3",
+      "hashes": "input-evidence.json contains per-file SHA-256 and prior/coordinator comparisons; artifactHashes contains exact proposed file hashes.",
+      "residualSuccessors": [
+        "Run prepared native cases on integrated frozen host.",
+        "Complete remaining editor/grid and other component keyboard paths using their own targeted fixtures and exact receipts."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "nativeAcceptanceClosed": false
+    },
+    {
+      "id": "A-X-03",
+      "originalRequirement": "- [ ] A-X-03 Reconcile original `X-03`: Verify accessible names/descriptions, roles, state announcements, validation, heading hierarchy, landmarks, and native form semantics. Historical status: open.",
+      "status": "partial",
+      "outcome": "Prepared native accessible-description/role/heading checks, live IDREF resolution through portals, stable string-ID FormData/reset and controlled authority checks. This is bounded selector/overlay coverage, not an all-library semantic audit.",
+      "evidence": [
+        "input-evidence.json",
+        "matrix-delta.md",
+        "static-types.txt",
+        "patch-check.txt",
+        "validation-plan.json"
+      ],
+      "commands": [
+        "node docs/developer/final-acceptance/wave-03-19/check-artifacts.cjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-19/selector-contract-fixtures.patch docs/developer/final-acceptance/wave-03-19/selector-contract-tests.patch"
+      ],
+      "runtime": "Node v26.5.0 / TypeScript 5.9.3",
+      "hashes": "input-evidence.json contains per-file SHA-256 and prior/coordinator comparisons; artifactHashes contains exact proposed file hashes.",
+      "residualSuccessors": [
+        "Run native semantic/form cases and diagnose exact failing states before acceptance.",
+        "Complete composed route headings/landmarks/validation and actual AT speech evidence; do not infer speech from DOM/live-region state."
+      ],
+      "proposedPatchNeedsIntegration": true,
+      "nativeAcceptanceClosed": false
+    }
+  ],
+  "artifactHashes": {
+    "prior-receipt-check.json": "8a5121ffc5e228e5a27927e480cbd857beb79abc5e5b177d53032a1b9f25b85a",
+    "check-artifacts.cjs": "9f14c8066a4935c4d312b10f7cf9bc0b2f64d690506f43efc272da7ec8673adf",
+    "assignment.json": "f39f717a1fc5bcca9fb8872830b0070b72f6327b79dfbcf7e6e8c3b97bc04301",
+    "patch-check.txt": "c1069d45767b915297ea2b15b32b7e21cadb262fe63cf5dc34d455232ebdc8b0",
+    "matrix-delta.md": "91e5f7f5e6d92f3362a54c5ee266363bd564772bcc4cbaee949d2f7ccd40c1d6",
+    "static-types.txt": "b64cee8c7f56b21deb9a4fb16d30a569f843f3a4a6dba73f1c05bad129d7d71e",
+    "selector-contract-tests.patch": "b83b2848958bfed88b00c8db4b423f50eec319b31e25e4477f99d387a591c932",
+    "input-evidence.json": "d289b14ef57013b3a470fc72020d26c70d0623148680c28b01b8ef595210008e",
+    "selector-contracts.config.cjs": "663177d0de7bb133fc98952e9e0732d0e9af1bacf8d47ea1bb3566dbc82f1651",
+    "validation-plan.json": "d50b3a36a8a783d9f700833583ce447dbc41a9d0a5a5109ea0af2fb8acc28ad0",
+    "runner-check.txt": "2c1772e4b0d9cb7cc829e5dc4f32035bcffa53ec4b7634e75e6644acc063b10a",
+    "check-runner.cjs": "60e50dbd87032217beb512f3380ed795ddae4f95a40a1c0b8c879f38d57f8874",
+    "capture-evidence.py": "4100b60e77120ea7b899a23b2bc0cfb8c4c2d9ce7f7fa8cf9da3bd287753796a",
+    "static-types-first-failure.txt": "df9162c23f3212358332f74084e35b95012adc00a72ebfe38ea8213561b8b4e6",
+    "prepare.py": "56e62e23e77b2f82257ab5fa0c5b96b141043bf1694b3a777f3912a01559700d",
+    "selector-contract-fixtures.patch": "e177b555b9a36b01edebdced533c48b9996244fd79f1a7b4ebb58fcbc49ecc58",
+    "proposed-files/packages/ui/tests/browser/wave03-selector-contracts.spec.ts": "03dab0bf14b61c603b01c7664a0475d5363b7701f7481b89ea92ef66834953cf",
+    "proposed-files/apps/docs/native-fixtures/scenarios/experimental/ComboBox/ComboBox.fixture.tsx": "607ea1006d1e1ca96d9281a464cdb531e77b5e3939eae44d0b0beddfba685227",
+    "proposed-files/apps/docs/native-fixtures/scenarios/experimental/Menu/Menu.fixture.tsx": "7d4f0a61547a70279418a9146441f949b65cba1eb83700b9a97aa46968ffc806",
+    "proposed-files/apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx": "5caeeb947f693302cf8b21e5fa9300377084e8beb74c0de988e06542a2f32851"
+  },
+  "limits": [
+    "No native browser/AT/device execution; only user port3000 present; no server/build/install started.",
+    "Unit baseline retained only for unchanged selected inputs; no new unit pass claimed.",
+    "No count/checklist changes, commits, branch actions, publication or owner approvals."
+  ],
+  "priorReceipts": "prior-receipt-check.json: all eight assigned prior report/result SHA-256 comparisons match"
+}

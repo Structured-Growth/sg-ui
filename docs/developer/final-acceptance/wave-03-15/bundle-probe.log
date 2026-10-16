@@ -1,0 +1,32 @@
+{
+  "runtime": "v26.5.0",
+  "esbuild": "0.28.2",
+  "cases": [
+    {
+      "name": "granular-add",
+      "retainedCount": 1,
+      "cssBytes": 235435,
+      "result": "pass"
+    },
+    {
+      "name": "basic-button-add",
+      "retainedCount": 1,
+      "cssBytes": 235435,
+      "result": "pass"
+    },
+    {
+      "name": "toolbar",
+      "retainedCount": 12,
+      "cssBytes": 235435,
+      "result": "pass"
+    },
+    {
+      "name": "navigation",
+      "retainedCount": 7,
+      "cssBytes": 235435,
+      "result": "pass"
+    }
+  ],
+  "sourceOutputPairs": 134,
+  "changedSourcePairs": 0
+}

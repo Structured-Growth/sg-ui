@@ -1,0 +1,1593 @@
+{
+  "capturedAt": "2026-10-16T23:06:22.168841+00:00",
+  "runtime": "Node v24.21.0; Vitest 4.1.11 (no new test execution completed)",
+  "inputComparison": [
+    {
+      "path": "AGENTS.md",
+      "current": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+      "priorWave02": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "matchesPrior": false,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "apps/docs/examples/AdvancedCalendarExamples.tsx",
+      "current": "1a3a86a7dae3382b6418c4fcb83ab6804d912c817e86e389d6c6f1c28fce9fd0",
+      "priorWave02": "1a3a86a7dae3382b6418c4fcb83ab6804d912c817e86e389d6c6f1c28fce9fd0",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "apps/docs/examples/CalendarCompositionExamples.tsx",
+      "current": "8b748c1d7dfc316440d07ffeaf4dcefdc9f12d77fbf9ad0005c48c96d5efb19f",
+      "priorWave02": "fb1c3bb7cbc9d182441360093996ab915aedd76f020a2f2eef414ea90efdd49d",
+      "matchesPrior": false,
+      "coordinatorIntegration": "8b748c1d7dfc316440d07ffeaf4dcefdc9f12d77fbf9ad0005c48c96d5efb19f",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "apps/docs/examples/FormIntegrationExamples.tsx",
+      "current": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "priorWave02": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "apps/docs/examples/LocalizedRangeExample.tsx",
+      "current": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+      "priorWave02": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "apps/docs/examples/catalog/forms-dates.tsx",
+      "current": "9a8e366ae6a23994897b05c5b71e8565e17306032f4b9ad7ef4921acc54f6671",
+      "priorWave02": "3bf40ba915a42a39907e1dd897d44565d6e8b5c3a91f4e12f3a068f3c4ee52da",
+      "matchesPrior": false,
+      "coordinatorIntegration": "9a8e366ae6a23994897b05c5b71e8565e17306032f4b9ad7ef4921acc54f6671",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/Box/Box.fixture.tsx",
+      "current": "59152e4761657cf835bb86129cd3b7d70517620af6eb896a832814af41726da3",
+      "priorWave02": "59152e4761657cf835bb86129cd3b7d70517620af6eb896a832814af41726da3",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "docs/developer/parallel-batch-61/keyboard-range-preview.md",
+      "current": "6b934d8c74e3f010d267e8f3070dfdbe5874468cd75beb8c3c6b387c9d75f9c9",
+      "priorWave02": "6b934d8c74e3f010d267e8f3070dfdbe5874468cd75beb8c3c6b387c9d75f9c9",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "docs/developer/react-aria-calendar-contracts.md",
+      "current": "ed2097e296bfd9de3a2420b3283ae3c1da1f1defc3611d39df2fcba0e5bc0875",
+      "priorWave02": "5ecd4a8cc05e993f946e999be0736093f05ebef82db8e0244c7b5a97e95bbf02",
+      "matchesPrior": false,
+      "coordinatorIntegration": "ed2097e296bfd9de3a2420b3283ae3c1da1f1defc3611d39df2fcba0e5bc0875",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/package.json",
+      "current": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "priorWave02": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.native-locales.native-fixture.tsx",
+      "current": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "priorWave02": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "matchesPrior": true,
+      "coordinatorIntegration": "c6d308a9f5e96feccc5c9aac642745ce496d55eb823351211374491eea1c7d93",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.native-locales.test.tsx",
+      "current": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "priorWave02": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "matchesPrior": true,
+      "coordinatorIntegration": "4a9cff5f9f031914735f01014937174c6b2742e97ead306f5c4510a9607ff66c",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.next100-regression.test.tsx",
+      "current": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "priorWave02": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "matchesPrior": true,
+      "coordinatorIntegration": "8127eb495437e14b949d6c617210d2ecc3fbafaf7f130b2681f31a76708f4971",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.test.tsx",
+      "current": "aa7955ad2270c2dd5f40634346063070cd9665f263816f4f58f8390dd8d4124d",
+      "priorWave02": "b56db22bb4091fedb65956e22bf2b3ecbbc70670afc02fb68638274dfa202239",
+      "matchesPrior": false,
+      "coordinatorIntegration": "aa7955ad2270c2dd5f40634346063070cd9665f263816f4f58f8390dd8d4124d",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "current": "240fc043652299746ce1b8554424f34750a24b48e13d48b42144f762bc9f94e8",
+      "priorWave02": "43ce7bdfa5d4652278983efdfb6eb94785ca5fa28f64d6b66dddf933c0d358b4",
+      "matchesPrior": false,
+      "coordinatorIntegration": "240fc043652299746ce1b8554424f34750a24b48e13d48b42144f762bc9f94e8",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/CalendarNavigation.test.tsx",
+      "current": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "priorWave02": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "matchesPrior": true,
+      "coordinatorIntegration": "21e22207ab426cac3d3b1912dc3876c8f44bb3a3b851a68fcca6a52db1a94dc5",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Calendar/CalendarNavigation.tsx",
+      "current": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "priorWave02": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "matchesPrior": true,
+      "coordinatorIntegration": "86a066dc356597033835e451b4d623e106b381b4be6f13fffca48b07600dd2ce",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.module.css",
+      "current": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "priorWave02": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "matchesPrior": true,
+      "coordinatorIntegration": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.next100-regression.test.tsx",
+      "current": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "priorWave02": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "matchesPrior": true,
+      "coordinatorIntegration": "3a1b45ec224dcb653ea6f8d83a8788962a9cfc8fde8d75d04b66c750e90370a6",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.test.tsx",
+      "current": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "priorWave02": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "matchesPrior": true,
+      "coordinatorIntegration": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateField.tsx",
+      "current": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "priorWave02": "9cc5c4ba5f337787682ae31c482fdd0dc7295179859c33ad0a5b2b71fdb88e18",
+      "matchesPrior": false,
+      "coordinatorIntegration": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/DateFieldControl.tsx",
+      "current": "fe95d976fdace22b54fed78bc1fab190f45b540a08ee63518dbfea0dd1323e9d",
+      "priorWave02": "8bbadd7bb5344a56df2682e2dce83e2c2ee5dc4dd07c0d74d1ad6e2973ca09c7",
+      "matchesPrior": false,
+      "coordinatorIntegration": "fe95d976fdace22b54fed78bc1fab190f45b540a08ee63518dbfea0dd1323e9d",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/TextDateField.test.tsx",
+      "current": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "priorWave02": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "matchesPrior": true,
+      "coordinatorIntegration": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "current": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "priorWave02": "c4cb4d163038104f730cdf4cb1ce6304de23707ae576c2f78ccd7590667ba718",
+      "matchesPrior": false,
+      "coordinatorIntegration": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseDateText.test.ts",
+      "current": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "priorWave02": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "matchesPrior": true,
+      "coordinatorIntegration": "24aaf7209063823163abfe7622978fd5bf8d256d9fac557d4255cc80682a3bf8",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseDateText.ts",
+      "current": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "priorWave02": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "matchesPrior": true,
+      "coordinatorIntegration": "2a50fdf63cad4ae2df70139b51ada0e6a8ca1c6890930eb329c783b380f4e1ef",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseRelativeDateText.test.ts",
+      "current": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "priorWave02": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "matchesPrior": true,
+      "coordinatorIntegration": "7e333a4e9c67905dd4eecc969c09856a9295b5edaf35309786a46712fd6451ae",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateField/parseRelativeDateText.ts",
+      "current": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "priorWave02": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "matchesPrior": true,
+      "coordinatorIntegration": "dc71ca97c5f1b630573c701440359c150a2a84a45a3f0df57f7ce0e10d570155",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.module.css",
+      "current": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "priorWave02": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "matchesPrior": true,
+      "coordinatorIntegration": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.native-fixture.tsx",
+      "current": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1",
+      "priorWave02": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1",
+      "matchesPrior": true,
+      "coordinatorIntegration": "f707e0c4a71799330cbb423ac852e906ae2c4b4d30eeb30a19c847cfabc49fb1",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.test.tsx",
+      "current": "3d42cfe6beb54360a88d05709f03af51cee9b715e4ed79e8f928bbabed0b9e02",
+      "priorWave02": "3d42cfe6beb54360a88d05709f03af51cee9b715e4ed79e8f928bbabed0b9e02",
+      "matchesPrior": true,
+      "coordinatorIntegration": "3d42cfe6beb54360a88d05709f03af51cee9b715e4ed79e8f928bbabed0b9e02",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.next100-regression.test.tsx",
+      "current": "c43242f8be95a16bd1251f2a573ec61ad3e599e236a1f3cb7d110c7f001a001d",
+      "priorWave02": "c43242f8be95a16bd1251f2a573ec61ad3e599e236a1f3cb7d110c7f001a001d",
+      "matchesPrior": true,
+      "coordinatorIntegration": "c43242f8be95a16bd1251f2a573ec61ad3e599e236a1f3cb7d110c7f001a001d",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.test.tsx",
+      "current": "8904345f870d5ae9dd7f857cfc8cab94bdf2ce63b46c0f29714478701a50ad7d",
+      "priorWave02": "7841c9355332c8af7d611d6456e00f8af8ba873cf1622f059d1f58b6bc0ed294",
+      "matchesPrior": false,
+      "coordinatorIntegration": "8904345f870d5ae9dd7f857cfc8cab94bdf2ce63b46c0f29714478701a50ad7d",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "current": "cc1cc4fd1264b16c391f04f34bdfdb5b2d409ba899a022fc83eaa2ad9d7d1dc3",
+      "priorWave02": "b6ed8dcd06786b4c5599a832d33f4e3d71924bd4f3faec4fdd58fc306c832cf6",
+      "matchesPrior": false,
+      "coordinatorIntegration": "cc1cc4fd1264b16c391f04f34bdfdb5b2d409ba899a022fc83eaa2ad9d7d1dc3",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.test.tsx",
+      "current": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97",
+      "priorWave02": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97",
+      "matchesPrior": true,
+      "coordinatorIntegration": "61e3ab6199433232462e457300cce515bc261781c38f409cbd9e520242602d97",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73",
+      "priorWave02": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73",
+      "matchesPrior": true,
+      "coordinatorIntegration": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.controlled-transactions.test.tsx",
+      "current": "cd85cc5942f7a2d6b3501022daa481a257290855a65e99e42905827c2da05c5d",
+      "priorWave02": "cd85cc5942f7a2d6b3501022daa481a257290855a65e99e42905827c2da05c5d",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.module.css",
+      "current": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+      "priorWave02": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.next100-regression.test.tsx",
+      "current": "e9f6569cad06689e8813dc8ea863d93b92bece994e267601327b022106f0f106",
+      "priorWave02": "e9f6569cad06689e8813dc8ea863d93b92bece994e267601327b022106f0f106",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.test.tsx",
+      "current": "e8cee5760282c71ce7f6b54db9d1689b91b96d7a678b2d9017151b7d8da5411b",
+      "priorWave02": "e8cee5760282c71ce7f6b54db9d1689b91b96d7a678b2d9017151b7d8da5411b",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+      "current": "d5c4eb8593ec44e45938e14b4dddc6b94f969890ebdf863d101f11b54cf638d4",
+      "priorWave02": "d5c4eb8593ec44e45938e14b4dddc6b94f969890ebdf863d101f11b54cf638d4",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/parseDateRangeText.test.ts",
+      "current": "844368d1f0df2152f748680ec5c3e0f7ea97b2d1f83c0400a3c0d82278636863",
+      "priorWave02": "844368d1f0df2152f748680ec5c3e0f7ea97b2d1f83c0400a3c0d82278636863",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangePicker/parseDateRangeText.ts",
+      "current": "6112e72b278b6c1b8c0444033a46bd3a2cc9cd26ac71e528768ba3dae65e3706",
+      "priorWave02": "6112e72b278b6c1b8c0444033a46bd3a2cc9cd26ac71e528768ba3dae65e3706",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/CalendarFormValidity.tsx",
+      "current": "064064ff9187ed72a6635f8a16ef8a738b3391e9de1ec6c92ef88279fb5357fd",
+      "priorWave02": "064064ff9187ed72a6635f8a16ef8a738b3391e9de1ec6c92ef88279fb5357fd",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateContracts.next100-regression.test.tsx",
+      "current": "545611ff1736d427a59992038af10fec7557084117d68443c675a8e8070d8615",
+      "priorWave02": "545611ff1736d427a59992038af10fec7557084117d68443c675a8e8070d8615",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.behavior.test.tsx",
+      "current": "eb01a4b0bf0988bfce65316042642e0a5e030821b8f7a467e1789bb10105d1d8",
+      "priorWave02": "eb01a4b0bf0988bfce65316042642e0a5e030821b8f7a467e1789bb10105d1d8",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css",
+      "current": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "priorWave02": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.next100-regression.test.tsx",
+      "current": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48",
+      "priorWave02": "ee15232419fb07d605ef3b1e0847b3c5f25733c8cf5185465f83ee1a85391a48",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.presets.test.tsx",
+      "current": "1a7588994d3d1232166bb568efb1c62ceab0b92a597f06aafe9a30d94622ac27",
+      "priorWave02": "1a7588994d3d1232166bb568efb1c62ceab0b92a597f06aafe9a30d94622ac27",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.test.tsx",
+      "current": "0887d77989165887f0af6fc1305fb6fb783f72be7917f3ee09f823a4dd94c609",
+      "priorWave02": "0887d77989165887f0af6fc1305fb6fb783f72be7917f3ee09f823a4dd94c609",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+      "current": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "priorWave02": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeGestures.test.tsx",
+      "current": "895b4a5e8fb92bfafb70710c1ab0da8e1ec24683eb6b2d0384eaf39849911f57",
+      "priorWave02": "895b4a5e8fb92bfafb70710c1ab0da8e1ec24683eb6b2d0384eaf39849911f57",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/RangeGestures.tsx",
+      "current": "0b2427901464535d68154aa9c443b678ce8fd637b8394315532e673a654082fe",
+      "priorWave02": "0b2427901464535d68154aa9c443b678ce8fd637b8394315532e673a654082fe",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+      "current": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "priorWave02": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/relative-date-range.test.ts",
+      "current": "0799edaf12d45b62573c045509104118f31ccaf52e96a7b6d990a89c16690362",
+      "priorWave02": "0799edaf12d45b62573c045509104118f31ccaf52e96a7b6d990a89c16690362",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/relative-date-range.ts",
+      "current": "f5be7ad2b944523a078af51c9a9574d1292232287fc3243dae0df7cb3f3a17ba",
+      "priorWave02": "f5be7ad2b944523a078af51c9a9574d1292232287fc3243dae0df7cb3f3a17ba",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/useCalendarFormReset.ts",
+      "current": "b1abe36f849850e3aac5e1ddfef5b95d19cb8ba3cb538efebaafe91ea0b55cfc",
+      "priorWave02": "b1abe36f849850e3aac5e1ddfef5b95d19cb8ba3cb538efebaafe91ea0b55cfc",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateRangeSelector/useNarrowWeekdays.ts",
+      "current": "420bb3c06d07d3ae43942aa8a9b53e2de201e2e3e3a7226ba0aed48ece6640c6",
+      "priorWave02": "420bb3c06d07d3ae43942aa8a9b53e2de201e2e3e3a7226ba0aed48ece6640c6",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.test.tsx",
+      "current": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68",
+      "priorWave02": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68",
+      "matchesPrior": true,
+      "coordinatorIntegration": "740ab1bc30ed235765f79380a0d63ccdc8da07ab4a2a75b36089b4e233b98a68",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e",
+      "priorWave02": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e",
+      "matchesPrior": true,
+      "coordinatorIntegration": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.test.tsx",
+      "current": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6",
+      "priorWave02": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6",
+      "matchesPrior": true,
+      "coordinatorIntegration": "0999503b42afe000c68620802a25def598141c9b336641c3a6ce9db7f94b5fe6",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e",
+      "priorWave02": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e",
+      "matchesPrior": true,
+      "coordinatorIntegration": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.collision.native-fixture.tsx",
+      "current": "12912867c4160a01311bde996f9cdcd9d60da083f833b122e633f98a46b09957",
+      "priorWave02": "12912867c4160a01311bde996f9cdcd9d60da083f833b122e633f98a46b09957",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.collision.test.tsx",
+      "current": "8465921f32b419aa9c2eb3705515c5aed81dea28241d627dde7b3f55186a2163",
+      "priorWave02": "8465921f32b419aa9c2eb3705515c5aed81dea28241d627dde7b3f55186a2163",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+      "current": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "priorWave02": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.next100-regression.test.tsx",
+      "current": "4fabd39e5a98861e5b3323e0573e352cd1880cd4efdcb5823a7327a1249a05f2",
+      "priorWave02": "4fabd39e5a98861e5b3323e0573e352cd1880cd4efdcb5823a7327a1249a05f2",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.test.tsx",
+      "current": "10ac0d2290eb8b83452e8edbfe3fb3923b6a08453b7b38b51180ab2098efa102",
+      "priorWave02": "10ac0d2290eb8b83452e8edbfe3fb3923b6a08453b7b38b51180ab2098efa102",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "current": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "priorWave02": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.portal.test.tsx",
+      "current": "8d02e22204d6a947c396f6aa7d6390ec68a773f3d0285661b221b55ec3eb8b39",
+      "priorWave02": "8d02e22204d6a947c396f6aa7d6390ec68a773f3d0285661b221b55ec3eb8b39",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.test.tsx",
+      "current": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df",
+      "priorWave02": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.tsx",
+      "current": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "priorWave02": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts",
+      "current": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "priorWave02": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TextTimeField.test.tsx",
+      "current": "e102e986c1a3baa8085e8a05be1f78363a95912d2f21c63c609411f5fb2a9f58",
+      "priorWave02": "e102e986c1a3baa8085e8a05be1f78363a95912d2f21c63c609411f5fb2a9f58",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "current": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "priorWave02": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.module.css",
+      "current": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+      "priorWave02": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.next100-regression.test.tsx",
+      "current": "78e7f7bd66eb5a19b87f3dc58ade48193c266070f8e0cb23325ed4504050e7c0",
+      "priorWave02": "78e7f7bd66eb5a19b87f3dc58ade48193c266070f8e0cb23325ed4504050e7c0",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.test.tsx",
+      "current": "29629d10a46ed4acb972deb7b4fef79cf903346cf433f30417c10632e7812efb",
+      "priorWave02": "29629d10a46ed4acb972deb7b4fef79cf903346cf433f30417c10632e7812efb",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/TimeField.tsx",
+      "current": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "priorWave02": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/parseTimeText.test.ts",
+      "current": "0854b13b7ca46d2fbfe9eb019d4b1a1e80c566aa7d181a9bc2cd142e58d57c00",
+      "priorWave02": "0854b13b7ca46d2fbfe9eb019d4b1a1e80c566aa7d181a9bc2cd142e58d57c00",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TimeField/parseTimeText.ts",
+      "current": "abfe8cbc0e49cf3befe5626cdbcc21afea0495561d1c666d5046f664a0ec5b3b",
+      "priorWave02": "abfe8cbc0e49cf3befe5626cdbcc21afea0495561d1c666d5046f664a0ec5b3b",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/index.ts",
+      "current": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+      "priorWave02": "587619f9d60e33de42573adcd011c668b815d65effcb2abf2918d1bf8ef07f84",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/useFormReset.ts",
+      "current": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+      "priorWave02": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "current": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "priorWave02": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/i18n/index.tsx",
+      "current": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "priorWave02": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/utils/relative-dates.test.ts",
+      "current": "104d0c0448130c22f38db34b62da010449ea2339470842868028b916a51515d9",
+      "priorWave02": "104d0c0448130c22f38db34b62da010449ea2339470842868028b916a51515d9",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/utils/relative-dates.ts",
+      "current": "1922bc80f9168a09eccd04aa5984973c6487b3482b38cf1135bf926a0f3339fd",
+      "priorWave02": "1922bc80f9168a09eccd04aa5984973c6487b3482b38cf1135bf926a0f3339fd",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/tests/browser/batch01-calendar.spec.ts",
+      "current": "74f849836651a52540dfbe9d56d20a50ffdef9c6e1b74f3459327da4160b9287",
+      "priorWave02": "74f849836651a52540dfbe9d56d20a50ffdef9c6e1b74f3459327da4160b9287",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/tests/browser/batch61-keyboard-range-preview.spec.ts",
+      "current": "645eac6761194b0a0d10d46f9e24db4c566ab4c0c6920720654f5db944e57214",
+      "priorWave02": "645eac6761194b0a0d10d46f9e24db4c566ab4c0c6920720654f5db944e57214",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/tests/browser/calendar-native-locales.spec.ts",
+      "current": "be0ad0985d569b0225db8b1a229d56b1da7f1adda5dd258697c1dbedd1090e3a",
+      "priorWave02": "be0ad0985d569b0225db8b1a229d56b1da7f1adda5dd258697c1dbedd1090e3a",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/tests/browser/calendar.spec.ts",
+      "current": "e74dddb13a84262b2cf8567d43449a375fc1f1645447b33e1dc8ffc79656ddc1",
+      "priorWave02": "e74dddb13a84262b2cf8567d43449a375fc1f1645447b33e1dc8ffc79656ddc1",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/tests/browser/datepicker-native-transactions.spec.ts",
+      "current": "036adeee29b59e039ff2f34c75a01b9f773e06282f22f75b7827b837e2259318",
+      "priorWave02": "036adeee29b59e039ff2f34c75a01b9f773e06282f22f75b7827b837e2259318",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/tests/browser/hardening-date-presentation.spec.ts",
+      "current": "a900f5eba095e135b49eb07c8f7a7bf9cfe61e83e7ff16c929174dede0b398c1",
+      "priorWave02": "a900f5eba095e135b49eb07c8f7a7bf9cfe61e83e7ff16c929174dede0b398c1",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "current": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "priorWave02": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "matchesPrior": true,
+      "coordinatorIntegration": null,
+      "matchesCoordinatorIntegration": null
+    }
+  ],
+  "outputComparison": [
+    {
+      "path": "packages/ui/dist/components/AppDataGrid/components/table-cell/DateTimeTableCell.d.ts",
+      "current": "69f8a3089bb76a37e5a51f5f10d37070a52b5b39554b60456155aa95981d06a4",
+      "expected": "69f8a3089bb76a37e5a51f5f10d37070a52b5b39554b60456155aa95981d06a4",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/components/AppDataGrid/components/table-cell/DateTimeTableCell.d.ts.map",
+      "current": "50603a44dbb3866956480a3abe192198d55f1a2d0f93de65137ce45f377ff94d",
+      "expected": "50603a44dbb3866956480a3abe192198d55f1a2d0f93de65137ce45f377ff94d",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/components/AppDataGrid/components/table-cell/DateTimeTableCell.js",
+      "current": "a5a1c1ff6fee448004c69817668873953e238a1de1f605bb9466a2a1e45b6282",
+      "expected": "a5a1c1ff6fee448004c69817668873953e238a1de1f605bb9466a2a1e45b6282",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/components/AppDataGrid/components/table-cell/DateTimeTableCell.js.map",
+      "current": "dde3f9850b39e6817a3d9bcdf1f921d4835461f110acadc955bcfa4b7e39410e",
+      "expected": "dde3f9850b39e6817a3d9bcdf1f921d4835461f110acadc955bcfa4b7e39410e",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/Calendar.d.ts",
+      "current": "ca43961226eaf983c0a507dd7ff04da6ec8813d7593555c489a95f9714a047a4",
+      "expected": "ca43961226eaf983c0a507dd7ff04da6ec8813d7593555c489a95f9714a047a4",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/Calendar.d.ts.map",
+      "current": "9d1faf19af679773cc7570fe4f07a2031874a5de8a169af8c6e69e1a9f557653",
+      "expected": "9d1faf19af679773cc7570fe4f07a2031874a5de8a169af8c6e69e1a9f557653",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/Calendar.js",
+      "current": "5ce3fd67e2ac9365ac0588d5a6bb3d6d959ccba46a7430a98bf30cf97c7dc07d",
+      "expected": "5ce3fd67e2ac9365ac0588d5a6bb3d6d959ccba46a7430a98bf30cf97c7dc07d",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/Calendar.js.map",
+      "current": "bcf64b92b9f34eafb748f093065bd9c13e3bfda561f5e241584d09870c44c69f",
+      "expected": "bcf64b92b9f34eafb748f093065bd9c13e3bfda561f5e241584d09870c44c69f",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/CalendarNavigation.d.ts",
+      "current": "d772f86ff23fcad6aa6864b3619bc4552b874e84a26342a3a7c2b9786f51e44b",
+      "expected": "d772f86ff23fcad6aa6864b3619bc4552b874e84a26342a3a7c2b9786f51e44b",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/CalendarNavigation.d.ts.map",
+      "current": "839073303161635dd82f8682a323b11b871ff096473d14b3aa493b1e08a65e82",
+      "expected": "839073303161635dd82f8682a323b11b871ff096473d14b3aa493b1e08a65e82",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/CalendarNavigation.js",
+      "current": "107efa133f9ec98d481e1214e3cbe110ea1e8160cf8f975060090bc5b9fce92e",
+      "expected": "107efa133f9ec98d481e1214e3cbe110ea1e8160cf8f975060090bc5b9fce92e",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Calendar/CalendarNavigation.js.map",
+      "current": "0d3df6b25a002b95628ac89c022ab480970a1f299bd3250ba0f6aea20b0b4264",
+      "expected": "0d3df6b25a002b95628ac89c022ab480970a1f299bd3250ba0f6aea20b0b4264",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.d.ts",
+      "current": "a06b481b302482992d7a22dc568245474f57e7beb972ab0262a6efa84e9e6da3",
+      "expected": "a06b481b302482992d7a22dc568245474f57e7beb972ab0262a6efa84e9e6da3",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.d.ts.map",
+      "current": "10e8db3a0cf0ea94f476f75ef60040aabd4c2dbe59123a2fe8e7584b35f6519a",
+      "expected": "10e8db3a0cf0ea94f476f75ef60040aabd4c2dbe59123a2fe8e7584b35f6519a",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.js",
+      "current": "79d3a40cb04d0286ea480bd8f45c83b80e1f834fa71d8e8a2d26608f96492dba",
+      "expected": "79d3a40cb04d0286ea480bd8f45c83b80e1f834fa71d8e8a2d26608f96492dba",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.js.map",
+      "current": "c2dc1037c51ed3cbc7f3d8662737b9cf82aee8e988f6ea3afb6231c5c48decda",
+      "expected": "c2dc1037c51ed3cbc7f3d8662737b9cf82aee8e988f6ea3afb6231c5c48decda",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateField.module.css.js",
+      "current": "646a270074cc0d33d433ba1733b2e77cfe616a0bc3951f7b2664b2e49707aa94",
+      "expected": "646a270074cc0d33d433ba1733b2e77cfe616a0bc3951f7b2664b2e49707aa94",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateFieldControl.d.ts",
+      "current": "70ecb8545e0bb2f8cc6620a076b8661897a0d84b4db1116d258a111ba22201fb",
+      "expected": "70ecb8545e0bb2f8cc6620a076b8661897a0d84b4db1116d258a111ba22201fb",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateFieldControl.d.ts.map",
+      "current": "5b2cfe80695be3446b9cb7f1509cfac76df591fc81390d9eba2e8a062d30fea8",
+      "expected": "5b2cfe80695be3446b9cb7f1509cfac76df591fc81390d9eba2e8a062d30fea8",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateFieldControl.js",
+      "current": "999c04c990422f2a484d21604c81d4b4c7b4c3c6dbb3ac0cb8c8aed4721733b8",
+      "expected": "999c04c990422f2a484d21604c81d4b4c7b4c3c6dbb3ac0cb8c8aed4721733b8",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/DateFieldControl.js.map",
+      "current": "d72e2f304154dd38b42c4513851ca26edcc105de0e712d7eff06eff2e8c2c155",
+      "expected": "d72e2f304154dd38b42c4513851ca26edcc105de0e712d7eff06eff2e8c2c155",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/TextDateField.d.ts",
+      "current": "16208fdffc0b18dd3ace211770535dd40c6aacfffe5af62d234c5496b0dfb6d1",
+      "expected": "16208fdffc0b18dd3ace211770535dd40c6aacfffe5af62d234c5496b0dfb6d1",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/TextDateField.d.ts.map",
+      "current": "ad4a41273a0a8b999c4a9fdea595c70ffd2149fdf363bc4dde9db454e45fb87a",
+      "expected": "ad4a41273a0a8b999c4a9fdea595c70ffd2149fdf363bc4dde9db454e45fb87a",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/TextDateField.js",
+      "current": "da9ba124b9ae9fd1efc300073a19e2311d25241d107d0d6afa9ad8c1a506588d",
+      "expected": "da9ba124b9ae9fd1efc300073a19e2311d25241d107d0d6afa9ad8c1a506588d",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/TextDateField.js.map",
+      "current": "f3f1fc88a068344dffc2a82a3aa482375b7dd2a331b6b953e4f259c3fd79a6ee",
+      "expected": "f3f1fc88a068344dffc2a82a3aa482375b7dd2a331b6b953e4f259c3fd79a6ee",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseDateText.d.ts",
+      "current": "1d37b67e55189910d371ac6bb6e6c96225cf28d6d741803a733b625acaea339f",
+      "expected": "1d37b67e55189910d371ac6bb6e6c96225cf28d6d741803a733b625acaea339f",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseDateText.d.ts.map",
+      "current": "8e1fabae7d33009ab9d0c23015fcf5d8d4f5c451b8ec772711986a39093d9df4",
+      "expected": "8e1fabae7d33009ab9d0c23015fcf5d8d4f5c451b8ec772711986a39093d9df4",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseDateText.js",
+      "current": "4939f058ffaf2f41f52deaa9ce33459c723b5c7c14294ea94c312f06496db65d",
+      "expected": "4939f058ffaf2f41f52deaa9ce33459c723b5c7c14294ea94c312f06496db65d",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseDateText.js.map",
+      "current": "c1daf5eb6df7a9e8f0b31e90c3def6cb1171c8a2a7f2c07376d4db82c669f7d5",
+      "expected": "c1daf5eb6df7a9e8f0b31e90c3def6cb1171c8a2a7f2c07376d4db82c669f7d5",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseRelativeDateText.d.ts",
+      "current": "0fd9b37ea1de9d2d4fd05ccdacf5fb3c9317ba3924b27c43cd80adac4a16cf57",
+      "expected": "0fd9b37ea1de9d2d4fd05ccdacf5fb3c9317ba3924b27c43cd80adac4a16cf57",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseRelativeDateText.d.ts.map",
+      "current": "e2d77502f2daf45cb328d5f966d389dd71b939bc0d1b751cfb0a5dd9044d03ee",
+      "expected": "e2d77502f2daf45cb328d5f966d389dd71b939bc0d1b751cfb0a5dd9044d03ee",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseRelativeDateText.js",
+      "current": "7efa58c1e87fef1b96750e31f39a60cf15340573a978fbf99bd3e7c825d1c57a",
+      "expected": "7efa58c1e87fef1b96750e31f39a60cf15340573a978fbf99bd3e7c825d1c57a",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateField/parseRelativeDateText.js.map",
+      "current": "f1f9977f5476e481a3ce90030de4a81df6da1e0ee03396c0a852df62038d8520",
+      "expected": "f1f9977f5476e481a3ce90030de4a81df6da1e0ee03396c0a852df62038d8520",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.d.ts",
+      "current": "12020544bf17d840c7b8678e8790cd734a1131a8b34916efc2758349431b96be",
+      "expected": "12020544bf17d840c7b8678e8790cd734a1131a8b34916efc2758349431b96be",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.d.ts.map",
+      "current": "34d6e50b375c2007492be1bebd501b3af6e623a5f61b2f8d0a31c077b542e9a3",
+      "expected": "34d6e50b375c2007492be1bebd501b3af6e623a5f61b2f8d0a31c077b542e9a3",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.js",
+      "current": "351975ca691166d2b11644cfba3f49c61cd4c48ba772bf705e499afb9c47b7cb",
+      "expected": "351975ca691166d2b11644cfba3f49c61cd4c48ba772bf705e499afb9c47b7cb",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.js.map",
+      "current": "5e184676f7b0b21704b1fd2486c10fffbd3841137b07172a8d398ec6430391f2",
+      "expected": "5e184676f7b0b21704b1fd2486c10fffbd3841137b07172a8d398ec6430391f2",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DatePicker/DatePicker.module.css.js",
+      "current": "c975784ba96a31a18ba0e9f45b304e069f36c39fa48945125238429c53f7c0cc",
+      "expected": "c975784ba96a31a18ba0e9f45b304e069f36c39fa48945125238429c53f7c0cc",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.d.ts",
+      "current": "f724107ad9f1030db75e13d6712233090a8b0f6609ccaed704725b08c11e643a",
+      "expected": "f724107ad9f1030db75e13d6712233090a8b0f6609ccaed704725b08c11e643a",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.d.ts.map",
+      "current": "8c2ef16ad5c51fff3d04328b7e1207c967a627f2414d336408c182627d37f617",
+      "expected": "8c2ef16ad5c51fff3d04328b7e1207c967a627f2414d336408c182627d37f617",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js",
+      "current": "8becd30a28155f538f19d8a1587c2f5debb27d0aa1d2f636b53bb7d586e11af9",
+      "expected": "8becd30a28155f538f19d8a1587c2f5debb27d0aa1d2f636b53bb7d586e11af9",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.js.map",
+      "current": "c08ba6c5fe4168eeb555a19b7bec3974c8c206e475da8fc4b7cda53e8df52e7e",
+      "expected": "c08ba6c5fe4168eeb555a19b7bec3974c8c206e475da8fc4b7cda53e8df52e7e",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.d.ts",
+      "current": "a63c3cabd3b8cdd8e551ab37d4f731f4cf1a308f56e1316f32108b8a3b58957d",
+      "expected": "a63c3cabd3b8cdd8e551ab37d4f731f4cf1a308f56e1316f32108b8a3b58957d",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.d.ts.map",
+      "current": "eaacef5de67a75601f413d7585b8892d276a6a68d0319ddb67b07f5a24600f90",
+      "expected": "eaacef5de67a75601f413d7585b8892d276a6a68d0319ddb67b07f5a24600f90",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.js",
+      "current": "0390ab26201fb9a0f2c9f65ce72b29dc4a59997b459015c05a11a26e29c92e94",
+      "expected": "0390ab26201fb9a0f2c9f65ce72b29dc4a59997b459015c05a11a26e29c92e94",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.js.map",
+      "current": "84cb26852c30ef526dc7d7e8ff670abdaa64e0af856df5a737e55b00a1b5ecaf",
+      "expected": "84cb26852c30ef526dc7d7e8ff670abdaa64e0af856df5a737e55b00a1b5ecaf",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/DateRangePicker.module.css.js",
+      "current": "3c132d57789acfe9c56d6b3c2f016c1611bf8fd7cd4930bdd5c8bf56f1376b96",
+      "expected": "3c132d57789acfe9c56d6b3c2f016c1611bf8fd7cd4930bdd5c8bf56f1376b96",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/parseDateRangeText.d.ts",
+      "current": "1e2ae949422252244517b17098a4aa63538f11abb931c4f3a7d52849b6d172be",
+      "expected": "1e2ae949422252244517b17098a4aa63538f11abb931c4f3a7d52849b6d172be",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/parseDateRangeText.d.ts.map",
+      "current": "5ee83c793785bd8256516ab844562cde930668fe214a9958c71012eb0190fff5",
+      "expected": "5ee83c793785bd8256516ab844562cde930668fe214a9958c71012eb0190fff5",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/parseDateRangeText.js",
+      "current": "865f27251d54cdc6e57e9d00a4b7e7f4f8aac1677b4642c4d74a2e81b04b6fd3",
+      "expected": "865f27251d54cdc6e57e9d00a4b7e7f4f8aac1677b4642c4d74a2e81b04b6fd3",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangePicker/parseDateRangeText.js.map",
+      "current": "853c77d8e942364bc35ef80fe15e0bbd9dbf7f31699532bc6ff8772e37b005cd",
+      "expected": "853c77d8e942364bc35ef80fe15e0bbd9dbf7f31699532bc6ff8772e37b005cd",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/CalendarFormValidity.d.ts",
+      "current": "433ab816a48de8fe1873236ba8dcb2203d1148ac2c4a52fe6d8fc36b01d6574b",
+      "expected": "433ab816a48de8fe1873236ba8dcb2203d1148ac2c4a52fe6d8fc36b01d6574b",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/CalendarFormValidity.d.ts.map",
+      "current": "f4e6cf9fb6f296f751a584fc3c3f69ef2a40bca4072fd1b1148eb07033c0c1ad",
+      "expected": "f4e6cf9fb6f296f751a584fc3c3f69ef2a40bca4072fd1b1148eb07033c0c1ad",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/CalendarFormValidity.js",
+      "current": "efd0e0720f0a8af7a391360c02a401c68efdde8f7fa53481cfbfa477cdc2e7ef",
+      "expected": "efd0e0720f0a8af7a391360c02a401c68efdde8f7fa53481cfbfa477cdc2e7ef",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/CalendarFormValidity.js.map",
+      "current": "36242fd6dfe21d6d59a660794049454e032cc16e3cd6fa067288a803547f2597",
+      "expected": "36242fd6dfe21d6d59a660794049454e032cc16e3cd6fa067288a803547f2597",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.d.ts",
+      "current": "e2ad33d7d2df2a4cbb2915cc273a555baa9f50e85dfee125380f24168635b4cc",
+      "expected": "e2ad33d7d2df2a4cbb2915cc273a555baa9f50e85dfee125380f24168635b4cc",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.d.ts.map",
+      "current": "c498480d9f25b98e8a46f0cf342274aae428ede2e0fce3370e66a80a1d69bcb0",
+      "expected": "c498480d9f25b98e8a46f0cf342274aae428ede2e0fce3370e66a80a1d69bcb0",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.js",
+      "current": "fbe0e08a8900cef53776ffeb9fa0a555916e58a5ef26c464c80d5e7f77ec9250",
+      "expected": "fbe0e08a8900cef53776ffeb9fa0a555916e58a5ef26c464c80d5e7f77ec9250",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.js.map",
+      "current": "a78d19271ad8a90c2f5668ec150e1ffc9933d2ebf2d5e03b2195a47f3b75719a",
+      "expected": "a78d19271ad8a90c2f5668ec150e1ffc9933d2ebf2d5e03b2195a47f3b75719a",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/DateRangeSelector.module.css.js",
+      "current": "39ceb67fa9b075c6595119a9c0fa4bb2f4d3a667812d8d4f21e892f2b33d4b69",
+      "expected": "39ceb67fa9b075c6595119a9c0fa4bb2f4d3a667812d8d4f21e892f2b33d4b69",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/RangeGestures.d.ts",
+      "current": "051295ead1fcc2816ecec6f635130c27a7565fb234677b72633390feb37b33c5",
+      "expected": "051295ead1fcc2816ecec6f635130c27a7565fb234677b72633390feb37b33c5",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/RangeGestures.d.ts.map",
+      "current": "d48ddc5f0213a1d7c1cc44f2c7be2659f1d1523b937dd40e16eca15459491c6a",
+      "expected": "d48ddc5f0213a1d7c1cc44f2c7be2659f1d1523b937dd40e16eca15459491c6a",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/RangeGestures.js",
+      "current": "93adcc5a48a2b63694ecf15d885a9ef8bb13f1178b5747abf0cb0fe1e0995cf2",
+      "expected": "93adcc5a48a2b63694ecf15d885a9ef8bb13f1178b5747abf0cb0fe1e0995cf2",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/RangeGestures.js.map",
+      "current": "744e178db5189cdce1e998617b086a91d7216b64ef39e9f320e4c6cb21631bc4",
+      "expected": "744e178db5189cdce1e998617b086a91d7216b64ef39e9f320e4c6cb21631bc4",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/date-contract.d.ts",
+      "current": "7d7e5931e1a01442b7f10002d2e826ce90bf478311d0fa964a2164940615221f",
+      "expected": "7d7e5931e1a01442b7f10002d2e826ce90bf478311d0fa964a2164940615221f",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/date-contract.d.ts.map",
+      "current": "bea0c3fd35b6d3969ad5db5957b5793e4a2cfced578d769bab4797378dea1d7e",
+      "expected": "bea0c3fd35b6d3969ad5db5957b5793e4a2cfced578d769bab4797378dea1d7e",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/date-contract.js",
+      "current": "c383ef2acc786e1a0a7f94383b7d3d04e2f9c53b2419216c5d9d4922cc01b7fb",
+      "expected": "c383ef2acc786e1a0a7f94383b7d3d04e2f9c53b2419216c5d9d4922cc01b7fb",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/date-contract.js.map",
+      "current": "3542eb717d9dcc433fa5b9480f03c1bfea4f78af9173f10f9c97c6279c2b54b5",
+      "expected": "3542eb717d9dcc433fa5b9480f03c1bfea4f78af9173f10f9c97c6279c2b54b5",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/relative-date-range.d.ts",
+      "current": "676ada15ca86937c7dd06329545f9fd6bd9c781cadb32e7d3b258e139b6744b3",
+      "expected": "676ada15ca86937c7dd06329545f9fd6bd9c781cadb32e7d3b258e139b6744b3",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/relative-date-range.d.ts.map",
+      "current": "481b0977f655ea6294b695e5084586d1adf4b65bdb9fc392862643f15012fbd4",
+      "expected": "481b0977f655ea6294b695e5084586d1adf4b65bdb9fc392862643f15012fbd4",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/relative-date-range.js",
+      "current": "5060f0865ee758b810de54a1c6ba2ea73bb4f0f956448c26c9c20b02c2930ce9",
+      "expected": "5060f0865ee758b810de54a1c6ba2ea73bb4f0f956448c26c9c20b02c2930ce9",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/relative-date-range.js.map",
+      "current": "e27f82c90b8b4359430bc8b24825a5f6a3f2e0a87d7879ccd76070ff807d3483",
+      "expected": "e27f82c90b8b4359430bc8b24825a5f6a3f2e0a87d7879ccd76070ff807d3483",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useCalendarFormReset.d.ts",
+      "current": "29f6c7f3e6abea761097a62db9fd9260c5220b4234ebc50137e9d44882dd98f3",
+      "expected": "29f6c7f3e6abea761097a62db9fd9260c5220b4234ebc50137e9d44882dd98f3",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useCalendarFormReset.d.ts.map",
+      "current": "b1f4fa167fb3ec1412bc42f04a067db5e8b39453decfb92366af54049b0bc6b6",
+      "expected": "b1f4fa167fb3ec1412bc42f04a067db5e8b39453decfb92366af54049b0bc6b6",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useCalendarFormReset.js",
+      "current": "822e97f70a1a071f93bb2f907bf707125685511d6400555326c4c76abeb2378f",
+      "expected": "822e97f70a1a071f93bb2f907bf707125685511d6400555326c4c76abeb2378f",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useCalendarFormReset.js.map",
+      "current": "311878ee95b5e70c24cc4e1910b62268897bb433c7bd4c85b175ec6771fd1c86",
+      "expected": "311878ee95b5e70c24cc4e1910b62268897bb433c7bd4c85b175ec6771fd1c86",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useNarrowWeekdays.d.ts",
+      "current": "5d74956c6277231c3191d47519af24647cc1c3ddc54e3e7bc6e2aa400588fb30",
+      "expected": "5d74956c6277231c3191d47519af24647cc1c3ddc54e3e7bc6e2aa400588fb30",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useNarrowWeekdays.d.ts.map",
+      "current": "71045cd5003d50fcd27bba1e305d994551ff73c8db8f1bac91aec0bbe9de09b7",
+      "expected": "71045cd5003d50fcd27bba1e305d994551ff73c8db8f1bac91aec0bbe9de09b7",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useNarrowWeekdays.js",
+      "current": "2a0d5d3f37f2203fd4c91b30da84a545e56407b6fbba7b2a4300f979c6381853",
+      "expected": "2a0d5d3f37f2203fd4c91b30da84a545e56407b6fbba7b2a4300f979c6381853",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateRangeSelector/useNarrowWeekdays.js.map",
+      "current": "e7cef9bdc7a185c64d60281154cc3829f9d86ce54859938351cb03eb89169683",
+      "expected": "e7cef9bdc7a185c64d60281154cc3829f9d86ce54859938351cb03eb89169683",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateTimeRangePicker/DateTimeRangePicker.d.ts",
+      "current": "dc35b2047f836993edc86c7926650ba76d91157c555e836417c640fe0d82f375",
+      "expected": "dc35b2047f836993edc86c7926650ba76d91157c555e836417c640fe0d82f375",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateTimeRangePicker/DateTimeRangePicker.d.ts.map",
+      "current": "7a3fe514e8aff60766a69e1ed0432fba57f49af2306076dac5607c13f1c669f6",
+      "expected": "7a3fe514e8aff60766a69e1ed0432fba57f49af2306076dac5607c13f1c669f6",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js",
+      "current": "4ef9e4a0eb576bee204794df54d0476cd712f926178ca269eee587de12968c60",
+      "expected": "4ef9e4a0eb576bee204794df54d0476cd712f926178ca269eee587de12968c60",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/DateTimeRangePicker/DateTimeRangePicker.js.map",
+      "current": "8e3919f278ca4a72e9800303ebef7c7f8e03e16e14a0774e9487e81b71a8eeeb",
+      "expected": "8e3919f278ca4a72e9800303ebef7c7f8e03e16e14a0774e9487e81b71a8eeeb",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/PeriodPicker/PeriodPicker.d.ts",
+      "current": "50ce5cc6b388531e8c40eebdb5edf4d7e7dda5e266b1c84ccaaff9cfa02da159",
+      "expected": "50ce5cc6b388531e8c40eebdb5edf4d7e7dda5e266b1c84ccaaff9cfa02da159",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/PeriodPicker/PeriodPicker.d.ts.map",
+      "current": "146c902f155970261ee57ac83f83b3e4724c74c9a6dd833e3cfa0844a13c092e",
+      "expected": "146c902f155970261ee57ac83f83b3e4724c74c9a6dd833e3cfa0844a13c092e",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/PeriodPicker/PeriodPicker.js",
+      "current": "dce47c99732c03046285892fe3a7537d371da100036b4fade8cac549fcfe8554",
+      "expected": "dce47c99732c03046285892fe3a7537d371da100036b4fade8cac549fcfe8554",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/PeriodPicker/PeriodPicker.js.map",
+      "current": "c2f03c1dca837060c346b33d5f90c80c9374ea1f56092df9e43cc98443a4a4bd",
+      "expected": "c2f03c1dca837060c346b33d5f90c80c9374ea1f56092df9e43cc98443a4a4bd",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TextTimeField.d.ts",
+      "current": "4b8f77c6c16f7182c18afc435879a1d3a2ffdd3fe9ab1ab9e31780fe43517097",
+      "expected": "4b8f77c6c16f7182c18afc435879a1d3a2ffdd3fe9ab1ab9e31780fe43517097",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TextTimeField.d.ts.map",
+      "current": "654c8f29801bf826d0a572080fe5b757bb0f832e3389c10e0d9a7937c588af87",
+      "expected": "654c8f29801bf826d0a572080fe5b757bb0f832e3389c10e0d9a7937c588af87",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TextTimeField.js",
+      "current": "4f8f35b4bb45ffabafe1cd22a9a7c82dd8250ac444779332de50d9ebb56a7788",
+      "expected": "4f8f35b4bb45ffabafe1cd22a9a7c82dd8250ac444779332de50d9ebb56a7788",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TextTimeField.js.map",
+      "current": "e0d78169f440e09b63fe76d9baed38a035c68029e70b0bee4b34aec81bb49267",
+      "expected": "e0d78169f440e09b63fe76d9baed38a035c68029e70b0bee4b34aec81bb49267",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.d.ts",
+      "current": "03a59561181981942ebb091ba292308f4ca1587a0b308c408d0d77f9ec37d02c",
+      "expected": "03a59561181981942ebb091ba292308f4ca1587a0b308c408d0d77f9ec37d02c",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.d.ts.map",
+      "current": "dcc5f10823a8f323a2303b92baee62996fd788c642bfc139108ff34bd806fbb3",
+      "expected": "dcc5f10823a8f323a2303b92baee62996fd788c642bfc139108ff34bd806fbb3",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.js",
+      "current": "f4de1cf5a1e1427dc5969cb5903f3aeed11ab3c851a660c4429bab1d2975edb2",
+      "expected": "f4de1cf5a1e1427dc5969cb5903f3aeed11ab3c851a660c4429bab1d2975edb2",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.js.map",
+      "current": "7cc441ca78b6f89abbabbf57ad2ef448a399795693f8c6260ce79d6ef44f217e",
+      "expected": "7cc441ca78b6f89abbabbf57ad2ef448a399795693f8c6260ce79d6ef44f217e",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/TimeField.module.css.js",
+      "current": "52e2f7e75b8a0a26c04637b7d43d5f9947c1c6dda0975ed667e097cf2e30ab04",
+      "expected": "52e2f7e75b8a0a26c04637b7d43d5f9947c1c6dda0975ed667e097cf2e30ab04",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/parseTimeText.d.ts",
+      "current": "68fbb0e25b5edd99ea7bd911b579129fb44baf7323a86aa0bbcadc7df867c469",
+      "expected": "68fbb0e25b5edd99ea7bd911b579129fb44baf7323a86aa0bbcadc7df867c469",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/parseTimeText.d.ts.map",
+      "current": "0c8f4f819d59211d9197877c878b4d9f0ff6568c25d01da2c19553369b85c9df",
+      "expected": "0c8f4f819d59211d9197877c878b4d9f0ff6568c25d01da2c19553369b85c9df",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/parseTimeText.js",
+      "current": "7d9126133959ce2cad25191f35cfd46e802e4537183fb08d455e68fafca772b0",
+      "expected": "7d9126133959ce2cad25191f35cfd46e802e4537183fb08d455e68fafca772b0",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/TimeField/parseTimeText.js.map",
+      "current": "e78524d9a0f52dc254b2b2106c6f9d906a5d0da82cdea81ab4742f6d7e09fdc8",
+      "expected": "e78524d9a0f52dc254b2b2106c6f9d906a5d0da82cdea81ab4742f6d7e09fdc8",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/icons/CalendarTodayIcon.d.ts",
+      "current": "1c8dccc73ee3931ebba87ec64769e2d637c9107e052322ba5719bfbd830b124e",
+      "expected": "1c8dccc73ee3931ebba87ec64769e2d637c9107e052322ba5719bfbd830b124e",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/icons/CalendarTodayIcon.d.ts.map",
+      "current": "c98a36728d2ee2a82c9ba5ef2833d0b2812777a1e63b022d688298694965e782",
+      "expected": "c98a36728d2ee2a82c9ba5ef2833d0b2812777a1e63b022d688298694965e782",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/icons/CalendarTodayIcon.js",
+      "current": "60518c9c14a0d229fb35e27c759700ca5492b19f22480e660db947c15929f0e3",
+      "expected": "60518c9c14a0d229fb35e27c759700ca5492b19f22480e660db947c15929f0e3",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/icons/CalendarTodayIcon.js.map",
+      "current": "d37cd7d0f4070ac31225deee830c81ed81bbcb6b417d1847a73948d9c3e2f5d1",
+      "expected": "d37cd7d0f4070ac31225deee830c81ed81bbcb6b417d1847a73948d9c3e2f5d1",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/icons/CalendarTodayIcon.d.ts",
+      "current": "30d23ad9d143be8db6098b724d7fa3871ccb643926ff4a2792c2373ece629e30",
+      "expected": "30d23ad9d143be8db6098b724d7fa3871ccb643926ff4a2792c2373ece629e30",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/icons/CalendarTodayIcon.d.ts.map",
+      "current": "28518fb75572f2dc9f1fdae79bbdfa664e91e32a1858d1476c0ef39986813a6c",
+      "expected": "28518fb75572f2dc9f1fdae79bbdfa664e91e32a1858d1476c0ef39986813a6c",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/icons/CalendarTodayIcon.js",
+      "current": "3984d657a4737686a5d758619a77358e055d69f401fac86a739201b3b77aaeb4",
+      "expected": "3984d657a4737686a5d758619a77358e055d69f401fac86a739201b3b77aaeb4",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/icons/CalendarTodayIcon.js.map",
+      "current": "4614c90fb20902a7879854cb390d9ef964e2f9b95cd9794d5d05e8f100f44051",
+      "expected": "4614c90fb20902a7879854cb390d9ef964e2f9b95cd9794d5d05e8f100f44051",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/utils/relative-dates.d.ts",
+      "current": "e28e6aad7291c12d96d4676995165e6d35ec59494ba46b3970929986294eb1a3",
+      "expected": "e28e6aad7291c12d96d4676995165e6d35ec59494ba46b3970929986294eb1a3",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/utils/relative-dates.d.ts.map",
+      "current": "bb34fcfd023deef634a1bd8e6908f570dbdd879c1a88b15d1d6e7ed842bfb7da",
+      "expected": "bb34fcfd023deef634a1bd8e6908f570dbdd879c1a88b15d1d6e7ed842bfb7da",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/utils/relative-dates.js",
+      "current": "164e347aad3611b268757cc17a79f16431c00225e556a1d823cb489b4a863e15",
+      "expected": "164e347aad3611b268757cc17a79f16431c00225e556a1d823cb489b4a863e15",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/dist/utils/relative-dates.js.map",
+      "current": "136d86a5fdaaff37f843641521835eaf3af353e5b1d286f8eea7134fe467c049",
+      "expected": "136d86a5fdaaff37f843641521835eaf3af353e5b1d286f8eea7134fe467c049",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/Calendar-BJGHpzrC.js",
+      "current": "cee3c64e14f66c5a86ed9fbb498ea393a2c1757c5052b1752f20f038afbac304",
+      "expected": "cee3c64e14f66c5a86ed9fbb498ea393a2c1757c5052b1752f20f038afbac304",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/Calendar.fixture-B5wX6a5z.js",
+      "current": "0796cea81cca1dc8613e0f4657495d85ac8dc7d6a37cd8d794e71e49f83e3772",
+      "expected": "0796cea81cca1dc8613e0f4657495d85ac8dc7d6a37cd8d794e71e49f83e3772",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/Calendar.native-locales.fixture-DGxWrkc7.js",
+      "current": "aa40f8a26d4a9c552a70351cefabf00ad601c9622cd790253f56824f8f728f99",
+      "expected": "aa40f8a26d4a9c552a70351cefabf00ad601c9622cd790253f56824f8f728f99",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/CalendarTodayIcon-30UwTRzh.js",
+      "current": "318721287774dec6cb90aac7c4ce0cba05bacd6c8c35d32cec39be552f95bf1c",
+      "expected": "318721287774dec6cb90aac7c4ce0cba05bacd6c8c35d32cec39be552f95bf1c",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DateField-DnGt1UXw.js",
+      "current": "b8c09757d2f1ff5b03c442e6b15cc23aed5929fc1f0d31f48796bcaa2dde5b28",
+      "expected": "b8c09757d2f1ff5b03c442e6b15cc23aed5929fc1f0d31f48796bcaa2dde5b28",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DateField.fixture-BwbpUTEh.js",
+      "current": "c2932d8febde8bef1921c1752756d7ff0da9f1e5ec154c4b1b132d43c995c502",
+      "expected": "c2932d8febde8bef1921c1752756d7ff0da9f1e5ec154c4b1b132d43c995c502",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DateField.module.css-Z3J6nfpx.js",
+      "current": "956b8fe3aadbdc53846ae4498d478f397d68ab57fd0710ac4c7e4fa03f0658f7",
+      "expected": "956b8fe3aadbdc53846ae4498d478f397d68ab57fd0710ac4c7e4fa03f0658f7",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DatePicker-dvhtyNlA.js",
+      "current": "9dc05ae7554df86a397c09329131781dec23b95cc03d8c178a0f78c11ff421ac",
+      "expected": "9dc05ae7554df86a397c09329131781dec23b95cc03d8c178a0f78c11ff421ac",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DatePicker.fixture-Ca0gVLuR.js",
+      "current": "83d1ecc0c76bd8e7ab63dd9a6cecd676ec51373c99354b57dde71c7d509a9d31",
+      "expected": "83d1ecc0c76bd8e7ab63dd9a6cecd676ec51373c99354b57dde71c7d509a9d31",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DatePicker.native-transactions.fixture-Bs6VEzIq.js",
+      "current": "b2f5f11d62c38fcbdd3a07507fb1f6bcddf212ba766a3092db666a543ae760c2",
+      "expected": "b2f5f11d62c38fcbdd3a07507fb1f6bcddf212ba766a3092db666a543ae760c2",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DateRangePicker-BAqoNoIb.js",
+      "current": "0b57c634279a92aa23264744a0ebbfbacfe3f2c929a092065e8c388c85907c00",
+      "expected": "0b57c634279a92aa23264744a0ebbfbacfe3f2c929a092065e8c388c85907c00",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DateRangePicker.controlled-transactions.fixture-B7wztj4i.js",
+      "current": "34c56b957423f79854e880b64b86eec33c5e9e7ef81e9f45628fdf89646bd7b1",
+      "expected": "34c56b957423f79854e880b64b86eec33c5e9e7ef81e9f45628fdf89646bd7b1",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DateRangePicker.fixture-Bu3b6uIK.js",
+      "current": "259d7f795e0223a6e4359ceb9283e178947f5247fbd6b72094faf774be476bf1",
+      "expected": "259d7f795e0223a6e4359ceb9283e178947f5247fbd6b72094faf774be476bf1",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DateRangeSelector-C_aazKxo.js",
+      "current": "4e3c2d8dcce504360879bd1800b64470a075541aeaed481df43bdada707b84f9",
+      "expected": "4e3c2d8dcce504360879bd1800b64470a075541aeaed481df43bdada707b84f9",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/DateRangeSelector.fixture-DS_CHolZ.js",
+      "current": "293367857b9439310f18c809c0748bd5db34ad07144a2c8336868385045f8036",
+      "expected": "293367857b9439310f18c809c0748bd5db34ad07144a2c8336868385045f8036",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/TimeField-C90F89hV.js",
+      "current": "cfd4b3dc3e655e6bd3b6815be263e03af8cf18842c86f3c24dd5f675a691eb46",
+      "expected": "cfd4b3dc3e655e6bd3b6815be263e03af8cf18842c86f3c24dd5f675a691eb46",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/TimeField.fixture-MO1rSHcO.js",
+      "current": "ad8081fb197166697c7ea2d5d6b6a1d4d85ce30b1e28f1a441af94d7bb422298",
+      "expected": "ad8081fb197166697c7ea2d5d6b6a1d4d85ce30b1e28f1a441af94d7bb422298",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/createCalendar-BSgf9ZEX.js",
+      "current": "c40b57af90cc5013a90c3f20dcbd9a50b6879d2f3d7fa0b1604fd5f4f8062746",
+      "expected": "c40b57af90cc5013a90c3f20dcbd9a50b6879d2f3d7fa0b1604fd5f4f8062746",
+      "matches": true
+    },
+    {
+      "path": "packages/ui/browser-docs-static/assets/date-contract-DPd8KLLf.js",
+      "current": "a6a97346d31c35234b2309c9d0769fc1047163c2fb7155b95af643d50421f768",
+      "expected": "a6a97346d31c35234b2309c9d0769fc1047163c2fb7155b95af643d50421f768",
+      "matches": true
+    }
+  ],
+  "extraInputs": {
+    "packages/ui/src/utils/relative-dates.ts": "1922bc80f9168a09eccd04aa5984973c6487b3482b38cf1135bf926a0f3339fd",
+    "packages/ui/dist/utils/relative-dates.js": "164e347aad3611b268757cc17a79f16431c00225e556a1d823cb489b4a863e15",
+    "packages/ui/src/experimental/DateRangeSelector/date-contract.ts": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd",
+    "packages/ui/dist/experimental/DateRangeSelector/date-contract.js": "c383ef2acc786e1a0a7f94383b7d3d04e2f9c53b2419216c5d9d4922cc01b7fb",
+    "packages/ui/tests/browser/calendar-native-locales.spec.ts": "be0ad0985d569b0225db8b1a229d56b1da7f1adda5dd258697c1dbedd1090e3a",
+    "packages/ui/tests/browser/hardening-date-presentation.spec.ts": "a900f5eba095e135b49eb07c8f7a7bf9cfe61e83e7ff16c929174dede0b398c1",
+    "apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.fixture.tsx": "e4c6a1de91122cb57e346bfa99d1af6034b4f0d1a58752a5c46d3e627c0c495c",
+    "/tmp/sgui-calendar-validate.mjs": "eae18fcf50a41dac846996e946fd9fca5d280403930bb05a061fed0096777dd3"
+  },
+  "retainedEvidence": {
+    "docs/developer/final-acceptance/coordinator-integration/evidence.json": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+    "docs/developer/final-acceptance/coordinator-integration/composed-units.txt": "182e765e2bc1a24b3f15dba5cd6d7a2d21f2eea20fe5abf95be0c9f9c64c80d9",
+    "docs/developer/final-acceptance/coordinator-integration/browsers-full.txt": "7e10ecbeda46f49b1df5c4368acf5efb1c12b2dfeec06d8ea85289a30f4b62fe",
+    "docs/developer/final-acceptance/coordinator-fixes/evidence.json": "dfc875e15f646a72bad1bbbfd50be02fe44fef418c7669bfcb5fa4354b6a6415",
+    "docs/developer/final-acceptance/coordinator-fixes/units.txt": "a1d506944c27c054b88bea64915a5827554f7d23951591eb275e092f0224265d",
+    "docs/developer/final-acceptance/wave-02-11/report.md": "c17283d1f729a8f52177974debe0929003ccc57170dabb11bccf9527404d8611",
+    "docs/developer/final-acceptance/wave-02-11/results.json": "d344a5cf1d0ef6c1ecabb21b1afc06c41b74e3fee3973d47a204b9f027d03090"
+  },
+  "summary": {
+    "inputs": 93,
+    "matchWave02": 82,
+    "matchCoordinator": 33,
+    "builtOutputs": 132,
+    "matchingOutputs": 132
+  },
+  "artifactHashes": {
+    "assignment.json": "f9c5ad82422a19be076f9d386cc9861670c1c2da7fa6c37782292c7d9f2a8d13",
+    "boundaries.patch": "1a8b18b42d7c7442a69a6edf03abd9631359efa184725a262f8750b133e1ddd5",
+    "boundaries.test.tsx": "b55f375b6fc623c2c861e6c8f25557987c2fe4edce55a98ea3aac89eaee82d4d",
+    "contracts.patch": "8facf648d4fe307af1c9f324a348b03a63bd95221dd759ef17feea9646b73ceb",
+    "exclusive-boundaries.log": "26fc8032974000a12683ce1dd3fcf6cb172c607c91f46e6732d4fde31ab2bc85",
+    "exclusive-boundaries.mjs": "0824804c5e5649571ace90ccf2bb30715dba30723146bc959f6106f0c7a5e2cf",
+    "exclusive-chicago.log": "c9a47de3b6cee9d227d8ac634518482bb7a599ab1c37ae3a7dfaa8be325b1c86",
+    "exclusive-tokyo.log": "dd8a4d9ae88cd94b7c5be7e3170fae18864db2a406d8f8daa3444a4b3fe0c601",
+    "native-navigation.patch": "c3db6605d8a64ec4f09887f4f6923c42876aea458ce1f7e7bb47ca29b55e0ae8",
+    "patch-check.json": "977545df6dd4a23ca50aa7ae44f453cf9af9aba2a22a49c3050a2a29e4ede2b0",
+    "proposed-files/apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.fixture.tsx": "ea7eb125e2faffbbd788cd3de594ba0fddd7bca9af48016fdd9b5e529bc4ea97",
+    "proposed-files/docs/developer/react-aria-calendar-contracts.md": "3d34ca31b973762444b34e44af4169cda3bb1be5ad48cd2bfa78b0051a5278ad",
+    "proposed-files/packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.boundaries.test.tsx": "045e576a992eb77d74032dd0603742e9a3269fbd4c53744974bcc6f798ad2203",
+    "proposed-files/packages/ui/tests/browser/calendar-navigation-reflow.spec.ts": "f965fc9a79027407a711db6fb1a0b2c17f55e437149aca021745a61762e7d266",
+    "report.md": "8797223b4accfcfc12e123a0be9a7089460a8d3d810d80200c52009b9da0df94",
+    "results.json": "4aa24397cfd30619cef2f18c1b1d434d0600a137a1436b9ef62b44dc7781e7f0",
+    "unit-first-resolution-failure.log": "604f6150b532e0d50b7da3e0997bd396d9559d9455dfef78ca3473aec614f33a",
+    "unit-lease-occupied.log": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "unit.log": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+    "validation-plan.json": "f52f9cb54906851d496f66ea97a856c7bae85d53999d1c7b610548f950202ca3",
+    "vitest.config.mjs": "4b2a4833e28526401464e8f957b9083a45a99f09d0654c80d81d832e320b571c"
+  }
+}

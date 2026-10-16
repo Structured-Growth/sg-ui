@@ -1,0 +1,5 @@
+git apply --check docs/developer/final-acceptance/wave-03-25/editor-successors.patch
+Exit 0; patch not applied.
+node --check docs/developer/final-acceptance/wave-03-25/vitest.config.mjs
+Exit 0; shell Node 26.5.0 syntax-only check, not supported-runtime execution.
+Python json.loads on every artifact JSON: passed.

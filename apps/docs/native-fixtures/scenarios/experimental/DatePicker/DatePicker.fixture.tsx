@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "../../../types";
 import { DatePicker } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
 const meta = { title: "Migration proofs/DatePicker", component: DatePicker, tags: ["autodocs"],
-  decorators: [(Story) => <Provider><Story /></Provider>], args: { label: "Course date", defaultValue: "2024-02-28" },
+  decorators: [(Story) => <Provider><Story /></Provider>], args: { entryMode:"segments", label: "Course date", defaultValue: "2024-02-28" },
 } satisfies Meta<typeof DatePicker>;
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -17,8 +17,8 @@ function NativeResetExample() {
   const [controlledDate, setControlledDate] = useState<string | null>("2024-03-01");
   return <StrictMode><label><input type="checkbox" checked={prevent} onChange={event => setPrevent(event.target.checked)} />Prevent form reset</label>
     <form onReset={event => { if (prevent) event.preventDefault(); }}>
-      <DatePicker label="Reset date" name="date" defaultValue="2024-02-28" onValueChange={() => setChanges(count => count + 1)} />
-      <DatePicker label="Controlled date" name="controlledDate" value={controlledDate} defaultValue="2024-02-28"
+      <DatePicker entryMode="segments" label="Reset date" name="date" defaultValue="2024-02-28" onValueChange={() => setChanges(count => count + 1)} />
+      <DatePicker entryMode="segments" label="Controlled date" name="controlledDate" value={controlledDate} defaultValue="2024-02-28"
         onValueChange={date => { setControlledDate(date); setChanges(count => count + 1); }} />
       <button type="reset">Reset dates</button>
     </form><output aria-label="Date changes">{changes}</output>

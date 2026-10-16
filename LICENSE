@@ -78,8 +78,8 @@ limits liability or rights that cannot lawfully be excluded or limited.
 
 7. Third-party materials
 
-The Software uses third-party packages, including React, MUI, Emotion and
-Lexical. Those packages and any separately identified third-party materials
+The Software uses third-party packages, including React, React Aria, TanStack Table,
+Lucide and Lexical. Those packages and any separately identified third-party materials
 remain governed by their own licenses and copyright notices. This notice does
 not impose commercial-license restrictions on rights granted independently
 by those third-party licenses. Preserve applicable third-party notices when

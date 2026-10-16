@@ -25,6 +25,23 @@ Rows have no upstream constraint. Default identity reads string/number `id`;
 numeric IDs normalize to strings. Missing/duplicate IDs are configuration errors.
 Checkbox selection is enabled by default; `selection=false` disables it. An
 object accepts selected/default ID sets, a change callback and `isRowSelectable`.
+The original extracted wrapper omitted convenience selection when `selection` was
+absent. Pass `selection={false}` to retain that presentation. Existing
+`selection.selectedRowIds` already used `Set<string>` and its callback still returns
+a Set; do not convert those callers to an engine include/exclude object. Move
+custom selection/drag `getRowId` to the top-level prop and return stable strings.
+
+```tsx
+import { AppDataGrid } from "@structured-growth/sg-ui";
+
+export function CoursesWithoutSelection({ rows }: { rows: { id: string; name: string }[] }) {
+  return <AppDataGrid<{ id: string; name: string }>
+    label="Courses" rows={rows} getRowLabel={row => row.name}
+    columns={[{ field: 'name', headerName: 'Course', flex: 1 }]}
+    selection={false} />;
+}
+```
+
 Page selection retains off-page and previously disabled IDs; the selection menu's
 None action clears all retained IDs. Host deletion reconciliation remains explicit.
 
@@ -46,7 +63,7 @@ Breaking mappings:
 | --- | --- |
 | engine props, slots, `sx`, `apiRef`, inherited event params | explicit props, native `className`/`style`, container ref and `tableRef` |
 | `sortModel`, `AppGridSortModel`, separate processing modes | ordered `sortRules`, one `mode` |
-| engine selection include/exclude object | explicit string ID set in selection config |
+| upstream row-selection model alias and engine event params | owned `Set<string>` alias and owned callbacks; existing selection config Set values remain |
 | nested selection/drag identity | top-level `getRowId` |
 | `valueGetter`/`valueFormatter`/engine cell params | `getCellValue(row)`/`formatValue(value,row)`/`renderCustomCell(row)` |
 | action `onClick(row)` | `onPress(row)` |

@@ -1,6 +1,6 @@
 import { measureGridColumnWidths, retainGridFillColumn } from "../../experimental/DataGrid/column-sizing";
 import type { ReactNode } from "react";
-import type { OwnedGridColumn, OwnedGridSortRule } from "./ownedGridModel";
+import { isReservedOwnedGridField, type OwnedGridColumn, type OwnedGridSortRule } from "./ownedGridModel";
 
 export type OwnedGridCellType = "text" | "date" | "dateTime" | "link" | "copyable" | "json" | "image" | "menu" | "custom";
 export type OwnedGridMenuAction<Row> = {
@@ -32,12 +32,11 @@ export type OwnedGridPresentationColumn<Row> = OwnedGridColumn<Row> & {
   maxWidth?: number;
   flex?: number;
 };
-const reserved = new Set(["__selection", "__drag", "__select__", "__drag__"]);
 const finitePositive = (value: unknown): value is number => typeof value === "number" && Number.isFinite(value) && value > 0;
 export function createOwnedGridColumns<Row>(columns: readonly OwnedGridPresentationColumn<Row>[]): OwnedGridPresentationColumn<Row>[] {
   const fields = new Set<string>();
   return columns.map(column => {
-    if (!column.field.trim() || reserved.has(column.field) || fields.has(column.field)) throw new Error(`AppDataGrid column field is invalid or duplicated: ${column.field}`);
+    if (!column.field.trim() || isReservedOwnedGridField(column.field) || fields.has(column.field)) throw new Error(`AppDataGrid column field is invalid or duplicated: ${column.field}`);
     fields.add(column.field);
     for (const key of ["width", "minWidth", "maxWidth", "flex"] as const) {
       if (column[key] !== undefined && !finitePositive(column[key])) throw new Error(`AppDataGrid ${key} must be finite and positive: ${column.field}`);

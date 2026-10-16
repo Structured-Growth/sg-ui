@@ -95,7 +95,9 @@ export function TextColorPickerControl({ value = "#000000", onChange, triggerIco
       <div className={styles.swatches} role="group" aria-label={t("common.ui.editor.themeColors", { defaultMessage: "Theme colors" })}>
         {presetDefinitions.map(([key, fallback]) => <Button key={key} variant="outlined" tone="neutral" density="compact"
           className={styles.swatch} aria-label={t(`common.ui.editor.color.${key}`, { defaultMessage: fallback })}
-          aria-pressed={draft === tokens[key]} style={{ backgroundColor: tokens[key] }} onPress={() => commit(tokens[key])} />)}
+          aria-pressed={draft === tokens[key]} onPress={() => commit(tokens[key])}>
+          <span aria-hidden="true" className={styles.swatchFill} style={{ backgroundColor: tokens[key] }} />
+        </Button>)}
       </div>
       <label className={styles.nativeLabel}>{t("common.ui.editor.customColor", { defaultMessage: "Custom color" })}
         <input className={styles.native} type="color" value={nativeColor} onChange={event => commit(event.target.value)} />

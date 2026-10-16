@@ -1,0 +1,826 @@
+{
+  "checkedAt": "2026-10-16T23:10:36.268Z",
+  "polls": [
+    {
+      "threadId": "01a146f4-1b24-7781-b7c6-166394460c56",
+      "cursor": "b03bf44e-8ca0-4075-bb00-ae3fe03c367b:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f3-f105-7b83-b22a-f17d0f642c9b",
+      "cursor": "ed5609ae-6589-4636-885c-d8f3eb597a7d:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-177b-7731-b103-f516af10ff1f",
+      "cursor": "573bb6f2-1d98-4e89-b944-3f3c7b69e254:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-1f00-7190-b264-bb6cb0744a6c",
+      "cursor": "a28ed2d0-aab4-43c5-a560-9118b4cb619d:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-2b2c-7f52-9353-82f3dc86ccaa",
+      "cursor": "04574196-d423-4c81-b760-3e89035573ae:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-22ca-7e21-be80-d2cc72c22509",
+      "cursor": "f36e9f33-4b8e-42bc-bab7-da2a0f00c2f6:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-2fb0-7ef1-bd42-8b1835bd53ff",
+      "cursor": "e29bad9e-c05d-47cc-a75d-61af65cddc06:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-2720-7fe3-92d8-e2f079b72176",
+      "cursor": "d9af77be-897d-4b00-8efa-66b40c922e9c:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-3433-7c40-8777-fe2348bc4661",
+      "cursor": "c485d920-2ec1-4eaa-958f-649989a6b50e:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-3908-7bf2-a546-82f7293a45b8",
+      "cursor": "1fe404a9-389d-4b41-b0de-855f04c75945:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-53e4-77e3-af90-7d44c4bd4771",
+      "cursor": "403cc722-d0cb-42ac-98bc-fa3a2e595817:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-4f34-7620-b6cf-82a2ba8a8a0d",
+      "cursor": "8e2654f5-1f4f-4994-8d03-896c6fe5ae16:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-4b90-7492-a2d4-6de024fb4109",
+      "cursor": "c9095937-8edb-467b-9772-9f0655c8c053:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-5cd3-7d33-8376-bab3dbbab44f",
+      "cursor": "36645428-fc2f-443d-b55a-6036bdcf763c:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-585c-7f52-94cf-b9aa565520bd",
+      "cursor": "34719f00-8c56-4425-982d-4c403f2ab660:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-60dc-7661-827d-cae3bd7c11be",
+      "cursor": "57f73457-69aa-43ce-9a59-d661ee5491fe:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-64e2-7fb3-9b62-dfcb6a88555d",
+      "cursor": "955df8e7-f914-422e-a954-83362bc5c5de:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-8ff6-7b70-8036-a9207dc0942b",
+      "cursor": "ae7cb801-07d0-4f0e-9127-81fd6bde89fa:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-9586-7323-9868-4a3bf3070687",
+      "cursor": "0a9b4180-5d9a-4110-a5df-99f5560d2ceb:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-6a50-7c11-bdd7-756f03ccfa9b",
+      "cursor": "9b5c72f4-77f0-4e20-9880-96fc3dad3a33:2",
+      "turnStatus": "inProgress",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-6ef6-7cf3-8360-1aec0df80571",
+      "cursor": "b28689fa-ec11-48e9-a561-31c1a138c22a:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-7394-7911-8211-bf40eb220903",
+      "cursor": "ddf253cf-47f0-4d19-8d3f-b43ddf27df43:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-9a60-7f72-b003-2d4b0c48263e",
+      "cursor": "717d26b5-3107-4d85-98fa-a215b5ac5665:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-8a83-7bc1-9d0b-16c2489b4f05",
+      "cursor": "5d69a060-fb2a-4ea6-8761-7d1d006c2bde:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-a00b-7f90-91e1-f58e27ae8c98",
+      "cursor": "1def8018-20c8-40d3-889f-bcda3ed0c71f:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-a475-7fc3-8cf7-8668ba8fe7e0",
+      "cursor": "ec5725fc-7c00-4e84-8718-0bedbace947b:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-ce6f-7a70-94a1-14960786cb78",
+      "cursor": "7cac0c17-e447-4e83-90ac-587a4709d3ad:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-b48e-7da1-ae77-8cdc69bc33b1",
+      "cursor": "345fe262-e68b-41fd-805a-b77c415dc86c:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-ae7d-7852-969d-9564718d46ba",
+      "cursor": "20d931ba-2be0-4c97-9d8b-8e6af481ad82:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-b9e1-7ae3-a97e-ff92966fbd96",
+      "cursor": "9e9cb1f2-09de-4da9-bc6b-d0a20263449c:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-d385-7a20-875d-f99d2f4a4953",
+      "cursor": "ffa3504c-ec77-4211-8e78-e6e462e86a10:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-a984-73f3-b206-db18cf28b6c8",
+      "cursor": "f8798901-dcef-496b-bb8f-ee11761adcbd:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-d959-7d73-83b1-22f406d5e888",
+      "cursor": "49591042-8c5e-45f0-959e-18639e5d1037:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-def8-7c00-996d-7304bb9485bc",
+      "cursor": "305bdb45-8e71-496b-b124-3612ead93c8c:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f5-00fd-7813-9cd6-d0b307efbed4",
+      "cursor": "d836d973-2005-4cb1-95a3-42f2d7848c5a:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-e658-71e2-907c-c0522444f5e4",
+      "cursor": "4331d495-46e1-48a5-8833-e0f0ec44047d:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-ecaa-7d72-a098-f645fec9ea9e",
+      "cursor": "3973a775-082f-4aaf-98a9-3d8c6208fb0a:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-fb2c-7480-a244-33801127f6bc",
+      "cursor": "e55cd28e-152c-4549-89d6-3a7cc0e2449c:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f5-06ac-7370-b7d3-43d9ee550674",
+      "cursor": "f644039f-789c-43b0-a67e-d25e53c235bd:2",
+      "turnStatus": "completed",
+      "error": null
+    },
+    {
+      "threadId": "01a146f4-f2f4-75b0-b982-a6489e3bc041",
+      "cursor": "586b6d1b-ffa9-4758-bc34-c8171d985a34:2",
+      "turnStatus": "completed",
+      "error": null
+    }
+  ],
+  "deliveries": [
+    {
+      "number": 1,
+      "title": "API defaults and breaking changes",
+      "threadId": "01a146f3-f105-7b83-b22a-f17d0f642c9b",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "a582dc1caf8f4ccc5d5bc9f04f6d80a091448e01e3aab8a122b6375a7a8c5654",
+        "results.json": "e0e78878b50f68f4fdde4d17438ac20cf53e0a7fa1d9a0d19a84471bca593085",
+        "validation-plan.json": "7edbf7d7e1218e2bfc0fd95e8af9b39218ac670d04a32793d61c7620ff6c055d"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-01/consumer-guide.patch"
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Dependency cycles and enforcement",
+      "threadId": "01a146f4-177b-7731-b103-f516af10ff1f",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "5979a6d88b185dfd8d9416210b597bdbae81e4d1f427c234a71a1ede2bfcf99d",
+        "results.json": "e04d0170a963fdfe82f0c9314aed9cfa13abd7cfe7acd12b1228fe74f8239e96",
+        "validation-plan.json": "8748e8dd958652303a23986cac5930624dcbdb060f7405621752c0f8f71f537f"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-02/cycle-enforcement.patch"
+      ]
+    },
+    {
+      "number": 3,
+      "title": "State naming and composition contracts",
+      "threadId": "01a146f4-1b24-7781-b7c6-166394460c56",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "fbe13da284363e97df7be82169f21552c369e8804d890da92ebea2fe10c843c2",
+        "results.json": "79bf183f3cbb8d16f0aaeacafd84e4fed1b652021408d892da45bd1446355695",
+        "validation-plan.json": "fe74c32399713d91e9565892e304dd86d0bbb491e0b563ccee9bcfc096576463"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-03/public-contracts.patch"
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Press and asynchronous action behavior",
+      "threadId": "01a146f4-1f00-7190-b264-bb6cb0744a6c",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "a673da242c3dbce21b4c1789b7cf5fbd0b68b42bd4150424de7e9f5c69fd2d14",
+        "results.json": "ad5819474195934f26189eda0ab200a27e79436373730d39aaadfae36f5a1b55",
+        "validation-plan.json": "1e97092ae832339e11cd8834d6ca484a8bacc35f9396026bf3aae85aa1f034ac"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-04/actions.patch"
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Granular imports and heavy boundaries",
+      "threadId": "01a146f4-22ca-7e21-be80-d2cc72c22509",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "469dd9576291eb000431d2e79fa23da687976ee17ffb96ec76630b2eb8157ddf",
+        "results.json": "e9ffe12ce57f412a5699c18c46e650dd96160711516183b397d55cf93f187d6a",
+        "validation-plan.json": "771fa298592f9aa3bf7121a6ac0c89fcad0f2672499c78f969ffadf6f634c933"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-05/direct-icon-imports.patch",
+        "docs/developer/final-acceptance/wave-03-05/guard-and-recipes.patch"
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Distributed licenses and notices",
+      "threadId": "01a146f4-2720-7fe3-92d8-e2f079b72176",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "cedd9c41a27f05376638c479a417ec5f0fcced6bde258feab03e4d7c730aea95",
+        "results.json": "cf3cc93f09cd733b7933a2f7afe46ceb5090852d485fddd9484c2d36d6de2e83",
+        "validation-plan.json": "c0609ec302b53cb0bbadb7aae7ab081b7755c52ecf09215a0bd8bbaed24cabbf"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-06/factual-descriptions.patch",
+        "docs/developer/final-acceptance/wave-03-06/notices.patch"
+      ]
+    },
+    {
+      "number": 7,
+      "title": "License automation and ownership policy",
+      "threadId": "01a146f4-2b2c-7f52-9353-82f3dc86ccaa",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "0df1d1ffcc9e673b189919e4345625953b36fb57c7eb169faed94ed5b2f84f41",
+        "results.json": "5e6ea28899f417f61032ebc7cdde03c0e9ae36653ac82470bf33d02f3ab89cc3",
+        "validation-plan.json": "5cbca0868ffbf10c8609987133655611c6d8d6e8e7acf7c90ab6063ca95fd0e6"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-07/governance-and-guidance.patch"
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Foundation scales and visual states",
+      "threadId": "01a146f4-2fb0-7ef1-bd42-8b1835bd53ff",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "f3f248504efa1cd32af502bb69863c3003a1b91c13e5be04c6420185df77b876",
+        "results.json": "ad28b818f6e9946a0c1e638008289ca08a1ec30b1bc4ea148b7ea0ed3913683a",
+        "validation-plan.json": "cc6caaa022511a2cca1b9569413f8d05531bb48c42d0c84ed20833dea746424f"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-08/implementation.patch"
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Zoom reflow and containment",
+      "threadId": "01a146f4-3433-7c40-8777-fe2348bc4661",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "db57801395575cc03880ec54a5a5748900feffa7843748ef851b8fc4f42edfdf",
+        "results.json": "9acb01ad3a130829d3960cc5d77577f9182130bb7dcf33e714b7ebc8cb86c484",
+        "validation-plan.json": "91e55a75f2f4d2170951ad04aa556dedfebd2b4d7a54c3848e448c3a8dc2baf1"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-09/card-containment.patch"
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Touch targets and drag alternatives",
+      "threadId": "01a146f4-3908-7bf2-a546-82f7293a45b8",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "33ffca43cd9fc0ab686d96272bc214b83949a4852afea7be068290a4fa3adcd1",
+        "results.json": "1d5ef056d6ec5dba24e38797c57d0c2faf38f2acd2d403529a68a8679497bf28",
+        "validation-plan.json": "f1e9a5108e34703d782851438b181bf8be87f970a5b68d6da8bb03ff22db9636"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-10/implementation.patch"
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Nested scopes hydration and isolation",
+      "threadId": "01a146f4-4b90-7492-a2d4-6de024fb4109",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "55f3d92f55bc22cf025a7f269d7da33a0c28c82d671f0617f9dc4e30910324c5",
+        "results.json": "332442e00631e181e150031d2d2eef672f5f0ab90daf8dd7ecd16aba5119922e",
+        "validation-plan.json": "1fa8a60e28639fd8f78db060e1882ac53e0e9688540a534ea7b4e8640363ce8a"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-11/scoped-lifecycle.patch"
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Motion contrast and system indications",
+      "threadId": "01a146f4-4f34-7620-b6cf-82a2ba8a8a0d",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "27afc955c97106c874f77fec855784a6911328698e2a902649f13daa0f34b0ed",
+        "results.json": "45db7be9f0c42bc236e1d3a2461a5ea22907436a1f54070104817035e9daa83d",
+        "validation-plan.json": "160a01395a5df5136acdedcff4ec5b51ac3082478ed61d565efc910128dff935"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-12/system-indications.patch"
+      ]
+    },
+    {
+      "number": 13,
+      "title": "CSS composition CSP and focus",
+      "threadId": "01a146f4-53e4-77e3-af90-7d44c4bd4771",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "af603f44b5cc42e9a0da52cf8848c47de66711c7e9cbf4e7fe09ff6186a3da30",
+        "results.json": "69095322c05ce48f710e9910c4baf9c1f9bbb0b911abcef28a7bd39a62e6d880",
+        "validation-plan.json": "2992cee33ee2f275434c295288441a95c174db823884fa598fa3449b617ed88c"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-13/documentation.patch",
+        "docs/developer/final-acceptance/wave-03-13/native-fixture.patch",
+        "docs/developer/final-acceptance/wave-03-13/optional-native-nesting.patch",
+        "docs/developer/final-acceptance/wave-03-13/scoped-css-corrections.patch"
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Overlay focus collision and modality",
+      "threadId": "01a146f4-585c-7f52-94cf-b9aa565520bd",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "215b3fc4004584b5b330dd5cd764e313566cbca5de5bba22eb31817f498a30a6",
+        "results.json": "efdaddbbc78118d2e8bb66837a54f6ed0c3c4615c6258695be707ead37b3b0bc",
+        "validation-plan.json": "ef4d9ea64a82535f907d18d1f8eec358e7794790fbd1c6cdf8ad8b43b37fbcf7"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-14/overlay-successors.patch"
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Icon optics assets and bundles",
+      "threadId": "01a146f4-5cd3-7d33-8376-bab3dbbab44f",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "5f69d02cda5573e0142028b63ca95f8b28c4b764a631b9c86f95d5041eead1eb",
+        "results.json": "2a348ef0832217e9dcd8e8015d8d3b7fa59f2bbd09421109e70b8c81a93ea77f",
+        "validation-plan.json": "cfc3f94a18ab1fa475c229e0ba4ad0fe2a4fdc054fba2a2b865cc96a78f3337d"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-15/icon-acceptance.patch"
+      ]
+    },
+    {
+      "number": 16,
+      "title": "Navigation and routing acceptance",
+      "threadId": "01a146f4-60dc-7661-827d-cae3bd7c11be",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "f7c9aa4652a41e17cc4c594098ad2d09a453589eb1e61a3d59d62ce91a571c56",
+        "results.json": "ce76230ef2791bf351766fc38601c1d09b2c71e1a846a67327a7a4f3a345d555",
+        "validation-plan.json": "2e2524060a745079d7d0fa297ff84a95655070b56b99cdb131b781ae26e854fb"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-16/routing-probes.patch"
+      ]
+    },
+    {
+      "number": 17,
+      "title": "Localization ICU and RTL",
+      "threadId": "01a146f4-64e2-7fb3-9b62-dfcb6a88555d",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "c8b63fc5a3bbc62c75fbbabb4959d066def18e6ef18c8fdf5c659becc970469c",
+        "results.json": "0d82917b0c070a9ea0f6820c544f49acb6703ae8d7c5c07de7dd6122d22e9e6b",
+        "validation-plan.json": "aba1cb0b9d36f3cc093687588046a93a0020f10f5b07b7acb26752e5086b1920"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-17/localization-direction.patch"
+      ]
+    },
+    {
+      "number": 18,
+      "title": "Primitive forms and layout",
+      "threadId": "01a146f4-6a50-7c11-bdd7-756f03ccfa9b",
+      "turnStatus": "inProgress",
+      "files": {
+        "report.md": "d7d2b639d914e5566096b6d852fdbdc12b4509e38cf53705e3dc1a06fa35ee12",
+        "results.json": "6bc8282f83b44bf63bd362b47455eda328f7ee64b641e0e3f4cc3d136dd756ca",
+        "validation-plan.json": "1f1a153204de81b8b426a075871df957e5be27f7088dcb127e16566b80c81b10"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-18/focused-tests-fixtures.patch",
+        "docs/developer/final-acceptance/wave-03-18/grouped-fields-docs.patch",
+        "docs/developer/final-acceptance/wave-03-18/primitive-reset.patch"
+      ]
+    },
+    {
+      "number": 19,
+      "title": "Selectors menus and keyboard semantics",
+      "threadId": "01a146f4-6ef6-7cf3-8360-1aec0df80571",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "216897b1cdf302e967197a532e6ac4b6a2c33cfa0c689a5119eca4a6d64283b3",
+        "results.json": "b0dbc87259685863924d767a0a465cc741ec79e5948e4f67f33ff69de91debf9",
+        "validation-plan.json": "d50b3a36a8a783d9f700833583ce447dbc41a9d0a5a5109ea0af2fb8acc28ad0"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-19/selector-contract-fixtures.patch",
+        "docs/developer/final-acceptance/wave-03-19/selector-contract-tests.patch"
+      ]
+    },
+    {
+      "number": 20,
+      "title": "Grid state focus and actions",
+      "threadId": "01a146f4-7394-7911-8211-bf40eb220903",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "26e2d92d54d4b30e0e1a6f30934710ba7b31013baf3737d7ca5cc23c12a0b98f",
+        "results.json": "a86cbb71b9d7e20cac145637f9a442f06a2661f6df181c7ac3256372f799520a",
+        "validation-plan.json": "79fb1bb69c1ae83fc22ea8fe49bd6ba89bba2864f80ca6a207b4abfc37c15ad9"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-20/grid-successors.patch"
+      ]
+    },
+    {
+      "number": 21,
+      "title": "Grid reorder acceptance",
+      "threadId": "01a146f4-8a83-7bc1-9d0b-16c2489b4f05",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "bfc7af537e1f4d62640896dbec6ef078083c823ec3e1a423f942df6c51914616",
+        "results.json": "a98b9aaea7aaa041480ec53c3732f5febb2de8e76e60652af7d11eadffc9f186",
+        "validation-plan.json": "6d60abd2c2efedaf5f7d818fb826d6cf2c5a06135e68db9b8af44156477cc238"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-21/reorder-policy.patch"
+      ]
+    },
+    {
+      "number": 22,
+      "title": "Cards progress and step presentation",
+      "threadId": "01a146f4-8ff6-7b70-8036-a9207dc0942b",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "6fc3c8bf183f0dbcd881703c43ad4460cabd93d9359a049a872b46057569aa32",
+        "results.json": "8eee45f590edea5561e7607bc3dc085a2181f9e31ec0783e652ceaa5735f7510",
+        "validation-plan.json": "11c81414824575781035373d2d350cd636e58e9913f6763b24592416c1aa7601"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-22/instructor-literal-labels.patch"
+      ]
+    },
+    {
+      "number": 23,
+      "title": "Editor layout chrome and focus",
+      "threadId": "01a146f4-9586-7323-9868-4a3bf3070687",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "911cd31ac161e5fd3e72b398543f87597918bc475cc780b4ef432062c1fd3e1f",
+        "results.json": "12273a3b655d759db88d0a46247d6c15e8fec4ea214c9a69f9322c9baeda96da",
+        "validation-plan.json": "a00a6de1747ecb45f6132665ddc85a9513d9a6ced98d67c92b5d1629cf48d5b0"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-23/acceptance-successors.patch"
+      ]
+    },
+    {
+      "number": 24,
+      "title": "Editor formatting command behavior",
+      "threadId": "01a146f4-9a60-7f72-b003-2d4b0c48263e",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "77ed3f7939b95dc4b51a7a8ca555cfeed35bb1963a9e532a588ba1dd34501df4",
+        "results.json": "e69e6fbe40ed8dee70a859c7e012dd81b5d310823230264b237d0020cffd98ee",
+        "validation-plan.json": "d3482cfe5982fb5d8fcf946219a69fd50b39c86946a3066cee50c590f9168473"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-24/command-transactions.patch"
+      ]
+    },
+    {
+      "number": 25,
+      "title": "Editor selection nodes and input",
+      "threadId": "01a146f4-a00b-7f90-91e1-f58e27ae8c98",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "33503b07414595bf8b433d552528cfa7bf594eaec969c320caf31dcac9e978ac",
+        "results.json": "16732c0cabe188647c9ed3700054cdd2da99e2f04acc231c37f0ce83e97c2090",
+        "validation-plan.json": "e0ead174a63183d9b272c6dc64a2f4ab976bcc64c0fb11074526ab87f6b9a356"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-25/editor-successors.patch"
+      ]
+    },
+    {
+      "number": 26,
+      "title": "Editor content and upload trust",
+      "threadId": "01a146f4-a475-7fc3-8cf7-8668ba8fe7e0",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "8cc22aae684d7f4c98dbe35b25729140812d2c9f37416f40469e3950e3514753",
+        "results.json": "64d8cba25e685f71693a17dd20c1453069a6517920ef668f2639903521079987",
+        "validation-plan.json": "3d0e4b6c8cfa784489dba583ccf19a93468667bb049fda1c2de38adb4889313e"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-26/image-runtime-shapes.patch"
+      ]
+    },
+    {
+      "number": 27,
+      "title": "Calendar availability input and explanations",
+      "threadId": "01a146f4-a984-73f3-b206-db18cf28b6c8",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "578da37c221e71989581c4f4b786cb30939609629863b8222560a281c11b7330",
+        "results.json": "94692337b0cace3022fca167734d96dac551b56dcc35bc460d6c0f76c4dae0af",
+        "validation-plan.json": "84666a1bd5165258a348f0d641b88f7b516f842dada22751311004a8b7578010"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-27/clipboard-contracts.patch"
+      ]
+    },
+    {
+      "number": 28,
+      "title": "Calendar periods navigation and boundaries",
+      "threadId": "01a146f4-ae7d-7852-969d-9564718d46ba",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "8797223b4accfcfc12e123a0be9a7089460a8d3d810d80200c52009b9da0df94",
+        "results.json": "4aa24397cfd30619cef2f18c1b1d434d0600a137a1436b9ef62b44dc7781e7f0",
+        "validation-plan.json": "f52f9cb54906851d496f66ea97a856c7bae85d53999d1c7b610548f950202ca3"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-28/boundaries.patch",
+        "docs/developer/final-acceptance/wave-03-28/contracts.patch",
+        "docs/developer/final-acceptance/wave-03-28/native-navigation.patch"
+      ]
+    },
+    {
+      "number": 29,
+      "title": "Native browser and screen-reader coverage",
+      "threadId": "01a146f4-b48e-7da1-ae77-8cdc69bc33b1",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1",
+        "results.json": "a1ee32bce800b36a20a5a5509648c7810098a94a30dc1f74c87dd1af458b3ca1",
+        "validation-plan.json": "e23076514ba6119658e85429eb0483f2473915e0a3e66095ac809c464016502d"
+      },
+      "patches": []
+    },
+    {
+      "number": 30,
+      "title": "Visual matrices and prototype scope",
+      "threadId": "01a146f4-b9e1-7ae3-a97e-ff92966fbd96",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592",
+        "results.json": "6e59cf17b55e2fe1991b4fd0d785fbc6f614940923fb6fa546be6b685e2ee6c8",
+        "validation-plan.json": "4bbc44b613316056955ecd5b59678211efe4c76cd141d5a35a3309aaccb97744"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-30/foundation-and-visual.patch"
+      ]
+    },
+    {
+      "number": 31,
+      "title": "Performance memory and benchmark budgets",
+      "threadId": "01a146f4-ce6f-7a70-94a1-14960786cb78",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "4ba67e87994fef55b190f0af8c3200d141434cd9330e90f94a2c7d9ad627d242",
+        "results.json": "49f7d93678e40ac3f03f7b3467dd72100553d3fe45ac6c6f023ab1bd313c2529",
+        "validation-plan.json": "0a10309a276b4871c48f33c7c1651427fdc238e51a12d81344fbf7bb736dde9d"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-31/observer-cleanup.patch",
+        "docs/developer/final-acceptance/wave-03-31/production-profiling.patch",
+        "docs/developer/final-acceptance/wave-03-31/scrollbar-disposal.patch"
+      ]
+    },
+    {
+      "number": 32,
+      "title": "Packed consumers CSS and React versions",
+      "threadId": "01a146f4-d385-7a20-875d-f99d2f4a4953",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "bca11bf8a43475a96b9a7008f904130bd855b09c5e3e8c2ee7648d442444bec2",
+        "results.json": "e9bd80ef2361a6fcca021b2f65782da02ef1ceaccb8f51084f6cc8b67c039852",
+        "validation-plan.json": "ddcdbd2229c5154126990da1c78b3f228939434bd41db54d620ceaee21eb19ab"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-32/immutable-consumers.patch"
+      ]
+    },
+    {
+      "number": 33,
+      "title": "Extraction and replacement provenance",
+      "threadId": "01a146f4-d959-7d73-83b1-22f406d5e888",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0",
+        "results.json": "aebb396f88a59b66a653228b86c7942fb645e4d71fdfa594cf74e167b01340a0",
+        "validation-plan.json": "917e3d4bd50a400a3c96d0481b5bfed036c9f89a0da1835769e265f0315b4e37"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-33/provenance.patch"
+      ]
+    },
+    {
+      "number": 34,
+      "title": "Consumer guides recipes and doc integrity",
+      "threadId": "01a146f4-def8-7c00-996d-7304bb9485bc",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "42081e0bc5cb6fb0568ee676452d5968f715baa387a7e88663603ae727579d8e",
+        "results.json": "7acac7adb0c88ed0eed9c5bdaace14875a889450bdb910c5e1e97d8ce9da33b2",
+        "validation-plan.json": "50b0c209f86e65eac9c62b2df60bbb01a8bcd904a5ae36a43ad931f3c05af7a4"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-34/current-guidance.patch"
+      ]
+    },
+    {
+      "number": 35,
+      "title": "Complete source and packed removal audit",
+      "threadId": "01a146f4-e658-71e2-907c-c0522444f5e4",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "b05d4afafa5dcbdb20d4de98f88807c9ebec03fe791aaba1711dfee5e155809a",
+        "results.json": "73b5f1c2846bcadcf0e36af14edfbe209485b93c16160dfa24503969384aa904",
+        "validation-plan.json": "4fb0be16321829808e33829ad03a49057a911b2aa563d04c6abe88613c35eb99"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-35/retain-packed-and-audit-docs.patch"
+      ]
+    },
+    {
+      "number": 36,
+      "title": "CI artifacts caching and dependency pins",
+      "threadId": "01a146f4-ecaa-7d72-a098-f645fec9ea9e",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "648a6d7b2c8fddeedcf1a24911bf3e22b67c9459c898e4a817c4621f4f36359b",
+        "results.json": "7599840b963e4772249b1451ba8606c4805b455475757a9d973deb52dd601c6b",
+        "validation-plan.json": "632737ec8bc777dc3be198b9d51cf6043bf4d8a13700c97db6f24b7b03ffc41e"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-36/ci-artifact-freshness.patch"
+      ]
+    },
+    {
+      "number": 37,
+      "title": "AI workflow trust and required checks",
+      "threadId": "01a146f4-f2f4-75b0-b982-a6489e3bc041",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "f77d93f9158b2e74f3882238221fb1b70ba142ce5f5b0ad2fe760b689649a46a",
+        "results.json": "2752f0fbff170915664353e7cfd382ec1369717c224b86c8979e04cbddec4f55",
+        "validation-plan.json": "b55a0b1dc712c062f868968db7bf732694254b5ebc200bc54d277f1aa40d9766"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-37/workflow-trust-and-templates.patch"
+      ]
+    },
+    {
+      "number": 38,
+      "title": "Release configuration and recovery",
+      "threadId": "01a146f4-fb2c-7480-a244-33801127f6bc",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "12cb0644ed8d5a1338f889d40fbe2a9ff42a5c999d2e0ce1ed27d54639d292d2",
+        "results.json": "58e4fd7dd1a06fb34bf9d04725ce36990205231fae3675eeac84afc3645805aa",
+        "validation-plan.json": "4225655b26de931fbb224ff89f37d4f72f683088a0d54b6f581f431479fcfb5e"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-38/release-guidance.patch"
+      ]
+    },
+    {
+      "number": 39,
+      "title": "Behavior test quality and false mocks",
+      "threadId": "01a146f5-00fd-7813-9cd6-d0b307efbed4",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "d50c80a902996ed8574ce85106fd5348bb2f64c8e985562c2263b9349ad4237c",
+        "results.json": "a9d8cd0e4fc6cee504cc5a249e6f3f461806fd37cfe42b1bb32ee5b1aa08031e",
+        "validation-plan.json": "506851ea66fea0ad060b5a05415231cd6eb2c606ebb8528e4c852ec87bb7b6d1"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-39/behavior-probes.patch"
+      ]
+    },
+    {
+      "number": 40,
+      "title": "Final commitments evidence and gate synthesis",
+      "threadId": "01a146f5-06ac-7370-b7d3-43d9ee550674",
+      "turnStatus": "completed",
+      "files": {
+        "report.md": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c",
+        "results.json": "43366534bde2147b67b7a7c8934c07c52ec9cc22e75c90627637d0a9a0f4c01b",
+        "validation-plan.json": "42ef77961fe89e50924184f5b0dbf945d5256e207501338cbcaa60b968a768c6"
+      },
+      "patches": [
+        "docs/developer/final-acceptance/wave-03-40/ledger-update.patch"
+      ]
+    }
+  ],
+  "counts": {
+    "completedConversations": 39,
+    "activeConversations": 1,
+    "reports": 40,
+    "results": 40,
+    "patchFiles": 51
+  },
+  "acceptanceCountsChanged": false,
+  "remainingA": 153
+}

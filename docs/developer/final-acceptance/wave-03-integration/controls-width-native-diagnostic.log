@@ -1,0 +1,94 @@
+[WebServer] (node:45187) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:45188) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag (5.3s)
+(node:45239) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag (5.3s)
+
+
+  1) [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: 'Width of Name', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: 'Width of Name', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Width of Name', exact: true })
+        14 × locator resolved to <button data-rac="" tabindex="0" type="button" data-variant="text" data-tone="neutral" aria-expanded="false" data-sgui-part="button" class="sgui_root_4900c47b" aria-label="Width of Name" id="react-aria242428290-_r_16_" data-react-aria-pressable="true">…</button>
+           - unexpected value "inactive"
+
+
+      75 |       activeLabel: document.activeElement?.getAttribute('aria-label'), activeHTML: document.activeElement?.outerHTML.slice(0, 1200),
+      76 |     }))), contentType: 'application/json' });
+    > 77 |     await expect(trigger).toBeFocused();
+         |                           ^
+      78 |     await trigger.click();
+      79 |     await expect.poll(async () => Number(await input.inputValue())).toBeCloseTo(before - 1, 0);
+      80 |     await page.keyboard.press('Escape');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/acceptance-touch-targets.spec.ts:77:27
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('button', { name: 'Width of Status', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('button', { name: 'Width of Status', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Width of Status', exact: true })
+        14 × locator resolved to <button data-rac="" tabindex="0" type="button" data-variant="text" data-tone="neutral" aria-expanded="false" data-sgui-part="button" class="sgui_root_4900c47b" aria-label="Width of Status" id="react-aria9705903263-_r_2d_" data-react-aria-pressable="true">…</button>
+           - unexpected value "inactive"
+
+
+      75 |       activeLabel: document.activeElement?.getAttribute('aria-label'), activeHTML: document.activeElement?.outerHTML.slice(0, 1200),
+      76 |     }))), contentType: 'application/json' });
+    > 77 |     await expect(trigger).toBeFocused();
+         |                           ^
+      78 |     await trigger.click();
+      79 |     await expect.poll(async () => Number(await input.inputValue())).toBeCloseTo(before - 1, 0);
+      80 |     await page.keyboard.press('Escape');
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/acceptance-touch-targets.spec.ts:77:27
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-5b630-ixel-changes-without-a-drag-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-5b630-ixel-changes-without-a-drag-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-5b630-ixel-changes-without-a-drag-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-5b630-ixel-changes-without-a-drag-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-datagrid--client: single-pointer width actions request one-pixel changes without a drag 
+    [chromium] › tests/browser/acceptance-touch-targets.spec.ts:63:3 › migration-proofs-catalog-grid-interaction--client: single-pointer width actions request one-pixel changes without a drag 

@@ -1,0 +1,4 @@
+Syntax passed: proposed-files/packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.acceptance-successors.test.ts
+Syntax passed: proposed-files/packages/ui/tests/browser/editor-selection-editing-successors.spec.ts
+Runnable unit artifact matches proposed colocated test (imports only differ).
+Syntax/mirror checks only; no typecheck, unit assertions, native engine or IME execution.

@@ -28,6 +28,18 @@ Dependency direction runs from compositions to owned controls to foundations.
 Basic controls must not import grid/editor code. React Aria collection/state/date
 objects and full upstream prop types never become public contracts. Source uses
 relative imports and sibling entry points, not the package root or host aliases.
+The foundation check resolves every production TypeScript/JavaScript module reference
+using the library compiler options. Internal references to `src/index.ts` or the
+package root are forbidden at any depth, including aliases, type imports, reexports,
+side effects and dynamic imports. Both runtime cycles and cycles involving erased
+type edges are forbidden; reports distinguish these graphs rather than claiming
+a type-only return edge is a runtime cycle. Extract shared contracts to dependency
+leaves and preserve public type reexports. Nonliteral module references fail the
+audit because their targets cannot be established. Tests and native fixtures are
+outside this production graph. Run `node scripts/check-source-graph.mjs` and
+`node --test scripts/check-source-graph.test.mjs` from `packages/ui`; both checks
+also run through `foundations:check`.
+
 The public primitives/icons and catalog use strict source/transitive/declaration
 checks; `/experimental` preserves proofs, not a parallel visual system.
 
@@ -46,6 +58,8 @@ tokens/styles for reusable changes. Native class/style and documented
 `data-sgui-part` hooks support context-specific overrides. Unlayered host rules
 outrank normal library declarations; avoid routine `!important`, whose layer
 priority reverses. Do not target generated class names or private engine markup.
+See [CSS composition](react-aria-css-composition.md) for host utility-layer order,
+reset ownership and the current Popover geometry exceptions.
 
 Density is compact or comfortable. General scopes default comfortable. Interaction
 sizing is an independent auto/pointer/touch policy (auto by default), inherited
@@ -89,7 +103,7 @@ representative fixtures and adapters. Behavior tests live beside implementations
 composed and browser tests cover nested focus, native timing, scrolling and positioning.
 Do not equate DOM assertions with screen-reader or physical-device acceptance.
 
-During the user-authorized pre-production migration into `codex/dev`, follow the
+During the user-authorized pre-production migration into `dev`, follow the
 [development validation policy](react-aria-development-validation.md): run meaningful
 affected unit/composed tests, type/import/token guards relevant to the change, and
 focused browser or build/packed-consumer checks where behavior or packaging requires
@@ -113,3 +127,40 @@ and the [read-only adoption checklist](react-aria-adoption-checklist.md) guide h
 The [sliding drilldown panel scope](hierarchical-menu-scope.md) compares the
 reference platform's level transitions and Back button with current SGUI support,
 and tracks reusable panel extraction separately from shipped APIs.
+
+
+## Field placeholders and icons (2026-10-16)
+
+TextField, Select and ComboBox expose decorative startIcon/endIcon ReactNode slots.
+AsyncMultiSelect forwards those slots and placeholder to its owned query TextField.
+Slots are aria-hidden, noninteractive and follow logical text direction; actions
+remain real buttons outside these slots. Labels, refs, native form values/reset,
+validation and keyboard interactions retain their existing ownership. Select keeps
+its chevron and intrinsic width sizing, and ComboBox keeps its options action.
+Shared field CSS owns icon sizing, cap padding, rounded frame focus, read-only/
+invalid/disabled styling and forced colors. Icon-free input markup remains unchanged.
+
+Each affected docs page exposes placeholder and icon-position controls plus eight
+independent source-backed examples: empty, start, end and both at both densities.
+Search-like TextField/ComboBox/AsyncMultiSelect examples use owned icons; this does
+not add server querying to the library or make Select a searchable combobox.
+
+
+## Standard search composition (2026-10-16)
+
+SearchField is a public root/primitives/experimental component composing TextField,
+Button, Link and Typography with a React Aria nonmodal results portal. It owns query
+controls, clear action, local label/keyword filtering, result presentation,
+empty/loading/error/retry states, focus and Arrow/Home/End/Escape behavior. Href
+results preserve native modified clicks through the SGUI navigation adapter;
+action results request onResultSelect. Enter in the input can request onSearch.
+Controlled/uncontrolled query, accepted native form reset and scope/density/RTL
+portal ownership follow the field contracts. Component aliases own search colors.
+
+showResults=false provides a standalone search input for hosts rendering results
+elsewhere. filter="none" accepts host-filtered results; fetching, cancellation and
+stale-response protection stay host-owned. Docs sidebar and catalog index both
+consume this public component. Do not recreate their search markup, icon positioning,
+result dropdown or keyboard handlers in site files. The site supplies catalog data,
+contextual labels, page-grid filtering and routing. SearchField is for search/navigation;
+ComboBox selects a form option ID and AsyncMultiSelect retains multiple records.

@@ -1,0 +1,1142 @@
+{
+  "capturedAt": "2026-10-16T22:43:03.113445+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "method": "Selected input hash receipts; CSS fact extraction on FA-02 saved stylesheet file list; historical explicit SxProps fields, not inherited upstream prop inventory. No source traversal, suite, browser or build executed.",
+  "inputs": {
+    "apps/docs/app/theming/page.tsx": {
+      "sha256": "41ed6dbef47f0fe2399dc122451397794ba18cdf1e3d55d3d25339c76d0a860e",
+      "savedInputSha256": "41ed6dbef47f0fe2399dc122451397794ba18cdf1e3d55d3d25339c76d0a860e",
+      "matchesSavedInput": true
+    },
+    "apps/docs/components/ThemePipelineExplorer.tsx": {
+      "sha256": "587308c6451d22789c0eeb5523cd78237a71b74ebe5187c8d74f3b11a1e7f983",
+      "savedInputSha256": "587308c6451d22789c0eeb5523cd78237a71b74ebe5187c8d74f3b11a1e7f983",
+      "matchesSavedInput": true
+    },
+    "apps/docs/content/catalog.json": {
+      "sha256": "a2746b6f18f3828a2126191be41bfe8b5685dc38be70ba914f7b9c422709c35c",
+      "savedInputSha256": "a2746b6f18f3828a2126191be41bfe8b5685dc38be70ba914f7b9c422709c35c",
+      "matchesSavedInput": true
+    },
+    "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx": {
+      "sha256": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5",
+      "savedInputSha256": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5",
+      "matchesSavedInput": true
+    },
+    "apps/docs/native-fixtures/scenarios/foundation/FoundationCatalogue.fixture.tsx": {
+      "sha256": "9dc908146fe72faafe904b7606016b8892a19475f2bc153a04829ff5471f4949",
+      "savedInputSha256": "9dc908146fe72faafe904b7606016b8892a19475f2bc153a04829ff5471f4949",
+      "matchesSavedInput": true
+    },
+    "apps/docs/theme/theme-graph.test.mjs": {
+      "sha256": "cf31d84aaaf3510e2e5a3d296509d6b331123ca26a7b2eca3bdf5740f00c2944",
+      "savedInputSha256": "cf31d84aaaf3510e2e5a3d296509d6b331123ca26a7b2eca3bdf5740f00c2944",
+      "matchesSavedInput": true
+    },
+    "apps/docs/theme/theme-graph.ts": {
+      "sha256": "3ad8971f370a4c350ad59a3e3a9d1d3d7f23c18293b4e0b61f59700d69688d5e",
+      "savedInputSha256": "3ad8971f370a4c350ad59a3e3a9d1d3d7f23c18293b4e0b61f59700d69688d5e",
+      "matchesSavedInput": true
+    },
+    "docs/developer/component-architecture.md": {
+      "sha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+      "savedInputSha256": "9e3e18f19040aededc253a2e94a2c53dbf4db3763b3fc88681f4e91b72abd535",
+      "matchesSavedInput": true
+    },
+    "docs/developer/docs-fixture-migration.md": {
+      "sha256": "2b4f3848c9f9feec373cd4429172efa9b5c2dc068981425eb6868ba01ad3f502",
+      "savedInputSha256": "2b4f3848c9f9feec373cd4429172efa9b5c2dc068981425eb6868ba01ad3f502",
+      "matchesSavedInput": true
+    },
+    "docs/developer/final-acceptance/fa04-library-input-delta.json": {
+      "sha256": "7083b23a5ff0ad7f2912798fa943bb7b87ece435df620048a75727962260310d",
+      "savedInputSha256": null,
+      "matchesSavedInput": null
+    },
+    "docs/developer/final-acceptance/fa04-original-check.txt": {
+      "sha256": "1a3e5118eb2441e0b68b05063f42d2f0144bc4a5455e58c104560e735ff9f8bc",
+      "savedInputSha256": null,
+      "matchesSavedInput": null
+    },
+    "docs/developer/final-acceptance/fa04-package.txt": {
+      "sha256": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103",
+      "savedInputSha256": null,
+      "matchesSavedInput": null
+    },
+    "docs/developer/final-acceptance/fa04-retained-docs-build.txt": {
+      "sha256": "f7c2f6a25b775b674ae29ea8e8ad2237f880673cf2a058c9dd719548ad83ca6a",
+      "savedInputSha256": null,
+      "matchesSavedInput": null
+    },
+    "docs/developer/final-acceptance/parallel-06/report.md": {
+      "sha256": "eb6c42797d3e4d6ea53089267dd5033a6dd41ddfa44f2afb26101be3236f050d",
+      "savedInputSha256": null,
+      "matchesSavedInput": null
+    },
+    "docs/developer/final-acceptance/parallel-08/input-reconciliation.json": {
+      "sha256": "3309d86d500c3e35c5b52074b83a831d55d9f44e4449150e610aae6455cbf248",
+      "savedInputSha256": null,
+      "matchesSavedInput": null
+    },
+    "docs/developer/final-acceptance/parallel-08/report.md": {
+      "sha256": "58f683d79ceb1b9d4cacf318de7e72e054ad5d809ed610899a71099d0bc47b5c",
+      "savedInputSha256": null,
+      "matchesSavedInput": null
+    },
+    "docs/developer/final-acceptance/parallel-10/report.md": {
+      "sha256": "773f199f26c9268f629200200a34951d9d20d8739562c156f7a6b0460f7e555a",
+      "savedInputSha256": null,
+      "matchesSavedInput": null
+    },
+    "docs/developer/final-acceptance/parallel-reconciliation-2026-10-16.json": {
+      "sha256": "4b8faea173248543601f4b00e4cbc3242fdf96c2c6216c675efe177f05b4221c",
+      "savedInputSha256": null,
+      "matchesSavedInput": null
+    },
+    "docs/developer/migration-baseline/public-api.json": {
+      "sha256": "6d3bebe13d4bcb997d3433cdbd5a3be723eb81c66938579a6475f4ce25b7734c",
+      "savedInputSha256": "6d3bebe13d4bcb997d3433cdbd5a3be723eb81c66938579a6475f4ce25b7734c",
+      "matchesSavedInput": true
+    },
+    "docs/developer/parallel-batch-104/acceptance-evidence.md": {
+      "sha256": "2e855898ad3d5dc6de9ecc42125ec676e60d9ba7c80261d00f8993090b402aaa",
+      "savedInputSha256": "2e855898ad3d5dc6de9ecc42125ec676e60d9ba7c80261d00f8993090b402aaa",
+      "matchesSavedInput": true
+    },
+    "docs/developer/parallel-batch-165/toolbar-container-boundary.md": {
+      "sha256": "2b9fa056d9664daec1c4353c4d6e5ce5e60f54365f2ec5508b298e22252fa0dc",
+      "savedInputSha256": "2b9fa056d9664daec1c4353c4d6e5ce5e60f54365f2ec5508b298e22252fa0dc",
+      "matchesSavedInput": true
+    },
+    "docs/developer/parallel-batch-167/navigation-shell-container-boundary.md": {
+      "sha256": "668c40b630925f28e5691ac30b686bee78eef339e6d2d7961762e74afde1e519",
+      "savedInputSha256": "668c40b630925f28e5691ac30b686bee78eef339e6d2d7961762e74afde1e519",
+      "matchesSavedInput": true
+    },
+    "docs/developer/parallel-batch-168/modal-container-boundary.md": {
+      "sha256": "7780ceae2b330b0eceefb47b6de2c5c15d0a7ef52f2470dbc579c97b2522f8f2",
+      "savedInputSha256": "7780ceae2b330b0eceefb47b6de2c5c15d0a7ef52f2470dbc579c97b2522f8f2",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-architecture.md": {
+      "sha256": "fed6d21dc7abd8f895b27bb5e319981982092af6dbe5eaa4e5705622dad3a067",
+      "savedInputSha256": "fed6d21dc7abd8f895b27bb5e319981982092af6dbe5eaa4e5705622dad3a067",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-button.md": {
+      "sha256": "3b587278e52fc5680b2756d44f604598f7d223b47caec0138e69a61cbefe1d96",
+      "savedInputSha256": "3b587278e52fc5680b2756d44f604598f7d223b47caec0138e69a61cbefe1d96",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-card-frames.md": {
+      "sha256": "bc4220f14ad665c8380963f5306051320f1e88ca3b5fee057608185cee4a39fc",
+      "savedInputSha256": "bc4220f14ad665c8380963f5306051320f1e88ca3b5fee057608185cee4a39fc",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-card-pagination.md": {
+      "sha256": "ef66f13a99f048146e64a894f670cbe8d821a34b34604f34044d790202d3f532",
+      "savedInputSha256": "ef66f13a99f048146e64a894f670cbe8d821a34b34604f34044d790202d3f532",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-catalog-grid.md": {
+      "sha256": "a5579f6131b64f69e44a0c1a0612fb97193a62618a8536a9ec9744615aa6a8b0",
+      "savedInputSha256": "a5579f6131b64f69e44a0c1a0612fb97193a62618a8536a9ec9744615aa6a8b0",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-css-lint.md": {
+      "sha256": "f8875e607c410a7cd7f62fc1378142a848a64e0e36d6999b0c6ef958fb3b0676",
+      "savedInputSha256": "f8875e607c410a7cd7f62fc1378142a848a64e0e36d6999b0c6ef958fb3b0676",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-data-toolbar.md": {
+      "sha256": "7c80e7f363584d717df17550f99331c8a7639d458014a09a0be65f5624df0522",
+      "savedInputSha256": "7c80e7f363584d717df17550f99331c8a7639d458014a09a0be65f5624df0522",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-final-acceptance.md": {
+      "sha256": "2fbfe14bd54ca69f65061e020ae6b14336635fa253757a47011e744a939d0c7f",
+      "savedInputSha256": "9dd823406b170aa0cbc6d8b894197f1a44bf9ed030f99a8946bc775a8180ed77",
+      "matchesSavedInput": false
+    },
+    "docs/developer/react-aria-grid-contracts.md": {
+      "sha256": "78eeca7f920fa2291070a0e397eb844a3d211f6d59851085852a6d5085b61282",
+      "savedInputSha256": "78eeca7f920fa2291070a0e397eb844a3d211f6d59851085852a6d5085b61282",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-hardening-tasks.md": {
+      "sha256": "aed2321f4cf09fe8f0dbd61f9a1f8c8601afa19866acf0fa6407054fc9730010",
+      "savedInputSha256": "ba123d300eb97dc68df96a3d8787222af3b3779596c7fe45647e08a7d3f7c39c",
+      "matchesSavedInput": false
+    },
+    "docs/developer/react-aria-layout-actions.md": {
+      "sha256": "6ca259b820670967173c5ba360e57f28937204801fe57663836704a5ef6298f6",
+      "savedInputSha256": "6ca259b820670967173c5ba360e57f28937204801fe57663836704a5ef6298f6",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-modal-container.md": {
+      "sha256": "c21a713f39e8d9c1f97a14ec8c81e2d5e533da6bb031f50589905b555ccc0f96",
+      "savedInputSha256": "c21a713f39e8d9c1f97a14ec8c81e2d5e533da6bb031f50589905b555ccc0f96",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-modal-shells.md": {
+      "sha256": "a7fc757509cc1493909a26a3a04e76744b1331e903b020c7f3ed4808120bb335",
+      "savedInputSha256": "a7fc757509cc1493909a26a3a04e76744b1331e903b020c7f3ed4808120bb335",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-navigation-container.md": {
+      "sha256": "3ec053e5e297ac7f160e4379a657a02badcc9ac1a8874a08deb86cf9fd60c6f0",
+      "savedInputSha256": "3ec053e5e297ac7f160e4379a657a02badcc9ac1a8874a08deb86cf9fd60c6f0",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-primitives.md": {
+      "sha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "savedInputSha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "matchesSavedInput": true
+    },
+    "docs/developer/react-aria-theme.md": {
+      "sha256": "8ab7ca01b35473b5a11ad6efeab55f338d334f0ac762be18e0500a91b0c002de",
+      "savedInputSha256": "8ab7ca01b35473b5a11ad6efeab55f338d334f0ac762be18e0500a91b0c002de",
+      "matchesSavedInput": true
+    },
+    "docs/migration.md": {
+      "sha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+      "savedInputSha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+      "matchesSavedInput": true
+    },
+    "packages/ui/scripts/check-component-css.mjs": {
+      "sha256": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+      "savedInputSha256": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+      "matchesSavedInput": true
+    },
+    "packages/ui/scripts/check-package.mjs": {
+      "sha256": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+      "savedInputSha256": "9818ea7045d0590182f5fab95ae638b09b16a2c1ceb17a608c6504dfb91eb0e2",
+      "matchesSavedInput": true
+    },
+    "packages/ui/scripts/css-modules.mjs": {
+      "sha256": "5ab55de118449a64ea5c2ecc8476cca80b393639f59ff945f2f646c77c39c568",
+      "savedInputSha256": "5ab55de118449a64ea5c2ecc8476cca80b393639f59ff945f2f646c77c39c568",
+      "matchesSavedInput": true
+    },
+    "packages/ui/scripts/css-modules.test.mjs": {
+      "sha256": "2f91c4d625f54d219c55b514de7799996077e9044ba0ed6f3b267ce5db2e6e1f",
+      "savedInputSha256": "2f91c4d625f54d219c55b514de7799996077e9044ba0ed6f3b267ce5db2e6e1f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/scripts/tokens.test.mjs": {
+      "sha256": "5d404282b5bc15ae7e064d12a6e8685a463aae13266d5ec278effdcb7662387b",
+      "savedInputSha256": "5d404282b5bc15ae7e064d12a6e8685a463aae13266d5ec278effdcb7662387b",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css": {
+      "sha256": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc",
+      "savedInputSha256": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css": {
+      "sha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b",
+      "savedInputSha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css": {
+      "sha256": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080",
+      "savedInputSha256": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": {
+      "sha256": "d3fef23868311eaa9a608478aa0061f181dc77d981354589f41b71835d524c66",
+      "savedInputSha256": "d3fef23868311eaa9a608478aa0061f181dc77d981354589f41b71835d524c66",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css": {
+      "sha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085",
+      "savedInputSha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.module.css": {
+      "sha256": "bb6d4898cf884dd1a410454fc10610a1cdbf014749ee487e79c18c1a5c650c48",
+      "savedInputSha256": "bb6d4898cf884dd1a410454fc10610a1cdbf014749ee487e79c18c1a5c650c48",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts": {
+      "sha256": "88828425448aa70e650f4985b6701e0ebfcea042578c09481725b8583177dc75",
+      "savedInputSha256": "88828425448aa70e650f4985b6701e0ebfcea042578c09481725b8583177dc75",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppDataGridShell/AppDataGridShell.module.css": {
+      "sha256": "0ae9c4b48c71058f778d507bb34deae364e82c2a39cd35d9fa05e9f3da4908e2",
+      "savedInputSha256": "0ae9c4b48c71058f778d507bb34deae364e82c2a39cd35d9fa05e9f3da4908e2",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx": {
+      "sha256": "07c3d004b9b26d1e9e79cbbb281bb542fc2d8cc1f88eca922033cc232cee2d7a",
+      "savedInputSha256": "07c3d004b9b26d1e9e79cbbb281bb542fc2d8cc1f88eca922033cc232cee2d7a",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppInlineProgress/AppInlineProgress.module.css": {
+      "sha256": "cccff884aaf2bdeaac8e00a7b0e89a17f56109f975d56272cad59779b97ed78f",
+      "savedInputSha256": "cccff884aaf2bdeaac8e00a7b0e89a17f56109f975d56272cad59779b97ed78f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppModal/AppModal.module.css": {
+      "sha256": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+      "savedInputSha256": "811bdbd4f695d6e54ac8d0528dacef97494a36e9522cf82c6d8314dd4218ab9c",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppModal/AppModal.test.tsx": {
+      "sha256": "cc8789015d9564fd2af601e590dd8a69eb0a21087de886c95357ac000bfadc8f",
+      "savedInputSha256": "cc8789015d9564fd2af601e590dd8a69eb0a21087de886c95357ac000bfadc8f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppModal/AppModal.tsx": {
+      "sha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "savedInputSha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppOperationSteps/AppOperationSteps.module.css": {
+      "sha256": "e0a0677b0175a30e17cc59802bbeab41280005d56b9c017b714117459bde43e5",
+      "savedInputSha256": "e0a0677b0175a30e17cc59802bbeab41280005d56b9c017b714117459bde43e5",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppPageHeader/AppPageHeader.module.css": {
+      "sha256": "2e2709d1ee526adec4057142d65f3ef9696f1604b92df57b473cc4c0717723ed",
+      "savedInputSha256": "2e2709d1ee526adec4057142d65f3ef9696f1604b92df57b473cc4c0717723ed",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppPageTabs/AppPageTabs.module.css": {
+      "sha256": "ae3fc31ebf5195afec47dcfb5c17ee86f4784848e3e970e06cfc33a28a5b9f1c",
+      "savedInputSha256": "ae3fc31ebf5195afec47dcfb5c17ee86f4784848e3e970e06cfc33a28a5b9f1c",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppShell/AppShell.module.css": {
+      "sha256": "2b20ca5fcab874c3e2866da3688d535fec432e5ebc8bfc180900425363b0c2e7",
+      "savedInputSha256": "2b20ca5fcab874c3e2866da3688d535fec432e5ebc8bfc180900425363b0c2e7",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AppShell/AppShellMain.tsx": {
+      "sha256": "c0c0f3831f9cb3dd0e4f72b1fff6a1371583e2b25cc1d6d5399c01f73cebe6e2",
+      "savedInputSha256": "c0c0f3831f9cb3dd0e4f72b1fff6a1371583e2b25cc1d6d5399c01f73cebe6e2",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AuthShell/AuthShell.module.css": {
+      "sha256": "0b3dabe1d8d5807515dedfb497431bf4b82378d16aaf040d00a5576c828aeb6e",
+      "savedInputSha256": "0b3dabe1d8d5807515dedfb497431bf4b82378d16aaf040d00a5576c828aeb6e",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/AuthShell/revealFocusedControl.ts": {
+      "sha256": "ab30951ce29355be37cf3c8c1fd0949099a723bcd5346bb0c0372fa9dacd1cab",
+      "savedInputSha256": "ab30951ce29355be37cf3c8c1fd0949099a723bcd5346bb0c0372fa9dacd1cab",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/Button/Button.module.css": {
+      "sha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "savedInputSha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/Button/Button.public-contract.test.tsx": {
+      "sha256": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6",
+      "savedInputSha256": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/Button/Button.tsx": {
+      "sha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "savedInputSha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.module.css": {
+      "sha256": "58c6ec4b67a1a899948ebd172402c9c765b80477b7456beda7f09a5567c2be21",
+      "savedInputSha256": "58c6ec4b67a1a899948ebd172402c9c765b80477b7456beda7f09a5567c2be21",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.module.css": {
+      "sha256": "78b126fcce49c46fe97af8d42e00ce02ef77892912df085a4e677cf61e6b5c63",
+      "savedInputSha256": "78b126fcce49c46fe97af8d42e00ce02ef77892912df085a4e677cf61e6b5c63",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css": {
+      "sha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+      "savedInputSha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/ClassCardFrame/ClassCardFrame.test.tsx": {
+      "sha256": "ac0b38bc64e29f5c8adf6fe54feed51b7f74ee6d2a23a7cb0fb0c8d48f043c39",
+      "savedInputSha256": "ac0b38bc64e29f5c8adf6fe54feed51b7f74ee6d2a23a7cb0fb0c8d48f043c39",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx": {
+      "sha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "savedInputSha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.module.css": {
+      "sha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+      "savedInputSha256": "1cd3e40fef8bc418bddbec014f67e59388c2af33935f08d054bf655c0b018cd0",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/DataToolbar/DataToolbar.module.css": {
+      "sha256": "ed9842b74c5b1137b81e89ce8a6e0727cf7d9f1fca2fdefed54fca5f946bf392",
+      "savedInputSha256": "ed9842b74c5b1137b81e89ce8a6e0727cf7d9f1fca2fdefed54fca5f946bf392",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.module.css": {
+      "sha256": "132b25a748e4be0d7beaa0584b96d0fc5b1804360a5e9bc4210c02155b803dae",
+      "savedInputSha256": "132b25a748e4be0d7beaa0584b96d0fc5b1804360a5e9bc4210c02155b803dae",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.module.css": {
+      "sha256": "4d1c495ff22633ccad86f0b7309ae472b6e6819086d72b77c55a18525daacfe9",
+      "savedInputSha256": "4d1c495ff22633ccad86f0b7309ae472b6e6819086d72b77c55a18525daacfe9",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.module.css": {
+      "sha256": "ebbd58249d65f4f3d18eef372d55f530799b300091fc18f18be18043e90a7386",
+      "savedInputSha256": "ebbd58249d65f4f3d18eef372d55f530799b300091fc18f18be18043e90a7386",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.module.css": {
+      "sha256": "101dc6f3286638f5ae8cd617e0a95e73fc4b21dfb72d210157aff4015eca2283",
+      "savedInputSha256": "101dc6f3286638f5ae8cd617e0a95e73fc4b21dfb72d210157aff4015eca2283",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx": {
+      "sha256": "d31c4e4569f81bb159d71417b682f6c51cdcae4d0d780cf6ed5a436d70746ead",
+      "savedInputSha256": "d31c4e4569f81bb159d71417b682f6c51cdcae4d0d780cf6ed5a436d70746ead",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.module.css": {
+      "sha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+      "savedInputSha256": "e8a364501df6ad4a58fd50d999d3c837199a319f8a830aa39521f123aada839d",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.module.css": {
+      "sha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+      "savedInputSha256": "7494a3c3d5635e4d8d0250224833b705fd4cace157c7bacea8f4eac8527c6d9d",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/EditableTitleField/EditableTitleField.module.css": {
+      "sha256": "3f9c8484c374ff521906bff63849ba274bde4d97f4ff6a2fbc58aeed11e1e8ef",
+      "savedInputSha256": "3f9c8484c374ff521906bff63849ba274bde4d97f4ff6a2fbc58aeed11e1e8ef",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.module.css": {
+      "sha256": "da80cd9f48337e9446e92b842a44a27179e18243373f2ffcf90376ca84036bde",
+      "savedInputSha256": "da80cd9f48337e9446e92b842a44a27179e18243373f2ffcf90376ca84036bde",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.module.css": {
+      "sha256": "790ff260c6749b2571a4139e37175e38cf85be8471f28e936232bdc55c46902b",
+      "savedInputSha256": "790ff260c6749b2571a4139e37175e38cf85be8471f28e936232bdc55c46902b",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx": {
+      "sha256": "d400cbf32aacc9e2ac8337661f39d05f03af2b3646403230773720866a481905",
+      "savedInputSha256": "d400cbf32aacc9e2ac8337661f39d05f03af2b3646403230773720866a481905",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.module.css": {
+      "sha256": "ba518e55050e2e443f1defd0f8656d88cb730f68cb38829b8803c29190324123",
+      "savedInputSha256": "ba518e55050e2e443f1defd0f8656d88cb730f68cb38829b8803c29190324123",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/ImageUploadModal/ImageUploadModal.module.css": {
+      "sha256": "0e66b06df36269c7cc6c48ab92f21b668e71d5e147033c569f0aca8155262c53",
+      "savedInputSha256": "0e66b06df36269c7cc6c48ab92f21b668e71d5e147033c569f0aca8155262c53",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/InstructorClassCard/InstructorClassCard.module.css": {
+      "sha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+      "savedInputSha256": "d7411a7cc3eba936b49a988b6aedef95dadd4d8b8f509637dd8a112e27fdcc53",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/LearnerClassCard/LearnerClassCard.module.css": {
+      "sha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+      "savedInputSha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/LinkUrlModal/LinkUrlModal.module.css": {
+      "sha256": "b22ee7ba4c242d3cbcef64c24137bec97382d55f09842242744b5cde9ed1be5a",
+      "savedInputSha256": "b22ee7ba4c242d3cbcef64c24137bec97382d55f09842242744b5cde9ed1be5a",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.module.css": {
+      "sha256": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+      "savedInputSha256": "1517b9831227350371747286df138b975f1c5774ec93e64af6a7de4a10ebc4dd",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.module.css": {
+      "sha256": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+      "savedInputSha256": "078a397cfd0abd77137b6bbd4f735e047e8792b4251e7789e5a0901977c0a16e",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.module.css": {
+      "sha256": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+      "savedInputSha256": "2846481ddb7808aa026db3c698bf2c1b3409eff5d3ae0062744db2a9dd3f4fab",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.module.css": {
+      "sha256": "4a975c632190d5d6fb5e4590bf3de1feb318d3c18146123cfddc6b03b421e97c",
+      "savedInputSha256": "4a975c632190d5d6fb5e4590bf3de1feb318d3c18146123cfddc6b03b421e97c",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.test.tsx": {
+      "sha256": "6ed6d8e64145f9681c79744399b41b79d8960eac2f960153e6f8771cd3bc8d61",
+      "savedInputSha256": "6ed6d8e64145f9681c79744399b41b79d8960eac2f960153e6f8771cd3bc8d61",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/SideNavigation/SideNavigation.tsx": {
+      "sha256": "f0b2e86367b1a2b73ca204018b663987157ff713d7a71758be9727bcc21fc085",
+      "savedInputSha256": "f0b2e86367b1a2b73ca204018b663987157ff713d7a71758be9727bcc21fc085",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.module.css": {
+      "sha256": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+      "savedInputSha256": "f074672a97a88b76fe8f9dc9a2180b6d75f2a635b3293cef86e6b925385a9201",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css": {
+      "sha256": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
+      "savedInputSha256": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/TextStyleMenuControl/NativeSelection.module.css": {
+      "sha256": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+      "savedInputSha256": "1625320836e2ec8619bca3008dfed79560eb9e171054975a142f842bbb5ef099",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.module.css": {
+      "sha256": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+      "savedInputSha256": "f19819e1222cd494f397b23cd5aa735c3a507c9989e4a9d6536a406d848c0f35",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.module.css": {
+      "sha256": "81be5ada4edd588e3fa308fc30f764551466b31b20a2fb13fe0ce62094de5cb6",
+      "savedInputSha256": "81be5ada4edd588e3fa308fc30f764551466b31b20a2fb13fe0ce62094de5cb6",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Avatar/Avatar.module.css": {
+      "sha256": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+      "savedInputSha256": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Badge/Badge.module.css": {
+      "sha256": "72bb3bef4c59adac3cf00e22d57eba0f718ee2b2d4a145fadf53e2174d33569c",
+      "savedInputSha256": "72bb3bef4c59adac3cf00e22d57eba0f718ee2b2d4a145fadf53e2174d33569c",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Box/Box.module.css": {
+      "sha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "savedInputSha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Breadcrumbs/Breadcrumbs.module.css": {
+      "sha256": "c52233743315eb70d79f8502aadd8d36e46aa4937edc242f0286e9fe335864d2",
+      "savedInputSha256": "c52233743315eb70d79f8502aadd8d36e46aa4937edc242f0286e9fe335864d2",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/ButtonGroup/ButtonGroup.module.css": {
+      "sha256": "8e563eb47f5fd4dc9e25c53f24efe8fa50bd7a7e8aa542cab7ae2d7e5f0a2768",
+      "savedInputSha256": "8e563eb47f5fd4dc9e25c53f24efe8fa50bd7a7e8aa542cab7ae2d7e5f0a2768",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Card/Card.tsx": {
+      "sha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "savedInputSha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Checkbox/Checkbox.module.css": {
+      "sha256": "8b0d9c9987e140ac921ece1da8b3424976197820d38bfb690d364d0b4a9d48f8",
+      "savedInputSha256": "8b0d9c9987e140ac921ece1da8b3424976197820d38bfb690d364d0b4a9d48f8",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Chip/Chip.module.css": {
+      "sha256": "ec87b3e13dd6ecaa8bac01dc2f715985b1f393a2dc7a3b186e236a239dde5f8d",
+      "savedInputSha256": "ec87b3e13dd6ecaa8bac01dc2f715985b1f393a2dc7a3b186e236a239dde5f8d",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/ComboBox/ComboBox.module.css": {
+      "sha256": "9650640895f0a314057755458209e981e6243c29245c7fce59a6a1b7ea7cc8ab",
+      "savedInputSha256": "9650640895f0a314057755458209e981e6243c29245c7fce59a6a1b7ea7cc8ab",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/DataGrid/DataGrid.module.css": {
+      "sha256": "171dff4fd01ad38a471f860439f7662cef7b037da2dc73d9025b96a76a7cf14f",
+      "savedInputSha256": "171dff4fd01ad38a471f860439f7662cef7b037da2dc73d9025b96a76a7cf14f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/DateField/DateField.module.css": {
+      "sha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "savedInputSha256": "4183d571f2746ab42b534a76596e6861b1194214755bf1a58f8090d9dcb4d538",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/DatePicker/DatePicker.module.css": {
+      "sha256": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "savedInputSha256": "71729bb4bf80f03c6651149c96e239fac7849214cbdc99cf57389bf92112c74f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/DateRangePicker/DateRangePicker.module.css": {
+      "sha256": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+      "savedInputSha256": "0d01b3c94fd25f75a4a3559b63df08322e842c173827fd4ec4241ccec582a175",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css": {
+      "sha256": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "savedInputSha256": "dd9c03c83d39952249be6692a1e778f578ec47892ae7409f6b460d7db9fe95a6",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": {
+      "sha256": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "savedInputSha256": "36726341c5154563447a37a38a5f1ce4fe53ef4c8a2b6bccc5b30a9b1a0d0e82",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Dialog/Dialog.module.css": {
+      "sha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+      "savedInputSha256": "ed5e856e9fbfa29e7849500ed58ac64f3df8e8562d52360385d299777855317d",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Dialog/Dialog.tsx": {
+      "sha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "savedInputSha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Disclosure/Disclosure.module.css": {
+      "sha256": "becd7049da0f47dd10ae46a74dadfd40867ce59081901af1b0dd0a258e221fa1",
+      "savedInputSha256": "becd7049da0f47dd10ae46a74dadfd40867ce59081901af1b0dd0a258e221fa1",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Divider/Divider.module.css": {
+      "sha256": "e00a2b884cc794fc12953a5a42fd1d9e1a6e4ca1b07b57cec87d0db8e2414a9a",
+      "savedInputSha256": "e00a2b884cc794fc12953a5a42fd1d9e1a6e4ca1b07b57cec87d0db8e2414a9a",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/IconButton/IconButton.module.css": {
+      "sha256": "053adb67f0134ccc244ad9eda90e8b2ab737effa519fb9b4dcf0c93ff17b015d",
+      "savedInputSha256": "053adb67f0134ccc244ad9eda90e8b2ab737effa519fb9b4dcf0c93ff17b015d",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Link/Link.module.css": {
+      "sha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "savedInputSha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/List/List.module.css": {
+      "sha256": "265b37711f9a11952006706d311e85bf2e9adceee0ce03418cd8f7a6b15937a4",
+      "savedInputSha256": "265b37711f9a11952006706d311e85bf2e9adceee0ce03418cd8f7a6b15937a4",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Menu/Menu.module.css": {
+      "sha256": "229bcd8fb552cb23f8868c6d94d5f6bed43f238d9593ee76e0ccd797549cfdd5",
+      "savedInputSha256": "229bcd8fb552cb23f8868c6d94d5f6bed43f238d9593ee76e0ccd797549cfdd5",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Navigation/Navigation.module.css": {
+      "sha256": "500062dd46338240136c4366503e032a30c43b8218e028330e69e6262569bd34",
+      "savedInputSha256": "500062dd46338240136c4366503e032a30c43b8218e028330e69e6262569bd34",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Pagination/Pagination.module.css": {
+      "sha256": "6ec65bdd80f3af459b2d7a23731078efe96e92ba1e7582f263a82f0aeb5980ca",
+      "savedInputSha256": "6ec65bdd80f3af459b2d7a23731078efe96e92ba1e7582f263a82f0aeb5980ca",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Popover/Popover.module.css": {
+      "sha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "savedInputSha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Popover/Popover.tsx": {
+      "sha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "savedInputSha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Progress/Progress.module.css": {
+      "sha256": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "savedInputSha256": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Progress/Progress.tsx": {
+      "sha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "savedInputSha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/RadioGroup/RadioGroup.module.css": {
+      "sha256": "dffcd4c643a702354c947e42ae1857173ee2203f815f39607116e954310e334e",
+      "savedInputSha256": "dffcd4c643a702354c947e42ae1857173ee2203f815f39607116e954310e334e",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/SearchField/SearchField.module.css": {
+      "sha256": "8924889ddb237258631afa21ef1195613fea1a44a343ed9367842236e5692ee4",
+      "savedInputSha256": "8924889ddb237258631afa21ef1195613fea1a44a343ed9367842236e5692ee4",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Select/FramePositionedPopover.tsx": {
+      "sha256": "2de7b5817832f69b70a94a65cec974d02b4733749795082a10b43f5d5b394999",
+      "savedInputSha256": "2de7b5817832f69b70a94a65cec974d02b4733749795082a10b43f5d5b394999",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Select/Select.module.css": {
+      "sha256": "bfb0b58f466fed4ec85c2e826a7acff33cff8ba284609bda793594658b41e2a3",
+      "savedInputSha256": "bfb0b58f466fed4ec85c2e826a7acff33cff8ba284609bda793594658b41e2a3",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/SplitAction/SplitAction.test.tsx": {
+      "sha256": "13a299801cf8a4e42749cdf8561d0269bee871f8fc27c17684d8f170f7ce5a2e",
+      "savedInputSha256": "13a299801cf8a4e42749cdf8561d0269bee871f8fc27c17684d8f170f7ce5a2e",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/SplitAction/SplitAction.tsx": {
+      "sha256": "00136fb510dd8cfef985a018e1862a009d55c41b58287b96f50ce06136a88ded",
+      "savedInputSha256": "00136fb510dd8cfef985a018e1862a009d55c41b58287b96f50ce06136a88ded",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Stack/Stack.module.css": {
+      "sha256": "7e1c5f10ce20cfa74cfdd6f064c6f6ee32c926202638fcb7338e2a01caa53eba",
+      "savedInputSha256": "7e1c5f10ce20cfa74cfdd6f064c6f6ee32c926202638fcb7338e2a01caa53eba",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Status/Status.module.css": {
+      "sha256": "d0f3fff16a2dbbe665efdd0ec8520d6446b4cd977d69fb77b0a8a7c228b8f328",
+      "savedInputSha256": "d0f3fff16a2dbbe665efdd0ec8520d6446b4cd977d69fb77b0a8a7c228b8f328",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Surface/Surface.module.css": {
+      "sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "savedInputSha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Surface/Surface.tsx": {
+      "sha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "savedInputSha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Switch/Switch.module.css": {
+      "sha256": "753519a82ce1ea61d8d00b71afdb21c1d95cfaa31ae5141f9b59a38b99ca3f0a",
+      "savedInputSha256": "753519a82ce1ea61d8d00b71afdb21c1d95cfaa31ae5141f9b59a38b99ca3f0a",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Table/Table.module.css": {
+      "sha256": "93f7d9b1f79855e5f017993f0d7328646a257376e3fd9087eb01c556fd09e38f",
+      "savedInputSha256": "93f7d9b1f79855e5f017993f0d7328646a257376e3fd9087eb01c556fd09e38f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Tabs/Tabs.module.css": {
+      "sha256": "3a8d0e005dc7a99a0711d6873eecb3448cd7357195b9c8d9995edc7c5453f447",
+      "savedInputSha256": "3a8d0e005dc7a99a0711d6873eecb3448cd7357195b9c8d9995edc7c5453f447",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Tabs/scrollTabIntoView.ts": {
+      "sha256": "5730dbfc9024dd98ff9381d716bafb62c230b3fbaf289016b27e6d327b410618",
+      "savedInputSha256": "5730dbfc9024dd98ff9381d716bafb62c230b3fbaf289016b27e6d327b410618",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Tabs/useTabOverflow.ts": {
+      "sha256": "5a2b347c2e28c44bd296cd0d74e5e2b5444d525ba20e1b0d1c715a25359046f1",
+      "savedInputSha256": "5a2b347c2e28c44bd296cd0d74e5e2b5444d525ba20e1b0d1c715a25359046f1",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/TagGroup/TagGroup.module.css": {
+      "sha256": "6ac25518cf42e2389730b310758564193a4796e3cfbd396c2b679c0a430a5e4f",
+      "savedInputSha256": "6ac25518cf42e2389730b310758564193a4796e3cfbd396c2b679c0a430a5e4f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/TextArea/TextArea.module.css": {
+      "sha256": "5e16dcb7938fdedab6efe8a6882b0294b9ae4040d795027dc8823c5d407b8fc7",
+      "savedInputSha256": "527915b32bb92251623eb07d1a902ca2eeee47763efbffb02f88b64270649fb0",
+      "matchesSavedInput": false
+    },
+    "packages/ui/src/experimental/TextField/TextField.module.css": {
+      "sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+      "savedInputSha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/TextField/TextField.test.tsx": {
+      "sha256": "57114e7a42400c4fb226137fdb3b6374894dd61834d1b6c6f5faf4c19d40245d",
+      "savedInputSha256": "57114e7a42400c4fb226137fdb3b6374894dd61834d1b6c6f5faf4c19d40245d",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/TextField/TextField.tsx": {
+      "sha256": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+      "savedInputSha256": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/TimeField/TimeField.module.css": {
+      "sha256": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+      "savedInputSha256": "f0314daff5047756809e2b2bd580b404637f1a069d3b07e33569c9d9ffb2091f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css": {
+      "sha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+      "savedInputSha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Tooltip/Tooltip.module.css": {
+      "sha256": "d5306f0a210618ab3e970c2dbfdeaeb127cec6d68827710b557521ebea24b85f",
+      "savedInputSha256": "d5306f0a210618ab3e970c2dbfdeaeb127cec6d68827710b557521ebea24b85f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Typography/Typography.module.css": {
+      "sha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "savedInputSha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/icons/icons.module.css": {
+      "sha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "savedInputSha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/foundation/Scrollbars.module.css": {
+      "sha256": "a368a8e3d3eacee33e83b532211e909cbec5c94f18f76097e3b4c6c99ce3864f",
+      "savedInputSha256": "a368a8e3d3eacee33e83b532211e909cbec5c94f18f76097e3b4c6c99ce3864f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/foundation/ThemeScope.module.css": {
+      "sha256": "eccd34329fc6f7e8e3933db5271b141bc07e16f1da3501ebdda011466d673052",
+      "savedInputSha256": "eccd34329fc6f7e8e3933db5271b141bc07e16f1da3501ebdda011466d673052",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/foundation/ThemeScope.test.tsx": {
+      "sha256": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f",
+      "savedInputSha256": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/foundation/ThemeScope.tsx": {
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "savedInputSha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/foundation/tokens.json": {
+      "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "savedInputSha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "matchesSavedInput": true
+    },
+    "packages/ui/tests/browser/display-preferences.spec.ts": {
+      "sha256": "c219f96dd6442bc112d57e01748eb394ac5c1e89f083a0c739e1f23bf7a60d02",
+      "savedInputSha256": "c219f96dd6442bc112d57e01748eb394ac5c1e89f083a0c739e1f23bf7a60d02",
+      "matchesSavedInput": true
+    },
+    "packages/ui/tests/browser/foundation-catalogue.spec.ts": {
+      "sha256": "7efd3b57c7ef4fad7ae6f7c6ded50ffbf4b25a3a1e86a35570111e6623f5fde0",
+      "savedInputSha256": "7efd3b57c7ef4fad7ae6f7c6ded50ffbf4b25a3a1e86a35570111e6623f5fde0",
+      "matchesSavedInput": true
+    },
+    "packages/ui/tests/browser/modal-container-boundary.spec.ts": {
+      "sha256": "a1ed468824c2b274b98facdd77700555dc668415306f01a84d943e147101ee45",
+      "savedInputSha256": "a1ed468824c2b274b98facdd77700555dc668415306f01a84d943e147101ee45",
+      "matchesSavedInput": true
+    },
+    "packages/ui/tests/browser/navigation-shell-container-boundary.spec.ts": {
+      "sha256": "cb17bbd62d84d645867d1f75db1ae6b115c2b2b8c60303d833786088583c199e",
+      "savedInputSha256": "cb17bbd62d84d645867d1f75db1ae6b115c2b2b8c60303d833786088583c199e",
+      "matchesSavedInput": true
+    },
+    "packages/ui/tests/browser/token-tier-scope.spec.ts": {
+      "sha256": "f8e5046ff89e6632e148bded2246cf72ff26e000346beb62338af7bb873544f7",
+      "savedInputSha256": "f8e5046ff89e6632e148bded2246cf72ff26e000346beb62338af7bb873544f7",
+      "matchesSavedInput": true
+    },
+    "packages/ui/tests/browser/toolbar-container-boundary.spec.ts": {
+      "sha256": "c7ee00bb6ee5cf977705ae44f7f5670a08087ddb5ab53c1c7e4558ea94f8b023",
+      "savedInputSha256": "c7ee00bb6ee5cf977705ae44f7f5670a08087ddb5ab53c1c7e4558ea94f8b023",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/icons/createVector.tsx": {
+      "sha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "savedInputSha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/TextArea/TextArea.tsx": {
+      "sha256": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6",
+      "savedInputSha256": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+      "matchesSavedInput": false
+    },
+    "apps/docs/content/component-usage/presentation.json": {
+      "sha256": "a001e5adc88f7485b15f1680e1bc65c95ffab207601879914e8289c7e5ea83be",
+      "savedInputSha256": "a001e5adc88f7485b15f1680e1bc65c95ffab207601879914e8289c7e5ea83be",
+      "matchesSavedInput": true
+    },
+    "apps/docs/examples/catalog/primitives-actions.tsx": {
+      "sha256": "c23ac2f1420f70f01cfbf44efcca9cf751da446218068a00e3d6a3bd4ab935f1",
+      "savedInputSha256": "c23ac2f1420f70f01cfbf44efcca9cf751da446218068a00e3d6a3bd4ab935f1",
+      "matchesSavedInput": true
+    },
+    "packages/ui/src/experimental/Menu/Menu.tsx": {
+      "sha256": "4a1c38174345a32cfaea5a05580c510f39275279bef7eebc1dbbec8d503b3490",
+      "savedInputSha256": null,
+      "matchesSavedInput": null,
+      "captureMethod": "Targeted reference hash added during report validation"
+    },
+    "docs/developer/final-acceptance/fa04-fixtures.txt": {
+      "sha256": "c4c855583016f98324a9518417d4e3465d9ac7835979f38c3df58329b937cf74",
+      "savedInputSha256": null,
+      "matchesSavedInput": null,
+      "captureMethod": "Targeted reference hash added during report validation"
+    },
+    "docs/developer/final-acceptance/2026-10-16-source-inventory.json": {
+      "sha256": "78209ab5ca848b857bd36310bd0c0bd546aaac91d69d72b4320bb0db091cb156",
+      "savedInputSha256": null,
+      "matchesSavedInput": null,
+      "captureMethod": "Targeted reference hash added during report validation"
+    },
+    "docs/developer/react-aria-editor-layout.md": {
+      "sha256": "81fd2e25e6ee2dec65372e26f449d95a8ffe9044b9929b75226096086915cdac",
+      "savedInputSha256": null,
+      "matchesSavedInput": null,
+      "captureMethod": "Targeted reference hash added during report validation"
+    }
+  },
+  "missingInputs": [],
+  "cssFacts": {
+    "nativeNestedRules": [],
+    "containerQueries": [
+      {
+        "file": "packages/ui/src/components/AppModal/AppModal.module.css",
+        "line": 13,
+        "source": "@container sgui-app-modal (inline-size < 30rem) {"
+      },
+      {
+        "file": "packages/ui/src/components/AppShell/AppShell.module.css",
+        "line": 7,
+        "source": "@container sgui-app-shell (max-width: 40rem) { .layout { flex-direction: column; } .navigation { max-block-size: 45dvh; flex-shrink: 1; } .navigation > nav { flex-basis: auto; inline-size: 100%; border-inline-end: 0; border-block-end: 1px solid var(--sgui-app-shell-divider); } .navigation > nav[data-collapsed] { flex-basis: auto; inline-size: 100%; } }"
+      },
+      {
+        "file": "packages/ui/src/components/AppShell/AppShell.module.css",
+        "line": 8,
+        "source": "@container sgui-app-shell (max-width: 40rem) {"
+      },
+      {
+        "file": "packages/ui/src/components/DataToolbar/DataToolbar.module.css",
+        "line": 9,
+        "source": "@container sgui-data-toolbar (max-width: 24rem) { .searchField > :first-child { inline-size: 10rem; } }"
+      },
+      {
+        "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css",
+        "line": 39,
+        "source": "@container (max-width: 22rem) {"
+      },
+      {
+        "file": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css",
+        "line": 62,
+        "source": "@container (max-width: 35rem) {"
+      }
+    ],
+    "fixedMotion": [
+      {
+        "file": "packages/ui/src/components/Button/Button.module.css",
+        "line": 36,
+        "source": ".spinner { inline-size: 1em; block-size: 1em; border: 2px solid currentColor; border-inline-end-color: transparent; border-radius: 50%; animation: spin 800ms linear infinite; }"
+      },
+      {
+        "file": "packages/ui/src/experimental/Progress/Progress.module.css",
+        "line": 10,
+        "source": ".root[data-indeterminate] .circular { animation: spin 1.2s linear infinite; }"
+      },
+      {
+        "file": "packages/ui/src/experimental/Progress/Progress.module.css",
+        "line": 12,
+        "source": ".root[data-indeterminate] .fill { inline-size: 35%; animation: loading 1.2s ease-in-out infinite alternate; }"
+      }
+    ],
+    "forcedColorAdjustmentNone": [
+      {
+        "file": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css",
+        "line": 13,
+        "source": "@media (forced-colors: active) { .swatch { forced-color-adjust: none; } .swatch[aria-pressed=\"true\"] { outline-color: Highlight; } }"
+      },
+      {
+        "file": "packages/ui/src/experimental/Progress/Progress.module.css",
+        "line": 15,
+        "source": "@media (forced-colors: active) { .track { border: 1px solid CanvasText; background: Canvas; } .fill { background: Highlight; forced-color-adjust: none; } .circleTrack { stroke: CanvasText; } .circleFill { stroke: Highlight; forced-color-adjust: none; } }"
+      },
+      {
+        "file": "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css",
+        "line": 24,
+        "source": ".button[data-selected] { color: HighlightText; background: Highlight; border-color: Highlight; forced-color-adjust: none; }"
+      }
+    ],
+    "fluidClamp": []
+  },
+  "measurementCandidatesFromFA02": [
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "identifiers": {
+        "HTMLButtonElement": 171,
+        "HTMLElement": 73,
+        "ResizeObserver": 116,
+        "cancelAnimationFrame": 93,
+        "closest": 261,
+        "document": 24,
+        "querySelector": 139,
+        "querySelectorAll": 174,
+        "requestAnimationFrame": 148
+      }
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "identifiers": {
+        "HTMLElement": 10,
+        "closest": 41,
+        "document": 31,
+        "elementFromPoint": 35,
+        "getBoundingClientRect": 49
+      }
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "identifiers": {
+        "HTMLElement": 113,
+        "ResizeObserver": 108,
+        "cancelAnimationFrame": 134,
+        "closest": 228,
+        "document": 156,
+        "getBoundingClientRect": 106,
+        "querySelector": 175,
+        "querySelectorAll": 186,
+        "requestAnimationFrame": 138
+      }
+    },
+    {
+      "file": "packages/ui/src/components/AppShell/AppShellMain.tsx",
+      "identifiers": {
+        "HTMLElement": 6,
+        "ResizeObserver": 24,
+        "cancelAnimationFrame": 13,
+        "requestAnimationFrame": 14
+      }
+    },
+    {
+      "file": "packages/ui/src/components/AuthShell/revealFocusedControl.ts",
+      "identifiers": {
+        "HTMLElement": 4,
+        "closest": 8,
+        "getBoundingClientRect": 9,
+        "getComputedStyle": 12,
+        "requestAnimationFrame": 36,
+        "scrollIntoView": 27
+      }
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "identifiers": {
+        "HTMLButtonElement": 33,
+        "PointerEvent": 3,
+        "getBoundingClientRect": 102,
+        "releasePointerCapture": 49,
+        "setPointerCapture": 122
+      }
+    },
+    {
+      "file": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "identifiers": {
+        "HTMLButtonElement": 129,
+        "HTMLElement": 21,
+        "PointerEvent": 122,
+        "ResizeObserver": 74,
+        "closest": 173,
+        "document": 83,
+        "getBoundingClientRect": 70,
+        "getSelection": 86,
+        "querySelector": 129,
+        "window": 86
+      }
+    },
+    {
+      "file": "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+      "identifiers": {
+        "HTMLElement": 293,
+        "cancelAnimationFrame": 386,
+        "getBoundingClientRect": 397,
+        "getComputedStyle": 400,
+        "querySelectorAll": 692,
+        "requestAnimationFrame": 394,
+        "window": 386
+      }
+    },
+    {
+      "file": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "identifiers": {
+        "HTMLElement": 35,
+        "closest": 52,
+        "document": 44,
+        "getBoundingClientRect": 88,
+        "getComputedStyle": 89,
+        "requestAnimationFrame": 56,
+        "scrollIntoView": 111
+      }
+    },
+    {
+      "file": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "identifiers": {
+        "HTMLElement": 88,
+        "cancelAnimationFrame": 135,
+        "getBoundingClientRect": 54,
+        "requestAnimationFrame": 101,
+        "visualViewport": 58
+      }
+    },
+    {
+      "file": "packages/ui/src/experimental/Select/FramePositionedPopover.tsx",
+      "identifiers": {
+        "ResizeObserver": 68,
+        "cancelAnimationFrame": 88,
+        "requestAnimationFrame": 55,
+        "visualViewport": 80,
+        "window": 27
+      }
+    },
+    {
+      "file": "packages/ui/src/experimental/Tabs/scrollTabIntoView.ts",
+      "identifiers": {
+        "HTMLElement": 2,
+        "getBoundingClientRect": 4
+      }
+    },
+    {
+      "file": "packages/ui/src/experimental/Tabs/useTabOverflow.ts",
+      "identifiers": {
+        "HTMLButtonElement": 6,
+        "HTMLElement": 15,
+        "ResizeObserver": 37,
+        "cancelAnimationFrame": 27,
+        "getBoundingClientRect": 15,
+        "getComputedStyle": 16,
+        "querySelectorAll": 15,
+        "requestAnimationFrame": 28,
+        "window": 5
+      }
+    }
+  ],
+  "explicitHistoricalStylingFields": [
+    {
+      "historicalDeclaration": "components/AppDataGrid/AppDataGrid.d.ts",
+      "field": "sx",
+      "type": "SxProps<Theme>"
+    },
+    {
+      "historicalDeclaration": "components/AppModal/AppModal.d.ts",
+      "field": "paperSx",
+      "type": "SxProps<Theme>"
+    },
+    {
+      "historicalDeclaration": "components/ClassCardFrame/ClassCardFrame.d.ts",
+      "field": "headerSx",
+      "type": "SxProps<Theme>"
+    },
+    {
+      "historicalDeclaration": "components/ClassCardFrame/ClassCardFrame.d.ts",
+      "field": "bodySx",
+      "type": "SxProps<Theme>"
+    },
+    {
+      "historicalDeclaration": "components/ClassCardFrame/ClassCardFrame.d.ts",
+      "field": "footerSx",
+      "type": "SxProps<Theme>"
+    }
+  ],
+  "limits": [
+    "CSS facts are source candidates, not runtime visual conformance.",
+    "Selected source hashes do not transfer historical browser receipts to current host.",
+    "No distributable parity claim for concurrent BUG-0008/0009 changes.",
+    "Fixed motion and physical directions are design review candidates, not automatically bugs."
+  ],
+  "concurrentChangeNote": "TextArea.tsx and TextArea.module.css now differ from FA-02 during coordinator BUG-0009 work. New adorned multiline controls use logical padding/margins and existing field focus styling. No old package/guard/unit result is attributed to these changed bytes. The three BUG-0008 picker implementations are outside selected behavioral evidence."
+}

@@ -1,5 +1,5 @@
 "use client";
-import { forwardRef } from "react";
+import { forwardRef, type ReactNode } from "react";
 import { ComboBox as AriaComboBox } from "react-aria-components/ComboBox";
 import { Input } from "react-aria-components/Input";
 import { Label } from "react-aria-components/Label";
@@ -27,6 +27,9 @@ export interface ComboBoxProps {
   onValueChange?: (value: string | null) => void;
   name?: string;
   placeholder?: string;
+  /** Decorative icons inside the input; the separate dropdown action remains available. */
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
   description?: string;
   required?: boolean;
   disabled?: boolean;
@@ -39,12 +42,13 @@ export interface ComboBoxProps {
 
 export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function ComboBox(
   { label, options, value, defaultValue, onValueChange, name, placeholder, description,
-    required, disabled, readOnly, invalid, errorMessage, autoFocus, className }, ref,
+    required, disabled, readOnly, invalid, errorMessage, autoFocus, className, startIcon, endIcon }, ref,
 ) {
   const { t } = useTranslation();
   const scope = useOverlayScope();
   const { direction } = useLocale();
   const directionRef = useOverlayDirectionRef(direction);
+  const control = <Input ref={ref} placeholder={placeholder} className={field.input} />;
   return <AriaComboBox defaultItems={options} selectedKey={value} defaultSelectedKey={defaultValue} allowsEmptyCollection
     onSelectionChange={key => onValueChange?.(key === null ? null : String(key))}
     disabledKeys={options.filter(option => option.disabled).map(option => option.id)}
@@ -52,7 +56,12 @@ export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function Com
     isInvalid={invalid} validationBehavior="native" autoFocus={autoFocus}
     className={[field.root, className].filter(Boolean).join(" ")}>
     <Label className={field.label}>{label}</Label>
-    <div className={styles.control}><Input ref={ref} placeholder={placeholder} className={field.input} />
+    <div className={styles.control}>
+      {startIcon || endIcon ? <div className={field.decoratedControl} data-sgui-part="field-icon-control">
+        {startIcon && <span className={field.adornment} data-sgui-part="field-start-icon" aria-hidden="true">{startIcon}</span>}
+        {control}
+        {endIcon && <span className={field.adornment} data-sgui-part="field-end-icon" aria-hidden="true">{endIcon}</span>}
+      </div> : control}
       <Button variant="outlined" tone="neutral" aria-label={t("common.ui.showOptions", { defaultMessage: "Show options" })}>
         <KeyboardArrowDownIcon size={16} />
       </Button>

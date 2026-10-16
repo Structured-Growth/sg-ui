@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-16",
+  "capturedAt": "2026-10-16T23:07:23.884471+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "summary": {
+    "complete": 0,
+    "partial": 3,
+    "blocked": 0,
+    "patches": 1,
+    "proposedFiles": 3,
+    "newBrowserCases": 6,
+    "newBrowserExecutions": 0,
+    "typecheck": "pass",
+    "patchApplicability": "pass-unapplied"
+  },
+  "sourceHashComparisons": {
+    "parallel13": {
+      "compared": 36,
+      "changed": 0
+    },
+    "navigatorRuntimeClosure": {
+      "compared": 28,
+      "changed": 0
+    },
+    "coordinatorDirectBuiltOutputs": {
+      "compared": 53,
+      "changed": 0
+    },
+    "navigatorEvidenceInputs": {
+      "compared": 8,
+      "changed": 0
+    }
+  },
+  "leaves": [
+    {
+      "id": "A-H-02",
+      "originalRequirement": "- [ ] A-H-02 Reconcile original `H-02`: Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](react-aria-browser-acceptance.md). Historical status: checked.",
+      "status": "partial",
+      "integrationRequired": true,
+      "proposedPatch": "routing-probes.patch",
+      "substantiveOutcome": "Prepared executable native custom/fallback callback-order/cancellation and popup/relative-download/external probes; retained historical exact native transfers without relabeling them current.",
+      "evidence": [
+        "input-receipt.json",
+        "report.md",
+        "validation-plan.json",
+        "proposal-typecheck.json",
+        "patch-check.json",
+        "navigation-composed.spec.ts"
+      ],
+      "runtime": "Node v26.5.0 / TypeScript5.9.3 for static check only; no unit/native execution",
+      "commandsExecuted": [
+        "node docs/developer/final-acceptance/wave-03-16/check-proposals.cjs",
+        "python3 docs/developer/final-acceptance/wave-03-16/capture-inputs.py",
+        "git apply --check docs/developer/final-acceptance/wave-03-16/routing-probes.patch"
+      ],
+      "residualSuccessors": [
+        "Coordinator reviews/applies patch and runs exact focused validation-plan.json checks across Chromium/Firefox/WebKit on Node22/24.",
+        "Retain raw native outcomes and final integrated source/output hashes; close only after actual assertions pass."
+      ],
+      "limits": "No current native execution or owner approval fabricated; no shared checklist/count changes."
+    },
+    {
+      "id": "A-H-03",
+      "originalRequirement": "- [ ] A-H-03 Reconcile original `H-03`: Integrate React Aria routing where needed behind the existing host adapter; avoid two competing navigation systems or a runtime Next.js dependency. Historical status: open.",
+      "status": "partial",
+      "integrationRequired": true,
+      "proposedPatch": "routing-probes.patch",
+      "substantiveOutcome": "Implemented proposed composed Menu/Breadcrumbs/SideNavigation/Link host-adapter fixture and exact one-owner pointer/Enter/pathname/ref probes plus routing-ownership guidance.",
+      "evidence": [
+        "input-receipt.json",
+        "report.md",
+        "validation-plan.json",
+        "proposal-typecheck.json",
+        "patch-check.json",
+        "navigation-composed.spec.ts"
+      ],
+      "runtime": "Node v26.5.0 / TypeScript5.9.3 for static check only; no unit/native execution",
+      "commandsExecuted": [
+        "node docs/developer/final-acceptance/wave-03-16/check-proposals.cjs",
+        "python3 docs/developer/final-acceptance/wave-03-16/capture-inputs.py",
+        "git apply --check docs/developer/final-acceptance/wave-03-16/routing-probes.patch"
+      ],
+      "residualSuccessors": [
+        "Coordinator reviews/applies patch and runs exact focused validation-plan.json checks across Chromium/Firefox/WebKit on Node22/24.",
+        "Retain raw native outcomes and final integrated source/output hashes; close only after actual assertions pass."
+      ],
+      "limits": "No current native execution or owner approval fabricated; no shared checklist/count changes."
+    },
+    {
+      "id": "A-M-10",
+      "originalRequirement": "- [ ] A-M-10 Reconcile ExperiencePageNavigator final acceptance: Previous/next boundaries, labels, disabled states, link/action semantics. Link its `F-C10`, `T-C10` and `V-C10` evidence and any unresolved defects.",
+      "status": "partial",
+      "integrationRequired": false,
+      "proposedPatch": null,
+      "substantiveOutcome": "Compared 28-file saved runtime closure unchanged; reused F-C10/T-C10/V-C10 authoring-list evidence and preserved owner-decision blocker for absent adjacent route API.",
+      "evidence": [
+        "input-receipt.json",
+        "report.md",
+        "validation-plan.json",
+        "../wave-02-01/report.md",
+        "../wave-02-01/results.json"
+      ],
+      "runtime": "Node v26.5.0 / TypeScript5.9.3 for static check only; no unit/native execution",
+      "commandsExecuted": [
+        "node docs/developer/final-acceptance/wave-03-16/check-proposals.cjs",
+        "python3 docs/developer/final-acceptance/wave-03-16/capture-inputs.py",
+        "git apply --check docs/developer/final-acceptance/wave-03-16/routing-probes.patch"
+      ],
+      "residualSuccessors": [
+        "Product/API owner records explicit disposition of previous/next and link clauses or separately approves an adjacent navigation contract; agent authoring-list evidence cannot substitute."
+      ],
+      "limits": "No current native execution or owner approval fabricated; no shared checklist/count changes."
+    }
+  ],
+  "constraints": [
+    "Only own evidence directory changed.",
+    "No builds/installs/servers/runtime suites or shared generated output mutation.",
+    "No Git mutations or messages to another chat.",
+    "No subagents/conversations.",
+    "All original leaves stay partial."
+  ]
+}

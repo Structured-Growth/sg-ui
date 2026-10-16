@@ -13,6 +13,32 @@ width constants remain 420 and 360 pixels; the default maximum width remains
 is available for host layout choices and is not imposed on narrow containers.
 `width` still accepts a pixel number. Long card headings wrap within the header.
 
+The frame owns the named `sgui-class-card` inline-size query boundary. The host
+allocates its width through a block, a flex item with `min-inline-size: 0`, or a
+`minmax(0, 1fr)` grid track. The frame fills that allocation up to its maximum;
+inline-size containment does not derive an intrinsic width from slot content, so
+an intrinsically sized/shrink-to-fit host must supply a width. Below 20rem of card
+content width, owned header/body padding changes from space4 to space3. Footer
+padding and host-provided slot layout remain unchanged. Resizing one card does
+not choose the spacing of a sibling. Native slot styles can override this padding.
+
+`CardCollectionWithFooter` keeps its fluid `auto-fill`/`minmax` grid; the collection
+allocates tracks and each ClassCardFrame adapts its own slots. Generic Card is a
+surface primitive and does not add containment to arbitrary consumer layouts.
+Toolbar, navigation-shell and modal query boundaries remain documented in
+[toolbar](react-aria-data-toolbar.md), [navigation](react-aria-navigation-container.md)
+and [modal](react-aria-modal-container.md) contracts.
+
+Text roles use rem-backed tokens; the card maximum is a compatibility pixel prop,
+not a fixed text size. The rem query threshold follows root text enlargement.
+Keep mobile layouts shrinkable and allow long labels to wrap. Do not add a
+viewport-only font-size clamp: there is no demonstrated benefit over the owned
+rem scale, and it can defeat text enlargement. Existing `min(100%, ...)` overlay
+widths and the fluid collection grid provide the useful fluid sizing. At short
+heights retain independent tab-panel scrolling and the whole-dialog fallback.
+Browser zoom must be validated using browser controls; root font-size overrides
+and a 320 CSS-pixel viewport are separate reflow checks.
+
 | Previous frame styling | Owned mapping |
 | --- | --- |
 | `headerSx` | `headerClassName`, `headerStyle` |
@@ -34,6 +60,9 @@ warning tokens. Every state retains an explicit translated status label so color
 is not its only indicator. Archived cards omit learner/activity metadata. Existing
 known action/activity label mappings and custom host labels remain unchanged.
 Interpolation values and namespace now reach the host translation adapter.
+The adapter returns final formatted text; cards render it once. Host activity
+labels may contain literal braces or dollar signs, which are retained as text
+rather than interpreted again as placeholders or replacement patterns.
 
 `LearnerClassCard` retains its due formatter, locale, `referenceNow`, destinations
 and `onContinue`. Details uses `detailsHref`, falling back to `continueHref`;

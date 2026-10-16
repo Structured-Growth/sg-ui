@@ -1,0 +1,71 @@
+{
+  "scope": "Review template only; all prior decision fields remain pending. Not an operational appointment or legal approval.",
+  "operationalGovernance": [
+    {
+      "item": "Named dependency review owner and backup; upgrade/retention approver",
+      "status": "pending owner decision",
+      "decision": null,
+      "approver": null,
+      "date": null,
+      "approvalReference": null
+    },
+    {
+      "item": "Named license/provenance reviewer and accepted update trigger workflow",
+      "status": "pending owner decision",
+      "decision": null,
+      "approver": null,
+      "date": null,
+      "approvalReference": null
+    },
+    {
+      "item": "Routine review cadence and advisory/support-status sources",
+      "status": "pending owner decision",
+      "decision": null,
+      "approver": null,
+      "date": null,
+      "approvalReference": null
+    },
+    {
+      "item": "Confirmed confidential security intake channel, accountable recipient and fallback",
+      "status": "pending owner decision",
+      "decision": null,
+      "approver": null,
+      "date": null,
+      "approvalReference": null
+    },
+    {
+      "item": "Triage/remediation targets, escalation and emergency authority",
+      "status": "pending owner decision",
+      "decision": null,
+      "approver": null,
+      "date": null,
+      "approvalReference": null
+    },
+    {
+      "item": "Supported-release/backport window, EOL exception expiry and communication ownership",
+      "status": "pending owner decision",
+      "decision": null,
+      "approver": null,
+      "date": null,
+      "approvalReference": null
+    },
+    {
+      "item": "Disclosure authority, remaining-risk acceptance and approval reference",
+      "status": "pending owner decision",
+      "decision": null,
+      "approver": null,
+      "date": null,
+      "approvalReference": null
+    }
+  ],
+  "inventoryTriggers": [
+    "Manifest/lock/resolved metadata changes",
+    "Dependency upgrades or install policy changes",
+    "Copied/generated icons/fonts/media/distributed assets",
+    "Bundling or distribution-root changes",
+    "Final release-artifact review"
+  ],
+  "approvalEvidence": null,
+  "releaseSettingsEvidence": null,
+  "legalApprovalEvidence": null
+}

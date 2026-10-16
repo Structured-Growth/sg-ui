@@ -36,10 +36,19 @@ component's existing contract define its boundaries.
    scope. Source imports stay relative and avoid root-barrel cycles. Use granular
    imports in consumer examples; never advertise a source file as an exported subpath.
    If shared export/config ownership belongs elsewhere, report the required change.
-7. **Demonstrate changed behavior.** Colocate stories using production Provider and
-   representative local data/host adapters. Cover the changed state/interaction and
-   compositional behavior; do not fork tokens or depend on host APIs/authentication.
-8. **Test observable behavior.** Add colocated tests for keyboard/pointer actions,
+7. **Demonstrate changed behavior.** Update ordinary React examples in
+   `apps/docs/examples` with independent shared Example panels, meaningful prop
+   playgrounds and current copyable public-package source. Use production scopes
+   and representative local data/host adapters. Preserve native scenarios in
+   `apps/docs/native-fixtures`; source-context unit fixtures stay colocated.
+   Follow the [Button page template and example rules](../../AGENTS.md#component-documentation-requirements):
+   bare overview, playground (processing-grid exception), named source-backed examples,
+   Contains/Used In and page-level Documentation. Register public aliases and compound
+   children. Each Example owns its state; source must track controls and include host callbacks.
+   Do not restore Storybook or fork tokens or depend on host APIs/authentication.
+8. **Test observable behavior.** During the functionality baseline, reuse existing
+   coverage and add only 1–3 meaningful smoke cases per component; track expanded
+   regression and hardening separately. As the assigned phase requires, test keyboard/pointer actions,
    callbacks, forms/reset, refs, controlled acceptance, accessible state and relevant
    cancellation/lifetime regressions. Compose nested controls to detect accidental
    selection/activation/focus changes. Use browser checks for native timing, focus,

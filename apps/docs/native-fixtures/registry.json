@@ -60,6 +60,26 @@
       "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
       "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
     },
+    "foundations-foundation-catalogue--motion-cancellation-start": {
+      "id": "foundations-foundation-catalogue--motion-cancellation-start",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "MotionCancellationStart",
+      "exportName": "MotionCancellationStart",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
+    "foundations-foundation-catalogue--motion-cancellation-end": {
+      "id": "foundations-foundation-catalogue--motion-cancellation-end",
+      "type": "fixture",
+      "title": "Foundations/Foundation Catalogue",
+      "name": "MotionCancellationEnd",
+      "exportName": "MotionCancellationEnd",
+      "module": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "importPath": "./scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "original": "packages/ui/src/foundation/FoundationCatalogue.stories.tsx"
+    },
     "foundations-tokentierscope--nested-overrides": {
       "id": "foundations-tokentierscope--nested-overrides",
       "type": "fixture",
@@ -346,6 +366,16 @@
       "title": "Editors/PageRichTextEditorSection/Paragraph transactions",
       "name": "ParagraphCommandHistory",
       "exportName": "ParagraphCommandHistory",
+      "module": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.fixture.tsx",
+      "importPath": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.fixture.tsx",
+      "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.stories.tsx"
+    },
+    "editors-pagerichtexteditorsection-paragraph-transactions--selection-acceptance": {
+      "id": "editors-pagerichtexteditorsection-paragraph-transactions--selection-acceptance",
+      "type": "fixture",
+      "title": "Editors/PageRichTextEditorSection/Paragraph transactions",
+      "name": "SelectionAcceptance",
+      "exportName": "SelectionAcceptance",
       "module": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.fixture.tsx",
       "importPath": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.fixture.tsx",
       "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.stories.tsx"
@@ -660,6 +690,26 @@
       "importPath": "./scenarios/components/AppModal/AppModal.fixture.tsx",
       "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx"
     },
+    "overlays-appmodal--ownership": {
+      "id": "overlays-appmodal--ownership",
+      "type": "fixture",
+      "title": "Overlays/AppModal",
+      "name": "Ownership",
+      "exportName": "Ownership",
+      "module": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+      "importPath": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+      "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx"
+    },
+    "overlays-appmodal--contract-matrix": {
+      "id": "overlays-appmodal--contract-matrix",
+      "type": "fixture",
+      "title": "Overlays/AppModal",
+      "name": "ContractMatrix",
+      "exportName": "ContractMatrix",
+      "module": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+      "importPath": "./scenarios/components/AppModal/AppModal.fixture.tsx",
+      "original": "packages/ui/src/components/AppModal/AppModal.stories.tsx"
+    },
     "navigation-sidenavigation-organization-lifetime--deferred-switch": {
       "id": "navigation-sidenavigation-organization-lifetime--deferred-switch",
       "type": "fixture",
@@ -706,6 +756,26 @@
       "title": "Navigation/SideNavigation",
       "name": "NativeHierarchy",
       "exportName": "NativeHierarchy",
+      "module": "./scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "importPath": "./scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "original": "packages/ui/src/components/SideNavigation/SideNavigation.stories.tsx"
+    },
+    "navigation-sidenavigation--english-drill-motion": {
+      "id": "navigation-sidenavigation--english-drill-motion",
+      "type": "fixture",
+      "title": "Navigation/SideNavigation",
+      "name": "EnglishDrillMotion",
+      "exportName": "EnglishDrillMotion",
+      "module": "./scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "importPath": "./scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "original": "packages/ui/src/components/SideNavigation/SideNavigation.stories.tsx"
+    },
+    "navigation-sidenavigation--arabic-drill-motion": {
+      "id": "navigation-sidenavigation--arabic-drill-motion",
+      "type": "fixture",
+      "title": "Navigation/SideNavigation",
+      "name": "ArabicDrillMotion",
+      "exportName": "ArabicDrillMotion",
       "module": "./scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
       "importPath": "./scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
       "original": "packages/ui/src/components/SideNavigation/SideNavigation.stories.tsx"
@@ -2430,6 +2500,16 @@
       "importPath": "./scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
       "original": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx"
     },
+    "components-classcardframe--container-boundary": {
+      "id": "components-classcardframe--container-boundary",
+      "type": "fixture",
+      "title": "Components/ClassCardFrame",
+      "name": "ContainerBoundary",
+      "exportName": "ContainerBoundary",
+      "module": "./scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
+      "importPath": "./scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
+      "original": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx"
+    },
     "editors-contenteditorchrome--default": {
       "id": "editors-contenteditorchrome--default",
       "type": "fixture",
@@ -2476,6 +2556,16 @@
       "title": "Editors/ContentEditorChrome",
       "name": "NativeHostComposition",
       "exportName": "NativeHostComposition",
+      "module": "./scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+      "importPath": "./scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+      "original": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx"
+    },
+    "editors-contenteditorchrome--acceptance-composition": {
+      "id": "editors-contenteditorchrome--acceptance-composition",
+      "type": "fixture",
+      "title": "Editors/ContentEditorChrome",
+      "name": "AcceptanceComposition",
+      "exportName": "AcceptanceComposition",
       "module": "./scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
       "importPath": "./scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
       "original": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx"
@@ -2736,6 +2826,16 @@
       "title": "Migration proofs/TagGroup",
       "name": "EmptyAndRTL",
       "exportName": "EmptyAndRTL",
+      "module": "./scenarios/experimental/TagGroup/TagGroup.fixture.tsx",
+      "importPath": "./scenarios/experimental/TagGroup/TagGroup.fixture.tsx",
+      "original": "packages/ui/src/experimental/TagGroup/TagGroup.stories.tsx"
+    },
+    "migration-proofs-taggroup--target-sizing": {
+      "id": "migration-proofs-taggroup--target-sizing",
+      "type": "fixture",
+      "title": "Migration proofs/TagGroup",
+      "name": "TargetSizing",
+      "exportName": "TargetSizing",
       "module": "./scenarios/experimental/TagGroup/TagGroup.fixture.tsx",
       "importPath": "./scenarios/experimental/TagGroup/TagGroup.fixture.tsx",
       "original": "packages/ui/src/experimental/TagGroup/TagGroup.stories.tsx"
@@ -3130,6 +3230,16 @@
       "importPath": "./scenarios/experimental/Calendar/Calendar.fixture.tsx",
       "original": "packages/ui/src/experimental/Calendar/Calendar.stories.tsx"
     },
+    "migration-proofs-calendar--navigation-reflow": {
+      "id": "migration-proofs-calendar--navigation-reflow",
+      "type": "fixture",
+      "title": "Migration proofs/Calendar",
+      "name": "NavigationReflow",
+      "exportName": "NavigationReflow",
+      "module": "./scenarios/experimental/Calendar/Calendar.fixture.tsx",
+      "importPath": "./scenarios/experimental/Calendar/Calendar.fixture.tsx",
+      "original": "packages/ui/src/experimental/Calendar/Calendar.stories.tsx"
+    },
     "migration-proofs-calendar-native-locales--sunday-first": {
       "id": "migration-proofs-calendar-native-locales--sunday-first",
       "type": "fixture",
@@ -3416,6 +3526,36 @@
       "title": "Migration proofs/DatePicker native transactions",
       "name": "ControlledHostReject",
       "exportName": "ControlledHostReject",
+      "module": "./scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+      "importPath": "./scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+      "original": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.stories.tsx"
+    },
+    "migration-proofs-datepicker-native-transactions--date-text-paste": {
+      "id": "migration-proofs-datepicker-native-transactions--date-text-paste",
+      "type": "fixture",
+      "title": "Migration proofs/DatePicker native transactions",
+      "name": "DateTextPaste",
+      "exportName": "DateTextPaste",
+      "module": "./scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+      "importPath": "./scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+      "original": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.stories.tsx"
+    },
+    "migration-proofs-datepicker-native-transactions--time-text-paste": {
+      "id": "migration-proofs-datepicker-native-transactions--time-text-paste",
+      "type": "fixture",
+      "title": "Migration proofs/DatePicker native transactions",
+      "name": "TimeTextPaste",
+      "exportName": "TimeTextPaste",
+      "module": "./scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+      "importPath": "./scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+      "original": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.stories.tsx"
+    },
+    "migration-proofs-datepicker-native-transactions--range-text-paste": {
+      "id": "migration-proofs-datepicker-native-transactions--range-text-paste",
+      "type": "fixture",
+      "title": "Migration proofs/DatePicker native transactions",
+      "name": "RangeTextPaste",
+      "exportName": "RangeTextPaste",
       "module": "./scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
       "importPath": "./scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
       "original": "packages/ui/src/experimental/DatePicker/DatePicker.native-transactions.stories.tsx"
@@ -3820,6 +3960,16 @@
       "importPath": "./scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
       "original": "packages/ui/src/experimental/ComboBox/ComboBox.stories.tsx"
     },
+    "migration-proofs-combobox--native-contracts": {
+      "id": "migration-proofs-combobox--native-contracts",
+      "type": "fixture",
+      "title": "Migration proofs/ComboBox",
+      "name": "NativeContracts",
+      "exportName": "NativeContracts",
+      "module": "./scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
+      "importPath": "./scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
+      "original": "packages/ui/src/experimental/ComboBox/ComboBox.stories.tsx"
+    },
     "migration-proofs-dialog--nested-form": {
       "id": "migration-proofs-dialog--nested-form",
       "type": "fixture",
@@ -3866,6 +4016,16 @@
       "title": "Migration proofs/Popover",
       "name": "ScrollHost",
       "exportName": "ScrollHost",
+      "module": "./scenarios/experimental/Popover/Popover.fixture.tsx",
+      "importPath": "./scenarios/experimental/Popover/Popover.fixture.tsx",
+      "original": "packages/ui/src/experimental/Popover/Popover.stories.tsx"
+    },
+    "migration-proofs-popover--css-contract": {
+      "id": "migration-proofs-popover--css-contract",
+      "type": "fixture",
+      "title": "Migration proofs/Popover",
+      "name": "CSSContract",
+      "exportName": "CSSContract",
       "module": "./scenarios/experimental/Popover/Popover.fixture.tsx",
       "importPath": "./scenarios/experimental/Popover/Popover.fixture.tsx",
       "original": "packages/ui/src/experimental/Popover/Popover.stories.tsx"
@@ -4080,6 +4240,16 @@
       "importPath": "./scenarios/experimental/Button/Button.fixture.tsx",
       "original": "packages/ui/src/experimental/Button/Button.stories.tsx"
     },
+    "migration-proofs-button--activation-notifications": {
+      "id": "migration-proofs-button--activation-notifications",
+      "type": "fixture",
+      "title": "Migration proofs/Button",
+      "name": "ActivationNotifications",
+      "exportName": "ActivationNotifications",
+      "module": "./scenarios/experimental/Button/Button.fixture.tsx",
+      "importPath": "./scenarios/experimental/Button/Button.fixture.tsx",
+      "original": "packages/ui/src/experimental/Button/Button.stories.tsx"
+    },
     "migration-proofs-link--default": {
       "id": "migration-proofs-link--default",
       "type": "fixture",
@@ -4216,6 +4386,16 @@
       "title": "Migration proofs/Menu",
       "name": "LinkTargets",
       "exportName": "LinkTargets",
+      "module": "./scenarios/experimental/Menu/Menu.fixture.tsx",
+      "importPath": "./scenarios/experimental/Menu/Menu.fixture.tsx",
+      "original": "packages/ui/src/experimental/Menu/Menu.stories.tsx"
+    },
+    "migration-proofs-menu--native-contracts": {
+      "id": "migration-proofs-menu--native-contracts",
+      "type": "fixture",
+      "title": "Migration proofs/Menu",
+      "name": "NativeContracts",
+      "exportName": "NativeContracts",
       "module": "./scenarios/experimental/Menu/Menu.fixture.tsx",
       "importPath": "./scenarios/experimental/Menu/Menu.fixture.tsx",
       "original": "packages/ui/src/experimental/Menu/Menu.stories.tsx"
@@ -4410,6 +4590,16 @@
       "importPath": "./scenarios/experimental/Select/Select.fixture.tsx",
       "original": "packages/ui/src/experimental/Select/Select.stories.tsx"
     },
+    "migration-proofs-select--native-contracts": {
+      "id": "migration-proofs-select--native-contracts",
+      "type": "fixture",
+      "title": "Migration proofs/Select",
+      "name": "NativeContracts",
+      "exportName": "NativeContracts",
+      "module": "./scenarios/experimental/Select/Select.fixture.tsx",
+      "importPath": "./scenarios/experimental/Select/Select.fixture.tsx",
+      "original": "packages/ui/src/experimental/Select/Select.stories.tsx"
+    },
     "migration-proofs-stack--default": {
       "id": "migration-proofs-stack--default",
       "type": "fixture",
@@ -4479,6 +4669,76 @@
       "module": "./scenarios/experimental/Badge/Badge.fixture.tsx",
       "importPath": "./scenarios/experimental/Badge/Badge.fixture.tsx",
       "original": "packages/ui/src/experimental/Badge/Badge.stories.tsx"
+    },
+    "migration-proofs-primitive-acceptance--layout": {
+      "id": "migration-proofs-primitive-acceptance--layout",
+      "type": "fixture",
+      "title": "Migration proofs/Primitive acceptance",
+      "name": "Layout",
+      "exportName": "Layout",
+      "module": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "importPath": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx"
+    },
+    "migration-proofs-primitive-acceptance--grouped-fields": {
+      "id": "migration-proofs-primitive-acceptance--grouped-fields",
+      "type": "fixture",
+      "title": "Migration proofs/Primitive acceptance",
+      "name": "GroupedFields",
+      "exportName": "GroupedFields",
+      "module": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "importPath": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx"
+    },
+    "migration-proofs-primitive-acceptance--required-choices": {
+      "id": "migration-proofs-primitive-acceptance--required-choices",
+      "type": "fixture",
+      "title": "Migration proofs/Primitive acceptance",
+      "name": "RequiredChoices",
+      "exportName": "RequiredChoices",
+      "module": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "importPath": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx"
+    },
+    "migration-proofs-primitive-acceptance--controlled-tabs": {
+      "id": "migration-proofs-primitive-acceptance--controlled-tabs",
+      "type": "fixture",
+      "title": "Migration proofs/Primitive acceptance",
+      "name": "ControlledTabs",
+      "exportName": "ControlledTabs",
+      "module": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "importPath": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx"
+    },
+    "migration-proofs-primitive-acceptance--profile-autofill": {
+      "id": "migration-proofs-primitive-acceptance--profile-autofill",
+      "type": "fixture",
+      "title": "Migration proofs/Primitive acceptance",
+      "name": "ProfileAutofill",
+      "exportName": "ProfileAutofill",
+      "module": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "importPath": "./scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/PrimitiveAcceptance/PrimitiveAcceptance.fixture.tsx"
+    },
+    "foundations-visual-acceptance--matrix": {
+      "id": "foundations-visual-acceptance--matrix",
+      "type": "fixture",
+      "title": "Foundations/Visual acceptance",
+      "name": "Matrix",
+      "exportName": "Matrix",
+      "module": "./scenarios/foundation/VisualAcceptance.fixture.tsx",
+      "importPath": "./scenarios/foundation/VisualAcceptance.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/foundation/VisualAcceptance.fixture.tsx"
+    },
+    "data-display-appdatagridshell-host-operations--optimistic-actions": {
+      "id": "data-display-appdatagridshell-host-operations--optimistic-actions",
+      "type": "fixture",
+      "title": "Data Display/AppDataGridShell/Host operations",
+      "name": "OptimisticActions",
+      "exportName": "OptimisticActions",
+      "module": "./scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx",
+      "importPath": "./scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx"
     }
   }
 }

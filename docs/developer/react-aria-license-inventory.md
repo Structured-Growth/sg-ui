@@ -4,19 +4,19 @@
 manifest declarations, pnpm v9 locked identities/edges, available installed package
 metadata, legal-file hashes and distributed asset candidates. It supplies evidence
 for review; it does not approve licenses, change notices or decide commercial terms.
-See [L-01–L-09](react-aria-master-task-list.md#5-licensing-and-dependency-governance),
+See [L-01–L-09](react-aria-hardening-tasks.md),
 [architecture policy](react-aria-architecture.md#dependency-and-license-policy),
 [commercial guidance](../commercial-licensing.md) and the
 [batch 98 gap record](https://github.com/Structured-Growth/sg-ui/blob/7335e41c35ea0af07f72b133ced92e04e1e896ca/docs/developer/parallel-batch-98/acceptance-evidence.md).
 
 ## Run and interpret
 
-From a repository with an already installed frozen-lockfile dependency tree:
+From the repository root with an already installed frozen-lockfile dependency tree:
 
 ```sh
-node scripts/check-license-inventory.mjs
-node scripts/check-license-inventory.mjs /path/to/sg-ui
-node --test scripts/check-license-inventory.test.mjs
+node packages/ui/scripts/check-license-inventory.mjs packages/ui
+node packages/ui/scripts/check-license-inventory.mjs /path/to/sg-ui/packages/ui
+node --test packages/ui/scripts/check-license-inventory.test.mjs
 ```
 
 Use the development Node 24 runtime. The checker uses only Node built-ins, reads
@@ -35,7 +35,7 @@ licenses. Findings are retained for owner review; there is no suppression list o
 automatic safe-license allowlist. Unsupported lock identities, including workspace,
 file, git and npm aliases, require a deliberate parser extension and fixtures.
 
-The parser deliberately reads only pnpm v9 root importer specifiers/resolutions,
+The parser deliberately reads only pnpm v9 selected importer specifiers/resolutions (packages/ui in this workspace),
 package identities and snapshot dependency/optional edges. It is not a general YAML
 parser and does not evaluate integrity, engines, platform eligibility or peer range
 satisfaction. Hashes identify exact input bytes. Installed lock bytes must match
@@ -97,7 +97,9 @@ notices. Follow [targeted development validation](react-aria-development-validat
 for implementation changes; production acceptance retains its full gates.
 
 This bounded checker supplies the previously missing repeatable capability.
-L-08 owner assignment remains held. L-01/L-02/L-04/L-05/L-07 and final L/R/Z
+L-08 owner assignment remains held. The complementary
+[source policy guard](react-aria-governance-check.md) checks configured publication,
+legal-copy and task-data boundaries without appointing anyone. L-01/L-02/L-04/L-05/L-07 and final L/R/Z
 legal, provenance, exact-artifact and production acceptance remain open; no
 all-licenses-safe statement, publication authorization or commercial approval is
 made. L-09 security/support governance is a separate task.

@@ -10,7 +10,7 @@ Task slice: W-17/W-19 and R-20/R-22 documentation; broad release gates remain op
 An owner must enable Actions and permit Actions to create pull requests under
 Settings → Actions → General for the default-token AI proposal path. Protect `main`
 with PR review and both matrix checks, **Validate Node 22.12.0** and **Validate Node 24**,
-plus **conventional-title**. `validate` is the YAML job ID, not its matrix display name.
+plus **Next.js docs** and **conventional-title**. `validate` is the YAML job ID, not its matrix display name.
 Confirm the exact contexts from an actual PR run before configuring required checks;
 reusable release runs can display a caller prefix. No protection setting is asserted.
 
@@ -20,7 +20,7 @@ breaking changes. If using a `BREAKING CHANGE:` footer instead, preserve it in t
 squash commit body: the title check cannot validate that eventual body. Never
 auto-merge AI proposals. Preserve commercial licensing and third-party notices.
 
-Use Node 24 from [`.nvmrc`](../.nvmrc) for development, PR-title validation, both AI
+Use Node 24 from [`.nvmrc`](../.nvmrc) for development, PR-title validation, AI validation
 jobs and releases, with pnpm 10.29.3 from [package.json](../package.json). The consumer
 engine is Node >=22.12.0; React/React DOM peers are 18.3.1 or 19. CI validates the
 exact Node 22.12.0 minimum and the Node 24 line.
@@ -30,24 +30,38 @@ exact Node 22.12.0 minimum and the Node 24 line.
 user-authorized pause in the
 [development validation policy](developer/react-aria-development-validation.md). Other PRs, main pushes and reusable
 calls retain the full matrix. Both full matrix jobs install
-the frozen lockfile, run `pnpm check` and `pnpm build-storybook`, then serially run
+the frozen lockfile, run `pnpm check` and `pnpm build:browser-docs`, then serially run
 packed foundation and editor consumers with React 18.3 and 19. The React 19
 foundation consumer includes Flight. Node 24 additionally installs Chromium,
 Firefox and WebKit, runs `pnpm test:browser`, enables foundation browser hydration
 and runs the packed Next.js production/browser consumer. `pnpm check` includes
 foundation/token guards, foundation tests, typecheck, Vitest, release-policy tests,
 a library build and package-entry smoke checks; it does not itself run the browser
-or packed consumer suites.
+or packed consumer suites. The separate **Next.js docs** job runs root
+`pnpm check:docs`, `pnpm build:docs` and the docs Chromium smoke. Storybook
+has been removed; historical Storybook receipts retain their original host identity.
 
-Each matrix job has a 30-minute timeout and uploads these artifacts with 14-day
+Library matrix commands run from `packages/ui` (installation runs at the root).
+The separate **Next.js docs** job runs typecheck, production build and Chromium
+website smoke checks; the private native-fixture build does not replace it.
+
+The minimum-runtime job has a 30-minute timeout; Node 24 has a 60-minute job
+timeout and a 45-minute browser step budget. The docs job has a 20-minute timeout.
+CI cleans generated output before validation, hashes source inputs and binds the
+final library/native-fixture outputs and tarball in `build-receipt.json` (inside
+validation logs). The dependency store cache explicitly uses root `pnpm-lock.yaml`;
+generated output is never cached. See the
+[workflow dependency policy](developer/workflow-dependency-policy.md) for review and
+retrieval procedures. Each job uploads artifacts with 14-day
 retention (availability must be checked on the producing run):
 
 | Artifact | Contents and upload condition |
 | --- | --- |
 | `sgui-package-node-22.12.0`, `sgui-package-node-24` | Validated tarball after successful checks |
-| `sgui-storybook-node-22.12.0`, `sgui-storybook-node-24` | Built static Storybook after successful checks |
+| `sgui-browser-docs-node-22.12.0`, `sgui-browser-docs-node-24` | Built docs-owned native fixtures after successful checks |
 | `sgui-validation-node-22.12.0`, `sgui-validation-node-24` | Runtime/check/build/consumer logs, uploaded even on failure |
 | `sgui-browser-node-24` | Reports, traces, JSON and packed browser evidence, uploaded even on failure |
+| `sgui-docs-validation-node-24` | Next.js docs check/build/browser logs, JSON and failure traces, uploaded even on failure |
 
 See [runtime evidence](developer/react-aria-runtime-ci.md) and
 [browser acceptance](developer/react-aria-browser-acceptance.md) for recorded heads
@@ -57,7 +71,7 @@ see [validation troubleshooting](troubleshooting/validation.md).
 ## Secrets and publishing identity
 
 Owner configuration must establish publishing access to `@structured-growth/sg-ui`.
-[package.json](../package.json) configures public npm access; public distribution
+[library package.json](../packages/ui/package.json) configures public npm access; public distribution
 still requires a written commercial license for use. Review [LICENSE](../LICENSE),
 [commercial licensing](commercial-licensing.md) and [notices](../THIRD_PARTY_NOTICES.md).
 
@@ -72,8 +86,9 @@ still requires a written commercial license for use. Review [LICENSE](../LICENSE
   does not prove the effective CLI or publisher setup. If bootstrap publication is
   needed, it belongs to the owner-approved Actions release path.
 - `OPENAI_API_KEY`: required by the manual AI implementation workflow.
-- `AI_PR_TOKEN`: optional alternative to `github.token` with repository contents
-  and PR write access. It can allow normal PR workflows to start automatically.
+- Draft creation uses `github.token` only in the separate write-permission job.
+  It does not require an alternative PR token. Do not pass publishing/API secrets
+  to generated-code validation or inherit secrets into reusable CI.
 
 The release job uses `GITHUB_TOKEN` for tags and GitHub releases, and passes
 `NPM_TOKEN` from secrets. There is no `RELEASE_TOKEN` reference or version-update
@@ -85,46 +100,61 @@ configured source permissions are prerequisites, not proof of a successful publi
 ## Manual AI task and draft review
 
 [AI implementation](../.github/workflows/ai-code.yml) uses only `workflow_dispatch`
-with a required `task` string; the implementation job runs only on `main`. In
-Actions, choose **AI implementation**, **Run workflow**, select `main`, and supply
+with a required `task` string; the implementation job runs only on `dev`. In
+Actions, choose **AI implementation**, **Run workflow**, select `dev`, and supply
 the request plus acceptance criteria. The [UI issue form](../.github/ISSUE_TEMPLATE/ui-change.yml)
 captures a request for triage. Opening/labeling an issue or submitting that form
 does not invoke AI; no issue/label trigger is implemented (R-22).
 
 Include applicable backlog task IDs, owned props/native refs, CSS tokens and
 `/styles.css` with Provider or ThemeScope, host-owned data/routing/translation/save
-boundaries, relevant stories/behavior criteria, validation commands and remaining
+boundaries, docs playground/reference examples, unit/native fixtures and behavior criteria, validation commands and remaining
 gates. Use the [canonical recipe](developer/react-aria-component-recipe.md) and
 [PR template](../.github/pull_request_template.md). State the bounded scope rather
 than requiring every broad G/K/E/U/X/R/Z gate for each request.
 
-The checked-in AI prompt and patch allowlist permit only `src/`, `.storybook/`,
-`docs/` and `README.md`. Package/workflow/agent changes and `.github` template edits
-require ordinary maintainer PRs. The implementation job uploads `ai-proposal`
-(patch and summary, 14 days); the separate proposal job checks the allowlist,
-validates the generated Conventional Commit title, runs `pnpm check` and
-`pnpm build-storybook`, then creates a draft PR on `ai/sgui-<run_id>`. Its generated
-body is a short static summary; task IDs, detailed evidence and remaining gates
-must be added during review. Updating the generated prompt/body is separate
-workflow work (R-20), not accomplished by these templates.
+The component AI workflow permits `packages/ui/src/`, `apps/docs/examples/`,
+`apps/docs/native-fixtures/scenarios/`, `docs/` and `README.md`, subject to the
+same explicit shared-system exclusions at capture and validation. Foundation,
+theme, adapters, i18n, experimental implementations, hooks, architecture/shared
+contracts, public exports/models, dependencies/package/workflow/agent changes
+require maintainer work. A permitted path does not authorize architectural changes.
 
-Do not assume default-token creation automatically runs full PR CI. Current
-[GitHub trigger guidance](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
-says `GITHUB_TOKEN` PR opened/synchronize/reopened events create approval-required
-runs; a user with write access can select **Approve workflows to run**. Other PR
-activity types do not receive that exception. Verify the actual PR's run state
-and required contexts. The proposal job's title/package/Storybook checks remain
-independent, but it does **not** execute full CI browser or packed-consumer gates.
-Approve and inspect those PR runs where offered, or report missing validation to
-an owner; do not equate the generated summary with full CI evidence. This guide
-has not verified actual default-token PR behavior for this repository (R-23/R-27).
+The implementation checks out the dispatch SHA on dev and uploads `ai-proposal`
+(patch/summary, 14 days). A fresh **validate-proposal** job has contents:read,
+no API/PR secrets and no persisted checkout credential. It applies the allowlist,
+requires nonempty Task IDs, Behavior and owned contracts, Examples and tests,
+Validation evidence and Unverified limitations sections, validates the title,
+and runs `pnpm check` and `pnpm build:browser-docs`. Its receipt records the
+applied base, patch SHA-256 and run; it is not a tested future PR commit.
+
+The **propose** write-permission job consumes that validated artifact. It does
+not install dependencies or execute generated package/component code. It creates
+a draft against `dev` on `codex/ai-sgui-<run_id>`, never auto-merges, and fails
+if draft number/head identity is absent. The separate **validate-draft** reusable
+CI call checks out that exact resulting head with read-only permissions. It runs
+the full Node matrix, native/packed-consumer checks and Next.js docs regardless
+of whether a default-token PR event starts another run or dev PR CI is paused.
+No PR event is evidence of success by itself. Inspect the explicit caller jobs'
+actual conclusions and exact checked head. A later PR update requires new
+validation of the new head; an old run does not transfer. Title validation
+preceded draft creation; edits to the title also require revalidation.
+
+Before production promotion, an owner must capture actual PR/main check contexts
+(including reusable caller prefixes), ruleset/protection requirements, failed and
+missing-check merge blocking, and release dependency behavior. The expected direct
+CI names are **Validate Node 22.12.0**, **Validate Node 24**, **Next.js docs** and
+**conventional-title**. Do not configure requirements from guessed prefixed names,
+weaken protection, or count the dev exception as production evidence. The AI
+preflight receipt and explicit call remain configured behavior until observed on
+Actions; action-source/API credential isolation also needs security-owner review.
 
 ## Validation by change scope
 
 | Change scope | Evidence to provide before completion |
 | --- | --- |
 | Documentation/template guidance only | Relevant links/anchors, paths, commands, exports/example contracts, issue-form structure and `git diff --check`; no unrelated UI tests or local builds |
-| Component/API/style/behavior | For pre-production dev: affected unit/composed tests, relevant type/foundation/token guards and changed-state stories; focused browser checks with fresh Storybook for native timing/focus/scrolling/positioning |
+| Component/API/style/behavior | For pre-production dev: affected unit/composed tests, relevant type/foundation/token guards and changed-state docs examples; focused browser checks with fresh native fixtures for native timing/focus/scrolling/positioning |
 | Dependency/build/release/workflow | For pre-production dev: affected build/runtime/packed-consumer/release-policy/workflow checks; full runs at occasional checkpoints and before production; owner prerequisites and publication effects explicitly reviewed |
 
 Run `pnpm install --frozen-lockfile` when dependencies are needed. Documentation-only
@@ -135,7 +165,7 @@ and final artifact/legal acceptance remain separate unless part of the request.
 
 ## Automatic versioning and release flow
 
-[release.config.mjs](../release.config.mjs) analyzes Conventional Commits since the
+[release.config.mjs](../packages/ui/release.config.mjs) analyzes Conventional Commits since the
 last release tag, using `main` and tags `v${version}`:
 
 | Commit example | Release |
@@ -163,13 +193,20 @@ With no previous release tag and a qualifying commit, semantic-release starts at
 npm and release tags are authoritative; versions are not committed back to `main`.
 See [semantic-release FAQ](https://semantic-release.gitbook.io/semantic-release/support/faq).
 A release-worthy merge to `main` can publish automatically once owner prerequisites
-are configured. This guide establishes no first-publication approval or live status.
+are configured. This guide establishes no first-publication approval or live status. Development
+integrates into `dev`; promotion to `main` requires explicit human release approval
+under [AGENTS.md](../AGENTS.md). The source workflow trigger is not that approval.
 
 The npm plugin publishes and creates a tarball in `artifacts/release`; the GitHub
-plugin attaches it and creates the tag/release notes. It disables issue/PR release
+plugin attaches it and creates the GitHub release/notes. semantic-release core
+creates and pushes the tag before invoking the publish plugins. It disables issue/PR release
 comments and labels. Release rebuilds output rather than downloading the CI tarball;
 exact-artifact identity remains a separate audit. Published files include `dist`,
 package metadata, README, LICENSE and THIRD_PARTY_NOTICES.md; there is no CommonJS
 entry. The workflow enables provenance for a public repository. npm documents OIDC
 provenance for public packages from public repositories; package/repository visibility
 and the successful attestation must be verified by the owner before claiming it.
+
+Release-owner decisions, publishing prerequisite receipts, lockfile reproducibility
+and partial-failure recovery are defined in [release recovery](troubleshooting/release.md).
+Record explicit first-publication or subsequent-major approval before main promotion.

@@ -1,0 +1,8 @@
+Draft-tool corrections (no product suite failures):
+Initial Python schema probe sliced a contract dictionary and failed with TypeError: unhashable type: slice. Corrected to inspect dictionary entries.
+First consumer compiler attempt failed on experimental-only root imports and inferred grid unknown rows. Preserved in typecheck-initial-failure.json.
+Second compiler attempt failed on missing required getRowLabel. Preserved in typecheck-second-failure.json.
+After public imports, explicit generic type and required row label corrections: zero diagnostics, six actual expected rejections.
+Initial check-evidence.py draft had SyntaxError: closing parenthesis bracket does not match opening parenthesis at line23. Corrected bracket; subsequent evidence checks pass.
+Local /opt/homebrew/opt/node@22 and node@24 paths do not exist; all new compiler/script checks use Node26.5.0 and are not supported-runtime behavioral results.
+A shell glob for date usage files found no matches; no file mutation resulted.

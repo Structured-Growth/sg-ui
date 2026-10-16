@@ -76,6 +76,30 @@ The proof tabs have a bounded root and separately scrolling panel. See
 interaction and document scroll locking remain owned by the interaction engine.
 No host body/global normalization is added to the stylesheet.
 
+### Composed overlay ownership
+
+The interaction engine owns the active modal stack, background isolation,
+scroll-lock lifetime and topmost Escape/outside dismissal. A nested modal shares
+its parent's overlay layer; portal insertion order supplies its visual order.
+Anchored menus, popovers, tooltips and editor selection tools use the popover layer.
+Layer values alone do not establish interaction ownership: verify the actual
+hit target and focus when composing them. Close a menu before opening a sibling
+editor dialog; do not raise an arbitrary host root above the modal stack.
+
+Each example or native host instance owns its open state, drafts and callbacks.
+Closing a child retains the parent's document lock; closing the last modal releases
+it. A surviving opener receives focus on dismissal. If an opener is removed,
+Dialog attempts its surviving parent's initial control/first tabbable/dialog
+fallback after engine cleanup, preserving a valid host-chosen focus destination.
+Hosts remain responsible for a meaningful destination when the parent also unmounts.
+
+Narrow layouts may flip/shift anchored overlays and bound their scrollable content;
+validate focused controls and actual hit targets after live viewport resize.
+Root text enlargement, CSS transforms and device scale emulation are distinct from
+browser chrome zoom. Acceptance at real zoom needs an operator or browser facility
+that records the browser's actual zoom level, viewport and visualViewport values.
+Keep native scroll locking and the docs stable gutter enabled during these checks.
+
 ## Tests and evidence
 
 Each of Button, TextField, ThemeScope, Provider, Dialog, Popover, Tabs and ComboBox

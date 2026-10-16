@@ -1,0 +1,10 @@
+✔ external candidate is copied byte-for-byte into independently owned fixtures (6.2975ms)
+✔ external candidate hash mismatch stops before any package install (2.486792ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 50.788375

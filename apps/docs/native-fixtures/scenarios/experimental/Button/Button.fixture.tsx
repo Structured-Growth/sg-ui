@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
-import { Button } from "@structured-growth/sg-ui/experimental";
+import { Button, ToggleButton } from "@structured-growth/sg-ui/experimental";
+import { ContentEditorChrome, DataGridDragHandle } from "@structured-growth/sg-ui/components";
 import { ThemeScope } from "@structured-growth/sg-ui/theme";
 import { tokens } from "@structured-growth/sg-ui/tokens";
 
@@ -68,4 +69,22 @@ function OwnedPressArgumentsExample() {
     </Button>
     <output aria-label="Press argument counts">{JSON.stringify(argumentCounts)}</output>
   </div>;
+}
+
+/** Private acceptance instrumentation; not a catalog example or persistence API. */
+export const ActivationNotifications: Story = { render: () => <ActivationNotificationsExample /> };
+function ActivationNotificationsExample() {
+  const [events, setEvents] = useState<string[]>([]);
+  const record = (event: string) => setEvents(previous => [...previous, event]);
+  return <form onSubmit={event => { event.preventDefault(); record("submit"); }} onReset={() => record("reset")}>
+    <Button onPress={(...args: unknown[]) => record(`action:${args.length}`)}>Ordinary action</Button>
+    <Button type="submit" onPress={(...args: unknown[]) => record(`submit press:${args.length}`)}>Submit action</Button>
+    <Button type="reset" onPress={(...args: unknown[]) => record(`reset press:${args.length}`)}>Reset action</Button>
+    <DataGridDragHandle label="Reorder action" onPress={(...args: unknown[]) => record(`reorder:${args.length}`)} />
+    <ToggleButton onSelectedChange={selected => record(`selection:${selected}`)}
+      onPress={(...args: unknown[]) => record(`toggle press:${args.length}`)}>Toggle action</ToggleButton>
+    <ContentEditorChrome icon={null} title="Activation document" titleReadOnly onTitleSave={() => {}}
+      menuItems={[{ id: "anchor", label: "Anchor action", onPress: anchor => record(`anchor:${anchor.tagName}:${anchor.textContent}`) }]} />
+    <output aria-label="Activation notifications">{JSON.stringify(events)}</output>
+  </form>;
 }

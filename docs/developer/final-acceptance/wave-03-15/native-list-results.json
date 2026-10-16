@@ -1,0 +1,232 @@
+{
+  "config": {
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.5.0/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "docs/developer/final-acceptance/wave-03-15/playwright.config.ts",
+      "--list"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-15/playwright.config.ts",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-15",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-15/native-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-15",
+        "testIgnore": [],
+        "testMatch": [
+          "icons-native.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-15/native-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-15",
+        "testIgnore": [],
+        "testMatch": [
+          "icons-native.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-15/native-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-15",
+        "testIgnore": [],
+        "testMatch": [
+          "icons-native.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "./native-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "icons-native.spec.ts",
+      "file": "icons-native.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "96 current icons: native SVG geometry, inherited/overridden/nested RTL and optical captures",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "a576873b9280db739fc3-3d6a709aeb707ce9b962",
+          "file": "icons-native.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "named theme pairs and decorative/meaningful naming in native accessibility roles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "a576873b9280db739fc3-101d8cd2597a12e0e73b",
+          "file": "icons-native.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "96 current icons: native SVG geometry, inherited/overridden/nested RTL and optical captures",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "a576873b9280db739fc3-9c4c3f34b7cf6993f784",
+          "file": "icons-native.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "named theme pairs and decorative/meaningful naming in native accessibility roles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "a576873b9280db739fc3-9128dcefca752b4d2793",
+          "file": "icons-native.spec.ts",
+          "line": 25,
+          "column": 1
+        },
+        {
+          "title": "96 current icons: native SVG geometry, inherited/overridden/nested RTL and optical captures",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "a576873b9280db739fc3-bfa48e2cf3c3f92fa0d8",
+          "file": "icons-native.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "named theme pairs and decorative/meaningful naming in native accessibility roles",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "a576873b9280db739fc3-8cac6ba56171d98c7ae9",
+          "file": "icons-native.spec.ts",
+          "line": 25,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T23:06:56.678Z",
+    "duration": 32.04899999999998,
+    "expected": 0,
+    "skipped": 6,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

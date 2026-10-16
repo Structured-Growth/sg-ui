@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "patchIntegrationRequired": true,
+  "noBuildInstallOrBrowserStarted": true,
+  "commands": [
+    {
+      "cwd": "repository root",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-31/scrollbar-disposal.patch",
+      "expected": "Clean applicability only; coordinator reviews then applies; no application performed here."
+    },
+    {
+      "cwd": "repository root",
+      "command": "node /tmp/sgui-calendar-validate.mjs pnpm --filter @structured-growth/sg-ui exec vitest run src/foundation/scrollbar-activity.test.ts src/components/ImageUploadModal/ImageUploadModal.test.tsx src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+      "runtime": "Node24.21.0 or supported Node22.12+",
+      "expected": "Existing cases plus sibling/double-dispose and 100-lifetime regressions pass; URL replacement/cancel/unmount/late settlement stay green. Lease helper must fail rather than reclaim/spin if occupied. Visible toolbar measurement observer disconnects once; queued-command cancellation remains green."
+    },
+    {
+      "cwd": "repository root",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-31/observer-cleanup.patch",
+      "expected": "Review/apply focused observer test separately; unrun here."
+    },
+    {
+      "cwd": "repository root",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-31/production-profiling.patch",
+      "expected": "Review new host and additive performance guidance before applying."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm build && pnpm exec vite build --config tests/performance/vite.config.mjs",
+      "expected": "Coordinator-only immutable fresh library and production fixture build. Hash source/dist/fixture assets. New fixture TS should receive noEmit check against built public declarations before browser execution."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec vite preview --config tests/performance/vite.config.mjs",
+      "expected": "Allocated coordinator host4179, preserve user server3000."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "node tests/performance/measure-browser.mjs /absolute/new-performance-result.json",
+      "expected": "4 workloads x 12 navigations, 3 warmups/9 retained per workload, 50 updates each; raw initial/input/click/update samples, zero page errors and explicit runtime/hardware/asset hashes. Unrun here."
+    }
+  ],
+  "residualEvidence": [
+    "Run same fixture against a separately built immutable comparable baseline; no historical Node26 SSR-to-browser comparison.",
+    "Choose representative slower consumer device with owner; approve workload-specific initial/input/update and retention budgets after two stable sessions.",
+    "Record per-workload memory allocation/retainer traces after 100 mount/unmount, overlay open/close and upload replace/revoke cycles; a fake ownership counter is not heap memory evidence.",
+    "Reuse existing packed foundation/editor consumer scripts serially with explicit kept output fixtures; include minimal grid/editor/root paths and CSS side effects, record exact emitted chunks. No blanket rerun requested."
+  ]
+}

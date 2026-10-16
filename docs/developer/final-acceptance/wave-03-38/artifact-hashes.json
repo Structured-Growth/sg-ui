@@ -1,0 +1,20 @@
+{
+  "assignment.json": "804eb8f5c7ef27dd28d3c73a3c6d79edbd28f6829f4944ae4d5317ca032995e0",
+  "capture.mjs": "8779634aec460a82adcc63e5500f30323b4a277ae057ceb9b5513f0205826abc",
+  "capture.txt": "92dd7ffea9a261677a3672a6bd246b389b875d69b62fbe67af7cf966c4e9b7b8",
+  "evidence.json": "e4d0a195350ac8396cee8c30fac416d6aee08713c409688fd7d08a3e870de75a",
+  "lock-audit.json": "d79ff2dc45f647b3cc77b71d604ae9e274a607fa1a3fe2a5b7d58c86aca417e6",
+  "offline-release.test.mjs": "c84c4a19272eb7e399b17eb236fe2eb1c92e3e37101b877ea6e1202313c270b8",
+  "offline-release.txt": "623557edee1e40140930b87afcec532d9dd58fe5b8413fec23ae0e059d993f07",
+  "owner-release-record.template.json": "decceb420102415c8a1a8a58921a69addf19eb0fb99992b27d90b3e07ad8baf9",
+  "probe-failure.txt": "118f4fed306f036c91015fbfebe645940e2577c8320e82b32a779ba84b98d787",
+  "proposed-files/docs/github-setup.md": "4a9a227d90891f2920ac33f0ab5deec2efff47117ada074fef2dc6d7727e4d6d",
+  "proposed-files/docs/troubleshooting/release.md": "174bdfcb67544ff8964bc5cfa2e00a565a725008496f9d4a3f97a77dc95821d3",
+  "proposed-files/docs/troubleshooting/validation.md": "579405d41e365bdcc5853da0b1efcb9bb046f882397574edb30c64fb5301ac87",
+  "release-guidance.patch": "7571fe40b6529bfc004a6bedf2ae6359191ad896d59666c45edcf0e4e9094b49",
+  "remote-status.json": "96cbff0d45c6c345cca954d472e68dbb7b51e6e1285fb500711222aa4522a558",
+  "remote-status.py": "6bc05908ba8cc4ad58c7c47105e954e95e3157dcdb51f8cd8501650e64d24294",
+  "report.md": "12cb0644ed8d5a1338f889d40fbe2a9ff42a5c999d2e0ce1ed27d54639d292d2",
+  "results.json": "58e4fd7dd1a06fb34bf9d04725ce36990205231fae3675eeac84afc3645805aa",
+  "validation-plan.json": "4225655b26de931fbb224ff89f37d4f72f683088a0d54b6f581f431479fcfb5e"
+}

@@ -4,8 +4,8 @@ For guidance-only changes, describe the corrected claim and its source.
 - Task IDs (when applicable), bounded scope and acceptance criteria:
 - Owned API/native ref and styling contract (tokens, CSS, `/styles.css`, Provider/ThemeScope), or N/A:
 - Host boundary (data, routing, translations, account actions, persistence/uploads), or N/A:
-- Stories covering changed props/states and meaningful behavior/composed/browser evidence, or N/A with reason:
-- Validation commands/results and head/run/artifact links; unverified behavior:
+- Docs playground/reference examples and unit/native fixtures covering changed props/states, source/copy correspondence and meaningful behavior evidence, or N/A with reason:
+- Validation commands/results, exact head/base and patch identity, run/artifact links; failed/unrun checks and unverified behavior:
 - Remaining backlog/acceptance gates and follow-up owner (do not claim broad completion from a bounded slice):
 - Conventional Commit title and release impact; breaking mappings/migration steps:
 

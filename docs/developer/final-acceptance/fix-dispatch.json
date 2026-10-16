@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-16",
+  "scope": "User-authorized additional independent implementation conversations; shared counts remain coordinator-owned.",
+  "jobs": [
+    {
+      "title": "Token schema documentation",
+      "ids": [
+        "A-D-01"
+      ],
+      "files": [
+        "docs/developer/react-aria-token-roles.md"
+      ],
+      "task": "Implement P08-D01-SCHEMA from parallel-08/report.md: document actual current nine-group schema, record/value forms and aliases/direction/parity/collision rules, density/interaction scope behavior, private versus public output and commands. Research primary DTCG specification if naming a compatibility target; explicitly state adapted/unsupported forms rather than promising interchangeability. Correct stale pre-adoption claims.",
+      "threadId": "01a146e3-7e59-7302-b5d1-85a4dbfa1ac5",
+      "hostId": "local",
+      "directory": "docs/developer/final-acceptance/fix-01",
+      "status": "reviewed",
+      "reviewedAt": "2026-10-16T22:59:22.805515+00:00",
+      "reportSha256": "2c1ad926b8063d651d06852e50c53ff8b331eee3848d8f3b44539b64d76178e2",
+      "resultsSha256": "9daa978d577341e41525e2154553f3fc22bfff76c0c7441da3b48cdabd1ed860"
+    },
+    {
+      "title": "Action callback guidance",
+      "ids": [
+        "A-A-07"
+      ],
+      "files": [
+        "docs/developer/react-aria-button.md",
+        "docs/developer/react-aria-remaining-controls.md"
+      ],
+      "task": "Implement P04-S4 from parallel-04/report.md. Replace the stale ContentEditorChrome legacy-button/MouseEvent paragraph with shipped owned Button onPress(anchor) and native-ref mapping. Explain ToggleButton onSelectedChange versus onPress as distinct single notifications. Reconcile actual current source, preserve historical records. This may close documentation successor but not full native activation leaf.",
+      "threadId": "01a146e3-8189-7220-b868-eb043fd2e866",
+      "hostId": "local",
+      "directory": "docs/developer/final-acceptance/fix-02",
+      "status": "reviewed",
+      "reviewedAt": "2026-10-16T22:59:22.805515+00:00",
+      "reportSha256": "9e55061d3f482e6cef291c96445007d2c5ded7a3e44b8cc4c087eaa637b87b6b",
+      "resultsSha256": "428dc4feb26fc8830eb94b16419f5505f9f8da169ec21dcc8596ba8765f8647a"
+    },
+    {
+      "title": "CSS composition guidance",
+      "ids": [
+        "A-C-07",
+        "A-C-18"
+      ],
+      "files": [
+        "docs/developer/react-aria-css-composition.md",
+        "docs/developer/react-aria-css-lint.md"
+      ],
+      "task": "Write reviewable current stylesheet composition guide: optional host reset, SGUI tokens/scopes and components, host utility layers and overrides, normal unlayered precedence, !important layer reversal. Inspect actual Popover dialog/drawer important geometry exceptions and document every retained declaration/impact without claiming necessity unverified or changing production code. Reconcile css-lint guide pending registration/review wording with parallel-11 evidence; preserve historical context. Coordinator will link new guide from architecture; do not edit architecture.",
+      "threadId": "01a146e3-8609-75a1-b108-af155560feaf",
+      "hostId": "local",
+      "directory": "docs/developer/final-acceptance/fix-03",
+      "status": "reviewed",
+      "reviewedAt": "2026-10-16T22:59:22.805515+00:00",
+      "reportSha256": "09a934637565ace9a055fd7137b9700513b67b9cf5e2a27776dfddc3a846f03a",
+      "resultsSha256": "492b1766750a30d8235db991220989a02f7aaf1a48281dbfe56d987e7486998b"
+    },
+    {
+      "title": "Dependency upgrade policy",
+      "ids": [
+        "A-A-19"
+      ],
+      "files": [
+        "docs/developer/react-aria-dependency-upgrades.md"
+      ],
+      "task": "Resolve exact documented missing items from parallel-07/report.md against real manifests/lockfile/scripts. Specify runtime/peer/dev placement, supported/pinned interaction/date versions, coordinated upgrades/deduplication, consumer lockfile/validation requirements and release impact, keeping host policies and existing evidence limits accurate. No upgrades/install/dependency changes or fabricated guarantees.",
+      "threadId": "01a146e3-8965-73f3-a5fb-7183ea7ae5c7",
+      "hostId": "local",
+      "directory": "docs/developer/final-acceptance/fix-04",
+      "status": "reviewed",
+      "reviewedAt": "2026-10-16T22:59:22.805515+00:00",
+      "reportSha256": "dba1813ebc274309d118611d5afabc9f253b79f25c3ac0ebd29a340a2e3c7919",
+      "resultsSha256": "31d4c6edbf8b57947309f7eff398bcd02f0ecf3a3428ff1482ab22c78a8d3c1e"
+    },
+    {
+      "title": "Extraction manifest repair",
+      "ids": [
+        "A-B-12"
+      ],
+      "files": [
+        "docs/extraction-manifest.json"
+      ],
+      "task": "Use parallel-15/report.md and manifest-audit.json to repair the 36 stale current presence/migration rows, preserving original repo/commit/source paths. Verify every replacement/migrated fixture path exists. Investigate Button/AppButton story assertion lineage from existing Git objects and docs-native migration manifest read-only; preserve unresolved lineage as explicit successor if not provable. Never reinterpret missing original files as accidental runtime loss. Do not edit migration-manifest or original snapshots; record proposed mappings in your receipt.",
+      "threadId": "01a146e3-8da4-7071-88b4-ad25a176bfe1",
+      "hostId": "local",
+      "directory": "docs/developer/final-acceptance/fix-05",
+      "status": "reviewed",
+      "reviewedAt": "2026-10-16T22:59:22.805515+00:00",
+      "reportSha256": "ade822288811f753a7476ae4b4a0836867f443fd6cd7eb08d38c1fed4543ab93",
+      "resultsSha256": "a9117b2e1c03ae0333dd145d7d54d5a559adbc1b8965bca0414faebd640b977c"
+    },
+    {
+      "title": "Brush icon mapping metadata",
+      "ids": [
+        "A-I-08"
+      ],
+      "files": [
+        "packages/ui/src/experimental/icons/icon-map.json",
+        "docs/developer/react-aria-icons.md"
+      ],
+      "task": "Fix I-S3 from parallel-12/report.md: add implemented BrushIcon/Paintbrush mapping to current JSON and complete mapping table with exact format/semantics. Add an inexpensive parity check in your owned report directory if useful; do not edit shared runtime/guard/tests. Verify 96 implemented wrappers against maintained mapping and distinguish helpers. No license/notice changes, asset copies, build or broad bundle/visual claims.",
+      "threadId": "01a146e3-916a-7a60-9596-7a8e67b98dd4",
+      "hostId": "local",
+      "directory": "docs/developer/final-acceptance/fix-06",
+      "status": "reviewed",
+      "reviewedAt": "2026-10-16T22:59:22.805515+00:00",
+      "reportSha256": "69747a0462830d24cf1281e9359c5ab380c9cea6cb0af55b727ae35bfbf0792e",
+      "resultsSha256": "0922e97234452f493200f5e64a951b4c30685f3ff840356784dff825587b95a8"
+    },
+    {
+      "title": "Read-only focus policy exceptions",
+      "ids": [
+        "A-A-06"
+      ],
+      "files": [
+        "docs/developer/react-aria-adoption-checklist.md"
+      ],
+      "task": "Resolve P04-S2 documentation drift from parallel-04/report.md: reconcile general read-only focus/copy guidance with current Select and picker triggers disabled for readonly, while native text fields remain inspectable. Document explicit component exceptions and form values accurately without redefining disabled/readOnly or changing implementation. Coordinator is already fixing Clear commit guards in PeriodPicker/DateTimeRangePicker/DateRangeComparisonPicker.",
+      "threadId": "01a146e3-959c-7512-950d-63af57118ad7",
+      "hostId": "local",
+      "directory": "docs/developer/final-acceptance/fix-07",
+      "status": "reviewed",
+      "reviewedAt": "2026-10-16T22:59:22.805515+00:00",
+      "reportSha256": "3ccb7af3ed9e2d38e4018e0b832cebbf3f6ae498667990ee538d50a1edfbeea5",
+      "resultsSha256": "78173f4bfca1f6841f82e239d5026270491ac3f5eb99e4d07f4cfd23f1d0695b"
+    }
+  ]
+}

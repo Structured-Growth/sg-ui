@@ -1,0 +1,72 @@
+{
+  "defect": "BUG-0010",
+  "task": "K04-datepicker-entry-parity",
+  "acceptance_ids": [
+    "A-K-04",
+    "A-K-07"
+  ],
+  "status": "implementation-fixed-focused-unit-passed",
+  "broader_acceptance": "partial; native/browser/device/AT and coordinator validation remain separate",
+  "branch": "dev",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "recorded_at": "2026-10-16T22:49:20.563703+00:00",
+  "changed_files": [
+    "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+    "packages/ui/src/experimental/DatePicker/DatePicker.test.tsx",
+    "packages/ui/src/experimental/DateField/DateField.tsx",
+    "packages/ui/src/experimental/DateField/TextDateField.tsx",
+    "packages/ui/src/experimental/DateField/DateFieldControl.tsx"
+  ],
+  "input_sha256": {
+    "packages/ui/src/experimental/DatePicker/DatePicker.tsx": "cc1cc4fd1264b16c391f04f34bdfdb5b2d409ba899a022fc83eaa2ad9d7d1dc3",
+    "packages/ui/src/experimental/DatePicker/DatePicker.test.tsx": "8904345f870d5ae9dd7f857cfc8cab94bdf2ce63b46c0f29714478701a50ad7d",
+    "packages/ui/src/experimental/DateField/DateField.tsx": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+    "packages/ui/src/experimental/DateField/TextDateField.tsx": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+    "packages/ui/src/experimental/DateField/DateFieldControl.tsx": "fe95d976fdace22b54fed78bc1fab190f45b540a08ee63518dbfea0dd1323e9d",
+    "packages/ui/src/experimental/DateField/DateField.test.tsx": "085a51de13288c1cbdf529691820a8c55bb2a1cb34ce9b9632d42054af191583",
+    "packages/ui/src/experimental/DateField/TextDateField.test.tsx": "39f400ecd36969fc87aa0c1e117a16bf5387ad29b03677d760cb0cef467e8848"
+  },
+  "report_sha256": "e6b8cbe79907d882421cbf8b0cafc193c46770ec00256dd4998a61d60ba80f98",
+  "validation": {
+    "runtime": "Node v24.21.0",
+    "runner": "Vitest 4.1.11",
+    "environment": "jsdom",
+    "cwd": "packages/ui",
+    "command": "PATH=/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin:$PATH pnpm exec vitest run src/experimental/DatePicker/DatePicker.test.tsx src/experimental/DateField/DateField.test.tsx src/experimental/DateField/TextDateField.test.tsx",
+    "exit_code": 0,
+    "files_passed": 3,
+    "tests_passed": 37,
+    "tests_total": 37,
+    "new_regressions": 9,
+    "start_time_host": "17:48:39",
+    "duration_seconds": 2.11,
+    "prior_scoped_runs": [
+      {
+        "tests_passed": 28,
+        "exit_code": 0
+      },
+      {
+        "tests_passed": 34,
+        "exit_code": 0
+      }
+    ],
+    "failed_invocation": {
+      "cwd": "repository root",
+      "exit_code": 254,
+      "reason": "Command vitest not found; no tests executed; corrected cwd"
+    },
+    "diff_check": "passed for changed tracked files"
+  },
+  "public_contract_change": false,
+  "limitations": [
+    "No shared build or production typecheck",
+    "No browser/consumer/device/AT runs",
+    "No broad acceptance leaf closure",
+    "Historical wave-02-11 characterization asserts old incorrect behavior and remains unchanged"
+  ],
+  "follow_ups": [
+    "Coordinator fresh build/typecheck/fixture validation",
+    "Coordinator docs-owned native parity tests covering text, segments, datetime, controlled authority and changing host rules",
+    "Full A-K-04/A-K-07 acceptance remains separate"
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "capturedAt": "2026-10-16T23:05:40.842Z",
+  "runtime": "v26.5.0",
+  "scope": "Read existing saved hash inventories only; no new export/source scan and no behavioral run",
+  "receipts": [
+    {
+      "path": "docs/developer/final-acceptance/coordinator-integration/evidence.json",
+      "sha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+      "collections": {
+        "inputHashes": {
+          "compared": 112,
+          "unchanged": 112,
+          "deltas": []
+        },
+        "builtLibraryHashes": {
+          "compared": 1778,
+          "unchanged": 1778,
+          "deltas": []
+        },
+        "privateFixtureOutputHashes": {
+          "compared": 292,
+          "unchanged": 292,
+          "deltas": []
+        }
+      }
+    },
+    {
+      "path": "docs/developer/final-acceptance/coordinator-fixes/evidence.json",
+      "sha256": "dfc875e15f646a72bad1bbbfd50be02fe44fef418c7669bfcb5fa4354b6a6415",
+      "collections": {
+        "inputHashes": {
+          "compared": 12,
+          "unchanged": 11,
+          "deltas": [
+            {
+              "path": "apps/docs/examples/catalog/forms-dates.tsx",
+              "expected": "3bf40ba915a42a39907e1dd897d44565d6e8b5c3a91f4e12f3a068f3c4ee52da",
+              "actual": "9a8e366ae6a23994897b05c5b71e8565e17306032f4b9ad7ef4921acc54f6671"
+            }
+          ]
+        },
+        "builtHashes": {
+          "compared": 1778,
+          "unchanged": 1752,
+          "deltas": [
+            {
+              "path": "packages/ui/dist/experimental/Calendar/Calendar.js.map",
+              "expected": "8857290b4fface93c1fdfaf04435d29b1f17ecee8fa6618e24ebf88d9693f434",
+              "actual": "bcf64b92b9f34eafb748f093065bd9c13e3bfda561f5e241584d09870c44c69f"
+            },
+            {
+              "path": "packages/ui/dist/experimental/Calendar/Calendar.d.ts.map",
+              "expected": "92a07483d1fadd56e2da46453c4d6b10a6e51d8f7fb9ebabfe09ae78d08ef0e9",
+              "actual": "9d1faf19af679773cc7570fe4f07a2031874a5de8a169af8c6e69e1a9f557653"
+            },
+            {
+              "path": "packages/ui/dist/experimental/Calendar/Calendar.d.ts",
+              "expected": "db21d064c2f3c12e53efd8b562377b304b0ea7014bf57d779c854b9e487b49bd",
+              "actual": "ca43961226eaf983c0a507dd7ff04da6ec8813d7593555c489a95f9714a047a4"
+            },
+            {
+              "path": "packages/ui/dist/experimental/Calendar/Calendar.js",
+              "expected": "6407d4d3f386a5730c97cc69409cbc154d8b38de335d5bb753465395688944c9",
+              "actual": "5ce3fd67e2ac9365ac0588d5a6bb3d6d959ccba46a7430a98bf30cf97c7dc07d"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DatePicker/DatePicker.d.ts.map",
+              "expected": "5ad79956c3ca2c012b2bf59c1441a58dcb2df83c03e56ef32ed2bbe58cc1d217",
+              "actual": "34d6e50b375c2007492be1bebd501b3af6e623a5f61b2f8d0a31c077b542e9a3"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DatePicker/DatePicker.js.map",
+              "expected": "61c769620663a995ad97d14166e7b69ebae3d97c1a4946de02599f440e107375",
+              "actual": "5e184676f7b0b21704b1fd2486c10fffbd3841137b07172a8d398ec6430391f2"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DatePicker/DatePicker.js",
+              "expected": "8764e1c19b4267ee33f9b42d09a008a5992c5ffc473722866dfbd192adc4cf39",
+              "actual": "351975ca691166d2b11644cfba3f49c61cd4c48ba772bf705e499afb9c47b7cb"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/DateField.d.ts.map",
+              "expected": "2d612f38242dd40deb822fea7b77202c49a19dd97f09132b428ce4f465fa652c",
+              "actual": "10e8db3a0cf0ea94f476f75ef60040aabd4c2dbe59123a2fe8e7584b35f6519a"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/TextDateField.js",
+              "expected": "b51ee9ae230a0cd6b38b4c6ef45af96fb516a4c4aebbebd170204cd0b633bfec",
+              "actual": "da9ba124b9ae9fd1efc300073a19e2311d25241d107d0d6afa9ad8c1a506588d"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/DateFieldControl.d.ts",
+              "expected": "bf5c612e618c0a5e3affa0c43aa4e898f6fcb016ccee47db43ccb507c262c277",
+              "actual": "70ecb8545e0bb2f8cc6620a076b8661897a0d84b4db1116d258a111ba22201fb"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/DateField.js",
+              "expected": "a77b88b8ec4f0f4e27702bd08bc318569544511dbda288cb27eade23fd6407ca",
+              "actual": "79d3a40cb04d0286ea480bd8f45c83b80e1f834fa71d8e8a2d26608f96492dba"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/TextDateField.d.ts.map",
+              "expected": "11f088a9222f610cdb81fe22105218ff3b0c288a00f82523bf81c316259b29e8",
+              "actual": "ad4a41273a0a8b999c4a9fdea595c70ffd2149fdf363bc4dde9db454e45fb87a"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/DateFieldControl.d.ts.map",
+              "expected": "9b1a41be0609ce915b4ff0088bd05d81251f8d5634449d5a9b33dc638f8bcd6f",
+              "actual": "5b2cfe80695be3446b9cb7f1509cfac76df591fc81390d9eba2e8a062d30fea8"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/DateField.d.ts",
+              "expected": "915eee67519c06b355d7c795e0a42efd1b145f3b6deb988dbbb89c699e96c9fe",
+              "actual": "a06b481b302482992d7a22dc568245474f57e7beb972ab0262a6efa84e9e6da3"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/TextDateField.js.map",
+              "expected": "9b123f0221a07fba3e8e77bbe66bb228273d91b3a4aea09834944315176717ae",
+              "actual": "f3f1fc88a068344dffc2a82a3aa482375b7dd2a331b6b953e4f259c3fd79a6ee"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/DateField.js.map",
+              "expected": "bccbb62d3a4bed4b6feca1548180f10fe2111374775b6824982f5ee599d975e1",
+              "actual": "c2dc1037c51ed3cbc7f3d8662737b9cf82aee8e988f6ea3afb6231c5c48decda"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/DateFieldControl.js.map",
+              "expected": "f1206e4bb379541188ba32b93b867910769fae735b8e306bdfc4fb7f72319072",
+              "actual": "d72e2f304154dd38b42c4513851ca26edcc105de0e712d7eff06eff2e8c2c155"
+            },
+            {
+              "path": "packages/ui/dist/experimental/DateField/DateFieldControl.js",
+              "expected": "7e9cc67b15557b4a502602006f48feb3dc9055a9588e82fa8e0909fb3ab3e63c",
+              "actual": "999c04c990422f2a484d21604c81d4b4c7b4c3c6dbb3ac0cb8c8aed4721733b8"
+            },
+            {
+              "path": "packages/ui/dist/components/AppDataGrid/ownedGridModel.d.ts",
+              "expected": "73fa915c65d1598c470dfc3ee571213b5650acd206f1cf5af44ef1e1992e7e2b",
+              "actual": "16454689fe21539de9882b7b9fe154e9740d9927d793d73525ca953272ce354f"
+            },
+            {
+              "path": "packages/ui/dist/components/AppDataGrid/ownedGridColumns.d.ts",
+              "expected": "14d80bc52a07c99cb5f75f14bde3e55718a3c51c47f698d6a91e3c48579e98ce",
+              "actual": "8119deac7e2e2775a17a3f648bdd1ef2ae19cfdaf8d9dcb4a124b22cc8248350"
+            },
+            {
+              "path": "packages/ui/dist/components/AppDataGrid/ownedGridModel.js.map",
+              "expected": "699c2c0a60e1019dbdd285a86041209babe83987050ac9f6bc9427522d909508",
+              "actual": "e19efc270d4416b264dfc816d36c5af85d5026b32c694d5f3863ddd8db240132"
+            },
+            {
+              "path": "packages/ui/dist/components/AppDataGrid/ownedGridModel.js",
+              "expected": "9ef90f3b0028efa94928e11e56d25201b10ee6e2f354c70a697c5a19356d9cc6",
+              "actual": "8a5634ed32aed0bcdd8563dbc89b91ee7058b9d6ea5dbd0a0f948824605eade3"
+            },
+            {
+              "path": "packages/ui/dist/components/AppDataGrid/ownedGridModel.d.ts.map",
+              "expected": "88607a77b8e81632d496b445825e2ea47f705fa2ab4fb6c22df591f4025a2517",
+              "actual": "3e456d218fa63f1607d7cde666211b004cf2f2a60fae74a9967217dc22d4b805"
+            },
+            {
+              "path": "packages/ui/dist/components/AppDataGrid/ownedGridColumns.d.ts.map",
+              "expected": "7a341eb159b45a901ecb24ae8092e5ba0d5d7857be48437b51c51977518b024b",
+              "actual": "1a3b3122a6ea334fd95f25732e49c7b0d4a82dc8ee1fe76715e70b92b2f983a9"
+            },
+            {
+              "path": "packages/ui/dist/components/AppDataGrid/ownedGridColumns.js",
+              "expected": "8d28a67d12313c340e60b1d91108988ec0c3f70a3c0e4a3b9bd7581fabab3965",
+              "actual": "6e02caecd1a4541fe56808420d3b69dd4c013b297773a537bb23c41e5d90861e"
+            },
+            {
+              "path": "packages/ui/dist/components/AppDataGrid/ownedGridColumns.js.map",
+              "expected": "fb89087af5db57d5edf540c7a98a455c68208f5d3e446935ca06f4011fd2a8a8",
+              "actual": "e2723b566e32136dc97562f1f12a58aa1cdbd4cc5a6387f7486da873f4f9df79"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "inspectedInputHashes": {
+    "packages/ui/src/experimental/TextField/TextField.tsx": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+    "packages/ui/src/experimental/TextField/TextField.module.css": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+    "packages/ui/src/experimental/TextArea/TextArea.tsx": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6",
+    "packages/ui/src/experimental/TextArea/TextArea.module.css": "4a4ee923a7aff6b8b6ff947afdd646eb6e3b3e7823667e32dedc6759a470a569",
+    "packages/ui/src/experimental/Checkbox/Checkbox.tsx": "3a70b70ed3e1f3a34db29ab4541ce8345c08e75f5485d7903419041b00f64565",
+    "packages/ui/src/experimental/Switch/Switch.tsx": "e5a187404032d1d5b7e00feba9e96eb905376274aa635dd30070ae0f85392b5f",
+    "packages/ui/src/experimental/Calendar/Calendar.tsx": "240fc043652299746ce1b8554424f34750a24b48e13d48b42144f762bc9f94e8",
+    "packages/ui/src/experimental/Calendar/Calendar.test.tsx": "aa7955ad2270c2dd5f40634346063070cd9665f263816f4f58f8390dd8d4124d",
+    "packages/ui/src/experimental/Menu/Menu.tsx": "4a1c38174345a32cfaea5a05580c510f39275279bef7eebc1dbbec8d503b3490",
+    "packages/ui/src/experimental/IconButton/IconButton.tsx": "5713a8146e087473fd147cd18d5f807d2c926a3d524a44a50490db2cb4ea94a1",
+    "packages/ui/src/experimental/Select/Select.tsx": "06707c96ee18efb024dd7047cded38f2affab130b005b984d0d649e1e5d682b9",
+    "packages/ui/src/experimental/TagGroup/TagGroup.tsx": "bb22ca0082b22fb5331cca3d3ca06e4eba133af92f376f1edc1236da3d05721a",
+    "packages/ui/src/experimental/Tabs/Tabs.tsx": "4ee65b9e3d010c45a80682a58e6a52c509bafbfd92a1af1578de70a29d87e726",
+    "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx": "56667fa20f96c11151fb8a1697cfdefefc668d3a03ab2edb78105eded65d15c5",
+    "packages/ui/src/components/Button/Button.tsx": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+    "packages/ui/src/components/AppPageTabs/AppPageTabs.tsx": "15eeb772242aae11a8ed2ece0625c6423b5a43cc8789e5fc44542585a7099bbc",
+    "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+    "packages/ui/src/components/AppDataGrid/types.ts": "caa0e32e6ea070a4e2d2859ed553e778db9b9d06ce5a99a59f72e2dc409831a3",
+    "packages/ui/src/components/AppDataGrid/ownedGridController.ts": "cd099ccba9c0c15cd7adf4ba2a8537ac08e08500b98cb7df4f0ae130a87cb5fe",
+    "packages/ui/src/components/AppDataGrid/ownedGridState.ts": "c3b812ba75bc21ebbbb95cf54a384eb695be18b4446c4173b92aea8f681750db",
+    "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx": "f50829dbb7f1ce7942b87a7ffd1102c9721a3686d955b786731b944207ee0947",
+    "packages/ui/src/components/AppDataGrid/createActionMenuColumn.ts": "05710e5771d036bf013295ee2559162bc0872148ce72c0acd6b4970819ab61de",
+    "packages/ui/src/components/SideNavigation/SideNavigation.tsx": "f0b2e86367b1a2b73ca204018b663987157ff713d7a71758be9727bcc21fc085",
+    "packages/ui/src/components/AppShell/AppShell.tsx": "f0109545ab2530cabc6f6f85d19bfd992a1412dbba4a773381ce773f7c4aca63",
+    "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+    "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": "03c3283c56104fee0b17ff39b8174eb933352a5cd1fc5fb51219e5036b9bfb65",
+    "docs/developer/react-aria-adoption-checklist.md": "974522cb56242cc407233a3091bff59f0566f8f151772390b28ce4c036310be3",
+    "packages/ui/vitest.config.ts": "dc98d777c10fc8a9a56d4fac1fe083d5080a225d03b17116b79526361d764142",
+    "packages/ui/scripts/vitest.setup.ts": "934423f290e0c24449113d75fd4afee4d3039df2482c13ced64b6262f5e9112e",
+    "docs/developer/final-acceptance/wave-02-15/report.md": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+    "docs/developer/final-acceptance/wave-02-15/results.json": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+    "docs/developer/final-acceptance/coordinator-integration/library-build.txt": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+    "docs/developer/final-acceptance/coordinator-integration/browsers-full.txt": "7e10ecbeda46f49b1df5c4368acf5efb1c12b2dfeec06d8ea85289a30f4b62fe",
+    "docs/developer/final-acceptance/coordinator-integration/package.txt": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103",
+    "docs/developer/final-acceptance/coordinator-fixes/evidence.json": "dfc875e15f646a72bad1bbbfd50be02fe44fef418c7669bfcb5fa4354b6a6415"
+  }
+}

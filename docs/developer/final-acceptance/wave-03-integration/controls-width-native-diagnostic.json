@@ -1,0 +1,20 @@
+[
+  {
+    "trace": "packages/ui/artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-525fe-ixel-changes-without-a-drag-chromium/trace.zip",
+    "focus": {
+      "activeTag": "BUTTON",
+      "activeRole": null,
+      "activeLabel": "Sort Name",
+      "activeHTML": "<button data-variant=\"text\" data-tone=\"neutral\" data-sgui-part=\"button\" class=\"sgui_root_4900c47b\" data-rac=\"\" type=\"button\" tabindex=\"0\" data-react-aria-pressable=\"true\" aria-label=\"Sort Name\" id=\"react-aria242428290-_r_12_\" data-focused=\"true\"><span class=\"sgui_label_4900c47b\">Name</span></button>"
+    }
+  },
+  {
+    "trace": "packages/ui/artifacts/wave03-integration/width-diagnostics/acceptance-touch-targets-m-5b630-ixel-changes-without-a-drag-chromium/trace.zip",
+    "focus": {
+      "activeTag": "BUTTON",
+      "activeRole": null,
+      "activeLabel": "Sort Status",
+      "activeHTML": "<button data-variant=\"text\" data-tone=\"neutral\" data-sgui-density=\"compact\" data-sgui-part=\"button\" class=\"sgui_root_4900c47b sgui_iconButton_d9f4ff8e\" data-rac=\"\" type=\"button\" tabindex=\"0\" aria-haspopup=\"true\" aria-expanded=\"false\" id=\"react-aria9705903263-_r_27_\" data-react-aria-pressable=\"true\" aria-label=\"Sort Status\" data-focused=\"true\"><span class=\"sgui_label_4900c47b\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-chevron-down sgui_root_00a213af\" aria-hidden=\"true\" focusable=\"false\"><path d=\"m6 9 6 6 6-6\"></path></svg></span></button>"
+    }
+  }
+]

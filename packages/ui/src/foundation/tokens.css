@@ -410,6 +410,12 @@
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
     --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
     --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
+    --sgui-date-range-selector-preset-border: var(--sgui-divider);
+    --sgui-search-field-surface: var(--sgui-surface);
+    --sgui-search-field-text: var(--sgui-text);
+    --sgui-search-field-border: var(--sgui-border);
+    --sgui-search-field-focus-color: var(--sgui-focus);
+    --sgui-search-field-interaction-surface: var(--sgui-surface-subtle);
   }
   :where([data-sgui-theme="light"], [data-sgui-theme="system"]) {
     --sgui-surface: #ffffff;
@@ -755,6 +761,12 @@
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
     --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
     --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
+    --sgui-date-range-selector-preset-border: var(--sgui-divider);
+    --sgui-search-field-surface: var(--sgui-surface);
+    --sgui-search-field-text: var(--sgui-text);
+    --sgui-search-field-border: var(--sgui-border);
+    --sgui-search-field-focus-color: var(--sgui-focus);
+    --sgui-search-field-interaction-surface: var(--sgui-surface-subtle);
     color-scheme: light;
   }
   :where([data-sgui-theme="dark"]) {
@@ -1101,6 +1113,12 @@
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
     --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
     --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
+    --sgui-date-range-selector-preset-border: var(--sgui-divider);
+    --sgui-search-field-surface: var(--sgui-surface);
+    --sgui-search-field-text: var(--sgui-text);
+    --sgui-search-field-border: var(--sgui-border);
+    --sgui-search-field-focus-color: var(--sgui-focus);
+    --sgui-search-field-interaction-surface: var(--sgui-surface-subtle);
     color-scheme: dark;
   }
   @media (prefers-color-scheme: dark) {
@@ -1448,6 +1466,12 @@
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
     --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
     --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
+    --sgui-date-range-selector-preset-border: var(--sgui-divider);
+    --sgui-search-field-surface: var(--sgui-surface);
+    --sgui-search-field-text: var(--sgui-text);
+    --sgui-search-field-border: var(--sgui-border);
+    --sgui-search-field-focus-color: var(--sgui-focus);
+    --sgui-search-field-interaction-surface: var(--sgui-surface-subtle);
     color-scheme: dark;
   }
   }
@@ -1782,6 +1806,12 @@
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
     --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
     --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
+    --sgui-date-range-selector-preset-border: var(--sgui-divider);
+    --sgui-search-field-surface: var(--sgui-surface);
+    --sgui-search-field-text: var(--sgui-text);
+    --sgui-search-field-border: var(--sgui-border);
+    --sgui-search-field-focus-color: var(--sgui-focus);
+    --sgui-search-field-interaction-surface: var(--sgui-surface-subtle);
   }
   :where([data-sgui-density="comfortable"]) {
     --sgui-control-height: var(--sgui-comfortable-control-height);
@@ -2114,6 +2144,12 @@
     --sgui-icon-panel-navigation-rail-padding: var(--sgui-space1);
     --sgui-icon-panel-navigation-label-size: var(--sgui-control-text-size);
     --sgui-tabs-maximum-tab-width: var(--sgui-tab-maximum-width);
+    --sgui-date-range-selector-preset-border: var(--sgui-divider);
+    --sgui-search-field-surface: var(--sgui-surface);
+    --sgui-search-field-text: var(--sgui-text);
+    --sgui-search-field-border: var(--sgui-border);
+    --sgui-search-field-focus-color: var(--sgui-focus);
+    --sgui-search-field-interaction-surface: var(--sgui-surface-subtle);
   }
   :where([data-sgui-interaction="pointer"]) {
     --sgui-minimum-target-size: var(--sgui-pointer-target-size);

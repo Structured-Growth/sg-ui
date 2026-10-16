@@ -1,0 +1,18 @@
+{
+  "vitest.probe.config.mjs": "0f33b216608d0bf23cc7e1bb8a1e035b48e7a575306a482850fe1b50b9c18bfd",
+  "input-hashes.json": "8ba6ecd5f762e162a9dbf016ab568151d81f3268e2d05c0519c303f0bc450146",
+  "unit-probe.txt": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+  "syntax-check.mjs": "79e7fa83d918712987f5dbd16bbeac45664cc96a9de6026a37ccbfb6a3b4bc3f",
+  "report.md": "d50c80a902996ed8574ce85106fd5348bb2f64c8e985562c2263b9349ad4237c",
+  "unit-probe-lease-occupied.txt": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+  "unit-probe-final.txt": "f25b38a8e98106446e13979dfb827eb73e26f10cbea8762b41f0fcfc36cd8014",
+  "assignment.json": "a508caee133556f31d16ec54f2d8edb3c127143ce307f8fd8acdeb1bce7ba2aa",
+  "results.json": "a9d8cd0e4fc6cee504cc5a249e6f3f461806fd37cfe42b1bb32ee5b1aa08031e",
+  "syntax-check.txt": "2957389ed6ac0b6548bb0f9596fb4ea366287f4dded28c5a10a617297d208bb2",
+  "prepare-probe.mjs": "966a0be5c75307102e488abaf66652d274815b2d9ed4193cde5bf15ff3a7550d",
+  "validation-plan.json": "506851ea66fea0ad060b5a05415231cd6eb2c606ebb8528e4c852ec87bb7b6d1",
+  "probe.test.tsx": "00eb0baa333f744f915fcf21b1cac320f2ee81dff524e975a689a5d1368f2d03",
+  "behavior-probes.patch": "695d416e491aa252aaa27355cf739610c995e2ef56a76c5ef7e7a5bebd5d09a2",
+  "unit-probe-initial-resolution-failure.txt": "d54daba194d07176465a92928387e5dc68104a7b1bc78086c7e53b5bfbd54c50",
+  "proposed-files/packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx": "c251e1d3fce7f8310867871bfc9c83c6da250dfa3df5195b3a957283070d7d88"
+}

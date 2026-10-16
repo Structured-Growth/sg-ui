@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from "../../types";
 import { forwardRef, useRef, useState } from "react";
+import { SideNavigation } from "@structured-growth/sg-ui/components";
+import { Menu } from "@structured-growth/sg-ui/primitives";
+import { Breadcrumbs } from "@structured-growth/sg-ui/experimental";
 import { Button } from "@structured-growth/sg-ui/components";
 import { Link } from "@structured-growth/sg-ui/primitives";
 import { SGLink as SGLink } from "@structured-growth/sg-ui/adapters";
@@ -47,7 +50,7 @@ function RoutingExample() {
     <output aria-label="Host navigation events" style={{ whiteSpace: "pre-wrap" }}>{events.join("\n")}</output>
   </div>;
 }
-export const Routing: Story = { render: () => <RoutingExample /> };
+export const Routing: Story = { render: () => <><RoutingExample /><ComposedRoutingExample custom={false} /><ComposedRoutingExample custom /></> };
 
 /** The host owns completion/error policy; no account network or storage is used. */
 function AccountActions({ settle }: { settle: (fail: boolean) => void }) {
@@ -84,3 +87,54 @@ function AccountsExample() {
   </SGAccountProvider>;
 }
 export const AsyncAccounts: Story = { render: () => <AccountsExample /> };
+
+
+/** Bounded acceptance host: only this host updates pathname, never the document URL. */
+function ComposedPathname() { return <output aria-label="Composed pathname">{usePathname()}</output>; }
+function ComposedRoutingExample({ custom }: { custom: boolean }) {
+  const [pathname, setPathname] = useState("/composed/start");
+  const [events, setEvents] = useState<string[]>([]);
+  const anchor = useRef<HTMLAnchorElement>(null);
+  const record = (message: string) => setEvents(previous => [...previous, message]);
+  const navigate = (href: string, options?: { replace?: boolean }) => {
+    record(`${options?.replace ? "replace" : "push"}:${href}`);
+    setPathname(href);
+  };
+  return <section aria-label={custom ? "Custom composed routing" : "Fallback composed routing"}
+    onClick={event => {
+      if ((event.target as Element).closest("[data-observe-navigation]")) record(`bubble:${event.defaultPrevented}`);
+    }}>
+    <SGNavigationProvider value={{ pathname, navigate, Link: custom ? CustomLink : undefined }}>
+      <SideNavigation aria-label={custom ? "Custom course navigation" : "Fallback course navigation"}
+        model={{ user: { initials: "AH", name: "Acceptance host", organization: "Local fixture" },
+          rootMenu: { id: "courses", sections: [{ id: "courses", items: [
+            { id: "start", label: "Start course", href: "/composed/start" },
+            { id: "lesson", label: "Lesson course", href: "/composed/lesson" },
+          ] }] } }} onItemSelect={id => record(`select:${id}`)} />
+      <Breadcrumbs label="Composed breadcrumbs" items={[
+        { id: "library", label: "Course library", href: "/composed/library" },
+        { id: "current", label: "Current course" },
+      ]} />
+      <Menu label={custom ? "Custom route menu" : "Fallback route menu"}
+        trigger={<Button>Route actions</Button>} items={[
+          { id: "menu", label: "Replace menu course", href: "/composed/menu", replace: true },
+          { id: "disabled", label: "Unavailable course", href: "/composed/disabled", disabled: true },
+        ]} onAction={id => record(`action:${id}`)} />
+      <Link href="/composed/direct" replace ref={anchor} data-observe-navigation
+        onClick={event => record(`consumer:${event.defaultPrevented}`)}>Direct composed course</Link>
+      <Link href="/composed/canceled" data-observe-navigation onClick={event => {
+        record(`consumer:${event.defaultPrevented}`); event.preventDefault();
+      }}>Cancel composed course</Link>
+      <Link href="#composed-popup" target="_blank">Target composed course</Link>
+      <Link href="#composed-modifier">Modified composed course</Link>
+      <Link href="/composed-download.txt" download="composed.txt">Download composed course</Link>
+      <Link href="#composed-false" download={false}>False download composed course</Link>
+      <Link href="#composed-external" external>External composed course</Link>
+      <Button onPress={() => anchor.current?.focus()}>Focus composed link</Button>
+      <Button onPress={() => setPathname("/composed/lesson")}>Host replaces pathname</Button>
+      <Button onPress={() => setEvents([])}>Clear composed events</Button>
+      <ComposedPathname />
+      <output aria-label="Composed routing events" style={{ whiteSpace: "pre-wrap" }}>{events.join("\n")}</output>
+    </SGNavigationProvider>
+  </section>;
+}

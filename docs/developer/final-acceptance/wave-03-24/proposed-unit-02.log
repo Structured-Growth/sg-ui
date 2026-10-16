@@ -1,0 +1,107 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+ ❯ ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx (19 tests | 19 failed) 5ms
+   × Lowercase changes only selected characters, retains a backwards range, history and host reload 2ms
+   × Uppercase changes only selected characters, retains a backwards range, history and host reload 0ms
+   × Capitalize changes only selected characters, retains a backwards range, history and host reload 0ms
+   × Strikethrough changes only selected characters, retains a backwards range, history and host reload 0ms
+   × Subscript changes only selected characters, retains a backwards range, history and host reload 0ms
+   × Superscript changes only selected characters, retains a backwards range, history and host reload 0ms
+   × Highlight changes only selected characters, retains a backwards range, history and host reload 0ms
+   × Clear Formatting changes only selected characters, retains a backwards range, history and host reload 0ms
+   × Text color commits and clears selected-run CSS through real history 0ms
+   × Background color commits and clears selected-run CSS through real history 0ms
+   × case conversion expands only the selected Unicode run and retains the full transformed range 0ms
+   × Uppercase at a caret preserves existing content 0ms
+   × Clear Formatting at a caret preserves existing content 0ms
+   × Left Align transforms the real selected paragraph and restores exact history 0ms
+   × Center Align transforms the real selected paragraph and restores exact history 0ms
+   × Right Align transforms the real selected paragraph and restores exact history 0ms
+   × Justify Align transforms the real selected paragraph and restores exact history 0ms
+   × Start Align transforms the real selected paragraph and restores exact history 0ms
+   × End Align transforms the real selected paragraph and restores exact history 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 19 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Lowercase changes only selected characters, retains a backwards range, history and host reload
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Uppercase changes only selected characters, retains a backwards range, history and host reload
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Capitalize changes only selected characters, retains a backwards range, history and host reload
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Strikethrough changes only selected characters, retains a backwards range, history and host reload
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Subscript changes only selected characters, retains a backwards range, history and host reload
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Superscript changes only selected characters, retains a backwards range, history and host reload
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Highlight changes only selected characters, retains a backwards range, history and host reload
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Clear Formatting changes only selected characters, retains a backwards range, history and host reload
+ReferenceError: React is not defined
+ ❯ view ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx:70:7
+     68|     const user = userEvent.setup(); const firstChange = vi.fn(); const…
+     69|     const view = (value: unknown, key: string, onChange: (value: unkno…
+     70|       <Provider><PageRichTextEditorSection lexicalValue={value} editor…
+       |       ^
+     71|     const rendered = render(view(initial, "source", firstChange));
+     72|     await select(4, 9, true);
+ ❯ ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx:71:29
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/19]⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Text color commits and clears selected-run CSS through real history
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Background color commits and clears selected-run CSS through real history
+ReferenceError: React is not defined
+ ❯ ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx:102:12
+    100|   it(`${mode} commits and clears selected-run CSS through real history…
+    101|     const user = userEvent.setup(); const change = vi.fn();
+    102|     render(<Provider><PageRichTextEditorSection lexicalValue={initial}…
+       |            ^
+    103|     await select(); const before = saved(); const beforeChars = chars(…
+    104|     await user.click(screen.getByRole("button", { name: mode, exact: t…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/19]⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > case conversion expands only the selected Unicode run and retains the full transformed range
+ReferenceError: React is not defined
+ ❯ ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx:136:10
+    134|   const user = userEvent.setup();
+    135|   const value = { root: { ...initial.root, children: [{ ...initial.roo…
+    136|   render(<Provider><PageRichTextEditorSection lexicalValue={value} edi…
+       |          ^
+    137|   await select(1, 2, true);
+    138|   await user.click(screen.getByRole("button", { name: "Text style", ex…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/19]⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Uppercase at a caret preserves existing content
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Clear Formatting at a caret preserves existing content
+ReferenceError: React is not defined
+ ❯ ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx:147:12
+    145|   it(`${label} at a caret preserves existing content`, async () => {
+    146|     const user = userEvent.setup();
+    147|     render(<Provider><PageRichTextEditorSection lexicalValue={initial}…
+       |            ^
+    148|     await select(6, 6); const before = chars();
+    149|     await user.click(screen.getByRole("button", { name: "Text style", …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/19]⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Left Align transforms the real selected paragraph and restores exact history
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Center Align transforms the real selected paragraph and restores exact history
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Right Align transforms the real selected paragraph and restores exact history
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Justify Align transforms the real selected paragraph and restores exact history
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > Start Align transforms the real selected paragraph and restores exact history
+ FAIL  ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx > End Align transforms the real selected paragraph and restores exact history
+ReferenceError: React is not defined
+ ❯ ../../docs/developer/final-acceptance/wave-03-24/runtime/PageRichTextEditorSection.command-transactions.test.tsx:162:12
+    160|     const value = { root: { ...initial.root, children: [{ ...initial.r…
+    161|       { ...initial.root.children[0], children: [{ ...run, text: "Adjac…
+    162|     render(<Provider><PageRichTextEditorSection lexicalValue={value} e…
+       |            ^
+    163|     await select(); const before = saved();
+    164|     const previousChars = chars();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/19]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  19 failed (19)
+   Start at  18:05:35
+   Duration  836ms (transform 249ms, setup 14ms, import 608ms, tests 5ms, environment 133ms)
+

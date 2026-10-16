@@ -1,0 +1,691 @@
+{
+  "button": {
+    "when": "Use Button for an action such as saving, publishing or confirming. Use Link for navigation and IconButton for an icon-only action. Button exposes the same props under its established catalog name.",
+    "how": [
+      "Provide readable children and an onPress callback for application actions. Use Link when activation changes location.",
+      "Explore variant, tone, density, disabled and loading independently; the playground source records the selected combination.",
+      "Add decorative startIcon or endIcon alongside the text. Use IconButton when the action has no visible text label.",
+      "Keep native submit/reset behavior explicit with type and let the host form own its submission handler.",
+      "Use startIcon and endIcon for optional leading and trailing decoration. Keep a visible text label: icon slots are hidden from assistive technology. Loading replaces startIcon with progress but preserves endIcon.",
+      "Use the named examples to reference a specific configuration. Native submit/reset buttons belong inside a host-owned form.",
+      "Use a filled primary Button for the one dominant confirmation or completion action in a form/dialog, such as Save or Confirm. Use outlined or text neutral actions for adjacent alternatives and ordinary toolbar commands. SplitAction keeps its neutral outlined group, shared divider and text primary command; it does not gain filled emphasis merely because its primary callback performs persistence. Keep action prominence separate from semantic text tones."
+    ],
+    "related": [
+      {
+        "slug": "button-group",
+        "label": "Related action groups"
+      },
+      {
+        "slug": "split-action",
+        "label": "Primary and secondary actions"
+      }
+    ]
+  },
+  "icons": {
+    "when": "Use the owned SVG icon catalog to reinforce actions, content types and navigation without introducing a separate icon styling system. Icons are decorative unless you deliberately give them an accessible label.",
+    "how": [
+      "Find an export in the searchable gallery and copy its public icon import. Set size and strokeWidth to suit the containing control while inheriting its current color.",
+      "For an icon inside a named button or beside readable text, omit label. For a standalone meaningful graphic, supply label describing what it represents.",
+      "Use mirrorInRtl only where directional meaning needs it; the icon contract supports direction-aware rendering through the surrounding scope.",
+      "Use getActivityTypeIcon with host-owned activity names when its mapping fits; supply overrides or a fallback when your content vocabulary differs."
+    ],
+    "related": [
+      {
+        "slug": "icon-button",
+        "label": "Icon-only buttons"
+      },
+      {
+        "slug": "typography",
+        "label": "Text roles"
+      },
+      {
+        "slug": "provider",
+        "label": "Direction and interaction scope"
+      }
+    ]
+  },
+  "owned-dialog": {
+    "when": "Use Dialog for a modal task that needs a focused overlay but custom content or chrome. Prefer AppModal for standard create/update forms with named primary and secondary actions, subtitles and steps; use Popover for content anchored to an existing control. Both Dialog and AppModal are modal overlays: use them when the user should complete or dismiss a task before returning to the page.",
+    "how": [
+      "Control open in host state and close it from onDismiss(reason). The dismissal reason distinguishes Escape, outside activation, the close button and other dismissal.",
+      "Supply a meaningful title or aria-label. Provide description for supplementary context and use header or footer only when custom chrome is needed.",
+      "Choose a size from xs through full and decide dismissOnOutside and dismissOnEscape separately. If implicit dismissal is disabled, retain an explicit close or cancel action.",
+      "Open from a focusable control and keep that opener available for ordinary focus restoration. The overlay owns its focus scope; the host owns draft data, validation and persistence.",
+      "Focused controls and their outer focus outlines are revealed inside nested dialog scrollports, including above a fixed footer when text is enlarged. Keep enough room for a usable content region; the dialog can scroll as a whole when its chrome cannot fit."
+    ],
+    "related": [
+      {
+        "slug": "dialog",
+        "label": "AppModal action and form shell"
+      },
+      {
+        "slug": "popover",
+        "label": "Anchored interactive content"
+      },
+      {
+        "slug": "menu",
+        "label": "Action menus"
+      },
+      {
+        "slug": "tooltip",
+        "label": "Supplementary descriptions"
+      }
+    ]
+  },
+  "popover": {
+    "when": "Use Popover to show interactive details or a small task beside the control that opened it, such as a course summary or settings panel. It is an anchored dialog, not a list of menu commands or a hover-only description.",
+    "how": [
+      "Provide a Button-compatible trigger, a meaningful title and the content. Keep the trigger stable so positioning and closing can refer back to its native element.",
+      "Choose bottom start, bottom end, top start or top end placement and md, lg or content size. The overlay follows its trigger when the containing region scrolls.",
+      "Use open and onOpenChange together for controlled state, or defaultOpen for an initial uncontrolled state. Keep form drafts and action callbacks outside the popover.",
+      "Place the trigger inside the intended Provider or ThemeScope; the portaled content inherits that scope. Leave keyboard dismissal and focus containment to the overlay.",
+      "Positioning flips to the opposite side when it fits. When neither side fits, the popover shifts within the visible viewport, potentially overlapping its trigger, before adding vertical scrolling. Keep essential content and actions usable when the full content is taller than the viewport.",
+      "showTitle defaults to true. Set it to false to omit the visible heading while retaining title as the accessible dialog name.",
+      "Use size=\"content\" for content with an owned intrinsic width, such as a multi-column calendar. It grows to its children up to the viewport width; the children must reflow within that bound. md retains the small maximum and lg retains its fixed wide allocation.",
+      "presentation defaults to popover. dialog centers the same native dialog; drawer fixes it to the bottom; auto uses a drawer below 40rem. Responsive presentation preserves child drafts and focus ownership because it does not remount content. Large content scrolls within the viewport."
+    ],
+    "related": [
+      {
+        "slug": "owned-dialog",
+        "label": "Custom modal dialogs"
+      },
+      {
+        "slug": "dialog",
+        "label": "AppModal forms"
+      },
+      {
+        "slug": "menu",
+        "label": "Lists of commands"
+      },
+      {
+        "slug": "tooltip",
+        "label": "Noninteractive descriptions"
+      }
+    ]
+  },
+  "tabs": {
+    "when": "Use Tabs to switch between related content panels within one view, such as overview and lessons. For route navigation or the standard page-tab composition, use AppPageTabs rather than treating panel tabs as links.",
+    "how": [
+      "Give the tab set a label and items with stable id, label and content. Mark unavailable items disabled instead of rendering an active panel that cannot be used.",
+      "Use value and onValueChange for host-controlled selection, or defaultValue for an initial uncontrolled panel. Keep panel data and callbacks in the host.",
+      "Choose horizontal or vertical orientation and automatic or manual activation. Manual activation separates moving keyboard focus from selecting a panel.",
+      "The default overflow=scroll keeps focused tabs visible by scrolling their strip. For horizontal strips, use overflow=menu to show hidden sections in a More tabs menu. A hidden selection becomes the final visible tab, displacing other tabs as needed. Mark an item priority=secondary to keep it in the menu until selected, even with spare room. Long titles truncate in the row but retain their accessible name and full menu label. Customize overflowLabel for the host language; vertical tabs retain scrolling."
+    ],
+    "related": [
+      {
+        "slug": "page-tabs",
+        "label": "Page panels and route tabs"
+      },
+      {
+        "slug": "navigation",
+        "label": "Navigation landmarks"
+      },
+      {
+        "slug": "dialog",
+        "label": "Tabbed AppModal forms"
+      }
+    ]
+  },
+  "typography": {
+    "when": "Use Typography to apply the library’s text roles consistently while choosing the correct HTML semantics for the document. A heading-sized style does not automatically make text a heading.",
+    "how": [
+      "Choose variant for the visual role and as independently for semantics, such as as=\"h2\" with variant=\"h5\" for a section heading.",
+      "Use default for main text, muted for descriptions, subtle for supplementary metadata, accent for brand-colored text and danger for errors. Primary remains a compatibility alias for accent, not an action-priority level. Keep important instructions readable. Theme mappings may converge in increased contrast or forced colors. An eyebrow is a content role, commonly rendered with the overline variant; as independently controls HTML semantics.",
+      "Use noWrap only when single-line truncation is appropriate; consider ordinary wrapping for long titles, translated labels and enlarged text.",
+      "Use the code variant for readable code text and the owned bodyAlt2 role where its supporting-text treatment fits. Avoid local font overrides that bypass these roles."
+    ],
+    "related": [
+      {
+        "slug": "stack",
+        "label": "Text and control layout"
+      },
+      {
+        "slug": "box",
+        "label": "Semantic layout wrappers"
+      }
+    ]
+  },
+  "box": {
+    "when": "Use Box as a lightweight semantic layout wrapper when you need owned spacing or a bounded readable container without a surface treatment. It does not add interaction or text styling.",
+    "how": [
+      "Select as for the appropriate document element, such as section, article or aside; retain div when no additional landmark or section meaning is needed.",
+      "Set padding from 0 through 4 to use shared spacing tokens. Use container to center content and bound its readable width.",
+      "Pass native className or style for context-specific layout constraints, and use Typography for the text inside the box."
+    ],
+    "related": [
+      {
+        "slug": "stack",
+        "label": "Flex layouts with spacing"
+      },
+      {
+        "slug": "surface",
+        "label": "Backgrounds, borders and elevation"
+      },
+      {
+        "slug": "typography",
+        "label": "Text semantics and roles"
+      }
+    ]
+  },
+  "stack": {
+    "when": "Use Stack to arrange related content and controls with shared spacing, especially action rows, form sections and responsive compositions. It provides flex layout rather than selection or navigation behavior.",
+    "how": [
+      "Choose row or column direction and gap from 0 through 4. Adjust align and justify for the relationship between labels, controls and supporting content.",
+      "Enable wrap for rows whose content may exceed the available width. With direction=\"row\" and responsive, the stack switches to a column at narrower viewport widths.",
+      "Use native layout constraints for the surrounding context and leave typography, button variants and density to the child components."
+    ],
+    "related": [
+      {
+        "slug": "box",
+        "label": "Basic layout wrappers"
+      },
+      {
+        "slug": "button-group",
+        "label": "A named group of related actions"
+      },
+      {
+        "slug": "surface",
+        "label": "Shared surface styling"
+      }
+    ]
+  },
+  "surface": {
+    "when": "Use Surface when a section needs an owned background, subtle tone, border or elevation. Choose Card when the section represents a distinct item such as a course summary rather than a general page region.",
+    "how": [
+      "Choose flat, outlined or raised variant and default or subtle tone; these treatments follow the active theme tokens.",
+      "Use padding and as to fit the region’s layout and document semantics. Compose text and actions inside with Typography and the appropriate controls.",
+      "A surface is not an interactive control. Add a separately named Button or Link for actions and navigation instead of attaching click behavior to the whole wrapper."
+    ],
+    "related": [
+      {
+        "slug": "card",
+        "label": "Item summaries"
+      },
+      {
+        "slug": "box",
+        "label": "Wrappers without surface treatment"
+      },
+      {
+        "slug": "theme-scope",
+        "label": "Locally themed surfaces"
+      }
+    ]
+  },
+  "card": {
+    "when": "Use Card and CardContent to present a self-contained item summary, such as a course or document preview. The card supplies a semantic surface; explicit controls inside it own actions and navigation.",
+    "how": [
+      "Choose outlined, flat or raised variant and default or subtle tone. Card uses an article element by default; change as only when another semantic wrapper fits.",
+      "Wrap the content in CardContent to use its default padding, or select padding explicitly when the composition needs different spacing.",
+      "Build a clear title, supporting text and named action with Typography, Button or Link. A Card does not itself provide clickable-card behavior."
+    ],
+    "related": [
+      {
+        "slug": "surface",
+        "label": "General-purpose surfaces"
+      },
+      {
+        "slug": "card-frame",
+        "label": "Catalog course-card frame"
+      },
+      {
+        "slug": "link",
+        "label": "Explicit navigation"
+      }
+    ]
+  },
+  "divider": {
+    "when": "Use Divider to separate adjacent groups when the visual boundary helps explain their relationship. It can convey a semantic separator or remain purely decorative.",
+    "how": [
+      "Select horizontal or vertical orientation to match the surrounding layout; ensure a vertical separator has available height in a row composition.",
+      "Set decorative when the boundary adds no information beyond the existing headings or grouping. Otherwise retain the separator semantics.",
+      "Use Stack and shared spacing around the divider rather than compensating with arbitrary text or repeated border styles."
+    ],
+    "related": [
+      {
+        "slug": "stack",
+        "label": "Grouped layout"
+      },
+      {
+        "slug": "surface",
+        "label": "Bordered regions"
+      }
+    ]
+  },
+  "icon-button": {
+    "when": "Use IconButton for a compact, familiar action whose visible content is an icon, such as adding a lesson or opening more actions. Prefer a text button when the action would be hard to recognize without words.",
+    "how": [
+      "Provide label describing the action and pass an owned icon as children. The containing button supplies the accessible name and the icon is decorative.",
+      "Use onPress for the action, and explore variant, tone, density, disabled and loading without changing the action’s meaning.",
+      "If a short explanation is useful, add Tooltip as supplementary text while retaining the button’s label."
+    ],
+    "related": [
+      {
+        "slug": "button",
+        "label": "Visible text actions"
+      },
+      {
+        "slug": "icons",
+        "label": "Owned SVG icons"
+      },
+      {
+        "slug": "tooltip",
+        "label": "Supplementary descriptions"
+      }
+    ]
+  },
+  "button-group": {
+    "when": "Use ButtonGroup to name and arrange related actions, such as save and duplicate. The group communicates their relationship but does not add selection state or turn its children into one action.",
+    "how": [
+      "Provide label for the group and compose separately named buttons inside it. Each button retains its own onPress or native form behavior.",
+      "Choose horizontal or vertical orientation and joined when the actions should share a continuous border treatment.",
+      "For mutually exclusive state, use ToggleButtonGroup. For one primary command plus a dropdown, use SplitAction."
+    ],
+    "related": [
+      {
+        "slug": "split-action",
+        "label": "Primary command with alternatives"
+      },
+      {
+        "slug": "toggle-button-group",
+        "label": "Controlled toggle choices"
+      },
+      {
+        "slug": "button",
+        "label": "Individual actions"
+      }
+    ]
+  },
+  "menu": {
+    "when": "Use Menu for a list of commands, destinations or checked options opened by an action trigger. Choose Popover instead when the content needs fields, explanatory layout or a small interactive form.",
+    "how": [
+      "Provide a Button-compatible trigger, a label and items with stable id and readable label values. Handle commands through onAction(id); the host performs the work.",
+      "Use disabled, shortcut, tone=\"danger\" and separatorBefore on items to communicate availability and grouping. Keep item labels understandable without relying on icons.",
+      "For checked options, supply selected on the relevant items and update those values in host state after onAction. Choose single or multiple selectionMode to match the task.",
+      "Use open/onOpenChange when the host controls the menu, and errorMessage for a host-provided retryable action error. Generic Menu inherits scope density unless density is explicit."
+    ],
+    "related": [
+      {
+        "slug": "popover",
+        "label": "Interactive anchored panels"
+      },
+      {
+        "slug": "split-action",
+        "label": "A primary action with a menu"
+      },
+      {
+        "slug": "tooltip",
+        "label": "Supplementary action text"
+      }
+    ]
+  },
+  "split-action": {
+    "when": "Use SplitAction when there is one obvious primary command and a short list of alternatives, such as saving normally or saving a copy. It provides the neutral outlined split-button pattern used for left-side toolbar actions.",
+    "how": [
+      "Provide label for the primary action and items with stable ids and readable labels for the secondary Menu. Use menuLabel when a more specific dropdown name is needed.",
+      "Handle the primary command with onPress and alternatives with onAction(id). The host owns persistence and any result messages.",
+      "Use loading or disabled to block both action paths while work is pending or unavailable; changing to a blocked state also closes the secondary menu."
+    ],
+    "related": [
+      {
+        "slug": "menu",
+        "label": "Secondary action definitions"
+      },
+      {
+        "slug": "button-group",
+        "label": "Related action layout"
+      },
+      {
+        "slug": "data-toolbar",
+        "label": "Toolbar compositions"
+      }
+    ]
+  },
+  "link": {
+    "when": "Use Link when activation navigates to a destination, opens a document or otherwise follows a URL. Use Button for an application command that does not represent navigation.",
+    "how": [
+      "Provide href and meaningful link text. Choose primary or inherit tone and always, hover or none underline according to the surrounding context.",
+      "Internal destinations use the host navigation adapter; absolute and protocol-relative destinations use native navigation by default. The external prop can choose native handling explicitly.",
+      "Use target=\"_blank\" only when opening a new context is intentional. The owned link adds opener-isolating rel values for that target.",
+      "Keep route definitions and navigation policy in the host, using replace only when the host should replace the current history entry."
+    ],
+    "related": [
+      {
+        "slug": "navigation-provider",
+        "label": "Host routing adapter"
+      },
+      {
+        "slug": "navigation",
+        "label": "Navigation landmarks"
+      },
+      {
+        "slug": "button",
+        "label": "Application actions"
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "when": "Use Breadcrumbs to show a location’s ancestry and let people return to parent locations. They describe a route hierarchy rather than the currently selected panel in a single view.",
+    "how": [
+      "Provide items in ancestor-to-current order with stable id and readable label values. Add href to ancestors that can be visited.",
+      "The final item is displayed as the current page rather than a link, even if a destination is supplied. Let the host determine that hierarchy.",
+      "Supply label when the page contains multiple navigation landmarks or needs a more specific breadcrumb name."
+    ],
+    "related": [
+      {
+        "slug": "navigation",
+        "label": "Other navigation landmarks"
+      },
+      {
+        "slug": "link",
+        "label": "Destination links"
+      },
+      {
+        "slug": "page-header",
+        "label": "Page header hierarchy"
+      }
+    ]
+  },
+  "tooltip": {
+    "when": "Use Tooltip for a short supplementary description of a control whose action is already understandable from its visible label or accessible name. Essential instructions and interactive content belong in visible text, Popover or Dialog.",
+    "how": [
+      "Provide a Button-compatible trigger and plain-string content. Name an icon-only trigger with IconButton.label; tooltip text does not replace that action name.",
+      "Choose placement and use delay and closeDelay when the display timing needs adjustment. Keyboard focus can expose the same supplementary description.",
+      "Use disabled to suppress the tooltip, or open/onOpenChange for host-controlled visibility. Change the trigger key if replacing the action with a different identity.",
+      "Keep the trigger within its production theme scope so the portaled tooltip follows the demonstrated theme rather than the surrounding website."
+    ],
+    "related": [
+      {
+        "slug": "icon-button",
+        "label": "Accessible icon actions"
+      },
+      {
+        "slug": "popover",
+        "label": "Interactive supplementary content"
+      },
+      {
+        "slug": "owned-dialog",
+        "label": "Modal tasks"
+      }
+    ]
+  },
+  "list": {
+    "when": "Use List and its compound children for ordinary grouped content, such as course sections or a settings list. Native list semantics remain intact; interactive selection belongs to the controls inside each item.",
+    "how": [
+      "Compose ListItem inside List, then use ListItemText for primary and optional secondary text. Put decorative icons in ListItemIcon beside that text.",
+      "For actionable items, use ListItemButton with onPress. Supply selected from host state when a pressed-state treatment is meaningful.",
+      "Use NavigationItem for route destinations rather than presenting a navigation list as commands, and Menu for a popup command collection."
+    ],
+    "related": [
+      {
+        "slug": "navigation",
+        "label": "Lists of destinations"
+      },
+      {
+        "slug": "menu",
+        "label": "Popup commands"
+      },
+      {
+        "slug": "icons",
+        "label": "Decorative list icons"
+      }
+    ]
+  },
+  "navigation": {
+    "when": "Use Navigation and NavigationItem for a named group of destinations, such as a course workspace’s local routes. The host determines which route is current; the components do not perform route matching.",
+    "how": [
+      "Provide a distinct label for the navigation landmark and compose NavigationItem links, usually inside List and ListItem.",
+      "Supply href and readable text for each destination, then set current only on the host-selected route to expose the current-page state.",
+      "Keep routing in the navigation adapter and the host application. Navigation uses links, not menu-item roles or panel-tab selection."
+    ],
+    "related": [
+      {
+        "slug": "side-navigation",
+        "label": "Application navigation composition"
+      },
+      {
+        "slug": "navigation-provider",
+        "label": "Host routing adapter"
+      },
+      {
+        "slug": "tabs",
+        "label": "Local content panels"
+      }
+    ]
+  },
+  "disclosure": {
+    "when": "Use Disclosure for an expandable section whose label remains available when its content is hidden, such as prerequisites or additional settings. It combines the trigger and region relationship for you.",
+    "how": [
+      "Provide label and children. Use expanded with onExpandedChange for host-controlled visibility, or defaultExpanded for an initial uncontrolled state.",
+      "Use disabled when expansion is unavailable. Keep the label descriptive enough to identify the content without opening it.",
+      "Leave unmountOnCollapse off to preserve child state, or enable it when hidden content should be disposed. When owned focused content is removed, the disclosure can return focus to its trigger."
+    ],
+    "related": [
+      {
+        "slug": "collapse",
+        "label": "Visibility with a host-owned trigger"
+      },
+      {
+        "slug": "popover",
+        "label": "Anchored supplemental content"
+      }
+    ]
+  },
+  "collapse": {
+    "when": "Use Collapse when the host already owns an expansion trigger and needs to show or hide a block while controlling its lifetime. Choose Disclosure when the component should also provide the named trigger and associated region.",
+    "how": [
+      "Pass expanded from host state and provide the control that changes it. Connect that control’s aria-expanded and aria-controls to the content where appropriate.",
+      "By default, hidden children remain mounted so their local state survives. Use unmountOnCollapse when disposing that state is intended.",
+      "Keep focus ownership in the surrounding composition when hiding interactive content; Collapse does not create a trigger or a dialog focus scope."
+    ],
+    "related": [
+      {
+        "slug": "disclosure",
+        "label": "Complete expandable sections"
+      },
+      {
+        "slug": "button",
+        "label": "Host-owned expansion actions"
+      }
+    ]
+  },
+  "chip": {
+    "when": "Use Chip for a short presentation label such as Published, Draft or a category. It does not provide removal, selection or an action callback.",
+    "how": [
+      "Provide the visible label as children and choose neutral or primary tone with filled or outlined variant.",
+      "Set density locally or let the surrounding scope supply it. Compare long labels and both densities before relying on a fixed layout.",
+      "Use TagGroup for keyboard-navigable removable tokens and Button or ToggleButton for an interactive choice."
+    ],
+    "related": [
+      {
+        "slug": "tag-group",
+        "label": "Removable tokens"
+      },
+      {
+        "slug": "toggle-button",
+        "label": "Interactive toggle state"
+      },
+      {
+        "slug": "badge",
+        "label": "Counts and attached markers"
+      }
+    ]
+  },
+  "badge": {
+    "when": "Use Badge for a small host-formatted count or marker, optionally attached to another element, such as unread messages or a New label. It does not manage the count or truncate it automatically.",
+    "how": [
+      "Provide content as a string or number; zero and values such as \"99+\" are displayed as supplied. Choose primary or neutral tone.",
+      "Pass children when the badge should be attached to an anchor. Name an icon-only anchor independently rather than relying on its count.",
+      "Use aria-label or aria-labelledby when the badge and anchor need a combined group name. Keep changes and any announcements in the host’s state design."
+    ],
+    "related": [
+      {
+        "slug": "chip",
+        "label": "Standalone presentation labels"
+      },
+      {
+        "slug": "icon-button",
+        "label": "Named icon anchors"
+      },
+      {
+        "slug": "status",
+        "label": "Meaningful change announcements"
+      }
+    ]
+  },
+  "progress": {
+    "when": "Use Progress to show ongoing work with a known amount completed or an unknown duration. CircularProgress and LinearProgress are public wrappers that fix the visual variant while retaining the same value and naming contract.",
+    "how": [
+      "Provide label, aria-label or aria-labelledby so the progress represents a named operation. Omit value when the amount of work is unknown.",
+      "For determinate work, supply value and the applicable minValue/maxValue range. Use valueText for a host-formatted explanation such as \"3 of 10 files\".",
+      "Choose linear or circular variant, or import the corresponding wrapper. Let the host update progress values; the component does not start work.",
+      "Use Status separately for important completion or failure messages. Progress changes are available through progress semantics without a live-region announcement on every tick."
+    ],
+    "related": [
+      {
+        "slug": "status",
+        "label": "Completion and failure messages"
+      },
+      {
+        "slug": "inline-progress",
+        "label": "Catalog inline progress"
+      },
+      {
+        "slug": "operation-steps",
+        "label": "Multi-stage operation summaries"
+      }
+    ]
+  },
+  "status": {
+    "when": "Use Status for a result or state message, such as a saved draft or a recoverable error. Enable announcements deliberately for meaningful changes rather than every render or progress tick.",
+    "how": [
+      "Provide readable children and choose neutral or danger tone according to the message’s meaning.",
+      "Leave announcement=\"off\" for static presentation, choose polite for ordinary updates, and reserve assertive for updates that warrant interrupting other announcements.",
+      "Keep the message and state transitions in the host application. Use Progress for continuously changing completion values."
+    ],
+    "related": [
+      {
+        "slug": "progress",
+        "label": "Ongoing work"
+      },
+      {
+        "slug": "button",
+        "label": "Actions producing a result"
+      }
+    ]
+  },
+  "avatar": {
+    "when": "Use Avatar to identify a person or entity visually in a course card, account area or list. Its image and fallback share a stable box and one host-provided accessible name.",
+    "how": [
+      "Supply alt for a meaningful identity, or an empty string for a decorative avatar beside an already named person. Provide fallback initials or content when an image is absent or fails.",
+      "Choose small, medium or large size and circle or square shape to fit the surrounding composition.",
+      "Pass src only when the host has chosen an appropriate image URL. The component renders that image and its fallback; account data and image access authorization remain host responsibilities."
+    ],
+    "related": [
+      {
+        "slug": "card",
+        "label": "Identity in item summaries"
+      },
+      {
+        "slug": "list",
+        "label": "Identity in lists"
+      },
+      {
+        "slug": "side-navigation",
+        "label": "Account navigation composition"
+      }
+    ]
+  },
+  "table": {
+    "when": "Use Table and its compound children for static tabular content that needs native rows, headers and a caption. Use AppDataGrid when the task needs integrated sorting, filtering, selection or interactive row processing.",
+    "how": [
+      "Compose TableCaption, TableHead, TableBody and TableRow to make the structure explicit. Use TableHeaderCell with scope=\"col\" or scope=\"row\" to identify the corresponding headers.",
+      "Use TableCell for data and choose start, center or end align as needed. Supply colSpan, rowSpan or headers only when the data structure requires them.",
+      "Add TableFoot for a summary row and choose density on Table or its enclosing scope. Keep content and any embedded controls fully named and host-owned."
+    ],
+    "related": [
+      {
+        "slug": "app-data-grid",
+        "label": "Interactive catalog grids"
+      },
+      {
+        "slug": "pagination",
+        "label": "Host-controlled paging"
+      },
+      {
+        "slug": "typography",
+        "label": "Cell text roles"
+      }
+    ]
+  },
+  "pagination": {
+    "when": "Use Pagination when the host owns a paged collection and needs controls for moving between pages and changing page size. It requests state changes; it does not fetch rows or calculate server totals.",
+    "how": [
+      "Provide the zero-based page and onPageChange. Supply pageCount for known totals, or omit it and provide hasNextPage when the server only reports whether another page exists.",
+      "Provide pageSize and pageSizeOptions with onPageSizeChange, or use onPaginationChange to receive page zero and the new size in one request. Page-size changes reset to page zero.",
+      "Use disabled while navigation cannot be accepted and showBoundaryButtons when first/last actions fit the available total. Give multiple paginated views distinct label values.",
+      "Accept and apply the requested state in the host before rendering the corresponding dataset; server requests and persistence are separate host concerns."
+    ],
+    "related": [
+      {
+        "slug": "pagination-footer",
+        "label": "Catalog paging footer"
+      },
+      {
+        "slug": "app-data-grid",
+        "label": "Grid paging"
+      },
+      {
+        "slug": "card-collection",
+        "label": "Paged card collections"
+      }
+    ]
+  },
+  "provider": {
+    "when": "Use Provider at an application or isolated demo boundary to establish the owned visual scope and interaction locale. AppThemeProvider is the same provider under its preserved public name, not a separate theme system.",
+    "how": [
+      "Load the public styles.css once, then set theme and density as scope defaults. Supply owned CSS token overrides through style to define a visual identity.",
+      "Set interactionMode to auto (default), pointer or touch independently of compact/comfortable density. Auto uses the touch sizing tokens when any available pointer is coarse, including hybrid devices. The setting changes presentation, never disables an input method, and inherits into nested scopes and overlay portals.",
+      "Provide translations and locale through the host translation adapter. Provider derives locale and direction from that adapter; dir can explicitly choose ltr or rtl.",
+      "Keep event handlers and other function props in consumer Client Components. Server-rendered presentation children can be passed through the provider.",
+      "Nest ThemeScope for a local visual variation while retaining the surrounding interaction locale. Portaled owned overlays inherit the scope surrounding their trigger."
+    ],
+    "related": [
+      {
+        "slug": "theme-scope",
+        "label": "Local visual scopes"
+      },
+      {
+        "slug": "translation-provider",
+        "label": "Host locale and translations"
+      },
+      {
+        "slug": "popover",
+        "label": "Scoped overlay portals"
+      }
+    ]
+  },
+  "theme-scope": {
+    "when": "Use ThemeScope to change visual appearance, density or token values for one region without changing the surrounding application. The docs previews use this boundary to keep demo themes separate from the website theme.",
+    "how": [
+      "Set theme and density only for the local region, and pass owned token overrides through style when demonstrating a different visual identity.",
+      "Set interactionMode to auto (default), pointer or touch independently of compact/comfortable density. Auto uses the touch sizing tokens when any available pointer is coarse, including hybrid devices. The setting changes presentation, never disables an input method, and inherits into nested scopes and overlay portals.",
+      "Unspecified scope values inherit from the parent. Nested scopes also retain owned CSS variables, including the variables that portaled overlays need.",
+      "Keep interaction locale in Provider and the translation adapter. A visual dir override does not replace the host’s locale for keyboard or overlay placement behavior.",
+      "Wrap the trigger and demonstrated controls together so dialogs, menus and tooltips opened from that region receive the intended visual scope."
+    ],
+    "related": [
+      {
+        "slug": "provider",
+        "label": "Interaction locale and application scope"
+      },
+      {
+        "slug": "popover",
+        "label": "Anchored scoped overlays"
+      },
+      {
+        "slug": "owned-dialog",
+        "label": "Scoped modal content"
+      }
+    ]
+  }
+}

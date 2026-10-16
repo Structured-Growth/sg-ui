@@ -15,7 +15,7 @@ const endpoints = (form: HTMLFormElement, name: string) => {
 it("edits both owned endpoint fields as a draft and commits Clear as null", async () => {
   const user = userEvent.setup();
   const change = vi.fn<NonNullable<DateRangePickerProps["onValueChange"]>>();
-  render(<Provider><form data-testid="host"><DateRangePicker label="Reporting" name="range"
+  render(<Provider><form data-testid="host"><DateRangePicker showFields entryMode="segments" label="Reporting" name="range"
     defaultValue={initial} defaultFocusedDate={initial.start} onValueChange={change} /></form></Provider>);
   const form = screen.getByTestId("host") as HTMLFormElement;
   await user.click(screen.getByRole("button", { name: "Choose Reporting" }));

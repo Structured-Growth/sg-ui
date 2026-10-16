@@ -95,10 +95,21 @@ Colocated `icu.test.ts` and `index.test.tsx` cover plural categories, selection
 counts, nested/offset/ordinal branches, quoting, recursive variable parity,
 number/date/time output, invalid input, locale fallback, English SSR, exact host
 forwarding, namespace ownership, host failures and provider replacement/isolation.
-`Translations.stories.tsx` provides English fallback, pseudo-localized long labels
-and Arabic plural/direction compositions using production Provider and controls.
-The shared Storybook locale controls remain representative fixtures, not supported
-locale policy; see [public theme contracts](react-aria-theme.md).
+`apps/docs/native-fixtures/scenarios/i18n/Translations.fixture.tsx` preserves
+English fallback, pseudo-localized long labels and Arabic plural/direction scenarios
+using public Provider and controls. Provider reads the translation adapter locale;
+there is no public `locale` prop on Provider. Do not set only DOM `dir` when testing
+locale-driven interaction. Fixture locales are representative test data, not a
+consumer supported-locale policy; see [public theme contracts](react-aria-theme.md).
+
+The focused `translations-locale-acceptance.spec.ts` checks counts 0/1/2/3/11/100,
+clear, keyboard focus, complete pseudo labels and 320 CSS-pixel reflow. Date and
+number output use the fixed instant 2026-10-16T12:00:00Z and a UTC browser context;
+this pins the existing runtime-time-zone contract without adding a new formatter
+API. Its DOM live-region assertions establish rendered updates only. An operator
+must separately record actual English/Arabic spoken count and clear announcements
+with AT, browser, OS, device and language versions. These specs need a freshly
+built docs-native host after integration; adding a spec is not a passing receipt.
 
 Batch validation on 2026-10-07: `pnpm check` passed (145 test files, 1,010 tests,
 type checking, foundation/token guards, release-policy checks, package build and
@@ -106,7 +117,18 @@ public-entry smoke checks). `pnpm build-storybook` passed with all three new sto
 Both ran under the shared batch validation lock using Node 26.5.0 and pnpm 10.29.3;
 supported Node 22.12/24 CI verification remains separate.
 
-Browser visual/RTL and assistive-technology review of these new stories remains
-open. Broader component catalog coverage, host catalog integration and engine
+Current-input browser visual/RTL execution and assistive-technology review of
+these migrated scenarios remain open. The dated Storybook build above is retained
+only as historical evidence; Storybook has been removed. Broader component catalog coverage, host catalog integration and engine
 specific ICU styles remain outside this slice. See the
 [master task list](react-aria-master-task-list.md) for H-07–H-09 and broad acceptance.
+
+## Current fixture-host supplement — 2026-10-16
+
+The Storybook build and execution statements above retain their original dated
+scope. The current scenario module is [Translations.fixture.tsx](../../apps/docs/native-fixtures/scenarios/i18n/Translations.fixture.tsx);
+the [migration manifest](../../apps/docs/native-fixtures/migration-manifest.json)
+records its original path and the [registry](../../apps/docs/native-fixtures/registry.json)
+records current fixture IDs. Host globals and locale/direction scopes now belong
+to the docs-owned fixture host. This supplement changes no original test or
+receipt and claims no fresh translation browser or assistive-technology execution.

@@ -5,13 +5,18 @@ import { pathToFileURL } from 'node:url';
 import typescript from 'typescript';
 import { validateComponentCss } from './check-component-css.mjs';
 import { compileTokens } from './tokens.mjs';
+import { assertSourceGraph, inspectSourceGraph } from './check-source-graph.mjs';
+import { runSourceGraphRegression } from './check-source-graph.test.mjs';
 
-const interactionFiles = new Set(['TextField', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'DateField', 'TimeField', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'Menu', 'Switch', 'RadioGroup', 'Select', 'TextArea', 'ToggleButton', 'Tooltip', 'TagGroup', 'Progress']
+const interactionFiles = new Set(['SearchField', 'TextField', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'DateField', 'TimeField', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'Menu', 'Switch', 'RadioGroup', 'Select', 'TextArea', 'ToggleButton', 'Tooltip', 'TagGroup', 'Progress']
   .map(name => `src/experimental/${name}/${name}.tsx`));
 interactionFiles.add("src/components/Button/Button.tsx");
+interactionFiles.add("src/experimental/Calendar/CalendarNavigation.tsx");
+interactionFiles.add("src/experimental/DateRangeSelector/RangeGestures.tsx");
 interactionFiles.add("src/experimental/Select/FramePositionedPopover.tsx");
 interactionFiles.add("src/components/AppDataGrid/ownedGridInteraction.tsx");
 interactionFiles.add("src/components/AppDataGridRowDnd/DataGridDragHandle.tsx");
+interactionFiles.add("src/components/PageRichTextEditorSection/DocumentContentEditable.tsx");
 const componentFiles = new Set([...interactionFiles, ...['Typography', 'Box', 'Stack', 'Surface', 'Card', 'Divider', 'IconButton', 'ButtonGroup', 'SplitAction', 'Link', 'Breadcrumbs', 'List', 'Navigation', 'Disclosure', 'Collapse', 'Chip', 'Badge', 'Progress', 'Status', 'Avatar', 'Table', 'Pagination'].map(name => `src/experimental/${name}/${name}.tsx`)]);
 // Catalog components enter the same strict owned boundary as they migrate.
 const migratedDirectories = ['AppInlineProgress', 'AppOperationSteps', 'EditableTitleField', 'Typefaces', 'CardPaginationFooter', 'CardCollectionWithFooter', 'ClassCardFrame', 'InstructorClassCard', 'LearnerClassCard', 'Button', 'ExperiencePageNavigator', 'AppPageTabs', 'AppPageHeader', 'AppModal', 'AuthShell', 'SideNavigation', 'IconPanelNavigation', 'AppShell', 'ColumnsLayoutModal', 'ImageUploadModal', 'LinkUrlModal', 'InsertContentMenuControl', 'TextAlignMenuControl', 'TextColorPickerControl', 'TextStyleMenuControl', 'RichTextFormattingToolbar', 'FloatingTextSelectionToolbar', 'DocumentEditorLayout', 'DocumentEditorToolbar', 'ContentEditorChrome', 'PageRichTextEditorSection', 'DataToolbar', 'AppDataGrid', 'AppDataGridShell', 'LearnerClassesDataGrid', 'AppDataGridRowDnd', 'icons', 'primitives'];
@@ -49,6 +54,12 @@ export function assertInteractionBoundary(path, code, root = process.cwd()) {
 }
 
 export async function checkFoundations() {
+assertSourceGraph(inspectSourceGraph());
+runSourceGraphRegression();
+// Relative parsing, civil validation and arithmetic must remain owned and dependency-free.
+const relativeDateSource = 'src/utils/relative-dates.ts';
+assert.equal(moduleReferences(relativeDateSource, await readFile(relativeDateSource, 'utf8')).length, 0,
+  'Shared relative-date rules must not import or reexport dependencies.');
 const source = JSON.parse(await readFile('src/foundation/tokens.json', 'utf8'));
 const { ts } = compileTokens(source);
 const cssErrors = [];
@@ -61,7 +72,6 @@ async function visit(dir, accept = () => true) {
     else if (accept(entry.name) && /\.(tsx?|css)$/.test(path)) {
       const code = await readFile(path, 'utf8');
       assert(!/@mui|@emotion|Mui[A-Z]|\bsx[=:]/.test(code), `Retired styling/foundation in ${path}`);
-      assert(!/from\s+["'](?:@structured-growth\/sg-ui|\.\.\/index|\.\.\/\.\.\/index)["']/.test(code), `Internal root import in ${path}`);
       assertInteractionBoundary(path, code);
       if (componentFiles.has(path) || path === 'src/foundation/ThemeScope.tsx') {
         await access(path.replace(/\.tsx$/, '.test.tsx')).catch(() => {

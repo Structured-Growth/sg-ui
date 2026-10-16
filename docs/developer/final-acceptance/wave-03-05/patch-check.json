@@ -1,0 +1,44 @@
+[
+  {
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "docs/developer/final-acceptance/wave-03-05/direct-icon-imports.patch"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "git",
+      "apply",
+      "--check",
+      "docs/developer/final-acceptance/wave-03-05/guard-and-recipes.patch"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "--check",
+      "docs/developer/final-acceptance/wave-03-05/proposed-files/packages/ui/scripts/check-icon-import-boundaries.mjs"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "node",
+      "--check",
+      "docs/developer/final-acceptance/wave-03-05/proposed-files/packages/ui/scripts/audit-packed-import-boundaries.mjs"
+    ],
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

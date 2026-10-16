@@ -6,7 +6,8 @@
   .identity { display: flex; flex: 1; flex-direction: column; text-align: start; min-inline-size: 0; }
   .identity > span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   .organization { font-weight: var(--sgui-body2-weight); color: var(--sgui-side-navigation-muted-text); }
-  .menuContent { display: flex; flex-direction: column; flex: 1; min-block-size: 0; border-block-start: 1px solid var(--sgui-side-navigation-divider); }
+  .menuContent { --_side-navigation-forward-offset: 1rem; --_side-navigation-back-offset: -1rem; display: flex; flex-direction: column; flex: 1; min-block-size: 0; border-block-start: 1px solid var(--sgui-side-navigation-divider); }
+  .menuContent:dir(rtl) { --_side-navigation-forward-offset: -1rem; --_side-navigation-back-offset: 1rem; }
   .menuContent[data-direction="forward"] { animation: forward var(--sgui-motion-duration) ease-out; }
   .menuContent[data-direction="back"] { animation: back var(--sgui-motion-duration) ease-out; }
   .scroll { flex: 1; min-block-size: 0; overflow-y: auto; overscroll-behavior: contain; scroll-padding-block: var(--sgui-space3); padding: var(--sgui-space3) 0; }
@@ -26,8 +27,8 @@
   .footer { border-block-start: 1px solid var(--sgui-side-navigation-divider); padding-block-start: var(--sgui-space3); }
   .collapse { align-self: stretch; flex-shrink: 0; border-radius: 0; border-block-start: 1px solid var(--sgui-side-navigation-divider); margin-block-start: auto; }
   .error { color: var(--sgui-side-navigation-danger); padding: var(--sgui-space2); font-size: var(--sgui-label-size); }
-  @keyframes forward { from { opacity: 0; transform: translateX(1rem); } to { opacity: 1; transform: translateX(0); } }
-  @keyframes back { from { opacity: 0; transform: translateX(-1rem); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes forward { from { opacity: 0; transform: translateX(var(--_side-navigation-forward-offset)); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes back { from { opacity: 0; transform: translateX(var(--_side-navigation-back-offset)); } to { opacity: 1; transform: translateX(0); } }
   @media (prefers-reduced-motion: reduce) { .menuContent[data-direction] { animation: none; } }
   @media (forced-colors: active) { .root li[data-selected] > .item { outline: 1px solid Highlight; outline-offset: -1px; } }
 }

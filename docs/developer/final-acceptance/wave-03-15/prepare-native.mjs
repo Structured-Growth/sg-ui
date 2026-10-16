@@ -1,0 +1,36 @@
+import {createRequire} from 'node:module';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {resolve,dirname} from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const out=dirname(fileURLToPath(import.meta.url)),root=resolve(out,'../../../..');
+const require=createRequire(resolve(root,'packages/ui/package.json'));
+const {createElement:h}=require('react'),{renderToStaticMarkup}=require('react-dom/server');
+const icons=await import(pathToFileURL(resolve(root,'packages/ui/dist/icons/index.js')));
+const {ThemeScope}=await import(pathToFileURL(resolve(root,'packages/ui/dist/theme/index.js')));
+const {Button}=await import(pathToFileURL(resolve(root,'packages/ui/dist/components/Button/Button.js')));
+const mapping=JSON.parse(readFileSync(resolve(root,'packages/ui/src/experimental/icons/icon-map.json'),'utf8'));
+const names=Object.keys(mapping).map(n=>n+'Icon').sort();assert.equal(names.length,96);
+const mirrored=['ArrowForwardIcon','ChevronRightIcon','KeyboardArrowLeftIcon','LogoutIcon','FormatIndentDecreaseIcon','FormatIndentIncreaseIcon','UndoIcon','RedoIcon'].sort();
+const matrices=[];
+for(const density of ['compact','comfortable'])for(const dir of ['ltr','rtl'])for(const size of [16,20,24]){
+ const id=`${density}-${dir}-${size}`;
+ matrices.push(h(ThemeScope,{key:id,density,dir,'data-matrix':id},h('h2',null,id),h('div',{className:'gallery'},...names.map(name=>h('div',{'data-icon':name,className:'cell',key:name},h(icons[name],{size}),h('span',null,name))))));
+}
+const cases=[['default-ltr',false,undefined],['default-rtl',true,undefined],['override-off',true,false],['force-on',true,true]];
+const rtl=cases.map(([id,isRtl,override])=>h(ThemeScope,{key:id,dir:isRtl?'rtl':'ltr','data-direction-case':id},h(icons.ArrowForwardIcon,{size:20,mirrorInRtl:override}),h(icons.AddIcon,{size:20,mirrorInRtl:override})));
+rtl.push(h(ThemeScope,{key:'nested',dir:'rtl','data-direction-case':'nested'},h(icons.ArrowForwardIcon,{size:20}),h(ThemeScope,{dir:'ltr'},h(icons.ArrowForwardIcon,{size:20}))));
+const viteRequire=createRequire(require.resolve('vite/package.json'));
+const {build}=viteRequire('esbuild');
+const themeBuild=await build({entryPoints:[resolve(root,'apps/docs/theme/resolve-theme.ts')],bundle:true,format:'esm',platform:'node',write:false,nodePaths:[resolve(root,'apps/docs/node_modules')],logLevel:'silent'});
+const {resolveTheme}=await import('data:text/javascript;base64,'+Buffer.from(themeBuild.outputFiles[0].contents).toString('base64'));
+const themeCases=[];
+for(const identity of ['none','material','apple','editorial','structured-growth'])for(const theme of ['light','dark'])for(const contrast of ['standard','increased'])themeCases.push({identity,theme,contrast});
+themeCases.push({identity:'none',theme:'light',contrast:'increased',forced:true});
+const themes=themeCases.map(({identity,theme,contrast,forced=false})=>h(ThemeScope,{theme,key:identity+theme+contrast+forced,'data-pair':identity+'-'+theme+'-'+contrast+(forced?'-forced':''),style:{...resolveTheme(identity,theme,contrast,forced),background:'var(--sgui-surface)',padding:'16px'}},h(Button,{variant:'outlined',tone:'neutral',startIcon:h(icons.AddIcon,{size:20})},'Add lesson'),h(icons.CheckIcon,{label:'Completed',size:20}),h(icons.AddIcon,{size:20})));
+const css=readFileSync(resolve(root,'packages/ui/dist/styles.css'),'utf8');
+const html='<!doctype html><html lang="en"><meta charset="utf-8"><title>Current SGUI icon acceptance matrix</title><style>'+css+'</style><style>body{margin:16px}.gallery{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.cell{min-height:64px;display:flex;align-items:center;gap:8px}.cell span{font:10px system-ui;overflow-wrap:anywhere}</style><body>'+renderToStaticMarkup(h('main',null,...rtl,...themes,...matrices))+'</body></html>';
+writeFileSync(resolve(out,'icons-native.html'),html);
+writeFileSync(resolve(out,'native-fixture.json'),JSON.stringify({runtime:process.version,method:'Static React SSR fixture from current compiled public exports; generated only, no browser executed',count:names.length,names,mirrored,matrices:12,svgCount:96*12+10+themeCases.length*3,themeCases,sha256:createHash('sha256').update(html).digest('hex')},null,2)+'\n');
+console.log('Prepared 96-icon 16/20/24px LTR/RTL compact/comfortable static fixture. Browser execution pending.');

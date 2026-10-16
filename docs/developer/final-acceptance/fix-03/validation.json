@@ -1,0 +1,153 @@
+{
+  "capturedAt": "2026-10-16T22:46:50.236670+00:00",
+  "checks": [
+    "13 important declarations individually documented",
+    "local Markdown file links resolve (fragments not validated)",
+    "lint pending wording removed; fixture registration confirmed",
+    "unchanged lint inputs match parallel-11 retained evidence"
+  ],
+  "important": [
+    {
+      "property": "position",
+      "value": "fixed"
+    },
+    {
+      "property": "inset",
+      "value": "50% auto auto 50%"
+    },
+    {
+      "property": "max-block-size",
+      "value": "calc(100dvh - 2rem)"
+    },
+    {
+      "property": "position",
+      "value": "fixed"
+    },
+    {
+      "property": "inset",
+      "value": "auto 0 0"
+    },
+    {
+      "property": "inline-size",
+      "value": "100%"
+    },
+    {
+      "property": "max-inline-size",
+      "value": "100%"
+    },
+    {
+      "property": "max-block-size",
+      "value": "90dvh"
+    },
+    {
+      "property": "position",
+      "value": "fixed"
+    },
+    {
+      "property": "inset",
+      "value": "auto 0 0"
+    },
+    {
+      "property": "inline-size",
+      "value": "100%"
+    },
+    {
+      "property": "max-inline-size",
+      "value": "100%"
+    },
+    {
+      "property": "max-block-size",
+      "value": "90dvh"
+    }
+  ],
+  "links": [
+    {
+      "document": "docs/developer/react-aria-css-composition.md",
+      "target": "../../README.md",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-composition.md",
+      "target": "react-aria-theme.md",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-composition.md",
+      "target": "react-aria-adoption-checklist.md",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-composition.md",
+      "target": "../../packages/ui/src/experimental/Popover/Popover.module.css",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-composition.md",
+      "target": "../../packages/ui/src/experimental/Popover/Popover.tsx",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-composition.md",
+      "target": "final-acceptance/parallel-11/report.md",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-lint.md",
+      "target": "final-acceptance/fa04-original-check.txt",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-lint.md",
+      "target": "final-acceptance/parallel-11/report.md#a-c-18--complete-bounded-lint-contract-independently-reconciled",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-lint.md",
+      "target": "parallel-batch-169/css-lint-guards.md",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-lint.md",
+      "target": "parallel-batch-172/css-guard-corrections.md",
+      "exists": true
+    },
+    {
+      "document": "docs/developer/react-aria-css-lint.md",
+      "target": "react-aria-development-validation.md",
+      "exists": true
+    }
+  ],
+  "inputComparisons": [
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+      "sha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "parallel11Sha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "unchanged": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "sha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "parallel11Sha256": null,
+      "unchanged": null
+    },
+    {
+      "path": "packages/ui/scripts/check-component-css.mjs",
+      "sha256": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+      "parallel11Sha256": "5dccce4431f23e18637bbe3389464b6ad17cda85197c5122b47f159fba13c84d",
+      "unchanged": true
+    },
+    {
+      "path": "packages/ui/scripts/check-component-css.test.mjs",
+      "sha256": "0d7247cd0eea8364a93c232d76719c2c4ae6f7d4ebc6406dd637289510c09f2d",
+      "parallel11Sha256": "0d7247cd0eea8364a93c232d76719c2c4ae6f7d4ebc6406dd637289510c09f2d",
+      "unchanged": true
+    },
+    {
+      "path": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "parallel11Sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "unchanged": true
+    }
+  ],
+  "limits": "Static documentation checks only; no test/build/browser/consumer rerun or computed cascade proof."
+}

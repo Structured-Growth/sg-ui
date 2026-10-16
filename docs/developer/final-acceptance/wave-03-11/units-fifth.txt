@@ -1,0 +1,79 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+ ❯ ../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx (1 test | 1 failed) 133ms
+   × updates an open nested portal without remounting its menu or changing its sibling 133ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx > updates an open nested portal without remounting its menu or changing its sibling
+AssertionError: expected <section …(6)>…(2)</section> to be null
+
+- Expected:
+null
+
++ Received:
+<section
+  aria-labelledby="react-aria-_r_5_"
+  class="_dialog_655d0a"
+  data-rac=""
+  id="react-aria-_r_0_"
+  role="dialog"
+  tabindex="-1"
+>
+  <h2
+    class="_title_655d0a"
+    id="react-aria-_r_5_"
+    slot="title"
+  >
+    Scope help
+  </h2>
+  <div
+    class="_root_a8f1e5"
+    data-sgui-density="compact"
+    data-sgui-interaction="auto"
+    data-sgui-scope=""
+    data-sgui-theme="dark"
+    dir="rtl"
+    lang="ar-EG"
+    style="--sgui-menu-background: #172554;"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="_root_0829c1"
+      data-hovered="true"
+      data-rac=""
+      data-react-aria-pressable="true"
+      data-sgui-part="button"
+      data-tone="primary"
+      data-variant="filled"
+      id="react-aria-_r_9_"
+      tabindex="0"
+      type="button"
+    >
+      <span
+        class="_label_0829c1"
+      >
+        Open actions
+      </span>
+    </button>
+  </div>
+</section>
+
+ ❯ ../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx:52:40
+     50|   expect(screen.queryByRole("menu")).toBeNull();
+     51|   await user.keyboard("{Escape}");
+     52|   expect(screen.queryByRole("dialog")).toBeNull();
+       |                                        ^
+     53| });
+     54|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 2 passed (3)
+   Start at  18:05:55
+   Duration  1.17s (transform 414ms, setup 21ms, import 212ms, tests 437ms, environment 295ms)
+

@@ -1,0 +1,33 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui
+
+ ❯ docs/developer/final-acceptance/wave-03-18/radio-edge.test.tsx (2 tests | 1 failed) 153ms
+   × cancels radio reset through an ancestor and accepts the latest uncontrolled default without edit callbacks 58ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-18/radio-edge.test.tsx > cancels radio reset through an ancestor and accepts the latest uncontrolled default without edit callbacks
+AssertionError: expected <input …(6)></input> to have property "checked" with value true
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ docs/developer/final-acceptance/wave-03-18/radio-edge.test.tsx:30:51
+     28|   const {rerender}=render(view(true,'self')); await user.click(screen.…
+     29|   rerender(view(true,'review')); await user.click(screen.getByRole('bu…
+     30|   expect(screen.getByRole('radio',{name:'Live'})).toHaveProperty('chec…
+       |                                                   ^
+     31|   rerender(view(false,'review')); await user.click(screen.getByRole('b…
+     32|   await vi.waitFor(()=>expect(screen.getByRole('radio',{name:'Review'}…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 3 passed (4)
+   Start at  18:04:58
+   Duration  968ms (transform 55ms, setup 25ms, import 201ms, tests 314ms, environment 289ms)
+

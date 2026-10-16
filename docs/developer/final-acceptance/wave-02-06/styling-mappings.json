@@ -1,0 +1,51 @@
+{
+  "explicitHistoricalFields": [
+    {
+      "owner": "AppDataGrid",
+      "removed": "sx",
+      "replacement": "className/style; documented grid tokens and parts",
+      "document": "docs/developer/react-aria-catalog-grid.md:47",
+      "status": "documented",
+      "limit": "Native CSSProperties replaces shorthand/theme callback/array semantics; does not accept old SxProps objects verbatim."
+    },
+    {
+      "owner": "AppModal",
+      "removed": "paperSx",
+      "replacement": "style, width/height; className on dialog surface",
+      "document": "docs/developer/react-aria-modal-shells.md:19",
+      "status": "documented",
+      "limit": "Native CSSProperties replaces shorthand/theme callback/array semantics; does not accept old SxProps objects verbatim."
+    },
+    {
+      "owner": "ClassCardFrame",
+      "removed": "headerSx",
+      "replacement": "headerClassName/headerStyle",
+      "document": "docs/developer/react-aria-card-frames.md:19",
+      "status": "documented",
+      "limit": "Native CSSProperties replaces shorthand/theme callback/array semantics; does not accept old SxProps objects verbatim."
+    },
+    {
+      "owner": "ClassCardFrame",
+      "removed": "bodySx",
+      "replacement": "bodyClassName/bodyStyle",
+      "document": "docs/developer/react-aria-card-frames.md:20",
+      "status": "documented",
+      "limit": "Native CSSProperties replaces shorthand/theme callback/array semantics; does not accept old SxProps objects verbatim."
+    },
+    {
+      "owner": "ClassCardFrame",
+      "removed": "footerSx",
+      "replacement": "footerClassName/footerStyle",
+      "document": "docs/developer/react-aria-card-frames.md:21",
+      "status": "documented",
+      "limit": "Native CSSProperties replaces shorthand/theme callback/array semantics; does not accept old SxProps objects verbatim."
+    }
+  ],
+  "inheritedPublicSurfaceLimit": "Historical primitive/action declarations extend or reexport upstream public prop types. Saved baseline does not inline those upstream declarations. Exhaustive inherited styling-field reconciliation is not proved by these five explicit wrapper mappings.",
+  "genericMappingReferences": [
+    "docs/migration.md:88",
+    "docs/developer/react-aria-primitives.md:10",
+    "docs/developer/react-aria-theme.md:34"
+  ],
+  "requiredSuccessor": "Combine A-B-05 historical API delta with this table; name every formerly supported inherited styling hook and map to owned part/token/native-style contracts or an intentional breaking removal."
+}

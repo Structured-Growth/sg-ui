@@ -1,5 +1,6 @@
 'use client';
 import {SavedDocumentExample,HostImageUploadExample} from '../SavedDocumentExamples';
+import {editorSampleText,sampleEditorDocument as documentValue} from '../editor-sample-document';
 import {LongAuthFormExample,HeaderActionsExample} from '../ShellContentExamples';
 import { useState, useRef, type ReactNode } from 'react';
 import {
@@ -51,7 +52,7 @@ const descriptions: Record<Kind,string> = {
   LinkUrlModal:'Editable link text and protocol policy, including relative URLs and removing links.', ImageUploadModal:'Picker/drop presentation, optional descriptions, retryable errors and host-owned upload.',
   PageRichTextEditorSection:'A controlled rich-document editor with formatting, insertion and read-only presentation.',
 };
-function documentValue(text: string) { return {root:{type:'root',version:1,direction:null,format:'',indent:0,children:[{type:'paragraph',version:1,direction:null,format:'',indent:0,children:[{type:'text',version:1,text,detail:0,format:0,mode:'normal',style:''}]}]}}; }
+
 
 /** The fixture and its source share current state; commands deliberately update host-owned presentation. */
 function EditorExample({kind, section, initialChoice, initialReadOnly = false, initialDensity = 'comfortable', playground = false, previewWidth, routeTabs = false, initialContent, initialLink, initialRightNavigation = false}:{kind:Kind;section:string;initialChoice:string;initialReadOnly?:boolean;initialDensity?:'compact'|'comfortable';playground?:boolean;previewWidth?:number;routeTabs?:boolean;initialContent?:string;initialLink?:{displayText:string;url:string};initialRightNavigation?:boolean}) {
@@ -73,11 +74,10 @@ function EditorExample({kind, section, initialChoice, initialReadOnly = false, i
   const [richHeading,setRichHeading] = useState<NonNullable<React.ComponentProps<typeof RichTextFormattingToolbar>['headingValue']>>('Normal');
   const [zoom,setZoom] = useState(100); const [alignment,setAlignment] = useState<AlignOption>(kind==='TextAlignMenuControl'?initialChoice as AlignOption:'left'); const [indent,setIndent] = useState(0);
   const [color,setColor] = useState(kind==='TextColorPickerControl'&&initialChoice==='background'?'var(--sgui-surface)':'var(--sgui-text)'); const [activeStyles,setActiveStyles] = useState<TextStyleId[]>([]);
-  const [text,setText] = useState('Style this host-controlled sentence.');
+  const [text,setText] = useState(kind==='FloatingTextSelectionToolbar'?editorSampleText:'Style this host-controlled sentence.');
   const [link,setLink] = useState(initialLink??{displayText:'Read the course guide',url:'https://example.com/guide'});
   const [preset,setPreset] = useState<ColumnsLayoutPreset>('twoEqual');
-  const [lexical,setLexical] = useState<unknown>(() => documentValue(kind==='FloatingTextSelectionToolbar'?'Style this host-controlled sentence.':'Select these words to format them. Try keyboard selection and Alt+F10 for the floating toolbar.'));
-  const [revision,setRevision] = useState(0);
+  const [lexical,setLexical] = useState<unknown>(() => documentValue());
   const report = (message:string) => setStatus(message);
   const toggleStyle = (style:TextStyleId) => setActiveStyles(items => items.includes(style) ? items.filter(item => item!==style) : [...items,style]);
   const navigationModel:SideNavigationModel = kind==='SideNavigation'?{
@@ -240,9 +240,9 @@ function EditorExample({kind, section, initialChoice, initialReadOnly = false, i
       state=`  const boundary = useRef<HTMLDivElement>(null);\n  const [status,setStatus] = useState(${literal(status)});\n  const [document,setDocument] = useState<unknown>(${JSON.stringify(lexical)});`;break;
     }
     case 'PageRichTextEditorSection': {
-      preview=<Stack gap={3}><Button variant="outlined" onPress={()=>{setRevision(n=>n+1);setLexical(documentValue(label));}}>Replace host document</Button><PageRichTextEditorSection editorKey={`docs-${kind}-${section}-${revision}`} lexicalValue={lexical} onLexicalChange={setLexical} placeholder={label} readOnly={readOnly} toolPreset={choice as 'base'|'full'} aria-label="Example rich document"/><Typography variant="caption">{'Changes update local JSON only. Image uploads require a durable host URL; the default preview is temporary.'}</Typography></Stack>;
-      body=`<Stack gap={3}><Button variant="outlined" onPress={()=>{setRevision(n=>n+1);setLexical(${JSON.stringify(documentValue(label))});}}>Replace host document</Button><PageRichTextEditorSection editorKey={'example-document-'+revision} lexicalValue={lexical} onLexicalChange={setLexical} placeholder={${L}} readOnly={${R}} toolPreset={${C}} aria-label="Example rich document"/><Typography variant="caption">{${literal('Changes update local JSON only. Image uploads require a durable host URL; the default preview is temporary.')}}</Typography></Stack>`;
-      imports=[componentImport('Button, PageRichTextEditorSection'),primitiveImport];state=`  const [revision,setRevision] = useState(${revision});\n  const [lexical,setLexical] = useState<unknown>(${JSON.stringify(lexical)});`;break;
+      preview=<Stack gap={3}><PageRichTextEditorSection editorKey={`docs-${kind}-${section}`} lexicalValue={lexical} onLexicalChange={setLexical} placeholder={label} readOnly={readOnly} toolPreset={choice as 'base'|'full'} aria-label="Example rich document"/><Typography variant="caption">{'Changes update local JSON only. Image uploads require a durable host URL; the default preview is temporary.'}</Typography></Stack>;
+      body=`<Stack gap={3}><PageRichTextEditorSection editorKey="example-document" lexicalValue={lexical} onLexicalChange={setLexical} placeholder={${L}} readOnly={${R}} toolPreset={${C}} aria-label="Example rich document"/><Typography variant="caption">{${literal('Changes update local JSON only. Image uploads require a durable host URL; the default preview is temporary.')}}</Typography></Stack>`;
+      imports=[componentImport('PageRichTextEditorSection'),primitiveImport];state=`  const [lexical,setLexical] = useState<unknown>(${JSON.stringify(lexical)});`;break;
     }
   }
   const densityBody=`<ThemeScope density=${literal(density)}${previewWidth?` style={{maxWidth:${previewWidth}}}`:''}>\n${body}\n</ThemeScope>`;

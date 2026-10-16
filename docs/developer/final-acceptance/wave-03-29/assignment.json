@@ -1,0 +1,127 @@
+{
+  "number": 29,
+  "title": "Native browser and screen-reader coverage",
+  "ids": [
+    "A-X-09",
+    "A-X-10",
+    "A-X-11",
+    "A-X-13",
+    "A-X-15",
+    "A-B-07"
+  ],
+  "focus": "Own actual native/AT evidence organization and screenshot review procedure. Execute feasible missing trusted browser flows in an isolated host; prepare a specific runnable screen-reader operator protocol. A-X11 is blocked unless actual spoken output/platform/operator observations are available; never fabricate or close it from DOM/axe. No auto-accepting screenshots.",
+  "directory": "docs/developer/final-acceptance/wave-03-29",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-X-09": "- [ ] A-X-09 Reconcile original `X-09`: Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient. Historical status: open.",
+    "A-X-10": "- [ ] A-X-10 Reconcile original `X-10`: Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage. Historical status: open.",
+    "A-X-11": "- [ ] A-X-11 Reconcile original `X-11`: Perform manual screen-reader reviews of representative dialogs, selectors, calendars, navigation, tables and editors; document platform/version and findings. Historical status: open.",
+    "A-X-13": "- [ ] A-X-13 Reconcile original `X-13`: Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency. Historical status: open.",
+    "A-X-15": "- [ ] A-X-15 Reconcile original `X-15`: Require deliberate review of screenshot changes; do not automatically accept new snapshots to silence regressions. Historical status: open.",
+    "A-B-07": "- [ ] A-B-07 Reconcile original `B-07`: Capture representative screenshots and browser interactions for light/dark UI, compact/comfortable controls, editors, navigation, modals, and grids. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-X-09": {
+      "id": "A-X-09",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-X-09 Reconcile original `X-09`: Test real browser interaction, including pointer/touch, focus, layout, portals and clipboard; DOM-emulation tests alone are insufficient. Historical status: open.",
+      "conversationNumber": 9,
+      "report": "docs/developer/final-acceptance/wave-02-09/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-09/results.json",
+      "reportSha256": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "resultsSha256": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-X-10": {
+      "id": "A-X-10",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-X-10 Reconcile original `X-10`: Establish supported Chrome/Firefox/WebKit browser checks and document representative touch and assistive-technology coverage. Historical status: open.",
+      "conversationNumber": 9,
+      "report": "docs/developer/final-acceptance/wave-02-09/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-09/results.json",
+      "reportSha256": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "resultsSha256": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-X-11": {
+      "id": "A-X-11",
+      "status": "blocked",
+      "originalChecklistText": "- [ ] A-X-11 Reconcile original `X-11`: Perform manual screen-reader reviews of representative dialogs, selectors, calendars, navigation, tables and editors; document platform/version and findings. Historical status: open.",
+      "conversationNumber": 10,
+      "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+      "reportSha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+      "resultsSha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+      "successors": [
+        {
+          "id": "W02-10-X11",
+          "ownerOrPrerequisite": "Human or authorized accessibility operator with chosen supported AT/browser/OS, plus immutable fixture build",
+          "deliverable": "Execute the six-category worksheet and fill expected-versus-spoken output, keyboard/focus sequence, platform versions and finding severity.",
+          "acceptanceEvidence": "Completed operator transcript/recording references tied to source+host hashes, signed review date and bounded defect tasks. No full conformance claim from one pairing.",
+          "execution": "unrun"
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-X-13": {
+      "id": "A-X-13",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-X-13 Reconcile original `X-13`: Add browser interaction stories/tests for all changed behavior; keep deterministic local fixtures and no authentication/database/network dependency. Historical status: open.",
+      "conversationNumber": 10,
+      "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+      "reportSha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+      "resultsSha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+      "successors": [
+        {
+          "id": "W02-10-X13",
+          "ownerOrPrerequisite": "Coordinator frozen changed-behavior inventory after BUG0008/0009 changes settle",
+          "deliverable": "Map each current changed contract to preserved/added native assertion and exact accepted receipt. Separate20 editor V owners and only schedule missing affected primary flows.",
+          "acceptanceEvidence": "Delta coverage table containing source change, fixture/test/assertion, retained result identity or explicit unrun successor; no test-count-to-acceptance equivalence.",
+          "execution": "unrun"
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-X-15": {
+      "id": "A-X-15",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-X-15 Reconcile original `X-15`: Require deliberate review of screenshot changes; do not automatically accept new snapshots to silence regressions. Historical status: open.",
+      "conversationNumber": 10,
+      "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+      "reportSha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+      "resultsSha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+      "successors": [
+        {
+          "id": "W02-10-X15",
+          "ownerOrPrerequisite": "Maintainer designated visual reviewer",
+          "deliverable": "Create durable change review receipt format and apply to acceptance screenshot deltas: original/replacement hashes, reason, reviewer/date, source/host IDs, defects/follow-ups. Keep unchanged accepted captures.",
+          "acceptanceEvidence": "Explicit reviewed disposition for each changed baseline; no automatic approval merely because regenerated captures match current output.",
+          "execution": "unrun"
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-B-07": {
+      "id": "A-B-07",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-B-07 Reconcile original `B-07`: Capture representative screenshots and browser interactions for light/dark UI, compact/comfortable controls, editors, navigation, modals, and grids. Historical status: open.",
+      "conversationNumber": 1,
+      "report": "docs/developer/final-acceptance/wave-02-01/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-01/results.json",
+      "reportSha256": "c42411ca78e93ddc7547e9420c3135ca05ec2789928ff343a6ee048613c72ca1",
+      "resultsSha256": "40de9dd3ba5ed2e2f16b65bf791b9c745aa7e3e5fd8b4f7be97116049b412da1",
+      "successors": [
+        {
+          "id": "W02-01-B07-captures",
+          "deliverable": "Recover already-created HB/checkpoint screenshot/results/manifest files from their recorded artifact locations into a durable reviewed evidence bundle. Index controls, editors, navigation, modals and grids by theme/density/viewport/engine and exact source/host hashes. Retain corrected red/pass lineage. If artifacts are irrecoverable, coordinator authorizes only missing representative captures on an immutable host; do not rerun passed whole suites.",
+          "prerequisite": "Access to original artifacts or coordinator native-capture admission. Source inspection and a docs build cannot create screenshots."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

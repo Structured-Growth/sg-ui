@@ -1,0 +1,12 @@
+✔ pending or machine-only generation cannot satisfy deliberate review (0.564708ms)
+✔ replacement image or manifest mutation invalidates receipt (0.196333ms)
+✔ new baseline, deferral, duplicate, and rejected deltas need reasons (0.225583ms)
+✔ complete synthetic receipt passes structural validation only (0.72975ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 56.135959

@@ -19,12 +19,17 @@ for(const theme of ['light','dark'])for(const density of ['compact','comfortable
   await fits(date);await fits(time);await fits(root.getByTestId('inline-calendar'));await fits(root.getByTestId('inline-range'));await fits(root);
   for(const [label,range]of [[rtl?'تاريخ نشر مواد التعلم':'Learning materials publication date',false],[rtl?'فترة مراجعة الخطة التعليمية':'Learning plan review period',true]]as const){
    const opener=root.getByRole('button',{name:(rtl?'اختر ':'Choose ')+label,exact:true});await opener.click();const dialog=page.getByRole('dialog',{name:label,exact:true});await expect(dialog).toBeVisible();await fits(dialog);await expect(dialog.getByRole('grid')).toHaveCount(1);await readableWeekdays(dialog);await info.attach(range?'localized-range-popup':'localized-date-popup',{body:await page.screenshot(),contentType:'image/png'});
-   if(range){await dialog.getByRole('button',{name:rtl?'تطبيق':'Apply',exact:true}).click();await expect(opener).toContainText('2026-10-12');}else await page.keyboard.press('Escape');
+   if(range){await dialog.getByRole('button',{name:rtl?'تطبيق':'Apply',exact:true}).click();await expect(opener).toContainText(new Intl.DateTimeFormat(locale,{calendar:'gregory',year:'numeric',month:'2-digit',day:'2-digit',timeZone:'UTC'}).format(new Date('2026-10-12T00:00:00Z')));}else await page.keyboard.press('Escape');
    await expect(dialog).toHaveCount(0);await expect(opener).toBeFocused();
   }
   const calendar=root.getByTestId('inline-calendar');await readableWeekdays(calendar);await calendar.getByRole('button',{name:rtl?'الشهر التالي':'Next month',exact:true}).click();await calendar.getByRole('button',{name:rtl?'الشهر السابق':'Previous month',exact:true}).click();
   const touchToggle=root.getByRole('button',{name:rtl?'تبديل أهداف اللمس':'Toggle touch targets',exact:true});await touchToggle.focus();await touchToggle.press('Enter');
   await expect(root).toHaveAttribute('data-sgui-interaction','touch');
+  const joined=root.locator('[data-sgui-part="date-field-control-group"]');
+  const inputBox=(await joined.locator(':scope > :first-child').boundingBox())!,actionBox=(await joined.getByRole('button').boundingBox())!;
+  expect(actionBox.height).toBeGreaterThanOrEqual(44);
+  expect(actionBox.y).toBeCloseTo(inputBox.y,1);expect(actionBox.height).toBeCloseTo(inputBox.height,1);
+  expect(rtl?actionBox.x+actionBox.width:inputBox.x+inputBox.width).toBeCloseTo(rtl?inputBox.x:actionBox.x,1);
   const month=calendar.getByRole('grid').locator('..');const cells=month.getByRole('button');
   const heading=month.locator('..').getByRole('heading',{includeHidden:true});await expect(heading).toHaveCount(1);const headingLeft=await heading.evaluate(element=>element.getBoundingClientRect().left);
   expect(await cells.first().evaluate(element=>{const r=element.getBoundingClientRect();return Math.min(r.width,r.height);})).toBeGreaterThanOrEqual(44);

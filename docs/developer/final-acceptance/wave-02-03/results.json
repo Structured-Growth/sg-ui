@@ -1,0 +1,1307 @@
+{
+  "schemaVersion": 1,
+  "assignment": "wave-02-03",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "capturedAt": "2026-10-16T22:45:11.552723+00:00",
+  "summary": {
+    "assigned": 24,
+    "complete": 7,
+    "partial": 17,
+    "blocked": 0
+  },
+  "scope": "Editor component reconciliation A-M-21 through A-M-34; editor/learning extension A-E-01 through A-E-10",
+  "leaves": [
+    {
+      "id": "A-M-21",
+      "status": "partial",
+      "originalRequirement": "Reconcile DocumentEditorLayout final acceptance: Tokenized menu/toolbar/content layout and scroll boundaries. Link its `F-C21`, `T-C21` and `V-C21` evidence and any unresolved defects.",
+      "finding": "Token CSS separates header/menu/toolbar/content; zero minimum dimensions and host-owned scroll preserve the live child node, draft, focus and scroll on chrome replacement.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+        "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+        "docs/developer/react-aria-editor-layout.md",
+        "packages/ui/tests/browser/inventory-layout-replacement.spec.ts",
+        "docs/developer/parallel-next100/next100-c21.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c21.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C21",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C21",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c21.md"
+        },
+        "hardening": {
+          "family": "V-C21",
+          "primaryNative": "packages/ui/tests/browser/inventory-layout-replacement.spec.ts",
+          "presentationRTL": "V-C21-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C21-V",
+          "deliverable": "Validate long title/menu/toolbar/content at narrow width, both densities/themes, then Arabic RTL labels and reading order; preserve the host scroll owner and focus through slot replacement.",
+          "acceptanceEvidenceRequired": "Close V-C21-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-22",
+      "status": "partial",
+      "originalRequirement": "Reconcile DocumentEditorToolbar final acceptance: Owned buttons/menus/toggles, formatting state, responsive overflow. Link its `F-C22`, `T-C22` and `V-C22` evidence and any unresolved defects.",
+      "finding": "Owned Button/Select map controlled heading and pressed actions; unavailable callbacks disable actions, zoom remains available read-only, and deferred heading requests use current callbacks/cancel on lost availability or unmount. Alignment/custom actions are documented disabled placeholders, not newly promised APIs.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+        "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+        "docs/developer/react-aria-editor-layout.md",
+        "packages/ui/tests/browser/inventory-editor-chrome.spec.ts",
+        "docs/developer/parallel-next100/next100-c22.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c22.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C22",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C22",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c22.md"
+        },
+        "hardening": {
+          "family": "V-C22",
+          "primaryNative": "packages/ui/tests/browser/inventory-editor-chrome.spec.ts",
+          "presentationRTL": "V-C22-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C22-V",
+          "deliverable": "Review responsive wrap/overflow with long heading/status and all optional groups; verify translated accessible names/order and RTL in a composed editor. Include disabled/pressed/zoom and deferred heading focus after host replacement.",
+          "acceptanceEvidenceRequired": "Close V-C22-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-23",
+      "status": "partial",
+      "originalRequirement": "Reconcile ContentEditorChrome final acceptance: Menu composition, editor focus, disabled/loading actions, semantic structure. Link its `F-C23`, `T-C23` and `V-C23` evidence and any unresolved defects.",
+      "finding": "Owned chrome composes EditableTitleField, native button anchors, named action group and host status slots. Pending/unavailable actions suppress calls. onPress(anchor) hands selection/focus preparation to the host; chrome does not own Lexical selection.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+        "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+        "docs/developer/react-aria-editor-layout.md",
+        "packages/ui/tests/browser/inventory-editor-chrome.spec.ts",
+        "docs/developer/parallel-next100/next100-c23.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c23.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C23",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C23",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c23.md"
+        },
+        "hardening": {
+          "family": "V-C23",
+          "primaryNative": "packages/ui/tests/browser/inventory-editor-chrome.spec.ts",
+          "presentationRTL": "V-C23-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C23-V",
+          "deliverable": "Review title/save/menu/status wrap at narrow widths in both themes/densities; check Arabic RTL heading/action order, named groups and anchor-to-host-dialog focus with pending action replacement.",
+          "acceptanceEvidenceRequired": "Close V-C23-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-24",
+      "status": "complete",
+      "originalRequirement": "Reconcile EditableTitleField final acceptance: Controlled edit/commit/cancel, keyboard and blur behavior, validation. Link its `F-C24`, `T-C24` and `V-C24` evidence and any unresolved defects.",
+      "finding": "Host title remains committed state; local draft trims, ignores empty/unchanged values, commits once on Enter/blur, cancels Escape without blur persistence, guards composing Enter, exposes rejection/retry and preserves next-control focus. HB-14 supplies the missing presentation/RTL pair, so this individual row can close.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+        "packages/ui/src/components/EditableTitleField/EditableTitleField.test.tsx",
+        "docs/developer/react-aria-remaining-controls.md",
+        "packages/ui/tests/browser/batch13-editable-title.spec.ts",
+        "docs/developer/parallel-next100/next100-c24.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "packages/ui/tests/browser/hardening-actions-presentation.spec.ts"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c24.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C24",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C24",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c24.md"
+        },
+        "hardening": {
+          "family": "V-C24",
+          "primaryNative": "packages/ui/tests/browser/batch13-editable-title.spec.ts",
+          "presentationRTL": "HB-14, receipt section at line 600"
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-25",
+      "status": "partial",
+      "originalRequirement": "Reconcile FloatingTextSelectionToolbar final acceptance: Selection anchoring, focus preservation, overlay cleanup, keyboard access. Link its `F-C25`, `T-C25` and `V-C25` evidence and any unresolved defects.",
+      "finding": "Lexical range snapshots survive toolbar focus; Alt+F10/Tab/Enter/Escape, hidden semantics, read-only/node-deletion guards, ancestor scroll/resize collision, deferred command cleanup and instance isolation have focused tests. The later docs-host native receipt supersedes the older remaining-T report hold for T-C25-02.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+        "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+        "docs/developer/react-aria-editor-layout.md",
+        "packages/ui/tests/browser/inventory-selection-boundary.spec.ts",
+        "docs/developer/parallel-next100/next100-c25.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c25.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C25",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C25",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c25.md"
+        },
+        "hardening": {
+          "family": "V-C25",
+          "primaryNative": "packages/ui/tests/browser/inventory-selection-boundary.spec.ts",
+          "presentationRTL": "V-C25-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C25-V",
+          "deliverable": "Review selected-text geometry, wrapping and viewport/boundary collisions at narrow width, both themes/densities, and Arabic RTL names/order. Exercise Alt+F10, Escape, scroll while a toolbar button is focused and read-only/unmount cleanup using native selection.",
+          "acceptanceEvidenceRequired": "Close V-C25-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-26",
+      "status": "partial",
+      "originalRequirement": "Reconcile RichTextFormattingToolbar final acceptance: All formatting actions, mixed/active/disabled state, Lexical commands. Link its `F-C26`, `T-C26` and `V-C26` evidence and any unresolved defects.",
+      "finding": "Owned controls expose heading/typeface/size/history/inline/color/alignment/style/insertion, controlled true/false/mixed flags and disabled/hidden control sets. Component callbacks are tested independently; complete Lexical mixed selection/history semantics remain A-E-02/04.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+        "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+        "docs/developer/react-aria-formatting-toolbar.md",
+        "packages/ui/tests/browser/batch13-formatting-toolbar.spec.ts",
+        "docs/developer/parallel-next100/next100-c26.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c26.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C26",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C26",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c26.md"
+        },
+        "hardening": {
+          "family": "V-C26",
+          "primaryNative": "packages/ui/tests/browser/batch13-formatting-toolbar.spec.ts",
+          "presentationRTL": "V-C26-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C26-V",
+          "deliverable": "Review long text/typeface/color/menu content, responsive wrapping, both themes/densities and translated RTL order. Reconcile each active/mixed/disabled action against the editor command matrix in this report; retain incomplete combinations under A-E-04.",
+          "acceptanceEvidenceRequired": "Close V-C26-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        },
+        {
+          "id": "W03-C26-E",
+          "deliverable": "Reconcile the missing E-family command/content/IME/trust rows from command-and-trust-matrix.md.",
+          "acceptanceEvidenceRequired": "Retain one result per missing row; no duplicate suite or broad parent closure from one fixture."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-27",
+      "status": "partial",
+      "originalRequirement": "Reconcile InsertContentMenuControl final acceptance: Menu commands and insertion focus, disabled actions and announcements. Link its `F-C27`, `T-C27` and `V-C27` evidence and any unresolved defects.",
+      "finding": "Image/rule/columns each request the current parameterless callback once; unavailable commands disable, menus are compact/form-safe, and native ref/style plus host-dialog handoff are covered. Insertion announcements and final selection/focus belong to the host, not this generic menu.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+        "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.test.tsx",
+        "docs/developer/react-aria-editor-menus.md",
+        "packages/ui/tests/browser/batch62-insert-menu-native-focus.spec.ts",
+        "docs/developer/parallel-next100/next100-c27.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c27.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C27",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C27",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c27.md"
+        },
+        "hardening": {
+          "family": "V-C27",
+          "primaryNative": "packages/ui/tests/browser/batch62-insert-menu-native-focus.spec.ts",
+          "presentationRTL": "V-C27-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C27-V",
+          "deliverable": "Review translated long insertion labels and keyboard focus at narrow width in both themes/densities and Arabic RTL. In the composed host confirm one named insertion result announcement and correct editor/dialog return focus.",
+          "acceptanceEvidenceRequired": "Close V-C27-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-28",
+      "status": "partial",
+      "originalRequirement": "Reconcile TextAlignMenuControl final acceptance: Alignment/indent commands, active state, direction-aware presentation. Link its `F-C28`, `T-C28` and `V-C28` evidence and any unresolved defects.",
+      "finding": "All six owned physical/logical alignment values and indent/outdent availability are covered; host-controlled checked state and latest callback replacement remain authoritative. CSS mirrors start/end icons in RTL while physical left/right commands keep their values.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+        "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+        "docs/developer/react-aria-editor-menus.md",
+        "packages/ui/tests/browser/inventory-align-direction.spec.ts",
+        "docs/developer/parallel-next100/next100-c28.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c28.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C28",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C28",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c28.md"
+        },
+        "hardening": {
+          "family": "V-C28",
+          "primaryNative": "packages/ui/tests/browser/inventory-align-direction.spec.ts",
+          "presentationRTL": "V-C28-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C28-V",
+          "deliverable": "Review all physical/logical icons and translated long labels at narrow width, both themes/densities and RTL. Confirm single checked alignment, logical placement, native keyboard focus/return and disabled indent/outdent.",
+          "acceptanceEvidenceRequired": "Close V-C28-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-29",
+      "status": "partial",
+      "originalRequirement": "Reconcile TextColorPickerControl final acceptance: Foreground/background modes, clear/reset, swatches and accessible color control. Link its `F-C29`, `T-C29` and `V-C29` evidence and any unresolved defects.",
+      "finding": "Foreground/background modes, labelled native color input, semantic swatches, hex normalization, invalid feedback, IME Enter suppression, deduped Enter/blur, clear/reset and host draft replacement have unit/native cases. Native color-dialog accessibility is not proven by changing input values in automation.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx",
+        "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+        "docs/developer/react-aria-editor-menus.md",
+        "packages/ui/tests/browser/batch63-color-menu-native-transactions.spec.ts",
+        "docs/developer/parallel-next100/next100-c29.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c29.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C29",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C29",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c29.md"
+        },
+        "hardening": {
+          "family": "V-C29",
+          "primaryNative": "packages/ui/tests/browser/batch63-color-menu-native-transactions.spec.ts",
+          "presentationRTL": "V-C29-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C29-V",
+          "deliverable": "Review foreground and background popovers with long labels at narrow width, both themes/densities and Arabic RTL; verify focus/error/swatch contrast. Obtain an operator/platform record for actual native OS color chooser keyboard and AT interaction separately from DOM change events.",
+          "acceptanceEvidenceRequired": "Close V-C29-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        },
+        {
+          "id": "W03-C29-NATIVE-COLOR",
+          "deliverable": "Record actual native color chooser operation on named OS/browser with keyboard and spoken AT.",
+          "acceptanceEvidenceRequired": "Operator, OS/browser/AT versions, focus/confirm/cancel behavior for foreground/background; browser input change events alone insufficient."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-30",
+      "status": "partial",
+      "originalRequirement": "Reconcile TextStyleMenuControl final acceptance: Style/typeface options, tokenized labels, selection and focus behavior. Link its `F-C30`, `T-C30` and `V-C30` evidence and any unresolved defects.",
+      "finding": "Eight style commands, controlled checked state, missing-callback skipping and tokenized case labels are implemented/tested. The approved F-C30-01 contract has no typeface API: typeface selection belongs to RichTextFormattingToolbar, whose heading/font tests provide the related evidence. No unsupported prop is invented to satisfy old shorthand.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+        "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+        "docs/developer/react-aria-editor-menus.md",
+        "packages/ui/tests/browser/batch64-style-menu-native-selection.spec.ts",
+        "docs/developer/parallel-next100/next100-c30.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c30.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C30",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C30",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c30.md"
+        },
+        "hardening": {
+          "family": "V-C30",
+          "primaryNative": "packages/ui/tests/browser/batch64-style-menu-native-selection.spec.ts",
+          "presentationRTL": "V-C30-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C30-V",
+          "deliverable": "Review long translated style labels/case glyphs and checked/disabled choices at narrow width in both themes/densities and Arabic RTL; verify native selection survives command/return focus. Reconcile the old typeface shorthand to the already approved split in central acceptance wording.",
+          "acceptanceEvidenceRequired": "Close V-C30-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-31",
+      "status": "complete",
+      "originalRequirement": "Reconcile ColumnsLayoutModal final acceptance: Layout presets, selected state, validation and modal Apply/Cancel. Link its `F-C31`, `T-C31` and `V-C31` evidence and any unresolved defects.",
+      "finding": "Five stable presets use one controlled radio choice; invalid runtime defaults normalize, open/default changes reset drafts, Insert emits once and Cancel/Escape never submit. Table-history native host proves integration; HB-18 closes the presentation/RTL pair. No persistence service is promised.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+        "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+        "docs/developer/react-aria-editor-dialogs.md",
+        "packages/ui/tests/browser/inventory-editor-table-history.spec.ts",
+        "docs/developer/parallel-next100/next100-c31.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "packages/ui/tests/browser/hardening-editor-dialogs-presentation.spec.ts"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c31.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C31",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C31",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c31.md"
+        },
+        "hardening": {
+          "family": "V-C31",
+          "primaryNative": "packages/ui/tests/browser/inventory-editor-table-history.spec.ts",
+          "presentationRTL": "HB-18 final, receipt section at line 770"
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-32",
+      "status": "complete",
+      "originalRequirement": "Reconcile ImageUploadModal final acceptance: File selection/preview/errors, host upload callback, image alt text and cancellation. Link its `F-C32`, `T-C32` and `V-C32` evidence and any unresolved defects.",
+      "finding": "Picker/drop share nonempty image MIME/extension metadata validation. File/description callbacks, decorative empty alt, preview ownership/revocation, pending duplicate guard, cancellation/reset, rejected upload retry and stale-session invalidation are covered. HB-18 validates translated/long file/description focus outline. This closes the named modal row; byte sniffing, service authorization and wider E-06 trust remain host/broader obligations.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+        "packages/ui/src/components/ImageUploadModal/ImageUploadModal.test.tsx",
+        "docs/developer/react-aria-editor-dialogs.md",
+        "packages/ui/tests/browser/image-upload-validation.spec.ts",
+        "docs/developer/parallel-next100/next100-c32.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "packages/ui/tests/browser/hardening-editor-dialogs-presentation.spec.ts"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c32.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C32",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C32",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c32.md"
+        },
+        "hardening": {
+          "family": "V-C32",
+          "primaryNative": "packages/ui/tests/browser/image-upload-validation.spec.ts",
+          "presentationRTL": "HB-18 final, receipt section at line 770"
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-33",
+      "status": "complete",
+      "originalRequirement": "Reconcile LinkUrlModal final acceptance: URL validation, protocol policy, edit/remove and focus restoration. Link its `F-C33`, `T-C33` and `V-C33` evidence and any unresolved defects.",
+      "finding": "Shared owned protocol policy rejects executable/malformed/network-path/control-character destinations; allowed protocol/relative restrictions, trimmed spelling, blank-to-unlink, Enter/Apply dedupe, edit/remove rich children, Cancel/Escape/reset and native opener focus are covered. HB-18 closes presentation/RTL. Broader saved/pasted rich-content trust remains A-E-06/07, rather than expanding this dialog row into a sanitizer.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+        "packages/ui/src/components/LinkUrlModal/LinkUrlModal.test.tsx",
+        "docs/developer/react-aria-editor-dialogs.md",
+        "packages/ui/tests/browser/inventory-link-modal.spec.ts",
+        "docs/developer/parallel-next100/next100-c33.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "packages/ui/tests/browser/hardening-editor-dialogs-presentation.spec.ts"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c33.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C33",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C33",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c33.md"
+        },
+        "hardening": {
+          "family": "V-C33",
+          "primaryNative": "packages/ui/tests/browser/inventory-link-modal.spec.ts",
+          "presentationRTL": "HB-18 final, receipt section at line 770"
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-M-34",
+      "status": "partial",
+      "originalRequirement": "Reconcile PageRichTextEditorSection final acceptance: Editor composition, nodes/plugins, serialization and selection behavior. Link its `F-C34`, `T-C34` and `V-C34` evidence and any unresolved defects.",
+      "finding": "Owned Lexical composition retains nodes, JSON callbacks/editorKey, read-only changes, selection snapshots, safe saved/pasted links, image metadata/URL lifetime and guarded upload retries. Real history/table/mixed-run, clipboard and public reload suites provide bounded coverage. T-C34-10 native copy was subsequently executed in the docs host; its old report hold is superseded. Full E-02/04/05/06/07 matrices and its V presentation/RTL pair remain open.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+        "docs/developer/react-aria-editor-section.md",
+        "packages/ui/tests/browser/editor-rich-document.spec.ts",
+        "docs/developer/parallel-next100/next100-c34.md",
+        "docs/developer/backlog-execution-2026-10-15.md",
+        "docs/developer/react-aria-migration-inventory-acceptance.md",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt",
+        "docs/developer/parallel-next100/next100-c34.md"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {
+        "functionality": {
+          "family": "F-C34",
+          "result": "Retained complete baseline family; inspect current owned contract and source against listed tests.",
+          "record": "docs/developer/react-aria-baseline-tasks.md"
+        },
+        "regression": {
+          "family": "T-C34",
+          "result": "Retained complete; exact leaf/case mappings in next100 report, with later native closure in backlog receipt for C25/C34.",
+          "record": "docs/developer/parallel-next100/next100-c34.md"
+        },
+        "hardening": {
+          "family": "V-C34",
+          "primaryNative": "packages/ui/tests/browser/editor-rich-document.spec.ts",
+          "presentationRTL": "V-C34-04 and -05 remain open in active hardening checklist."
+        }
+      },
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-C34-V",
+          "deliverable": "Review the full composed editor with saved rich content, narrow scroll region, table overflow, long translated controls, both themes/densities and Arabic RTL. Finish only missing E-02/04/05/06/07 successors below; do not rerun completed clipboard/image/selection cases.",
+          "acceptanceEvidenceRequired": "Close V-C34-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        },
+        {
+          "id": "W03-C34-E",
+          "deliverable": "Reconcile the missing E-family command/content/IME/trust rows from command-and-trust-matrix.md.",
+          "acceptanceEvidenceRequired": "Retain one result per missing row; no duplicate suite or broad parent closure from one fixture."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-01",
+      "status": "complete",
+      "originalRequirement": "Reconcile original `E-01`: Retain Lexical as the editor engine unless a separate evidenced decision changes it; remove visual-foundation coupling without accidentally changing document serialization. Historical status: open.",
+      "finding": "Lexical remains the engine and direct dependencies are retained. Editor/chrome/dialog visuals use owned controls and compiled token CSS. Registered node and saved-schema adapters preserve the public link/image document representation; serialization tests assert exact node metadata across reload. This closes engine/visual separation and schema-preservation architecture, without closing E-02 every-node/command combinations.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx",
+        "packages/ui/package.json",
+        "docs/developer/react-aria-editor-section.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-02",
+      "status": "partial",
+      "originalRequirement": "Reconcile original `E-02`: Preserve existing nodes/plugins: ImageNode, image insertion, horizontal-rule selection, editor configuration, and experience plugins; test saved-content round trips. Historical status: open.",
+      "finding": "ImageNode/insertion/rule-selection/config/experience plugins remain registered. Golden saved rich-document fixtures cover headers/quotes/lists/code-highlight/tables/styles/links/images and reload, but the contract explicitly limits this representative set; unsupported-node/version/error and full consumer-document combinations have not been reconciled to final acceptance.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.test.ts",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx",
+        "packages/ui/tests/browser/editor-rich-document.spec.ts",
+        "docs/developer/react-aria-editor-section.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-E02-ROUNDTRIP",
+          "deliverable": "Complete the node/plugin-to-fixture inventory in command-and-trust-matrix.md against approved consumer saved documents. Add missing schema/version/malformed input and node combinations only; preserve author metadata and public link spelling.",
+          "acceptanceEvidenceRequired": "Per missing document fixture: input JSON, registered type/plugin, output JSON comparison after edit/reload/read-only and error policy, exact source/test hashes; reuse existing golden round trips."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-03",
+      "status": "partial",
+      "originalRequirement": "Reconcile original `E-03`: Replace editor toolbars, menus, modals, palettes and selection overlays with owned controls while preserving selection across commands and modal dismissal. Historical status: open.",
+      "finding": "Every toolbar/menu/dialog/palette/selection-overlay composition uses owned controls. Real Lexical tests cover pointer preparation, keyboard link commit, formatting after focus transfer, modal cancellation and selection anchoring. Native docs-host selection and link flows exist, but the complete modal/selection outcome matrix (especially cross-node selections and cancelled insertion) has not been accepted; source replacement alone cannot certify it.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+        "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.formatting.test.tsx",
+        "packages/ui/tests/browser/inventory-link-modal.spec.ts",
+        "packages/ui/tests/browser/inventory-selection-boundary.spec.ts",
+        "docs/developer/react-aria-editor-layout.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-E03-SELECTION",
+          "deliverable": "Reconcile modal/image/link/columns and floating/menu commands for collapsed, same-node and cross-node ranges; include Cancel/Escape and document/read-only replacement. Use existing selection-driver fixtures; add only uncovered rows.",
+          "acceptanceEvidenceRequired": "Native retained-range/text/format and focus outcome per uncovered row; late/unmounted actions make no edit. Keep remaining presentation/RTL V leaves independent."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-04",
+      "status": "partial",
+      "originalRequirement": "Reconcile original `E-04`: Cover undo/redo, links, lists, code, tables, alignment, indentation, colors, and inline formatting that current consumers use. Historical status: open.",
+      "finding": "History, links, lists/code, table insertion/edit/reload, all alignment IDs/indent, foreground/background colors and inline/mixed formatting have concrete existing cases, but the complete currently-consumed command x selection x undo/redo matrix is not closed. The matrix file maps existing evidence and identifies missing blocks instead of treating the whole editor as untested.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.table-history.test.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.mixed-formatting.test.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx",
+        "packages/ui/tests/browser/inventory-editor-table-history.spec.ts",
+        "packages/ui/tests/browser/editor-mixed-formatting-history.spec.ts",
+        "packages/ui/tests/browser/editor-paragraph-transactions.spec.ts",
+        "docs/developer/react-aria-editor-section.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-E04-COMMANDS",
+          "deliverable": "Use the command matrix to obtain current consumer-required combinations; reconcile selection boundaries/active-mixed-disabled values and real undo/redo for remaining list/code/table/alignment/color/inline commands. No blanket every-permutation expansion.",
+          "acceptanceEvidenceRequired": "Each missing named command scenario shows exact JSON/text/style before/after, selection retention, undo/redo and editorKey reload; reuse existing table/mixed/paragraph native receipts."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-05",
+      "status": "partial",
+      "originalRequirement": "Reconcile original `E-05`: Address IME composition, paste, keyboard shortcuts, read-only/disabled state, and toolbar accessibility without hijacking ordinary editing keys. Historical status: open.",
+      "finding": "Native clipboard/paste, ordinary shortcuts/history, scoped read-only select-all/copy and editor focus have retained browser evidence. EditableTitleField and color form guard composing Enter. Actual Japanese/Chinese/Korean composition sessions, physical-device clipboard and spoken editor-toolbar AT are explicitly absent, so synthetic composition or trusted desktop clipboard cannot close this leaf.",
+      "sourceAndTestReferences": [
+        "packages/ui/tests/browser/editor-clipboard.spec.ts",
+        "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+        "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+        "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+        "docs/developer/react-aria-editor-section.md",
+        "docs/developer/react-aria-browser-acceptance.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-E05-IME",
+          "deliverable": "An operator must exercise real OS IME composition (Japanese/Chinese/Korean as supported by host) in editable content/title/color draft, including Enter/Escape, conversion, paste, undo and read-only transitions.",
+          "acceptanceEvidenceRequired": "Named OS/browser/IME versions, text/caret/host callback outcomes; composing Enter never commits a title/color prematurely or replaces native editor conversion."
+        },
+        {
+          "id": "W03-E05-DEVICE-AT",
+          "deliverable": "Run the remaining physical-device clipboard and manual editor/toolbar screen-reader review with ordinary editing keys and Alt+F10/Escape.",
+          "acceptanceEvidenceRequired": "Operator/device/OS/browser/AT versions and spoken/focus findings; preserve missing outcomes rather than substituting axe or jsdom."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-06",
+      "status": "partial",
+      "originalRequirement": "Reconcile original `E-06`: Define safe URL/protocol handling, image metadata/alt text, host upload callbacks, file validation, cancellation, and object-URL cleanup. Shared saved/pasted link policy and activation: [partial contract](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial). Saved image sources and upload-result retry: [partial image contract](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); [upload lifetime matrix](react-aria-editor-section.md#host-upload-lifetime-e-06-partial) covers stale results after cancellation/reset/read-only/unmount; [file presentation validation](react-aria-editor-dialogs.md#file-presentation-validation-e-06-partial) covers empty files and MIME/extension metadata; wider image/upload acceptance remains open. Historical status: open.",
+      "finding": "Owned destination/image-source policies, metadata/alt preservation, File callback, MIME/extension/nonempty validation, upload retry, cancellation invalidation and exact object-URL lifetime are implemented and tested. Standalone ImageUploadModal can satisfy its named row while broader byte/size/dimension/authorization policy, host network abort/asset cleanup and complete upload race/trust acceptance remain outside those UI tests.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/LinkUrlModal/linkUrlPolicy.ts",
+        "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/EditorUploadLifetime.next100-regression.test.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/imageSourcePolicy.ts",
+        "packages/ui/tests/browser/editor-upload-lifecycle.spec.ts",
+        "packages/ui/tests/browser/editor-image-lifecycle.spec.ts",
+        "docs/developer/react-aria-editor-dialogs.md",
+        "docs/developer/react-aria-editor-section.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-E06-HOST",
+          "deliverable": "Document and obtain owner acceptance for host upload byte/type/size/dimension/asset authorization, network abort semantics and cleanup of host-created stale assets. Preserve File callback and UI-only cancellation ownership.",
+          "acceptanceEvidenceRequired": "Host adapter/service policy with tested rejection/cleanup outcomes; no credentials or real service changes are authorized by this report."
+        },
+        {
+          "id": "W03-E06-MATRIX",
+          "deliverable": "Reconcile remaining upload/URL paths using trust matrix: malformed encoded sources/redirect ownership, description/metadata fidelity, retry and late result after each termination. Add only gaps beyond retained lifecycle cases.",
+          "acceptanceEvidenceRequired": "Named source/host/promise ownership, exact output/error/insert count and released URL owner per missing case; physical-device/AT evidence remains distinct."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-07",
+      "status": "partial",
+      "originalRequirement": "Reconcile original `E-07`: Review rich-content rendering and trust boundaries; do not render arbitrary HTML or unsafe links merely because they arrived in a presentation model. Saved/pasted link destinations are governed by the [owned policy](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial), and image decoration by the [image source policy](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); broader rich-content acceptance remains open. Historical status: open.",
+      "finding": "This report supplies a concrete trust-boundary review: no arbitrary HTML insertion in the owned ImageNode decorator; saved/pasted links are normalized to safe browser destinations, invalid images do not request resources, and JSON keeps original data. Lexical imports author-supplied styles and serialized content; syntactic URI validation is neither a sanitizer nor authorization/redirect policy. There is no complete approved untrusted-document/style policy.",
+      "sourceAndTestReferences": [
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkActivationPlugin.tsx",
+        "packages/ui/src/components/PageRichTextEditorSection/lexical/serializeEditorDocument.ts",
+        "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+        "packages/ui/tests/browser/editor-links.spec.ts",
+        "packages/ui/tests/browser/editor-image-sources.spec.ts",
+        "docs/developer/react-aria-editor-section.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-E07-TRUST",
+          "deliverable": "Approve a rich-document trust policy for imported/pasted author CSS, malformed/unregistered node/version data, data/blob/remote image requests and downstream JSON renderers; convert the trust matrix into bounded rejection/fidelity fixtures.",
+          "acceptanceEvidenceRequired": "Owner decision states allowed/rejected/preserved fields and host CSP/authorization/redirect responsibilities. Browser evidence demonstrates inert hostile markup/styles/URLs per approved policy without corrupting saved metadata; do not silently broaden current URL policy."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-08",
+      "status": "partial",
+      "originalRequirement": "Reconcile original `E-08`: Put editor-only dependencies behind a granular import boundary and assess whether separate packages are required to avoid mandatory installation weight. Historical status: open.",
+      "finding": "Granular editor entry exists and earlier packed fixtures reject Lexical traversal from representative basic imports. The manifest still installs lexical and @lexical/* as direct dependencies for every consumer; a code graph boundary does not avoid installation weight. The existing package acceptance document explicitly leaves the package/dependency design decision open.",
+      "sourceAndTestReferences": [
+        "packages/ui/package.json",
+        "packages/ui/scripts/test-foundation-consumer.mjs",
+        "packages/ui/scripts/test-editor-consumer.mjs",
+        "docs/developer/react-aria-package-acceptance.md",
+        "docs/developer/parallel-batch-01/packaging.md"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [
+        {
+          "id": "W03-E08-DESIGN",
+          "deliverable": "Obtain an explicit owner decision: separate optional editor package/entry dependency scheme, or accept the single package installation cost with measured justification. Retain granular core/editor SSR/client contracts.",
+          "acceptanceEvidenceRequired": "Decision compares packed/install dependency graph and bytes for core and editor; then implementation/export/dependency changes with focused packed core/editor tests. No install/rebuild was authorized for this wave."
+        }
+      ],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-09",
+      "status": "complete",
+      "originalRequirement": "Reconcile original `E-09`: Put learner/instructor cards, course grids, activity mappings, and admin/instructor presets in a documented learning extension boundary without copying app screens. Historical status: open.",
+      "finding": "The documented specialist learning boundary is a set of presentation compositions, models and host adapters: course cards, LearnerClassesDataGrid, activity helpers and admin/instructor preset factories. Granular card/grid paths and icon helper paths exist; no host screen/API/session dependency is introduced. docs/migration.md and component architecture document provenance, Course naming and Class compatibility. This leaf requires a documented module boundary, not a newly separated npm package (that decision remains E-08/R).",
+      "sourceAndTestReferences": [
+        "docs/developer/component-architecture.md",
+        "docs/migration.md",
+        "docs/developer/react-aria-card-frames.md",
+        "docs/developer/react-aria-grid-presets.md",
+        "docs/developer/react-aria-catalog-grid.md",
+        "packages/ui/src/models.ts",
+        "packages/ui/src/components/AdminDataGridOptions.ts",
+        "packages/ui/src/components/InstructorDataGridOptions.ts",
+        "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+        "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+        "packages/ui/package.json",
+        "docs/developer/final-acceptance/parallel-06/results.json"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [],
+      "newDefectsConfirmed": []
+    },
+    {
+      "id": "A-E-10",
+      "status": "complete",
+      "originalRequirement": "Reconcile original `E-10`: Keep generic layout/controls independent of course-specific models; document naming compatibility and module migration. Historical status: open.",
+      "finding": "Generic foundation/layout/control code has no course-model dependency in the reused FA-02 reference inventory and resolved parallel-02 graph. The sole candidate in the unfiltered inventory is a source-context native fixture composing ClassCardFrame, not production code. Four current picker/TextArea changes were checked at their import boundaries and contain no domain dependency. Models remain host presentation records; existing Class exports and Course factory naming/migration are documented. No runtime or future cycle-enforcement promise is inferred.",
+      "sourceAndTestReferences": [
+        "docs/developer/component-architecture.md",
+        "docs/migration.md",
+        "docs/developer/react-aria-grid-presets.md",
+        "packages/ui/src/models.ts",
+        "docs/developer/final-acceptance/parallel-02/graph-evidence.json",
+        "docs/developer/final-acceptance/parallel-06/results.json",
+        "packages/ui/src/experimental/TextArea/TextArea.tsx",
+        "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+        "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+        "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx"
+      ],
+      "evidence": [
+        "docs/developer/final-acceptance/wave-02-03/evidence.json",
+        "docs/developer/final-acceptance/fa04-original-check.txt",
+        "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+        "docs/developer/final-acceptance/fa04-package.txt"
+      ],
+      "checksActuallyPerformed": [
+        "Read full original leaf and current component/extension contracts",
+        "Inspect current source and named unit/native test assertions without executing suites",
+        "Reconcile relevant hashes with FA-02 and prior parallel graph; reuse FA-04 passing unaffected unit stages",
+        "Resolve scope against accepted F/T/native receipts and current open V leaves"
+      ],
+      "phaseEvidence": {},
+      "inputHeadHostLimits": [
+        "Modified dev HEAD 540f47d4059a9cea8890b80927f34f51ef2fbc3e; exact relevant bytes in evidence.json#inputHashes; not a frozen release artifact.",
+        "No new unit/native/browser/device/AT/remote-CI execution. FA-04 Node24 unit/package evidence retained for unchanged affected inputs; local Python/Node26 analysis is not runtime compatibility evidence.",
+        "F/T checklist completions are corroborated by source/tests and accepted receipts, not treated as automatic A closure. Historical browser receipts are retained; named ignored raw artifact directories are absent locally.",
+        "No assumption that shared dist contains the concurrent picker/TextArea fixes. No production/release/20 outstanding editor V waiver."
+      ],
+      "successors": [],
+      "newDefectsConfirmed": []
+    }
+  ],
+  "reusedEvidencePolicy": "No completed checks were re-executed; retained FA-01/02/04 and per-family F/T/V evidence reconciled against unchanged editor inputs.",
+  "newExecution": {
+    "readOnlyCommands": [
+      "python3 docs/developer/final-acceptance/wave-02-03/capture.py",
+      "targeted source/contract/test declaration reads and saved hash reconciliation"
+    ],
+    "runtimeTests": 0,
+    "builds": 0,
+    "browserRuns": 0,
+    "remoteCI": 0
+  },
+  "nativeEvidenceAvailability": {
+    "packages/ui/artifacts/hb14-2026-10-16": false,
+    "packages/ui/artifacts/hb18-fixed-2026-10-16": false,
+    "packages/ui/artifacts/backlog-2026-10-15-regression-recheck": false
+  },
+  "concurrentInputLimits": [
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "saved": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+      "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "saved": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+      "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "saved": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+      "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+    },
+    {
+      "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+      "saved": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+      "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+    }
+  ],
+  "artifacts": [
+    "report.md",
+    "results.json",
+    "evidence.json",
+    "capture.py",
+    "write-report.py",
+    "command-and-trust-matrix.md"
+  ],
+  "mutationBoundary": "Only docs/developer/final-acceptance/wave-02-03/ written; no shared checklist/source/output/release changes."
+}

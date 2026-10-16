@@ -1,0 +1,1 @@
+Initial check harness failed before compiling: Cannot find module '../../../../node_modules/typescript' on Node v26.5.0. Root does not expose TypeScript; corrected checker to packages/ui/node_modules/typescript. No component test ran.

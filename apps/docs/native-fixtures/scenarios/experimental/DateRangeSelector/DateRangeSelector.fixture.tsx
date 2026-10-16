@@ -7,7 +7,7 @@ import { SGTranslationProvider } from "@structured-growth/sg-ui/i18n";
 import { formatIcuMessage } from "@structured-growth/sg-ui/i18n";
 const meta = { title: "Migration proofs/DateRangeSelector", component: DateRangeSelector, tags: ["autodocs"],
   decorators: [(Story) => <Provider><div style={{ maxWidth: "48rem" }}><Story /></div></Provider>],
-  args: { label: "Reporting dates", defaultFocusedDate: "2024-02-01", presets: [
+  args: { entryMode: "segments", showFields: true, rangeClickBehavior: "restart", label: "Reporting dates", defaultFocusedDate: "2024-02-01", presets: [
     { id: "february", label: "February reporting period", description: "Gregorian calendar, inclusive endpoints, no timezone conversion.", value: { start: "2024-02-01", end: "2024-02-29" } },
     { id: "march", label: "March reporting period", value: { start: "2024-03-01", end: "2024-03-31" } },
   ] },
@@ -15,7 +15,7 @@ const meta = { title: "Migration proofs/DateRangeSelector", component: DateRange
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Reporting: Story = {};
-export const Availability: Story = { args: { label: "Booking dates", defaultFocusedDate: "2024-02-14", presets: [
+export const Availability: Story = { args: { entryMode: "segments", showFields: true, rangeClickBehavior: "restart", label: "Booking dates", defaultFocusedDate: "2024-02-14", presets: [
   { id: "february", label: "February reporting period", description: "Includes the unavailable capacity date.", value: { start: "2024-02-01", end: "2024-02-29" } },
   { id: "early", label: "Early February", description: "First two weeks, before capacity closes.", value: { start: "2024-02-01", end: "2024-02-14" } },
 ], unavailable: [{ date: "2024-02-15", reason: "No remaining capacity" }], required: true }, render: args => {

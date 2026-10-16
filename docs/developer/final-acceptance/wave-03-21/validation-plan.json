@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "leafIds": [
+    "A-M-18",
+    "A-G-17"
+  ],
+  "productionChange": false,
+  "patch": "reorder-policy.patch",
+  "integrationRequired": true,
+  "steps": [
+    {
+      "id": "integrate",
+      "owner": "coordinator",
+      "status": "pending",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-21/reorder-policy.patch && git apply docs/developer/final-acceptance/wave-03-21/reorder-policy.patch",
+      "assertions": [
+        "New seven-case regression file and precise policy documentation only. No processing model/public API changes."
+      ]
+    },
+    {
+      "id": "units-after-integration",
+      "owner": "coordinator",
+      "status": "pending",
+      "cwd": "packages/ui",
+      "command": "pnpm exec vitest run src/components/AppDataGrid/AppDataGrid.reorder-policy.test.tsx",
+      "runtime": "Node 22.12.0 or Node 24; shared validation lease",
+      "assertions": [
+        "7 cases pass: sorting/filter/page disable and restore, reject active keyboard request, cancel sibling with colliding IDs without changing selection or requests.",
+        "Move calls exact original source/target row objects and IDs once; DOM request status does not claim persistence."
+      ]
+    },
+    {
+      "id": "build",
+      "status": "not_requested",
+      "reason": "No production/runtime/fixture changes. Reuse hashes for selected 145 coordinator output files; do not run shared install/build/catalog generation for this test/docs patch."
+    },
+    {
+      "id": "native",
+      "status": "retained_and_external_pending",
+      "owner": "coordinator/device-and-AT-operator",
+      "specs": [
+        "packages/ui/tests/browser/reorder.spec.ts",
+        "packages/ui/tests/browser/batch01-grid-reorder.spec.ts",
+        "packages/ui/tests/browser/inventory-pointer-reorder-invalidation.spec.ts"
+      ],
+      "command": "From packages/ui in an owned validation window: pnpm exec playwright test tests/browser/reorder.spec.ts tests/browser/batch01-grid-reorder.spec.ts tests/browser/inventory-pointer-reorder-invalidation.spec.ts",
+      "reason": "Only rerun affected desktop scope if integrated production inputs change. Existing pointer/keyboard/Move evidence retained; this is not a physical device command.",
+      "externalProtocol": "physical-touch-and-at.md",
+      "recorder": "physical-input-recorder.js",
+      "assertions": [
+        "Physical long-press before/after commit once; cancel/outside/invalidation/colliding-grid cancel emit no requests; rollback restores order and source focus.",
+        "Named AT actual speech reports source/drop-position/cancel/request and distinct saved/failure results.",
+        "Keep touch emulation and DOM results separate from physical/AT receipts."
+      ]
+    },
+    {
+      "id": "packed",
+      "status": "not_requested",
+      "reason": "No runtime/API/export changes; no new packed consumer check justified."
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-23",
+  "status": "delivered-patch-pending-integration",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "summary": {
+    "complete": 0,
+    "partial": 4,
+    "blocked": 0,
+    "patchTargets": 4,
+    "newNativeCases": 6,
+    "unchangedPriorInputs": 94
+  },
+  "artifacts": [
+    "acceptance-successors.patch",
+    "proposed-files/",
+    "check-proposals.mjs",
+    "capture-evidence.py",
+    "evidence.json",
+    "static-validation.txt",
+    "static-validation-first-failure.txt",
+    "patch-check.txt",
+    "validation-plan.json",
+    "report.md"
+  ],
+  "checks": [
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-23/check-proposals.mjs",
+      "result": "pass",
+      "runtime": "Node26.5.0 / TypeScript5.9.3",
+      "assertions": "Four target file overlays; zero proposal or dependency diagnostics; no emit or shared source writes",
+      "evidence": "static-validation.txt",
+      "limits": "Static only, unsupported Node for unit acceptance; no native execution."
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-23/acceptance-successors.patch",
+      "result": "pass",
+      "exitCode": 0,
+      "evidence": "patch-check.txt",
+      "limits": "Patch not applied."
+    }
+  ],
+  "leaves": [
+    {
+      "id": "A-M-21",
+      "originalRequirement": "- [ ] A-M-21 Reconcile DocumentEditorLayout final acceptance: Tokenized menu/toolbar/content layout and scroll boundaries. Link its `F-C21`, `T-C21` and `V-C21` evidence and any unresolved defects.",
+      "result": "partial",
+      "originalSuccessors": [
+        {
+          "id": "W03-C21-V",
+          "deliverable": "Validate long title/menu/toolbar/content at narrow width, both densities/themes, then Arabic RTL labels and reading order; preserve the host scroll owner and focus through slot replacement.",
+          "acceptanceEvidenceRequired": "Close V-C21-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "substantiveOutcome": "Prepared production-scoped translated composition, narrow geometry/screenshots, scroll/draft/focus replacement and disabled/loading/pressed/zoom native cases.",
+      "evidence": [
+        "evidence.json",
+        "static-validation.txt",
+        "acceptance-successors.patch",
+        "validation-plan.json"
+      ],
+      "commands": "See checks and validation-plan.json; no native command executed.",
+      "runtime": "Static Node26.5.0/TypeScript5.9.3 only; retained evidence preserves original hosts/runtimes.",
+      "inputHashes": "evidence.json:inputHashes/priorInputComparison/proposalTargets",
+      "proposedPatchNeedsIntegration": true,
+      "newConfirmedProductionDefects": [],
+      "residualSuccessors": [
+        "Integrate four-file patch; coordinator fresh fixture build.",
+        "Execute chrome presentation/slot-replacement cases on Chromium, Firefox and WebKit; review narrow theme/density and Arabic RTL screenshots and geometry.",
+        "V-C21-04/05 remain independently tracked."
+      ]
+    },
+    {
+      "id": "A-M-22",
+      "originalRequirement": "- [ ] A-M-22 Reconcile DocumentEditorToolbar final acceptance: Owned buttons/menus/toggles, formatting state, responsive overflow. Link its `F-C22`, `T-C22` and `V-C22` evidence and any unresolved defects.",
+      "result": "partial",
+      "originalSuccessors": [
+        {
+          "id": "W03-C22-V",
+          "deliverable": "Review responsive wrap/overflow with long heading/status and all optional groups; verify translated accessible names/order and RTL in a composed editor. Include disabled/pressed/zoom and deferred heading focus after host replacement.",
+          "acceptanceEvidenceRequired": "Close V-C22-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "substantiveOutcome": "Prepared production-scoped translated composition, narrow geometry/screenshots, scroll/draft/focus replacement and disabled/loading/pressed/zoom native cases.",
+      "evidence": [
+        "evidence.json",
+        "static-validation.txt",
+        "acceptance-successors.patch",
+        "validation-plan.json"
+      ],
+      "commands": "See checks and validation-plan.json; no native command executed.",
+      "runtime": "Static Node26.5.0/TypeScript5.9.3 only; retained evidence preserves original hosts/runtimes.",
+      "inputHashes": "evidence.json:inputHashes/priorInputComparison/proposalTargets",
+      "proposedPatchNeedsIntegration": true,
+      "newConfirmedProductionDefects": [],
+      "residualSuccessors": [
+        "Integrate/build/run chrome cases; review long labels and optional groups, disabled/pressed/zoom, heading return focus.",
+        "Retain unchanged heading-lifetime and enlarged-text evidence within original limits; no actual-zoom claim.",
+        "V-C22-04/05 remain independently tracked."
+      ]
+    },
+    {
+      "id": "A-M-23",
+      "originalRequirement": "- [ ] A-M-23 Reconcile ContentEditorChrome final acceptance: Menu composition, editor focus, disabled/loading actions, semantic structure. Link its `F-C23`, `T-C23` and `V-C23` evidence and any unresolved defects.",
+      "result": "partial",
+      "originalSuccessors": [
+        {
+          "id": "W03-C23-V",
+          "deliverable": "Review title/save/menu/status wrap at narrow widths in both themes/densities; check Arabic RTL heading/action order, named groups and anchor-to-host-dialog focus with pending action replacement.",
+          "acceptanceEvidenceRequired": "Close V-C23-04/05 with native engine/version/source/fixture hashes, measured geometry, reviewed screenshots and translated names/order; do not infer spoken AT from DOM labels."
+        }
+      ],
+      "substantiveOutcome": "Prepared production-scoped translated composition, narrow geometry/screenshots, scroll/draft/focus replacement and disabled/loading/pressed/zoom native cases.",
+      "evidence": [
+        "evidence.json",
+        "static-validation.txt",
+        "acceptance-successors.patch",
+        "validation-plan.json"
+      ],
+      "commands": "See checks and validation-plan.json; no native command executed.",
+      "runtime": "Static Node26.5.0/TypeScript5.9.3 only; retained evidence preserves original hosts/runtimes.",
+      "inputHashes": "evidence.json:inputHashes/priorInputComparison/proposalTargets",
+      "proposedPatchNeedsIntegration": true,
+      "newConfirmedProductionDefects": [],
+      "residualSuccessors": [
+        "Integrate/build/run chrome cases and review long title/status/menu RTL presentation.",
+        "Validate native host-dialog pending replacement and final enabled-trigger return focus.",
+        "V-C23-04/05 remain independently tracked."
+      ]
+    },
+    {
+      "id": "A-E-03",
+      "originalRequirement": "- [ ] A-E-03 Reconcile original `E-03`: Replace editor toolbars, menus, modals, palettes and selection overlays with owned controls while preserving selection across commands and modal dismissal. Historical status: open.",
+      "result": "partial",
+      "originalSuccessors": [
+        {
+          "id": "W03-E03-SELECTION",
+          "deliverable": "Reconcile modal/image/link/columns and floating/menu commands for collapsed, same-node and cross-node ranges; include Cancel/Escape and document/read-only replacement. Use existing selection-driver fixtures; add only uncovered rows.",
+          "acceptanceEvidenceRequired": "Native retained-range/text/format and focus outcome per uncovered row; late/unmounted actions make no edit. Keep remaining presentation/RTL V leaves independent."
+        }
+      ],
+      "substantiveOutcome": "Prepared real Lexical public-host cancellation across six modal/range/dismissal rows, Link Apply at three range shapes and modal host-lifetime invalidation.",
+      "evidence": [
+        "evidence.json",
+        "static-validation.txt",
+        "acceptance-successors.patch",
+        "validation-plan.json"
+      ],
+      "commands": "See checks and validation-plan.json; no native command executed.",
+      "runtime": "Static Node26.5.0/TypeScript5.9.3 only; retained evidence preserves original hosts/runtimes.",
+      "inputHashes": "evidence.json:inputHashes/priorInputComparison/proposalTargets",
+      "proposedPatchNeedsIntegration": true,
+      "newConfirmedProductionDefects": [],
+      "residualSuccessors": [
+        "Integrate/build/run six dismissal rows, three Link Apply range shapes and three modal lifetime invalidations.",
+        "Reconcile selected-range successful Image/Columns insertion where not established by retained cases.",
+        "Late async upload completion retains its own separate input-hash/runtime check; palette/style command successors and twenty V leaves remain independent."
+      ]
+    }
+  ],
+  "limits": [
+    "No integration, builds, unit execution, native execution, screenshot review or supported Node22/24 execution in this wave.",
+    "No validation host besides protected user server3000 was present; it was not used or modified.",
+    "Static TypeScript overlay checks ran under Node26.5.0 and TypeScript5.9.3 against current built declarations; not browser/AT evidence.",
+    "Prior report results retain original host/engine/head limits. Source hash equality is not new browser execution."
+  ]
+}

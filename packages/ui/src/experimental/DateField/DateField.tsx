@@ -1,5 +1,5 @@
 "use client";
-import { forwardRef, useState, useRef, useImperativeHandle, useMemo } from "react";
+import { forwardRef, useState, useRef, useImperativeHandle, useMemo, useContext, useEffect } from "react";
 import { parseDate, parseDateTime, toCalendar, GregorianCalendar, createCalendar } from "@internationalized/date";
 import { useDateField, useDateSegment } from "react-aria/useDateField";
 import { useLocale } from "react-aria/I18nProvider";
@@ -8,27 +8,13 @@ import { mergeProps } from "react-aria/mergeProps";
 import { useDateFieldState, type DateFieldState, type DateSegment } from "react-stately/useDateFieldState";
 import { useTranslation } from "../../i18n";
 import { useStandaloneFormReset } from "../TextField/useStandaloneFormReset";
+import { TextDateField } from "./TextDateField";
+import { DateFieldControl, DateFieldValidationContext } from "./DateFieldControl";
 import field from "../TextField/TextField.module.css";
 import styles from "./DateField.module.css";
 
-export interface DateFieldProps {
-  label: string;
-  /** date: YYYY-MM-DD; datetime: YYYY-MM-DDTHH:mm:ss without timezone. */
-  kind?: "date" | "datetime";
-  value?: string | null;
-  defaultValue?: string | null;
-  onValueChange?: (value: string | null) => void;
-  min?: string;
-  max?: string;
-  name?: string;
-  description?: string;
-  errorMessage?: string;
-  invalid?: boolean;
-  required?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
-  hourCycle?: 12 | 24;
-}
+import type { DateFieldProps } from "./DateField.types";
+export type { DateFieldProps } from "./DateField.types";
 /** Internal native segment; field and segment hooks share the same interaction state. */
 function NativeDateSegment({ segment, state }: { segment: DateSegment; state: DateFieldState }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -41,8 +27,12 @@ function NativeDateSegment({ segment, state }: { segment: DateSegment; state: Da
     data-invalid={state.isInvalid || undefined}>{segment.text}</span>;
 }
 
-export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(function DateField({ label, kind = "date", value,
-  defaultValue, onValueChange, min, max, name, description, errorMessage, invalid, required, disabled, readOnly, hourCycle }, ref) {
+const SegmentedDateField = forwardRef<HTMLDivElement, DateFieldProps>(function SegmentedDateField({ label, kind = "date", value,
+  defaultValue, onValueChange, onValidityChange, min, max, name, description, errorMessage, invalid, required, disabled, readOnly, hourCycle }, ref) {
+  const validateCandidate = useContext(DateFieldValidationContext);
+  const [rejectedDraft, setRejectedDraft] = useState<string | undefined>(undefined);
+  const [previousValue, setPreviousValue] = useState(value);
+  if (previousValue !== value) { setPreviousValue(value); setRejectedDraft(undefined); }
   const parse = kind === "date" ? parseDate : parseDateTime;
   const { t } = useTranslation();
   const { locale } = useLocale();
@@ -60,6 +50,7 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(function Dat
   const resetting = useStandaloneFormReset(root, () => {
     // Calling the public engine setter also clears an incomplete display when
     // the complete owned value is already null. Keep reset separate from edits.
+    setRejectedDraft(undefined);
     silent.current = true;
     try {
       state.setValue(safeParse(value === undefined ? defaultValue : value));
@@ -73,7 +64,8 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(function Dat
   const currentValue = value === undefined ? internal : value;
   // The state hook compares date object identity while updating its display.
   // Keep parsing stable across its own renders, as the component wrapper did.
-  const parsedValue = useMemo(() => safeParse(currentValue), [currentValue, kind]);
+  // A policy-rejected segment draft stays editable, but never owns the named form value.
+  const parsedValue = useMemo(() => safeParse(rejectedDraft ?? currentValue), [rejectedDraft, currentValue, kind]);
   const invalidInput = value === undefined ? invalidDefault : Boolean(value && !parsedValue);
   const invalidBounds = Boolean((min && !safeParse(min)) || (max && !safeParse(max)));
   const validationMessage = errorMessage ?? ((invalidInput || invalidBounds)
@@ -84,12 +76,15 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(function Dat
     granularity: kind === "date" ? "day" as const : "second" as const, hourCycle,
     isInvalid: invalid || invalidInput || invalidBounds || undefined,
     isRequired: required, isDisabled: disabled, isReadOnly: readOnly,
+    validate: (date: NonNullable<ReturnType<typeof safeParse>>) => validateCandidate?.(toCalendar(date, new GregorianCalendar()).toString()) ?? null,
     validationBehavior: "native" as const,
   };
   const state = useDateFieldState({ ...options, locale, createCalendar, value: parsedValue,
     onChange: date => {
-      if (resetting.current || silent.current) return;
+      if (resetting.current || silent.current || disabled || readOnly) return;
       const next = date ? toCalendar(date, new GregorianCalendar()).toString() : null;
+      if (next && validateCandidate?.(next)) { setRejectedDraft(next); return; }
+      setRejectedDraft(undefined);
       if (value === undefined) setInternal(next);
       setInvalidDefault(false); onValueChange?.(next);
       // Refresh a displayed error after an edit request. Validation commits on
@@ -99,6 +94,8 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(function Dat
       if (state.displayValidation.isInvalid) state.commitValidation();
     },
   });
+  const valid = !state.realtimeValidation.isInvalid && (!required || Boolean(state.value));
+  useEffect(() => { onValidityChange?.(valid); }, [valid, onValidityChange]);
   // The field hook's setValue/resetValidation calls are native reset requests.
   // The owned form transaction is their sole owner, including stale listeners
   // from a former form. Segment edits retain the public engine commands.
@@ -110,12 +107,18 @@ export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(function Dat
   return <div ref={root} className={field.root} data-invalid={isInvalid || undefined}
     data-disabled={disabled || undefined} data-readonly={readOnly || undefined}>
     <span {...labelProps} className={field.label}>{label}</span>
-    <div {...fieldProps} ref={group} className={[field.input, styles.input].join(" ")}
+    <DateFieldControl><div {...fieldProps} ref={group} className={[field.input, styles.input].join(" ")}
       data-invalid={isInvalid || undefined} data-disabled={disabled || undefined}>
       {state.segments.map((segment, index) => <NativeDateSegment key={index} segment={segment} state={interactionState} />)}
-    </div>
-    <input {...inputProps} ref={input} />
+    </div></DateFieldControl>
+    <input {...inputProps} ref={input} value={currentValue && safeParse(currentValue) && !validateCandidate?.(currentValue) ? currentValue : ""} />
     {description && <div {...descriptionProps} className={field.description}>{description}</div>}
     {isInvalid && <div {...errorMessageProps} className={field.error}>{validationMessage ?? validationErrors.join(" ")}</div>}
   </div>;
+});
+
+export const DateField = forwardRef<HTMLDivElement, DateFieldProps>(function DateField(props, ref) {
+  const { locale } = useLocale();
+  return props.entryMode === "text" && props.kind !== "datetime"
+    ? <TextDateField {...props} locale={locale} ref={ref} /> : <SegmentedDateField {...props} ref={ref} />;
 });

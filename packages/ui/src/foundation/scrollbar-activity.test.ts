@@ -29,3 +29,34 @@ it("shares document observation between scopes and cleans up after the last owne
   root.dispatchEvent(new Event('scroll'));expect(root.hasAttribute('data-sgui-scrolling')).toBe(false);
   expect(vi.getTimerCount()).toBe(0);
 });
+
+it("does not release another scope or a later generation when disposed twice",()=>{
+  vi.useFakeTimers();document.body.innerHTML='<div data-sgui-scope></div>';
+  const root=document.body.firstElementChild!;
+  const first=observeScrollbarActivity(document),second=observeScrollbarActivity(document);
+  try {
+    first();first();root.dispatchEvent(new Event('scroll'));
+    expect(root.hasAttribute('data-sgui-scrolling')).toBe(true);
+    expect(vi.getTimerCount()).toBe(1);
+  } finally { second(); }
+  const next=observeScrollbarActivity(document);
+  try {
+    first();root.dispatchEvent(new Event('scroll'));
+    expect(root.hasAttribute('data-sgui-scrolling')).toBe(true);
+    expect(vi.getTimerCount()).toBe(1);
+  } finally { next(); }
+  expect(root.hasAttribute('data-sgui-scrolling')).toBe(false);
+  expect(vi.getTimerCount()).toBe(0);
+});
+it("returns to zero pending activity after repeated scope lifetimes",()=>{
+  vi.useFakeTimers();document.body.innerHTML='<div data-sgui-scope></div>';
+  const root=document.body.firstElementChild!;
+  for(let cycle=0;cycle<100;cycle++) {
+    const release=observeScrollbarActivity(document);
+    root.dispatchEvent(new Event('scroll'));root.dispatchEvent(new Event('scroll'));
+    expect(vi.getTimerCount()).toBe(1);
+    release();
+    expect(vi.getTimerCount()).toBe(0);
+    expect(root.hasAttribute('data-sgui-scrolling')).toBe(false);
+  }
+});

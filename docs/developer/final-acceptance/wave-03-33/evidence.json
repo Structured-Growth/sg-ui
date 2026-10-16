@@ -1,0 +1,3814 @@
+{
+  "capturedAt": "2026-10-16T23:06:16.930Z",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "runtime": "v26.5.0",
+  "typescript": "5.9.3",
+  "originalProvenance": {
+    "sourceRepository": "Structured-Growth/learning-platform",
+    "sourceCommit": "8e63f1e16fc3d43d851908b312603a1099ca13d9",
+    "sourceRoot": "apps/web/src/ui"
+  },
+  "upstreamObject": {
+    "available": false,
+    "exitCode": 128,
+    "stderr": "fatal: git cat-file: could not get object info"
+  },
+  "manifestSummary": {
+    "rows": 201,
+    "present": 159,
+    "mismatches": 0,
+    "missingReplacements": 0
+  },
+  "rows": [
+    {
+      "source": "components/AdminDataGridOptions.ts",
+      "destination": "packages/ui/src/components/AdminDataGridOptions.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppButton/AppButton.stories.tsx",
+      "destination": "packages/ui/src/components/AppButton/AppButton.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx",
+          "exists": true,
+          "sha256": "3307e68f128e7cc84e4c091fc7d01a02df3170d3a2c290f920f83b1301937c40"
+        },
+        {
+          "path": "apps/docs/examples/catalog/primitives-actions.tsx",
+          "exists": true,
+          "sha256": "c23ac2f1420f70f01cfbf44efcca9cf751da446218068a00e3d6a3bd4ab935f1"
+        }
+      ]
+    },
+    {
+      "source": "components/AppButton/AppButton.test.tsx",
+      "destination": "packages/ui/src/components/AppButton/AppButton.test.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/Button/Button.public-contract.test.tsx",
+          "exists": true,
+          "sha256": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6"
+        }
+      ]
+    },
+    {
+      "source": "components/AppButton/AppButton.tsx",
+      "destination": "packages/ui/src/components/AppButton/AppButton.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/Button/Button.tsx",
+          "exists": true,
+          "sha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5"
+        }
+      ]
+    },
+    {
+      "source": "components/AppButton/index.ts",
+      "destination": "packages/ui/src/components/AppButton/index.ts",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/Button/index.ts",
+          "exists": true,
+          "sha256": "e3b3d627a1fef1bfc1a6056115b697444e0383549cce84e243abe2f4b34522cb"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.stories.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+          "exists": true,
+          "sha256": "ce94ca1a740f7541fca53106192f702f4682a68f17a9c4c976b28b8cde49cbe5"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.test.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/AppDataGrid.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/RowSubHeader.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/TableNoResults.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/TableNoResults.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/baseGridSx.test.ts",
+      "destination": "packages/ui/src/components/AppDataGrid/components/baseGridSx.test.ts",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+          "exists": true,
+          "sha256": "d5037a206368dde03af63d5e755d035311b9818c4595fbc67593a69775bf91aa"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+          "exists": true,
+          "sha256": "502aa0db80b9d7bb3d7b8c3b46441130203bda77a3825f4db9a3698b3f6be414"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/components/baseGridSx.ts",
+      "destination": "packages/ui/src/components/AppDataGrid/components/baseGridSx.ts",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+          "exists": true,
+          "sha256": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css",
+          "exists": true,
+          "sha256": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css",
+          "exists": true,
+          "sha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b"
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css",
+          "exists": true,
+          "sha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/index.ts",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createActionMenuColumn.test.ts",
+      "destination": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.test.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createActionMenuColumn.ts",
+      "destination": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createDataGridColumns.test.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/createDataGridColumns.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/createDataGridColumns.tsx",
+      "destination": "packages/ui/src/components/AppDataGrid/createDataGridColumns.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/index.ts",
+      "destination": "packages/ui/src/components/AppDataGrid/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGrid/types.ts",
+      "destination": "packages/ui/src/components/AppDataGrid/types.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "destination": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppDataGridRowDnd/DataGridDragHandle.fixture.tsx",
+          "exists": true,
+          "sha256": "b4a172cbb2536940351db33f8cd05dfe2c5f19b9a28227b27972c6990856b2ca"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "destination": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridRowDnd/index.ts",
+      "destination": "packages/ui/src/components/AppDataGridRowDnd/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
+      "destination": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.ts",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx",
+          "exists": true,
+          "sha256": "97a808c6316a6dfffea909316bdb231f61195dfa09f094b3cb9840dfe90fb876"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "destination": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "destination": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+          "exists": true,
+          "sha256": "108009d686b001557ab928cd1095a18f5dad14d2470bac1af0e2c036b714396c"
+        }
+      ]
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "destination": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridShell/AppDataGridShell.tsx",
+      "destination": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppDataGridShell/index.ts",
+      "destination": "packages/ui/src/components/AppDataGridShell/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "destination": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppInlineProgress/AppInlineProgress.fixture.tsx",
+          "exists": true,
+          "sha256": "518bb8e43dc17abf8169d798bba436e14baf9bcc1b5920fb880edb899ac2b4c2"
+        }
+      ]
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.test.tsx",
+      "destination": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppInlineProgress/AppInlineProgress.tsx",
+      "destination": "packages/ui/src/components/AppInlineProgress/AppInlineProgress.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppInlineProgress/index.ts",
+      "destination": "packages/ui/src/components/AppInlineProgress/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppModal/AppModal.stories.tsx",
+      "destination": "packages/ui/src/components/AppModal/AppModal.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppModal/AppModal.fixture.tsx",
+          "exists": true,
+          "sha256": "acd772a08469ac22ecd7dee7c5271575e91ef23c4cb9a08911e3f9c4fe1a8580"
+        }
+      ]
+    },
+    {
+      "source": "components/AppModal/AppModal.test.tsx",
+      "destination": "packages/ui/src/components/AppModal/AppModal.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppModal/AppModal.tsx",
+      "destination": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppModal/index.ts",
+      "destination": "packages/ui/src/components/AppModal/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "destination": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
+          "exists": true,
+          "sha256": "f5a644682231bb219661ee059c1fa1a372fc87fdd3211c22afefaab1145e3153"
+        }
+      ]
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "destination": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppOperationSteps/AppOperationSteps.tsx",
+      "destination": "packages/ui/src/components/AppOperationSteps/AppOperationSteps.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppOperationSteps/index.ts",
+      "destination": "packages/ui/src/components/AppOperationSteps/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.stories.tsx",
+      "destination": "packages/ui/src/components/AppPageHeader/AppPageHeader.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx",
+          "exists": true,
+          "sha256": "6609f8f6c55fa5f6b77440bf23e0ac663a7aae76b75895ea7765329796adc6b3"
+        }
+      ]
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.test.tsx",
+      "destination": "packages/ui/src/components/AppPageHeader/AppPageHeader.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageHeader/AppPageHeader.tsx",
+      "destination": "packages/ui/src/components/AppPageHeader/AppPageHeader.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageHeader/index.ts",
+      "destination": "packages/ui/src/components/AppPageHeader/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.stories.tsx",
+      "destination": "packages/ui/src/components/AppPageTabs/AppPageTabs.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppPageTabs/AppPageTabs.fixture.tsx",
+          "exists": true,
+          "sha256": "e8311155b4830ea8dd9d04b41246d49fc1cccc176fbabb5a7cc7a38a48f1af71"
+        }
+      ]
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.test.tsx",
+      "destination": "packages/ui/src/components/AppPageTabs/AppPageTabs.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageTabs/AppPageTabs.tsx",
+      "destination": "packages/ui/src/components/AppPageTabs/AppPageTabs.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppPageTabs/index.ts",
+      "destination": "packages/ui/src/components/AppPageTabs/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppShell/AppShell.stories.tsx",
+      "destination": "packages/ui/src/components/AppShell/AppShell.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AppShell/AppShell.fixture.tsx",
+          "exists": true,
+          "sha256": "c71efcdf367a6a93a5dd1b8cb513c35419984046bacfb05859112136e2659fe5"
+        }
+      ]
+    },
+    {
+      "source": "components/AppShell/AppShell.test.tsx",
+      "destination": "packages/ui/src/components/AppShell/AppShell.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppShell/AppShell.tsx",
+      "destination": "packages/ui/src/components/AppShell/AppShell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AppShell/index.ts",
+      "destination": "packages/ui/src/components/AppShell/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AuthShell/AuthShell.stories.tsx",
+      "destination": "packages/ui/src/components/AuthShell/AuthShell.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/AuthShell/AuthShell.fixture.tsx",
+          "exists": true,
+          "sha256": "797bcbe4e881d57348ae7fefcdf5147498f01a210e23d97e4b54ae728debdc6a"
+        }
+      ]
+    },
+    {
+      "source": "components/AuthShell/AuthShell.test.tsx",
+      "destination": "packages/ui/src/components/AuthShell/AuthShell.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AuthShell/AuthShell.tsx",
+      "destination": "packages/ui/src/components/AuthShell/AuthShell.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/AuthShell/index.ts",
+      "destination": "packages/ui/src/components/AuthShell/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx",
+      "destination": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "destination": "packages/ui/src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardCollectionWithFooter/index.ts",
+      "destination": "packages/ui/src/components/CardCollectionWithFooter/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "destination": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/CardPaginationFooter/CardPaginationFooter.fixture.tsx",
+          "exists": true,
+          "sha256": "8be6e6796146c65707dd21bfd2a6295ccf605ce6fae8206ea1401eac81f02dac"
+        }
+      ]
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.test.tsx",
+      "destination": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "destination": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/CardPaginationFooter/index.ts",
+      "destination": "packages/ui/src/components/CardPaginationFooter/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "destination": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
+          "exists": true,
+          "sha256": "6e59a24dbd52b4d85d5769ad2009d4dc039c1792605261f92b6f72d15d3d0e5a"
+        }
+      ]
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.test.tsx",
+      "destination": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ClassCardFrame/ClassCardFrame.tsx",
+      "destination": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ClassCardFrame/index.ts",
+      "destination": "packages/ui/src/components/ClassCardFrame/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "destination": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/ColumnsLayoutModal/ColumnsLayoutModal.fixture.tsx",
+          "exists": true,
+          "sha256": "58627031379a792a42e15e7ba01a32eda0e83922b30fdc69845ebe90459d806e"
+        }
+      ]
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+      "destination": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "destination": "packages/ui/src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ColumnsLayoutModal/index.ts",
+      "destination": "packages/ui/src/components/ColumnsLayoutModal/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "destination": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+          "exists": true,
+          "sha256": "4002032b71bda0cb373f9fe94f7902925c9925f63d63588108db5c5e91e79542"
+        }
+      ]
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "destination": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "destination": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ContentEditorChrome/index.ts",
+      "destination": "packages/ui/src/components/ContentEditorChrome/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.stories.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/DataToolbar.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+          "exists": true,
+          "sha256": "5cda35a0470951a22e80c69b29989d5365f4d093fd0d7294557e12b1a949f817"
+        }
+      ]
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.test.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/DataToolbar.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/DataToolbar.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/buildColumnOptions.test.ts",
+      "destination": "packages/ui/src/components/DataToolbar/buildColumnOptions.test.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/buildColumnOptions.ts",
+      "destination": "packages/ui/src/components/DataToolbar/buildColumnOptions.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "destination": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/filterRuleValue.test.ts",
+      "destination": "packages/ui/src/components/DataToolbar/filterRuleValue.test.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/filterRuleValue.ts",
+      "destination": "packages/ui/src/components/DataToolbar/filterRuleValue.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DataToolbar/index.ts",
+      "destination": "packages/ui/src/components/DataToolbar/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "destination": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/DocumentEditorLayout/DocumentEditorLayout.fixture.tsx",
+          "exists": true,
+          "sha256": "072e40b6945f1dfb1e9f6e90913920b595cb3fe2c6f8e55b1150d9e5819ffcfa"
+        }
+      ]
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "destination": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "destination": "packages/ui/src/components/DocumentEditorLayout/DocumentEditorLayout.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorLayout/index.ts",
+      "destination": "packages/ui/src/components/DocumentEditorLayout/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "destination": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/DocumentEditorToolbar/DocumentEditorToolbar.fixture.tsx",
+          "exists": true,
+          "sha256": "07a3c80a0122b0614aae2393323ca8abe5f77c32bf256f13908c3b72eec5eed5"
+        }
+      ]
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "destination": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "destination": "packages/ui/src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/DocumentEditorToolbar/index.ts",
+      "destination": "packages/ui/src/components/DocumentEditorToolbar/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/EditableTitleField/EditableTitleField.stories.tsx",
+      "destination": "packages/ui/src/components/EditableTitleField/EditableTitleField.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/EditableTitleField/EditableTitleField.fixture.tsx",
+          "exists": true,
+          "sha256": "048082efbabc992b68d0ceb9b67b44ed070a41c01e8ea045df238ad0e07f438d"
+        }
+      ]
+    },
+    {
+      "source": "components/EditableTitleField/EditableTitleField.tsx",
+      "destination": "packages/ui/src/components/EditableTitleField/EditableTitleField.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/EditableTitleField/index.ts",
+      "destination": "packages/ui/src/components/EditableTitleField/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "destination": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ExperiencePageNavigator/index.ts",
+      "destination": "packages/ui/src/components/ExperiencePageNavigator/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "destination": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
+          "exists": true,
+          "sha256": "99d26c5c2761ae7852f0d4458ab4745f013dec4ed4cc3d503f23b2653502fc35"
+        }
+      ]
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "destination": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/FloatingTextSelectionToolbar/index.ts",
+      "destination": "packages/ui/src/components/FloatingTextSelectionToolbar/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "destination": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/ImageUploadModal/ImageUploadModal.fixture.tsx",
+          "exists": true,
+          "sha256": "65f63958ab3fc9e32dfce3edad77f73b2447695a8fa785e1bc3afaac7f121f7c"
+        }
+      ]
+    },
+    {
+      "source": "components/ImageUploadModal/ImageUploadModal.tsx",
+      "destination": "packages/ui/src/components/ImageUploadModal/ImageUploadModal.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/ImageUploadModal/index.ts",
+      "destination": "packages/ui/src/components/ImageUploadModal/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "destination": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/InsertContentMenuControl.fixture.tsx",
+          "exists": true,
+          "sha256": "be82a2f16881a754fb3f475653383c57b32b38731d5a753ccf678296ca991971"
+        }
+      ]
+    },
+    {
+      "source": "components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "destination": "packages/ui/src/components/InsertContentMenuControl/InsertContentMenuControl.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InsertContentMenuControl/index.ts",
+      "destination": "packages/ui/src/components/InsertContentMenuControl/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "destination": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx",
+          "exists": true,
+          "sha256": "120e2b2068429b56e732c962099380168d021ea6bcc73fe101ab6e1c5d732bd3"
+        }
+      ]
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "destination": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorClassCard/InstructorClassCard.tsx",
+      "destination": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorClassCard/index.ts",
+      "destination": "packages/ui/src/components/InstructorClassCard/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/InstructorDataGridOptions.ts",
+      "destination": "packages/ui/src/components/InstructorDataGridOptions.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "destination": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx",
+          "exists": true,
+          "sha256": "28e01b7ee86f3a626894cc41277c4c58d01a269a06494b970d215fbc53edcd15"
+        }
+      ]
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "destination": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/LearnerClassCard.tsx",
+      "destination": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/formatDueDateLabel.test.ts",
+      "destination": "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.test.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/formatDueDateLabel.ts",
+      "destination": "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassCard/index.ts",
+      "destination": "packages/ui/src/components/LearnerClassCard/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "destination": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.fixture.tsx",
+          "exists": true,
+          "sha256": "a514c5fa34fb2e82853487eec91abb75f9cd56f73880daf245b5598655aaacdb"
+        }
+      ]
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "destination": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "destination": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LearnerClassesDataGrid/index.ts",
+      "destination": "packages/ui/src/components/LearnerClassesDataGrid/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "destination": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/LinkUrlModal/LinkUrlModal.fixture.tsx",
+          "exists": true,
+          "sha256": "8ecffe0b0a3e16517e8f5131f401b4e9c713d740df60c62a7f445f45afafc2d9"
+        }
+      ]
+    },
+    {
+      "source": "components/LinkUrlModal/LinkUrlModal.tsx",
+      "destination": "packages/ui/src/components/LinkUrlModal/LinkUrlModal.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/LinkUrlModal/index.ts",
+      "destination": "packages/ui/src/components/LinkUrlModal/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+          "exists": true,
+          "sha256": "6fdf8e185542fbe7439629993f9c18edc2845d1c3f9785b8db6586ff9cb325ab"
+        }
+      ]
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/index.ts",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "destination": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "destination": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "destination": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/RichTextFormattingToolbar/RichTextFormattingToolbar.fixture.tsx",
+          "exists": true,
+          "sha256": "f3f0386c80ba38cc87a62843c88c5050b849c3d4551d36930202e24e82f8bd9b"
+        }
+      ]
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+      "destination": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "destination": "packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/RichTextFormattingToolbar/index.ts",
+      "destination": "packages/ui/src/components/RichTextFormattingToolbar/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.helpers.test.ts",
+      "destination": "packages/ui/src/components/SideNavigation/SideNavigation.helpers.test.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.stories.tsx",
+      "destination": "packages/ui/src/components/SideNavigation/SideNavigation.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+          "exists": true,
+          "sha256": "a4fdd33331cf744ae5cde3c029dcb026240825026c5a04120d36647267d3d5b3"
+        }
+      ]
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.test.tsx",
+      "destination": "packages/ui/src/components/SideNavigation/SideNavigation.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/SideNavigation.tsx",
+      "destination": "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/SideNavigation/index.ts",
+      "destination": "packages/ui/src/components/SideNavigation/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "destination": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/TextAlignMenuControl/TextAlignMenuControl.fixture.tsx",
+          "exists": true,
+          "sha256": "fc674110b2eba39e048fd4cb370c4a8e0deff56d8bad552e3b8da4ba268c92d4"
+        }
+      ]
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+      "destination": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "destination": "packages/ui/src/components/TextAlignMenuControl/TextAlignMenuControl.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextAlignMenuControl/index.ts",
+      "destination": "packages/ui/src/components/TextAlignMenuControl/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "destination": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "destination": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/TextColorPickerControl/TextColorPickerControl.fixture.tsx",
+          "exists": true,
+          "sha256": "cccc22b7b67ec27f041040325b57241c1005c931f0fecd05f7591df19e180d6c"
+        }
+      ]
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "destination": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "destination": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextColorPickerControl/index.ts",
+      "destination": "packages/ui/src/components/TextColorPickerControl/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "destination": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx",
+          "exists": true,
+          "sha256": "ac28a342a8cac861f3995eb2a7ff77d563e7835e7955e8423f42fd891338b1a2"
+        }
+      ]
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+      "destination": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "destination": "packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/TextStyleMenuControl/index.ts",
+      "destination": "packages/ui/src/components/TextStyleMenuControl/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/Typefaces/Typefaces.stories.tsx",
+      "destination": "packages/ui/src/components/Typefaces/Typefaces.stories.tsx",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx",
+          "exists": true,
+          "sha256": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5"
+        }
+      ]
+    },
+    {
+      "source": "components/icons/activityTypeIcon.tsx",
+      "destination": "packages/ui/src/components/icons/activityTypeIcon.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/icons/index.ts",
+      "destination": "packages/ui/src/components/icons/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/index.ts",
+      "destination": "packages/ui/src/components/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "components/primitives/index.ts",
+      "destination": "packages/ui/src/components/primitives/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.hook.test.ts",
+      "destination": "packages/ui/src/hooks/usePersistentPaginationModel.hook.test.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.test.ts",
+      "destination": "packages/ui/src/hooks/usePersistentPaginationModel.test.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentPaginationModel.ts",
+      "destination": "packages/ui/src/hooks/usePersistentPaginationModel.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentState.test.ts",
+      "destination": "packages/ui/src/hooks/usePersistentState.test.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "hooks/usePersistentState.ts",
+      "destination": "packages/ui/src/hooks/usePersistentState.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "index.ts",
+      "destination": "packages/ui/src/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/AppThemeProvider.test.tsx",
+      "destination": "packages/ui/src/theme/AppThemeProvider.test.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/AppThemeProvider.tsx",
+      "destination": "packages/ui/src/theme/AppThemeProvider.tsx",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/index.ts",
+      "destination": "packages/ui/src/theme/index.ts",
+      "present": true,
+      "exists": true,
+      "replacements": []
+    },
+    {
+      "source": "theme/mui-typography.d.ts",
+      "destination": "packages/ui/src/theme/mui-typography.ts",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/foundation/tokens.json",
+          "exists": true,
+          "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b"
+        },
+        {
+          "path": "packages/ui/src/foundation/tokens.generated.ts",
+          "exists": true,
+          "sha256": "2c63951228c23a40880bb2000686db160bc468aa584817cca262e8cb69df5a32"
+        },
+        {
+          "path": "packages/ui/src/foundation/tokens.css",
+          "exists": true,
+          "sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25"
+        }
+      ]
+    },
+    {
+      "source": "theme/theme.test.ts",
+      "destination": "packages/ui/src/theme/theme.test.ts",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/foundation/ThemeScope.test.tsx",
+          "exists": true,
+          "sha256": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f"
+        },
+        {
+          "path": "packages/ui/src/theme/AppThemeProvider.test.tsx",
+          "exists": true,
+          "sha256": "47076c4c3314c75f77eee3f6a856b7a688ff78484b45c96ba9adeef8c3cab6c4"
+        },
+        {
+          "path": "packages/ui/src/experimental/Provider/Provider.test.tsx",
+          "exists": true,
+          "sha256": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df"
+        }
+      ]
+    },
+    {
+      "source": "theme/theme.ts",
+      "destination": "packages/ui/src/theme/theme.ts",
+      "present": false,
+      "exists": false,
+      "replacements": [
+        {
+          "path": "packages/ui/src/foundation/ThemeScope.tsx",
+          "exists": true,
+          "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6"
+        },
+        {
+          "path": "packages/ui/src/foundation/tokens.json",
+          "exists": true,
+          "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b"
+        },
+        {
+          "path": "packages/ui/src/experimental/Provider/Provider.tsx",
+          "exists": true,
+          "sha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d"
+        }
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "original": "src/components/AppButton/AppButton.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "81d785a261d4b1a61b17939a682ce9a23e783039\n",
+      "sha256": "ce01ae455fffdf24426aef0c8b5fd395d87feaeb5d33757752aed8bcb01af349",
+      "exports": [
+        "Default",
+        "Variants",
+        "PendingAndDisabled",
+        "NativeForm"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": null,
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "55e160e15e974ffa4e9814724aa1223b84aed6d8",
+        "sha256": "5698ded82794a2e62ba54ce0c02921133cb27f8482cb4310605bf83f56f895e1",
+        "exports": [
+          "Default",
+          "Variants"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": []
+    },
+    {
+      "original": "src/components/AppDataGrid/AppDataGrid.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "37e2735e11d6cbeed82277ce43f1fce36b4a05da\n",
+      "sha256": "dc55c295c42339e98c984239bf38d4f7b6a4aeae066da6443d2d457ae362f219",
+      "exports": [
+        "Default",
+        "UnknownServerTotal",
+        "RetainedSelection",
+        "Loading",
+        "Refreshing",
+        "Error",
+        "HostOwnedReorder",
+        "ReorderUnavailableWhileSorted",
+        "BrowserPerformance",
+        "ClientDatasetShrink"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "c48a4fe9c44d053b2c1a6f94ec42cb9e39885d17",
+        "sha256": "5ae4890ef6a70fbb0616046a0fc59ac24651ed53d20626ac7526d1bdc639557a",
+        "exports": [
+          "ListOnly",
+          "HeaderSortHookedUp",
+          "StructuredCellTypes",
+          "AllColumnTypes",
+          "BuiltInCheckboxSelection",
+          "BuiltInRowDragHandle",
+          "BuiltInCheckboxAndRowDragHandle",
+          "SectionedDropdownRows",
+          "SectionedDropdownRowsWithCheckboxAndDrag"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [
+        "ListOnly",
+        "HeaderSortHookedUp",
+        "StructuredCellTypes",
+        "AllColumnTypes",
+        "BuiltInCheckboxSelection",
+        "BuiltInRowDragHandle",
+        "BuiltInCheckboxAndRowDragHandle",
+        "SectionedDropdownRows",
+        "SectionedDropdownRowsWithCheckboxAndDrag"
+      ],
+      "current": {
+        "exports": [
+          "Default",
+          "UnknownServerTotal",
+          "RetainedSelection",
+          "Loading",
+          "Refreshing",
+          "Error",
+          "HostOwnedReorder",
+          "ReorderUnavailableWhileSorted",
+          "BrowserPerformance",
+          "ClientDatasetShrink"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "data-appdatagrid--default",
+        "data-appdatagrid--unknown-server-total",
+        "data-appdatagrid--retained-selection",
+        "data-appdatagrid--loading",
+        "data-appdatagrid--refreshing",
+        "data-appdatagrid--error",
+        "data-appdatagrid--host-owned-reorder",
+        "data-appdatagrid--reorder-unavailable-while-sorted",
+        "data-appdatagrid--browser-performance",
+        "data-appdatagrid--client-dataset-shrink"
+      ]
+    },
+    {
+      "original": "src/components/AppDataGridRowDnd/DataGridDragHandle.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "8dc7d48e36d0cdd550ffb564c24f4a340b7412a8\n",
+      "sha256": "83766c13cea1887634b46ca98f024a6e84f3034558e357f8e67a54cb2ada8f8a",
+      "exports": [
+        "Default",
+        "Disabled",
+        "StrictModeReorder"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridRowDnd/DataGridDragHandle.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "0fc8307e30807c8a4f99b559983c6e92abea5d16",
+        "sha256": "153694300c935f3b9b3ddf496ef28a79a795adfa495210478482645745e42001",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "Disabled",
+          "StrictModeReorder"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "data-display-datagriddraghandle--default",
+        "data-display-datagriddraghandle--disabled",
+        "data-display-datagriddraghandle--strict-mode-reorder"
+      ]
+    },
+    {
+      "original": "src/components/AppDataGridShell/AppDataGridShell.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "dc10ba9dbdaafb561cb9620c8075e1e8ec25d639\n",
+      "sha256": "bc05725c9d9a7a128876ea8cba3d5666412d7b90f0b34a34623d8a1492294454",
+      "exports": [
+        "SharedListAndCards",
+        "IndependentInstances",
+        "ServerLatestRequestWins",
+        "ResetPersistedView",
+        "ControlledHostResponses",
+        "IndependentGridAndCards",
+        "ClientDatasetShrink",
+        "NativeResponsiveTransitions"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "97a4167ffe228c17d60ae9382f82e2f8ad7a380b",
+        "sha256": "c622e05288995fc673e327159df7af061ba0b605a19c5cee62f091fa8698ddf2",
+        "exports": [
+          "ListOnlyNoCheckboxes",
+          "SortHookedUp",
+          "ListWithCheckboxes",
+          "ListWithRowDragDrop",
+          "CardsAndListModes",
+          "ServerSearchAndDatabaseLoading",
+          "CollapsableSubheaders"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [
+        "ListOnlyNoCheckboxes",
+        "SortHookedUp",
+        "ListWithCheckboxes",
+        "ListWithRowDragDrop",
+        "CardsAndListModes",
+        "ServerSearchAndDatabaseLoading",
+        "CollapsableSubheaders"
+      ],
+      "current": {
+        "exports": [
+          "SharedListAndCards",
+          "IndependentInstances",
+          "ServerLatestRequestWins",
+          "ResetPersistedView",
+          "ControlledHostResponses",
+          "IndependentGridAndCards",
+          "ClientDatasetShrink",
+          "NativeResponsiveTransitions"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "data-display-appdatagridshell--shared-list-and-cards",
+        "data-display-appdatagridshell--independent-instances",
+        "data-display-appdatagridshell--server-latest-request-wins",
+        "data-display-appdatagridshell--reset-persisted-view",
+        "data-display-appdatagridshell--controlled-host-responses",
+        "data-display-appdatagridshell--independent-grid-and-cards",
+        "data-display-appdatagridshell--client-dataset-shrink",
+        "data-display-appdatagridshell--native-responsive-transitions"
+      ]
+    },
+    {
+      "original": "src/components/AppInlineProgress/AppInlineProgress.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "bfa67fb39a4d9179648d7a4963c5d27d8e59802e\n",
+      "sha256": "c0626090bd7dbe695d3c677870be2d6ba8c35f809f0b35cf2f15c7d01eabbc6a",
+      "exports": [
+        "Default",
+        "Variants",
+        "LayoutStates"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppInlineProgress/AppInlineProgress.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "c61160a023097556775a0abe7f4512d77fe45d1e",
+        "sha256": "4e44470c4bd6db118aed61ea0417fd68e2464adba6b2767ea44d04fea51c3e86",
+        "exports": [
+          "Default",
+          "Variants"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "Variants",
+          "LayoutStates"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "components-appinlineprogress--default",
+        "components-appinlineprogress--variants",
+        "components-appinlineprogress--layout-states"
+      ]
+    },
+    {
+      "original": "src/components/AppModal/AppModal.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "fd5ff2321c5a249c0b294749a421e36e75feeb86\n",
+      "sha256": "e6f19d8821a8efa3365673c65602e7404e897be1ef6403d31365ee8d6a07e3c1",
+      "exports": [
+        "CreateSiteForm",
+        "MultiStepWizard",
+        "FixedHeights",
+        "DisableBackdropClose",
+        "DarkTabbed",
+        "FullScreen",
+        "CustomSections",
+        "TextReflow",
+        "ActionFocus",
+        "ContainerBoundary",
+        "NestedOverlays",
+        "RemovedOpener",
+        "MediumCustomChrome",
+        "LargeCustomChrome"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppModal/AppModal.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "f5e889ee24f0ceca157bd9cbefb63c0a5a31480c",
+        "sha256": "b73d4abfa546cc8f832bbd9c08bee57cf0770b0d5eeeaf325ff95e5a3e4482d1",
+        "exports": [
+          "CreateSiteForm",
+          "MultiStepWizard",
+          "CustomSections",
+          "FixedHeights",
+          "DisableBackdropClose"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "CreateSiteForm",
+          "MultiStepWizard",
+          "FixedHeights",
+          "DisableBackdropClose",
+          "DarkTabbed",
+          "FullScreen",
+          "CustomSections",
+          "TextReflow",
+          "ActionFocus",
+          "ContainerBoundary",
+          "NestedOverlays",
+          "RemovedOpener",
+          "MediumCustomChrome",
+          "LargeCustomChrome",
+          "LocalizedPresentation"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "overlays-appmodal--create-site-form",
+        "overlays-appmodal--multi-step-wizard",
+        "overlays-appmodal--fixed-heights",
+        "overlays-appmodal--disable-backdrop-close",
+        "overlays-appmodal--dark-tabbed",
+        "overlays-appmodal--full-screen",
+        "overlays-appmodal--custom-sections",
+        "overlays-appmodal--text-reflow",
+        "overlays-appmodal--action-focus",
+        "overlays-appmodal--container-boundary",
+        "overlays-appmodal--nested-overlays",
+        "overlays-appmodal--removed-opener",
+        "overlays-appmodal--medium-custom-chrome",
+        "overlays-appmodal--large-custom-chrome",
+        "overlays-appmodal--localized-presentation"
+      ]
+    },
+    {
+      "original": "src/components/AppOperationSteps/AppOperationSteps.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "b5fdb5f0032a4fc61d74d9b2a22afffbd0b48303\n",
+      "sha256": "bf54630f70b726f3024dae3773f81b8011c26d51e5a0cdec65db5a21c4c85a68",
+      "exports": [
+        "Default",
+        "SingleOperation",
+        "Completed",
+        "AllStates",
+        "Transitions",
+        "NativeStateTransitions"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "6af8a6d1e3dcc6bec30d41aecc130fd89db2c3eb",
+        "sha256": "5b9d294945aee9add1c847f2598ddd1d4b51ef9f556518fd87c5ce03b0092adc",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "SingleOperation",
+          "Completed",
+          "AllStates",
+          "LocalizedPresentation",
+          "Transitions",
+          "NativeStateTransitions"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "components-appoperationsteps--default",
+        "components-appoperationsteps--single-operation",
+        "components-appoperationsteps--completed",
+        "components-appoperationsteps--all-states",
+        "components-appoperationsteps--localized-presentation",
+        "components-appoperationsteps--transitions",
+        "components-appoperationsteps--native-state-transitions"
+      ]
+    },
+    {
+      "original": "src/components/AppPageHeader/AppPageHeader.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "b177bf6fb6e98a97efe0fe45883e174e214d8aa1\n",
+      "sha256": "d6b5cbeae68c798a4e078f1cb1c27f97196fd7248dd6cb45c4c03a7d67d62c09",
+      "exports": [
+        "Minimal",
+        "DetailStyle",
+        "CondensedBreadcrumbs",
+        "MoreMenu",
+        "ActionButtons",
+        "Primary",
+        "Narrow",
+        "ReflowActions",
+        "ReflowMenu"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "c9634cf3d83cf9f879bb16959accdcdc5843dc5d",
+        "sha256": "a5f88184b681b7ff03953eb10e2e36d254990596cc16004bb4beb994a1172e69",
+        "exports": [
+          "Minimal",
+          "DetailStyle",
+          "CondensedBreadcrumbs",
+          "MoreMenu",
+          "ActionButtons"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Minimal",
+          "DetailStyle",
+          "CondensedBreadcrumbs",
+          "MoreMenu",
+          "ActionButtons",
+          "Primary",
+          "Narrow",
+          "ReflowActions",
+          "ReflowMenu",
+          "LocalizedPresentation"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "layout-apppageheader--minimal",
+        "layout-apppageheader--detail-style",
+        "layout-apppageheader--condensed-breadcrumbs",
+        "layout-apppageheader--more-menu",
+        "layout-apppageheader--action-buttons",
+        "layout-apppageheader--primary",
+        "layout-apppageheader--narrow",
+        "layout-apppageheader--reflow-actions",
+        "layout-apppageheader--reflow-menu",
+        "layout-apppageheader--localized-presentation"
+      ]
+    },
+    {
+      "original": "src/components/AppPageTabs/AppPageTabs.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "80d126e92b332677e5411e993ce2b187d3122225\n",
+      "sha256": "3140d1821f7a05fa11385c05e2764b4d388a0e39e0ab7b664cc8d6c7e37fc396",
+      "exports": [
+        "LinkTabs",
+        "Controlled",
+        "Compact",
+        "Overflow",
+        "Disabled",
+        "NativeKeyboard"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppPageTabs/AppPageTabs.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "bc60e48d965ef662500d90cb6b6c20546dbf49b8",
+        "sha256": "1f62fff6606068de0a8db7fdf417a09cb8df8309d4499d8ae506d767ec19b498",
+        "exports": [
+          "LinkTabs",
+          "Controlled",
+          "Compact"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "LinkTabs",
+          "Controlled",
+          "Compact",
+          "Overflow",
+          "Disabled",
+          "NativeKeyboard"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "layout-apppagetabs--link-tabs",
+        "layout-apppagetabs--controlled",
+        "layout-apppagetabs--compact",
+        "layout-apppagetabs--overflow",
+        "layout-apppagetabs--disabled",
+        "layout-apppagetabs--native-keyboard"
+      ]
+    },
+    {
+      "original": "src/components/AppShell/AppShell.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "e9c1e45f6ea95de5608f95d3935be4920b2acde3\n",
+      "sha256": "cb124d0ce95678484b950f3d8e63b9757c325077a220cbb144f4449c2043ba8d",
+      "exports": [
+        "Default",
+        "IndependentScrollAndReflow",
+        "NativeResponsiveWorkspace",
+        "IndependentContainers"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AppShell/AppShell.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "cb177be1d970787e6d9abefeaa9092519758e5b3",
+        "sha256": "be17bcf1eba8f9e4153cf3d13eb14074e0613af65e064e01489a678fcb1f27b1",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "IndependentScrollAndReflow",
+          "NativeResponsiveWorkspace",
+          "IndependentContainers",
+          "LocalizedPresentation",
+          "LocalizedAuthPresentation"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "layout-appshell--default",
+        "layout-appshell--independent-scroll-and-reflow",
+        "layout-appshell--native-responsive-workspace",
+        "layout-appshell--independent-containers",
+        "layout-appshell--localized-presentation",
+        "layout-appshell--localized-auth-presentation"
+      ]
+    },
+    {
+      "original": "src/components/AuthShell/AuthShell.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "060c10764521e39c5fe3aa4616fe84adfffe2678\n",
+      "sha256": "59a762527b8064736f137bf017419cb5f8d0b3c2a3be26a2ab6598dd26131a0b",
+      "exports": [
+        "Login",
+        "LongContent",
+        "NativeReflow",
+        "IndependentContent",
+        "EmbeddedScrollingHost"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/AuthShell/AuthShell.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "ef0bd8e11ccee8712120a13461f713ed0a8f4105",
+        "sha256": "fc2a4c5724a0a8f5e0cfc1ed36472c00154748cf55227395dc4badb59345aa02",
+        "exports": [
+          "Login"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Login",
+          "LongContent",
+          "NativeReflow",
+          "IndependentContent",
+          "EmbeddedScrollingHost"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "layout-authshell--login",
+        "layout-authshell--long-content",
+        "layout-authshell--native-reflow",
+        "layout-authshell--independent-content",
+        "layout-authshell--embedded-scrolling-host"
+      ]
+    },
+    {
+      "original": "src/components/CardPaginationFooter/CardPaginationFooter.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "09b4e0241ef3c37072a523e6809e00dea5dc0615\n",
+      "sha256": "1c2ca8ae8203e6a1d9c89326dc08e6ff19ee8210890dbdfbd9ca73e7b48b8513",
+      "exports": [
+        "Interactive",
+        "UnknownTotal",
+        "Disabled"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/CardPaginationFooter/CardPaginationFooter.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "0265942f170586d7fa4afb7a56e1cb098469766e",
+        "sha256": "8c6f98d26d0fc973c959b20cfb174fe54a7d960a4147c1ed7dbfce83898029d3",
+        "exports": [
+          "Interactive"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Interactive",
+          "UnknownTotal",
+          "Disabled"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "data-display-cardpaginationfooter--interactive",
+        "data-display-cardpaginationfooter--unknown-total",
+        "data-display-cardpaginationfooter--disabled"
+      ]
+    },
+    {
+      "original": "src/components/ClassCardFrame/ClassCardFrame.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "1beac35e231c57917824a4a61a8a84ff0d20cf1c\n",
+      "sha256": "0506c46997f5d8bfbf668b3e0df9147526e845fbd0d98fab4d0778ddf66f97dd",
+      "exports": [
+        "Default",
+        "WithoutFooter",
+        "StyledSlots",
+        "Dark",
+        "ResponsiveSlots",
+        "WidthStates",
+        "FlexParentResize",
+        "GridParentResize"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "29920482ff007c44fe76596f820ae423a757da0f",
+        "sha256": "1f4dee552044f7a91673d45bd04b12d9d468e64393ef5ec4360379bd4bd9b8fc",
+        "exports": [
+          "Default",
+          "WithoutFooter"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "WithoutFooter",
+          "StyledSlots",
+          "Dark",
+          "ResponsiveSlots",
+          "WidthStates",
+          "FlexParentResize",
+          "GridParentResize"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "components-classcardframe--default",
+        "components-classcardframe--without-footer",
+        "components-classcardframe--styled-slots",
+        "components-classcardframe--dark",
+        "components-classcardframe--responsive-slots",
+        "components-classcardframe--width-states",
+        "components-classcardframe--flex-parent-resize",
+        "components-classcardframe--grid-parent-resize"
+      ]
+    },
+    {
+      "original": "src/components/ColumnsLayoutModal/ColumnsLayoutModal.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "e5a904704fee8974d5652fd63f5b6b59525cc184\n",
+      "sha256": "7a350da532595c9a4bdc3e9953a63abfc8cdd816d6bffa1e95a7f669ab48ade4",
+      "exports": [
+        "Default",
+        "Dark"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ColumnsLayoutModal/ColumnsLayoutModal.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "ec550901058198db8c4486543fdd778bf6b774d9",
+        "sha256": "70933ecffbad16ddc55c127ade2b214d02cbbf163d4d5ae72f7ce35907755cee",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "Dark"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-columnslayoutmodal--default",
+        "editors-columnslayoutmodal--dark"
+      ]
+    },
+    {
+      "original": "src/components/ContentEditorChrome/ContentEditorChrome.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "7e0aba0dacfeec9f6b43b1ca70bfd44087e3d4ad\n",
+      "sha256": "c956b751f95687316c794179eef5ff03d326ef73a30d5d3950693bd98a7c9c60",
+      "exports": [
+        "Default",
+        "ExtendedMenu",
+        "UnavailableAndPending",
+        "NarrowDark",
+        "NativeHostComposition"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "567b0b66f1d3de2ceb7c96cbd5d257eb820b3746",
+        "sha256": "1c0fe99c61124da95d2ea568c330f99304ce0ddad63dd42dd2bb73dc80f2af1b",
+        "exports": [
+          "Default",
+          "ExtendedMenu"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "ExtendedMenu",
+          "UnavailableAndPending",
+          "NarrowDark",
+          "NativeHostComposition"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-contenteditorchrome--default",
+        "editors-contenteditorchrome--extended-menu",
+        "editors-contenteditorchrome--unavailable-and-pending",
+        "editors-contenteditorchrome--narrow-dark",
+        "editors-contenteditorchrome--native-host-composition"
+      ]
+    },
+    {
+      "original": "src/components/DataToolbar/DataToolbar.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "e98e3c4bbf28b0ef4773b4aa4785b4ff36881b50\n",
+      "sha256": "b2a0ff0536ea1f7878cfd366edfa5473368819ec1fa7638ebd4d5a31e4b2b12e",
+      "exports": [
+        "ConfiguredToolbar",
+        "SelectedCards",
+        "DarkToolbar",
+        "NativeComposition",
+        "NativeCompositionRtl",
+        "ContainerBoundary",
+        "ContainerBoundaryEnlarged"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "066c9b86cf75957ee206b203c39bebe472b58680",
+        "sha256": "44cdf13c1ef58f99a160f67ce30dd794b7bd19018ff59b2ccc616f04507ecff1",
+        "exports": [
+          "ConfiguredToolbar"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "ConfiguredToolbar",
+          "SelectedCards",
+          "DarkToolbar",
+          "NativeComposition",
+          "NativeCompositionRtl",
+          "ContainerBoundary",
+          "ContainerBoundaryEnlarged",
+          "PublicPresetHosts"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "data-display-datatoolbar--configured-toolbar",
+        "data-display-datatoolbar--selected-cards",
+        "data-display-datatoolbar--dark-toolbar",
+        "data-display-datatoolbar--native-composition",
+        "data-display-datatoolbar--native-composition-rtl",
+        "data-display-datatoolbar--container-boundary",
+        "data-display-datatoolbar--container-boundary-enlarged",
+        "data-display-datatoolbar--public-preset-hosts"
+      ]
+    },
+    {
+      "original": "src/components/DocumentEditorLayout/DocumentEditorLayout.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "cd8c93f3a31d2502ea4abf24c2e311cab0ef10ae\n",
+      "sha256": "69ca7f3d749159ff2ff61949cd64cdeef29a1c684028e1449edc17c158693446",
+      "exports": [
+        "Default",
+        "CustomTitle",
+        "NarrowDark",
+        "SlotReplacement"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DocumentEditorLayout/DocumentEditorLayout.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "ea219d74d30b5494d73d091a67bdb526ff22f788",
+        "sha256": "76a521ff8c71546ae743441c016fe67c827010e87808d5ad933c01d68fc8f7c3",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "CustomTitle",
+          "NarrowDark",
+          "SlotReplacement"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "layout-documenteditorlayout--default",
+        "layout-documenteditorlayout--custom-title",
+        "layout-documenteditorlayout--narrow-dark",
+        "layout-documenteditorlayout--slot-replacement"
+      ]
+    },
+    {
+      "original": "src/components/DocumentEditorToolbar/DocumentEditorToolbar.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "f1bb371752a5fbd80e7d1a0c43d9f604e227351d\n",
+      "sha256": "e80d628c0d29ad3067a6af151b3af52614b5c8543cd35870522c1428ee690056",
+      "exports": [
+        "Interactive",
+        "ReadOnly",
+        "UnavailableCommands",
+        "CompactGroups",
+        "NarrowDark"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/DocumentEditorToolbar/DocumentEditorToolbar.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "21d8f0ee02ae51b47316564fe330de0decc1f355",
+        "sha256": "561f28c4f5a038046e7f57730e5ac8f3fea82a7fecfc25eaac66b514a5d62601",
+        "exports": [
+          "Interactive",
+          "ReadOnly"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Interactive",
+          "ReadOnly",
+          "UnavailableCommands",
+          "CompactGroups",
+          "NarrowDark"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "components-documenteditortoolbar--interactive",
+        "components-documenteditortoolbar--read-only",
+        "components-documenteditortoolbar--unavailable-commands",
+        "components-documenteditortoolbar--compact-groups",
+        "components-documenteditortoolbar--narrow-dark"
+      ]
+    },
+    {
+      "original": "src/components/EditableTitleField/EditableTitleField.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "c87aa7429a3cbe3c1fb2595953954ce1296dafce\n",
+      "sha256": "34dbae7dd86bfdcd9acb6af528ee90bc854f23bd9b873e728b7156c8529cb66e",
+      "exports": [
+        "Default",
+        "ReadOnly",
+        "Empty",
+        "SaveFailure",
+        "Dark",
+        "HostReadOnlyAfterRejection"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/EditableTitleField/EditableTitleField.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "80630a44bb35b229bcdbc2a8440b91914de2b2e8",
+        "sha256": "3bbf647b2482c9d48f16d296ceaddd1fa442096235dd76610295b33db75ee8d9",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "ReadOnly",
+          "Empty",
+          "SaveFailure",
+          "Dark",
+          "HostReadOnlyAfterRejection"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-editabletitlefield--default",
+        "editors-editabletitlefield--read-only",
+        "editors-editabletitlefield--empty",
+        "editors-editabletitlefield--save-failure",
+        "editors-editabletitlefield--dark",
+        "editors-editabletitlefield--host-read-only-after-rejection"
+      ]
+    },
+    {
+      "original": "src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "bd2688d450f0f08b79074c11da7170d968b8f24e\n",
+      "sha256": "e89c2c9b4e59a73da006b98be82c15373699dd98ef7296665122289117166a9b",
+      "exports": [
+        "Default",
+        "NarrowDark",
+        "NestedHostBoundary"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "e5285045b1e858e5f8522d20e6aedca506106da7",
+        "sha256": "280b705c10e52ad661ca3a5fcb4036a21909a7762e4e40182ce8e7e772a0feb3",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "NarrowDark",
+          "NestedHostBoundary"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-floatingtextselectiontoolbar--default",
+        "editors-floatingtextselectiontoolbar--narrow-dark",
+        "editors-floatingtextselectiontoolbar--nested-host-boundary"
+      ]
+    },
+    {
+      "original": "src/components/ImageUploadModal/ImageUploadModal.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "5871da39c92a59b2ab8f2ae1721b6fdd8a53a785\n",
+      "sha256": "4ecdb3eefb42a2da0c32bc9954b3dadd7ab611ce3d1cba457ecc8062b95a624f",
+      "exports": [
+        "Default",
+        "HostUploadAndDescription",
+        "HostUploadingError",
+        "FileValidation"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/ImageUploadModal/ImageUploadModal.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "660c5535ec934b1f1ab53d3cffdfd9dc921f6fee",
+        "sha256": "da9500092c5ae9c89cbbdb5e5e3f1ed755c599bb89964d9f0bb724c43d294edf",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "HostUploadAndDescription",
+          "HostUploadingError",
+          "FileValidation"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-imageuploadmodal--default",
+        "editors-imageuploadmodal--host-upload-and-description",
+        "editors-imageuploadmodal--host-uploading-error",
+        "editors-imageuploadmodal--file-validation"
+      ]
+    },
+    {
+      "original": "src/components/InsertContentMenuControl/InsertContentMenuControl.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "ba442a30872db5da9ffce0841e1e9ca999abd7c7\n",
+      "sha256": "e8babab8c06c4deb6de8809b20e077de1139a6986aa7dade5b2bf256c33f37da",
+      "exports": [
+        "Default",
+        "Dark",
+        "UnavailableCommands",
+        "NativeInsertionHandoff"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/InsertContentMenuControl.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "091179ff6699f09e0a0a339d0eafbf4e16e7fa4c",
+        "sha256": "f5e3c5efa8c7159b51010aed7fe9a3c37b36f1a388eba3b02316e155eac3980e",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "Dark",
+          "UnavailableCommands",
+          "NativeInsertionHandoff"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-insertcontentmenucontrol--default",
+        "editors-insertcontentmenucontrol--dark",
+        "editors-insertcontentmenucontrol--unavailable-commands",
+        "editors-insertcontentmenucontrol--native-insertion-handoff"
+      ]
+    },
+    {
+      "original": "src/components/InstructorClassCard/InstructorClassCard.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "60381a68409f02ff804fa75cfe83a2d6dd82adfc\n",
+      "sha256": "394d81f8fb6ea136078826cfe4c468cf88c3343fd94cf33f2b6af43ba408e2e4",
+      "exports": [
+        "Active",
+        "Draft",
+        "Archived",
+        "Closed",
+        "NarrowLongNames",
+        "Dark",
+        "NativePresentation"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "9bdf2f74c75d78b7b118f72a3bb8978119a02b21",
+        "sha256": "39084d602be1a61ec0b05884ce89a6df3a49f30e65ca99c5fefe45ba027e73f2",
+        "exports": [
+          "Active",
+          "Draft",
+          "Archived"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Active",
+          "Draft",
+          "Archived",
+          "Closed",
+          "NarrowLongNames",
+          "Dark",
+          "NativePresentation"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "components-instructorclasscard--active",
+        "components-instructorclasscard--draft",
+        "components-instructorclasscard--archived",
+        "components-instructorclasscard--closed",
+        "components-instructorclasscard--narrow-long-names",
+        "components-instructorclasscard--dark",
+        "components-instructorclasscard--native-presentation"
+      ]
+    },
+    {
+      "original": "src/components/LearnerClassCard/LearnerClassCard.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "d86cb85a2e5a2682f11884723a7b98f07d9be168\n",
+      "sha256": "1b4922964b9d31a546947f152130162dd09191d7dd2cae6631a5c40f51baf66c",
+      "exports": [
+        "TimeVariants",
+        "SingleCard",
+        "NavigationActions",
+        "NarrowLongNames",
+        "Dark",
+        "NativeDueActions"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "4d1d2f6c8c5a7c0aae3ae5400680d525ad0a02c3",
+        "sha256": "bf7be2b73625f554e103948847532af4e24a6d8f5f6f2d00299c86336f0774bb",
+        "exports": [
+          "TimeVariants",
+          "SingleCard"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "TimeVariants",
+          "SingleCard",
+          "NavigationActions",
+          "NarrowLongNames",
+          "Dark",
+          "NativeDueActions"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "classes-learnerclasscard--time-variants",
+        "classes-learnerclasscard--single-card",
+        "classes-learnerclasscard--navigation-actions",
+        "classes-learnerclasscard--narrow-long-names",
+        "classes-learnerclasscard--dark",
+        "classes-learnerclasscard--native-due-actions"
+      ]
+    },
+    {
+      "original": "src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "eb6d52ecb6ff79d736e63d0d26bdbf858cd4981f\n",
+      "sha256": "87f8d2196266f6e2ce6bf3fa2e7bd12f47f6775b1d707a9ded1a8ea8c56d4d1f",
+      "exports": [
+        "Default"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "8d4175fff54a7da17236ad7bf9dd83cea7a1c6b0",
+        "sha256": "aa56edb9af77ea567c5157c8e6962f28e7d775cffde252bfa9a109cd71f12c23",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "classes-learnerclassesdatagrid--default"
+      ]
+    },
+    {
+      "original": "src/components/LinkUrlModal/LinkUrlModal.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "31967c95399bfd7dda5ca6716cfba73bf5bea4c2\n",
+      "sha256": "32b4ddeddb9152735b62a538adb69595637b7455d8a0c8010f16570a537f7e20",
+      "exports": [
+        "Default",
+        "RestrictedProtocols",
+        "RemoveExistingLink",
+        "NativeHostSelection"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/LinkUrlModal/LinkUrlModal.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "d392b3f4bc1f6d6648e0f2b49749bf74bd216b01",
+        "sha256": "5c954b048b189b73c26d9e456a75e8d96d86d4140bab06e71b3a626a38dfe94a",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "RestrictedProtocols",
+          "RemoveExistingLink",
+          "NativeHostSelection"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-linkurlmodal--default",
+        "editors-linkurlmodal--restricted-protocols",
+        "editors-linkurlmodal--remove-existing-link",
+        "editors-linkurlmodal--native-host-selection"
+      ]
+    },
+    {
+      "original": "src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "9cbc57dc02373cd09604320618cc50d177dd2428\n",
+      "sha256": "e15d0962ce728deba2d4c98a9119d68101995777447b66444fd1a35692d64a4d",
+      "exports": [
+        "FullTools",
+        "WithDisabledTools",
+        "BasePreset",
+        "DarkReadOnly",
+        "SavedRichDocument",
+        "LocalImageLifecycle",
+        "ClipboardEditing",
+        "LinkDestinations",
+        "ImageSources",
+        "HostUploadLifecycle",
+        "TableHistory"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "c73acc9e3dacae971fde00610b26b68b48060fb0",
+        "sha256": "37e4eb5c6de8d6acc49a581245e6dd7b0227eb4e985cd6d3d666e28864b8fe70",
+        "exports": [
+          "FullTools",
+          "WithDisabledTools",
+          "BasePreset"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "FullTools",
+          "WithDisabledTools",
+          "BasePreset",
+          "DarkReadOnly",
+          "SavedRichDocument",
+          "LocalImageLifecycle",
+          "ClipboardEditing",
+          "LinkDestinations",
+          "ImageSources",
+          "HostUploadLifecycle",
+          "TableHistory"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-pagerichtexteditorsection--full-tools",
+        "editors-pagerichtexteditorsection--with-disabled-tools",
+        "editors-pagerichtexteditorsection--base-preset",
+        "editors-pagerichtexteditorsection--dark-read-only",
+        "editors-pagerichtexteditorsection--saved-rich-document",
+        "editors-pagerichtexteditorsection--local-image-lifecycle",
+        "editors-pagerichtexteditorsection--clipboard-editing",
+        "editors-pagerichtexteditorsection--link-destinations",
+        "editors-pagerichtexteditorsection--image-sources",
+        "editors-pagerichtexteditorsection--host-upload-lifecycle",
+        "editors-pagerichtexteditorsection--table-history"
+      ]
+    },
+    {
+      "original": "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "c1a2eb6e7893852a6232ef5409b8df0815e3a39c\n",
+      "sha256": "fa521df695cc735471627be92451b78522bba92ff90f896b9c6598fb99740dd9",
+      "exports": [
+        "Default",
+        "UnavailableCommands",
+        "DisabledControls",
+        "NoFontSelectors",
+        "NarrowDark",
+        "CallbackReplacement"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/RichTextFormattingToolbar/RichTextFormattingToolbar.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "6c0b4fa9b0511154b8bad5d17b6c90ffeb3d04ba",
+        "sha256": "54d9218ece79443ba7a86406ee61556aa334838cf70272da083567db7cdd740e",
+        "exports": [
+          "Default",
+          "DisabledControls",
+          "NoFontSelectors"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "UnavailableCommands",
+          "DisabledControls",
+          "NoFontSelectors",
+          "NarrowDark",
+          "CallbackReplacement"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-richtextformattingtoolbar--default",
+        "editors-richtextformattingtoolbar--unavailable-commands",
+        "editors-richtextformattingtoolbar--disabled-controls",
+        "editors-richtextformattingtoolbar--no-font-selectors",
+        "editors-richtextformattingtoolbar--narrow-dark",
+        "editors-richtextformattingtoolbar--callback-replacement"
+      ]
+    },
+    {
+      "original": "src/components/SideNavigation/SideNavigation.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "0a0f2076215d166d5c749d2e9d977f2e92a5018e\n",
+      "sha256": "758d57f106d4e9b1586f63ccc98026606956911589207b2be4478ee58bda6333",
+      "exports": [
+        "Default",
+        "HostRouting",
+        "LogoutLifetime",
+        "NativeHierarchy"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "000f7193c29b965ff2b246184fc35dd0bd7c8389",
+        "sha256": "c1e378f42c00b77c1df5dc7faf00fff4f0a5f37efdbd5f69878ad7673fb00235",
+        "exports": [
+          "Default",
+          "HostRouting"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "HostRouting",
+          "LogoutLifetime",
+          "NativeHierarchy"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "navigation-sidenavigation--default",
+        "navigation-sidenavigation--host-routing",
+        "navigation-sidenavigation--logout-lifetime",
+        "navigation-sidenavigation--native-hierarchy"
+      ]
+    },
+    {
+      "original": "src/components/TextAlignMenuControl/TextAlignMenuControl.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "2d45daee056564d43562a44bb258fee538e59f53\n",
+      "sha256": "f1c080bfd116614c1c969b69800f6be9607dbde5107ae11ae931efe2d8ce7c31",
+      "exports": [
+        "Default",
+        "LogicalRightToLeft",
+        "UnavailableCommands",
+        "DirectionCommands"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextAlignMenuControl/TextAlignMenuControl.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "743e2a77cccf0faa74bc0a585391ee8988283664",
+        "sha256": "3347cb251c4088f67a6373fe8c98dddd1680a4eaa68a71ff958466784cb3be56",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "LogicalRightToLeft",
+          "UnavailableCommands",
+          "DirectionCommands"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-textalignmenucontrol--default",
+        "editors-textalignmenucontrol--logical-right-to-left",
+        "editors-textalignmenucontrol--unavailable-commands",
+        "editors-textalignmenucontrol--direction-commands"
+      ]
+    },
+    {
+      "original": "src/components/TextColorPickerControl/TextColorPickerControl.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "130c731e30d654348fc8246fbd14e940b8df8f59\n",
+      "sha256": "1ebd918317a2a7c27295035914bccda7b87ae7c45324d8a7e30f159a3dccc721",
+      "exports": [
+        "Default",
+        "Background",
+        "Disabled",
+        "WithoutCallback",
+        "NativeTransactions"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextColorPickerControl/TextColorPickerControl.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "1040e985b959ea4d8007d7a96b0a779b9f742f4c",
+        "sha256": "698e69a8682fff97780aac66df8322a15142b269d4d852484ddc8bfaf9fa4a50",
+        "exports": [
+          "Default"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "Background",
+          "Disabled",
+          "WithoutCallback",
+          "NativeTransactions"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-textcolorpickercontrol--default",
+        "editors-textcolorpickercontrol--background",
+        "editors-textcolorpickercontrol--disabled",
+        "editors-textcolorpickercontrol--without-callback",
+        "editors-textcolorpickercontrol--native-transactions"
+      ]
+    },
+    {
+      "original": "src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "4c56e2b19177dbbe5a4ad658974b76efd0dc0cb9\n",
+      "sha256": "61aea5a3fe298db2e02269a1df164df6d716042294e6966d2a056ca85b9bf56e",
+      "exports": [
+        "Default",
+        "ToolbarDensity",
+        "LimitedCommands",
+        "Disabled"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "2f6b48142668158e294f1b5881af3fdfe3824906",
+        "sha256": "eddfd06903d51625646469da89f7edbc3b026b9ed9e135c3fa177d35359cbad5",
+        "exports": [
+          "Default",
+          "ToolbarDensity"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Default",
+          "ToolbarDensity",
+          "LimitedCommands",
+          "Disabled"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "editors-textstylemenucontrol--default",
+        "editors-textstylemenucontrol--toolbar-density",
+        "editors-textstylemenucontrol--limited-commands",
+        "editors-textstylemenucontrol--disabled"
+      ]
+    },
+    {
+      "original": "src/components/Typefaces/Typefaces.stories.tsx",
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "blob": "aca68f85eb8d0d0003a4bce37196d3a00abcad21\n",
+      "sha256": "f98c5a37c72ddf7f25c8b80559e6d13d6e1d9ab71ad6fc7b4d79ad6d7c529340",
+      "exports": [
+        "Defaults",
+        "Dark"
+      ],
+      "plays": [],
+      "assertions": [],
+      "fixture": "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx",
+      "initialExtraction": {
+        "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+        "blob": "8533e5e8de5b3447da56329c5b4daa137b628546",
+        "sha256": "39df7f25706aebc5fb95b9bbb21c797b962b6c902daf1c64bcd6584c801cd3c8",
+        "exports": [
+          "Defaults"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingInitialExportsBeforeRetirement": [],
+      "current": {
+        "exports": [
+          "Defaults",
+          "Dark"
+        ],
+        "plays": [],
+        "assertions": []
+      },
+      "missingExports": [],
+      "missingAssertions": [],
+      "fixtureIDs": [
+        "foundations-typefaces--defaults",
+        "foundations-typefaces--dark"
+      ]
+    }
+  ],
+  "history": [
+    {
+      "revision": "21adebd61bedfc6a1ed395fe664ff4be83896821\n",
+      "path": "src/components/AppButton/AppButton.stories.tsx",
+      "blob": "55e160e15e974ffa4e9814724aa1223b84aed6d8\n",
+      "sha256": "5698ded82794a2e62ba54ce0c02921133cb27f8482cb4310605bf83f56f895e1",
+      "exports": [
+        "Default",
+        "Variants"
+      ],
+      "plays": [],
+      "assertions": []
+    },
+    {
+      "revision": "8f41479c6f2ea5822ff0c149e359e2c6e0893f13\n",
+      "path": "src/components/AppButton/AppButton.stories.tsx",
+      "blob": "81d785a261d4b1a61b17939a682ce9a23e783039\n",
+      "sha256": "ce01ae455fffdf24426aef0c8b5fd395d87feaeb5d33757752aed8bcb01af349",
+      "exports": [
+        "Default",
+        "Variants",
+        "PendingAndDisabled",
+        "NativeForm"
+      ],
+      "plays": [],
+      "assertions": []
+    },
+    {
+      "revision": "ddb624fdad1289be71be62da06fe2908a2386a03\n",
+      "path": "src/components/AppButton/AppButton.stories.tsx",
+      "blob": "81d785a261d4b1a61b17939a682ce9a23e783039\n",
+      "sha256": "ce01ae455fffdf24426aef0c8b5fd395d87feaeb5d33757752aed8bcb01af349",
+      "exports": [
+        "Default",
+        "Variants",
+        "PendingAndDisabled",
+        "NativeForm"
+      ],
+      "plays": [],
+      "assertions": []
+    }
+  ],
+  "unitContinuity": {
+    "originalRevision": "ddb624fdad1289be71be62da06fe2908a2386a03",
+    "originalPath": "src/components/AppButton/AppButton.test.tsx",
+    "originalBlob": "8cb45f5dc1932702ca7a2fba6a4e3718173856dd",
+    "originalSha256": "577bb471a2b2f00e76a18bf80c476cee976022376396b020990694bd64654fa9",
+    "currentPath": "packages/ui/src/components/Button/Button.public-contract.test.tsx",
+    "currentSha256": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6",
+    "equalAfterNameSubstitution": true,
+    "assertions": [
+      "expect(ref.current).toBe(button)",
+      "expect(ref.current)",
+      "expect(onPress).toHaveBeenCalledTimes(3)",
+      "expect(onPress)",
+      "expect(button.getAttribute(\"type\")).toBe(\"button\")",
+      "expect(button.getAttribute(\"type\"))",
+      "expect(document.activeElement).toBe(button)",
+      "expect(document.activeElement)",
+      "expect(onPress).not.toHaveBeenCalled()",
+      "expect(onPress)",
+      "expect(screen.getByRole(\"progressbar\").getAttribute(\"aria-label\")).toBe(\"Pending\")",
+      "expect(screen.getByRole(\"progressbar\").getAttribute(\"aria-label\"))",
+      "expect(submit).not.toHaveBeenCalled()",
+      "expect(submit)",
+      "expect(submit).toHaveBeenCalledTimes(1)",
+      "expect(submit)",
+      "expect(html).toContain('data-variant=\"outlined\"')",
+      "expect(html)",
+      "expect(html).toContain('data-tone=\"neutral\"')",
+      "expect(html)",
+      "expect(html).toContain('data-sgui-density=\"compact\"')",
+      "expect(html)",
+      "expect(html).toContain('aria-hidden=\"true\"')",
+      "expect(html)",
+      "expect(html).toContain('name=\"action\"')",
+      "expect(html)"
+    ]
+  },
+  "inputHashes": {
+    "docs/extraction-manifest.json": "6ae007599e1b32d547c26b2ef09accf8db493604c21b9558abec0ae8d3fb953a",
+    "apps/docs/native-fixtures/migration-manifest.json": "8da77b8ed3a84212b97237d5d8687a47e182bf5ad90cf5a08dd6007339e76bc8",
+    "apps/docs/native-fixtures/registry.json": "2fc499442e05a5c397dd1170a16d0ca3d2cda09dfb87abeda6deedb9879b7c7f",
+    "apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx": "3307e68f128e7cc84e4c091fc7d01a02df3170d3a2c290f920f83b1301937c40",
+    "apps/docs/examples/catalog/primitives-actions.tsx": "c23ac2f1420f70f01cfbf44efcca9cf751da446218068a00e3d6a3bd4ab935f1",
+    "packages/ui/src/components/Button/Button.public-contract.test.tsx": "a6a889184067897c944c93993655ceb049692cb5a51453e71f37d33c21bc2db6",
+    "packages/ui/src/components/Button/Button.tsx": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+    "packages/ui/src/components/Button/index.ts": "e3b3d627a1fef1bfc1a6056115b697444e0383549cce84e243abe2f4b34522cb",
+    "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx": "ce94ca1a740f7541fca53106192f702f4682a68f17a9c4c976b28b8cde49cbe5",
+    "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx": "d5037a206368dde03af63d5e755d035311b9818c4595fbc67593a69775bf91aa",
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx": "502aa0db80b9d7bb3d7b8c3b46441130203bda77a3825f4db9a3698b3f6be414",
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080",
+    "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc",
+    "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b",
+    "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085",
+    "apps/docs/native-fixtures/scenarios/components/AppDataGridRowDnd/DataGridDragHandle.fixture.tsx": "b4a172cbb2536940351db33f8cd05dfe2c5f19b9a28227b27972c6990856b2ca",
+    "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx": "97a808c6316a6dfffea909316bdb231f61195dfa09f094b3cb9840dfe90fb876",
+    "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx": "108009d686b001557ab928cd1095a18f5dad14d2470bac1af0e2c036b714396c",
+    "apps/docs/native-fixtures/scenarios/components/AppInlineProgress/AppInlineProgress.fixture.tsx": "518bb8e43dc17abf8169d798bba436e14baf9bcc1b5920fb880edb899ac2b4c2",
+    "apps/docs/native-fixtures/scenarios/components/AppModal/AppModal.fixture.tsx": "acd772a08469ac22ecd7dee7c5271575e91ef23c4cb9a08911e3f9c4fe1a8580",
+    "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx": "f5a644682231bb219661ee059c1fa1a372fc87fdd3211c22afefaab1145e3153",
+    "apps/docs/native-fixtures/scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx": "6609f8f6c55fa5f6b77440bf23e0ac663a7aae76b75895ea7765329796adc6b3",
+    "apps/docs/native-fixtures/scenarios/components/AppPageTabs/AppPageTabs.fixture.tsx": "e8311155b4830ea8dd9d04b41246d49fc1cccc176fbabb5a7cc7a38a48f1af71",
+    "apps/docs/native-fixtures/scenarios/components/AppShell/AppShell.fixture.tsx": "c71efcdf367a6a93a5dd1b8cb513c35419984046bacfb05859112136e2659fe5",
+    "apps/docs/native-fixtures/scenarios/components/AuthShell/AuthShell.fixture.tsx": "797bcbe4e881d57348ae7fefcdf5147498f01a210e23d97e4b54ae728debdc6a",
+    "apps/docs/native-fixtures/scenarios/components/CardPaginationFooter/CardPaginationFooter.fixture.tsx": "8be6e6796146c65707dd21bfd2a6295ccf605ce6fae8206ea1401eac81f02dac",
+    "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx": "6e59a24dbd52b4d85d5769ad2009d4dc039c1792605261f92b6f72d15d3d0e5a",
+    "apps/docs/native-fixtures/scenarios/components/ColumnsLayoutModal/ColumnsLayoutModal.fixture.tsx": "58627031379a792a42e15e7ba01a32eda0e83922b30fdc69845ebe90459d806e",
+    "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx": "4002032b71bda0cb373f9fe94f7902925c9925f63d63588108db5c5e91e79542",
+    "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx": "5cda35a0470951a22e80c69b29989d5365f4d093fd0d7294557e12b1a949f817",
+    "apps/docs/native-fixtures/scenarios/components/DocumentEditorLayout/DocumentEditorLayout.fixture.tsx": "072e40b6945f1dfb1e9f6e90913920b595cb3fe2c6f8e55b1150d9e5819ffcfa",
+    "apps/docs/native-fixtures/scenarios/components/DocumentEditorToolbar/DocumentEditorToolbar.fixture.tsx": "07a3c80a0122b0614aae2393323ca8abe5f77c32bf256f13908c3b72eec5eed5",
+    "apps/docs/native-fixtures/scenarios/components/EditableTitleField/EditableTitleField.fixture.tsx": "048082efbabc992b68d0ceb9b67b44ed070a41c01e8ea045df238ad0e07f438d",
+    "apps/docs/native-fixtures/scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx": "99d26c5c2761ae7852f0d4458ab4745f013dec4ed4cc3d503f23b2653502fc35",
+    "apps/docs/native-fixtures/scenarios/components/ImageUploadModal/ImageUploadModal.fixture.tsx": "65f63958ab3fc9e32dfce3edad77f73b2447695a8fa785e1bc3afaac7f121f7c",
+    "apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/InsertContentMenuControl.fixture.tsx": "be82a2f16881a754fb3f475653383c57b32b38731d5a753ccf678296ca991971",
+    "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx": "120e2b2068429b56e732c962099380168d021ea6bcc73fe101ab6e1c5d732bd3",
+    "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx": "28e01b7ee86f3a626894cc41277c4c58d01a269a06494b970d215fbc53edcd15",
+    "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.fixture.tsx": "a514c5fa34fb2e82853487eec91abb75f9cd56f73880daf245b5598655aaacdb",
+    "apps/docs/native-fixtures/scenarios/components/LinkUrlModal/LinkUrlModal.fixture.tsx": "8ecffe0b0a3e16517e8f5131f401b4e9c713d740df60c62a7f445f45afafc2d9",
+    "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx": "6fdf8e185542fbe7439629993f9c18edc2845d1c3f9785b8db6586ff9cb325ab",
+    "apps/docs/native-fixtures/scenarios/components/RichTextFormattingToolbar/RichTextFormattingToolbar.fixture.tsx": "f3f0386c80ba38cc87a62843c88c5050b849c3d4551d36930202e24e82f8bd9b",
+    "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx": "a4fdd33331cf744ae5cde3c029dcb026240825026c5a04120d36647267d3d5b3",
+    "apps/docs/native-fixtures/scenarios/components/TextAlignMenuControl/TextAlignMenuControl.fixture.tsx": "fc674110b2eba39e048fd4cb370c4a8e0deff56d8bad552e3b8da4ba268c92d4",
+    "apps/docs/native-fixtures/scenarios/components/TextColorPickerControl/TextColorPickerControl.fixture.tsx": "cccc22b7b67ec27f041040325b57241c1005c931f0fecd05f7591df19e180d6c",
+    "apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx": "ac28a342a8cac861f3995eb2a7ff77d563e7835e7955e8423f42fd891338b1a2",
+    "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5",
+    "packages/ui/src/foundation/tokens.json": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+    "packages/ui/src/foundation/tokens.generated.ts": "2c63951228c23a40880bb2000686db160bc468aa584817cca262e8cb69df5a32",
+    "packages/ui/src/foundation/tokens.css": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+    "packages/ui/src/foundation/ThemeScope.test.tsx": "b99c713ccbe211e67538d8cc19f1f2f544f763c7d8c6b834d54f1e3ee9d59a4f",
+    "packages/ui/src/theme/AppThemeProvider.test.tsx": "47076c4c3314c75f77eee3f6a856b7a688ff78484b45c96ba9adeef8c3cab6c4",
+    "packages/ui/src/experimental/Provider/Provider.test.tsx": "f87d3f49f62722363ff516d754a8f8d9159ccb2f33fe6901cd8f72d9df0451df",
+    "packages/ui/src/foundation/ThemeScope.tsx": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+    "packages/ui/src/experimental/Provider/Provider.tsx": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+    "docs/developer/final-acceptance/wave-02-13/report.md": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+    "docs/developer/final-acceptance/wave-02-13/results.json": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+    "docs/developer/final-acceptance/wave-02-14/report.md": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+    "docs/developer/final-acceptance/wave-02-14/results.json": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+    "docs/developer/final-acceptance/wave-02-15/report.md": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+    "docs/developer/final-acceptance/wave-02-15/results.json": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+    "docs/developer/final-acceptance/fix-05/validation.json": "9caf1a03607d1288b5b2063ecd520ef524ee65ebf8172f64dc7e4c3580318f27",
+    "docs/developer/final-acceptance/fix-05/button-lineage.json": "8254e283f9caa0b654f0a5cc94277b7bdd67c08f4b8859986147fb03fad98be4",
+    "docs/developer/final-acceptance/coordinator-integration/evidence.json": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+    "AGENTS.md": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+    "docs/developer/react-aria-final-acceptance.md": "f4c7d7f0759ccfd3b2be0829283151a7b8942ed8010e12591ce0236b34dc1fa8",
+    "docs/developer/docs-fixture-migration.md": "2b4f3848c9f9feec373cd4429172efa9b5c2dc068981425eb6868ba01ad3f502",
+    "docs/developer/react-aria-button.md": "a5e0fcb335357e996115eb71962d608233cfe037798365e6f3660a9232404f1d",
+    "docs/migration.md": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+    "apps/docs/examples/ButtonDocumentation.tsx": "8107962785aeb467b836e86d260baa2d8b50215835c75701bd71be1e46395a22",
+    "apps/docs/examples/ButtonAdditionalExamples.tsx": "9d7c6dacb9ead8028663158e190e6ffbe7bdd2c357f3c856e9dbd2f45b30278f",
+    "docs/developer/react-aria-removal-audit.md": "95a0a88bb62e2f4af83fa6c93b58a29eed1873d1bc50d8432e6dd02f4081cdc7",
+    "docs/developer/react-aria-i18n-acceptance.md": "94b62510f7f7cbb36636504459f9e89dd646a9c762baa7eafcf9a717a347cd7a",
+    "apps/docs/native-fixtures/generate-registry.mjs": "fb1b14f094ad0229d7bc07f4e48b4cbf1479a6b5c557f2a92c5299d07e106e87",
+    "apps/docs/native-fixtures/vite.config.ts": "26fbd52b085eec41a504e08d2312a0019af84585543d59ffa535245e90541812",
+    "packages/ui/tests/browser/batch13-control-button.spec.ts": "ddabe56464829a664125d402397651729aa641f135f9fec04c2a03ac00bfba7f",
+    "apps/docs/tests/button-documentation.spec.ts": "ad28fc69b265dc16b31a27d24a461a772a7f0fc012e181eb3e26ebafda945e62"
+  },
+  "coordinatorInputComparisons": [
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css",
+      "equal": true
+    }
+  ],
+  "priorReceiptComparisons": [
+    {
+      "path": "apps/docs/native-fixtures/migration-manifest.json",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/examples/catalog/primitives-actions.tsx",
+      "equal": true
+    },
+    {
+      "path": "AGENTS.md",
+      "equal": true
+    },
+    {
+      "path": "docs/developer/react-aria-final-acceptance.md",
+      "equal": false
+    },
+    {
+      "path": "docs/developer/docs-fixture-migration.md",
+      "equal": true
+    },
+    {
+      "path": "docs/developer/react-aria-button.md",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/tests/browser/batch13-control-button.spec.ts",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/tests/button-documentation.spec.ts",
+      "equal": true
+    }
+  ],
+  "priorReplacementComparisons": [
+    {
+      "path": "apps/docs/native-fixtures/scenarios/experimental/Button/Button.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/examples/catalog/primitives-actions.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.public-contract.test.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/Button/index.ts",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AppDataGridRowDnd/DataGridDragHandle.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AppInlineProgress/AppInlineProgress.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AppModal/AppModal.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AppOperationSteps/AppOperationSteps.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AppPageHeader/AppPageHeader.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AppPageTabs/AppPageTabs.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AppShell/AppShell.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/AuthShell/AuthShell.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/CardPaginationFooter/CardPaginationFooter.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/ClassCardFrame/ClassCardFrame.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/ColumnsLayoutModal/ColumnsLayoutModal.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/ContentEditorChrome/ContentEditorChrome.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/DocumentEditorLayout/DocumentEditorLayout.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/DocumentEditorToolbar/DocumentEditorToolbar.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/EditableTitleField/EditableTitleField.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/ImageUploadModal/ImageUploadModal.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/InsertContentMenuControl/InsertContentMenuControl.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/LearnerClassCard/LearnerClassCard.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/LinkUrlModal/LinkUrlModal.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/RichTextFormattingToolbar/RichTextFormattingToolbar.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/TextAlignMenuControl/TextAlignMenuControl.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/TextColorPickerControl/TextColorPickerControl.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.json",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.generated.ts",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.css",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.test.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/theme/AppThemeProvider.test.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.test.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.json",
+      "equal": true
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.tsx",
+      "equal": true
+    }
+  ],
+  "limits": [
+    "Local Git/source audit only; no runtime/browser/AT/device execution.",
+    "Original learner-platform commit unavailable; no other checkout or network accessed.",
+    "No generated registry, historical receipt, production file, or learner checkout was modified."
+  ]
+}

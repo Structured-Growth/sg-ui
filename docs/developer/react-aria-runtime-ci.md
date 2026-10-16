@@ -6,6 +6,9 @@ job runs `check:docs`, `build:docs` and the public site Playwright checks. Artif
 use `sgui-browser-docs-node-*`. Storybook is removed. The dated heads, commands and
 artifact names below remain historical receipts, not current runner instructions.
 See [docs migration](docs-website.md) for current execution evidence.
+Run root `pnpm` scripts from the repository root. Direct `node scripts/...`
+consumer commands in the dated receipts resolve from `packages/ui` in the current
+workspace. Do not run the retired `build-storybook` command to reproduce today's host.
 
 Final removal-guard head `7f03a35108bbf861e9b123b646694f64b21bb369` is independently
 verified by [run 37560788949](https://github.com/Structured-Growth/sg-ui/actions/runs/37560788949):
@@ -29,8 +32,8 @@ performed on Node 24 rather than the consumer's minimum Node 22.12.0. Minimum
 runtime CI validates building and consuming the library without invoking a
 release. Node 26 local results alone do not establish either supported target.
 
-Each CI matrix job installs the frozen lockfile, runs `pnpm check` and
-`pnpm build-storybook`, then executes these packed consumer scripts serially:
+Each CI matrix job installs the frozen lockfile, fingerprints source inputs after
+removing generated output, runs `pnpm check` and `pnpm build:browser-docs`, then executes these packed consumer scripts serially:
 
 - `node scripts/test-foundation-consumer.mjs --react18`
 - `node scripts/test-foundation-consumer.mjs`
@@ -55,15 +58,33 @@ R-12 artifacts are emitted separately for each runtime, with an explicit
 | Artifact | Contents | Upload condition |
 | --- | --- | --- |
 | `sgui-package-node-22.12.0`, `sgui-package-node-24` | Official CI-built package tarball | All validation steps pass |
-| `sgui-storybook-node-22.12.0`, `sgui-storybook-node-24` | Static Storybook output | All validation steps pass |
-| `sgui-validation-node-22.12.0`, `sgui-validation-node-24` | Node/pnpm versions and complete check, Storybook and consumer logs | Always, including failure |
+| `sgui-browser-docs-node-22.12.0`, `sgui-browser-docs-node-24` | Static docs-owned native fixture output | All validation steps pass |
+| `sgui-validation-node-22.12.0`, `sgui-validation-node-24` | Node/pnpm versions, input/output/tarball SHA-256 receipt and complete check, native fixture and consumer logs | Always, including failure |
 | `sgui-browser-node-24` | Browser JSON/HTML results, axe results, smoke timings, failure traces/screenshots and saved downloads | Always after browser execution, including failure |
+| `sgui-docs-validation-node-24` | Next.js docs check/build/browser logs, JSON and failure traces | Always, including failure |
 | `ai-proposal` | Proposed patch and summary from the manual AI workflow | Implementation job succeeds |
 
-The validation job has a 30-minute limit. The job explicitly selects GitHub Actions' bash runner, which
+The minimum-runtime validation job has a 30-minute limit; Node 24 has a 60-minute
+limit with a 45-minute browser step budget. The latest inspected full run
+[37873270629](https://github.com/Structured-Growth/sg-ui/actions/runs/37873270629)
+exhausted its former 30-minute job limit during browser execution (25m28s in that
+step, 1,132 of 1,521 executions started). This supports increasing the budget, not
+claiming the expanded suite passes; the new budget still needs a current full run.
+The separate docs job retains its 20-minute limit pending measured evidence.
+
+The pnpm store cache is keyed explicitly by root `pnpm-lock.yaml`; neither dist,
+native fixture output nor Next output is restored from cache.
+`ci-artifacts.mjs begin` removes matrix output before checks; `complete` rejects
+changed source inputs, missing JS/types/CSS/fixture HTML/CSS and absent or extra
+tarballs, and hashes current outputs. The receipt travels in validation logs.
+Package and fixture artifacts require success.
+See [workflow dependency policy](workflow-dependency-policy.md) for immutable action
+references, update review and the fresh-run verification procedure.
+
+The job explicitly selects GitHub Actions’ bash runner, which
 uses `-e -o pipefail`, so piping output through `tee` retains logs and still
 fails the step when validation fails. Upload steps reject absent package or
-Storybook files. The matrix keeps running its other runtime after one fails.
+native fixture files. The matrix keeps running its other runtime after one fails.
 Artifact URLs and exact commit/run conclusions are available from the Actions
 run that produced them; local success is not a claim that a new CI run passed.
 The AI workflow retains draft PR creation and its existing permissions.
@@ -93,11 +114,11 @@ zero unexpected and zero flaky tests; [browser evidence](react-aria-browser-acce
 records scope and smoke timings. This closes the executable R-11 gate, not the
 remaining framework/device/assistive-technology acceptance.
 
-R-11 now adds [executed browser gates](react-aria-browser-acceptance.md) after
+The historical Storybook-era R-11 batch added [executed browser gates](react-aria-browser-acceptance.md) after
 Storybook builds on Node 24: all three browser engines, byte-level downloads,
 keyboard/focus/editor/grid behavior, failing axe scans and a bounded performance
 smoke workload. Runtime errors/warnings also fail. Browser execution is a separate
-`pnpm test:browser` command because it reads built Storybook; `pnpm check` retains
+`pnpm test:browser` command; the current host reads built docs-native fixtures; `pnpm check` retains
 source, behavior, boundary, token/CSS, build, API and package checks. Next.js and
 the broad native/assistive-technology matrix remain separately tracked.
 

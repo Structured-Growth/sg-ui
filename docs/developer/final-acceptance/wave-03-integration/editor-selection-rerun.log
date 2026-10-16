@@ -1,0 +1,111 @@
+[WebServer] (node:47486) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:47487) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:43:1 › Cancel/Escape make no edit for caret, same-node and cross-node modal ranges (426ms)
+(node:47499) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:77:1 › link Apply targets caret, same-node and cross-node ranges without discarding adjacent formatting (6.0s)
+(node:47535) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:122:1 › host read-only, document replacement and unmount invalidate pending modal drafts (871ms)
+
+
+  1) [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:43:1 › Cancel/Escape make no edit for caret, same-node and cross-node modal ranges 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 2
+    + Received  + 2
+
+      Object {
+    -   "anchor": 2,
+    +   "anchor": 0,
+        "anchorText": "Target paragraph",
+        "collapsed": true,
+        "contained": true,
+    -   "focus": 2,
+    +   "focus": 0,
+        "focusText": "Target paragraph",
+        "text": "",
+      }
+
+      71 |     });
+      72 |     await info.attach(`${command}-${shape}-${dismiss}`, { body: JSON.stringify({ before: range, after, document: initial }), contentType: 'application/json' });
+    > 73 |     expect(after).toEqual(range);
+         |                   ^
+      74 |   }
+      75 | });
+      76 |
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts:73:19
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/editor-selection-rerun/wave03-editor-selection-ac-cc080-and-cross-node-modal-ranges-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/editor-selection-rerun/wave03-editor-selection-ac-cc080-and-cross-node-modal-ranges-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/editor-selection-rerun/wave03-editor-selection-ac-cc080-and-cross-node-modal-ranges-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/editor-selection-rerun/wave03-editor-selection-ac-cc080-and-cross-node-modal-ranges-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:77:1 › link Apply targets caret, same-node and cross-node ranges without discarding adjacent formatting 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('textbox', { name: 'Selection acceptance document', exact: true }).locator('p')
+    Timeout: 5000ms
+    - Expected  - 2
+    + Received  + 3
+
+      Array [
+    -   "Target paragraph",
+    -   "Adjacent paragraph",
+    +   "Target paragraph
+    +
+    + Adjacent paragraph",
+      ]
+
+    Call log:
+      - Expect "toHaveText" getByRole('textbox', { name: 'Selection acceptance document', exact: true }).locator('p') with timeout 5000ms
+      - waiting for getByRole('textbox', { name: 'Selection acceptance document', exact: true }).locator('p')
+        14 × locator resolved to 1 element
+
+
+      104 |       // original text run's format/style. Do not equate URL wrapper shape with
+      105 |       // a promise to merge paragraphs or flatten rich text.
+    > 106 |       await expect(editor(page).locator('p')).toHaveText(['Target paragraph', 'Adjacent paragraph']);
+          |                                               ^
+      107 |       await expect(links).toHaveCount(2);
+      108 |       for (let index = 0; index < 2; index++) {
+      109 |         expect(after.root.children[index].children[0]).toMatchObject({ type: 'link', url: '/selected-guide' });
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts:106:47
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/editor-selection-rerun/wave03-editor-selection-ac-3568a-carding-adjacent-formatting-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/editor-selection-rerun/wave03-editor-selection-ac-3568a-carding-adjacent-formatting-chromium/error-context.md
+
+    attachment #5: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/editor-selection-rerun/wave03-editor-selection-ac-3568a-carding-adjacent-formatting-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/editor-selection-rerun/wave03-editor-selection-ac-3568a-carding-adjacent-formatting-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:43:1 › Cancel/Escape make no edit for caret, same-node and cross-node modal ranges 
+    [chromium] › tests/browser/wave03-editor-selection-acceptance.spec.ts:77:1 › link Apply targets caret, same-node and cross-node ranges without discarding adjacent formatting 
+  1 passed (8.3s)
+undefined
+/Users/thomashall/Repositories/sg-ui/packages/ui:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config ../../docs/developer/final-acceptance/wave-03-integration/native.config.mjs tests/browser/wave03-editor-selection-acceptance.spec.ts --project chromium --output artifacts/wave03-integration/editor-selection-rerun

@@ -1,0 +1,73 @@
+{
+  "number": 8,
+  "title": "Foundation scales and visual states",
+  "ids": [
+    "A-D-06",
+    "A-D-13",
+    "A-D-15"
+  ],
+  "focus": "Finish concrete scale/radius/split-action/state successors. Compare current source/contracts and prepare scoped token/CSS/docs fixes for inconsistencies, preserving material radius and owned token pipeline.",
+  "directory": "docs/developer/final-acceptance/wave-03-08",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-D-06": "- [ ] A-D-06 Reconcile original `D-06`: Define a consistent spacing, sizing, radius, elevation, border, icon, and motion scale; reconcile the current differing button/card radii intentionally. Historical status: open.",
+    "A-D-13": "- [ ] A-D-13 Reconcile original `D-13`: Define neutral split actions with shared border/divider and readable theme-aware primary text; define filled emphasis for contexts that genuinely need it. Historical status: open.",
+    "A-D-15": "- [ ] A-D-15 Reconcile original `D-15`: Design complete hover, focus, pressed, selected, disabled, read-only, invalid, pending, empty, loading, and error states; never rely on color alone for meaning. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-D-06": {
+      "id": "A-D-06",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-D-06 Reconcile original `D-06`: Define a consistent spacing, sizing, radius, elevation, border, icon, and motion scale; reconcile the current differing button/card radii intentionally. Historical status: open.",
+      "conversationNumber": 6,
+      "report": "docs/developer/final-acceptance/wave-02-06/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-06/results.json",
+      "reportSha256": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "resultsSha256": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "successors": [
+        {
+          "id": "W02-06-D06",
+          "requiredForThisLeaf": true,
+          "deliverable": "Land/review the concrete scale decisions in successor-deliverables.md: border/stroke/icon/transition/indicator/easing roles or narrow documented exceptions, explicit shared Button/Card and separate field radius rationale; regenerate only if authored tokens change and validate affected inputs."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-D-13": {
+      "id": "A-D-13",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-D-13 Reconcile original `D-13`: Define neutral split actions with shared border/divider and readable theme-aware primary text; define filled emphasis for contexts that genuinely need it. Historical status: open.",
+      "conversationNumber": 6,
+      "report": "docs/developer/final-acceptance/wave-02-06/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-06/results.json",
+      "reportSha256": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "resultsSha256": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "successors": [
+        {
+          "id": "W02-06-D13",
+          "requiredForThisLeaf": true,
+          "deliverable": "Land the source-compatible two-sentence emphasis guidance draft in successor-deliverables.md in Button usage/action contracts; preserve neutral SplitAction and do not invent its variant prop. Verify docs links/catalog guidance."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-D-15": {
+      "id": "A-D-15",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-D-15 Reconcile original `D-15`: Design complete hover, focus, pressed, selected, disabled, read-only, invalid, pending, empty, loading, and error states; never rely on color alone for meaning. Historical status: open.",
+      "conversationNumber": 6,
+      "report": "docs/developer/final-acceptance/wave-02-06/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-06/results.json",
+      "reportSha256": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "resultsSha256": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "successors": [
+        {
+          "id": "W02-06-D15",
+          "requiredForThisLeaf": true,
+          "deliverable": "Complete/land the applicability matrix drafted in successor-deliverables.md, with all public parts and justified N/A states, concrete non-color indicator/source/example/test references; incorporate coordinator BUG-0008/0009 receipts. Preserve existing tests; add only genuine gap evidence."
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

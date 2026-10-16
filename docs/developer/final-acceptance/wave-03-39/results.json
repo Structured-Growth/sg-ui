@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "assignment": "wave-03-39",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "leaves": [
+    {
+      "id": "A-X-01",
+      "originalRequirement": "- [ ] A-X-01 Reconcile original `X-01`: Replace implementation-mirroring tests with behavior tests where needed; avoid mocks that hide the very focus/keyboard behavior under migration. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "One-file reviewable patch replaces four numeric JSON format assertions with actual selected-text DOM formatting scope or named text-format behavior; strengthens keyboard editor-focus return. Seven existing cases retained.",
+      "proposedPatch": "behavior-probes.patch",
+      "proposedTarget": "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+      "needsIntegration": true,
+      "priorReportHashesMatchAssignment": {
+        "report": true,
+        "results": true
+      },
+      "evidence": [
+        "report.md",
+        "input-hashes.json",
+        "syntax-check.txt",
+        "unit-probe-initial-resolution-failure.txt",
+        "unit-probe-lease-occupied.txt",
+        "unit-probe-final.txt"
+      ],
+      "validation": {
+        "patchApplies": "pass",
+        "tsxSyntax": "pass",
+        "unit": "pending; initial evidence harness resolution failure corrected, canonical lease occupied on subsequent attempts",
+        "native": "not run",
+        "runtime": "Node 24.21.0 / installed Vitest 4.1.11"
+      },
+      "residualSuccessors": [
+        "coordinator review/apply patch against matching target hash",
+        "focused seven-case unit execution under existing lease on Node 22/24",
+        "attach valid input-matched unmocked toolbar/native drag evidence or execute only missing scopes",
+        "retain original instrumentation and keep editor V/device/AT requirements open"
+      ],
+      "limits": [
+        "No runtime acceptance from a patch-only fix or syntax check",
+        "Synthetic geometry and modeled scroll reveal are not native/browser evidence",
+        "No production source, central ledgers, generated output, manifests, lockfiles or other owner files modified"
+      ]
+    }
+  ]
+}

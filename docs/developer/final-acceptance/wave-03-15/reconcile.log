@@ -1,0 +1,15 @@
+{
+  "wrappersUnchanged": 96,
+  "mappingParity": true,
+  "changedPriorInputs": [
+    "docs/developer/react-aria-icons.md",
+    "packages/ui/src/experimental/icons/icon-map.json"
+  ],
+  "notices": {
+    "equal": true,
+    "installedLicenseRetainedVerbatim": true,
+    "noticeSha256": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+    "installedLicenseSha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+    "legalApproval": false
+  }
+}

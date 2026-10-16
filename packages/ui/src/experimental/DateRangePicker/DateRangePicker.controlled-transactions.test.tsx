@@ -18,7 +18,7 @@ const endpoints = () => {
 it("keeps both hidden endpoints authoritative after rejected Apply and reopens the host commit", async () => {
   const user = userEvent.setup(); const change = vi.fn();
   const { rerender } = render(<form data-testid="host-form" aria-label="Host form"><DateRangePicker {...props} value={initial} onValueChange={change} /></form>);
-  await user.click(trigger()); await user.click(screen.getByRole("button", { name: "March", exact: true }));
+  await user.click(trigger()); await user.click(screen.getByRole("option", { name: "March", exact: true }));
   expect(endpoints()).toEqual([initial.start, initial.end]);
   await user.click(screen.getByRole("button", { name: "Apply", exact: true }));
   expect(change).toHaveBeenCalledExactlyOnceWith(march);
@@ -26,7 +26,7 @@ it("keeps both hidden endpoints authoritative after rejected Apply and reopens t
   await waitFor(() => expect(document.activeElement).toBe(trigger()));
   await user.click(trigger());
   expect(screen.getByRole("status").textContent).toBe(`${initial.start} – ${initial.end}`);
-  await user.click(screen.getByRole("button", { name: "March", exact: true }));
+  await user.click(screen.getByRole("option", { name: "March", exact: true }));
   await user.click(screen.getByRole("button", { name: "Apply", exact: true }));
   rerender(<form data-testid="host-form" aria-label="Host form"><DateRangePicker {...props} value={march} onValueChange={change} /></form>);
   expect(change).toHaveBeenCalledTimes(2);
@@ -50,14 +50,21 @@ it("invalidates an open draft and unfinished anchor when host endpoints change",
   expect(endpoints()).toEqual([replacement.start, replacement.end]);
   expect(change).not.toHaveBeenCalled();
   await user.click(screen.getByRole("button", { name: "Apply", exact: true }));
-  expect(change).toHaveBeenCalledExactlyOnceWith(replacement);
+  // Applying the unchanged host replacement closes without a redundant change.
+  expect(change).not.toHaveBeenCalled();
+  expect(screen.queryByRole("dialog")).toBeNull();
+  await user.click(trigger());
+  await user.click(screen.getByRole("button", { name: /Thursday, February 22, 2024/ }));
+  await user.click(screen.getByRole("button", { name: "Apply", exact: true }));
+  expect(change).toHaveBeenCalledExactlyOnceWith({start: replacement.start, end: "2024-02-22"});
+  expect(endpoints()).toEqual([replacement.start, replacement.end]);
 });
 it("retains an open draft on prevented native reset and closes on accepted reset without a controlled request", async () => {
   const user = userEvent.setup(); const change = vi.fn();
   let prevent = true;
   render(<form data-testid="host-form" aria-label="Host form" onReset={event => { if (prevent) event.preventDefault(); }}>
     <DateRangePicker {...props} value={initial} defaultValue={march} onValueChange={change} /></form>);
-  await user.click(trigger()); await user.click(screen.getByRole("button", { name: "March", exact: true }));
+  await user.click(trigger()); await user.click(screen.getByRole("option", { name: "March", exact: true }));
   const form = screen.getByTestId("host-form") as HTMLFormElement;
   await act(async () => { form.reset(); await new Promise(resolve => setTimeout(resolve, 10)); });
   expect(screen.getByRole("dialog")).toBeTruthy();

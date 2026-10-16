@@ -1,0 +1,1 @@
+8 proposed roots passed TypeScript checking with virtual proposed source, existing public declarations and normal imports. No output emitted; no docs build/snippet compiler or native execution implied.

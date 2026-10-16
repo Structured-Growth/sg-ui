@@ -83,10 +83,10 @@ export function InstructorClassCard({
       </div>
       {status !== "archived" && <>
         <div className={styles.row}><AutoStoriesIcon aria-hidden="true" className={styles.icon} />
-          <Typography variant="body2">{t("card.learnersCount", { defaultMessage: "{count} Learners", namespace: "sections.instructor", values: { count: learnerCount } }).replace("{count}", String(learnerCount))}</Typography>
+          <Typography variant="body2">{t("card.learnersCount", { defaultMessage: "{count} Learners", namespace: "sections.instructor", values: { count: learnerCount } })}</Typography>
         </div>
         <div className={styles.row}><CalendarTodayIcon aria-hidden="true" className={styles.icon} />
-          <Typography variant="body2">{t("card.lastLearnerActivity.label", { defaultMessage: "Last Learner Activity: {value}", namespace: "sections.instructor", values: { value: resolvedLastLearnerActivityLabel } }).replace("{value}", resolvedLastLearnerActivityLabel)}</Typography>
+          <Typography variant="body2">{t("card.lastLearnerActivity.label", { defaultMessage: "Last Learner Activity: {value}", namespace: "sections.instructor", values: { value: resolvedLastLearnerActivityLabel } })}</Typography>
         </div>
       </>}
     </>}

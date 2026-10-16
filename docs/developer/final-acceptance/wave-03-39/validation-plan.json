@@ -1,0 +1,41 @@
+{
+  "status": "pending-coordinator-lease-and-integration",
+  "runtime": "Node 22.12+/24; observed local supported runtime Node 24.21.0",
+  "buildRequiredForTestOnlyPatch": false,
+  "packedValidationRequiredForTestOnlyPatch": false,
+  "checks": [
+    {
+      "scope": "patch applicability; read only",
+      "cwd": "repository root",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-39/behavior-probes.patch",
+      "observed": "pass"
+    },
+    {
+      "scope": "evidence-only unit execution before integration",
+      "cwd": "repository root",
+      "prepare": "/Users/thomashall/.npm/_npx/f3abeb99d18a085b/node_modules/node/bin/node docs/developer/final-acceptance/wave-03-39/prepare-probe.mjs",
+      "command": "/Users/thomashall/.npm/_npx/f3abeb99d18a085b/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/f3abeb99d18a085b/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-39/vitest.probe.config.mjs --maxWorkers 1",
+      "expected": "all 7 existing cases pass; selection-only rendered bold/italic, retained plain suffix, Enter/Space focus return, cancelled command leaves no bold/italic",
+      "observed": "not executed after dependency resolution correction; canonical lease occupied"
+    },
+    {
+      "scope": "normal focused suite after coordinator integration",
+      "cwd": "packages/ui",
+      "command": "/Users/thomashall/.npm/_npx/f3abeb99d18a085b/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/f3abeb99d18a085b/node_modules/node/bin/node node_modules/vitest/vitest.mjs run src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx --maxWorkers 1",
+      "expected": "7/7 pass with unsuppressed logs"
+    },
+    {
+      "scope": "existing native receipt reconciliation; do not duplicate unchanged execution",
+      "specs": [
+        "packages/ui/tests/browser/inventory-selection-boundary.spec.ts",
+        "packages/ui/tests/browser/batch01-grid-reorder.spec.ts"
+      ],
+      "expected": [
+        "unmocked real browser selection, Alt+F10 focus, Enter command scope and focus return",
+        "keyboard drag cancel/drop keeps source focus and emits expected host requests"
+      ],
+      "commandWithinAuthorizedHarness": "playwright test tests/browser/inventory-selection-boundary.spec.ts tests/browser/batch01-grid-reorder.spec.ts --project=chromium --project=firefox --project=webkit",
+      "hostRequirement": "Use coordinator approved native pool/config and freshly matched fixture only if a valid receipt is missing or inputs changed. No new broad build/host/packed matrix solely for this test patch. No native result in this wave."
+    }
+  ]
+}

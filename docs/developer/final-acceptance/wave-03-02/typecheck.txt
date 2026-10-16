@@ -1,0 +1,45 @@
+{
+  "node": "v26.5.0",
+  "baselineDiagnostics": [],
+  "proposedDiagnostics": [],
+  "sameContracts": true,
+  "emittedComparisons": [
+    {
+      "file": "packages/ui/src/adapters/navigation.tsx",
+      "identical": true,
+      "beforeSha256": "e34541d7e69e9893f8fec017a3fcf1098807a8a1da25c0ff4496afd0d2f34984",
+      "afterSha256": "e34541d7e69e9893f8fec017a3fcf1098807a8a1da25c0ff4496afd0d2f34984"
+    },
+    {
+      "file": "packages/ui/src/adapters/navigationContext.ts",
+      "identical": true,
+      "beforeSha256": "010c1c2da6441965d8d25da0895c97935c14008babd9feacb4c3f8f2bf017f98",
+      "afterSha256": "010c1c2da6441965d8d25da0895c97935c14008babd9feacb4c3f8f2bf017f98"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateField/DateField.tsx",
+      "identical": true,
+      "beforeSha256": "72fe758708419fb5f9d505a17b0d6303b1e024b223c37fc09d25fb4a48ece6a8",
+      "afterSha256": "72fe758708419fb5f9d505a17b0d6303b1e024b223c37fc09d25fb4a48ece6a8"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "identical": true,
+      "beforeSha256": "c940d1be8cc7569b10c2dea7831cf0cc00bb5fe237a3206a8cf9a962cb80d637",
+      "afterSha256": "c940d1be8cc7569b10c2dea7831cf0cc00bb5fe237a3206a8cf9a962cb80d637"
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+      "identical": true,
+      "beforeSha256": "858c1f868d5c011f57ac03300f5a078bd8c8b9178ce35def1e524a735bb0048d",
+      "afterSha256": "858c1f868d5c011f57ac03300f5a078bd8c8b9178ce35def1e524a735bb0048d"
+    },
+    {
+      "file": "packages/ui/src/experimental/TimeField/TimeField.tsx",
+      "identical": true,
+      "beforeSha256": "4e22edad6a336d75ea57993e43c291c03ec9ab181313a5d9f7f27a42eb688b39",
+      "afterSha256": "4e22edad6a336d75ea57993e43c291c03ec9ab181313a5d9f7f27a42eb688b39"
+    }
+  ],
+  "comparedContracts": 8
+}

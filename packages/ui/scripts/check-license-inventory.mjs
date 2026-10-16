@@ -235,7 +235,7 @@ export async function inventory(root) {
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const args = process.argv.slice(2);
   if (args.length > 1 || args[0]?.startsWith('-')) {
-    console.error('Usage: node scripts/check-license-inventory.mjs [repository-root]');
+    console.error('Usage: node scripts/check-license-inventory.mjs [package-root]');
     process.exitCode = 2;
   } else {
     try {

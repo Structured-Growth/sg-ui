@@ -1,0 +1,14 @@
+[
+  {
+    "command": "git apply --check docs/developer/final-acceptance/wave-03-06/notices.patch",
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "git apply --check docs/developer/final-acceptance/wave-03-06/factual-descriptions.patch",
+    "exitCode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

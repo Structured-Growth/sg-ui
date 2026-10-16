@@ -1,0 +1,327 @@
+--- a/docs/developer/react-aria-component-recipe.md
++++ b/docs/developer/react-aria-component-recipe.md
+@@ -36,10 +36,19 @@
+    scope. Source imports stay relative and avoid root-barrel cycles. Use granular
+    imports in consumer examples; never advertise a source file as an exported subpath.
+    If shared export/config ownership belongs elsewhere, report the required change.
+-7. **Demonstrate changed behavior.** Colocate stories using production Provider and
+-   representative local data/host adapters. Cover the changed state/interaction and
+-   compositional behavior; do not fork tokens or depend on host APIs/authentication.
+-8. **Test observable behavior.** Add colocated tests for keyboard/pointer actions,
++7. **Demonstrate changed behavior.** Update ordinary React examples in
++   `apps/docs/examples` with independent shared Example panels, meaningful prop
++   playgrounds and current copyable public-package source. Use production scopes
++   and representative local data/host adapters. Preserve native scenarios in
++   `apps/docs/native-fixtures`; source-context unit fixtures stay colocated.
++   Follow the [Button page template and example rules](../../AGENTS.md#component-documentation-requirements):
++   bare overview, playground (processing-grid exception), named source-backed examples,
++   Contains/Used In and page-level Documentation. Register public aliases and compound
++   children. Each Example owns its state; source must track controls and include host callbacks.
++   Do not restore Storybook or fork tokens or depend on host APIs/authentication.
++8. **Test observable behavior.** During the functionality baseline, reuse existing
++   coverage and add only 1–3 meaningful smoke cases per component; track expanded
++   regression and hardening separately. As the assigned phase requires, test keyboard/pointer actions,
+    callbacks, forms/reset, refs, controlled acceptance, accessible state and relevant
+    cancellation/lifetime regressions. Compose nested controls to detect accidental
+    selection/activation/focus changes. Use browser checks for native timing, focus,
+--- a/docs/agent-guidance-migration.md
++++ b/docs/agent-guidance-migration.md
+@@ -22,13 +22,13 @@
+ | Data Grid Filter Pattern | Carry all three filter props, per-view persistence, empty/All semantics, canonical enum options, page reset, client processing order and filter badge placement. Server query translation stays in the host. |
+ | Styling Preference | Retain props/variants before custom styling; replace sx with declared native class/style and compiled shared CSS. Use generated tokens and typography roles. Prefer explicit compact menus while scopes support both densities. Retain neutral split actions and replace @ui aliases with owned source/public package imports. |
+ | Design Methodology | Carry modal create/edit examples, tabbed modal layout, 2+ step indicators, header hierarchy and reusable breadcrumbs. Use theme surfaces for light/dark support. |
+-| Testing Expectations | Carry meaningful behavior tests and updates to relevant tests when behavior changes. Keep stories updated in the same change. Guidance-only edits require document verification rather than new UI tests. |
++| Testing Expectations | Carry meaningful behavior tests and updates to relevant tests when behavior changes. Update docs-owned examples/native fixtures in the same change; preserve historical story evidence. Guidance-only edits require document verification rather than new UI tests. |
+ | Documentation Structure | Carry developer/troubleshooting organization and flatten single-README folders. Local database documentation conventions remain app-owned. |
+-| Local Seed Policy | Omit: SGUI has no database or sample-data seeding service. Story fixtures remain local and independent. |
++| Local Seed Policy | Omit: SGUI has no database or sample-data seeding service. Docs examples and native fixtures remain local and independent. |
+ | API Contract / OpenAPI | Omit platform contracts, Prisma, HTTP endpoint hierarchy, write schemas and API validation. SGUI accepts presentation models and host callbacks. |
+ | Authentication | Omit the application's email/password/org/legal login sequence and route-preservation rules. Account operations remain behind the host adapter. |
+ | Translations | Carry keys/defaultMessage, namespace awareness, repository baselines when needed, ICU checks and deterministic fallback principles. Host engines retain locale policy, database overrides, audit metadata, caching and diagnostics. |
+-| Component architecture document | Retain public exports, colocated stories, production scopes and host independence; use owned props/native refs, selective client boundaries and packed consumers. See the canonical component recipe. |
++| Component architecture document | Retain public exports, ordinary docs examples and native fixtures, production scopes and host independence; use owned props/native refs, selective client boundaries and packed consumers. See the canonical component recipe. |
+ 
+ ## How the guidance is applied
+ 
+@@ -50,7 +50,7 @@
+ | Retained principle | Current implementation rule and rationale |
+ | --- | --- |
+ | Preserve accessible interaction | React Aria stays private; owned callbacks/native refs preserve testable behavior and future replaceability |
+-| Shared visual language | Tokens and compiled CSS in sgui.components; story theme uses production scopes, not extraction-era theme objects |
++| Shared visual language | Tokens and compiled CSS in sgui.components; example and native-fixture themes use production scopes, not extraction-era theme objects |
+ | Compact menus | Prefer compact catalog menus with comfortable/compact validation; generic Menu inherits scope unless explicit; do not shrink every control by overriding typography |
+ | Shared grid defaults | Preserve checkbox/count, actions-last, visibility locks and filter placement; true pinning is deferred and host control is preserved |
+ | Persistent per-view state | Explicit opt-in local/session storage, distinct keys, validated hydration and one state owner |
+--- a/docs/developer/component-architecture.md
++++ b/docs/developer/component-architecture.md
+@@ -91,7 +91,7 @@
+ composed and browser tests cover nested focus, native timing, scrolling and positioning.
+ Do not equate DOM assertions with screen-reader or physical-device acceptance.
+ 
+-During the user-authorized pre-production migration into `codex/dev`, follow the
++During the user-authorized pre-production migration into `dev`, follow the
+ [development validation policy](react-aria-development-validation.md): run meaningful
+ affected unit/composed tests, type/import/token guards relevant to the change, and
+ focused browser or build/packed-consumer checks where behavior or packaging requires
+--- a/docs/github-setup.md
++++ b/docs/github-setup.md
+@@ -30,7 +30,7 @@
+ user-authorized pause in the
+ [development validation policy](developer/react-aria-development-validation.md). Other PRs, main pushes and reusable
+ calls retain the full matrix. Both full matrix jobs install
+-the frozen lockfile, run `pnpm check` and `pnpm build-storybook`, then serially run
++the frozen lockfile, run `pnpm check` and `pnpm build:browser-docs`, then serially run
+ packed foundation and editor consumers with React 18.3 and 19. The React 19
+ foundation consumer includes Flight. Node 24 additionally installs Chromium,
+ Firefox and WebKit, runs `pnpm test:browser`, enables foundation browser hydration
+@@ -45,7 +45,7 @@
+ | Artifact | Contents and upload condition |
+ | --- | --- |
+ | `sgui-package-node-22.12.0`, `sgui-package-node-24` | Validated tarball after successful checks |
+-| `sgui-storybook-node-22.12.0`, `sgui-storybook-node-24` | Built static Storybook after successful checks |
++| `sgui-browser-docs-node-22.12.0`, `sgui-browser-docs-node-24` | Built static docs-owned native fixtures after successful checks |
+ | `sgui-validation-node-22.12.0`, `sgui-validation-node-24` | Runtime/check/build/consumer logs, uploaded even on failure |
+ | `sgui-browser-node-24` | Reports, traces, JSON and packed browser evidence, uploaded even on failure |
+ 
+@@ -93,27 +93,31 @@
+ 
+ Include applicable backlog task IDs, owned props/native refs, CSS tokens and
+ `/styles.css` with Provider or ThemeScope, host-owned data/routing/translation/save
+-boundaries, relevant stories/behavior criteria, validation commands and remaining
++boundaries, relevant docs examples/native fixtures and behavior criteria, validation commands and remaining
+ gates. Use the [canonical recipe](developer/react-aria-component-recipe.md) and
+ [PR template](../.github/pull_request_template.md). State the bounded scope rather
+ than requiring every broad G/K/E/U/X/R/Z gate for each request.
+ 
+-The checked-in AI prompt and patch allowlist permit only `src/`, `.storybook/`,
+-`docs/` and `README.md`. Package/workflow/agent changes and `.github` template edits
+-require ordinary maintainer PRs. The implementation job uploads `ai-proposal`
++The checked-in AI prompt and patch allowlist permit bounded component work in
++`packages/ui/src/`, `apps/docs/examples/`, `apps/docs/native-fixtures/scenarios/`,
++`docs/` and `README.md`. Architecture, shared contracts/foundation/theme/tokens,
++public exports/models, adapters/i18n infrastructure, dependencies, package configuration,
++workflows and agent instructions remain maintainer-only even inside allowed paths.
++Requests needing those changes require a maintainer handoff. The implementation job uploads `ai-proposal`
+ (patch and summary, 14 days); the separate proposal job checks the allowlist,
+ validates the generated Conventional Commit title, runs `pnpm check` and
+-`pnpm build-storybook`, then creates a draft PR on `ai/sgui-<run_id>`. Its generated
+-body is a short static summary; task IDs, detailed evidence and remaining gates
+-must be added during review. Updating the generated prompt/body is separate
+-workflow work (R-20), not accomplished by these templates.
++`pnpm build:browser-docs`, then creates a draft PR on `ai/sgui-<run_id>`. Its generated
++body includes the structured task/contract/example/evidence/limitation report and a
++workflow validation receipt identifying base HEAD, proposal patch SHA-256 and run.
++Review the actual report and logs; this receipt does not identify a tested future PR
++commit or establish the full browser/packed-consumer matrix.
+ 
+ Do not assume default-token creation automatically runs full PR CI. Current
+ [GitHub trigger guidance](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
+ says `GITHUB_TOKEN` PR opened/synchronize/reopened events create approval-required
+ runs; a user with write access can select **Approve workflows to run**. Other PR
+ activity types do not receive that exception. Verify the actual PR's run state
+-and required contexts. The proposal job's title/package/Storybook checks remain
++and required contexts. The proposal job's title/package/native-fixture checks remain
+ independent, but it does **not** execute full CI browser or packed-consumer gates.
+ Approve and inspect those PR runs where offered, or report missing validation to
+ an owner; do not equate the generated summary with full CI evidence. This guide
+@@ -124,7 +128,7 @@
+ | Change scope | Evidence to provide before completion |
+ | --- | --- |
+ | Documentation/template guidance only | Relevant links/anchors, paths, commands, exports/example contracts, issue-form structure and `git diff --check`; no unrelated UI tests or local builds |
+-| Component/API/style/behavior | For pre-production dev: affected unit/composed tests, relevant type/foundation/token guards and changed-state stories; focused browser checks with fresh Storybook for native timing/focus/scrolling/positioning |
++| Component/API/style/behavior | For pre-production dev: affected unit/composed tests, relevant type/foundation/token guards and changed-state docs examples/native fixtures; focused browser checks with fresh native fixtures for native timing/focus/scrolling/positioning |
+ | Dependency/build/release/workflow | For pre-production dev: affected build/runtime/packed-consumer/release-policy/workflow checks; full runs at occasional checkpoints and before production; owner prerequisites and publication effects explicitly reviewed |
+ 
+ Run `pnpm install --frozen-lockfile` when dependencies are needed. Documentation-only
+--- a/docs/troubleshooting/validation.md
++++ b/docs/troubleshooting/validation.md
+@@ -10,7 +10,7 @@
+ ## Missing AI draft-PR checks
+ 
+ The manual AI proposal job validates its patch allowlist, Conventional Commit title,
+-`pnpm check` and `pnpm build-storybook`. It does not run the full browser/packed
++`pnpm check` and `pnpm build:browser-docs`. It does not run the full browser/packed
+ consumer gates. Inspect the PR's exact head and Actions checks before interpreting
+ a generated success summary. For default-token opened/synchronize/reopened events,
+ current [GitHub guidance](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow)
+@@ -28,13 +28,13 @@
+ 
+ ## Browser server missing output or port in use
+ 
+-`pnpm test:browser` typechecks the suite and starts the static Storybook server on
+-`127.0.0.1:6173`; it does not build Storybook. Build current output with
+-`pnpm build-storybook` before starting the suite, and install its engines with
+-`pnpm exec playwright install --with-deps chromium firefox webkit` when needed.
++`pnpm test:browser` typechecks the suite and starts the static docs-owned native fixture server on
++`127.0.0.1:6173`; it does not build the fixtures. Build current output with
++`pnpm build:browser-docs` before starting the suite, and install its engines with
++`pnpm --filter @structured-growth/sg-ui exec playwright install --with-deps chromium firefox webkit` when needed.
+ The harness has `reuseExistingServer: false`. Coordinate with the owner of an
+ existing process rather than stopping another worker's server or reusing stale
+-output. Never rebuild Storybook during a suite run. Retain failure reports/traces;
++output. Never rebuild the fixture output during a suite run. Retain failure reports/traces;
+ do not skip an engine merely to obtain a pass. See [browser acceptance and local
+ Firefox limits](../developer/react-aria-browser-acceptance.md).
+ 
+@@ -53,7 +53,7 @@
+ 
+ Runtime/check/build/consumer logs upload even after failure as
+ `sgui-validation-node-22.12.0` and `sgui-validation-node-24`; browser evidence is
+-`sgui-browser-node-24`. Package and Storybook artifacts upload after success.
++`sgui-browser-node-24`. Package and native-fixture artifacts upload after success.
+ Artifacts retain for 14 days, so expired or absent files need evidence from the
+ producing run rather than an assumption that validation passed. Record exact
+ commit, job/step, command and first actionable error. Do not log credentials or
+--- a/docs/troubleshooting/firefox-profile-launch.md
++++ b/docs/troubleshooting/firefox-profile-launch.md
+@@ -9,7 +9,8 @@
+ ## Bounded reproduction
+ 
+ Use the repository's installed, locked Playwright package with Node 24. The
+-diagnostic does not need Storybook, a server, or a full test suite:
++diagnostic does not need a fixture build, a server, or a full test suite.
++Run this direct library script from `packages/ui`:
+ 
+ ```sh
+ node scripts/diagnose-firefox-profile.mjs --owner YOUR-CHAT-ID
+--- a/docs/developer/react-aria-license-inventory.md
++++ b/docs/developer/react-aria-license-inventory.md
+@@ -4,18 +4,18 @@
+ manifest declarations, pnpm v9 locked identities/edges, available installed package
+ metadata, legal-file hashes and distributed asset candidates. It supplies evidence
+ for review; it does not approve licenses, change notices or decide commercial terms.
+-See [L-01–L-09](react-aria-master-task-list.md#5-licensing-and-dependency-governance),
++See [L-01–L-09](react-aria-hardening-tasks.md),
+ [architecture policy](react-aria-architecture.md#dependency-and-license-policy),
+ [commercial guidance](../commercial-licensing.md) and the
+ [batch 98 gap record](https://github.com/Structured-Growth/sg-ui/blob/7335e41c35ea0af07f72b133ced92e04e1e896ca/docs/developer/parallel-batch-98/acceptance-evidence.md).
+ 
+ ## Run and interpret
+ 
+-From a repository with an already installed frozen-lockfile dependency tree:
++From `packages/ui` in a repository with an already installed frozen-lockfile dependency tree:
+ 
+ ```sh
+ node scripts/check-license-inventory.mjs
+-node scripts/check-license-inventory.mjs /path/to/sg-ui
++node scripts/check-license-inventory.mjs /path/to/sg-ui/packages/ui
+ node --test scripts/check-license-inventory.test.mjs
+ ```
+ 
+--- a/.github/ISSUE_TEMPLATE/ui-change.yml
++++ b/.github/ISSUE_TEMPLATE/ui-change.yml
+@@ -37,8 +37,8 @@
+   - type: textarea
+     id: evidence
+     attributes:
+-      label: Stories and validation evidence
+-      description: Identify relevant stories/tests or reproduction links and planned checks. Guidance-only work verifies links/paths/commands/exports and form structure; pre-production dev tasks use targeted tests and relevant guards/browser/build/consumer checks. Full validation occurs at occasional coordinator checkpoints and before production. Record results in the PR.
++      label: Docs examples and validation evidence
++      description: Identify relevant docs examples/native fixtures/tests or reproduction links and planned checks. Guidance-only work verifies links/paths/commands/exports and form structure; pre-production dev tasks use targeted tests and relevant guards/browser/build/consumer checks. Full validation occurs at occasional coordinator checkpoints and before production. Record results in the PR.
+   - type: textarea
+     id: remaining-gates
+     attributes:
+--- a/.github/pull_request_template.md
++++ b/.github/pull_request_template.md
+@@ -4,7 +4,7 @@
+ - Task IDs (when applicable), bounded scope and acceptance criteria:
+ - Owned API/native ref and styling contract (tokens, CSS, `/styles.css`, Provider/ThemeScope), or N/A:
+ - Host boundary (data, routing, translations, account actions, persistence/uploads), or N/A:
+-- Stories covering changed props/states and meaningful behavior/composed/browser evidence, or N/A with reason:
++- Docs examples/native fixtures covering changed props/states and meaningful behavior/composed/browser evidence, or N/A with reason:
+ - Validation commands/results and head/run/artifact links; unverified behavior:
+ - Remaining backlog/acceptance gates and follow-up owner (do not claim broad completion from a bounded slice):
+ - Conventional Commit title and release impact; breaking mappings/migration steps:
+--- a/docs/commercial-licensing.md
++++ b/docs/commercial-licensing.md
+@@ -1,6 +1,6 @@
+ # Commercial licensing
+ 
+-SGUI is publicly distributed on npm as commercial software. The package's
++SGUI is configured for public npm distribution as commercial software. The package's
+ [LICENSE](../LICENSE) requires a separate written commercial agreement before
+ using the library. It grants no automatic free or evaluation license.
+ 
+@@ -15,10 +15,15 @@
+ use. Counsel should confirm copyright ownership, the publisher's legal identity,
+ notice acceptance and enforceability, and the agreement's commercial terms.
+ 
+-Third-party dependencies remain under their own licenses. SGUI's commercial
+-notice does not relicense React, MUI, Emotion, or Lexical. Full notices for the
+-current direct runtime/peer packages are included in THIRD_PARTY_NOTICES.md;
+-dependencies also distribute their own licenses.
++Third-party dependencies remain under their own licenses; SGUI's commercial
++notice does not relicense them. Current direct runtime/peer dependencies are declared
++in [the library manifest](../packages/ui/package.json). React Aria, TanStack, Lexical,
++Lucide and React attribution must be reviewed against the exact candidate artifact
++using the [license inventory](developer/react-aria-license-inventory.md).
++[THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md) also preserves historical extraction
++notices, including MUI and Emotion; retained notices do not imply current dependencies.
++Dependencies distribute their own licenses. Notice preservation alone does not establish
++complete asset/transitive provenance or counsel approval.
+ 
+ References: [U.S. Copyright Office guidance](https://www.copyright.gov/circs/)
+ and [MIT license terms](https://opensource.org/license/mit).
+--- a/docs/developer/react-aria-runtime-ci.md
++++ b/docs/developer/react-aria-runtime-ci.md
+@@ -6,6 +6,9 @@
+ use `sgui-browser-docs-node-*`. Storybook is removed. The dated heads, commands and
+ artifact names below remain historical receipts, not current runner instructions.
+ See [docs migration](docs-website.md) for current execution evidence.
++Run root `pnpm` scripts from the repository root. Direct `node scripts/...`
++consumer commands in the dated receipts resolve from `packages/ui` in the current
++workspace. Do not run the retired `build-storybook` command to reproduce today's host.
+ 
+ Final removal-guard head `7f03a35108bbf861e9b123b646694f64b21bb369` is independently
+ verified by [run 37560788949](https://github.com/Structured-Growth/sg-ui/actions/runs/37560788949):
+--- a/docs/migration.md
++++ b/docs/migration.md
+@@ -108,6 +108,38 @@
+ breaking mappings. Translated Course-named preset factories coexist with existing
+ Class exports; see [presets](developer/react-aria-grid-presets.md).
+ 
++## Changed defaults and compatibility names
++
++Use the built public declarations for the version being adopted. The migration
++changes above include these consumer-visible defaults and ownership rules:
++
++| Concern | Current behavior / required migration |
++| --- | --- |
++| Button / removed AppButton | Import `Button` and `ButtonProps` from the root, components barrel or `/components/Button`. AppButton/AppButtonProps were removed before first release; historical evidence keeps its original names. Button defaults to `type="button"`, `variant="filled"`, `tone="primary"`; set submit/reset explicitly and use `onPress` without an upstream event. |
++| Scope / Menu density | General scopes default to comfortable. Generic Menu inherits scope density; catalog menu wrappers explicitly choose compact. Set a local scope or supported density prop instead of assuming all menus are compact. |
++| Typography tones | Use default/muted/subtle/accent/danger. `primary` is a compatibility alias for accent, not an action-priority label; semantic `as` and visual variant are independent. |
++| Grid selection | AppDataGrid selection config uses `ReadonlySet<string>` input and `Set<string>` change requests. Supply stable top-level getRowId; reconcile retained IDs in the host. Do not forward an engine include/exclude object. |
++| Pagination / persistence | Pages are zero-based. Criteria/page-size changes request page zero first. Persistence is opt-in with distinct keys; controlled values remain authoritative. |
++| Preserved names | Class-prefixed names, AppThemeProvider and AppPaginationFooter remain supported exports, not an inferred deprecation schedule. The CardPaginationFooter directory/subpath exports AppPaginationFooter. `/experimental` is a proof entry point; do not rename public App components to match it. |
++
++For example, after the application imports the stylesheet and provides its theme:
++
++```tsx
++import { useRef } from "react";
++import { Button, type ButtonProps } from "@structured-growth/sg-ui/components/Button";
++
++export function SaveDraft({ onSave }: { onSave: () => void }) {
++  const ref = useRef<HTMLButtonElement>(null);
++  const variant: ButtonProps["variant"] = "outlined";
++  return <Button ref={ref} variant={variant} tone="neutral"
++    onPress={onSave}>{"Save draft"}</Button>;
++}
++```
++
++This synchronous callback requests a host action; it does not persist a record or
++model asynchronous saving. Async hosts own completion/error state and supply it
++through the supported loading/disabled props. See the [adoption checklist](developer/react-aria-adoption-checklist.md).
++
+ ## Adoption and remaining limits
+ 
+ The [read-only adoption checklist](developer/react-aria-adoption-checklist.md) is
+@@ -138,6 +170,9 @@
+ review dependency licenses. Engine independence does not imply automatic portability
+ to another framework.
+ 
++
++Support decisions still required are recorded in the [dependency policy decision record](developer/react-aria-dependency-upgrades.md#human-decision-record-required-for-operational-acceptance): supported-release/backport window, routine review cadence and accountable maintainer, confidential intake and disclosure authority. This guide does not establish a support service, response SLA or deprecation schedule. Resolve those decisions before claiming operational support acceptance.
++
+ Commercial terms and third-party notices remain authoritative. Local validation
+ does not publish packages; Actions handles semantic-release after approved merges.
+ Final legal/historical-reference and exact-artifact audits remain open. No first

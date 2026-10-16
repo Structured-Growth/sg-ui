@@ -1,0 +1,187 @@
+{
+  "result": "pass",
+  "runtime": "v26.5.0",
+  "versions": {
+    "node": "26.5.0",
+    "acorn": "8.17.0",
+    "ada": "3.4.4",
+    "amaro": "1.1.10",
+    "ares": "1.34.8",
+    "brotli": "1.2.0",
+    "cldr": "48.0",
+    "icu": "78.3",
+    "libffi": "3.5.2",
+    "llhttp": "9.4.2",
+    "merve": "1.2.2",
+    "modules": "147",
+    "napi": "10",
+    "nbytes": "0.1.4",
+    "ncrypto": "0.0.1",
+    "nghttp2": "1.69.0",
+    "nghttp3": "",
+    "ngtcp2": "",
+    "openssl": "3.6.3",
+    "simdjson": "4.6.4",
+    "simdutf": "7.7.0",
+    "sqlite": "3.53.3",
+    "tz": "2026a",
+    "undici": "8.7.0",
+    "unicode": "17.0",
+    "uv": "1.52.1",
+    "uvwasi": "0.0.23",
+    "v8": "14.6.202.34-node.24",
+    "zlib": "1.2.12",
+    "zstd": "1.5.7"
+  },
+  "timezone": "UTC",
+  "command": "TZ=UTC node docs/developer/final-acceptance/wave-03-17/check-built-locale.mjs",
+  "scope": "Existing built public export routes; deterministic ICU and server-rendered Provider locale, not native browser, hydration or spoken AT.",
+  "inputs": {
+    "packages/ui/dist/i18n/index.js": "f77a8c99c425a9237fbdf27b8e86ae4a3309294696672779687aaba87dea8eb7",
+    "packages/ui/dist/theme/index.js": "4be85aa5c2b68be9074630aa4ed2975feeb45dcc1eb516652478a03729fc3288",
+    "packages/ui/dist/i18n/icu.js": "e3f3a7f7ab109d64125feeda92d44c685c7a1dfac8e7666f2f654854240b129f",
+    "packages/ui/dist/experimental/Provider/Provider.js": "1c9e1ca99e6a6b421f08be7e21d9696e86a5bbe8efaa9961659f2f9031134626",
+    "packages/ui/dist/foundation/ThemeScope.js": "922af1e24731b71eab5f798d94ead92f6a560d0cc4bcd6db2e9d831c684fba1d",
+    "packages/ui/src/i18n/icu.ts": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+    "packages/ui/src/i18n/index.tsx": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+    "packages/ui/src/experimental/Provider/Provider.tsx": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+    "packages/ui/src/foundation/ThemeScope.tsx": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+    "apps/docs/native-fixtures/scenarios/i18n/Translations.fixture.tsx": "99f58b1ae3db393b5549a321321672a0197258661a24fe9c5b6b1431fa21fe95"
+  },
+  "comparison": [
+    {
+      "file": "packages/ui/src/i18n/index.tsx",
+      "previousSha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "currentSha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "unchanged": true
+    },
+    {
+      "file": "packages/ui/src/i18n/icu.ts",
+      "previousSha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "currentSha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "unchanged": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Provider/Provider.tsx",
+      "previousSha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "currentSha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "unchanged": true
+    },
+    {
+      "file": "packages/ui/src/foundation/ThemeScope.tsx",
+      "previousSha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "currentSha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "unchanged": true
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/i18n/Translations.fixture.tsx",
+      "previousSha256": "99f58b1ae3db393b5549a321321672a0197258661a24fe9c5b6b1431fa21fe95",
+      "currentSha256": "99f58b1ae3db393b5549a321321672a0197258661a24fe9c5b6b1431fa21fe95",
+      "unchanged": true
+    }
+  ],
+  "cases": [
+    {
+      "locale": "en-US",
+      "count": 0,
+      "output": "No rows selected"
+    },
+    {
+      "locale": "en-US",
+      "count": 1,
+      "output": "1 row selected"
+    },
+    {
+      "locale": "en-US",
+      "count": 2,
+      "output": "2 rows selected"
+    },
+    {
+      "locale": "en-US",
+      "count": 3,
+      "output": "3 rows selected"
+    },
+    {
+      "locale": "en-US",
+      "count": 11,
+      "output": "11 rows selected"
+    },
+    {
+      "locale": "en-US",
+      "count": 100,
+      "output": "100 rows selected"
+    },
+    {
+      "locale": "en-US",
+      "number": "12,345.5",
+      "date": "10/16/2026",
+      "providerHtml": "<div dir=\"ltr\" lang=\"en-US\" class=\"sgui_root_96098259 sgui_scope_4c1123f0\" data-sgui-scope=\"\" data-sgui-theme=\"light\" data-sgui-density=\"comfortable\" data-sgui-interaction=\"auto\"><span data-probe=\"\">11 rows selected|12,345.5|10/16/2026</span></div>"
+    },
+    {
+      "locale": "ar-EG",
+      "count": 0,
+      "output": "لم يتم تحديد صفوف"
+    },
+    {
+      "locale": "ar-EG",
+      "count": 1,
+      "output": "تم تحديد صف واحد"
+    },
+    {
+      "locale": "ar-EG",
+      "count": 2,
+      "output": "تم تحديد صفين"
+    },
+    {
+      "locale": "ar-EG",
+      "count": 3,
+      "output": "تم تحديد ٣ صفوف"
+    },
+    {
+      "locale": "ar-EG",
+      "count": 11,
+      "output": "تم تحديد ١١ صفًا"
+    },
+    {
+      "locale": "ar-EG",
+      "count": 100,
+      "output": "تم تحديد ١٠٠ صف"
+    },
+    {
+      "locale": "ar-EG",
+      "number": "١٢٬٣٤٥٫٥",
+      "date": "١٦‏/١٠‏/٢٠٢٦",
+      "providerHtml": "<div dir=\"rtl\" lang=\"ar-EG\" class=\"sgui_root_96098259 sgui_scope_4c1123f0\" data-sgui-scope=\"\" data-sgui-theme=\"light\" data-sgui-density=\"comfortable\" data-sgui-interaction=\"auto\"><span data-probe=\"\">تم تحديد ١١ صفًا|١٢٬٣٤٥٫٥|١٦‏/١٠‏/٢٠٢٦</span></div>"
+    },
+    {
+      "locale": "pseudo/en-US",
+      "count": 0,
+      "output": "⟦Nöö rööws sëëlëëctëëd — ëëxpààndëëd tràànslààtïïöön⟧"
+    },
+    {
+      "locale": "pseudo/en-US",
+      "count": 1,
+      "output": "⟦1 rööw sëëlëëctëëd — ëëxpààndëëd tràànslààtïïöön⟧"
+    },
+    {
+      "locale": "pseudo/en-US",
+      "count": 2,
+      "output": "⟦2 rööws sëëlëëctëëd — ëëxpààndëëd tràànslààtïïöön⟧"
+    },
+    {
+      "locale": "pseudo/en-US",
+      "count": 3,
+      "output": "⟦3 rööws sëëlëëctëëd — ëëxpààndëëd tràànslààtïïöön⟧"
+    },
+    {
+      "locale": "pseudo/en-US",
+      "count": 11,
+      "output": "⟦11 rööws sëëlëëctëëd — ëëxpààndëëd tràànslààtïïöön⟧"
+    },
+    {
+      "locale": "pseudo/en-US",
+      "count": 100,
+      "output": "⟦100 rööws sëëlëëctëëd — ëëxpààndëëd tràànslààtïïöön⟧"
+    }
+  ]
+}

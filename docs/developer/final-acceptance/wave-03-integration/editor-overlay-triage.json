@@ -1,0 +1,19 @@
+{
+  "status": "source/spec frozen; root will validate corrected combined case3engines after fresh Select/fixturebuild",
+  "diagnosis": "Chromium and Firefox initial overlay failure assert pointer-opened Edit link trigger focus, while production intentionally retains focused document. Firefox trace uses earlier cached module; current source asserts editor focus and exact restored Overlay draft range. No fixture/runtime change required.",
+  "source": "packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+  "sha256": "6687705c49aa06c61938ec3f8de8dc6ddde22e222c43272547ffca637904354b",
+  "preservedAssertions": [
+    "Menu live theme/density/locale/direction and narrow resize focus",
+    "Tooltip live theme/collision and parent ownership",
+    "Nested Link initial draft/focus/hit target",
+    "Exact editor selection after cancel and actual link Apply transaction",
+    "Repeated child native focus restoration/locks",
+    "Final parent opener focus, unlocked document and independent sibling"
+  ],
+  "failedFirstContexts": [
+    "packages/ui/artifacts/wave03-integration/native-final/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-chromium/error-context.md",
+    "packages/ui/artifacts/wave03-integration/native-final/wave03-overlay-successors--48a6b-rship-and-live-portal-scope-firefox/error-context.md"
+  ],
+  "rerunAttempt": "editor-overlay-focus-rerun.log EEXIST before runner; no native pass claimed for this corrected spec"
+}

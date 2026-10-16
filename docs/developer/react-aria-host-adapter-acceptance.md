@@ -36,6 +36,33 @@ styled controls. SGLink itself supplies anchor semantics without visual styling.
 An explicit styled `external={false}` still cannot send an absolute destination
 through SGLink's router: use imperative host navigation when that is required.
 
+## Composed routes and callback boundaries
+
+Breadcrumbs and SideNavigation leaf links use the shared styled Link, including
+its host-provided custom Link when present. React Aria Menu route items instead
+call the same adapter's `navigate` directly for eligible relative primary
+activation. Menu does not render the custom Link. `onAction` is an item notification;
+a host must not also navigate to that same item's href from `onAction`. Keep
+application routing inside the adapter so a single activation requests one route.
+Modified activation, external URLs and non-self targets retain native semantics.
+Menu commands without href remain host actions.
+
+A custom Link owns cancellation and native bypass rules after receiving the
+consumer callback. Invoke `onClick` first, stop if it prevents default, and call
+`preventDefault()` before `navigate`. Preserve `replace`, all native anchor
+attributes, children and the anchor ref. React Aria interaction implementations
+remain internal; adding another routing provider is unnecessary for these owned
+components. Framework imports belong to the host application.
+
+The private adapter routing fixture additionally composes Menu, Breadcrumbs,
+SideNavigation and Link with both navigate-only and custom-Link adapters. The
+focused `tests/browser/navigation-composed.spec.ts` defines pointer/Enter exact
+counts, consumer cancellation/order, pathname replacement/selected state,
+anchor identity/ref focus, modifier/target popups and a same-origin download.
+These are runnable assertions, not a recorded browser pass until coordinator
+integration and native execution. The fixture's local pathname state represents
+host acceptance; it does not simulate framework history, persistence or a backend.
+
 ## Account ownership
 
 SGAccountProvider supplies presentation sessions and operation callbacks. The
@@ -51,6 +78,46 @@ and errors do not imply session mutation; successful logout/navigation and
 organization refresh remain host integration concerns. Existing SideNavigation
 owns its composed pending/error UI; this slice does not modify that shell.
 
+## Host diagnostics for asynchronous actions
+
+SideNavigation admits one account operation at a time, suppresses repeated or
+competing menu actions while pending, and permits an explicit retry after failure.
+It shows generic translated alerts and does not forward caught errors. Retain
+useful diagnostics in the host callback before rejecting. Apply this host-owned
+wrapper to each of `logoutAccount`, `logoutAllAccounts` and `onOrganizationChange`:
+
+```ts
+function withHostDiagnostics<Args extends unknown[]>(
+  operation: "logoutAccount" | "logoutAllAccounts" | "onOrganizationChange",
+  request: (...args: Args) => Promise<void>,
+  retain: (entry: { operation: string; cause: unknown }) => void,
+): (...args: Args) => Promise<void> {
+  return async (...args) => {
+    try {
+      await request(...args);
+    } catch (cause: unknown) {
+      retain({ operation, cause });
+      throw cause;
+    }
+  };
+}
+```
+
+This helper is host application code, not an SGUI export. `retain` must be a
+nonthrowing synchronous sink; the host owns redaction, access, storage, transport
+failures and retention. Keep the original unknown rejection object, including
+Error causes or opaque values, for diagnostic processing. Do not stringify raw
+backend errors into visible alerts or public console logs. Keep wrapped callback
+references stable across renders (for example with host `useMemo`); changing the
+adapter callbacks intentionally invalidates library-owned pending results.
+
+A stale request still settles and is diagnosed by its original host wrapper.
+SideNavigation ignores its obsolete UI/session/navigation result after callback
+or adapter replacement or unmount; it does not cancel the host request. Distinct
+adapter callers remain independent. `Button.onPress` itself does not await a
+returned promise, deduplicate host requests or report rejections: standalone
+async actions must own their pending guard and catch failures in the host.
+
 ## Evidence and limits
 
 - `src/adapters/navigation.test.tsx`: native fallback, external
@@ -59,13 +126,13 @@ owns its composed pending/error UI; this slice does not modify that shell.
   fallback in a Node environment without window.
 - `src/adapters/accounts.test.tsx`: disabled fallback, exact presentation records,
   lazy getters, callback arguments, pending promise identity and rejection reason.
-- `src/adapters/adapters.stories.tsx`: production scoped routing and a host-controlled
+- `apps/docs/native-fixtures/scenarios/adapters/adapters.fixture.tsx`: production scoped routing and a host-controlled
   async account example, with completion, rejection and retry.
 - `tests/browser/batch01-adapters.spec.ts`: native Enter/hash navigation, styled
   link keyboard routing, custom ref focus, replace/path updates, download bytes,
   external document navigation and async account pending/retry.
 
-The async story demonstrates host policy, not automatic adapter pending state.
+The async fixture demonstrates host policy, not automatic adapter pending state.
 Real routers, auth services, physical devices, assistive technology and broader
 Breadcrumbs/shell behavior remain outside this slice. No broad gate is marked
 complete by this record.

@@ -771,6 +771,122 @@
       "children": []
     }
   ],
+  "period-picker": [
+    {
+      "name": "PeriodPicker",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "DateRangeSelector",
+          "slug": "date-range-selector"
+        },
+        {
+          "name": "Popover",
+          "slug": "popover"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
+        },
+        {
+          "name": "Stack",
+          "slug": "stack"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        }
+      ]
+    }
+  ],
+  "date-time-range-picker": [
+    {
+      "name": "DateTimeRangePicker",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "DatePicker",
+          "slug": "date-picker"
+        },
+        {
+          "name": "Popover",
+          "slug": "popover"
+        },
+        {
+          "name": "Stack",
+          "slug": "stack"
+        },
+        {
+          "name": "TimeField",
+          "slug": "time-field"
+        }
+      ]
+    }
+  ],
+  "date-range-comparison-picker": [
+    {
+      "name": "DateRangeComparisonPicker",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "DateRangePicker",
+          "slug": "date-range-picker"
+        },
+        {
+          "name": "Popover",
+          "slug": "popover"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
+        },
+        {
+          "name": "Stack",
+          "slug": "stack"
+        }
+      ]
+    }
+  ],
+  "search-field": [
+    {
+      "name": "SearchField",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "CloseIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
+          "name": "SearchIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
   "text-field": [
     {
       "name": "TextField",
@@ -892,7 +1008,24 @@
   "time-field": [
     {
       "name": "TimeField",
-      "children": []
+      "children": [
+        {
+          "name": "AccessTimeFilledIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "Popover",
+          "slug": "popover"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
+        }
+      ]
     }
   ],
   "calendar": [
@@ -902,6 +1035,10 @@
         {
           "name": "Button",
           "slug": "button"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
         }
       ]
     }
@@ -919,12 +1056,20 @@
           "slug": "calendar"
         },
         {
+          "name": "CalendarTodayIcon",
+          "slug": "icons"
+        },
+        {
           "name": "DateField",
           "slug": "date-field"
         },
         {
           "name": "Popover",
           "slug": "popover"
+        },
+        {
+          "name": "TimeField",
+          "slug": "time-field"
         }
       ]
     }
@@ -936,6 +1081,10 @@
         {
           "name": "Button",
           "slug": "button"
+        },
+        {
+          "name": "CalendarTodayIcon",
+          "slug": "icons"
         },
         {
           "name": "DateRangeSelector",
@@ -957,8 +1106,16 @@
           "slug": "button"
         },
         {
+          "name": "CheckIcon",
+          "slug": "icons"
+        },
+        {
           "name": "DateField",
           "slug": "date-field"
+        },
+        {
+          "name": "Select",
+          "slug": "select"
         }
       ]
     }
@@ -1811,6 +1968,10 @@
           "slug": "icons"
         },
         {
+          "name": "Popover",
+          "slug": "popover"
+        },
+        {
           "name": "Progress",
           "slug": "progress"
         },
@@ -1821,6 +1982,10 @@
         {
           "name": "Status",
           "slug": "status"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
         },
         {
           "name": "Typography",

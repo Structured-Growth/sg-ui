@@ -6,7 +6,11 @@ import { Menu } from "../../experimental/Menu/Menu";
 import { Progress } from "../../experimental/Progress/Progress";
 import { Status } from "../../experimental/Status/Status";
 import { Typography, type TypographyVariant } from "../../experimental/Typography/Typography";
-import { ArrowDropDownIcon, ChevronRightIcon, EditIcon, ExpandMoreIcon, SortIcon } from "../../experimental/icons";
+import { ArrowDropDownIcon } from "../../experimental/icons/ArrowDropDownIcon";
+import { ChevronRightIcon } from "../../experimental/icons/ChevronRightIcon";
+import { EditIcon } from "../../experimental/icons/EditIcon";
+import { ExpandMoreIcon } from "../../experimental/icons/ExpandMoreIcon";
+import { SortIcon } from "../../experimental/icons/SortIcon";
 import { useTranslation } from "../../i18n";
 import styles from "./ownedGridParts.module.css";
 

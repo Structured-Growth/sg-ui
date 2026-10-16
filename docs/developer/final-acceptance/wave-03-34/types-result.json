@@ -1,0 +1,42 @@
+{
+  "runtime": "v26.5.0",
+  "typescript": "5.9.3",
+  "mode": "pure compiler API against existing built public declarations; virtual consumer resolution from apps/docs",
+  "diagnostics": [],
+  "inputHashes": {
+    "packages/ui/dist/foundation/ThemeScope.d.ts": "aecaae283efde261af06591d89da96663f981d3601fb2085118f2568cfc77066",
+    "packages/ui/dist/components/Button/Button.d.ts": "5bc1f054c34b64bae517fa59b186156828261046538177b87e51a83f97f5cef3",
+    "packages/ui/dist/components/Button/index.d.ts": "e9036b73c5b6d3845cbd376fb967de04ead1fe6c1f31c94f118acfb1da6f0271",
+    "packages/ui/dist/components/DataToolbar/components/DataToolbarFilterMenu.d.ts": "aa706a522e03bb756c2b54c230f4a421f81c9d722472777bd075fc1944d663d5",
+    "packages/ui/dist/components/AppDataGrid/ownedGridModel.d.ts": "16454689fe21539de9882b7b9fe154e9740d9927d793d73525ca953272ce354f",
+    "packages/ui/dist/components/AppDataGrid/ownedGridColumns.d.ts": "8119deac7e2e2775a17a3f648bdd1ef2ae19cfdaf8d9dcb4a124b22cc8248350",
+    "packages/ui/dist/components/AppDataGrid/types.d.ts": "7db3978876252e05fc96b04c3b825c0aae4db1bafd7c2912c6a7333beb4e850b",
+    "packages/ui/dist/components/DataToolbar/components/DataToolbarColumnsMenu.d.ts": "889869a8b0c06c27cc4a5ab07c56ed9138b7f5f68ca005c10ed9dac4c1dcd8fd",
+    "packages/ui/dist/components/DataToolbar/components/DataToolbarSortMenu.d.ts": "bbdb98b1a7b0b022d333baf01256d7fe464c77288b081f3b7c516cd377df8bff",
+    "packages/ui/dist/components/DataToolbar/components/DataToolbarSelectionMenu.d.ts": "bf0f8847fa19a60e01e782e742856a25764963abf3bff6394e6ca0c1efb88913",
+    "packages/ui/dist/components/DataToolbar/DataToolbar.d.ts": "47461a71070755b79ff24ae4c320429ef797b928248ca39824247e8c2c29bc19",
+    "packages/ui/dist/components/AppDataGrid/ownedGridState.d.ts": "4ae8c374148e70a7927686e1a0aa5dcf4eefcda381ed977d9605cfab5f363551",
+    "packages/ui/dist/components/AppDataGrid/ownedGridController.d.ts": "43ac557610ba5dec9f3434d8239c60f0dfd9aa4087228dd0d5ee9765eea1fefd",
+    "packages/ui/dist/components/AppDataGrid/ownedGridLayoutController.d.ts": "d56a34f63af1d3a06a5685ba732732e8287988ee746170eab0d7fbba9dd00fd6",
+    "packages/ui/dist/components/AppDataGrid/ownedGridCells.d.ts": "b5223494142bab98ec05779f466dd644d87a6b8c2fc632fe0e1ef5209af0c2b8",
+    "packages/ui/dist/components/AppDataGrid/ownedGridInteraction.d.ts": "39b9c934c3174b31b08481638dc66298c871de85f35c9cf05cd26456617f6c30",
+    "packages/ui/dist/components/AppDataGrid/ownedGridPersistence.d.ts": "560d63b3c2ae9998ed7254e38e27a4052b4737fe5a6ad2fe6e5715b64fc859af",
+    "packages/ui/dist/components/AppDataGrid/ownedGridReset.d.ts": "fccb397e3dd2a360d33f6a2983e231ce30c480c12600b3522170c9cf6fb31683",
+    "packages/ui/dist/components/AppDataGrid/AppDataGrid.d.ts": "ef0792e9c459562c8354f85c75ac439b6e9074bb3858062187d32d3fefc2122f",
+    "packages/ui/dist/experimental/Typography/Typography.d.ts": "5250013c1b21c137622f9798e3d1f462ad4cdfb83b42347eb81e4cd47095fe01",
+    "packages/ui/dist/components/AppDataGrid/ownedGridParts.d.ts": "8fc685c9f910027e910ae9e658ed1fe11c3f4d94c2fcbc4955acce145b13e76d",
+    "packages/ui/dist/components/AppDataGrid/components/RowSubHeader.d.ts": "4530e04debc956293cc78a9ac91ad645835bc438735e861ba6e87c990c82313e",
+    "packages/ui/dist/components/AppDataGrid/createActionMenuColumn.d.ts": "58c7a916e0a5f6580125110db07f523e15baf2c01bfa66258dfd19defaffb638",
+    "packages/ui/dist/components/AppDataGrid/createDataGridColumns.d.ts": "e5d428ca00d52f2fd00b2c2ebc26fa7ece2a10584233d7d5269ad4248cb2a4c5",
+    "packages/ui/dist/components/AppDataGrid/index.d.ts": "0e3df1e905d1115c9404eb9872777a1b66ea5438d68bf771562b6d9d311208be"
+  },
+  "assertions": [
+    "migration guide snippet compiles",
+    "grid Set/string ID and zero-based pagination public types compile",
+    "removed sx prop, event callback and engine selection object rejected via consumed @ts-expect-error directives"
+  ],
+  "limits": [
+    "No fresh build or runtime behavior validation",
+    "Does not compile every displayed dynamic catalog source; coordinator catalog browser gate remains required"
+  ]
+}

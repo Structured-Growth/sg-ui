@@ -1,0 +1,202 @@
+{
+  "capturedAt": "2026-10-16T23:06:13.765940+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "inputs": [
+    {
+      "path": "apps/docs/native-fixtures/generate-registry.mjs",
+      "currentSha256": "fb1b14f094ad0229d7bc07f4e48b4cbf1479a6b5c557f2a92c5299d07e106e87",
+      "proposedSha256": null,
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/host.tsx",
+      "currentSha256": "393601956069cfe51267dda16187a5f224eedbb71f5d39dee9b3bfa4f19ef57d",
+      "proposedSha256": null,
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "currentSha256": "a4fdd33331cf744ae5cde3c029dcb026240825026c5a04120d36647267d3d5b3",
+      "proposedSha256": "d82cfba8be4f38f8e0c24b9d4fd854dd37d0c833b4d7251775452b5edd9e0a60",
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/i18n/Translations.fixture.tsx",
+      "currentSha256": "99f58b1ae3db393b5549a321321672a0197258661a24fe9c5b6b1431fa21fe95",
+      "proposedSha256": "625636f384a6bd48c249ab9fe7735bdbb69ae2b941a6117585ae1d84ed1b1038",
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "docs/developer/react-aria-i18n-acceptance.md",
+      "currentSha256": "94b62510f7f7cbb36636504459f9e89dd646a9c762baa7eafcf9a717a347cd7a",
+      "proposedSha256": "77007fbeede6aa2a98bdb4f0b720076308a9c47f8ad802be0fa5ef136bbe7779",
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/dist/components/SideNavigation/SideNavigation.module.css.js",
+      "currentSha256": "cf871fc6924c06513589f4a4f1395cf62a2391505e368006a2136889a8801619",
+      "proposedSha256": null,
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": "cf871fc6924c06513589f4a4f1395cf62a2391505e368006a2136889a8801619",
+      "unchangedFromCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/Provider/Provider.js",
+      "currentSha256": "1c9e1ca99e6a6b421f08be7e21d9696e86a5bbe8efaa9961659f2f9031134626",
+      "proposedSha256": null,
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": "1c9e1ca99e6a6b421f08be7e21d9696e86a5bbe8efaa9961659f2f9031134626",
+      "unchangedFromCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/i18n/icu.js",
+      "currentSha256": "e3f3a7f7ab109d64125feeda92d44c685c7a1dfac8e7666f2f654854240b129f",
+      "proposedSha256": null,
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": "e3f3a7f7ab109d64125feeda92d44c685c7a1dfac8e7666f2f654854240b129f",
+      "unchangedFromCoordinator": true
+    },
+    {
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.module.css",
+      "currentSha256": "4a975c632190d5d6fb5e4590bf3de1feb318d3c18146123cfddc6b03b421e97c",
+      "proposedSha256": "ff4b0772ac5ef50f8967e42b086acc100142d44e6a8bb4f4ae4428846c16da22",
+      "wave0206Sha256": "4a975c632190d5d6fb5e4590bf3de1feb318d3c18146123cfddc6b03b421e97c",
+      "unchangedFromWave0206": true,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+      "currentSha256": "f0b2e86367b1a2b73ca204018b663987157ff713d7a71758be9727bcc21fc085",
+      "proposedSha256": null,
+      "wave0206Sha256": "f0b2e86367b1a2b73ca204018b663987157ff713d7a71758be9727bcc21fc085",
+      "unchangedFromWave0206": true,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Provider/Provider.tsx",
+      "currentSha256": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+      "proposedSha256": null,
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/icons/createVector.tsx",
+      "currentSha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "proposedSha256": null,
+      "wave0206Sha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "unchangedFromWave0206": true,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/icons/icons.module.css",
+      "currentSha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "proposedSha256": null,
+      "wave0206Sha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "unchangedFromWave0206": true,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "currentSha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "proposedSha256": null,
+      "wave0206Sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "unchangedFromWave0206": true,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/i18n/icu.ts",
+      "currentSha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "proposedSha256": null,
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/i18n/index.tsx",
+      "currentSha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "proposedSha256": null,
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/navigation-locale-motion.spec.ts",
+      "currentSha256": null,
+      "proposedSha256": "76ae006bcc4b7081c19db06aacddac3167f5f4e094cba9a6d52799072cc1737c",
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/translations-locale-acceptance.spec.ts",
+      "currentSha256": null,
+      "proposedSha256": "c14b8f2db567fc4d5dfe8e56343f4f3fa8c8fcca02b23b19877af1178a334e1b",
+      "wave0206Sha256": null,
+      "unchangedFromWave0206": null,
+      "coordinatorSha256": null,
+      "unchangedFromCoordinator": null
+    }
+  ],
+  "priorReceiptComparisons": [
+    {
+      "leaf": "A-H-08",
+      "path": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "expectedSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "currentSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "matches": true
+    },
+    {
+      "leaf": "A-H-08",
+      "path": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "expectedSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "currentSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "matches": true
+    },
+    {
+      "leaf": "A-C-09",
+      "path": "docs/developer/final-acceptance/wave-02-06/report.md",
+      "expectedSha256": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "currentSha256": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "matches": true
+    },
+    {
+      "leaf": "A-C-09",
+      "path": "docs/developer/final-acceptance/wave-02-06/results.json",
+      "expectedSha256": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "currentSha256": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "matches": true
+    }
+  ],
+  "coordinatorEvidenceSha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+  "patchCheck": "git apply --check passed; patch not applied",
+  "patchSha256": "6a3e9e588167b88cf65ca6b672baed9145c7ec2bd9a74ce4604871b622378063"
+}

@@ -1,0 +1,31 @@
+{
+  "runtime": "v26.5.0",
+  "result": "pass",
+  "files": [
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "bodyUnchanged": true,
+      "bindingsUnchanged": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "bodyUnchanged": true,
+      "bindingsUnchanged": true
+    },
+    {
+      "path": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "bodyUnchanged": true,
+      "bindingsUnchanged": true
+    },
+    {
+      "path": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "bodyUnchanged": true,
+      "bindingsUnchanged": true
+    },
+    {
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+      "bodyUnchanged": true,
+      "bindingsUnchanged": true
+    }
+  ]
+}

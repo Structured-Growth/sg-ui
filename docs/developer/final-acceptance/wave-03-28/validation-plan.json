@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "owner": "wave-03-28",
+  "noAcceptanceCountsChanged": true,
+  "patches": [
+    {
+      "path": "boundaries.patch",
+      "targets": [
+        "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.boundaries.test.tsx"
+      ],
+      "purpose": "Three focused midnight/overnight/seconds UI regressions; no runtime API change"
+    },
+    {
+      "path": "contracts.patch",
+      "targets": [
+        "docs/developer/react-aria-calendar-contracts.md"
+      ],
+      "purpose": "Explicit host conversion of inclusive civil end to exclusive API boundary and inclusive local datetime bounds"
+    },
+    {
+      "path": "native-navigation.patch",
+      "targets": [
+        "apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.fixture.tsx",
+        "packages/ui/tests/browser/calendar-navigation-reflow.spec.ts"
+      ],
+      "purpose": "Four native light/dark density cases; direct month/year jumps and narrow/wide resize without remount"
+    }
+  ],
+  "completed": [
+    {
+      "command": "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node docs/developer/final-acceptance/wave-03-28/exclusive-boundaries.mjs",
+      "cwd": "repository root",
+      "result": "pass under unset, America/Chicago and Asia/Tokyo TZ",
+      "logs": [
+        "exclusive-boundaries.log",
+        "exclusive-chicago.log",
+        "exclusive-tokyo.log"
+      ],
+      "assertions": [
+        "five civil month/leap/year transitions",
+        "overflow rejects",
+        "Chicago explicit reject midnights span 23 and 25 hours",
+        "inclusive bounds and unavailable endpoint preserved",
+        "civil input remains unchanged across explicit timezones"
+      ]
+    },
+    {
+      "command": "git apply --check <each .patch>",
+      "result": "all three pass; no patch applied"
+    }
+  ],
+  "pending": [
+    {
+      "id": "K08-ui",
+      "cwd": "packages/ui",
+      "command": "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node node_modules/vitest/vitest.mjs run --config ../../docs/developer/final-acceptance/wave-03-28/vitest.config.mjs",
+      "result": "Not executed: first import resolution failed before test collection, corrected evidence imports; subsequent two admissions found occupied lease. All failure logs retained.",
+      "afterIntegrationCommand": "pnpm exec vitest run src/experimental/DateTimeRangePicker/DateTimeRangePicker.boundaries.test.tsx",
+      "expected": "3 cases pass; exact atomic callbacks, both FormData fields, reversed invalid and max+1 second invalid"
+    },
+    {
+      "id": "K05-native",
+      "coordinatorPrerequisites": [
+        "Review/apply native-navigation.patch",
+        "Use Node22/24 and validation lease",
+        "pnpm --filter @structured-growth/sg-ui build",
+        "From packages/ui: node scripts/build-browser-docs.mjs; Vite generates fixture registry from new export",
+        "Freeze/hash source, dist and native fixture output; retain console diagnostics and engine versions"
+      ],
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/calendar-native-locales.spec.ts tests/browser/hardening-date-presentation.spec.ts tests/browser/calendar-navigation-reflow.spec.ts",
+      "expected": "Existing assertions retained: localized date names and RTL/leap traversal; en/ar light/dark compact/comfortable 360px + 150% text; Escape/Apply opener focus; new four navigation/resize cases per desktop engine. Scope 22 cases per engine (10 locale + 8 hardening + 4 new), zero retries.",
+      "limits": "150% text is text enlargement, not real browser zoom or device proof; do not use this run as spoken AT evidence."
+    },
+    {
+      "id": "K05-at",
+      "operatorRequired": true,
+      "protocol": "Record named OS/AT/browser versions, locale, density and theme. Observe actual speech while entering calendar, traversing selected and unavailable dates, changing month/year, selecting leap day, then Escape and Apply opener restoration in picker. Record exact heard output and timing. Distinguish ARIA/DOM labels from spoken results.",
+      "missing": "No operator/AT session supplied; cannot manufacture observation"
+    }
+  ]
+}

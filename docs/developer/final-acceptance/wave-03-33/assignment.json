@@ -1,0 +1,90 @@
+{
+  "number": 33,
+  "title": "Extraction and replacement provenance",
+  "ids": [
+    "A-B-12",
+    "A-B-14",
+    "A-W-10",
+    "A-W-16",
+    "A-Z-05"
+  ],
+  "focus": "36 manifest rows are repaired. Resolve remaining original AppButton/story lineage and replacement assertion mapping against Git objects/read-only provenance. Keep learner repository unchanged, historical evidence immutable, and do not restore Storybook. Produce exact manifest/doc patch only with evidence.",
+  "directory": "docs/developer/final-acceptance/wave-03-33",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-B-12": "- [ ] A-B-12 Reconcile original `B-12`: Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move. Historical status: open.",
+    "A-B-14": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+    "A-W-10": "- [ ] A-W-10 Reconcile original `W-10`: Retain the 33 existing story files or document deliberate replacements; add missing catalog coverage for primitives, adapters, calendars and grid helpers. Historical status: open.",
+    "A-W-16": "- [ ] A-W-16 Reconcile original `W-16`: Update `docs/migration.md` and the extraction manifest to preserve useful provenance and account for moves/deletions; do not misrepresent the original extraction as the final architecture. Historical status: open.",
+    "A-Z-05": "- [ ] A-Z-05 Reconcile original `Z-05`: Rewrite historical manifest entries/document explanations where necessary for literal-reference removal while retaining source repository/commit provenance; do not rewrite Git history or invent provenance. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-B-12": {
+      "id": "A-B-12",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-B-12 Reconcile original `B-12`: Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move. Historical status: open.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Attach original-platform source-commit-bound evidence, or explicitly reconcile/accept proposed AppButton story mappings in separately owned migration metadata. Preserve the current qualified mapping; no accidental file loss was found."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-B-14": {
+      "id": "A-B-14",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Attach durable original-source-commit-bound read-only reference captures or separately authorize original provenance review; reconcile helper/preset/editor/Button behavior against those references.",
+        "Preserve unchanged learner platform; no mutation or access to another checkout authorized here."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-W-10": {
+      "id": "A-W-10",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-W-10 Reconcile original `W-10`: Retain the 33 existing story files or document deliberate replacements; add missing catalog coverage for primitives, adapters, calendars and grid helpers. Historical status: open.",
+      "conversationNumber": 13,
+      "report": "docs/developer/final-acceptance/wave-02-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-13/results.json",
+      "reportSha256": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+      "resultsSha256": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-W-16": {
+      "id": "A-W-16",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-W-16 Reconcile original `W-16`: Update `docs/migration.md` and the extraction manifest to preserve useful provenance and account for moves/deletions; do not misrepresent the original extraction as the final architecture. Historical status: open.",
+      "conversationNumber": 13,
+      "report": "docs/developer/final-acceptance/wave-02-13/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-13/results.json",
+      "reportSha256": "98f326cecfa3570933ea5bcdb6313bb0aaa3a5f87c0e5358125f203328c6213d",
+      "resultsSha256": "dc987b6d0a76f19a22d51a8b2225611ca4bbcb1e28f4954b1da7ae1eb133066f",
+      "successors": [],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-Z-05": {
+      "id": "A-Z-05",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-05 Reconcile original `Z-05`: Rewrite historical manifest entries/document explanations where necessary for literal-reference removal while retaining source repository/commit provenance; do not rewrite Git history or invent provenance. Historical status: open.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "See explicit required successor in report; no implied closure."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

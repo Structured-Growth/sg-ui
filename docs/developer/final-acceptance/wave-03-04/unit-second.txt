@@ -1,0 +1,23 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui
+
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx (0 test)
+ ❯ docs/developer/final-acceptance/wave-03-04/runnable/ToggleButton.notifications.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx [ docs/developer/final-acceptance/wave-03-04/runnable/SideNavigation.action-diagnostics.test.tsx ]
+ FAIL  docs/developer/final-acceptance/wave-03-04/runnable/ToggleButton.notifications.test.tsx [ docs/developer/final-acceptance/wave-03-04/runnable/ToggleButton.notifications.test.tsx ]
+Error: Vitest cannot be imported in a CommonJS module using require(). Please use "import" instead.
+
+If you are using "import" in your source code, then it's possible it was bundled into require() automatically by your bundler. In that case, do not bundle CommonJS output since it will never work with Vitest, or use dynamic import() which is available in all CommonJS modules.
+ ❯ Object.<anonymous> node_modules/.pnpm/vitest@4.1.11_@types+node@20.19.43_jsdom@26.1.0_vite@7.3.6_@types+node@20.19.43_jiti@2.6.1_/node_modules/vitest/index.cjs:1:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  no tests
+   Start at  18:04:30
+   Duration  629ms (transform 25ms, setup 19ms, import 0ms, tests 0ms, environment 327ms)
+

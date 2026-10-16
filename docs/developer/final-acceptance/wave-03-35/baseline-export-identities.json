@@ -1,0 +1,4431 @@
+{
+  "method": "TypeScript AST over frozen declaration graph; external reexport names retained explicitly; no old dependency installed or executed.",
+  "identities": [
+    {
+      "route": ".",
+      "name": "AppButton",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppButton",
+      "target": "components/AppButton/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppButtonProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppButtonProps",
+      "target": "components/AppButton/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppInlineProgress",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppInlineProgress",
+      "target": "components/AppInlineProgress/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppInlineProgressProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppInlineProgressProps",
+      "target": "components/AppInlineProgress/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppOperationSteps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppOperationSteps",
+      "target": "components/AppOperationSteps/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppOperationStep",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppOperationStep",
+      "target": "components/AppOperationSteps/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppOperationStepStatus",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppOperationStepStatus",
+      "target": "components/AppOperationSteps/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppOperationStepsProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppOperationStepsProps",
+      "target": "components/AppOperationSteps/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AuthShell",
+      "origin": "components/index.d.ts",
+      "sourceName": "AuthShell",
+      "target": "components/AuthShell/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AuthShellProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AuthShellProps",
+      "target": "components/AuthShell/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppModal",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppModal",
+      "target": "components/AppModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppModalAction",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppModalAction",
+      "target": "components/AppModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppModalProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppModalProps",
+      "target": "components/AppModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppModalStep",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppModalStep",
+      "target": "components/AppModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppPageHeader",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageHeader",
+      "target": "components/AppPageHeader/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppPageHeaderBreadcrumb",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageHeaderBreadcrumb",
+      "target": "components/AppPageHeader/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppPageHeaderMetaItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageHeaderMetaItem",
+      "target": "components/AppPageHeader/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppPageHeaderProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageHeaderProps",
+      "target": "components/AppPageHeader/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppPageTabs",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageTabs",
+      "target": "components/AppPageTabs/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppPageTabItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageTabItem",
+      "target": "components/AppPageTabs/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppPageTabsProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageTabsProps",
+      "target": "components/AppPageTabs/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DocumentEditorLayout",
+      "origin": "components/index.d.ts",
+      "sourceName": "DocumentEditorLayout",
+      "target": "components/DocumentEditorLayout/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DocumentEditorToolbar",
+      "origin": "components/index.d.ts",
+      "sourceName": "DocumentEditorToolbar",
+      "target": "components/DocumentEditorToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DocumentEditorToolbarProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "DocumentEditorToolbarProps",
+      "target": "components/DocumentEditorToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ColumnsLayoutModal",
+      "origin": "components/index.d.ts",
+      "sourceName": "ColumnsLayoutModal",
+      "target": "components/ColumnsLayoutModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ColumnsLayoutModalProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "ColumnsLayoutModalProps",
+      "target": "components/ColumnsLayoutModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ColumnsLayoutPreset",
+      "origin": "components/index.d.ts",
+      "sourceName": "ColumnsLayoutPreset",
+      "target": "components/ColumnsLayoutModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ContentEditorChrome",
+      "origin": "components/index.d.ts",
+      "sourceName": "ContentEditorChrome",
+      "target": "components/ContentEditorChrome/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ContentEditorChromeMenuItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "ContentEditorChromeMenuItem",
+      "target": "components/ContentEditorChrome/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ContentEditorChromeProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "ContentEditorChromeProps",
+      "target": "components/ContentEditorChrome/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "EditableTitleField",
+      "origin": "components/index.d.ts",
+      "sourceName": "EditableTitleField",
+      "target": "components/EditableTitleField/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "EditableTitleFieldProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "EditableTitleFieldProps",
+      "target": "components/EditableTitleField/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "FloatingTextSelectionToolbar",
+      "origin": "components/index.d.ts",
+      "sourceName": "FloatingTextSelectionToolbar",
+      "target": "components/FloatingTextSelectionToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "InsertContentMenuControl",
+      "origin": "components/index.d.ts",
+      "sourceName": "InsertContentMenuControl",
+      "target": "components/InsertContentMenuControl/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "InsertContentMenuControlProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "InsertContentMenuControlProps",
+      "target": "components/InsertContentMenuControl/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "LinkUrlModal",
+      "origin": "components/index.d.ts",
+      "sourceName": "LinkUrlModal",
+      "target": "components/LinkUrlModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "LinkUrlModalProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "LinkUrlModalProps",
+      "target": "components/LinkUrlModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ImageUploadModal",
+      "origin": "components/index.d.ts",
+      "sourceName": "ImageUploadModal",
+      "target": "components/ImageUploadModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ImageUploadModalProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "ImageUploadModalProps",
+      "target": "components/ImageUploadModal/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "RichTextFormattingToolbar",
+      "origin": "components/index.d.ts",
+      "sourceName": "RichTextFormattingToolbar",
+      "target": "components/RichTextFormattingToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "RichTextFormattingToolbarProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "RichTextFormattingToolbarProps",
+      "target": "components/RichTextFormattingToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "TextAlignMenuControl",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextAlignMenuControl",
+      "target": "components/TextAlignMenuControl/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AlignOption",
+      "origin": "components/index.d.ts",
+      "sourceName": "AlignOption",
+      "target": "components/TextAlignMenuControl/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "TextAlignMenuControlProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextAlignMenuControlProps",
+      "target": "components/TextAlignMenuControl/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "TextColorPickerControl",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextColorPickerControl",
+      "target": "components/TextColorPickerControl/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "TextColorPickerControlProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextColorPickerControlProps",
+      "target": "components/TextColorPickerControl/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "TextStyleMenuControl",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextStyleMenuControl",
+      "target": "components/TextStyleMenuControl/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "TextStyleMenuControlProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextStyleMenuControlProps",
+      "target": "components/TextStyleMenuControl/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "PageRichTextEditorSection",
+      "origin": "components/index.d.ts",
+      "sourceName": "PageRichTextEditorSection",
+      "target": "components/PageRichTextEditorSection/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "PageRichTextEditorSectionProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "PageRichTextEditorSectionProps",
+      "target": "components/PageRichTextEditorSection/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ExperiencePageNavigator",
+      "origin": "components/index.d.ts",
+      "sourceName": "ExperiencePageNavigator",
+      "target": "components/ExperiencePageNavigator/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ExperiencePageNavigatorItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "ExperiencePageNavigatorItem",
+      "target": "components/ExperiencePageNavigator/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ExperiencePageNavigatorProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "ExperiencePageNavigatorProps",
+      "target": "components/ExperiencePageNavigator/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AccessTimeFilledIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/AccessTimeFilled"
+    },
+    {
+      "route": ".",
+      "name": "AddIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Add"
+    },
+    {
+      "route": ".",
+      "name": "ApartmentIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Apartment"
+    },
+    {
+      "route": ".",
+      "name": "ArrowDropDownIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ArrowDropDown"
+    },
+    {
+      "route": ".",
+      "name": "AssignmentTurnedInIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/AssignmentTurnedIn"
+    },
+    {
+      "route": ".",
+      "name": "AutoStoriesIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/AutoStories"
+    },
+    {
+      "route": ".",
+      "name": "BookIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Book"
+    },
+    {
+      "route": ".",
+      "name": "BuildIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Build"
+    },
+    {
+      "route": ".",
+      "name": "BusinessCenterIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/BusinessCenter"
+    },
+    {
+      "route": ".",
+      "name": "ChevronRightIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ChevronRight"
+    },
+    {
+      "route": ".",
+      "name": "CheckIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Check"
+    },
+    {
+      "route": ".",
+      "name": "ClassIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Class"
+    },
+    {
+      "route": ".",
+      "name": "CloseIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Close"
+    },
+    {
+      "route": ".",
+      "name": "ComputerIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Computer"
+    },
+    {
+      "route": ".",
+      "name": "CorporateFareIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/CorporateFare"
+    },
+    {
+      "route": ".",
+      "name": "DeleteOutlineIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/DeleteOutline"
+    },
+    {
+      "route": ".",
+      "name": "DescriptionOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/DescriptionOutlined"
+    },
+    {
+      "route": ".",
+      "name": "DescriptionIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Description"
+    },
+    {
+      "route": ".",
+      "name": "DashboardIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Dashboard"
+    },
+    {
+      "route": ".",
+      "name": "DnsIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Dns"
+    },
+    {
+      "route": ".",
+      "name": "DragIndicatorIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/DragIndicator"
+    },
+    {
+      "route": ".",
+      "name": "EditIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Edit"
+    },
+    {
+      "route": ".",
+      "name": "EventIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Event"
+    },
+    {
+      "route": ".",
+      "name": "ExpandMoreIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ExpandMore"
+    },
+    {
+      "route": ".",
+      "name": "ExploreIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Explore"
+    },
+    {
+      "route": ".",
+      "name": "FactCheckOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/FactCheckOutlined"
+    },
+    {
+      "route": ".",
+      "name": "GroupIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Group"
+    },
+    {
+      "route": ".",
+      "name": "KeyboardArrowDownIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/KeyboardArrowDown"
+    },
+    {
+      "route": ".",
+      "name": "LockIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Lock"
+    },
+    {
+      "route": ".",
+      "name": "LockResetIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/LockReset"
+    },
+    {
+      "route": ".",
+      "name": "ManageAccountsIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ManageAccounts"
+    },
+    {
+      "route": ".",
+      "name": "MenuBookIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/MenuBook"
+    },
+    {
+      "route": ".",
+      "name": "MenuBookOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/MenuBookOutlined"
+    },
+    {
+      "route": ".",
+      "name": "MoreVertIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/MoreVert"
+    },
+    {
+      "route": ".",
+      "name": "PaidIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Paid"
+    },
+    {
+      "route": ".",
+      "name": "PersonIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Person"
+    },
+    {
+      "route": ".",
+      "name": "PersonAddIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/PersonAdd"
+    },
+    {
+      "route": ".",
+      "name": "PhotoCameraBackIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/PhotoCameraBack"
+    },
+    {
+      "route": ".",
+      "name": "QuizOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/QuizOutlined"
+    },
+    {
+      "route": ".",
+      "name": "SchoolIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/School"
+    },
+    {
+      "route": ".",
+      "name": "ScienceOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ScienceOutlined"
+    },
+    {
+      "route": ".",
+      "name": "StarIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Star"
+    },
+    {
+      "route": ".",
+      "name": "TaskAltIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/TaskAlt"
+    },
+    {
+      "route": ".",
+      "name": "TerminalIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Terminal"
+    },
+    {
+      "route": ".",
+      "name": "TranslateIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Translate"
+    },
+    {
+      "route": ".",
+      "name": "TuneIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Tune"
+    },
+    {
+      "route": ".",
+      "name": "VpnKeyIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/VpnKey"
+    },
+    {
+      "route": ".",
+      "name": "VisibilityOffIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/VisibilityOff"
+    },
+    {
+      "route": ".",
+      "name": "WorkOutlineOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/WorkOutlineOutlined"
+    },
+    {
+      "route": ".",
+      "name": "getActivityTypeIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "getActivityTypeIcon",
+      "target": "components/icons/activityTypeIcon.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "Box",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Box"
+    },
+    {
+      "route": ".",
+      "name": "BoxProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "BoxProps",
+      "target": "@mui/material/Box"
+    },
+    {
+      "route": ".",
+      "name": "Stack",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Stack"
+    },
+    {
+      "route": ".",
+      "name": "StackProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "StackProps",
+      "target": "@mui/material/Stack"
+    },
+    {
+      "route": ".",
+      "name": "Typography",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Typography"
+    },
+    {
+      "route": ".",
+      "name": "TypographyProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TypographyProps",
+      "target": "@mui/material/Typography"
+    },
+    {
+      "route": ".",
+      "name": "TextField",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TextField"
+    },
+    {
+      "route": ".",
+      "name": "TextFieldProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TextFieldProps",
+      "target": "@mui/material/TextField"
+    },
+    {
+      "route": ".",
+      "name": "CircularProgress",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/CircularProgress"
+    },
+    {
+      "route": ".",
+      "name": "CircularProgressProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "CircularProgressProps",
+      "target": "@mui/material/CircularProgress"
+    },
+    {
+      "route": ".",
+      "name": "Checkbox",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Checkbox"
+    },
+    {
+      "route": ".",
+      "name": "CheckboxProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "CheckboxProps",
+      "target": "@mui/material/Checkbox"
+    },
+    {
+      "route": ".",
+      "name": "FormControlLabel",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/FormControlLabel"
+    },
+    {
+      "route": ".",
+      "name": "FormControlLabelProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "FormControlLabelProps",
+      "target": "@mui/material/FormControlLabel"
+    },
+    {
+      "route": ".",
+      "name": "IconButton",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/IconButton"
+    },
+    {
+      "route": ".",
+      "name": "IconButtonProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "IconButtonProps",
+      "target": "@mui/material/IconButton"
+    },
+    {
+      "route": ".",
+      "name": "MuiLink",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Link"
+    },
+    {
+      "route": ".",
+      "name": "MuiLinkProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "LinkProps",
+      "target": "@mui/material/Link"
+    },
+    {
+      "route": ".",
+      "name": "Menu",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Menu"
+    },
+    {
+      "route": ".",
+      "name": "MenuProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "MenuProps",
+      "target": "@mui/material/Menu"
+    },
+    {
+      "route": ".",
+      "name": "MenuItem",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/MenuItem"
+    },
+    {
+      "route": ".",
+      "name": "MenuItemProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "MenuItemProps",
+      "target": "@mui/material/MenuItem"
+    },
+    {
+      "route": ".",
+      "name": "Select",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Select"
+    },
+    {
+      "route": ".",
+      "name": "SelectProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "SelectProps",
+      "target": "@mui/material/Select"
+    },
+    {
+      "route": ".",
+      "name": "SelectChangeEvent",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "SelectChangeEvent",
+      "target": "@mui/material/Select"
+    },
+    {
+      "route": ".",
+      "name": "Autocomplete",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Autocomplete"
+    },
+    {
+      "route": ".",
+      "name": "AutocompleteProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "AutocompleteProps",
+      "target": "@mui/material/Autocomplete"
+    },
+    {
+      "route": ".",
+      "name": "Divider",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Divider"
+    },
+    {
+      "route": ".",
+      "name": "DividerProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "DividerProps",
+      "target": "@mui/material/Divider"
+    },
+    {
+      "route": ".",
+      "name": "Chip",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Chip"
+    },
+    {
+      "route": ".",
+      "name": "ChipProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ChipProps",
+      "target": "@mui/material/Chip"
+    },
+    {
+      "route": ".",
+      "name": "LinearProgress",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/LinearProgress"
+    },
+    {
+      "route": ".",
+      "name": "LinearProgressProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "LinearProgressProps",
+      "target": "@mui/material/LinearProgress"
+    },
+    {
+      "route": ".",
+      "name": "Switch",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Switch"
+    },
+    {
+      "route": ".",
+      "name": "SwitchProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "SwitchProps",
+      "target": "@mui/material/Switch"
+    },
+    {
+      "route": ".",
+      "name": "List",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/List"
+    },
+    {
+      "route": ".",
+      "name": "ListProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListProps",
+      "target": "@mui/material/List"
+    },
+    {
+      "route": ".",
+      "name": "ListItem",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/ListItem"
+    },
+    {
+      "route": ".",
+      "name": "ListItemProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListItemProps",
+      "target": "@mui/material/ListItem"
+    },
+    {
+      "route": ".",
+      "name": "ListItemButton",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/ListItemButton"
+    },
+    {
+      "route": ".",
+      "name": "ListItemButtonProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListItemButtonProps",
+      "target": "@mui/material/ListItemButton"
+    },
+    {
+      "route": ".",
+      "name": "ListItemText",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/ListItemText"
+    },
+    {
+      "route": ".",
+      "name": "ListItemTextProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListItemTextProps",
+      "target": "@mui/material/ListItemText"
+    },
+    {
+      "route": ".",
+      "name": "Table",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Table"
+    },
+    {
+      "route": ".",
+      "name": "TableProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableProps",
+      "target": "@mui/material/Table"
+    },
+    {
+      "route": ".",
+      "name": "TableHead",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableHead"
+    },
+    {
+      "route": ".",
+      "name": "TableHeadProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableHeadProps",
+      "target": "@mui/material/TableHead"
+    },
+    {
+      "route": ".",
+      "name": "TableBody",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableBody"
+    },
+    {
+      "route": ".",
+      "name": "TableBodyProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableBodyProps",
+      "target": "@mui/material/TableBody"
+    },
+    {
+      "route": ".",
+      "name": "TableRow",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableRow"
+    },
+    {
+      "route": ".",
+      "name": "TableRowProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableRowProps",
+      "target": "@mui/material/TableRow"
+    },
+    {
+      "route": ".",
+      "name": "TableCell",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableCell"
+    },
+    {
+      "route": ".",
+      "name": "TableCellProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableCellProps",
+      "target": "@mui/material/TableCell"
+    },
+    {
+      "route": ".",
+      "name": "Collapse",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Collapse"
+    },
+    {
+      "route": ".",
+      "name": "CollapseProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "CollapseProps",
+      "target": "@mui/material/Collapse"
+    },
+    {
+      "route": ".",
+      "name": "Tooltip",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Tooltip"
+    },
+    {
+      "route": ".",
+      "name": "TooltipProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TooltipProps",
+      "target": "@mui/material/Tooltip"
+    },
+    {
+      "route": ".",
+      "name": "adminClassesColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminClassesColumnOptions",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "adminClassesFilterFields",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminClassesFilterFields",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "adminClassesSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminClassesSortOptions",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "adminPeopleColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminPeopleColumnOptions",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "adminPeopleSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminPeopleSortOptions",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGrid",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGrid",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "createActionMenuColumn",
+      "origin": "components/index.d.ts",
+      "sourceName": "createActionMenuColumn",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "createDataGridColumns",
+      "origin": "components/index.d.ts",
+      "sourceName": "createDataGridColumns",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridActionMenuColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridActionMenuColumnOptions",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridCellType",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridCellType",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridColumn",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridColumn",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridMenuAction",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridMenuAction",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridProps",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridRowDragConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridRowDragConfig",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridRowDragDropPosition",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridRowDragDropPosition",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridRowDragReorderParams",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridRowDragReorderParams",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridSelectionConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridSelectionConfig",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridSelectionState",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridSelectionState",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridSortDirection",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridSortDirection",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridSortRule",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridSortRule",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppGridColumnVisibilityModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridColumnVisibilityModel",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppGridRowId",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridRowId",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppGridRowSelectionModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridRowSelectionModel",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppGridPaginationModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridPaginationModel",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppGridSortModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridSortModel",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "RowSubHeader",
+      "origin": "components/index.d.ts",
+      "sourceName": "RowSubHeader",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "RowSubHeaderProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "RowSubHeaderProps",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridShell",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShell",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridShellCardsConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShellCardsConfig",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridShellProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShellProps",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridShellToolbarConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShellToolbarConfig",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppDataGridShellViewConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShellViewConfig",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataGridDragHandle",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataGridDragHandle",
+      "target": "components/AppDataGridRowDnd/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataGridDragHandleProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataGridDragHandleProps",
+      "target": "components/AppDataGridRowDnd/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "useDataGridRowDnd",
+      "origin": "components/index.d.ts",
+      "sourceName": "useDataGridRowDnd",
+      "target": "components/AppDataGridRowDnd/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppShell",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppShell",
+      "target": "components/AppShell/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "buildDataToolbarColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "buildDataToolbarColumnOptions",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbar",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbar",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarSelectionMenu",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSelectionMenu",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ClassesViewMode",
+      "origin": "components/index.d.ts",
+      "sourceName": "ClassesViewMode",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataGridInteractionMode",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataGridInteractionMode",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarSelectionOption",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSelectionOption",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarSelectionState",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSelectionState",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarFilterField",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarFilterField",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarFilterFieldType",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarFilterFieldType",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarFilterOperator",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarFilterOperator",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarFilterRule",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarFilterRule",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarProps",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarSortDirection",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSortDirection",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarSortOption",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSortOption",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "DataToolbarSortRule",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSortRule",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "parseFilterRuleValues",
+      "origin": "components/index.d.ts",
+      "sourceName": "parseFilterRuleValues",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "serializeFilterRuleValues",
+      "origin": "components/index.d.ts",
+      "sourceName": "serializeFilterRuleValues",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "ClassCardFrame",
+      "origin": "components/index.d.ts",
+      "sourceName": "ClassCardFrame",
+      "target": "components/ClassCardFrame/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "STANDARD_CLASS_CARD_MIN_WIDTH",
+      "origin": "components/index.d.ts",
+      "sourceName": "STANDARD_CLASS_CARD_MIN_WIDTH",
+      "target": "components/ClassCardFrame/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "STANDARD_CLASS_CARD_WIDTH",
+      "origin": "components/index.d.ts",
+      "sourceName": "STANDARD_CLASS_CARD_WIDTH",
+      "target": "components/ClassCardFrame/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "CardCollectionWithFooter",
+      "origin": "components/index.d.ts",
+      "sourceName": "CardCollectionWithFooter",
+      "target": "components/CardCollectionWithFooter/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppPaginationFooter",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPaginationFooter",
+      "target": "components/CardPaginationFooter/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "InstructorClassCard",
+      "origin": "components/index.d.ts",
+      "sourceName": "InstructorClassCard",
+      "target": "components/InstructorClassCard/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "InstructorClassCardProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "InstructorClassCardProps",
+      "target": "components/InstructorClassCard/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "InstructorClassCardStatus",
+      "origin": "components/index.d.ts",
+      "sourceName": "InstructorClassCardStatus",
+      "target": "components/InstructorClassCard/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "instructorClassLearnersColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassLearnersColumnOptions",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "instructorClassLearnersFilterFields",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassLearnersFilterFields",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "instructorClassLearnersSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassLearnersSortOptions",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "instructorClassesColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassesColumnOptions",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "instructorClassesFilterFields",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassesFilterFields",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "instructorClassesSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassesSortOptions",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "LearnerClassCard",
+      "origin": "components/index.d.ts",
+      "sourceName": "LearnerClassCard",
+      "target": "components/LearnerClassCard/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "LearnerClassesDataGrid",
+      "origin": "components/index.d.ts",
+      "sourceName": "LearnerClassesDataGrid",
+      "target": "components/LearnerClassesDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "learnerClassesColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "learnerClassesColumnOptions",
+      "target": "components/LearnerClassesDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "learnerClassesSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "learnerClassesSortOptions",
+      "target": "components/LearnerClassesDataGrid/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SideNavigation",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavigation",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SideNavChildBehavior",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavChildBehavior",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SideNavIcon",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavIcon",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SideNavItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavItem",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SideNavMenu",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavMenu",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SideNavOrganization",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavOrganization",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SideNavSection",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavSection",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SideNavigationModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavigationModel",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SideNavigationProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavigationProps",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "AppThemeProvider",
+      "origin": "theme/index.d.ts",
+      "sourceName": "AppThemeProvider",
+      "target": "theme/AppThemeProvider.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "darkTheme",
+      "origin": "theme/index.d.ts",
+      "sourceName": "darkTheme",
+      "target": "theme/theme.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "lightTheme",
+      "origin": "theme/index.d.ts",
+      "sourceName": "lightTheme",
+      "target": "theme/theme.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "theme",
+      "origin": "theme/index.d.ts",
+      "sourceName": "theme",
+      "target": "theme/theme.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "usePersistentState",
+      "origin": "hooks/usePersistentState.d.ts",
+      "sourceName": "usePersistentState"
+    },
+    {
+      "route": ".",
+      "name": "PaginationModel",
+      "origin": "hooks/usePersistentPaginationModel.d.ts",
+      "sourceName": "PaginationModel"
+    },
+    {
+      "route": ".",
+      "name": "APP_PAGE_SIZE_OPTIONS",
+      "origin": "hooks/usePersistentPaginationModel.d.ts",
+      "sourceName": "APP_PAGE_SIZE_OPTIONS"
+    },
+    {
+      "route": ".",
+      "name": "normalizePaginationModel",
+      "origin": "hooks/usePersistentPaginationModel.d.ts",
+      "sourceName": "normalizePaginationModel"
+    },
+    {
+      "route": ".",
+      "name": "usePersistentPaginationModel",
+      "origin": "hooks/usePersistentPaginationModel.d.ts",
+      "sourceName": "usePersistentPaginationModel"
+    },
+    {
+      "route": ".",
+      "name": "SGLinkProps",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "SGLinkProps"
+    },
+    {
+      "route": ".",
+      "name": "SGNavigationAdapter",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "SGNavigationAdapter"
+    },
+    {
+      "route": ".",
+      "name": "SGNavigationProvider",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "SGNavigationProvider"
+    },
+    {
+      "route": ".",
+      "name": "useNavigationAdapter",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "useNavigationAdapter"
+    },
+    {
+      "route": ".",
+      "name": "usePathname",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "usePathname"
+    },
+    {
+      "route": ".",
+      "name": "useRouter",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "useRouter"
+    },
+    {
+      "route": ".",
+      "name": "AuthOrganization",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "AuthOrganization"
+    },
+    {
+      "route": ".",
+      "name": "StoredAuthSession",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "StoredAuthSession"
+    },
+    {
+      "route": ".",
+      "name": "SGAccountAdapter",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "SGAccountAdapter"
+    },
+    {
+      "route": ".",
+      "name": "SGAccountProvider",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "SGAccountProvider"
+    },
+    {
+      "route": ".",
+      "name": "useAccountAdapter",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "useAccountAdapter"
+    },
+    {
+      "route": ".",
+      "name": "SGLink",
+      "origin": "adapters/index.d.ts",
+      "sourceName": "default",
+      "target": "adapters/Link.d.ts"
+    },
+    {
+      "route": ".",
+      "name": "SGTranslationOptions",
+      "origin": "i18n/index.d.ts",
+      "sourceName": "SGTranslationOptions"
+    },
+    {
+      "route": ".",
+      "name": "SGTranslationAdapter",
+      "origin": "i18n/index.d.ts",
+      "sourceName": "SGTranslationAdapter"
+    },
+    {
+      "route": ".",
+      "name": "SGTranslationProvider",
+      "origin": "i18n/index.d.ts",
+      "sourceName": "SGTranslationProvider"
+    },
+    {
+      "route": ".",
+      "name": "useTranslation",
+      "origin": "i18n/index.d.ts",
+      "sourceName": "useTranslation"
+    },
+    {
+      "route": ".",
+      "name": "LearnerClass",
+      "origin": "index.d.ts",
+      "sourceName": "LearnerClass",
+      "target": "models.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppButton",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppButton",
+      "target": "components/AppButton/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppButtonProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppButtonProps",
+      "target": "components/AppButton/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppInlineProgress",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppInlineProgress",
+      "target": "components/AppInlineProgress/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppInlineProgressProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppInlineProgressProps",
+      "target": "components/AppInlineProgress/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppOperationSteps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppOperationSteps",
+      "target": "components/AppOperationSteps/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppOperationStep",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppOperationStep",
+      "target": "components/AppOperationSteps/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppOperationStepStatus",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppOperationStepStatus",
+      "target": "components/AppOperationSteps/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppOperationStepsProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppOperationStepsProps",
+      "target": "components/AppOperationSteps/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AuthShell",
+      "origin": "components/index.d.ts",
+      "sourceName": "AuthShell",
+      "target": "components/AuthShell/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AuthShellProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AuthShellProps",
+      "target": "components/AuthShell/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppModal",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppModal",
+      "target": "components/AppModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppModalAction",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppModalAction",
+      "target": "components/AppModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppModalProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppModalProps",
+      "target": "components/AppModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppModalStep",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppModalStep",
+      "target": "components/AppModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppPageHeader",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageHeader",
+      "target": "components/AppPageHeader/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppPageHeaderBreadcrumb",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageHeaderBreadcrumb",
+      "target": "components/AppPageHeader/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppPageHeaderMetaItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageHeaderMetaItem",
+      "target": "components/AppPageHeader/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppPageHeaderProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageHeaderProps",
+      "target": "components/AppPageHeader/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppPageTabs",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageTabs",
+      "target": "components/AppPageTabs/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppPageTabItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageTabItem",
+      "target": "components/AppPageTabs/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppPageTabsProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPageTabsProps",
+      "target": "components/AppPageTabs/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DocumentEditorLayout",
+      "origin": "components/index.d.ts",
+      "sourceName": "DocumentEditorLayout",
+      "target": "components/DocumentEditorLayout/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DocumentEditorToolbar",
+      "origin": "components/index.d.ts",
+      "sourceName": "DocumentEditorToolbar",
+      "target": "components/DocumentEditorToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DocumentEditorToolbarProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "DocumentEditorToolbarProps",
+      "target": "components/DocumentEditorToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ColumnsLayoutModal",
+      "origin": "components/index.d.ts",
+      "sourceName": "ColumnsLayoutModal",
+      "target": "components/ColumnsLayoutModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ColumnsLayoutModalProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "ColumnsLayoutModalProps",
+      "target": "components/ColumnsLayoutModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ColumnsLayoutPreset",
+      "origin": "components/index.d.ts",
+      "sourceName": "ColumnsLayoutPreset",
+      "target": "components/ColumnsLayoutModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ContentEditorChrome",
+      "origin": "components/index.d.ts",
+      "sourceName": "ContentEditorChrome",
+      "target": "components/ContentEditorChrome/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ContentEditorChromeMenuItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "ContentEditorChromeMenuItem",
+      "target": "components/ContentEditorChrome/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ContentEditorChromeProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "ContentEditorChromeProps",
+      "target": "components/ContentEditorChrome/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "EditableTitleField",
+      "origin": "components/index.d.ts",
+      "sourceName": "EditableTitleField",
+      "target": "components/EditableTitleField/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "EditableTitleFieldProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "EditableTitleFieldProps",
+      "target": "components/EditableTitleField/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "FloatingTextSelectionToolbar",
+      "origin": "components/index.d.ts",
+      "sourceName": "FloatingTextSelectionToolbar",
+      "target": "components/FloatingTextSelectionToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "InsertContentMenuControl",
+      "origin": "components/index.d.ts",
+      "sourceName": "InsertContentMenuControl",
+      "target": "components/InsertContentMenuControl/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "InsertContentMenuControlProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "InsertContentMenuControlProps",
+      "target": "components/InsertContentMenuControl/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "LinkUrlModal",
+      "origin": "components/index.d.ts",
+      "sourceName": "LinkUrlModal",
+      "target": "components/LinkUrlModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "LinkUrlModalProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "LinkUrlModalProps",
+      "target": "components/LinkUrlModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ImageUploadModal",
+      "origin": "components/index.d.ts",
+      "sourceName": "ImageUploadModal",
+      "target": "components/ImageUploadModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ImageUploadModalProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "ImageUploadModalProps",
+      "target": "components/ImageUploadModal/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "RichTextFormattingToolbar",
+      "origin": "components/index.d.ts",
+      "sourceName": "RichTextFormattingToolbar",
+      "target": "components/RichTextFormattingToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "RichTextFormattingToolbarProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "RichTextFormattingToolbarProps",
+      "target": "components/RichTextFormattingToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "TextAlignMenuControl",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextAlignMenuControl",
+      "target": "components/TextAlignMenuControl/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AlignOption",
+      "origin": "components/index.d.ts",
+      "sourceName": "AlignOption",
+      "target": "components/TextAlignMenuControl/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "TextAlignMenuControlProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextAlignMenuControlProps",
+      "target": "components/TextAlignMenuControl/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "TextColorPickerControl",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextColorPickerControl",
+      "target": "components/TextColorPickerControl/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "TextColorPickerControlProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextColorPickerControlProps",
+      "target": "components/TextColorPickerControl/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "TextStyleMenuControl",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextStyleMenuControl",
+      "target": "components/TextStyleMenuControl/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "TextStyleMenuControlProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "TextStyleMenuControlProps",
+      "target": "components/TextStyleMenuControl/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "PageRichTextEditorSection",
+      "origin": "components/index.d.ts",
+      "sourceName": "PageRichTextEditorSection",
+      "target": "components/PageRichTextEditorSection/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "PageRichTextEditorSectionProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "PageRichTextEditorSectionProps",
+      "target": "components/PageRichTextEditorSection/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ExperiencePageNavigator",
+      "origin": "components/index.d.ts",
+      "sourceName": "ExperiencePageNavigator",
+      "target": "components/ExperiencePageNavigator/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ExperiencePageNavigatorItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "ExperiencePageNavigatorItem",
+      "target": "components/ExperiencePageNavigator/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ExperiencePageNavigatorProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "ExperiencePageNavigatorProps",
+      "target": "components/ExperiencePageNavigator/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AccessTimeFilledIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/AccessTimeFilled"
+    },
+    {
+      "route": "./components",
+      "name": "AddIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Add"
+    },
+    {
+      "route": "./components",
+      "name": "ApartmentIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Apartment"
+    },
+    {
+      "route": "./components",
+      "name": "ArrowDropDownIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ArrowDropDown"
+    },
+    {
+      "route": "./components",
+      "name": "AssignmentTurnedInIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/AssignmentTurnedIn"
+    },
+    {
+      "route": "./components",
+      "name": "AutoStoriesIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/AutoStories"
+    },
+    {
+      "route": "./components",
+      "name": "BookIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Book"
+    },
+    {
+      "route": "./components",
+      "name": "BuildIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Build"
+    },
+    {
+      "route": "./components",
+      "name": "BusinessCenterIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/BusinessCenter"
+    },
+    {
+      "route": "./components",
+      "name": "ChevronRightIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ChevronRight"
+    },
+    {
+      "route": "./components",
+      "name": "CheckIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Check"
+    },
+    {
+      "route": "./components",
+      "name": "ClassIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Class"
+    },
+    {
+      "route": "./components",
+      "name": "CloseIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Close"
+    },
+    {
+      "route": "./components",
+      "name": "ComputerIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Computer"
+    },
+    {
+      "route": "./components",
+      "name": "CorporateFareIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/CorporateFare"
+    },
+    {
+      "route": "./components",
+      "name": "DeleteOutlineIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/DeleteOutline"
+    },
+    {
+      "route": "./components",
+      "name": "DescriptionOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/DescriptionOutlined"
+    },
+    {
+      "route": "./components",
+      "name": "DescriptionIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Description"
+    },
+    {
+      "route": "./components",
+      "name": "DashboardIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Dashboard"
+    },
+    {
+      "route": "./components",
+      "name": "DnsIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Dns"
+    },
+    {
+      "route": "./components",
+      "name": "DragIndicatorIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/DragIndicator"
+    },
+    {
+      "route": "./components",
+      "name": "EditIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Edit"
+    },
+    {
+      "route": "./components",
+      "name": "EventIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Event"
+    },
+    {
+      "route": "./components",
+      "name": "ExpandMoreIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ExpandMore"
+    },
+    {
+      "route": "./components",
+      "name": "ExploreIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Explore"
+    },
+    {
+      "route": "./components",
+      "name": "FactCheckOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/FactCheckOutlined"
+    },
+    {
+      "route": "./components",
+      "name": "GroupIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Group"
+    },
+    {
+      "route": "./components",
+      "name": "KeyboardArrowDownIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/KeyboardArrowDown"
+    },
+    {
+      "route": "./components",
+      "name": "LockIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Lock"
+    },
+    {
+      "route": "./components",
+      "name": "LockResetIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/LockReset"
+    },
+    {
+      "route": "./components",
+      "name": "ManageAccountsIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ManageAccounts"
+    },
+    {
+      "route": "./components",
+      "name": "MenuBookIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/MenuBook"
+    },
+    {
+      "route": "./components",
+      "name": "MenuBookOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/MenuBookOutlined"
+    },
+    {
+      "route": "./components",
+      "name": "MoreVertIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/MoreVert"
+    },
+    {
+      "route": "./components",
+      "name": "PaidIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Paid"
+    },
+    {
+      "route": "./components",
+      "name": "PersonIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Person"
+    },
+    {
+      "route": "./components",
+      "name": "PersonAddIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/PersonAdd"
+    },
+    {
+      "route": "./components",
+      "name": "PhotoCameraBackIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/PhotoCameraBack"
+    },
+    {
+      "route": "./components",
+      "name": "QuizOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/QuizOutlined"
+    },
+    {
+      "route": "./components",
+      "name": "SchoolIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/School"
+    },
+    {
+      "route": "./components",
+      "name": "ScienceOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ScienceOutlined"
+    },
+    {
+      "route": "./components",
+      "name": "StarIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Star"
+    },
+    {
+      "route": "./components",
+      "name": "TaskAltIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/TaskAlt"
+    },
+    {
+      "route": "./components",
+      "name": "TerminalIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Terminal"
+    },
+    {
+      "route": "./components",
+      "name": "TranslateIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Translate"
+    },
+    {
+      "route": "./components",
+      "name": "TuneIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Tune"
+    },
+    {
+      "route": "./components",
+      "name": "VpnKeyIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/VpnKey"
+    },
+    {
+      "route": "./components",
+      "name": "VisibilityOffIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/VisibilityOff"
+    },
+    {
+      "route": "./components",
+      "name": "WorkOutlineOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/WorkOutlineOutlined"
+    },
+    {
+      "route": "./components",
+      "name": "getActivityTypeIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "getActivityTypeIcon",
+      "target": "components/icons/activityTypeIcon.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "Box",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Box"
+    },
+    {
+      "route": "./components",
+      "name": "BoxProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "BoxProps",
+      "target": "@mui/material/Box"
+    },
+    {
+      "route": "./components",
+      "name": "Stack",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Stack"
+    },
+    {
+      "route": "./components",
+      "name": "StackProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "StackProps",
+      "target": "@mui/material/Stack"
+    },
+    {
+      "route": "./components",
+      "name": "Typography",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Typography"
+    },
+    {
+      "route": "./components",
+      "name": "TypographyProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TypographyProps",
+      "target": "@mui/material/Typography"
+    },
+    {
+      "route": "./components",
+      "name": "TextField",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TextField"
+    },
+    {
+      "route": "./components",
+      "name": "TextFieldProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TextFieldProps",
+      "target": "@mui/material/TextField"
+    },
+    {
+      "route": "./components",
+      "name": "CircularProgress",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/CircularProgress"
+    },
+    {
+      "route": "./components",
+      "name": "CircularProgressProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "CircularProgressProps",
+      "target": "@mui/material/CircularProgress"
+    },
+    {
+      "route": "./components",
+      "name": "Checkbox",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Checkbox"
+    },
+    {
+      "route": "./components",
+      "name": "CheckboxProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "CheckboxProps",
+      "target": "@mui/material/Checkbox"
+    },
+    {
+      "route": "./components",
+      "name": "FormControlLabel",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/FormControlLabel"
+    },
+    {
+      "route": "./components",
+      "name": "FormControlLabelProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "FormControlLabelProps",
+      "target": "@mui/material/FormControlLabel"
+    },
+    {
+      "route": "./components",
+      "name": "IconButton",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/IconButton"
+    },
+    {
+      "route": "./components",
+      "name": "IconButtonProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "IconButtonProps",
+      "target": "@mui/material/IconButton"
+    },
+    {
+      "route": "./components",
+      "name": "MuiLink",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Link"
+    },
+    {
+      "route": "./components",
+      "name": "MuiLinkProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "LinkProps",
+      "target": "@mui/material/Link"
+    },
+    {
+      "route": "./components",
+      "name": "Menu",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Menu"
+    },
+    {
+      "route": "./components",
+      "name": "MenuProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "MenuProps",
+      "target": "@mui/material/Menu"
+    },
+    {
+      "route": "./components",
+      "name": "MenuItem",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/MenuItem"
+    },
+    {
+      "route": "./components",
+      "name": "MenuItemProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "MenuItemProps",
+      "target": "@mui/material/MenuItem"
+    },
+    {
+      "route": "./components",
+      "name": "Select",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Select"
+    },
+    {
+      "route": "./components",
+      "name": "SelectProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "SelectProps",
+      "target": "@mui/material/Select"
+    },
+    {
+      "route": "./components",
+      "name": "SelectChangeEvent",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "SelectChangeEvent",
+      "target": "@mui/material/Select"
+    },
+    {
+      "route": "./components",
+      "name": "Autocomplete",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Autocomplete"
+    },
+    {
+      "route": "./components",
+      "name": "AutocompleteProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "AutocompleteProps",
+      "target": "@mui/material/Autocomplete"
+    },
+    {
+      "route": "./components",
+      "name": "Divider",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Divider"
+    },
+    {
+      "route": "./components",
+      "name": "DividerProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "DividerProps",
+      "target": "@mui/material/Divider"
+    },
+    {
+      "route": "./components",
+      "name": "Chip",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Chip"
+    },
+    {
+      "route": "./components",
+      "name": "ChipProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ChipProps",
+      "target": "@mui/material/Chip"
+    },
+    {
+      "route": "./components",
+      "name": "LinearProgress",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/LinearProgress"
+    },
+    {
+      "route": "./components",
+      "name": "LinearProgressProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "LinearProgressProps",
+      "target": "@mui/material/LinearProgress"
+    },
+    {
+      "route": "./components",
+      "name": "Switch",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Switch"
+    },
+    {
+      "route": "./components",
+      "name": "SwitchProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "SwitchProps",
+      "target": "@mui/material/Switch"
+    },
+    {
+      "route": "./components",
+      "name": "List",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/List"
+    },
+    {
+      "route": "./components",
+      "name": "ListProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListProps",
+      "target": "@mui/material/List"
+    },
+    {
+      "route": "./components",
+      "name": "ListItem",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/ListItem"
+    },
+    {
+      "route": "./components",
+      "name": "ListItemProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListItemProps",
+      "target": "@mui/material/ListItem"
+    },
+    {
+      "route": "./components",
+      "name": "ListItemButton",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/ListItemButton"
+    },
+    {
+      "route": "./components",
+      "name": "ListItemButtonProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListItemButtonProps",
+      "target": "@mui/material/ListItemButton"
+    },
+    {
+      "route": "./components",
+      "name": "ListItemText",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/ListItemText"
+    },
+    {
+      "route": "./components",
+      "name": "ListItemTextProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListItemTextProps",
+      "target": "@mui/material/ListItemText"
+    },
+    {
+      "route": "./components",
+      "name": "Table",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Table"
+    },
+    {
+      "route": "./components",
+      "name": "TableProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableProps",
+      "target": "@mui/material/Table"
+    },
+    {
+      "route": "./components",
+      "name": "TableHead",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableHead"
+    },
+    {
+      "route": "./components",
+      "name": "TableHeadProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableHeadProps",
+      "target": "@mui/material/TableHead"
+    },
+    {
+      "route": "./components",
+      "name": "TableBody",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableBody"
+    },
+    {
+      "route": "./components",
+      "name": "TableBodyProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableBodyProps",
+      "target": "@mui/material/TableBody"
+    },
+    {
+      "route": "./components",
+      "name": "TableRow",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableRow"
+    },
+    {
+      "route": "./components",
+      "name": "TableRowProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableRowProps",
+      "target": "@mui/material/TableRow"
+    },
+    {
+      "route": "./components",
+      "name": "TableCell",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableCell"
+    },
+    {
+      "route": "./components",
+      "name": "TableCellProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableCellProps",
+      "target": "@mui/material/TableCell"
+    },
+    {
+      "route": "./components",
+      "name": "Collapse",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Collapse"
+    },
+    {
+      "route": "./components",
+      "name": "CollapseProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "CollapseProps",
+      "target": "@mui/material/Collapse"
+    },
+    {
+      "route": "./components",
+      "name": "Tooltip",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Tooltip"
+    },
+    {
+      "route": "./components",
+      "name": "TooltipProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TooltipProps",
+      "target": "@mui/material/Tooltip"
+    },
+    {
+      "route": "./components",
+      "name": "adminClassesColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminClassesColumnOptions",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "adminClassesFilterFields",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminClassesFilterFields",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "adminClassesSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminClassesSortOptions",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "adminPeopleColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminPeopleColumnOptions",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "adminPeopleSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "adminPeopleSortOptions",
+      "target": "components/AdminDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGrid",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGrid",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "createActionMenuColumn",
+      "origin": "components/index.d.ts",
+      "sourceName": "createActionMenuColumn",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "createDataGridColumns",
+      "origin": "components/index.d.ts",
+      "sourceName": "createDataGridColumns",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridActionMenuColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridActionMenuColumnOptions",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridCellType",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridCellType",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridColumn",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridColumn",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridMenuAction",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridMenuAction",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridProps",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridRowDragConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridRowDragConfig",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridRowDragDropPosition",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridRowDragDropPosition",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridRowDragReorderParams",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridRowDragReorderParams",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridSelectionConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridSelectionConfig",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridSelectionState",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridSelectionState",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridSortDirection",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridSortDirection",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridSortRule",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridSortRule",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppGridColumnVisibilityModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridColumnVisibilityModel",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppGridRowId",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridRowId",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppGridRowSelectionModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridRowSelectionModel",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppGridPaginationModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridPaginationModel",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppGridSortModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppGridSortModel",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "RowSubHeader",
+      "origin": "components/index.d.ts",
+      "sourceName": "RowSubHeader",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "RowSubHeaderProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "RowSubHeaderProps",
+      "target": "components/AppDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridShell",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShell",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridShellCardsConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShellCardsConfig",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridShellProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShellProps",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridShellToolbarConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShellToolbarConfig",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppDataGridShellViewConfig",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppDataGridShellViewConfig",
+      "target": "components/AppDataGridShell/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataGridDragHandle",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataGridDragHandle",
+      "target": "components/AppDataGridRowDnd/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataGridDragHandleProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataGridDragHandleProps",
+      "target": "components/AppDataGridRowDnd/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "useDataGridRowDnd",
+      "origin": "components/index.d.ts",
+      "sourceName": "useDataGridRowDnd",
+      "target": "components/AppDataGridRowDnd/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppShell",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppShell",
+      "target": "components/AppShell/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "buildDataToolbarColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "buildDataToolbarColumnOptions",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbar",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbar",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarSelectionMenu",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSelectionMenu",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ClassesViewMode",
+      "origin": "components/index.d.ts",
+      "sourceName": "ClassesViewMode",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataGridInteractionMode",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataGridInteractionMode",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarSelectionOption",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSelectionOption",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarSelectionState",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSelectionState",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarFilterField",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarFilterField",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarFilterFieldType",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarFilterFieldType",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarFilterOperator",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarFilterOperator",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarFilterRule",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarFilterRule",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarProps",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarSortDirection",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSortDirection",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarSortOption",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSortOption",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "DataToolbarSortRule",
+      "origin": "components/index.d.ts",
+      "sourceName": "DataToolbarSortRule",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "parseFilterRuleValues",
+      "origin": "components/index.d.ts",
+      "sourceName": "parseFilterRuleValues",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "serializeFilterRuleValues",
+      "origin": "components/index.d.ts",
+      "sourceName": "serializeFilterRuleValues",
+      "target": "components/DataToolbar/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "ClassCardFrame",
+      "origin": "components/index.d.ts",
+      "sourceName": "ClassCardFrame",
+      "target": "components/ClassCardFrame/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "STANDARD_CLASS_CARD_MIN_WIDTH",
+      "origin": "components/index.d.ts",
+      "sourceName": "STANDARD_CLASS_CARD_MIN_WIDTH",
+      "target": "components/ClassCardFrame/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "STANDARD_CLASS_CARD_WIDTH",
+      "origin": "components/index.d.ts",
+      "sourceName": "STANDARD_CLASS_CARD_WIDTH",
+      "target": "components/ClassCardFrame/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "CardCollectionWithFooter",
+      "origin": "components/index.d.ts",
+      "sourceName": "CardCollectionWithFooter",
+      "target": "components/CardCollectionWithFooter/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "AppPaginationFooter",
+      "origin": "components/index.d.ts",
+      "sourceName": "AppPaginationFooter",
+      "target": "components/CardPaginationFooter/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "InstructorClassCard",
+      "origin": "components/index.d.ts",
+      "sourceName": "InstructorClassCard",
+      "target": "components/InstructorClassCard/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "InstructorClassCardProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "InstructorClassCardProps",
+      "target": "components/InstructorClassCard/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "InstructorClassCardStatus",
+      "origin": "components/index.d.ts",
+      "sourceName": "InstructorClassCardStatus",
+      "target": "components/InstructorClassCard/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "instructorClassLearnersColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassLearnersColumnOptions",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "instructorClassLearnersFilterFields",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassLearnersFilterFields",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "instructorClassLearnersSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassLearnersSortOptions",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "instructorClassesColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassesColumnOptions",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "instructorClassesFilterFields",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassesFilterFields",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "instructorClassesSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "instructorClassesSortOptions",
+      "target": "components/InstructorDataGridOptions.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "LearnerClassCard",
+      "origin": "components/index.d.ts",
+      "sourceName": "LearnerClassCard",
+      "target": "components/LearnerClassCard/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "LearnerClassesDataGrid",
+      "origin": "components/index.d.ts",
+      "sourceName": "LearnerClassesDataGrid",
+      "target": "components/LearnerClassesDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "learnerClassesColumnOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "learnerClassesColumnOptions",
+      "target": "components/LearnerClassesDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "learnerClassesSortOptions",
+      "origin": "components/index.d.ts",
+      "sourceName": "learnerClassesSortOptions",
+      "target": "components/LearnerClassesDataGrid/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "SideNavigation",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavigation",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "SideNavChildBehavior",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavChildBehavior",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "SideNavIcon",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavIcon",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "SideNavItem",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavItem",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "SideNavMenu",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavMenu",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "SideNavOrganization",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavOrganization",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "SideNavSection",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavSection",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "SideNavigationModel",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavigationModel",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": "./components",
+      "name": "SideNavigationProps",
+      "origin": "components/index.d.ts",
+      "sourceName": "SideNavigationProps",
+      "target": "components/SideNavigation/index.d.ts"
+    },
+    {
+      "route": "./theme",
+      "name": "AppThemeProvider",
+      "origin": "theme/index.d.ts",
+      "sourceName": "AppThemeProvider",
+      "target": "theme/AppThemeProvider.d.ts"
+    },
+    {
+      "route": "./theme",
+      "name": "darkTheme",
+      "origin": "theme/index.d.ts",
+      "sourceName": "darkTheme",
+      "target": "theme/theme.d.ts"
+    },
+    {
+      "route": "./theme",
+      "name": "lightTheme",
+      "origin": "theme/index.d.ts",
+      "sourceName": "lightTheme",
+      "target": "theme/theme.d.ts"
+    },
+    {
+      "route": "./theme",
+      "name": "theme",
+      "origin": "theme/index.d.ts",
+      "sourceName": "theme",
+      "target": "theme/theme.d.ts"
+    },
+    {
+      "route": "./hooks",
+      "name": "usePersistentState",
+      "origin": "hooks/usePersistentState.d.ts",
+      "sourceName": "usePersistentState"
+    },
+    {
+      "route": "./hooks",
+      "name": "PaginationModel",
+      "origin": "hooks/usePersistentPaginationModel.d.ts",
+      "sourceName": "PaginationModel"
+    },
+    {
+      "route": "./hooks",
+      "name": "APP_PAGE_SIZE_OPTIONS",
+      "origin": "hooks/usePersistentPaginationModel.d.ts",
+      "sourceName": "APP_PAGE_SIZE_OPTIONS"
+    },
+    {
+      "route": "./hooks",
+      "name": "normalizePaginationModel",
+      "origin": "hooks/usePersistentPaginationModel.d.ts",
+      "sourceName": "normalizePaginationModel"
+    },
+    {
+      "route": "./hooks",
+      "name": "usePersistentPaginationModel",
+      "origin": "hooks/usePersistentPaginationModel.d.ts",
+      "sourceName": "usePersistentPaginationModel"
+    },
+    {
+      "route": "./icons",
+      "name": "AccessTimeFilledIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/AccessTimeFilled"
+    },
+    {
+      "route": "./icons",
+      "name": "AddIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Add"
+    },
+    {
+      "route": "./icons",
+      "name": "ApartmentIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Apartment"
+    },
+    {
+      "route": "./icons",
+      "name": "ArrowDropDownIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ArrowDropDown"
+    },
+    {
+      "route": "./icons",
+      "name": "AssignmentTurnedInIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/AssignmentTurnedIn"
+    },
+    {
+      "route": "./icons",
+      "name": "AutoStoriesIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/AutoStories"
+    },
+    {
+      "route": "./icons",
+      "name": "BookIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Book"
+    },
+    {
+      "route": "./icons",
+      "name": "BuildIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Build"
+    },
+    {
+      "route": "./icons",
+      "name": "BusinessCenterIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/BusinessCenter"
+    },
+    {
+      "route": "./icons",
+      "name": "ChevronRightIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ChevronRight"
+    },
+    {
+      "route": "./icons",
+      "name": "CheckIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Check"
+    },
+    {
+      "route": "./icons",
+      "name": "ClassIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Class"
+    },
+    {
+      "route": "./icons",
+      "name": "CloseIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Close"
+    },
+    {
+      "route": "./icons",
+      "name": "ComputerIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Computer"
+    },
+    {
+      "route": "./icons",
+      "name": "CorporateFareIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/CorporateFare"
+    },
+    {
+      "route": "./icons",
+      "name": "DeleteOutlineIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/DeleteOutline"
+    },
+    {
+      "route": "./icons",
+      "name": "DescriptionOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/DescriptionOutlined"
+    },
+    {
+      "route": "./icons",
+      "name": "DescriptionIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Description"
+    },
+    {
+      "route": "./icons",
+      "name": "DashboardIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Dashboard"
+    },
+    {
+      "route": "./icons",
+      "name": "DnsIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Dns"
+    },
+    {
+      "route": "./icons",
+      "name": "DragIndicatorIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/DragIndicator"
+    },
+    {
+      "route": "./icons",
+      "name": "EditIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Edit"
+    },
+    {
+      "route": "./icons",
+      "name": "EventIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Event"
+    },
+    {
+      "route": "./icons",
+      "name": "ExpandMoreIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ExpandMore"
+    },
+    {
+      "route": "./icons",
+      "name": "ExploreIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Explore"
+    },
+    {
+      "route": "./icons",
+      "name": "FactCheckOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/FactCheckOutlined"
+    },
+    {
+      "route": "./icons",
+      "name": "GroupIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Group"
+    },
+    {
+      "route": "./icons",
+      "name": "KeyboardArrowDownIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/KeyboardArrowDown"
+    },
+    {
+      "route": "./icons",
+      "name": "LockIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Lock"
+    },
+    {
+      "route": "./icons",
+      "name": "LockResetIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/LockReset"
+    },
+    {
+      "route": "./icons",
+      "name": "ManageAccountsIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ManageAccounts"
+    },
+    {
+      "route": "./icons",
+      "name": "MenuBookIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/MenuBook"
+    },
+    {
+      "route": "./icons",
+      "name": "MenuBookOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/MenuBookOutlined"
+    },
+    {
+      "route": "./icons",
+      "name": "MoreVertIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/MoreVert"
+    },
+    {
+      "route": "./icons",
+      "name": "PaidIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Paid"
+    },
+    {
+      "route": "./icons",
+      "name": "PersonIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Person"
+    },
+    {
+      "route": "./icons",
+      "name": "PersonAddIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/PersonAdd"
+    },
+    {
+      "route": "./icons",
+      "name": "PhotoCameraBackIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/PhotoCameraBack"
+    },
+    {
+      "route": "./icons",
+      "name": "QuizOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/QuizOutlined"
+    },
+    {
+      "route": "./icons",
+      "name": "SchoolIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/School"
+    },
+    {
+      "route": "./icons",
+      "name": "ScienceOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/ScienceOutlined"
+    },
+    {
+      "route": "./icons",
+      "name": "StarIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Star"
+    },
+    {
+      "route": "./icons",
+      "name": "TaskAltIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/TaskAlt"
+    },
+    {
+      "route": "./icons",
+      "name": "TerminalIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Terminal"
+    },
+    {
+      "route": "./icons",
+      "name": "TranslateIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Translate"
+    },
+    {
+      "route": "./icons",
+      "name": "TuneIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/Tune"
+    },
+    {
+      "route": "./icons",
+      "name": "VpnKeyIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/VpnKey"
+    },
+    {
+      "route": "./icons",
+      "name": "VisibilityOffIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/VisibilityOff"
+    },
+    {
+      "route": "./icons",
+      "name": "WorkOutlineOutlinedIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/icons-material/WorkOutlineOutlined"
+    },
+    {
+      "route": "./icons",
+      "name": "getActivityTypeIcon",
+      "origin": "components/icons/index.d.ts",
+      "sourceName": "getActivityTypeIcon",
+      "target": "components/icons/activityTypeIcon.d.ts"
+    },
+    {
+      "route": "./primitives",
+      "name": "Box",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Box"
+    },
+    {
+      "route": "./primitives",
+      "name": "BoxProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "BoxProps",
+      "target": "@mui/material/Box"
+    },
+    {
+      "route": "./primitives",
+      "name": "Stack",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Stack"
+    },
+    {
+      "route": "./primitives",
+      "name": "StackProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "StackProps",
+      "target": "@mui/material/Stack"
+    },
+    {
+      "route": "./primitives",
+      "name": "Typography",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Typography"
+    },
+    {
+      "route": "./primitives",
+      "name": "TypographyProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TypographyProps",
+      "target": "@mui/material/Typography"
+    },
+    {
+      "route": "./primitives",
+      "name": "TextField",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TextField"
+    },
+    {
+      "route": "./primitives",
+      "name": "TextFieldProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TextFieldProps",
+      "target": "@mui/material/TextField"
+    },
+    {
+      "route": "./primitives",
+      "name": "CircularProgress",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/CircularProgress"
+    },
+    {
+      "route": "./primitives",
+      "name": "CircularProgressProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "CircularProgressProps",
+      "target": "@mui/material/CircularProgress"
+    },
+    {
+      "route": "./primitives",
+      "name": "Checkbox",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Checkbox"
+    },
+    {
+      "route": "./primitives",
+      "name": "CheckboxProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "CheckboxProps",
+      "target": "@mui/material/Checkbox"
+    },
+    {
+      "route": "./primitives",
+      "name": "FormControlLabel",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/FormControlLabel"
+    },
+    {
+      "route": "./primitives",
+      "name": "FormControlLabelProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "FormControlLabelProps",
+      "target": "@mui/material/FormControlLabel"
+    },
+    {
+      "route": "./primitives",
+      "name": "IconButton",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/IconButton"
+    },
+    {
+      "route": "./primitives",
+      "name": "IconButtonProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "IconButtonProps",
+      "target": "@mui/material/IconButton"
+    },
+    {
+      "route": "./primitives",
+      "name": "MuiLink",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Link"
+    },
+    {
+      "route": "./primitives",
+      "name": "MuiLinkProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "LinkProps",
+      "target": "@mui/material/Link"
+    },
+    {
+      "route": "./primitives",
+      "name": "Menu",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Menu"
+    },
+    {
+      "route": "./primitives",
+      "name": "MenuProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "MenuProps",
+      "target": "@mui/material/Menu"
+    },
+    {
+      "route": "./primitives",
+      "name": "MenuItem",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/MenuItem"
+    },
+    {
+      "route": "./primitives",
+      "name": "MenuItemProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "MenuItemProps",
+      "target": "@mui/material/MenuItem"
+    },
+    {
+      "route": "./primitives",
+      "name": "Select",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Select"
+    },
+    {
+      "route": "./primitives",
+      "name": "SelectProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "SelectProps",
+      "target": "@mui/material/Select"
+    },
+    {
+      "route": "./primitives",
+      "name": "SelectChangeEvent",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "SelectChangeEvent",
+      "target": "@mui/material/Select"
+    },
+    {
+      "route": "./primitives",
+      "name": "Autocomplete",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Autocomplete"
+    },
+    {
+      "route": "./primitives",
+      "name": "AutocompleteProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "AutocompleteProps",
+      "target": "@mui/material/Autocomplete"
+    },
+    {
+      "route": "./primitives",
+      "name": "Divider",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Divider"
+    },
+    {
+      "route": "./primitives",
+      "name": "DividerProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "DividerProps",
+      "target": "@mui/material/Divider"
+    },
+    {
+      "route": "./primitives",
+      "name": "Chip",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Chip"
+    },
+    {
+      "route": "./primitives",
+      "name": "ChipProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ChipProps",
+      "target": "@mui/material/Chip"
+    },
+    {
+      "route": "./primitives",
+      "name": "LinearProgress",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/LinearProgress"
+    },
+    {
+      "route": "./primitives",
+      "name": "LinearProgressProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "LinearProgressProps",
+      "target": "@mui/material/LinearProgress"
+    },
+    {
+      "route": "./primitives",
+      "name": "Switch",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Switch"
+    },
+    {
+      "route": "./primitives",
+      "name": "SwitchProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "SwitchProps",
+      "target": "@mui/material/Switch"
+    },
+    {
+      "route": "./primitives",
+      "name": "List",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/List"
+    },
+    {
+      "route": "./primitives",
+      "name": "ListProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListProps",
+      "target": "@mui/material/List"
+    },
+    {
+      "route": "./primitives",
+      "name": "ListItem",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/ListItem"
+    },
+    {
+      "route": "./primitives",
+      "name": "ListItemProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListItemProps",
+      "target": "@mui/material/ListItem"
+    },
+    {
+      "route": "./primitives",
+      "name": "ListItemButton",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/ListItemButton"
+    },
+    {
+      "route": "./primitives",
+      "name": "ListItemButtonProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListItemButtonProps",
+      "target": "@mui/material/ListItemButton"
+    },
+    {
+      "route": "./primitives",
+      "name": "ListItemText",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/ListItemText"
+    },
+    {
+      "route": "./primitives",
+      "name": "ListItemTextProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "ListItemTextProps",
+      "target": "@mui/material/ListItemText"
+    },
+    {
+      "route": "./primitives",
+      "name": "Table",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Table"
+    },
+    {
+      "route": "./primitives",
+      "name": "TableProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableProps",
+      "target": "@mui/material/Table"
+    },
+    {
+      "route": "./primitives",
+      "name": "TableHead",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableHead"
+    },
+    {
+      "route": "./primitives",
+      "name": "TableHeadProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableHeadProps",
+      "target": "@mui/material/TableHead"
+    },
+    {
+      "route": "./primitives",
+      "name": "TableBody",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableBody"
+    },
+    {
+      "route": "./primitives",
+      "name": "TableBodyProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableBodyProps",
+      "target": "@mui/material/TableBody"
+    },
+    {
+      "route": "./primitives",
+      "name": "TableRow",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableRow"
+    },
+    {
+      "route": "./primitives",
+      "name": "TableRowProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableRowProps",
+      "target": "@mui/material/TableRow"
+    },
+    {
+      "route": "./primitives",
+      "name": "TableCell",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/TableCell"
+    },
+    {
+      "route": "./primitives",
+      "name": "TableCellProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TableCellProps",
+      "target": "@mui/material/TableCell"
+    },
+    {
+      "route": "./primitives",
+      "name": "Collapse",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Collapse"
+    },
+    {
+      "route": "./primitives",
+      "name": "CollapseProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "CollapseProps",
+      "target": "@mui/material/Collapse"
+    },
+    {
+      "route": "./primitives",
+      "name": "Tooltip",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "default",
+      "target": "@mui/material/Tooltip"
+    },
+    {
+      "route": "./primitives",
+      "name": "TooltipProps",
+      "origin": "components/primitives/index.d.ts",
+      "sourceName": "TooltipProps",
+      "target": "@mui/material/Tooltip"
+    },
+    {
+      "route": "./adapters",
+      "name": "SGLinkProps",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "SGLinkProps"
+    },
+    {
+      "route": "./adapters",
+      "name": "SGNavigationAdapter",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "SGNavigationAdapter"
+    },
+    {
+      "route": "./adapters",
+      "name": "SGNavigationProvider",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "SGNavigationProvider"
+    },
+    {
+      "route": "./adapters",
+      "name": "useNavigationAdapter",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "useNavigationAdapter"
+    },
+    {
+      "route": "./adapters",
+      "name": "usePathname",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "usePathname"
+    },
+    {
+      "route": "./adapters",
+      "name": "useRouter",
+      "origin": "adapters/navigation.d.ts",
+      "sourceName": "useRouter"
+    },
+    {
+      "route": "./adapters",
+      "name": "AuthOrganization",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "AuthOrganization"
+    },
+    {
+      "route": "./adapters",
+      "name": "StoredAuthSession",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "StoredAuthSession"
+    },
+    {
+      "route": "./adapters",
+      "name": "SGAccountAdapter",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "SGAccountAdapter"
+    },
+    {
+      "route": "./adapters",
+      "name": "SGAccountProvider",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "SGAccountProvider"
+    },
+    {
+      "route": "./adapters",
+      "name": "useAccountAdapter",
+      "origin": "adapters/accounts.d.ts",
+      "sourceName": "useAccountAdapter"
+    },
+    {
+      "route": "./adapters",
+      "name": "SGLink",
+      "origin": "adapters/index.d.ts",
+      "sourceName": "default",
+      "target": "adapters/Link.d.ts"
+    },
+    {
+      "route": "./i18n",
+      "name": "SGTranslationOptions",
+      "origin": "i18n/index.d.ts",
+      "sourceName": "SGTranslationOptions"
+    },
+    {
+      "route": "./i18n",
+      "name": "SGTranslationAdapter",
+      "origin": "i18n/index.d.ts",
+      "sourceName": "SGTranslationAdapter"
+    },
+    {
+      "route": "./i18n",
+      "name": "SGTranslationProvider",
+      "origin": "i18n/index.d.ts",
+      "sourceName": "SGTranslationProvider"
+    },
+    {
+      "route": "./i18n",
+      "name": "useTranslation",
+      "origin": "i18n/index.d.ts",
+      "sourceName": "useTranslation"
+    }
+  ]
+}

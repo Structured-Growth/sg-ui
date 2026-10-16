@@ -1,0 +1,77 @@
+{
+  "number": 40,
+  "title": "Final commitments evidence and gate synthesis",
+  "ids": [
+    "A-Z-11",
+    "A-Z-12",
+    "A-Z-15",
+    "A-Z-16"
+  ],
+  "focus": "Reconcile user calendar/search/editor commitments with shipped APIs and current evidence. Produce exact unmet commitment/gate map and proposed ledger update, referencing the other39 assignments without taking over their work. A-Z16 must remain open while any required acceptance/editorV or human release gate remains. No claiming migration complete just because this wave is dispatched.",
+  "directory": "docs/developer/final-acceptance/wave-03-40",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-Z-11": "- [ ] A-Z-11 Reconcile original `Z-11`: Confirm package/type/build/Storybook/browser/accessibility/visual/SSR/performance checks pass for supported environments; record any genuine limitations instead of weakening checks. Historical status: open.",
+    "A-Z-12": "- [ ] A-Z-12 Reconcile original `Z-12`: Review the plan against every conversation commitment and imported UI principle; resolve duplicates, gaps, incompatible rules and unsupported feature claims. Historical status: open.",
+    "A-Z-15": "- [ ] A-Z-15 Reconcile original `Z-15`: Record final dependency/feature decisions, accepted test evidence, completed PRs, and explicitly deferred future tasks; no unchecked required migration item is dismissed as optional after the fact. Historical status: open.",
+    "A-Z-16": "- [ ] A-Z-16 Reconcile original `Z-16`: Only then mark the migration complete. Publishing is performed through the configured release workflow when authorized release-worthy changes merge. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-Z-11": {
+      "id": "A-Z-11",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-11 Reconcile original `Z-11`: Confirm package/type/build/Storybook/browser/accessibility/visual/SSR/performance checks pass for supported environments; record any genuine limitations instead of weakening checks. Historical status: open.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "exact tested-head/input/output matrix\njoins retained unchanged results and changed-scope reruns, plus missing native,\naccessibility/visual/SSR/performance/operator results and explicit limits. A\nconfigured job or jsdom result cannot close these gates; no tests were weakened."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-Z-12": {
+      "id": "A-Z-12",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-12 Reconcile original `Z-12`: Review the plan against every conversation commitment and imported UI principle; resolve duplicates, gaps, incompatible rules and unsupported feature claims. Historical status: open.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "coordinator joins actual human commitments/owner decisions to\nnamed acceptance IDs and current source evidence, resolves retained intent rows,\nand documents approved exceptions without dropping requirements. Historical\nstatements such as \u201cAppDataGrid still renders MUI X\u201d in the dated early progress\nbatch remain dated history, not current implementation guidance."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-Z-15": {
+      "id": "A-Z-15",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-15 Reconcile original `Z-15`: Record final dependency/feature decisions, accepted test evidence, completed PRs, and explicitly deferred future tasks; no unchecked required migration item is dismissed as optional after the fact. Historical status: open.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "coordinator merges all\nwave reports by original ID, verifies hashes and source deltas, joins dependency/\nfeature decisions and actual completed PR/head evidence, and keeps every remaining\nrequired obligation open. New calendar features and experimental APIs do not\nsilently replace unaccepted old requirements. No historical open item was\nreclassified as optional for convenience here."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-Z-16": {
+      "id": "A-Z-16",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-16 Reconcile original `Z-16`: Only then mark the migration complete. Publishing is performed through the configured release workflow when authorized release-worthy changes merge. Historical status: open.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "only after all required leaf/operator/legal/owner\nresults are reconciled, the human approves the release-worthy promotion and the\nconfigured workflow validates/publishes on main. Development acceptance work\ncontinues on dev. \u201cPartial\u201d records the unmet completion gate; it does not imply\npublishing is authorized or that the gate can be waived locally."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

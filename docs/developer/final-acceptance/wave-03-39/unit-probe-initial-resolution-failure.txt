@@ -1,0 +1,31 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+ ❯ ../../docs/developer/final-acceptance/wave-03-39/probe.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-39/probe.test.tsx [ ../../docs/developer/final-acceptance/wave-03-39/probe.test.tsx ]
+Error: Failed to resolve import "react" from "docs/developer/final-acceptance/wave-03-39/probe.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-39/probe.test.tsx:2:37
+  1  |  import { useEffect, createRef } from "react";
+     |                                        ^
+  2  |  import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from "vitest";
+  3  |  import { act, cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  18:04:38
+   Duration  399ms (transform 14ms, setup 20ms, import 0ms, tests 0ms, environment 262ms)
+

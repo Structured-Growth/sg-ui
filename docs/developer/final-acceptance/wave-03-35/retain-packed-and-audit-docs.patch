@@ -1,0 +1,124 @@
+--- a/packages/ui/scripts/check-package.mjs
++++ b/packages/ui/scripts/check-package.mjs
+@@ -1,8 +1,9 @@
+ import assert from 'node:assert/strict';
+ import { execFileSync } from 'node:child_process';
+-import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
++import { copyFile, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises';
++import { createHash } from 'node:crypto';
+ import { tmpdir } from 'node:os';
+-import { join } from 'node:path';
++import { join, resolve } from 'node:path';
+ import { pathToFileURL } from 'node:url';
+ import ts from 'typescript';
+ 
+@@ -19,7 +20,7 @@
+     }
+   }
+ }
+-export async function checkPackage() {
++export async function checkPackage({ retainPackedDirectory } = {}) {
+ // Directives belong to source implementations, never to a build-time directory rule.
+ async function checkClientBoundaries(directory) {
+   for (const entry of await readdir(directory, { withFileTypes: true })) {
+@@ -158,6 +159,36 @@
+   }
+   const topLevel = await readdir(packedRoot);
+   assert(topLevel.every(name => ['dist', 'LICENSE', 'THIRD_PARTY_NOTICES.md', 'README.md', 'package.json'].includes(name)), 'Unexpected source/configuration shipped');
++  if (retainPackedDirectory) {
++    // A fresh destination prevents accidental replacement of earlier candidate evidence.
++    const destination = resolve(retainPackedDirectory);
++    await mkdir(destination);
++    const archive = await readFile(join(packedAudit, tarballs[0]));
++    const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
++    const files = [];
++    async function recordFiles(directory, prefix = '') {
++      const entries = (await readdir(directory, { withFileTypes: true })).sort((a, b) => a.name.localeCompare(b.name));
++      for (const entry of entries) {
++        const path = join(directory, entry.name);
++        const relativePath = prefix ? `${prefix}/${entry.name}` : entry.name;
++        if (entry.isDirectory()) await recordFiles(path, relativePath);
++        else {
++          assert(entry.isFile(), `Unexpected packed member: ${relativePath}`);
++          const bytes = await readFile(path);
++          files.push({ path: relativePath, bytes: bytes.length, sha256: sha256(bytes) });
++        }
++      }
++    }
++    await recordFiles(packedRoot);
++    await copyFile(join(packedAudit, tarballs[0]), join(destination, tarballs[0]));
++    await writeFile(join(destination, 'packed-audit.json'), JSON.stringify({
++      schemaVersion: 1, capturedAt: new Date().toISOString(), runtime: process.version,
++      archive: tarballs[0], archiveSha256: sha256(archive), files,
++      technicalPackageAudit: 'passed', legalApproval: false,
++      limits: ['Exact development candidate; not an official release or legal/asset-provenance approval.'],
++    }, null, 2) + '\n');
++    console.log(`Retained exact candidate archive and SHA-256 file manifest in ${destination}`);
++  }
+   console.log('Packed JS, declarations, CSS, maps and assets match the fresh build; exports and notices are retained.');
+ } finally {
+   await rm(packedAudit, { recursive: true, force: true });
+@@ -165,5 +196,7 @@
+ }
+ 
+ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+-  await checkPackage();
+-}
++  const args = process.argv.slice(2);
++  assert(args.length <= 1 && args.every(arg => arg.startsWith('--retain-packed=') && arg.length > '--retain-packed='.length), 'Usage: node scripts/check-package.mjs [--retain-packed=/new/absolute/directory]');
++  await checkPackage({ retainPackedDirectory: args[0]?.slice('--retain-packed='.length) });
++}
+--- a/docs/developer/react-aria-removal-audit.md
++++ b/docs/developer/react-aria-removal-audit.md
+@@ -47,3 +47,38 @@
+ Do not patch vendored Storybook output or claim its text is the shipped library.
+ This batch rebuilt dist/Storybook and produced eight fresh packed consumer
+ fixtures, closing Z-07. Final complete tarball/legal reconciliation remains Z-08.
++
++
++## Current workspace audit (2026-10-16)
++
++The dated Storybook/build paragraphs above describe the historical host and its
++artifacts. Current maintained code lives in `packages/ui`; the replacement native
++host lives in `apps/docs/native-fixtures`. No Storybook runtime is required.
++The current [tracked-text receipt](final-acceptance/wave-03-35/tracked-text-audit.json)
++reads all 1,657 tracked current text files, including hidden configuration,
++personal state and baseline records, without publishing personal contents.
++Its 811 matching lines in 61 files are classified; personal state has no matches.
++Names in immutable baselines, removed-API mappings, guards, independent demo
++identities, legal text and opaque integrity strings are retained as such. Owned
++`scaleMotionDuration` is a substring false positive. These matches do not supply
++an old runtime dependency. Legal/reference-owner decisions remain separate.
++The receipt describes its captured bytes; later changes require scoped delta review.
++
++The [symbol dispositions](final-acceptance/wave-03-35/public-symbol-dispositions.json)
++join all 638 baseline route/name identities to the 469 captured contracts,
++including aliases, helpers, presets, hooks, adapters and experimental exports.
++Retained names can have breaking owned contracts: `MenuItem` changed from a JSX
++component to an item-record type; `AppThemeProvider` aliases Provider. The twelve
++absent baseline names each have an explicit owned replacement and release impact.
++This symbol join does not certify inherited prop compatibility or complete row
++acceptance. Review attribution, extraction metadata and remaining V evidence
++are tracked independently.
++
++For a durable candidate receipt, after the coordinator freezes and validates the
++build, run `node scripts/check-package.mjs --retain-packed=/new/absolute/directory`
++from `packages/ui`. The optional destination must not exist. The existing package
++checks run unchanged, then retain that exact archive and every packed file hash.
++Archive reference classification is separately reproducible with
++`python3 docs/developer/final-acceptance/wave-03-35/audit-packed.py ARCHIVE --output docs/developer/final-acceptance/wave-03-35/candidate-audit.json`
++from the repository root. This does not authorize notice deletion or assert
++legal approval, frozen installed dependency closure, or a release identity.
+--- a/docs/developer/react-aria-grid-presets.md
++++ b/docs/developer/react-aria-grid-presets.md
+@@ -34,8 +34,8 @@
+ vocabularies, independent of application HTTP/database contracts; the host owns
+ any mapping to its backend.
+ 
+-The colocated catalog preset stories wire columns, sort rules and filter rules
+-through controlled DataToolbar state. Hosts own filtering, page-zero resets,
++The docs website preset examples and docs-owned native fixtures wire columns,
++sort rules and filter rules through controlled DataToolbar state. Hosts own filtering, page-zero resets,
+ per-view persistence, refresh and requests. See [catalog integration](react-aria-catalog-grid.md)
+ and [toolbar contracts](react-aria-data-toolbar.md). Load `/styles.css` and provide
+ Provider or ThemeScope for these controls.

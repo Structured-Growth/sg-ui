@@ -7,6 +7,26 @@ import { $createImageNode, $isImageNode, ImageNode, type SerializedImageNode } f
 const makeEditor = () => createEditor({ namespace: "image-node-test", nodes: [ImageNode], onError: error => { throw error; } });
 
 describe("ImageNode in a real Lexical editor", () => {
+  it("rejects malformed saved image metadata before node creation", () => {
+    const editor = makeEditor();
+    editor.update(() => {
+      for (const invalid of [{ src: {} }, { src: "/cover.png", altText: {} },
+        { src: "/cover.png", assetId: [] }, { src: "/cover.png", width: Infinity },
+        { src: "/cover.png", height: "600" }]) {
+        expect(() => ImageNode.importJSON({ type: "image", version: 1, ...invalid } as unknown as SerializedImageNode))
+          .toThrow("Invalid editor image payload");
+      }
+      expect($getRoot().getChildrenSize()).toBe(0);
+      const valid = { type: "image", version: 1, src: "/cover.png", altText: '<script>alert("x")</script>',
+        assetId: 'asset<>&"', assetVersionId: "v1", width: 800, height: 600 } as const;
+      const image = ImageNode.importJSON(valid);
+      expect(image.exportJSON()).toEqual(valid);
+      const markup = renderToStaticMarkup(image.decorate(editor));
+      expect(markup).not.toContain("<script>");
+      expect(markup).toContain("&lt;script&gt;");
+    }, { discrete: true });
+  });
+
   it.each(["javascript:alert(1)", "data:text/html,unsafe", "//example.com/image.png", "file:///private/image.png", ""])(
     "renders rejected source %s without an img request and preserves saved metadata", src => {
       const editor = makeEditor();

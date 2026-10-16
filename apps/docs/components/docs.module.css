@@ -20,9 +20,6 @@
 .usageList { list-style: disc; padding-inline-start: var(--sgui-space4); }
 .usageListItem + .usageListItem { margin-block-start: var(--sgui-space2); }
 
-.navigationSearch { position: relative; min-inline-size: 0; }
-.navigationResults { position: absolute; inset-block-start: calc(100% + var(--sgui-space1)); inset-inline: 0; z-index: 20; display: flex; flex-direction: column; gap: var(--sgui-space2); max-block-size: min(60dvh, 28rem); overflow-y: auto; padding: var(--sgui-space3); background: var(--sgui-surface); border: 1px solid var(--sgui-border); border-radius: var(--sgui-field-radius); }
-.searchResult { display: flex; flex-direction: column; gap: var(--sgui-space1); padding-block: var(--sgui-space2); overflow-wrap: anywhere; }
 .navigationViewport { overflow: hidden; min-inline-size: 0; padding: var(--sgui-space1); margin: calc(-1 * var(--sgui-space1)); }
 .navigationPanel { min-inline-size: 0; animation: navigationForward var(--sgui-motion-duration) ease-out; }
 .navigationPanel[data-direction='back'] { animation-name: navigationBack; }
@@ -51,6 +48,8 @@
 /* Section views share existing state-owning examples while omitting unrelated wrapper headings. */
 .catalogPhase :where(*):not(:where([data-docs-example], [data-docs-example] *, [data-docs-preview], [data-docs-preview] *)):not(:has([data-docs-example], [data-docs-preview])) { display: none; }
 .catalogPhase[data-catalog-phase="overview"] [data-docs-preview] { max-block-size: 24rem; overflow: auto; }
+/* The inline range selector needs room for fields, presets and all six weeks. */
+.catalogPhase[data-catalog-phase="overview"][data-catalog-component="date-range-selector"] [data-docs-preview] { max-block-size: none; }
 
 /* The shell owns tools; pages register documentation and the section owns settings. */
 .layout[data-has-tools] { --docs-tool-rail-width: calc(max(var(--sgui-compact-navigation-item-height), var(--sgui-control-minimum-target-size)) + var(--sgui-space2)); grid-template-columns: 17rem minmax(0, 1fr) auto; }
@@ -81,10 +80,7 @@
   line-height: var(--sgui-body2-line-height);
 }
 .navigationIcon { flex: 0 0 auto; inline-size: var(--sgui-side-navigation-icon-size); block-size: var(--sgui-side-navigation-icon-size); }
-.navigationSearchIcon { position: absolute; z-index: 1; pointer-events: none; inset-inline-start: var(--sgui-space2); inset-block-start: 50%; transform: translateY(-50%); inline-size: var(--sgui-side-navigation-icon-size); block-size: var(--sgui-side-navigation-icon-size); color: var(--sgui-text-muted); }
-.navigationSearchInput { min-block-size: max(var(--sgui-compact-navigation-item-height), var(--sgui-control-minimum-target-size)); padding-inline: 2rem var(--sgui-space2); font-size: var(--sgui-side-navigation-label-size); line-height: var(--sgui-body2-line-height); background: var(--sgui-surface-subtle); border-color: transparent; }
-.navigationSearchInput:focus-visible { border-color: var(--sgui-focus); }
-@media (forced-colors: active) { .navLink[aria-current='page'] { outline: 1px solid Highlight; outline-offset: -1px; } .navigationSearchInput { border-color: FieldText; } }
+@media (forced-colors: active) { .navLink[aria-current='page'] { outline: 1px solid Highlight; outline-offset: -1px; } }
 
 
 /* A compact application toolbar, with its accessible picker label retained. */

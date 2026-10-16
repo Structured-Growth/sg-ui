@@ -1,0 +1,296 @@
+{
+  "capturedAt": "2026-10-16T23:05:48.931395+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "coordinatorEvidence": {
+    "path": "docs/developer/final-acceptance/coordinator-integration/evidence.json",
+    "sha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+    "scope": "BUG-0008 through BUG-0012 integration; A-G-02 owned contracts and A-K-16 honest publication only. No whole-library acceptance inferred."
+  },
+  "priorReceipts": [
+    {
+      "leaf": "A-C-16",
+      "path": "docs/developer/final-acceptance/wave-02-07/report.md",
+      "expected": "c2c17b38a6fa8bf058828b8503f0ddad9765d376f7f23d1e8b059072fbda7401",
+      "actual": "c2c17b38a6fa8bf058828b8503f0ddad9765d376f7f23d1e8b059072fbda7401",
+      "unchanged": true
+    },
+    {
+      "leaf": "A-C-16",
+      "path": "docs/developer/final-acceptance/wave-02-07/results.json",
+      "expected": "9ff22fb352cfbea66116133129a6ddc64ffd27856ba233e93d7ed406bfc4cf00",
+      "actual": "9ff22fb352cfbea66116133129a6ddc64ffd27856ba233e93d7ed406bfc4cf00",
+      "unchanged": true
+    },
+    {
+      "leaf": "A-D-18",
+      "path": "docs/developer/final-acceptance/wave-02-06/report.md",
+      "expected": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "actual": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "unchanged": true
+    },
+    {
+      "leaf": "A-D-18",
+      "path": "docs/developer/final-acceptance/wave-02-06/results.json",
+      "expected": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "actual": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "unchanged": true
+    },
+    {
+      "leaf": "A-X-06",
+      "path": "docs/developer/final-acceptance/wave-02-09/report.md",
+      "expected": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "actual": "7bb62df28ec73d5d8cc4aa0378e9b9824e532fa3c721e5e4bbb9acac55844903",
+      "unchanged": true
+    },
+    {
+      "leaf": "A-X-06",
+      "path": "docs/developer/final-acceptance/wave-02-09/results.json",
+      "expected": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "actual": "ce34796b977b59fac8f9de0c05082d9cfe85b591443dae67c2cd2f25dcc871fa",
+      "unchanged": true
+    }
+  ],
+  "inputs": [
+    {
+      "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx",
+      "sha256": "86834d142b544c70c23a6bc789ec9863beb9b5d7166e7d84349b8711c71e0c02",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.module.css",
+      "sha256": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
+      "wave0207Hash": "162cc786c27a03c0d389856ceafb3bac7a7849e1e9b936d53b6cafbb1b084a98",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "sha256": "7ebcab160b0f3817ee60c2f6d6f1722254ca6eca0741c5dd63b3c8e99b386cec",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "sha256": "9dc908146fe72faafe904b7606016b8892a19475f2bc153a04829ff5471f4949",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "docs/developer/react-aria-theme.md",
+      "sha256": "8ab7ca01b35473b5a11ad6efeab55f338d334f0ac762be18e0500a91b0c002de",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/tests/browser/wave03-system-indications.spec.ts",
+      "sha256": null,
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+      "wave0207Hash": "379de67fa76665fd9fad7f80f2094539f1ce44d22dc97e75366fb64c45a4241d",
+      "matchesWave0207": false,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "README.md",
+      "sha256": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+      "wave0207Hash": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "docs/migration.md",
+      "sha256": "8211ae11b3ee526e02a063beef01af3c512b0ef2d52cf3406d5253fb22fd5b9b",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "docs/developer/component-architecture.md",
+      "sha256": "fd4664e649a5f52e6dd77d5c5250a21a0e9cbacf330b9aeb62e2a1bcfc938829",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.module.css",
+      "sha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "wave0207Hash": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx",
+      "sha256": "6276b9d74b266f6267c780180d685512720549b243e7952413224152e7d92249",
+      "wave0207Hash": "6276b9d74b266f6267c780180d685512720549b243e7952413224152e7d92249",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.module.css",
+      "sha256": "ba518e55050e2e443f1defd0f8656d88cb730f68cb38829b8803c29190324123",
+      "wave0207Hash": "ba518e55050e2e443f1defd0f8656d88cb730f68cb38829b8803c29190324123",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+      "sha256": "f0b2e86367b1a2b73ca204018b663987157ff713d7a71758be9727bcc21fc085",
+      "wave0207Hash": "f0b2e86367b1a2b73ca204018b663987157ff713d7a71758be9727bcc21fc085",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/components/SideNavigation/SideNavigation.module.css",
+      "sha256": "4a975c632190d5d6fb5e4590bf3de1feb318d3c18146123cfddc6b03b421e97c",
+      "wave0207Hash": "4a975c632190d5d6fb5e4590bf3de1feb318d3c18146123cfddc6b03b421e97c",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Progress/Progress.module.css",
+      "sha256": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "wave0207Hash": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Progress/Progress.tsx",
+      "sha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css",
+      "sha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+      "wave0207Hash": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Dialog/Dialog.tsx",
+      "sha256": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "wave0207Hash": "c20465eda40e26c6c501abfd5dd9d9dcc4f84f76f41b83027dcbe749089b00c7",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Tooltip/Tooltip.tsx",
+      "sha256": "432c9ccb28b951dfbca0ab271229f5f8d06cb7ff410fd339438d3dbb098f5e8c",
+      "wave0207Hash": "432c9ccb28b951dfbca0ab271229f5f8d06cb7ff410fd339438d3dbb098f5e8c",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.json",
+      "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "wave0207Hash": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/scripts/tokens.test.mjs",
+      "sha256": "5d404282b5bc15ae7e064d12a6e8685a463aae13266d5ec278effdcb7662387b",
+      "wave0207Hash": "5d404282b5bc15ae7e064d12a6e8685a463aae13266d5ec278effdcb7662387b",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "apps/docs/theme/theme-graph.test.mjs",
+      "sha256": "cf31d84aaaf3510e2e5a3d296509d6b331123ca26a7b2eca3bdf5740f00c2944",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/tests/browser/display-preferences.spec.ts",
+      "sha256": "c219f96dd6442bc112d57e01748eb394ac5c1e89f083a0c739e1f23bf7a60d02",
+      "wave0207Hash": "c219f96dd6442bc112d57e01748eb394ac5c1e89f083a0c739e1f23bf7a60d02",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/tests/browser/inventory-modal-boundaries.spec.ts",
+      "sha256": "2487d701e877e76ece912951a0ab8720d48f2ab259c6e7fe35b0de5761786b70",
+      "wave0207Hash": "2487d701e877e76ece912951a0ab8720d48f2ab259c6e7fe35b0de5761786b70",
+      "matchesWave0207": true,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/generate-registry.mjs",
+      "sha256": "fb1b14f094ad0229d7bc07f4e48b4cbf1479a6b5c557f2a92c5299d07e106e87",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": null,
+      "matchesCoordinatorIntegration": null
+    },
+    {
+      "path": "packages/ui/dist/styles.css",
+      "sha256": "f7e2433696ce8d6ebd0cae60912c759f9ad83f66eb72453387a75ce557e0bb60",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": "f7e2433696ce8d6ebd0cae60912c759f9ad83f66eb72453387a75ce557e0bb60",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/dist/components/TextColorPickerControl/TextColorPickerControl.impl.js",
+      "sha256": "aa322ccc92c58ba07b7dd2d20437870c4e5845cead5f8fa64737fdab1a4c8733",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": "aa322ccc92c58ba07b7dd2d20437870c4e5845cead5f8fa64737fdab1a4c8733",
+      "matchesCoordinatorIntegration": true
+    },
+    {
+      "path": "packages/ui/dist/components/IconPanelNavigation/IconPanelNavigation.js",
+      "sha256": "77b5fd8e769eb1253dc932fede4a058c43baf740086ce18fb75e6811a724532a",
+      "wave0207Hash": null,
+      "matchesWave0207": null,
+      "coordinatorIntegrationHash": "77b5fd8e769eb1253dc932fede4a058c43baf740086ce18fb75e6811a724532a",
+      "matchesCoordinatorIntegration": true
+    }
+  ],
+  "validationLease": {
+    "legacyOccupied": true,
+    "ownerFileSha256": "906951e222e347003deb753e314c80f36fc6287eeecab8814ce87a0d1b21b306"
+  },
+  "limits": [
+    "No browser/OS/AT/device execution.",
+    "No source, output or registry modified outside assigned evidence directory.",
+    "Source snapshots do not establish transitive current-host/build equivalence."
+  ]
+}

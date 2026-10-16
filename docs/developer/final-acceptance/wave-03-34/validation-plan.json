@@ -1,0 +1,55 @@
+{
+  "scope": "Coordinator integration only; no shared validation started by this chat.",
+  "preconditions": [
+    "Review current-guidance.patch against patch-inputs.json base hashes; changes remain unapplied.",
+    "Apply only reviewed matching hunks; do not overwrite concurrent dependency-policy or other guide changes.",
+    "Keep historical Storybook receipts and 118 excluded historical links unchanged.",
+    "Use supported Node 24 for normal validation; pure compiler receipt here used Node 26.5.0 and is not supported-runtime acceptance."
+  ],
+  "checks": [
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-34/current-guidance.patch",
+      "cwd": "repository root",
+      "expected": "All twelve proposed-file hunks apply to matching current bytes. Already passed locally."
+    },
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-03-34/audit.py",
+      "cwd": "repository root",
+      "expected": "161 local links across proposed/current maintained guide scope, 39 script references, 9 direct script paths, zero scoped issues. Reconcile new findings rather than enforcing these counts as thresholds."
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-34/check-types.cjs",
+      "cwd": "repository root",
+      "expected": "Zero TypeScript diagnostics; three negative @ts-expect-error directives consumed. Already passed against existing declarations; rerun if those declarations change."
+    },
+    {
+      "command": "pnpm --filter @structured-growth/sg-ui build",
+      "cwd": "repository root",
+      "expected": "Fresh package declarations before broad displayed-snippet acceptance; schedule only in coordinator validation window."
+    },
+    {
+      "command": "pnpm --filter @structured-growth/docs catalog:check",
+      "cwd": "repository root",
+      "expected": "Public export/example/documentation/isolation guards pass; regenerate metadata only in authorized integration/build window if needed."
+    },
+    {
+      "command": "pnpm build:docs",
+      "cwd": "repository root",
+      "expected": "Production docs build from frozen integrated inputs; no server 3000 changes."
+    },
+    {
+      "command": "pnpm --filter @structured-growth/docs exec playwright test tests/catalog.spec.ts --project=chromium",
+      "cwd": "repository root",
+      "expected": "Existing single all-catalog test renders each route and compiles captured displayed/setup sources against public package types; serial production host uses port 3100 with reuseExistingServer:false. Coordinator owns port/lease/build scheduling."
+    }
+  ],
+  "notRequiredForThisDocsPatch": [
+    "Unrelated library unit/UI suites",
+    "Native fixture rebuild unless changing fixture behavior",
+    "Release/publish/owner-setting mutations"
+  ],
+  "externalDecisions": [
+    "W18-OWNER: accountable maintenance owner, cadence, supported-release/backport window, confidential intake/disclosure policy.",
+    "W17: repository/npm administration and counsel approval remain separate; docs patches do not certify either."
+  ]
+}

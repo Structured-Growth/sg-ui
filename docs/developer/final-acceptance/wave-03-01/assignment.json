@@ -1,0 +1,65 @@
+{
+  "number": 1,
+  "title": "API defaults and breaking changes",
+  "ids": [
+    "A-B-05",
+    "A-A-08",
+    "A-Z-13"
+  ],
+  "focus": "Normalize the existing469-contract snapshot and678 default candidates against actual declarations/implementation; produce a concrete breaking-change mapping and consumer guide corrections. Do not recapture unchanged inventories.",
+  "directory": "docs/developer/final-acceptance/wave-03-01",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-B-05": "- [ ] A-B-05 Reconcile original `B-05`: Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking. Historical status: open.",
+    "A-A-08": "- [ ] A-A-08 Reconcile original `A-08`: Define public variant, size, tone, density, placement, dismissal-reason, and validation contracts independently of any foundation. Historical status: open.",
+    "A-Z-13": "- [ ] A-Z-13 Reconcile original `Z-13`: Reconcile API snapshot with final declarations and consumer guide; verify every breaking change has migration instructions and correct Conventional Commit release marking. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-B-05": {
+      "id": "A-B-05",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-B-05 Reconcile original `B-05`: Snapshot public props, callbacks, models, defaults, subpaths, and deprecations; identify changes that are actually breaking. Historical status: open.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Normalize remaining per-symbol indirect context/CSS/composed defaults; explicitly classify private and non-applicable candidates.",
+        "Resolve inherited original APIs at initial locked dependency versions; classify complete breaking/removal/additive/preserved contract deltas, link migrations and release-marker decisions.",
+        "Calendar source owner resolves W02-15-F1 date-prop typing and retains a targeted current-input type receipt; do not treat the final wave compiler invocation as passing."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-A-08": {
+      "id": "A-A-08",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-A-08 Reconcile original `A-08`: Define public variant, size, tone, density, placement, dismissal-reason, and validation contracts independently of any foundation. Historical status: open.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Complete semantic feedback-timing/host-invalid/commit precedence reconciliation across composed and segmented fields; projection is not behavior evidence.",
+        "Review every alias/compound contract and indirect inherited definitions before declaring exhaustive public policy.",
+        "Calendar source owner resolves W02-15-F1 date-prop typing and retains a targeted current-input type receipt; do not treat the final wave compiler invocation as passing."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-Z-13": {
+      "id": "A-Z-13",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-13 Reconcile original `Z-13`: Reconcile API snapshot with final declarations and consumer guide; verify every breaking change has migration instructions and correct Conventional Commit release marking. Historical status: open.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "normalize remaining\npublic defaults/inherited historical contracts; join every intentional break to a\ncopyable guide and actual commit/squash title/footer; update selection-default and\nstale host guidance, then verify fresh affected declarations after coordinator\nfixes. `breaking-change-review.json` provides a concrete candidate join to review;\nit is not an exhaustive accepted release manifest. No manual version edit."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

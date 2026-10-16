@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "integrationRequired": true,
+  "patch": "governance-and-guidance.patch",
+  "baseHashes": "input-reconciliation.json and policy-check.json",
+  "steps": [
+    {
+      "owner": "coordinator",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-07/governance-and-guidance.patch",
+      "expected": "Exit 0 at matching bases; review drift and apply only after review."
+    },
+    {
+      "owner": "coordinator",
+      "command": "node --test packages/ui/scripts/check-governance-policy.test.mjs packages/ui/scripts/check-license-inventory.test.mjs",
+      "cwd": "repository root",
+      "runtime": "Node 24, or supported Node 22.12.0 when checking minimum",
+      "expected": "3 policy cases plus existing license fixtures pass. Use existing validation lease for supported-runtime unit execution. No shared install/build needed."
+    },
+    {
+      "owner": "coordinator",
+      "command": "node packages/ui/scripts/check-governance-policy.mjs .",
+      "expected": "Exit 0, no source signature differences. Record exact integrated head/patch and input hashes; no legal acceptance inferred."
+    },
+    {
+      "owner": "coordinator",
+      "command": "node packages/ui/scripts/check-license-inventory.mjs packages/ui > <coordinator-owned-output>/license-inventory.json",
+      "expected": "Exit 1 remains expected while existing evidence findings are unresolved. Compare against retained wave-02-05; classify actual new findings without blanket suppression."
+    },
+    {
+      "owner": "coordinator",
+      "command": "git diff --check",
+      "expected": "Integrated patch whitespace clean; validate changed guide local paths/commands. No UI/browser/build suite required for these read-only scripts and guidance."
+    }
+  ],
+  "notRequested": [
+    "No browser/AT/device validation: no UI behavior changes.",
+    "No shared build/install/catalog generation or server startup in this assignment."
+  ],
+  "externalEvidenceRequired": {
+    "A-L-08": [
+      "Named owner, backup and license/provenance reviewer, accepted trigger workflow, dated approval reference."
+    ],
+    "A-L-09": [
+      "Confirmed cadence/sources, confidential intake, urgency/escalation, support/backport window, disclosure/risk authority.",
+      "Next actual upgrade receipt with graph, notice/provenance disposition, meaningful behavioral checks, rollback/persisted-data analysis."
+    ],
+    "A-W-20": [
+      "Final candidate dependency/copied-code/inline-icon/font/asset attribution and extraction provenance dispositions accepted by designated reviewer."
+    ],
+    "A-Z-14": [
+      "Owner-verified npm/GitHub effective settings and publishing identity.",
+      "Legal/commercial approval references.",
+      "Actual official Actions run/job, exact candidate tarball digest and eventual npm/version/provenance identity when authorized."
+    ]
+  }
+}

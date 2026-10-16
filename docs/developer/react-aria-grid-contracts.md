@@ -72,8 +72,8 @@ name does not justify leaking upstream declarations or incompatible semantics.
 One top-level getRowId returns a stable, nonempty string for every row. A default
 may read a string/number id, converting numbers to strings. Missing/duplicate IDs
 are configuration errors; never silently merge two rows or infer IDs from position.
-Existing selection/drag getRowId conveniences must resolve to that same identity
-or receive a documented breaking mapping. getRowLabel supplies accessible row
+Move the extracted selection/drag getRowId conveniences to the top-level
+getRowId prop; custom callbacks must now return strings. getRowLabel supplies accessible row
 names separately from identity. Rows remain immutable host input.
 
 An owned column declares field, headerName, cellType, getCellValue,
@@ -269,23 +269,18 @@ reset/clamp for a new page. Reorder restores the source control after a host
 update or cancellation. Native tests must cover nested controls, independent
 instances, disappearance and horizontal/vertical scrolling.
 
-Implement M-16 in linked batches if needed: owned types/row processing, migrated
-cells/header/status parts, registered experimental interaction with native
-refs/token CSS, then catalog integration and strict transitive/package checks.
-M-17 wires the shared shell transaction; M-18 completes reorder; M-19 migrates
-the learning composition. Each implementation batch requires colocated behavior
-tests/stories, pnpm check, build-storybook and relevant packed/native evidence.
-Do not weaken registered interaction guards or claim broad G/U/X/R/Z acceptance
-from the existing representative proofs. No legacy foundation removal before
-G-27 and the remaining catalog consumers pass.
+M-16 through M-19 have integrated the owned renderer, shared shell, reorder and
+learning composition. New examples belong to the docs website and its private
+native host; Storybook is removed. Follow the [development validation policy](react-aria-development-validation.md) for targeted affected checks and retain
+full production gates. Registered interaction guards and broad G/U/X/R/Z
+acceptance remain required independently of representative proofs.
 
-## Internal cell and presentation batch
+## Historical internal cell and presentation batch
 
-M-16 now has internal `ownedGridColumns`, `ownedGridCells` and `ownedGridParts`
-modules. They are preparatory implementations; the exported catalog helpers and
-renderer still use the retired engine. Do not import these internal paths from a
-consumer application. The next integration batch will map the public names to
-these contracts with the breaking consumer documentation.
+This section records the earlier preparatory batch, before public integration.
+The public renderer and helpers now use these owned implementations; see
+[catalog integration](react-aria-catalog-grid.md) for shipped migration mappings.
+Consumers use public exports rather than these private implementation paths.
 
 The column builder validates declared field IDs and positive finite sizing,
 without enumerating host row keys. Layout normalization locks the first text/link/
@@ -293,7 +288,8 @@ copyable field and menu fields, puts menu fields last, discards stale fields, an
 clamps committed widths. Bounded weighted flex allocation preserves numeric
 width overrides and returns minimum widths when the container must scroll.
 Header sort changes promote the chosen field to priority one in the same ordered
-sort rules. Container measurement and pointer/keyboard resizing remain pending.
+sort rules. Container measurement and pointer/keyboard resizing were pending at this
+historical preparatory stage; they are implemented in the integrated renderer.
 
 Cell display callbacks receive original generic rows and raw values. `formatValue`
 returns display text; `renderCustomCell` is the ReactNode escape hatch. Display
@@ -310,4 +306,7 @@ initial loading, retained-row refresh, empty, no results and retryable host erro
 The public renderer/helpers/parts, shared shell and learner grid now use these owned
 contracts. Earlier internal-batch sections record historical scope. See
 [catalog integration](react-aria-catalog-grid.md) for the shipped API mappings and
-remaining reorder/reset and broad acceptance gates.
+scoped reorder/reset behavior and broader acceptance gates.
+
+For cancel, retry, optimistic rollback and stale mutation responses, see the
+[host mutation example](react-aria-grid-host-operations.md).

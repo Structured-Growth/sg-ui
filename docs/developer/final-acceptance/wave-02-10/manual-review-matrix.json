@@ -1,0 +1,100 @@
+{
+  "purpose": "W02-10-X11 operator handoff; no manual review performed",
+  "prerequisites": [
+    "Named authorized operator and AT/browser/OS pairing",
+    "Coordinator-provided immutable production fixture build and source/host hashes",
+    "Actual spoken-output observation, not DOM/axe substitution"
+  ],
+  "categories": [
+    {
+      "category": "dialogs",
+      "candidateFixtureId": "migration-proofs-dialog--nested-form",
+      "fixtureSelection": "Existing source scenario mapped by current module title/export and migration ledger. Registry/build availability must be checked in the coordinator immutable host before manual review; no execution claim.",
+      "status": "unrun",
+      "observationsRequired": "Name, initial focus, trapped order, child Escape before parent, return focus and error announcements.",
+      "operator": null,
+      "reviewedAt": null,
+      "platformOSBrowserATVersions": null,
+      "inputSourceHostHashes": null,
+      "expectedAndSpokenOutput": null,
+      "findings": [],
+      "fixtureSource": "apps/docs/native-fixtures/scenarios/experimental/Dialog/Dialog.fixture.tsx",
+      "fixtureSourceSha256": "f71f44346461123377d79f1d7e3717d95658f088d293a47aeab8fa0ff8bc167e"
+    },
+    {
+      "category": "selectors",
+      "candidateFixtureId": "migration-proofs-select--independent",
+      "fixtureSelection": "Existing source scenario mapped by current module title/export and migration ledger. Registry/build availability must be checked in the coordinator immutable host before manual review; no execution claim.",
+      "status": "unrun",
+      "observationsRequired": "Label/current value, open state, option position/selection/disabled, keyboard choice and return focus.",
+      "operator": null,
+      "reviewedAt": null,
+      "platformOSBrowserATVersions": null,
+      "inputSourceHostHashes": null,
+      "expectedAndSpokenOutput": null,
+      "findings": [],
+      "fixtureSource": "apps/docs/native-fixtures/scenarios/experimental/Select/Select.fixture.tsx",
+      "fixtureSourceSha256": "2f1c36ec5ba1104cc81b76ab09bad82c68db56a1f50113a4fb52ad5bb0122a31"
+    },
+    {
+      "category": "calendars",
+      "candidateFixtureId": "migration-proofs-daterangeselector--availability",
+      "fixtureSelection": "Existing source scenario mapped by current module title/export and migration ledger. Registry/build availability must be checked in the coordinator immutable host before manual review; no execution claim.",
+      "status": "unrun",
+      "observationsRequired": "Named dates, unavailable explanations, focused versus selected date, range endpoints, Apply/Cancel and civil values.",
+      "operator": null,
+      "reviewedAt": null,
+      "platformOSBrowserATVersions": null,
+      "inputSourceHostHashes": null,
+      "expectedAndSpokenOutput": null,
+      "findings": [],
+      "fixtureSource": "apps/docs/native-fixtures/scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "fixtureSourceSha256": "2498d5dfe62cdf4333ee35887680a68788fd32caa5ac0c729bf3c1587419ec52"
+    },
+    {
+      "category": "navigation",
+      "candidateFixtureId": "navigation-sidenavigation--native-hierarchy",
+      "fixtureSelection": "Existing source scenario mapped by current module title/export and migration ledger. Registry/build availability must be checked in the coordinator immutable host before manual review; no execution claim.",
+      "status": "unrun",
+      "observationsRequired": "Current item, named navigation regions, hierarchy drilldown/Back, keyboard sequence, host accepted pathname and focus.",
+      "operator": null,
+      "reviewedAt": null,
+      "platformOSBrowserATVersions": null,
+      "inputSourceHostHashes": null,
+      "expectedAndSpokenOutput": null,
+      "findings": [],
+      "fixtureSource": "apps/docs/native-fixtures/scenarios/components/SideNavigation/SideNavigation.fixture.tsx",
+      "fixtureSourceSha256": "a4fdd33331cf744ae5cde3c029dcb026240825026c5a04120d36647267d3d5b3"
+    },
+    {
+      "category": "tables",
+      "candidateFixtureId": "migration-proofs-catalog-grid-interaction--focus-retention",
+      "fixtureSelection": "Existing source scenario mapped by current module title/export and migration ledger. Registry/build availability must be checked in the coordinator immutable host before manual review; no execution claim.",
+      "status": "unrun",
+      "observationsRequired": "Grid/table role, row/column context, selected count, nested actions, retained refresh/error speech and focus after disappearance.",
+      "operator": null,
+      "reviewedAt": null,
+      "platformOSBrowserATVersions": null,
+      "inputSourceHostHashes": null,
+      "expectedAndSpokenOutput": null,
+      "findings": [],
+      "fixtureSource": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridInteraction.fixture.tsx",
+      "fixtureSourceSha256": "0705823c9015513d7849cb6fd5a5a0f575a46e843727607aaefb4a8c99ff0e1f"
+    },
+    {
+      "category": "editors",
+      "candidateFixtureId": "editors-pagerichtexteditorsection--full-tools",
+      "fixtureSelection": "Existing source scenario mapped by current module title/export and migration ledger. Registry/build availability must be checked in the coordinator immutable host before manual review; no execution claim.",
+      "status": "unrun",
+      "observationsRequired": "Editable/read-only region, formatting controls/selection preservation, errors, upload descriptions and navigation into/out of toolbar.",
+      "operator": null,
+      "reviewedAt": null,
+      "platformOSBrowserATVersions": null,
+      "inputSourceHostHashes": null,
+      "expectedAndSpokenOutput": null,
+      "findings": [],
+      "fixtureSource": "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "fixtureSourceSha256": "6fdf8e185542fbe7439629993f9c18edc2845d1c3f9785b8db6586ff9cb325ab"
+    }
+  ]
+}

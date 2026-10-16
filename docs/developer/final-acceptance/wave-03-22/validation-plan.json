@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "patch": "instructor-literal-labels.patch",
+  "integrationRequired": true,
+  "sharedCheckoutUnmodified": true,
+  "runtime": "Node 24.21.0",
+  "steps": [
+    {
+      "name": "Focused reproduction",
+      "status": "passed",
+      "command": "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node docs/developer/final-acceptance/wave-03-22/reproduce-literal-replacement.mjs",
+      "receipt": "literal-replacement-repro.txt",
+      "assertions": [
+        "Current source performs post-format replacement",
+        "Fallback formatter preserves literal content",
+        "Current replacement corrupts that content"
+      ]
+    },
+    {
+      "name": "Patch applicability",
+      "status": "passed",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-22/instructor-literal-labels.patch",
+      "assertions": [
+        "Patch applies cleanly to inspected working files; no mutation performed"
+      ]
+    },
+    {
+      "name": "Artifact syntax and dependency resolution",
+      "status": "passed",
+      "command": "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node docs/developer/final-acceptance/wave-03-22/check-artifacts.mjs",
+      "receipt": "artifact-check.txt",
+      "limits": "Syntax transpile and dependency resolution only; no full typecheck or behavioral execution."
+    },
+    {
+      "name": "Pre-integration baseline DOM regression",
+      "status": "pending-shared-lease",
+      "cwd": "repository root",
+      "command": "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-22/vitest.candidate.config.ts",
+      "expected": "2 failing regression cases with current component; preserve baseline failure transcript",
+      "receipts": [
+        "baseline-unit.txt",
+        "baseline-unit-second.txt",
+        "baseline-regression.txt",
+        "baseline-regression-retry.txt"
+      ],
+      "limits": "First two attempts were harness path/dependency resolution errors, zero tests; fixed final harness has not run. Later attempts stopped at occupied lease before tests. No real behavioral baseline Vitest result claimed."
+    },
+    {
+      "name": "Pre-integration candidate DOM regression",
+      "status": "pending-shared-lease",
+      "cwd": "repository root",
+      "command": "WAVE22_CANDIDATE=1 /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-22/vitest.candidate.config.ts",
+      "expected": "2 passed, using Vite pre-transform content replacement on original source ID; source files remain untouched",
+      "assertions": [
+        "Exact literal host content preserved in DOM/SSR",
+        "Host translator final text not reinterpreted",
+        "No markup injection",
+        "Exact namespace/interpolation values forwarded"
+      ]
+    },
+    {
+      "name": "Post-integration affected regression",
+      "status": "coordinator-requested",
+      "cwd": "packages/ui",
+      "command": "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node node_modules/vitest/vitest.mjs run src/components/InstructorClassCard/InstructorClassCard.test.tsx src/components/InstructorClassCard/InstructorClassCard.next100-regression.test.tsx src/components/InstructorClassCard/InstructorClassCard.literal-labels.test.tsx",
+      "expected": "Existing assertions retained; two added literal-label cases pass. Do not rerun Learner/Steps accepted units solely for credit."
+    },
+    {
+      "name": "Build / package checks",
+      "status": "coordinator-requested-at-next-integration-checkpoint",
+      "commands": [
+        "pnpm --filter @structured-growth/sg-ui build",
+        "pnpm --filter @structured-growth/sg-ui test:package"
+      ],
+      "limits": "No API, token, CSS or docs-fixture changes. No fresh native/packed engine matrix requested for a text-rendering-only correction."
+    },
+    {
+      "name": "Spoken AT",
+      "status": "external-operator-required",
+      "protocol": "at-operator-receipt.md",
+      "expected": "Actual speech, quiet progress ticks and retained focus; no DOM substitution"
+    },
+    {
+      "name": "Owner attribution",
+      "status": "external-owner-decision-required",
+      "protocol": "scope-disposition.md",
+      "expected": "Explicit menu/callback/date/icon/status attribution or separately approved extension criteria"
+    }
+  ]
+}

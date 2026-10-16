@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { createRef } from "react";
-import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, expect, it, vi } from "vitest";
 import { Select } from "./Select";
@@ -39,4 +39,28 @@ it("keeps duplicate labels distinct by string ID and isolates default/controlled
  rerender(<form data-testid="pair"><Select label="First" name="first" options={sameLabels} defaultValue="01" /><Select label="Second" name="second" options={[{ id: "01", label: "Renamed" }]} value="01" onValueChange={change} /></form>);
  expect(screen.getByRole("button", { name: /Second/ }).textContent).toContain("Renamed");
  expect(new FormData(form).get("second")).toBe("01");
+});
+
+it("keeps empty placeholder and keyboard selection with decorative icons on both sides", async () => {
+ const user=userEvent.setup(),change=vi.fn();
+ render(<Select label="Status" placeholder="Choose status" options={options} startIcon={<svg role="img" aria-label="Decoration"/>} endIcon={<svg role="img" aria-label="Other decoration"/>} onValueChange={change}/>);
+ const trigger=screen.getByRole("button",{name:/Status/});expect(trigger.textContent).toContain("Choose status");expect(screen.queryByRole("img")).toBeNull();
+ await user.tab();expect(document.activeElement).toBe(trigger);await user.keyboard("{ArrowDown}{Enter}");expect(change).toHaveBeenCalledWith("draft");
+ await waitFor(()=>expect(document.activeElement).toBe(trigger));
+});
+
+it("defers native reset until cancellation is known and preserves controlled serialization", async () => {
+ const user=userEvent.setup(),change=vi.fn();
+ const options=[{id:"01",label:"Same"},{id:"1",label:"Same"}];
+ const {container,rerender}=render(<form onReset={event=>event.preventDefault()}><Select label="Identity" name="identity" defaultValue="01" options={options} onValueChange={change}/><Select label="Host" name="host" value="1" options={options} onValueChange={change}/><button type="reset">Reset</button></form>);
+ const form=container.querySelector("form")!;
+ await user.click(screen.getByRole("button",{name:/Identity/}));await user.click(screen.getAllByRole("option",{name:"Same"})[1]!);
+ change.mockClear();await user.click(screen.getByRole("button",{name:"Reset"}));
+ await new Promise(resolve=>setTimeout(resolve,0));
+ expect(new FormData(form).get("identity")).toBe("1");expect(new FormData(form).get("host")).toBe("1");expect(change).not.toHaveBeenCalled();
+ rerender(<form><Select label="Identity" name="identity" defaultValue="01" options={options} onValueChange={change}/><Select label="Host" name="host" value="1" options={options} onValueChange={change}/><button type="reset">Reset</button></form>);
+ // Simulate the browser's post-event native-select default reset after Aria listeners.
+ fireEvent.reset(form);for(const select of form.querySelectorAll("select"))select.value="";
+ await waitFor(()=>{expect(new FormData(form).get("identity")).toBe("01");expect(new FormData(form).get("host")).toBe("1");});
+ expect(change).not.toHaveBeenCalled();
 });

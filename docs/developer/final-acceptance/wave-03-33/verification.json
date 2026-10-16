@@ -1,0 +1,12 @@
+{
+  "result": "pass",
+  "patchState": "unapplied",
+  "targets": 5,
+  "sourceRowsPreserved": 201,
+  "storyModules": 33,
+  "directFixtureMappings": 32,
+  "initialGridExportsRetainedAsOpenSuccessors": 16,
+  "localFileLinksChecked": 39,
+  "runtime": "Python 3.9.6",
+  "limits": "Metadata/Git source validation only; no runtime acceptance."
+}

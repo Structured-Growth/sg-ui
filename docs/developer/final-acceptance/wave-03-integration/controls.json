@@ -1,0 +1,408 @@
+{
+  "scope": "controls/source integration wave03",
+  "runtime": "Node24.21.0 cached npx runtime",
+  "applied": [
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-02/cycle-enforcement.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/scripts/check-foundations.mjs",
+        "packages/ui/scripts/check-source-graph.mjs",
+        "packages/ui/scripts/check-source-graph.test.mjs",
+        "packages/ui/src/adapters/navigation.tsx",
+        "packages/ui/src/adapters/navigation.types.ts",
+        "packages/ui/src/adapters/navigationContext.ts",
+        "packages/ui/src/experimental/DateField/DateField.tsx",
+        "packages/ui/src/experimental/DateField/DateField.types.ts",
+        "packages/ui/src/experimental/DateField/TextDateField.tsx",
+        "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+        "packages/ui/src/experimental/TimeField/TimeField.tsx",
+        "packages/ui/src/experimental/TimeField/TimeField.types.ts"
+      ],
+      "patchSha256": "6731a96467951e8d424362b10cea1d0164bb1f861c52ade6e29b277ed54da5f9",
+      "sourceHashes": {
+        "packages/ui/scripts/check-foundations.mjs": "06b85809d433e5103e2f4765d8e904a68615de36122f339ae256234b796a35ff",
+        "packages/ui/scripts/check-source-graph.mjs": "920a051854e1016b98e79417b8397f4d3f846781322e9cb562e1bd16c46d44ab",
+        "packages/ui/scripts/check-source-graph.test.mjs": "d9c93d393edd3c31933635b43f00a2d75bbe52a757e17b9d6ac4c6a80be4db39",
+        "packages/ui/src/adapters/navigation.tsx": "901c22179e377dd43926f8206bdfe9e87100b5105086f5febdfc361fc37c75d6",
+        "packages/ui/src/adapters/navigation.types.ts": "7abcc5a2db2bf798c393c5a60af508f7261904f9804376de3fac9e4799f4e1c2",
+        "packages/ui/src/adapters/navigationContext.ts": "144c32b8834f3709505be3bc1b627ae67a2fa1792a609856318d008a05ef3816",
+        "packages/ui/src/experimental/DateField/DateField.tsx": "3075f0020316ff98207f33c9f8c6966d2cc7edd3be1f79a8de84b4dfb6e8d5e6",
+        "packages/ui/src/experimental/DateField/DateField.types.ts": "834d01723af7ec8a9069391b89e8e060997e42f81ea7527702967f012e55387f",
+        "packages/ui/src/experimental/DateField/TextDateField.tsx": "78d056e20062bfc4bde7d57e2793077faf3bb5fa633b3d2c9ef369799961be94",
+        "packages/ui/src/experimental/TimeField/TextTimeField.tsx": "7c4bdfb669de8dcf86d3c415fd3ece5e9bf4220c3973f3cdb0be695b1edd749d",
+        "packages/ui/src/experimental/TimeField/TimeField.tsx": "1eba0cc7c4da1e59265471d91acd1e3ad6189ebc64bfb638d74462dc6261f8cc",
+        "packages/ui/src/experimental/TimeField/TimeField.types.ts": "0123a681429b62ec0a24206a34a2da34c3fabf4e4f1016bf15e933dffa57ec73"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-03/public-contracts.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/experimental/public-contracts.acceptance.test.tsx"
+      ],
+      "patchSha256": "c098efdb0a9abb24261e474cac975c0335d665a6fe9922e6dcd2945c411052c0",
+      "sourceHashes": {
+        "packages/ui/src/experimental/public-contracts.acceptance.test.tsx": "1ee696f4feb3630b9748439c38247f878f1208d5d1cbb16da58b8a1e45d30a23"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-04/actions.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/components/SideNavigation/SideNavigation.action-diagnostics.test.tsx",
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.notifications.test.tsx",
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx",
+        "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+        "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.activation.test.tsx"
+      ],
+      "patchSha256": "97d4b497649f1cda5e0e088e6469813c200b5fd15526c62e0695350bf3223de5",
+      "sourceHashes": {
+        "packages/ui/src/components/SideNavigation/SideNavigation.action-diagnostics.test.tsx": "9300a845cf5586a673280ea3afce093770f2709b39617a884d9a4945316b263f",
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.notifications.test.tsx": "4b9055e5886dc12d8ddaf45cc6600f83392f1dc7a50fe0033784052795606b04",
+        "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx": "f93a552afb444876b4aeacc2d0501048c0fc2a0d9ad693bb7168cb75efb1c373",
+        "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx": "8387d2a5f5a121bfb0d3fa62d7535eb2b3c0481a8566106df234369cb960f231",
+        "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.activation.test.tsx": "d19ad0b76d33fc113827ebf1d313f7793d317d73298341ae3f1bc72d30d71df6"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-05/guard-and-recipes.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/scripts/check-icon-import-boundaries.mjs",
+        "packages/ui/scripts/audit-packed-import-boundaries.mjs"
+      ],
+      "patchSha256": "6ff47f9926e8ec691173a08c82d542dc7bb9466787d4e002bf7150754863006b",
+      "sourceHashes": {
+        "packages/ui/scripts/check-icon-import-boundaries.mjs": "060486f91bf0f5a5c7c9b56dd57174abbeeaea7211ac1ac784593dfaf3bc822a",
+        "packages/ui/scripts/audit-packed-import-boundaries.mjs": "0affe4d963f5a3b6042465754fa5f686410061310f038aed55e138237136670a"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-05/direct-icon-imports.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/components/SideNavigation/SideNavigation.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+        "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+        "packages/ui/src/components/DataToolbar/DataToolbar.tsx"
+      ],
+      "patchSha256": "f7185af190100dc3741a6ee2389e331a4f66e0213d353d60bbb5ff4d50ece402",
+      "sourceHashes": {
+        "packages/ui/src/components/SideNavigation/SideNavigation.tsx": "b07ec6bc2768579d6f551c7507a3c334e44cd3e1ef3acbdd3333f37330f0626b",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": "960e6cfa086a1de332f0507ec3a67c1adaa6085b414ed01eeb37f7c1eef94c0e",
+        "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx": "d8914b3ed6ffcd7e87b4951821758ee788cb46ceed6e1fc7902770d7f032f1ec",
+        "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx": "8387d2a5f5a121bfb0d3fa62d7535eb2b3c0481a8566106df234369cb960f231",
+        "packages/ui/src/components/DataToolbar/DataToolbar.tsx": "1e8da8b7b9641714f9ab0d1dc2241a6bd7880542b01bf5c0f8e9171eeb907256"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-08/implementation.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/components/Button/Button.module.css"
+      ],
+      "patchSha256": "cb42082805082fad69b76839969a59733729e490007e0789775e179cd730bb79",
+      "sourceHashes": {
+        "packages/ui/src/components/Button/Button.module.css": "2dae9fbc28de22a584671dbbe9d3466bf18b1f5088f1f6546cbb8dcf3b1a39db"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-09/card-containment.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css"
+      ],
+      "patchSha256": "60a381937a91b9a5609d3fa86aec13035eba313d51d5b0e8a322e1aa70875396",
+      "sourceHashes": {
+        "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css": "ea1b13e785cf93faa6e6d2947d40a74d0c56f675e561b45ba0b682ea576b10c5"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-10/implementation.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+        "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+        "packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx",
+        "packages/ui/src/experimental/DataGrid/GridColumnWidthControl.tsx",
+        "packages/ui/src/experimental/TagGroup/TagGroup.module.css"
+      ],
+      "patchSha256": "61abb3753f372cd4c42502663be11a6f32a6000a655987d08ec260b3c990ff26",
+      "sourceHashes": {
+        "packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx": "e96cf87eb9df207c151ccfc1f9f2ed355c8b062729b9d16a53908c9e68bd2b33",
+        "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": "960e6cfa086a1de332f0507ec3a67c1adaa6085b414ed01eeb37f7c1eef94c0e",
+        "packages/ui/src/experimental/DataGrid/DataGrid.tsx": "7fc6022485a27941c437a4d92c2d575d371513b8daddf61dad9df8e8bf3ce1d3",
+        "packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx": "9b972b9f80d891572925eb81c539d8a73db2d17496affa5ec1b8ab0a6f5b32ff",
+        "packages/ui/src/experimental/DataGrid/GridColumnWidthControl.tsx": "345261940584cc1a6f9f7986b79ef89c5398ea5f81164e255626092b5f4e5e76",
+        "packages/ui/src/experimental/TagGroup/TagGroup.module.css": "1208194d6e220cf00f8884ab4cb3b4c53fbea2a664208cb0e5aca2cd61b27d12"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-13/scoped-css-corrections.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/experimental/TextField/TextField.module.css",
+        "packages/ui/src/components/AppDataGridShell/AppDataGridShell.module.css",
+        "packages/ui/src/experimental/Popover/Popover.module.css",
+        "packages/ui/src/experimental/Dialog/Dialog.module.css"
+      ],
+      "patchSha256": "3b8e85643484a510f352a86ab6c7d6af79bb5e9051bf529528f19c56a4044085",
+      "sourceHashes": {
+        "packages/ui/src/experimental/TextField/TextField.module.css": "277589b9139af6ea402c4e482e5ebf026d70fff9f919440de29b3592597cf448",
+        "packages/ui/src/components/AppDataGridShell/AppDataGridShell.module.css": "4c268787917c37ba3b811644e4bfba9ae1b26ab9972a0a73e3fdcc191dc43f42",
+        "packages/ui/src/experimental/Popover/Popover.module.css": "a9b1f0fadeefd8498e024cd4aaea6db0a2f026951586c91e6df1bba9204817f4",
+        "packages/ui/src/experimental/Dialog/Dialog.module.css": "fc5dafaa09efdb601d4ffc001bbf9142f77c4801e91a69ed2de34b555567a41f"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-17/localization-direction.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/components/SideNavigation/SideNavigation.module.css"
+      ],
+      "patchSha256": "6a3e9e588167b88cf65ca6b672baed9145c7ec2bd9a74ce4604871b622378063",
+      "sourceHashes": {
+        "packages/ui/src/components/SideNavigation/SideNavigation.module.css": "ff4b0772ac5ef50f8967e42b086acc100142d44e6a8bb4f4ae4428846c16da22"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-18/primitive-reset.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/experimental/TextArea/TextArea.tsx",
+        "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts",
+        "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx"
+      ],
+      "patchSha256": "e5b0900c08b992f0b0339b61a694e9e3ab1ed4cf48a7f658cbb2c4f33211a3fc",
+      "sourceHashes": {
+        "packages/ui/src/experimental/TextArea/TextArea.tsx": "bbfac2fbc7c3b30a4c55e0f4645fe8522ec84aa1a9fe18741895e51b01af442f",
+        "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts": "e2b3881016539b5ad61f409e2c07d587b77689ced1ed912c6a86db090df4c052",
+        "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx": "4ccdcd68de160bec0c1f5df9a6e750ec17219ea5c992902a05cb65dee01534a9"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-18/focused-tests-fixtures.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/experimental/TextArea/TextArea.reset-ownership.test.tsx",
+        "packages/ui/src/experimental/RadioGroup/RadioGroup.reset-edge.test.tsx"
+      ],
+      "patchSha256": "836713a693625ec6c0bcd4e8662127f7b8a3b544c2d59117166143458fbc6c92",
+      "sourceHashes": {
+        "packages/ui/src/experimental/TextArea/TextArea.reset-ownership.test.tsx": "015b91b92fb41a5ede63b1e13828ceda68ecfe5e5e9066addd6964f9092a54c1",
+        "packages/ui/src/experimental/RadioGroup/RadioGroup.reset-edge.test.tsx": "37abba7a8be911ec78c23695ec317f995a81738b26a6861c3cc27164b43336e1"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-21/reorder-policy.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder-policy.test.tsx"
+      ],
+      "patchSha256": "5c8336a0b4ef0ec7f48fb654ec6841437788197fdebbd6cea4c79bbc601d60fe",
+      "sourceHashes": {
+        "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder-policy.test.tsx": "2a56a948e46c6c4b63f6d09196017fdd08d336d93dfd05cecfa8bacef9c5669f"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-22/instructor-literal-labels.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.literal-labels.test.tsx",
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx"
+      ],
+      "patchSha256": "af06de9f9920e7d38fad1c991e067bac8117ec8016b893bad27eb9bef599a922",
+      "sourceHashes": {
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.literal-labels.test.tsx": "dc921d1d618ac29807d4b3fc4a43f8768d12b76d3e1c5464cf974825786f42fa",
+        "packages/ui/src/components/InstructorClassCard/InstructorClassCard.tsx": "fc9088efb038b50f829c4bfd3495f1779ea3936f2fff30242a455db8193ff5f9"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-28/boundaries.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.boundaries.test.tsx"
+      ],
+      "patchSha256": "1a8b18b42d7c7442a69a6edf03abd9631359efa184725a262f8750b133e1ddd5",
+      "sourceHashes": {
+        "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.boundaries.test.tsx": "045e576a992eb77d74032dd0603742e9a3269fbd4c53744974bcc6f798ad2203"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-31/scrollbar-disposal.patch",
+      "exit": 0,
+      "stderr": "",
+      "files": [
+        "packages/ui/src/foundation/scrollbar-activity.ts",
+        "packages/ui/src/foundation/scrollbar-activity.test.ts"
+      ],
+      "patchSha256": "e291aae95caf627019fe7fdc832fab478cafedc4aee9af6afe42d1894b4eecce",
+      "sourceHashes": {
+        "packages/ui/src/foundation/scrollbar-activity.ts": "f210ef3198366ad9f4ad930bd3c0fa073f43ca4764da94985b57a3b04ee70217",
+        "packages/ui/src/foundation/scrollbar-activity.test.ts": "7b2d46d08567a57f467bf5882cd283ca4dfe6a2acef7f5017868ecf1f3b5e0a0"
+      },
+      "disposition": "applied and reviewed; only owned production source/scripts and colocated tests"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-11/scoped-lifecycle.patch",
+      "exit": 0,
+      "patchSha256": "676fc1c1f71d6234310670e0898405976d6a4b1aaffc57438a4362503c71573f",
+      "files": [
+        "packages/ui/src/experimental/Provider/Provider.composed-ssr.test.tsx",
+        "packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx",
+        "packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx"
+      ],
+      "sourceHashes": {
+        "packages/ui/src/experimental/Provider/Provider.composed-ssr.test.tsx": "0d2363bdad5bcbe3f3440d9a17108fff1509fd8cc8e13456f4fb86dce3f7a41b",
+        "packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx": "a859b1e693a493a70dd2e51cacd3f78ce96f54e4f7c7ed2f9abb0ac6c6837e3c",
+        "packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx": "13be06df7ea48caf52776205f078fc5f5d06284fb7aca0c34f9f0b3d8b7f2b84"
+      },
+      "disposition": "source-only tests applied as coordinator follow-up; no runtime ThemeScope change proposed"
+    },
+    {
+      "patch": "docs/developer/final-acceptance/wave-03-27/clipboard-contracts.patch",
+      "exit": 0,
+      "patchSha256": "76a9c0a89a97631c259d8bd7d3c509f51948a804c270bd99cb4076c1135290d9",
+      "files": [
+        "packages/ui/src/experimental/DatePicker/DateEntryClipboard.test.tsx"
+      ],
+      "sourceHashes": {
+        "packages/ui/src/experimental/DatePicker/DateEntryClipboard.test.tsx": "be1f6504fe944288c8412e7f4ea04cca488fd2e517cb81795bea9e53ef287d04"
+      },
+      "disposition": "source-only tests applied as coordinator follow-up; no runtime ThemeScope change proposed"
+    }
+  ],
+  "deferred": [
+    {
+      "patch": "wave-03-13/optional-native-nesting.patch",
+      "reason": "Equivalent selector restructuring offers no needed functionality and introduces browser policy dependency. Keep flat supported selector; do not add test that mandates nesting for its own sake."
+    },
+    {
+      "patch": "wave-03-31/observer-cleanup.patch",
+      "reason": "FloatingTextSelectionToolbar delegated to sibling editor owner; not applied by controls owner."
+    },
+    {
+      "patch": "wave-03-31/production-profiling.patch",
+      "reason": "Outside assigned source/script ownership; coordinator owns performance fixtures/docs."
+    }
+  ],
+  "validation": {
+    "unitLog": "controls-units.log",
+    "units": {
+      "files": 15,
+      "passed": 77,
+      "failed": 0
+    },
+    "graphLog": "controls-graph-tests.log",
+    "graph": "one aggregate mutation/regression passed",
+    "iconLog": "controls-icon-boundary.log",
+    "icon": "passed",
+    "lifecycleClipboardLog": "controls-lifecycle-clipboard.log",
+    "lifecycleClipboard": {
+      "files": 4,
+      "passed": 7,
+      "failed": 0
+    },
+    "totalIntegratedUnitFiles": 19,
+    "totalIntegratedUnitTests": 84
+  },
+  "coordinatorValidationNeeded": [
+    "fresh library type/build/package validation for extracted contract leaves and new private grid helper",
+    "source foundation/token/css guard",
+    "fresh docs API/composition catalog generation and source validation",
+    "targeted native width-pointer controls/tag targets, CSS geometry/focus, card container sizing and RTL drill motion",
+    "preserve outstanding real AT/device/zoom/autofill/packed/browser matrix evidence obligations; no blanket A leaf closure from these bounded checks"
+  ],
+  "checkpointCorrection": {
+    "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+    "sha256": "db2d40e22d391a29740aa149632afb08d26be4817fd2b22b98089012a171fc3c",
+    "failedFirst": "units-checkpoint.log",
+    "reason": "Exact header text now contains new width action glyph. Retained exact ordered headers and added scoped Width of Name/Actions assertions plus hidden Score absence. No runtime change or original behavior weakening.",
+    "rerun": "controls-grid-stale-assertion.log",
+    "passed": 23,
+    "files": 1
+  },
+  "widthFocusCorrection": {
+    "source": "packages/ui/src/experimental/DataGrid/GridColumnWidthControl.tsx",
+    "test": "packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx",
+    "native": "packages/ui/tests/browser/acceptance-touch-targets.spec.ts",
+    "diagnostics": "controls-width-native-diagnostic.json",
+    "failingUnitLog": "controls-width-focus-units.log",
+    "passingUnitLog": "controls-width-focus-units-corrected.log",
+    "passed": 4,
+    "files": 2,
+    "nativeRevalidation": "pending fresh build"
+  },
+  "widthBoxCorrection": {
+    "source": "packages/ui/src/experimental/DataGrid/DataGrid.tsx",
+    "unitLog": "controls-width-css-box-units.log",
+    "passed": 5,
+    "files": 2,
+    "nativeRevalidation": "pending fresh build"
+  },
+  "primitiveDriverCorrection": {
+    "file": "packages/ui/tests/browser/wave03-18-primitives.spec.ts",
+    "sourceOrFixtureChanged": false,
+    "reason": "click visible native labels and assert actual checkedstate; use exact status-name to avoid substring collision",
+    "validation": "native rerun pending"
+  },
+  "gridRemovalDriverCorrection": {
+    "file": "packages/ui/tests/browser/wave03-grid-successors.spec.ts",
+    "productionOrFixtureChange": false,
+    "preserved": "samefieldfocus,fullyvisiblefocus,exacttwoscrollaxes,siblingselectionandsiblingexactscroll",
+    "failedFirst": "native-chromium-second.log",
+    "intermediate": "controls-grid-visible-removal.log",
+    "passedNative": "controls-grid-visible-removal-corrected.log",
+    "engine": "Chromium",
+    "passed": 1
+  },
+  "optimisticHostRegistration": {
+    "spec": "packages/ui/tests/browser/wave03-grid-successors.spec.ts",
+    "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx",
+    "failure": "native-final unknownfixture before first assertion",
+    "correction": "coordinator added migration-manifest module; awaiting post-suite generation/build",
+    "sourceChangedByControlsOwner": false
+  },
+  "firefoxNativeEntry": {
+    "source": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+    "diagnostic": "controls-firefox-tab-diagnostic.json",
+    "unitLog": "controls-firefox-scroll-entry-units.log",
+    "passed": 23,
+    "files": 1,
+    "fix": "Explicit tabindex=-1 scrollpane; native table retains collection Tabentry",
+    "nativeValidation": "pending fresh build and Firefox focused rerun"
+  }
+}

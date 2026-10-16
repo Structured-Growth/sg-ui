@@ -1,0 +1,29 @@
+{
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "node": "v26.5.0",
+  "dependencyInputs": 200,
+  "changedDependencyInputs": 0,
+  "inputs": 315,
+  "unresolved": 0,
+  "newCharacterization": [
+    {
+      "field": "__selection",
+      "buildError": "AppDataGrid column field is invalid or duplicated: __selection",
+      "processingError": "AppDataGrid column field is invalid or duplicated: __selection"
+    },
+    {
+      "field": "__drag",
+      "buildError": "AppDataGrid column field is invalid or duplicated: __drag",
+      "processingError": "AppDataGrid column field is invalid or duplicated: __drag"
+    },
+    {
+      "field": "__reorder",
+      "built": [
+        "__reorder"
+      ],
+      "processed": [
+        "a"
+      ]
+    }
+  ]
+}

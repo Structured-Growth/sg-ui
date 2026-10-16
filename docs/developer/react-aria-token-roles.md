@@ -1,39 +1,107 @@
 # Token tiers and semantic states
 
-Task slice: D-02/D-04, batch164. This defines token data and generated contracts;
-component adoption and broad design/accessibility acceptance remain open.
-See [component architecture](component-architecture.md) and
+Current source contract: A-D-01 / P08-D01-SCHEMA, reconciled 2026-10-16.
+The original D-02/D-04 batch164 role table is retained and updated below; current
+component CSS consumes owned component aliases. This guide describes the shipped
+compiler, not broad design/accessibility acceptance. See
+[component architecture](component-architecture.md),
+[token pipeline](theme-token-pipeline.md) and
 [development validation](react-aria-development-validation.md).
 
 Import `@structured-growth/sg-ui/styles.css` and use Provider or ThemeScope.
-The public `/tokens` entry exports `tokens`, `TokenName`, `tokenTiers`,
-`SemanticTokenName` and `ComponentTokenName`. Existing token names and their
-resolved values are preserved. New component tokens describe intended slot
-relationships; existing component CSS has **not** been switched to them in this slice.
+The single authored source for built-in library defaults is
+`packages/ui/src/foundation/tokens.json`; its compiler is
+`packages/ui/scripts/tokens.mjs`. Docs identities in `apps/docs/theme` are separate
+host configuration. They do not replace the built-in token source.
+
+## Record and value schema
+
+The JSON root contains exactly the nine nonempty object groups listed below.
+Each group is a flat map of token names to records. A name matches
+`^[a-z][A-Za-z0-9]*$`: lower-case initial, then ASCII letters/digits; camelCase is
+the convention. Nested groups, group-level metadata and inherited types are not
+implemented. Each record explicitly supplies `$type` and `$value`, for example
+`"surface": { "$type": "color", "$value": "{base.white}" }` in `light`.
+The compiler requires those two fields but does not reject or validate additional
+record fields; `$description`, `$extensions` or `$deprecated` would be ignored and
+are not propagated into outputs. Do not rely on them as generated metadata.
+
+Only `base` may hold literals. Every other record's entire value is a case-sensitive
+`"{group.key}"` alias to an existing record of the same `$type`. Alias chains are
+resolved recursively; missing targets and cycles fail generation. Embedded
+interpolation, fallback expressions, partial/property references, JSON Pointer and
+external-file references are unsupported. The compiler recognizes an alias by
+`^\{([^}]+)\}$` after string coercion; authored aliases must be strings.
+
+| `$type` | Literal `$value` accepted in `base` |
+| --- | --- |
+| `color` | Six or eight hexadecimal digits with `#`, case-insensitive; e.g. `"#ffffff"`, `"#00000040"` (RGBA) |
+| `dimension` | Nonnegative integer/decimal with leading digit and `rem`; e.g. `"0rem"`, `"0.125rem"`; no sign, exponent, `px`, percentage or leading-dot fraction |
+| `duration` | Nonnegative integer followed by `ms`, e.g. `"120ms"`; no fractions or seconds |
+| `number` | Finite JSON number; no unit or quoted number |
+| `fontFamily` | String without semicolon, braces or newline; the current stack is CSS family-list text, including quotes/commas |
+| `shadow` | String matching `^\d+rem \d+(\.\d+)?rem \d+(\.\d+)?rem #[\da-f]{8}$` (case-insensitive); x offset is an integer, y/blur may be decimals; no spread, inset, negatives or multiple shadows |
+
+These are compiler validation rules, not a general CSS parser. In particular the
+font-family check does not validate family grammar or require a nonempty string;
+regex-based literal checks use JavaScript coercion. Author the documented string
+forms rather than relying on accidental coercion. Other `$type` values fail.
+
+## DTCG compatibility boundary
+
+The comparison target is the [DTCG Format Module 2025.10](https://www.designtokens.org/tr/2025.10/format/),
+a Community Group report. SGUI adapts its `$type`/`$value` records and whole-token
+curly-brace aliases; this source is not a conforming interchange document or a
+conforming general-purpose DTCG reader.
+
+Compared with that revision's [types](https://www.designtokens.org/tr/2025.10/format/#types)
+and [shadow](https://www.designtokens.org/tr/2025.10/format/#shadow) representations,
+SGUI uses hex strings instead of structured colors, rem/ms strings instead of
+value/unit objects, and CSS shadow strings instead of objects/arrays. Family
+stacks are CSS strings, not structured fallback arrays; weights use `number`, not
+`fontWeight`. Finite numbers and simple family strings overlap. SGUI does not
+implement arbitrary nesting, type inheritance, `$root`, `$extends`, JSON Pointer,
+property references, or the remaining composite/type forms.
+
+An interchange adapter would need representation conversion, reference/group
+mapping and round-trip fixtures. None is shipped or promised here. Use the
+SGUI-specific schema above and generated public exports below for current work.
 
 ## Source tiers and integrity
 
-| Source group | Tier | Allowed references | CSS treatment |
+| Source group | Tier | Allowed reference groups | CSS treatment |
 | --- | --- | --- | --- |
-| `base` | Palette and scale | Literals only | Private source values, not CSS variables |
-| `shared` | Shared typography, spacing, geometry, motion and elevation roles | `base` | Existing variables retain literal values |
-| `light`, `dark` | Semantic color roles | `base` or same-theme semantic role | Palette aliases resolve to literals; same-theme aliases remain `var()` |
-| `compact`, `comfortable` | Density roles | `base`, `shared` | Existing variables retain literal values |
-| `component` | Component slot aliases | `shared`, `light`, `compact`, `component` | Always emitted as `var()` |
+| `base` | Palette and scale | None; literals only | Private values; no base CSS variables |
+| `shared` | Shared typography, spacing, geometry, motion and elevation | `base` | Resolved literals |
+| `light` | Semantic color | `base`, `light` | Base resolves to literal; same-theme alias stays `var()` |
+| `dark` | Semantic color | `base`, `dark` | Base resolves to literal; same-theme alias stays `var()` |
+| `compact` | Density | `base`, `shared` | Base resolves to literal; shared alias stays `var()` |
+| `comfortable` | Density | `base`, `shared` | Base resolves to literal; shared alias stays `var()` |
+| `pointer` | Interaction | `shared` | `var()` |
+| `touch` | Interaction | `shared` | `var()` |
+| `component` | Component slots | `shared`, `light`, `compact`, `pointer`, `component` | `var()` |
 
-In component source references, `light` and `compact` identify the canonical key
-sets, not a forced theme/density: `{light.action}` emits `var(--sgui-action)` and
-`{compact.controlHeight}` emits `var(--sgui-control-height)`. Dark/comfortable
-provide the corresponding same-named variable. Direct component palette references
-and component literals are rejected. Shared, semantic and density tiers cannot
-depend on component tokens; base cannot depend on roles. Every role must alias an
-allowed tier; palette/scale literals belong only in base.
+In component references, `light`, `compact` and `pointer` identify canonical key
+sets, not forced settings: `{light.action}` emits `var(--sgui-action)`,
+`{compact.controlHeight}` emits `var(--sgui-control-height)` and
+`{pointer.minimumTargetSize}` emits `var(--sgui-minimum-target-size)`.
+Dark/comfortable/touch provide the corresponding same-named variables. Direct
+component references to base/dark/comfortable/touch and component literals fail.
+Tier direction is exactly the table; shared/semantic/density/interaction cannot
+point back to components. Semantic records must have `$type: "color"`.
 
-The compiler rejects unknown or missing groups, malformed names/records, invalid
-values/types, missing references, cycles, cross-tier references, emitted-name
-collisions and light/dark or compact/comfortable key/type differences. Semantic
-same-theme alias topology must also match between light and dark. This makes the
-alias graph safe to re-declare on a scope that inherits its theme.
+The compiler requires identical key sets and types for light/dark,
+compact/comfortable and pointer/touch. Same-theme alias topology must also match
+between light/dark: a role aliasing another semantic role must target the same key
+in both themes. This keeps inherited-theme rebinding unambiguous.
+
+CSS names are `--sgui-` plus the token key with each uppercase letter changed to
+`-` plus lowercase; the group name is omitted (`bodyAlt2` → `--sgui-body-alt2`).
+The canonical emitted groups shared/light/compact/pointer/component must have no
+colliding CSS names, including collisions caused by case conversion. Paired groups
+intentionally emit the same names; private base names do not enter that collision
+check. Generation preserves source insertion order and uses fixed group/selector
+order; byte determinism does not mean arbitrary JSON key reordering is normalized.
 
 Base literals are deduplicated by **type and value**, not value alone. For example,
 body/spacing values can share one dimension scale entry; body1/body and h5/heading
@@ -58,6 +126,7 @@ roles `surface`, `surfaceSubtle`, `text`, `textMuted`, `border`, `divider`, `act
 | `surfaceSubtle` | `#f8fafc` | `#1e293b` | `palette`; subtle surface |
 | `text` | `#0f172a` | `#e2e8f0` | `palette`; body text |
 | `textMuted` | `#475569` | `#cbd5e1` | `palette`; secondary text |
+| `textSubtle` | `#64748b` | `#94a3b8` | `palette`; subtle text |
 | `border` | `#475569` | `#cbd5e1` | `palette`; essential control boundary |
 | `divider` | `#cbd5e1` | `#475569` | `palette`; decorative division |
 | `action` | `#1d4ed8` | `#60a5fa` | `palette`; primary default |
@@ -106,8 +175,10 @@ information. State color alone does not communicate meaning.
 ## Component relationships
 
 All entries are aliases, including dimensions, density and shadow slots. There is
-one component group for both themes and densities. Consumers may use the variables
-before component adoption; this does not add new component variants or props.
+one component group for both themes, densities and interaction policies. The table
+below is a selected mapping; the generated `componentTokenReferences` export
+provides the full current inventory. Component CSS uses these owned slot aliases;
+adding an alias does not itself add a component variant or prop.
 
 | Component slot | Semantic/shared/density source |
 | --- | --- |
@@ -146,35 +217,78 @@ before component adoption; this does not add new component variants or props.
 | `controlFocusOffset` | `shared.focusOffset` |
 | `fieldControlRadius` | `shared.fieldRadius` |
 
-## Scoped overrides and generation
+## Scopes, density and interaction policy
 
-Component declarations and same-theme semantic aliases are re-declared on every
-`[data-sgui-scope]`, explicit light/dark/system theme boundary and compact/comfortable
-density boundary. System dark uses the existing media query. This avoids inheriting
-an ancestor's already-computed alias when a descendant overrides the source variable.
-There are no `:root` defaults or global host resets. Existing selector order, low
-specificity, `sgui.tokens` layer, color schemes and density declarations remain.
+Generated CSS uses low-specificity `:where()` selectors in `sgui.tokens`, preceding
+`sgui.components`. There are no `:root` defaults or global host resets. The six
+scope/theme/density blocks declare component aliases; scope and density blocks
+also redeclare same-theme semantic aliases. Light/system, explicit dark and system
+dark (`prefers-color-scheme: dark`) blocks supply semantic values and color-scheme.
+The scope block supplies shared literals and pointer defaults. Compact/comfortable
+blocks preserve references to shared density scales. Current density keys are
+`controlHeight`, `controlPadding`, `navigationItemHeight` and `controlTextSize`.
+
+Three further blocks select interaction values: explicit pointer, explicit touch,
+and auto under `@media (any-pointer: coarse)`. All preserve shared references for
+`minimumTargetSize` and `navigationIconSize`. Auto starts with pointer values from
+the scope block and uses touch values if any coarse pointer exists. Touch scale
+currently supplies 2.75rem minimum targets and 1.25rem navigation icons; pointer
+uses 0rem minimum target and 1rem navigation icons. Density remains independent:
+compact controls can still have touch-sized targets. This presentation policy does
+not disable any input device or substitute for keyboard accessibility.
+
+ThemeScope defaults outside a parent to light/comfortable/auto and inherits omitted
+props from its parent. It emits all scope/theme/density/interaction attributes;
+Provider supplies the owned scope integration. Nested scopes and owned overlay
+roots carry these settings and host `--sgui-*` style overrides. Interaction-only
+attribute blocks do not themselves redeclare component aliases: use ThemeScope or
+the owned overlay bridge for a complete boundary.
 
 For example, a host rule on a nested scope may set `--sgui-action: #005a9c`;
-`--sgui-button-primary-background` remains `var(--sgui-action)` on that scope.
-Setting `--sgui-danger` also updates the derived destructive and error aliases there.
-Setting `--sgui-surface-raised` independently leaves plain/overlay surfaces available.
-Use owned scopes for descendant overrides; a variable changed on an arbitrary child
-without a scope does not cause an inherited computed alias to rebind. Portals must
-continue to receive the production scope and host variable overrides through Provider.
-Existing shared/density tokens stay literal in CSS to preserve prior override behavior;
-source scale deduplication does not silently make every legacy public role dynamic.
+`--sgui-button-primary-background` remains `var(--sgui-action)` there. Setting
+`--sgui-danger` updates derived destructive/error aliases. A variable changed on
+an arbitrary child without a scope does not rebind an inherited computed alias.
+Shared roles resolve base literals, while density references to shared roles and
+interaction references remain dynamic. Portals require the owned scope bridge;
+this source contract alone is not native computed-style/portal verification.
 
-Run `pnpm tokens:generate` after editing JSON. Commit JSON, CSS and TypeScript together.
-`pnpm tokens:check` detects stale outputs. `node --test scripts/tokens.test.mjs`
-checks deterministic generation, failure fixtures, tier integrity, emitted alias
-relationships at all six CSS blocks, all pre-batch scoped literals and contrast pairs.
+## Private source and public generation
+
+The authored base palette/scale is private: its keys are absent from public CSS and
+`tokens`. The generated `packages/ui/src/foundation/tokens.css` supplies scoped
+variables. `packages/ui/src/foundation/tokens.generated.ts` supplies the `/tokens`
+public entry after build:
+
+- `tokens`: key to `var(--sgui-...)` reference, and `TokenName`: its key union.
+- `tokenTiers`: shared, semantic, density, interaction and component key inventories;
+  `SemanticTokenName`, `InteractionTokenName`, `ComponentTokenName`: tier unions.
+- `componentTokenReferences`: each component slot's immediate dependency tier/key.
+- `defaultThemeTokens`: resolved light/dark shared and semantic snapshots keyed by
+  CSS variable name; density, interaction and component aliases are excluded.
+
+These are generated consumer references/metadata, not a DTCG export. Never edit
+outputs by hand. From the repository root, run `pnpm tokens:generate` after changing
+source, and review JSON/CSS/TypeScript together. `pnpm tokens:check` checks exact
+output bytes without writing. For direct library scripts use `packages/ui` as cwd:
+
+```sh
+node scripts/tokens.mjs --check
+node --test scripts/tokens.test.mjs
+```
+
+The token tests cover deterministic generation, failure fixtures, tier integrity,
+metadata/dependency parity, nine CSS blocks (component rebinding in the first six),
+legacy resolved defaults, interaction policy and declared contrast pairs. Base
+literal deduplication by type/value is a test invariant, not a compileTokens error.
+Reuse matching recorded evidence unless affected inputs change. This guide does
+not require rerunning a build or broad browser suite for documentation edits.
 
 ## Declared contrast pairs and remaining evidence
 
 The tests evaluate opaque sRGB defaults in both themes:
 
-- 4.5:1 for body/muted text on plain, raised and overlay surfaces; body text on
+- 4.5:1 for body/muted/subtle text on plain, raised and overlay surfaces; subtle
+  text also on subtle surface; body text on
   subtle/hover/pressed surfaces; selected text on selected surface.
 - 4.5:1 for each primary, neutral and destructive foreground against its default,
   hover and pressed action background; primary/error foreground on plain surface.

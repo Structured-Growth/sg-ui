@@ -1,0 +1,45 @@
+[WebServer] (node:50225) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:50226) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [firefox] › tests/browser/wave03-grid-successors.spec.ts:5:1 › native Tab and Shift+Tab enter and leave the remembered grid entry (6.0s)
+
+
+  1) [firefox] › tests/browser/wave03-grid-successors.spec.ts:5:1 › native Tab and Shift+Tab enter and leave the remembered grid entry 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      13 |     zeroTabs: [...document.querySelectorAll('[tabindex="0"]')].slice(0, 12).map(element => element.outerHTML.slice(0, 500)),
+      14 |   }))), contentType: 'application/json' });
+    > 15 |   await expect.poll(() => grid.evaluate(node => node.contains(document.activeElement))).toBe(true);
+         |                                                                                         ^
+      16 |   const entry = await page.evaluate(() => ({ role: document.activeElement?.getAttribute('role'),
+      17 |     field: document.activeElement?.getAttribute('data-grid-field'), label: document.activeElement?.getAttribute('aria-label') }));
+      18 |   await page.keyboard.press('Shift+Tab'); await expect(host).toBeFocused();
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/wave03-grid-successors.spec.ts:15:89
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    artifacts/wave03-integration/firefox-tab-diagnostic/wave03-grid-successors-nat-9b41a-e-the-remembered-grid-entry-firefox/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: artifacts/wave03-integration/firefox-tab-diagnostic/wave03-grid-successors-nat-9b41a-e-the-remembered-grid-entry-firefox/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/wave03-integration/firefox-tab-diagnostic/wave03-grid-successors-nat-9b41a-e-the-remembered-grid-entry-firefox/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/wave03-integration/firefox-tab-diagnostic/wave03-grid-successors-nat-9b41a-e-the-remembered-grid-entry-firefox/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [firefox] › tests/browser/wave03-grid-successors.spec.ts:5:1 › native Tab and Shift+Tab enter and leave the remembered grid entry 

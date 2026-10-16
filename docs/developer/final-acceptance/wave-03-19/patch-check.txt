@@ -1,0 +1,2 @@
+Command: git apply --check <selector-contract-fixtures.patch> <selector-contract-tests.patch>
+Exit: 0

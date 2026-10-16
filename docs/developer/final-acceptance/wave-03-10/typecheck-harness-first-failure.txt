@@ -1,0 +1,113 @@
+Syntax/transpile diagnostics: 0 across 7 proposed TypeScript files
+[91merror[0m[90m TS2688: [0mCannot find type definition file for 'node'.
+  The file is in the program because:
+    Entry point of type library 'node' specified in compilerOptions
+[96mpackages/ui/src/components/AppDataGrid/ownedGridCells.tsx[0m:[93m11[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './ownedGridCells.module.css' or its corresponding type declarations.
+
+[7m11[0m import styles from "./ownedGridCells.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx[0m:[93m23[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './ownedGridInteraction.module.css' or its corresponding type declarations.
+
+[7m23[0m import styles from "./ownedGridInteraction.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/components/AppDataGrid/ownedGridParts.tsx[0m:[93m11[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './ownedGridParts.module.css' or its corresponding type declarations.
+
+[7m11[0m import styles from "./ownedGridParts.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx[0m:[93m6[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './DataGridDragHandle.module.css' or its corresponding type declarations.
+
+[7m6[0m import styles from "./DataGridDragHandle.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/components/Button/Button.tsx[0m:[93m8[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Button.module.css' or its corresponding type declarations.
+
+[7m8[0m import styles from "./Button.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx[0m:[93m12[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './DataToolbarColumnsMenu.module.css' or its corresponding type declarations.
+
+[7m12[0m import styles from "./DataToolbarColumnsMenu.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.tsx[0m:[93m13[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './DataToolbarFilterMenu.module.css' or its corresponding type declarations.
+
+[7m13[0m import styles from "./DataToolbarFilterMenu.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx[0m:[93m8[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './DataToolbarSelectionMenu.module.css' or its corresponding type declarations.
+
+[7m8[0m import styles from "./DataToolbarSelectionMenu.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx[0m:[93m16[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './DataToolbarSortMenu.module.css' or its corresponding type declarations.
+
+[7m16[0m import styles from "./DataToolbarSortMenu.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/components/DataToolbar/DataToolbar.tsx[0m:[93m11[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './DataToolbar.module.css' or its corresponding type declarations.
+
+[7m11[0m import styles from "./DataToolbar.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Badge/Badge.tsx[0m:[93m2[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Badge.module.css' or its corresponding type declarations.
+
+[7m2[0m import styles from "./Badge.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Checkbox/Checkbox.tsx[0m:[93m5[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Checkbox.module.css' or its corresponding type declarations.
+
+[7m5[0m import styles from "./Checkbox.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/DataGrid/DataGrid.tsx[0m:[93m14[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './DataGrid.module.css' or its corresponding type declarations.
+
+[7m14[0m import styles from "./DataGrid.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/IconButton/IconButton.tsx[0m:[93m4[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './IconButton.module.css' or its corresponding type declarations.
+
+[7m4[0m import styles from "./IconButton.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/icons/createVector.tsx[0m:[93m2[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './icons.module.css' or its corresponding type declarations.
+
+[7m2[0m import styles from "./icons.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Link/Link.tsx[0m:[93m4[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Link.module.css' or its corresponding type declarations.
+
+[7m4[0m import styles from "./Link.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Menu/Menu.tsx[0m:[93m10[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Menu.module.css' or its corresponding type declarations.
+
+[7m10[0m import styles from "./Menu.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Popover/Popover.tsx[0m:[93m13[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Popover.module.css' or its corresponding type declarations.
+
+[7m13[0m import styles from "./Popover.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Progress/Progress.tsx[0m:[93m5[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Progress.module.css' or its corresponding type declarations.
+
+[7m5[0m import styles from "./Progress.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Select/Select.tsx[0m:[93m14[0m:[93m19[0m - [91merror[0m[90m TS2307: [0mCannot find module '../TextField/TextField.module.css' or its corresponding type declarations.
+
+[7m14[0m import field from "../TextField/TextField.module.css";
+[7m  [0m [91m                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Select/Select.tsx[0m:[93m15[0m:[93m18[0m - [91merror[0m[90m TS2307: [0mCannot find module '../ComboBox/ComboBox.module.css' or its corresponding type declarations.
+
+[7m15[0m import list from "../ComboBox/ComboBox.module.css";
+[7m  [0m [91m                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Select/Select.tsx[0m:[93m16[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Select.module.css' or its corresponding type declarations.
+
+[7m16[0m import styles from "./Select.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Status/Status.tsx[0m:[93m2[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Status.module.css' or its corresponding type declarations.
+
+[7m2[0m import styles from "./Status.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/TextField/TextField.tsx[0m:[93m11[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './TextField.module.css' or its corresponding type declarations.
+
+[7m11[0m import styles from "./TextField.module.css";
+[7m  [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/ToggleButton/ToggleButton.tsx[0m:[93m6[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './ToggleButton.module.css' or its corresponding type declarations.
+
+[7m6[0m import styles from "./ToggleButton.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/experimental/Typography/Typography.tsx[0m:[93m2[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './Typography.module.css' or its corresponding type declarations.
+
+[7m2[0m import styles from "./Typography.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[96mpackages/ui/src/foundation/ThemeScope.tsx[0m:[93m4[0m:[93m20[0m - [91merror[0m[90m TS2307: [0mCannot find module './ThemeScope.module.css' or its corresponding type declarations.
+
+[7m4[0m import styles from "./ThemeScope.module.css";
+[7m [0m [91m                   ~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+

@@ -1,0 +1,30 @@
+[
+  {
+    "file": "packages/ui/dist/components/AppDataGrid/ownedGridModel.d.ts",
+    "snapshot": "73fa915c65d1598c470dfc3ee571213b5650acd206f1cf5af44ef1e1992e7e2b",
+    "current": "16454689fe21539de9882b7b9fe154e9740d9927d793d73525ca953272ce354f",
+    "verdict": "private helper export is additive inside an internal declaration file; saved public route closure is unchanged",
+    "diff": "--- snapshot/packages/ui/dist/components/AppDataGrid/ownedGridModel.d.ts\n+++ current/packages/ui/dist/components/AppDataGrid/ownedGridModel.d.ts\n@@ -41,6 +41,7 @@\n     /** Requested criteria; client rows use the last available display page. */\n     paginationModel: OwnedGridPaginationModel;\n };\n+export declare function isReservedOwnedGridField(field: string): boolean;\n export declare function normalizeGridPageSizeOptions(options?: readonly OwnedGridPageSizeOption[]): Array<{\n     value: number;\n     label: string;\n"
+  },
+  {
+    "file": "packages/ui/dist/components/AppDataGrid/ownedGridColumns.d.ts",
+    "snapshot": "14d80bc52a07c99cb5f75f14bde3e55718a3c51c47f698d6a91e3c48579e98ce",
+    "current": "8119deac7e2e2775a17a3f648bdd1ef2ae19cfdaf8d9dcb4a124b22cc8248350",
+    "verdict": "equivalent type-only import syntax; no owned prop/signature change",
+    "diff": "--- snapshot/packages/ui/dist/components/AppDataGrid/ownedGridColumns.d.ts\n+++ current/packages/ui/dist/components/AppDataGrid/ownedGridColumns.d.ts\n@@ -1,5 +1,5 @@\n import type { ReactNode } from \"react\";\n-import type { OwnedGridColumn, OwnedGridSortRule } from \"./ownedGridModel.js\";\n+import { type OwnedGridColumn, type OwnedGridSortRule } from \"./ownedGridModel.js\";\n export type OwnedGridCellType = \"text\" | \"date\" | \"dateTime\" | \"link\" | \"copyable\" | \"json\" | \"image\" | \"menu\" | \"custom\";\n export type OwnedGridMenuAction<Row> = {\n     id: string;\n"
+  },
+  {
+    "file": "packages/ui/dist/experimental/DateField/DateField.d.ts",
+    "snapshot": "915eee67519c06b355d7c795e0a42efd1b145f3b6deb988dbbb89c699e96c9fe",
+    "current": "a06b481b302482992d7a22dc568245474f57e7beb972ab0262a6efa84e9e6da3",
+    "verdict": "documentation-only JSDoc correction; property signature unchanged",
+    "diff": "--- snapshot/packages/ui/dist/experimental/DateField/DateField.d.ts\n+++ current/packages/ui/dist/experimental/DateField/DateField.d.ts\n@@ -4,7 +4,7 @@\n     entryMode?: \"segments\" | \"text\";\n     /** Host-supplied YYYY-MM-DD anchor for relative text. No implicit clock; omit to disable relative phrases. */\n     referenceDate?: string;\n-    /** Reports text-entry validity so a composed workflow can guard its commit action. */\n+    /** Reports entry validity so a composed workflow can guard its commit action. */\n     onValidityChange?: (valid: boolean) => void;\n     /** date: YYYY-MM-DD; datetime: YYYY-MM-DDTHH:mm:ss without timezone. */\n     kind?: \"date\" | \"datetime\";\n"
+  },
+  {
+    "file": "packages/ui/dist/experimental/Calendar/Calendar.d.ts",
+    "snapshot": "db21d064c2f3c12e53efd8b562377b304b0ea7014bf57d779c854b9e487b49bd",
+    "current": "ca43961226eaf983c0a507dd7ff04da6ec8813d7593555c489a95f9714a047a4",
+    "verdict": "equivalent type-only import syntax; no owned prop/signature change",
+    "diff": "--- snapshot/packages/ui/dist/experimental/Calendar/Calendar.d.ts\n+++ current/packages/ui/dist/experimental/Calendar/Calendar.d.ts\n@@ -1,4 +1,4 @@\n-import type { ReactNode } from \"react\";\n+import { type ReactNode } from \"react\";\n import type { DateAvailabilityRule, DateOnly, DateAvailability } from \"../DateRangeSelector/date-contract.js\";\n interface CalendarOptions {\n     label: string;\n"
+  }
+]

@@ -3,6 +3,7 @@ import {useRef,useState} from 'react';
 import {PageRichTextEditorSection} from '@structured-growth/sg-ui/components';
 import {Example} from '../components/Example';
 import {exampleSource} from './source';
+import {sampleEditorDocument} from './editor-sample-document';
 const text=(value:string,format=0)=>({type:'text',version:1,text:value,detail:0,format,mode:'normal',style:''});
 const element=(type:string,children:unknown[],extra={})=>({type,version:1,children,direction:null,format:'',indent:0,...extra});
 const paragraph=(value:string)=>element('paragraph',[text(value)]);
@@ -24,7 +25,7 @@ export function SavedDocumentExample({readOnly=false}:{readOnly?:boolean}) {
   </Example>;
 }
 export function HostImageUploadExample() {
-  const [value,setValue]=useState<unknown>(null);
+  const [value,setValue]=useState<unknown>(()=>sampleEditorDocument());
   const attempted=useRef(false);
   async function uploadImage(file:File) {
     await new Promise(resolve=>setTimeout(resolve,350));

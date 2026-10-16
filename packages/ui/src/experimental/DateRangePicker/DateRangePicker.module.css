@@ -1,0 +1,8 @@
+@layer sgui.components {
+  .root { inline-size: 36ch; max-inline-size: 100%; min-inline-size: 0; }
+  .action { padding-inline-end: var(--field-edge-padding); align-self: stretch; border-radius: 0; border-start-end-radius: var(--sgui-field-control-radius); border-end-end-radius: var(--sgui-field-control-radius); }
+  .action[data-variant] { border-color: inherit; }
+  .calendarContent { inline-size: max-content; max-inline-size: calc(100vw - 2rem - 2 * var(--sgui-space4) - 2px); }
+  .trigger[data-variant] { border-radius: var(--sgui-field-control-radius); border-color: var(--sgui-field-border); color: var(--sgui-field-text); font-weight: var(--sgui-body1-weight); padding-inline: var(--field-edge-padding); }
+  .trigger { justify-content: space-between; text-align: start; inline-size: 100%; }
+}

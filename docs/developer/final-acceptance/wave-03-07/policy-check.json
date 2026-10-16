@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "inputHashes": {
+    "package.json": "375ae127c360f85769a9496c988be97ee26c7d0d7491b53a85613e02294c5acf",
+    "packages/ui/package.json": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+    "apps/docs/package.json": "85b0024aeebd589d03200bac0e0bb3c94f210a29adef20d701bdb6f1b9f6a4f9",
+    "LICENSE": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+    "packages/ui/LICENSE": "8606e9579121afe47f11118ea162bf6836c2c72ace13ec29bbb69a7ab577c7fd",
+    "THIRD_PARTY_NOTICES.md": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+    "packages/ui/THIRD_PARTY_NOTICES.md": "12155ccd08a9dee4f769c6d30d8ccf8b536a99be1d990863c010fb74d91cac56",
+    ".github/workflows/release.yml": "d2efdd5ad32f00b4b8772ad57b3bc65d940b2a3c393c21c7d69e9b1e36d7a67b",
+    ".github/workflows/ai-code.yml": "37f296fa1b12b8ae13837843ef63a4e8f397aa05082f2875f821d1cbdda9cb91",
+    "packages/ui/release.config.mjs": "d03806a55bf45d609a66ed46aa781192eb58eea7d3f018bb134a23785e007eac",
+    "AGENTS.md": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+    "README.md": "2b71112a173fd6c716c13b62119228a4e488a997502e96edc0496a1484802eac"
+  },
+  "changesetFiles": [],
+  "issues": [],
+  "limits": [
+    "Checks only named source signatures; formatting/structure changes require human review. This is not general workflow semantic validation.",
+    "Public access configuration does not establish publication, npm ownership, credentials, trusted publisher, GitHub protection or Actions execution.",
+    "Equal legal bytes and pack entries do not establish attribution completeness, legal validity or approval. Actual tarball preservation is a separate check.",
+    "Actions-only official artifacts are a documented policy, not enforced local-build prohibition. No workflow is run, no code imported, and no terms rewritten.",
+    "No owner/backup/reviewer appointment, security SLA or release approval is inferred."
+  ]
+}

@@ -36,7 +36,7 @@ for (const timezoneId of ['America/Chicago', 'Asia/Tokyo']) {
       await expect(page.getByRole('button', { name: /Friday, March 1, 2024/ })).toBeFocused();
       await expect(preview(page)).toHaveText('Range preview: 2024-02-28 – 2024-03-01. Choose an end date to finish.');
       await expect(page.getByRole('button', { name: 'Apply', exact: true })).toBeDisabled();
-      await expect(draft(page)).toHaveText('2024-02-28 – 2024-02-29');
+      await expect(draft(page)).toHaveText('2024-02-28 – ');
       // Read hidden values while leaving the native keyboard focus on the endpoint.
       expect(await page.locator('form').evaluate(form => {
         const data = new FormData(form as HTMLFormElement);
@@ -67,7 +67,7 @@ test('standalone Cancel/Clear/reset end previews; prevented reset preserves the 
   await expect(preview(page)).toHaveCount(0);
   await expect(draft(page)).toHaveText('2024-02-28 – 2024-02-29');
   await page.getByLabel('Prevent form reset').uncheck();
-  await page.getByRole('button', { name: 'March reporting period', exact: true }).click();
+  await page.getByRole('option', { name: 'March reporting period', exact: true }).click();
   await page.getByLabel('Prevent form reset').check();
   await page.getByRole('button', { name: 'Reset dates', exact: true }).click();
   await expect(draft(page)).toHaveText('2024-03-01 – 2024-03-31');
@@ -83,7 +83,7 @@ test('standalone Cancel/Clear/reset end previews; prevented reset preserves the 
   await page.keyboard.press('Enter');
   await page.getByRole('button', { name: 'Read committed form dates', exact: true }).focus();
   await expect(preview(page)).toHaveCount(0);
-  await expect(draft(page)).toHaveText('2024-02-28 – 2024-02-29');
+  await expect(draft(page)).toHaveText('2024-02-28 – ');
   await page.getByRole('button', { name: 'Clear', exact: true }).click();
   await expect(preview(page)).toHaveCount(0);
   await expect(draft(page)).toHaveText('No dates selected');
@@ -94,17 +94,17 @@ test('range picker Escape/Cancel discard drafts, Apply restores focus and native
   await story(page, 'daterangepicker--native-form-reset');
   const trigger = page.getByRole('button', { name: 'Choose Reporting dates', exact: true });
   await trigger.click();
-  await page.getByRole('button', { name: 'March', exact: true }).click();
+  await page.getByRole('option', { name: 'March', exact: true }).click();
   await page.keyboard.press('Escape');
   await expect(trigger).toBeFocused();
   await trigger.click();
   await expect(draft(page)).toHaveText('2024-02-01 – 2024-02-29');
-  await page.getByRole('button', { name: 'March', exact: true }).click();
+  await page.getByRole('option', { name: 'March', exact: true }).click();
   await page.getByRole('button', { name: 'Cancel', exact: true }).click();
   await expect(trigger).toBeFocused();
   await read(page, '2024-02-01 – 2024-02-29');
   await trigger.click();
-  await page.getByRole('button', { name: 'March', exact: true }).click();
+  await page.getByRole('option', { name: 'March', exact: true }).click();
   await page.getByRole('button', { name: 'Apply', exact: true }).click();
   await expect(trigger).toBeFocused();
   await read(page, '2024-03-01 – 2024-03-31');

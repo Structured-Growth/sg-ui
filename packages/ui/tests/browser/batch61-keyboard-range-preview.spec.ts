@@ -33,7 +33,7 @@ for (const theme of ['light', 'dark']) {
     const preview = page.locator('[data-sgui-part="date-range-preview"]');
     const context = page.locator('[data-sgui-part="date-range-preview-context"]');
     await expect(preview).toHaveText('Range preview: 2024-02-28 – 2024-02-29. Choose an end date to finish.');
-    await expect(context).toHaveText('Anchor: 2024-02-28. Focused endpoint: 2024-02-29. Draft: 2024-02-28 – 2024-02-29. Apply commits the draft.');
+    await expect(context).toHaveText('Anchor: 2024-02-28. Focused endpoint: 2024-02-29. Draft: 2024-02-28 – . Apply commits the draft.');
     await expect(context).toBeVisible();
     await expect(endpoint).toHaveAccessibleDescription(/Range preview:.*Anchor: 2024-02-28. Focused endpoint: 2024-02-29. Draft:/);
     await expect(anchor).not.toHaveAccessibleDescription(/Range preview:/);

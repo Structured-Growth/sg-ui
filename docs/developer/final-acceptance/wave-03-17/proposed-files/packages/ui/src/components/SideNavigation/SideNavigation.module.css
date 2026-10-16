@@ -1,0 +1,34 @@
+@layer sgui.components {
+  .root { box-sizing: border-box; display: flex; flex-direction: column; flex: 0 0 17.5rem; inline-size: 17.5rem; max-inline-size: 100%; block-size: 100%; min-block-size: 0; min-inline-size: 0; border-inline-end: 1px solid var(--sgui-side-navigation-divider); background: var(--sgui-side-navigation-background); color: var(--sgui-side-navigation-text); font-family: var(--sgui-font-family); }
+  .root[data-collapsed] { flex-basis: 3rem; inline-size: 3rem; }
+  .userTrigger { flex: 0 0 auto; inline-size: 100%; border-radius: 0; padding: var(--sgui-space4); }
+  .userTrigger > span { display: flex; align-items: center; gap: var(--sgui-space3); inline-size: 100%; min-inline-size: 0; }
+  .identity { display: flex; flex: 1; flex-direction: column; text-align: start; min-inline-size: 0; }
+  .identity > span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .organization { font-weight: var(--sgui-body2-weight); color: var(--sgui-side-navigation-muted-text); }
+  .menuContent { --sgui-navigation-forward-offset: 1rem; --sgui-navigation-back-offset: -1rem; display: flex; flex-direction: column; flex: 1; min-block-size: 0; border-block-start: 1px solid var(--sgui-side-navigation-divider); }
+  .menuContent:dir(rtl) { --sgui-navigation-forward-offset: -1rem; --sgui-navigation-back-offset: 1rem; }
+  .menuContent[data-direction="forward"] { animation: forward var(--sgui-motion-duration) ease-out; }
+  .menuContent[data-direction="back"] { animation: back var(--sgui-motion-duration) ease-out; }
+  .scroll { flex: 1; min-block-size: 0; overflow-y: auto; overscroll-behavior: contain; scroll-padding-block: var(--sgui-space3); padding: var(--sgui-space3) 0; }
+  .section { margin-block-end: var(--sgui-space4); padding-inline: var(--sgui-space3); }
+  .sectionTitle { margin: 0; padding: var(--sgui-space2); color: var(--sgui-side-navigation-muted-text); font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
+  .list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+  .root .item { box-sizing: border-box; inline-size: 100%; min-inline-size: 0; display: flex; align-items: center; text-align: start; gap: var(--sgui-space2); padding: var(--sgui-space1) var(--sgui-control-padding); min-block-size: max(var(--sgui-side-navigation-item-height), var(--sgui-control-minimum-target-size)); border: 0; border-radius: var(--sgui-field-control-radius); color: var(--sgui-side-navigation-text); font-size: var(--sgui-side-navigation-label-size); font-weight: var(--sgui-body2-weight); line-height: var(--sgui-body2-line-height); }
+  button.item > span { display: flex; align-items: center; gap: var(--sgui-space2); inline-size: 100%; min-inline-size: 0; }
+  .root .item:hover { background: var(--sgui-side-navigation-subtle-background); }
+  .root li[data-selected] > .item { background: var(--sgui-side-navigation-selected-background); color: var(--sgui-side-navigation-selected-text); }
+  .itemLabel { flex: 1; overflow-wrap: anywhere; }
+  .icon { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; inline-size: var(--sgui-side-navigation-icon-size); block-size: var(--sgui-side-navigation-icon-size); color: inherit; }
+  .icon > svg { inline-size: 100%; block-size: 100%; }
+  .icon:empty { display: none; }
+  .rotated { transform: rotate(180deg); }
+  .back { justify-content: start; flex-shrink: 0; margin: var(--sgui-space2); }
+  .footer { border-block-start: 1px solid var(--sgui-side-navigation-divider); padding-block-start: var(--sgui-space3); }
+  .collapse { align-self: stretch; flex-shrink: 0; border-radius: 0; border-block-start: 1px solid var(--sgui-side-navigation-divider); margin-block-start: auto; }
+  .error { color: var(--sgui-side-navigation-danger); padding: var(--sgui-space2); font-size: var(--sgui-label-size); }
+  @keyframes forward { from { opacity: 0; transform: translateX(var(--sgui-navigation-forward-offset)); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes back { from { opacity: 0; transform: translateX(var(--sgui-navigation-back-offset)); } to { opacity: 1; transform: translateX(0); } }
+  @media (prefers-reduced-motion: reduce) { .menuContent[data-direction] { animation: none; } }
+  @media (forced-colors: active) { .root li[data-selected] > .item { outline: 1px solid Highlight; outline-offset: -1px; } }
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "status": "pending coordinator integration; no runtime acceptance closure",
+  "runtime": "Node 24 or supported Node 22.12+; isolated checks used bundled Node 24.19.0",
+  "patch": "implementation.patch",
+  "integration": [
+    "Compare patch-base-hashes.json before integration; resolve concurrent changes without replacing another owner's work.",
+    "git apply --check docs/developer/final-acceptance/wave-03-10/implementation.patch",
+    "Coordinator reviews and applies implementation.patch. No application by this worker.",
+    "After library build, regenerate component composition/API metadata: new private grid helper composes Popover, TextField and Button; preserve one-level public boundaries. Check catalog guidance and examples."
+  ],
+  "checks": [
+    {
+      "cwd": "repository root",
+      "command": "node docs/developer/final-acceptance/wave-03-10/check-proposed.mjs",
+      "expected": "Zero syntax/transpile diagnostics; isolated overlay production typecheck passes without emission.",
+      "observed": "pass; typecheck-proposed.txt"
+    },
+    {
+      "cwd": "repository root",
+      "command": "node /tmp/sgui-calendar-validate.mjs node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-10/vitest.proposed.config.mjs",
+      "expected": "Two suites / four cases: exact and one-pixel requests, host rejection/reopen, bounds/fixed controls, sibling-width snapshot for both grid renderers.",
+      "observed": "No assertions executed. Preserve two isolated harness import failures, corrected config and occupied-lease logs; final corrected config awaits a free lease."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec vitest run src/experimental/DataGrid/GridColumnWidthControl.test.tsx src/components/AppDataGrid/columnWidthAlternative.test.tsx src/experimental/DataGrid/DataGrid.test.tsx src/experimental/TagGroup/TagGroup.test.tsx",
+      "requires": "Patch integrated; authorized validation lease",
+      "expected": "New four tests pass and affected existing width/reorder/tag behavior remains green. Expand only if failures justify it."
+    },
+    {
+      "cwd": "repository root",
+      "commands": [
+        "pnpm --filter @structured-growth/sg-ui build",
+        "pnpm --filter @structured-growth/sg-ui exec node scripts/check-foundations.mjs",
+        "pnpm --filter @structured-growth/docs catalog:generate",
+        "pnpm --filter @structured-growth/docs catalog:check",
+        "pnpm --filter @structured-growth/sg-ui exec node scripts/build-browser-docs.mjs"
+      ],
+      "requires": "Coordinator serialized build window; scripts verified against current package manifests",
+      "expected": "Fresh public package, CSS and docs-owned native fixtures; record hashes and generated composition delta. Do not run full matrix for this patch."
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/acceptance-touch-targets.spec.ts --project=chromium --project=webkit",
+      "requires": "Patch integrated, fresh native fixtures, coordinator managed browser validation host/lease",
+      "expected": "Three cases per engine: coarse/explicit touch target geometry and activation, DataGrid and AppDataGrid one-pixel pointer width changes with no drag. Target case measures compact/comfortable auto/touch 44px dimensions, hit-test, no neighboring remove overlap, focus ring, control activation and portal menu dimensions.",
+      "evidenceClass": "Browser engine emulation; not physical-device, branded Safari, spoken AT or browser-chrome zoom"
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "pnpm exec playwright test tests/browser/acceptance-touch-targets.spec.ts --project=firefox --grep single-pointer",
+      "expected": "Two non-drag width cases; hasTouch geometry case intentionally unavailable in Firefox Playwright."
+    }
+  ],
+  "externalSuccessors": [
+    "Physical touch reviewer names actual device/OS/browser and confirms primary and edge targets under compact/comfortable, coarse media capability, scrolling and activation without neighbor interference.",
+    "U17 owner supplies remaining public-primitive focus/disabled/error/status/pointer/keyboard matrix and named spoken-AT evidence; shared tokens and DOM are not that evidence.",
+    "X07 reviewer measures remaining calendar, inline-link, resizer and other control targets and spacing; documents any criterion exception per usage. 44px comfort target is not a blanket WCAG conformance claim.",
+    "X08 calendar owner demonstrates an equivalent move for showFields=false, rangeDragBehavior=move-and-resize, variable/bounded duration and active endpoints; fixed-length day-click path is already explicit source behavior. Retain rejecting-host/constraints evidence and do not infer whole-range equivalence from keyboard-only support.",
+    "X08 editor owner reconciles active resize/drag operations and host extensions with equivalent pointer and keyboard paths; no blanket editor acceptance from this bounded patch."
+  ]
+}

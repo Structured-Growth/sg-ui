@@ -54,7 +54,7 @@
     "how": [
       "Provide header and body content, and footer only when the card has actions or supporting information.",
       "Keep links, buttons and their host callbacks inside the supplied slots. The frame does not load course data or make the entire card clickable.",
-      "Use width for the maximum card width and the native styling slots for context-specific layout. Keep headings and action labels meaningful."
+      "Use width for the maximum card width and the native styling slots for context-specific layout. Supply a shrinkable block, flex item or grid track: the frame owns the sgui-class-card inline-size container and reduces header/body padding below 20rem of card width. Keep headings and action labels meaningful."
     ],
     "related": [
       {
@@ -132,7 +132,8 @@
       "Column sizing: width is the preferred starting size; minWidth and maxWidth bound resizing. For a fixed 96px action column, use width: 96, minWidth: 96, maxWidth: 96. A maxWidth alone limits growth but does not make the column fixed.",
       "Leave at least one visible data column uncapped to fill the remaining container width. For example, keep Course flexible and Actions fixed. DataGrid columns without width share space; AppDataGrid uses flex: 1. Both use the same sizing policy. Fixed columns and maximum limits are never stretched to force a fill; if every column is fixed or capped, unused space can remain. Minimum widths produce horizontal scrolling when the container is too narrow.",
       "Resizing commits the changed column and may release another flexible column’s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in.",
-      "Reorder controls wrap within their utility column when enlarged text or touch targets need more room. Rows grow to contain them; drag and Move controls retain their minimum targets without covering neighboring data."
+      "Reorder controls wrap within their utility column when enlarged text or touch targets need more room. Rows grow to contain them; drag and Move controls retain their minimum targets without covering neighboring data.",
+      "Each resizable column provides a Width action as a single-pointer alternative to dragging. Open it to apply an exact CSS-pixel width or choose Narrower/Wider by 1 pixel. Fixed columns disable the action. The host accepts the complete width snapshot; reopening reads the effective width if the host rejects a request or a fill column reallocates space."
     ],
     "related": [
       {
@@ -242,7 +243,8 @@
       "Column sizing: width is the preferred starting size; minWidth and maxWidth bound resizing. For a fixed 96px action column, use width: 96, minWidth: 96, maxWidth: 96. A maxWidth alone limits growth but does not make the column fixed.",
       "Leave at least one visible data column uncapped to fill the remaining container width. For example, keep Course flexible and Actions fixed. DataGrid columns without width share space; AppDataGrid uses flex: 1. Both use the same sizing policy. Fixed columns and maximum limits are never stretched to force a fill; if every column is fixed or capped, unused space can remain. Minimum widths produce horizontal scrolling when the container is too narrow.",
       "Resizing commits the changed column and may release another flexible column’s saved width to keep the grid responsive. Replace the complete widths snapshot from onStateChange (DataGrid) or onColumnWidthsChange (AppDataGrid), including omitted keys; do not merge old widths back in.",
-      "The grid scrollport contains both visible columns and the visually hidden native resize inputs, so wide columns do not increase the document width."
+      "The grid scrollport contains both visible columns and the visually hidden native resize inputs, so wide columns do not increase the document width.",
+      "Each resizable column provides a Width action as a single-pointer alternative to dragging. Open it to apply an exact CSS-pixel width or choose Narrower/Wider by 1 pixel. Fixed columns disable the action. The host accepts the complete width snapshot; reopening reads the effective width if the host rejects a request or a fill column reallocates space."
     ],
     "related": [
       {

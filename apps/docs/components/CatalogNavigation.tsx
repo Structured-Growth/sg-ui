@@ -1,13 +1,13 @@
 'use client';
-import {useEffect,useId,useRef,useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import {Button} from '@structured-growth/sg-ui/experimental';
-import {TextField,Link,Stack,Typography,Divider} from '@structured-growth/sg-ui/primitives';
-import {ChevronRightIcon,KeyboardArrowLeftIcon,DashboardIcon,WindowIcon,CheckIcon,AssignmentTurnedInIcon,DescriptionOutlinedIcon,ViewListIcon,ClassIcon,ContentCopyIcon,MenuBookIcon,EditIcon,TaskAltIcon,TuneIcon,TerminalIcon,BrushIcon,AccessTimeFilledIcon,LockIcon,SearchIcon} from '@structured-growth/sg-ui/icons';
+import {SearchField,Link,Stack,Typography,Divider} from '@structured-growth/sg-ui/primitives';
+import {ChevronRightIcon,KeyboardArrowLeftIcon,DashboardIcon,WindowIcon,CheckIcon,AssignmentTurnedInIcon,DescriptionOutlinedIcon,ViewListIcon,ClassIcon,ContentCopyIcon,MenuBookIcon,EditIcon,TaskAltIcon,TuneIcon,TerminalIcon,BrushIcon,AccessTimeFilledIcon,LockIcon,CalendarTodayIcon} from '@structured-growth/sg-ui/icons';
 import catalog from '../content/catalog.json';
 import componentNavigationGroups from '../content/component-navigation.json';
 import {navigation} from '../content/navigation';
 import styles from './docs.module.css';
-const groupIcons={actions:CheckIcon,forms:AssignmentTurnedInIcon,text:DescriptionOutlinedIcon,grids:ViewListIcon,cards:ClassIcon,overlays:ContentCopyIcon,layouts:WindowIcon,editor:EditIcon,feedback:TaskAltIcon,foundations:TuneIcon};
+const groupIcons={actions:CheckIcon,forms:AssignmentTurnedInIcon,calendar:CalendarTodayIcon,text:DescriptionOutlinedIcon,grids:ViewListIcon,cards:ClassIcon,overlays:ContentCopyIcon,layouts:WindowIcon,editor:EditIcon,feedback:TaskAltIcon,foundations:TuneIcon};
 const pageIcons:Record<string,typeof MenuBookIcon>={'/installation':TerminalIcon,'/theming':BrushIcon,'/releases':AccessTimeFilledIcon,'/licensing':LockIcon};
 const bySlug=new Map(catalog.map(entry=>[entry.slug,entry]));
 const groupForPath=(pathname:string)=>componentNavigationGroups.find(group=>group.slugs.some(slug=>pathname===`/docs/components/${slug}`));
@@ -16,12 +16,8 @@ export function CatalogNavigation({pathname}:{pathname:string}) {
   const [query,setQuery]=useState('');
   const [groupId,setGroupId]=useState<string|undefined>(()=>groupForPath(pathname)?.id);
   const [direction,setDirection]=useState<'forward'|'back'>('forward');
-  const [searchFocused,setSearchFocused]=useState(false);
   const panel=useRef<HTMLDivElement>(null);
-  const searchInput=useRef<HTMLInputElement>(null);
-  const results=useRef<HTMLDivElement>(null);
   const pendingFocus=useRef<string|undefined>(undefined);
-  const resultsId=useId();
   useEffect(()=>{
     setGroupId(groupForPath(pathname)?.id);
     setQuery('');
@@ -36,30 +32,14 @@ export function CatalogNavigation({pathname}:{pathname:string}) {
     (button??panel.current?.querySelector<HTMLButtonElement>('button'))?.focus();
   },[groupId]);
   const group=componentNavigationGroups.find(group=>group.id===groupId);
-  const search=query.trim().toLowerCase();
-  const matches=catalog.filter(entry=>[entry.title,...entry.exports].some(name=>name.toLowerCase().includes(search)));
-  const showingResults=Boolean(search)&&searchFocused;
+  const searchItems=catalog.map(entry=>({id:entry.slug,label:entry.title,keywords:entry.exports,description:groupForPath(`/docs/components/${entry.slug}`)?.label,href:`/docs/components/${entry.slug}`}));
   return <Stack gap={2}>
     <Link href="/" aria-current={pathname==='/'?'page':undefined} className={styles.navLink}><DashboardIcon className={styles.navigationIcon}/><span>Overview</span></Link>
     <Divider className={styles.navigationDivider}/>
-    <div className={styles.navigationSearch} onFocusCapture={()=>setSearchFocused(true)} onBlurCapture={event=>{
-      if(!event.currentTarget.contains(event.relatedTarget as Node|null))setSearchFocused(false);
-    }} onKeyDown={event=>{
-      if(event.key==='Escape') {searchInput.current?.focus();setSearchFocused(false);event.preventDefault();}
-      if(!showingResults)return;
-      const links=Array.from(results.current?.querySelectorAll<HTMLAnchorElement>('a')??[]);
-      const index=links.indexOf(document.activeElement as HTMLAnchorElement);
-      if(event.key==='ArrowDown'&&links.length) {links[Math.min(index+1,links.length-1)].focus();event.preventDefault();}
-      if(event.key==='ArrowUp') {(index<=0?searchInput.current:links[index-1])?.focus();event.preventDefault();}
-    }}>
-      <SearchIcon className={styles.navigationSearchIcon}/><TextField inputClassName={styles.navigationSearchInput} ref={searchInput} aria-label="Find in navigation" placeholder="Search components…" value={query} onValueChange={value=>{setQuery(value);setSearchFocused(true);}} aria-describedby={showingResults?resultsId:undefined}/>
-      {showingResults&&<div ref={results} id={resultsId} className={styles.navigationResults} role="region" aria-label="Component search results">
-        <Typography variant="caption" tone="muted" role="status">{matches.length?`${matches.length} matching pages`:'No matching components.'}</Typography>
-        {matches.map(entry=><Link key={entry.slug} href={`/docs/components/${entry.slug}`} aria-label={entry.title} className={styles.searchResult} onClick={()=>{
-          setGroupId(groupForPath(`/docs/components/${entry.slug}`)?.id);setDirection('forward');setQuery('');
-        }}><Typography as="span" variant="caption">{entry.title}</Typography><Typography as="span" variant="caption" tone="muted">{groupForPath(`/docs/components/${entry.slug}`)?.label}</Typography></Link>)}
-      </div>}
-    </div>
+    <SearchField aria-label="Find in navigation" placeholder="Search components…" density="compact"
+      items={searchItems} value={query} onValueChange={setQuery} resultsLabel="Component search results"
+      emptyMessage="No matching components." resultCountLabel={count=>`${count} matching ${count===1?'page':'pages'}`}
+      onResultSelect={item=>{setGroupId(groupForPath(item.href!)?.id);setDirection('forward');setQuery('');}}/>
     <div className={styles.navigationViewport}>
       <div ref={panel} key={groupId??'root'} className={styles.navigationPanel} data-direction={direction}>
         {group?<Stack gap={2}>

@@ -20,7 +20,7 @@ export function NativeTransactionForm({ empty = false, reject = false }: { empty
       event.preventDefault();
       setSubmitted(String(new FormData(event.currentTarget).get("date")));
     }}>
-      <DatePicker label="Course date" name="date" required min="2024-02-28" max="2024-03-31"
+      <DatePicker entryMode="segments" label="Course date" name="date" required min="2024-02-28" max="2024-03-31"
         defaultFocusedDate="2024-02-28" defaultValue={empty ? null : "2024-02-28"}
         value={reject ? "2024-02-28" : undefined}
         errorMessage="Enter a complete course date within the booking window"

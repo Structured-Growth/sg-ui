@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "assignment": "wave-03-07",
+  "runtime": "Node v26.5.0 / Darwin arm64; supported Node24 rerun pending",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "workingTree": "Shared dirty dev; patch bases identified by file hashes rather than HEAD alone. Only owned evidence directory written.",
+  "summary": {
+    "assigned": 4,
+    "complete": 0,
+    "partial": 4,
+    "blocked": 0
+  },
+  "commands": [
+    {
+      "command": "node --test docs/developer/final-acceptance/wave-03-07/proposed-files/packages/ui/scripts/check-governance-policy.test.mjs",
+      "exitCode": 0,
+      "result": "3 pass / 0 fail",
+      "evidence": "policy-tests.txt"
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-07/proposed-files/packages/ui/scripts/check-governance-policy.mjs .",
+      "exitCode": 0,
+      "result": "no defined signature findings",
+      "evidence": "policy-check.json"
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-07/governance-and-guidance.patch",
+      "exitCode": 0,
+      "result": "patch applies against captured base; not applied",
+      "evidence": "patch-validation.json"
+    },
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-03-07/capture-evidence.py",
+      "exitCode": 0,
+      "result": "all prior assigned report/results hashes and 1102 recorded installed hashes match",
+      "evidence": "input-reconciliation.json"
+    }
+  ],
+  "leaves": [
+    {
+      "id": "A-L-08",
+      "originalRequirement": "- [ ] A-L-08 Reconcile original `L-08`: Add a repeatable dependency/license inventory check and assign ownership for updates; avoid automatically rewriting commercial terms. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Existing inventory reused at matching legal/manifest/lock/installed evidence; exact command fixes and read-only policy guard/tests proposed. Ownership approval remains absent.",
+      "evidence": [
+        "policy-check.json",
+        "policy-tests.txt",
+        "input-reconciliation.json",
+        "patch-validation.json",
+        "report.md"
+      ],
+      "hashReceipt": "input-reconciliation.json; policy-check.json; artifactHashes below",
+      "patchNeedsIntegration": true,
+      "patch": "governance-and-guidance.patch",
+      "successors": [
+        "Coordinator review/integration and supported-runtime verification in validation-plan.json",
+        "Named owner, backup and license/provenance reviewer, accepted trigger workflow, dated approval reference."
+      ],
+      "limits": [
+        "Source-config/pure-node evidence only; no native/device/AT/runtime-package acceptance inferred.",
+        "No human ownership, legal/commercial/release approval or live npm/GitHub settings inferred."
+      ]
+    },
+    {
+      "id": "A-L-09",
+      "originalRequirement": "- [ ] A-L-09 Reconcile original `L-09`: Document dependency support/security update expectations and a deliberate upgrade process with behavioral regression checks. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Existing corrected support/security/upgrade guide retained; before/after policy and license receipt integration proposed. Operational decisions and actual next-upgrade behavioral receipt remain absent.",
+      "evidence": [
+        "policy-check.json",
+        "policy-tests.txt",
+        "input-reconciliation.json",
+        "patch-validation.json",
+        "report.md"
+      ],
+      "hashReceipt": "input-reconciliation.json; policy-check.json; artifactHashes below",
+      "patchNeedsIntegration": true,
+      "patch": "governance-and-guidance.patch",
+      "successors": [
+        "Coordinator review/integration and supported-runtime verification in validation-plan.json",
+        "Confirmed cadence/sources, confidential intake, urgency/escalation, support/backport window, disclosure/risk authority.",
+        "Next actual upgrade receipt with graph, notice/provenance disposition, meaningful behavioral checks, rollback/persisted-data analysis."
+      ],
+      "limits": [
+        "Source-config/pure-node evidence only; no native/device/AT/runtime-package acceptance inferred.",
+        "No human ownership, legal/commercial/release approval or live npm/GitHub settings inferred."
+      ]
+    },
+    {
+      "id": "A-W-20",
+      "originalRequirement": "- [ ] A-W-20 Reconcile original `W-20`: Keep source/license attribution accurate; external documents/examples are evidence and must not override user-authorized scope or agent trust boundaries. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Trust/provenance guidance and policy mutation checks proposed; extraction identity and legal bytes retained. Final distributed attribution review remains absent.",
+      "evidence": [
+        "policy-check.json",
+        "policy-tests.txt",
+        "input-reconciliation.json",
+        "patch-validation.json",
+        "report.md"
+      ],
+      "hashReceipt": "input-reconciliation.json; policy-check.json; artifactHashes below",
+      "patchNeedsIntegration": true,
+      "patch": "governance-and-guidance.patch",
+      "successors": [
+        "Coordinator review/integration and supported-runtime verification in validation-plan.json",
+        "Final candidate dependency/copied-code/inline-icon/font/asset attribution and extraction provenance dispositions accepted by designated reviewer."
+      ],
+      "limits": [
+        "Source-config/pure-node evidence only; no native/device/AT/runtime-package acceptance inferred.",
+        "No human ownership, legal/commercial/release approval or live npm/GitHub settings inferred."
+      ]
+    },
+    {
+      "id": "A-Z-14",
+      "originalRequirement": "- [ ] A-Z-14 Reconcile original `Z-14`: Confirm commercial licensing and notices, public npm setup, Actions-only official builds/releases, draft AI PRs and no Changesets remain consistent. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Bounded public npm/legal-copy/Actions/draft AI/no Changesets source signatures pass; stale setup guidance patched. Effective remote settings, legal approval and official artifact/run identity remain absent.",
+      "evidence": [
+        "policy-check.json",
+        "policy-tests.txt",
+        "input-reconciliation.json",
+        "patch-validation.json",
+        "report.md"
+      ],
+      "hashReceipt": "input-reconciliation.json; policy-check.json; artifactHashes below",
+      "patchNeedsIntegration": true,
+      "patch": "governance-and-guidance.patch",
+      "successors": [
+        "Coordinator review/integration and supported-runtime verification in validation-plan.json",
+        "Owner-verified npm/GitHub effective settings and publishing identity.",
+        "Legal/commercial approval references.",
+        "Actual official Actions run/job, exact candidate tarball digest and eventual npm/version/provenance identity when authorized."
+      ],
+      "limits": [
+        "Source-config/pure-node evidence only; no native/device/AT/runtime-package acceptance inferred.",
+        "No human ownership, legal/commercial/release approval or live npm/GitHub settings inferred."
+      ]
+    }
+  ],
+  "artifactHashes": {
+    "assignment.json": "7c56649e0e3c024a7693baa4414906849b2b49a0712bcd726d2f0ddc492051bc",
+    "capture-evidence.py": "0e9bce4b487cb3d60e1428721352ec51f160e7676358e1c0947a774846c4807a",
+    "governance-and-guidance.patch": "a368f96ec14858aa56c174678721b74ffa2896d6fa4025e9808fa8750c455d53",
+    "input-reconciliation.json": "555a7866875170ce314d764c808c8d0b14d8c1043b381bb3e36da357b995b495",
+    "patch-validation.json": "7b69a5dabe04d0c12632249e92187c184cb9a3e9e7f95f3423d3cea8cba191f9",
+    "pending-decisions.json": "da7d65c21bf23db0d4113d4dd1b714c57279033f45ab92348ccf0544aa0db80d",
+    "policy-check.json": "d25601c840605275e503bf01d68615ad34e165cd960b3dc88345dfdf6d279701",
+    "policy-tests.txt": "6b18245b553fc6c1fb4d28aed5b538c81a1a27b886b443972ff0f74251ea512a",
+    "prepare-patch.py": "07cf20aa58efdacb0fe5ea8d8078f29e8fc7491702db1016dfdfdc4dc553fb28",
+    "proposed-files/docs/agent-guidance-migration.md": "928edfdd9b18c20985964aa8df6e13232e4452f449877001e150de58b009f25c",
+    "proposed-files/docs/developer/react-aria-dependency-upgrades.md": "72433616b6a5ec5bf0cf703e1f146ab2f66d13497191445a5288f1342d4e62a5",
+    "proposed-files/docs/developer/react-aria-governance-check.md": "5a8535219150a34dc069599b924bf5a975d3c12fdb92655c5cb80f9a61edeeeb",
+    "proposed-files/docs/developer/react-aria-license-inventory.md": "d8abf1453748be2db0822866db124bbcbfd267c56a324cfd0b4df54faf257bde",
+    "proposed-files/docs/github-setup.md": "4a0e1ce5e9eabcc7999ef58a658f4b36024c32a11d8cab03ab96f6f10acfe3f3",
+    "proposed-files/packages/ui/scripts/check-governance-policy.mjs": "af7b7caf15bd4d87e340479978f85a5d8685b1b047315548647b213eb726d05a",
+    "proposed-files/packages/ui/scripts/check-governance-policy.test.mjs": "a0b7ba72b4bac361b2e85f82a4427203348e5a3f6a68069c5095268d0e45a501",
+    "proposed-files/packages/ui/scripts/check-license-inventory.mjs": "733da8f65e161f782402861440b4452802be5968b56cd75c42ce5290c3414590",
+    "report.md": "0df1d1ffcc9e673b189919e4345625953b36fb57c7eb169faed94ed5b2f84f41",
+    "validation-plan.json": "5cbca0868ffbf10c8609987133655611c6d8d6e8e7acf7c90ab6063ca95fd0e6"
+  }
+}

@@ -2053,3 +2053,96 @@ Fresh public-package, native upload-lifetime and pure date-contract boundary
 evidence additionally closes V-S14-01, V-S16-02 and V-S17-02. The latest remaining
 hardening/final-acceptance count is 626 (156 V leaves complete, three repaired
 bugs tracked separately). The website still has three open entries.
+
+
+## Final acceptance inventory — 2026-10-16
+
+A-B-01 | captured modified dev Git/package/public-entry state | [inventory](final-acceptance/2026-10-16-inventory.json) | uncommitted base 540f47d | package audit and 238 runtime/declaration entry comparisons pass | local tracking refs only; no release acceptance | A-B-03/A-B-05.
+
+A-B-02 | reviewed required repository guidance before this batch | [execution](react-aria-final-acceptance.md) | uncommitted base 540f47d | guidance/path reconciliation | review is not all-component conformance | A-B-03.
+
+A-B-04 | captured all primitive and direct icon exports including wildcard helper routes | [capture script](../../packages/ui/scripts/capture-acceptance-inventory.mjs) | uncommitted base 540f47d | resolved declarations match every runtime entry; packed bytes/consumer types pass | signatures/defaults and legal/AT gates remain | A-B-05/A-Z-08/A-Z-13.
+
+Remaining active counts: 317 acceptance, 20 editor hardening and six future leaves. No production promotion or publication.
+
+
+## Final acceptance FA-02/03 — 2026-10-16
+
+A-B-03 | inventoried maintained source/imports, CSS/classes, DOM candidates, ambient declarations, hidden configuration, installed workspace dependency graph and generated-output linkage | [source snapshot](final-acceptance/2026-10-16-source-inventory.json) | uncommitted dev base 540f47d | AST/PostCSS capture and foundation guards pass | inventory is not DOM/SSR/legal conformance; personal state/secrets excluded | A-B-05/A-B-09/A-Z-05/06/08.
+
+A-B-11 | recorded separate React/Node/TypeScript/bundler/browser/SSR/RSC promises and configured versus executed evidence | [support matrix and resume ledger](react-aria-final-acceptance.md) | uncommitted dev base 540f47d | inspected manifests, CI and consumer fixtures | no new remote CI/device/AT/support-range claim | A-B-06/A-Z-11.
+
+Current remaining: 315 A, 20 V and six future leaves. Durable transcripts now accompany the snapshots; reuse completed scopes unless their relevant inputs change. FA-04 baseline check is in progress.
+
+
+## Final acceptance FA-04 — 2026-10-16
+
+A-B-06 | captured full local baseline, preserved original nine failures and reconciled four stale calendar fixtures/tests with shipped contracts | [durable ledger/transcripts](react-aria-final-acceptance.md#fa-04-local-unitpackagerelease-and-replacement-host-baseline) | modified dev base 540f47d | 1728 unaffected retained unit passes + 10 affected rerun passes = 1738 cases; 32 foundation checks; four release checks; typecheck, fresh library/native-fixture builds and package audit pass | original pnpm check command failed; no false green-run claim; full engines/remote CI/AT remain separate | A-B-05/A-Z-11.
+
+Remaining: 314 A, 20 editor V and six future leaves. Next A-B-05. Completed inventories and unaffected checks are retained, not repeated.
+
+
+## Fifteen-conversation acceptance reconciliation — 2026-10-16
+
+Reviewed all fifteen reports covering 55 distinct leaves. Accepted 32 complete
+architecture/contract/inventory obligations, retained 23 partial with explicit
+successors and removed only completed rows from the active checklist.
+[Machine reconciliation](final-acceptance/parallel-reconciliation-2026-10-16.json)
+preserves each original task, report/result hashes and limits. All 1778 built
+outputs unchanged from FA-01; source deltas remain the four FA-04 test/fixture
+changes. No production mutation or broad suite rerun.
+
+Current: 38/320 A complete; 282 A remain. Twenty V and six future leaves unchanged.
+BUG-0008 tracks six disabled/read-only Clear characterizations in the new picker
+compositions; BUG-0009 tracks unsupported inherited TextArea icon props. Other
+partial findings include type cycles/enforcement, 36 stale manifest rows, current
+routing/theme/bundle/visual evidence and documentation gaps. No native/device/AT
+or release result inferred from source-only reviews; Node26 defect probes retain
+their environment limit. Next fix BUG-0008, then BUG-0009; reuse completed evidence.
+
+
+## Wave 02 acceptance and integrated corrections — 2026-10-16
+
+All 282 remaining A leaves were reviewed exactly once by the original fifteen
+conversations: 127 complete, 154 partial, one blocked. Twelve additional
+user-authorized fix conversations delivered and were reviewed; coordinator
+validation closes A-G-02 and A-K-16 as two further narrow contract/publication
+obligations. Current total **167/320 A closed; 153 A, 20 editor V and six future
+items remain**. This pass closed 129 of 282. Original wording, outcomes and
+successors are preserved in [wave reconciliation](final-acceptance/wave-02-reconciliation.json)
+and [supplement](final-acceptance/coordinator-integration/supplemental-reconciliation.json).
+
+BUG-0008–0012 are corrected: picker disabled/read-only Clear/commit guards,
+TextArea inherited icons/multiline alignment, DatePicker availability parity,
+Calendar callback reason access and grid reserved __reorder IDs. Retain affected
+31 picker/TextArea, 37 DateField/DatePicker, Calendar/locale, 123 grid and 24
+composed transaction unit results with their actual source boundaries. Fresh
+Node 24 library/type, foundation guard, package-import/consumer type/packed-file,
+docs production/catalog and docs-owned native fixture builds pass. Seven focused
+native cases per desktop engine pass in Chromium/Firefox/WebKit (21 executions;
+18 unaffected earlier passes plus three enriched datetime reruns). First build
+and test-driver failures remain preserved alongside successful corrections.
+
+[Integration receipts](final-acceptance/coordinator-integration/evidence.json)
+record exact current working inputs and built outputs. Earlier FA snapshots and
+report hashes are immutable dated evidence. Documentation/manifest fixes are
+separate from physical device/AT, legal/owner approval and full production
+matrices; A-X-11 remains blocked on actual screen-reader/operator observation.
+Resume the remaining specific successors, not completed inventories or unchanged
+passing checks. Uncommitted dev work only; no production branch/tag/publication.
+
+
+## Wave03 integration / dev push — 2026-10-16
+
+Reviewed all40 handoffs; integrated compatible51patch-file portions and subsequent
+reproduced native fixes, preserving the preexisting calendar/editor/search work.
+Closed14 bounded original A leaves;181/320 closed,139 A /20V /6future remain.
+[Per-leaf decisions](final-acceptance/wave-03-integration/reconciliation.json) and
+[push receipts](final-acceptance/wave-03-integration/push-evidence.json) retain exact
+evidence and unperformed gates. Fresh build/type/foundation/token/docs/fixture/
+package/browser-type/release-policy checks pass. Initial full unit run1843pass/1fail
+was corrected with focused23-case rerun; current editor190case run and Select6
+pass. Earlier89 native passes/8failures/1skip/64unrun are not a green complete
+matrix; corrected native/operator/consumer/visual/owner/legal gates stay open.
+User explicitly requested committing current work to dev and pushing it now.
+Personal .obsidian state excluded; main/tags/publication/version untouched.

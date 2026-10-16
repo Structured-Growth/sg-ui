@@ -100,7 +100,7 @@ function FocusRetentionExample() {
     <p>Host shortcuts: Alt+R refresh, Alt+H hide Score, Alt+D delete focused row, Alt+P next page, Alt+S page size, Alt+E empty first grid.</p>
     <Button>Host action</Button><p role="status">Nested actions: {actions}</p>
     <OwnedGridInteraction label="Focus courses" rows={rows} columns={columns} getRowLabel={row => row.name}
-      paginationModel={page} pageSizeOptions={[10, 25]} refreshing={refreshing}
+      paginationModel={page} pageSizeOptions={[10, 25]} refreshing={refreshing} defaultSelectedRowIds={new Set(["7"])}
       columnVisibilityModel={{ score: !hidden }} style={{ maxHeight: 240, maxWidth: 460 }} />
     <OwnedGridInteraction label="Independent focus courses" rows={records} columns={columns} getRowLabel={row => row.name}
       style={{ maxHeight: 240, maxWidth: 460 }} />

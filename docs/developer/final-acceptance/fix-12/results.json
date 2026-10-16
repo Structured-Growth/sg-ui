@@ -1,0 +1,69 @@
+{
+  "id": "A-W-19",
+  "status": "partial",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "original_requirement": "Check all local doc links, exported example types, referenced file paths, and commands; docs-only updates do not require unrelated UI tests.",
+  "applied_edits": [
+    {
+      "source": "docs/github-setup.md",
+      "line_before": 138,
+      "old_target": "../release.config.mjs",
+      "new_target": "../packages/ui/release.config.mjs",
+      "old_resolved": "/Users/thomashall/Repositories/sg-ui/release.config.mjs",
+      "old_exists": false,
+      "new_resolved": "/Users/thomashall/Repositories/sg-ui/packages/ui/release.config.mjs",
+      "new_exists": true,
+      "target_sha256": "d03806a55bf45d609a66ed46aa781192eb58eea7d3f018bb134a23785e007eac",
+      "source_before_sha256": "61774acf9f71793668de883156e3e2f66adaf948f84645e6645e0c92285afeed",
+      "source_after_sha256": "e5518c6d2dcdea95a0b6b8788e30e63ea766bd1282fdd33b97cb26610c04d791"
+    }
+  ],
+  "evidence": [
+    "report.md",
+    "link-mapping.json",
+    "before.json",
+    "after.json",
+    "audit.py"
+  ],
+  "checks": {
+    "original_missing_reproduced": 119,
+    "new_missing_before": 0,
+    "before_missing": 119,
+    "after_missing": 118,
+    "documents": 439,
+    "current_local_inline_links": 3733,
+    "original_wave_local_inline_links": 3721,
+    "only_corpus_file_changed_during_edit": "docs/github-setup.md",
+    "git_diff_check": "pass"
+  },
+  "remaining_missing_records": "link-mapping.json#remaining_missing",
+  "remaining_classes": {
+    "excluded_parallel_reports": 110,
+    "historical_acceptance_snapshots": 7,
+    "excluded_central_progress_ledger": 1
+  },
+  "successors": [
+    "Coordinator provenance disposition for exact 118 preserved historical/excluded findings.",
+    "Separate anchors/reference-style/HTML links and inline source path validation, including reserved files.",
+    "Compile displayed public snippets against frozen freshly built package and verify command/script cwd resolution under coordinator ownership."
+  ],
+  "limits": "Same wave corpus and inline parser, filesystem path existence only. No anchors/reference-style/HTML links, inline code paths, public example types, commands, remote URLs, CI, manual/device/AT/legal or release execution certified.",
+  "actions_not_performed": [
+    "install",
+    "server",
+    "build",
+    "unit/native/browser/consumer suites",
+    "Git mutation",
+    "version/release/publish",
+    "delegation",
+    "cross-thread messaging"
+  ],
+  "artifact_hashes": {
+    "after.json": "2814ea52ed279503bc9d113360f6dedb26c3a50706e381f013685aa2c3e5130a",
+    "audit.py": "24f0e051ec3fdda838424eccc25a5995587117fa847644693e07fb725e8eb254",
+    "before.json": "f3ecc620835e4628da5bbb971ff3c6ab7b9298c9d6f431676c2dbded40fc7f14",
+    "link-mapping.json": "41aefe6a4f7381f9f327469056d33e92f121254571f3382f382078c2a4937af5",
+    "report.md": "2aadc00327510700d647894813a1d36e56ae7824bb494784b5018dde3bca86f7"
+  }
+}

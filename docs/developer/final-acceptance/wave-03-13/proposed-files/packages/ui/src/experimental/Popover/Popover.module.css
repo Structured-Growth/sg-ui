@@ -1,0 +1,13 @@
+@layer sgui.components {
+  .root { composes: scope from "../../foundation/Scrollbars.module.css"; z-index: var(--sgui-popover-layer); max-inline-size: min(24rem, calc(100vw - 2rem)); max-block-size: var(--available-height, 80vh); overflow: auto; background: var(--sgui-popover-surface); color: var(--sgui-popover-text); border: 1px solid var(--sgui-popover-border); border-radius: var(--sgui-field-control-radius); box-shadow: var(--sgui-overlay-shadow); font-family: var(--sgui-font-family); font-size: var(--sgui-body-size); line-height: var(--sgui-body-line-height); }
+  .dialog { padding: var(--sgui-space4); }
+  .root[data-size="lg"] { inline-size: min(48rem, calc(100vw - 2rem)); max-inline-size: calc(100vw - 2rem); }
+  .root[data-size="content"] { inline-size: max-content; max-inline-size: calc(100vw - 2rem); }
+  /* Position/inset override engine inline placement; block caps override its inline maxHeight.
+     Width caps have no inline competitor and use ordinary source order. */
+  .root[data-presentation="dialog"] { position:fixed!important;inset:50% auto auto 50%!important;transform:translate(-50%,-50%);max-block-size:calc(100vh - 2rem)!important;max-block-size:calc(100dvh - 2rem)!important; }
+  .root[data-presentation="drawer"] { box-sizing:border-box;position:fixed!important;inset:auto 0 0!important;inline-size:100%;max-inline-size:100%;max-block-size:90vh!important;max-block-size:90dvh!important;border-end-start-radius:0;border-end-end-radius:0; }
+  @media(max-width:40rem) { .root[data-presentation="auto"] { box-sizing:border-box;position:fixed!important;inset:auto 0 0!important;inline-size:100%;max-inline-size:100%;max-block-size:90vh!important;max-block-size:90dvh!important;border-end-start-radius:0;border-end-end-radius:0; } }
+  .dialog:focus-visible { outline: var(--sgui-control-focus-width) solid var(--sgui-popover-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
+  .title { margin: 0 0 var(--sgui-space2); font-size: var(--sgui-label-size); font-weight: var(--sgui-action-weight); line-height: var(--sgui-label-line-height); }
+}

@@ -17,6 +17,7 @@
     "label": "Form components",
     "slugs": [
       "text-field",
+      "search-field",
       "text-area",
       "select",
       "combo-box",
@@ -25,13 +26,22 @@
       "switch",
       "radio-group",
       "tag-group",
-      "editable-title-field",
+      "editable-title-field"
+    ]
+  },
+  {
+    "id": "calendar",
+    "label": "Calendar",
+    "slugs": [
+      "calendar",
       "date-field",
       "time-field",
-      "calendar",
       "date-picker",
       "date-range-picker",
-      "date-range-selector"
+      "date-range-selector",
+      "period-picker",
+      "date-time-range-picker",
+      "date-range-comparison-picker"
     ]
   },
   {

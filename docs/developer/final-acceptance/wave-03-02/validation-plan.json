@@ -1,0 +1,28 @@
+{
+  "leaf": "A-A-03",
+  "patch": "docs/developer/final-acceptance/wave-03-02/cycle-enforcement.patch",
+  "integrationRequired": true,
+  "preconditions": [
+    "Coordinator verifies patch-input-hashes.json against current bytes; rebase changed context instead of force-applying.",
+    "Coordinator applies patch after git apply --check succeeds. This chat has not applied any production/source/test/docs changes.",
+    "Select supported Node 24 (and Node 22 if required for checkpoint); local source-only receipts used Node 26.5.0.",
+    "Use coordinator-owned validation lease and preserve existing dirty changes and user server 3000."
+  ],
+  "checks": [
+    {"cwd":"repository root", "command":"git apply --check docs/developer/final-acceptance/wave-03-02/cycle-enforcement.patch", "expected":"Exit 0; no mutations", "localStatus":"passed"},
+    {"cwd":"packages/ui", "command":"node scripts/check-source-graph.mjs", "expected":"No root imports, unresolved local references, nonliteral references, runtime SCCs or type-involving SCCs; includes every production TS/JS module", "localStatus":"passed against proposed in-memory overlay only"},
+    {"cwd":"packages/ui", "command":"node --test scripts/check-source-graph.test.mjs", "expected":"One aggregate policy test passes, including restored real navigation/date/time type return edges, real DateField runtime return edge, 2/3-node and self cycles, import forms, aliased/deep roots, acyclic reexports and native fixture exclusion", "localStatus":"exported regression runner passed against proposed in-memory overlay; integrated direct command pending"},
+    {"cwd":"packages/ui", "command":"pnpm foundations:check", "expected":"Existing interaction/token/layer boundaries plus automatically invoked graph and regression checks pass", "localStatus":"not run; shared source remains unpatched"},
+    {"cwd":"packages/ui", "command":"pnpm typecheck", "expected":"No diagnostics for integrated source", "localStatus":"source-only original compiler options plus overlay passed on Node26; supported-runtime integrated CLI pending"},
+    {"cwd":"packages/ui", "command":"pnpm exec vitest run src/adapters/navigation.test.tsx src/experimental/DateField/DateField.test.tsx src/experimental/TimeField/TimeField.test.tsx", "expected":"Existing navigation adapter/link and date/time text/segment cases pass without changing assertions", "localStatus":"not run; coordinator lease was occupied when inspected; no bypass"},
+    {"cwd":"packages/ui", "command":"pnpm build", "expected":"Fresh ESM/declarations include three new contract leaves; source client boundaries preserved", "localStatus":"not run per shared-checkout safety"},
+    {"cwd":"packages/ui", "command":"pnpm test:package", "expected":"Public imports/declarations, packed-file equality and package guards pass after build", "localStatus":"not run per shared-checkout safety"},
+    {"cwd":"repository root", "command":"pnpm --filter @structured-growth/docs catalog:check", "expected":"Current generated public API remains compatible; no new public export or example required for moved private contract leaves", "localStatus":"not run; coordinator owns generated output"}
+  ],
+  "nativeValidation": {
+    "newSuiteRequested": false,
+    "reason":"The six changed implementation modules have byte-identical transpileModule output; the proposal moves types and adds tooling only. No DOM/native/AT/device acceptance is claimed. Broaden only if integrated output or behavior differs.",
+    "retainedEvidence":"coordinator-integration/evidence.json retains bounded BUG-0008–0012 runtime/native results for recorded inputs; those receipts are not rerun or extended here."
+  },
+  "acceptanceSuccessor":"After integration, supported-runtime graph/regression/foundation/type checks, focused existing smoke and fresh package validation, coordinator may assess A-A-03. Until then it remains partial."
+}

@@ -17,3 +17,16 @@ export const Independent: Story = { render: () => {
 } };
 
 export const ExplicitPortalDirections: Story = { render: () => <SelectorDirectionStory kind="select" /> };
+
+
+/** Private acceptance host: ID serialization and controlled authority, no persistence. */
+export const NativeContracts: Story = { render: () => { const [request, setRequest] = useState<string | null>(null); return <form aria-label="Status contract">
+ <button type="button">Before status</button>
+ <Select label="Identity status" name="identity" description="Choose a stable status ID" defaultValue="01" options={[
+  { id: "01", label: "Same" }, { id: "blocked", label: "Unavailable", disabled: true },
+  { id: "1", label: "Same" }, { id: "z", label: "Zulu" },
+ ]} />
+ <Select label="Host status" name="host" value={null} onValueChange={setRequest} options={[{ id: "01", label: "Same" }, { id: "1", label: "Same" }]} />
+ <button type="reset">Reset status</button>
+ <output aria-label="Status request">{request}</output>
+</form>; } };

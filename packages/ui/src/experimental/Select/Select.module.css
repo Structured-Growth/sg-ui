@@ -6,5 +6,9 @@
   .sizer > span { grid-area: 1 / 1; white-space: nowrap; }
   .sizer > span::before { content: attr(data-label); }
   .value { grid-area: 1 / 1; min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: start; }
-  .chevron { grid-area: 1 / 2; }
+  .trigger[data-start-icon] { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .trigger[data-start-icon] > .sizer, .trigger[data-start-icon] > .value { grid-area: 1 / 2; }
+  .trailing { grid-row: 1; grid-column: -2 / -1; display: inline-flex; align-items: center; gap: var(--sgui-space2); }
+  .chevron { flex: none; }
+  .value[data-placeholder] { color: var(--sgui-text-field-placeholder-text); }
 }

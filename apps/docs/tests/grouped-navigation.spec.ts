@@ -35,10 +35,12 @@ test('sidebar slides into categories, restores Back focus and derives the level 
 test('unlabelled visual search drops down pages across categories with keyboard and direct navigation',async({page})=>{
   await page.goto('/docs/components/button');
   const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
-  const search=nav.getByRole('textbox',{name:'Find in navigation',exact:true});
+  const search=nav.getByRole('searchbox',{name:'Find in navigation',exact:true});
+  await expect(nav.locator('[data-sgui-part="field-start-icon"]')).toHaveCount(1);
+  await expect(search).toHaveAttribute('placeholder','Search components…');
   await expect(nav.locator('label')).toHaveCount(0);
   await search.fill('Autocomplete');
-  const results=nav.getByRole('region',{name:exampleName('Component search results')});
+  const results=page.getByRole('region',{name:'Component search results',exact:true});
   await expect(results.getByRole('link')).toHaveText(['ComboBoxForm components']);
   await page.screenshot({animations:'disabled',path:'/tmp/sgui-drilldown-search.png',clip:{...((await nav.boundingBox())!),height:600}});
   await page.keyboard.press('ArrowDown');
@@ -95,7 +97,7 @@ test('Structured Growth links and navigation use background hover feedback',asyn
   expect(row.height).toBe(32);
   await expect(overview).toHaveCSS('font-size','12px');
   expect((await page.getByRole('banner').boundingBox())!.height).toBeLessThanOrEqual(56);
-  const search=nav.getByRole('textbox',{name:'Find in navigation',exact:true});
+  const search=nav.getByRole('searchbox',{name:'Find in navigation',exact:true});
   await expect(search).toHaveCSS('font-size','12px');
   expect((await search.boundingBox())!.height).toBe(32);
   expect(symbol.width).toBe(16);
@@ -126,7 +128,7 @@ test('compact application navigation retains touch targets and supports enlarged
   await page.goto('/docs/components');
   const nav=page.getByRole('navigation',{name:'Documentation',exact:true});
   const row=nav.getByRole('link',{name:'Overview',exact:true});
-  const search=nav.getByRole('textbox',{name:'Find in navigation',exact:true});
+  const search=nav.getByRole('searchbox',{name:'Find in navigation',exact:true});
   expect((await row.boundingBox())!.height).toBeGreaterThanOrEqual(44);
   expect((await search.boundingBox())!.height).toBeGreaterThanOrEqual(44);
   await expect(row).toHaveCSS('font-size','12px');

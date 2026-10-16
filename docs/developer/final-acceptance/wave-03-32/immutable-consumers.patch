@@ -1,0 +1,256 @@
+--- /dev/null
++++ b/packages/ui/scripts/consumer-artifact.mjs
+@@ -0,0 +1,31 @@
++import assert from 'node:assert/strict';
++import { execFileSync } from 'node:child_process';
++import { createHash } from 'node:crypto';
++import { copyFile, mkdir, mkdtemp, readFile, readdir, writeFile } from 'node:fs/promises';
++import { tmpdir } from 'node:os';
++import { join, resolve } from 'node:path';
++
++export async function consumerFixture(prefix, env = process.env) {
++  const root = resolve(env.SGUI_CONSUMER_ROOT || tmpdir());
++  await mkdir(root, { recursive: true });
++  return mkdtemp(join(root, prefix));
++}
++
++// External mode never reads live dist or repacks. Each fixture owns identical bytes.
++export async function consumerTarball(fixture, env = process.env) {
++  const pack = join(fixture, 'pack');
++  await mkdir(pack);
++  if (!env.SGUI_CONSUMER_TARBALL) {
++    execFileSync('pnpm', ['pack', '--pack-destination', pack], { stdio: 'inherit' });
++    const files = (await readdir(pack)).filter(name => name.endsWith('.tgz'));
++    assert.equal(files.length, 1, 'Expected exactly one tarball');
++    return join(pack, files[0]);
++  }
++  assert.match(env.SGUI_CONSUMER_SHA256 || '', /^[a-f0-9]{64}$/, 'External tarball requires SHA-256');
++  const artifact = join(pack, 'candidate.tgz');
++  await copyFile(resolve(env.SGUI_CONSUMER_TARBALL), artifact);
++  const sha256 = createHash('sha256').update(await readFile(artifact)).digest('hex');
++  assert.equal(sha256, env.SGUI_CONSUMER_SHA256, 'Consumer candidate changed');
++  await writeFile(join(fixture, 'artifact.json'), JSON.stringify({ sha256, node: process.version, external: true }, null, 2));
++  return artifact;
++}
+--- /dev/null
++++ b/packages/ui/scripts/consumer-css-proof.mjs
+@@ -0,0 +1,29 @@
++// Runs inside an independently installed packed Vite fixture.
++import assert from 'node:assert/strict';
++import { createHash } from 'node:crypto';
++import { readFile, writeFile } from 'node:fs/promises';
++import { build } from 'vite';
++const packageJson = JSON.parse(await readFile(new URL('./package.json', import.meta.resolve('@structured-growth/sg-ui/package.json')), 'utf8'));
++assert.deepEqual(packageJson.sideEffects, ['./dist/**/*.css'], 'Packed CSS side effects changed');
++await writeFile('css-only.js', "import '@structured-growth/sg-ui/styles.css';\n");
++await writeFile('css-lazy.js', "import '@structured-growth/sg-ui/styles.css';export {Button} from '@structured-growth/sg-ui/components/Button';\n");
++await writeFile('css-mixed.js', `import '@structured-growth/sg-ui/styles.css';
++import '@structured-growth/sg-ui/styles.css';
++export {Button as RootButton} from '@structured-growth/sg-ui';
++export {Button as GranularButton} from '@structured-growth/sg-ui/components/Button';
++export const load = () => import('./css-lazy.js');\n`);
++const receipts = [];
++for (const entry of ['css-only.js', 'css-mixed.js']) {
++  let moduleIds = [];
++  const result = await build({ configFile: false, logLevel: 'error', plugins: [{name:'retain-css-graph', generateBundle() {moduleIds = [...this.getModuleIds()];}}],
++    build: {write:false, rollupOptions:{input:entry}, cssCodeSplit:true} });
++  const output = (Array.isArray(result) ? result : [result]).flatMap(result => result.output);
++  const css = output.filter(asset => asset.type === 'asset' && asset.fileName.endsWith('.css'));
++  assert.equal(css.length, 1, entry + ' must retain one stylesheet');
++  assert(String(css[0].source).includes('--sgui-action') && String(css[0].source).includes('sgui_root_'), 'Tokens/classes pruned');
++  receipts.push({entry, moduleIds, cssSha256:createHash('sha256').update(css[0].source).digest('hex'),
++    assets: output.map(asset => ({fileName:asset.fileName,type:asset.type}))});
++}
++assert.equal(receipts[0].cssSha256, receipts[1].cssSha256, 'Mixed/repeated/dynamic imports duplicated or changed stylesheet bytes');
++await writeFile('css-retention.json', JSON.stringify(receipts, null, 2));
++console.log('Packed CSS import-only and mixed root/granular/repeated/dynamic production graphs retain identical single CSS assets.');
+--- /dev/null
++++ b/packages/ui/scripts/consumer-types-proof.mjs
+@@ -0,0 +1,27 @@
++import assert from 'node:assert/strict';
++import { createHash } from 'node:crypto';
++import { readFile, readdir, writeFile } from 'node:fs/promises';
++import { dirname, join, relative } from 'node:path';
++import { fileURLToPath } from 'node:url';
++const root = dirname(fileURLToPath(import.meta.resolve('@structured-growth/sg-ui/package.json')));
++const declarations = {};
++// Same forbidden ownership patterns as check-package, applied to installed bytes.
++async function visit(path) {
++  for (const entry of await readdir(path, {withFileTypes:true})) {
++    const file = join(path, entry.name);
++    if (entry.isDirectory()) await visit(file);
++    else if (entry.name.endsWith('.d.ts')) {
++      const content = await readFile(file, 'utf8');
++      assert(!/react-aria|react-stately|@react-types|@react-stately|@mui|@emotion|lucide-react|@tanstack/.test(content), `Upstream declaration reference: ${file}`);
++      declarations[relative(root, file)] = createHash('sha256').update(content).digest('hex');
++    }
++  }
++}
++await visit(join(root, 'dist'));
++const versions = {};
++for (const name of ['react', 'react-dom', 'typescript', '@types/react', '@types/react-dom']) {
++  versions[name] = JSON.parse(await readFile(fileURLToPath(import.meta.resolve(name + '/package.json')), 'utf8')).version;
++}
++await writeFile('installed-types.json', JSON.stringify({versions, declarations, compilerOptions:{strict:true,skipLibCheck:true,moduleResolution:'Bundler',jsx:'react-jsx'},
++  limits:['The API fixture compiles positive and ts-expect-error cases; skipLibCheck does not validate all upstream declaration internals.', 'Only TypeScript5.9.3 is pinned; broader TS support is undecided.']}, null, 2));
++console.log('Installed declaration scan passed; matched runtime and type versions retained.');
+--- a/packages/ui/scripts/test-editor-consumer.mjs
++++ b/packages/ui/scripts/test-editor-consumer.mjs
+@@ -1,3 +1,4 @@
++import { consumerFixture, consumerTarball } from './consumer-artifact.mjs';
+ import assert from 'node:assert/strict';
+ import { execFileSync } from 'node:child_process';
+ import { mkdtemp, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+@@ -5,12 +6,10 @@
+ import { join } from 'node:path';
+ const browserProof = process.argv.includes('--browser');
+ const reactVersion = process.argv.includes('--react18') ? '18.3.1' : '19.2.3';
+-const fixture = await mkdtemp(join(tmpdir(), 'sgui-editor-consumer-'));
+-const pack = join(fixture, 'pack'); await mkdir(pack);
+-execFileSync('pnpm', ['pack', '--pack-destination', pack], { stdio: 'pipe' });
+-const tarball = (await readdir(pack)).find(name => name.endsWith('.tgz')); assert(tarball);
++const fixture = await consumerFixture('sgui-editor-consumer-');
++const artifact = await consumerTarball(fixture);
+ await writeFile(join(fixture, 'package.json'), JSON.stringify({ name: 'sgui-editor-consumer', private: true, type: 'module', packageManager: 'pnpm@10.29.3', dependencies: {
+-  '@structured-growth/sg-ui': `file:${join(pack, tarball)}`, react: reactVersion, 'react-dom': reactVersion,
++  '@structured-growth/sg-ui': `file:${artifact}`, react: reactVersion, 'react-dom': reactVersion,
+   lexical: '0.41.0', '@lexical/react': '0.41.0', vite: '7.3.1',
+ } }));
+ await writeFile(join(fixture,'.npmrc'),'auto-install-peers=false\n');
+@@ -18,9 +17,9 @@
+ await writeFile(join(fixture,'Proof.jsx'), await readFile(new URL('./fixtures/editor-packed-browser/Proof.jsx', import.meta.url), 'utf8'));
+ await writeFile(join(fixture,'main.jsx'), `import React from 'react';import {hydrateRoot} from 'react-dom/client';import {Proof} from './Proof.jsx';import '@structured-growth/sg-ui/styles.css';hydrateRoot(document.getElementById('root'),<Proof browserProof={${browserProof}} />, {onRecoverableError: error => console.error(error)});`);
+ await writeFile(join(fixture,'ssr.mjs'), `import assert from 'node:assert/strict';import{writeFile}from'node:fs/promises';import React from 'react';import{renderToString}from'react-dom/server';import{createServer}from'vite';assert.equal(typeof window,'undefined');assert.equal(typeof document,'undefined');const server=await createServer({server:{middlewareMode:true},appType:'custom'});try{const {Proof}=await server.ssrLoadModule('/Proof.jsx');const html=renderToString(React.createElement(Proof,{browserProof:${browserProof}}));assert(html.includes('Packed editor'));await writeFile('index.html','<!doctype html><html lang="en"><meta charset="utf-8"><title>Packed React ${reactVersion} editor controls</title><div id="root">'+html+'</div><script type="module" src="/main.jsx"></script></html>');}finally{await server.close();}`);
+-execFileSync('pnpm',['--config.auto-install-peers=false','install','--ignore-scripts'],{cwd:fixture,stdio:'pipe',env:{...process.env,npm_config_auto_install_peers:'false'}});
+-execFileSync(process.execPath,['ssr.mjs'],{cwd:fixture,stdio:'pipe'});
+-execFileSync('pnpm',['exec','vite','build'],{cwd:fixture,stdio:'pipe'});
++execFileSync('pnpm',['--config.auto-install-peers=false','install','--ignore-scripts'],{cwd:fixture,stdio:'inherit',env:{...process.env,npm_config_auto_install_peers:'false'}});
++execFileSync(process.execPath,['ssr.mjs'],{cwd:fixture,stdio:'inherit'});
++execFileSync('pnpm',['exec','vite','build'],{cwd:fixture,stdio:'inherit'});
+ const assets=join(fixture,'dist/assets');const files=await readdir(assets);
+ assert.equal(files.filter(name=>name.endsWith('.css')).length,1);
+ const js=(await Promise.all(files.filter(name=>name.endsWith('.js')).map(name=>readFile(join(assets,name),'utf8')))).join('\n');
+--- a/packages/ui/scripts/test-foundation-consumer.mjs
++++ b/packages/ui/scripts/test-foundation-consumer.mjs
+@@ -1,3 +1,4 @@
++import { consumerFixture, consumerTarball } from './consumer-artifact.mjs';
+ import assert from 'node:assert/strict';
+ import { execFileSync } from 'node:child_process';
+ import { mkdtemp, mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
+@@ -8,16 +9,12 @@
+ 
+ const reactVersion = process.argv.includes('--react18') ? '18.3.1' : '19.2.3';
+ // A disposable production fixture. No publication and no source aliases.
+-const fixture = await mkdtemp(join(tmpdir(), 'sgui-foundation-consumer-'));
+-const pack = join(fixture, 'pack');
+-await mkdir(pack);
+-execFileSync('pnpm', ['pack', '--pack-destination', pack], { stdio: 'pipe' });
+-const tarball = (await readdir(pack)).find(name => name.endsWith('.tgz'));
+-assert(tarball, 'Pack did not produce a tarball');
++const fixture = await consumerFixture('sgui-foundation-consumer-');
++const artifact = await consumerTarball(fixture);
+ await writeFile(join(fixture, 'package.json'), JSON.stringify({
+   name: 'sgui-foundation-consumer', private: true, type: 'module', packageManager: 'pnpm@10.29.3',
+   dependencies: {
+-    '@structured-growth/sg-ui': `file:${join(pack, tarball)}`,
++    '@structured-growth/sg-ui': `file:${artifact}`,
+     react: reactVersion, 'react-dom': reactVersion, vite: '7.3.1',
+     typescript: '5.9.3', '@types/react': reactVersion.startsWith('18.') ? '18.3.18' : '19.3.0',
+     '@types/react-dom': reactVersion.startsWith('18.') ? '18.3.5' : '19.2.3',
+@@ -168,12 +165,14 @@
+ `);
+ await writeFile(join(fixture, '.npmrc'), 'auto-install-peers=false\n');
+ execFileSync('pnpm', ['--config.auto-install-peers=false', 'install', '--ignore-scripts'], {
+-  cwd: fixture, stdio: 'pipe', env: { ...process.env, npm_config_auto_install_peers: 'false' },
++  cwd: fixture, stdio: 'inherit', env: { ...process.env, npm_config_auto_install_peers: 'false' },
+ });
+ // Resolve the API contract against installed tarball declarations and matching React types.
+ await writeFile(join(fixture, 'package-consumer.tsx'), await readFile('scripts/package-consumer.tsx', 'utf8'));
+ execFileSync('pnpm', ['exec', 'tsc', '--noEmit', '--strict', '--skipLibCheck', '--jsx', 'react-jsx', '--module', 'ESNext', '--moduleResolution', 'Bundler', '--target', 'ES2022', '--esModuleInterop', 'package-consumer.tsx'], { cwd: fixture, stdio: 'inherit' });
+ console.log(`Packed React ${reactVersion} API contract typechecks with TypeScript 5.9.3.`);
++await writeFile(join(fixture, 'consumer-types-proof.mjs'), await readFile(new URL('./consumer-types-proof.mjs', import.meta.url), 'utf8'));
++execFileSync(process.execPath, ['consumer-types-proof.mjs'], { cwd: fixture, stdio: 'inherit' });
+ // Inspect module IDs rather than names surviving minification. Each import gets a
+ // separate build so another control cannot mask its heavyweight dependency path.
+ await writeFile(join(fixture, 'isolated.mjs'), String.raw`
+@@ -190,10 +189,12 @@
+ for (const [subpath, name] of entries) {
+   await writeFile('isolated-entry.js', "import { " + name + " } from '@structured-growth/sg-ui/" + subpath + "'; export { " + name + " };\nimport '@structured-growth/sg-ui/styles.css';");
+   let checked = false;
++  let moduleIds = [];
+   const result = await build({ configFile: false, logLevel: 'error', plugins: [{
+     name: 'sgui-isolated-dependency-audit',
+     generateBundle() {
+       const modules = [...this.getModuleIds()];
++      moduleIds = modules;
+       assert(!modules.some(id => /(?:\/|@)lexical(?:\/|[-+])/.test(id)), subpath + ' resolved editor code');
+       if (subpath !== 'components/AppDataGrid') {
+         assert(!modules.some(id => /@tanstack|\/components\/AppDataGrid\//.test(id)), subpath + ' resolved grid code');
+@@ -207,11 +208,14 @@
+   const css = output.filter(asset => asset.type === 'asset' && asset.fileName.endsWith('.css'));
+   assert.equal(css.length, 1, subpath + ' lost explicit stylesheet');
+   assert(String(css[0].source).includes('--sgui-action'), subpath + ' lost scoped tokens');
++  await writeFile('isolated-' + subpath.replaceAll('/', '-') + '.json', JSON.stringify({subpath, moduleIds, assets: output.map(asset => ({fileName:asset.fileName, type:asset.type}))}, null, 2));
+   console.log('Packed isolated subpath passed: ' + subpath);
+ }
+ `);
+ execFileSync(process.execPath, ['isolated.mjs'], { cwd: fixture, stdio: 'inherit' });
+-execFileSync(process.execPath, ['ssr.mjs'], { cwd: fixture, stdio: 'pipe' });
++await writeFile(join(fixture, 'consumer-css-proof.mjs'), await readFile(new URL('./consumer-css-proof.mjs', import.meta.url), 'utf8'));
++execFileSync(process.execPath, ['consumer-css-proof.mjs'], { cwd: fixture, stdio: 'inherit' });
++execFileSync(process.execPath, ['ssr.mjs'], { cwd: fixture, stdio: 'inherit' });
+ if (reactVersion.startsWith('19.')) {
+   // Exercise Flight itself with React's server condition and the official directive loader.
+   // Ordinary renderToString alone cannot prove a module is a Server Component.
+@@ -279,10 +283,10 @@
+     register('./rsc-source-loader.mjs', import.meta.url);
+     register('react-server-dom-webpack/node-loader', import.meta.url);
+   `);
+-  execFileSync(process.execPath, ['--conditions=react-server', '--import', './rsc-register.mjs', 'rsc.mjs'], { cwd: fixture, stdio: 'pipe' });
++  execFileSync(process.execPath, ['--conditions=react-server', '--import', './rsc-register.mjs', 'rsc.mjs'], { cwd: fixture, stdio: 'inherit' });
+   console.log('Packed React Server Components Flight proof passed.');
+ }
+-execFileSync('pnpm', ['exec', 'vite', 'build'], { cwd: fixture, stdio: 'pipe' });
++execFileSync('pnpm', ['exec', 'vite', 'build'], { cwd: fixture, stdio: 'inherit' });
+ const assets = join(fixture, 'dist/assets');
+ const files = await readdir(assets);
+ const cssFiles = files.filter(file => file.endsWith('.css'));
+--- a/packages/ui/scripts/test-next-consumer.mjs
++++ b/packages/ui/scripts/test-next-consumer.mjs
+@@ -1,3 +1,4 @@
++import { consumerFixture, consumerTarball } from './consumer-artifact.mjs';
+ import assert from 'node:assert/strict';
+ import { execFileSync, spawn } from 'node:child_process';
+ import { mkdtemp, mkdir, readdir, readFile, writeFile, rm } from 'node:fs/promises';
+@@ -9,18 +10,14 @@
+ import { packedBrowsers } from './packed-browser.mjs';
+ 
+ // Next is fixture-only: the package keeps React/React DOM as its only peers.
+-const fixture = await mkdtemp(join(tmpdir(), 'sgui-next-consumer-'));
++const fixture = await consumerFixture('sgui-next-consumer-');
+ const env = { ...process.env, NEXT_TELEMETRY_DISABLED: '1', npm_config_auto_install_peers: 'false' };
+ let server;
+ try {
+-  const pack = join(fixture, 'pack');
+-  await mkdir(pack);
+-  execFileSync('pnpm', ['pack', '--pack-destination', pack], { stdio: 'pipe' });
+-  const tarball = (await readdir(pack)).find(name => name.endsWith('.tgz'));
+-  assert(tarball, 'Pack did not produce a tarball');
+-  await writeFile(join(fixture, 'package.json'), JSON.stringify({
++  const artifact = await consumerTarball(fixture);
++await writeFile(join(fixture, 'package.json'), JSON.stringify({
+     name: 'sgui-next-consumer', private: true, type: 'module', packageManager: 'pnpm@10.29.3',
+-    dependencies: { '@structured-growth/sg-ui': `file:${join(pack, tarball)}`, next: '16.4.0', react: '19.2.3', 'react-dom': '19.2.3' },
++    dependencies: { '@structured-growth/sg-ui': `file:${artifact}`, next: '16.4.0', react: '19.2.3', 'react-dom': '19.2.3' },
+   }));
+   await writeFile(join(fixture, '.npmrc'), 'auto-install-peers=false\n');
+   await writeFile(join(fixture, 'next.config.mjs'), 'export default { experimental: { cpus: 1 } };\n');
+@@ -151,7 +148,7 @@
+   console.log('Packed Next 16.4.0 production App Router server/client boundaries passed.');
+ } finally {
+   if (server && server.exitCode === null) { const exited = once(server, 'exit'); server.kill('SIGTERM'); await exited; }
+-  await rm(fixture, { recursive: true, force: true });
++  if (!process.env.SGUI_CONSUMER_ROOT) await rm(fixture, { recursive: true, force: true });
+ }
+ 
+ async function assertRelationships(page, hydrated) {

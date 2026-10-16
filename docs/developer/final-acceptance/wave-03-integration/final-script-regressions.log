@@ -1,0 +1,25 @@
+✔ current source policy passes deterministically without changing any input (9.982083ms)
+✔ mutated release, draft, attribution, package and task-data contracts produce distinct findings (1.987625ms)
+✔ source text is read as inert evidence; missing inputs fail explicitly (12.688792ms)
+✖ production dependency graph policy and real-source regressions (1.664583ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 253.068042
+
+✖ failing tests:
+
+test at packages/ui/scripts/check-source-graph.test.mjs:73:3
+✖ production dependency graph policy and real-source regressions (1.664583ms)
+  Error: Cannot read file '/Users/thomashall/Repositories/sg-ui/tsconfig.json'.
+      at inspectSourceGraph (file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-source-graph.mjs:70:27)
+      at runSourceGraphRegression (file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-source-graph.test.mjs:9:20)
+      at TestContext.<anonymous> (file:///Users/thomashall/Repositories/sg-ui/packages/ui/scripts/check-source-graph.test.mjs:73:80)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)

@@ -1,0 +1,60 @@
+{
+  "scope": "Coordinator execution only; no server/build/native/AT execution by wave03-29",
+  "prerequisites": [
+    "Coordinator admits immutable loopback private fixture host other than user3000",
+    "Record source/host manifest SHA-256 and effective theme/density",
+    "Use supported Node24 for browser proof and existing validation lease; never bypass or reclaim another owner lease"
+  ],
+  "jobs": [
+    {
+      "id": "W29-NATIVE-ENTRY",
+      "command": "SGUI_W29_BASE_URL=http://127.0.0.1:<admitted-port> <node24> /tmp/sgui-calendar-validate.mjs <node24> packages/ui/node_modules/@playwright/test/cli.js test --config=docs/developer/final-acceptance/wave-03-29/native.config.mjs",
+      "cwd": "repository root",
+      "expected": "1 case per Chromium/Firefox/WebKit; Tab from Host action enters first grid, Shift+Tab returns, next Tab exits grid; row selection unchanged; no page errors",
+      "status": "unrun",
+      "build": "Reuse coordinator immutable fixture bundle if still exact; rebuild only if changed input requires it in coordinator window",
+      "limits": "No webServer; desktop trusted keyboard only. Port6199 used in --list is a placeholder, no host was contacted."
+    },
+    {
+      "id": "W29-AT",
+      "command": "Follow screen-reader-operator.md and fill operator-observations.template.json with actual transcript",
+      "expected": "Six categories with OS/browser/AT versions, expected-versus-spoken output, focus sequences and bounded findings",
+      "status": "blocked",
+      "missing": "Named actual screen-reader operator/platform/spoken observations"
+    },
+    {
+      "id": "W29-VISUAL",
+      "command": "Recover 28 HB roots first; use screenshot-review.md and review-receipt.template.json; validate structural receipt with review-receipt.mjs",
+      "expected": "Reviewed controls/editor/navigation/modal/grid light-dark \u00d7 compact-comfortable images, original/replacement hashes and interaction receipts; missing only captures requested on immutable host",
+      "status": "unrun",
+      "missing": "Historical raw screenshots absent; named visual review and admitted capture host"
+    },
+    {
+      "id": "W29-COVERAGE",
+      "command": "Reconcile frozen changed-contract list with changed-behavior-coverage.md and existing receipts",
+      "status": "unrun",
+      "expected": "Each affected contract has a retained unchanged or newly executed focused assertion; preserve original failures and no duplicate execution counts"
+    }
+  ],
+  "executedChecks": [
+    {
+      "command": "python3 docs/developer/final-acceptance/wave-03-29/reconcile.py",
+      "result": "pass, hash comparison only",
+      "runtime": "Python3 / node version captured v26.5.0"
+    },
+    {
+      "command": "node --test docs/developer/final-acceptance/wave-03-29/review-receipt.test.mjs",
+      "result": "4 pass",
+      "runtime": "Node26.5.0; tooling tests only, no supported runtime/browser acceptance claim"
+    },
+    {
+      "command": "SGUI_W29_BASE_URL=http://127.0.0.1:6199 node packages/ui/node_modules/@playwright/test/cli.js test --config=docs/developer/final-acceptance/wave-03-29/native.config.mjs --list",
+      "result": "3 cases discovered after ESM import corrections; no browser execution",
+      "runtime": "Node26.5.0 / Playwright1.63.0"
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-29/review-receipt.mjs docs/developer/final-acceptance/wave-03-29/review-receipt.template.json",
+      "result": "expected exit1, pending template rejected"
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "sourceSnapshot": "docs/developer/final-acceptance/parallel-01/api-snapshot.json",
+  "sourceSnapshotSha256": "617a3e059ec7e50cce563f3ac8859b64b0af3f3618a3216ef7e6b4927288ea3c",
+  "reviewedHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "currentSourceDeltas": [
+    {
+      "file": "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "snapshot": "76c47456bef21ee744325819eee7eae226f739409e0d095154a3594fb66127e5",
+      "current": "2ba997deff8eaf391fa2b2893d9caa549f033890278858969d3896be7e8ccd73"
+    },
+    {
+      "file": "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "snapshot": "db033228bce02425d76caf2546ea20c1c643b75025a36cea29997511d4f660e7",
+      "current": "337dc877771114e32f1ec79205b090fe5792137bc99c5b45f2f23099ead92f2e"
+    },
+    {
+      "file": "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "snapshot": "36dae396b52a4cefeed0a2672c563bd6b0b9e43503aa88cdc817b02f7288e667",
+      "current": "7ba68f20009c62f5ff41ba6362d25262db54f51c8895cb1a7d29f6407fd7e21e"
+    },
+    {
+      "file": "packages/ui/src/experimental/TextArea/TextArea.tsx",
+      "snapshot": "63a39270d486c587798b1a499c412c9a3d41cb1d530a3d28441aa3dd496141ed",
+      "current": "5629ab7acaa71bd4607d93876e29fab4b046818ccfbeb0c45e7d359d352509e6"
+    }
+  ],
+  "candidateMappings": [
+    {
+      "id": "theme-objects",
+      "contractDelta": "theme/lightTheme/darkTheme → styles.css + Provider/ThemeScope + owned tokens",
+      "guide": "docs/developer/react-aria-theme.md",
+      "source": "packages/ui/src/theme/index.ts",
+      "sourceSha256": "f1c14ef429cebff72d5e9e696a3d55d8423fd9da5f391ec8d4392cc24c41d0ca",
+      "guideSha256": "8ab7ca01b35473b5a11ad6efeab55f338d334f0ac762be18e0500a91b0c002de",
+      "releaseMarkerRequirement": "breaking marker ! or BREAKING CHANGE footer when part of released API; first-publication policy/actual version history must be owner-reconciled",
+      "actualCommitForEveryDeltaVerified": false
+    },
+    {
+      "id": "button-events",
+      "contractDelta": "upstream onClick/action props → owned onPress, variant/tone/density/native style",
+      "guide": "docs/developer/react-aria-button.md",
+      "source": "packages/ui/src/components/Button/Button.tsx",
+      "sourceSha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "guideSha256": "3b587278e52fc5680b2756d44f604598f7d223b47caec0138e69a61cbefe1d96",
+      "releaseMarkerRequirement": "breaking marker ! or BREAKING CHANGE footer when part of released API; first-publication policy/actual version history must be owner-reconciled",
+      "actualCommitForEveryDeltaVerified": false
+    },
+    {
+      "id": "modal-events",
+      "contractDelta": "onClose(event, reason) → owned reason; paper/body sx → native surface/body style; maxWidth/fullWidth → size",
+      "guide": "docs/developer/react-aria-modal-shells.md",
+      "source": "packages/ui/src/components/AppModal/AppModal.tsx",
+      "sourceSha256": "dcd13c1bf1101e33a2f4fc379150cc74cd74616ba2eabd0a6d08ba0971f73873",
+      "guideSha256": "a7fc757509cc1493909a26a3a04e76744b1331e903b020c7f3ed4808120bb335",
+      "releaseMarkerRequirement": "breaking marker ! or BREAKING CHANGE footer when part of released API; first-publication policy/actual version history must be owner-reconciled",
+      "actualCommitForEveryDeltaVerified": false
+    },
+    {
+      "id": "primitives",
+      "contractDelta": "upstream component/color/sx APIs → declared owned as/tone/style; retain bodyAlt2 and primary alias",
+      "guide": "docs/developer/react-aria-primitives.md",
+      "source": "packages/ui/src/components/primitives/index.ts",
+      "sourceSha256": "fee6f7642c4b73916defbe8b408cd3c076acb11e43f5c25205f1fdb589599276",
+      "guideSha256": "ed7b6668e1d62e0a8c9c02863bc3c9a2270fc206741c9cd62cc1fd9d130dde34",
+      "releaseMarkerRequirement": "breaking marker ! or BREAKING CHANGE footer when part of released API; first-publication policy/actual version history must be owner-reconciled",
+      "actualCommitForEveryDeltaVerified": false
+    },
+    {
+      "id": "grid-selection",
+      "contractDelta": "engine row-selection model → owned Set<string>; preexisting Set callback remains; default selection enabled, pass false to preserve omission behavior",
+      "guide": "docs/developer/react-aria-catalog-grid.md",
+      "source": "packages/ui/src/components/AppDataGrid/types.ts",
+      "sourceSha256": "caa0e32e6ea070a4e2d2859ed553e778db9b9d06ce5a99a59f72e2dc409831a3",
+      "guideSha256": "a5579f6131b64f69e44a0c1a0612fb97193a62618a8536a9ec9744615aa6a8b0",
+      "releaseMarkerRequirement": "breaking marker ! or BREAKING CHANGE footer when part of released API; first-publication policy/actual version history must be owner-reconciled",
+      "actualCommitForEveryDeltaVerified": false
+    },
+    {
+      "id": "grid-columns",
+      "contractDelta": "engine contexts/second helper arg → owned row callbacks and columns; string IDs, validated duplicate/missing IDs",
+      "guide": "docs/developer/react-aria-grid-contracts.md",
+      "source": "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts",
+      "sourceSha256": "405ae6441b3635ce9b4e76d18c509c813664535f84422d2b454718743b638094",
+      "guideSha256": "78eeca7f920fa2291070a0e397eb844a3d211f6d59851085852a6d5085b61282",
+      "releaseMarkerRequirement": "breaking marker ! or BREAKING CHANGE footer when part of released API; first-publication policy/actual version history must be owner-reconciled",
+      "actualCommitForEveryDeltaVerified": false
+    },
+    {
+      "id": "pagination-persistence",
+      "contractDelta": "page-size change requests page zero first; opt-in storage replaces inferred persistence",
+      "guide": "docs/developer/react-aria-pagination-state.md",
+      "source": "packages/ui/src/hooks/usePersistentState.ts",
+      "sourceSha256": "64ac3e729235f826115afd9c5affa9a58c4085e01054be5e7f37583989fbb02d",
+      "guideSha256": "f78b8f6eaf55178078ca3c6ef34dc8cd0df7e3c5ff67e072c054afdb9c2e16ec",
+      "releaseMarkerRequirement": "breaking marker ! or BREAKING CHANGE footer when part of released API; first-publication policy/actual version history must be owner-reconciled",
+      "actualCommitForEveryDeltaVerified": false
+    },
+    {
+      "id": "action-name",
+      "contractDelta": "AppButton/AppButtonProps → Button/ButtonProps, pre-first-release consolidation per guidance",
+      "guide": "docs/developer/react-aria-button.md",
+      "source": "packages/ui/src/components/Button/index.ts",
+      "sourceSha256": "e3b3d627a1fef1bfc1a6056115b697444e0383549cce84e243abe2f4b34522cb",
+      "guideSha256": "3b587278e52fc5680b2756d44f604598f7d223b47caec0138e69a61cbefe1d96",
+      "releaseMarkerRequirement": "breaking marker ! or BREAKING CHANGE footer when part of released API; first-publication policy/actual version history must be owner-reconciled",
+      "actualCommitForEveryDeltaVerified": false
+    }
+  ],
+  "observedHeadTitle": "feat!: unify controls and add persistent hardening coverage",
+  "retainedAnalyzerEvidence": "docs/developer/final-acceptance/fa04-release.txt",
+  "openSuccessorDeliverables": [
+    "Normalize all remaining 678 default candidates into public-context contract defaults/not-applicable records; inherited historical upstream prop closure remains incomplete.",
+    "Map each removed/changed baseline contract to current owned replacement, copyable migration guide, actual commit/squash marker and release range.",
+    "Apply documented selection=false guidance for callers relying on old omitted selection behavior; do not convert existing Set callback to include/exclude engine state.",
+    "After the four coordinator fixes settle, refresh only affected source/declaration/default records and required package evidence; do not recapture unchanged export inventories."
+  ],
+  "exhaustive": false,
+  "approved": false
+}

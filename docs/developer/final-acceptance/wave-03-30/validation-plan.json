@@ -1,0 +1,80 @@
+{
+  "status": "Integration and runtime validation pending",
+  "safeScope": "Coordinator only in leased immutable window. No host startup/build/install performed by this owner.",
+  "registration": {
+    "action": "Coordinator adds one new scenarioModule entry to existing migration manifest; no generated or manifest patch is supplied.",
+    "entry": {
+      "original": "apps/docs/native-fixtures/scenarios/foundation/VisualAcceptance.fixture.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/foundation/VisualAcceptance.fixture.tsx",
+      "scenarioModule": true
+    },
+    "expectedId": "foundations-visual-acceptance--matrix",
+    "provenance": "New docs-owned native scenario; original path intentionally self-referential, never label a removed Storybook source."
+  },
+  "steps": [
+    {
+      "cwd": "repository root",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-30/foundation-and-visual.patch",
+      "assertions": [
+        "Patch has no conflict with concurrent docs changes. Rebase theming-page addition if needed."
+      ]
+    },
+    {
+      "cwd": "repository root",
+      "command": "node docs/developer/final-acceptance/wave-03-30/check-proposals.mjs",
+      "assertions": [
+        "Three extracted snippets and six proposed TypeScript files have zero diagnostics. Use supported Node24 for coordinator validation; local authoring receipt used Node26."
+      ]
+    },
+    {
+      "cwd": "repository root",
+      "command": "pnpm --filter @structured-growth/sg-ui build",
+      "assertions": [
+        "Fresh public declarations/styles precede docs and fixture build. Reuse coordinator matching fresh outputs when unchanged."
+      ]
+    },
+    {
+      "cwd": "repository root",
+      "command": "pnpm --filter @structured-growth/docs build",
+      "assertions": [
+        "Public /theming includes 3 source-backed foundation examples; isolation/catalog checks pass. No generated outputs edited by hand."
+      ]
+    },
+    {
+      "cwd": "repository root",
+      "command": "pnpm --filter @structured-growth/docs exec playwright test tests/foundation-examples.spec.ts",
+      "assertions": [
+        "Matching source sections, independent editable draft, disabled skipping, native local Tab traversal; actual production reduced-motion CSS while pending semantics persist. Existing docs config uses private port3100; coordinator reserves it."
+      ]
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "node scripts/build-browser-docs.mjs",
+      "assertions": [
+        "Coordinator first registers new native scenario, fixture typecheck/build succeeds, registry ID resolves."
+      ]
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "SGUI_VISUAL_BASE_URL=http://127.0.0.1:6173 SGUI_VISUAL_OUTPUT=/absolute/owned/evidence/candidate pnpm exec playwright test --config playwright.visual-acceptance.config.ts --update-snapshots",
+      "assertions": [
+        "Use coordinator-reserved immutable host, not user server3000. Eight tests produce48 candidate captures and warning attachments, no auto approval. Config starts no server. Record browser/font/runtime/source/host asset hashes."
+      ]
+    },
+    {
+      "cwd": "packages/ui",
+      "command": "SGUI_VISUAL_BASE_URL=http://127.0.0.1:6173 SGUI_VISUAL_OUTPUT=/absolute/owned/evidence/candidate pnpm exec playwright test --config playwright.visual-acceptance.config.ts",
+      "assertions": [
+        "After manual review and baseline hashes recorded, all48 comparisons pass with maxDiffPixels0. Save actual/diff paths on failure; no automatic tolerance increase."
+      ]
+    },
+    {
+      "cwd": "operator environment",
+      "command": "Follow operator-findings.json",
+      "assertions": [
+        "External spoken AT, physical touch, actual zoom and changed packed-consumer gates remain pending; automation/source assertions cannot replace them."
+      ]
+    }
+  ],
+  "noNewUnitTests": "Documentation/visual work uses focused browser specs and existing component tests. No mirrored implementation unit tests added."
+}

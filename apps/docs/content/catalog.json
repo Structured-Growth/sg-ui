@@ -401,6 +401,42 @@
   },
   {
     "group": "forms",
+    "slug": "period-picker",
+    "title": "PeriodPicker",
+    "description": "Select a whole week, month, quarter or year.",
+    "exports": [
+      "PeriodPicker"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "date-time-range-picker",
+    "title": "DateTimeRangePicker",
+    "description": "Local start/end datetime drafting with minute increments and atomic Apply.",
+    "exports": [
+      "DateTimeRangePicker"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "date-range-comparison-picker",
+    "title": "DateRangeComparisonPicker",
+    "description": "Compare a primary interval with a previous period, previous year or custom range.",
+    "exports": [
+      "DateRangeComparisonPicker"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "search-field",
+    "title": "SearchField",
+    "description": "Reusable search with clear action, alias matching, portaled results and keyboard navigation.",
+    "exports": [
+      "SearchField"
+    ]
+  },
+  {
+    "group": "forms",
     "slug": "text-field",
     "title": "TextField",
     "description": "Single-line inputs with controlled values, native validation and input-type variations.",
@@ -512,7 +548,7 @@
     "group": "forms",
     "slug": "time-field",
     "title": "TimeField",
-    "description": "Local clock segments, business-hour limits and 12/24-hour presentation.",
+    "description": "Flexible time text entry with a selection dropdown, business-hour limits and 12/24-hour presentation.",
     "exports": [
       "TimeField"
     ]
@@ -521,7 +557,7 @@
     "group": "forms",
     "slug": "calendar",
     "title": "Calendar",
-    "description": "One or two months with single/multiple selection and host availability explanations.",
+    "description": "One to three months with single/multiple selection and host availability explanations.",
     "exports": [
       "Calendar"
     ]
@@ -530,7 +566,7 @@
     "group": "forms",
     "slug": "date-picker",
     "title": "DatePicker",
-    "description": "A segmented date field and scoped calendar popup with clear and availability handling.",
+    "description": "Flexible date text entry and a scoped calendar popup with clear and availability handling.",
     "exports": [
       "DatePicker"
     ]
@@ -539,7 +575,7 @@
     "group": "forms",
     "slug": "date-range-picker",
     "title": "DateRangePicker",
-    "description": "Popover range selection with presets, bounds and committed host values.",
+    "description": "Type a date range or a relative period, or open the calendar to choose dates.",
     "exports": [
       "DateRangePicker"
     ]
@@ -550,7 +586,9 @@
     "title": "DateRangeSelector",
     "description": "Inline range drafting, named preset descriptions, Apply and Cancel transactions.",
     "exports": [
-      "DateRangeSelector"
+      "DateRangeSelector",
+      "getRelativeDateRange",
+      "getDateRangeLength"
     ]
   },
   {

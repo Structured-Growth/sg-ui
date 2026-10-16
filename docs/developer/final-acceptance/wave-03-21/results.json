@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "assignment": 21,
+  "directory": "docs/developer/final-acceptance/wave-03-21",
+  "capturedAt": "2026-10-16T23:06:50.957873+00:00",
+  "results": [
+    {
+      "id": "A-M-18",
+      "originalRequirement": "- [ ] A-M-18 Reconcile AppDataGridRowDnd final acceptance: Replace DOM selectors/ghost styling; keyboard/touch/reorder/cancel behavior. Link its `F-C18`, `T-C18` and `V-C18` evidence and any unresolved defects.",
+      "status": "partial",
+      "substantiveOutcome": "Seven passing current-source DOM cases cover criteria transitions, exact Move requests, unchanged host rows and colliding-ID sibling keyboard cancellation. Ready-to-apply test/docs patch; physical touch and spoken AT not executed.",
+      "priorEvidence": {
+        "report": "docs/developer/final-acceptance/wave-02-02/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-02/results.json",
+        "hashAuthentication": {
+          "report": true,
+          "results": true
+        },
+        "reusedWithLimits": true
+      },
+      "evidence": [
+        "input-reconciliation.json",
+        "execution.json",
+        "unit-attempt-4.txt",
+        "report.md",
+        "reorder-policy.patch",
+        "physical-touch-and-at.md",
+        "physical-input-recorder.js"
+      ],
+      "commands": [
+        "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-21/vitest.proposal.config.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-21/reorder-policy.patch",
+        "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node --check docs/developer/final-acceptance/wave-03-21/physical-input-recorder.js"
+      ],
+      "runtime": {
+        "node": "v24.21.0",
+        "react": "19.2.3",
+        "vitest": "4.1.11",
+        "environment": "jsdom 26.1.0"
+      },
+      "newValidation": {
+        "suites": 1,
+        "tests": 7,
+        "result": "pass",
+        "classification": "DOM; not native/device/AT"
+      },
+      "hashManifest": "input-reconciliation.json",
+      "artifactHashes": "artifact-hashes.json",
+      "patch": {
+        "path": "reorder-policy.patch",
+        "needsIntegration": true,
+        "applied": false,
+        "productionBehaviorChange": false,
+        "applyCheck": "pass"
+      },
+      "residualSuccessors": [
+        {
+          "id": "M18-native-touch",
+          "status": "unrun_external_evidence",
+          "requires": [
+            "named physical touchscreen device/browser/OS",
+            "named AT operator and spoken output for G-17",
+            "coordinator fixture/source hash snapshot"
+          ],
+          "deliverable": "Execute physical-touch-and-at.md and retain event trace, request counts, order/focus/rollback and actual speech. Do not substitute emulated taps, DOM announcements or protocol authoring.",
+          "validationPlan": "validation-plan.json"
+        }
+      ],
+      "limits": [
+        "No physical long-press, spoken AT, current native browser or Node 22 run.",
+        "Patch-only additions are not integrated acceptance.",
+        "Existing retained pointer/keyboard/Move evidence preserves original runtime/host limits.",
+        "No shared count/checklist closure."
+      ]
+    },
+    {
+      "id": "A-G-17",
+      "originalRequirement": "- [ ] A-G-17 Reconcile original `G-17`: Define row reordering for pointer, touch, keyboard and non-drag actions; announce changes, support cancel, and define behavior when sorting/filtering/pagination is active. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Seven passing current-source DOM cases cover criteria transitions, exact Move requests, unchanged host rows and colliding-ID sibling keyboard cancellation. Ready-to-apply test/docs patch; physical touch and spoken AT not executed.",
+      "priorEvidence": {
+        "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+        "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+        "hashAuthentication": {
+          "report": true,
+          "results": true
+        },
+        "reusedWithLimits": true
+      },
+      "evidence": [
+        "input-reconciliation.json",
+        "execution.json",
+        "unit-attempt-4.txt",
+        "report.md",
+        "reorder-policy.patch",
+        "physical-touch-and-at.md",
+        "physical-input-recorder.js"
+      ],
+      "commands": [
+        "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-21/vitest.proposal.config.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-21/reorder-policy.patch",
+        "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node --check docs/developer/final-acceptance/wave-03-21/physical-input-recorder.js"
+      ],
+      "runtime": {
+        "node": "v24.21.0",
+        "react": "19.2.3",
+        "vitest": "4.1.11",
+        "environment": "jsdom 26.1.0"
+      },
+      "newValidation": {
+        "suites": 1,
+        "tests": 7,
+        "result": "pass",
+        "classification": "DOM; not native/device/AT"
+      },
+      "hashManifest": "input-reconciliation.json",
+      "artifactHashes": "artifact-hashes.json",
+      "patch": {
+        "path": "reorder-policy.patch",
+        "needsIntegration": true,
+        "applied": false,
+        "productionBehaviorChange": false,
+        "applyCheck": "pass"
+      },
+      "residualSuccessors": [
+        {
+          "id": "W02-10-G17",
+          "status": "unrun_external_evidence",
+          "requires": [
+            "named physical touchscreen device/browser/OS",
+            "named AT operator and spoken output for G-17",
+            "coordinator fixture/source hash snapshot"
+          ],
+          "deliverable": "Execute physical-touch-and-at.md and retain event trace, request counts, order/focus/rollback and actual speech. Do not substitute emulated taps, DOM announcements or protocol authoring.",
+          "validationPlan": "validation-plan.json"
+        }
+      ],
+      "limits": [
+        "No physical long-press, spoken AT, current native browser or Node 22 run.",
+        "Patch-only additions are not integrated acceptance.",
+        "Existing retained pointer/keyboard/Move evidence preserves original runtime/host limits.",
+        "No shared count/checklist closure."
+      ]
+    }
+  ],
+  "summary": {
+    "complete": 0,
+    "partial": 2,
+    "blocked": 0,
+    "newPassingDomTests": 7,
+    "centralLedgerModified": false
+  }
+}

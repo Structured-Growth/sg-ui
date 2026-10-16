@@ -1,0 +1,201 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/apps/docs/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "../../docs/developer/final-acceptance/acceptance-fix-browsers.config.mjs",
+      "--project",
+      "firefox",
+      "--project",
+      "webkit",
+      "--grep",
+      "datetime: host availability"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/acceptance-fix-browsers.config.mjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/artifacts/acceptance-bugfix-engines/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "acceptance-picker-field-fixes.spec.ts",
+          "date-picker-availability-parity.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/artifacts/acceptance-bugfix-engines/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "acceptance-picker-field-fixes.spec.ts",
+          "date-picker-availability-parity.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/artifacts/acceptance-bugfix-engines/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "acceptance-picker-field-fixes.spec.ts",
+          "date-picker-availability-parity.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/apps/docs/artifacts/acceptance-bugfix-engines/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm --filter @structured-growth/docs start --port 3100",
+      "cwd": "/Users/thomashall/Repositories/sg-ui/",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "date-picker-availability-parity.spec.ts",
+      "file": "date-picker-availability-parity.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "datetime: host availability guards typed values and native submission",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1732,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T22:56:58.149Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b379720e112a6af61d2f-81f00f007534b3b9dce4",
+          "file": "date-picker-availability-parity.spec.ts",
+          "line": 5,
+          "column": 2
+        },
+        {
+          "title": "datetime: host availability guards typed values and native submission",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1634,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T22:57:00.732Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b379720e112a6af61d2f-93859891644543930a48",
+          "file": "date-picker-availability-parity.spec.ts",
+          "line": 5,
+          "column": 2
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T22:56:57.416Z",
+    "duration": 5165.061,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

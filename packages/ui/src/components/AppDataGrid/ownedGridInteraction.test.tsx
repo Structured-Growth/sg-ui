@@ -66,7 +66,15 @@ it("forwards native container/table refs and applies locks, order and hidden fie
   render(<OwnedGridInteraction {...props} columns={[...columns, action]} ref={ref} tableRef={tableRef}
     columnOrder={["actions", "score", "name"]} columnVisibilityModel={{ name: false, score: false, actions: false }} />);
   expect(ref.current?.tagName).toBe("DIV"); expect(tableRef.current?.tagName).toBe("TABLE");
-  expect(screen.getAllByRole("columnheader").map(header => header.textContent)).toEqual(["Select page", "Name", "Actions"]);
+  expect(ref.current?.tabIndex).toBe(-1); // The native table owns the collection's Tab stop.
+  expect(tableRef.current?.tabIndex).toBe(0);
+  const headers = screen.getAllByRole("columnheader");
+  // Locked Name/Actions remain visible and ordered; each now includes the
+  // non-drag width action alongside its original heading content.
+  expect(headers.map(header => header.textContent)).toEqual(["Select page", "Name↔", "Actions↔"]);
+  expect(within(headers[1]!).getByRole("button", { name: "Width of Name", exact: true })).toBeTruthy();
+  expect(within(headers[2]!).getByRole("button", { name: "Width of Actions", exact: true })).toBeTruthy();
+  expect(screen.queryByRole("button", { name: "Width of Score", exact: true })).toBeNull();
 });
 it("remeasures flex allocation while preserving a committed width override", () => {
   const size = vi.spyOn(HTMLElement.prototype, "clientWidth", "get").mockReturnValue(1000);

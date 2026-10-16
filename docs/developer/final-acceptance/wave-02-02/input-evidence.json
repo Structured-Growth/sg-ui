@@ -1,0 +1,1948 @@
+{
+  "capturedAt": "2026-10-16T22:42:01.997Z",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "node": "v26.5.0",
+  "inventory": {
+    "file": "docs/developer/final-acceptance/2026-10-16-source-inventory.json",
+    "capturedAt": "2026-10-16T22:23:01.865Z",
+    "sha256": "78209ab5ca848b857bd36310bd0c0bd546aaac91d69d72b4320bb0db091cb156"
+  },
+  "sourceRoots": [
+    "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+    "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+    "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+    "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+    "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+    "packages/ui/src/components/DataToolbar/DataToolbar.tsx"
+  ],
+  "dependencyClosureCount": 200,
+  "unresolved": [],
+  "inputs": [
+    {
+      "file": "apps/docs/examples/GridHostExamples.tsx",
+      "sha256": "d0d3bdc7ff61a20c612869ad4f095e823b54645e142fe2d8a782a9c7e65bd9e9",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "sha256": "ce94ca1a740f7541fca53106192f702f4682a68f17a9c4c976b28b8cde49cbe5",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/AppDataGrid.reorder-invalidation.fixture.tsx",
+      "sha256": "4bd806883bfd6b89f5a440bcde99f2aa8e8c244904eed18ef5cc5ca9e12cee0b",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridCells.fixture.tsx",
+      "sha256": "a19f8d67a1c7ef5f0313ffd859e4aecd8771c4ee3ef0b136d2044078b208459a",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridInteraction.fixture.tsx",
+      "sha256": "0705823c9015513d7849cb6fd5a5a0f575a46e843727607aaefb4a8c99ff0e1f",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridParts.fixture.tsx",
+      "sha256": "de3365b31e8b7bebb7118c261365da73a93969cf1ae0254d07de090c41613d08",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridProcessing.fixture.tsx",
+      "sha256": "8a5b7709b8f84c716e0703140306824da73dfc5c10869c2d06149e947d96dc4d",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGrid/ownedGridSortAcceptance.fixture.tsx",
+      "sha256": "812f29fb0bd946949b327add1101c10d7c2e56784495d47a491c6deac266f5e8",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGridRowDnd/DataGridDragHandle.fixture.tsx",
+      "sha256": "b4a172cbb2536940351db33f8cd05dfe2c5f19b9a28227b27972c6990856b2ca",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "sha256": "108009d686b001557ab928cd1095a18f5dad14d2470bac1af0e2c036b714396c",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/AppDataGridShell.server-response-races.fixture.tsx",
+      "sha256": "a358e7001472245689d32e20ea6dda4963bc7fcc07e61fa7bb2bee8ec5f35a5c",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.column-order.fixture.tsx",
+      "sha256": "b6762cf627c66ef5d9dbd3f932b882c3f92381777233ad14ced9f8bc84c092a0",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "sha256": "5cda35a0470951a22e80c69b29989d5365f4d093fd0d7294557e12b1a949f817",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.fixture.tsx",
+      "sha256": "a514c5fa34fb2e82853487eec91abb75f9cd56f73880daf245b5598655aaacdb",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.native.fixture.tsx",
+      "sha256": "b412aca7e7b01ba3748621b8ba95d38df0d0bd66f5389ab822d8b57cfc2579e5",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/backlog-execution-2026-10-15.md",
+      "sha256": "7ad123300486e36d4e313e9a6aa609c48409d50f6f28229fffe5925a4b12d503",
+      "matchesFA02": false,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c16.md",
+      "sha256": "bc54100ee9c29eb1b6523cbbcf9710390ee51285d43783f5a19badd3096d403a",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c17.md",
+      "sha256": "11bd2045072263990617cecfb9e9f523302d5b0b44aee3238233c649240c2531",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c18.md",
+      "sha256": "6d27bc0b9727de098b385ead6a8b564a87a86a4f930b6e62dfda54ecee145135",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c19.md",
+      "sha256": "b3269fa1c5f6a20bca7e0b3d3174596acc671fffeb8f72f44765bf2c09770da9",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c20.md",
+      "sha256": "14637250e006cb2806b80fbcd328c9595e60b8d02c0e100faca592522d356289",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/react-aria-baseline-tasks.md",
+      "sha256": "148c29c18b57d9e9917daad17d0bb0a73c293b28f63768968a0dc04084a29844",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/react-aria-catalog-grid.md",
+      "sha256": "a5579f6131b64f69e44a0c1a0612fb97193a62618a8536a9ec9744615aa6a8b0",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/react-aria-data-toolbar.md",
+      "sha256": "7c80e7f363584d717df17550f99331c8a7639d458014a09a0be65f5624df0522",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/react-aria-grid-contracts.md",
+      "sha256": "78eeca7f920fa2291070a0e397eb844a3d211f6d59851085852a6d5085b61282",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/react-aria-grid-reorder.md",
+      "sha256": "2eb3d179ec9066742ecad4bc1de1766361551d4bd1bac8cac9e750dba2e19314",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/react-aria-hardening-execution.md",
+      "sha256": "16a3b10142840081449ca0b0f14ea447320501f385c519d8dab5b0c91da528ea",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/react-aria-hardening-tasks.md",
+      "sha256": "aed2321f4cf09fe8f0dbd61f9a1f8c8601afa19866acf0fa6407054fc9730010",
+      "matchesFA02": false,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "docs/developer/react-aria-regression-tasks.md",
+      "sha256": "912f7293365fdf77a3db49db1d0b6cc7bd766789b8063f1f48314c9ed27fdd39",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/package.json",
+      "sha256": "5f9bc4cb98839f1de2ed5188c920d41119e8afcbf371a1f6f5f36d0296620cfd",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/adapters/Link.tsx",
+      "sha256": "632109fad519074531c2f305903bc2304a6ab01157a89950428d702adb3c05fa",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/adapters/navigation.tsx",
+      "sha256": "6c961ccfaf1239ab7871c63d3593fd10dc4525dcbfec4b5965a59416c93e220e",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/adapters/navigationContext.ts",
+      "sha256": "3c3d53cec33e349fe22893ea38a3a77b24a8fa6490759ea183257abc6b9956ec",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.cells.test.tsx",
+      "sha256": "50411f27e10ecf69d65d6037c35b1d7ae5e35f2bc838ac5071ccf5ad951289c7",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.module.css",
+      "sha256": "60172af68ca53fc67da5657b8013d53fab68cee1c79f5e905a490f12fa392dfc",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.next100-regression.test.tsx",
+      "sha256": "f016c7f9fc5294dfd0a3b47c31cad4ad05052e222dcca6fb2614aa9565300ba8",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx",
+      "sha256": "73832a65b2bfd53b6fa57e33d999d1333574f51683798b08b0c8a70e7174804f",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder-invalidation.native-fixture.tsx",
+      "sha256": "33334189dbd068f34f5c441b5984a7fb6c6da73bb1c288ae49b4bfde2a615c19",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder.test.tsx",
+      "sha256": "7cc80265830cce5df17b616c52637f4a6fdb2250c86d8bf89a7ef8411f5ae6e0",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "sha256": "d5037a206368dde03af63d5e755d035311b9818c4595fbc67593a69775bf91aa",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "sha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/GridCellsHelpers.next100-regression.test.tsx",
+      "sha256": "ab344fda214773482cfbbecb892a2128a269a078b690bb0ff86e78e4640cb182",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.test.tsx",
+      "sha256": "6adeb894520f6d34bb177a513f120bf89a52eaf95acf6129f87e70d57079f0ff",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/RowSubHeader.tsx",
+      "sha256": "e3f639d3516c5adf36454ea7ef0a27b1e77b25c2d9311624864228baec77d845",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/TableLoaderOverlay.tsx",
+      "sha256": "bbbae32777886e2dab28ea195167d21ffe31db84bfd2a652dc70d12a6d8dd152",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/TableNoResults.tsx",
+      "sha256": "f2c723f330a1bb21ee8a450c9f621c8b7ed66688191f1b943c209ca5a56522cb",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.test.tsx",
+      "sha256": "776625df452784fffe7d566e31f646a6fff640f9e8370e633db56d5f9322a3bb",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/header/TableHeaderSortMenu.tsx",
+      "sha256": "c49ea8d2f73aa85645e863d941027f8b2a5a9e2db9b03fdeea7b923bae30b9d1",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/CellFallback.tsx",
+      "sha256": "18d31e73fdaf015bc5b4446fa37ffe56f6071b9574801f0473e1064e1c4afa3b",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.test.tsx",
+      "sha256": "87f4867b7864c4ab007f2a13be1d3d20986396a1f4b90061263960c4aeb06765",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx",
+      "sha256": "178e8df394721e98d2d62c98a001274e82b4654450ee762aef9936b851ab5b53",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/CustomTableCell.tsx",
+      "sha256": "2fa3fe41c943818ad8e8100e4f297ee3ac372a191c684eb05817009ec8c4e98a",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTableCell.tsx",
+      "sha256": "9a287d5aeb703204fad7fde5e6c6fe6007950beb5eb77740edcf8b44a4bd2014",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx",
+      "sha256": "67cba7196c22dfcc0f1453b5f38d0628e213a32f85d546779b6ce3ba478102bb",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/ImageTableCell.tsx",
+      "sha256": "1b60d263dad853970a98382d7dae449fe0f24b6eea7830a9569c27fd7fe2e720",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/JsonTableCell.tsx",
+      "sha256": "e49181b31008b2031e1ebb8845705e1326fed4bf3ad2a4bfee6d26e09cb69fe4",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/OwnedTableCell.tsx",
+      "sha256": "82faacdc9e01b5deb19c5317fdf41eeccf404d03bdba7a73a6960e609028c12e",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellLink.tsx",
+      "sha256": "0983840615a415c632bb8a39831da0b2f5dd2baf391e6a3e827c565dc1668f65",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.test.tsx",
+      "sha256": "058ea55f1af0ddcf680351ee5a3b72a1709c93241bf6fa20e7da54fa08aaa894",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/TableCellMenu.tsx",
+      "sha256": "63e50e4fcaa14b1c907beaec6a5e6554d665f2dee944f7a2a5d0456cd1c3b2e9",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/TextTableCell.tsx",
+      "sha256": "ee35a9941b5786e01203e24449417661aad54f9976ce0e4b4e2dd09d238efcad",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/index.ts",
+      "sha256": "1b7658d63b6e842a4fc1eac68e06a70e2a5c7c7f06cc59d67cee3edb65021e52",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/components/table-cell/tableCellPrimitives.test.tsx",
+      "sha256": "e6cbd368d6dd165cd4ddeebdcc41ec6dd2a802d3190bc9e9fd24cc8629bf1ca2",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.test.ts",
+      "sha256": "fb74775861a05fccab7112fc4a0753ba040ab58eaca952318645f9d7ac228ecb",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.ts",
+      "sha256": "05710e5771d036bf013295ee2559162bc0872148ce72c0acd6b4970819ab61de",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/createDataGridColumns.test.tsx",
+      "sha256": "59dfe41426416b2f074f541f2a232d5181b5b30dcf7e3d8fcdc05168ce8e82dd",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/createDataGridColumns.tsx",
+      "sha256": "18b31b203789b1d3f3150af4a56b4bbf2a48168e13ee917b9d546f1f553db48a",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/index.ts",
+      "sha256": "a2deaf6fc79d796eea826f707dd6103000f878f93a0ae624f7612986a47b394d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css",
+      "sha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.test.tsx",
+      "sha256": "eaf5aa24f2cf0651fe5f11c3ce23306e3842961bbc54b626d1e096770e246f52",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "sha256": "f50829dbb7f1ce7942b87a7ffd1102c9721a3686d955b786731b944207ee0947",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridColumns.test.ts",
+      "sha256": "5ef01f4eeff2a0fa2beec2042a640e49e8b01ffb192633618c4c5d3a62b5ecaa",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts",
+      "sha256": "405ae6441b3635ce9b4e76d18c509c813664535f84422d2b454718743b638094",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridController.test.ts",
+      "sha256": "5534ec921137592213a557d239d060b535849ce256ed3759d2118e426ccccdda",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridController.ts",
+      "sha256": "cd099ccba9c0c15cd7adf4ba2a8537ac08e08500b98cb7df4f0ae130a87cb5fe",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.drop-focus.test.tsx",
+      "sha256": "3c2e41a441f2f15b44db9dbfdab276caf0547be6e48518f993e8c50a4302a9c1",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+      "sha256": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.ssr.test.tsx",
+      "sha256": "497d829d4c4223942da5ef96b4bfe9cdefb887ad4ca3e49a1ebc4cb67a0c4fcc",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+      "sha256": "502aa0db80b9d7bb3d7b8c3b46441130203bda77a3825f4db9a3698b3f6be414",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "sha256": "d3fef23868311eaa9a608478aa0061f181dc77d981354589f41b71835d524c66",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridLayoutController.test.tsx",
+      "sha256": "e0361aefb394c6676a1bfe4dfb6452092f66107ad80f60ab279af8d39951203b",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridLayoutController.ts",
+      "sha256": "f1cb9e117f5d1c85103918c8ad1864bbd9ef97cf59b51f4415ac9610580fe5f6",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridModel.test.ts",
+      "sha256": "fc1a6eb8574b81b6efe1f856651f190cfdb34219b2dfc4b3c6ebc96227c1c96e",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridModel.ts",
+      "sha256": "ceb26de693e468cc5fc16dcb06f5098499041fb11d27f88ba5aaa054912b3586",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridPageShrink.test.tsx",
+      "sha256": "0f2ba19f06af55d24f5e9783c1e91f490037eb559c2465fa415a9175e1d9f904",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css",
+      "sha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.test.tsx",
+      "sha256": "88659b0ebd8ac8b8b4d737fcea71e0958d2a47d3c5d2d94660a85e689e72af38",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "sha256": "dd8cfbaf97e8c0152dc714e84d1df20cf92263f601453e41c96dddf55d3acecf",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridPersistence.test.tsx",
+      "sha256": "90e357fbdf04190c2d7b630258c49fc2ff47785310965942bcde49a586b61d0b",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridPersistence.ts",
+      "sha256": "05811040bbcba9eb7c3f464811adcc54d33e16c6ebb2bfacb20c4b37a4400c89",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridProcessing.native-fixture.tsx",
+      "sha256": "e38dad5d84ab67e369734de2f5a6d37e83045fbce5ce56f82ba2f7ddf4698b68",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridProcessing.test.tsx",
+      "sha256": "2d0538f78a75726fce7e5d965863d7d5ea10e9d2352a6db740c62ebb901178b7",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridReset.ts",
+      "sha256": "d683cbe17207a19f2431914582a03d384798dbe7bbfe40f61084e2be025e4211",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.native-fixture.tsx",
+      "sha256": "65d041dfa8a00d0bd07bd01bae9e58ba6eaf2136be6466bd3567ce5c7d6359a8",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.test.tsx",
+      "sha256": "c9d4596a4393409acb583dceb4d8c70f6c481d45fc8bf90c1cd8e95f133c831b",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridState.test.ts",
+      "sha256": "fe4c15e57a5e333ebce68fa7505410f68c5de44ff028b69d3c9c3e252368cda3",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridState.ts",
+      "sha256": "c3b812ba75bc21ebbbb95cf54a384eb695be18b4446c4173b92aea8f681750db",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/types.ts",
+      "sha256": "caa0e32e6ea070a4e2d2859ed553e778db9b9d06ce5a99a59f72e2dc409831a3",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.module.css",
+      "sha256": "bb6d4898cf884dd1a410454fc10610a1cdbf014749ee487e79c18c1a5c650c48",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.test.tsx",
+      "sha256": "e8191096167b08706ca532aa6db27de8d82f50d7d22dbd741fea9572edccd8a8",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "sha256": "8c781199600dc50f5b6533dcbd3f00baf354e5a585f38286b996514832a68116",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/index.ts",
+      "sha256": "9629402c6cc46c649a67d0ae8532fe03a0cd9e4349da8b0c4d4551c08c714e33",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx",
+      "sha256": "97a808c6316a6dfffea909316bdb231f61195dfa09f094b3cb9840dfe90fb876",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "sha256": "88828425448aa70e650f4985b6701e0ebfcea042578c09481725b8583177dc75",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.module.css",
+      "sha256": "0ae9c4b48c71058f778d507bb34deae364e82c2a39cd35d9fa05e9f3da4908e2",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.native-fixture.tsx",
+      "sha256": "c143f1fc838cc2bf078c8e6ee1e610929aaf64e2eebb74aa460fcbf7782e1746",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx",
+      "sha256": "65a66b96b76fbc91409493950b5c9c713b00072b0a47c64f86f027ec13369105",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "sha256": "45114106d10183bcd63845d20255819d5fa6d4b7783eab7c1d6f2d4640a3f990",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "sha256": "07c3d004b9b26d1e9e79cbbb281bb542fc2d8cc1f88eca922033cc232cee2d7a",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/index.ts",
+      "sha256": "6dee3aeeba19795fb9b316baa662c984277ff440336262245b11da7d0145b4b6",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/Button/Button.module.css",
+      "sha256": "86ed0899962818918b461e0977e489e29b9e37822579b1977c5b4435b53343be",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/Button/Button.tsx",
+      "sha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.module.css",
+      "sha256": "78b126fcce49c46fe97af8d42e00ce02ef77892912df085a4e677cf61e6b5c63",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/CardPaginationFooter/CardPaginationFooter.tsx",
+      "sha256": "b9701fb53e9e0c8f3ea4551e746a7a1ae114a94092ec852d6c6d41599c3a5475",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/CardPaginationFooter/index.ts",
+      "sha256": "43830acc32f78690ac3163408e04c94c2c1b58484d266cd03a3a3dd617034f21",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/CardPaginationFooter/pagination.ts",
+      "sha256": "710c822be912dc3e51612cbb32be7a9ac7617c0fa4fdd87eb407a76501ae6d0f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.module.css",
+      "sha256": "8d3536b5c46774a4c4e5f9958668e4116872344a8e0e46769a91c058e2eb446f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "sha256": "4058aa22528e8a289d916b3c77c470177280f1ea91ec8dd08398c63579ae7d42",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/ClassCardFrame/index.ts",
+      "sha256": "9a0141c4afc56915be74a66b57630fd3d1e70ae73288e92d5dc9e5dd8405dda9",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.module.css",
+      "sha256": "ed9842b74c5b1137b81e89ce8a6e0727cf7d9f1fca2fdefed54fca5f946bf392",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.native-composition.test.tsx",
+      "sha256": "5b2bc0db7af28b33505f998df20f07837a9833aa22f685d726e4598293b6be61",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.native-fixture.tsx",
+      "sha256": "d9b8de44e04997f48a4e29c9c166c8c350459a1788cacc6e36e3adb928b58d81",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.next100-regression.test.tsx",
+      "sha256": "0de098cf684c05af225212a840323c15b8cbf4e3413f74e65bf3c4326cad87f3",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.test.tsx",
+      "sha256": "506c75e35f9fa061b5716943df4ebd56eec0c9158d8790a592f05e8ad9ac2f74",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "sha256": "b6a964f7a4187b65892932c38ff50f5d2af6b7c08d1c4b5c54809f9ad58453a3",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/buildColumnOptions.test.ts",
+      "sha256": "41e1d0ee624696bf2329f4718eef37a52345fb7cbd543724bd9528e9f98833d5",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/buildColumnOptions.ts",
+      "sha256": "ddee77ff3511abf8bac19b395d824e34dd5da5bea816586f6def0271115436ac",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.module.css",
+      "sha256": "132b25a748e4be0d7beaa0584b96d0fc5b1804360a5e9bc4210c02155b803dae",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "sha256": "80a1d26a39f9b47cd34f6db656446e200bbda99c01b7f4e7eb0efd725d75e323",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "sha256": "95fa326ee237555bee7066f59b34326da7630d44742d803b518e57030430ea89",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.module.css",
+      "sha256": "4d1c495ff22633ccad86f0b7309ae472b6e6819086d72b77c55a18525daacfe9",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "sha256": "fbf86172168e5dcb41e681266190a9c446e093d9c0ca4be41687f2d4e8f4af8a",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "sha256": "e4711ac3016cd0fcfef549cea04c70b1b1402aa110ba1772ef1a8bb4f919e0b6",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.module.css",
+      "sha256": "ebbd58249d65f4f3d18eef372d55f530799b300091fc18f18be18043e90a7386",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "sha256": "3b49298106758f7337c14577068dad6d438a68e3dc4f35249cca344a0be4a76a",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "sha256": "bc223424142f2ff7447a6770be25ae2258a9a1870226027430e7763b5ecf579f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.module.css",
+      "sha256": "101dc6f3286638f5ae8cd617e0a95e73fc4b21dfb72d210157aff4015eca2283",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "sha256": "d45a63070fbc3b0a1a126366de0da78c103f585c4c47a4d49c2aff779dc283ba",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "sha256": "d31c4e4569f81bb159d71417b682f6c51cdcae4d0d780cf6ed5a436d70746ead",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/filterRuleValue.test.ts",
+      "sha256": "125c61a3b84bb78a9887daf8ea914700ac5e8a951b8919b9beba79f176209cec",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/filterRuleValue.ts",
+      "sha256": "c1dea0a7962f30acc9486cab0bcdf4856f5a8926d0b415373cb6581027852cef",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/index.ts",
+      "sha256": "fa444da74872b83ca9de7a330dce07b3584ba7a994e2a1917c3f8c7c3ec18c93",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.module.css",
+      "sha256": "fb6fcd46eb123ff1b305545fb94149705790e8a0ccee5d162622e3ae92fffcce",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.tsx",
+      "sha256": "7522eb8f6b20ebbd4a5ba0c4c1f95a9a5312c268499e52ba9da0866c8e2b35ce",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassCard/formatDueDateLabel.ts",
+      "sha256": "8c73d81c224a3699b663420afb2d98a3c5bc39de87a6746ef7f5cb394a10b408",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassCard/index.ts",
+      "sha256": "4110712966b9a9e157ed3e861f3cb24ee31a91876b15e9509415707dd5448283",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.next100-regression.test.tsx",
+      "sha256": "aff2143c775fccd7cec9bb95fb866fe52916aa813c37e52df94ac07ac1ecf927",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "sha256": "f243555780278fa41b7536f0cc1c4b980669f34c7241ee70d583a84eb7ac2edd",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "sha256": "825d8a1d9de34de220997e0afe1ccefc63e03f72366af7cf58c9b37489db1c99",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassesDataGrid/index.ts",
+      "sha256": "f1753252a34de976d4eeb582dc98eeea8f6bbae8fcf1583a6098146267733a3d",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/experimental/Avatar/Avatar.module.css",
+      "sha256": "c17e77dbca3cc8ca9b0573168be1b54b33cb6128ce8fa9ca05d067968240bfe9",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Avatar/Avatar.tsx",
+      "sha256": "ca0185286a915d55bc1d28db61a186b4f0d63f9bbd14c6e84833a92043e561a0",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Badge/Badge.module.css",
+      "sha256": "72bb3bef4c59adac3cf00e22d57eba0f718ee2b2d4a145fadf53e2174d33569c",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Badge/Badge.tsx",
+      "sha256": "e018936847634af828d5ee61adeec644305a9ff7fd03bd94ae074a68270cf550",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Box/Box.module.css",
+      "sha256": "a570a9c097c1948000f8494bb28166683e8312f1644f6395e78852e7a772a8b8",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Box/Box.tsx",
+      "sha256": "cf368c6747469a418970c4e356ffd8a6ca6085f1fe510212cd32586bd9d74936",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Card/Card.tsx",
+      "sha256": "ee944cdd063054be8d629e1134578763103c7d35c8a48ae0db731d29069520e3",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Checkbox/Checkbox.module.css",
+      "sha256": "8b0d9c9987e140ac921ece1da8b3424976197820d38bfb690d364d0b4a9d48f8",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Checkbox/Checkbox.tsx",
+      "sha256": "3a70b70ed3e1f3a34db29ab4541ce8345c08e75f5485d7903419041b00f64565",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/ComboBox/ComboBox.module.css",
+      "sha256": "9650640895f0a314057755458209e981e6243c29245c7fce59a6a1b7ea7cc8ab",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/column-sizing.ts",
+      "sha256": "0b7919fb819cfdb65af2a757af87049fba0bfe8ec05ec0dad99c1e05a862825f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/IconButton/IconButton.module.css",
+      "sha256": "053adb67f0134ccc244ad9eda90e8b2ab737effa519fb9b4dcf0c93ff17b015d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/IconButton/IconButton.tsx",
+      "sha256": "5713a8146e087473fd147cd18d5f807d2c926a3d524a44a50490db2cb4ea94a1",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Link/Link.module.css",
+      "sha256": "f186ff27f6c0dc93a0e7ca80c104aef354fbac242a631da16839ac7556ed2a67",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Link/Link.tsx",
+      "sha256": "2deb54771cea81b8709f1ae9399510d22c0a7126886e2aa2068d09e7b27590b5",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Menu/Menu.module.css",
+      "sha256": "229bcd8fb552cb23f8868c6d94d5f6bed43f238d9593ee76e0ccd797549cfdd5",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Menu/Menu.tsx",
+      "sha256": "4a1c38174345a32cfaea5a05580c510f39275279bef7eebc1dbbec8d503b3490",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.module.css",
+      "sha256": "6ec65bdd80f3af459b2d7a23731078efe96e92ba1e7582f263a82f0aeb5980ca",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Pagination/Pagination.tsx",
+      "sha256": "9584ee76349fa69e89c6404431386c882afbde36047160dca7a7802def68dbf5",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Popover/Popover.module.css",
+      "sha256": "5c5c33dea7f4af19a6033dc9e73b8f387803a41fa70b93c42f27cccfd2fe267c",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Popover/Popover.tsx",
+      "sha256": "c43a7e5fa3efe0dab788088e0be20d889194fb4cc7b7054c5b765e4c2c796638",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Progress/Progress.module.css",
+      "sha256": "bc647d3f6c6f86eb3afaed4e6bddc52e0714fafd98cf099d3e527866862ad15d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Progress/Progress.tsx",
+      "sha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Select/FramePositionedPopover.tsx",
+      "sha256": "2de7b5817832f69b70a94a65cec974d02b4733749795082a10b43f5d5b394999",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Select/Select.module.css",
+      "sha256": "bfb0b58f466fed4ec85c2e826a7acff33cff8ba284609bda793594658b41e2a3",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Select/Select.tsx",
+      "sha256": "06707c96ee18efb024dd7047cded38f2affab130b005b984d0d649e1e5d682b9",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Status/Status.module.css",
+      "sha256": "d0f3fff16a2dbbe665efdd0ec8520d6446b4cd977d69fb77b0a8a7c228b8f328",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Status/Status.tsx",
+      "sha256": "21ab451907d7fca3f13a6e757b0c1ac8390f6609423b5af802f6730d3b185e0b",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Surface/Surface.module.css",
+      "sha256": "5d4758ff5464033b7b9812a4ad8c0054bac1b883c7b36e6350e83d44dcd536e2",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Surface/Surface.tsx",
+      "sha256": "c05bbbe6313c71a67e08b86b73c7a8d047f430db6825fb39f6c5271cde9fe17c",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/TextField/TextField.module.css",
+      "sha256": "a3d606509dcd9d04c69d5ac02ad354383157619b6d6a6c0fb1ef068b16a6f8db",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/TextField/TextField.tsx",
+      "sha256": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/TextField/useStandaloneFormReset.ts",
+      "sha256": "1253013e336f888dcbdc09292eeec16aef9af728f7be2ce42c58518e0db9910c",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css",
+      "sha256": "b984a5519ee3d17ec8f2b1f5fe4a0b2f6fe5ddc609a1462fddd79e9a7067a4c9",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/ToggleButton/ToggleButton.tsx",
+      "sha256": "7ece663b1dc12a3cf20b454435a51de3cc5d5701e4910e6d9a0e37f535d359d7",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Typography/Typography.module.css",
+      "sha256": "12788b4f13d83f69056d6f0c7b03a7019385fbd42457d999a9fcd033b60ef624",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/Typography/Typography.tsx",
+      "sha256": "3df58c5e33ee0c5f9e2dd8969ef41cc858cb48385c77d08860bb3f8ab506546f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/AccessTimeFilledIcon.tsx",
+      "sha256": "99556f4676d8b88e98954dc567681eecd9da78b645705442b5e4f1be01209d8a",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/AccountCircleIcon.tsx",
+      "sha256": "c7671cbab4d3d2dfdd69cb669f2479c44c7219985d32a767b8c0f8362685e43b",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/AddIcon.tsx",
+      "sha256": "4f5a47ddb89a024d422559ee739942182072a88155f22e8dd4ced576edf0d913",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ApartmentIcon.tsx",
+      "sha256": "2d20e9c4ea4dcb459ddf13e43d9560e46bc8fc9bac6e840b9ca204e2c5f1a7f5",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ArrowDropDownIcon.tsx",
+      "sha256": "6ba8930b193ed6e12b0fa54edbda81d1819bd988dc8ed2455562224b89386307",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ArrowForwardIcon.tsx",
+      "sha256": "880e91c1bd4de73c0734a053cd8d8f0b992151157bb1a126e3af891550b9980a",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/AssignmentTurnedInIcon.tsx",
+      "sha256": "a7e5ae86dd149896d962f2376ecdb881b12d70412d12d57d57d1f1449ba23a08",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/AutoStoriesIcon.tsx",
+      "sha256": "eb010b657f0123485eb1ec4e065a79a7e9813fce021dec03c50e7bc5df2b9080",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/BookIcon.tsx",
+      "sha256": "3733e643f695f23e25ab54b9022de9bbb7373cc0cd5e7bb3ff0449577b9a447e",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/BrushIcon.tsx",
+      "sha256": "144ebc45b9bc4e19da7168f2dd25a59fd3dd7aaaa6ac1b3030cbb300b4a7cb2b",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/BuildIcon.tsx",
+      "sha256": "39202bd11c30bfe07b83d4bda4a0e2bb73ef597863abc91021fb8245b281d790",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/BusinessCenterIcon.tsx",
+      "sha256": "da5ee23790515638d9e94fd245df2dccee8accd2fb80663f6d615888d7b84bbe",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/CachedIcon.tsx",
+      "sha256": "d065011367b642e3b4585c1fb8c61ae1c4c63b975ad14fd5b33c2ccaa8698f61",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/CalendarTodayIcon.tsx",
+      "sha256": "2ad6b009a5623e2a4c2e6489bab7039c4e410c126261230dc1d7639dbf1d5b98",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/CheckIcon.tsx",
+      "sha256": "50d4d4cf59175484cb3ffef7a4f01603e739e314449b89f29a99faa4971e2282",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ChevronRightIcon.tsx",
+      "sha256": "5e5034cb8430bd686dfd5f40b2d6141d283d9c7c04dd4720bfc4096d2dc6e6a2",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/CircleIcon.tsx",
+      "sha256": "020a564830b57e78447a05d710d8b9b46fc699a9c68f29205aded674862d7cd9",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ClassIcon.tsx",
+      "sha256": "c7a54d2960aaf9f053149a0811215aef35bf2b17ff7717eff5d31c49b4854048",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/CloseIcon.tsx",
+      "sha256": "fd7e9c95627d6c023e0243efddddb0c0a4d2f010a01c2790757c11e4a1869f68",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/CodeIcon.tsx",
+      "sha256": "afd89c68720d3c56a8acad606949f50f9153e7a79997ace1c67da9a7d5361d73",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ComputerIcon.tsx",
+      "sha256": "159137cc32f47b06c0cd06b3f387c84f96f523fefebbd23db79f3be5074b09e6",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ContentCopyIcon.tsx",
+      "sha256": "46eeaa48a829478b685c9ed9a3be61fd22511be280c02bf7e0553f8708dd1137",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/CorporateFareIcon.tsx",
+      "sha256": "482475a23cb0bcbb407c3c16a6addfc0adeebc79a3b1a01622c77e8cc281149c",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/DashboardIcon.tsx",
+      "sha256": "a8397843893e74bdc215c0c24d056828a68b43d0171d109f06ab365aab14ffa4",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/DeleteOutlineIcon.tsx",
+      "sha256": "a5009b748f6e49e8416591b34149de0d2e253517a384f6f9408dd910505551d1",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/DescriptionIcon.tsx",
+      "sha256": "df66d06baeb12dacabadb4e443642de2f9289c4fe4bd0ea5e0f8b9c1272c1c8b",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/DescriptionOutlinedIcon.tsx",
+      "sha256": "115d101ed359af4eec962c0388d3908798c50f5896337d1e462c5043ffd474a1",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/DnsIcon.tsx",
+      "sha256": "6b622c7b2d5635cb19f33a408fc13bb88d6fcb04ca5d51dbf92548e4912c7c9f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/DragIndicatorIcon.tsx",
+      "sha256": "2a1c600472d5214dec7cbb72ed87d2bb6a34e3106d0258db79d93e01178fe54e",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/EditIcon.tsx",
+      "sha256": "fa8c1848cbc054125f0aee9dc1935b701ad0def33878a2dc724497032e58caaa",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/EventIcon.tsx",
+      "sha256": "590816fc6f2bb6f4821ebd4d76a530dc7e550cb1e384cacd1f2bdb82b3dd87a5",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ExpandLessIcon.tsx",
+      "sha256": "e720f56a426a726745d996de3a007a5f540c3ecdc75ea760624c18ee14661a26",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ExpandMoreIcon.tsx",
+      "sha256": "c1442e28dff3751a7cbf61b59ef6398bcda9ecf5d4f367ea66e0761f09cbb0ff",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ExploreIcon.tsx",
+      "sha256": "0cf70dac5718bea260d316901d73f2f435bf18c2c3847e7fa0e7c1a734d5e920",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FactCheckOutlinedIcon.tsx",
+      "sha256": "9d41bebc66504da96f5f4b11aa2a6a10c5576d65821335b83d92651dde5c2081",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FilterListIcon.tsx",
+      "sha256": "cff1aad08d85b9657bf48223e2f9fb0372efa226d2f81ba5d33ff9afd679978c",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FontDownloadIcon.tsx",
+      "sha256": "81f5e6c4ae8f60162fa317c39925d96e9bea6ff2a637a392c496403b265d11e1",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatAlignCenterIcon.tsx",
+      "sha256": "ffea715a7a41c1861e666fbd5c879248f81c64fb19d26f9378b59e463adfb974",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatAlignJustifyIcon.tsx",
+      "sha256": "0d99130ea815b380dbc92084f8fce7172f6db55258b982564fd3f6cc7f414a64",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatAlignLeftIcon.tsx",
+      "sha256": "3363e5f1b7705289c5372554ed109d344b229c321e108b7c7fa066907355939c",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatAlignRightIcon.tsx",
+      "sha256": "962a2dff31b9b5789cb7193f9a9b80f0673b98be570407e4a525ae658cd76de9",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatBoldIcon.tsx",
+      "sha256": "affe5a05289d4cf65e3ad48239b1a878a0a8d797c84d92d1176e5b43272d67fe",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatClearIcon.tsx",
+      "sha256": "6c527d8b5fc8405eca1dd4fbe6315947d75847a055be3286c04274b802d03c04",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatColorFillIcon.tsx",
+      "sha256": "37249314467a78fc2e23c880f611c8dcf890884afc6f63cb69d734eac6df33f4",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatColorTextIcon.tsx",
+      "sha256": "081a811a18059eba1da2844a6b683de46d2abadddc3e8c7834bc868817b378db",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatIndentDecreaseIcon.tsx",
+      "sha256": "363c7e608fcb0f7ad8c11d496ce9b7ef2a6ba1b91b0c95ff7ae8d7cd088cf2e4",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatIndentIncreaseIcon.tsx",
+      "sha256": "870c3264f2253446ebf86251aff73843a78b78406d30870ee18c514c14a2ed8d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatItalicIcon.tsx",
+      "sha256": "7d0859c0ffb2365f3aa7e36c210fd878de7115ed5877b3d989f1d939a1f91d6b",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatListBulletedIcon.tsx",
+      "sha256": "b69b76e528e66374a5fa5c2d75d8ad0520c44efacbbe837b154ec354f81b7ae8",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatListNumberedIcon.tsx",
+      "sha256": "76e65100446d69c374684fa173eb07644dcf31191f6c26a6ad9ab6d0e4d7718b",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatSizeIcon.tsx",
+      "sha256": "d85ca0ca1a98f99bd893fb487196537262370aab2c4c1a230d11b588ea67633b",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatStrikethroughIcon.tsx",
+      "sha256": "ebc4ced59d98df9fe51764326d9448ec7feb46bfc28c3431f5c005e8fbff2a5d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/FormatUnderlinedIcon.tsx",
+      "sha256": "99251d496ae58b8493c00b91af9243ab72bee2af2a2db8b633404218ab653e23",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/GroupIcon.tsx",
+      "sha256": "42c2e1ce7912959df322e4de83e436bbca10b8853b00345843a855042df80512",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/HighlightIcon.tsx",
+      "sha256": "e374309c6373b6e38f9413173370d99856820b48296d7149daab0a506ef6ddee",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/HorizontalRuleIcon.tsx",
+      "sha256": "da52a9b266c655e40f9896c4358421f7ffca159fae4d376f5316b44e2de699c4",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ImageIcon.tsx",
+      "sha256": "a90c59f557efdcb9f5dfa920b7cd3204fc0f9c2337d203efe02f6b82df9b087c",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/KeyboardArrowDownIcon.tsx",
+      "sha256": "d6ef98983d57ee43efcc2805d0b0891240899ada0bf02ca3844dd74c6ffbc2b8",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/KeyboardArrowLeftIcon.tsx",
+      "sha256": "115bcd2b444e2287387e0d4d0181402dc83ff958955553a655d97b0c3c4b4997",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/LinkIcon.tsx",
+      "sha256": "0cc6a93f67d156b8e2dae2c6f4ffa6737302367f58a460ac74f8b1f47096ea76",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/LockIcon.tsx",
+      "sha256": "187fa9eb6b79b6c0fa3d9de0923db2bd1664198a722184d984730305423ed16d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/LockResetIcon.tsx",
+      "sha256": "6215f18c616084db6099dd4f66b45e915be8addb55088e6720564354ab834e39",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/LogoutIcon.tsx",
+      "sha256": "874defc99a03ed7bb46441c77746aa31326ea0b98922af10394bded632226e00",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ManageAccountsIcon.tsx",
+      "sha256": "ee4229918cf1ef7ba57e5e61c7b2a6ff2f0508a6f3956eb216138e0c768e2354",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/MenuBookIcon.tsx",
+      "sha256": "cb95645ffd5531f6d0cf58cf258ea5c4a5f5236b1c8cf42bee93f1c59b85d361",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/MenuBookOutlinedIcon.tsx",
+      "sha256": "c3dfb6f9f8ae9f8d4f026eb2c1271433b5ecab2611ccd90e3dda79c5003329eb",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/MoreHorizIcon.tsx",
+      "sha256": "ad9a4256f750557a8a72fc8af8b0b41c057467a6c051ddc5c49daa7ad214e33d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/MoreVertIcon.tsx",
+      "sha256": "bc0d84deb39833daa7b0232f560e40a36fecd6378afca00f767770ae61bad267",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/PaidIcon.tsx",
+      "sha256": "df28f717a82f738aaa9fb506cfc293308f4e39ba757e3d51e1206d8e890b637d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/PeopleIcon.tsx",
+      "sha256": "bf0c27b7f53c6f2b494d7e12426f26b31609d25d8622d20362467c71e42af57d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/PersonAddIcon.tsx",
+      "sha256": "93155bf1bfb8d04e67e15484588f4c9e3742e4a56d27a6d9800425fc5cb8cb5f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/PersonIcon.tsx",
+      "sha256": "6775cbbb3cf3c6e7505d3c1e93ba611e0cc04f8ac74996572bbf1f4b3e90f2d8",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/PhotoCameraBackIcon.tsx",
+      "sha256": "f2fab35b029e2610981fa0d3cab8f2eae08f42325644714047d832594891f122",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/QuizOutlinedIcon.tsx",
+      "sha256": "35a6a2efac178f8750bc12a91e174bd29128a643460f616e6fa7198d4c8c294a",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/RedoIcon.tsx",
+      "sha256": "dd5d59f6b5a6d45cb37801e4c91af01b5e30cac40dcbad5eaf5ca51cec858909",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/RemoveIcon.tsx",
+      "sha256": "509e21513919d4f88fb9a853d9753e3aab20d48f1b3ee3a963f0789ca0d2edaa",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/SchoolIcon.tsx",
+      "sha256": "e6b5950f2c5ef9c26b4d8815c248dede17abc7ca3dd3a8d8e59a196e55beffec",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ScienceOutlinedIcon.tsx",
+      "sha256": "930811da31339fec7c7e69b7f2b40755d9e523e8402f5478ce16430d8f5ac020",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/SearchIcon.tsx",
+      "sha256": "23fe33f28a9386185eb6b66ad9dbdac7e531ebb46a497076d6a50501b9362a43",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/SortIcon.tsx",
+      "sha256": "f41538f999322b61de61443fde32774985212a02c0c4149bdda37832732ed4e6",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/StarIcon.tsx",
+      "sha256": "9be5baa70dd39f512a0236603f1ce55e43d30296a67d02d9e71dac3e70d27a10",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/SubscriptIcon.tsx",
+      "sha256": "c5975a3520ff78b03a33da7047f3a0b56bd916c5bc716502764f5c763e9aea2f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/SuperscriptIcon.tsx",
+      "sha256": "58d0959f4012f2b0ddfb7029354a4c5a79771bf9e80bfbbf700c62fc3b3389c6",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/TaskAltIcon.tsx",
+      "sha256": "2e6b0b795eb42108180563f8dcb8612d578becccb937be58b0e0547b4c3a0fcb",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/TerminalIcon.tsx",
+      "sha256": "25a1678d06a0c1249d36fd91444ccd321abd1f87a3c3cad071eecb0d7fad704d",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/TranslateIcon.tsx",
+      "sha256": "621b949d17e57b86b9870ad1e9959ecd60b5716e8ba2af886b0652224e307692",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/TuneIcon.tsx",
+      "sha256": "26ad249df72ae64757d825a0016d9bb35f36ffcf15f386f61db36ad612dfe608",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/UndoIcon.tsx",
+      "sha256": "4cd96b7113f1d79fcf9f67216d427c8fca0b948f47858ab13a00ccf4a95479e0",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/UploadFileIcon.tsx",
+      "sha256": "a78ce1305cb16cf2dacd015a5757edba2a94472747ede2be8e2f1a63632a5df2",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ViewColumnIcon.tsx",
+      "sha256": "61ed9346a1cf6aad5bf4e0b4e4d100f5712c0f72705873db509c2674b4aa57d7",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ViewListIcon.tsx",
+      "sha256": "f8f02e93d6b89c70604b726956750f160d429bf989177dc128d13039ecf0de49",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/ViewWeekIcon.tsx",
+      "sha256": "20a30f78430ecf1f4fdb725abc9ab30f102ddadcafa86cf2bfbf69ca35229b6f",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/VisibilityOffIcon.tsx",
+      "sha256": "d2b7cdb1ed2f16f29173004953a017bd99162bd70e097176060d3b8a65379902",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/VpnKeyIcon.tsx",
+      "sha256": "e6d75fe17e7163e9862e7d765b337f3478978899c2d63faa9dcbd42a8a04cdba",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/WindowIcon.tsx",
+      "sha256": "19ca895933927457ed96fe59f0d20cfd10e63d35026029a6b1a81a453b9f8dc8",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/WorkOutlineOutlinedIcon.tsx",
+      "sha256": "db3ac0e58fbaa010a7752faa1cee004ab738d1e59af34a42d716fe911c2f1660",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/activityTypeIcon.tsx",
+      "sha256": "3626f49bd4af6404687dd54b1e81a4019c29fd367000dfb7d5fb4a1cb4d495bb",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/createVector.tsx",
+      "sha256": "7f3309b2e7c9fdc033b27f6728542e5d8170bb7db4479ec6baf1d4a39a1b5b31",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/icons.module.css",
+      "sha256": "63000e63a693d7e6114b18deb80db1a69e618be4691d388b4a0c080413c75168",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/icons/index.ts",
+      "sha256": "c754071236bbad1cb03dbb3f13c6e587026c48ae45cda978e4ddcae6a0a11c58",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/experimental/useFormReset.ts",
+      "sha256": "4ca0cc4d74297502484f0233b306709626869654ca194aaeaa816973732cdf97",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/foundation/ThemeScope.module.css",
+      "sha256": "eccd34329fc6f7e8e3933db5271b141bc07e16f1da3501ebdda011466d673052",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/foundation/ThemeScope.tsx",
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/foundation/scrollbar-activity.ts",
+      "sha256": "f73f43437138a6c175115645456b378248171a4f6fdc0ae698b1c6deb0ae21ef",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/foundation/tokens.css",
+      "sha256": "6c8cf6be9e375bdf3050dfcc484553fbf17e88b712eabd60fdc5f2c0cd35fa25",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/foundation/tokens.generated.ts",
+      "sha256": "2c63951228c23a40880bb2000686db160bc468aa584817cca262e8cb69df5a32",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/foundation/tokens.json",
+      "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/src/i18n/icu.ts",
+      "sha256": "6bbbe1d24d6045a5b721fead5c6bbde67539896a3f59f044cb9d6964c676c035",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/i18n/index.tsx",
+      "sha256": "957db648c3e8fd338941d15890b99ab6df924eb8a98559f7c8238580185ec2db",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/models.ts",
+      "sha256": "e8802b99e081c5cff9ab9d9259fe15a3f95d1bad8dbffb9e8a0c0114c9767414",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/src/utils/formatDueDateLabel.ts",
+      "sha256": "3df8f8b9e7ba95dd6763b2cb5b243fc8323fba809f81a056fca358f5284e043c",
+      "matchesFA02": true,
+      "inDependencyClosure": true
+    },
+    {
+      "file": "packages/ui/tests/browser/batch01-grid-focus.spec.ts",
+      "sha256": "57d727810bcff5098e654ae1f3540611b52add84b3f061fd485a128f80183048",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/batch01-grid-reorder.spec.ts",
+      "sha256": "e5e5c46fa4e6b8adede64443e4b543fa15aa28fb3a29d9af116f758d40eb18e0",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/batch05-grid-busy.spec.ts",
+      "sha256": "be9e28a13391e0b611232ef099df649bc6e6173599a1458f20ef4359ea4b76c2",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/batch05-grid-clipboard.spec.ts",
+      "sha256": "77d19c8a4845005babfa06a93ba4d3103c40b90b726311202fded5cbfe2facae",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/batch05-grid-shell-state.spec.ts",
+      "sha256": "696c26cc9cb5ebebf9c9daa1cabc005d3e65e5c3c440e2ef6abf494a1c98cefa",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/batch06-grid-sort.spec.ts",
+      "sha256": "84ec82cbea3c3ca4415f9b144cc45f45a40706d3ce6013d4e32dfcf26654a608",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/batch08-grid-retry-focus.spec.ts",
+      "sha256": "1aae010e3572e9a5be06b5977d4f4e0407adc98ad22570b3e146d1818e7d702f",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/grid-server-response-races.spec.ts",
+      "sha256": "913f0673bf4787d3018c31e333244bc518d79e1ec7f247ce9e4967d8007e133d",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/hardening-grid-presentation.spec.ts",
+      "sha256": "13e4ebb1fe951e168efef46845cd536a99ab6d94c39afeae1209098b1b217902",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/inventory-grid-shell-responsive.spec.ts",
+      "sha256": "3e78b286c1da75f4490d7410aa7605c36c6d08661e820d5487e274ebbc7c8654",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/inventory-learner-grid-cells.spec.ts",
+      "sha256": "e87c981e87e777d4690b11cb0ada68153502201eff2993fb15eb37d332bf1a8f",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/inventory-pointer-reorder-invalidation.spec.ts",
+      "sha256": "1ccad19b2fd7844a3bb858f29ff99147506e9450604949b0c6c084f0dad92d56",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/inventory-toolbar-composition.spec.ts",
+      "sha256": "fdfc552d185bb04243db909c82ee5735c4b29d514a0020830acb659a70aed856",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/reorder.spec.ts",
+      "sha256": "569a945eb2df0cf461bc4d9576fa5e8d6092bf38f4a47b0bbf5674d7f9fda7b6",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/tests/browser/toolbar-container-boundary.spec.ts",
+      "sha256": "c7ee00bb6ee5cf977705ae44f7f5670a08087ddb5ab53c1c7e4558ea94f8b023",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "packages/ui/vitest.config.ts",
+      "sha256": "dc98d777c10fc8a9a56d4fac1fe083d5080a225d03b17116b79526361d764142",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086",
+      "matchesFA02": true,
+      "inDependencyClosure": false
+    }
+  ],
+  "changedDependencyInputs": [],
+  "newCharacterization": {
+    "scope": "Pure source helper execution via in-memory TypeScript transpilation, not rendering or native/browser evidence.",
+    "results": [
+      {
+        "field": "__selection",
+        "buildError": "AppDataGrid column field is invalid or duplicated: __selection",
+        "processingError": "AppDataGrid column field is invalid or duplicated: __selection"
+      },
+      {
+        "field": "__drag",
+        "buildError": "AppDataGrid column field is invalid or duplicated: __drag",
+        "processingError": "AppDataGrid column field is invalid or duplicated: __drag"
+      },
+      {
+        "field": "__reorder",
+        "built": [
+          "__reorder"
+        ],
+        "processed": [
+          "a"
+        ]
+      }
+    ],
+    "rendererUtilityId": "__reorder",
+    "rendererReference": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx:386",
+    "finding": "Both public-column validation and row-processing validation accept __reorder, although the renderer uses it for its utility column when rowDrag is supplied. Existing reserved-ID tests do not include that name."
+  },
+  "retainedEvidence": [
+    "docs/developer/final-acceptance/fa04-original-check.txt",
+    "docs/developer/final-acceptance/fa04-calendar-rerun.txt",
+    "docs/developer/final-acceptance/fa04-package.txt",
+    "docs/developer/backlog-execution-2026-10-15.md:720-765"
+  ],
+  "missingRawNativeArtifact": "packages/ui/artifacts/hb17-fixed-2026-10-16 does not exist locally; canonical accepted receipt remains available. Root artifacts/browser-results.json targets retired pre-workspace paths and is not attributed to HB17/current docs host."
+}

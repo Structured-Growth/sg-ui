@@ -1,0 +1,402 @@
+{
+  "capturedAt": "2026-10-16T23:06:57.429533+00:00",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "scope": "Selected inspected inputs only. Shared mutable dev checkout; no whole-host attestation.",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "01a8cbd3af5c60e9f8fa42d12f24ef22c45f2d746c9869fe107cb8fc93259be3",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/app/theming/page.tsx",
+      "sha256": "41ed6dbef47f0fe2399dc122451397794ba18cdf1e3d55d3d25339c76d0a860e",
+      "priorHashes": {
+        "wave-02-06": "41ed6dbef47f0fe2399dc122451397794ba18cdf1e3d55d3d25339c76d0a860e"
+      },
+      "matchesPrior": {
+        "wave-02-06": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/components/DemoSettings.tsx",
+      "sha256": "eabc6ad03444c15688ef7b81fb17184951a6a07be6a379b566bcc6a21f2e653b",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/components/Example.tsx",
+      "sha256": "e199bfbbd90bd34e8b03de88b58b2160c0b9bd275eeb0e2a67b06b6d8ea9fc81",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/components/demo-theme.ts",
+      "sha256": "2aaef71b7db20b31c8161e86ab85172d7a98c3d5dfc7a2ffc9dc49eb9241e39d",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/generate-registry.mjs",
+      "sha256": "fb1b14f094ad0229d7bc07f4e48b4cbf1479a6b5c557f2a92c5299d07e106e87",
+      "priorHashes": {
+        "wave-02-10": "fb1b14f094ad0229d7bc07f4e48b4cbf1479a6b5c557f2a92c5299d07e106e87"
+      },
+      "matchesPrior": {
+        "wave-02-10": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/host.tsx",
+      "sha256": "393601956069cfe51267dda16187a5f224eedbb71f5d39dee9b3bfa4f19ef57d",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/migration-manifest.json",
+      "sha256": "8da77b8ed3a84212b97237d5d8687a47e182bf5ad90cf5a08dd6007339e76bc8",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx",
+      "sha256": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5",
+      "priorHashes": {
+        "wave-02-06": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5",
+        "wave-02-04": "7c83ddb5136e9add9e50f6150452fd7848d398fcf6c021896370d7b9974300d5"
+      },
+      "matchesPrior": {
+        "wave-02-06": true,
+        "wave-02-04": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "apps/docs/native-fixtures/scenarios/foundation/FoundationCatalogue.fixture.tsx",
+      "sha256": "9dc908146fe72faafe904b7606016b8892a19475f2bc153a04829ff5471f4949",
+      "priorHashes": {
+        "wave-02-06": "9dc908146fe72faafe904b7606016b8892a19475f2bc153a04829ff5471f4949"
+      },
+      "matchesPrior": {
+        "wave-02-06": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/coordinator-integration/evidence.json",
+      "sha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/coordinator-integration/supplemental-reconciliation.json",
+      "sha256": "cd1442476bdd25f5a798a676d19baf87055abe1b64c85d9347c5d1403dc29048",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-04/prototype-findings.json",
+      "sha256": "5037ccb773bca21c55ad15ac7d06869c6125c304572fb165d635dc634e9b1905",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-04/report.md",
+      "sha256": "d888f41635a12997a75365e77a190027605c89f55de82914b27c64900f8aa71e",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-04/results.json",
+      "sha256": "0bea75b0e02bf148a1ec92ceedbfdc0befd66465d46fa92e9df5d1e904e8d6e8",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-06/report.md",
+      "sha256": "deee8c17adc47ff4c34cbdef25143de5f1f7675721fe9282d1f1da2d46426675",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-06/results.json",
+      "sha256": "aa9a128c6221ab5e6850e0590a938060d6e2c272ca783db987254c8019d85a64",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-10/report.md",
+      "sha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-02-10/results.json",
+      "sha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/react-aria-button.md",
+      "sha256": "a5e0fcb335357e996115eb71962d608233cfe037798365e6f3660a9232404f1d",
+      "priorHashes": {
+        "wave-02-06": "3b587278e52fc5680b2756d44f604598f7d223b47caec0138e69a61cbefe1d96"
+      },
+      "matchesPrior": {
+        "wave-02-06": false
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/react-aria-calendar-contracts.md",
+      "sha256": "ed2097e296bfd9de3a2420b3283ae3c1da1f1defc3611d39df2fcba0e5bc0875",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": "ed2097e296bfd9de3a2420b3283ae3c1da1f1defc3611d39df2fcba0e5bc0875",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "docs/developer/react-aria-final-acceptance.md",
+      "sha256": "f4c7d7f0759ccfd3b2be0829283151a7b8942ed8010e12591ce0236b34dc1fa8",
+      "priorHashes": {
+        "wave-02-06": "2fbfe14bd54ca69f65061e020ae6b14336635fa253757a47011e744a939d0c7f",
+        "wave-02-10": "2fbfe14bd54ca69f65061e020ae6b14336635fa253757a47011e744a939d0c7f"
+      },
+      "matchesPrior": {
+        "wave-02-06": false,
+        "wave-02-10": false
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/react-aria-progress.md",
+      "sha256": "aa4b8fb52b61fd0036b57820ded192fbac480b7fd55c10454961e94c7ee6a505",
+      "priorHashes": {
+        "wave-02-10": "14c4c3606a5a2828a6f42dd8658c1f60d8c9536b4d9465218f071d0f6b4495e5"
+      },
+      "matchesPrior": {
+        "wave-02-10": false
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "docs/developer/react-aria-proof-controls.md",
+      "sha256": "209cf12acc229e32042fc12e089c74ed4d03f8aba40d757b62af8e1c8e9bf8f2",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/dist/components/ContentEditorChrome/ContentEditorChrome.d.ts",
+      "sha256": "564698e29dcada0867cd679b7bd0d2a680a40ef4ad718719c8e0c7b377b426ef",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": "564698e29dcada0867cd679b7bd0d2a680a40ef4ad718719c8e0c7b377b426ef",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/dist/experimental/index.d.ts",
+      "sha256": "04b8ff7622a2e5e4462379e22892e42e47f8b3ca0fa254f06693c4bf3a29c39c",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": "04b8ff7622a2e5e4462379e22892e42e47f8b3ca0fa254f06693c4bf3a29c39c",
+      "matchesCoordinator": true
+    },
+    {
+      "path": "packages/ui/src/components/Button/Button.tsx",
+      "sha256": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+      "priorHashes": {
+        "wave-02-06": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5",
+        "wave-02-04": "76d50a07935dd769319f0b4da5624fcc380f6cff7842803c7c70effd74816ab5"
+      },
+      "matchesPrior": {
+        "wave-02-06": true,
+        "wave-02-04": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/components/ContentEditorChrome/ContentEditorChrome.tsx",
+      "sha256": "9806b5dd1349a4961916fb15c179effc8d7737930d5581822b5169ea41b046b5",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/DataGrid/types.ts",
+      "sha256": "ec7b7da8e89ae41795c62a3d458d3e7cb541fbbc58ea723ac5c20b3182ffd1f4",
+      "priorHashes": {
+        "wave-02-10": "ec7b7da8e89ae41795c62a3d458d3e7cb541fbbc58ea723ac5c20b3182ffd1f4",
+        "wave-02-04": "ec7b7da8e89ae41795c62a3d458d3e7cb541fbbc58ea723ac5c20b3182ffd1f4"
+      },
+      "matchesPrior": {
+        "wave-02-10": true,
+        "wave-02-04": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/Progress/Progress.tsx",
+      "sha256": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f",
+      "priorHashes": {
+        "wave-02-06": "e5e9fe0337a634ee59f3e27c4be9c566fa82ea73402a54c6eabe8e2d2ccc8c5f"
+      },
+      "matchesPrior": {
+        "wave-02-06": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/experimental/TextField/TextField.tsx",
+      "sha256": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+      "priorHashes": {
+        "wave-02-06": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb",
+        "wave-02-04": "c64879988dbf949f92dbddbebd41d82cec202027aec3ca26b5c66acc1efbf2bb"
+      },
+      "matchesPrior": {
+        "wave-02-06": true,
+        "wave-02-04": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/foundation/ThemeScope.tsx",
+      "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+      "priorHashes": {
+        "wave-02-06": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+        "wave-02-10": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6"
+      },
+      "matchesPrior": {
+        "wave-02-06": true,
+        "wave-02-10": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.generated.ts",
+      "sha256": "2c63951228c23a40880bb2000686db160bc468aa584817cca262e8cb69df5a32",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/src/foundation/tokens.json",
+      "sha256": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b",
+      "priorHashes": {
+        "wave-02-06": "eaa904f00b30defc88ca27e33623029ad27fe726deb7e86f958a49a8d7a2c47b"
+      },
+      "matchesPrior": {
+        "wave-02-06": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/foundation-catalogue.spec.ts",
+      "sha256": "7efd3b57c7ef4fad7ae6f7c6ded50ffbf4b25a3a1e86a35570111e6623f5fde0",
+      "priorHashes": {
+        "wave-02-06": "7efd3b57c7ef4fad7ae6f7c6ded50ffbf4b25a3a1e86a35570111e6623f5fde0"
+      },
+      "matchesPrior": {
+        "wave-02-06": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/hardening-control-geometry.spec.ts",
+      "sha256": "aad23588db120ca376065ff4e62d41eddad7e9c1a8de1b9deda06dec6b014a0e",
+      "priorHashes": {},
+      "matchesPrior": {},
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    },
+    {
+      "path": "packages/ui/tests/browser/hardening-grid-presentation.spec.ts",
+      "sha256": "13e4ebb1fe951e168efef46845cd536a99ab6d94c39afeae1209098b1b217902",
+      "priorHashes": {
+        "wave-02-10": "13e4ebb1fe951e168efef46845cd536a99ab6d94c39afeae1209098b1b217902"
+      },
+      "matchesPrior": {
+        "wave-02-10": true
+      },
+      "coordinatorHash": null,
+      "matchesCoordinator": null
+    }
+  ],
+  "priorReportReceipts": [
+    {
+      "id": "A-D-20",
+      "reportMatchesAssignment": true,
+      "resultsMatchesAssignment": true
+    },
+    {
+      "id": "A-X-14",
+      "reportMatchesAssignment": true,
+      "resultsMatchesAssignment": true
+    },
+    {
+      "id": "A-P-07",
+      "reportMatchesAssignment": true,
+      "resultsMatchesAssignment": true
+    },
+    {
+      "id": "A-P-11",
+      "reportMatchesAssignment": true,
+      "resultsMatchesAssignment": true
+    }
+  ],
+  "retainedEvidence": "Coordinator Node24 library/declaration/package/docs/native build and 21+3 targeted engines remain scoped to its hashes; they do not execute this proposed visual suite.",
+  "historicalArtifactRecovery": {
+    "packages/ui/artifacts/hb16-2026-10-16/manifest.json": false,
+    "claim": "Historical report retained; absent manifest cannot supply approved image baseline."
+  }
+}

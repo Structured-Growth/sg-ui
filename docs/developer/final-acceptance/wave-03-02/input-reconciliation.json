@@ -1,0 +1,142 @@
+{
+  "priorReports": {
+    "docs/developer/final-acceptance/wave-02-15/report.md": {
+      "sha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "matchesAssignment": true
+    },
+    "docs/developer/final-acceptance/wave-02-15/results.json": {
+      "sha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "matchesAssignment": true
+    }
+  },
+  "cycleProposalInputs": {
+    "packages/ui/src/experimental/DateField/DateField.tsx": {
+      "priorSha256": "e6d15d31b34dc797fbeb13046a078d5179a718e2ce237b2e4da017eac7e1be7e",
+      "currentSha256": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "unchanged": false
+    },
+    "packages/ui/src/experimental/DateField/TextDateField.tsx": {
+      "priorSha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "currentSha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "unchanged": true
+    },
+    "packages/ui/src/experimental/TimeField/TimeField.tsx": {
+      "priorSha256": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "currentSha256": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "unchanged": true
+    },
+    "packages/ui/src/experimental/TimeField/TextTimeField.tsx": {
+      "priorSha256": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "currentSha256": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "unchanged": true
+    },
+    "packages/ui/src/adapters/navigation.tsx": {
+      "priorSha256": "6c961ccfaf1239ab7871c63d3593fd10dc4525dcbfec4b5965a59416c93e220e",
+      "currentSha256": "6c961ccfaf1239ab7871c63d3593fd10dc4525dcbfec4b5965a59416c93e220e",
+      "unchanged": true
+    },
+    "packages/ui/src/adapters/navigationContext.ts": {
+      "priorSha256": "3c3d53cec33e349fe22893ea38a3a77b24a8fa6490759ea183257abc6b9956ec",
+      "currentSha256": "3c3d53cec33e349fe22893ea38a3a77b24a8fa6490759ea183257abc6b9956ec",
+      "unchanged": true
+    }
+  },
+  "coordinatorScopedInputs": {
+    "packages/ui/src/experimental/DateField/DateField.tsx": {
+      "acceptedSha256": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "currentSha256": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "unchanged": true
+    },
+    "packages/ui/src/experimental/DateField/TextDateField.tsx": {
+      "acceptedSha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "currentSha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "unchanged": true
+    }
+  },
+  "patchPreconditions": {
+    "docs/developer/component-architecture.md": {
+      "capturedSha256": "fd4664e649a5f52e6dd77d5c5250a21a0e9cbacf330b9aeb62e2a1bcfc938829",
+      "currentSha256": "fd4664e649a5f52e6dd77d5c5250a21a0e9cbacf330b9aeb62e2a1bcfc938829",
+      "unchanged": true
+    },
+    "packages/ui/scripts/check-foundations.mjs": {
+      "capturedSha256": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+      "currentSha256": "ea1a299e2f7bb8baef1437278490bd0ace56edab50fb254f8cf7334700a373a5",
+      "unchanged": true
+    },
+    "packages/ui/scripts/check-source-graph.mjs": {
+      "capturedSha256": null,
+      "currentSha256": null,
+      "unchanged": true
+    },
+    "packages/ui/scripts/check-source-graph.test.mjs": {
+      "capturedSha256": null,
+      "currentSha256": null,
+      "unchanged": true
+    },
+    "packages/ui/src/adapters/navigation.tsx": {
+      "capturedSha256": "6c961ccfaf1239ab7871c63d3593fd10dc4525dcbfec4b5965a59416c93e220e",
+      "currentSha256": "6c961ccfaf1239ab7871c63d3593fd10dc4525dcbfec4b5965a59416c93e220e",
+      "unchanged": true
+    },
+    "packages/ui/src/adapters/navigation.types.ts": {
+      "capturedSha256": null,
+      "currentSha256": null,
+      "unchanged": true
+    },
+    "packages/ui/src/adapters/navigationContext.ts": {
+      "capturedSha256": "3c3d53cec33e349fe22893ea38a3a77b24a8fa6490759ea183257abc6b9956ec",
+      "currentSha256": "3c3d53cec33e349fe22893ea38a3a77b24a8fa6490759ea183257abc6b9956ec",
+      "unchanged": true
+    },
+    "packages/ui/src/experimental/DateField/DateField.tsx": {
+      "capturedSha256": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "currentSha256": "431d304e602b45a9a8d036de607984bcdaca2023868bb8734974a31955e2c9da",
+      "unchanged": true
+    },
+    "packages/ui/src/experimental/DateField/DateField.types.ts": {
+      "capturedSha256": null,
+      "currentSha256": null,
+      "unchanged": true
+    },
+    "packages/ui/src/experimental/DateField/TextDateField.tsx": {
+      "capturedSha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "currentSha256": "b652b635363dd8f79a7a97088d988a3f683d3a223a6c34ee7bfd4163a621916a",
+      "unchanged": true
+    },
+    "packages/ui/src/experimental/TimeField/TextTimeField.tsx": {
+      "capturedSha256": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "currentSha256": "f3b868446cfa63824e2c95bcc814d730ebc52d0bf42463db0530aec58d0574fe",
+      "unchanged": true
+    },
+    "packages/ui/src/experimental/TimeField/TimeField.tsx": {
+      "capturedSha256": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "currentSha256": "a320bf771dac21abe7ccceb904c5eeae0fec43c933c5053c804030558327c892",
+      "unchanged": true
+    },
+    "packages/ui/src/experimental/TimeField/TimeField.types.ts": {
+      "capturedSha256": null,
+      "currentSha256": null,
+      "unchanged": true
+    }
+  },
+  "savedGraphDelta": {
+    "unchanged": 413,
+    "changed": [
+      "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts",
+      "packages/ui/src/components/AppDataGrid/ownedGridModel.ts",
+      "packages/ui/src/experimental/Calendar/Calendar.tsx",
+      "packages/ui/src/experimental/DateField/DateField.tsx",
+      "packages/ui/src/experimental/DateField/DateFieldControl.tsx",
+      "packages/ui/src/experimental/DateField/TextDateField.tsx",
+      "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+      "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx",
+      "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx",
+      "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx",
+      "packages/ui/src/experimental/TextArea/TextArea.tsx"
+    ],
+    "removed": [],
+    "added": []
+  },
+  "coordinatorEvidenceSha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503"
+}

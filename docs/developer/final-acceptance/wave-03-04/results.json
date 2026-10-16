@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-16T23:08:20.914Z",
+  "baseHead": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "sharedCheckoutMutated": false,
+  "patchApplied": false,
+  "countsChanged": false,
+  "scope": "A-A-07 and A-H-05 only. Runtime tests on isolated proposal mirrors; no shared source/test/doc changes.",
+  "leaves": [
+    {
+      "id": "A-A-07",
+      "originalRequirement": "- [ ] A-A-07 Reconcile original `A-07`: Specify native click versus normalized press semantics without surprising consumers; prevent duplicate callback invocation and document keyboard/touch activation. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Found and reproduced two runtime owned-contract leaks: ToggleButton and DataGridDragHandle pass upstream PressEvent to parameterless onPress. Proposed one-line wrappers discard it. New focused tests verify pointer/Enter/Space, distinct selection notification, controlled authority and disabled suppression. Action surface reconciled in event-surface.md; accepted fix02 prose reused.",
+      "evidence": [
+        "unit-characterization-final.txt",
+        "unit-proposed-esm.txt",
+        "event-surface.md",
+        "typecheck-proposals.json",
+        "syntax-check.json",
+        "input-hashes.json",
+        "supplemental-hashes.json",
+        "hash-comparison.json",
+        "runtime.json"
+      ],
+      "commands": [
+        "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-04/vitest.config.mjs",
+        "SGUI_PROPOSED_ACTIONS=1 /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-04/vitest.config.mjs",
+        "node docs/developer/final-acceptance/wave-03-04/typecheck-proposals.cjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-04/actions.patch"
+      ],
+      "runtimeResult": {
+        "current": "2 failed activation argument assertions, 9 passed diagnostics",
+        "proposal": "11 passed across 3 suites, Node24.21.0/Vitest4.1.11/jsdom26.1.0",
+        "proposalLimit": "Source wrapper argument annotation widened after pass; identical emitted JS proved in type-only-correction.json. No integrated runtime/browser claim."
+      },
+      "residualSuccessors": [
+        "Review/apply wrappers, tests and documentation patches; run affected integrated unit suites.",
+        "Rebuild owned native fixture and execute only action-notifications.spec.ts in three desktop engines, including emulated touch.",
+        "Retain separate actual touch/device and spoken AT evidence."
+      ],
+      "proposedPatchNeedsIntegration": true
+    },
+    {
+      "id": "A-H-05",
+      "originalRequirement": "- [ ] A-H-05 Reconcile original `H-05`: Define pending/error handling for asynchronous host actions without duplicating requests or swallowing useful errors. Historical status: open.",
+      "status": "partial",
+      "substantiveOutcome": "Chose and implemented reviewable host diagnostics ownership guidance. Nine operation-specific unit cases pass against current SideNavigation: each logoutAccount/logoutAllAccounts/onOrganizationChange rejects Error(cause) or opaque value, retains exact reason once, suppresses duplicate/competing requests, displays only safe translated error, avoids failed navigation/session mutation and permits explicit retry. Each operation also proves old-host diagnosis with replacement-owner pending isolation. No new library error API or logging service.",
+      "evidence": [
+        "proposed-files/docs/developer/react-aria-host-adapter-acceptance.md",
+        "proposed-files/packages/ui/src/components/SideNavigation/SideNavigation.action-diagnostics.test.tsx",
+        "unit-characterization-final.txt",
+        "unit-proposed-esm.txt",
+        "typecheck-proposals.json",
+        "type-only-correction.json",
+        "hash-comparison.json",
+        "runtime.json"
+      ],
+      "commands": [
+        "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-04/vitest.config.mjs",
+        "SGUI_PROPOSED_ACTIONS=1 /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node /tmp/sgui-calendar-validate.mjs /Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node packages/ui/node_modules/vitest/vitest.mjs run --config docs/developer/final-acceptance/wave-03-04/vitest.config.mjs"
+      ],
+      "runtimeResult": "9 diagnostics cases passed using current source; safe sink is host-owned nonthrowing synchronous function. No real auth service, diagnostic transport/storage or browser backend persistence is represented.",
+      "residualSuccessors": [
+        "Integrate maintained host-diagnostics contract and focused tests, then confirm integrated supported-runtime pass. Original leaf can be reconsidered after that adoption; no runtime implementation gap was found in existing SideNavigation guards."
+      ],
+      "proposedPatchNeedsIntegration": true
+    }
+  ],
+  "validation": {
+    "unitCurrent": {
+      "receipt": "unit-characterization-final.txt",
+      "exitCode": 1,
+      "expectedFailures": 2,
+      "passes": 9
+    },
+    "unitProposal": {
+      "receipt": "unit-proposed-esm.txt",
+      "exitCode": 0,
+      "suites": 3,
+      "passes": 11
+    },
+    "types": {
+      "receipt": "typecheck-proposals.json",
+      "diagnostics": 0,
+      "scope": "Virtual originals overlay with proposed source/test/spec/fixture and existing built public declarations; no emit/build"
+    },
+    "syntax": {
+      "receipt": "syntax-check.json",
+      "files": 7,
+      "diagnostics": 0
+    },
+    "patch": {
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-04/actions.patch",
+      "exitCode": 0,
+      "applied": false
+    },
+    "failureHistory": [
+      {
+        "receipts": [
+          "unit-first.txt",
+          "unit-second.txt",
+          "unit-current.txt",
+          "unit-characterization.txt"
+        ],
+        "reason": "Out-of-tree harness dependency resolution, Vitest CJS resolution, JSX mode and JSX runtime alias setup errors. Corrected in scoped config; no source workaround."
+      },
+      {
+        "receipt": "unit-proposed.txt",
+        "reason": "Harness require-resolution selected RAC CJS exports alongside existing ESM context. Menu PressResponder context split caused9 failures. Corrected resolver to actual ESM exports; unit-proposed-esm.txt passes."
+      },
+      {
+        "receipts": [
+          "unit-third.txt",
+          "unit-proposed-final.txt"
+        ],
+        "reason": "Validation lease occupied (EEXIST); no suite launched; lease not bypassed/reclaimed."
+      },
+      {
+        "receipt": "typecheck-first.txt",
+        "reason": "Test wrapper string[] excluded optional organization accountId. Widened type to (string | undefined)[]; final compiler passes and emitted JS unchanged."
+      }
+    ]
+  },
+  "retainedEvidence": {
+    "fix02": "Report hash matches assigned prior receipt; do not reapply accepted action prose.",
+    "wave02": "Assigned report/results hashes match current bytes.",
+    "coordinatorIntegration": "Read coordinator-integration/evidence.json; BUG0008–0012/A-G02/A-K16 left untouched. hash-comparison.json preserves scoped current delta.",
+    "unperformed": [
+      "No install/build/catalog generation/server/native/packed/CI/physical-device/AT/legal/release execution.",
+      "No stage/commit/push/branch/version/tag/main promotion or central ledger mutation."
+    ]
+  }
+}

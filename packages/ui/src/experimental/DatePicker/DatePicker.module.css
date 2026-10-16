@@ -1,4 +1,8 @@
 @layer sgui.components {
-  .root { display: flex; align-items: flex-start; gap: var(--sgui-space2); }
-  .calendar { inline-size: min(20rem, calc(100vw - 2rem - 2 * var(--sgui-space4) - 2px)); }
+  .time { display: flex; flex-direction: column; gap: var(--sgui-space3); }
+  .actions { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); }
+  .root { min-inline-size: 0; }
+  .trigger { padding-inline-end: var(--field-edge-padding); align-self: stretch; border-radius: 0; border-start-end-radius: var(--sgui-field-control-radius); border-end-end-radius: var(--sgui-field-control-radius); }
+  .trigger[data-variant] { border-color: inherit; }
+  .calendar { inline-size: min(calc(7 * max(var(--sgui-control-height), var(--sgui-control-minimum-target-size), calc(2 * var(--sgui-caption-size)))), calc(100vw - 2rem - 2 * var(--sgui-space4) - 2px)); }
 }

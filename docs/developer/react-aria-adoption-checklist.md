@@ -5,6 +5,9 @@ review aid for the learner platform or another host. It does not authorize editi
 that application, changing routes/data contracts or removing its original UI tree.
 A host rollout is a separate implementation task after version/license selection.
 
+For controlled/default/empty values, repeated accessible names, callback content,
+refs and supported slots, follow the [public composition contracts](react-aria-public-composition-contracts.md).
+
 ## Review before an implementation task
 
 - [ ] Confirm the written commercial agreement, available package version or validated
@@ -32,8 +35,10 @@ A host rollout is a separate implementation task after version/license selection
   network abort, byte/size/asset authorization and cleanup. Validate current editor
   contract acceptance limits before exposing untrusted content.
 - [ ] Review form semantics: explicit submit/reset, required names/labels, string/boolean
-  value callbacks, uncontrolled native reset and host validation. Read-only permits
-  focus/copy; disabled blocks editing/activation. Avoid duplicate click/press handling.
+  value callbacks, uncontrolled native reset and host validation. Apply the
+  [component-specific read-only policy](#read-only-focus-and-form-values) below;
+  disabled and readOnly have distinct focus and submission effects. Avoid duplicate
+  click/press handling.
 - [ ] Review date-only versus local datetime/time/instant semantics. Supply valid ISO
   values and explicit host timezone/DST choices; do not infer booking permissions or
   organization fiscal calendars from a date widget. Calendar controls remain proof
@@ -45,6 +50,41 @@ A host rollout is a separate implementation task after version/license selection
 - [ ] Keep original source until a separately authorized rollout establishes parity,
   license/notice requirements and recovery. Record deferred features and unsupported
   old props instead of silently reproducing them in host styling.
+
+## Read-only focus and form values
+
+`readOnly` prevents user edits where the component declares that prop. It is not a
+universal promise of focus or copy support. `disabled` blocks editing/activation
+and excludes the affected named form controls from native submission. Do not
+substitute one prop for the other to enforce application authorization; the host
+still validates submitted values and owns persistence.
+
+| Component / mode | Read-only focus and inspection | Named form value while read-only and enabled |
+| --- | --- | --- |
+| TextField and TextArea | Native read-only input/textarea remains focusable; users can inspect and select/copy visible text, subject to the input type and browser. | The native field retains its string value. |
+| Select | The trigger is a native disabled button with aria-readonly; it is outside the tab order and cannot open the options. Its displayed label is not a focusable text field or a copy affordance. | The underlying form control retains the selected option ID, rather than the displayed label. Disabling the whole Select excludes it. |
+| DatePicker | The calendar button is disabled for readOnly. In date text-entry mode, its separate native read-only text input remains inspectable/selectable. Segmented date/datetime entry has its own interaction semantics; do not promise native text selection/copy for segments. | The DateField form value represents the committed ISO date or local datetime, rather than the localized display or an incomplete draft. |
+| DateRangePicker | The calendar button is disabled for readOnly. With fieldMode="text", the separate read-only text input remains inspectable/selectable; fieldMode="button" provides no text input to focus/copy. | Hidden name.start and name.end fields retain committed ISO dates, or empty strings for a null selection. |
+| TimeField with entryMode="text" | The time-picker button is disabled for readOnly; the separate native read-only input remains inspectable/selectable. Segmented mode has its own interaction semantics and no general native copy promise. | The hidden name field retains the committed ISO clock value, or an empty string for null, rather than the formatted display/draft. |
+| PeriodPicker and DateTimeRangePicker | The selection button is disabled for readOnly; the closed picker provides no focusable text field to copy. | Hidden name.start and name.end fields retain committed ISO dates or local datetimes respectively, or empty strings for null. |
+| DateRangeComparisonPicker | The selection button is disabled for readOnly; the closed picker provides no focusable text field to copy. | A hidden name field retains JSON for the committed primary/comparison/mode record, or an empty string for null. |
+
+Here name.start/name.end mean the supplied `name` plus those suffixes. Hidden
+values in the listed pickers use `disabled`, not `readOnly`, for submission
+exclusion. A disabled trigger alone therefore does not mean the component's value
+is omitted. Supplying `name` is required for these values to participate in native
+FormData; enclosing disabled fieldsets and ordinary native form ownership still
+apply. Clearing a nullable selection and omitting a disabled field are different
+operations. Read-only does not reset the accepted value or override controlled
+host state; keep the control mode stable for a mount where required by its API.
+
+If a panel is already open when the host locks the component, verify its specific
+edit, commit and dismissal policy; a disabled trigger alone is not proof that all
+open-panel actions are guarded. Track the PeriodPicker, DateTimeRangePicker and
+DateRangeComparisonPicker Clear/commit transition fix separately from this focus
+policy. Hosts needing keyboard-accessible copy for a button-only read-only value
+should provide a separately labeled text presentation or explicit copy action.
+Validate that host composition in its target browsers and assistive technology.
 
 ## Vite host composition
 

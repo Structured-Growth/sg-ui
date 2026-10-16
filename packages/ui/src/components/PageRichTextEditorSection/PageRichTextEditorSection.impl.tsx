@@ -17,6 +17,7 @@ import {
   INDENT_CONTENT_COMMAND,
   OUTDENT_CONTENT_COMMAND,
   REDO_COMMAND,
+  SKIP_SELECTION_FOCUS_TAG,
   UNDO_COMMAND,
   type LexicalCommand,
   type TextFormatType,
@@ -28,7 +29,7 @@ import { serializeEditorDocument } from "./lexical/serializeEditorDocument";
 import { normalizeLinkUrl } from "../LinkUrlModal/linkUrlPolicy";
 import { $createLinkNode, $isLinkNode, $toggleLink, LinkNode } from "@lexical/link";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
-import { ContentEditable } from "@lexical/react/LexicalContentEditable";
+import { DocumentContentEditable } from "./DocumentContentEditable";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { LexicalErrorBoundary } from "@lexical/react/LexicalErrorBoundary";
 import { INSERT_HORIZONTAL_RULE_COMMAND } from "@lexical/react/LexicalHorizontalRuleNode";
@@ -43,6 +44,7 @@ import { EXPERIENCE_EDITOR_NODES, EXPERIENCE_EDITOR_THEME } from "./lexical/edit
 import { ExperienceEditorPlugins } from "./lexical/ExperienceEditorPlugins";
 import { INSERT_IMAGE_COMMAND } from "./lexical/ImageInsertPlugin";
 import { isAllowedImageSource } from "./lexical/imageSourcePolicy";
+import { isImagePayload } from "./lexical/imagePayloadPolicy";
 import {
   RichTextFormattingToolbar,
   type AlignOption,
@@ -164,7 +166,14 @@ function clearInlineFormattingOnSelection() {
   if (!$isRangeSelection(selection)) {
     return;
   }
-  const nodes = selection.getNodes();
+  // A caret changes future typing, never the entire containing text run.
+  if (selection.isCollapsed()) {
+    selection.setFormat(0);
+    selection.setStyle("");
+    return;
+  }
+  // Split boundary runs before mutating so unselected content retains its styles.
+  const nodes = selection.extract();
   for (const node of nodes) {
     if ($isTextNode(node)) {
       for (const format of FORMAT_CLEAR_LIST) {
@@ -175,13 +184,8 @@ function clearInlineFormattingOnSelection() {
       node.setStyle("");
     }
   }
-  $patchStyleText(selection, {
-    [TEXT_VARIANT_MARKER_PROPERTY]: "",
-    "background-color": "",
-    color: "",
-    "font-family": "",
-    "font-size": "",
-  });
+  selection.setFormat(0);
+  selection.setStyle("");
 }
 
 export type PageRichTextEditorSectionProps = {
@@ -212,12 +216,14 @@ export type PageRichTextEditorSectionProps = {
 };
 
 function ToolbarBridge({
+  onAlignmentChange,
   onStateChange,
   onReady,
   onSelectionSnapshotChange,
   readOnly,
 }: {
   readOnly: boolean;
+  onAlignmentChange: (next: AlignOption) => void;
   onStateChange: (nextState: ToolbarState) => void;
   onReady: (editor: LexicalEditor) => void;
   onSelectionSnapshotChange: (snapshot: RangeSelectionSnapshot | null) => void;
@@ -237,6 +243,7 @@ function ToolbarBridge({
           const selection = $getSelection();
           if (!$isRangeSelection(selection)) {
             onSelectionSnapshotChange(null);
+            onAlignmentChange("left");
             onStateChange({
               bold: false,
               code: false,
@@ -261,6 +268,7 @@ function ToolbarBridge({
           // Deleting a selected decorator can place the caret on the root.
           // A root range is valid, but has no top-level parent to inspect.
           const topLevel = anchorNode.getTopLevelElement();
+          onAlignmentChange($isElementNode(topLevel) ? topLevel.getFormatType() || "left" : "left");
           const heading = $isHeadingNode(topLevel)
             ? (topLevel.getTag() === "h1"
                 ? "Heading 1"
@@ -296,7 +304,7 @@ function ToolbarBridge({
         });
       }),
     );
-  }, [editor, onSelectionSnapshotChange, onStateChange]);
+  }, [editor, onAlignmentChange, onSelectionSnapshotChange, onStateChange]);
 
   return null;
 }
@@ -357,6 +365,12 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
   const selectionSnapshotRef = useRef<RangeSelectionSnapshot | null>(null);
   const pendingLinkSelectionRef = useRef<RangeSelectionSnapshot | null>(null);
   const pendingLinkSelectedTextRef = useRef("");
+  const modalSelectionRef = useRef<RangeSelectionSnapshot | null>(null);
+  const modalRestoreTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => {
+    if (modalRestoreTimerRef.current !== null) clearTimeout(modalRestoreTimerRef.current);
+    modalSelectionRef.current = null;
+  }, [editorKey, readOnly, editorRef]);
   const [linkModalOpen, setLinkModalOpen] = useState(false);
   const [linkModalInitialDisplayText, setLinkModalInitialDisplayText] = useState("");
   const [linkModalInitialUrl, setLinkModalInitialUrl] = useState("");
@@ -581,10 +595,18 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
       if (!$isRangeSelection(selection)) {
         return;
       }
-      const nodes = selection.getNodes();
+      if (selection.isCollapsed()) return;
+      const nodes = selection.extract();
       for (const node of nodes) {
         if ($isTextNode(node)) {
+          const previousLength = node.getTextContentSize();
           node.setTextContent(transform(node.getTextContent()));
+          // Case conversion can expand a character (for example ß → SS).
+          for (const point of [selection.anchor, selection.focus]) {
+            if (point.key === node.getKey() && point.offset === previousLength) {
+              point.set(node.getKey(), node.getTextContentSize(), "text");
+            }
+          }
         }
       }
     });
@@ -622,6 +644,30 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
       focusOffset: selection.focus.offset,
       focusType: selection.focus.type,
     };
+  };
+
+  const captureModalSelection = () => {
+    modalSelectionRef.current = editorRef?.getEditorState().read(() => snapshotSelection($getSelection())) ?? null;
+  };
+
+  const restoreCanceledModalSelection = (snapshot = modalSelectionRef.current) => {
+    modalSelectionRef.current = null;
+    if (!snapshot || !editorRef || readOnly) return;
+    const editor = editorRef;
+    if (modalRestoreTimerRef.current !== null) clearTimeout(modalRestoreTimerRef.current);
+    // Native modal focus restoration runs first. Restore the exact document
+    // range afterward without stealing focus from its surviving command owner.
+    modalRestoreTimerRef.current = setTimeout(() => {
+      modalRestoreTimerRef.current = null;
+      if (!editor.getRootElement()?.isConnected || !editor.isEditable()) return;
+      editor.update(() => {
+        if (!$getNodeByKey(snapshot.anchorKey) || !$getNodeByKey(snapshot.focusKey)) return;
+        const range = $createRangeSelection();
+        range.anchor.set(snapshot.anchorKey, snapshot.anchorOffset, snapshot.anchorType);
+        range.focus.set(snapshot.focusKey, snapshot.focusOffset, snapshot.focusType);
+        $setSelection(range);
+      }, { discrete: true, tag: SKIP_SELECTION_FOCUS_TAG });
+    }, 0);
   };
 
   const withPendingLinkSelection = (apply: () => void): boolean => {
@@ -734,7 +780,10 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
       }
     }
 
-    const selectedText = (domSelection?.toString().trim() ?? "") || pendingLinkSelectedTextRef.current.trim();
+    // DOM selections and Lexical use different paragraph separators. Preserve
+    // the captured model spelling so an unchanged display draft wraps existing
+    // rich text instead of replacing paragraphs with one plain text node.
+    const selectedText = pendingLinkSelectedTextRef.current.trim() || (domSelection?.toString().trim() ?? "");
     const tokens = selectedText.split(/\s+/).filter(Boolean);
     const urlToken = tokens.find((token) => token.startsWith("http") || token.startsWith("www."));
 
@@ -936,12 +985,14 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
           if (readOnly) {
             return;
           }
+          captureModalSelection();
           setColumnsLayoutModalOpen(true);
         }}
         onInsertImage={() => {
           if (readOnly) {
             return;
           }
+          captureModalSelection();
           imageUploadSessionRef.current += 1;
           setImageUploading(false);
           setImageUploadError(null);
@@ -1031,7 +1082,7 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
                 onRequestLinkMouseDown={capturePendingLinkSelection}
               />
             )}
-            <ToolbarBridge readOnly={readOnly}
+            <ToolbarBridge readOnly={readOnly} onAlignmentChange={setAlignment}
               onReady={(editor) => setEditorRef(editor)}
               onSelectionSnapshotChange={(snapshot) => {
                 selectionSnapshotRef.current = snapshot;
@@ -1041,23 +1092,8 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
             <RichTextPlugin
               ErrorBoundary={LexicalErrorBoundary}
               contentEditable={(
-                <ContentEditable className={styles.editable} tabIndex={0}
-                  aria-label={accessibleName ?? t("editor.document", { defaultMessage: "Document" })}
-                  onKeyDown={(event) => {
-                    // A non-editable div has no native scoped Select All behavior.
-                    // Keep copying local to the focused read-only document; Lexical
-                    // retains all keyboard handling while the document is editable.
-                    if (!readOnly || event.target !== event.currentTarget || event.isDefaultPrevented()
-                      || event.nativeEvent.isComposing || event.altKey || event.shiftKey
-                      || !(event.ctrlKey || event.metaKey) || event.key.toLowerCase() !== "a") return;
-                    const selection = event.currentTarget.ownerDocument.getSelection();
-                    if (!selection) return;
-                    const range = event.currentTarget.ownerDocument.createRange();
-                    range.selectNodeContents(event.currentTarget);
-                    selection.removeAllRanges();
-                    selection.addRange(range);
-                    event.preventDefault();
-                  }} />
+                <DocumentContentEditable readOnly={readOnly}
+                  label={accessibleName ?? t("editor.document", { defaultMessage: "Document" })} />
               )}
               placeholder={(
                 readOnly ? null : (
@@ -1076,6 +1112,7 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
         key={linkModalSession}
         initialUrl={linkModalInitialUrl}
         onClose={() => {
+          restoreCanceledModalSelection(pendingLinkSelectionRef.current);
           setLinkModalOpen(false);
           setActiveLinkNodeKey(null);
           pendingLinkSelectionRef.current = null;
@@ -1085,7 +1122,7 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
         open={linkModalOpen}
       />
       <ColumnsLayoutModal
-        onClose={() => setColumnsLayoutModalOpen(false)}
+        onClose={() => { restoreCanceledModalSelection(); setColumnsLayoutModalOpen(false); }}
         onSubmit={(preset) => {
           insertColumnsLayout(preset);
           setColumnsLayoutModalOpen(false);
@@ -1096,6 +1133,7 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
         enableAltText
         errorMessage={imageUploadError}
         onClose={() => {
+          restoreCanceledModalSelection();
           imageUploadSessionRef.current += 1;
           setImageUploadModalOpen(false);
           setImageUploadError(null);
@@ -1124,6 +1162,9 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
             if (imageUploadSessionRef.current !== uploadSession) {
               if (localUrl && localImageUrlsRef.current.delete(localUrl)) URL.revokeObjectURL(localUrl);
               return;
+            }
+            if (!isImagePayload(uploaded)) {
+              throw new Error(t("editor.imageMetadataRejected", { defaultMessage: "The uploaded image metadata is not supported. Try again." }));
             }
             if (!isAllowedImageSource(uploaded.src)) {
               throw new Error(t("editor.imageSourceRejected", { defaultMessage: "The uploaded image address is not supported. Try again." }));

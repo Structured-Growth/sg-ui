@@ -1,0 +1,11 @@
+test_current_evidence_cannot_mark_complete (test_reconciliation.ReconciliationTests) ... ok
+test_every_missing_gate_preserves_open_completion (test_reconciliation.ReconciliationTests) ... ok
+test_exact_open_requirement_ownership (test_reconciliation.ReconciliationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
+
+Read-only patch applicability: git apply --check docs/developer/final-acceptance/wave-03-40/ledger-update.patch
+Exit 0; patch not applied.

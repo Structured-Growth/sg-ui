@@ -1,0 +1,478 @@
+{
+  "createdDate": "2026-10-16",
+  "base": "540f47d",
+  "branch": "dev",
+  "scope": "User-requested 15 separate conversations. Each owns only its numbered acceptance report directory; shared source/checklists remain coordinator-owned.",
+  "jobs": [
+    {
+      "number": 1,
+      "title": "API contracts",
+      "ids": [
+        "A-B-05",
+        "A-A-15"
+      ],
+      "task": "Snapshot props, callbacks, models, defaults, subpaths and deprecations from public declarations/source; reconcile actual breaking changes with migration mappings. Reuse FA-01 export inventory; do not repeat it.",
+      "status": "reviewed",
+      "threadId": "01a146d9-c262-74c0-9fa9-dec2461daeed",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-01/",
+      "outcomes": [
+        {
+          "id": "A-B-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-15",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Architecture and dependency direction",
+      "ids": [
+        "A-A-02",
+        "A-A-03"
+      ],
+      "task": "Verify layer boundaries, internal root-barrel imports, one-way dependencies and source cycles. Use existing architecture/guards, and record exact unresolved cycles if any.",
+      "status": "reviewed",
+      "threadId": "01a146d9-ddd5-7fa1-a073-4d2ae536eafc",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-02/",
+      "outcomes": [
+        {
+          "id": "A-A-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-A-03",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Owned interaction contracts",
+      "ids": [
+        "A-A-04",
+        "A-A-05",
+        "A-A-11"
+      ],
+      "task": "Audit React Aria confinement and owned public props; check for escaping collection/state/date/grid engine types or event payloads. Inspect declarations and source, reusing FA-01/02 and package evidence.",
+      "status": "reviewed",
+      "threadId": "01a146d9-e12b-7070-b27a-7b707b9a0ebd",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-03/",
+      "outcomes": [
+        {
+          "id": "A-A-04",
+          "status": "complete"
+        },
+        {
+          "id": "A-A-05",
+          "status": "complete"
+        },
+        {
+          "id": "A-A-11",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "State and action semantics",
+      "ids": [
+        "A-A-06",
+        "A-A-07"
+      ],
+      "task": "Reconcile controlled/uncontrolled/default/null/disabled/read-only/loading/IDs and native click versus onPress contracts. Reuse existing focused behavior tests; examine duplicate-callback handling and identify actual exceptions.",
+      "status": "reviewed",
+      "threadId": "01a146d9-e494-7bc3-ace7-15a9f6b08708",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-04/",
+      "outcomes": [
+        {
+          "id": "A-A-06",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-07",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Props and composition hooks",
+      "ids": [
+        "A-A-08",
+        "A-A-09",
+        "A-A-10"
+      ],
+      "task": "Audit owned variants/density/placement/dismissal/validation, accessible naming requirements, slots/parts/render callbacks/refs/classes/styles. Document actual public APIs and gaps without inventing consistency.",
+      "status": "reviewed",
+      "threadId": "01a146d9-e78e-7393-9212-8391ff280150",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-05/",
+      "outcomes": [
+        {
+          "id": "A-A-08",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-A-10",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Compatibility names",
+      "ids": [
+        "A-A-12",
+        "A-A-13",
+        "A-A-14"
+      ],
+      "task": "Verify retained App/Class names, removed branded exports and replacements, Course naming for new learning APIs and breaking-change mappings. Preserve authorized Button rename and historical provenance.",
+      "status": "reviewed",
+      "threadId": "01a146d9-eb74-71e0-b70a-adf4155e9200",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-06/",
+      "outcomes": [
+        {
+          "id": "A-A-12",
+          "status": "complete"
+        },
+        {
+          "id": "A-A-13",
+          "status": "complete"
+        },
+        {
+          "id": "A-A-14",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Engine and host boundaries",
+      "ids": [
+        "A-A-16",
+        "A-A-17",
+        "A-A-19"
+      ],
+      "task": "Reconcile replaceable interaction architecture, observable tests, advanced extension points, host booking/account/backend ownership, dependency placement/version/deduplication and upgrade guidance. Do not promise free engine replacement.",
+      "status": "reviewed",
+      "threadId": "01a146d9-ee6e-7a00-aed3-4504a913541a",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-07/",
+      "outcomes": [
+        {
+          "id": "A-A-16",
+          "status": "complete"
+        },
+        {
+          "id": "A-A-17",
+          "status": "complete"
+        },
+        {
+          "id": "A-A-19",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Token generation and validation",
+      "ids": [
+        "A-D-01",
+        "A-D-02",
+        "A-D-03",
+        "A-D-19"
+      ],
+      "task": "Reconcile source schema, palette/semantic/component tiers, deterministic typed/CSS generation and CI reference/type/cycle/contrast checks. Reuse FA-04 foundation results; inspect actual generated source/validation evidence.",
+      "status": "reviewed",
+      "threadId": "01a146d9-f209-7d81-9f1e-bd19ab757261",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-08/",
+      "outcomes": [
+        {
+          "id": "A-D-01",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-19",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Typography and fonts",
+      "ids": [
+        "A-D-07",
+        "A-D-08",
+        "A-D-09",
+        "A-D-10"
+      ],
+      "task": "Reconcile typography roles including bodyAlt2, semantic HTML versus appearance, rem sizing/zoom/spacing/font substitution and Geist/system font ownership. Use existing native evidence where applicable; report actual gaps.",
+      "status": "reviewed",
+      "threadId": "01a146d9-f688-7233-82ad-c974b45bddb7",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-09/",
+      "outcomes": [
+        {
+          "id": "A-D-07",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-08",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-09",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-10",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Density and theme scopes",
+      "ids": [
+        "A-D-11",
+        "A-D-12",
+        "A-D-16",
+        "A-D-17"
+      ],
+      "task": "Reconcile density defaults/compact compatibility, shared touch target policy, scoped roots/nested overrides/portals and light/dark/system SSR/hydration. Preserve bounded native evidence; avoid new broad engine matrices.",
+      "status": "reviewed",
+      "threadId": "01a146d9-fa09-7e42-9810-c52c0a003b1c",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-10/",
+      "outcomes": [
+        {
+          "id": "A-D-11",
+          "status": "complete"
+        },
+        {
+          "id": "A-D-12",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-16",
+          "status": "partial"
+        },
+        {
+          "id": "A-D-17",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "CSS distribution and guards",
+      "ids": [
+        "A-C-01",
+        "A-C-02",
+        "A-C-05",
+        "A-C-06",
+        "A-C-07",
+        "A-C-18"
+      ],
+      "task": "Reconcile CSS Modules build/output, stylesheet ordering, named layers/specificity/important caveats, optional resets/scoped normalization and lint/token rules. Reuse fresh FA-04 builds/package/foundation evidence.",
+      "status": "reviewed",
+      "threadId": "01a146d9-fe10-7691-a234-6eeae670913a",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-11/",
+      "outcomes": [
+        {
+          "id": "A-C-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-C-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-C-05",
+          "status": "complete"
+        },
+        {
+          "id": "A-C-06",
+          "status": "complete"
+        },
+        {
+          "id": "A-C-07",
+          "status": "partial"
+        },
+        {
+          "id": "A-C-18",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Icons and activity symbols",
+      "ids": [
+        "A-I-01",
+        "A-I-02",
+        "A-I-03",
+        "A-I-04",
+        "A-I-05",
+        "A-I-06",
+        "A-I-07",
+        "A-I-08"
+      ],
+      "task": "Reconcile SVG source/mappings, owned props/refs, direct imports, optical/direction/accessibility behavior, activity fallback/options and catalog/bundle/notices obligations. Reuse FA-01 complete icon inventory; do not change legal notices.",
+      "status": "reviewed",
+      "threadId": "01a146da-01c9-7c03-a332-1aa941d52ee7",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-12/",
+      "outcomes": [
+        {
+          "id": "A-I-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-I-02",
+          "status": "complete"
+        },
+        {
+          "id": "A-I-03",
+          "status": "complete"
+        },
+        {
+          "id": "A-I-04",
+          "status": "partial"
+        },
+        {
+          "id": "A-I-05",
+          "status": "partial"
+        },
+        {
+          "id": "A-I-06",
+          "status": "complete"
+        },
+        {
+          "id": "A-I-07",
+          "status": "complete"
+        },
+        {
+          "id": "A-I-08",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Routing and account adapters",
+      "ids": [
+        "A-H-01",
+        "A-H-02",
+        "A-H-03",
+        "A-H-04",
+        "A-H-05"
+      ],
+      "task": "Reconcile native/custom router semantics, refs/attrs/modifiers/downloads/default prevention, routing integration ownership, account callback boundaries and async pending/error handling. Reuse relevant accepted browser/unit evidence.",
+      "status": "reviewed",
+      "threadId": "01a146da-05ff-75f2-ab36-841b2a109b9d",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-13/",
+      "outcomes": [
+        {
+          "id": "A-H-01",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-02",
+          "status": "partial"
+        },
+        {
+          "id": "A-H-03",
+          "status": "partial"
+        },
+        {
+          "id": "A-H-04",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-05",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "title": "Locale and translations",
+      "ids": [
+        "A-H-06",
+        "A-H-07",
+        "A-H-08"
+      ],
+      "task": "Reconcile locale/direction bridge, defaultMessage/keys/values/namespaces/English fallback, ICU/plurals/date/number formatting, long labels/RTL/pseudo-localized coverage. Distinguish DOM evidence from spoken AT.",
+      "status": "reviewed",
+      "threadId": "01a146da-0a1e-71b3-a70e-d582e4ccb3d1",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-14/",
+      "outcomes": [
+        {
+          "id": "A-H-06",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-07",
+          "status": "complete"
+        },
+        {
+          "id": "A-H-08",
+          "status": "partial"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "title": "Extraction and persisted contracts",
+      "ids": [
+        "A-B-12",
+        "A-B-13",
+        "A-B-14"
+      ],
+      "task": "Audit extraction manifest against current helpers/presets/models/editor nodes/plugins/fixtures/tests. Inventory public storage keys/schema/locale-date/error contracts. Preserve learner-platform provenance read-only; do not access or modify another checkout.",
+      "status": "reviewed",
+      "threadId": "01a146da-0e8b-7253-8022-b8af6bc8cd8c",
+      "hostId": "local",
+      "reportDirectory": "docs/developer/final-acceptance/parallel-15/",
+      "outcomes": [
+        {
+          "id": "A-B-12",
+          "status": "partial"
+        },
+        {
+          "id": "A-B-13",
+          "status": "complete"
+        },
+        {
+          "id": "A-B-14",
+          "status": "partial"
+        }
+      ]
+    }
+  ]
+}

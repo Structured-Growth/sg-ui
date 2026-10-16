@@ -1,0 +1,36 @@
+{
+  "measuredAt": "2026-10-16T23:05:02.039Z",
+  "runtime": "v26.5.0",
+  "platform": "darwin",
+  "architecture": "arm64",
+  "cpu": "Apple M4",
+  "methodology": "Server render: 3 warm-ups, 9 samples, median and maximum (p90). Built modules, one Provider, no browser or network. Production consumer asset sizes include React and all proof controls; gzip level defaults. These are local reference measurements, not client interaction or framework rankings.",
+  "results": {
+    "ownedButtons100": {
+      "medianMs": 2.16,
+      "p90Ms": 3.37,
+      "htmlBytes": 25655
+    },
+    "ownedFields40": {
+      "medianMs": 1.92,
+      "p90Ms": 2.36,
+      "htmlBytes": 16310
+    },
+    "asyncOptions200": {
+      "medianMs": 5.13,
+      "p90Ms": 29.71,
+      "htmlBytes": 76207
+    },
+    "gridRows1000Page50": {
+      "medianMs": 16.77,
+      "p90Ms": 30.08,
+      "htmlBytes": 88237
+    },
+    "rangeTwoMonths": {
+      "medianMs": 2.66,
+      "p90Ms": 4.03,
+      "htmlBytes": 25327
+    }
+  },
+  "consumers": {}
+}

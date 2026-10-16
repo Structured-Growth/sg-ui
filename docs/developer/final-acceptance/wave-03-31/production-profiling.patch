@@ -1,0 +1,161 @@
+--- a/docs/developer/react-aria-performance.md
++++ b/docs/developer/react-aria-performance.md
+@@ -39,3 +39,53 @@
+ virtualization thresholds and lifecycle cleanup remain open. Server times and
+ bundle sizes do not close those tasks. CI and representative slower consumer
+ hardware need their own measured reference before enforcing timing gates there.
++
++
++## Production profiling successor (A-B-10, A-P-08, A-G-20, A-X-19)
++
++The `packages/ui/tests/performance` fixture is a separate production Vite host
++using compiled public exports. Build the library once at an immutable reviewed
++snapshot, then build the fixture with `pnpm --filter @structured-growth/sg-ui exec
++vite build --config tests/performance/vite.config.mjs`. Start its preview using
++`pnpm --filter @structured-growth/sg-ui exec vite preview --config
++tests/performance/vite.config.mjs` in the coordinator's allocated profiling window.
++It uses port 4179 and must not replace the user's docs server. Run
++`pnpm --filter @structured-growth/sg-ui exec node
++tests/performance/measure-browser.mjs /absolute/new-result.json`.
++The output path must be new; preserve the original reference.
++
++The small workload preserves the original 1,000 rows/two columns/page 50 shape;
++wide uses 10,000 rows/20 columns/page 50; largePage uses the same data/page 200;
++selector renders 2,000 host-provided options. Each workload uses three warmup
++navigations and nine recorded navigations, sequential search input, selection,
++grid sorting, and 50 updates at 100ms intervals affecting ten rows. Measurements
++run from event capture or the timer callback to two post-commit animation frames;
++they estimate presentation opportunities, not actual paint or standardized INP.
++Initial measurements start at fixture module evaluation, excluding network startup.
++Asset records include all emitted chunks, raw/gzip bytes and content hashes;
++they are conservative output totals rather than per-route transfer sizes.
++
++Compare only matching fixture hashes, workload, React/runtime/browser version,
++hardware, viewport, throttling and measurement method. Store candidate and baseline
++package/source hashes, load average, raw samples and exact commands. Use medians
++and nearest-rank p95 across recorded samples, with separate initial, input, click
++and update distributions. Do not compare historical SSR timings to browser latency.
++Do not turn shared-checkout measurements into CI budgets. Select representative
++slower consumer hardware and obtain two stable repeated sessions before proposing
++browser timing/memory thresholds. Budget approval remains an owner decision;
++regressions require investigation, not automatic reference inflation.
++
++Lifecycle regression budgets are ownership counts: after final scope disposal,
++zero owned pending scrollbar timers and document listeners; repeated disposal must
++not release a live sibling. Existing ImageUploadModal tests verify preview URL
++revocation on replacement, cancel and unmount, including late upload settlement.
++These bounded regressions do not establish heap plateau. A browser allocation
++profile must separately inspect retained grid/selector/portal/upload owners after
++repeated mount/unmount and explicit GC where the profiling tool supports it;
++record that instrumented method separately from responsiveness runs.
++
++The historical 8KiB CSS budget belongs to its old composed consumer fixture.
++The 2026-10-16 local distribution stylesheet measures 262,185 raw / 21,871 level-9
++gzip bytes. This is a different artifact and must not be represented as a passing
++old consumer budget or a minimal-import size. Editor-only, grid-only and composed
++packed-consumer build graphs still require separate current-artifact receipts.
+--- /dev/null
++++ b/packages/ui/tests/performance/fixture.tsx
+@@ -0,0 +1,45 @@
++import React, {useEffect,useLayoutEffect,useMemo,useRef,useState} from 'react';
++import {createRoot} from 'react-dom/client';
++import {Provider,DataGrid,AsyncMultiSelect,defaultGridState,type GridState,type MultiSelectOption} from '@structured-growth/sg-ui/experimental';
++import '@structured-growth/sg-ui/styles.css';
++// Test host only. Production imports use public compiled entry points.
++type Sample={action:string;ms:number};
++declare global {interface Window {sguiPerf:{samples:Sample[];ready:boolean;updating:boolean;unmount:()=>void}}}
++const params=new URLSearchParams(location.search);
++const configurations={small:[1000,2,50],wide:[10000,20,50],largePage:[10000,20,200],selector:[2000,0,0]} as const;
++const workload=(params.get('workload')??'small') as keyof typeof configurations;
++if(!(workload in configurations))throw Error('Unknown workload');
++const [count,columnCount,pageSize]=configurations[workload];
++const started=performance.now();
++const root=createRoot(document.getElementById('root')!);
++window.sguiPerf={samples:[],ready:false,updating:false,unmount:()=>root.unmount()};
++function Fixture(){
++  const [rows,setRows]=useState(()=>Array.from({length:count},(_,id)=>({id:String(id),name:`Course ${id}`,count:id})));
++  const columns=useMemo(()=>Array.from({length:columnCount},(_,index)=>({id:index===0?'name':`count${index}`,label:index===0?'Name':`Count ${index}`,getValue:(row:typeof rows[number])=>index===0?row.name:row.count+index})),[]);
++  const [state,setState]=useState<GridState>({...defaultGridState,pageSize});
++  const [query,setQuery]=useState('');const [selected,setSelected]=useState<MultiSelectOption[]>([]);
++  const [running,setRunning]=useState(false);
++  const pending=useRef<{action:string;start:number}|null>({action:'initial',start:started});
++  const frames=useRef(new Set<number>());
++  const mark=(action:string)=>{pending.current={action,start:performance.now()};};
++  useLayoutEffect(()=>{
++    const sample=pending.current;if(!sample)return;pending.current=null;
++    const first=requestAnimationFrame(()=>{frames.current.delete(first);const second=requestAnimationFrame(()=>{
++      frames.current.delete(second);window.sguiPerf.samples.push({action:sample.action,ms:performance.now()-sample.start});window.sguiPerf.ready=true;
++    });frames.current.add(second);});frames.current.add(first);
++  },[rows,state,query,selected]);
++  useEffect(()=>()=>{frames.current.forEach(cancelAnimationFrame);frames.current.clear();},[]);
++  useEffect(()=>{
++    if(!running)return;window.sguiPerf.updating=true;let tick=0;
++    const timer=setInterval(()=>{mark('update');setRows(old=>old.map((row,index)=>index<10?{...row,count:row.count+1}:row));
++      if(++tick===50){clearInterval(timer);window.sguiPerf.updating=false;setRunning(false);}},100);
++    return()=>{clearInterval(timer);window.sguiPerf.updating=false;};
++  },[running]);
++  const options=useMemo(()=>rows.filter(row=>row.name.toLowerCase().includes(query.toLowerCase())).map(row=>({id:row.id,label:row.name})),[rows,query]);
++  return <Provider><main onInputCapture={()=>mark('input')} onClickCapture={event=>{const target=event.target as HTMLElement;const button=target.closest('button');mark(button?.getAttribute('aria-label')?.startsWith('Sort ')?'sort':target.closest('[role=option],label')?'selection':'click');}}>
++    <button onClick={()=>setRunning(true)} disabled={running}>Run 50 updates</button>
++    {workload==='selector'?<AsyncMultiSelect label="Courses" query={query} onQueryChange={setQuery} options={options} value={selected} onValueChange={setSelected}/>
++      :<DataGrid label="Courses" rows={rows} columns={columns} getRowId={row=>row.id} getRowLabel={row=>row.name} state={state} onStateChange={setState}/>}
++  </main></Provider>;
++}
++root.render(<Fixture/>);
+--- /dev/null
++++ b/packages/ui/tests/performance/index.html
+@@ -0,0 +1 @@
++<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SGUI production performance fixture</title></head><body><div id="root"></div><script type="module" src="/fixture.tsx"></script></body></html>
+--- /dev/null
++++ b/packages/ui/tests/performance/measure-browser.mjs
+@@ -0,0 +1,40 @@
++// Coordinator-only: immutable production preview already running on 4179.
++// Usage: node tests/performance/measure-browser.mjs /absolute/new-result.json
++import {chromium} from '@playwright/test';
++import {readFile,readdir,writeFile} from 'node:fs/promises';
++import {resolve,dirname,isAbsolute} from 'node:path';
++import {fileURLToPath} from 'node:url';
++import {createHash} from 'node:crypto';
++import {gzipSync} from 'node:zlib';
++import * as os from 'node:os';
++import assert from 'node:assert/strict';
++const destination=process.argv[2];assert.ok(destination&&isAbsolute(destination),'Pass explicit absolute NEW result path');
++const here=dirname(fileURLToPath(import.meta.url));
++const assets={};for(const name of (await readdir(here+'/dist/assets')).sort()){const bytes=await readFile(here+'/dist/assets/'+name);assets[name]={bytes:bytes.length,gzipLevel9Bytes:gzipSync(bytes,{level:9}).length,sha256:createHash('sha256').update(bytes).digest('hex')};}
++const browser=await chromium.launch();const results=[];
++try {
++  const context=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'reduce'});
++  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(String(e)));
++  for(const workload of ['small','wide','largePage','selector'])for(let iteration=0;iteration<12;iteration++){
++    await page.goto('http://127.0.0.1:4179/?workload='+workload);
++    await page.waitForFunction(()=>window.sguiPerf?.ready);
++    const input=page.getByRole('searchbox',{name:workload==='selector'?'Courses':'Search',exact:true});
++    // Sequential native key events, each followed by two frames; no synthetic fill timing claim.
++    for(const character of ['C','o','u','r','s','e',' ','9']){await input.press(character===' '?'Space':character);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));}
++    await input.clear();await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
++    if(workload==='selector') await page.getByRole('option',{name:'Course 0',exact:true}).click();
++    else {await page.getByRole('checkbox',{name:'Select Course 0',exact:true}).check();await page.getByRole('button',{name:'Sort Name',exact:true}).click();}
++    await page.getByRole('button',{name:'Run 50 updates'}).click();
++    await page.waitForFunction(()=>window.sguiPerf.updating);
++    await page.waitForFunction(()=>!window.sguiPerf.updating,{},{timeout:20000});
++    await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
++    const samples=await page.evaluate(()=>window.sguiPerf.samples);
++    assert.ok(samples.some(s=>s.action==='initial'));assert.equal(samples.filter(s=>s.action==='update').length,50,'missing updates: investigate contention; do not inflate budget');
++    results.push({workload,iteration,warmup:iteration<3,samples});
++    await page.evaluate(()=>window.sguiPerf.unmount());
++  }
++  assert.deepEqual(errors,[]);
++  const summaries={};for(const row of results.filter(r=>!r.warmup))for(const sample of row.samples){const key=row.workload+':'+sample.action;(summaries[key]??=[]).push(sample.ms);}
++  for(const [key,values] of Object.entries(summaries)){values.sort((a,b)=>a-b);summaries[key]={count:values.length,medianMs:values[Math.ceil(values.length*.5)-1],p95Ms:values[Math.ceil(values.length*.95)-1],maxMs:values.at(-1)};}
++  await writeFile(destination,JSON.stringify({summaries,measuredAt:new Date().toISOString(),environment:{node:process.version,browser:browser.version(),os:os.type(),release:os.release(),arch:os.arch(),cpu:os.cpus()[0]?.model,totalMemoryBytes:os.totalmem(),loadAverage:os.loadavg()},assets,results,method:'Production React; 3 warmup/9 recorded navigations per workload; input/click capture or timer callback to two post-commit RAFs. Frame-opportunity estimate, not physical paint/INP/AT. All emitted assets summed separately, not route transfer.',limits:['No cross-build baseline or physical-device result without second matching run.','No heap retention/GC plateau or global listener census.','No budget auto-record/update.']},null,2)+'\n',{flag:'wx'});
++} finally {await browser.close();}
+--- /dev/null
++++ b/packages/ui/tests/performance/vite.config.mjs
+@@ -0,0 +1,7 @@
++import {defineConfig} from 'vite';
++import {fileURLToPath} from 'node:url';
++const at=p=>fileURLToPath(new URL(p,import.meta.url));
++export default defineConfig({root:at('./'),resolve:{alias:[
++  {find:'@structured-growth/sg-ui/styles.css',replacement:at('../../dist/styles.css')},
++  {find:'@structured-growth/sg-ui/experimental',replacement:at('../../dist/experimental/index.js')},
++]},build:{outDir:at('./dist'),emptyOutDir:true},preview:{host:'127.0.0.1',port:4179,strictPort:true}});

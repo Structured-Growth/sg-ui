@@ -1,0 +1,21 @@
+from pathlib import Path
+import json, hashlib, datetime, subprocess, difflib, platform
+root=Path.cwd(); d=root/'docs/developer/final-acceptance/wave-03-23'; mirror=d/'proposed-files'
+hashfile=lambda p:hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None
+old=json.loads((root/'docs/developer/final-acceptance/wave-02-03/evidence.json').read_text())
+coordinator=json.loads((root/'docs/developer/final-acceptance/coordinator-integration/evidence.json').read_text())
+markers=['/DocumentEditorLayout/','/DocumentEditorToolbar/','/ContentEditorChrome/','/PageRichTextEditorSection/','/FloatingTextSelectionToolbar/','/LinkUrlModal/','/ColumnsLayoutModal/','/ImageUploadModal/']
+paths={p for p in old['inputHashes'] if any(x in p for x in markers)}
+paths.update(['packages/ui/tests/browser/inventory-editor-chrome.spec.ts','packages/ui/tests/browser/inventory-layout-replacement.spec.ts','packages/ui/tests/browser/inventory-selection-boundary.spec.ts','packages/ui/tests/browser/editor-paragraph-transactions.spec.ts','packages/ui/tests/browser/editor-mixed-formatting-history.spec.ts','packages/ui/tests/browser/inventory-link-modal.spec.ts','packages/ui/tests/browser/batch62-insert-menu-native-focus.spec.ts','docs/developer/react-aria-editor-layout.md','apps/docs/native-fixtures/generate-registry.mjs','apps/docs/native-fixtures/migration-manifest.json'])
+current={p:hashfile(root/p) for p in sorted(paths)}
+patch=[]; targets={}
+for p in sorted(mirror.rglob('*')):
+ if not p.is_file(): continue
+ relative=p.relative_to(mirror).as_posix(); before=root/relative
+ targets[relative]={'baseSha256':hashfile(before),'proposedSha256':hashfile(p)}
+ patch.extend(difflib.unified_diff(before.read_text().splitlines(True) if before.exists() else [],p.read_text().splitlines(True),fromfile='a/'+relative if before.exists() else '/dev/null',tofile='b/'+relative))
+(d/'acceptance-successors.patch').write_text(''.join(patch))
+subset=lambda key: {p:h for p,h in coordinator.get(key,{}).items() if any(x in p for x in markers) or any(x in p for x in ['ContentEditorChrome.fixture','DocumentEditorToolbar.fixture','paragraph-transactions.fixture'])}
+evidence={'capturedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'branch':subprocess.check_output(['git','branch','--show-current'],text=True).strip(),'host':{'platform':platform.platform(),'python':platform.python_version(),'node':subprocess.check_output(['node','--version'],text=True).strip(),'typescript':'5.9.3'},'inputHashes':current,'priorInputComparison':[{'path':p,'priorSha256':old['inputHashes'][p],'currentSha256':h,'unchanged':h==old['inputHashes'][p]} for p,h in current.items() if p in old['inputHashes']],'coordinatorInputComparison':[{'path':p,'priorSha256':coordinator['inputHashes'][p],'currentSha256':h,'unchanged':h==coordinator['inputHashes'][p]} for p,h in current.items() if p in coordinator['inputHashes']],'retainedCoordinatorBuildHashes':subset('builtLibraryHashes'),'proposalTargets':targets,'priorReportHashes':{p:hashfile(root/p) for p in ['docs/developer/final-acceptance/wave-02-03/report.md','docs/developer/final-acceptance/wave-02-03/results.json','docs/developer/final-acceptance/coordinator-integration/evidence.json']},'limits':['No integration, builds, unit execution, native execution, screenshot review or supported Node22/24 execution in this wave.','No validation host besides protected user server3000 was present; it was not used or modified.','Static TypeScript overlay checks ran under Node26.5.0 and TypeScript5.9.3 against current built declarations; not browser/AT evidence.','Prior report results retain original host/engine/head limits. Source hash equality is not new browser execution.']}
+(d/'evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
+print(json.dumps({'inputs':len(current),'priorCompared':len(evidence['priorInputComparison']),'priorChanged':[x['path'] for x in evidence['priorInputComparison'] if not x['unchanged']],'coordinatorCompared':len(evidence['coordinatorInputComparison']),'coordinatorChanged':[x['path'] for x in evidence['coordinatorInputComparison'] if not x['unchanged']],'targets':len(targets)}))

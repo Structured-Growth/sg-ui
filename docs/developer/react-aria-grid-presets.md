@@ -34,8 +34,8 @@ records. Filter factories derive translated enum options from them. They are UI
 vocabularies, independent of application HTTP/database contracts; the host owns
 any mapping to its backend.
 
-The colocated catalog preset stories wire columns, sort rules and filter rules
-through controlled DataToolbar state. Hosts own filtering, page-zero resets,
+The docs website preset examples and docs-owned native fixtures wire columns,
+sort rules and filter rules through controlled DataToolbar state. Hosts own filtering, page-zero resets,
 per-view persistence, refresh and requests. See [catalog integration](react-aria-catalog-grid.md)
 and [toolbar contracts](react-aria-data-toolbar.md). Load `/styles.css` and provide
 Provider or ThemeScope for these controls.

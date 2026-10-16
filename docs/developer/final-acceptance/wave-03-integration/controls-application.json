@@ -1,0 +1,82 @@
+[
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-02/cycle-enforcement.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-03/public-contracts.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-04/actions.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-05/guard-and-recipes.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-05/direct-icon-imports.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-08/implementation.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-09/card-containment.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-10/implementation.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-13/scoped-css-corrections.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-17/localization-direction.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-18/primitive-reset.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-18/focused-tests-fixtures.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-21/reorder-policy.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-22/instructor-literal-labels.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-28/boundaries.patch",
+    "exit": 0,
+    "stderr": ""
+  },
+  {
+    "patch": "docs/developer/final-acceptance/wave-03-31/scrollbar-disposal.patch",
+    "exit": 0,
+    "stderr": ""
+  }
+]

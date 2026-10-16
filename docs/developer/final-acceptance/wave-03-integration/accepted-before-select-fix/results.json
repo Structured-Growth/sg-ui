@@ -1,0 +1,126 @@
+[
+  {
+    "name": "editor-current-units",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "exec",
+      "vitest",
+      "run",
+      "src/components/PageRichTextEditorSection",
+      "src/components/TextColorPickerControl/TextColorPickerControl.test.tsx",
+      "src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx",
+      "--maxWorkers",
+      "1"
+    ],
+    "startedAt": "2026-10-16T23:25:33.033Z",
+    "completedAt": "2026-10-16T23:25:51.108Z",
+    "exitCode": 0
+  },
+  {
+    "name": "library-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "build"
+    ],
+    "startedAt": "2026-10-16T23:25:51.109Z",
+    "completedAt": "2026-10-16T23:25:58.102Z",
+    "exitCode": 0
+  },
+  {
+    "name": "foundation-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "foundations:check"
+    ],
+    "startedAt": "2026-10-16T23:25:58.103Z",
+    "completedAt": "2026-10-16T23:26:03.138Z",
+    "exitCode": 0
+  },
+  {
+    "name": "tokens-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "tokens:check"
+    ],
+    "startedAt": "2026-10-16T23:26:03.138Z",
+    "completedAt": "2026-10-16T23:26:03.542Z",
+    "exitCode": 0
+  },
+  {
+    "name": "docs-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/docs",
+      "build"
+    ],
+    "startedAt": "2026-10-16T23:26:03.542Z",
+    "completedAt": "2026-10-16T23:26:20.705Z",
+    "exitCode": 0
+  },
+  {
+    "name": "native-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "exec",
+      "node",
+      "scripts/build-browser-docs.mjs"
+    ],
+    "startedAt": "2026-10-16T23:26:20.706Z",
+    "completedAt": "2026-10-16T23:26:25.902Z",
+    "exitCode": 0
+  },
+  {
+    "name": "browser-types-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "exec",
+      "tsc",
+      "--noEmit",
+      "-p",
+      "tests/browser/tsconfig.json"
+    ],
+    "startedAt": "2026-10-16T23:26:25.903Z",
+    "completedAt": "2026-10-16T23:26:27.396Z",
+    "exitCode": 0
+  },
+  {
+    "name": "package-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "exec",
+      "node",
+      "scripts/check-package.mjs",
+      "--retain-packed=/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave03-final-package"
+    ],
+    "startedAt": "2026-10-16T23:26:27.396Z",
+    "completedAt": "2026-10-16T23:26:30.157Z",
+    "exitCode": 0
+  },
+  {
+    "name": "release-policy-final",
+    "command": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/sg-ui",
+      "test:release"
+    ],
+    "startedAt": "2026-10-16T23:26:30.157Z",
+    "completedAt": "2026-10-16T23:26:32.947Z",
+    "exitCode": 0
+  }
+]

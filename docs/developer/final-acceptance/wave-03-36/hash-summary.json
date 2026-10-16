@@ -1,0 +1,33 @@
+{
+  "runtime": {
+    "node": "v26.5.0",
+    "python": "3.9.6"
+  },
+  "coordinatorSummary": {
+    "inputHashes": {
+      "compared": 112,
+      "matching": 112,
+      "changed": []
+    },
+    "builtLibraryHashes": {
+      "compared": 1778,
+      "matching": 1778,
+      "changed": []
+    },
+    "privateFixtureOutputHashes": {
+      "compared": 292,
+      "matching": 292,
+      "changed": []
+    },
+    "receiptHashes": {
+      "compared": 15,
+      "matching": 15,
+      "changed": []
+    }
+  },
+  "archiveDigestsMatch": true,
+  "priorDeltaCounts": {
+    "wave-02-12": 3,
+    "wave-02-14": 2
+  }
+}

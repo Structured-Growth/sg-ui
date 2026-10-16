@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "assignment": 36,
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "branch": "dev",
+  "results": [
+    {
+      "id": "A-R-12",
+      "originalRequirement": "- [ ] A-R-12 Reconcile original `R-12`: Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](react-aria-runtime-ci.md). Historical status: checked.",
+      "status": "partial",
+      "findings": "Historical artifact retrieval is newly verified. GitHub still reports all six c78a24e artifacts unexpired; the downloaded Node24 package archive matches API SHA256 d2dac2fe654ea52f534c83c857966b9ad8d51af4b6f2b09d3ef7b9eb77fe754e. Current workflow uses browser-docs artifacts, while current maintained guidance still mixed in Storybook names. Patch corrects active guidance and preserves dated historical tables; adds docs-site failure logs/JSON/traces and source/output/tarball receipt. Latest inspected full remote run failed before package/native artifact uploads and predates native-host replacement.",
+      "evidence": [
+        "evidence.json",
+        "coordinator-hash-comparison.json",
+        "remote/runs.json",
+        "remote/action-pins.json",
+        "artifact-tests.txt",
+        "workflow-tests.txt",
+        "patch-check.txt"
+      ],
+      "commandsActuallyRun": [
+        "python3 docs/developer/final-acceptance/wave-03-36/capture.py",
+        "node --test docs/developer/final-acceptance/wave-03-36/proposed-files/packages/ui/scripts/ci-artifacts.test.mjs",
+        "node --test docs/developer/final-acceptance/wave-03-36/verify-proposal.test.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-36/ci-artifact-freshness.patch",
+        "Read-only gh api run/jobs/artifacts/upstream-action metadata and three archive retrievals; raw responses in remote/"
+      ],
+      "runtime": {
+        "node": "v26.5.0",
+        "python": "3.9.6"
+      },
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "inputHashes": "evidence.json inputHashes; coordinator-hash-comparison.json; priorComparisons",
+      "patchNeedsIntegration": true,
+      "patch": "ci-artifact-freshness.patch",
+      "successorDeliverables": [
+        "Integrate corrected guidance and workflow evidence handling.",
+        "Observe successful current native-host producing run on both runtimes, retrieve all required artifacts, compare digests/receipt bytes and record exact SHA/job conclusions/expiry."
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": [
+        "Only owned evidence directory written; proposed-files mirrors and patch are not integrated.",
+        "Local Node26 source/tool tests are not supported Node22/24 or Actions/native execution.",
+        "Coordinator Node24 receipts reused only at compared input/output hashes; no fresh packed React-version/browser matrix or new remote native-host run.",
+        "No owner policy approval, action-code security audit, release, publication or remote mutation."
+      ]
+    },
+    {
+      "id": "A-R-24",
+      "originalRequirement": "- [ ] A-R-24 Reconcile original `R-24`: Update workflow timeouts/artifact handling as browser checks expand; cache by lockfile and avoid stale build outputs masking missing CSS or dependencies. Historical status: open.",
+      "status": "partial",
+      "findings": "Latest full run 37873270629 at ddb624fdad1289be71be62da06fe2908a2386a03 canceled Node24 at its 30-minute job budget: browser step used25m28s and log reached1,132 of1,521 executions, leaving packed consumers skipped. Failure logs were retrieved and API digests verified. Proposed Node24 job60m/browser45m retains original checks/engines/permissions/serial consumers; root lockfile cache paths explicit; fresh-output guard removes stale outputs and rejects source drift or missing CSS; docs failure artifacts added. Node22 failed separately on unknown .ts extension, not timeout.",
+      "evidence": [
+        "evidence.json",
+        "coordinator-hash-comparison.json",
+        "remote/runs.json",
+        "remote/action-pins.json",
+        "artifact-tests.txt",
+        "workflow-tests.txt",
+        "patch-check.txt"
+      ],
+      "commandsActuallyRun": [
+        "python3 docs/developer/final-acceptance/wave-03-36/capture.py",
+        "node --test docs/developer/final-acceptance/wave-03-36/proposed-files/packages/ui/scripts/ci-artifacts.test.mjs",
+        "node --test docs/developer/final-acceptance/wave-03-36/verify-proposal.test.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-36/ci-artifact-freshness.patch",
+        "Read-only gh api run/jobs/artifacts/upstream-action metadata and three archive retrievals; raw responses in remote/"
+      ],
+      "runtime": {
+        "node": "v26.5.0",
+        "python": "3.9.6"
+      },
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "inputHashes": "evidence.json inputHashes; coordinator-hash-comparison.json; priorComparisons",
+      "patchNeedsIntegration": true,
+      "patch": "ci-artifact-freshness.patch",
+      "successorDeliverables": [
+        "Integrate patch and run guard on supported Node22.12/24.",
+        "Measure current successful expanded matrix/Next docs durations and verify failure-upload contents and fresh receipts; confirm60m/45m headroom.",
+        "Route independent Node22 token test loading failure to owner; do not suppress it."
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": [
+        "Only owned evidence directory written; proposed-files mirrors and patch are not integrated.",
+        "Local Node26 source/tool tests are not supported Node22/24 or Actions/native execution.",
+        "Coordinator Node24 receipts reused only at compared input/output hashes; no fresh packed React-version/browser matrix or new remote native-host run.",
+        "No owner policy approval, action-code security audit, release, publication or remote mutation."
+      ]
+    },
+    {
+      "id": "A-R-25",
+      "originalRequirement": "- [ ] A-R-25 Reconcile original `R-25`: Pin/review workflow dependencies according to repository policy and validate proposed workflow changes without weakening protections to make checks pass. Historical status: open.",
+      "status": "partial",
+      "findings": "Seven current upstream action tag commit identities resolved read-only and action.yml retained. Proposed four workflows replace every external tag reference with full commit SHA and retain local reusable validation, events, token permissions, AI sandbox/scope/draft behavior. YAML parse, bash syntax, pin/cache and original gate equivalence tests pass. Proposed dependency review policy is concrete but not maintainer-approved. Action pins do not make Node/runner/downloaded Codex CLI immutable; Codex CLI input remains unspecified and must be reviewed.",
+      "evidence": [
+        "evidence.json",
+        "coordinator-hash-comparison.json",
+        "remote/runs.json",
+        "remote/action-pins.json",
+        "artifact-tests.txt",
+        "workflow-tests.txt",
+        "patch-check.txt"
+      ],
+      "commandsActuallyRun": [
+        "python3 docs/developer/final-acceptance/wave-03-36/capture.py",
+        "node --test docs/developer/final-acceptance/wave-03-36/proposed-files/packages/ui/scripts/ci-artifacts.test.mjs",
+        "node --test docs/developer/final-acceptance/wave-03-36/verify-proposal.test.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-36/ci-artifact-freshness.patch",
+        "Read-only gh api run/jobs/artifacts/upstream-action metadata and three archive retrievals; raw responses in remote/"
+      ],
+      "runtime": {
+        "node": "v26.5.0",
+        "python": "3.9.6"
+      },
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "inputHashes": "evidence.json inputHashes; coordinator-hash-comparison.json; priorComparisons",
+      "patchNeedsIntegration": true,
+      "patch": "ci-artifact-freshness.patch",
+      "successorDeliverables": [
+        "Maintainer reviews/adopts dependency policy and upstream action implementations/releases/downloaded tools, including exact Codex CLI decision.",
+        "Run actionlint schema/expression validation (unavailable here), supported runtime checks and representative normal workflow event paths after integration.",
+        "No repository protection/token settings are asserted or changed."
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": [
+        "Only owned evidence directory written; proposed-files mirrors and patch are not integrated.",
+        "Local Node26 source/tool tests are not supported Node22/24 or Actions/native execution.",
+        "Coordinator Node24 receipts reused only at compared input/output hashes; no fresh packed React-version/browser matrix or new remote native-host run.",
+        "No owner policy approval, action-code security audit, release, publication or remote mutation."
+      ]
+    },
+    {
+      "id": "A-Z-07",
+      "originalRequirement": "- [ ] A-Z-07 Reconcile original `Z-07`: Delete/rebuild generated dist, Storybook and package output during verification; no stale artifact may pass as migrated source. Fresh build, executed static stories and eight new packed consumers in the [browser batch record](react-aria-progress.md#executable-browser-gates-and-removal-audit). Historical status: checked.",
+      "status": "partial",
+      "findings": "Prior BUG0008\u20130012 fresh-build successor advanced: coordinator Node24 receipts show library/declarations, native docs host and actual packed-file equality checks after fixes. All112 captured inputs,1778 built-library outputs,292 private-host outputs and15 receipts still match. Reuse these bounded results, not old stale declarations or historical Storybook output. New script makes stale dist/native-host/package cleanup and stable-input receipt explicit, with3 meaningful isolated guard tests passing. No shared outputs deleted here. Final full installed React18/19/browser consumer matrix is absent from coordinator receipt and new workflow is patch-only.",
+      "evidence": [
+        "evidence.json",
+        "coordinator-hash-comparison.json",
+        "remote/runs.json",
+        "remote/action-pins.json",
+        "artifact-tests.txt",
+        "workflow-tests.txt",
+        "patch-check.txt"
+      ],
+      "commandsActuallyRun": [
+        "python3 docs/developer/final-acceptance/wave-03-36/capture.py",
+        "node --test docs/developer/final-acceptance/wave-03-36/proposed-files/packages/ui/scripts/ci-artifacts.test.mjs",
+        "node --test docs/developer/final-acceptance/wave-03-36/verify-proposal.test.mjs",
+        "git apply --check docs/developer/final-acceptance/wave-03-36/ci-artifact-freshness.patch",
+        "Read-only gh api run/jobs/artifacts/upstream-action metadata and three archive retrievals; raw responses in remote/"
+      ],
+      "runtime": {
+        "node": "v26.5.0",
+        "python": "3.9.6"
+      },
+      "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+      "inputHashes": "evidence.json inputHashes; coordinator-hash-comparison.json; priorComparisons",
+      "patchNeedsIntegration": true,
+      "patch": "ci-artifact-freshness.patch",
+      "successorDeliverables": [
+        "Integrate freshness guard and validate supported Node22/24 plus actual clean CI build/pack receipt.",
+        "Freeze final candidate source and join source/output/native-host hashes to required affected installed React-version/engine consumer results; preserve existing coordinator bounded passes.",
+        "Do not recreate Storybook or treat source/DOM assertions as native/device/AT evidence."
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": [
+        "Only owned evidence directory written; proposed-files mirrors and patch are not integrated.",
+        "Local Node26 source/tool tests are not supported Node22/24 or Actions/native execution.",
+        "Coordinator Node24 receipts reused only at compared input/output hashes; no fresh packed React-version/browser matrix or new remote native-host run.",
+        "No owner policy approval, action-code security audit, release, publication or remote mutation."
+      ]
+    }
+  ],
+  "counts": {
+    "complete": 0,
+    "partial": 4,
+    "blocked": 0
+  },
+  "centralLedgerModified": false,
+  "sharedFilesModified": false,
+  "noRemoteMutations": true,
+  "noMigrationCompletionOrReleaseClaim": true
+}

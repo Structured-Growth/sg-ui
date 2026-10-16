@@ -1,0 +1,40 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+ ❯ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx (0 test)
+ ❯ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx [ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx ]
+Error: Cannot find module '/src/i18n' imported from /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/DataGrid.tsx
+ ❯ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/DataGrid.tsx:11:1
+      9| import { TextField } from "../TextField/TextField";
+     10| import { Popover } from "../Popover/Popover";
+     11| import { useTranslation } from "../../i18n";
+       | ^
+     12| import { compareGridValues, filterGridRows } from "./row-processing";
+     13| import { defaultGridState, type DataGridProps, type GridState } from "…
+ ❯ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/components/AppDataGrid/columnWidthAlternative.test.tsx:5:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx [ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx ]
+Error: Cannot find module '/src/i18n' imported from /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.tsx
+ ❯ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.tsx:6:1
+      4| import { TextField } from "../TextField/TextField";
+      5| import { Popover } from "../Popover/Popover";
+      6| import { useTranslation } from "../../i18n";
+       | ^
+      7|
+      8| /** Private shared pointer alternative. Width requests remain owned by…
+ ❯ ../../docs/developer/final-acceptance/wave-03-10/proposed-files/packages/ui/src/experimental/DataGrid/GridColumnWidthControl.test.tsx:5:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  no tests
+   Start at  18:07:21
+   Duration  838ms (transform 94ms, setup 16ms, import 0ms, tests 0ms, environment 268ms)
+

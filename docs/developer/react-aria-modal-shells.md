@@ -3,8 +3,8 @@
 Tasks M-06–M-09. AppModal, AuthShell, SideNavigation and AppShell keep their public
 names and have granular `/components/<Name>` exports. Import `/styles.css` once
 and provide `Provider` or `ThemeScope`, including around mixed editor compositions.
-These modules use owned controls and compiled token CSS; root catalog imports still
-include unmigrated components and their peers.
+These modules and the root catalog use owned controls and compiled token CSS.
+Granular exports remain available for bounded consumer imports.
 
 ## AppModal breaking mappings
 

@@ -1,5 +1,6 @@
 "use client";
-import { forwardRef } from "react";
+import { forwardRef, useRef, useState, type ReactNode } from "react";
+import { useFormReset } from "../useFormReset";
 import { Select as AriaSelect, SelectValue } from "react-aria-components/Select";
 import { Label } from "react-aria-components/Label";
 import { Text } from "react-aria-components/Text";
@@ -25,6 +26,9 @@ export interface SelectProps {
   onValueChange?: (value: string | null) => void;
   name?: string;
   placeholder?: string;
+  /** Decorative logical start/end icons; the dropdown chevron remains visible. */
+  startIcon?: ReactNode;
+  endIcon?: ReactNode;
   description?: string;
   required?: boolean;
   disabled?: boolean;
@@ -33,23 +37,42 @@ export interface SelectProps {
   errorMessage?: string;
   className?: string;
 }
-export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select({ label, options, value, defaultValue, onValueChange, name, placeholder, description, required, disabled, readOnly, invalid, errorMessage, className }, ref) {
+export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select({ label, options, value, defaultValue, onValueChange, name, placeholder, description, required, disabled, readOnly, invalid, errorMessage, className, startIcon, endIcon }, ref) {
   const { t } = useTranslation(); const scope = useOverlayScope();
   const { direction } = useLocale();
   const directionRef = useOverlayDirectionRef(direction);
+  const root = useRef<HTMLDivElement>(null);
+  const [internalValue, setInternalValue] = useState(defaultValue ?? null);
+  const selected = value === undefined ? internalValue : value;
+  const resetting = useFormReset(root, () => {
+    const next = value === undefined ? defaultValue ?? null : value;
+    if (value === undefined) setInternalValue(next);
+    // The browser resets the native select after reset-event listeners finish.
+    // Reconcile its wire value in the deferred owned reset task, including when
+    // a controlled host keeps the same value and React has no state update.
+    const select = root.current?.querySelector("select");
+    if (select) select.value = next ?? "";
+  });
   const placeholderText = placeholder ?? t("common.ui.selectOption", { defaultMessage: "Select an option" });
-  return <AriaSelect selectedKey={value} defaultSelectedKey={defaultValue} onSelectionChange={key => onValueChange?.(key === null ? null : String(key))}
+  return <AriaSelect ref={root} selectedKey={selected} onSelectionChange={key => {
+    if (resetting.current) return;
+    const next = key === null ? null : String(key);
+    if (value === undefined) setInternalValue(next);
+    onValueChange?.(next);
+  }}
     disabledKeys={options.filter(option => option.disabled).map(option => option.id)}
     name={name} isRequired={required} isDisabled={disabled} isInvalid={invalid} validationBehavior="native"
     placeholder={placeholderText}
     className={[field.root, styles.root, className].filter(Boolean).join(" ")}>
     <Label className={field.label}>{label}</Label>
-    <AriaButton type="button" ref={ref} isDisabled={readOnly} aria-readonly={readOnly || undefined} className={[field.input, styles.trigger].join(" ")}>
+    <AriaButton type="button" ref={ref} isDisabled={readOnly} aria-readonly={readOnly || undefined} className={[field.input, styles.trigger].join(" ")} data-start-icon={startIcon ? true : undefined}>
+      {startIcon && <span className={field.adornment} data-sgui-part="field-start-icon" aria-hidden="true">{startIcon}</span>}
       <span aria-hidden="true" className={styles.sizer}>
         <span data-label={placeholderText} />
         {options.map(option => <span key={option.id} data-label={option.label} />)}
       </span>
-      <SelectValue className={styles.value} /><KeyboardArrowDownIcon className={styles.chevron} />
+      <SelectValue className={styles.value} />
+      <span className={styles.trailing} aria-hidden="true">{endIcon && <span className={field.adornment} data-sgui-part="field-end-icon">{endIcon}</span>}<KeyboardArrowDownIcon className={styles.chevron} /></span>
     </AriaButton>
     {(description || options.length === 0) && <Text slot="description" className={field.description}>
       {description}{description && options.length === 0 && " "}

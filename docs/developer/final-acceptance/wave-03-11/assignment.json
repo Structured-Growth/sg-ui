@@ -1,0 +1,89 @@
+{
+  "number": 11,
+  "title": "Nested scopes hydration and isolation",
+  "ids": [
+    "A-D-16",
+    "A-D-17",
+    "A-X-16",
+    "A-X-18"
+  ],
+  "focus": "Resolve portaled scope, initial theme/locale/SSR ID and StrictMode cleanup successors. Reuse current receipts and target affected state isolation/hydration scenarios with deterministic fixtures.",
+  "directory": "docs/developer/final-acceptance/wave-03-11",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-D-16": "- [ ] A-D-16 Reconcile original `D-16`: Define scoped theme/density roots and nested overrides; ensure portaled overlays receive the correct scope and variables. Historical status: open.",
+    "A-D-17": "- [ ] A-D-17 Reconcile original `D-17`: Specify explicit light/dark/system settings, initial server theme, `color-scheme`, and hydration behavior without unwanted flashes or browser-global assumptions. Historical status: open.",
+    "A-X-16": "- [ ] A-X-16 Reconcile original `X-16`: Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions. Historical status: open.",
+    "A-X-18": "- [ ] A-X-18 Reconcile original `X-18`: Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values. Historical status: checked."
+  },
+  "priorEvidence": {
+    "A-D-16": {
+      "id": "A-D-16",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-D-16 Reconcile original `D-16`: Define scoped theme/density roots and nested overrides; ensure portaled overlays receive the correct scope and variables. Historical status: open.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Recover prior token-tier portal raw receipt or run only unreconciled existing case; add missing live nested-overlay scope-change case with computed attribute/token results and focus return."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-D-17": {
+      "id": "A-D-17",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-D-17 Reconcile original `D-17`: Specify explicit light/dark/system settings, initial server theme, `color-scheme`, and hydration behavior without unwanted flashes or browser-global assumptions. Historical status: open.",
+      "conversationNumber": 15,
+      "report": "docs/developer/final-acceptance/wave-02-15/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-15/results.json",
+      "reportSha256": "4eb267c87a8ddf70434a4afa011ffa378cef59b7cef0a2808b8ec5858a905c23",
+      "resultsSha256": "b3aaa066898b65af385a2c9259bbd5f9e4c504fc14be6c9ae5d14d6fe4e2e784",
+      "successors": [
+        "Use authorized packed SSR window for system theme first paint/hydration/raw results; record stylesheet and server initial-theme assumptions, zero recoverable errors and preference change."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-X-16": {
+      "id": "A-X-16",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-X-16 Reconcile original `X-16`: Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions. Historical status: open.",
+      "conversationNumber": 10,
+      "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+      "reportSha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+      "resultsSha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+      "successors": [
+        {
+          "id": "W02-10-X16",
+          "ownerOrPrerequisite": "Coordinator lifecycle/contract matrix owner",
+          "deliverable": "Combine existing two-instance/IDs/portal/StrictMode/default/controlled tests into component-boundary matrix. Fill only missing supported transitions; mark ownership-switch-remount rules explicitly.",
+          "acceptanceEvidence": "Each contract boundary linked to exact test assertion and retained result/host hash; one composed native case for uncovered nested live portal changes may also satisfy parallel10 P10-D16-01.",
+          "execution": "unrun"
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-X-18": {
+      "id": "A-X-18",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-X-18 Reconcile original `X-18`: Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values. Historical status: checked.",
+      "conversationNumber": 10,
+      "report": "docs/developer/final-acceptance/wave-02-10/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-10/results.json",
+      "reportSha256": "bd2f1f0293e4268ed8a1f59aa1e0fcf4ff2628a1deee223f059c901565984b41",
+      "resultsSha256": "bacfa71c91a15263f7a090fa5bc8c69095be1a8839f883174c5a19b05b0696be",
+      "successors": [
+        {
+          "id": "W02-10-X18",
+          "ownerOrPrerequisite": "Coordinator immutable current package/SSR host window",
+          "deliverable": "Reuse unchanged SSR and native hydration evidence; add system first-styled frame/preference case from P10-D17-01 and affected composed-control SSR/import cases after BUG0008/0009 fixes.",
+          "acceptanceEvidence": "No browser globals during import/render, expected initial locale/theme/date wire values, preserved server root, unique IDs/resolved hydrated IDREFs and zero recoverable errors; record pre-JS limitations honestly.",
+          "execution": "unrun"
+        }
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

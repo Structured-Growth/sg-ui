@@ -13,7 +13,7 @@ it("suppresses disabled clock edits and resumes the owned callback when enabled"
   const change = vi.fn<NonNullable<TimeFieldProps["onValueChange"]>>();
   const ref = createRef<HTMLDivElement>();
   const view = (disabled: boolean) => <Provider><form aria-label="Clock form">
-    <TimeField ref={ref} label="Clock" defaultValue="09:30:00" hourCycle={24}
+    <TimeField entryMode="segments" ref={ref} label="Clock" defaultValue="09:30:00" hourCycle={24}
       name="clock" disabled={disabled} onValueChange={change} />
   </form></Provider>;
   const { rerender } = render(view(true));
@@ -37,9 +37,9 @@ it("isolates sibling clock drafts, reset listeners and refs across unmount and r
   const firstChange = vi.fn(); const secondChange = vi.fn();
   const firstRef = createRef<HTMLDivElement>(); const secondRef = createRef<HTMLDivElement>();
   const view = (showFirst: boolean) => <Provider>
-    <form aria-label="First form">{showFirst && <TimeField key="first" ref={firstRef} label="First clock"
+    <form aria-label="First form">{showFirst && <TimeField entryMode="segments" key="first" ref={firstRef} label="First clock"
       defaultValue="09:30:00" hourCycle={24} name="first" onValueChange={firstChange} />}</form>
-    <form aria-label="Second form"><TimeField ref={secondRef} label="Second clock"
+    <form aria-label="Second form"><TimeField entryMode="segments" ref={secondRef} label="Second clock"
       defaultValue="12:45:00" hourCycle={24} name="second" onValueChange={secondChange} /></form>
   </Provider>;
   const { rerender } = render(view(true));

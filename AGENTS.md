@@ -593,10 +593,21 @@ availability explanations while preserving complete localized date labels. Its
 private native-ref bridge preserves existing description references; do not replace
 date labels with decorations or hover-only titles. See [calendar contracts](docs/developer/react-aria-calendar-contracts.md). K-17 remains open for range-preview and assistive-technology acceptance.
 
+Calendar range selection sets a draft start and clears the end. An earlier second
+pick restarts at that date; only a same-day or later completed range can Apply.
+Keep native bounds/availability, anchor invalidation and committed form ownership.
+Owned Popover positioning flips when a side fits, then shifts within the visual
+viewport before scrolling; overlap with the trigger is allowed when needed to fit.
+Reserve range preview height even while the end is empty, so selection cannot
+move the calendar between pointerdown and pointerup.
+
 PageRichTextEditorSection has a keyboard focus stop in read-only mode; scoped
 Ctrl/Command+A selects its document for native Copy without selecting host content.
 Editable keyboard commands remain with Lexical. See [editor contracts](docs/developer/react-aria-editor-section.md)
 and [native clipboard browser gates](docs/developer/react-aria-browser-acceptance.md).
+Its private document interaction uses input-aware focus visibility: pointer editing,
+typing and caret movement must not activate the bounding outline. Preserve Tab
+navigation indicators on the document and its independently focusable scroll region.
 E-05 remains open for actual IME/device and assistive-technology acceptance.
 
 PageRichTextEditorSection owns local insertion object URLs through the current
@@ -668,3 +679,143 @@ IconPanelNavigation is an owned icon rail with persistent, non-modal sliding pan
 See [icon panel navigation](docs/developer/react-aria-icon-panel-navigation.md) for
 controlled opening, host-owned panel content, focus/keyboard behavior and independent
 AppShell placement. Load /styles.css and provide Provider or ThemeScope.
+
+
+Calendar grids reserve six week rows and center date labels. Months default to
+seven tightly packed square day targets without stretching to fill the host;
+compact pointer targets are 32px and comfortable/touch targets are at least 44px.
+Preserve local grid scrolling when those targets cannot fit. DateField supports
+optional date-only `entryMode="text"` with locale-ordered numeric and named-month
+normalization on blur/Enter; segmented entry remains the default and datetime
+stays segmented. Picker/range controls forward this option. Keep public values
+and native form serialization ISO, reject impossible dates and guard range Apply
+against invalid text drafts. The website groups the six date/time pages under
+Calendar. See [calendar contracts](docs/developer/react-aria-calendar-contracts.md).
+
+DatePicker joins its editable field and calendar Button in a shared bordered row,
+with labels above and help/errors below. Keep both entry modes aligned without
+label-height offsets, preserve full density/touch targets and logical RTL ends,
+and retain separate native keyboard targets and popup focus restoration.
+
+
+DateRangeSelector/DateRangePicker support `presetPlacement="side"` with responsive
+stacking, or `"end"` after the calendars; the default is `side`. Keep DOM/keyboard
+order aligned with visual logical order in RTL and narrow hosts. Calendar and the
+range controls accept one, two or three consecutive months. Independent endpoint
+navigation and comparison periods remain separate requested functionality; see the
+reference inventory in the calendar contracts. Presets remain host-supplied resolved ISO ranges.
+The public experimental `getRelativeDateRange` helper resolves complete calendar
+weeks/months/years against an explicit host civil reference date and week start.
+Keep the preset list configurable; business/holiday/fiscal rules and refresh or
+persistence of relative intent belong to the host, not an implicit browser clock.
+
+
+DateRangeSelector/DateRangePicker use connected weekly selection bands with logical
+rounded caps at interval, row and visible-month boundaries. Keep independent
+Calendar selections as separate boxes. Preserve native targets/focus and readable
+outlined row bands in forced colors without disabling forced-color adjustment.
+
+Calendar and date/range pickers default to hidden visible titles (showTitle=false), retaining required accessible labels and visible field labels. Explicit picker titles appear once on the popover. Generic Popover keeps showTitle=true by default. Keep calendar navigation beside the month headings, including multi-month layouts.
+
+Calendar, DatePicker and date range controls support navigation="month-year" and visibleYears (default 120, normalized to 1–9999, constrained by min/max). Month/year changes navigate without committing. Birthday examples keep direct entry and start empty. DatePicker kind="datetime" adds local datetime segments and a calendar/time draft committed by Apply; Cancel/Escape discard it. Preserve date-only immediate selection, host timezone policy, and TimeField completeness validation.
+
+TimeField defaults to a flexible textbox plus clock dropdown (entryMode="text"). Keep entryMode="segments" explicit in historical segment fixtures/tests. Values remain HH:mm:ss/null and refs remain outer divs. Normalize valid shorthand on blur/Enter; preserve invalid drafts and validity callbacks. Popup Hour/Minute/AM-PM choices apply atomically, retain all minute options and respect bounds/Cancel/reset/controlled authority. DatePicker datetime popups use this textbox; timezone/DST remains host-owned.
+
+DatePicker defaults to flexible date text (entryMode="text"). Set entryMode="segments" explicitly for segmented date-only entry, including historical segment fixtures. Its combined datetime field remains segmented; DateField remains segmented; range selectors default to flexible endpoint text. Keep the docs playground default aligned with the library.
+
+Flexible date text accepts two-digit years with a fixed 1950–2049 rule: 00–49 => 2000–2049; 50–99 => 1950–1999. Retain locale month/day order, strict civil-date validation and host bounds after expansion. Four-digit years preserve their explicit century.
+
+Flexible date relative phrases require referenceDate (host-owned Gregorian YYYY-MM-DD). Never infer an ambient clock/timezone. Pin the anchor per editing session and SSR; both range endpoints share it. Supported English phrases use strict next/last weekdays, seven-day weeks and Gregorian month/year clamping. Unknown prose/invalid anchors reject relative input; committed ISO dates never drift. Keep source-backed fixed-reference examples and the referenceDate playground control current.
+
+Date-picker documentation previews use content-sized hosts: align date-family
+scenario controls at start, and use fit-content with responsive maximum widths
+for named picker examples. Keep the same layout in copied source; do not stretch
+pickers to fill the preview merely because the surrounding Example is full width.
+Calendar month grids retain their natural widths and narrow-screen wrapping.
+
+Date/time field groups preserve theme field radii at logical outside corners and
+square inner seams. Keep radius-aware cap padding and native target sizes; compact
+calendar month/year selectors need enough text width for full year labels. The
+Material demo uses 1.5rem field and action radii. DateRangePicker uses the owned
+calendar trailing icon and field text styling.
+
+DateRangePicker defaults to a joined range textbox/calendar button. fieldMode="button"
+preserves selection-only presentation. Dropdown endpoint fields are hidden by default (showFields=false); enable showFields for freehand start/end textboxes. Inline DateRangeSelector retains showFields=true; both default entryMode to text. Presets use compact single-select label rows with checkmarks, subtle selection feedback and accessible descriptions rather than outlined buttons.
+Range text supports explicit date pairs and bounded this/last/next week/month/year
+against referenceDate; relative weeks use firstDayOfWeek (Monday default). Preserve
+full-interval availability, controlled authority, native validation/reset, accepted
+hidden values and Apply/Cancel semantics. No ambient clock or free-prose guessing.
+
+Relative date grammar, civil validation and arithmetic are centralized in
+packages/ui/src/utils/relative-dates.ts. Keep it dependency-free (enforced by the
+foundation guard); extend its owned Gregorian rules/tests rather than adding a
+third-party natural-language/date arithmetic library or duplicating relative rules
+in components. The public getRelativeDateRange export remains a compatibility
+reexport. Native Intl is only for localized names/digits; never infer a clock or
+use local-time arithmetic. Calendar interaction/instant conversion are separate.
+
+The shared relative parser also supports bounded conversational offsets such as
+"a week from today", "two weeks from today", "in a month" and "a week ago".
+"from now" uses the same explicit referenceDate, not a live clock. Word quantities
+are a/zero–twelve; digits remain supported. Reuse this grammar in range endpoints
+(e.g. "today - a week from today"); do not infer a whole range from one date.
+
+Flexible TimeField text accepts compact HMM/HHMM: 1300 => 13:00:00 and 315p =>
+15:15:00. Last two digits are minutes; no suffix means 24-hour time. Preserve
+strict minute/hour validation, a/p 1–12 hour semantics and configured display cycle.
+
+TextField, Select and ComboBox support decorative startIcon/endIcon slots;
+AsyncMultiSelect forwards them and placeholder to its query TextField. Slots are
+aria-hidden, follow logical direction and must not contain interactive controls.
+Preserve labels, dropdown affordances, native refs/forms/reset, full-frame keyboard
+focus, density/touch targets and theme radii. Keep placeholder/icon playgrounds and
+independent compact/comfortable examples aligned with copied public source.
+
+Use public SearchField for site/application search UI. It owns the clear action,
+local aliases, results portal, counts/empty/loading/error/retry, keyboard navigation
+and focus. Hosts supply items, labels and navigation or remote data; filter="none"
+accepts host-filtered results and showResults=false supports results elsewhere.
+The docs sidebar and catalog index use SearchField without custom search markup,
+keyboard handlers or icon CSS. Preserve native href/modified-click routing,
+controlled query/reset and scoped portal identity/density/RTL. Keep its playground,
+references and consumer guidance current; new search UI belongs in the library.
+
+DateRangeSelector defaults to side presets and a wider calendar/endpoint-field area. Explicit above/end placements remain supported. DateRangePicker uses Popover size="content" with a viewport cap; keep its trigger textbox compact. Narrow hosts wrap preset choices and complete endpoint fields without shrinking day targets. Range preview descriptions and draft status remain accessible but visually hidden; do not reserve vertical debug-summary space below the calendar.
+
+DateRangeSelector and DateRangePicker expose rangeClickBehavior (default adjust-end): restart, adjust-end, adjust-start, adjust-boundaries and active-endpoint. Initial two-date day-range creation sorts either direction unless fixed length completes it directly; editing a complete range follows the documented policy. Adjust-boundaries adjusts the end for inside clicks, extends the appropriate outside boundary, and keeps a complete range through calendar clicks. Typed endpoints/presets are independent; retain Apply/Cancel, form reset, bounds and unavailable-date validation. Playground source and generated prop descriptions must explain these distinctions.
+
+Calendar family expansion: rangeClickBehavior includes active-endpoint with controlled activeEndpoint/onActiveEndpointChange. Range dragging, length constraints (inclusive days versus nights), recurring/endpoint availability, independent month navigation, scrolling months, direct period selection, grouped presets, day annotations, and immediate versus Apply commits are owned props. PeriodPicker, DateTimeRangePicker and DateRangeComparisonPicker are public experimental compositions with native required/reset semantics and independent docs playgrounds. Preserve one owned civil math/relative-date engine, endpoint-aware validation across every entry path, keyboard alternatives and pointer gesture cancellation. See docs/developer/react-aria-calendar-contracts.md.
+
+Flexible date fields render no automatic date-format, two-digit-year or relative-anchor
+helper text. Keep calendar previews clean by default; explicit host descriptions
+remain supported. Preserve associated validation errors and omit empty helper rows
+and dangling aria-describedby references.
+
+Flexible date/range/time inputs keep live native validity and validity callbacks,
+but defer visible errors and aria-invalid until Enter, blur or native validation.
+A new edit clears local feedback; reset or changed host values clear it too.
+Explicit host invalid remains immediate. Composed calendars must not duplicate
+live child validity as premature visible range/comparison errors; Apply stays
+blocked for invalid or incomplete drafts.
+
+Completed date ranges use whole endpoint days as resize targets; do not restore
+separate drag grips. In move-and-resize mode, interior days move the range and
+Shift-drag moves from any selected day. Fixed-length endpoint drags translate the
+whole range, including resize-only mode. Bounded min/max length keeps the grabbed
+endpoint at the pointer and lets the opposite boundary follow at the limit.
+One-day ranges grow toward the pointer; endpoints do not invert. Preserve bounds
+and endpoint/interior availability, invalid-drop rollback, Escape cancellation,
+keyboard equivalents, and isolation from other selectors. See calendar contracts.
+
+Range drops recheck release coordinates and current availability/bounds. Disabled,
+read-only, drag/length policy changes, reset and host value replacement cancel an
+active gesture. Do not retain stale validation callbacks or let stale snapshots
+replace newer host state. Cross-month drops focus the destination calendar's cell.
+Keep selected text readable when a date is unavailable only for the current click
+role, and derive invalid-range announcements from owned endpoint/interior validity.
+
+PeriodPicker, DateTimeRangePicker and DateRangeComparisonPicker guard their commit
+boundaries and Clear actions when disabled/readOnly changes while a panel is open.
+Preserve the accepted selection and host authority; Cancel remains usable. TextArea
+renders inherited decorative startIcon/endIcon slots using the shared field frame,
+with multiline resize/rows, native ref/form/validation and logical edges preserved.

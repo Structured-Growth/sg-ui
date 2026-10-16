@@ -1,0 +1,11 @@
+✔ all 55 previously inspected runtime/peer full texts retained, including exact SWC copyright bytes (21.382916ms)
+✔ every existing license block and retired section retained; existing checker can parse all headings and direct/peer names (0.963166ms)
+✔ commercial sections retain all bytes except the specifically proposed factual package-list sentence (0.534875ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 73.809458

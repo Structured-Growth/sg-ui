@@ -1,0 +1,43 @@
+{
+  "scope": "wave-03-38 release acceptance successors; no publication authorized",
+  "integration": {
+    "patch": "docs/developer/final-acceptance/wave-03-38/release-guidance.patch",
+    "targets": ["docs/troubleshooting/release.md", "docs/troubleshooting/validation.md", "docs/github-setup.md"],
+    "preflight": "git apply --check docs/developer/final-acceptance/wave-03-38/release-guidance.patch",
+    "review": "Compare hashed inputs first; reconcile any concurrent guidance edits. Apply only after coordinator review. No build/catalog/native/packed check is needed for this documentation-only patch."
+  },
+  "checks": [
+    {
+      "command": "node --test docs/developer/final-acceptance/wave-03-38/offline-release.test.mjs",
+      "cwd": "repository root",
+      "runtime": "Coordinator Node24, with existing dependencies; pure offline Node tests, no install/build/server",
+      "expected": "3 tests pass: both breaking markers produce major; first publication is 1.0.0 and subsequent 1.4.2 becomes 2.0.0; maintenance has no release; feature/fix infer minor/patch; eight failure states choose review/observe/incident without mutations",
+      "alreadyRun": "3 pass on Node26.5.0; not Node22/24 support conformance"
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-03-38/capture.mjs",
+      "cwd": "repository root",
+      "expected": "No manifest/importer mismatch. Refresh hashes only in this evidence directory; inspect all topology/resolution differences rather than treating counts as thresholds."
+    },
+    {
+      "command": "pnpm install --lockfile-only --ignore-scripts",
+      "cwd": "isolated disposable checkout of the owner-approved dependency-maintenance head ONLY",
+      "runtime": "Node24, pnpm10.29.3",
+      "expected": "Package-manager generated lock; preserve before/after manifest/lock hashes, full transcript and intentional delta or no-delta explanation. Inspect peer contexts, overrides, patches, platform optional records. Do not run in shared checkout."
+    },
+    {
+      "command": "pnpm install --frozen-lockfile",
+      "cwd": "clean disposable checkout of the same reviewed maintenance head ONLY",
+      "runtime": "Node24, pnpm10.29.3; record OS/CPU/libc and physical optional selections",
+      "expected": "Frozen install succeeds without lock drift; preserve generation/install logs and platform exclusions. This does not replace required production validation."
+    }
+  ],
+  "externalEvidence": [
+    "Owner completes owner-release-record.template.json with redacted authoritative npm scope/package control and chosen token/2FA or trusted-publisher binding/direct-publish permission.",
+    "Owner records effective plugin-local npm CLI, GitHub tag/release/ruleset permissions, provenance eligibility and commercial/notices approval without copying credentials.",
+    "API ledger owner supplies exhaustive normalized breaking delta and final analyzed squash marker; release owner records first-publication or subsequent-major decision before approved main promotion.",
+    "Maintainer adopts runbook, assigns release/incident owners and records operator offline table drill. Automated decision model alone is insufficient."
+  ],
+  "prohibited": ["No version edits, tags, pushes, main promotion, registry mutation, publish/dry-run against live credentials, permission changes, shared install/build/catalog generation or server startup."],
+  "nativePackedBuildRequests": []
+}

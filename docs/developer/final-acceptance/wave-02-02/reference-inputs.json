@@ -1,0 +1,376 @@
+{
+  "capturedAt": "2026-10-16T22:44:46.127Z",
+  "head": "540f47d4059a9cea8890b80927f34f51ef2fbc3e",
+  "inputs": [
+    {
+      "file": "apps/docs/examples/GridHostExamples.tsx",
+      "sha256": "d0d3bdc7ff61a20c612869ad4f095e823b54645e142fe2d8a782a9c7e65bd9e9",
+      "matchesFA02": true
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/DataToolbar/DataToolbar.fixture.tsx",
+      "sha256": "5cda35a0470951a22e80c69b29989d5365f4d093fd0d7294557e12b1a949f817",
+      "matchesFA02": true
+    },
+    {
+      "file": "apps/docs/native-fixtures/scenarios/components/LearnerClassesDataGrid/LearnerClassesDataGrid.native.fixture.tsx",
+      "sha256": "b412aca7e7b01ba3748621b8ba95d38df0d0bd66f5389ab822d8b57cfc2579e5",
+      "matchesFA02": true
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c16.md",
+      "sha256": "bc54100ee9c29eb1b6523cbbcf9710390ee51285d43783f5a19badd3096d403a",
+      "matchesFA02": true
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c17.md",
+      "sha256": "11bd2045072263990617cecfb9e9f523302d5b0b44aee3238233c649240c2531",
+      "matchesFA02": true
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c18.md",
+      "sha256": "6d27bc0b9727de098b385ead6a8b564a87a86a4f930b6e62dfda54ecee145135",
+      "matchesFA02": true
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c19.md",
+      "sha256": "b3269fa1c5f6a20bca7e0b3d3174596acc671fffeb8f72f44765bf2c09770da9",
+      "matchesFA02": true
+    },
+    {
+      "file": "docs/developer/parallel-next100/next100-c20.md",
+      "sha256": "14637250e006cb2806b80fbcd328c9595e60b8d02c0e100faca592522d356289",
+      "matchesFA02": true
+    },
+    {
+      "file": "docs/developer/react-aria-catalog-grid.md",
+      "sha256": "a5579f6131b64f69e44a0c1a0612fb97193a62618a8536a9ec9744615aa6a8b0",
+      "matchesFA02": true
+    },
+    {
+      "file": "docs/developer/react-aria-grid-contracts.md",
+      "sha256": "78eeca7f920fa2291070a0e397eb844a3d211f6d59851085852a6d5085b61282",
+      "matchesFA02": true
+    },
+    {
+      "file": "docs/developer/react-aria-grid-decision.md",
+      "sha256": "7f972e6684c44a87ee7caa820de175cfbe3c25ce5113ee564f13bce50387be17",
+      "matchesFA02": true
+    },
+    {
+      "file": "docs/developer/react-aria-grid-reorder.md",
+      "sha256": "2eb3d179ec9066742ecad4bc1de1766361551d4bd1bac8cac9e750dba2e19314",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.cells.test.tsx",
+      "sha256": "50411f27e10ecf69d65d6037c35b1d7ae5e35f2bc838ac5071ccf5ad951289c7",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.pointer-invalidation.test.tsx",
+      "sha256": "73832a65b2bfd53b6fa57e33d999d1333574f51683798b08b0c8a70e7174804f",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.reorder.test.tsx",
+      "sha256": "7cc80265830cce5df17b616c52637f4a6fdb2250c86d8bf89a7ef8411f5ae6e0",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.test.tsx",
+      "sha256": "d5037a206368dde03af63d5e755d035311b9818c4595fbc67593a69775bf91aa",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/AppDataGrid.tsx",
+      "sha256": "52b7748e0e039295ac31db6318d934884d1a36b402a5cbcadab9ddd31a8a8b6e",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/createActionMenuColumn.ts",
+      "sha256": "05710e5771d036bf013295ee2559162bc0872148ce72c0acd6b4970819ab61de",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/createDataGridColumns.tsx",
+      "sha256": "18b31b203789b1d3f3150af4a56b4bbf2a48168e13ee917b9d546f1f553db48a",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.module.css",
+      "sha256": "982862902a59021116b659dfa2d420d73d2b54c39e67d3a434139a2a8953aa5b",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridCells.tsx",
+      "sha256": "f50829dbb7f1ce7942b87a7ffd1102c9721a3686d955b786731b944207ee0947",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridColumns.test.ts",
+      "sha256": "5ef01f4eeff2a0fa2beec2042a640e49e8b01ffb192633618c4c5d3a62b5ecaa",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridColumns.ts",
+      "sha256": "405ae6441b3635ce9b4e76d18c509c813664535f84422d2b454718743b638094",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridController.test.ts",
+      "sha256": "5534ec921137592213a557d239d060b535849ce256ed3759d2118e426ccccdda",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridController.ts",
+      "sha256": "cd099ccba9c0c15cd7adf4ba2a8537ac08e08500b98cb7df4f0ae130a87cb5fe",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css",
+      "sha256": "86542ddbd529f36afb5690f3d5302e82ab7e65aa7fd0d2c74ff72f503303a080",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.test.tsx",
+      "sha256": "502aa0db80b9d7bb3d7b8c3b46441130203bda77a3825f4db9a3698b3f6be414",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx",
+      "sha256": "d3fef23868311eaa9a608478aa0061f181dc77d981354589f41b71835d524c66",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridLayoutController.test.tsx",
+      "sha256": "e0361aefb394c6676a1bfe4dfb6452092f66107ad80f60ab279af8d39951203b",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridLayoutController.ts",
+      "sha256": "f1cb9e117f5d1c85103918c8ad1864bbd9ef97cf59b51f4415ac9610580fe5f6",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridModel.test.ts",
+      "sha256": "fc1a6eb8574b81b6efe1f856651f190cfdb34219b2dfc4b3c6ebc96227c1c96e",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridModel.ts",
+      "sha256": "ceb26de693e468cc5fc16dcb06f5098499041fb11d27f88ba5aaa054912b3586",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.module.css",
+      "sha256": "9f491a445d42293d35cac256b7d565c5337a02024781ed3df09b54b9c39a9085",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridParts.tsx",
+      "sha256": "dd8cfbaf97e8c0152dc714e84d1df20cf92263f601453e41c96dddf55d3acecf",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridProcessing.test.tsx",
+      "sha256": "2d0538f78a75726fce7e5d965863d7d5ea10e9d2352a6db740c62ebb901178b7",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridSortAcceptance.test.tsx",
+      "sha256": "c9d4596a4393409acb583dceb4d8c70f6c481d45fc8bf90c1cd8e95f133c831b",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridState.test.ts",
+      "sha256": "fe4c15e57a5e333ebce68fa7505410f68c5de44ff028b69d3c9c3e252368cda3",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/ownedGridState.ts",
+      "sha256": "c3b812ba75bc21ebbbb95cf54a384eb695be18b4446c4173b92aea8f681750db",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGrid/types.ts",
+      "sha256": "caa0e32e6ea070a4e2d2859ed553e778db9b9d06ce5a99a59f72e2dc409831a3",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.module.css",
+      "sha256": "bb6d4898cf884dd1a410454fc10610a1cdbf014749ee487e79c18c1a5c650c48",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.test.tsx",
+      "sha256": "e8191096167b08706ca532aa6db27de8d82f50d7d22dbd741fea9572edccd8a8",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "sha256": "8c781199600dc50f5b6533dcbd3f00baf354e5a585f38286b996514832a68116",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.test.tsx",
+      "sha256": "97a808c6316a6dfffea909316bdb231f61195dfa09f094b3cb9840dfe90fb876",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridRowDnd/useDataGridRowDnd.ts",
+      "sha256": "88828425448aa70e650f4985b6701e0ebfcea042578c09481725b8583177dc75",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.module.css",
+      "sha256": "0ae9c4b48c71058f778d507bb34deae364e82c2a39cd35d9fa05e9f3da4908e2",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.native-fixture.tsx",
+      "sha256": "c143f1fc838cc2bf078c8e6ee1e610929aaf64e2eebb74aa460fcbf7782e1746",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.server-response-races.test.tsx",
+      "sha256": "65a66b96b76fbc91409493950b5c9c713b00072b0a47c64f86f027ec13369105",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.test.tsx",
+      "sha256": "45114106d10183bcd63845d20255819d5fa6d4b7783eab7c1d6f2d4640a3f990",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "sha256": "07c3d004b9b26d1e9e79cbbb281bb542fc2d8cc1f88eca922033cc232cee2d7a",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.native-composition.test.tsx",
+      "sha256": "5b2bc0db7af28b33505f998df20f07837a9833aa22f685d726e4598293b6be61",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.next100-regression.test.tsx",
+      "sha256": "0de098cf684c05af225212a840323c15b8cbf4e3413f74e65bf3c4326cad87f3",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.test.tsx",
+      "sha256": "506c75e35f9fa061b5716943df4ebd56eec0c9158d8790a592f05e8ad9ac2f74",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/DataToolbar.tsx",
+      "sha256": "b6a964f7a4187b65892932c38ff50f5d2af6b7c08d1c4b5c54809f9ad58453a3",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.test.tsx",
+      "sha256": "80a1d26a39f9b47cd34f6db656446e200bbda99c01b7f4e7eb0efd725d75e323",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx",
+      "sha256": "95fa326ee237555bee7066f59b34326da7630d44742d803b518e57030430ea89",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.test.tsx",
+      "sha256": "fbf86172168e5dcb41e681266190a9c446e093d9c0ca4be41687f2d4e8f4af8a",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarFilterMenu.tsx",
+      "sha256": "e4711ac3016cd0fcfef549cea04c70b1b1402aa110ba1772ef1a8bb4f919e0b6",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.test.tsx",
+      "sha256": "3b49298106758f7337c14577068dad6d438a68e3dc4f35249cca344a0be4a76a",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx",
+      "sha256": "bc223424142f2ff7447a6770be25ae2258a9a1870226027430e7763b5ecf579f",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.test.tsx",
+      "sha256": "d45a63070fbc3b0a1a126366de0da78c103f585c4c47a4d49c2aff779dc283ba",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/components/DataToolbarSortMenu.tsx",
+      "sha256": "d31c4e4569f81bb159d71417b682f6c51cdcae4d0d780cf6ed5a436d70746ead",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/DataToolbar/filterRuleValue.ts",
+      "sha256": "c1dea0a7962f30acc9486cab0bcdf4856f5a8926d0b415373cb6581027852cef",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.next100-regression.test.tsx",
+      "sha256": "aff2143c775fccd7cec9bb95fb866fe52916aa813c37e52df94ac07ac1ecf927",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.test.tsx",
+      "sha256": "f243555780278fa41b7536f0cc1c4b980669f34c7241ee70d583a84eb7ac2edd",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx",
+      "sha256": "825d8a1d9de34de220997e0afe1ccefc63e03f72366af7cf58c9b37489db1c99",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/experimental/ButtonGroup/ButtonGroup.module.css",
+      "sha256": "8e563eb47f5fd4dc9e25c53f24efe8fa50bd7a7e8aa542cab7ae2d7e5f0a2768",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/experimental/DataGrid/column-sizing.ts",
+      "sha256": "0b7919fb819cfdb65af2a757af87049fba0bfe8ec05ec0dad99c1e05a862825f",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/experimental/SplitAction/SplitAction.test.tsx",
+      "sha256": "13a299801cf8a4e42749cdf8561d0269bee871f8fc27c17684d8f170f7ce5a2e",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/experimental/SplitAction/SplitAction.tsx",
+      "sha256": "00136fb510dd8cfef985a018e1862a009d55c41b58287b96f50ce06136a88ded",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/src/models.ts",
+      "sha256": "e8802b99e081c5cff9ab9d9259fe15a3f95d1bad8dbffb9e8a0c0114c9767414",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/tests/browser/acceptance-pack-114.spec.ts",
+      "sha256": "61edffed7a41dcc86518753fc95e3265542241fc949c030f47cbfde6bd918efc",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/tests/browser/batch06-grid-sort.spec.ts",
+      "sha256": "84ec82cbea3c3ca4415f9b144cc45f45a40706d3ce6013d4e32dfcf26654a608",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/tests/browser/hardening-grid-presentation.spec.ts",
+      "sha256": "13e4ebb1fe951e168efef46845cd536a99ab6d94c39afeae1209098b1b217902",
+      "matchesFA02": true
+    },
+    {
+      "file": "packages/ui/tests/browser/reorder.spec.ts",
+      "sha256": "569a945eb2df0cf461bc4d9576fa5e8d6092bf38f4a47b0bbf5674d7f9fda7b6",
+      "matchesFA02": true
+    }
+  ]
+}

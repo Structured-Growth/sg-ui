@@ -1,0 +1,5 @@
+apps/docs/native-fixtures/tsconfig.json: 3 proposed roots; 0 diagnostics
+
+packages/ui/tests/browser/tsconfig.json: 1 proposed roots; 0 diagnostics
+
+Runtime v24.19.0; overlay only, no source writes or build

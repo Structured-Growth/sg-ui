@@ -1,0 +1,153 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+ ❯ ../../docs/developer/final-acceptance/parallel-04/acceptance.test.tsx (11 tests | 1 failed) 338ms
+   × EXCEPTION: read-only Select removes its trigger from native focus while retaining submission 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../../docs/developer/final-acceptance/parallel-04/acceptance.test.tsx > EXCEPTION: read-only Select removes its trigger from native focus while retaining submission
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name "Status"
+
+Here are the accessible roles:
+
+  button:
+
+  Name "Active Status":
+  [36m<button[39m
+    [33maria-expanded[39m=[32m"false"[39m
+    [33maria-haspopup[39m=[32m"listbox"[39m
+    [33maria-labelledby[39m=[32m"react-aria-_r_5v_ react-aria-_r_5r_"[39m
+    [33mclass[39m=[32m"_input_a9c15a _trigger_16a99d"[39m
+    [33mdata-disabled[39m=[32m"true"[39m
+    [33mdata-rac[39m=[32m""[39m
+    [33mdata-react-aria-pressable[39m=[32m"true"[39m
+    [33mdisabled[39m=[32m""[39m
+    [33mid[39m=[32m"react-aria-_r_5q_"[39m
+    [33mtype[39m=[32m"button"[39m
+  [36m/>[39m
+
+  --------------------------------------------------
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<form[39m
+      [33mdata-testid[39m=[32m"form"[39m
+    [36m>[39m
+      [36m<template />[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"_root_a9c15a _root_16a99d"[39m
+        [33mdata-rac[39m=[32m""[39m
+      [36m>[39m
+        [36m<span[39m
+          [33mclass[39m=[32m"_label_a9c15a"[39m
+          [33mid[39m=[32m"react-aria-_r_5r_"[39m
+        [36m>[39m
+          [0mStatus[0m
+        [36m</span>[39m
+        [36m<button[39m
+          [33maria-expanded[39m=[32m"false"[39m
+          [33maria-haspopup[39m=[32m"listbox"[39m
+          [33maria-labelledby[39m=[32m"react-aria-_r_5v_ react-aria-_r_5r_"[39m
+          [33mclass[39m=[32m"_input_a9c15a _trigger_16a99d"[39m
+          [33mdata-disabled[39m=[32m"true"[39m
+          [33mdata-rac[39m=[32m""[39m
+          [33mdata-react-aria-pressable[39m=[32m"true"[39m
+          [33mdisabled[39m=[32m""[39m
+          [33mid[39m=[32m"react-aria-_r_5q_"[39m
+          [33mtype[39m=[32m"button"[39m
+        [36m>[39m
+          [36m<span[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"_sizer_16a99d"[39m
+          [36m>[39m
+            [36m<span[39m
+              [33mdata-label[39m=[32m"Select an option"[39m
+            [36m/>[39m
+            [36m<span[39m
+              [33mdata-label[39m=[32m"Active"[39m
+            [36m/>[39m
+          [36m</span>[39m
+          [36m<span[39m
+            [33mclass[39m=[32m"_value_16a99d"[39m
+            [33mdata-rac[39m=[32m""[39m
+            [33mid[39m=[32m"react-aria-_r_5v_"[39m
+          [36m>[39m
+            [0mActive[0m
+          [36m</span>[39m
+          [36m<span[39m
+            [33maria-hidden[39m=[32m"true"[39m
+            [33mclass[39m=[32m"_trailing_16a99d"[39m
+          [36m>[39m
+            [36m<svg[39m
+              [33maria-hidden[39m=[32m"true"[39m
+              [33mclass[39m=[32m"lucide lucide-chevron-down _root_11c4d4 _chevron_16a99d"[39m
+              [33mfill[39m=[32m"none"[39m
+              [33mfocusable[39m=[32m"false"[39m
+              [33mheight[39m=[32m"1em"[39m
+              [33mstroke[39m=[32m"currentColor"[39m
+              [33mstroke-linecap[39m=[32m"round"[39m
+              [33mstroke-linejoin[39m=[32m"round"[39m
+              [33mstroke-width[39m=[32m"2"[39m
+              [33mviewBox[39m=[32m"0 0 24 24"[39m
+              [33mwidth[39m=[32m"1em"[39m
+              [33mxmlns[39m=[32m"http://www.w3.org/2000/svg"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"m6 9 6 6 6-6"[39m
+              [36m/>[39m
+            [36m</svg>[39m
+          [36m</span>[39m
+        [36m</button>[39m
+        [36m<div[39m
+          [33maria-hidden[39m=[32m"true"[39m
+          [33mdata-a11y-ignore[39m=[32m"aria-hidden-focus"[39m
+          [33mdata-react-aria-prevent-focus[39m=[32m"true"[39m
+          [33mdata-testid[39m=[32m"hidden-select-container"[39m
+          [33mstyle[39m=[32m"border: 0px; clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: fixed; width: 1px; white-space: nowrap; top: 0px; left: 0px;"[39m
+        [36m>[39m
+          [36m<label>[39m
+            [36m<select[39m
+              [33mname[39m=[32m"status"[39m
+              [33mtabindex[39m=[32m"-1"[39m
+              [33mtitle[39m=[32m""[39m
+            [36m>[39m
+              [36m<option[39m
+                [33mlabel[39m=[32m" "[39m
+                [33mvalue[39m=[32m""[39m
+              [36m>[39m
+                [0m [0m
+              [36m</option>[39m
+              [36m<option[39m
+                [33mvalue[39m=[32m"active"[39m
+              [36m>[39m
+                [0mActive[0m
+              [36m</option>[39m
+            [36m</select>[39m
+          [36m</label>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</form>[39m
+  [36m</div>[39m
+[36m</body>[39m
+ ❯ Object.getElementError ../../node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/config.js:37:19
+ ❯ ../../node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+ ❯ ../../node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+ ❯ ../../node_modules/.pnpm/@testing-library+dom@10.4.2/node_modules/@testing-library/dom/dist/query-helpers.js:95:19
+ ❯ ../../docs/developer/final-acceptance/parallel-04/acceptance.test.tsx:36:17
+     34| it('EXCEPTION: read-only Select removes its trigger from native focus …
+     35|  render(<form data-testid="form"><Select label="Status" name="status" …
+     36|  expect((screen.getByRole('button',{name:'Status'}) as HTMLButtonEleme…
+       |                 ^
+     37|  expect(new FormData(screen.getByTestId('form') as HTMLFormElement).ge…
+     38| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Start at  17:35:06
+   Duration  1.22s (transform 205ms, setup 18ms, import 548ms, tests 338ms, environment 244ms)
+

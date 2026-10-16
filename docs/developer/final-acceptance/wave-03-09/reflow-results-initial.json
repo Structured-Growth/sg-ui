@@ -1,0 +1,2785 @@
+{
+  "startedAt": "2026-10-16T23:04:39.275Z",
+  "runtime": "v24.19.0",
+  "browser": "153.0.8010.12",
+  "base": "http://127.0.0.1:3000",
+  "limits": "Existing mutable development host, separate disposable browser contexts; DOM-injected font/spacing/label/density stress. Root text enlargement and CSS viewport reflow, NOT browser zoom, AT or production-build acceptance.",
+  "cases": [
+    {
+      "id": "en-compact-mono-320",
+      "locale": "en",
+      "density": "compact",
+      "font": "monospace",
+      "width": 320,
+      "scale": 100,
+      "errors": [],
+      "focus": [
+        {
+          "target": "card-footer",
+          "name": "Open course",
+          "tag": "A",
+          "rect": {
+            "left": 46,
+            "right": 151.0625,
+            "top": 466.09375,
+            "bottom": 481.09375,
+            "width": 105.0625,
+            "height": 15
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": "class-card-frame",
+              "tag": "ARTICLE",
+              "top": 203.09375,
+              "bottom": 492.59375,
+              "left": 33,
+              "right": 247,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 186.09375,
+              "bottom": 509.59375,
+              "left": 16,
+              "right": 264,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "MAIN",
+              "top": 306.296875,
+              "bottom": 640,
+              "left": 0,
+              "right": 280,
+              "scrollTop": 313,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 82.296875,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "clip",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-0",
+          "name": "Course configurationCloseDetailsSummaryCourse titleConfigure the title learners see.CancelSave locally",
+          "tag": "SECTION",
+          "rect": {
+            "left": 16,
+            "right": 304,
+            "top": 102.40625,
+            "bottom": 537.59375,
+            "width": 288,
+            "height": 435.1875
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "-2px",
+            "ring": 2
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-1",
+          "name": "Close",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 226.78125,
+            "right": 288,
+            "top": 194.40625,
+            "bottom": 226.40625,
+            "width": 61.21875,
+            "height": 32
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-2",
+          "name": "Details",
+          "tag": "DIV",
+          "rect": {
+            "left": 32,
+            "right": 108.5,
+            "top": 259.40625,
+            "bottom": 291.40625,
+            "width": 76.5,
+            "height": 32
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "-2px",
+            "ring": 2
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 259.40625,
+              "bottom": 292.40625,
+              "left": 32,
+              "right": 288,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-body",
+              "tag": "DIV",
+              "top": 243.40625,
+              "bottom": 432.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-3",
+          "name": null,
+          "tag": "INPUT",
+          "rect": {
+            "left": 32,
+            "right": 288,
+            "top": 330.40625,
+            "bottom": 362.40625,
+            "width": 256,
+            "height": 32
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 308.40625,
+              "bottom": 454.40625,
+              "left": 32,
+              "right": 288,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 292.40625,
+              "bottom": 416.59375,
+              "left": 32,
+              "right": 288,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-body",
+              "tag": "DIV",
+              "top": 243.40625,
+              "bottom": 432.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-4",
+          "name": "Cancel",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 32,
+            "right": 288,
+            "top": 449.59375,
+            "bottom": 481.59375,
+            "width": 256,
+            "height": 32
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-5",
+          "name": "Save locally",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 32,
+            "right": 288,
+            "top": 489.59375,
+            "bottom": 521.59375,
+            "width": 256,
+            "height": 32
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-6",
+          "name": "Close",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 226.78125,
+            "right": 288,
+            "top": 194.40625,
+            "bottom": 226.40625,
+            "width": 61.21875,
+            "height": 32
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        }
+      ],
+      "card": {
+        "width": 212,
+        "scrollWidth": 212,
+        "header": "Course basics",
+        "headerHeight": 60,
+        "font": "monospace"
+      },
+      "dialog": {
+        "width": 288,
+        "scrollWidth": 288,
+        "scrollTop": 0,
+        "height": 435,
+        "scrollHeight": 435
+      },
+      "status": "passed"
+    },
+    {
+      "id": "ar-comfortable-serif-320",
+      "locale": "ar",
+      "density": "comfortable",
+      "font": "serif",
+      "width": 320,
+      "scale": 100,
+      "errors": [],
+      "focus": [
+        {
+          "target": "card-footer",
+          "name": "Open course",
+          "tag": "A",
+          "rect": {
+            "left": 129.890625,
+            "right": 234,
+            "top": 464.09375,
+            "bottom": 482.09375,
+            "width": 104.109375,
+            "height": 18
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": "class-card-frame",
+              "tag": "ARTICLE",
+              "top": 134.09375,
+              "bottom": 494.09375,
+              "left": 33,
+              "right": 247,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 117.09375,
+              "bottom": 501.09375,
+              "left": 16,
+              "right": 264,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "MAIN",
+              "top": 306.296875,
+              "bottom": 640,
+              "left": 0,
+              "right": 280,
+              "scrollTop": 382,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 82.296875,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "clip",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-0",
+          "name": "Course configurationCloseDetailsSummaryCourse titleConfigure the title learners see.CancelSave locally",
+          "tag": "SECTION",
+          "rect": {
+            "left": 16,
+            "right": 304,
+            "top": 102.40625,
+            "bottom": 537.59375,
+            "width": 288,
+            "height": 435.1875
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "-2px",
+            "ring": 2
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-1",
+          "name": "Close",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 32,
+            "right": 107.0625,
+            "top": 164.40625,
+            "bottom": 208.40625,
+            "width": 75.0625,
+            "height": 44
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-2",
+          "name": "Details",
+          "tag": "DIV",
+          "rect": {
+            "left": 204.578125,
+            "right": 288,
+            "top": 241.40625,
+            "bottom": 285.40625,
+            "width": 83.421875,
+            "height": 44
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "-2px",
+            "ring": 2
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 241.40625,
+              "bottom": 286.40625,
+              "left": 32,
+              "right": 288,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-body",
+              "tag": "DIV",
+              "top": 225.40625,
+              "bottom": 432.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-3",
+          "name": null,
+          "tag": "INPUT",
+          "rect": {
+            "left": 32,
+            "right": 288,
+            "top": 327.40625,
+            "bottom": 371.40625,
+            "width": 256,
+            "height": 44
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 302.40625,
+              "bottom": 463.40625,
+              "left": 32,
+              "right": 288,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 286.40625,
+              "bottom": 416.59375,
+              "left": 32,
+              "right": 288,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-body",
+              "tag": "DIV",
+              "top": 225.40625,
+              "bottom": 432.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-4",
+          "name": "Cancel",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 32,
+            "right": 288,
+            "top": 449.59375,
+            "bottom": 481.59375,
+            "width": 256,
+            "height": 32
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-5",
+          "name": "Save locally",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 32,
+            "right": 288,
+            "top": 489.59375,
+            "bottom": 521.59375,
+            "width": 256,
+            "height": 32
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-6",
+          "name": "Close",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 32,
+            "right": 107.0625,
+            "top": 164.40625,
+            "bottom": 208.40625,
+            "width": 75.0625,
+            "height": 44
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "2px",
+            "offset": "2px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 320,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 16,
+              "right": 304,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 320,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        }
+      ],
+      "card": {
+        "width": 212,
+        "scrollWidth": 212,
+        "header": "خطة الدورة الدولية لتطوير مهارات القيادة والتعاون ومراجعة المواد التعليمية",
+        "headerHeight": 150,
+        "font": "serif"
+      },
+      "dialog": {
+        "width": 288,
+        "scrollWidth": 288,
+        "scrollTop": 0,
+        "height": 435,
+        "scrollHeight": 435
+      },
+      "status": "failed",
+      "failure": "AssertionError [ERR_ASSERTION]: focus not returned on dismissal\n    at /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-09/reflow-check.cjs:42:38"
+    },
+    {
+      "id": "en-comfortable-serif-text200",
+      "locale": "en",
+      "density": "comfortable",
+      "font": "serif",
+      "width": 640,
+      "scale": 200,
+      "errors": [],
+      "focus": [
+        {
+          "target": "card-footer",
+          "name": "Open course",
+          "tag": "A",
+          "rect": {
+            "left": 90,
+            "right": 298.203125,
+            "top": 495.1875,
+            "bottom": 532.1875,
+            "width": 208.203125,
+            "height": 37
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": "class-card-frame",
+              "tag": "ARTICLE",
+              "top": 77.1875,
+              "bottom": 555.1875,
+              "left": 65,
+              "right": 485,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 44.1875,
+              "bottom": 588.1875,
+              "left": 32,
+              "right": 528,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "MAIN",
+              "top": 387.59375,
+              "bottom": 640,
+              "left": 0,
+              "right": 560,
+              "scrollTop": 649,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 163.59375,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "clip",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-0",
+          "name": "Course configurationCloseDetailsSummaryCourse titleConfigure the title learners see.CancelSave locally",
+          "tag": "SECTION",
+          "rect": {
+            "left": 32,
+            "right": 608,
+            "top": 102.40625,
+            "bottom": 537.59375,
+            "width": 576,
+            "height": 435.1875
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "-4px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-1",
+          "name": "Close",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 427.875,
+            "right": 576,
+            "top": 226.40625,
+            "bottom": 314.40625,
+            "width": 148.125,
+            "height": 88
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-2",
+          "name": "Details",
+          "tag": "DIV",
+          "rect": {
+            "left": 64,
+            "right": 230.84375,
+            "top": 379.40625,
+            "bottom": 467.40625,
+            "width": 166.84375,
+            "height": 88
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "-4px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 379.40625,
+              "bottom": 468.40625,
+              "left": 64,
+              "right": 576,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-body",
+              "tag": "DIV",
+              "top": 347.40625,
+              "bottom": 675.40625,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-3",
+          "name": null,
+          "tag": "INPUT",
+          "rect": {
+            "left": 64,
+            "right": 576,
+            "top": 276.40625,
+            "bottom": 364.40625,
+            "width": 512,
+            "height": 88
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 226.40625,
+              "bottom": 450.40625,
+              "left": 64,
+              "right": 576,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 197.40625,
+              "bottom": 372.40625,
+              "left": 64,
+              "right": 576,
+              "scrollTop": 3,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-body",
+              "tag": "DIV",
+              "top": 76.40625,
+              "bottom": 404.40625,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 271,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-4",
+          "name": "Cancel",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 64,
+            "right": 576,
+            "top": 437.40625,
+            "bottom": 501.40625,
+            "width": 512,
+            "height": 64
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 271,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-5",
+          "name": "Save locally",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 64,
+            "right": 576,
+            "top": 465.40625,
+            "bottom": 529.40625,
+            "width": 512,
+            "height": 64
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 323,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-6",
+          "name": "Close",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 427.875,
+            "right": 576,
+            "top": 226.40625,
+            "bottom": 314.40625,
+            "width": 148.125,
+            "height": 88
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        }
+      ],
+      "card": {
+        "width": 418,
+        "scrollWidth": 418,
+        "header": "Course basics",
+        "headerHeight": 60,
+        "font": "serif"
+      },
+      "dialog": {
+        "width": 576,
+        "scrollWidth": 576,
+        "scrollTop": 0,
+        "height": 435,
+        "scrollHeight": 782
+      },
+      "status": "passed"
+    },
+    {
+      "id": "ar-compact-mono-text200",
+      "locale": "ar",
+      "density": "compact",
+      "font": "monospace",
+      "width": 640,
+      "scale": 200,
+      "errors": [],
+      "focus": [
+        {
+          "target": "card-footer",
+          "name": "Open course",
+          "tag": "A",
+          "rect": {
+            "left": 249.890625,
+            "right": 460,
+            "top": 499.1875,
+            "bottom": 529.1875,
+            "width": 210.109375,
+            "height": 30
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": "class-card-frame",
+              "tag": "ARTICLE",
+              "top": -265.8125,
+              "bottom": 551.1875,
+              "left": 65,
+              "right": 485,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": -183.8125,
+              "bottom": 584.1875,
+              "left": 32,
+              "right": 528,
+              "scrollTop": 115,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "MAIN",
+              "top": 387.59375,
+              "bottom": 640,
+              "left": 0,
+              "right": 560,
+              "scrollTop": 877,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 163.59375,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "clip",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-0",
+          "name": "Course configurationCloseDetailsSummaryCourse titleConfigure the title learners see.CancelSave locally",
+          "tag": "SECTION",
+          "rect": {
+            "left": 32,
+            "right": 608,
+            "top": 102.40625,
+            "bottom": 537.59375,
+            "width": 576,
+            "height": 435.1875
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "-4px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-1",
+          "name": "Close",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 64,
+            "right": 184.421875,
+            "top": 286.40625,
+            "bottom": 350.40625,
+            "width": 120.421875,
+            "height": 64
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-2",
+          "name": "Details",
+          "tag": "DIV",
+          "rect": {
+            "left": 423.015625,
+            "right": 576,
+            "top": 415.40625,
+            "bottom": 479.40625,
+            "width": 152.984375,
+            "height": 64
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "-4px",
+            "ring": 4
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 415.40625,
+              "bottom": 480.40625,
+              "left": 64,
+              "right": 576,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-body",
+              "tag": "DIV",
+              "top": 383.40625,
+              "bottom": 639.40625,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-3",
+          "name": null,
+          "tag": "INPUT",
+          "rect": {
+            "left": 64,
+            "right": 576,
+            "top": 465.40625,
+            "bottom": 529.40625,
+            "width": 512,
+            "height": 64
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 421.40625,
+              "bottom": 645.40625,
+              "left": 64,
+              "right": 576,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "DIV",
+              "top": 410.40625,
+              "bottom": 537.40625,
+              "left": 64,
+              "right": 576,
+              "scrollTop": 21,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-body",
+              "tag": "DIV",
+              "top": 313.40625,
+              "bottom": 569.40625,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 70,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-4",
+          "name": "Cancel",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 64,
+            "right": 576,
+            "top": 361.40625,
+            "bottom": 425.40625,
+            "width": 512,
+            "height": 64
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 311,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-5",
+          "name": "Save locally",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 64,
+            "right": 576,
+            "top": 441.40625,
+            "bottom": 505.40625,
+            "width": 512,
+            "height": 64
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 311,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        },
+        {
+          "target": "dialog-tab-6",
+          "name": "Close",
+          "tag": "BUTTON",
+          "rect": {
+            "left": 64,
+            "right": 184.421875,
+            "top": 286.40625,
+            "bottom": 350.40625,
+            "width": 120.421875,
+            "height": 64
+          },
+          "focused": true,
+          "outline": {
+            "style": "solid",
+            "width": "4px",
+            "offset": "4px",
+            "ring": 8
+          },
+          "viewport": {
+            "width": 640,
+            "height": 640,
+            "dpr": 1,
+            "visualScale": 1
+          },
+          "clips": [
+            {
+              "part": null,
+              "tag": "SECTION",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "auto",
+              "clipped": false
+            },
+            {
+              "part": "dialog-surface",
+              "tag": "DIV",
+              "top": 102.40625,
+              "bottom": 537.59375,
+              "left": 32,
+              "right": 608,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            },
+            {
+              "part": null,
+              "tag": "HTML",
+              "top": 0,
+              "bottom": 640,
+              "left": 0,
+              "right": 640,
+              "scrollTop": 0,
+              "scrollLeft": 0,
+              "overflow": "hidden",
+              "clipped": false
+            }
+          ],
+          "hits": [
+            true,
+            true,
+            true
+          ],
+          "visible": true
+        }
+      ],
+      "card": {
+        "width": 418,
+        "scrollWidth": 418,
+        "header": "خطة الدورة الدولية لتطوير مهارات القيادة والتعاون ومراجعة المواد التعليمية",
+        "headerHeight": 360,
+        "font": "monospace"
+      },
+      "dialog": {
+        "width": 576,
+        "scrollWidth": 576,
+        "scrollTop": 0,
+        "height": 435,
+        "scrollHeight": 746
+      },
+      "status": "passed"
+    }
+  ],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_04sj4-pfh8bes._.js",
+      "sha256": "a4b9049b7be6979509c44ad711663782638bb01363132e82ef2f47d74f9621af"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_react-dom_0rcl5wy97q7ha._.js",
+      "sha256": "f83499489ee6215bc95fdd682ff0ef967bb0e0b684edeb69a42a4280455d48fc"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_18qmo6th5z87e._.css",
+      "sha256": "1f4bee10eea451d0631f964cefe8bc40efb00825664798b65951fe799f535d1d"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_react-dom_cjs_react-dom_development_20aui5d6z5g6f.js",
+      "sha256": "913dccec6de9fbe8ab6c6b8f3bb0c5ddb47d7b4bacc2bf94df57f81651ded740"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_react-server-dom-turbopack_0l5k4c24hf-6h._.js",
+      "sha256": "45c7cae4273b059908222c3d9af5fd507faa28aae0dcba4941810412f675f418"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_1dp0jbdpgprjk._.js",
+      "sha256": "bd53f889fa1f7f0f5eabfa926c33091bfe0f397c2dde64b4dfa124ddc59b2ccb"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0zix_%40swc_helpers_cjs_0hi-e474n4mns._.js",
+      "sha256": "f3a69265c6940865c56ae27261902b6ec42eebfa98d4d7725670671283b81d0c"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_1o8w891nudpy8._.js",
+      "sha256": "feaed1b6bc42218e96a87576c44fcdb1927032ccb120564389761c00baee20d0"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/apps_docs_1anvha4rlo79g._.js",
+      "sha256": "e0aec58ead3b44ced5ff04774e4482c70d021900dad20619c5b517ae24881156"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/apps_docs_02verucmevekb._.js",
+      "sha256": "bc546899da10000bbdd5d3a11c104716b6cec3a06a14c63d532121e5b19e6274"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/turbopack-apps_docs_1_-l4vaie-rib._.js",
+      "sha256": "77443b92dd0855b65fc6e082941dfb0cd372f85f9a3d984c40e12e2729755922"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_utils_1hq7q3dyermc2._.js",
+      "sha256": "3d3eb67134428c738a3f93875fb7802b5cc4e1614df5f845b8abbdd642372d7f"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_interactions_0h6ii6kv8e16r._.js",
+      "sha256": "3164d14bb55623f2c2ec6332bf2cc4a60e8608e8eb517b64ead54ac52b970cbe"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_1h-a6ouny85l7._.js",
+      "sha256": "9f49fd4db52054fc85f08f961c1d9ea025d1513101819b1dd4785e415db1e79c"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_overlays_1er1g03hp9m5n._.js",
+      "sha256": "d3e938d82708bc90495d8d97fe36b918e9647a80aef4a35217998343dad4e9d3"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_selection_01n-y00zv1-uo._.js",
+      "sha256": "e6f3afdc28ea5699a5687557594c9b3d8b5cb832dc02deb778ffb28043c63459"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_react-dom_cjs_react-dom-client_development_0hrt_bwj0bk8l.js",
+      "sha256": "e84e0316b2189119e4c494fba140ef0739f2beaa0ad6462b461e425686763a3d"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_next-devtools_index_1-pvacf51lqc4.js",
+      "sha256": "901618462241af7adb5c521893abcb98f14fc2bf090d8d4ffbb5b4e781c47140"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_client_0pi8o_ei7_q9n._.js",
+      "sha256": "b53fb06d5b7903be89bc45b8c226c61af30420c0e99124887cd9a89ea19dbf86"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/03ro_react-stately_dist_private_1vqv3u5g5lvrr._.js",
+      "sha256": "ac57ec961e577b63177f68b4e5330ad61e5a0d3505f8b0c05ee616d284fe3f37"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/apps_docs_examples_1iy94vmr-3dz9._.js",
+      "sha256": "1d37e1f5daeece79e76b738ca862de786b83af2cdbae22f709a24f1530956f48"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_0yy6nhfnrkoxv._.js",
+      "sha256": "01ef5ee29d92568451339fbc97663687eb835b4908fb18e2f3ff31242be3ae2c"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0ncz_react-aria-components_dist_private_0_vf1z3vuf636._.js",
+      "sha256": "5e58b3bc3b84c009f0529bfc786a5765082b02654e118f200627b350a861a5a9"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/node_modules__pnpm_1gcoj-jrpllsl._.js",
+      "sha256": "7679b9b08cb181ca14261f6403510ef8766329ea7b69907f4ef4434809dff171"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/node_modules__pnpm_1_sice04j1t_6._.js",
+      "sha256": "11a3c12415b315feb181442c56937a7523123cd6ea0d837b812a40f21a2f4a13"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_1ah88rybt2yqj._.js",
+      "sha256": "37013a22ba719e2846a1ca8f571db7bddd42899f6f163343e7b71f13042166c8"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/node_modules__pnpm_1kmp4-4xrlme_._.js",
+      "sha256": "3975f136b6ced1017e61858f195ac5c12702b11512aa64d7494fbe991f1727e6"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0ncz_react-aria-components_dist_private_0ljomin3k1wfh._.js",
+      "sha256": "a0e37f7f8d9a140bd3ae526cc20b958dbc97b6df71f8de34970b5bf9f4ea21d2"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0bxy_%40tanstack_table-core_build_lib_index_mjs_0xl90ssoh_7uf._.js",
+      "sha256": "efa49720dc159931b66a39d371b94d8062cc8f3886199d614835d0b07fe24ff0"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_1566wso7nwodd._.js",
+      "sha256": "0da4ff80f02de6b1c8573635c7f3def8647cd8fd0ca94d06309e3da057f3f690"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_0r4oh3792cnes._.js",
+      "sha256": "8680e79d7161476822dc073f3387346f0fd02fee74b5901d22d12dc7311076e4"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_1mojsayzyj2p6._.js",
+      "sha256": "54897863877975d92f9b0932d9c5e9f35c8c6019e11d8cb5b406cfc6a6cf3cc9"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/apps_docs_0m-ya01l6zuhk._.js",
+      "sha256": "bc546899da10000bbdd5d3a11c104716b6cec3a06a14c63d532121e5b19e6274"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/node_modules__pnpm_1uzbq0dmdv7pg._.js",
+      "sha256": "b3a1943c7023fe47120ec4c495e1593f657b393ee556df20b520d4a936ecdb82"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_21a08cg4yziw9._.js",
+      "sha256": "59cb6137be8f763cb9bcc39c3b8766ddba16558886903b6e7ecea508475a631e"
+    }
+  ],
+  "finishedAt": "2026-10-16T23:04:44.994Z"
+}

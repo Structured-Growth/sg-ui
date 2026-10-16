@@ -1,0 +1,24 @@
+{
+  "command": "Node 24 check-syntax.mjs",
+  "node": "v24.21.0",
+  "typescript": "5.9.3",
+  "scope": "transpileModule syntax diagnostics only; no semantic typecheck, test or browser execution",
+  "outcomes": [
+    {
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-27/acceptance.test.tsx",
+      "diagnostics": []
+    },
+    {
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-27/proposed-files/apps/docs/native-fixtures/scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+      "diagnostics": []
+    },
+    {
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-27/proposed-files/packages/ui/src/experimental/DatePicker/DateEntryClipboard.test.tsx",
+      "diagnostics": []
+    },
+    {
+      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-27/proposed-files/packages/ui/tests/browser/date-entry-clipboard.spec.ts",
+      "diagnostics": []
+    }
+  ]
+}

@@ -1,0 +1,205 @@
+{
+  "runtime": "v24.19.0",
+  "browser": "153.0.8010.12",
+  "url": "http://127.0.0.1:3000/docs/components/card-frame",
+  "titles": [
+    "Cards & collections",
+    "ClassCardFrame",
+    "Course basics",
+    "Prop playground",
+    "Course basics",
+    "Examples",
+    "ClassCardFrame: Long content without footer",
+    "A much longer course title that demonstrates wrapping and readable content",
+    "Contains",
+    "Used In"
+  ],
+  "buttons": [
+    "Development · unreleased",
+    "Back to Components",
+    "+Show source: Prop playground",
+    "+Show source: Long content without footer",
+    "",
+    "",
+    ""
+  ],
+  "card": {
+    "html": "<article data-sgui-part=\"class-card-frame\" data-tone=\"default\" data-variant=\"outlined\" class=\"sgui_root_c43e3b84 sgui_root_01f51241 sgui_root_c5d02fb4\" style=\"padding:0px;max-inline-size:420px\"><div class=\"sgui_header_c5d02fb4\" data-sgui-part=\"class-card-header\"><h3 class=\"sgui_root_b7e5c5f3\" data-variant=\"h5\" data-tone=\"default\">Course basics</h3></div><div class=\"sgui_body_c5d02fb4\" data-sgui-part=\"class-card-body\"><p class=\"sgui_root_b7e5c5f3\" data-variant=\"body1\" data-tone=\"default\">Host supplied course details and learning objectives.</p></div><div class=\"sgui_footer_c5d02fb4\" data-sgui-part=\"class-card-footer\"><a href=\"#main-content\" class=\"sgui_root_e94930de\" data-underline=\"hover\" data-tone=\"primary\">Open course</a></div></article>",
+    "container": ""
+  },
+  "dialogButtons": [
+    "Development · unreleased",
+    "Back to Components",
+    "Open example dialog",
+    "md",
+    "Open example dialog",
+    "+Show source: Prop playground",
+    "Open xs dialog",
+    "+Show source: XS size",
+    "Open sm dialog",
+    "+Show source: SM size",
+    "Open md dialog",
+    "+Show source: MD size",
+    "Open lg dialog",
+    "+Show source: LG size",
+    "Open xl dialog",
+    "+Show source: XL size",
+    "Open full dialog",
+    "+Show source: FULL size",
+    "Open compact form",
+    "+Show source: Compact dialog density",
+    "Open comfortable form",
+    "+Show source: Comfortable dialog density",
+    "Open tabbed settings",
+    "+Show source: Tabbed configuration form",
+    "Start two-step flow",
+    "+Show source: Two-step creation flow",
+    "Open long course outline",
+    "+Show source: Scrollable content and custom footer",
+    "",
+    "",
+    ""
+  ],
+  "responses": [
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_04sj4-pfh8bes._.js",
+      "sha256": "a4b9049b7be6979509c44ad711663782638bb01363132e82ef2f47d74f9621af"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_react-dom_cjs_react-dom_development_20aui5d6z5g6f.js",
+      "sha256": "913dccec6de9fbe8ab6c6b8f3bb0c5ddb47d7b4bacc2bf94df57f81651ded740"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_18qmo6th5z87e._.css",
+      "sha256": "1f4bee10eea451d0631f964cefe8bc40efb00825664798b65951fe799f535d1d"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_react-dom_0rcl5wy97q7ha._.js",
+      "sha256": "f83499489ee6215bc95fdd682ff0ef967bb0e0b684edeb69a42a4280455d48fc"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_react-server-dom-turbopack_0l5k4c24hf-6h._.js",
+      "sha256": "45c7cae4273b059908222c3d9af5fd507faa28aae0dcba4941810412f675f418"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_1dp0jbdpgprjk._.js",
+      "sha256": "bd53f889fa1f7f0f5eabfa926c33091bfe0f397c2dde64b4dfa124ddc59b2ccb"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0zix_%40swc_helpers_cjs_0hi-e474n4mns._.js",
+      "sha256": "f3a69265c6940865c56ae27261902b6ec42eebfa98d4d7725670671283b81d0c"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/apps_docs_1anvha4rlo79g._.js",
+      "sha256": "e0aec58ead3b44ced5ff04774e4482c70d021900dad20619c5b517ae24881156"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_1o8w891nudpy8._.js",
+      "sha256": "feaed1b6bc42218e96a87576c44fcdb1927032ccb120564389761c00baee20d0"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/apps_docs_02verucmevekb._.js",
+      "sha256": "bc546899da10000bbdd5d3a11c104716b6cec3a06a14c63d532121e5b19e6274"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/turbopack-apps_docs_1_-l4vaie-rib._.js",
+      "sha256": "77443b92dd0855b65fc6e082941dfb0cd372f85f9a3d984c40e12e2729755922"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_utils_1hq7q3dyermc2._.js",
+      "sha256": "3d3eb67134428c738a3f93875fb7802b5cc4e1614df5f845b8abbdd642372d7f"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_interactions_0h6ii6kv8e16r._.js",
+      "sha256": "3164d14bb55623f2c2ec6332bf2cc4a60e8608e8eb517b64ead54ac52b970cbe"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_1h-a6ouny85l7._.js",
+      "sha256": "9f49fd4db52054fc85f08f961c1d9ea025d1513101819b1dd4785e415db1e79c"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_overlays_1er1g03hp9m5n._.js",
+      "sha256": "d3e938d82708bc90495d8d97fe36b918e9647a80aef4a35217998343dad4e9d3"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_react-dom_cjs_react-dom-client_development_0hrt_bwj0bk8l.js",
+      "sha256": "e84e0316b2189119e4c494fba140ef0739f2beaa0ad6462b461e425686763a3d"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_selection_01n-y00zv1-uo._.js",
+      "sha256": "e6f3afdc28ea5699a5687557594c9b3d8b5cb832dc02deb778ffb28043c63459"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_compiled_next-devtools_index_1-pvacf51lqc4.js",
+      "sha256": "901618462241af7adb5c521893abcb98f14fc2bf090d8d4ffbb5b4e781c47140"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/03ro_react-stately_dist_private_1vqv3u5g5lvrr._.js",
+      "sha256": "ac57ec961e577b63177f68b4e5330ad61e5a0d3505f8b0c05ee616d284fe3f37"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0w1-_next_dist_client_0pi8o_ei7_q9n._.js",
+      "sha256": "b53fb06d5b7903be89bc45b8c226c61af30420c0e99124887cd9a89ea19dbf86"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/apps_docs_examples_1iy94vmr-3dz9._.js",
+      "sha256": "1d37e1f5daeece79e76b738ca862de786b83af2cdbae22f709a24f1530956f48"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/node_modules__pnpm_1_sice04j1t_6._.js",
+      "sha256": "11a3c12415b315feb181442c56937a7523123cd6ea0d837b812a40f21a2f4a13"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0ncz_react-aria-components_dist_private_0_vf1z3vuf636._.js",
+      "sha256": "5e58b3bc3b84c009f0529bfc786a5765082b02654e118f200627b350a861a5a9"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/node_modules__pnpm_1gcoj-jrpllsl._.js",
+      "sha256": "7679b9b08cb181ca14261f6403510ef8766329ea7b69907f4ef4434809dff171"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_1ah88rybt2yqj._.js",
+      "sha256": "37013a22ba719e2846a1ca8f571db7bddd42899f6f163343e7b71f13042166c8"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_0yy6nhfnrkoxv._.js",
+      "sha256": "01ef5ee29d92568451339fbc97663687eb835b4908fb18e2f3ff31242be3ae2c"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0ncz_react-aria-components_dist_private_0ljomin3k1wfh._.js",
+      "sha256": "a0e37f7f8d9a140bd3ae526cc20b958dbc97b6df71f8de34970b5bf9f4ea21d2"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/node_modules__pnpm_1kmp4-4xrlme_._.js",
+      "sha256": "3975f136b6ced1017e61858f195ac5c12702b11512aa64d7494fbe991f1727e6"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0bxy_%40tanstack_table-core_build_lib_index_mjs_0xl90ssoh_7uf._.js",
+      "sha256": "efa49720dc159931b66a39d371b94d8062cc8f3886199d614835d0b07fe24ff0"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_1566wso7nwodd._.js",
+      "sha256": "0da4ff80f02de6b1c8573635c7f3def8647cd8fd0ca94d06309e3da057f3f690"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/0e12_react-aria_dist_private_0r4oh3792cnes._.js",
+      "sha256": "8680e79d7161476822dc073f3387346f0fd02fee74b5901d22d12dc7311076e4"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/%5Bturbopack%5D_browser_dev_hmr-client_hmr-client_ts_1mojsayzyj2p6._.js",
+      "sha256": "54897863877975d92f9b0932d9c5e9f35c8c6019e11d8cb5b406cfc6a6cf3cc9"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/apps_docs_0m-ya01l6zuhk._.js",
+      "sha256": "bc546899da10000bbdd5d3a11c104716b6cec3a06a14c63d532121e5b19e6274"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/node_modules__pnpm_1uzbq0dmdv7pg._.js",
+      "sha256": "b3a1943c7023fe47120ec4c495e1593f657b393ee556df20b520d4a936ecdb82"
+    },
+    {
+      "url": "http://127.0.0.1:3000/_next/static/chunks/_21a08cg4yziw9._.js",
+      "sha256": "59cb6137be8f763cb9bcc39c3b8766ddba16558886903b6e7ecea508475a631e"
+    }
+  ]
+}

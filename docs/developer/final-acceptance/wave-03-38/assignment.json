@@ -1,0 +1,93 @@
+{
+  "number": 38,
+  "title": "Release configuration and recovery",
+  "ids": [
+    "A-R-07",
+    "A-R-15",
+    "A-R-17",
+    "A-R-26",
+    "A-R-28"
+  ],
+  "focus": "Finish lockfile inspection/reproducibility, release markers, npm/trusted-publish permissions and failure recovery guidance. Read-only remote status checks allowed; prepare safe patches. Do not regenerate shared lockfile, change versions, tags, publish, push or promote main. Missing human/admin decisions remain explicit blockers.",
+  "directory": "docs/developer/final-acceptance/wave-03-38",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-R-07": "- [ ] A-R-07 Reconcile original `R-07`: Regenerate the lockfile through the package manager and inspect resolved transitive dependencies, overrides, patched dependencies and optional packages. Historical status: open.",
+    "A-R-15": "- [ ] A-R-15 Reconcile original `R-15`: Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy. Historical status: open.",
+    "A-R-17": "- [ ] A-R-17 Reconcile original `R-17`: Verify npm scope ownership, public access, trusted-publishing/token setup, GitHub release/tag permissions, provenance requirements, and commercial notices before publication. Historical status: open.",
+    "A-R-26": "- [ ] A-R-26 Reconcile original `R-26`: Define recovery from failed or partially completed publication, tag/package mismatch, and rollback/deprecation of a bad release; do not overwrite published versions. Historical status: open.",
+    "A-R-28": "- [ ] A-R-28 Reconcile original `R-28`: Validate release configuration safely without publishing while implementing it; explicitly control whether final migration merges will trigger the first public release or a subsequent major release. Historical status: open."
+  },
+  "priorEvidence": {
+    "A-R-07": {
+      "id": "A-R-07",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-07 Reconcile original `R-07`: Regenerate the lockfile through the package manager and inspect resolved transitive dependencies, overrides, patched dependencies and optional packages. Historical status: open.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-LOCK: on the next authorized dependency maintenance run preserve package-manager generation/frozen-install receipt, inspect importers/resolutions, overrides/patched and platform-optional selections plus peer contexts; explain intentional/no lock delta and bind exact manifest/lock/runtime hashes. Do not regenerate an unchanged lock solely to create a new timestamp."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-R-15": {
+      "id": "A-R-15",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-15 Reconcile original `R-15`: Mark breaking public API removals appropriately; if a release already exists, migration needs a major bump, while a first publication follows the configured initial-release policy. Historical status: open.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-BREAKING: finish normalized historical API/default/removal ledger, map every breaking delta to migration instructions and eventual squash markers; owner verifies actual published/tag state and records whether first publication or subsequent major policy applies. Do not hand-edit versions."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-R-17": {
+      "id": "A-R-17",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-17 Reconcile original `R-17`: Verify npm scope ownership, public access, trusted-publishing/token setup, GitHub release/tag permissions, provenance requirements, and commercial notices before publication. Historical status: open.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-OWNER: authorized owner records scope/package control, publishing route/2FA or trusted-publisher binding/effective CLI, GitHub tag/release permissions, provenance requirement and successful safe prerequisite verification, commercial/notices approval. Record redacted statuses and owner/date; do not copy secrets or publish as a test."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-R-26": {
+      "id": "A-R-26",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-26 Reconcile original `R-26`: Define recovery from failed or partially completed publication, tag/package mismatch, and rollback/deprecation of a bad release; do not overwrite published versions. Historical status: open.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-RECOVERY: maintainer adopts/reviews draft against installed release plugins, assigns release/incident owners, links maintained policy and records offline partial-failure state-table drill. Any live mutation remains separately human-approved; never overwrite versions/move public tags to manufacture success."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-R-28": {
+      "id": "A-R-28",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-28 Reconcile original `R-28`: Validate release configuration safely without publishing while implementing it; explicitly control whether final migration merges will trigger the first public release or a subsequent major release. Historical status: open.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-RELEASE-DECISION: owner verifies remote tags/registry/last release without exposing credentials, reviews normalized breaking ledger and required final checks, and records explicit decision that an approved main promotion triggers first publication or subsequent release. If a safe release simulation is needed, use reviewed nonpublishing isolated fixtures; no local publish/version edits."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

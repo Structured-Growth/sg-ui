@@ -6,7 +6,10 @@ Source: `Structured-Growth/learning-platform`, commit
 The file-by-file [manifest](extraction-manifest.json) preserves original source
 paths and destinations. Its `present` flags and migration replacement metadata
 were reconciled in the [removal audit](developer/react-aria-removal-audit.md).
-This documentation slice does not change that manifest or the learner platform.
+The [lineage reconciliation](developer/extraction-lineage.md) separates original
+source identity from local Git evidence, deliberate AppButton replacements and
+remaining early grid scenario dispositions. The learner platform remains outside
+this migration; no upstream checkout is modified.
 
 Components, helpers, stories and tests were initially copied, then adapted to a
 standalone library. That extraction is provenance, not today's runtime architecture.
@@ -89,7 +92,7 @@ owned types and the linked component contract rather than forwarding old prop ba
 | Typography and Stack styling | Owned variant including bodyAlt2; independent semantic `as`; Stack `gap`; [primitives](developer/react-aria-primitives.md) |
 | Icon fontSize/titleAccess/upstream SVG props | `size`, `label`, owned IconProps/native SVG ref; [icons](developer/react-aria-icons.md) |
 | Grid engine types, events, slots, sortModel | Owned columns/row accessors, ordered sortRules, one client/server mode; [grid](developer/react-aria-catalog-grid.md) |
-| Engine include/exclude selection and nested identity | Explicit string ID set and top-level getRowId; retained IDs require host reconciliation |
+| Upstream row-selection model alias and nested identity | Owned Set alias and top-level string getRowId; existing selection config Set values remain |
 | Independent shell/card/footer processing | One shared shell state owner; page zero before criteria callbacks; combined state snapshot for requests |
 | Implicit browser storage | Opt-in persistence with distinct keys per view; controlled values win; [hooks](developer/react-aria-pagination-state.md) |
 | Pinned metadata / unrestricted row dragging | Visibility locks and column order; bounded complete-page reorder with host persistence/rollback; [reorder](developer/react-aria-grid-reorder.md) |
@@ -97,6 +100,13 @@ owned types and the linked component contract rather than forwarding old prop ba
 | Editor application services | Host save/upload callbacks and owned section lifecycle; [editor section](developer/react-aria-editor-section.md) |
 | Modal/shell dismissal events and style slots | Owned reason/action callbacks, native slots and host adapters; [modal/shell](developer/react-aria-modal-shells.md) |
 | Calendar upstream date classes | Serializable civil date/range/time values and explicit timezone conversion; [dates](developer/react-aria-calendar-contracts.md) |
+
+Selection is now enabled when omitted. Pass `selection={false}` to retain the
+original extracted wrapper's omitted-selection presentation. Existing
+`selection.selectedRowIds` and its change callback already used Set values; only
+the upstream model/event contract is replaced. See
+[owned public defaults and validation](developer/react-aria-public-contracts.md) for
+component-specific visual domains, dismissal reasons and field commit ownership.
 
 The [card pagination](developer/react-aria-card-pagination.md),
 [card frames](developer/react-aria-card-frames.md),
@@ -107,6 +117,38 @@ The [card pagination](developer/react-aria-card-pagination.md),
 [data toolbar](developer/react-aria-data-toolbar.md) contracts provide per-component
 breaking mappings. Translated Course-named preset factories coexist with existing
 Class exports; see [presets](developer/react-aria-grid-presets.md).
+
+## Changed defaults and compatibility names
+
+Use the built public declarations for the version being adopted. The migration
+changes above include these consumer-visible defaults and ownership rules:
+
+| Concern | Current behavior / required migration |
+| --- | --- |
+| Button / removed AppButton | Import `Button` and `ButtonProps` from the root, components barrel or `/components/Button`. AppButton/AppButtonProps were removed before first release; historical evidence keeps its original names. Button defaults to `type="button"`, `variant="filled"`, `tone="primary"`; set submit/reset explicitly and use `onPress` without an upstream event. |
+| Scope / Menu density | General scopes default to comfortable. Generic Menu inherits scope density; catalog menu wrappers explicitly choose compact. Set a local scope or supported density prop instead of assuming all menus are compact. |
+| Typography tones | Use default/muted/subtle/accent/danger. `primary` is a compatibility alias for accent, not an action-priority label; semantic `as` and visual variant are independent. |
+| Grid selection | AppDataGrid selection config uses `ReadonlySet<string>` input and `Set<string>` change requests. Supply stable top-level getRowId; reconcile retained IDs in the host. Do not forward an engine include/exclude object. |
+| Pagination / persistence | Pages are zero-based. Criteria/page-size changes request page zero first. Persistence is opt-in with distinct keys; controlled values remain authoritative. |
+| Preserved names | Class-prefixed names, AppThemeProvider and AppPaginationFooter remain supported exports, not an inferred deprecation schedule. The CardPaginationFooter directory/subpath exports AppPaginationFooter. `/experimental` is a proof entry point; do not rename public App components to match it. |
+
+For example, after the application imports the stylesheet and provides its theme:
+
+```tsx
+import { useRef } from "react";
+import { Button, type ButtonProps } from "@structured-growth/sg-ui/components/Button";
+
+export function SaveDraft({ onSave }: { onSave: () => void }) {
+  const ref = useRef<HTMLButtonElement>(null);
+  const variant: ButtonProps["variant"] = "outlined";
+  return <Button ref={ref} variant={variant} tone="neutral"
+    onPress={onSave}>{"Save draft"}</Button>;
+}
+```
+
+This synchronous callback requests a host action; it does not persist a record or
+model asynchronous saving. Async hosts own completion/error state and supply it
+through the supported loading/disabled props. See the [adoption checklist](developer/react-aria-adoption-checklist.md).
 
 ## Adoption and remaining limits
 
@@ -137,6 +179,9 @@ reimplement focus, keyboard, collections, overlays, locale and date behavior; pr
 owned observable contracts; rerun browser/accessibility/SSR/package acceptance; and
 review dependency licenses. Engine independence does not imply automatic portability
 to another framework.
+
+
+Support decisions still required are recorded in the [dependency policy decision record](developer/react-aria-dependency-upgrades.md#human-decision-record-required-for-operational-acceptance): supported-release/backport window, routine review cadence and accountable maintainer, confidential intake and disclosure authority. This guide does not establish a support service, response SLA or deprecation schedule. Resolve those decisions before claiming operational support acceptance.
 
 Commercial terms and third-party notices remain authoritative. Local validation
 does not publish packages; Actions handles semantic-release after approved merges.

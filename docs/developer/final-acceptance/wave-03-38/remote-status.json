@@ -1,0 +1,23 @@
+{
+  "observedAt": "2026-10-16T23:04:39.414935+00:00",
+  "authentication": "none; public GET only",
+  "observations": {
+    "npm": {
+      "url": "https://registry.npmjs.org/@structured-growth%2fsg-ui",
+      "status": 404,
+      "interpretation": "Public endpoint response only; 404 does not prove private repository/package absence or owner permissions."
+    },
+    "githubTags": {
+      "url": "https://api.github.com/repos/Structured-Growth/sg-ui/tags?per_page=100",
+      "status": 200,
+      "data": [],
+      "link": null
+    },
+    "githubReleases": {
+      "url": "https://api.github.com/repos/Structured-Growth/sg-ui/releases?per_page=100",
+      "status": 200,
+      "data": [],
+      "link": null
+    }
+  }
+}

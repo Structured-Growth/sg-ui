@@ -1,0 +1,77 @@
+{
+  "number": 36,
+  "title": "CI artifacts caching and dependency pins",
+  "ids": [
+    "A-R-12",
+    "A-R-24",
+    "A-R-25",
+    "A-Z-07"
+  ],
+  "focus": "Resolve artifacts/retention/timeout/cache/immutable dependency checks and current native-host replacement workflow. Inspect GitHub read-only via available tools or gh if authenticated; prepare concrete workflow patches, no remote mutations or shared build execution.",
+  "directory": "docs/developer/final-acceptance/wave-03-36",
+  "status": "planned",
+  "originalChecklistStatements": {
+    "A-R-12": "- [ ] A-R-12 Reconcile original `R-12`: Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](react-aria-runtime-ci.md). Historical status: checked.",
+    "A-R-24": "- [ ] A-R-24 Reconcile original `R-24`: Update workflow timeouts/artifact handling as browser checks expand; cache by lockfile and avoid stale build outputs masking missing CSS or dependencies. Historical status: open.",
+    "A-R-25": "- [ ] A-R-25 Reconcile original `R-25`: Pin/review workflow dependencies according to repository policy and validate proposed workflow changes without weakening protections to make checks pass. Historical status: open.",
+    "A-Z-07": "- [ ] A-Z-07 Reconcile original `Z-07`: Delete/rebuild generated dist, Storybook and package output during verification; no stale artifact may pass as migrated source. Fresh build, executed static stories and eight new packed consumers in the [browser batch record](react-aria-progress.md#executable-browser-gates-and-removal-audit). Historical status: checked."
+  },
+  "priorEvidence": {
+    "A-R-12": {
+      "id": "A-R-12",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-12 Reconcile original `R-12`: Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](react-aria-runtime-ci.md). Historical status: checked.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-DOC corrects active artifact/build naming while preserving dated historical tables. R-CI must provide actual current producing run, artifact IDs/hashes/expiry and validation conclusions for packages and native-docs fixtures; owner/operator verifies retrieval rather than assuming continued availability."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-R-24": {
+      "id": "A-R-24",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-24 Reconcile original `R-24`: Update workflow timeouts/artifact handling as browser checks expand; cache by lockfile and avoid stale build outputs masking missing CSS or dependencies. Historical status: open.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-CI: inspect exact current full-run durations, failure-upload contents and fresh-build identities, adjust timeouts only with measured evidence and preserve failing behavior/engine gates. R-DOC corrects artifact guidance. Never use cached dist as a substitute for current-source build."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-R-25": {
+      "id": "A-R-25",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-R-25 Reconcile original `R-25`: Pin/review workflow dependencies according to repository policy and validate proposed workflow changes without weakening protections to make checks pass. Historical status: open.",
+      "conversationNumber": 12,
+      "report": "docs/developer/final-acceptance/wave-02-12/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-12/results.json",
+      "reportSha256": "2477234a499eab32a9fab25a49899f9094f30394cee5ece7a178efb3dd984cc6",
+      "resultsSha256": "36c89a852ddbcd84548b66b2be84325a422890639de70ba636b246915e6fc840",
+      "successors": [
+        "R-ACTIONS: maintainer defines tag-versus-commit pinning/review/update policy, reviews resolved upstream action identities/permissions and validates YAML plus representative event paths. If pins are adopted, make a normal reviewed infrastructure PR with preserved protections; source tags alone are not immutable provenance."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    },
+    "A-Z-07": {
+      "id": "A-Z-07",
+      "status": "partial",
+      "originalChecklistText": "- [ ] A-Z-07 Reconcile original `Z-07`: Delete/rebuild generated dist, Storybook and package output during verification; no stale artifact may pass as migrated source. Fresh build, executed static stories and eight new packed consumers in the [browser batch record](react-aria-progress.md#executable-browser-gates-and-removal-audit). Historical status: checked.",
+      "conversationNumber": 14,
+      "report": "docs/developer/final-acceptance/wave-02-14/report.md",
+      "results": "docs/developer/final-acceptance/wave-02-14/results.json",
+      "reportSha256": "4b022b8e76fdf85a08b765fecca64652b826fbd9f54c37c5d46a6584f53104e8",
+      "resultsSha256": "68513dce03a26b849ceb43da3cf3e7e0c8284ee7f6ac2226f077df4ffd2742ce",
+      "successors": [
+        "See explicit required successor in report; no implied closure."
+      ],
+      "limits": "Accept only the original bounded criterion and explicit input/host/engine limits in the report. No inferred production/device/AT/legal approval."
+    }
+  }
+}

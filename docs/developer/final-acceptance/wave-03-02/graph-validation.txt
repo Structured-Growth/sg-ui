@@ -1,0 +1,30 @@
+{
+  "current": {
+    "modules": 424,
+    "cycles": [
+      [
+        "src/adapters/navigation.tsx",
+        "src/adapters/navigationContext.ts"
+      ],
+      [
+        "src/experimental/DateField/DateField.tsx",
+        "src/experimental/DateField/TextDateField.tsx"
+      ],
+      [
+        "src/experimental/TimeField/TextTimeField.tsx",
+        "src/experimental/TimeField/TimeField.tsx"
+      ]
+    ],
+    "violations": []
+  },
+  "proposed": {
+    "modules": 427,
+    "cycles": [],
+    "violations": []
+  },
+  "regression": {
+    "modules": 427,
+    "edges": 1152,
+    "checks": "cycles, resolved roots, import forms, real source mutations and fixture exclusion"
+  }
+}

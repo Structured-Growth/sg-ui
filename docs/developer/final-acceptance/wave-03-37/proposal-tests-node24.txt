@@ -1,0 +1,16 @@
+✔ emitted prompt preserves hostile-looking task data and spells out semantic scope/evidence (2.369166ms)
+✔ capture and proposal enforce the same permitted component paths and shared-path exclusions (49.175459ms)
+✔ PR body retains multiline author evidence as data and selects only the title (1.408375ms)
+✔ missing/empty sections and absent title fail instead of generating a misleading PR (9.590875ms)
+✔ receipt carries exact proposal identity, actual configured checks, run link and limitations (1.30025ms)
+✔ generated validation is separate from write credentials and draft head calls full CI explicitly (0.137334ms)
+✔ write job rejects patch bytes replaced during generated validation (0.9275ms)
+✔ missing draft identity fails before the full CI call (0.391208ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 68.958375

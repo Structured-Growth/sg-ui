@@ -1,0 +1,17 @@
+# A-K-17 operator worksheet — pending external evidence
+
+This is an unexecuted script, not a spoken-output receipt. Preserve an independent result per combination actually tested. Record date/time, operator, OS version, browser/version, AT/version, input method, locale/direction, fixture build digest and matching source receipt. Expected content below is semantic content to listen for, not a mandated synthesized sentence.
+
+1. Open `/fixtures/?id=migration-proofs-daterangeselector--availability&globals=locale:en-US;theme:light` on the frozen replacement host. With AT keyboard navigation, traverse Early February and the unavailable February reporting period (use browse/object navigation where a disabled option is skipped). Record actual speech and whether “First two weeks, before capacity closes.” / “Includes the unavailable capacity date.” can be obtained without hover. Select Early February with Enter/Space. Verify the draft updates while Committed booking dates remains No committed dates. Cancel with the keyboard; repeat and Apply. Record whether selection and action feedback distinguish draft from accepted value.
+2. Open `/fixtures/?id=migration-proofs-daterangeselector--focused-endpoint-preview&globals=locale:en-US;theme:light`. Focus February 28, 2024. Arrow twice to March 1. Record full date, disabled/unavailable state and No remaining capacity. Enter must not start a range there. Return to February 28; Enter anchors a range and advances to February 29. Record the preview, anchor, focused endpoint and unfinished draft content. Arrow at the unavailable boundary and record whether the constrained endpoint stays February 29. Cancel. Record whether obsolete preview descriptions cease being spoken and the committed dates remain February 28–29.
+3. On `/docs/components/date-picker`, Flexible entry availability, open the booking calendar. Use the Unavailable dates summary with keyboard Enter/Space, then a non-hover pointer/touch activation if the actual environment supports it. Record visible reason content and speech for October 16, 2026. Toggle host availability using its labeled checkbox; reopen and confirm the reason/disabled state disappear. Repeat with Segmented entry availability to verify the composing picker. Reuse accepted BUG0010/11 browser evidence for DOM associations; this step specifically records operator output.
+4. Inspect the Advanced Calendar rich day decorations example using actual AT traversal. Record a full localized date announcement and whether decorative content remains absent from the accessible name. If the scenario or AT environment is unavailable, record that exact prerequisite rather than marking pass.
+
+For each step save: actual speech/transcript or audio reference, semantic pass/failure, focus destination, stale/duplicate descriptions, pointer/touch device details, and any host/engine limitations. Do not label Playwright touch emulation as a physical touch review. A browser-only accessible description is not a spoken result. Do not check the central acceptance leaf until the required operator evidence and integrated runtime results are reconciled by the coordinator.
+
+| Step | Environment/build | Actual output/evidence | Result |
+| --- | --- | --- | --- |
+| Preset descriptions | pending | pending | pending |
+| Preview/availability traversal | pending | pending | pending |
+| Disclosure/dynamic rule change | pending | pending | pending |
+| Rich day labels | pending | pending | pending |

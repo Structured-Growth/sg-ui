@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "integrationRequired": true,
+  "browserOrNativeValidationRequired": false,
+  "reason": "Only legal document text is proposed. No UI/runtime/package manifest/lock change; existing unchanged-output packed receipt retained.",
+  "steps": [
+    {
+      "owner": "coordinator",
+      "command": "git apply --check docs/developer/final-acceptance/wave-03-06/notices.patch",
+      "expected": "Pass after checking input SHA-256s in evidence.json; review the two equal notice copies and 18 upstream byte-for-byte additions."
+    },
+    {
+      "owner": "coordinator/designated legal reviewer",
+      "action": "Review notices.patch and factual-descriptions.patch separately; integrate accepted patches in shared checkout. No automatic commercial-term or retired-attribution removal.",
+      "expected": "Record actual text decision, reviewer and resulting SHA-256s; commercial rights/terms unchanged."
+    },
+    {
+      "owner": "coordinator",
+      "command": "node --test docs/developer/final-acceptance/wave-03-06/verify-notices.test.mjs",
+      "runtime": "Node22.12+ or24, supported validation lease",
+      "expected": "3 passing document checks; 55 whole normalized license texts, exact SWC block, all 20 old legal blocks/five retired headings retained, all direct/peer headings recognized, factual LICENSE delta only."
+    },
+    {
+      "owner": "coordinator",
+      "command": "node packages/ui/scripts/check-license-inventory.mjs packages/ui > <owned-output>/license-inventory-after.json",
+      "expected": "Exit1 remains expected because unrelated findings persist. missing-notice-reference and unparsed-notice-heading become zero; five unmatched retired references remain deliberately preserved. Do not equate inventory findings with violations or remove notices automatically."
+    },
+    {
+      "owner": "coordinator",
+      "command": "pnpm --filter @structured-growth/sg-ui test:package",
+      "expected": "Packed JS/declarations/CSS/maps/assets, export conditions and legal bytes preserved. No library rebuild needed for notice-only integration if coordinator frozen dist is unchanged; rebuild only if runtime source/output changed independently."
+    },
+    {
+      "owner": "coordinator",
+      "command": "pnpm --dir packages/ui pack --pack-destination <owned-output>",
+      "expected": "Retain exact .tgz and SHA-256 after final notice approval; use approved tool lease, no publication."
+    },
+    {
+      "owner": "coordinator",
+      "command": "node docs/developer/final-acceptance/wave-03-06/verify-packed-notices.mjs /absolute/path/to/retained-candidate.tgz > <owned-output>/packed-notices.json",
+      "expected": "Archive legal members equal live root/package copies and integrated draft notices; report exact archive/member hashes. A reviewed delta requires updating candidate draft evidence rather than ignoring mismatch."
+    }
+  ],
+  "externalEvidenceStillRequired": [
+    "client-only@0.0.1: upstream/owner-verified copyright/license bytes and provenance; installed MIT field/homepage are insufficient. No guessed React license assigned.",
+    "Copied/adapted source, inline notices and asset provenance disposition including whether modified upstream files need prominent change notices; no newly modified upstream code in this notice-only proposal.",
+    "Named reviewer decision for final per-version notice/provenance inventory and five retired attributions; no legal approval inferred.",
+    "Final candidate tarball retention/hash after all coordinator source/text changes; prior package audit deletes its temporary archive."
+  ]
+}

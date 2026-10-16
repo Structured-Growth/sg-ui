@@ -1,0 +1,119 @@
+{
+  "checkedAtUTC": "2026-10-16T22:50:22.495607+00:00",
+  "kind": "documentation/source inspection only",
+  "checks": [
+    {
+      "name": "No obsolete comparison/period deferral or pressed/visible-preset claim",
+      "passed": true
+    },
+    {
+      "name": "Current feature scope and host engine limits",
+      "passed": true
+    },
+    {
+      "name": "Preset options and hidden descriptions",
+      "passed": true
+    },
+    {
+      "name": "Day reverse creation distinct from completed edits, fixed length and periods",
+      "passed": true
+    },
+    {
+      "name": "Availability gaps/successors explicitly not accepted",
+      "passed": true
+    },
+    {
+      "name": "Grammar/reference anchor, DST and host boundaries retained",
+      "passed": true
+    },
+    {
+      "name": "Native/clipboard/AT evidence limits remain explicit",
+      "passed": true
+    },
+    {
+      "name": "Historical inbound scope fragment preserved",
+      "passed": true
+    },
+    {
+      "name": "All local guide paths and heading anchors resolve",
+      "passed": true
+    },
+    {
+      "name": "Source preset rendering uses ListBox single selection and hidden descriptions",
+      "passed": true
+    },
+    {
+      "name": "Source initial reverse completion and completed policies",
+      "passed": true
+    },
+    {
+      "name": "Period, comparison and datetime range public exports",
+      "passed": true
+    },
+    {
+      "name": "Comparison modes use inclusive adjacent duration and year endpoint shifts",
+      "passed": true
+    },
+    {
+      "name": "Period units, explicit reference and Monday/Sunday start",
+      "passed": true
+    },
+    {
+      "name": "Pending source plumbing observed without claiming behavior validated",
+      "passed": true
+    },
+    {
+      "name": "Target matches recorded post-edit SHA256",
+      "passed": true
+    }
+  ],
+  "localLinks": [
+    {
+      "url": "final-acceptance/wave-02-11/report.md#a-k-04--partial",
+      "exists": true,
+      "anchorExists": true
+    },
+    {
+      "url": "final-acceptance/calendar-fix-dispatch.json",
+      "exists": true,
+      "anchorExists": true
+    },
+    {
+      "url": "final-acceptance/wave-02-11/report.md#a-k-07--partial",
+      "exists": true,
+      "anchorExists": true
+    },
+    {
+      "url": "final-acceptance/wave-02-11/report.md#a-k-17--partial",
+      "exists": true,
+      "anchorExists": true
+    },
+    {
+      "url": "parallel-batch-61/keyboard-range-preview.md",
+      "exists": true,
+      "anchorExists": true
+    },
+    {
+      "url": "../../packages/ui/tests/browser/batch61-keyboard-range-preview.spec.ts",
+      "exists": true,
+      "anchorExists": true
+    },
+    {
+      "url": "../../packages/ui/tests/browser/batch01-calendar.spec.ts",
+      "exists": true,
+      "anchorExists": true
+    },
+    {
+      "url": "final-acceptance/wave-02-11/report.md",
+      "exists": true,
+      "anchorExists": true
+    },
+    {
+      "url": "backlog-execution-2026-10-15.md#cal-ux--calendar-options-and-entry-2026-10-16",
+      "exists": true,
+      "anchorExists": true
+    }
+  ],
+  "inputDrift": {},
+  "targetSha256": "f9827337a07c98681410bed8259269b238723906941cc012bc0efb62c0b4ecbf"
+}

@@ -1,0 +1,50 @@
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+ ❯ ../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx (0 test)
+ ❯ ../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx [ ../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx ]
+Error: Failed to resolve import "react" from "../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx:2:27
+  1  |  import { StrictMode } from "react";
+     |                              ^
+  2  |  import { cleanup, render } from "@testing-library/react";
+  3  |  import { afterEach, expect, it, vi } from "vitest";
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  ../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx [ ../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx ]
+Error: Failed to resolve import "react" from "../../docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-03-11/proposed-files/packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx:2:27
+  1  |  import { StrictMode } from "react";
+     |                              ^
+  2  |  import { afterEach, expect, it } from "vitest";
+  3  |  import { cleanup, render, screen } from "@testing-library/react";
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29079:43
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:29076:14
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27199:18
+ ❯ ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27257:32
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:27225:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:28877:14
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.3.6_@types+node@20.19.43_jiti@2.6.1/node_modules/vite/dist/node/chunks/config.js:22746:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  no tests
+   Start at  18:04:29
+   Duration  465ms (transform 11ms, setup 17ms, import 0ms, tests 0ms, environment 270ms)
+
