@@ -36,7 +36,7 @@ it("keeps both hidden endpoints authoritative after rejected Apply and reopens t
 });
 it("invalidates an open draft and unfinished anchor when host endpoints change", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  const fixture = (value: typeof initial) => <form data-testid="host-form" aria-label="Host form"><DateRangePicker {...props} value={value} onValueChange={change} /></form>;
+  const fixture = (value: typeof initial) => <form data-testid="host-form" aria-label="Host form"><DateRangePicker {...props} rangeClickBehavior="adjust-end" value={value} onValueChange={change} /></form>;
   const { rerender } = render(fixture(initial));
   await user.click(trigger());
   screen.getAllByRole("button", { name: /Wednesday, February 28, 2024/ }).find(node => !node.hasAttribute("data-outside-month"))!.focus();
@@ -77,4 +77,16 @@ it("retains an open draft on prevented native reset and closes on accepted reset
   expect(change).not.toHaveBeenCalled();
   await user.click(trigger());
   expect(screen.getByRole("status").textContent).toBe(`${initial.start} – ${initial.end}`);
+});
+
+it("defaults to moving the nearest endpoint through the dropdown and Apply", async () => {
+ const user=userEvent.setup(),change=vi.fn();
+ render(<form data-testid="host-form"><DateRangePicker {...props} defaultValue={{start:'2026-10-01',end:'2026-10-15'}} onValueChange={change}/></form>);
+ await user.click(trigger());
+ await user.click(screen.getByRole('button',{name:/October 3, 2026/}));
+ expect(change).not.toHaveBeenCalled();
+ expect(endpoints()).toEqual(['2026-10-01','2026-10-15']);
+ await user.click(screen.getByRole('button',{name:'Apply',exact:true}));
+ expect(change).toHaveBeenCalledExactlyOnceWith({start:'2026-10-03',end:'2026-10-15'});
+ expect(endpoints()).toEqual(['2026-10-03','2026-10-15']);
 });

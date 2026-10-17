@@ -2517,3 +2517,20 @@ across Chromium, Firefox and WebKit, including both rapid-touch flows. Library
 and production docs builds, foundation guards, docs TypeScript, catalog and
 packed-package checks pass. Source fingerprints and logs are recorded in
 [the focused receipt](final-acceptance/nearest-range-endpoint/results.json).
+
+
+### 2026-10-17 — Nearest endpoint is the default
+
+At the user's request, DateRangeSelector and inherited DateRangePicker now default
+rangeClickBehavior to adjust-nearest. Equal-distance choices still use end unless
+nearestEndpointTieBreak is start. Alternative policies remain explicit options.
+Playground initial state/default labels, reference descriptions, generated API,
+usage guidance and calendar contracts match. Tests that deliberately need an
+unfinished adjust-end anchor now request that policy explicitly; all existing
+assertions remain. Default selector and picker tests cover nearest-start edits,
+tie preferences, validation, draft/Apply and form ownership.
+
+Validation: 158 unit cases in 26 files and all 12 browser cases pass across
+Chromium, Firefox and WebKit. Library/docs builds, foundation guards, docs
+TypeScript, catalog and packed-package checks pass. Source fingerprints and logs
+are recorded in [the focused receipt](final-acceptance/default-nearest-range/results.json).

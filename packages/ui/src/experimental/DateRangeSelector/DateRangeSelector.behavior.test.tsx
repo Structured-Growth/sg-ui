@@ -36,11 +36,15 @@ it.each(cases)('%s edits completed drafts; initial selection completes in either
  await user.click(screen.getByRole('button',{name:'Apply',exact:true}));
  expect(change).toHaveBeenCalledExactlyOnceWith({start:'2026-10-01',end:'2026-10-05'});
 });
-it('defaults to adjust-end and keeps validation, read-only state and host replacements authoritative',async()=>{
+it('defaults to adjust-nearest and keeps validation, read-only state and host replacements authoritative',async()=>{
  const user=userEvent.setup(),change=vi.fn();
  const props:DateRangeSelectorProps={label:'Dates',months:1,entryMode:'text',value:{start:'2026-10-07',end:'2026-10-16'},onValueChange:change,
  unavailable:[{date:'2026-10-18',reason:'Closed'}]};
  const {rerender}=render(<DateRangeSelector showFields {...props}/>);
+ await user.click(screen.getByRole('button',{name:/October 9, 2026/}));
+ expect((screen.getByRole('textbox',{name:'Start date'}) as HTMLInputElement).value).toBe('10/09/2026');
+ expect((screen.getByRole('textbox',{name:'End date'}) as HTMLInputElement).value).toBe('10/16/2026');
+ await user.click(screen.getByRole('button',{name:'Cancel',exact:true}));
  await user.click(screen.getByRole('button',{name:/October 20, 2026/}));
  expect((screen.getByRole('textbox',{name:'Start date'}) as HTMLInputElement).value).toBe('10/07/2026');
  expect((screen.getByRole('textbox',{name:'End date'}) as HTMLInputElement).value).toBe('10/20/2026');
@@ -106,7 +110,7 @@ it('evaluates mapped endpoint availability separately in each independent calend
 it.each(['linked','unassigned','scroll'] as const)('preserves the shared click policy for %s calendar slots',async(mode)=>{
  const user=userEvent.setup();
  render(<DateRangeSelector label="Trip" showFields months={2} calendarNavigation={mode==='linked'?'linked':'independent'}
-   calendarLayout={mode==='scroll'?'scroll':'paged'} scrollMonths={2} calendarEndpoints={mode==='unassigned'?[null,'end']:['start','end']}
+   rangeClickBehavior="adjust-end" calendarLayout={mode==='scroll'?'scroll':'paged'} scrollMonths={2} calendarEndpoints={mode==='unassigned'?[null,'end']:['start','end']}
    defaultFocusedDate="2026-10-07" defaultValue={{start:'2026-10-07',end:'2026-10-16'}}/>);
  await user.click(within(screen.getAllByRole('grid')[0]).getByRole('button',{name:/October 9, 2026/}));
  expect((screen.getByRole('textbox',{name:'Start date'}) as HTMLInputElement).value).toBe('10/07/2026');
@@ -116,7 +120,7 @@ it.each(['linked','unassigned','scroll'] as const)('preserves the shared click p
 it.each(['start','end',undefined] as const)('adjusts the nearest boundary with %s ties across month and leap-day boundaries',async(tie)=>{
  const user=userEvent.setup(),change=vi.fn();
  render(<DateRangeSelector label="Nearest" showFields months={1} defaultFocusedDate="2028-03-01"
-  defaultValue={{start:'2028-02-28',end:'2028-03-03'}} rangeClickBehavior="adjust-nearest"
+  defaultValue={{start:'2028-02-28',end:'2028-03-03'}}
   nearestEndpointTieBreak={tie} commitBehavior="immediate" onValueChange={change}/>);
  // March 1 is two civil days from each boundary in this leap year.
  const march1=screen.getByRole('button',{name:/March 1, 2028/});
@@ -158,7 +162,7 @@ it('captures a new touch date before the previous synthesized-click fallback exp
   constructor(type:string,init:PointerEventInit={}){super(type,init);this.pointerId=init.pointerId??1;this.pointerType=init.pointerType??'touch';}
  }
  vi.stubGlobal('PointerEvent',TouchPointerEvent);
- render(<DateRangeSelector label="Rapid taps" showFields months={1} defaultValue={{start:'2026-10-07',end:'2026-10-16'}}/>);
+ render(<DateRangeSelector label="Rapid taps" rangeClickBehavior="adjust-end" showFields months={1} defaultValue={{start:'2026-10-07',end:'2026-10-16'}}/>);
  for(const [index,date] of [16,13].entries()){
   const target=screen.getAllByRole('button',{name:new RegExp(`October ${date}, 2026`)}).find(button=>button.textContent===String(date))!;
   // No synthetic click between these taps, matching WebKit's prevented touch-up.

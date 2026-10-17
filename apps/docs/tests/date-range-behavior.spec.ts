@@ -4,6 +4,7 @@ import {checkSources} from './check-sources';
 for(const slug of ['date-range-picker','date-range-selector'])test(`${slug}: policies, reverse creation, source and prop documentation`,async({page})=>{
  await page.setViewportSize({width:1440,height:1100});await page.goto(`/docs/components/${slug}`);
  const panel=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
+ await expect(panel.getByRole('button',{name:/Range selection behavior/})).toContainText('Adjust nearest endpoint (default)');
  const referenceSources=[];
  for(const mode of ['restart','adjust-end','adjust-start','adjust-boundaries','adjust-nearest']){
   const reference=page.getByRole('region',{name:exampleName(`Selection behavior: ${mode}`),exact:true});
@@ -18,12 +19,12 @@ for(const slug of ['date-range-picker','date-range-selector'])test(`${slug}: pol
  await panel.getByRole('button',{name:/Date entry/}).click();await page.getByRole('option',{name:'Flexible text',exact:true}).click();
  const sourceButton=panel.getByRole('button',{name:'Show source: Prop playground',exact:true});await sourceButton.click();
  for(const [mode,label,after,tie] of [
-  ['adjust-end','Adjust end (default)',['10/12/2026','10/14/2026']],
+  ['adjust-end','Adjust end',['10/12/2026','10/14/2026']],
   ['adjust-start','Adjust start',['10/14/2026','10/16/2026']],
   ['restart','Restart',['10/14/2026','']],
   ['adjust-boundaries','Adjust boundaries',['10/12/2026','10/14/2026']],
-  ['adjust-nearest','Adjust nearest endpoint',['10/12/2026','10/14/2026'],'end'],
-  ['adjust-nearest','Adjust nearest endpoint',['10/14/2026','10/16/2026'],'start'],
+  ['adjust-nearest','Adjust nearest endpoint (default)',['10/12/2026','10/14/2026'],'end'],
+  ['adjust-nearest','Adjust nearest endpoint (default)',['10/14/2026','10/16/2026'],'start'],
  ] as const){
   await panel.getByRole('button',{name:/Range selection behavior/}).click();await page.getByRole('option',{name:label,exact:true}).click();
   if(tie){await panel.getByRole('button',{name:/Nearest endpoint tie preference/}).click();await page.getByRole('option',{name:tie==='end'?'End (default)':'Start',exact:true}).click();}

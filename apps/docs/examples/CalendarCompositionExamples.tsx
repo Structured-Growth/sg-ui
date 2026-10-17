@@ -109,9 +109,9 @@ export function DateTimePickerExample({hourCycle}:{hourCycle:12|24}) {
 
 const rangeBehaviorDescriptions = {
   restart: 'With 7th–16th selected, any calendar click starts a new incomplete range. The next click completes it in either direction.',
-  'adjust-end': 'Default: with 7th–16th selected, click 13th for 7th–13th or 20th for 7th–20th. Click on or before 7th to restart; the next click completes in either direction.',
+  'adjust-end': 'With 7th–16th selected, click 13th for 7th–13th or 20th for 7th–20th. Click on or before 7th to restart; the next click completes in either direction.',
   'adjust-start': 'With 7th–16th selected, click 5th for 5th–16th or 13th for 13th–16th. Click on or after 16th to restart; the next click completes in either direction.',
-  'adjust-nearest': 'Each click edits the closer endpoint, measured in calendar days. Outside clicks extend the nearest boundary. Equal distances edit the end by default; nearestEndpointTieBreak="start" edits the start instead. Clicking an existing endpoint leaves the range unchanged. Fixed length, whole-period selection and assigned calendar endpoints take precedence.',
+  'adjust-nearest': 'Default: each click edits the closer endpoint, measured in calendar days. Outside clicks extend the nearest boundary. Equal distances edit the end by default; nearestEndpointTieBreak="start" edits the start instead. Clicking an existing endpoint leaves the range unchanged. Fixed length, whole-period selection and assigned calendar endpoints take precedence.',
   'adjust-boundaries': 'With 7th–16th selected, click 5th for 5th–16th, 13th for 7th–13th or 20th for 7th–20th. Clicking 7th makes a one-day range. Calendar clicks preserve a complete range until Clear; manual fields remain independently editable.',
 } as const;
 export function RangeBehaviorExample({kind,behavior}:{kind:'DateRangeSelector'|'DateRangePicker';behavior:keyof typeof rangeBehaviorDescriptions}) {

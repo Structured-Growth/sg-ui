@@ -43,7 +43,7 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
   /** Shared host-supplied YYYY-MM-DD anchor for both relative text endpoints. */
   referenceDate?: DateOnly;
   /**
-   * Calendar clicks after a complete draft. Defaults to "adjust-end".
+   * Calendar clicks after a complete draft. Defaults to "adjust-nearest".
    * With no complete range, the first click anchors a date and the second completes
    * the inclusive range in either direction (5th then 1st becomes 1st–5th).
    * Given 7th–16th:
@@ -134,7 +134,7 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
   name?: string;
 }
 
-export function DateRangeSelector({ label, showTitle = false, navigation = "period", allowMonthSelection=true, allowYearSelection=true, periodPickerProps, visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", nearestEndpointTieBreak = "end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement, errorPlacement, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "independent", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
+export function DateRangeSelector({ label, showTitle = false, navigation = "period", allowMonthSelection=true, allowYearSelection=true, periodPickerProps, visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-nearest", nearestEndpointTieBreak = "end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement, errorPlacement, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "independent", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets:basePresets = [], presetGroups = [], presetPlacement = "side", months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
   const { locale, direction } = useLocale();

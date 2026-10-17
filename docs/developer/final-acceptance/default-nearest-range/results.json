@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-17",
+  "baseCommit": "bb0d2d68cb40b1aac4d8dcbb6d68cf9bb0d68475",
+  "scope": "Make adjust-nearest the default for DateRangeSelector and inherited DateRangePicker; retain end tie preference and explicit alternative policies. Update playground defaults, examples, API and usage documentation.",
+  "units": {
+    "files": 26,
+    "passed": 158
+  },
+  "browserStats": {
+    "startTime": "2026-10-17T18:06:38.197Z",
+    "duration": 52575.1,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "coverage": [
+    "Omitted selector policy adjusts the closer start and retains draft validation/Cancel/read-only contracts; omitted policy resolves midpoint ties to end unless explicitly overridden.",
+    "Omitted picker policy updates the nearer start in its popup and commits both form endpoints only on Apply.",
+    "Explicit adjust-end retains unfinished-anchor host replacement, shared-calendar fallback and rapid-tap regressions.",
+    "Both production playgrounds start on the nearest default; all policy controls, tie choices, reverse creation, reference/playground source compilation and rapid touch checks pass in Chromium/Firefox/WebKit."
+  ],
+  "checks": {
+    "libraryBuild": "passed",
+    "foundationGuards": "passed",
+    "productionDocsBuildAndCatalog": "passed",
+    "docsTypeScript": "passed",
+    "packedPackage": "passed",
+    "finalCatalog": "passed"
+  },
+  "sourceSha256": {
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.behavior.test.tsx": "970a77680288be864a42d7817369132b0d62a715068c389233aa4f7dbc8c1786",
+    "packages/ui/src/experimental/DateRangePicker/DateRangePicker.controlled-transactions.test.tsx": "f081e7ac8c5b96c0ad1335fc181b1aafe79adf58edace1953201bda9fb493c77",
+    "apps/docs/examples/catalog/forms-dates.tsx": "02ab4d75231536b5efab3bc6e890da9175032599323c3515794a1c53c447aaad",
+    "apps/docs/examples/CalendarCompositionExamples.tsx": "22aef15de599d097e2955f51caeedf5035bd1919f2008b33d9661f51c978da04",
+    "apps/docs/content/component-api.json": "0cdd071aa90daf8a4f5b71fe5b7d4a3206ce1a2d24c30c5deca6048c7e491cf0",
+    "apps/docs/content/component-usage/forms.json": "c633fa769e26e4b8de394b48f2625e5adaff200cc4d401f30d0f81fec5635ead",
+    "apps/docs/tests/date-range-behavior.spec.ts": "20119d0d0f96746d191f1433d788e0703675473f0ff00438bce72f2bc760f152"
+  }
+}

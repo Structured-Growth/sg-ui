@@ -319,7 +319,8 @@ owned `rangeClickBehavior` contract. Initial two-date creation with
 `selectionUnit="day"` and no fixed `rangeLength` completes in either direction
 under every `rangeClickBehavior`. Fixed length and whole-period selection instead
 resolve a complete range from one activation. After a complete draft,
-`adjust-end` (default)
+`adjust-nearest` (default) edits the closest endpoint, with equal distances
+resolved by nearestEndpointTieBreak (default end). `adjust-end`
 keeps the start and edits the end, restarting on or before the start;
 `adjust-start` mirrors that rule; `restart` always begins a new incomplete range;
 `adjust-boundaries` extends the relevant outside boundary and edits the end for
@@ -989,7 +990,7 @@ month/year transitions without timezone or daylight-saving arithmetic.
 `nearestEndpointTieBreak="end"` is the default **only for this policy**; with
 1st–15th, clicking 8th gives 1st–8th. Set it to `"start"` for 8th–15th.
 This tie preference does not read or change `activeEndpoint`, which belongs to
-explicit endpoint editing. The overall default remains `rangeClickBehavior="adjust-end"`.
+explicit endpoint editing. The overall default is `rangeClickBehavior="adjust-nearest"`.
 Initial/incomplete selection still completes with two activations in either order.
 Fixed duration, whole-period selection and assigned `calendarEndpoints` take precedence.
 Candidate availability receives the endpoint that candidate would edit; resulting
