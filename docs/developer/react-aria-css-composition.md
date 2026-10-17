@@ -141,7 +141,19 @@ CSP enforcement.
 
 The scoped `wave-03-13` spec supplies two enforced document-response headers with
 external scripts and styles from self: one disallows style attributes, the other
-allows them. Only the fixture host's static style element receives a nonce.
+allows them. The document supplies `<meta property="csp-nonce" content="...">`
+before application scripts, with the same per-response nonce authorized by
+`style-src-elem`, and applies it to the fixture host's static style element.
+The current interaction engine reads this meta value for its dynamically inserted
+pressable touch-action stylesheet; its scroll-lock stylesheet also uses that
+nonce lookup. A nonce on a different style element does not propagate to these
+styles. The host owns nonce generation and the response policy; `sgui-test` is a
+fixed fixture-only value, never a production nonce. The engine also supports
+`__webpack_nonce__`, but the fixture uses document metadata and requires the
+injected pressable style's nonce to match. These hooks authorize style elements,
+not style attributes. No stable stylesheet hash contract is promised for private
+interaction-engine CSS; a host relying on hashes must recalculate them for the
+installed release.
 A deliberately parser-created styled probe confirms the restrictive header is
 enforced; every violation and actual overlay focus/geometry outcome is recorded.
 This is response interception in a controlled browser host, not an approved
