@@ -1,0 +1,27 @@
+import {expect,test} from '@playwright/test';
+test('ComboBox accepted and canceled native resets preserve host selection, local draft/default and callback silence',async({page})=>{
+ const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+ await page.goto('/fixtures/?id=migration-proofs-combobox--reset-authority&globals=a11y.manual:!true');
+ const local=page.getByRole('combobox',{name:'Local reset',exact:true});
+ const form=page.getByRole('form',{name:'ComboBox reset authority',exact:true});
+ const values=()=>form.evaluate(form=>Object.fromEntries(new FormData(form as HTMLFormElement)));
+ const requests=page.getByRole('status',{name:'ComboBox reset requests',exact:true});
+ await page.getByRole('button',{name:'Show options Local reset',exact:true}).click();
+ await page.getByRole('option',{name:'Second choice',exact:true}).click();
+ await expect(local).toHaveValue('Second choice');await expect(requests).toHaveText('["local:two"]');
+ await page.getByRole('button',{name:'Reset ComboBox authority',exact:true}).click();
+ await expect(local).toHaveValue('Second choice');await expect(requests).toHaveText('["local:two"]');
+ await local.fill('Partial');
+ await form.evaluate(form=>(form as HTMLFormElement).reset());
+ await expect(local).toHaveValue('Partial');
+ expect(await values()).toEqual({local:'two',host:'two'});
+ await page.keyboard.press('Escape');
+ await page.getByText('Prevent ComboBox reset',{exact:true}).click();
+ await page.getByRole('button',{name:'Clear ComboBox default',exact:true}).click();
+ await local.fill('Partial');
+ await form.evaluate(form=>(form as HTMLFormElement).reset());
+ await expect(local).toHaveValue('');await page.keyboard.press('Escape');
+ await expect(page.getByRole('combobox',{name:'Host reset',exact:true})).toHaveValue('Second choice');
+ await expect.poll(values).toEqual({local:'',host:'two'});
+ await expect(requests).toHaveText('["local:two"]');expect(errors).toEqual([]);
+});

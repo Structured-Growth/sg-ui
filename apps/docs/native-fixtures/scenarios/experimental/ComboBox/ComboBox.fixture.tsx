@@ -1,6 +1,7 @@
 import { SelectorDirectionStory } from "../Select/SelectorDirectionFixture";
 import type { Meta, StoryObj } from "../../../types";
 import { useState } from "react";
+import { Checkbox } from "@structured-growth/sg-ui/experimental";
 import { ComboBox } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { Button } from "@structured-growth/sg-ui/components/Button";
@@ -38,3 +39,20 @@ export const NativeContracts: Story = { render: () => { const [request, setReque
  <Button type="reset">Reset category</Button>
  <output aria-label="Category request">{request}</output>
 </form>; } };
+
+function ResetAuthorityFixture() {
+ const [prevent,setPrevent]=useState(true);
+ const [seed,setSeed]=useState<string|null>('one');
+ const [requests,setRequests]=useState<string[]>([]);
+ const options=[{id:'one',label:'First choice'},{id:'two',label:'Second choice'}];
+ return <div onReset={event=>{if(prevent)event.preventDefault();}}>
+  <Checkbox label="Prevent ComboBox reset" checked={prevent} onCheckedChange={setPrevent}/>
+  <Button onPress={()=>setSeed(null)}>Clear ComboBox default</Button>
+  <form aria-label="ComboBox reset authority" onSubmit={event=>event.preventDefault()}>
+   <ComboBox label="Local reset" name="local" options={options} defaultValue={seed} onValueChange={key=>setRequests(items=>[...items,'local:'+key])}/>
+   <ComboBox label="Host reset" name="host" options={options} value="two" defaultValue={seed} onValueChange={key=>setRequests(items=>[...items,'host:'+key])}/>
+   <Button type="reset">Reset ComboBox authority</Button>
+  </form><output aria-label="ComboBox reset requests">{JSON.stringify(requests)}</output>
+ </div>;
+}
+export const ResetAuthority: Story = {render:()=> <ResetAuthorityFixture/>};

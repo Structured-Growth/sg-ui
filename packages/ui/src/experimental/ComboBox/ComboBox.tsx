@@ -1,6 +1,6 @@
 "use client";
 import {FieldMessages, type FieldMessagePlacementProps} from "../TextField/FieldMessages";
-import { forwardRef, type ReactNode } from "react";
+import { forwardRef, useEffect, useRef, useState, type ReactNode } from "react";
 import { ComboBox as AriaComboBox } from "react-aria-components/ComboBox";
 import { Input } from "react-aria-components/Input";
 import { Label } from "react-aria-components/Label";
@@ -10,6 +10,7 @@ import { Popover } from "react-aria-components/Popover";
 import { ListBox, ListBoxItem } from "react-aria-components/ListBox";
 import { Button } from "../../components/Button/Button";
 import { KeyboardArrowDownIcon } from "../icons/KeyboardArrowDownIcon";
+import { useFormReset } from "../useFormReset";
 import { useTranslation } from "../../i18n";
 import { useLocale } from "react-aria-components/I18nProvider";
 import { useOverlayScope, useOverlayDirectionRef } from "../../foundation/ThemeScope";
@@ -45,14 +46,45 @@ export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function Com
   { label, options, value, defaultValue, onValueChange, name, placeholder, description, descriptionPlacement, errorPlacement,
     required, disabled, readOnly, invalid, errorMessage, autoFocus, className, startIcon, endIcon }, ref,
 ) {
+  const root = useRef<HTMLDivElement>(null);
+  const [internalValue, setInternalValue] = useState<string | null>(defaultValue ?? null);
+  const selected = value === undefined ? internalValue : value;
+  const selectedLabel = options.find(option => option.id === selected)?.label ?? "";
+  const [query, setQuery] = useState(selectedLabel);
+  useEffect(() => { setQuery(selectedLabel); }, [selected, selectedLabel]);
+  const resetting = useFormReset(root, () => {
+    const next = value === undefined ? defaultValue ?? null : value;
+    if (value === undefined) setInternalValue(next);
+    setQuery(options.find(option => option.id === next)?.label ?? "");
+  });
   const { t } = useTranslation();
   const scope = useOverlayScope();
   const { direction } = useLocale();
   const directionRef = useOverlayDirectionRef(direction);
-  const control = <Input ref={ref} placeholder={placeholder} className={field.input} />;
+  const control = <Input ref={ref} placeholder={placeholder} className={field.input}
+    onChangeCapture={() => {
+      // A real edit can follow a canceled reset before its deferred cleanup.
+      // Engine reset callbacks do not dispatch input changes, so this new edit
+      // ends their suppression window before onInputChange receives the value.
+      resetting.current = false;
+    }} />;
   const messages={descriptionPlacement,errorPlacement,description:(description && <Text slot="description" className={field.description}>{description}</Text>),error:(<FieldError className={field.error}>{errorMessage}</FieldError>)};
-  return <AriaComboBox defaultItems={options} selectedKey={value} defaultSelectedKey={defaultValue} allowsEmptyCollection
-    onSelectionChange={key => onValueChange?.(key === null ? null : String(key))}
+  return <AriaComboBox ref={root} defaultItems={options} selectedKey={selected} inputValue={query}
+    onInputChange={next => {
+      if (resetting.current) return;
+      setQuery(next);
+      if (next === "" && selected !== null) {
+        if (value === undefined) setInternalValue(null);
+        onValueChange?.(null);
+      }
+    }} allowsEmptyCollection
+    onSelectionChange={key => {
+      if (resetting.current) return;
+      const next = key === null ? null : String(key);
+      if (value === undefined) setInternalValue(next);
+      setQuery(options.find(option => option.id === (value === undefined ? next : value))?.label ?? "");
+      if (next !== selected) onValueChange?.(next);
+    }}
     disabledKeys={options.filter(option => option.disabled).map(option => option.id)}
     name={name} formValue="key" isRequired={required} isDisabled={disabled} isReadOnly={readOnly}
     isInvalid={invalid} validationBehavior="native" autoFocus={autoFocus}
