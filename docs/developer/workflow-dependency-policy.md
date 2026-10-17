@@ -61,3 +61,7 @@ and reusable-call paths; verify release still needs validation and AI still uses
 the original sandbox, scope restrictions, separate proposal job and draft PRs.
 Execute representative runtime/event jobs through normal reviewed validation;
 never dispatch releases or change repository settings merely to test a patch.
+
+For final-candidate retrieval, offline archive/receipt verification and the
+remaining production protection/owner evidence, use
+[CI release readiness](ci-release-readiness.md).

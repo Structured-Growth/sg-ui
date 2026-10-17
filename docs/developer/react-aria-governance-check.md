@@ -34,11 +34,13 @@ saved-data compatibility. Use targeted dev validation and full production gates 
 specified in the upgrade guide. No new CI trigger, scheduled scan, dependency update
 or support commitment follows from adding this guard.
 
-Ownership remains pending: the human owner records the dependency owner, backup,
-license/provenance reviewer, accepted triggers, date and approval reference. Security
-intake, cadence/sources, urgency/emergency authority, support/backport window and
-disclosure/risk acceptance require their own decisions. Empty fields are missing
-evidence, never default approval. Do not choose people or invent confidential routes.
+The [inventory ownership workflow](react-aria-license-inventory.md#ownership-and-update-workflow)
+assigns dependency/asset change authors the report/notice updates and repository
+maintainers the review before integration. These role-based responsibilities do not
+require a named-person appointment. Actual license/provenance dispositions remain
+reviewer decisions. Security intake, cadence/sources, urgency/emergency authority,
+support/backport window and disclosure/risk acceptance retain their separate scope.
+Empty operational fields are not approvals; do not invent confidential routes.
 
 Before official publication, the owner separately supplies effective npm scope/package
 access and publishing identity (token or trusted publisher), GitHub protection and

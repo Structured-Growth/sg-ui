@@ -58,6 +58,8 @@ jobs:
           pnpm --version | tee artifacts/logs/pnpm.txt
       - name: Validate artifact freshness guards
         run: node --test scripts/ci-artifacts.test.mjs 2>&1 | tee artifacts/logs/artifact-guards.txt
+      - name: Validate CI routing and release evidence guards
+        run: node --test scripts/check-ci-release-enforcement.test.mjs scripts/verify-ci-downloads.test.mjs 2>&1 | tee artifacts/logs/release-enforcement.txt
       - name: Package and behavior checks
         run: pnpm check 2>&1 | tee artifacts/logs/check.txt
       - name: Build native docs fixtures
