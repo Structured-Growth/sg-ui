@@ -26,14 +26,16 @@
   /* Keep the input ring unless the decorated wrapper can replace it. */
   @supports selector(:has(*)) {
     .decoratedControl > .input[data-focus-visible], .decoratedControl > .input:focus-visible { outline: none; }
-    .decoratedControl:has(.input[data-focus-visible]), .decoratedControl:has(.input:focus-visible) { outline: var(--sgui-control-focus-width) solid var(--sgui-text-field-focus-color); outline-offset: var(--sgui-control-focus-offset); }
+    .decoratedControl:has(.input[data-focus-visible]), .decoratedControl:has(.input:focus-visible) { outline: var(--sgui-control-focus-width) solid var(--sgui-text-field-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
     .decoratedControl:has(.input[readonly]) { background: var(--sgui-text-field-read-only-surface); }
   }
   .root[data-invalid] .decoratedControl { border-color: var(--sgui-text-field-invalid-border); }
   .controlGroup { display: flex; align-items: stretch; min-inline-size: 0; border-color: var(--sgui-field-border); border-radius: var(--sgui-field-control-radius); background: var(--sgui-field-background); }
   .controlGroup > .input { flex: 1; inline-size: 0; border-inline-end-width: 0; padding-inline-end: var(--sgui-control-padding); border-color: inherit; border-start-end-radius: 0; border-end-end-radius: 0; }
+  /* Attached actions keep their keyboard focus ring inside their own boundary. */
+  .controlGroup > button[data-focus-visible], .controlGroup > button:focus-visible { outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .root[data-invalid] .controlGroup { border-color: var(--sgui-text-field-invalid-border); }
-  .input[data-focus-visible], .input:focus-visible { outline: var(--sgui-control-focus-width) solid var(--sgui-text-field-focus-color); outline-offset: var(--sgui-control-focus-offset); }
+  .input[data-focus-visible], .input:focus-visible { outline: var(--sgui-control-focus-width) solid var(--sgui-text-field-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .root[data-invalid] .input { border-color: var(--sgui-text-field-invalid-border); }
   .root[data-disabled] { opacity: 0.5; }
   .input[readonly] { background: var(--sgui-text-field-read-only-surface); }

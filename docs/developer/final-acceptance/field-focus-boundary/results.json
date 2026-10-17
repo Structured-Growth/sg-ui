@@ -1,0 +1,52 @@
+{
+  "feature": "Inset field focus across owned field controls",
+  "baseCommit": "151e63d94569033d83fa4f9c23b599ffa0cda94d",
+  "sourceSha256": {
+    "packages/ui/src/experimental/TextField/TextField.module.css": "be00aa2b75186be5845760e0285d2d009730aaf904adf83567a15c8af21a00d5",
+    "packages/ui/src/experimental/DateField/DateField.module.css": "22cd1db3e50beb1c63f25c87c21c877b76f1a860035f57397d78505c9a682820",
+    "apps/docs/tests/field-focus-boundary.spec.ts": "f018ca9073c5bcfc0edca52cc6dda29d4dc817ce525e838e6c16703d94c7bf05",
+    "docs/developer/react-aria-calendar-contracts.md": "417ad6cf1ddea2ea8da48bb3e7fd5e1e275c5e9f5729ec9625c6d1b038d46893",
+    "docs/developer/react-aria-progress.md": "caa88d798a52b20048c205b58b03c85de10e9ee7a7fc68fc3c39b78874fc6b41"
+  },
+  "focusedBrowserCasesPassed": 15,
+  "engines": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "demoIdentities": 4,
+  "densities": 2,
+  "fieldRoutes": 10,
+  "validation": {
+    "build": {
+      "path": "/tmp/inset-field-build.log",
+      "sha256": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a"
+    },
+    "docs": {
+      "path": "/tmp/inset-field-docs.log",
+      "sha256": "7270f303de260c66c62349934bc02bc427e13bada1b9fb7e35c2cb2a1d82d597"
+    },
+    "guards": {
+      "path": "/tmp/inset-field-guards.log",
+      "sha256": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647"
+    },
+    "browser": {
+      "path": "/tmp/inset-field-browser.log",
+      "sha256": "5d1616a83f42ee202c7260ff8dacc5cc9a323fd37675d91a378fc531b76ae81c"
+    },
+    "focus-browser": {
+      "path": "/tmp/inset-field-focus-browser.log",
+      "sha256": "efc8a39a9118d46242b11b6214569c9e793ff22673802f2628490427aba05077"
+    }
+  },
+  "openFollowup": {
+    "test": "apps/docs/tests/picker-radius.spec.ts:30",
+    "cases": [
+      "Material Compact/Light",
+      "Material Comfortable/Dark"
+    ],
+    "symptom": "Year label fails scrollWidth <= clientWidth in legacy month/year dropdown",
+    "assertions": "Unchanged; failure report retained"
+  },
+  "scope": "Focused regression evidence; broader acceptance unchanged."
+}

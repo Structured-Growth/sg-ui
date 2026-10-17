@@ -883,3 +883,12 @@ intent. At most one chooser is visible within a selector. Choice views hide
 range actions, fields and presets while retaining layout space, and restore them
 on return to days. Navigation never changes a committed range or its draft.
 DateRangePicker inherits all navigation props directly from DateRangeSelector.
+
+### Field focus boundaries (2026-10-17)
+
+Shared text inputs, textareas, select triggers, decorated fields, date/time text
+fields and date segments draw their focus outline inside the control boundary.
+Attached calendar/clock buttons use the same inset offset. This preserves the
+field radius and prevents focus paint extending past the textbox or into its
+adjacent button. The offset derives from the owned focus-width token; theme focus
+colors, visible keyboard focus and forced-colors Highlight remain active.

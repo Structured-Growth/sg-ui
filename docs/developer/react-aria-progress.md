@@ -2370,3 +2370,24 @@ semantics remain unchanged. Validation: 16 affected units in four files, fresh
 library/production docs builds and catalog checks, plus both Chromium range-text
 browser cases (including overview-description association, restored subtitle,
 relative input, native submission, isolation and copied source).
+
+### Inset field focus regression (2026-10-17)
+
+Fixed shared field/segment CSS to draw focus outlines inward, including decorated
+wrappers and attached calendar/clock buttons. Theme colors, owned focus-width,
+keyboard visibility and forced-color Highlight remain; borders/radii/layout do
+not change. This affects shared textbox, textarea, select/combobox, search,
+async multi-select, date/time and range field implementations.
+
+Added field-focus-boundary.spec.ts: four demo identities × both densities × ten
+field routes, plus dark/forced-color visibility and attached-action focus checks.
+All 15 focused cases passed (five each in Chromium, Firefox and WebKit). Screenshot
+review confirmed inset outlines. Library/production docs builds, catalog checks
+and foundation import/layer/token guards passed. Evidence:
+[focus boundary](final-acceptance/field-focus-boundary/results.json).
+
+Open follow-up: the separate, unchanged picker-radius.spec.ts year-label fit
+assertion fails in Material Compact/Light and Comfortable/Dark at line 30 in the
+optional legacy month/year dropdown. Both failure records are retained in the
+focus receipt; neither assertion was removed or weakened. This is not a claim
+that the whole browser matrix or historical visual/AT gates are closed.
