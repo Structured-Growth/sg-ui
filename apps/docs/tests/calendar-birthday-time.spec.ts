@@ -11,11 +11,12 @@ test('birthday supports a year jump, leap day, direct input and narrow popup',as
  const dialog=page.getByRole('dialog',{name:'Select your birthday',exact:true});
  await dialog.getByRole('button',{name:'Choose year, 2000',exact:true}).click();
  const chooser=dialog.getByRole('group',{name:'Choose year',exact:true});
- const previous=chooser.getByRole('button',{name:'Previous years',exact:true});
- for(let step=0;step<12&&await previous.isEnabled();step++)await previous.click();
- await expect(chooser.getByRole('button',{name:'1900',exact:true})).toBeAttached();
+ await expect(chooser.getByRole('button',{name:'Previous years',exact:true})).toHaveCount(0);
+ await expect(chooser.locator('[data-sgui-part="year-scroll"]')).toBeVisible();
+ await chooser.getByRole('button',{name:'2000',exact:true}).press('Home');
+ await expect(chooser.getByRole('button',{name:'1900',exact:true})).toBeFocused();
  await expect(chooser.getByRole('button',{name:'2027',exact:true})).toHaveCount(0);
- for(let step=0;step<12&&await chooser.getByRole('button',{name:'1984',exact:true}).count()===0;step++)await chooser.getByRole('button',{name:'Next years',exact:true}).click();
+ await chooser.getByRole('button',{name:'1984',exact:true}).scrollIntoViewIfNeeded();
  await chooser.getByRole('button',{name:'1984',exact:true}).click();await expect(field).toHaveValue('');
  await dialog.getByRole('button',{name:'Choose month, January',exact:true}).click();await dialog.getByRole('group',{name:'Choose month',exact:true}).getByRole('button',{name:'February',exact:true}).click();
  const monthBox=(await dialog.getByRole('button',{name:'Choose month, February',exact:true}).boundingBox())!;

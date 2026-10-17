@@ -9476,11 +9476,18 @@
           "description": "Default 120. With two explicit bounds, offer the entire applicable interval."
         },
         {
+          "name": "yearNavigation",
+          "type": "\"scroll\" | \"paged\" | undefined",
+          "required": false,
+          "default": "\"scroll\"",
+          "description": "Four-column vertical scrolling by default. Paged retains the range heading and Previous/Next year-page buttons. Text entry ignores this option."
+        },
+        {
           "name": "yearsPerPage",
           "type": "12 | 16 | 24 | undefined",
           "required": false,
           "default": "12",
-          "description": "Number of buttons per page; default 12."
+          "description": "Number of buttons per page in paged navigation; default 12. Ignored by scroll."
         },
         {
           "name": "yearEntry",
@@ -9586,11 +9593,18 @@
           "description": "Called on Cancel, or unhandled Escape in inline mode. The host owns returning to its previous view."
         },
         {
+          "name": "yearNavigation",
+          "type": "\"scroll\" | \"paged\" | undefined",
+          "required": false,
+          "default": "\"scroll\"",
+          "description": "Inline year choices scroll in four columns by default; paged shows page controls."
+        },
+        {
           "name": "yearsPerPage",
           "type": "12 | 16 | 24 | undefined",
           "required": false,
           "default": "12",
-          "description": "Number of year buttons per inline page. Defaults 12."
+          "description": "Number of year buttons per inline page in paged mode. Defaults 12."
         },
         {
           "name": "purpose",
@@ -12271,6 +12285,13 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "calendarNavigation",
+          "type": "\"independent\" | \"linked\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Independent by default: month/year choices and arrows change only the calendar used, without selecting a date. Linked keeps consecutive months moving together. Selection remains shared in both modes."
+        },
+        {
           "name": "firstDayOfWeek",
           "type": "\"sun\" | \"mon\" | \"tue\" | \"wed\" | \"thu\" | \"fri\" | \"sat\" | undefined",
           "required": false,
@@ -12814,10 +12835,10 @@
         },
         {
           "name": "calendarNavigation",
-          "type": "\"linked\" | \"independent\" | undefined",
+          "type": "\"independent\" | \"linked\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Linked months advance together; independent months have separate navigation and may be nonconsecutive."
+          "description": "Defaults independent: changing a month/year or using arrows affects only that calendar. Linked keeps consecutive views moving together. Neither mode changes selected dates through navigation."
         },
         {
           "name": "calendarEndpoints",
@@ -13064,10 +13085,10 @@
         },
         {
           "name": "calendarNavigation",
-          "type": "\"linked\" | \"independent\" | undefined",
+          "type": "\"independent\" | \"linked\" | undefined",
           "required": false,
-          "default": "\"linked\"",
-          "description": "Linked months advance together; independent months have separate navigation and may be nonconsecutive."
+          "default": "\"independent\"",
+          "description": "Defaults independent: changing a month/year or using arrows affects only that calendar. Linked keeps consecutive views moving together. Neither mode changes selected dates through navigation."
         },
         {
           "name": "calendarEndpoints",

@@ -2391,3 +2391,27 @@ assertion fails in Material Compact/Light and Comfortable/Dark at line 30 in the
 optional legacy month/year dropdown. Both failure records are retained in the
 focus receipt; neither assertion was removed or weakened. This is not a claim
 that the whole browser matrix or historical visual/AT gates are closed.
+
+
+### 2026-10-17 — Year scrolling and independent calendar views
+
+Completed the requested four-column YearPicker native vertical scroll default,
+without a year-range heading or page arrows. Pagination remains available through
+yearNavigation="paged"; calendar/date/range compositions forward it through
+periodPickerProps. Documented both modes and kept source-backed controls/examples.
+
+Calendar, DateRangeSelector and DateRangePicker now default to independent
+multi-calendar navigation. Choosing a month/year or an arrow changes only that
+view, preserving sibling views and shared selected dates/ranges. Linked navigation
+remains explicit. Isolated nested interaction props and retained active keyboard
+range previews, draft/Apply/Cancel/Clear/reset behavior and endpoint restrictions.
+
+Validation: 149 affected unit cases in 26 files; 60 production browser cases
+(28 Chromium, 16 Firefox, 16 WebKit), including four-column scroll/keyboards,
+pagination opt-in, stable in-place chooser geometry, sibling isolation, source
+compilation, bidirectional range creation and independent endpoint/drag/touch flows.
+Library/production docs builds, foundation guards, docs TypeScript and packed
+consumer checks passed. Evidence and source fingerprints:
+[year scrolling and navigation](final-acceptance/year-scroll-independent-navigation/results.json).
+This does not close unrelated historical acceptance gates or the previously
+recorded optional legacy picker-radius year-label fit failures.

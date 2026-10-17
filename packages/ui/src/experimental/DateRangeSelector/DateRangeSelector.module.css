@@ -103,3 +103,5 @@
  .root:has([data-sgui-part="calendar-period-view"]) .fields,
  .root:has([data-sgui-part="calendar-period-view"]) .presets { visibility: hidden; }
 }
+
+@layer sgui.components { .periodContents > [role="group"] { block-size: 100%; min-block-size: 0; } }

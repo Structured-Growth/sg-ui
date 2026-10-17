@@ -421,7 +421,7 @@
     "group": "forms",
     "slug": "year-picker",
     "title": "YearPicker",
-    "description": "Paged year buttons or typed year entry shared by calendars.",
+    "description": "Four-column scrolling year choices, with optional pagination or typed entry.",
     "exports": [
       "YearPicker"
     ]

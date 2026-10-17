@@ -1,5 +1,7 @@
 @layer sgui.components {
  .inline { display: flex; flex-direction: column; gap: var(--sgui-space1); min-inline-size: 0; }
+ .yearRoot[data-year-navigation="scroll"] { block-size: 100%; min-block-size: 0; }
+ .yearScroll { composes: scope from "../../foundation/Scrollbars.module.css"; box-sizing: border-box; overflow-y: auto; overscroll-behavior: contain; min-block-size: 0; block-size: calc(6 * max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)) + 7 * var(--sgui-space1)); max-block-size: 100%; padding: var(--sgui-space1); }
  .header { display: flex; align-items: center; gap: var(--sgui-space1); }
  .header [aria-expanded="true"] svg { transform: rotate(180deg); }
  .header > :first-child { margin-inline-end: auto; }

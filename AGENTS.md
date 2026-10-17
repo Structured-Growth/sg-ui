@@ -724,7 +724,10 @@ dates/ranges or showing chooser actions; Escape returns to days. Independent ran
 calendars preserve their endpoint-aware availability and navigation isolation.
 allowMonthSelection/allowYearSelection default true; disabling one leaves plain
 heading text, while min/max and availability govern actual date restrictions.
-Keep these defaults and props consistent across the calendar family. See
+YearPicker defaults to four-column vertical year scrolling without a year-range
+heading or paging arrows. yearNavigation="paged" retains pagination; calendar
+compositions forward it through periodPickerProps. yearsPerPage applies only to
+paged mode. Keep these defaults and props consistent across the calendar family. See
 [calendar contracts](docs/developer/react-aria-calendar-contracts.md).
 
 Calendar, DatePicker and date range controls support navigation="month-year" and visibleYears (default 120, normalized to 1–9999, constrained by min/max). Month/year changes navigate without committing. Birthday examples keep direct entry and start empty. DatePicker kind="datetime" adds local datetime segments and a calendar/time draft committed by Apply; Cancel/Escape discard it. Preserve date-only immediate selection, host timezone policy, and TimeField completeness validation.
@@ -829,3 +832,8 @@ boundaries and Clear actions when disabled/readOnly changes while a panel is ope
 Preserve the accepted selection and host authority; Cancel remains usable. TextArea
 renders inherited decorative startIcon/endIcon slots using the shared field frame,
 with multiline resize/rows, native ref/form/validation and logical edges preserved.
+
+Calendar, DateRangeSelector and DateRangePicker default calendarNavigation to
+independent. Month/year choices and arrows affect only their own view; shared
+selection is unchanged by navigation. Use linked explicitly for consecutive views
+that move together; calendarEndpoints is a separate range editing policy.

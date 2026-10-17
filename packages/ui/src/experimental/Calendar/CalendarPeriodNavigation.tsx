@@ -14,7 +14,7 @@ import {firstPeriodNavigationDate} from "../PeriodPicker/period-navigation";
 import type {DateAvailability,DateAvailabilityRule} from "../DateRangeSelector/date-contract";
 import type {FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import styles from "../DateRangeSelector/DateRangeSelector.module.css";
-export type CalendarPeriodOptions=Pick<YearPickerProps,"yearsPerPage"|"yearEntry"|"visibleYears"|"minYear"|"maxYear"> & FieldMessagePlacementProps;
+export type CalendarPeriodOptions=Pick<YearPickerProps,"yearsPerPage"|"yearNavigation"|"yearEntry"|"visibleYears"|"minYear"|"maxYear"> & FieldMessagePlacementProps;
 function usePeriodCalendarState(){const calendar=useContext(CalendarStateContext),range=useContext(RangeCalendarStateContext);return range??calendar!;}
 export type PeriodView="month"|"year";
 export type PeriodTarget={offset:number;view:PeriodView};
@@ -43,7 +43,7 @@ export function CalendarPeriodViewport({children,options,visibleYears,activeTarg
  if(options?.maxYear!==undefined){const max=`${String(Math.min(9999,Math.floor(options.maxYear))).padStart(4,'0')}-12-31`;if(!bounded.max||max<bounded.max)bounded.max=max;}
  const eligible=(period:ReturnType<typeof getCivilPeriod>)=>period?firstPeriodNavigationDate(period,bounded):null;
  const navigate=(period:ReturnType<typeof getCivilPeriod>)=>{const date=eligible(period);if(date)state.setFocusedDate(parseDate(date));close();};
- useEffect(()=>{if(target)root.current?.querySelector<HTMLElement>('[data-sgui-part="calendar-period-view"] button:not(:disabled),[data-sgui-part="calendar-period-view"] input:not(:disabled)')?.focus();},[target?.view,offset]);
+ useEffect(()=>{if(target)(root.current?.querySelector<HTMLElement>('[data-sgui-part="calendar-period-view"] button[aria-pressed="true"]:not(:disabled)')??root.current?.querySelector<HTMLElement>('[data-sgui-part="calendar-period-view"] button:not(:disabled),[data-sgui-part="calendar-period-view"] input:not(:disabled)'))?.focus({preventScroll:true});},[target?.view,offset]);
  return <CalendarPeriodContext.Provider value={setTarget}><div ref={root} className={styles.periodViewport}>
   <div className={styles.calendar} aria-hidden={offset!==null||undefined} ref={node=>{node?.toggleAttribute("inert",offset!==null);}} style={{visibility:offset!==null?"hidden":undefined}}>{children}</div>
   {offset!==null&&<div className={styles.periodContents} data-sgui-part="calendar-period-view" onKeyDown={event=>{if(event.key!=="Tab"&&event.key!=="Escape")event.stopPropagation();}}><ButtonContext.Provider value={null}><div role="group" aria-label={target!.view==="month"?t("common.ui.chooseMonthInline",{defaultMessage:"Choose month"}):t("common.ui.chooseYearInline",{defaultMessage:"Choose year"})} onKeyDown={event=>{if(event.key==="Escape"){event.preventDefault();event.stopPropagation();close();}}}>

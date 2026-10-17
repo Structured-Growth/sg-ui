@@ -6,7 +6,7 @@ import {DateRangeSelector} from './DateRangeSelector';
 import {DateRangePicker} from '../DateRangePicker/DateRangePicker';
 afterEach(cleanup);
 it('shares linked month choices and preserves complete drafts until a day is chosen',async()=>{
- const user=userEvent.setup(),change=vi.fn(),draft=vi.fn();render(<DateRangeSelector label="Trip" defaultValue={{start:'2026-10-07',end:'2026-10-16'}} defaultFocusedDate="2026-10-07" onValueChange={change} onDraftChange={draft}/>);
+ const user=userEvent.setup(),change=vi.fn(),draft=vi.fn();render(<DateRangeSelector label="Trip" calendarNavigation="linked" defaultValue={{start:'2026-10-07',end:'2026-10-16'}} defaultFocusedDate="2026-10-07" onValueChange={change} onDraftChange={draft}/>);
  draft.mockClear();await user.click(screen.getByRole('button',{name:'Choose month, October'}));
  expect(screen.getByRole('group',{name:'Month choices'})).toBeTruthy();await user.click(screen.getByRole('button',{name:'December',exact:true}));
  expect(screen.queryByRole('group',{name:'Choose month',exact:true})).toBeNull();expect(screen.getByRole('button',{name:'Choose month, December'})).toBe(document.activeElement);
@@ -24,4 +24,12 @@ it('forwards picker restrictions and preserves the single popup on Escape',async
  await user.click(screen.getByRole('button',{name:'Choose Trip'}));expect(screen.queryByRole('button',{name:/Choose month,/})).toBeNull();
  await user.click(screen.getAllByRole('button',{name:'Choose year, 2026'})[0]);expect(screen.getAllByRole('dialog')).toHaveLength(1);
  await user.keyboard('{Escape}');expect(screen.queryByRole('group',{name:'Choose year',exact:true})).toBeNull();expect(screen.getAllByRole('dialog')).toHaveLength(1);expect(change).not.toHaveBeenCalled();
+});
+
+it('defaults to independent month/year navigation without changing the range draft',async()=>{
+ const user=userEvent.setup(),change=vi.fn(),draft=vi.fn();render(<DateRangeSelector label="Trip" months={3} defaultValue={{start:'2026-10-07',end:'2026-10-16'}} defaultFocusedDate="2026-10-07" onValueChange={change} onDraftChange={draft}/>);
+ const second=within(screen.getByRole('application',{name:/^Trip, calendar 2,/})),third=within(screen.getByRole('application',{name:/^Trip, calendar 3,/}));draft.mockClear();
+ await user.click(second.getByRole('button',{name:'Choose month, November'}));await user.click(second.getByRole('button',{name:'March',exact:true}));
+ await user.click(third.getByRole('button',{name:'Choose year, 2026'}));await user.click(third.getByRole('button',{name:'2028',exact:true}));
+ expect(screen.getByRole('button',{name:'Choose month, October'})).toBeTruthy();expect(second.getByRole('button',{name:'Choose year, 2026'})).toBeTruthy();expect(third.getByRole('button',{name:'Choose month, December'})).toBeTruthy();expect(change).not.toHaveBeenCalled();expect(draft).not.toHaveBeenCalled();
 });

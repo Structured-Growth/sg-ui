@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, expect, it, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Calendar } from "./Calendar";
 import { DatePicker } from "../DatePicker/DatePicker";
@@ -137,4 +137,24 @@ it("exposes callback reasons automatically inside the composed DatePicker", asyn
   expect(change).not.toHaveBeenCalled();
   await user.click(screen.getByText("Unavailable dates"));
   expect(screen.getByText("2026-10-16: No appointment capacity").closest("details")?.open).toBe(true);
+});
+
+it("isolates default multi-month navigation while sharing multiple-date selection", async () => {
+ const user=userEvent.setup(),change=vi.fn();
+ render(<Calendar label="Trip" months={3} selection="multiple" defaultValue={["2026-10-07"]} defaultFocusedDate="2026-10-07" onValueChange={change}/>);
+ const apps=screen.getAllByRole("application"); const first=within(apps[1]!),second=within(apps[2]!),third=within(apps[3]!);
+ await user.click(second.getByRole("button",{name:"Choose month, November"}));
+ await user.click(second.getByRole("button",{name:"May",exact:true}));
+ expect(first.getByRole("button",{name:"Choose month, October"})).toBeTruthy();expect(third.getByRole("button",{name:"Choose month, December"})).toBeTruthy();
+ await user.click(third.getByRole("button",{name:"Choose year, 2026"}));await user.click(third.getByRole("button",{name:"2028",exact:true}));
+ expect(first.getByRole("button",{name:"Choose year, 2026"})).toBeTruthy();expect(second.getByRole("button",{name:"Choose year, 2026"})).toBeTruthy();
+ await user.click(second.getByRole("button",{name:"Next month",exact:true}));expect(second.getByRole("button",{name:"Choose month, June"})).toBeTruthy();
+ expect(change).not.toHaveBeenCalled();
+ await user.click(third.getByRole("button",{name:"Sunday, December 10, 2028"}));expect(change).toHaveBeenCalledExactlyOnceWith(["2026-10-07","2028-12-10"]);
+ expect(first.getByRole("button",{name:/Wednesday, October 7, 2026 selected/})).toBeTruthy();
+});
+it("retains explicit linked multi-month navigation",async()=>{
+ const user=userEvent.setup(),change=vi.fn();render(<Calendar label="Quarter" months={2} calendarNavigation="linked" defaultFocusedDate="2026-10-07" onValueChange={change}/>);
+ await user.click(screen.getByRole("button",{name:"Choose month, October"}));await user.click(screen.getByRole("button",{name:"December",exact:true}));
+ expect(screen.getByRole("button",{name:"Choose month, December"})).toBeTruthy();expect(screen.getByRole("button",{name:"Choose month, January"})).toBeTruthy();expect(change).not.toHaveBeenCalled();
 });

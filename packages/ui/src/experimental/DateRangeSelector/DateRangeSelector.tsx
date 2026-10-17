@@ -4,10 +4,10 @@ import { CalendarMonthTransition } from "../Calendar/CalendarMonthTransition";
 import {CalendarPeriodHeading,CalendarPeriodViewport,type CalendarPeriodOptions,type PeriodTarget} from "../Calendar/CalendarPeriodNavigation";
 import { CalendarNavigation } from "../Calendar/CalendarNavigation";
 import { useLocale } from "react-aria-components/I18nProvider";
-import { useCallback, useContext, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useId, useRef, useState, type ContextType } from "react";
 import { parseDate, toCalendarDate, toCalendar, GregorianCalendar } from "@internationalized/date";
 import { RangeCalendar, CalendarHeading, CalendarGrid, CalendarGridHeader, CalendarHeaderCell,
-  CalendarGridBody, CalendarCell, RangeCalendarStateContext } from "react-aria-components/RangeCalendar";
+  CalendarGridBody, CalendarCell, RangeCalendarContext, RangeCalendarStateContext } from "react-aria-components/RangeCalendar";
 import { ListBox, ListBoxItem } from "react-aria-components/ListBox";
 import { Text } from "react-aria-components/Text";
 import { CheckIcon } from "../../icons/CheckIcon";
@@ -82,7 +82,7 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
   getDateUnavailableReason?: DateAvailabilityRule;
   /** Decorative supplemental content inside a day cell. Its complete accessible date name remains intact; meaningful availability belongs in getDateUnavailableReason. */
   renderDayContent?: (date: DateOnly) => ReactNode;
-  /** Linked months advance together; independent months have separate navigation and may be nonconsecutive. */
+  /** Defaults independent: changing a month/year or using arrows affects only that calendar. Linked keeps consecutive views moving together. Neither mode changes selected dates through navigation. */
   calendarNavigation?: "linked" | "independent";
   /**
    * Assign endpoint intent by calendar index, e.g. ["start", "end"] for From/To.
@@ -127,7 +127,7 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
   name?: string;
 }
 
-export function DateRangeSelector({ label, showTitle = false, navigation = "period", allowMonthSelection=true, allowYearSelection=true, periodPickerProps, visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement, errorPlacement, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
+export function DateRangeSelector({ label, showTitle = false, navigation = "period", allowMonthSelection=true, allowYearSelection=true, periodPickerProps, visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement, errorPlacement, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "independent", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets:basePresets = [], presetGroups = [], presetPlacement = "side", months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
   const { locale, direction } = useLocale();
@@ -292,7 +292,8 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
     const displayRange=dragPreview??draft;
   const displayedRangeValid=dragPreview?validRange(dragPreview):draftPayloadValid;
   const pendingDate = displayRange && (displayRange.start && !displayRange.end ? displayRange.start : !displayRange.start && displayRange.end ? displayRange.end : null);
-  const pendingDisplay=(calendarNavigation==='independent'||calendarLayout==='scroll')&&pendingDate&&isDateOnly(pendingDate)?{start:parseDate(pendingDate),end:parseDate(pendingDate)}:null;
+  const separateViews=(calendarNavigation==='independent'&&months>1)||calendarLayout==='scroll';
+  const pendingDisplay=separateViews&&pendingDate&&isDateOnly(pendingDate)?{start:parseDate(pendingDate),end:parseDate(pendingDate)}:null;
   const calendarValue = displayRange && isDateOnly(displayRange.start) && isDateOnly(displayRange.end) && displayRange.start <= displayRange.end
     ? { start: parseDate(displayRange.start), end: parseDate(displayRange.end) } : pendingDisplay;
   return <div ref={root} onPointerDownCapture={event => {
@@ -366,7 +367,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
       return <RangeGestures resetKey={`${committed?.start}/${committed?.end}/${resetRevision}`} value={calendarValue&&draft?.end?{start:calendarValue.start.toString(),end:calendarValue.end.toString()}:null} behavior={rangeDragBehavior} length={rangeLength} disabled={disabled||readOnly} onActivate={activateDate} onEdit={edit} onPreview={setDragPreview} isAllowed={validRange} onInvalid={()=>setInteractionError(true)} onRestart={date=>{programmaticAnchor.current=date;}}>
     {rangeDragBehavior!=='none'&&<p id={`${descriptionId}-gestures`} className={styles.visuallyHidden}>{t("common.ui.rangeGestureHelp",{defaultMessage:"Shift and Left or Right moves the range when enabled. Alt and Left or Right resizes the end; add Shift to resize the start when enabled. Escape cancels dragging. Drag the first or last day to resize, or an interior day to move. Shift and drag moves from any selected day. At duration limits the opposite boundary follows; fixed duration moves the whole range."})}</p>}
     <ResetCalendarAnchor start={committed?.start} end={committed?.end} resetRevision={resetRevision} />
-    <SelectionBehaviorBridge pointerActive={pointerActive} skipAnchor={programmaticAnchor} onActivate={activateDate} />
+    {!separateViews&&<SelectionBehaviorBridge pointerActive={pointerActive} skipAnchor={programmaticAnchor} onActivate={activateDate} />}
     <div className={styles.layout} data-preset-placement={hasPresets ? presetPlacement : undefined}>
     {presetPlacement !== "end" && presetPanel}
     <div className={styles.calendarBody}>
@@ -392,14 +393,14 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
         <Button className={styles.next} variant="text" tone="neutral" disabled={disabled||readOnly||!isDateOnly(baseMonth.add({months:count}).toString())||Boolean(max&&baseMonth.add({months:count}).toString()>max)} onPress={()=>setScrollStart(baseMonth.add({months:count}).toString())} aria-label={t("common.ui.nextMonths",{defaultMessage:"Next months"})}>›</Button>
       </div></ButtonContext.Provider>}
       <div data-calendar-layout={calendarLayout} className={calendarLayout==='scroll'?styles.scrollingMonths:styles.months}>
-      {Array.from({length:count},(_,index)=>calendarNavigation==='independent'||calendarLayout==='scroll'?
-        <RangeCalendar key={calendarLayout==='scroll'?`${baseMonth.toString()}-${index}`:index} aria-label={t("common.ui.rangeMonth",{defaultMessage:"{label}, calendar {number}",values:{label:calendarEndpoint(index)?`${label}, ${t(calendarEndpoint(index)==='start'?"common.ui.startDate":"common.ui.endDate",{defaultMessage:calendarEndpoint(index)==='start'?"Start date":"End date"})}`:label,number:index+1}})} value={calendarValue}
-          defaultFocusedValue={baseMonth.add({months:index})} visibleDuration={{months:1}} minValue={min&&isDateOnly(min)?parseDate(min):undefined} maxValue={max&&isDateOnly(max)?parseDate(max):undefined}
+      {Array.from({length:count},(_,index)=>separateViews?
+        <RangeCalendarContext.Provider key={calendarLayout==='scroll'?`${baseMonth.toString()}-${index}`:index} value={null}><RangeCalendar aria-label={t("common.ui.rangeMonth",{defaultMessage:"{label}, calendar {number}",values:{label:calendarEndpoint(index)?`${label}, ${t(calendarEndpoint(index)==='start'?"common.ui.startDate":"common.ui.endDate",{defaultMessage:calendarEndpoint(index)==='start'?"Start date":"End date"})}`:label,number:index+1}})} value={calendarValue}
+          onFocusChange={date=>setFocusedDate(toCalendar(date,new GregorianCalendar()).toString())} defaultFocusedValue={baseMonth.add({months:index})} visibleDuration={{months:1}} minValue={min&&isDateOnly(min)?parseDate(min):undefined} maxValue={max&&isDateOnly(max)?parseDate(max):undefined}
           firstDayOfWeek={firstDayOfWeek} isDisabled={disabled} isReadOnly={readOnly} commitBehavior="reset"
           isDateUnavailable={date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();return unavailable.some(day=>day.date===iso)||Boolean(getDateUnavailableReason?.(iso,{range:draft,endpoint:calendarEndpoint(index)??selectionEndpoint}));}}
           onChange={range=>edit(range?{start:range.start.toString(),end:range.end.toString()}:null)}>
-          <ResetCalendarAnchor start={committed?.start} end={committed?.end} resetRevision={resetRevision}/><SelectionBehaviorBridge pointerActive={pointerActive} skipAnchor={programmaticAnchor} onActivate={date=>activateDate(date,calendarEndpoint(index))}/>{monthView(index,0)}
-        </RangeCalendar>:monthView(index))}
+          <IndependentRangePreview parent={state}/><ResetCalendarAnchor start={committed?.start} end={committed?.end} resetRevision={resetRevision}/><SelectionBehaviorBridge pointerActive={pointerActive} skipAnchor={programmaticAnchor} onActivate={date=>activateDate(date,calendarEndpoint(index))}/>{monthView(index,0)}
+        </RangeCalendar></RangeCalendarContext.Provider>:monthView(index))}
       </div>
     {focusedReason && <p className={styles.summary} role="status" data-sgui-part="date-availability">{focusedDate}: {focusedReason}</p>}
     {unavailable.length > 0 && <details className={styles.availability}>
@@ -463,8 +464,23 @@ function DescribedCalendarCell({ date, reason, reasonId, previewIds, content, st
   </CalendarCell>;
 }
 
-// Host replacements and native resets invalidate an unfinished range without
-// remounting the calendar or duplicating the interaction engine's selection state.
+// Mirror only the active view's keyboard preview into the shared draft chrome.
+// Its focus stays local, so this never navigates a sibling calendar.
+function IndependentRangePreview({parent}:{parent:NonNullable<ContextType<typeof RangeCalendarStateContext>>}) {
+ const state=useContext(RangeCalendarStateContext)!;
+ const wasFocused=useRef(false);
+ useEffect(()=>{
+  if(state.isFocused||wasFocused.current){
+   if(state.isFocused&&state.focusedDate.compare(parent.focusedDate)!==0)parent.setFocusedDate(state.focusedDate);
+   parent.setFocused(state.isFocused);
+   if((state.anchorDate?.toString()??null)!==(parent.anchorDate?.toString()??null))parent.setAnchorDate(state.anchorDate);
+  }
+  wasFocused.current=state.isFocused;
+ },[state.isFocused,state.focusedDate,state.anchorDate,parent]);
+ return null;
+}
+
+// Host replacements and native resets invalidate unfinished anchors without remounting.
 function ResetCalendarAnchor({ start, end, resetRevision }: { start?: DateOnly; end?: DateOnly; resetRevision: number }) {
   const state = useContext(RangeCalendarStateContext);
   const setAnchorDate = state?.setAnchorDate;

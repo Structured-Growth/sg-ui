@@ -637,7 +637,7 @@ fetching, translations, timezone and holiday policy in host adapters.
 `calendarNavigation="independent"` gives displayed months their own view/focus
 state while sharing one range. `calendarLayout="scroll"` displays a bounded
 consecutive month browser (`scrollMonths`, default 12, max 120) and preserves its
-scroll ownership. Linked paged months remain the default. `selectionUnit` selects
+scroll ownership. Independent paged months are the default; choose calendarNavigation="linked" explicitly to move consecutive views together. `selectionUnit` selects
 a full week/month/quarter/year directly. `showFields` and `showActions` allow
 embedding in a composition that owns fields/actions. `presetGroups` provides
 nested categories with host-defined labels and resolved presets. `renderDayContent`
@@ -819,7 +819,7 @@ Calendar, DatePicker, DateRangeSelector and DateRangePicker default to
 `navigation="period"`, using the same MonthPicker and YearPicker components. Separate month and year
 text buttons form the heading at logical start; arrows remain at logical end.
 Each button replaces the day view in the same frame: month shows all 12 months,
-year opens paged years directly. Selecting a choice immediately returns to days,
+year opens a four-column vertical scroll directly. Selecting a choice immediately returns to days,
 restores heading focus, and changes focus/view only. There is no Apply, Cancel or
 Clear in either choice view. Escape returns without navigating. Hidden day/time/
 clear controls retain the frame dimensions while being removed from interaction.
@@ -837,7 +837,7 @@ to constrain actual dates, including typed input. For a week-only event:
   allowMonthSelection={false} allowYearSelection={false} />
 ```
 
-`periodPickerProps` forwards yearEntry, yearsPerPage, visibleYears, minYear,
+`periodPickerProps` forwards yearNavigation, yearEntry, yearsPerPage, visibleYears, minYear,
 maxYear and message placements. Calendar owns labels, navigationView, display,
 unit, purpose, date bounds, availability and callbacks. Additional year bounds
 narrow only the chooser, never broaden actual date constraints. Months/years
@@ -845,7 +845,8 @@ with no eligible day are disabled. A year choice keeps the visible month if it
 has an eligible day, otherwise focuses the first eligible date of that year.
 Month choices focus their first eligible day, including partially available months.
 
-Year buttons are the default; yearsPerPage defaults 12 (also 16/24). Optional
+Year buttons scroll in four columns by default; yearNavigation="paged" retains
+the page heading and arrows. yearsPerPage defaults 12 (also 16/24) in paged mode only. Optional
 `yearEntry="text"` accepts a four-digit year on Enter or blur; invalid drafts
 are reported only after that attempt. Two-sided year/date bounds
 offer the complete applicable year interval; otherwise visibleYears defaults to
@@ -864,7 +865,7 @@ Both controls are public through the root, components and experimental entry
 points. They render inline choices with no popup or action footer. MonthPicker
 requires a Gregorian year, uses numeric month values 1–12 and localized labels.
 YearPicker uses numeric years 1–9999, a deterministic referenceYear (selected year
-or 2000 by default), optional text entry, and paged buttons. Each supports
+or 2000 by default), optional text entry, four-column vertical scrolling by default and optional paged buttons. Each supports
 controlled value/onValueChange and uncontrolled defaultValue, disabled/readOnly,
 date bounds, unavailable records and additional choice-level availability.
 Density inherits from the surrounding scope. These controls return a number;
@@ -892,3 +893,47 @@ Attached calendar/clock buttons use the same inset offset. This preserves the
 field radius and prevents focus paint extending past the textbox or into its
 adjacent button. The offset derives from the owned focus-width token; theme focus
 colors, visible keyboard focus and forced-colors Highlight remain active.
+
+
+### Four-column year scrolling (2026-10-17)
+
+YearPicker defaults to `yearNavigation="scroll"`. The grid retains four years
+across, with native vertical scrolling and no range-of-years heading or page
+arrows. Only the year region scrolls inside the stable calendar frame. The
+selected/reference year is centered when mounted or its bounds/size change;
+ordinary scrolling does not change selection or recenter itself. Native button
+focus reveals years during keyboard navigation. Arrow keys, Home/End and Page
+Up/Down move focus without selecting; Enter/Space activate an eligible year.
+All offered years retain native button semantics and availability restrictions.
+
+`yearNavigation="paged"` preserves the earlier header and page arrows.
+`yearsPerPage` applies only to paged mode; `yearEntry="text"` ignores navigation
+mode. Date/year bounds, visibleYears, disabled/readOnly and availability are
+shared by both presentations. PeriodPicker forwards the option for inline year
+choices. Calendar, DatePicker, DateRangeSelector and DateRangePicker expose it as
+`periodPickerProps={{yearNavigation:"scroll" | "paged"}}`. Generic legacy
+`navigation="month-year"` dropdowns retain their existing native Select behavior.
+
+
+### Independent multi-calendar navigation (2026-10-17)
+
+`Calendar`, `DateRangeSelector` and `DateRangePicker` default to
+`calendarNavigation="independent"`. Choosing a month or year, or pressing an
+arrow, changes only the calendar used. For example, with October/November/December
+shown, changing November to May leaves October and December untouched. Changing
+December's year then leaves both other calendars' years untouched. These actions
+never select dates or edit a range draft. Duplicate/nonconsecutive views are allowed.
+Initially the calendars display consecutive months starting from the focus month.
+
+Selection is shared across views, including controlled and uncontrolled single,
+multiple and range selection. Keyboard range previews still disable Apply until
+an end is chosen; Cancel, Clear and host replacements clear unfinished anchors.
+Only one month/year chooser is visible within the component. Single-calendar
+navigation retains the same behavior without an extra interaction engine.
+
+Use `calendarNavigation="linked"` explicitly to retain consecutive months that
+move together. For ranges, `calendarEndpoints` remains a separate endpoint-editing
+policy and works only with independent paged views. Scrolling month browsers keep
+their existing independent views. Calendar's `focusedDate` anchors the outer
+view; independent views retain local focus after initial placement, reporting
+focus through `onFocusedDateChange` without navigating sibling views.

@@ -1,0 +1,6 @@
+import {createRequire} from 'node:module';
+import {fileURLToPath} from 'node:url';
+const root=fileURLToPath(new URL('../../../../',import.meta.url));
+const require=createRequire(root+'apps/docs/package.json');
+const {defineConfig,devices}=require('@playwright/test');
+export default defineConfig({testDir:root+'apps/docs/tests',testMatch:['date-picker-period-navigation.spec.ts','calendar-birthday-time.spec.ts','date-range-independent-endpoints.spec.ts','date-range-flow.spec.ts','date-range-gesture-continuation.spec.ts','shared-calendar-pickers.spec.ts','year-scroll.spec.ts'],workers:1,retries:0,timeout:30000,maxFailures:2,outputDir:root+'apps/docs/test-results/year-scroll',reporter:[['list'],['json',{outputFile:root+'apps/docs/test-results/year-scroll-results.json'}]],use:{baseURL:'http://127.0.0.1:3100',trace:'retain-on-failure'},projects:[{name:'chromium',use:devices['Desktop Chrome']},{name:'firefox',testMatch:['date-picker-period-navigation.spec.ts','shared-calendar-pickers.spec.ts','year-scroll.spec.ts'],use:devices['Desktop Firefox']},{name:'webkit',testMatch:['date-picker-period-navigation.spec.ts','shared-calendar-pickers.spec.ts','year-scroll.spec.ts'],use:devices['Desktop Safari']}],webServer:{command:'pnpm start --port 3100',cwd:root+'apps/docs',url:'http://127.0.0.1:3100',reuseExistingServer:false}});

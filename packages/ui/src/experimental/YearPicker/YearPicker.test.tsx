@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import {YearPicker} from './YearPicker';
 afterEach(cleanup);
 it('pages deterministic years, honors bounds and selects immediately',async()=>{
- const user=userEvent.setup(),change=vi.fn();render(<YearPicker referenceYear={2000} minYear={1980} maxYear={2026} yearsPerPage={12} onValueChange={change}/>);
+ const user=userEvent.setup(),change=vi.fn();render(<YearPicker yearNavigation="paged" referenceYear={2000} minYear={1980} maxYear={2026} yearsPerPage={12} onValueChange={change}/>);
  expect(screen.queryByRole('button',{name:'2027'})).toBeNull();await user.click(screen.getByRole('button',{name:'Previous years'}));await user.click(screen.getByRole('button',{name:'1984'}));expect(change).toHaveBeenCalledExactlyOnceWith(1984);
 });
 it('defers typed validation until Enter or blur and commits only eligible four-digit years',async()=>{
@@ -16,4 +16,11 @@ it('defers typed validation until Enter or blur and commits only eligible four-d
 it('disables wholly unavailable years and honors controlled selection',async()=>{
  const user=userEvent.setup(),change=vi.fn();render(<YearPicker minYear={2025} maxYear={2027} value={2025} getDateUnavailableReason={date=>date.startsWith('2026')?'Closed':undefined} onValueChange={change}/>);
  expect(screen.getByRole('button',{name:'2026'}).hasAttribute('disabled')).toBe(true);await user.click(screen.getByRole('button',{name:'2027'}));expect(change).toHaveBeenCalledExactlyOnceWith(2027);expect(screen.getByRole('button',{name:'2025'}).getAttribute('aria-pressed')).toBe('true');
+});
+
+it('defaults to four-column scroll choices with keyboard navigation and no paging header',async()=>{
+ const user=userEvent.setup(),change=vi.fn();render(<YearPicker value={2026} minYear={2020} maxYear={2030} onValueChange={change}/>);
+ expect(screen.queryByRole('button',{name:'Previous years'})).toBeNull();expect(screen.queryByRole('button',{name:'Next years'})).toBeNull();expect(screen.getAllByRole('button')).toHaveLength(11);
+ screen.getByRole('button',{name:'2026',exact:true}).focus();await user.keyboard('{ArrowUp}{Enter}');expect(change).toHaveBeenCalledExactlyOnceWith(2022);
+ await user.keyboard('{End}');expect(document.activeElement).toBe(screen.getByRole('button',{name:'2030',exact:true}));
 });

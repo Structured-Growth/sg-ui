@@ -7,6 +7,7 @@ for(const kind of ['date-range-picker','date-range-selector'])for(const density 
  if(kind==='date-range-picker')await panel.getByRole('button',{name:'Choose Travel dates',exact:true}).click();
  const host=kind==='date-range-picker'?page.getByRole('dialog',{name:'Travel dates',exact:true}):panel;
  const before=(await host.boundingBox())!;
+ const first=host.getByRole('application',{name:/^Travel dates, calendar 1,/}),second=host.getByRole('application',{name:/^Travel dates, calendar 2,/});
  await host.getByRole('button',{name:'Choose month, October',exact:true}).click();
  const chooser=host.getByRole('group',{name:'Choose month',exact:true});
  await expect(chooser.getByRole('button')).toHaveCount(12);
@@ -15,10 +16,12 @@ for(const kind of ['date-range-picker','date-range-selector'])for(const density 
  await host.screenshot({path:`/tmp/shared-range-month-${kind}-${density}.png`});
  await chooser.getByRole('button',{name:'December',exact:true}).click();
  await expect(host.getByRole('button',{name:'Choose month, December',exact:true})).toBeFocused();
- await host.getByRole('button',{name:'Choose year, 2026',exact:true}).click();
+ await expect(second.getByRole('button',{name:'Choose month, November',exact:true})).toBeVisible();
+ await first.getByRole('button',{name:'Choose year, 2026',exact:true}).click();
  await host.screenshot({path:`/tmp/shared-range-year-${kind}-${density}.png`});
  await host.getByRole('group',{name:'Choose year',exact:true}).getByRole('button',{name:'2027',exact:true}).click();
- await expect(host.getByRole('button',{name:'Choose year, 2027',exact:true}).first()).toBeFocused();
+ await expect(first.getByRole('button',{name:'Choose year, 2027',exact:true})).toBeFocused();
+ await expect(second.getByRole('button',{name:'Choose year, 2026',exact:true})).toBeVisible();
  if(kind==='date-range-picker'){
   await expect(panel.getByRole('textbox',{name:'Travel dates',exact:true})).toHaveValue('10/07/2026 – 10/16/2026');
   await host.getByRole('button',{name:'Choose month, December',exact:true}).click();await host.getByRole('button',{name:'December',exact:true}).press('Escape');await expect(page.getByRole('dialog')).toHaveCount(1);
