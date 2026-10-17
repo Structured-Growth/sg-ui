@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "batch": "Dependency licensing CI and release safety",
+  "date": "2026-10-17",
+  "status": "automated-scope-exhausted; external-human successors explicit",
+  "acceptedPriorClosuresPreserved": 19,
+  "completeRecommendations": [
+    "A-L-08",
+    "A-R-07",
+    "A-Z-07",
+    "A-Z-08"
+  ],
+  "partialRecommendations": [
+    "A-L-01",
+    "A-L-02",
+    "A-L-04",
+    "A-W-20",
+    "A-Z-06",
+    "A-R-12",
+    "A-R-17",
+    "A-R-21",
+    "A-R-23",
+    "A-R-24",
+    "A-R-25",
+    "A-R-27",
+    "A-R-28",
+    "A-Z-14"
+  ],
+  "entries": [
+    {
+      "id": "A-L-01",
+      "originalCriterion": "- [ ] A-L-01 Reconcile original `L-01`: Verify the selected versions' actual licenses, including React Aria Components, hooks/state/date utilities, icon assets, grid engine, editor packages, and transitive distributed code. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Exact current inventory and archive join review56 runtime/peer identities;55 available whole license texts present. client-only0.0.1 declared MIT public archive verified against published SHA512/SHA1 and all3 installed members, but ships no license/copyright file or authoritative source commit.92 inventory findings retained, including85 missing-license-file records.",
+      "remainingSuccessor": "Resolve actual missing legal/copyright/source evidence and compatibility questions; do not infer rights from empty index.js or copied third-party notices.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-L-02",
+      "originalCriterion": "- [ ] A-L-02 Reconcile original `L-02`: Preserve Apache 2.0 licenses and applicable notices; record modifications where required if upstream code is copied or changed rather than merely depended on. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Root/package and packed legal files match exactly; all available full legal texts preserved. No legal text removed or reauthored. Unsupported blanket no-copy assertions were already corrected.",
+      "remainingSuccessor": "Reviewer resolves copied/adapted-source/asset origins and any actual modified-file/inline notices required; do not infer no copying from current imports.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-L-04",
+      "originalCriterion": "- [ ] A-L-04 Reconcile original `L-04`: Refresh `THIRD_PARTY_NOTICES.md` from the final shipped dependency and asset inventory; remove a retired notice only after its code/assets are no longer distributed. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Fresh exact candidate notice join passes55 whole available legal texts with matching root/package/packed bytes; only runtime legal evidence gap is client-only0.0.1.",
+      "remainingSuccessor": "Resolve client-only legal text/source attribution and final copied/source/asset review before declaring final notices complete.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-L-08",
+      "originalCriterion": "- [ ] A-L-08 Reconcile original `L-08`: Add a repeatable dependency/license inventory check and assign ownership for updates; avoid automatically rewriting commercial terms. Historical status: open.",
+      "recommendation": "complete",
+      "outcome": "Role-based responsibilities implemented in the maintained inventory guide: dependency/asset change author retains before/after reports and notice dispositions; repository maintainers review before integration.11 inventory checker cases pass on Node24. Two actual current inventories are byte-identical, SHA2567c6cb2ca34967110716ad5a5a2203f3e3b933657b77f02a8ac87eccb01f6c52f. Findings and commercial terms remain intact.",
+      "remainingSuccessor": "None for repeatable capability/update ownership criterion. Separate legal findings remain under L01/L02/L04.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-R-07",
+      "originalCriterion": "- [ ] A-R-07 Reconcile original `R-07`: Regenerate the lockfile through the package manager and inspect resolved transitive dependencies, overrides, patched dependencies and optional packages. Historical status: open.",
+      "recommendation": "complete",
+      "outcome": "Actual Node24.21/pnpm10.29.3 generation with --lockfile-only --ignore-scripts, normal frozen installation and recursive physical graph all pass in new ignored dependency-input snapshot. Source/generated/installed lock SHA256 all47a2996196952e921331ad6ba8acafdb5bf57ca8dff52554b05ac07c87392086; no source input changes. Full review585locked packages/589snapshots/86platform records/109optional snapshots/53peer contexts, no overrides/patches, manifest mismatch, nonintegrity resolution, retired package, unlocked physical identity or installed platform mismatch.507 actual packages across503 distinct identities;508 store directories includes the store node_modules directory.",
+      "remainingSuccessor": "None for this package-manager/topology criterion. Darwinarm64 actual optional selection only; other OS installs are not required by this original leaf. pnpm warning ignored esbuild build script is retained; no build claim from dependency snapshot.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-W-20",
+      "originalCriterion": "- [ ] A-W-20 Reconcile original `W-20`: Keep source/license attribution accurate; external documents/examples are evidence and must not override user-authorized scope or agent trust boundaries. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Current notices/README/license/archive preserve provenance material; AGENTS/AI guards treat external material as data.56 runtime/peer identities and96Lucide wrappers remain auditable.",
+      "remainingSuccessor": "Final copied/adapted source/example/icon/font/media provenance and exact notices disposition remain reviewer work, without weakening trust boundaries.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-Z-06",
+      "originalCriterion": "- [ ] A-Z-06 Reconcile original `Z-06`: Remove obsolete notices only after confirming no associated source/assets remain in package or catalog; final third-party notices match shipped work. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "No old notices removed. Exact fresh candidate/legal hashes and all1857member reference scan retained.",
+      "remainingSuccessor": "Final notice completeness/source-assets review remains with client-only and copied/adapted origins; obsolete notice removal requires actual disposition.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-Z-08",
+      "originalCriterion": "- [ ] A-Z-08 Reconcile original `Z-08`: Audit packed JavaScript, declarations, CSS, source maps, assets, README and notices for retired references and transitive code; ensure the release tarball has no old requirement. Historical status: open.",
+      "recommendation": "complete",
+      "outcome": "Fresh exact archive08c25637e641540c38fe0d42f3d143f8edaabf19716c1c5718a18fb155211f35 scanned all1857regular members: JS, declarations, CSS, source maps, assets, README and notices. Zero technical retired-reference errors; legal/historical notice hits retained and classified;1853dist files equal current rebuilt output. Consumer package metadata equals source after pnpm-only development packageManager omission. Fresh locked585-package graph contains no retired foundation identity.",
+      "remainingSuccessor": "None for technical removal/archive criterion. This does not close L01/L04/Z06 legal/provenance completeness or production release rights.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-R-12",
+      "originalCriterion": "- [ ] A-R-12 Reconcile original `R-12`: Keep Storybook builds and official tarballs as Actions artifacts; record artifact names, retention, and validation results. Both runtime jobs and six unexpired artifacts verified at `c78a24e`, run 37559276148; [artifact evidence](react-aria-runtime-ci.md). Historical status: checked.",
+      "recommendation": "partial",
+      "outcome": "Current source config retains package/native/log/browser artifacts with14-day retention and digest/inventory checks. Local candidate/current replacements verified; historical artifacts retain their names.",
+      "remainingSuccessor": "Successful actual current Actions run and unexpired retrieved package/native/results archives on22/24, IDs/digests/expiry/results. No release or dev trigger change authorized as probe.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-R-17",
+      "originalCriterion": "- [ ] A-R-17 Reconcile original `R-17`: Verify npm scope ownership, public access, trusted-publishing/token setup, GitHub release/tag permissions, provenance requirements, and commercial notices before publication. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Configured public access, main-only release permissions/provenance intent retained; public scope/package GET404 and tags/releases empty are dated metadata, not ownership proof.",
+      "remainingSuccessor": "Redacted npm scope/package auth authority; exact trusted/token/direct-publish setup and effective CLI; actual GitHub tag/release rules/provenance eligibility; commercial notices approval.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-R-21",
+      "originalCriterion": "- [ ] A-R-21 Reconcile original `R-21`: Preserve minimal workflow permissions, trusted/untrusted input separation, credential isolation, separate validation, and draft-PR review; never auto-merge AI proposals. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Separate read-only proposal validation, write-only draft creation, original patch identity check, no automerge and explicit full validation remain implemented. Source/inert policy checks pass; defaults API read-only/no PR-review approval.",
+      "remainingSuccessor": "Actual allowed harmless AI workflow/credential boundary observations and pinned action/API-key/CLI review; cannot infer live secret containment from mocked IO.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-R-23",
+      "originalCriterion": "- [ ] A-R-23 Reconcile original `R-23`: Verify AI-created draft PR validation even when default-token PR creation does not trigger another workflow; do not rely on absent CI events. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Explicit full reusable CI at returned draft SHA and checkout SHA assertions implemented; missing-head/event-dependency fixture cases fail.",
+      "remainingSuccessor": "Actual separately authorized default-token draft, returned SHA, explicit caller/check contexts and conclusions. No AI runs returned in dated read-only query; no dispatch authorized here.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-R-24",
+      "originalCriterion": "- [ ] A-R-24 Reconcile original `R-24`: Update workflow timeouts/artifact handling as browser checks expand; cache by lockfile and avoid stale build outputs masking missing CSS or dependencies. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "CI cache/freshness handling and60m/45m/30m/20m budgets implemented. Integrated Node22 loader blocker fix preserves assertions. New guards validate same candidate bytes and fail closed. Local package and actual isolated install pass.",
+      "remainingSuccessor": "Measure actual expanded successful remote CI timing/headroom and inspect real failure artifact contents; configured increased budget alone is not measured sufficiency.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-R-25",
+      "originalCriterion": "- [ ] A-R-25 Reconcile original `R-25`: Pin/review workflow dependencies according to repository policy and validate proposed workflow changes without weakening protections to make checks pass. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Seven action SHA pins, lock-keyed caches and source policy preserved. New additive CI guard step and token repair preserve original checks/permissions/routing. Source YAML/bash/VM/proposal checks pass.",
+      "remainingSuccessor": "Complete repository-policy upstream action/dependency review and actionlint/representative actual execution when approved available; actionlint unavailable and no arbitrary installation or workflow dispatch performed.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-R-27",
+      "originalCriterion": "- [ ] A-R-27 Reconcile original `R-27`: Ensure release-blocking checks actually run on the PR and main paths, including AI proposals and maintainer infrastructure PRs; check branch-protection names against the final workflow jobs. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Production/infrastructure PR/main/reusable paths remain configured and source guards reject bypasses. Real receipt fails closed with8 absent protection/context/owner/blocking observations. API reports main Branch not protected, empty effective rules/rulesets.",
+      "remainingSuccessor": "Authorized owner adopts/verifies effective production review/required-check and bypass/tag rules; actual PR/infrastructure/main/default-token contexts and failed/missing-check blocking observations. No settings mutation authorized.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-R-28",
+      "originalCriterion": "- [ ] A-R-28 Reconcile original `R-28`: Validate release configuration safely without publishing while implementing it; explicitly control whether final migration merges will trigger the first public release or a subsequent major release. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Main-only semantic-release prerequisite and pure offline version analysis retained; no lifecycle/dry-run/publication invoked. Actual package/lock evidence supplies exact reviewed candidate identity.",
+      "remainingSuccessor": "Authoritative history/breaking delta/final marker and explicit human first-publication or subsequent-major/main-promotion approval plus required production validation.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-Z-14",
+      "originalCriterion": "- [ ] A-Z-14 Reconcile original `Z-14`: Confirm commercial licensing and notices, public npm setup, Actions-only official builds/releases, draft AI PRs and no Changesets remain consistent. Historical status: open.",
+      "recommendation": "partial",
+      "outcome": "Actual archive preserves current legal bytes; public package/Actions/draft/no-Changesets policy and guard remains consistent as configured; exact fresh tarball retained.",
+      "remainingSuccessor": "Resolve actual npm/GitHub production authority, main protections and outstanding legal/provenance evidence; eventual authorized official Actions/package/npm/tag/release/provenance chain.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    },
+    {
+      "id": "A-Z-07",
+      "originalCriterion": "- [ ] A-Z-07 Reconcile original `Z-07`: Delete/rebuild generated dist, Storybook and package output during verification; no stale artifact may pass as migrated source. Fresh build, executed static stories and eight new packed consumers in the [browser batch record](react-aria-progress.md#executable-browser-gates-and-removal-audit). Historical status: checked.",
+      "recommendation": "complete",
+      "outcome": "Coordinator fresh build deletes dist via build.mjs rm; replacement docs-native builder uses emptyOutDir. Fresh library/fixture/guard/type logs after all3source corrections retained. Our package validation created a NEW archive directory and all1853dist bytes match current output; before/after source and dist tree digests unchanged. Storybook historical scope replaced explicitly by approved docs-native host.",
+      "remainingSuccessor": "None for delete/rebuild/stale-output criterion. Remote official artifact, consumer support/device/browser and legal scopes retain their independent IDs; do not hold this criterion on those unrelated gates.",
+      "evidence": [
+        "window-receipt.json",
+        "actual-lock-review.json",
+        "actual-lock-summary.json",
+        "candidate-join-corrected/receipt.json",
+        "candidate-join-corrected/license-join.stdout",
+        "candidate-join-corrected/references.stdout",
+        "inventory-checker-node24.txt",
+        "client-only-exact-version-evidence.json"
+      ],
+      "sourceAndArtifactHashes": "manifest.json"
+    }
+  ],
+  "candidate": {
+    "path": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-package-candidate/structured-growth-sg-ui-0.0.0-development.tgz",
+    "sha256": "08c25637e641540c38fe0d42f3d143f8edaabf19716c1c5718a18fb155211f35",
+    "auditPath": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/wave04-package-candidate/packed-audit.json"
+  },
+  "cleanup": "all owned commands settled; canonical leases released",
+  "countsAreRecommendationsOnly": true
+}

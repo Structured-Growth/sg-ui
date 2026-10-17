@@ -1,0 +1,21 @@
+{
+  "decision": "Human requested coordinator plus two ongoing agents after current assignments finish",
+  "ongoingSpecialists": [
+    {
+      "threadId": "01a14bd4-fbcc-7460-93a5-571ced620baa",
+      "scope": "Editors and lifecycle"
+    },
+    {
+      "threadId": "01a14bd5-0ddf-72d2-8b9f-5b37d1bde6e6",
+      "scope": "Controls and calendars"
+    }
+  ],
+  "coordinatorOwns": [
+    "Source integration",
+    "Shared builds and browser scheduling",
+    "Acceptance closure review",
+    "Commits and dev pushes"
+  ],
+  "otherChats": "Finish current bounded assignment, preserve handoff and release resources; then remain idle. No new assignments or delegation.",
+  "validation": "Preserve accepted evidence; rerun only affected or incomplete checks. Audible Apple tests remain paused."
+}

@@ -7,7 +7,123 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 181/320 A leaves closed; 139 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 232/320 A leaves closed; 88 A, 0 editor V review leaves and six future leaves remain.**
+
+### Wave 04 modal and dialog acceptance — 2026-10-17
+
+A-M-08 and A-U-08 close after targeted resize/focus corrections and initially-open nested modal validation supplement the retained owned modal and sticky-tab/action evidence. Browser-native inert state, actual Chromium accessibility-tree exclusion and outside interaction blocking pass; Playwright inert-blind role queries are documented.
+Wave 04 now closes 51 of 139 items; 88 remain.
+
+### Wave 04 CI artifact freshness — 2026-10-17
+
+A-R-24 closes its configured timeout, lock-keyed cache and fresh artifact handling
+criterion after review of workflow source and three artifact guard cases passing
+on Node 22 and 24. Live Actions artifact production and required-check enforcement
+remain separate. Wave 04 now closes 49 of 139 items; 90 remain.
+
+### Wave 04 hierarchical menu final validation — 2026-10-17
+
+A-U-07 closes after public menu/command composition, duplicate-ID Back focus,
+independent panels and narrow-layout validation. Actual screenshot review found
+and corrected the vertical Back label; the final three-engine geometry and
+behavior cases pass. Public docs/source-copy and complete catalog checks pass.
+Wave 04 now closes 48 of 139 items; 91 remain.
+
+### Wave 04 navigation and screenshot review policy — 2026-10-17
+
+A-M-10 closes after adjacent navigation passes its unit, three-engine native and
+production source/copy checks. A-X-15 closes the deliberate screenshot-review
+enforcement criterion with eight guard tests; the full visual baseline matrix
+remains separate. Production catalog validation passes 98 routes and 1,284 source
+snapshots. Wave 04 now closes 47 of 139 items; 92 remain.
+
+### Wave 04 native form and autofill — 2026-10-17
+
+A-U-18 closes after native address autofill passes for the unmanaged baseline and
+uncontrolled, accepting-controlled and rejecting-controlled SGUI policies. Exact
+callbacks, submission, reset and form ownership assertions remain intact; the
+ComboBox Chromium correction also passes alongside retained Firefox/WebKit runs.
+The coordinator checked all four raw result hashes. Saved-profile selection,
+password managers and other-engine autofill are not inferred.
+Wave 04 now closes 45 of 139 items; 94 remain.
+
+### Wave 04 field and calendar contracts — 2026-10-17
+
+A-U-04/05 and A-K-17 close their original field association, choice-control
+keyboard/form and non-hover calendar-explanation criteria. Coordinator review
+validated the exact narrow source/report hashes; unrelated failures in mixed
+reports are retained. Actual spoken date announcements stay separate.
+Wave 04 now closes 44 of 139 items; 95 remain.
+
+### Wave 04 editor core validation — 2026-10-17
+
+A-M-27/34 and A-E-05/07 close after integrating the document/clipboard admission,
+history and composition fixes and completing all 30 pending native cases across
+Chromium, Firefox and WebKit. The first 24 passes are retained; only six driver
+failures needed continuation. Exact content/history assertions remain intact.
+Code is pushed to dev in `72ae8cf0`; reports preserve failures and corrections.
+Wave 04 now closes 41 of 139 items; 98 remain.
+
+### Wave 04 editor technical closure — 2026-10-17
+
+A-M-29 and A-E-02/03/04/06 close their original owned control, node/plugin,
+selection/history and upload policy criteria after coordinator review of retained
+round-trip and image retry evidence plus 24 passing editor browser cases.
+New load/clipboard safeguards still require their separate rebuilt native checks.
+Wave 04 now closes 37 of 139 items; 102 remain.
+
+### Wave 04 theme and overlay closure — 2026-10-17
+
+A-D-12/16/18 and A-C-07/16/17 close their original touch-target, scoped portal,
+reduced-motion/forced-color, stylesheet composition and overlay ownership criteria.
+The coordinator verified all evidence hashes against the retained native results,
+rendered reviews and maintained contracts. Device comfort, spoken assistive
+technology and broader visual matrices remain separate. Wave 04 now closes
+32 of the original 139 items; 107 remain.
+
+### Wave 04 package and dependency closure — 2026-10-17
+
+A-L-08, A-R-07, A-Z-07 and A-Z-08 close after the maintained ownership/checker,
+actual isolated lock generation/frozen installation and fresh packed-archive
+checks. The exact candidate archive is `08c25637e641540c38fe0d42f3d143f8edaabf19716c1c5718a18fb155211f35`;
+all1,857 packed members were scanned,1,853 dist members match the build and no
+retired-reference error remains. The lock remains unchanged;507 installed package
+instances were inspected. [Per-leaf decisions](final-acceptance/wave-04/coordinator/accepted-closures.json)
+retain truthful limits, including the independent client-only legal evidence gap.
+Wave04 now closes26 of139;113 A remain. No production approval is inferred.
+
+### Wave 04 public contract definitions — 2026-10-17
+
+A-A-08/09/10 close their original definition criteria after reviewing the owned
+public visual/placement/validation contracts, practical typed names and documented
+composition/ref/style escape hatches. Built declarations and exact evidence remain
+in the [closure receipt](final-acceptance/wave-04/coordinator/accepted-closures.json).
+This brings wave04 to22 closures,203/320 total;117 remain. Historical compatibility,
+installed consumers and manual AT remain separate obligations.
+
+### Wave 04 reviewed closures — 2026-10-17
+
+Nineteen original A obligations now close against retained accepted evidence;
+[per-leaf decisions and frozen recommendations](final-acceptance/wave-04/coordinator/accepted-closures.json)
+record each original criterion. These closures leave120 A, zero V and six future
+leaves. New implementation and simulator results are validated separately.
+
+### Wave 04 — fifteen acceptance conversations, 2026-10-17
+
+At the user's request, fifteen local conversations own all 139 open A leaves
+exactly once. The [dispatch registry](final-acceptance/wave-04/dispatch.json)
+records the tested starting head, original obligations, exclusive evidence
+directories and conversation IDs. Accepted F/T/V evidence remains valid within
+its recorded scope; this wave targets concrete remaining successors rather than
+repeating inventories. No acceptance leaf closes merely through dispatch.
+
+Conversations prepare reviewable patches and per-leaf recommendations in their
+assigned directories. Shared implementation changes, builds, native execution,
+integration and final counts remain coordinator-owned. The user also authorizes
+the installed Xcode iPhone simulator; the Apple conversation prepares expanded
+actual VoiceOver scenarios for serialized execution. Simulator evidence remains
+distinct from physical-device and manual usability review. Production approval
+and the six deferred future leaves remain separate.
 
 
 ### Editor presentation and shared-menu corrections — 2026-10-17

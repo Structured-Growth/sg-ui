@@ -1,0 +1,801 @@
+{
+  "schemaVersion": 1,
+  "assignment": 2,
+  "head": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "status": "review-ready; native proposal pending integration and execution",
+  "summary": {
+    "completeRecommended": 3,
+    "partial": 9,
+    "blocked": 0,
+    "assigned": 12
+  },
+  "leaves": [
+    {
+      "id": "A-M-26",
+      "originalObligation": "- [ ] A-M-26 Reconcile RichTextFormattingToolbar final acceptance: All formatting actions, mixed/active/disabled state, Lexical commands. Link its `F-C26`, `T-C26` and `V-C26` evidence and any unresolved defects.",
+      "recommendation": "complete",
+      "decision": "F/T retain named actions, true/mixed/disabled and deferred host callbacks; integrated real Lexical command suite supplies selected-run history/reload. HB-20 closes V-C26-04/05. All component-specific named defects are corrected; command-family consumer inventory remains independently under E-04.",
+      "phaseEvidence": {
+        "F": "F-C26: accepted baseline receipt; active baseline checklist has no open entries",
+        "T": "T-C26: next100 mapping and accepted regression receipt",
+        "V": "V-C26: retained first three leaves plus HB-20 V-C26-04/05"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/report.md",
+          "sha256": "77ed3f7939b95dc4b51a7a8ca555cfeed35bb1963a9e532a588ba1dd34501df4"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/results.json",
+          "sha256": "e69e6fbe40ed8dee70a859c7e012dd81b5d310823230264b237d0020cffd98ee"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx",
+          "sha256": "0b366e44ca87a65d38557f7e62a6b650c18da8186bc93d270af7f2545e920b64"
+        },
+        {
+          "path": "packages/ui/tests/browser/editor-style-range-transactions.spec.ts",
+          "sha256": "d2b077de55d5da916a2354608927c38dae7f4df57152fbefa1e8aa9d452acc0e"
+        },
+        {
+          "path": "docs/developer/parallel-next100/next100-c26.md",
+          "sha256": "03a01f1d162f54a877fcbaab2d711d269d062c35a541ae853f5cce9a0ddaedb5"
+        },
+        {
+          "path": "docs/developer/react-aria-baseline-tasks.md",
+          "sha256": "148c29c18b57d9e9917daad17d0bb0a73c293b28f63768968a0dc04084a29844"
+        },
+        {
+          "path": "docs/developer/react-aria-regression-tasks.md",
+          "sha256": "912f7293365fdf77a3db49db1d0b6cc7bd766789b8063f1f48314c9ed27fdd39"
+        }
+      ],
+      "remainingConcreteSuccessors": [],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-M-27",
+      "originalObligation": "- [ ] A-M-27 Reconcile InsertContentMenuControl final acceptance: Menu commands and insertion focus, disabled actions and announcements. Link its `F-C27`, `T-C27` and `V-C27` evidence and any unresolved defects.",
+      "recommendation": "partial",
+      "decision": "F/T establish three insertion callbacks, disabled actions, current callbacks and trigger/dialog focus; HB-20 closes V-C27-04/05. Host insertion status text proves callback delivery, not successful insertion speech.",
+      "phaseEvidence": {
+        "F": "F-C27: accepted baseline receipt; active baseline checklist has no open entries",
+        "T": "T-C27: next100 mapping and accepted regression receipt",
+        "V": "V-C27: retained first three leaves plus HB-20 V-C27-04/05"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/report.md",
+          "sha256": "77ed3f7939b95dc4b51a7a8ca555cfeed35bb1963a9e532a588ba1dd34501df4"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/results.json",
+          "sha256": "e69e6fbe40ed8dee70a859c7e012dd81b5d310823230264b237d0020cffd98ee"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch62-insert-menu-native-focus.spec.ts",
+          "sha256": "7f2c68c4533e7dc595a7055f359550ccb475984302e0e5583d55a373e6b46455"
+        },
+        {
+          "path": "docs/developer/parallel-next100/next100-c27.md",
+          "sha256": "e878d065aab34a07ef18d09c9b443e2a337e73424e427ead56d2a5908b4a73d6"
+        },
+        {
+          "path": "docs/developer/react-aria-baseline-tasks.md",
+          "sha256": "148c29c18b57d9e9917daad17d0bb0a73c293b28f63768968a0dc04084a29844"
+        },
+        {
+          "path": "docs/developer/react-aria-regression-tasks.md",
+          "sha256": "912f7293365fdf77a3db49db1d0b6cc7bd766789b8063f1f48314c9ed27fdd39"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-27-ANNOUNCEMENT: Add/reconcile one real host successful insertion result announcement and editor focus; record actual announcement with named AT if spoken behavior is claimed. Keep command callbacks and announcements host-owned."
+      ],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-M-28",
+      "originalObligation": "- [ ] A-M-28 Reconcile TextAlignMenuControl final acceptance: Alignment/indent commands, active state, direction-aware presentation. Link its `F-C28`, `T-C28` and `V-C28` evidence and any unresolved defects.",
+      "recommendation": "complete",
+      "decision": "F/T retain six physical/logical alignment choices, checked host value, disabled indent/outdent and RTL icons. Integrated bridge derives active alignment from selected blocks through load/undo/redo; real command suite covers all six values and paragraph suite covers indentation. HB-20 closes V-C28-04/05.",
+      "phaseEvidence": {
+        "F": "F-C28: accepted baseline receipt; active baseline checklist has no open entries",
+        "T": "T-C28: next100 mapping and accepted regression receipt",
+        "V": "V-C28: retained first three leaves plus HB-20 V-C28-04/05"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/report.md",
+          "sha256": "77ed3f7939b95dc4b51a7a8ca555cfeed35bb1963a9e532a588ba1dd34501df4"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/results.json",
+          "sha256": "e69e6fbe40ed8dee70a859c7e012dd81b5d310823230264b237d0020cffd98ee"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx",
+          "sha256": "0b366e44ca87a65d38557f7e62a6b650c18da8186bc93d270af7f2545e920b64"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.paragraph-transactions.test.tsx",
+          "sha256": "69eaa6da7f83f2a557e393d88a5562d18015799cc99d28508f8e604bec6b6fbd"
+        },
+        {
+          "path": "packages/ui/tests/browser/inventory-align-direction.spec.ts",
+          "sha256": "429bdabc6e2ac7ea18429c3d04eab56c61b8f5ccc4be449fe5e562ee0a3d1402"
+        },
+        {
+          "path": "docs/developer/parallel-next100/next100-c28.md",
+          "sha256": "c6a87411f0dc6d3c387f32476f3771d0eefb46d53f1636de039ab812971521b9"
+        },
+        {
+          "path": "docs/developer/react-aria-baseline-tasks.md",
+          "sha256": "148c29c18b57d9e9917daad17d0bb0a73c293b28f63768968a0dc04084a29844"
+        },
+        {
+          "path": "docs/developer/react-aria-regression-tasks.md",
+          "sha256": "912f7293365fdf77a3db49db1d0b6cc7bd766789b8063f1f48314c9ed27fdd39"
+        }
+      ],
+      "remainingConcreteSuccessors": [],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-M-29",
+      "originalObligation": "- [ ] A-M-29 Reconcile TextColorPickerControl final acceptance: Foreground/background modes, clear/reset, swatches and accessible color control. Link its `F-C29`, `T-C29` and `V-C29` evidence and any unresolved defects.",
+      "recommendation": "partial",
+      "decision": "F/T plus real command transactions cover foreground/background, hex, swatches, clear/removal, preserved rich runs and history/reload. HB-20 closes V-C29-04/05. Synthetic color-input changes and hex editing do not exercise the OS chooser.",
+      "phaseEvidence": {
+        "F": "F-C29: accepted baseline receipt; active baseline checklist has no open entries",
+        "T": "T-C29: next100 mapping and accepted regression receipt",
+        "V": "V-C29: retained first three leaves plus HB-20 V-C29-04/05"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/report.md",
+          "sha256": "77ed3f7939b95dc4b51a7a8ca555cfeed35bb1963a9e532a588ba1dd34501df4"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/results.json",
+          "sha256": "e69e6fbe40ed8dee70a859c7e012dd81b5d310823230264b237d0020cffd98ee"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch63-color-menu-native-transactions.spec.ts",
+          "sha256": "3af2f5a15a632cd4003f337e5b6af62a147819e0f27c73ceeee915bba6d713d4"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx",
+          "sha256": "0b366e44ca87a65d38557f7e62a6b650c18da8186bc93d270af7f2545e920b64"
+        },
+        {
+          "path": "docs/developer/parallel-next100/next100-c29.md",
+          "sha256": "098ae65e3ba566dd74fb58612e25f3f2ebc36d3d204277f7eb8b1be94cd499df"
+        },
+        {
+          "path": "docs/developer/react-aria-baseline-tasks.md",
+          "sha256": "148c29c18b57d9e9917daad17d0bb0a73c293b28f63768968a0dc04084a29844"
+        },
+        {
+          "path": "docs/developer/react-aria-regression-tasks.md",
+          "sha256": "912f7293365fdf77a3db49db1d0b6cc7bd766789b8063f1f48314c9ed27fdd39"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-29-CHOOSER: Operate the actual OS color chooser in foreground/background by keyboard and named AT; record initial focus, confirm/cancel, callback count/value, return focus and spoken output. Reuse wave-03-25 operator protocol."
+      ],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-M-30",
+      "originalObligation": "- [ ] A-M-30 Reconcile TextStyleMenuControl final acceptance: Style/typeface options, tokenized labels, selection and focus behavior. Link its `F-C30`, `T-C30` and `V-C30` evidence and any unresolved defects.",
+      "recommendation": "complete",
+      "decision": "F/T cover eight style actions, tokenized sample typography, host-controlled checked state and native menu focus. Typeface selection remains the approved toolbar API. Integrated partial-run/caret/Unicode fixes pass real commands/history/reload; native Uppercase/Clear pass all engines. HB-20 closes V-C30-04/05.",
+      "phaseEvidence": {
+        "F": "F-C30: accepted baseline receipt; active baseline checklist has no open entries",
+        "T": "T-C30: next100 mapping and accepted regression receipt",
+        "V": "V-C30: retained first three leaves plus HB-20 V-C30-04/05"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/report.md",
+          "sha256": "77ed3f7939b95dc4b51a7a8ca555cfeed35bb1963a9e532a588ba1dd34501df4"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/results.json",
+          "sha256": "e69e6fbe40ed8dee70a859c7e012dd81b5d310823230264b237d0020cffd98ee"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx",
+          "sha256": "0b366e44ca87a65d38557f7e62a6b650c18da8186bc93d270af7f2545e920b64"
+        },
+        {
+          "path": "packages/ui/tests/browser/editor-style-range-transactions.spec.ts",
+          "sha256": "d2b077de55d5da916a2354608927c38dae7f4df57152fbefa1e8aa9d452acc0e"
+        },
+        {
+          "path": "docs/developer/parallel-next100/next100-c30.md",
+          "sha256": "9d5fe98b05438c5c7fa1f9e4cccd061f55b60eb956d63fb4ef9135a71782ef5a"
+        },
+        {
+          "path": "docs/developer/react-aria-baseline-tasks.md",
+          "sha256": "148c29c18b57d9e9917daad17d0bb0a73c293b28f63768968a0dc04084a29844"
+        },
+        {
+          "path": "docs/developer/react-aria-regression-tasks.md",
+          "sha256": "912f7293365fdf77a3db49db1d0b6cc7bd766789b8063f1f48314c9ed27fdd39"
+        }
+      ],
+      "remainingConcreteSuccessors": [],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-M-34",
+      "originalObligation": "- [ ] A-M-34 Reconcile PageRichTextEditorSection final acceptance: Editor composition, nodes/plugins, serialization and selection behavior. Link its `F-C34`, `T-C34` and `V-C34` evidence and any unresolved defects.",
+      "recommendation": "partial",
+      "decision": "F/T, integrated saved-node combinations, real history/reload, native selection/ordinary editing and HB-20 V-C34-04/05 are accepted within their scopes. Whole-editor acceptance still includes the separately assigned document, command, input and trust rows.",
+      "phaseEvidence": {
+        "F": "F-C34: accepted baseline receipt; active baseline checklist has no open entries",
+        "T": "T-C34: next100 mapping and accepted regression receipt",
+        "V": "V-C34: retained first three leaves plus HB-20 V-C34-04/05"
+      },
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-25/report.md",
+          "sha256": "33503b07414595bf8b433d552528cfa7bf594eaec969c320caf31dcac9e978ac"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-25/results.json",
+          "sha256": "16732c0cabe188647c9ed3700054cdd2da99e2f04acc231c37f0ce83e97c2090"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.acceptance-successors.test.ts",
+          "sha256": "5ac20bcdeeed805f950d54fda1318d12e0458b696fd26ec0a5670bfe7793657b"
+        },
+        {
+          "path": "packages/ui/tests/browser/editor-selection-editing-successors.spec.ts",
+          "sha256": "cf04539db014005b3cf58eb019892fe6962f2b4fcc079de6e7ecc180373d8c07"
+        },
+        {
+          "path": "docs/developer/parallel-next100/next100-c34.md",
+          "sha256": "91847ccf156d1b5642aa75123577201513baaf91de826c680968443a03c606db"
+        },
+        {
+          "path": "docs/developer/react-aria-baseline-tasks.md",
+          "sha256": "148c29c18b57d9e9917daad17d0bb0a73c293b28f63768968a0dc04084a29844"
+        },
+        {
+          "path": "docs/developer/react-aria-regression-tasks.md",
+          "sha256": "912f7293365fdf77a3db49db1d0b6cc7bd766789b8063f1f48314c9ed27fdd39"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-34-COMPOSITION: Reconcile E-02 through E-07 successors below; no second whole-editor suite or repeat of accepted V evidence."
+      ],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-E-02",
+      "originalObligation": "- [ ] A-E-02 Reconcile original `E-02`: Preserve existing nodes/plugins: ImageNode, image insertion, horizontal-rule selection, editor configuration, and experience plugins; test saved-content round trips. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Integrated authored nested-list/merged-header/decorative-alt/Unicode asset corpus passes edit/reload/read-only; unknown-node failure is characterized. Registered nodes and plugins remain intact. This corpus is not the approved consumer inventory.",
+      "phaseEvidence": null,
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-25/report.md",
+          "sha256": "33503b07414595bf8b433d552528cfa7bf594eaec969c320caf31dcac9e978ac"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-25/results.json",
+          "sha256": "16732c0cabe188647c9ed3700054cdd2da99e2f04acc231c37f0ce83e97c2090"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.acceptance-successors.test.ts",
+          "sha256": "5ac20bcdeeed805f950d54fda1318d12e0458b696fd26ec0a5670bfe7793657b"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/editorConfig.ts",
+          "sha256": "04f602901da068b508109399704df42ecef59b359a2abfddb9b7ecadcc3b1b80"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-02-CORPUS: Obtain supported saved-document/node/version inventory and recovery decision. Add only missing approved fixtures. Assert edit/reload/read-only fidelity and that unknown/malformed input cannot overwrite the retained original."
+      ],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-E-03",
+      "originalObligation": "- [ ] A-E-03 Reconcile original `E-03`: Replace editor toolbars, menus, modals, palettes and selection overlays with owned controls while preserving selection across commands and modal dismissal. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Owned controls and integrated native modal rows now pass: six Cancel/Escape range combinations; Link Apply at caret/same-node/cross-node; read-only/key/unmount invalidation. Followup fixes Cancel restoration ordering. HB-19/20 close presentation; they do not prove every successful insertion shape.",
+      "phaseEvidence": null,
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-23/report.md",
+          "sha256": "911cd31ac161e5fd3e72b398543f87597918bc475cc780b4ef432062c1fd3e1f"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-23/results.json",
+          "sha256": "12273a3b655d759db88d0a46247d6c15e8fec4ea214c9a69f9322c9baeda96da"
+        },
+        {
+          "path": "packages/ui/tests/browser/wave03-editor-selection-acceptance.spec.ts",
+          "sha256": "fa2418dc6e2d804ae40651bc5d6f7cca0e77b4ac7faf546b341eaa06e4cb5f4c"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx",
+          "sha256": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-03-INSERTION: Reconcile successful Image and Columns insertion at same-node/cross-node ranges against accepted tests; add only uncovered rows asserting exact unaffected rich runs/paragraphs, JSON, selection/focus, undo/reload."
+      ],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-E-04",
+      "originalObligation": "- [ ] A-E-04 Reconcile original `E-04`: Cover undo/redo, links, lists, code, tables, alignment, indentation, colors, and inline formatting that current consumers use. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Integrated 20-case real command suite and all-engine native Uppercase/Clear close the earlier concrete case/clear/alignment faults. Existing link/list/table/indent/color/history cases are retained. Wider currently consumed transformations are not declared by an owner.",
+      "phaseEvidence": null,
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/report.md",
+          "sha256": "77ed3f7939b95dc4b51a7a8ca555cfeed35bb1963a9e532a588ba1dd34501df4"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-24/results.json",
+          "sha256": "e69e6fbe40ed8dee70a859c7e012dd81b5d310823230264b237d0020cffd98ee"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.command-transactions.test.tsx",
+          "sha256": "0b366e44ca87a65d38557f7e62a6b650c18da8186bc93d270af7f2545e920b64"
+        },
+        {
+          "path": "packages/ui/tests/browser/editor-style-range-transactions.spec.ts",
+          "sha256": "d2b077de55d5da916a2354608927c38dae7f4df57152fbefa1e8aa9d452acc0e"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-04-COMMANDS: Obtain required consumer list/code/table transformations and selection shapes. Compare with existing command-and-trust matrix and integrated tests, then implement only missing block-code/nested-list/nondefault table/header/merged/cross-cell outcomes actually required."
+      ],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-E-05",
+      "originalObligation": "- [ ] A-E-05 Reconcile original `E-05`: Address IME composition, paste, keyboard shortcuts, read-only/disabled state, and toolbar accessibility without hijacking ordinary editing keys. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Native Escape-to-typing/read-only successor cases and ordinary shortcut/clipboard evidence are retained. Synthetic composition guards are not OS IME conversion evidence. The existing simulator VoiceOver selector smoke does not exercise editor IME, toolbar or color chooser.",
+      "phaseEvidence": null,
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-25/report.md",
+          "sha256": "33503b07414595bf8b433d552528cfa7bf594eaec969c320caf31dcac9e978ac"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-25/results.json",
+          "sha256": "16732c0cabe188647c9ed3700054cdd2da99e2f04acc231c37f0ce83e97c2090"
+        },
+        {
+          "path": "packages/ui/tests/browser/editor-selection-editing-successors.spec.ts",
+          "sha256": "cf04539db014005b3cf58eb019892fe6962f2b4fcc079de6e7ecc180373d8c07"
+        },
+        {
+          "path": "packages/ui/tests/browser/editor-clipboard.spec.ts",
+          "sha256": "09177794e10d3e27de07318a579acf0914576628b14141c6b9615c9d99f85860"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-05-IME: Run real configured OS IME in content, title and color draft; record conversion/commit/cancel, composing Enter/Escape and ordinary shortcut behavior with exact versions.",
+        "W04-05-AT: Record named device/browser/AT editor traversal, action pressed/mixed/disabled, focus return and read-only selection/copy; retain physical clipboard observation separately."
+      ],
+      "proposedChanges": [],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-E-06",
+      "originalObligation": "- [ ] A-E-06 Reconcile original `E-06`: Define safe URL/protocol handling, image metadata/alt text, host upload callbacks, file validation, cancellation, and object-URL cleanup. Shared saved/pasted link policy and activation: [partial contract](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial). Saved image sources and upload-result retry: [partial image contract](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); [upload lifetime matrix](react-aria-editor-section.md#host-upload-lifetime-e-06-partial) covers stale results after cancellation/reset/read-only/unmount; [file presentation validation](react-aria-editor-dialogs.md#file-presentation-validation-e-06-partial) covers empty files and MIME/extension metadata; wider image/upload acceptance remains open. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Runtime image field-shape guard and malformed-upload retry unit are integrated. Existing URL/source/file/lifetime/object-URL contracts and tests remain. New proposal adds the missing real native metadata retry step to existing image-source flow without changing policy.",
+      "phaseEvidence": null,
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-26/report.md",
+          "sha256": "8cc22aae684d7f4c98dbe35b25729140812d2c9f37416f40469e3950e3514753"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-26/results.json",
+          "sha256": "64d8cba25e685f71693a17dd20c1453069a6517920ef668f2639903521079987"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/imagePayloadPolicy.ts",
+          "sha256": "a11473b0bb8f0195b56ba7b6eb516507599881473c40fa5ea391fe672bf282f1"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.dialogs.test.tsx",
+          "sha256": "da15c3fd6463562a542b2ccf14e2b8869bddbb479cc0b72ce056ad22a114ac3b"
+        },
+        {
+          "path": "packages/ui/tests/browser/editor-image-sources.spec.ts",
+          "sha256": "6dc9b3fbfca435adb316687fd1d84508f3b9e724aa4b0c717534570d48ff2793"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-06-NATIVE: Integrate metadata-retry.patch, build once and execute six focused retry cases; preserve both rejected attempts and valid retry/reload.",
+        "W04-06-HOST: Obtain owner-approved encoded/redirect/resource policy and actual host byte/type/size/dimension/authorization/abort/stale-asset cleanup evidence. UI must not revoke host URLs/delete assets."
+      ],
+      "proposedChanges": [
+        "metadata-retry.patch"
+      ],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    },
+    {
+      "id": "A-E-07",
+      "originalObligation": "- [ ] A-E-07 Reconcile original `E-07`: Review rich-content rendering and trust boundaries; do not render arbitrary HTML or unsafe links merely because they arrived in a presentation model. Saved/pasted link destinations are governed by the [owned policy](react-aria-editor-section.md#link-destination-policy-e-06e-07-partial), and image decoration by the [image source policy](react-aria-editor-section.md#image-source-policy-e-06e-07-partial); broader rich-content acceptance remains open. Historical status: open.",
+      "recommendation": "partial",
+      "decision": "Owned link/image rendering, runtime metadata checks, escaped React attributes and JSON fidelity are bounded protection. Saved rejected destinations remain raw data; editor rendering is not a downstream sanitizer. No atomic whole-document/style policy exists.",
+      "phaseEvidence": null,
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editors-report.md",
+          "sha256": "41b598ae173a54732c2e25194e3a1159d1b7d4b878b8fb9f1c5c65f8c3f13f0b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/editor-current-units.log",
+          "sha256": "c6dc671525a35711f8c7a2c6afe8f12bcb22bc58f6fb5db7606d034ed3ed7f4d"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-26/report.md",
+          "sha256": "8cc22aae684d7f4c98dbe35b25729140812d2c9f37416f40469e3950e3514753"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-26/results.json",
+          "sha256": "64d8cba25e685f71693a17dd20c1453069a6517920ef668f2639903521079987"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/OwnedLinkNode.ts",
+          "sha256": "3bbe210e5924078e1c440ea9c9f2de8bad63252ff9d4d6714e5091106f7857ce"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/ImageNode.tsx",
+          "sha256": "a8c17fbe35ada8fd518358d90100418f2ce49ff167e30ffe28f9395612e9198c"
+        },
+        {
+          "path": "packages/ui/src/components/PageRichTextEditorSection/lexical/imagePayloadPolicy.ts",
+          "sha256": "a11473b0bb8f0195b56ba7b6eb516507599881473c40fa5ea391fe672bf282f1"
+        }
+      ],
+      "remainingConcreteSuccessors": [
+        "W04-07-TRUST: Owner defines author CSS/property/resource allowlist, malformed/unknown node/version recovery and downstream renderer policies. Then run hostile saved/pasted CSS/resource corpus with native request/geometry observations and original-retention assertions. Reuse wave-03-26 trust-review.md; do not purge author styles without a decision."
+      ],
+      "proposedChanges": [
+        "metadata-retry.patch"
+      ],
+      "limits": "Recommendation for coordinator review only. No central checklist modified; no fresh runtime/AT/release approval inferred."
+    }
+  ],
+  "checks": [
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-04/02/metadata-retry.patch",
+      "result": "pass; not applied"
+    },
+    {
+      "command": "node docs/developer/final-acceptance/wave-04/02/check-proposals.cjs",
+      "result": "two TS/TSX syntax checks pass; not semantic typecheck or runtime evidence"
+    },
+    {
+      "command": "git apply --check docs/developer/final-acceptance/wave-04/02/documentation.patch",
+      "result": "pass; not applied"
+    }
+  ],
+  "reconciliation": "evidence.json captures hashes and explicit changed inputs. HB19 16/16 and HB20 7/7 recorded sources match. Earlier push snapshot has 8 changed inputs; followup validated snapshot covers the section restoration change and HB20 covers later presentation/menu/selection changes. Never reuse the earlier snapshot as current-head execution.",
+  "limits": [
+    "No new tests, builds, browser, install, simulator, shared output, Git mutation or heavy suite run.",
+    "No physical-device/spoken-AT certification from DOM or axe.",
+    "Six future leaves, legal/owner and production release gates stay separate."
+  ],
+  "artifacts": [
+    "metadata-retry.patch",
+    "documentation.patch",
+    "proposed-files/",
+    "proposal-targets.json",
+    "evidence.json",
+    "validation-plan.json",
+    "run-validation.mjs",
+    "static-check.json"
+  ],
+  "continuation": {
+    "report": "continuation/report.md",
+    "results": "continuation/results.json",
+    "status": "four target files ready to integrate; seven new cases; syntax/applicability pass; runtime pending"
+  }
+}

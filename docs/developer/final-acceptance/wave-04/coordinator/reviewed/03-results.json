@@ -1,0 +1,327 @@
+{
+  "assignment": 3,
+  "title": "Calendar and picker acceptance",
+  "baseline": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "writes": "Only docs/developer/final-acceptance/wave-04/03",
+  "recommendationCounts": {
+    "complete": 2,
+    "partial": 2,
+    "blocked": 0
+  },
+  "entries": [
+    {
+      "id": "A-K-04",
+      "originalObligation": "- [ ] A-K-04 Reconcile original `K-04`: Support minimum/maximum, unavailable-date explanations, validation, required/optional input, and host-supplied availability without fetching business data. Historical status: open.",
+      "recommendation": "complete",
+      "rationale": "Original support obligation is met by shipped bounds/required/optional/host-availability contracts, corrected static/callback/segmented/datetime authority, existing unit/native evidence, and inspected no-fetch ownership. Reconcile the named K04-window-submit-evidence successor as satisfied by integrated DateEntryClipboard case and the accepted trusted date paste run; do not demand an unchanged rerun for credit.",
+      "sourceAndEvidence": [
+        {
+          "path": "packages/ui/src/experimental/DatePicker/DatePicker.tsx",
+          "sha256": "2bd44e9f0237d7501e146adb0397b57baece05aa46fb986fce781fc0e4b3df53"
+        },
+        {
+          "path": "packages/ui/src/experimental/DatePicker/DatePicker.test.tsx",
+          "sha256": "8e74f908c36d42755eeaf874b042c93c76586782b9820a62082507cf29581624"
+        },
+        {
+          "path": "packages/ui/src/experimental/DatePicker/DateEntryClipboard.test.tsx",
+          "sha256": "be1f6504fe944288c8412e7f4ea04cca488fd2e517cb81795bea9e53ef287d04"
+        },
+        {
+          "path": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+          "sha256": "ef2fb99bb34f5344a84f496aaa56595389a61722a17657738ff2e1e7681f4a0d"
+        },
+        {
+          "path": "packages/ui/src/experimental/DateRangeSelector/date-contract.ts",
+          "sha256": "69ab47f17e6132d0b7e74a33b2ca7b5525e8dacd83e44e5de7fa0345cd7c59cd"
+        },
+        {
+          "path": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+          "sha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a"
+        },
+        {
+          "path": "docs/developer/final-acceptance/fix-08/results.json",
+          "sha256": "83f0a27f1b3517f7bd0b9090b3d50198a194683a5487cd4cc286cd2d0cd80ae8"
+        },
+        {
+          "path": "docs/developer/final-acceptance/fix-09/results.json",
+          "sha256": "aa117e50aaa7c721dd815158b72ac966cbecda9b744bb4419dd28b29ab94d371"
+        },
+        {
+          "path": "docs/developer/final-acceptance/coordinator-integration/evidence.json",
+          "sha256": "901b1d2c18f80953f8ba0ab6bf81bd4fb3cdae03bc311d29cf6a455fc56b7503"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/default-nearest-range/results.json",
+          "sha256": "37ac41f9cd185b099fcb3c58c2ee6d0185079116eac5a4c172d42c0fa5041ec1"
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "localReconciliation": [
+        "input-reconciliation.json",
+        "entry-core-reconciliation.json",
+        "retained-native-cases.json",
+        "evidence-hashes.json"
+      ],
+      "remainingConcreteSuccessors": [],
+      "proposedChanges": [],
+      "validationStatus": "Read-only/hash/syntax/patch checks performed; no new unit/browser/build/simulator runtime executed."
+    },
+    {
+      "id": "A-K-05",
+      "originalObligation": "- [ ] A-K-05 Reconcile original `K-05`: Support multi-month presentation, responsive container sizing, month/year navigation, keyboard navigation, focus return, and meaningful date announcements. Historical status: open.",
+      "recommendation": "partial",
+      "rationale": "Multi-month, container reflow, month/year navigation, keyboard selection and focus return have accepted bounded native evidence, supplemented by newer shared-picker/independent-navigation receipts. Meaningful spoken date/chooser announcements remain unobserved for this family; historical legacy-year fit is coordinator-owned pending result.",
+      "sourceAndEvidence": [
+        {
+          "path": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+          "sha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a"
+        },
+        {
+          "path": "packages/ui/src/experimental/Calendar/CalendarPeriodNavigation.tsx",
+          "sha256": "3f85c4dfc4f9dbac22a4bf73960fe1e831d12d7816b8c286abd5c44ef15ebc90"
+        },
+        {
+          "path": "packages/ui/tests/browser/calendar-navigation-reflow.spec.ts",
+          "sha256": "2b4d5ea1ef016c9b20404268901f23a3361f77de18a7067e2fbed619708e6332"
+        },
+        {
+          "path": "docs/developer/final-acceptance/year-scroll-independent-navigation/results.json",
+          "sha256": "5209269119a1db264a781bf421f12f3bda98df5a9106187b6b1b7f2e12c73666"
+        },
+        {
+          "path": "docs/developer/final-acceptance/centered-month-choices/results.json",
+          "sha256": "3874ba1735d7899c9588dd0bec820435abf98604f45e63d05472da3e8936d791"
+        },
+        {
+          "path": "docs/developer/final-acceptance/field-focus-boundary/results.json",
+          "sha256": "50ab254f04675c108d7d8eef0dd90c662cfc80f2e27cda1d2c68d5b4360f3277"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/default-nearest-range/results.json",
+          "sha256": "37ac41f9cd185b099fcb3c58c2ee6d0185079116eac5a4c172d42c0fa5041ec1"
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "localReconciliation": [
+        "input-reconciliation.json",
+        "entry-core-reconciliation.json",
+        "retained-native-cases.json",
+        "evidence-hashes.json"
+      ],
+      "remainingConcreteSuccessors": [
+        {
+          "id": "K05-announcement-observation",
+          "action": "Integrate the three-file speech proposal, execute calendar-only XCTest with the serialized existing driver, review actual speech attachments. Complete keyboard month/year change, chosen-date/selection announcement and Escape/Apply focus-return observation from wave03-28 operator protocol; simulator forward traversal alone does not supply keyboard timing."
+        },
+        {
+          "id": "K05-material-fit-coordinator",
+          "action": "Attach coordinator current-head unchanged picker-radius.spec.ts three-engine result or retained failure. Do not apply a competing CSS fix."
+        }
+      ],
+      "proposedChanges": [
+        "calendar-speech.patch",
+        "proposal-inputs.json"
+      ],
+      "validationStatus": "Read-only/hash/syntax/patch checks performed; no new unit/browser/build/simulator runtime executed."
+    },
+    {
+      "id": "A-K-07",
+      "originalObligation": "- [ ] A-K-07 Reconcile original `K-07`: Keep typed/segmented input and calendar selection synchronized; define invalid/partial typing, paste, blur, and form submission behavior. Historical status: open.",
+      "recommendation": "complete",
+      "rationale": "Original synchronization and definition obligation is met. The integrated decision table explicitly limits whole-value paste to flexible text; default segmented/combined datetime use individual segment or popup editing. Accepted actual trusted clipboard cases cover insertion, Enter/blur, invalid/partial/reversed text, accepted FormData, blocked native submit and prevented/accepted reset in all three engines. Exact state/validity/commit/reset fragments still match bd169b54; the later default-nearest suite includes unchanged clipboard tests.",
+      "sourceAndEvidence": [
+        {
+          "path": "packages/ui/src/experimental/DatePicker/DateEntryClipboard.test.tsx",
+          "sha256": "be1f6504fe944288c8412e7f4ea04cca488fd2e517cb81795bea9e53ef287d04"
+        },
+        {
+          "path": "packages/ui/src/experimental/DateField/TextDateField.tsx",
+          "sha256": "ef2fb99bb34f5344a84f496aaa56595389a61722a17657738ff2e1e7681f4a0d"
+        },
+        {
+          "path": "packages/ui/src/experimental/TimeField/TextTimeField.tsx",
+          "sha256": "b454ad6921a5ed5b96164c92baad525f6140c65f0c99c9d3f3e54786ea0b2d5d"
+        },
+        {
+          "path": "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx",
+          "sha256": "cc75272a86c5d24515d3bcd9b0447b4786b7d970091cd6805ab88e0931a6640b"
+        },
+        {
+          "path": "packages/ui/tests/browser/date-entry-clipboard.spec.ts",
+          "sha256": "d42fdba65a8748e6a2f2444cc6ec6ae5eec218892ee0a67eb6b637813aed2a74"
+        },
+        {
+          "path": "apps/docs/native-fixtures/scenarios/experimental/DatePicker/DatePicker.native-transactions.fixture.tsx",
+          "sha256": "b7093c3b3621279e69eac407d12eb4c04190838dc0d586d71f9c4530f75e9708"
+        },
+        {
+          "path": "docs/developer/react-aria-calendar-contracts.md",
+          "sha256": "59a6d6a7a46e20ea90fbf0c37c7d3f404cf1ccd130a3920db10581b8a4c30628"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/default-nearest-range/results.json",
+          "sha256": "37ac41f9cd185b099fcb3c58c2ee6d0185079116eac5a4c172d42c0fa5041ec1"
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "localReconciliation": [
+        "input-reconciliation.json",
+        "entry-core-reconciliation.json",
+        "retained-native-cases.json",
+        "evidence-hashes.json"
+      ],
+      "remainingConcreteSuccessors": [],
+      "proposedChanges": [],
+      "validationStatus": "Read-only/hash/syntax/patch checks performed; no new unit/browser/build/simulator runtime executed."
+    },
+    {
+      "id": "A-K-17",
+      "originalObligation": "- [ ] A-K-17 Reconcile original `K-17`: Define keyboard and non-hover access to availability explanations, range previews, and preset descriptions; rich date-cell decorations must not replace meaningful date labels. Historical status: open.",
+      "recommendation": "partial",
+      "rationale": "Keyboard preset descriptions, non-hover callback/static disclosure, focused preview associations and aria-hidden decorations are implemented with bounded unit/native evidence. Actual spoken descriptions, range-preview timing/stale-description removal and device interaction remain separate. Existing Select VoiceOver transcript is capability evidence only.",
+      "sourceAndEvidence": [
+        {
+          "path": "packages/ui/src/experimental/Calendar/Calendar.tsx",
+          "sha256": "014087f32659335ffa19d1170b9c067467a411e7204813241fa99c76f681946a"
+        },
+        {
+          "path": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx",
+          "sha256": "e3a5dcf71951c9fc616d255582e94fdf52c9e59cc24fc0a0affbd4cada4265d6"
+        },
+        {
+          "path": "packages/ui/tests/browser/date-entry-clipboard.spec.ts",
+          "sha256": "d42fdba65a8748e6a2f2444cc6ec6ae5eec218892ee0a67eb6b637813aed2a74"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch61-keyboard-range-preview.spec.ts",
+          "sha256": "645eac6761194b0a0d10d46f9e24db4c566ab4c0c6920720654f5db944e57214"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-27/AT-observation-worksheet.md",
+          "sha256": "ca8f948c2e2468b3a4b281531914c996a505acdbf9025c69db2ddb8a47d0df4f"
+        },
+        {
+          "path": "docs/developer/final-acceptance/apple-simulator/repeat-receipt.json",
+          "sha256": "fd4d95f7aca4ccd4e8362104e8811acd3cdbc22dc0aaa33346540dc3a12059b2"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/default-nearest-range/results.json",
+          "sha256": "37ac41f9cd185b099fcb3c58c2ee6d0185079116eac5a4c172d42c0fa5041ec1"
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "localReconciliation": [
+        "input-reconciliation.json",
+        "entry-core-reconciliation.json",
+        "retained-native-cases.json",
+        "evidence-hashes.json"
+      ],
+      "remainingConcreteSuccessors": [
+        {
+          "id": "K17-calendar-spoken-output",
+          "action": "Run proposed calendar-only simulator probes. Inspect retained actual utterances even on failure; retain unavailable/static/callback, complete localized day label and excluded decoration outcomes separately from AX tree diagnostics."
+        },
+        {
+          "id": "K17-keyboard-preview-and-nonhover-observation",
+          "action": "Complete the existing wave03-27 worksheet using keyboard navigation and native disclosure activation, including preview cancellation and stale-description removal. Record actual OS/browser/AT versions and speech. Physical touch claims require an actual device; a simulator result stays labeled simulator."
+        }
+      ],
+      "proposedChanges": [
+        "calendar-speech.patch",
+        "proposal-inputs.json",
+        "range-preview-cancel.patch",
+        "preview-cancel-inputs.json"
+      ],
+      "validationStatus": "Read-only/hash/syntax/patch checks performed; no new unit/browser/build/simulator runtime executed."
+    }
+  ],
+  "centralChecklistChanged": false,
+  "futureScope": "Six existing future leaves remain separate; no recurrence/business/fiscal policy engine, full physical-device matrix, legal/release approval or production promotion inferred.",
+  "proposedFiles": {
+    "apps/docs/native-fixtures/scenarios/experimental/Calendar/Calendar.fixture.tsx": {
+      "beforeSha256": "ea7eb125e2faffbbd788cd3de594ba0fddd7bca9af48016fdd9b5e529bc4ea97",
+      "proposedSha256": "3ee614f940deaf7f62af48d044c2fdb9a0b4dae93258b3836c669d50fcb5c1e9"
+    },
+    "packages/ui/tests/apple/SimulatorAcceptance.swift": {
+      "beforeSha256": "eb213da863850b1de36a4d0a9832a9b2d0b40ab41da474ceb9c54d1b7dbad9c3",
+      "proposedSha256": "1b660b233444bcfd06ab93423e6ab1ce433603d28d0ac1f7cc4588c4dde7c949"
+    },
+    "packages/ui/tests/apple/run-simulator.mjs": {
+      "beforeSha256": "7313c3cd74b93ff9c56d0107df0ff580eeb1657afaf4fc7c2a7da4c410437674",
+      "proposedSha256": "f05369ebb13aae7b51196b0f8e4ecfb2a436c95985fa32d45181d92ea7405858"
+    }
+  },
+  "limits": [
+    "Complete recommendations reconcile the named support/definition obligations, not universal current browser/device/AT certification.",
+    "Fragment equality establishes only named unchanged entry code; full files and transitive dependencies have differences recorded separately.",
+    "HB19/HB20 evidence closes only the named editor V obligations and is not calendar speech acceptance."
+  ],
+  "coordinatorAmendment": {
+    "originalSpeechProposal": "Coordinator reports fixture + three Swift methods integrated into nine-method XCTest run; packages/ui/artifacts/wave04-apple-01 running. No result inferred.",
+    "materialFit": "Coordinator reports radius six cases passed and stronger month-fit six cases passed. Receipt pending reconciliation; competing CSS proposal absent.",
+    "additionalAction": "range-preview-cancel.patch adds actual VoiceOver preview presence then stale-description removal after Cancel, against the integrated Swift snapshot. New optional rewindTo helper parameter defaults to nil, preserving existing methods. Proposed-only pending coordinator execution.",
+    "exactInput": "preview-cancel-inputs.json",
+    "staticChecks": "Swift frontend parse and git apply --check pass."
+  }
+}

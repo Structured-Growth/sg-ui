@@ -1,0 +1,1805 @@
+{
+  "recommendation": {
+    "id": "A-U-18",
+    "criterion": "Preserve native form participation, reset behavior, autofill, names/values, and submit behavior; test controlled and uncontrolled variants.",
+    "originalCriterionSource": "docs/developer/react-aria-hardening-tasks.md:126; docs/developer/react-aria-scope-ledger.md:271",
+    "recommendation": "complete against the original criterion",
+    "basis": [
+      "Retained accepted native form names/values, submitted values, grouped/external text-field resets and selector controlled/uncontrolled/reset flows are recorded by wave-04/05/retained-native-cases.json and its accepted-history report.",
+      "New full-Chromium native address-autofill cases pass for unmanaged baseline and all three SGUI host policies: uncontrolled, controlled accepting, controlled rejecting.",
+      "Each SGUI policy preserves callback requests, controlled authority, FormData, button and external Enter submit, silent accepted/canceled reset, form reassociation, readOnly/disabled exclusion and sibling isolation under unchanged assertions.",
+      "ComboBox canceled-reset draft/selected-key/callback correction is independently native-confirmed by combobox-chromium-reset-01; previous Firefox/WebKit passes remain retained."
+    ],
+    "remainingConcreteSuccessorsForOriginalCriterion": [],
+    "limits": [
+      "CDP native address autofill is tested. No saved-profile popup selection or password-manager interaction is claimed.",
+      "Full-Chromium only for Autofill-domain evidence; no Firefox/WebKit autofill claim.",
+      "No new actual spoken-AT, physical touch or browser zoom acceptance is inferred.",
+      "Coordinator owns closure decisions and count mutations. Historical failures remain preserved."
+    ],
+    "retainedAcceptedReceipts": [
+      "docs/developer/final-acceptance/wave-04/05/retained-native-cases.json",
+      "docs/developer/final-acceptance/wave-04/05/report.md",
+      "docs/developer/final-acceptance/wave-04/05/batch/controls-native-12-01/summary.json",
+      "docs/developer/final-acceptance/wave-04/05/batch/combobox-chromium-reset-01/results.json"
+    ]
+  },
+  "perCaseReceipt": {
+    "status": "four-current-passing-cases-retained-for-coordinator-reconciliation",
+    "cases": [
+      {
+        "policy": "baseline",
+        "title": "native CDP baseline dispatches React changes on unmanaged native inputs",
+        "project": "chromium",
+        "status": "passed",
+        "retry": 0,
+        "durationMs": 880,
+        "raw": {
+          "path": "docs/developer/final-acceptance/wave-04/05/batch/autofill-diagnostic-2-01/results.json",
+          "sha256": "8b49b62b1f99d7167d0f035d37c9c3f4ea061241dfaf0924e340c3d65148bff1"
+        },
+        "observation": {
+          "requests": [
+            {
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "name": "address",
+              "value": "123 Test Street"
+            }
+          ],
+          "inputEvents": [
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "address",
+              "value": "123 Test Street"
+            }
+          ],
+          "formA": {
+            "fullName": "Alex Example",
+            "email": "alex@example.test",
+            "city": "Chicago",
+            "postcode": "60601",
+            "address": "123 Test Street",
+            "readOnly": "REFERENCE-42"
+          },
+          "formB": {},
+          "fields": [
+            {
+              "id": "_r_0_-fullName",
+              "name": "fullName",
+              "value": "Alex Example",
+              "defaultValue": "",
+              "form": "_r_0_-a",
+              "autoComplete": "section-uncontrolled name",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "_r_0_-email",
+              "name": "email",
+              "value": "alex@example.test",
+              "defaultValue": "",
+              "form": "_r_0_-a",
+              "autoComplete": "section-uncontrolled email",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "_r_0_-city",
+              "name": "city",
+              "value": "Chicago",
+              "defaultValue": "",
+              "form": "_r_0_-a",
+              "autoComplete": "section-uncontrolled address-level2",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "_r_0_-postcode",
+              "name": "postcode",
+              "value": "60601",
+              "defaultValue": "",
+              "form": "_r_0_-a",
+              "autoComplete": "section-uncontrolled postal-code",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "_r_0_-address",
+              "name": "address",
+              "value": "123 Test Street",
+              "defaultValue": "",
+              "form": "_r_0_-a",
+              "autoComplete": "section-uncontrolled street-address",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria2469505077-_r_e_",
+              "name": "readOnly",
+              "value": "REFERENCE-42",
+              "defaultValue": "REFERENCE-42",
+              "form": "_r_0_-a",
+              "autoComplete": "off",
+              "disabled": false,
+              "readOnly": true
+            },
+            {
+              "id": "react-aria2469505077-_r_j_",
+              "name": "disabled",
+              "value": "OMIT-ME",
+              "defaultValue": "OMIT-ME",
+              "form": "_r_0_-a",
+              "autoComplete": "off",
+              "disabled": true,
+              "readOnly": false
+            }
+          ]
+        },
+        "nativeAutofillPayloads": [
+          {
+            "filledFields": [
+              {
+                "htmlType": "text",
+                "id": "_r_0_-fullName",
+                "name": "fullName",
+                "value": "Alex Example",
+                "autofillType": "Full name",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "4447C7B9F2F1A451404B400CD56F0173",
+                "fieldId": 31
+              },
+              {
+                "htmlType": "email",
+                "id": "_r_0_-email",
+                "name": "email",
+                "value": "alex@example.test",
+                "autofillType": "Email address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "4447C7B9F2F1A451404B400CD56F0173",
+                "fieldId": 29
+              },
+              {
+                "htmlType": "text",
+                "id": "_r_0_-city",
+                "name": "city",
+                "value": "Chicago",
+                "autofillType": "City",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "4447C7B9F2F1A451404B400CD56F0173",
+                "fieldId": 32
+              },
+              {
+                "htmlType": "text",
+                "id": "_r_0_-postcode",
+                "name": "postcode",
+                "value": "60601",
+                "autofillType": "ZIP code",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "4447C7B9F2F1A451404B400CD56F0173",
+                "fieldId": 33
+              },
+              {
+                "htmlType": "textarea",
+                "id": "_r_0_-address",
+                "name": "address",
+                "value": "123 Test Street",
+                "autofillType": "Street address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "4447C7B9F2F1A451404B400CD56F0173",
+                "fieldId": 34
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2469505077-_r_e_",
+                "name": "readOnly",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "4447C7B9F2F1A451404B400CD56F0173",
+                "fieldId": 35
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2469505077-_r_j_",
+                "name": "disabled",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "4447C7B9F2F1A451404B400CD56F0173",
+                "fieldId": 36
+              }
+            ],
+            "addressUi": {
+              "addressFields": [
+                {
+                  "fields": [
+                    {
+                      "name": "NAME_FULL",
+                      "value": "Alex Example"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "COMPANY_NAME",
+                      "value": ""
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_STREET_ADDRESS",
+                      "value": "123 Test Street"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_CITY",
+                      "value": "Chicago"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_STATE",
+                      "value": "IL"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_ZIP",
+                      "value": "60601"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_COUNTRY",
+                      "value": "United States"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "PHONE_HOME_WHOLE_NUMBER",
+                      "value": ""
+                    },
+                    {
+                      "name": "EMAIL_ADDRESS",
+                      "value": "alex@example.test"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "browserProvenance": [],
+        "provenanceNote": "Baseline uses the same full-Chromium channel/config/frozen fixture; Browser.getVersion attachment belongs to the sibling uncontrolled case, not a separate baseline version observation."
+      },
+      {
+        "policy": "uncontrolled",
+        "title": "native CDP contact autofill preserves uncontrolled host and form ownership",
+        "project": "chromium",
+        "status": "passed",
+        "retry": 0,
+        "durationMs": 1116,
+        "raw": {
+          "path": "docs/developer/final-acceptance/wave-04/05/batch/autofill-diagnostic-2-01/results.json",
+          "sha256": "8b49b62b1f99d7167d0f035d37c9c3f4ea061241dfaf0924e340c3d65148bff1"
+        },
+        "observation": {
+          "requests": [
+            {
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "name": "address",
+              "value": "123 Test Street"
+            },
+            {
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "name": "address",
+              "value": "123 Test Street"
+            }
+          ],
+          "inputEvents": [
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "address",
+              "value": "123 Test Street"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "address",
+              "value": "123 Test Street"
+            }
+          ],
+          "formA": {},
+          "formB": {
+            "fullName": "Alex Example",
+            "email": "alex@example.test",
+            "city": "Chicago",
+            "postcode": "60601",
+            "address": "123 Test Street",
+            "readOnly": "REFERENCE-42"
+          },
+          "fields": [
+            {
+              "id": "react-aria485812890-_r_e_",
+              "name": "fullName",
+              "value": "Alex Example",
+              "defaultValue": "Alex Example",
+              "form": "_r_0_-b",
+              "autoComplete": "section-uncontrolled name",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria485812890-_r_j_",
+              "name": "email",
+              "value": "alex@example.test",
+              "defaultValue": "alex@example.test",
+              "form": "_r_0_-b",
+              "autoComplete": "section-uncontrolled email",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria485812890-_r_o_",
+              "name": "city",
+              "value": "Chicago",
+              "defaultValue": "Chicago",
+              "form": "_r_0_-b",
+              "autoComplete": "section-uncontrolled address-level2",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria485812890-_r_t_",
+              "name": "postcode",
+              "value": "60601",
+              "defaultValue": "60601",
+              "form": "_r_0_-b",
+              "autoComplete": "section-uncontrolled postal-code",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria485812890-_r_12_",
+              "name": "address",
+              "value": "123 Test Street",
+              "defaultValue": "123 Test Street",
+              "form": "_r_0_-b",
+              "autoComplete": "section-uncontrolled street-address",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria485812890-_r_17_",
+              "name": "readOnly",
+              "value": "REFERENCE-42",
+              "defaultValue": "REFERENCE-42",
+              "form": "_r_0_-b",
+              "autoComplete": "off",
+              "disabled": false,
+              "readOnly": true
+            },
+            {
+              "id": "react-aria485812890-_r_1c_",
+              "name": "disabled",
+              "value": "OMIT-ME",
+              "defaultValue": "OMIT-ME",
+              "form": "_r_0_-b",
+              "autoComplete": "off",
+              "disabled": true,
+              "readOnly": false
+            }
+          ]
+        },
+        "nativeAutofillPayloads": [
+          {
+            "filledFields": [
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_e_",
+                "name": "fullName",
+                "value": "Alex Example",
+                "autofillType": "Full name",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 34
+              },
+              {
+                "htmlType": "email",
+                "id": "react-aria485812890-_r_j_",
+                "name": "email",
+                "value": "alex@example.test",
+                "autofillType": "Email address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 32
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_o_",
+                "name": "city",
+                "value": "Chicago",
+                "autofillType": "City",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 35
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_t_",
+                "name": "postcode",
+                "value": "60601",
+                "autofillType": "ZIP code",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 36
+              },
+              {
+                "htmlType": "textarea",
+                "id": "react-aria485812890-_r_12_",
+                "name": "address",
+                "value": "123 Test Street",
+                "autofillType": "Street address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 37
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_17_",
+                "name": "readOnly",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 38
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_1c_",
+                "name": "disabled",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 39
+              }
+            ],
+            "addressUi": {
+              "addressFields": [
+                {
+                  "fields": [
+                    {
+                      "name": "NAME_FULL",
+                      "value": "Alex Example"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "COMPANY_NAME",
+                      "value": ""
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_STREET_ADDRESS",
+                      "value": "123 Test Street"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_CITY",
+                      "value": "Chicago"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_STATE",
+                      "value": "IL"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_ZIP",
+                      "value": "60601"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_COUNTRY",
+                      "value": "United States"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "PHONE_HOME_WHOLE_NUMBER",
+                      "value": ""
+                    },
+                    {
+                      "name": "EMAIL_ADDRESS",
+                      "value": "alex@example.test"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "filledFields": [
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_e_",
+                "name": "fullName",
+                "value": "Alex Example",
+                "autofillType": "Full name",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 34
+              },
+              {
+                "htmlType": "email",
+                "id": "react-aria485812890-_r_j_",
+                "name": "email",
+                "value": "alex@example.test",
+                "autofillType": "Email address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 32
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_o_",
+                "name": "city",
+                "value": "Chicago",
+                "autofillType": "City",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 35
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_t_",
+                "name": "postcode",
+                "value": "60601",
+                "autofillType": "ZIP code",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 36
+              },
+              {
+                "htmlType": "textarea",
+                "id": "react-aria485812890-_r_12_",
+                "name": "address",
+                "value": "123 Test Street",
+                "autofillType": "Street address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 37
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_17_",
+                "name": "readOnly",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 38
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria485812890-_r_1c_",
+                "name": "disabled",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "1BD4271FF05A1DE1396DC983E065388F",
+                "fieldId": 39
+              }
+            ],
+            "addressUi": {
+              "addressFields": [
+                {
+                  "fields": [
+                    {
+                      "name": "NAME_FULL",
+                      "value": "Alex Example"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "COMPANY_NAME",
+                      "value": ""
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_STREET_ADDRESS",
+                      "value": "123 Test Street"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_CITY",
+                      "value": "Chicago"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_STATE",
+                      "value": "IL"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_ZIP",
+                      "value": "60601"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_COUNTRY",
+                      "value": "United States"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "PHONE_HOME_WHOLE_NUMBER",
+                      "value": ""
+                    },
+                    {
+                      "name": "EMAIL_ADDRESS",
+                      "value": "alex@example.test"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "browserProvenance": [
+          {
+            "version": {
+              "protocolVersion": "1.3",
+              "product": "Chrome/153.0.8010.12",
+              "revision": "@971a7443b0c9b0a9b2860529b33331b76077ec62",
+              "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+              "jsVersion": "15.3.76.4"
+            },
+            "channel": "chromium",
+            "headed": false,
+            "method": "CDP native address autofill; no saved-profile UI or scripted-fill claim"
+          }
+        ],
+        "provenanceNote": null
+      },
+      {
+        "policy": "accepting",
+        "title": "native CDP contact autofill preserves accepting host and form ownership",
+        "project": "chromium",
+        "status": "passed",
+        "retry": 0,
+        "durationMs": 1384,
+        "raw": {
+          "path": "docs/developer/final-acceptance/wave-04/05/batch/autofill-controlled-2-01/results.json",
+          "sha256": "846a648f1646ebf4673c41bee68dd213bf76a08d2799012146e9e49fedb396ec"
+        },
+        "observation": {
+          "requests": [
+            {
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "name": "address",
+              "value": "123 Test Street"
+            }
+          ],
+          "inputEvents": [
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "address",
+              "value": "123 Test Street"
+            }
+          ],
+          "formA": {},
+          "formB": {
+            "fullName": "Alex Example",
+            "email": "alex@example.test",
+            "city": "Chicago",
+            "postcode": "60601",
+            "address": "123 Test Street",
+            "readOnly": "REFERENCE-42"
+          },
+          "fields": [
+            {
+              "id": "react-aria2332506872-_r_1v_",
+              "name": "fullName",
+              "value": "Alex Example",
+              "defaultValue": "Alex Example",
+              "form": "_r_1h_-b",
+              "autoComplete": "section-accepting name",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria2332506872-_r_24_",
+              "name": "email",
+              "value": "alex@example.test",
+              "defaultValue": "alex@example.test",
+              "form": "_r_1h_-b",
+              "autoComplete": "section-accepting email",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria2332506872-_r_29_",
+              "name": "city",
+              "value": "Chicago",
+              "defaultValue": "Chicago",
+              "form": "_r_1h_-b",
+              "autoComplete": "section-accepting address-level2",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria2332506872-_r_2e_",
+              "name": "postcode",
+              "value": "60601",
+              "defaultValue": "60601",
+              "form": "_r_1h_-b",
+              "autoComplete": "section-accepting postal-code",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria2332506872-_r_2j_",
+              "name": "address",
+              "value": "123 Test Street",
+              "defaultValue": "123 Test Street",
+              "form": "_r_1h_-b",
+              "autoComplete": "section-accepting street-address",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria2332506872-_r_2o_",
+              "name": "readOnly",
+              "value": "REFERENCE-42",
+              "defaultValue": "REFERENCE-42",
+              "form": "_r_1h_-b",
+              "autoComplete": "off",
+              "disabled": false,
+              "readOnly": true
+            },
+            {
+              "id": "react-aria2332506872-_r_2t_",
+              "name": "disabled",
+              "value": "OMIT-ME",
+              "defaultValue": "OMIT-ME",
+              "form": "_r_1h_-b",
+              "autoComplete": "off",
+              "disabled": true,
+              "readOnly": false
+            }
+          ]
+        },
+        "nativeAutofillPayloads": [
+          {
+            "filledFields": [
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_1v_",
+                "name": "fullName",
+                "value": "Alex Example",
+                "autofillType": "Full name",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 34
+              },
+              {
+                "htmlType": "email",
+                "id": "react-aria2332506872-_r_24_",
+                "name": "email",
+                "value": "alex@example.test",
+                "autofillType": "Email address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 32
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_29_",
+                "name": "city",
+                "value": "Chicago",
+                "autofillType": "City",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 35
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_2e_",
+                "name": "postcode",
+                "value": "60601",
+                "autofillType": "ZIP code",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 36
+              },
+              {
+                "htmlType": "textarea",
+                "id": "react-aria2332506872-_r_2j_",
+                "name": "address",
+                "value": "123 Test Street",
+                "autofillType": "Street address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 37
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_2o_",
+                "name": "readOnly",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 38
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_2t_",
+                "name": "disabled",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 39
+              }
+            ],
+            "addressUi": {
+              "addressFields": [
+                {
+                  "fields": [
+                    {
+                      "name": "NAME_FULL",
+                      "value": "Alex Example"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "COMPANY_NAME",
+                      "value": ""
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_STREET_ADDRESS",
+                      "value": "123 Test Street"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_CITY",
+                      "value": "Chicago"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_STATE",
+                      "value": "IL"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_ZIP",
+                      "value": "60601"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_COUNTRY",
+                      "value": "United States"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "PHONE_HOME_WHOLE_NUMBER",
+                      "value": ""
+                    },
+                    {
+                      "name": "EMAIL_ADDRESS",
+                      "value": "alex@example.test"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "filledFields": [
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_1v_",
+                "name": "fullName",
+                "value": "",
+                "autofillType": "Full name",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 34
+              },
+              {
+                "htmlType": "email",
+                "id": "react-aria2332506872-_r_24_",
+                "name": "email",
+                "value": "alex@example.test",
+                "autofillType": "Email address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 32
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_29_",
+                "name": "city",
+                "value": "",
+                "autofillType": "City",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 35
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_2e_",
+                "name": "postcode",
+                "value": "",
+                "autofillType": "ZIP code",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 36
+              },
+              {
+                "htmlType": "textarea",
+                "id": "react-aria2332506872-_r_2j_",
+                "name": "address",
+                "value": "",
+                "autofillType": "Street address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 37
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_2o_",
+                "name": "readOnly",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 38
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria2332506872-_r_2t_",
+                "name": "disabled",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "7C2C66351DE21F380387E1704B444481",
+                "fieldId": 39
+              }
+            ],
+            "addressUi": {
+              "addressFields": [
+                {
+                  "fields": [
+                    {
+                      "name": "NAME_FULL",
+                      "value": "Alex Example"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "COMPANY_NAME",
+                      "value": ""
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_STREET_ADDRESS",
+                      "value": "123 Test Street"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_CITY",
+                      "value": "Chicago"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_STATE",
+                      "value": "IL"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_ZIP",
+                      "value": "60601"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_COUNTRY",
+                      "value": "United States"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "PHONE_HOME_WHOLE_NUMBER",
+                      "value": ""
+                    },
+                    {
+                      "name": "EMAIL_ADDRESS",
+                      "value": "alex@example.test"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "browserProvenance": [
+          {
+            "version": {
+              "protocolVersion": "1.3",
+              "product": "Chrome/153.0.8010.12",
+              "revision": "@971a7443b0c9b0a9b2860529b33331b76077ec62",
+              "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+              "jsVersion": "15.3.76.4"
+            },
+            "channel": "chromium",
+            "headed": false,
+            "method": "CDP native address autofill; no saved-profile UI or scripted-fill claim"
+          }
+        ],
+        "provenanceNote": null
+      },
+      {
+        "policy": "rejecting",
+        "title": "native CDP contact autofill preserves rejecting host and form ownership",
+        "project": "chromium",
+        "status": "passed",
+        "retry": 0,
+        "durationMs": 995,
+        "raw": {
+          "path": "docs/developer/final-acceptance/wave-04/05/batch/autofill-controlled-2-01/results.json",
+          "sha256": "846a648f1646ebf4673c41bee68dd213bf76a08d2799012146e9e49fedb396ec"
+        },
+        "observation": {
+          "requests": [
+            {
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "name": "address",
+              "value": "123 Test Street"
+            },
+            {
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "name": "address",
+              "value": "123 Test Street"
+            }
+          ],
+          "inputEvents": [
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "address",
+              "value": "123 Test Street"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "email",
+              "value": "alex@example.test"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "fullName",
+              "value": "Alex Example"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "city",
+              "value": "Chicago"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "postcode",
+              "value": "60601"
+            },
+            {
+              "type": "input",
+              "trusted": true,
+              "name": "address",
+              "value": "123 Test Street"
+            }
+          ],
+          "formA": {},
+          "formB": {
+            "fullName": "",
+            "email": "",
+            "city": "",
+            "postcode": "",
+            "address": "",
+            "readOnly": "REFERENCE-42"
+          },
+          "fields": [
+            {
+              "id": "react-aria7838049970-_r_3g_",
+              "name": "fullName",
+              "value": "",
+              "defaultValue": "",
+              "form": "_r_32_-b",
+              "autoComplete": "section-rejecting name",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria7838049970-_r_3l_",
+              "name": "email",
+              "value": "",
+              "defaultValue": "",
+              "form": "_r_32_-b",
+              "autoComplete": "section-rejecting email",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria7838049970-_r_3q_",
+              "name": "city",
+              "value": "",
+              "defaultValue": "",
+              "form": "_r_32_-b",
+              "autoComplete": "section-rejecting address-level2",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria7838049970-_r_3v_",
+              "name": "postcode",
+              "value": "",
+              "defaultValue": "",
+              "form": "_r_32_-b",
+              "autoComplete": "section-rejecting postal-code",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria7838049970-_r_44_",
+              "name": "address",
+              "value": "",
+              "defaultValue": "",
+              "form": "_r_32_-b",
+              "autoComplete": "section-rejecting street-address",
+              "disabled": false,
+              "readOnly": false
+            },
+            {
+              "id": "react-aria7838049970-_r_49_",
+              "name": "readOnly",
+              "value": "REFERENCE-42",
+              "defaultValue": "REFERENCE-42",
+              "form": "_r_32_-b",
+              "autoComplete": "off",
+              "disabled": false,
+              "readOnly": true
+            },
+            {
+              "id": "react-aria7838049970-_r_4e_",
+              "name": "disabled",
+              "value": "OMIT-ME",
+              "defaultValue": "OMIT-ME",
+              "form": "_r_32_-b",
+              "autoComplete": "off",
+              "disabled": true,
+              "readOnly": false
+            }
+          ]
+        },
+        "nativeAutofillPayloads": [
+          {
+            "filledFields": [
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_3g_",
+                "name": "fullName",
+                "value": "Alex Example",
+                "autofillType": "Full name",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 34
+              },
+              {
+                "htmlType": "email",
+                "id": "react-aria7838049970-_r_3l_",
+                "name": "email",
+                "value": "alex@example.test",
+                "autofillType": "Email address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 32
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_3q_",
+                "name": "city",
+                "value": "Chicago",
+                "autofillType": "City",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 35
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_3v_",
+                "name": "postcode",
+                "value": "60601",
+                "autofillType": "ZIP code",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 36
+              },
+              {
+                "htmlType": "textarea",
+                "id": "react-aria7838049970-_r_44_",
+                "name": "address",
+                "value": "123 Test Street",
+                "autofillType": "Street address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 37
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_49_",
+                "name": "readOnly",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 38
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_4e_",
+                "name": "disabled",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 39
+              }
+            ],
+            "addressUi": {
+              "addressFields": [
+                {
+                  "fields": [
+                    {
+                      "name": "NAME_FULL",
+                      "value": "Alex Example"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "COMPANY_NAME",
+                      "value": ""
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_STREET_ADDRESS",
+                      "value": "123 Test Street"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_CITY",
+                      "value": "Chicago"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_STATE",
+                      "value": "IL"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_ZIP",
+                      "value": "60601"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_COUNTRY",
+                      "value": "United States"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "PHONE_HOME_WHOLE_NUMBER",
+                      "value": ""
+                    },
+                    {
+                      "name": "EMAIL_ADDRESS",
+                      "value": "alex@example.test"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "filledFields": [
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_3g_",
+                "name": "fullName",
+                "value": "Alex Example",
+                "autofillType": "Full name",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 34
+              },
+              {
+                "htmlType": "email",
+                "id": "react-aria7838049970-_r_3l_",
+                "name": "email",
+                "value": "alex@example.test",
+                "autofillType": "Email address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 32
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_3q_",
+                "name": "city",
+                "value": "Chicago",
+                "autofillType": "City",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 35
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_3v_",
+                "name": "postcode",
+                "value": "60601",
+                "autofillType": "ZIP code",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 36
+              },
+              {
+                "htmlType": "textarea",
+                "id": "react-aria7838049970-_r_44_",
+                "name": "address",
+                "value": "123 Test Street",
+                "autofillType": "Street address",
+                "fillingStrategy": "autocompleteAttribute",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 37
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_49_",
+                "name": "readOnly",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 38
+              },
+              {
+                "htmlType": "text",
+                "id": "react-aria7838049970-_r_4e_",
+                "name": "disabled",
+                "value": "",
+                "autofillType": "",
+                "fillingStrategy": "autofillInferred",
+                "frameId": "1F4B71C8C5A92ABA8C717D5AA15904CB",
+                "fieldId": 39
+              }
+            ],
+            "addressUi": {
+              "addressFields": [
+                {
+                  "fields": [
+                    {
+                      "name": "NAME_FULL",
+                      "value": "Alex Example"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "COMPANY_NAME",
+                      "value": ""
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_STREET_ADDRESS",
+                      "value": "123 Test Street"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_CITY",
+                      "value": "Chicago"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_STATE",
+                      "value": "IL"
+                    },
+                    {
+                      "name": "ADDRESS_HOME_ZIP",
+                      "value": "60601"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "ADDRESS_HOME_COUNTRY",
+                      "value": "United States"
+                    }
+                  ]
+                },
+                {
+                  "fields": [
+                    {
+                      "name": "PHONE_HOME_WHOLE_NUMBER",
+                      "value": ""
+                    },
+                    {
+                      "name": "EMAIL_ADDRESS",
+                      "value": "alex@example.test"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "browserProvenance": [
+          {
+            "version": {
+              "protocolVersion": "1.3",
+              "product": "Chrome/153.0.8010.12",
+              "revision": "@971a7443b0c9b0a9b2860529b33331b76077ec62",
+              "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+              "jsVersion": "15.3.76.4"
+            },
+            "channel": "chromium",
+            "headed": false,
+            "method": "CDP native address autofill; no saved-profile UI or scripted-fill claim"
+          }
+        ],
+        "provenanceNote": null
+      }
+    ],
+    "historicalFailures": {
+      "raw": "docs/developer/final-acceptance/wave-04/05/batch/autofill-full-chromium-01/results.json",
+      "sha256": "6f31f69b59cff895f8aa3bae669293cb76bf8393e042a6328c595f61ac4cb665",
+      "cases": [
+        {
+          "title": "native CDP contact autofill preserves uncontrolled host and form ownership",
+          "project": "chromium",
+          "status": "failed",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 5\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"address\": \"123 Test Street\",\u001b[39m\n\u001b[32m-   \"city\": \"Chicago\",\u001b[39m\n\u001b[32m-   \"email\": \"alex@example.test\",\u001b[39m\n\u001b[32m-   \"fullName\": \"Alex Example\",\u001b[39m\n\u001b[32m-   \"postcode\": \"60601\",\u001b[39m\n\u001b[31m+   \"address\": \"\",\u001b[39m\n\u001b[31m+   \"city\": \"\",\u001b[39m\n\u001b[31m+   \"email\": \"\",\u001b[39m\n\u001b[31m+   \"fullName\": \"\",\u001b[39m\n\u001b[31m+   \"postcode\": \"\",\u001b[39m\n\u001b[2m    \"readOnly\": \"REFERENCE-42\",\u001b[22m\n\u001b[2m  }\u001b[22m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate"
+        },
+        {
+          "title": "native CDP contact autofill preserves accepting host and form ownership",
+          "project": "chromium",
+          "status": "failed",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 5\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[2m  Object {\u001b[22m\n\u001b[32m-   \"address\": \"123 Test Street\",\u001b[39m\n\u001b[32m-   \"city\": \"Chicago\",\u001b[39m\n\u001b[32m-   \"email\": \"alex@example.test\",\u001b[39m\n\u001b[32m-   \"fullName\": \"Alex Example\",\u001b[39m\n\u001b[32m-   \"postcode\": \"60601\",\u001b[39m\n\u001b[31m+   \"address\": \"\",\u001b[39m\n\u001b[31m+   \"city\": \"\",\u001b[39m\n\u001b[31m+   \"email\": \"\",\u001b[39m\n\u001b[31m+   \"fullName\": \"\",\u001b[39m\n\u001b[31m+   \"postcode\": \"\",\u001b[39m\n\u001b[2m    \"readOnly\": \"REFERENCE-42\",\u001b[22m\n\u001b[2m  }\u001b[22m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate"
+        },
+        {
+          "title": "native CDP contact autofill preserves rejecting host and form ownership",
+          "project": "chromium",
+          "status": "failed",
+          "error": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContainEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\nExpected value: \u001b[32m{\"name\": \"fullName\", \"value\": \"Alex Example\"}\u001b[39m\nReceived array: \u001b[31m[]\u001b[39m"
+        }
+      ],
+      "disposition": "Preserved failures from prior capture-state telemetry fixture. Passing reruns use the integrated observational fixture; no old status relabelled."
+    },
+    "buildProvenance": [
+      "docs/developer/final-acceptance/wave-04/05/batch/autofill-diagnostic-2-contract/execution-before.json",
+      "docs/developer/final-acceptance/wave-04/05/batch/autofill-diagnostic-2-contract/execution-after.json",
+      "docs/developer/final-acceptance/wave-04/05/batch/autofill-diagnostic-2-contract/controlled-before.json",
+      "docs/developer/final-acceptance/wave-04/05/batch/autofill-diagnostic-2-contract/controlled-after.json"
+    ],
+    "recommendation": {
+      "id": "A-U-18",
+      "criterion": "Preserve native form participation, reset behavior, autofill, names/values, and submit behavior; test controlled and uncontrolled variants.",
+      "originalCriterionSource": "docs/developer/react-aria-hardening-tasks.md:126; docs/developer/react-aria-scope-ledger.md:271",
+      "recommendation": "complete against the original criterion",
+      "basis": [
+        "Retained accepted native form names/values, submitted values, grouped/external text-field resets and selector controlled/uncontrolled/reset flows are recorded by wave-04/05/retained-native-cases.json and its accepted-history report.",
+        "New full-Chromium native address-autofill cases pass for unmanaged baseline and all three SGUI host policies: uncontrolled, controlled accepting, controlled rejecting.",
+        "Each SGUI policy preserves callback requests, controlled authority, FormData, button and external Enter submit, silent accepted/canceled reset, form reassociation, readOnly/disabled exclusion and sibling isolation under unchanged assertions.",
+        "ComboBox canceled-reset draft/selected-key/callback correction is independently native-confirmed by combobox-chromium-reset-01; previous Firefox/WebKit passes remain retained."
+      ],
+      "remainingConcreteSuccessorsForOriginalCriterion": [],
+      "limits": [
+        "CDP native address autofill is tested. No saved-profile popup selection or password-manager interaction is claimed.",
+        "Full-Chromium only for Autofill-domain evidence; no Firefox/WebKit autofill claim.",
+        "No new actual spoken-AT, physical touch or browser zoom acceptance is inferred.",
+        "Coordinator owns closure decisions and count mutations. Historical failures remain preserved."
+      ],
+      "retainedAcceptedReceipts": [
+        "docs/developer/final-acceptance/wave-04/05/retained-native-cases.json",
+        "docs/developer/final-acceptance/wave-04/05/report.md",
+        "docs/developer/final-acceptance/wave-04/05/batch/controls-native-12-01/summary.json",
+        "docs/developer/final-acceptance/wave-04/05/batch/combobox-chromium-reset-01/results.json"
+      ]
+    }
+  }
+}

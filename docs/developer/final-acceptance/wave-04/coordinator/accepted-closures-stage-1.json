@@ -1,0 +1,165 @@
+{
+  "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "closedThisReview": 19,
+  "closedTotal": 200,
+  "remaining": 120,
+  "entries": [
+    {
+      "id": "A-M-21",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/01-results.json",
+      "sha256": "317fd6dc43a4f74323c05bdea3856fcdd29b3f1a0850cbb056ea60c7d634f120",
+      "criterion": "- [ ] A-M-21 Reconcile DocumentEditorLayout final acceptance: Tokenized menu/toolbar/content layout and scroll boundaries. Link its `F-C21`, `T-C21` and `V-C21` evidence and any unresolved defects.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-M-22",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/01-results.json",
+      "sha256": "317fd6dc43a4f74323c05bdea3856fcdd29b3f1a0850cbb056ea60c7d634f120",
+      "criterion": "- [ ] A-M-22 Reconcile DocumentEditorToolbar final acceptance: Owned buttons/menus/toggles, formatting state, responsive overflow. Link its `F-C22`, `T-C22` and `V-C22` evidence and any unresolved defects.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-M-23",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/01-results.json",
+      "sha256": "317fd6dc43a4f74323c05bdea3856fcdd29b3f1a0850cbb056ea60c7d634f120",
+      "criterion": "- [ ] A-M-23 Reconcile ContentEditorChrome final acceptance: Menu composition, editor focus, disabled/loading actions, semantic structure. Link its `F-C23`, `T-C23` and `V-C23` evidence and any unresolved defects.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-M-25",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/01-results.json",
+      "sha256": "317fd6dc43a4f74323c05bdea3856fcdd29b3f1a0850cbb056ea60c7d634f120",
+      "criterion": "- [ ] A-M-25 Reconcile FloatingTextSelectionToolbar final acceptance: Selection anchoring, focus preservation, overlay cleanup, keyboard access. Link its `F-C25`, `T-C25` and `V-C25` evidence and any unresolved defects.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-M-26",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-results.json",
+      "sha256": "df8efa71b63d68e91b18565060ff926cfbf6f4e66d09fc273a180c8922141498",
+      "criterion": "- [ ] A-M-26 Reconcile RichTextFormattingToolbar final acceptance: All formatting actions, mixed/active/disabled state, Lexical commands. Link its `F-C26`, `T-C26` and `V-C26` evidence and any unresolved defects.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-M-28",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-results.json",
+      "sha256": "df8efa71b63d68e91b18565060ff926cfbf6f4e66d09fc273a180c8922141498",
+      "criterion": "- [ ] A-M-28 Reconcile TextAlignMenuControl final acceptance: Alignment/indent commands, active state, direction-aware presentation. Link its `F-C28`, `T-C28` and `V-C28` evidence and any unresolved defects.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-M-30",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-results.json",
+      "sha256": "df8efa71b63d68e91b18565060ff926cfbf6f4e66d09fc273a180c8922141498",
+      "criterion": "- [ ] A-M-30 Reconcile TextStyleMenuControl final acceptance: Style/typeface options, tokenized labels, selection and focus behavior. Link its `F-C30`, `T-C30` and `V-C30` evidence and any unresolved defects.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-K-04",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/03-results.json",
+      "sha256": "f210bbe09ff40f04e35266ac6ef9af03917fefd1373e5e3d4a59c9abbe855f7d",
+      "criterion": "- [ ] A-K-04 Reconcile original `K-04`: Support minimum/maximum, unavailable-date explanations, validation, required/optional input, and host-supplied availability without fetching business data. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-K-07",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/03-results.json",
+      "sha256": "f210bbe09ff40f04e35266ac6ef9af03917fefd1373e5e3d4a59c9abbe855f7d",
+      "criterion": "- [ ] A-K-07 Reconcile original `K-07`: Keep typed/segmented input and calendar selection synchronized; define invalid/partial typing, paste, blur, and form submission behavior. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-G-28",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/04-results.json",
+      "sha256": "c1c1471da6023b75b01ad41f32eb77956b6789312b856ea37210dbd682c3a3de",
+      "criterion": "- [ ] A-G-28 Reconcile original `G-28`: Define cancel/error/optimistic-update behavior for host-driven row actions and reorder requests; restore or reconcile visible state when persistence fails. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-U-06",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-results.json",
+      "sha256": "6d57d15ce2a475ceaf20e46ffbd813b07f16ac48e486a3685bce2aa8a7c9098d",
+      "criterion": "- [ ] A-U-06 Reconcile original `U-06`: Implement Select and searchable ComboBox/Autocomplete; define value identity, filtering ownership, empty/loading/error, multiple selection where required, and disabled options. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-U-09",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/06-results.json",
+      "sha256": "9e29386cf2c991e392e931937ebacb6bdf3768b2a6cb6995df11678dbe2e91b1",
+      "criterion": "- [ ] A-U-09 Reconcile original `U-09`: Implement Tabs with correct roles, panels, orientation, activation mode, disabled tabs, focus visibility, and overflow behavior. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-H-02",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/06-results.json",
+      "sha256": "9e29386cf2c991e392e931937ebacb6bdf3768b2a6cb6995df11678dbe2e91b1",
+      "criterion": "- [ ] A-H-02 Reconcile original `H-02`: Verify modifier clicks, downloads, external links, targets, default prevention, and navigation callback ordering through browser tests. Exact-byte transfers and native semantics in all three engines, CI 37560065588; [browser evidence](react-aria-browser-acceptance.md). Historical status: checked.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-H-03",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/06-results.json",
+      "sha256": "9e29386cf2c991e392e931937ebacb6bdf3768b2a6cb6995df11678dbe2e91b1",
+      "criterion": "- [ ] A-H-03 Reconcile original `H-03`: Integrate React Aria routing where needed behind the existing host adapter; avoid two competing navigation systems or a runtime Next.js dependency. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-A-07",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/06-results.json",
+      "sha256": "9e29386cf2c991e392e931937ebacb6bdf3768b2a6cb6995df11678dbe2e91b1",
+      "criterion": "- [ ] A-A-07 Reconcile original `A-07`: Specify native click versus normalized press semantics without surprising consumers; prevent duplicate callback invocation and document keyboard/touch activation. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-U-02",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/07-results.json",
+      "sha256": "3c6f4707e2665511e0e88232aa6e4b8939cd743b79b599cf7990f31a2b03244c",
+      "criterion": "- [ ] A-U-02 Reconcile original `U-02`: Implement Box/container, Stack, surface/Paper, card/content, separator/Divider, and responsive layout primitives with scoped styles. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-L-09",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/13-results.json",
+      "sha256": "46b2b3d08ea5238df9fe09084c6b981eee31397b8e4a8940f42ad3b16632fdf9",
+      "criterion": "- [ ] A-L-09 Reconcile original `L-09`: Document dependency support/security update expectations and a deliberate upgrade process with behavioral regression checks. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-D-20",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/15-results.json",
+      "sha256": "3b97919f6b3aaf321d1a0c4b1f57900af5ae5123a4e28a0dd805ad20a695650f",
+      "criterion": "- [ ] A-D-20 Reconcile original `D-20`: Publish foundation stories for palettes, typography, spacing, density, surfaces, focus, and motion, all consuming production tokens. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    },
+    {
+      "id": "A-W-16",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/15-results.json",
+      "sha256": "3b97919f6b3aaf321d1a0c4b1f57900af5ae5123a4e28a0dd805ad20a695650f",
+      "criterion": "- [ ] A-W-16 Reconcile original `W-16`: Update `docs/migration.md` and the extraction manifest to preserve useful provenance and account for moves/deletions; do not misrepresent the original extraction as the final architecture. Historical status: open.",
+      "basis": "Original named obligation satisfied by retained implementation and accepted targeted runtime/documentation evidence; independent broader gates remain open."
+    }
+  ],
+  "limits": [
+    "All300V remain accepted. Six future leaves remain separate.",
+    "No production promotion, release, manual AT or physical-device approval is inferred.",
+    "New unexecuted patches and active simulator work earn no closure here."
+  ]
+}

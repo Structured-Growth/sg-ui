@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-17T22:18:12.303763+00:00",
+  "completedScope": "12native executions and9actual rendered reviews, retained named passes and integrated contracts",
+  "completeRecommendations": [
+    {
+      "id": "A-D-12",
+      "originalObligation": "- [ ] A-D-12 Reconcile original `D-12`: Make important touch controls comfortably operable; density must not erase minimum hit areas or keyboard focus indicators. Historical status: open.",
+      "recommendation": "complete",
+      "decisionOwner": "coordinator; recommendation only, no shared checklist/count update",
+      "basis": "Important control touch sizing is an implemented shared token policy at both densities; TagGroup width correction was already native-validated, and the missing ToggleButton width now passes all6engine/media cases with explicit44px touch scopes, stable outer geometry and independent focus. Requiring physical comfort certification here would duplicate X07/X10; those original device obligations remain open.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/summary.json",
+          "sha256": "695f691f9e49c7f33b020d197b528c4019ff193a23e9d2cfc1e590816cb9f912"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/receipt.json",
+          "sha256": "2ad548004e480ab70f6ae63f55fc577d5b08ca83be44475d2426687858aedfe0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/rendered-review/review.json",
+          "sha256": "c275efff84ef4fb6a4f17d6ce1759539f47f140eda35f81382a1d68fdf28cdd5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/input-evidence.json",
+          "sha256": "ca105ce4537952e57e27aa39d9200eeb180a47312486126c5f24aa74249b1dc6"
+        },
+        {
+          "path": "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css",
+          "sha256": "b90ee80d60bc6253b4f5f006bc19b26f657e798cbe368a4a20fc5b2505feba6f"
+        },
+        {
+          "path": "packages/ui/tests/browser/wave04-toggle-presentation.spec.ts",
+          "sha256": "8e8b55d10a0ef34bff9c2e0488312cd6da776c5c5b85da8ed8531b28d469b6e0"
+        },
+        {
+          "path": "packages/ui/tests/browser/acceptance-touch-targets.spec.ts",
+          "sha256": "794c0b6436534c660e0bc4afc5df28396d9ae19bfef3336dec6494769a7a80fa"
+        }
+      ],
+      "limits": "This closes the implemented minimum-target/focus policy with representative native proof. It does not claim every hardware gesture or physical-device comfort."
+    },
+    {
+      "id": "A-D-16",
+      "originalObligation": "- [ ] A-D-16 Reconcile original `D-16`: Define scoped theme/density roots and nested overrides; ensure portaled overlays receive the correct scope and variables. Historical status: open.",
+      "recommendation": "complete",
+      "decisionOwner": "coordinator; recommendation only, no shared checklist/count update",
+      "basis": "Public ThemeScope/Provider specify inherited roots, explicit nested overrides and copied portal settings/custom variables excluding layout styles. Integrated Provider.live-portal and StrictMode tests establish live override/variable isolation; accepted composed overlay native cases exercise nested menus/tooltips/editor dialogs and scope changes. New Dialog focus/resize regressions pass on current bytes. Packed SSR/hydration remains D17/X16-X18, not an extra prerequisite for the scoped-root/portal contract.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/summary.json",
+          "sha256": "695f691f9e49c7f33b020d197b528c4019ff193a23e9d2cfc1e590816cb9f912"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/receipt.json",
+          "sha256": "2ad548004e480ab70f6ae63f55fc577d5b08ca83be44475d2426687858aedfe0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/rendered-review/review.json",
+          "sha256": "c275efff84ef4fb6a4f17d6ce1759539f47f140eda35f81382a1d68fdf28cdd5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/input-evidence.json",
+          "sha256": "ca105ce4537952e57e27aa39d9200eeb180a47312486126c5f24aa74249b1dc6"
+        },
+        {
+          "path": "packages/ui/src/foundation/ThemeScope.tsx",
+          "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6"
+        },
+        {
+          "path": "packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx",
+          "sha256": "a859b1e693a493a70dd2e51cacd3f78ce96f54e4f7c7ed2f9abb0ac6c6837e3c"
+        },
+        {
+          "path": "docs/developer/react-aria-theme.md",
+          "sha256": "6c8bd6edba4608d74a143e516132427a6c265a77fda61bec9964817718771c91"
+        },
+        {
+          "path": "packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+          "sha256": "6687705c49aa06c61938ec3f8de8dc6ddde22e222c43272547ffca637904354b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-11/unit-evidence.json",
+          "sha256": "0dddb457a6d733a5c0ac4f95cae90188f3af8bb0506e2dd7e48a75d4661662d5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/controls-lifecycle-clipboard.log",
+          "sha256": "5689ec32707d79bec011eeb5b599c80bb71bdd7f53bb5421eb0d2685e7781c67"
+        }
+      ],
+      "limits": "No all-export hydration or unmeasured custom host-selector propagation is promised. Host layout styles deliberately do not transfer to body portals."
+    },
+    {
+      "id": "A-D-18",
+      "originalObligation": "- [ ] A-D-18 Reconcile original `D-18`: Support reduced motion and forced-colors/high-contrast environments; avoid suppressing essential system indications. Historical status: open.",
+      "recommendation": "complete",
+      "decisionOwner": "coordinator; recommendation only, no shared checklist/count update",
+      "basis": "The shipped scope/token policy gives system forced colors priority and CSS reduced-motion rules cancel rather than gate actions/focus. Retained rail/navigation/swatch native cases and current6Toggle engine/media cases exercise these implemented preferences;9current rendered attachments show surviving system selection/focus. The repaired background-color longhands keep selected geometry while retaining system paints. Actual OS/device and whole-state contrast matrices stay in their separate X obligations.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/summary.json",
+          "sha256": "695f691f9e49c7f33b020d197b528c4019ff193a23e9d2cfc1e590816cb9f912"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/receipt.json",
+          "sha256": "2ad548004e480ab70f6ae63f55fc577d5b08ca83be44475d2426687858aedfe0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/rendered-review/review.json",
+          "sha256": "c275efff84ef4fb6a4f17d6ce1759539f47f140eda35f81382a1d68fdf28cdd5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/input-evidence.json",
+          "sha256": "ca105ce4537952e57e27aa39d9200eeb180a47312486126c5f24aa74249b1dc6"
+        },
+        {
+          "path": "docs/developer/react-aria-theme.md",
+          "sha256": "6c8bd6edba4608d74a143e516132427a6c265a77fda61bec9964817718771c91"
+        },
+        {
+          "path": "packages/ui/src/components/Button/Button.module.css",
+          "sha256": "2dae9fbc28de22a584671dbbe9d3466bf18b1f5088f1f6546cbb8dcf3b1a39db"
+        },
+        {
+          "path": "packages/ui/src/components/SideNavigation/SideNavigation.module.css",
+          "sha256": "e09d269b280e980af4bfb87335659a26c2137b6be98332c5e0747cf4ccc22848"
+        },
+        {
+          "path": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.module.css",
+          "sha256": "c3219ad8d95a2c4091738dfbc1e951a9c900defd2ca5978bd468d1ded0af3336"
+        },
+        {
+          "path": "packages/ui/src/experimental/ToggleButton/ToggleButton.module.css",
+          "sha256": "b90ee80d60bc6253b4f5f006bc19b26f657e798cbe368a4a20fc5b2505feba6f"
+        },
+        {
+          "path": "packages/ui/tests/browser/wave03-system-indications.spec.ts",
+          "sha256": "8a7fc816c0fbdd8c06bcb7a213ea2be390621aac9ce1a1e9f820ccaec411cd2a"
+        }
+      ],
+      "limits": "Browser emulation is identified; unsupported WebKit forced-color-adjust remains unsupported. No physical OS-high-contrast/speech result is inferred."
+    },
+    {
+      "id": "A-C-07",
+      "originalObligation": "- [ ] A-C-07 Reconcile original `C-07`: Document stylesheet composition across library themes, components, utilities, and consumer overrides; avoid escalating specificity or routine `!important`. Historical status: checked.",
+      "recommendation": "complete",
+      "decisionOwner": "coordinator; recommendation only, no shared checklist/count update",
+      "basis": "The integrated CSS composition guide defines ordered tokens/components and host utility/override layers, normal and important/inline precedence, public override surfaces and explicit positioner interoperability exceptions. Unnecessary Popover width important declarations are removed; remaining positioning/viewport-cap roles are individually justified. This is the original documentation/avoid-routine-specificity obligation; the planned CSP/presentation matrix validates separate runtime concerns.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/summary.json",
+          "sha256": "695f691f9e49c7f33b020d197b528c4019ff193a23e9d2cfc1e590816cb9f912"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/receipt.json",
+          "sha256": "2ad548004e480ab70f6ae63f55fc577d5b08ca83be44475d2426687858aedfe0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/rendered-review/review.json",
+          "sha256": "c275efff84ef4fb6a4f17d6ce1759539f47f140eda35f81382a1d68fdf28cdd5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/input-evidence.json",
+          "sha256": "ca105ce4537952e57e27aa39d9200eeb180a47312486126c5f24aa74249b1dc6"
+        },
+        {
+          "path": "docs/developer/react-aria-css-composition.md",
+          "sha256": "cca1c7d386c5a6bb8f396aa6c90c6cd285d6dba26d39c10126cedfe2e87dd745"
+        },
+        {
+          "path": "docs/developer/react-aria-architecture.md",
+          "sha256": "47ccc2236a95d722a8b52cb0dbbf7188e347c077ef86e6a624089b2734907a7d"
+        },
+        {
+          "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+          "sha256": "a9b1f0fadeefd8498e024cd4aaea6db0a2f026951586c91e6df1bba9204817f4"
+        }
+      ],
+      "limits": "No claim of CSP deployment, vertical writing or every consumer override combination follows from documentation closure."
+    },
+    {
+      "id": "A-C-16",
+      "originalObligation": "- [ ] A-C-16 Reconcile original `C-16`: Define reduced-motion transitions, interruption/cancellation behavior, and focus timing; no motion runtime is added solely for simple CSS transitions. Historical status: open.",
+      "recommendation": "complete",
+      "decisionOwner": "coordinator; recommendation only, no shared checklist/count update",
+      "basis": "Maintained motion contract specifies120ms/simple-CSS ownership, live reduced-motion cancellation, rapid replacement/close/reopen and immediate focus/draft ownership; no transition-end handler or new runtime owns actions. Existing rail/nav native interruption/reversal cases pass, and current modal resize plus two-frame host-focus restoration pass in all engines. The original asks for defined transitions/cancellation/focus timing, not an exhaustive all-component timer matrix.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/summary.json",
+          "sha256": "695f691f9e49c7f33b020d197b528c4019ff193a23e9d2cfc1e590816cb9f912"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/receipt.json",
+          "sha256": "2ad548004e480ab70f6ae63f55fc577d5b08ca83be44475d2426687858aedfe0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/rendered-review/review.json",
+          "sha256": "c275efff84ef4fb6a4f17d6ce1759539f47f140eda35f81382a1d68fdf28cdd5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/input-evidence.json",
+          "sha256": "ca105ce4537952e57e27aa39d9200eeb180a47312486126c5f24aa74249b1dc6"
+        },
+        {
+          "path": "docs/developer/react-aria-theme.md",
+          "sha256": "6c8bd6edba4608d74a143e516132427a6c265a77fda61bec9964817718771c91"
+        },
+        {
+          "path": "packages/ui/src/components/SideNavigation/SideNavigation.module.css",
+          "sha256": "e09d269b280e980af4bfb87335659a26c2137b6be98332c5e0747cf4ccc22848"
+        },
+        {
+          "path": "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.module.css",
+          "sha256": "c3219ad8d95a2c4091738dfbc1e951a9c900defd2ca5978bd468d1ded0af3336"
+        },
+        {
+          "path": "packages/ui/tests/browser/wave03-system-indications.spec.ts",
+          "sha256": "8a7fc816c0fbdd8c06bcb7a213ea2be390621aac9ce1a1e9f820ccaec411cd2a"
+        },
+        {
+          "path": "packages/ui/tests/browser/navigation-locale-motion.spec.ts",
+          "sha256": "76ae006bcc4b7081c19db06aacddac3167f5f4e094cba9a6d52799072cc1737c"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch52-dialog-removed-opener.spec.ts",
+          "sha256": "d69008e48ebf0827276f72df22a83b87d460f650c534f42f3be59cd09e2f1321"
+        }
+      ],
+      "limits": "Retain broader component-specific timing/lifetime and device tests separately; no new animation runtime or animation-end dependency is introduced."
+    },
+    {
+      "id": "A-C-17",
+      "originalObligation": "- [ ] A-C-17 Reconcile original `C-17`: Specify overlay stacking/portal ownership rather than maximum-integer z-index values; test nested dialog/menu/tooltip/editor overlays. Historical status: open.",
+      "recommendation": "complete",
+      "decisionOwner": "coordinator; recommendation only, no shared checklist/count update",
+      "basis": "Owned stacking/portal guidance specifies1400/1410 roles, modal insertion ordering, interaction-engine locks/inertness and host return-focus ownership. Accepted9composed overlay executions include actual dialog/menu/tooltip/editor-link hit/focus/resize behavior. Current3removed-opener executions prove two-frame explicit host-focus preservation after the changed Dialog resize behavior; three enlarged-modal executions also pass. This satisfies the named composed layering test requirement without requiring every overlay configuration to be recaptured.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/summary.json",
+          "sha256": "695f691f9e49c7f33b020d197b528c4019ff193a23e9d2cfc1e590816cb9f912"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/receipt.json",
+          "sha256": "2ad548004e480ab70f6ae63f55fc577d5b08ca83be44475d2426687858aedfe0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/rendered-review/review.json",
+          "sha256": "c275efff84ef4fb6a4f17d6ce1759539f47f140eda35f81382a1d68fdf28cdd5"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-04/10/input-evidence.json",
+          "sha256": "ca105ce4537952e57e27aa39d9200eeb180a47312486126c5f24aa74249b1dc6"
+        },
+        {
+          "path": "docs/developer/react-aria-proof-controls.md",
+          "sha256": "2023a7494e58b15ddf72d02b1c3cffd40582a9352318958bd3023591bad1df77"
+        },
+        {
+          "path": "packages/ui/src/foundation/ThemeScope.tsx",
+          "sha256": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6"
+        },
+        {
+          "path": "packages/ui/src/experimental/Dialog/Dialog.module.css",
+          "sha256": "fc5dafaa09efdb601d4ffc001bbf9142f77c4801e91a69ed2de34b555567a41f"
+        },
+        {
+          "path": "packages/ui/src/experimental/Popover/Popover.module.css",
+          "sha256": "a9b1f0fadeefd8498e024cd4aaea6db0a2f026951586c91e6df1bba9204817f4"
+        },
+        {
+          "path": "packages/ui/src/experimental/Tooltip/Tooltip.module.css",
+          "sha256": "d5306f0a210618ab3e970c2dbfdeaeb127cec6d68827710b557521ebea24b85f"
+        },
+        {
+          "path": "packages/ui/tests/browser/wave03-overlay-successors.spec.ts",
+          "sha256": "6687705c49aa06c61938ec3f8de8dc6ddde22e222c43272547ffca637904354b"
+        },
+        {
+          "path": "packages/ui/tests/browser/batch52-dialog-removed-opener.spec.ts",
+          "sha256": "d69008e48ebf0827276f72df22a83b87d460f650c534f42f3be59cd09e2f1321"
+        }
+      ],
+      "limits": "Current test is representative affected-Dialog validation; original wave03 engine receipts retain their dated scopes. No universal stacking order for arbitrary host roots is promised."
+    }
+  ],
+  "pendingDefinitionClosureAfterIntegration": {
+    "id": "A-X-15",
+    "patch": "visual-entry-gate.patch",
+    "files": 5,
+    "tests": 8,
+    "types": "zero diagnostics",
+    "decision": "x15-procedure-decision.json"
+  },
+  "retainedPartialWithinOriginal16": [
+    "A-D-09",
+    "A-D-15",
+    "A-D-17",
+    "A-C-09",
+    "A-C-11",
+    "A-C-14",
+    "A-C-15",
+    "A-C-19",
+    "A-C-20",
+    "A-I-05"
+  ],
+  "countPolicy": "No central count changes. Original criteria govern. No X14fullmatrix, actualzoom, fullstate, minimum-version, deployedCSP, installedconsumer or optical/icon clause closes without its own evidence."
+}

@@ -1,0 +1,80 @@
+{
+  "at": "2026-10-17T22:06:06.056930+00:00",
+  "node": "v24.19.0",
+  "recommendations": [
+    {
+      "id": "A-A-08",
+      "originalObligation": "- [ ] A-A-08 Reconcile original `A-08`: Define public variant, size, tone, density, placement, dismissal-reason, and validation contracts independently of any foundation. Historical status: open.",
+      "recommendation": "complete",
+      "reason": "Complete definition scope: architecture and owned-contract guide define independent visual/density/placement/dismissal/validation vocabularies. Resolved built declarations enumerate component-specific domains across480 contracts;441 current declaration hashes match and contain no interaction-engine/upstream contract references. Historical removed/inherited surfaces belong to A-B-05/A-C-04/A-Z-13; complete browser/AT conformance is not an extra criterion of this definition leaf.",
+      "evidence": [
+        "definition-evidence.json",
+        "current-public-inventory/public-contracts.json",
+        "current-migration-proof.json"
+      ],
+      "limits": "Named definition scope only. No historical compatibility, consumer/runtime/AT or release count inference."
+    },
+    {
+      "id": "A-A-09",
+      "originalObligation": "- [ ] A-A-09 Reconcile original `A-09`: Define accessible naming and description requirements for icon-only and compound controls; choose typed requirements where practical. Historical status: open.",
+      "recommendation": "complete",
+      "reason": "Complete definition scope: composition guide defines meaningful nonempty translated names, descriptions/IDs, repeated and icon-only controls, compound trigger/content boundaries and host slots. Required IconButton label and TextField label-or-aria-label union provide practical typed requirements; Button arbitrary React children and custom Dialog headers have explicit host duties. Month/Year use owned translated group/button labels; new HierarchicalMenu requires label and stable translated item labels. These are definition/typed responsibilities, not an assertion that all hosts or AT utterances pass.",
+      "evidence": [
+        "definition-evidence.json",
+        "current-public-inventory/public-contracts.json",
+        "current-migration-proof.json"
+      ],
+      "limits": "Named definition scope only. No historical compatibility, consumer/runtime/AT or release count inference."
+    },
+    {
+      "id": "A-A-10",
+      "originalObligation": "- [ ] A-A-10 Reconcile original `A-10`: Define composition and escape hatches: supported slots/parts, render callbacks, refs, `className`/part classes, CSS variables, and native `style` where needed. Historical status: open.",
+      "recommendation": "complete",
+      "reason": "Complete definition scope: public composition guide defines supported slots/render callbacks, native ref targets, class/part/native style and public token-variable boundaries with explicit unsupported escape hatches. Current resolved parameter/union inventory retains231 callable contracts with aliases/compound identities. Supplemental positive/negative consumer fixture defines native refs, alias identities and deliberate unsupported style/ref/native-form props. Complete installed proof remains A-X-20/A-R-09; it is not a precondition for defining the escape-hatch contract.",
+      "evidence": [
+        "definition-evidence.json",
+        "current-public-inventory/public-contracts.json",
+        "current-migration-proof.json"
+      ],
+      "limits": "Named definition scope only. No historical compatibility, consumer/runtime/AT or release count inference."
+    }
+  ],
+  "priorAccepted19Preserved": true,
+  "centralChecklistChanged": false,
+  "checks": [
+    {
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--test",
+        "packages/ui/scripts/consumer-matrix-options.test.mjs",
+        "packages/ui/tests/consumers/performance-proof-policy.test.mjs",
+        "packages/ui/scripts/public-contract-inventory.test.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "\u2714 supported runtimes preserve a bounded continuation and browser request (4.761958ms)\n\u2714 a missing or misspelled continuation option cannot launch the entire matrix (1.826959ms)\n\u2714 reviewed identity and output path are mandatory and unambiguous (0.216709ms)\n\u2714 unsupported local analysis runtimes and older supported-major minors reject before work (0.112708ms)\n\u2714 resolves generics, inherited properties, aliases, union naming and wildcard routes (644.945791ms)\n\u2714 fails rather than silently accepting top-level any declarations (585.986958ms)\n\u2714 memory configuration covers both public grids and the inline selector once (1.389334ms)\n\u2714 active-disposal proof rejects a completed or never-started interval (0.488708ms)\n\u2714 every residual resource and missing disposal field fails independently (0.885709ms)\n\u2714 a delayed update or a reappearing portal cannot pass a stable-disposal receipt (0.132458ms)\n\u2714 CDP must supply actual valid counters; missing heap metrics never produce a pass (0.174375ms)\n\u2139 tests 11\n\u2139 suites 0\n\u2139 pass 11\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 1374.07075\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "--check",
+        "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/09/batch-implementation/package-window.mjs"
+      ],
+      "exitCode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "nextWindow": "package-window.mjs",
+  "heavyWindowStatus": "ready-awaiting-coordinator-grant",
+  "profilingFix": "profile-exact-aliases.patch",
+  "artifactHashes": {
+    "definition-evidence.mjs": "e253037831386e64c856d4036a39fa115f4285bd475b3c927dfc8cd3dbbab22f",
+    "profile-exact-aliases.patch": "0b0c7276809c2ebc2951540ebd771653519bba7da5af03ef5356996b22e60ff1",
+    "definition-evidence.json": "ea962c7e31cec6c0310389f019a20a2b18a1cbedfb56a4d5973bd2fda66fcec4",
+    "package-window.mjs": "44257cde14334222046d6539fc03d14ba89fe22f5f01197ba448594e86461c1c",
+    "record-readiness.py": "24b38b152f7f7aa1f03a8ad7d15885379714aca15fa7e933f15c4856200f7ff1",
+    "current-migration-proof.json": "62f37ea2a2d986062b831b1aa6c5f848a803bd857ab10d11d218b89d5ef0c952",
+    "current-public-inventory/public-contracts.json": "dfd7ef6398ebc749062ca0776ba10de63aea1b9a15c8dd582329fd5103095799"
+  }
+}

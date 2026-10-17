@@ -1,0 +1,30 @@
+{
+  "decision": {
+    "id": "A-R-24",
+    "originalCriterion": "- [ ] A-R-24 Reconcile original `R-24`: Update workflow timeouts/artifact handling as browser checks expand; cache by lockfile and avoid stale build outputs masking missing CSS or dependencies. Historical status: open.",
+    "recommendation": "complete",
+    "currentTechnicalEvidence": "Exact requested updates are implemented: Node24 job60m/browser45m, Node22 job30m/docs20m; lock-keyed pnpm store cache; frozen installs; fresh generated output deletion/fingerprints; nonempty JS/types/CSS/native CSS and one-tarball enforcement; separate docs cleaning; success-only package/native uploads and always-uploaded logs/browser evidence. Actual fresh package+isolated frozen-install evidence is retained. Unchanged ci-artifacts helper3 meaningful cases pass on BOTH Node22.12/24.21: cleanup/source drift/missing CSS/extra tarball/symlink rejection.",
+    "exactRemainingPrerequisite": "None for the update/cache/freshness criterion. Current successful remote artifact production and actual path/check enforcement remain R12/R23/R27.",
+    "scopeLimit": "Do not add a future full-run success or legal approval as an unstated prerequisite. Budgets remain documented provisional; this is not a measured runtime/availability guarantee.",
+    "priorExactEvidence": "../batch-execution/results.json and ../batch-execution/manifest.json"
+  },
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/14/tooling-continuation/artifact-node22.txt",
+      "sha256": "6aa14b0c481cd6a8edd827f72e6fac2c1df8f3a6f03813c5ac22cc4d45f61bde"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/14/tooling-continuation/artifact-node24.txt",
+      "sha256": "d23839cec7974a201f9bede29fca197e621da21ece5560fa1ef81c971ef8a724"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "49d061acb4b758cc2c5aabaa1c5709ca9f64aae49d692eac17330862d5985d8a"
+    },
+    {
+      "path": "packages/ui/scripts/ci-artifacts.mjs",
+      "sha256": "3f637ab7bee818ffd7b8577346437797a961edafb758be6b71ce338700a795d8"
+    }
+  ],
+  "review": "Coordinator inspected actual timeout/cache/retention/freshness configuration and retained3case successful Node22/24 output. Future remote Actions artifacts and live branch enforcement remain separate."
+}

@@ -1,0 +1,26 @@
+{
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/validation/docs-public-controls.log",
+      "sha256": "55055a2574fcdc6881186aa84a6fc9a7b098f1db99419fc52374930563e71622"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/validation/docs-full-catalog.log",
+      "sha256": "6160d50478c8481661d29c839ad816bef51f82f6f3d2c80f36004b332414f223"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/hierarchical-path-focus/back-layout-native-01/results.json",
+      "sha256": "e33bb65c50418e4844f8495b6bd4d741b34b763fd298c2fa2f5858bb5aaf894c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/hierarchical-back-layout/ready.json",
+      "sha256": "249ee196fe97518294d94d7221d517b130a2e28b4f6531403ce414ea1e74c166"
+    }
+  ],
+  "renderedReview": "Coordinator inspected root/both-density, deep narrow-scrolled and inline Back captures. Original narrow label was vertical; corrected final narrow capture has horizontal People beside arrow, opaque rows and visible focus. Final3engine geometry and behavior pass.",
+  "sourceCommits": [
+    "9c9e2e83",
+    "911af0ee"
+  ],
+  "limits": "No spoken AT, physical-device or full visual state matrix approval."
+}

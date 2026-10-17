@@ -1,0 +1,480 @@
+{
+  "schemaVersion": 1,
+  "assignment": "docs/developer/final-acceptance/wave-04/15/assignment.json",
+  "baseCommit": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "counts": {
+    "complete": 2,
+    "partial": 15,
+    "blocked": 0
+  },
+  "canonicalCountsUnchanged": {
+    "acceptedA": 181,
+    "openA": 139,
+    "acceptedV": 300,
+    "openV": 0,
+    "future": 6
+  },
+  "entries": [
+    {
+      "id": "A-B-07",
+      "originalChecklistText": "- [ ] A-B-07 Reconcile original `B-07`: Capture representative screenshots and browser interactions for light/dark UI, compact/comfortable controls, editors, navigation, modals, and grids. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "HB-19/20 now supply editor light/dark, both densities, English/Arabic native interactions and actual rendered reviews. Retain accepted prior family V work.",
+      "remainingSuccessors": "B07-RAW: join recoverable controls/navigation/modal/grid raw captures to original theme/density interaction receipts. Wave03-29 reported historical HB roots absent; do not relabel unrelated calendar images. Capture only proven missing slices on an admitted immutable host; review each candidate.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-29/report.md",
+          "sha256": "1a7bce93027095044c3320eedce6346531df2c9a40cd70d70da0ee68480d63c1"
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-B-12",
+      "originalChecklistText": "- [ ] A-B-12 Reconcile original `B-12`: Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "All201 manifest rows resolve correctly with159 present/42 absent, every replacement exists, original repository/commit/root retained. The integrated33-story and4Button scenario dispositions are present.",
+      "remainingSuccessors": "B12-UPSTREAM: obtain an authorized original-commit archive/reference behavior; B12-GRID16: compare the16early grid scenarios listed in extraction-lineage.md against owned behavior or record a human decision. Manifest presence cannot establish semantic parity.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-33/report.md",
+          "sha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-33/evidence.json",
+          "sha256": "814d3e06ddd752358a8d23381c698190e51a932e9308dd562903102933ee4163"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-B-14",
+      "originalChecklistText": "- [ ] A-B-14 Reconcile original `B-14`: Keep the learner platform unchanged; collect reference behavior and source provenance read-only. Historical status: checked.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "This pass uses local read-only SGUI evidence; no learner-platform access or modification. Original upstream identity is unchanged, and prior unavailable-object diagnostic is retained.",
+      "remainingSuccessors": "B14-AUTHENTICATE: owner supplies read-only commit-bound upstream source/behavior evidence and unchanged status against a known upstream baseline. Local extraction commits cannot authenticate unavailable upstream bytes.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-33/report.md",
+          "sha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-33/evidence.json",
+          "sha256": "814d3e06ddd752358a8d23381c698190e51a932e9308dd562903102933ee4163"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-D-20",
+      "originalChecklistText": "- [ ] A-D-20 Reconcile original `D-20`: Publish foundation stories for palettes, typography, spacing, density, surfaces, focus, and motion, all consuming production tokens. Historical status: open.",
+      "recommendation": "complete",
+      "status": "complete",
+      "decision": "Approved docs host supplies production palette/semantic exploration, public typography, density and surface pages, plus integrated source-backed spacing/focus/motion Example owners on /theming. Retained production docs build and two foundation cases pass after the corrected source locator; no missing integration/runtime successor from wave03-30 remains.",
+      "remainingSuccessors": "None for this publication/examples obligation. Remote hosting rollout, optical/device/AT certification and final A gates are separate; this recommendation does not imply them.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-30/report.md",
+          "sha256": "bdb94d8cd0b7ef19b0284b7c421a051471935d31b13ba1152633675f0bd09592"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/docs-first.log",
+          "sha256": "bb2d40423209180616be89210450859472fbcbbe17eb746e715d2dbc829e67d2"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/docs-corrected.log",
+          "sha256": "31eaded03723a9748f2ff8ffa8c61df1f753c3bfe52444eee2b5a7ac4fb01fb6"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-I-08",
+      "originalChecklistText": "- [ ] A-I-08 Reconcile original `I-08`: Add icon catalog, accessibility, and bundle checks; update notices for all shipped vector assets. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Icon docs policy/spec are integrated; retained production icon catalog search/naming/source/copy/isolation case passes. Prior four bounded esbuild probes and notices remain retained with explicit Node26 limitation.",
+      "remainingSuccessors": "I08-NATIVE: execute prepared I-S2 geometry/naming/direction/contrast cases on matching compiled output and inspect optical captures; I08-PACKED: retain supported-runtime exact-candidate pruning/notice attribution. Do not rerun the already passing docs case solely for credit.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-15/report.md",
+          "sha256": "5f69d02cda5573e0142028b63ca95f8b28c4b764a631b9c86f95d5041eead1eb"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-15/bundle-results.json",
+          "sha256": "93fc2c6a46253c2f3bdbd3f15ce4fb95cbbf5848e0b7e78784094e8c324deb18"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/docs-first.log",
+          "sha256": "bb2d40423209180616be89210450859472fbcbbe17eb746e715d2dbc829e67d2"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-H-08",
+      "originalChecklistText": "- [ ] A-H-08 Reconcile original `H-08`: Validate ICU variables, pluralization, selection counts, date/number formatting, long labels, RTL, and pseudo-localized stories. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Locale/navigation patches integrated. Retained native logs show English/pseudo/Arabic fixed formatting,0/1/2/3/11/100count/clear,reflow and mirrored motion cases passing in each desktop engine. Earlier ICU/SSR checks remain bounded.",
+      "remainingSuccessors": "H08-SPEECH: obtain actual English/Arabic count/clear speech and long-label observations using the prior operator record or expanded simulator scenarios. Current simulator selector speech is a different scope. DOM live-region checks cannot stand in for the outstanding speech successor.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-17/report.md",
+          "sha256": "c8b63fc5a3bbc62c75fbbabb4959d066def18e6ef18c8fdf5c659becc970469c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/native-final.log",
+          "sha256": "ee40eece7d37996896cce9604c289366610f6e3d248a7432f2c49912a189260c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/apple-simulator/results.json",
+          "sha256": "a72bef1a8a60fcd9720b78384c869dc011f4ac69c3772a1a1a081cb68499571c"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-M-38",
+      "originalChecklistText": "- [ ] A-M-38 Reconcile original `M-38`: Track completion of M-01 through M-37 individually with PR and validation links; do not count a directory as migrated while it still imports a retired primitive transitively. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Updated all37row trace records with current implementation/test hashes and canonical completed V attribution. HB19/20 are attached to the10affected editor rows; no stale20V successors retained as current work.",
+      "remainingSuccessors": "M38-REVIEW: attach actual per-row reviewed PR/commit and exact validation receipt, then reconcile original A-M criterion holds. Initial draft PR1 and latest touched commit do not prove review; transitive guard evidence remains required for relevant changed candidate inputs.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-35/report.md",
+          "sha256": "b05d4afafa5dcbdb20d4de98f88807c9ebec03fe791aaba1711dfee5e155809a"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-35/migration-trace.json",
+          "sha256": "b9f4d6ceea40a8f5b5ccbf60c38e0ec549671d62741c3b65558f4754d512b666"
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-W-10",
+      "originalChecklistText": "- [ ] A-W-10 Reconcile original `W-10`: Retain the 33 existing story files or document deliberate replacements; add missing catalog coverage for primitives, adapters, calendars and grid helpers. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Integrated33-module/native replacement table and exact4Button dispositions reviewed. Production94-route/1138snippet evidence supersedes the unexecuted catalog successor for its bounded inputs.",
+      "remainingSuccessors": "W10-GRID16: disposition16initial grid export behaviors individually; W10-PUBLIC12: finish DOCS-005-b01 throughb12 public examples, including adapters/calendar/grid helpers; retain current public/native source and focused evidence. No Storybook restoration.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-33/report.md",
+          "sha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-W-13",
+      "originalChecklistText": "- [ ] A-W-13 Reconcile original `W-13`: Publish a consumer migration guide mapping imports, removed styling props, theme objects, typography, grid types, pagination/selection, icons and changed defaults. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Consumer guide already maps owned imports/styles/theme/typography/grid/pagination/selection/icons/defaults. Delivered a new reviewable12-removed-export table from the accepted exhaustive symbol join, including MenuItem type-versus-runtime and retained alias boundaries.",
+      "remainingSuccessors": "W13-INTEGRATE12: review/apply consumer-removed-exports.patch after checking base hash. W13-API: join exhaustive historical inherited-prop/default/release-marker dispositions with the A-B-05/A-Z-13 owner; removed-name coverage alone is insufficient.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-34/report.md",
+          "sha256": "42081e0bc5cb6fb0568ee676452d5968f715baa387a7e88663603ae727579d8e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-35/public-symbol-dispositions.json",
+          "sha256": "2be0d521fea0a6481b87728c4924ea3eab531020b95c3a2b8ba83d98672c5947"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-W-16",
+      "originalChecklistText": "- [ ] A-W-16 Reconcile original `W-16`: Update `docs/migration.md` and the extraction manifest to preserve useful provenance and account for moves/deletions; do not misrepresent the original extraction as the final architecture. Historical status: open.",
+      "recommendation": "complete",
+      "status": "complete",
+      "decision": "Current docs/migration.md and manifest distinguish extraction provenance from owned runtime, resolve workspace moves/removals, and link the integrated exact33-module lineage and local Button replacement. All201 row identities/presence/replacements checked. The wave03 successor was review/application/metadata verification, now satisfied.",
+      "remainingSuccessors": "None for this documentation/manifest obligation. Original upstream authentication and16grid behaviors remain explicitly open in B12/B14/W10; retaining those limits satisfies truthful provenance rather than asserting parity.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-33/report.md",
+          "sha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-33/patch-inputs.json",
+          "sha256": "965c7923e1c5bb7df1e0442d31a575a8cb6f25452679547b0e862d52483dde7b"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-W-18",
+      "originalChecklistText": "- [ ] A-W-18 Reconcile original `W-18`: Document known limitations, deferred features, support policy, deprecated names, release impact, and the cost/responsibility of eventually replacing React Aria. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Existing published guide states grid/calendar/experimental limits, aliases without an invented removal schedule, release impact and the focus/keyboard/collection/overlay/locale/date/testing/license costs of replacing React Aria.",
+      "remainingSuccessors": "W18-OWNER: record supported-release/backport window, cadence/accountable maintainer and confidential intake/disclosure authority in the existing dependency decision record. W18-API: join final default/breaking/public-experimental decisions. No support SLA or policy can be invented here.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-34/report.md",
+          "sha256": "42081e0bc5cb6fb0568ee676452d5968f715baa387a7e88663603ae727579d8e"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-W-19",
+      "originalChecklistText": "- [ ] A-W-19 Reconcile original `W-19`: Check all local doc links, exported example types, referenced file paths, and commands; docs-only updates do not require unrelated UI tests. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Integrated current-guide fixes and typed guide example retained. Catalog runtime/source compiler now has94routes/1138snapshots. New tracked646-Markdown audit expands explicit reference/HTML/heading checks and records5156local links without excluding evidence mirrors.",
+      "remainingSuccessors": "W19-REVIEW: review619missing-file records:611are in evidence/batch/mirror paths,8are historical non-evidence-guide links; do not call them current defects automatically.257absolute routes are unchecked. Broad inline-code path/command validity and MDX/TSX literals remain outside this bounded parser. Reuse existing typed/snippet receipts only for matching inputs.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-34/report.md",
+          "sha256": "42081e0bc5cb6fb0568ee676452d5968f715baa387a7e88663603ae727579d8e"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-Z-05",
+      "originalChecklistText": "- [ ] A-Z-05 Reconcile original `Z-05`: Rewrite historical manifest entries/document explanations where necessary for literal-reference removal while retaining source repository/commit provenance; do not rewrite Git history or invent provenance. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Integrated lineage and current-host prose preserve upstream identifiers/local blob history and explain removed API names. All manifest source identity fields retained. No Git history, frozen receipt or legal notice rewritten.",
+      "remainingSuccessors": "Z05-POLICY: human decision on literal-zero historical names versus provenance-preserving migration explanations, with explicit scope. Current lineage calls its reference policy proposed; cannot silently accept an exception or delete legal/history evidence.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-33/report.md",
+          "sha256": "f33b961237d4e2fe8ca46cebe28427c6d2ceca1a178db633b1c8fe9a82a0c6c0"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-35/report.md",
+          "sha256": "b05d4afafa5dcbdb20d4de98f88807c9ebec03fe791aaba1711dfee5e155809a"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-Z-11",
+      "originalChecklistText": "- [ ] A-Z-11 Reconcile original `Z-11`: Confirm package/type/build/Storybook/browser/accessibility/visual/SSR/performance checks pass for supported environments; record any genuine limitations instead of weakening checks. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Retain supported-runtime build/type/package/docs and corrected native receipts plus HB19/20. All300V complete; no stale20editorV rerun request. Original failures/skips and present/missing raw artifact paths remain visible.",
+      "remainingSuccessors": "Z11-CANDIDATE: coordinator joins exact final candidate/package,input closure,supported Node22/24 React18/19 SSR/hydration/RSC/Next,performance,required engine/device/spokenAT/visual/support and production CI receipts. Run only changed or genuinely missing scopes; configured jobs and this source audit are not executions.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-40/report.md",
+          "sha256": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        },
+        {
+          "path": "docs/developer/final-acceptance/editor-chrome-presentation/results.json",
+          "sha256": "e4eefc7d6ff986da265d62cdf79974e65c41548d4b78e36df0c2ba56ef0aedea"
+        },
+        {
+          "path": "docs/developer/final-acceptance/rich-editor-presentation/results.json",
+          "sha256": "9dca2fff6d834e828a6e7d8736b1d0d2a443a1e2c87eefea50a669207945b9ef"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-Z-12",
+      "originalChecklistText": "- [ ] A-Z-12 Reconcile original `Z-12`: Review the plan against every conversation commitment and imported UI principle; resolve duplicates, gaps, incompatible rules and unsupported feature claims. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Updated repository commitment map retains original text/source and prior gate descriptions, adds current hashes/wave04ownership and recognizes all300Vcomplete. Original calendar/search/editor/host/release principles remain mapped.",
+      "remainingSuccessors": "Z12-HUMAN: coordinator supplies complete actual conversation commitment/approval coverage. Resolve M10navigation/M14card/M30typeface criterion decisions without deleting original clauses or silently duplicating APIs. Peer proposals require review; dispatch is not acceptance.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-40/report.md",
+          "sha256": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-40/commitment-gate-map.json",
+          "sha256": "098d3a2ef6916b5b697a31cb4cb7e838215ab824b2311b57022a343f454baada"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-Z-15",
+      "originalChecklistText": "- [ ] A-Z-15 Reconcile original `Z-15`: Record final dependency/feature decisions, accepted test evidence, completed PRs, and explicitly deferred future tasks; no unchecked required migration item is dismissed as optional after the fact. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Concrete37row trace,commitment ownership update,prior17report hash joins,accepted newer bounded receipts and fail-closed completion snapshot delivered. Original139A and6explicitfuture leaves retained separately.",
+      "remainingSuccessors": "Z15-FINAL: reconcile all15wave04reports/integrated patches,exact reviewed PR/commit/run identities and final dependency/feature/owner/legal decisions. Preserve FUT-A-20/FUT-D-21/FUT-G-24/FUT-K-13/14/15 only; required unfinished work cannot become optional.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-40/report.md",
+          "sha256": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-integration/reconciliation.json",
+          "sha256": "132136bc52ce9f6306d58cf08969595a05b4467f3b6809fe1ea60b34340d43e3"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    },
+    {
+      "id": "A-Z-16",
+      "originalChecklistText": "- [ ] A-Z-16 Reconcile original `Z-16`: Only then mark the migration complete. Publishing is performed through the configured release workflow when authorized release-worthy changes merge. Historical status: open.",
+      "recommendation": "partial",
+      "status": "partial",
+      "decision": "Completion remains false with139requiredA open and0V open. Two narrowly recommended documentation closures are not applied to shared counts. Publication authorization remains separately false.",
+      "remainingSuccessors": "Z16-CLOSE: satisfy every remaining required acceptance/decision/evidence gate before marking migration complete. Publishing requires explicit human release approval,production validation and configured workflow; no promotion,tag,version edit or publish here.",
+      "evidence": [
+        {
+          "path": "docs/developer/final-acceptance/wave-03-40/report.md",
+          "sha256": "b8a89d946b806ffb7021dec72cf016bd1d2324c0271652bf40364e5395de770c"
+        },
+        {
+          "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+          "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+        }
+      ],
+      "newEvidence": [
+        "evidence.json",
+        "foundation-input-comparisons.json",
+        "completion-state.json"
+      ],
+      "validationPlan": "validation-plan.json",
+      "limits": "Recommendation only; no shared checklist/count edit, new product execution or human/legal/release approval."
+    }
+  ]
+}
