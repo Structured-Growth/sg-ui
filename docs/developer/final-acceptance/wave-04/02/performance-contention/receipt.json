@@ -1,0 +1,79 @@
+{
+  "status": "bounded failed largePage processing continuation passed",
+  "candidateSha256": "08c25637e641540c38fe0d42f3d143f8edaabf19716c1c5718a18fb155211f35",
+  "candidateScope": "Original installed candidate and same frozen production assets; this is not evidence for latest4afcandidate. Original24small/wide successes and originalfailure retained unchanged.",
+  "cause": "Per-character Playwright role-locator.press repeated role lookup/focus/protocol work under4000cell load. Saved paired diagnostic wall2.2\u20132.7s/key versus focused keyboard1.0\u20131.36s/key; browser input capture\u2192frame medians~272\u2013282ms in both. Driver wall cost was not browser input latency.",
+  "fix": "Resolve native search input once before burst, focus once via handle, use native keyboard press percharacter and native select-all/backspace clear; preserve percharacter2RAF and unchanged50update/100ms timer fixture. Record driver wall separately, and persist failed current browser samples. Existing09staging avoids injecting a duplicate failure catch.",
+  "checks": {
+    "policyTests": "7/7, including49/51updates, idleinput/selection, missinginitial/nonfinite negative controls",
+    "diagnostic": "1/1 failed-workload navigation pass",
+    "measured": "12/12 affected largePage processing navigations,3warmup+9recorded",
+    "invariants": "Every navigation50updates,9input samples duringupdates,1selection duringupdates; native clear committed; all12unmount cleanup checks and1active-update disposal/latepublication probe pass"
+  },
+  "browserFrameMs": {
+    "largePage:initial:idle": {
+      "count": 9,
+      "medianMs": 306.80000001192093,
+      "p95Ms": 357.7999999523163,
+      "maxMs": 357.7999999523163
+    },
+    "largePage:click:idle": {
+      "count": 9,
+      "medianMs": 474.2999999523163,
+      "p95Ms": 511,
+      "maxMs": 511
+    },
+    "largePage:update:updating": {
+      "count": 450,
+      "medianMs": 239.4000000357628,
+      "p95Ms": 592.1000000238419,
+      "maxMs": 755.5
+    },
+    "largePage:input:updating": {
+      "count": 81,
+      "medianMs": 234.80000001192093,
+      "p95Ms": 414.4000000357628,
+      "maxMs": 480.60000002384186
+    },
+    "largePage:selection:updating": {
+      "count": 9,
+      "medianMs": 226.69999998807907,
+      "p95Ms": 298.5,
+      "maxMs": 298.5
+    },
+    "largePage:sort:idle": {
+      "count": 9,
+      "medianMs": 237.19999998807907,
+      "p95Ms": 280.80000001192093,
+      "maxMs": 280.80000001192093
+    }
+  },
+  "driverWallMs": {
+    "count": 81,
+    "median": 949.5591249999998,
+    "p95": 1317.8719160000037,
+    "max": 1425.9114579999878
+  },
+  "limits": [
+    "Substantial UI capture-to-frame latency remains visible; no approved budget or universal responsiveness claim.",
+    "100ms interval scheduling target preserved; this does not establish sustained10Hz delivery under main-thread contention.",
+    "One affected processing workload only; remaining original profiling scopes/repeatability/memory not run here.",
+    "No MUI/oldfoundation/cross-build comparison, no latestcandidate claim, no physicalinput/paint/INP/AT inference.",
+    "No install/build/librarychange; dedicated4179 only; user3000 untouched."
+  ],
+  "resources": "Chromium/context/preview closed, canonicalheavy+legacy+4179port leases released",
+  "evidenceSha256": {
+    "docs/developer/final-acceptance/wave-04/02/performance-contention/large-page-12/latency.json": "a73d036dbe6f747f9b2aa0cd5e54bd12cc2e4d98937b2c1201c82d2507535aa4",
+    "docs/developer/final-acceptance/wave-04/02/performance-contention/large-page-12/execution.json": "9d6f31acd599d1d9596a0c8c1a0c14650849ace2b7851775d7e8f6ac98885d2f",
+    "docs/developer/final-acceptance/wave-04/02/performance-contention/diagnostic-01/latency.json": "c8635a53624525ccd7e3378e7d6ee54b120ff7598d7edf8fde41c12793b743cf",
+    "docs/developer/final-acceptance/wave-04/02/performance-contention/policy-tests.log": "c8f515e2d2a8299cd50b23f67769548b69287d882398eb663067eb35f270d02b",
+    "docs/developer/final-acceptance/wave-04/09/batch-implementation/runs/profile-01/latency-a-processing.json.failed.json": "92dd5c87c9696145f0f49c261ce6b4d27361c2d7dc733b56b5ab6983127a9e92",
+    "docs/developer/final-acceptance/wave-04/09/batch-implementation/runs/large-page-diagnostic.json": "a447d9a801e95c4c13c575fa15bd66c608703a2c521e68bbf371a8a8c0e1432d"
+  },
+  "integratedSourceSha256": {
+    "packages/ui/tests/performance/measure-browser.mjs": "522b2d5620fb7f21bf142524333ae3d98cf11dd88c1ce57d993f63e0fa863616",
+    "packages/ui/tests/consumers/performance-proof-policy.mjs": "9084e0ae70df27d29e37da9519354bb01a9b2b5b15334367abe1214e3b2401c7",
+    "packages/ui/tests/consumers/performance-proof-policy.test.mjs": "3ae51f4606b38b2bae885cccbde607b9e7e75f008029c55dff19e7558778ab86",
+    "docs/developer/final-acceptance/wave-04/09/batch-implementation/profile-window.mjs": "2430af3570652d6c8dd2cbe5b0a85e330b2f20e4f15749bc8c3282ec8372ca48"
+  }
+}

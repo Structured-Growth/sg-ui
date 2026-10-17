@@ -89,3 +89,97 @@ The 2026-10-16 local distribution stylesheet measures 262,185 raw / 21,871 level
 gzip bytes. This is a different artifact and must not be represented as a passing
 old consumer budget or a minimal-import size. Editor-only, grid-only and composed
 packed-consumer build graphs still require separate current-artifact receipts.
+
+
+## Instrumented same-document disposal successor
+
+`tests/performance/measure-memory.mjs` adds a separate Chromium/CDP profiling run.
+After the coordinator builds the reviewed fixture once and serves its immutable
+production output on loopback4179, run from `packages/ui`:
+
+```sh
+node tests/performance/measure-memory.mjs /absolute/new-memory-evidence --snapshots
+```
+
+Do this in a serialized validation window under the existing coordinator lease.
+The destination must be new. The runner checks every served fixture asset against
+local build hashes, saves the compiled library output inventory before and after,
+and records browser/runtime/hardware/load metadata. Each of seven configurations (three grid workloads per renderer and the inline
+selector) gets five warmup and 25 recorded same-document mount/unmount cycles.
+Grid cycles select/sort; selector cycles query/select their inline ListBox. Catalog grid cycles reopen
+the sort-menu portal before disposal. Each cycle starts periodic updates and disposes while updates are active.
+The fixture cancels its own interval/RAFs; the runner checks empty root/scopes/options,
+stopped updates, and no new samples during a later observation window. These
+assertions supplement the existing resource-owner unit checks.
+
+After explicit GC, raw whole-page DOM-node/listener/document and JS-heap counters
+are retained for every cycle. Optional warm/final heap snapshots (maximum256MiB,
+60s each) support manual retaining-path review. Snapshots may contain fixture data;
+use this synthetic workload. Failed/partial captures remain evidence, not valid
+heap snapshots. Counters include React/browser/runtime caches; a flat counter or
+absence of growth does not establish that every SGUI owner was released. Review
+retaining paths and repeated sessions before proposing a plateau/byte threshold.
+No new numeric memory budget is invented or automatically approved here.
+
+GC-instrumented runs are separate from uninstrumented latency runs and are not
+RSS, INP, Firefox/WebKit, physical-device or upload/editor allocation evidence. AsyncMultiSelect uses an
+inline ListBox; its option removal alone is not portal-cleanup evidence.
+Existing ImageUploadModal URL and FloatingTextSelectionToolbar observer/queued
+command regressions remain independently attributable. Extend actual allocation
+profiling to those owners only if their broader A-X-19 successor requires it.
+
+
+## Catalog-grid and overlapping-update protocol
+
+The wave-04 successor expands the same production fixture with
+`?renderer=catalog` using public AppDataGrid, alongside the processing-grid and
+selector workloads. Search and selection now occur during 50 updates at 10Hz.
+Pending event marks are queued so a row update cannot overwrite a captured input
+mark. A sample still measures the next host commit's frame opportunities, rather
+than isolating the completion or paint of that individual action. The runner
+requires both input and selection samples while updating and exactly 50 updates.
+The catalog host observes public state-change notifications to commit its own
+measurement boundary; that host overhead is part of this fixed workload.
+
+After a coordinator freezes and builds the reviewed package plus fixture, run
+from `packages/ui`, under its existing serial profiling lease:
+
+```sh
+SGUI_PERF_SOURCE_HEAD=<full-reviewed-commit> node tests/performance/measure-browser.mjs /absolute/new-catalog.json catalog
+SGUI_PERF_SOURCE_HEAD=<full-reviewed-commit> node tests/performance/measure-browser.mjs /absolute/new-processing.json processing
+node tests/performance/compare-performance.mjs /absolute/baseline-catalog.json /absolute/candidate-catalog.json /absolute/new-comparison.json
+```
+
+Keep each renderer's baseline and candidate separate. Use the same new fixture
+and runner bytes on both compiled production packages, browser/runtime/hardware,
+viewport and measurement method; repeat sequentially under comparable load.
+The comparator recomputes median and nearest-rank p95 from raw non-warmup samples,
+rejects missing/duplicate iterations or missing update/input/selection evidence,
+and reports deltas without declaring an approved performance threshold. It refuses
+to overwrite the output. Record source commit, actual built package/asset hashes,
+React version, exact build/preview commands, throttle policy, load and any source
+overlay used to build an older package with this fixed fixture. Historical schema-1
+measurements and SSR timings are incomparable to this overlapping-input protocol.
+
+This protocol has been typechecked and its offline comparison guards exercised
+with synthetic receipts. Until baseline and candidate production browser runs
+exist, it supplies no measured latency result and does not close G-20. It is
+Chromium-only tooling; physical touch and spoken AT remain separate evidence.
+
+### Large-page driver correction
+
+The original fixed-update run failed while the automation repeated accessible-role
+lookup for every key in a 4,000-cell page. The driver now resolves/focuses the input
+once and sends native keyboard events, retaining per-key frame waits, all 50
+updates and both interaction-overlap assertions. Failures preserve browser samples
+as well as driver wall times. A same-candidate continuation passed 3 warmup and
+9 recorded large-page navigations plus active-update disposal. The
+[receipt](final-acceptance/wave-04/02/performance-contention/receipt.json) retains
+the original failure and exact candidate/asset identity.
+
+Recorded browser input-to-frame median was about 235ms and p95 414ms; driver wall
+time includes protocol, frame waits and telemetry and is reported separately.
+The nominal 100ms timer target does not establish sustained 10Hz delivery under
+contention. These measurements cover the original candidate's processing large-page
+workload; they establish neither current-candidate performance, a full renderer
+matrix, approved budgets nor an old-foundation comparison.

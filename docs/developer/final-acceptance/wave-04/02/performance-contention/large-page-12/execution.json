@@ -1,0 +1,25 @@
+{
+  "startedAt": "2026-10-17T23:38:23.278Z",
+  "candidateSha256": "08c25637e641540c38fe0d42f3d143f8edaabf19716c1c5718a18fb155211f35",
+  "fixture": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/09/batch-implementation/runs/package-01/matrix/fixtures/sgui-foundation-consumer-g6zSrj",
+  "oldHost": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/09/batch-implementation/runs/package-01/matrix/fixtures/sgui-foundation-consumer-g6zSrj/profile-host-14KefA/tests/performance",
+  "host": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/performance-contention/host/tests/performance",
+  "iterations": 12,
+  "workload": "largePage",
+  "renderer": "processing",
+  "referenceTrackedHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
+  "limits": "Continuation of same installed candidate and existing production assets; no MUI/cross-build comparison or budget claim.",
+  "driverSha256": "643598f552860cf2f0602d057eefa1af022e8f68418beb4da5ef732bc1a58805",
+  "productionAssets": "0850068ca2c0f6983dded12819c1f76c3f845544f76edd5e3c00dad3f42f4be0",
+  "installedDist": "b873e7efe8ab899c2141f0ce416a4614d3c8b562cd35fcaa13153d73fba12806",
+  "argv": [
+    "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+    "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/performance-contention/host/tests/performance/measure-browser.mjs",
+    "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/performance-contention/large-page-12/latency.json",
+    "processing",
+    "largePage",
+    "12"
+  ],
+  "exitCode": 0,
+  "finishedAt": "2026-10-17T23:41:38.649Z"
+}
