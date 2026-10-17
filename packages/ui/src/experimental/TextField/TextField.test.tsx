@@ -7,15 +7,25 @@ import { TextField } from "./TextField";
 
 afterEach(cleanup);
 describe("owned field proof", () => {
-  it("associates label, description and errors with the input and forwards its ref", () => {
+  it.each([["above","above"],["above","below"],["below","above"],["below","below"]] as const)("associates description %s and error %s with the input and forwards its ref", (descriptionPlacement,errorPlacement) => {
     const ref = createRef<HTMLInputElement>();
-    render(<TextField ref={ref} label="Course" description="A public name" invalid errorMessage="Name already used" />);
+    render(<TextField ref={ref} label="Course" description="A public name" descriptionPlacement={descriptionPlacement} errorPlacement={errorPlacement} invalid errorMessage="Name already used" />);
     const input = screen.getByRole("textbox", { name: "Course" });
     expect(ref.current).toBe(input);
     expect(input.getAttribute("aria-invalid")).toBe("true");
     const descriptions = input.getAttribute("aria-describedby")!.split(" ").map(id => document.getElementById(id)?.textContent).join(" ");
     expect(descriptions).toContain("A public name");
     expect(descriptions).toContain("Name already used");
+    const label = screen.getByText("Course"), description = screen.getByText("A public name"), error = screen.getByText("Name already used");
+    expect(label.compareDocumentPosition(description) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(description.compareDocumentPosition(input) & (descriptionPlacement === "above" ? Node.DOCUMENT_POSITION_FOLLOWING : Node.DOCUMENT_POSITION_PRECEDING)).toBeTruthy();
+    expect(input.compareDocumentPosition(error) & (errorPlacement === "below" ? Node.DOCUMENT_POSITION_FOLLOWING : Node.DOCUMENT_POSITION_PRECEDING)).toBeTruthy();
+  });
+  it("defaults to placing the description between the label and decorated input", () => {
+    render(<TextField label="Course" description="A public name" invalid errorMessage="Name already used" startIcon={<span>Icon</span>} />);
+    const input = screen.getByRole("textbox", {name:"Course"});
+    expect(screen.getByText("A public name").compareDocumentPosition(input) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(input.compareDocumentPosition(screen.getByText("Name already used")) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
   it("supports string callbacks, uncontrolled values and native form serialization", async () => {
     const change = vi.fn();

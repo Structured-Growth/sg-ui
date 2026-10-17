@@ -2186,3 +2186,10 @@ Removed the stale seven-control-width calculation from DatePicker's calendar wra
 ## One-calendar preset example without endpoint fields — 2026-10-16
 
 Removed the optional start/end textboxes from DateRangePicker's “Preset panel with one calendar” example (also reused on the Calendar page). Its copied source and description match the cleaned dropdown; other explicitly field-enabled preset examples remain. Production docs build/catalog checks and five focused overview/preset browser checks pass, including preset selection/Apply and the absence of endpoint textboxes in the dropdown/source. No library API or acceptance-count change.
+
+
+## Shared form-field message placement — 2026-10-16
+
+Implemented the requested default descriptions above controls and independently configurable `descriptionPlacement` / `errorPlacement` values (`above` / `below`; errors default below). A shared private helper/type keeps existing message nodes, IDs and interaction state owned by each field. Covers text, selection, choice, date/time (text and segments) and composed range/period fields. Switch/search/async selection expose description placement and retain their existing request-status semantics. Inline choice labels remain beside indicators; private grid/toolbar label hiding now targets the owned choice label marker. Updated public declarations, every affected playground/source, both-density message examples, usage guidance and the [contract guide](form-field-message-placement.md).
+
+[Receipts](final-acceptance/form-field-message-placement/results.json): 92 affected test files / 642 tests pass; fresh library/foundation/production docs/catalog/native fixture/browser types and final docs types pass. All 81 targeted native docs cases pass across Chromium/Firefox/WebKit, including composed forwarding and both grid renderers' visible selection controls. Reviewed aligned row screenshots. Initial locator/focus-driver failures are retained; native input focus inside managed grids is not used as a keyboard acceptance claim. Existing 139 A / 20 V / 6 future counts remain unchanged.

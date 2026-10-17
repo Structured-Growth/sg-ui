@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages,type FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import { CalendarMonthTransition } from "../Calendar/CalendarMonthTransition";
 import { CalendarNavigation } from "../Calendar/CalendarNavigation";
 import { useLocale } from "react-aria-components/I18nProvider";
@@ -22,7 +23,7 @@ import {RangeGestures,type RangeDragBehavior} from "./RangeGestures";
 import type {ReactNode} from "react";
 import styles from "./DateRangeSelector.module.css";
 
-export interface DateRangeSelectorProps {
+export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
   label: string;
   /** Show a visible section title in addition to its accessible label. Defaults to false. */
   showTitle?: boolean;
@@ -119,7 +120,7 @@ export interface DateRangeSelectorProps {
   name?: string;
 }
 
-export function DateRangeSelector({ label, showTitle = false, navigation = "arrows", visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
+export function DateRangeSelector({ label, showTitle = false, navigation = "arrows", visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement="above", errorPlacement="below", activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets:basePresets = [], presetGroups = [], presetPlacement = "side", months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
   const { locale, direction } = useLocale();
@@ -276,7 +277,11 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
     }
     return false;
   }, [draft, rangeClickBehavior, selectionUnit, firstDayOfWeek, endpoint, activeEndpoint, onActiveEndpointChange, rangeLength, commitBehavior, value, onValueChange, min, max, unavailable, getDateUnavailableReason]);
-  const displayRange=dragPreview??draft;
+  const rangeError=<>
+    {interactionError&&<p role="alert" className={styles.summary}>{t("common.ui.invalidRangeGesture",{defaultMessage:"That change is unavailable. The previous range was kept."})}</p>}
+    {!allowed && !awaitingEnd && startValid && endValid && <p className={styles.summary}>{t("common.ui.invalidDateRange", { defaultMessage: "Choose an available date range." })}</p>}
+</>;
+    const displayRange=dragPreview??draft;
   const displayedRangeValid=dragPreview?validRange(dragPreview):draftPayloadValid;
   const pendingDate = displayRange && (displayRange.start && !displayRange.end ? displayRange.start : !displayRange.start && displayRange.end ? displayRange.end : null);
   const pendingDisplay=(calendarNavigation==='independent'||calendarLayout==='scroll')&&pendingDate&&isDateOnly(pendingDate)?{start:parseDate(pendingDate),end:parseDate(pendingDate)}:null;
@@ -361,14 +366,15 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
       <Button variant={endpoint==='end'?'filled':'outlined'} aria-pressed={endpoint==='end'} disabled={disabled||readOnly} onPress={()=>setEndpoint('end')}>{t("common.ui.endDate",{defaultMessage:"End date"})}</Button>
     </div>}
     {showFields&&<div className={styles.fields} onFocusCapture={event=>{const target=event.target as HTMLElement;const controls=event.currentTarget.children;setEndpoint(controls[0]?.contains(target)?'start':'end');}}>
-      <DateField key={`start-${resetRevision}-${selectionRevision}`} entryMode={entryMode} referenceDate={referenceDate} onValidityChange={setStartValid} label={t("common.ui.startDate", { defaultMessage: "Start date" })} value={draft?.start || null}
+      <DateField descriptionPlacement={descriptionPlacement} errorPlacement={errorPlacement} key={`start-${resetRevision}-${selectionRevision}`} entryMode={entryMode} referenceDate={referenceDate} onValidityChange={setStartValid} label={t("common.ui.startDate", { defaultMessage: "Start date" })} value={draft?.start || null}
         onValueChange={start => { if (resetting.current) return; state.setAnchorDate(null); const next={start:start??"",end:draft?.end??""};setDraft(next);if(commitBehavior==='immediate'&&endValid&&validRange(next))commit(next); }} min={min} max={max} disabled={disabled} readOnly={readOnly} required={required} />
-      <DateField key={`end-${resetRevision}-${selectionRevision}`} entryMode={entryMode} referenceDate={referenceDate} onValidityChange={setEndValid} label={t("common.ui.endDate", { defaultMessage: "End date" })} value={draft?.end || null}
+      <DateField descriptionPlacement={descriptionPlacement} errorPlacement={errorPlacement} key={`end-${resetRevision}-${selectionRevision}`} entryMode={entryMode} referenceDate={referenceDate} onValidityChange={setEndValid} label={t("common.ui.endDate", { defaultMessage: "End date" })} value={draft?.end || null}
         onValueChange={end => { if (resetting.current) return; state.setAnchorDate(null); const next={start:draft?.start??"",end:end??""};setDraft(next);if(commitBehavior==='immediate'&&startValid&&validRange(next))commit(next); }} min={min} max={max} disabled={disabled} readOnly={readOnly} required={required} />
     </div>}
 
     </ButtonContext.Provider>
       {showTitle && <h2 className={styles.heading}>{label}</h2>}
+      <FieldMessages position="above" errorPlacement={errorPlacement} error={rangeError}/>
       {navigation === "month-year" && months > 1 && calendarNavigation==='linked' && <CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/>}
       {calendarLayout==='scroll'&&<ButtonContext.Provider value={null}><div className={styles.monthHeader}>
         <Button className={styles.previous} variant="text" tone="neutral" disabled={disabled||readOnly||!isDateOnly(baseMonth.subtract({months:count}).toString())||Boolean(min&&baseMonth.subtract({days:1}).toString()<min)} onPress={()=>setScrollStart(baseMonth.subtract({months:count}).toString())} aria-label={t("common.ui.previousMonths",{defaultMessage:"Previous months"})}>‹</Button>
@@ -397,8 +403,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
       </div>}
     </div>
     <p className={styles.visuallyHidden} role="status" data-sgui-part="date-range-draft">{draft ? `${draft.start} – ${draft.end}` : t("common.ui.noDates", { defaultMessage: "No dates selected" })}</p>
-    {interactionError&&<p role="alert" className={styles.summary}>{t("common.ui.invalidRangeGesture",{defaultMessage:"That change is unavailable. The previous range was kept."})}</p>}
-    {!allowed && !awaitingEnd && startValid && endValid && <p className={styles.summary}>{t("common.ui.invalidDateRange", { defaultMessage: "Choose an available date range." })}</p>}
+    <FieldMessages position="below" errorPlacement={errorPlacement} error={rangeError}/>
     <ButtonContext.Provider value={null}>
     {showActions&&<div className={styles.actions}>
       <Button variant="text" tone="neutral" disabled={disabled || readOnly || required} onPress={() => { state.setAnchorDate(null); setStartValid(true); setEndValid(true); setResetRevision(revision => revision + 1); edit(null); }}>{t("common.ui.clear", { defaultMessage: "Clear" })}</Button>

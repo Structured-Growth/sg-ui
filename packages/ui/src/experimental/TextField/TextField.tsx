@@ -1,5 +1,5 @@
 "use client";
-
+import {FieldMessages,type FieldMessagePlacementProps} from "./FieldMessages";
 import { forwardRef, useRef, useState, useImperativeHandle, type InputHTMLAttributes, type ReactNode } from "react";
 import { TextField as AriaTextField } from "react-aria-components/TextField";
 import { Input } from "react-aria-components/Input";
@@ -12,7 +12,7 @@ import styles from "./TextField.module.css";
 
 interface FieldOptions extends Pick<InputHTMLAttributes<HTMLInputElement>,
   "id" | "name" | "placeholder" | "autoComplete" | "autoFocus" | "disabled" | "readOnly" |
-  "required" | "minLength" | "maxLength" | "pattern" | "form" | "inputMode" | "onBlur" | "onFocus"> {
+  "required" | "minLength" | "maxLength" | "pattern" | "form" | "inputMode" | "onBlur" | "onFocus">, FieldMessagePlacementProps {
   type?: "text" | "email" | "password" | "search" | "tel" | "url";
   value?: string;
   defaultValue?: string;
@@ -34,7 +34,7 @@ export type TextFieldProps = FieldOptions & (
 );
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function TextField(
-  { label, description, errorMessage, invalid, density, className, inputClassName,
+  { label, description, descriptionPlacement = "above", errorMessage, errorPlacement = "below", invalid, density, className, inputClassName,
     disabled, readOnly, required, value, defaultValue, onValueChange, form, inputMode, startIcon, endIcon, ...props }, ref,
 ) {
   const input = useRef<HTMLInputElement>(null);
@@ -59,19 +59,20 @@ export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function T
     onValueChange?.(next);
   }} className={[styles.input, inputClassName].filter(Boolean).join(" ")}
     data-sgui-part="input" />;
+  const messages={descriptionPlacement,errorPlacement,description:description&&<Text slot="description" className={styles.description}>{description}</Text>,error:<FieldError className={styles.error}>{errorMessage ?? preservedError}</FieldError>};
   return (
     <AriaTextField {...props} value={value === undefined ? internal : value}
       isDisabled={disabled} isReadOnly={readOnly} isRequired={required} isInvalid={preservedError ? true : invalid}
       validationBehavior="native" className={[styles.root, className].filter(Boolean).join(" ")}
       data-sgui-density={density} data-sgui-part="field">
       {label && <Label className={styles.label}>{label}</Label>}
+      <FieldMessages position="above" {...messages}/>
       {startIcon || endIcon ? <div className={styles.decoratedControl} data-sgui-part="field-icon-control">
         {startIcon && <span className={styles.adornment} data-sgui-part="field-start-icon" aria-hidden="true">{startIcon}</span>}
         {control}
         {endIcon && <span className={styles.adornment} data-sgui-part="field-end-icon" aria-hidden="true">{endIcon}</span>}
       </div> : control}
-      {description && <Text slot="description" className={styles.description}>{description}</Text>}
-      <FieldError className={styles.error}>{errorMessage ?? preservedError}</FieldError>
+      <FieldMessages position="below" {...messages}/>
     </AriaTextField>
   );
 });

@@ -1,4 +1,5 @@
-export interface TimeFieldProps {
+import type {FieldMessagePlacementProps} from "../TextField/FieldMessages";
+export interface TimeFieldProps extends FieldMessagePlacementProps {
   label: string;
   /** Textbox with optional selection popup by default; segments retains native segmented entry. */
   entryMode?: "text" | "segments";

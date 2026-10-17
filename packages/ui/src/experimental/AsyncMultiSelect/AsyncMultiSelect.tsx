@@ -1,4 +1,5 @@
 "use client";
+import type {FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { ListBox, ListBoxItem } from "react-aria-components/ListBox";
 import { TextField } from "../TextField/TextField";
@@ -8,7 +9,7 @@ import { useFormReset } from "../useFormReset";
 import styles from "./AsyncMultiSelect.module.css";
 
 export interface MultiSelectOption { id: string; label: string; disabled?: boolean }
-export interface AsyncMultiSelectProps {
+export interface AsyncMultiSelectProps extends Pick<FieldMessagePlacementProps,"descriptionPlacement"> {
   label: string;
   /** Options require unique, stable string IDs; labels never determine selection identity.
    * Results for the current query. Fetching, cancellation and stale-response rejection belong to the host. */
@@ -33,7 +34,7 @@ export interface AsyncMultiSelectProps {
 }
 
 export function AsyncMultiSelect({ label, options, value, defaultValue = [], onValueChange,
-  query, onQueryChange, loading, errorMessage, onRetry, disabled, readOnly, name, description, placeholder, startIcon, endIcon }: AsyncMultiSelectProps) {
+  query, onQueryChange, loading, errorMessage, onRetry, disabled, readOnly, name, description, descriptionPlacement="above", placeholder, startIcon, endIcon }: AsyncMultiSelectProps) {
   const { t } = useTranslation();
   const [internal, setInternal] = useState<readonly MultiSelectOption[]>(defaultValue);
   const selected = value ?? internal;
@@ -54,7 +55,7 @@ export function AsyncMultiSelect({ label, options, value, defaultValue = [], onV
   }
   return <div className={styles.root} data-disabled={disabled || undefined}>
     <TextField ref={input} label={label} type="search" value={query} onValueChange={next => { if (!resetting.current) onQueryChange(next); }}
-      disabled={disabled} readOnly={readOnly} description={description} placeholder={placeholder} startIcon={startIcon} endIcon={endIcon} aria-describedby={statusId} />
+      disabled={disabled} readOnly={readOnly} description={description} descriptionPlacement={descriptionPlacement} placeholder={placeholder} startIcon={startIcon} endIcon={endIcon} aria-describedby={statusId} />
     <div className={styles.tokens} aria-label={t("common.ui.selectedOptions", { defaultMessage: "Selected options" })}>
       {selected.map(option => <Button key={option.id} variant="outlined" tone="neutral" disabled={disabled || readOnly}
         aria-label={t("common.ui.removeOption", { defaultMessage: "Remove {label}", values: { label: option.label } })}

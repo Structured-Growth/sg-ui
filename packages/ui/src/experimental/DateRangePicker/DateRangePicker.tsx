@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages} from "../TextField/FieldMessages";
 import {CalendarFormValidity} from "../DateRangeSelector/CalendarFormValidity";
 import { useEffect, useId, useRef, useState } from "react";
 import { DateRangeSelector, type DateRangeSelectorProps } from "../DateRangeSelector/DateRangeSelector";
@@ -25,7 +26,7 @@ export interface DateRangePickerProps extends Omit<DateRangeSelectorProps, "onCa
   invalid?: boolean;
   onValidityChange?: (valid: boolean) => void;
 }
-export function DateRangePicker({ value, defaultValue = null, onValueChange, name, showTitle = false, showFields = false, entryMode = "text", fieldMode = "text", presentation="popover", description, errorMessage, invalid, onValidityChange, ...props }: DateRangePickerProps) {
+export function DateRangePicker({ value, defaultValue = null, onValueChange, name, showTitle = false, showFields = false, entryMode = "text", fieldMode = "text", presentation="popover", description, descriptionPlacement="above", errorPlacement="below", errorMessage, invalid, onValidityChange, ...props }: DateRangePickerProps) {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const [internal, setInternal] = useState(defaultValue);
@@ -87,8 +88,12 @@ export function DateRangePicker({ value, defaultValue = null, onValueChange, nam
     });
     return () => view.cancelAnimationFrame(frame);
   }, [open]);
+  const messages={descriptionPlacement,errorPlacement,description:((fieldMode === "text" || description) && <div id={`${id}-description`} className={fields.description}>{description ?? t("common.ui.dateRangeTextFormats", { defaultMessage: "Enter two dates separated by a spaced dash, such as {example}.", values: { example: `${formatDateText("2026-01-01", locale)} – ${formatDateText("2026-01-03", locale)}` } })}
+      {fieldMode === "text" && props.referenceDate && isDateOnly(props.referenceDate) && <> {t("common.ui.relativeRangeTextFormats", { defaultMessage: "This, last or next week, month and year use reference date {referenceDate}. Weeks start on {weekday}.", values: { referenceDate: props.referenceDate, weekday: new Intl.DateTimeFormat(locale, { weekday: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2026, 0, 4 + weekStartsOn))) } })}</>}
+    </div>),error:(showError && <div id={`${id}-error`} className={fields.error}>{message}</div>)};
   return <div ref={root} className={`${fields.root} ${styles.root}`} data-invalid={showError || undefined} data-disabled={props.disabled || undefined}>
     {fieldMode === "text" ? <label htmlFor={id} className={fields.label}>{props.label}</label> : <span className={fields.label}>{props.label}</span>}
+    <FieldMessages position="above" {...messages}/>
     <div data-sgui-part={fieldMode === "text" ? "date-range-field-control-group" : undefined} className={fieldMode === "text" ? fields.controlGroup : undefined}>
     {fieldMode === "text" && <input id={id} ref={inputRef} type="text" className={fields.input} value={text}
       disabled={props.disabled} readOnly={props.readOnly} required={props.required} aria-invalid={showError || undefined}
@@ -100,15 +105,12 @@ export function DateRangePicker({ value, defaultValue = null, onValueChange, nam
         aria-label={t("common.ui.chooseDate", { defaultMessage: "Choose {label}", values: { label: props.label } })}>
         {fieldMode === "text" ? <CalendarTodayIcon size={16}/> : formatted || t("common.ui.noDates", { defaultMessage: "No dates selected" })}
       </Button>}>
-      <div ref={calendarRef} className={styles.calendarContent}><DateRangeSelector {...props} showFields={showFields} entryMode={entryMode} firstDayOfWeek={props.firstDayOfWeek ?? "mon"} defaultFocusedDate={committed?.start ?? props.defaultFocusedDate} value={committed} onCancel={() => setOpen(false)} onValueChange={range => {
+      <div ref={calendarRef} className={styles.calendarContent}><DateRangeSelector {...props} descriptionPlacement={descriptionPlacement} errorPlacement={errorPlacement} showFields={showFields} entryMode={entryMode} firstDayOfWeek={props.firstDayOfWeek ?? "mon"} defaultFocusedDate={committed?.start ?? props.defaultFocusedDate} value={committed} onCancel={() => setOpen(false)} onValueChange={range => {
         accept(range); setOpen(false);
       }} /></div>
     </Popover>
     </div>
-    {(fieldMode === "text" || description) && <div id={`${id}-description`} className={fields.description}>{description ?? t("common.ui.dateRangeTextFormats", { defaultMessage: "Enter two dates separated by a spaced dash, such as {example}.", values: { example: `${formatDateText("2026-01-01", locale)} – ${formatDateText("2026-01-03", locale)}` } })}
-      {fieldMode === "text" && props.referenceDate && isDateOnly(props.referenceDate) && <> {t("common.ui.relativeRangeTextFormats", { defaultMessage: "This, last or next week, month and year use reference date {referenceDate}. Weeks start on {weekday}.", values: { referenceDate: props.referenceDate, weekday: new Intl.DateTimeFormat(locale, { weekday: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2026, 0, 4 + weekStartsOn))) } })}</>}
-    </div>}
-    {showError && <div id={`${id}-error`} className={fields.error}>{message}</div>}
+    <FieldMessages position="below" {...messages}/>
     {fieldMode==='button'&&<CalendarFormValidity label={props.label} empty={committed===null} valid={valid} required={props.required} disabled={props.disabled||props.readOnly}/>}
     {name && <><input type="hidden" name={`${name}.start`} value={committed?.start ?? ""} disabled={props.disabled} />
       <input type="hidden" name={`${name}.end`} value={committed?.end ?? ""} disabled={props.disabled} /></>}

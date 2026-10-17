@@ -1,4 +1,5 @@
-export interface DateFieldProps {
+import type {FieldMessagePlacementProps} from "../TextField/FieldMessages";
+export interface DateFieldProps extends FieldMessagePlacementProps {
   label: string;
   /** Date-only text accepts ISO, locale-ordered numeric dates and named months; normalizes on blur/Enter. Two-digit years use the fixed 1950–2049 window. */
   entryMode?: "segments" | "text";

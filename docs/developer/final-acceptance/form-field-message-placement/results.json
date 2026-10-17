@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "e7f6cf6750d7032329bff09f49ea13554a42e6bd",
+  "checks": {
+    "units": {
+      "exitCode": 0,
+      "logSha256": "05752f906bf24798f4eb60696f75c4be75eba10fa10b290c2b209efaff3ceb2d"
+    },
+    "library": {
+      "exitCode": 0,
+      "logSha256": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a"
+    },
+    "guards": {
+      "exitCode": 0,
+      "logSha256": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647"
+    },
+    "docs": {
+      "exitCode": 0,
+      "logSha256": "89481dbde1c643a9bdd728d8bc7c65e5810e61a9e8c1c61fb36dafdc2a275df2"
+    },
+    "native": {
+      "exitCode": 0,
+      "logSha256": "e72eeb8cf6151507f28fb23cd0d4a11667fa102dd59ad7440384da66b48a8f36"
+    },
+    "types": {
+      "exitCode": 0,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "finalDocsTypes": {
+      "exitCode": 0,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "units": {
+    "files": 92,
+    "passed": 642,
+    "log": "\n RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui\n\n\n Test Files  92 passed (92)\n      Tests  642 passed (642)\n   Start at  22:45:35\n   Duration  16.12s (transform 3.73s, setup 691ms, import 29.13s, tests 87.13s, environment 16.80s)\n\n"
+  },
+  "browser": {
+    "passed": 81,
+    "projects": [
+      "chromium",
+      "firefox",
+      "webkit"
+    ],
+    "finalReport": "browser-final.json",
+    "originalRuns": [
+      "browser-initial.json",
+      "browser-second.json"
+    ],
+    "gridDiagnosticLogSha256": "a62ee084605507b0423bbf7a4f99fcd0e4efbf8126d0dbf6fae184377f907ccc"
+  },
+  "notes": [
+    "Shared private FieldMessages helper/owned type; descriptions default above and validation errors below, independently configurable.",
+    "TextField/TextArea, Select/ComboBox (and Autocomplete alias), Checkbox/RadioGroup, date/time text and segmented paths, DatePicker/DateRangePicker/DateRangeSelector, and period/datetime/comparison compositions updated.",
+    "Switch/SearchField/AsyncMultiSelect expose description placement; existing request errors/retry remain results flow rather than invalid-field semantics.",
+    "Checkbox/switch keep labels beside indicators. Grid/toolbar private selectors hide only the marked choice label instead of a positional last span.",
+    "Initial browser checks needed a relative-help text locator and native checkbox label-ancestry correction. The next attempt used programmatic checkbox focus inside a managed grid; a diagnostic confirmed the input does not retain that focus. Final grid checks exercise visible pointer selection instead. No grid keyboard/AT gate is closed by this receipt.",
+    "Final 81 cases cover both placements/densities, preserved associations and source, composed-field forwarding/aggregate errors, narrow reflow and visible checkbox selection in both grid renderers.",
+    "Reviewed comfortable row screenshot: inputs align across descriptions/errors of different heights.",
+    "Existing 139 A / 20 V / 6 future acceptance counts remain unchanged."
+  ],
+  "sourceSha256": {
+    "apps/docs/content/component-api.json": "473730b869dbd1aea397218905dfdd7b29b50caf1e67f0b90e2183bfba8ac3ca",
+    "apps/docs/content/component-usage/forms.json": "0268c34c830303993c12b6b897ff8322ded809641fee94bd5b0199de9ebcdcc2",
+    "apps/docs/examples/AdvancedCalendarExamples.tsx": "f97dd9bf1bb820f30452011d2f020eb965ca727cbaf72013d36ae06df1c916ac",
+    "apps/docs/examples/SearchFieldExamples.tsx": "601581ef80ac61f59610d479506f7c62b5eb2d455c6f4753409caa50376c989b",
+    "apps/docs/examples/catalog/forms-dates.tsx": "a1f6f913e1ab16a0b7cfe5587abb0525344587d669aaf6689e4d89911eaabe14",
+    "docs/developer/component-architecture.md": "8ebc3c4c364166826ab09cc9a496afc9dae0f5e6e9173dd645f07b3e5cf4ea50",
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.module.css": "06d76bdecc8495ae7884ac4ea8b47c9b8c987ebaf1de57fe39d3d707b82d8f60",
+    "packages/ui/src/components/DataToolbar/components/DataToolbarSelectionMenu.module.css": "12e750077b0dfd042bcbf2c512399d0961c22a65f2bf9516070a0bc79f06278c",
+    "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx": "a317abd7261a3f1adb5e1555de58d9907acb9c537ca91572a1019836bb4cd706",
+    "packages/ui/src/experimental/Checkbox/Checkbox.module.css": "8578fc1dbb79c79978a46b9c8c5540402de17559d17273bbaee52687ece4be25",
+    "packages/ui/src/experimental/Checkbox/Checkbox.tsx": "967b5ac04bd1b14de02e7ed35fffc64aa7aaeca5f3ff2b517f83d6d98e9e4bca",
+    "packages/ui/src/experimental/ComboBox/ComboBox.tsx": "3b7b4dfd1a8199ebccb240f03efd22fa43e2d389df014dd09e2e9d4191a3aede",
+    "packages/ui/src/experimental/DateField/DateField.tsx": "af19426c477c65660dd6814a231e26491023f72d6d1eb491c7ed3b2d5cd9cb15",
+    "packages/ui/src/experimental/DateField/DateField.types.ts": "b6d803a3f480ab3ee9e8fe606218d26ed062f88e725ad4a24b3bb789fbb0bd25",
+    "packages/ui/src/experimental/DateField/TextDateField.tsx": "20fa36f47d8b7bc39d81fc76b761398ab77e0665e22f08bcd2df2ef90ed88cd1",
+    "packages/ui/src/experimental/DatePicker/DatePicker.tsx": "9f154de85233a31eaeff6ce18a016195a43d616e503e736c4b00753e8f139a15",
+    "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx": "43251fa7f346f54d94e9031156150f92363577660d16972942cf5ea1e2f837bd",
+    "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx": "40b84b4c0194450af4746979873c719b08c5460581fd953284c60771140c7d9e",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": "c4715c4fd458701f564e050d8457419376a14e20b2e57f6dc4bb611efe91cb58",
+    "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx": "e423257e005b0ed7f9a446580c0b005d3aff30efd4e7df2ad0236df08b09e63b",
+    "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx": "0f9c50974ee77b452908b01a74a67d4f7bd0540bfdf29a42c84bf4ffd894b1db",
+    "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx": "f6a3376fc6bd6a857cc4efd16ddb11cb635542ac9190e30944304a183234dc02",
+    "packages/ui/src/experimental/SearchField/SearchField.tsx": "581d380dc6c64717f287ea0c37b46a02162f683ba8a82422406bc55d08e8d427",
+    "packages/ui/src/experimental/Select/Select.tsx": "a6e46e1ae826b89449f914b4858b1eea00a5d920c379f7b138330d58b043c748",
+    "packages/ui/src/experimental/Switch/Switch.module.css": "68682cd2abc4336d574cd52395deeeb44b8ee97edeee4a2c00af89f5195c7ef4",
+    "packages/ui/src/experimental/Switch/Switch.tsx": "39906099ffa4cde611e62e5eeffd92e0014a7525c478f9fda5ffe9b49aadd0cf",
+    "packages/ui/src/experimental/TextArea/TextArea.test.tsx": "498233a36379dd29893c445874d3c5ae894b80c50e2bffe37f6b393dfca05ac9",
+    "packages/ui/src/experimental/TextArea/TextArea.tsx": "bfd71744be80a7f68d5f91e322faaf7627ffee74469aff9ce10266baaf489d8e",
+    "packages/ui/src/experimental/TextField/TextField.test.tsx": "7491dcebec37153a7632c2945b7aafb688c4ec9dad9f73bcd5c18687a978e872",
+    "packages/ui/src/experimental/TextField/TextField.tsx": "c3dc7ff2e96a9d77dd1210ea998f4eb4428b53c2da198166268adb3847114572",
+    "packages/ui/src/experimental/TimeField/TextTimeField.tsx": "8cee3225e5ab1dccea09b4f57474dfdff1673ee3ffe0ff9145ca63f2149d26fb",
+    "packages/ui/src/experimental/TimeField/TimeField.tsx": "3eb2bf87620d5cbac1627d586c8d2fb1522e8b92e31aec62d2bc64095275d409",
+    "packages/ui/src/experimental/TimeField/TimeField.types.ts": "71c419de431c43eb292485a5ffd72269752829a6ef8bb0e57182d06b31d8b166",
+    "packages/ui/src/experimental/TextField/FieldMessages.tsx": "bd206f9ff4092a6b4b7056abcc4ffef2660fab6349eadff9ede42199b30650f2",
+    "packages/ui/src/experimental/TextField/FieldMessages.test.tsx": "e28bbe192349a2228ebe7ce027494b5d46cdb39b2cfbcd9bba87546be91cf3b2",
+    "apps/docs/examples/FieldMessageExamples.tsx": "e7d1ed1a51b43ccf4cb195bdc53976a1c055263dfbdd601c4484910626354eb2",
+    "apps/docs/tests/field-message-placement.spec.ts": "93c828665b636dcbaf0df0cc7172776b6c564a241fcf5926377aa218738ee0d2",
+    "apps/docs/tests/field-message-compositions.spec.ts": "f11ddccf3ceb63b350e09b69d3a8bdf8ad6513842478d74736a7a77b6673c000",
+    "docs/developer/form-field-message-placement.md": "0ec184486ce8e848a5ee17b7f985abc8f7c3a5e091b5f47037b373553378fca0"
+  }
+}

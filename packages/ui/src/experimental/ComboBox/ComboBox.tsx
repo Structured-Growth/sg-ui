@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages, type FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import { forwardRef, type ReactNode } from "react";
 import { ComboBox as AriaComboBox } from "react-aria-components/ComboBox";
 import { Input } from "react-aria-components/Input";
@@ -16,7 +17,7 @@ import field from "../TextField/TextField.module.css";
 import styles from "./ComboBox.module.css";
 
 export interface ComboBoxOption { id: string; label: string; disabled?: boolean }
-export interface ComboBoxProps {
+export interface ComboBoxProps extends FieldMessagePlacementProps {
   label: string;
   /** Unique, stable string IDs; labels are presentation and are locally filtered.
    * Fetching and result freshness remain host-owned. */
@@ -41,7 +42,7 @@ export interface ComboBoxProps {
 }
 
 export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function ComboBox(
-  { label, options, value, defaultValue, onValueChange, name, placeholder, description,
+  { label, options, value, defaultValue, onValueChange, name, placeholder, description, descriptionPlacement="above", errorPlacement="below",
     required, disabled, readOnly, invalid, errorMessage, autoFocus, className, startIcon, endIcon }, ref,
 ) {
   const { t } = useTranslation();
@@ -49,13 +50,14 @@ export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function Com
   const { direction } = useLocale();
   const directionRef = useOverlayDirectionRef(direction);
   const control = <Input ref={ref} placeholder={placeholder} className={field.input} />;
+  const messages={descriptionPlacement,errorPlacement,description:(description && <Text slot="description" className={field.description}>{description}</Text>),error:(<FieldError className={field.error}>{errorMessage}</FieldError>)};
   return <AriaComboBox defaultItems={options} selectedKey={value} defaultSelectedKey={defaultValue} allowsEmptyCollection
     onSelectionChange={key => onValueChange?.(key === null ? null : String(key))}
     disabledKeys={options.filter(option => option.disabled).map(option => option.id)}
     name={name} formValue="key" isRequired={required} isDisabled={disabled} isReadOnly={readOnly}
     isInvalid={invalid} validationBehavior="native" autoFocus={autoFocus}
     className={[field.root, className].filter(Boolean).join(" ")}>
-    <Label className={field.label}>{label}</Label>
+    <Label className={field.label}>{label}</Label><FieldMessages position="above" {...messages}/>
     <div className={styles.control}>
       {startIcon || endIcon ? <div className={field.decoratedControl} data-sgui-part="field-icon-control">
         {startIcon && <span className={field.adornment} data-sgui-part="field-start-icon" aria-hidden="true">{startIcon}</span>}
@@ -66,8 +68,7 @@ export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function Com
         <KeyboardArrowDownIcon size={16} />
       </Button>
     </div>
-    {description && <Text slot="description" className={field.description}>{description}</Text>}
-    <FieldError className={field.error}>{errorMessage}</FieldError>
+    <FieldMessages position="below" {...messages}/>
     <Popover {...scope} ref={directionRef} className={styles.popover}>
       <ListBox<ComboBoxOption> className={styles.list} renderEmptyState={() => t("common.ui.noOptions", { defaultMessage: "No options found" })}>
         {option => <ListBoxItem id={option.id} textValue={option.label} className={styles.option}>{option.label}</ListBoxItem>}

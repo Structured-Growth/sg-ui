@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages,type FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import { forwardRef, useId, useImperativeHandle, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { flushSync } from "react-dom";
 import { Popover } from "react-aria-components/Popover";
@@ -24,7 +25,7 @@ export interface SearchFieldItem {
   /** Native links use the host's SGUI navigation adapter, including modified clicks. */
   href?: string;
 }
-interface SearchOptions {
+interface SearchOptions extends Pick<FieldMessagePlacementProps,"descriptionPlacement"> {
   items?: readonly SearchFieldItem[];
   /** Disable the dropdown when a host renders its search results elsewhere. */
   showResults?: boolean;
@@ -57,7 +58,7 @@ export type SearchFieldProps = SearchOptions & ({ label: string; "aria-label"?: 
 /** Search input and nonmodal results. The host owns data, remote request freshness and routing. */
 export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(function SearchField({
   items = [], showResults = true, value, defaultValue = "", onValueChange, onResultSelect, onSearch, filter = "contains", label,
-  "aria-label": ariaLabel, placeholder, description, resultsLabel, emptyMessage, resultCountLabel,
+  "aria-label": ariaLabel, placeholder, description, descriptionPlacement="above", resultsLabel, emptyMessage, resultCountLabel,
   loading, errorMessage, onRetry, disabled, readOnly, showClearButton = true, name, density, className,
   startIcon = <SearchIcon size={16}/>, endIcon,
 }, ref) {
@@ -105,6 +106,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
       if (!event.currentTarget.contains(target) && !results.current?.contains(target)) setExpanded(false);
     }}>
     {label && <label htmlFor={id} className={field.label}>{label}</label>}
+    <FieldMessages position="above" descriptionPlacement={descriptionPlacement} description={description&&<div className={field.description} id={`${id}-description`}>{description}</div>}/>
     <div className={styles.control}>
       <TextField ref={input} id={id} aria-label={ariaLabel ?? label!} name={name} type="search" className={styles.input}
         value={query} onValueChange={change} placeholder={placeholder ?? t("common.ui.searchPlaceholder", { defaultMessage: "Search…" })}
@@ -113,7 +115,7 @@ export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(functi
       {showClearButton && query && <Button variant="text" tone="neutral" disabled={disabled || readOnly}
         aria-label={t("common.ui.clearSearch", { defaultMessage: "Clear search" })} onPress={() => { change(""); input.current?.focus(); }}><CloseIcon size={16}/></Button>}
     </div>
-    {description && <div className={field.description} id={`${id}-description`}>{description}</div>}
+    <FieldMessages position="below" descriptionPlacement={descriptionPlacement} description={description&&<div className={field.description} id={`${id}-description`}>{description}</div>}/>
     <Popover {...scope} data-sgui-density={density ?? scope["data-sgui-density"]} ref={directionRef} triggerRef={root} isOpen={open} onOpenChange={setExpanded} isNonModal placement="bottom start"
       shouldCloseOnInteractOutside={element => !root.current?.contains(element)} className={styles.popover}>
       <div ref={results} id={resultsId} role="region" aria-label={resultsLabel ?? t("common.ui.searchResults", { defaultMessage: "Search results" })} className={styles.results} data-sgui-part="search-results">

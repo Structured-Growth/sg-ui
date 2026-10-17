@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages} from "../TextField/FieldMessages";
 import { forwardRef, useContext, useEffect, useId, useImperativeHandle, useRef, useState } from "react";
 import { useTranslation } from "../../i18n";
 import { useStandaloneFormReset } from "../TextField/useStandaloneFormReset";
@@ -10,7 +11,7 @@ import styles from "../TextField/TextField.module.css";
 
 export const TextDateField = forwardRef<HTMLDivElement, DateFieldProps & { locale: string }>(function TextDateField({
   locale, label, value, defaultValue = null, onValueChange, onValidityChange, min, max, name,
-  description, errorMessage, invalid, required, disabled, readOnly, referenceDate,
+  description, descriptionPlacement="above", errorPlacement="below", errorMessage, invalid, required, disabled, readOnly, referenceDate,
 }, ref) {
   const { t } = useTranslation();
   const validateCandidate = useContext(DateFieldValidationContext);
@@ -47,14 +48,14 @@ export const TextDateField = forwardRef<HTMLDivElement, DateFieldProps & { local
     if (value === undefined) setInternal(parsed);
     onValueChange?.(parsed);
   }
+  const messages={descriptionPlacement,errorPlacement,description:(description && <div id={`${id}-description`} className={styles.description}>{description}</div>),error:(showError && <div id={`${id}-error`} className={styles.error}>{message}</div>)};
   return <div ref={root} className={styles.root} data-invalid={showError || undefined} data-disabled={disabled || undefined}>
-    <label htmlFor={id} className={styles.label}>{label}</label>
+    <label htmlFor={id} className={styles.label}>{label}</label><FieldMessages position="above" {...messages}/>
     <DateFieldControl><input id={id} ref={input} className={styles.input} type="text" value={text} disabled={disabled} readOnly={readOnly}
       required={required} aria-invalid={showError || undefined} aria-describedby={[description ? `${id}-description` : null, showError ? `${id}-error` : null].filter(Boolean).join(" ") || undefined}
       onChange={event => { setDraft(event.currentTarget.value); setValidationAttempted(false); }} onInvalid={() => setValidationAttempted(true)} onBlur={commit}
       onKeyDown={event => { if (event.key === "Enter") { event.preventDefault(); commit(); } }} /></DateFieldControl>
-    {description && <div id={`${id}-description`} className={styles.description}>{description}</div>}
-    {showError && <div id={`${id}-error`} className={styles.error}>{message}</div>}
+    <FieldMessages position="below" {...messages}/>
     {name && <input type="hidden" name={name} value={selected && !validateCandidate?.(selected) ? selected : ""} disabled={disabled} />}
   </div>;
 });

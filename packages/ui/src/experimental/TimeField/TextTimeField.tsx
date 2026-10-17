@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages} from "../TextField/FieldMessages";
 import {forwardRef,useEffect,useId,useImperativeHandle,useRef,useState} from "react";
 import type {TimeFieldProps} from "./TimeField.types";
 import {parseTimeText,formatTimeText,isClockTime} from "./parseTimeText";
@@ -12,7 +13,7 @@ import field from "../TextField/TextField.module.css";
 import styles from "./TimeField.module.css";
 
 export const TextTimeField=forwardRef<HTMLDivElement,TimeFieldProps&{locale:string}>(function TextTimeField({
- label,value,defaultValue=null,onValueChange,onValidityChange,min,max,name,description,errorMessage,invalid,required,disabled,readOnly,hourCycle,locale,minuteStep=1,getTimeUnavailableReason
+ label,value,defaultValue=null,onValueChange,onValidityChange,min,max,name,description,descriptionPlacement="above",errorPlacement="below",errorMessage,invalid,required,disabled,readOnly,hourCycle,locale,minuteStep=1,getTimeUnavailableReason
 },ref){
  const {t}=useTranslation(),id=useId(),root=useRef<HTMLDivElement>(null),input=useRef<HTMLInputElement>(null);
  useImperativeHandle(ref,()=>root.current!);
@@ -53,8 +54,9 @@ export const TextTimeField=forwardRef<HTMLDivElement,TimeFieldProps&{locale:stri
  const numbers=(start:number,count:number,pad=false)=>{const formatter=new Intl.NumberFormat(locale,{minimumIntegerDigits:pad?2:1,useGrouping:false});return Array.from({length:count},(_,index)=>({id:pad?String(index+start).padStart(2,"0"):String(index+start),label:formatter.format(index+start)}));};
  const periods=[{id:"am",label:new Intl.DateTimeFormat(locale,{hour:"numeric",hour12:true,timeZone:"UTC"}).formatToParts(new Date(Date.UTC(2026,0,1,1))).find(part=>part.type==="dayPeriod")?.value??"AM"},
  {id:"pm",label:new Intl.DateTimeFormat(locale,{hour:"numeric",hour12:true,timeZone:"UTC"}).formatToParts(new Date(Date.UTC(2026,0,1,13))).find(part=>part.type==="dayPeriod")?.value??"PM"}];
+ const messages={descriptionPlacement,errorPlacement,description:(<div id={`${id}-description`} className={field.description}>{description??hint}</div>),error:(showError&&<div id={`${id}-error`} className={field.error}>{message}</div>)};
  return <div ref={root} className={field.root} data-invalid={showError||undefined} data-disabled={disabled||undefined} data-readonly={readOnly||undefined}>
-  <label htmlFor={id} className={field.label}>{label}</label>
+  <label htmlFor={id} className={field.label}>{label}</label><FieldMessages position="above" {...messages}/>
   <div className={field.controlGroup} data-sgui-part="time-field-control-group">
    <input ref={input} id={id} type="text" className={field.input} value={text} required={required} disabled={disabled} readOnly={readOnly}
     aria-invalid={showError||undefined} aria-describedby={`${id}-description${showError?` ${id}-error`:""}`}
@@ -73,8 +75,7 @@ export const TextTimeField=forwardRef<HTMLDivElement,TimeFieldProps&{locale:stri
      <Button variant="outlined" tone="neutral" onPress={()=>setOpen(false)}>{t("common.ui.cancel",{defaultMessage:"Cancel"})}</Button></div>
    </Popover>
   </div>
-  <div id={`${id}-description`} className={field.description}>{description??hint}</div>
-  {showError&&<div id={`${id}-error`} className={field.error}>{message}</div>}
+  <FieldMessages position="below" {...messages}/>
   {name&&<input type="hidden" name={name} value={selected??""} disabled={disabled}/>}
  </div>;
 });

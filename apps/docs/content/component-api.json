@@ -9408,6 +9408,20 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
         }
       ],
       "native": []
@@ -9539,6 +9553,20 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
         }
       ],
       "native": []
@@ -9621,6 +9649,20 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
         }
       ],
       "native": []
@@ -9801,6 +9843,13 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
         },
         {
           "name": "label",
@@ -10020,6 +10069,20 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+        },
+        {
           "name": "label",
           "type": "string | undefined",
           "required": false,
@@ -10188,6 +10251,20 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
         },
         {
           "name": "description",
@@ -10381,6 +10458,20 @@
           "description": "Native CSS class hook."
         },
         {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+        },
+        {
           "name": "ref",
           "type": "Ref<HTMLButtonElement> | undefined",
           "required": false,
@@ -10522,6 +10613,20 @@
           "description": "Native CSS class hook."
         },
         {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+        },
+        {
           "name": "ref",
           "type": "Ref<HTMLInputElement> | undefined",
           "required": false,
@@ -10660,6 +10765,13 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
         }
       ],
       "native": []
@@ -10772,6 +10884,20 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+        },
+        {
           "name": "ref",
           "type": "Ref<HTMLLabelElement> | undefined",
           "required": false,
@@ -10868,6 +10994,13 @@
           "required": false,
           "default": "—",
           "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
         },
         {
           "name": "ref",
@@ -10994,6 +11127,20 @@
           "required": false,
           "default": "—",
           "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
         },
         {
           "name": "ref",
@@ -11479,6 +11626,20 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+        },
+        {
           "name": "ref",
           "type": "Ref<HTMLDivElement> | undefined",
           "required": false,
@@ -11624,6 +11785,20 @@
           "required": false,
           "default": "—",
           "description": "Reports complete, valid clock entry, including partial segment edits."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
         },
         {
           "name": "ref",
@@ -11979,6 +12154,20 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
         }
       ],
       "native": []
@@ -12306,6 +12495,20 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
         }
       ],
       "native": []
@@ -12598,6 +12801,20 @@
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"above\"",
+          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "\"below\"",
+          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
         }
       ],
       "native": []

@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages} from "../TextField/FieldMessages";
 import { forwardRef, useCallback, useRef, useState, useMemo, useEffect } from "react";
 import { TextTimeField } from "./TextTimeField";
 import { parseTime, toCalendarDateTime, today, getLocalTimeZone } from "@internationalized/date";
@@ -28,7 +29,7 @@ function NativeTimeSegment({ segment, state }: { segment: DateSegment; state: Ti
 }
 
 const SegmentedTimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function TimeField({ label, value, defaultValue,
-  onValueChange, min, max, name, description, errorMessage, invalid, required, disabled, readOnly, hourCycle, onValidityChange, getTimeUnavailableReason }, ref) {
+  onValueChange, min, max, name, description, descriptionPlacement="above", errorPlacement="below", errorMessage, invalid, required, disabled, readOnly, hourCycle, onValidityChange, getTimeUnavailableReason }, ref) {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const safeParse = (raw: string | null | undefined) => {
@@ -93,16 +94,16 @@ const SegmentedTimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function T
   const interactionState: TimeFieldState = { ...state, setValue: () => {}, resetValidation: () => {} };
   const { labelProps, fieldProps, inputProps, descriptionProps, errorMessageProps,
     isInvalid, validationErrors } = useTimeField({ ...options, inputRef: input }, interactionState, group);
+  const messages={descriptionPlacement,errorPlacement,description:(description && <div {...descriptionProps} className={field.description}>{description}</div>),error:(isInvalid && <div {...errorMessageProps} className={field.error}>{validationMessage ?? validationErrors.join(" ")}</div>)};
   return <div ref={nativeRef} className={field.root} data-invalid={isInvalid || undefined}
     data-disabled={disabled || undefined} data-readonly={readOnly || undefined}>
-    <span {...labelProps} className={field.label}>{label}</span>
+    <span {...labelProps} className={field.label}>{label}</span><FieldMessages position="above" {...messages}/>
     <div {...fieldProps} ref={group} className={[field.input, styles.input].join(" ")}
       data-invalid={isInvalid || undefined} data-disabled={disabled || undefined}>
       {state.segments.map((segment, index) => <NativeTimeSegment key={index} segment={segment} state={interactionState} />)}
     </div>
     <input {...inputProps} ref={input} />
-    {description && <div {...descriptionProps} className={field.description}>{description}</div>}
-    {isInvalid && <div {...errorMessageProps} className={field.error}>{validationMessage ?? validationErrors.join(" ")}</div>}
+    <FieldMessages position="below" {...messages}/>
   </div>;
 });
 

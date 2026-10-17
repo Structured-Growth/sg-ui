@@ -1,8 +1,9 @@
 "use client";
+import {FieldMessages,type FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import { forwardRef, useEffect, useId, useImperativeHandle, useRef, useState, type CSSProperties } from "react";
 import { Switch as AriaSwitch } from "react-aria-components/Switch";
 import styles from "./Switch.module.css";
-export interface SwitchProps {
+export interface SwitchProps extends Pick<FieldMessagePlacementProps,"descriptionPlacement"> {
   label: string;
   checked?: boolean;
   defaultChecked?: boolean;
@@ -15,7 +16,7 @@ export interface SwitchProps {
   className?: string;
   style?: CSSProperties;
 }
-export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(function Switch({ label, checked, defaultChecked, onCheckedChange, disabled, readOnly, name, value, description, className, style }, ref) {
+export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(function Switch({ label, checked, defaultChecked, onCheckedChange, disabled, readOnly, name, value, description, descriptionPlacement="above", className, style }, ref) {
   const id = useId();
   const root = useRef<HTMLLabelElement>(null);
   const resetting = useRef(false);
@@ -51,7 +52,9 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(function Switch(
     onCheckedChange?.(next);
   }}
     isDisabled={disabled} isReadOnly={readOnly} name={name} value={value} className={[styles.root, className].filter(Boolean).join(" ")} style={style}>
-    <span aria-hidden="true" className={styles.track}><span className={styles.thumb} /></span>
-    <span><span id={id}>{label}</span>{description && <span id={id + "-description"} className={styles.description}>{description}</span>}</span>
+    <FieldMessages position="above" descriptionPlacement={descriptionPlacement} description={description&&<span id={id+"-description"} className={styles.description}>{description}</span>}/>
+    <span className={styles.control} data-sgui-part="choice-control"><span className={styles.track} aria-hidden="true"><span className={styles.thumb} /></span><span id={id}>{label}</span></span>
+    <FieldMessages position="below" descriptionPlacement={descriptionPlacement} description={description&&<span id={id+"-description"} className={styles.description}>{description}</span>}/>
+
   </AriaSwitch>;
 });

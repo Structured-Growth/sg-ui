@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages, type FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import { forwardRef, useRef, useState, type ReactNode } from "react";
 import { useFormReset } from "../useFormReset";
 import { Select as AriaSelect, SelectValue } from "react-aria-components/Select";
@@ -16,7 +17,7 @@ import field from "../TextField/TextField.module.css";
 import list from "../ComboBox/ComboBox.module.css";
 import styles from "./Select.module.css";
 export interface SelectOption { id: string; label: string; disabled?: boolean; }
-export interface SelectProps {
+export interface SelectProps extends FieldMessagePlacementProps {
   label: string;
   /** Host-supplied options with unique, stable string IDs. Labels are presentation, not identity. */
   options: readonly SelectOption[];
@@ -37,7 +38,7 @@ export interface SelectProps {
   errorMessage?: string;
   className?: string;
 }
-export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select({ label, options, value, defaultValue, onValueChange, name, placeholder, description, required, disabled, readOnly, invalid, errorMessage, className, startIcon, endIcon }, ref) {
+export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select({ label, options, value, defaultValue, onValueChange, name, placeholder, description, descriptionPlacement="above", errorPlacement="below", required, disabled, readOnly, invalid, errorMessage, className, startIcon, endIcon }, ref) {
   const { t } = useTranslation(); const scope = useOverlayScope();
   const { direction } = useLocale();
   const directionRef = useOverlayDirectionRef(direction);
@@ -54,6 +55,10 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
     if (select) select.value = next ?? "";
   });
   const placeholderText = placeholder ?? t("common.ui.selectOption", { defaultMessage: "Select an option" });
+  const messages={descriptionPlacement,errorPlacement,description:((description || options.length === 0) && <Text slot="description" className={field.description}>
+      {description}{description && options.length === 0 && " "}
+      {options.length === 0 && t("common.ui.noOptions", { defaultMessage: "No options found" })}
+    </Text>),error:(<FieldError className={field.error}>{errorMessage}</FieldError>)};
   return <AriaSelect ref={root} selectedKey={selected} onSelectionChange={key => {
     if (resetting.current) return;
     const next = key === null ? null : String(key);
@@ -64,7 +69,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
     name={name} isRequired={required} isDisabled={disabled} isInvalid={invalid} validationBehavior="native"
     placeholder={placeholderText}
     className={[field.root, styles.root, className].filter(Boolean).join(" ")}>
-    <Label className={field.label}>{label}</Label>
+    <Label className={field.label}>{label}</Label><FieldMessages position="above" {...messages}/>
     <AriaButton type="button" ref={ref} isDisabled={readOnly} aria-readonly={readOnly || undefined} className={[field.input, styles.trigger].join(" ")} data-start-icon={startIcon ? true : undefined}>
       {startIcon && <span className={field.adornment} data-sgui-part="field-start-icon" aria-hidden="true">{startIcon}</span>}
       <span aria-hidden="true" className={styles.sizer}>
@@ -74,11 +79,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
       <SelectValue className={styles.value} />
       <span className={styles.trailing} aria-hidden="true">{endIcon && <span className={field.adornment} data-sgui-part="field-end-icon">{endIcon}</span>}<KeyboardArrowDownIcon className={styles.chevron} /></span>
     </AriaButton>
-    {(description || options.length === 0) && <Text slot="description" className={field.description}>
-      {description}{description && options.length === 0 && " "}
-      {options.length === 0 && t("common.ui.noOptions", { defaultMessage: "No options found" })}
-    </Text>}
-    <FieldError className={field.error}>{errorMessage}</FieldError>
+    <FieldMessages position="below" {...messages}/>
     <FramePositionedPopover {...scope} ref={directionRef} className={list.popover}>
       <ListBox items={options} disabledKeys={options.filter(option => option.disabled).map(option => option.id)} className={list.list}
         renderEmptyState={() => t("common.ui.noOptions", { defaultMessage: "No options found" })}>

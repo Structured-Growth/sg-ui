@@ -131,6 +131,10 @@ and tracks reusable panel extraction separately from shipped APIs.
 
 ## Field placeholders and icons (2026-10-16)
 
+Field guidance and validation now share owned placement props and a private
+renderer. See [form field message placement](form-field-message-placement.md)
+for defaults, inline choices, composed pickers and row alignment.
+
 TextField, Select and ComboBox expose decorative startIcon/endIcon ReactNode slots.
 AsyncMultiSelect forwards those slots and placeholder to its owned query TextField.
 Slots are aria-hidden, noninteractive and follow logical text direction; actions

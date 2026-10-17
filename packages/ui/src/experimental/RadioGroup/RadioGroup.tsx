@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages, type FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import { forwardRef, useContext, useEffect, useId, useLayoutEffect, useRef, useState, useImperativeHandle, type CSSProperties } from "react";
 import { RadioGroup as AriaRadioGroup, Radio, RadioGroupStateContext } from "react-aria-components/RadioGroup";
 import { Label } from "react-aria-components/Label";
@@ -8,7 +9,7 @@ import { useStandaloneFormReset } from "../TextField/useStandaloneFormReset";
 import styles from "./RadioGroup.module.css";
 const useOptionsLayoutEffect = typeof document === "undefined" ? useEffect : useLayoutEffect;
 export interface RadioOption { value: string; label: string; disabled?: boolean; }
-export interface RadioGroupProps {
+export interface RadioGroupProps extends FieldMessagePlacementProps {
   label: string;
   options: readonly RadioOption[];
   value?: string | null;
@@ -54,7 +55,7 @@ function RadioOptions({ options, orientation, name }: { options: readonly RadioO
     {options.map(option => <Radio key={option.value} value={option.value} isDisabled={option.disabled} className={styles.radio}><span aria-hidden="true" className={styles.indicator} />{option.label}</Radio>)}
   </div>;
 }
-export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function RadioGroup({ label, options, value, defaultValue, onValueChange, disabled, readOnly, required, invalid, name, description, errorMessage, orientation = "vertical", className, style }, ref) {
+export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function RadioGroup({ label, options, value, defaultValue, onValueChange, disabled, readOnly, required, invalid, name, description, descriptionPlacement="above", errorPlacement="below", errorMessage, orientation = "vertical", className, style }, ref) {
   const root = useRef<HTMLDivElement>(null);
   useImperativeHandle(ref, () => root.current!, []);
   const [internal, setInternal] = useState<string | null>(defaultValue ?? null);
@@ -75,9 +76,10 @@ export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function R
   };
   const generatedName = useId();
   const formName = name ?? generatedName;
+  const messages={descriptionPlacement,errorPlacement,description:(description && <Text slot="description" className={styles.description}>{description}</Text>),error:(<FieldError className={styles.error}>{errorMessage ?? preservedError}</FieldError>)};
   return <AriaRadioGroup ref={root} value={value === undefined ? internal : value} onChange={change} isDisabled={disabled} isReadOnly={readOnly} isRequired={required} isInvalid={preservedError ? true : invalid} name={formName} orientation={orientation}
     validationBehavior="native" className={[styles.root, className].filter(Boolean).join(" ")} style={style}>
-    <Label className={styles.label}>{label}</Label><RadioOptions options={options} orientation={orientation} name={formName} />
-    {description && <Text slot="description" className={styles.description}>{description}</Text>}<FieldError className={styles.error}>{errorMessage ?? preservedError}</FieldError>
+    <Label className={styles.label}>{label}</Label><FieldMessages position="above" {...messages}/><RadioOptions options={options} orientation={orientation} name={formName} />
+    <FieldMessages position="below" {...messages}/>
   </AriaRadioGroup>;
 });

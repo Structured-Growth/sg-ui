@@ -6,6 +6,15 @@ import { afterEach, expect, it, vi } from "vitest";
 import { TextArea } from "./TextArea";
 import { NativeReset } from "./TextArea.native-fixture";
 afterEach(cleanup);
+it.each(['above','below'] as const)('places inherited description and error messages %s the textarea without losing associations',placement=>{
+ render(<TextArea label="Notes" description="Host guidance" invalid errorMessage="Review notes" descriptionPlacement={placement} errorPlacement={placement}/>);
+ const input=screen.getByRole('textbox',{name:'Notes'});
+ const position=placement==='above'?Node.DOCUMENT_POSITION_FOLLOWING:Node.DOCUMENT_POSITION_PRECEDING;
+ expect(screen.getByText('Host guidance').compareDocumentPosition(input)&position).toBeTruthy();
+ expect(screen.getByText('Review notes').compareDocumentPosition(input)&position).toBeTruthy();
+ const messages=input.getAttribute('aria-describedby')!.split(' ').map(id=>document.getElementById(id)?.textContent).join(' ');
+ expect(messages).toContain('Host guidance');expect(messages).toContain('Review notes');
+});
 it("renders inherited decorative icons without changing multiline form, naming or ref semantics", async () => {
  const ref=createRef<HTMLTextAreaElement>(),change=vi.fn(),user=userEvent.setup();
  const {container,rerender}=render(<form><TextArea ref={ref} label="Notes" name="notes" description="Host guidance" defaultValue="First" rows={6} startIcon={<svg aria-label="Decorative leading icon"/>} endIcon={<svg aria-label="Decorative trailing icon"/>} onValueChange={change}/></form>);

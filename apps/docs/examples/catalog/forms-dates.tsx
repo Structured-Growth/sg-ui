@@ -3,6 +3,7 @@
 import {AdvancedCalendarExamples,AdvancedRangeExample} from '../AdvancedCalendarExamples';
 import {SearchFieldExamples} from '../SearchFieldExamples';
 import {FieldIconExamples} from '../FieldIconExamples';
+import {FieldMessageExamples} from '../FieldMessageExamples';
 import {SearchIcon,SchoolIcon} from '@structured-growth/sg-ui/icons';
 import {RelativeDateExample,RangeTextExample} from "../RelativeDateExamples";
 import {TimeTextExample} from '../TimeFieldExamples';
@@ -39,15 +40,17 @@ function ControlRow({children}: {children:ReactNode}) { return <Stack direction=
 function DensityControl({value, onChange}: {value:Density; onChange:(value:Density)=>void}) {
   return <Select label="Example density" value={value} options={[{id:'compact',label:'Compact'},{id:'comfortable',label:'Comfortable'}]} onValueChange={value => {if (value === 'compact' || value === 'comfortable') onChange(value);}} />;
 }
-function FormScenario({kind, scenario}: {kind:Kind; scenario:Scenario}) {
+function FormScenario({kind, scenario, messagePlacement}: {kind:Kind; scenario:Scenario;messagePlacement?:"above"|"below"}) {
   const source = useExampleSource();
   const [density, setDensity] = useState<Density>(scenario === 'compact' ? 'compact' : 'comfortable');
   const [label, setLabel] = useState(kind === 'ToggleButton' ? 'Bold' : kind === 'Checkbox' ? 'Accept course terms' : kind === 'Switch' ? 'Email reminders' : kind === 'TagGroup' ? 'Course topics' : 'Course subject');
   const [description, setDescription] = useState('Host-supplied course information.');
+  const [descriptionPlacement,setDescriptionPlacement]=useState<'above'|'below'>(messagePlacement??'above');
+  const [errorPlacement,setErrorPlacement]=useState<'above'|'below'>(messagePlacement??'below');
   const [placeholder, setPlaceholder] = useState(kind==='Select'?'Choose a subject':'Search course subjects');
   const [iconLayout, setIconLayout] = useState<'none'|'start'|'end'|'both'>('none');
   const [disabled, setDisabled] = useState(false); const [readOnly, setReadOnly] = useState(false);
-  const [required, setRequired] = useState(scenario === 'form'); const [invalid, setInvalid] = useState(false);
+  const [required, setRequired] = useState(scenario === 'form'); const [invalid, setInvalid] = useState(Boolean(messagePlacement&&!['Switch','AsyncMultiSelect'].includes(kind)));
   const [value, setValue] = useState(kind === 'TextField' || kind === 'TextArea' ? 'Design systems' : 'design');
   const [checked, setChecked] = useState(false); const [mixed, setMixed] = useState(false);
   const [type, setType] = useState<'text'|'email'|'password'|'search'|'tel'|'url'>('text');
@@ -65,12 +68,14 @@ function FormScenario({kind, scenario}: {kind:Kind; scenario:Scenario}) {
   const icons={startIcon:start?<SearchIcon size={16}/>:undefined,endIcon:end?<SchoolIcon size={16}/>:undefined};
   const iconCode=`${start?' startIcon={<SearchIcon size={16}/>}':''}${end?' endIcon={<SchoolIcon size={16}/>}':''}`;
   const iconImports=start||end?[`import {${[start?'SearchIcon':'',end?'SchoolIcon':''].filter(Boolean).join(',')}} from '@structured-growth/sg-ui/icons';`]:[];
-  const common = {label, disabled, readOnly, description};
+  const hasDescription=!['ToggleButton','ToggleButtonGroup','TagGroup'].includes(kind);
+  const hasErrorPlacement=hasDescription&&!['Switch','AsyncMultiSelect'].includes(kind);
+  const common = {label, disabled, readOnly, description,...(hasDescription?{descriptionPlacement}:{}),...(hasErrorPlacement?{errorPlacement}:{})};
   const validation = {required, invalid, errorMessage:'Please review this value.'};
   const isText = kind === 'TextField' || kind === 'TextArea';
   const validates = !['Switch','ToggleButton','ToggleButtonGroup','TagGroup','AsyncMultiSelect'].includes(kind);
   const bool = ` disabled={${disabled}}${['ToggleButton','ToggleButtonGroup','TagGroup'].includes(kind) ? '' : ` readOnly={${readOnly}}`}`;
-  const commonCode = `label={${literal(label)}}${bool}${['ToggleButton','ToggleButtonGroup','TagGroup'].includes(kind) ? '' : ` description={${literal(description)}}`}`;
+  const commonCode = `label={${literal(label)}}${bool}${['ToggleButton','ToggleButtonGroup','TagGroup'].includes(kind) ? '' : ` description={${literal(description)}}`}${hasDescription?` descriptionPlacement=${literal(descriptionPlacement)}`:""}${hasErrorPlacement?` errorPlacement=${literal(errorPlacement)}`:""}`;
   const validationCode = validates ? ` required={${required}} invalid={${invalid}} errorMessage="Please review this value."` : '';
   let preview: ReactNode; let body = ''; let state = ''; let imports = kind;
   switch (kind) {
@@ -118,6 +123,7 @@ function FormScenario({kind, scenario}: {kind:Kind; scenario:Scenario}) {
   const controls = scenario === 'playground' ? <Stack gap={3}>
     <ControlRow><TextField label="Example label" value={label} onValueChange={setLabel} /><DensityControl value={density} onChange={setDensity} />
       {!['ToggleButton','ToggleButtonGroup','TagGroup'].includes(kind) && <TextField label="Description" value={description} onValueChange={setDescription} />}
+      {hasDescription&&<><Select label="Description placement" value={descriptionPlacement} options={[{id:'above',label:'Above input'},{id:'below',label:'Below input'}]} onValueChange={v=>setDescriptionPlacement(v==='below'?'below':'above')}/>{hasErrorPlacement&&<Select label="Error placement" value={errorPlacement} options={[{id:'above',label:'Above input'},{id:'below',label:'Below input'}]} onValueChange={v=>setErrorPlacement(v==='above'?'above':'below')}/>}</>}
       {hasIcons && <><TextField label="Placeholder text" value={placeholder} onValueChange={setPlaceholder}/><Select label="Field icons" value={iconLayout} options={[{id:'none',label:'None'},{id:'start',label:'Start only'},{id:'end',label:'End only'},{id:'both',label:'Both ends'}]} onValueChange={value=>setIconLayout(value as typeof iconLayout)}/><Button variant="outlined" onPress={()=>{setValue('');setQuery('');setSelected([]);}}>Empty example field</Button></>}
       {kind === 'TextField' && <Select label="Input type" value={type} onValueChange={v => setType(v as typeof type)} options={['text','email','password','search','tel','url'].map(id => ({id,label:id}))} />}
       {kind === 'TextArea' && <Select label="Rows" value={String(rows)} onValueChange={v => setRows(Number(v))} options={[2,3,6].map(n => ({id:String(n),label:String(n)}))} />}
@@ -145,7 +151,7 @@ function FormScenario({kind, scenario}: {kind:Kind; scenario:Scenario}) {
     const action = <><Button type={fieldIsNative ? 'submit' : 'button'} onPress={fieldIsNative ? undefined : () => setSubmits(count => count + 1)}>{fieldIsNative ? 'Save locally' : 'Apply local preferences'}</Button><Typography role="status">{fieldIsNative ? 'Submitted' : 'Applied'} {submits} times. Connect persistence in your host.</Typography></>;
     rendered = fieldIsNative ? <form onSubmit={event => {event.preventDefault(); setSubmits(count => count + 1);}}><Stack gap={3}>{output}{action}</Stack></form> : <Stack gap={3}>{output}{action}</Stack>;
   }
-  return <Example title={titles[scenario]} density={density} description={scenario === 'playground' ? 'Adjust the public props, then interact with the preview. Source follows the current state.' : scenario === 'form' ? 'Callbacks update local host state. No backend persistence is implied.' : 'An independent scope demonstrates the inherited spacing and interaction targets.'} controls={controls} source={source({name:kind + scenario[0].toUpperCase() + scenario.slice(1), imports:[expImport(imports),primitivesImport,...iconImports], state, body:`<ThemeScope density=${literal(density)}>\n${content}\n</ThemeScope>`})}>{rendered}</Example>;
+  return <Example title={messagePlacement?`Messages ${messagePlacement} input — ${density}`:titles[scenario]} density={density} description={scenario === 'playground' ? 'Adjust the public props, then interact with the preview. Source follows the current state.' : scenario === 'form' ? 'Callbacks update local host state. No backend persistence is implied.' : 'An independent scope demonstrates the inherited spacing and interaction targets.'} controls={controls} source={source({name:kind + scenario[0].toUpperCase() + scenario.slice(1), imports:[expImport(imports),primitivesImport,...iconImports], state, body:`<ThemeScope density=${literal(density)}>\n${content}\n</ThemeScope>`})}>{rendered}</Example>;
 }
 function AutocompleteAliasExample() {
   const source = useExampleSource();
@@ -197,7 +203,7 @@ function formPage(kind:Kind) {
     // Scenario components own their state at each mount: prop controls remain
     // local to the playground; density and form examples never consume it.
     const oriented = kind === 'RadioGroup' || kind === 'ToggleButtonGroup';
-    return <Stack gap={4}><FormScenario kind={kind} scenario="playground" />{oriented ? <OrientationMatrix kind={kind} /> : <><FormScenario kind={kind} scenario="compact" /><FormScenario kind={kind} scenario="comfortable" /></>}<FormScenario kind={kind} scenario="form" />{kind === 'ComboBox' && <AutocompleteAliasExample />}{(['TextField','TextArea','Select','ComboBox','AsyncMultiSelect'] as const).map(field=>kind===field?<FieldIconExamples key={field} kind={field}/>:null)}{kind === 'TextField' && <><NativeResetFormExample /><GroupedContactExample /></>}{kind === 'AsyncMultiSelect' && <AsyncSearchExample />}</Stack>;
+    return <Stack gap={4}><FormScenario kind={kind} scenario="playground" />{oriented ? <OrientationMatrix kind={kind} /> : <><FormScenario kind={kind} scenario="compact" /><FormScenario kind={kind} scenario="comfortable" /></>}<FormScenario kind={kind} scenario="form" />{kind === 'ComboBox' && <AutocompleteAliasExample />}{(['TextField','TextArea','Select','ComboBox','AsyncMultiSelect'] as const).map(field=>kind===field?<FieldIconExamples key={field} kind={field}/>:null)}{(kind==='TextField'||kind==='TextArea')&&<FieldMessageExamples kind={kind}/>}{(['Select','ComboBox','Checkbox','Switch','RadioGroup','AsyncMultiSelect'] as Kind[]).includes(kind)&&(['compact','comfortable'] as const).flatMap(density=>(['above','below'] as const).map(placement=><FormScenario key={`${density}-${placement}`} kind={kind} scenario={density} messagePlacement={placement}/>))} {kind === 'TextField' && <><NativeResetFormExample /><GroupedContactExample /></>}{kind === 'AsyncMultiSelect' && <AsyncSearchExample />}</Stack>;
   };
 }
 
@@ -220,6 +226,8 @@ function DateScenario({kind, scenario}: {kind:DateKind; scenario:Scenario}) {
   const [required, setRequired] = useState(scenario === 'form'); const [invalid, setInvalid] = useState(false);
   const [bounds, setBounds] = useState(false); const [unavailable, setUnavailable] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
+  const [descriptionPlacement,setDescriptionPlacement]=useState<"above"|"below">("above");
+  const [errorPlacement,setErrorPlacement]=useState<"above"|"below">("below");
   const [navigation, setNavigation] = useState<"arrows"|"month-year">("arrows");
   const [visibleYears, setVisibleYears] = useState(120);
   const [rangeClickBehavior,setRangeSelectionBehavior]=useState<'restart'|'adjust-end'|'adjust-start'|'adjust-boundaries'|'active-endpoint'>('adjust-end');
@@ -259,11 +267,11 @@ function DateScenario({kind, scenario}: {kind:DateKind; scenario:Scenario}) {
   const min = bounds ? kind === 'TimeField' ? '08:00:00' : dateTime ? '2026-10-01T00:00:00' : '2026-10-01' : undefined;
   const max = bounds ? kind === 'TimeField' ? '18:00:00' : dateTime ? '2026-10-31T23:59:59' : '2026-10-31' : undefined;
   const common = {label, disabled, readOnly, min, max};
-  const validation = {description, required, invalid, errorMessage:'Please review this schedule.'};
+  const validation = {description, descriptionPlacement,errorPlacement, required, invalid, errorMessage:'Please review this schedule.'};
   const availability = unavailable ? unavailableDates : [];
   const boundCode = bounds ? ` min=${literal(min!)} max=${literal(max!)}` : '';
   const commonCode = `label={${literal(label)}} disabled={${disabled}} readOnly={${readOnly}}${boundCode}`;
-  const validationCode = `${kind!=="TimeField"?` referenceDate=${literal(referenceDate)}`:""} description={${literal(description)}} required={${required}} invalid={${invalid}} errorMessage="Please review this schedule."`;
+  const validationCode = `${kind!=="TimeField"?` referenceDate=${literal(referenceDate)}`:""} description={${literal(description)}} descriptionPlacement=${literal(descriptionPlacement)} errorPlacement=${literal(errorPlacement)} required={${required}} invalid={${invalid}} errorMessage="Please review this schedule."`;
   const availableCode = ` unavailable={${json(availability)}}`;
   let preview:ReactNode; let body = ''; let state = ''; let imports = kind;
   if (kind === 'DateField') {
@@ -285,9 +293,9 @@ function DateScenario({kind, scenario}: {kind:DateKind; scenario:Scenario}) {
     state = `  const [value, setValue] = useState<${multiple ? 'string[]' : 'string | null'}>(${json(multiple ? dates : value)});`;
   } else {
     const Component = kind === 'DateRangePicker' ? DateRangePicker : DateRangeSelector;
-    const rangeOptions = {...common, rangeClickBehavior, rangeDragBehavior:dragBehavior, rangeLength,calendarNavigation,calendarEndpoints,calendarLayout,scrollMonths:Number(scrollMonths),showFields,showActions,presetGroups,commitBehavior,activeEndpoint,onActiveEndpointChange:setActiveEndpoint,getDateUnavailableReason,renderDayContent, referenceDate, showTitle, navigation, visibleYears, entryMode, presetPlacement, unavailable:availability, required, presets:presets ? rangePresets : [], months, firstDayOfWeek:firstDay, defaultFocusedDate:'2026-10-14', name:'schedule'};
+    const rangeOptions = {...common, descriptionPlacement,errorPlacement, rangeClickBehavior, rangeDragBehavior:dragBehavior, rangeLength,calendarNavigation,calendarEndpoints,calendarLayout,scrollMonths:Number(scrollMonths),showFields,showActions,presetGroups,commitBehavior,activeEndpoint,onActiveEndpointChange:setActiveEndpoint,getDateUnavailableReason,renderDayContent, referenceDate, showTitle, navigation, visibleYears, entryMode, presetPlacement, unavailable:availability, required, presets:presets ? rangePresets : [], months, firstDayOfWeek:firstDay, defaultFocusedDate:'2026-10-14', name:'schedule'};
     preview = <Component {...rangeOptions} {...(kind === 'DateRangePicker' ? {fieldMode, description, invalid, presentation, errorMessage:'Please review this schedule.'} : {})} value={range} onValueChange={setRange} {...(kind === 'DateRangeSelector' ? {onCancel:() => setCancels(count => count + 1)} : {})} />;
-    body = `<${kind} ${commonCode}${kind === "DateRangePicker" ? ` fieldMode=${literal(fieldMode)} presentation=${literal(presentation)} description={${literal(description)}} invalid={${invalid}} errorMessage="Please review this schedule."` : ""}${availableCode} rangeClickBehavior=${literal(rangeClickBehavior)} rangeDragBehavior=${literal(dragBehavior)}${rangeLength?` rangeLength={${json(rangeLength)}}`:''} calendarNavigation=${literal(calendarNavigation)}${calendarEndpoints?` calendarEndpoints={${json(calendarEndpoints)}}`:""} calendarLayout=${literal(calendarLayout)} scrollMonths={${Number(scrollMonths)}} showFields={${showFields}} showActions={${showActions}}${presetGroups?` presetGroups={${json(presetGroups)}}`:""} commitBehavior=${literal(commitBehavior)} activeEndpoint={activeEndpoint} onActiveEndpointChange={setActiveEndpoint}${availabilityRule?' getDateUnavailableReason={(date,context)=>date.endsWith("-13") && context.endpoint === "start" ? "No arrivals on the 13th." : undefined}':''}${markers?' renderDayContent={date=>date.endsWith("-15") ? "•" : null}':''} navigation=${literal(navigation)} visibleYears={${visibleYears}} showTitle={${showTitle}} entryMode=${literal(entryMode)} referenceDate=${literal(referenceDate)} presetPlacement=${literal(presetPlacement)} required={${required}} presets={${json(presets ? rangePresets : [])}} months={${months}} firstDayOfWeek=${literal(firstDay)} defaultFocusedDate="2026-10-14" name="schedule" value={range} onValueChange={setRange}${kind === 'DateRangeSelector' ? ' onCancel={() => setCancels(count => count + 1)}' : ''} />`;
+    body = `<${kind} ${commonCode}${kind === "DateRangePicker" ? ` fieldMode=${literal(fieldMode)} presentation=${literal(presentation)} description={${literal(description)}} invalid={${invalid}} errorMessage="Please review this schedule."` : ""}${availableCode} descriptionPlacement=${literal(descriptionPlacement)} errorPlacement=${literal(errorPlacement)} rangeClickBehavior=${literal(rangeClickBehavior)} rangeDragBehavior=${literal(dragBehavior)}${rangeLength?` rangeLength={${json(rangeLength)}}`:''} calendarNavigation=${literal(calendarNavigation)}${calendarEndpoints?` calendarEndpoints={${json(calendarEndpoints)}}`:""} calendarLayout=${literal(calendarLayout)} scrollMonths={${Number(scrollMonths)}} showFields={${showFields}} showActions={${showActions}}${presetGroups?` presetGroups={${json(presetGroups)}}`:""} commitBehavior=${literal(commitBehavior)} activeEndpoint={activeEndpoint} onActiveEndpointChange={setActiveEndpoint}${availabilityRule?' getDateUnavailableReason={(date,context)=>date.endsWith("-13") && context.endpoint === "start" ? "No arrivals on the 13th." : undefined}':''}${markers?' renderDayContent={date=>date.endsWith("-15") ? "•" : null}':''} navigation=${literal(navigation)} visibleYears={${visibleYears}} showTitle={${showTitle}} entryMode=${literal(entryMode)} referenceDate=${literal(referenceDate)} presetPlacement=${literal(presetPlacement)} required={${required}} presets={${json(presets ? rangePresets : [])}} months={${months}} firstDayOfWeek=${literal(firstDay)} defaultFocusedDate="2026-10-14" name="schedule" value={range} onValueChange={setRange}${kind === 'DateRangeSelector' ? ' onCancel={() => setCancels(count => count + 1)}' : ''} />`;
     imports += ', type DateRange'; state = `  const [range, setRange] = useState<DateRange | null>(${json(range)});\n  const [activeEndpoint,setActiveEndpoint]=useState<"start"|"end">(${literal(activeEndpoint)});`;
     if (kind === 'DateRangeSelector') {state += `\n  const [cancels, setCancels] = useState(${cancels});`; body += '\n';}
   }
@@ -309,6 +317,7 @@ function DateScenario({kind, scenario}: {kind:DateKind; scenario:Scenario}) {
       {kind==='TimeField'&&<Select label="Minute increment" value={minuteStep} options={[1,5,15,30].map(n=>({id:String(n),label:String(n)}))} onValueChange={v=>setMinuteStep(v??'1')}/>}{kind==='TimeField' && <Select label="Time entry" value={entryMode} options={[{id:'text',label:'Textbox and dropdown'},{id:'segments',label:'Time segments'}]} onValueChange={value=>setEntryMode(value==='segments'?'segments':'text')}/>}
       {kind!=="TimeField" && kind!=="Calendar" && !dateTime && (entryMode==="text" || kind==="DateRangePicker") && <TextField label="Relative reference date" value={referenceDate} onValueChange={setReferenceDate} description="ISO civil date supplied by the host. This demo uses a fixed date."/>}
       {hasValidation && <TextField label="Description" value={description} onValueChange={setDescription} />}
+      {kind!=='Calendar'&&<><Select label="Description placement" value={descriptionPlacement} options={[{id:"above",label:"Above input"},{id:"below",label:"Below input"}]} onValueChange={v=>setDescriptionPlacement(v==='below'?'below':'above')}/><Select label="Error placement" value={errorPlacement} options={[{id:"above",label:"Above input"},{id:"below",label:"Below input"}]} onValueChange={v=>setErrorPlacement(v==='above'?'above':'below')}/></>}
       {(kind === 'TimeField' || kind === 'DateField' || (kind === 'DatePicker' && dateTime)) && <Select label="Hour cycle" value={String(hourCycle)} options={[{id:'12',label:'12-hour'},{id:'24',label:'24-hour'}]} onValueChange={v => setHourCycle(v === '12' ? 12 : 24)} />}
       {(kind === 'Calendar' || isRange) && <><Select label="Visible months" value={String(months)} options={[{id:'1',label:'One month'},{id:'2',label:'Two months'},{id:'3',label:'Three months'}]} onValueChange={v => setMonths(v === '3' ? 3 : v === '2' ? 2 : 1)} /><Select label="First weekday" value={firstDay} options={[{id:'mon',label:'Monday'},{id:'sun',label:'Sunday'}]} onValueChange={v => setFirstDay(v === 'sun' ? 'sun' : 'mon')} /></>}
       {hasAvailability && <><Select label="Calendar navigation" value={navigation} options={[{id:"arrows",label:"Month arrows"},{id:"month-year",label:"Month and year dropdowns"}]} onValueChange={value=>setNavigation(value==="month-year"?"month-year":"arrows")}/><Select label="Year choices" value={String(visibleYears)} options={[{id:"20",label:"20 years"},{id:"120",label:"120 years"},{id:"200",label:"200 years"}]} onValueChange={value=>setVisibleYears(Number(value))}/></>}

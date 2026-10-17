@@ -1,4 +1,5 @@
 "use client";
+import {FieldMessages} from "../TextField/FieldMessages";
 import { forwardRef, useState, useRef, useImperativeHandle, useMemo, useContext, useEffect } from "react";
 import { parseDate, parseDateTime, toCalendar, GregorianCalendar, createCalendar } from "@internationalized/date";
 import { useDateField, useDateSegment } from "react-aria/useDateField";
@@ -28,7 +29,7 @@ function NativeDateSegment({ segment, state }: { segment: DateSegment; state: Da
 }
 
 const SegmentedDateField = forwardRef<HTMLDivElement, DateFieldProps>(function SegmentedDateField({ label, kind = "date", value,
-  defaultValue, onValueChange, onValidityChange, min, max, name, description, errorMessage, invalid, required, disabled, readOnly, hourCycle }, ref) {
+  defaultValue, onValueChange, onValidityChange, min, max, name, description, descriptionPlacement="above", errorPlacement="below", errorMessage, invalid, required, disabled, readOnly, hourCycle }, ref) {
   const validateCandidate = useContext(DateFieldValidationContext);
   const [rejectedDraft, setRejectedDraft] = useState<string | undefined>(undefined);
   const [previousValue, setPreviousValue] = useState(value);
@@ -104,16 +105,16 @@ const SegmentedDateField = forwardRef<HTMLDivElement, DateFieldProps>(function S
   };
   const { labelProps, fieldProps, inputProps, descriptionProps, errorMessageProps,
     isInvalid, validationErrors } = useDateField({ ...options, inputRef: input }, interactionState, group);
+  const messages={descriptionPlacement,errorPlacement,description:(description && <div {...descriptionProps} className={field.description}>{description}</div>),error:(isInvalid && <div {...errorMessageProps} className={field.error}>{validationMessage ?? validationErrors.join(" ")}</div>)};
   return <div ref={root} className={field.root} data-invalid={isInvalid || undefined}
     data-disabled={disabled || undefined} data-readonly={readOnly || undefined}>
-    <span {...labelProps} className={field.label}>{label}</span>
+    <span {...labelProps} className={field.label}>{label}</span><FieldMessages position="above" {...messages}/>
     <DateFieldControl><div {...fieldProps} ref={group} className={[field.input, styles.input].join(" ")}
       data-invalid={isInvalid || undefined} data-disabled={disabled || undefined}>
       {state.segments.map((segment, index) => <NativeDateSegment key={index} segment={segment} state={interactionState} />)}
     </div></DateFieldControl>
     <input {...inputProps} ref={input} value={currentValue && safeParse(currentValue) && !validateCandidate?.(currentValue) ? currentValue : ""} />
-    {description && <div {...descriptionProps} className={field.description}>{description}</div>}
-    {isInvalid && <div {...errorMessageProps} className={field.error}>{validationMessage ?? validationErrors.join(" ")}</div>}
+    <FieldMessages position="below" {...messages}/>
   </div>;
 });
 

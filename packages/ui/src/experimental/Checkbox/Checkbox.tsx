@@ -1,9 +1,10 @@
 "use client";
+import {FieldMessages,type FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import { forwardRef, useId, useImperativeHandle, useRef, useState } from "react";
 import { Checkbox as AriaCheckbox } from "react-aria-components/Checkbox";
 import { useFormReset } from "../useFormReset";
 import styles from "./Checkbox.module.css";
-export interface CheckboxProps {
+export interface CheckboxProps extends FieldMessagePlacementProps {
   label: string;
   checked?: boolean;
   defaultChecked?: boolean;
@@ -21,7 +22,7 @@ export interface CheckboxProps {
 }
 /** The forwarded ref targets the label; its native `control` owns focus and form validation. */
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(function Checkbox({ label, checked, defaultChecked,
-  onCheckedChange, mixed, disabled, readOnly, required, invalid, description, errorMessage, name, value, slot }, ref) {
+  onCheckedChange, mixed, disabled, readOnly, required, invalid, description, descriptionPlacement="above", errorPlacement="below", errorMessage, name, value, slot }, ref) {
   const labelId = useId();
   const root = useRef<HTMLLabelElement>(null);
   useImperativeHandle(ref, () => root.current!, []);
@@ -48,13 +49,11 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(function Che
     isIndeterminate={mixed} isDisabled={disabled} isReadOnly={readOnly} isRequired={required} isInvalid={invalid} name={name} value={value}
     slot={slot} aria-labelledby={labelId}
     aria-describedby={[description && `${labelId}-description`, errorMessage && `${labelId}-error`].filter(Boolean).join(" ") || undefined} validationBehavior="native" className={styles.root}>
-    {({ isSelected, isIndeterminate, isInvalid }) => <>
-      <span className={styles.indicator} aria-hidden="true">{isIndeterminate ? "−" : isSelected ? "✓" : ""}</span>
-      <span className={styles.content}>
-        <span id={labelId}>{label}</span>
-        {description && <span id={`${labelId}-description`} className={styles.description}>{description}</span>}
-        {isInvalid && errorMessage && <span id={`${labelId}-error`} className={styles.error}>{errorMessage}</span>}
-      </span>
-    </>}
+    {({ isSelected, isIndeterminate, isInvalid }) => {
+      const messages={descriptionPlacement,errorPlacement,description:description&&<span id={`${labelId}-description`} className={styles.description}>{description}</span>,error:isInvalid&&errorMessage&&<span id={`${labelId}-error`} className={styles.error}>{errorMessage}</span>};
+      return <><FieldMessages position="above" {...messages}/>
+        <span className={styles.control} data-sgui-part="choice-control"><span className={styles.indicator} aria-hidden="true">{isIndeterminate ? "−" : isSelected ? "✓" : ""}</span><span className={styles.content} id={labelId} data-sgui-part="choice-label">{label}</span></span>
+        <FieldMessages position="below" {...messages}/></>;
+    }}
   </AriaCheckbox>;
 });

@@ -62,7 +62,7 @@ export function DatePicker({ value, defaultValue = null, onValueChange, unavaila
       }} navigation={navigation} visibleYears={visibleYears} disabled={props.disabled} readOnly={props.readOnly}
         min={props.min?.slice(0,10)} max={props.max?.slice(0,10)} unavailable={unavailable} defaultFocusedDate={selected?.slice(0,10) ?? defaultFocusedDate} /></div>
       {datetime && <div className={styles.time}>
-        <TimeField label={t("common.ui.time", {defaultMessage:"Time"})} value={draftTime} onValueChange={setDraftTime} onValidityChange={setTimeValid}
+        <TimeField descriptionPlacement={props.descriptionPlacement} errorPlacement={props.errorPlacement} label={t("common.ui.time", {defaultMessage:"Time"})} value={draftTime} onValueChange={setDraftTime} onValidityChange={setTimeValid}
           hourCycle={hourCycle} disabled={props.disabled} readOnly={props.readOnly} required min={draftDate === props.min?.slice(0,10) ? props.min?.slice(11) : undefined}
           max={draftDate === props.max?.slice(0,10) ? props.max?.slice(11) : undefined}/>
         <div className={styles.actions}>
