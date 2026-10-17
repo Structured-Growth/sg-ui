@@ -213,7 +213,7 @@
     "how": [
       "Supply readable children or an accessible name for the action. Pair selected with onSelectedChange for controlled pressed state, or use defaultSelected for an uncontrolled initial state.",
       "Use onSelectedChange to receive the next pressed state. If you also provide onPress for a host command, avoid toggling the same state again in that callback.",
-      "Choose density locally and use disabled when the command is unavailable. ToggleButton is an action button; serialize application values separately rather than treating it as a native named form field."
+      "Selected actions use a double border as a non-color cue alongside aria-pressed; keyboard focus remains a separate outward ring. Choose density locally and use disabled when the command is unavailable. ToggleButton is an action button; serialize application values separately rather than treating it as a native named form field."
     ],
     "related": [
       {
@@ -236,7 +236,7 @@
       "Provide label and options with unique stable IDs and labels, plus optional icons or disabled states. Set selectionMode to single or multiple according to the action relationship.",
       "Pair selectedIds with onSelectionChange for controlled state, or use defaultSelectedIds for an initial uncontrolled selection. In single mode, keep the controlled array to at most one ID.",
       "Buttons default to equal widths based on the widest option, including icons and disabled options. Set buttonWidth to content for individual content-sized buttons. Constrained horizontal groups keep equal columns and wrap labels as needed. Set allowEmpty to false when a selected action must remain, and choose horizontal or vertical orientation. Apply density locally and disabled to make the entire group unavailable.",
-      "Connect selection to host commands or presentation state. The group is not a native form field; the host supplies any needed form serialization and reset behavior."
+      "Selected options use a double border alongside checked or pressed semantics while preserving their outer size. Connect selection to host commands or presentation state. The group is not a native form field; the host supplies any needed form serialization and reset behavior."
     ],
     "related": [
       {

@@ -69,14 +69,17 @@ link flow. Callback timers are cancelled on unmount and commands are suppressed
 if the editor becomes read-only or selected nodes disappear.
 
 Position follows selection/update, captured ancestor scroll, resize and toolbar
-measurement. Coordinates clamp to the viewport intersected with boundaryRef and
+measurement. For multi-line ranges, anchoring uses the first selected client
+rectangle visible inside the viewport/boundary intersection, so an offscreen
+first line does not hide actions for the remaining visible selection. Coordinates clamp to the viewport intersected with boundaryRef and
 controls wrap within that width. Fully offscreen/zero-geometry/collapsed/outside
 selections hide the toolbar; scroll still updates geometry while a control has
 focus. Outside pointer and window blur dismiss it. Escape remains dismissed for
 the same selection until a new editor interaction or selection change.
 The overlay retains its existing fixed-position rendering within the visual scope;
-hosts must avoid transformed fixed-position containing blocks around it. Full
-cross-browser/touch/assistive-technology acceptance remains open.
+hosts must avoid transformed fixed-position containing blocks around it. The named desktop selection-boundary and presentation checks pass in Chromium,
+Firefox and WebKit; see the [component acceptance reconciliation](react-aria-editor-chrome-acceptance.md).
+Physical-device and spoken assistive-technology acceptance remain separate.
 
 See the [execution evidence](react-aria-progress.md#editor-layout-and-floating-selection)
 and [formatting toolbar](react-aria-formatting-toolbar.md) for the surrounding
