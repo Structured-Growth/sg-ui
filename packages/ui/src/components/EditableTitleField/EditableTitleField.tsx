@@ -77,7 +77,7 @@ export function EditableTitleField({ title, placeholder, onSave, variant = "h4",
     onClick={() => { if (!isEditing) enterEditMode(); }}
     onDoubleClick={() => { if (!isEditing) enterEditMode(); }}
     onKeyDown={(event) => {
-      if (!isEditing || event.target !== input.current || event.nativeEvent.isComposing) return;
+      if (!isEditing || event.target !== input.current || event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229) return;
       if (event.key === "Enter") {
         event.preventDefault(); event.stopPropagation(); void save();
       } else if (event.key === "Escape") {

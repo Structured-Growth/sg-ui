@@ -12,6 +12,9 @@ import {
   $isTextNode,
   $isRangeSelection,
   $setSelection,
+  CAN_UNDO_COMMAND,
+  CAN_REDO_COMMAND,
+  COMMAND_PRIORITY_LOW,
   FORMAT_ELEMENT_COMMAND,
   FORMAT_TEXT_COMMAND,
   INDENT_CONTENT_COMMAND,
@@ -25,6 +28,9 @@ import {
 } from "lexical";
 import { $patchStyleText, $setBlocksType } from "@lexical/selection";
 import { $createHeadingNode, $isHeadingNode } from "@lexical/rich-text";
+import { Status } from "../../experimental/Status/Status";
+import { EditorClipboardSafetyPlugin } from "./lexical/EditorClipboardSafetyPlugin";
+import { prepareEditorDocument } from "./lexical/prepareEditorDocument";
 import { serializeEditorDocument } from "./lexical/serializeEditorDocument";
 import { normalizeLinkUrl } from "../LinkUrlModal/linkUrlPolicy";
 import { $createLinkNode, $isLinkNode, $toggleLink, LinkNode } from "@lexical/link";
@@ -215,6 +221,37 @@ export type PageRichTextEditorSectionProps = {
   }>;
 };
 
+type HistoryAvailability = {
+  editor: LexicalEditor;
+  documentKey: string;
+  canUndo: boolean;
+  canRedo: boolean;
+};
+
+/** History belongs to one composer lifetime, independently of toolbar renders. */
+function HistoryAvailabilityBridge({ documentKey, onChange }: {
+  documentKey: string;
+  onChange: (next: HistoryAvailability) => void;
+}) {
+  const [editor] = useLexicalComposerContext();
+  useEffect(() => {
+    let canUndo = false;
+    let canRedo = false;
+    const publish = () => onChange({ editor, documentKey, canUndo, canRedo });
+    // A newly mounted HistoryPlugin has empty stacks and need not emit commands.
+    publish();
+    return mergeRegister(
+      editor.registerCommand(CAN_UNDO_COMMAND, value => {
+        canUndo = value; publish(); return false;
+      }, COMMAND_PRIORITY_LOW),
+      editor.registerCommand(CAN_REDO_COMMAND, value => {
+        canRedo = value; publish(); return false;
+      }, COMMAND_PRIORITY_LOW),
+    );
+  }, [editor, documentKey, onChange]);
+  return null;
+}
+
 function ToolbarBridge({
   onAlignmentChange,
   onStateChange,
@@ -357,7 +394,11 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
     italic: false,
     underline: false,
   });
+  const [pasteRejected, setPasteRejected] = useState(false);
   const [editorRef, setEditorRef] = useState<LexicalEditor | null>(null);
+  const [historyAvailability, setHistoryAvailability] = useState<HistoryAvailability | null>(null);
+  const currentHistory = historyAvailability?.editor === editorRef && historyAvailability?.documentKey === editorKey
+    ? historyAvailability : null;
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
   const [alignment, setAlignment] = useState<AlignOption>("left");
@@ -394,6 +435,7 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
 
   useEffect(() => {
     imageUploadSessionRef.current += 1;
+    setPasteRejected(false);
     setLinkModalOpen(false); setActiveLinkNodeKey(null);
     setColumnsLayoutModalOpen(false); setImageUploadModalOpen(false);
     setImageUploading(false); setImageUploadError(null);
@@ -448,13 +490,9 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
     return resolved;
   }, [baseHiddenControlSets, enabledControlSets, hiddenControlSets]);
 
-  const initialEditorState = useMemo(() => {
-    try {
-      return JSON.stringify(lexicalValue ?? DEFAULT_LEXICAL_VALUE);
-    } catch {
-      return JSON.stringify(DEFAULT_LEXICAL_VALUE);
-    }
-  }, [lexicalValue]);
+  // lexicalValue seeds a composer lifetime. Host change callbacks may update it
+  // without replacing the live document; a new editorKey explicitly loads again.
+  const initialEditorState = useMemo(() => prepareEditorDocument(lexicalValue ?? DEFAULT_LEXICAL_VALUE), [editorKey]);
 
   const applyTextVariantMarker = (marker: TextVariantMarker) => {
     patchSelectedTextStyle({
@@ -934,11 +972,22 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
     });
   };
 
+  if (initialEditorState === null) {
+    return <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="editor-section">
+      <Status tone="danger" announcement="assertive">{t("editor.documentLoadRejected", {
+        defaultMessage: "This document could not be loaded safely. The original content has not been changed.",
+      })}</Status>
+    </div>;
+  }
+
   return (
     <div ref={ref} className={[styles.root, className].filter(Boolean).join(" ")} style={style} data-sgui-part="editor-section">
       {readOnly ? null : (
         <RichTextFormattingToolbar
-        disabledControls={disabledControls}
+        disabledControls={{ ...disabledControls,
+          undo: Boolean(disabledControls?.undo) || !currentHistory?.canUndo,
+          redo: Boolean(disabledControls?.redo) || !currentHistory?.canRedo,
+        }}
         disabledControlSets={disabledControlSets}
         hiddenControls={resolvedHiddenControls}
         hiddenControlSets={resolvedHiddenControlSets}
@@ -1066,6 +1115,9 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
         disableContainerPadding
         />
       )}
+      {pasteRejected && <Status tone="danger" announcement="assertive">{t("editor.pasteRejected", {
+        defaultMessage: "This pasted content could not be inserted safely. The document has not been changed.",
+      })}</Status>}
       <div ref={editorViewportRef} className={styles.viewport} data-sgui-part="editor-viewport"
         role="region" tabIndex={0} aria-label={t("editor.documentScrollRegion", { defaultMessage: "Document scroll region" })}>
         <div className={styles.document}>
@@ -1087,8 +1139,10 @@ export const PageRichTextEditorSection = forwardRef<HTMLDivElement, PageRichText
                 onRequestLinkMouseDown={capturePendingLinkSelection}
               />
             )}
+            <EditorClipboardSafetyPlugin namespace="experience-native-content-page" onRejectionChange={setPasteRejected} />
+            <HistoryAvailabilityBridge documentKey={editorKey} onChange={setHistoryAvailability} />
             <ToolbarBridge readOnly={readOnly} onAlignmentChange={setAlignment}
-              onReady={(editor) => setEditorRef(editor)}
+              onReady={setEditorRef}
               onSelectionSnapshotChange={(snapshot) => {
                 selectionSnapshotRef.current = snapshot;
               }}

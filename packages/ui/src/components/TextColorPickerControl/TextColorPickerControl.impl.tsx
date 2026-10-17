@@ -86,7 +86,7 @@ export function TextColorPickerControl({ value = "#000000", onChange, triggerIco
     aria-label={title} className={styles.trigger} startIcon={triggerIcon ?? (mode === "background" ? <FormatColorFillIcon /> : <FormatColorTextIcon />)}
     endIcon={<ArrowDropDownIcon />}><span aria-hidden="true" className={styles.indicator} style={{ backgroundColor: value || "transparent" }} /></Button>}>
     <div className={styles.content} data-sgui-part="color-picker">
-      <form onKeyDown={event => { if (event.key === "Enter" && event.nativeEvent.isComposing) event.preventDefault(); }} onSubmit={event => { event.preventDefault(); event.stopPropagation(); commitDraft(); if (!normalizeHex(draft) && draft !== lastCommitted.current) field.current?.focus(); }}>
+      <form onKeyDown={event => { if (event.key === "Enter" && (event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229)) event.preventDefault(); }} onSubmit={event => { event.preventDefault(); event.stopPropagation(); commitDraft(); if (!normalizeHex(draft) && draft !== lastCommitted.current) field.current?.focus(); }}>
         <TextField ref={field} label={t("common.ui.editor.hexColor", { defaultMessage: "Hex color" })}
           autoFocus density="compact" value={draft} onValueChange={next => { setDraft(next); setInvalid(false); }}
           invalid={invalid} errorMessage={t("common.ui.editor.invalidHexColor", { defaultMessage: "Enter a six-digit hex color, such as #336699." })}

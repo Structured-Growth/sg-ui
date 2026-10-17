@@ -72,6 +72,8 @@ it("supports title pointer entry and ignores composing Enter events", async () =
  const user = userEvent.setup(); const onSave = vi.fn(); render(<EditableTitleField title="Old" onSave={onSave} />);
  await user.click(screen.getByRole("heading")); const input = screen.getByRole("textbox"); await user.clear(input); await user.type(input, "新");
  fireEvent.keyDown(input, { key: "Enter", isComposing: true }); expect(onSave).not.toHaveBeenCalled(); expect(screen.getByRole("textbox")).toBeDefined();
+ fireEvent.keyDown(input, { key: "Enter", keyCode: 229 }); fireEvent.keyDown(input, { key: "Escape", keyCode: 229 });
+ expect(onSave).not.toHaveBeenCalled(); expect((screen.getByRole("textbox") as HTMLInputElement).value).toBe("新");
 });
 
 it("honors host read-only changes after rejection without losing the draft or requesting another save", async () => {

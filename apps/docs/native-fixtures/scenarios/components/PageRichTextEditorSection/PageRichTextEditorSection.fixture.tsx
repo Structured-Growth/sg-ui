@@ -241,13 +241,16 @@ export const ImageSources: Story = {
     const [readOnly, setReadOnly] = useState(false);
     const [attempt, setAttempt] = useState(0);
     return <Provider>
-      <p>The first host upload returns an unsupported address. Retry with the same file and description.</p>
+      <p>The first upload returns an unsupported address, the second malformed metadata, and the third a valid image. Retry with the same file and description.</p>
       <Button onPress={() => setReadOnly(current => !current)}>{readOnly ? 'Enable editing' : 'Make read-only'}</Button>
       <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload saved document</Button>
       <PageRichTextEditorSection lexicalValue={seed} editorKey={`image-sources-${revision}`} onLexicalChange={setValue}
         readOnly={readOnly} aria-label="Image source document" toolPreset="full" style={{ height: 360 }}
         onUploadImage={async () => {
           setAttempt(current => current + 1);
+          // Deliberately model an untyped service response at the public boundary.
+          // The first two results must remain retryable without inserting a node.
+          if (attempt === 1) return { assetId: { unexpected: true }, assetVersionId: "upload-v1", src: IMAGE_POLICY_PIXEL } as unknown as { assetId: string; assetVersionId: string; src: string };
           return { assetId: "uploaded-image", assetVersionId: "upload-v1", src: attempt === 0 ? "javascript:alert('unsafe-upload')" : IMAGE_POLICY_PIXEL };
         }} />
       <pre aria-label="Saved image source JSON">{JSON.stringify(value)}</pre>
@@ -359,3 +362,73 @@ function LocalizedRichPresentation({globals}:{globals:FixtureGlobals}){
  </Provider></SGTranslationProvider>;
 }
 export const LocalizedPresentation:Story={render:(_args,{globals})=><LocalizedRichPresentation globals={globals}/>};
+
+/** Rejected inputs remain host data; no editable partial parse can overwrite them. */
+export const DocumentAdmission: Story = {
+  render: () => {
+    const [input, setInput] = useState<unknown>(SAVED_RICH_DOCUMENT);
+    const [saved, setSaved] = useState<unknown>(SAVED_RICH_DOCUMENT);
+    const [revision, setRevision] = useState(0);
+    const [changes, setChanges] = useState(0);
+    const [safeClipboard, setSafeClipboard] = useState(false);
+    const load = (kind: "unknown" | "style" | "typing-style" | "heading" | "image" | "valid", replace = true) => {
+      const next = structuredClone(SAVED_RICH_DOCUMENT) as any;
+      if (kind === "unknown") next.root.children.push({ type: "unknown-host-widget", version: 1 });
+      if (kind === "style") next.root.children[1].children[0].style = "background-image: u/**/rl(https://rejected-editor-style.example/pixel); position: fixed; inset: 0;";
+      if (kind === "typing-style") { next.root.children = [next.root.children[1]]; next.root.children[0].children = []; next.root.children[0].textStyle = "position: fixed; background-image: url(https://rejected-editor-style.example/pixel)"; }
+      if (kind === "heading") { next.root.children[0].tag = "script"; next.root.children[0].children[0].text = "window.__sguiSavedHeadingExecuted = true"; }
+      if (kind === "image") next.root.children[8].children[0].assetId = { unexpected: true };
+      setInput(next); if (replace) setRevision(current => current + 1);
+    };
+    return <Provider>
+      <Button onPress={() => load("unknown")}>Load unknown node</Button>
+      <Button onPress={() => load("style")}>Load resource style</Button>
+      <Button onPress={() => load("typing-style")}>Load inherited typing style</Button>
+      <Button onPress={() => load("heading")}>Load unsafe heading</Button>
+      <Button onPress={() => load("image")}>Load malformed image</Button>
+      <Button onPress={() => load("valid", false)}>Change same-key input</Button>
+      <Button onPress={() => load("valid")}>Load valid document</Button>
+      <Button onPress={() => setSafeClipboard(true)}>Use safe clipboard content</Button>
+      <textarea aria-label="Admission clipboard source" readOnly value="Clipboard content" onCopy={event => {
+        const node = structuredClone(SAVED_RICH_DOCUMENT.root.children[1]) as any;
+        node.children = [{ type: "text", version: 1, text: safeClipboard ? "Safe clipboard text" : "Rejected clipboard text",
+          detail: 0, format: 1, mode: "normal", style: safeClipboard ? "color: var(--sgui-action);" : "transform: translateX(-100vw); background-image: url(https://rejected-editor-style.example/pixel)" }];
+        event.clipboardData.setData("application/x-lexical-editor", JSON.stringify({ namespace: "experience-native-content-page", nodes: [node] }));
+        event.clipboardData.setData("text/plain", "Clipboard content"); event.preventDefault();
+      }} />
+      <PageRichTextEditorSection lexicalValue={input} editorKey={`admission-${revision}`}
+        onLexicalChange={next => { setSaved(next); setChanges(current => current + 1); }}
+        aria-label="Admission document" toolPreset="full" style={{ height: 360 }} />
+      <pre aria-label="Original admission JSON">{JSON.stringify(input)}</pre>
+      <pre aria-label="Saved admission JSON">{JSON.stringify(saved)}</pre>
+      <output aria-label="Admission callback count">{changes}</output>
+    </Provider>;
+  },
+};
+
+const STRUCTURED_CONTENT_DOCUMENT = (() => {
+  const value = structuredClone(SAVED_RICH_DOCUMENT) as any;
+  const nested = structuredClone(value.root.children[4]);
+  nested.children[0].children[0].text = "Nested practice lesson";
+  nested.children[0].indent = 1;
+  value.root.children[3].children.push({ type: "listitem", version: 1, direction: null, format: "", indent: 0, value: 5, children: [nested] });
+  const row = value.root.children[7].children[0];
+  row.children[0].colSpan = 2; row.children[0].headerState = 3; row.children.splice(1, 1);
+  return value;
+})();
+/** Authored native corpus; does not claim an approved consumer schema inventory. */
+export const StructuredContent: Story = {
+  render: () => {
+    const [value, setValue] = useState<unknown>(STRUCTURED_CONTENT_DOCUMENT);
+    const [seed, setSeed] = useState<unknown>(STRUCTURED_CONTENT_DOCUMENT);
+    const [revision, setRevision] = useState(0);
+    const [readOnly, setReadOnly] = useState(false);
+    return <Provider>
+      <Button onPress={() => { setSeed(value); setRevision(current => current + 1); }}>Reload structured document</Button>
+      <Button onPress={() => setReadOnly(current => !current)}>{readOnly ? "Enable editing" : "Make read-only"}</Button>
+      <PageRichTextEditorSection lexicalValue={seed} editorKey={`structured-${revision}`} onLexicalChange={setValue}
+        readOnly={readOnly} aria-label="Structured content document" toolPreset="full" style={{ height: 460 }} />
+      <pre aria-label="Saved structured JSON">{JSON.stringify(value)}</pre>
+    </Provider>;
+  },
+};

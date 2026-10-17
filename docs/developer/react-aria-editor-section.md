@@ -172,11 +172,13 @@ optional dimensions must be finite numbers or null. Missing/null optional values
 the existing empty-description/null-metadata defaults. Valid values are preserved,
 including decorative empty alt text. This check does not authorize assets, validate
 image bytes, impose dimension/size bounds or migrate unsupported document versions.
-Malformed saved image fields throw an internal TypeError before node creation; this
-is not atomic document validation or a user-facing recovery API. Hosts must validate
-untrusted whole documents before passing them to the editor and retain the original
-when parsing fails. The section currently supplies a silent Lexical error handler;
-this patch does not certify whole-document failure/recovery behavior.
+Malformed saved image fields throw an internal TypeError before node creation.
+The document admission check now exercises the registered import factories with a
+throwing handler before mounting the editable composer. Any rejected load displays
+the translated document-load status instead of a partial editor and emits no
+`onLexicalChange`. The host retains the original and supplies corrected data with a
+new `editorKey` to recover. This is engine-backed admission, not a schema migration
+or a declaration that unknown future versions are supported.
 
 Malformed current upload metadata leaves the file/description available for retry
 and reports a translated error before insertion. Stale results are ignored before
@@ -202,3 +204,47 @@ a newer upload is pending; browser cases verify no stale insertion/error, native
 Escape dismissal and clean reopening. The standalone ImageUploadModal also
 invalidates local promise updates on unmount and releases its preview once.
 No transport cancellation API, service validation or device evidence is implied.
+
+## Document admission and active saved styles
+
+Each `editorKey` starts one all-or-nothing admission pass before the editable
+composer mounts. Unserializable input, malformed node/children/style shapes,
+unregistered node imports, unsupported heading tags, malformed text/link fields and malformed image metadata cannot become editable
+partial host content. The failure status says: “This document could not be loaded
+safely. The original content has not been changed.” No partial save callback fires.
+The input object remains untouched. Correct the host data and change `editorKey`;
+changing `lexicalValue` alone retains the current editor lifetime, including a
+rejected lifetime. Valid saved JSON retains its original spelling and formatting.
+
+Both visible text `style` and inherited element `textStyle` follow the same policy, including empty paragraphs that would apply their style only on future typing.
+
+Saved text CSS admits only explicit formatting properties: color/background-color;
+font family, size, weight, style and font-variant/caps/numeric; letter spacing and
+line height; text-decoration/color/line/style/thickness; text transform, vertical
+alignment, white space; and the historical `--lp-text-variant` marker. Safe owned
+or host token references can be values. Other property definitions, including
+arbitrary custom properties, transforms, margins, display and positioned layout,
+are unsupported and reject the document. Hosts must deliberately migrate unsupported
+styles before submitting a corrected new-key document; the UI never drops them
+silently. Quoted font-family values and tokenized typography/colors remain data.
+Resource functions such as `url()`/`image-set()`, `@import`, active legacy
+expressions and positioned overlays (`position`, inset/edge offsets, `z-index`)
+are rejected before any text DOM is mounted. CSS escapes/comments cannot hide
+those tokens. Rejection preserves the entire host original rather than purging
+individual properties and returning an edited document. This is a bounded safety
+rule, not a universal CSS sanitizer. Host CSP, trusted resource origins, redirects,
+decoded asset bytes, engine-version migration and downstream renderer contexts
+remain independent responsibilities.
+
+The authored StructuredContent native corpus adds nested list, code block and
+merged-header edit/history/reload/read-only checks. It supplements the accepted
+rich-document corpus without certifying an unspecified production document set.
+The insertion host owns a polite operation result after an actual image or columns
+insertion; callbacks alone are not counted as successful insertion announcements.
+
+The same formatting/type checks run before same-namespace
+`application/x-lexical-editor` clipboard JSON is imported. Rejected clipboard data
+shows a translated paste status and leaves the current document/selection intact;
+accepted JSON and ordinary HTML/plain-text paste keep the existing engine path.
+The engine's HTML import maps supported text formats and owned link destinations;
+this does not make exported JSON a universal sanitizer for another renderer.

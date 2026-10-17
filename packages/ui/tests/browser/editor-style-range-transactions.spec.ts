@@ -40,7 +40,8 @@ for (const label of ['Uppercase', 'Clear Formatting'] as const) {
     await page.getByRole('button', { name: 'Reload saved mixed document', exact: true }).click();
     await expect.poll(() => saved(page)).toEqual(changed);
     await expect(editor).toHaveText(label === 'Uppercase' ? 'BoLD PLAIN ITAlic' : 'Bold plain Italic');
-    await page.getByRole('button', { name: 'Undo', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Undo', exact: true })).toBeDisabled();
+    await expect(page.getByRole('button', { name: 'Redo', exact: true })).toBeDisabled();
     await expect.poll(() => saved(page)).toEqual(changed);
     await info.attach('style-range-before-after', { body: JSON.stringify({ before, changed }), contentType: 'application/json' });
   });

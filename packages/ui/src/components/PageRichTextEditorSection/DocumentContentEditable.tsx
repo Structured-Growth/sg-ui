@@ -25,7 +25,7 @@ export function DocumentContentEditable({ label, readOnly }: { label: string; re
       // Keep copying local to the focused read-only document; Lexical retains
       // keyboard handling while the document is editable.
       if (!readOnly || event.target !== event.currentTarget || event.isDefaultPrevented()
-        || event.nativeEvent.isComposing || event.altKey || event.shiftKey
+        || event.nativeEvent.isComposing || event.nativeEvent.keyCode === 229 || event.altKey || event.shiftKey
         || !(event.ctrlKey || event.metaKey) || event.key.toLowerCase() !== "a") return;
       const selection = event.currentTarget.ownerDocument.getSelection();
       if (!selection) return;

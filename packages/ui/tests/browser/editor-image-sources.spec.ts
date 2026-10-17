@@ -47,7 +47,7 @@ for (const theme of ['light', 'dark']) {
     expect(rejectedRequests).toEqual([]);
   });
 
-  test(`unsupported host upload remains retryable with the same description: ${theme}`, async ({ page }) => {
+  test(`unsupported address and malformed metadata remain retryable with the same description: ${theme}`, async ({ page }) => {
     const editor = await open(page, theme);
     const before = await saved(page);
     await editor.focus();
@@ -62,6 +62,13 @@ for (const theme of ['light', 'dark']) {
     await expect(dialog.getByText('cover.png', { exact: true })).toBeVisible();
     await expect(dialog.getByRole('textbox', { name: 'Image description' })).toHaveValue('Uploaded course cover');
     expect(await saved(page)).toEqual(before);
+    const existingImages = await editor.locator('[data-sgui-part="editor-image"] > img').count();
+    await dialog.getByRole('button', { name: 'Insert', exact: true }).click();
+    await expect(dialog.getByRole('alert')).toHaveText('The uploaded image metadata is not supported. Try again.');
+    await expect(dialog.getByText('cover.png', { exact: true })).toBeVisible();
+    await expect(dialog.getByRole('textbox', { name: 'Image description' })).toHaveValue('Uploaded course cover');
+    await expect(editor.locator('[data-sgui-part="editor-image"] > img')).toHaveCount(existingImages);
+    expect(await saved(page)).toEqual(before);
     await dialog.getByRole('button', { name: 'Insert', exact: true }).click();
     await expect(dialog).toHaveCount(0);
     const image = editor.getByRole('img', { name: 'Uploaded course cover', exact: true });
@@ -70,6 +77,8 @@ for (const theme of ['light', 'dark']) {
     expect(output).toContain('"assetId":"uploaded-image"');
     expect(output).toContain('"altText":"Uploaded course cover"');
     expect(output).not.toContain('unsafe-upload');
+    expect(output).not.toContain('unexpected');
+    expect(output).toContain('"assetVersionId":"upload-v1"');
     await page.getByRole('button', { name: 'Reload saved document' }).click();
     await expect.poll(() => image.evaluate(element => (element as HTMLImageElement).naturalWidth)).toBe(1);
   });

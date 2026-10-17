@@ -186,7 +186,7 @@
     "when": "Use DocumentEditorToolbar for a document host that needs a small controlled heading, formatting, zoom, and status bar. It requests commands from an existing editor rather than implementing document editing itself.",
     "how": [
       "Supply canEdit, headingValue, and actions with controlled active flags and real onClick callbacks. Derive those flags from the host editor selection; missing callbacks leave their commands unavailable.",
-      "Connect onHeadingChange to a host editor command and accept the requested normal/h1\u2013h5 value. Heading requests finish the chooser interaction before invoking the host callback.",
+      "Connect onHeadingChange to a host editor command and accept the requested normal/h1–h5 value. Heading requests finish the chooser interaction before invoking the host callback.",
       "Provide zoomValue and zoom callbacks separately from editing availability. Hide optional groups that the host does not use; alignment and custom-component placeholders do not provide active editing commands.",
       "Use statusLabel, a token-based statusColor, or rightSlot for host status. Saving and error recovery remain application responsibilities."
     ],
@@ -413,6 +413,7 @@
     "how": [
       "The document outline indicates keyboard navigation into the editor. Clicking to edit, typing and moving the caret do not activate that outline; the native caret and selection remain visible. The separate document scroll region keeps its keyboard focus indicator in editable and read-only modes.",
       "Seed the document with lexicalValue and persist serialized edits from onLexicalChange. The editor remains internally live: changing lexicalValue alone does not replace its document or selection; change editorKey to load a different document.",
+      "Each editorKey admits the saved document before editing. A rejected document shows a translated status, emits no partial onLexicalChange and leaves the original host input untouched. Correct the data and use a new editorKey to recover; saved CSS resources and positioned overlays are rejected while safe author typography, colors and token references remain supported.",
       "Give the section a bounded height or a zero-minimum flex parent, and supply a meaningful aria-label. Use readOnly to change the existing editor's availability rather than mounting a separate view solely to disable editing.",
       "Choose toolPreset and supported control overrides for the workflow. The section composes selection handling, toolbars, and editor dialogs; avoid adding a second disconnected toolbar that does not share its editor state.",
       "Provide onUploadImage when saved images need durable host asset URLs. Without a host upload, local image previews are temporary; the host owns persistence, upload cancellation, asset authorization, and cleanup.",

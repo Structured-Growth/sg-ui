@@ -29,15 +29,15 @@ describe("owned text color picker", () => {
     await user.click(screen.getByRole("button", { name: "Background color" }));
     const field = await screen.findByRole("textbox", { name: "Hex color" });
     await user.clear(field); await user.type(field, "invalid");
-    await user.click(screen.getByRole("button", { name: "Primary", exact: true }));
+    await user.click(screen.getByRole("button", { name: /^Primary$/ }));
     expect(onChange).toHaveBeenCalledTimes(1);
-    const swatch = screen.getByRole("button", { name: "Primary", exact: true });
+    const swatch = screen.getByRole("button", { name: /^Primary$/ });
     // Color-data opt-out belongs to a decorative child, never the focusable button.
     expect(swatch.style.backgroundColor).toBe("");
     expect(swatch.querySelector('[aria-hidden="true"]')?.getAttribute("style")).toContain("var(--sgui-action)");
     expect(field.getAttribute("aria-invalid")).not.toBe("true");
     expect(onChange).toHaveBeenLastCalledWith("var(--sgui-action)");
-    expect(screen.getByRole("button", { name: "Primary", exact: true }).getAttribute("aria-pressed")).toBe("true");
+    expect(screen.getByRole("button", { name: /^Primary$/ }).getAttribute("aria-pressed")).toBe("true");
     expect(screen.getByRole("dialog").closest('[data-sgui-scope]')?.getAttribute("data-sgui-theme")).toBe("dark");
     fireEvent.change(screen.getByLabelText("Custom color"), { target: { value: "#123456" } });
     expect(onChange).toHaveBeenLastCalledWith("#123456");
@@ -62,6 +62,7 @@ describe("owned text color picker", () => {
     const field = await screen.findByRole("textbox", { name: "Hex color" });
     fireEvent.change(field, { target: { value: "#ABCDEF" } });
     expect(fireEvent.keyDown(field, { key: "Enter", isComposing: true })).toBe(false);
+    expect(fireEvent.keyDown(field, { key: "Enter", keyCode: 229 })).toBe(false);
     expect(onChange).not.toHaveBeenCalled();
     await user.keyboard("{Enter}"); expect(onChange).toHaveBeenCalledExactlyOnceWith("#abcdef");
     await user.click(screen.getByRole("button", { name: "Reset" }));
