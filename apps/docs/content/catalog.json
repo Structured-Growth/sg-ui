@@ -401,6 +401,15 @@
   },
   {
     "group": "forms",
+    "slug": "form-field-scope",
+    "title": "FormFieldScope",
+    "description": "Shared message placement defaults with nested scopes and individual field overrides.",
+    "exports": [
+      "FormFieldScope"
+    ]
+  },
+  {
+    "group": "forms",
     "slug": "period-picker",
     "title": "PeriodPicker",
     "description": "Select a whole week, month, quarter or year.",

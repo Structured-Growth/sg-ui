@@ -56,3 +56,5 @@ export { DateTimeRangePicker, type DateTimeRangePickerProps, type DateTimeRange 
 export { DateRangeComparisonPicker, type DateRangeComparisonPickerProps, type DateRangeComparison } from "./DateRangeComparisonPicker/DateRangeComparisonPicker";
 
 export type { RangeDragBehavior } from "./DateRangeSelector/RangeGestures";
+
+export { FormFieldScope, type FormFieldScopeProps } from "./FormFieldScope/FormFieldScope";

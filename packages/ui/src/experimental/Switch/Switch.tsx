@@ -16,7 +16,7 @@ export interface SwitchProps extends Pick<FieldMessagePlacementProps,"descriptio
   className?: string;
   style?: CSSProperties;
 }
-export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(function Switch({ label, checked, defaultChecked, onCheckedChange, disabled, readOnly, name, value, description, descriptionPlacement="above", className, style }, ref) {
+export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(function Switch({ label, checked, defaultChecked, onCheckedChange, disabled, readOnly, name, value, description, descriptionPlacement, className, style }, ref) {
   const id = useId();
   const root = useRef<HTMLLabelElement>(null);
   const resetting = useRef(false);

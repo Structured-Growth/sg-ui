@@ -29,7 +29,7 @@ function comparisonFor(primary:DateRange|null,mode:DateRangeComparison['mode'],c
  const start=addCivilDays(primary.start,-count),end=addCivilDays(primary.start,-1);
  return start&&end?{start,end}:null;
 }
-export function DateRangeComparisonPicker({label,value,defaultValue=null,onValueChange,rangeProps,presentation='popover',name,disabled,readOnly,required,descriptionPlacement="above",errorPlacement="below"}:DateRangeComparisonPickerProps){
+export function DateRangeComparisonPicker({label,value,defaultValue=null,onValueChange,rangeProps,presentation='popover',name,disabled,readOnly,required,descriptionPlacement,errorPlacement}:DateRangeComparisonPickerProps){
  const {t}=useTranslation(),root=useRef<HTMLDivElement>(null);
  const [internal,setInternal]=useState(defaultValue),selected=value===undefined?internal:value;
  const [open,setOpen]=useState(false),[primary,setPrimary]=useState<DateRange|null>(null),[custom,setCustom]=useState<DateRange|null>(null),[mode,setMode]=useState<DateRangeComparison['mode']>('previous-period');

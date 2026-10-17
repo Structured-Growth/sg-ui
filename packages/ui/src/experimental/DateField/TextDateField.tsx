@@ -11,7 +11,7 @@ import styles from "../TextField/TextField.module.css";
 
 export const TextDateField = forwardRef<HTMLDivElement, DateFieldProps & { locale: string }>(function TextDateField({
   locale, label, value, defaultValue = null, onValueChange, onValidityChange, min, max, name,
-  description, descriptionPlacement="above", errorPlacement="below", errorMessage, invalid, required, disabled, readOnly, referenceDate,
+  description, descriptionPlacement, errorPlacement, errorMessage, invalid, required, disabled, readOnly, referenceDate,
 }, ref) {
   const { t } = useTranslation();
   const validateCandidate = useContext(DateFieldValidationContext);

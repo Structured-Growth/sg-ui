@@ -22,7 +22,7 @@ export interface CheckboxProps extends FieldMessagePlacementProps {
 }
 /** The forwarded ref targets the label; its native `control` owns focus and form validation. */
 export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(function Checkbox({ label, checked, defaultChecked,
-  onCheckedChange, mixed, disabled, readOnly, required, invalid, description, descriptionPlacement="above", errorPlacement="below", errorMessage, name, value, slot }, ref) {
+  onCheckedChange, mixed, disabled, readOnly, required, invalid, description, descriptionPlacement, errorPlacement, errorMessage, name, value, slot }, ref) {
   const labelId = useId();
   const root = useRef<HTMLLabelElement>(null);
   useImperativeHandle(ref, () => root.current!, []);

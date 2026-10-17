@@ -26,7 +26,7 @@ export interface DateRangePickerProps extends Omit<DateRangeSelectorProps, "onCa
   invalid?: boolean;
   onValidityChange?: (valid: boolean) => void;
 }
-export function DateRangePicker({ value, defaultValue = null, onValueChange, name, showTitle = false, showFields = false, entryMode = "text", fieldMode = "text", presentation="popover", description, descriptionPlacement="above", errorPlacement="below", errorMessage, invalid, onValidityChange, ...props }: DateRangePickerProps) {
+export function DateRangePicker({ value, defaultValue = null, onValueChange, name, showTitle = false, showFields = false, entryMode = "text", fieldMode = "text", presentation="popover", description, descriptionPlacement, errorPlacement, errorMessage, invalid, onValidityChange, ...props }: DateRangePickerProps) {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const [internal, setInternal] = useState(defaultValue);

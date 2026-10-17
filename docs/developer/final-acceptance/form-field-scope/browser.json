@@ -1,0 +1,226 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/apps/docs/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/tmp/sgui-form-field-scope-browser.config.mjs"
+    ],
+    "configFile": "/tmp/sgui-form-field-scope-browser.config.mjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 2,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/form-field-scope",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "form-field-scope.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/form-field-scope",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "form-field-scope.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/form-field-scope",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "form-field-scope.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/form-field-scope-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm start --port 3100",
+      "cwd": "/Users/thomashall/Repositories/sg-ui/apps/docs",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "form-field-scope.spec.ts",
+      "file": "form-field-scope.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "shared defaults, nested scopes and explicit overrides remain independent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1739,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T04:20:04.049Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "10bee169639691bfbc03-799acea2b5bf2ac88c03",
+          "file": "form-field-scope.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "shared defaults, nested scopes and explicit overrides remain independent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2294,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T04:20:06.316Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "10bee169639691bfbc03-69efacb361c75a2bbf18",
+          "file": "form-field-scope.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "shared defaults, nested scopes and explicit overrides remain independent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2028,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T04:20:09.774Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "10bee169639691bfbc03-9f991b44af84a75d524e",
+          "file": "form-field-scope.spec.ts",
+          "line": 5,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-17T04:20:03.284Z",
+    "duration": 9036.796,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

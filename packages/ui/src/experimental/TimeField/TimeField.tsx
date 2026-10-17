@@ -29,7 +29,7 @@ function NativeTimeSegment({ segment, state }: { segment: DateSegment; state: Ti
 }
 
 const SegmentedTimeField = forwardRef<HTMLDivElement, TimeFieldProps>(function TimeField({ label, value, defaultValue,
-  onValueChange, min, max, name, description, descriptionPlacement="above", errorPlacement="below", errorMessage, invalid, required, disabled, readOnly, hourCycle, onValidityChange, getTimeUnavailableReason }, ref) {
+  onValueChange, min, max, name, description, descriptionPlacement, errorPlacement, errorMessage, invalid, required, disabled, readOnly, hourCycle, onValidityChange, getTimeUnavailableReason }, ref) {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const safeParse = (raw: string | null | undefined) => {

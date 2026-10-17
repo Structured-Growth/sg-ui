@@ -55,7 +55,7 @@ function RadioOptions({ options, orientation, name }: { options: readonly RadioO
     {options.map(option => <Radio key={option.value} value={option.value} isDisabled={option.disabled} className={styles.radio}><span aria-hidden="true" className={styles.indicator} />{option.label}</Radio>)}
   </div>;
 }
-export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function RadioGroup({ label, options, value, defaultValue, onValueChange, disabled, readOnly, required, invalid, name, description, descriptionPlacement="above", errorPlacement="below", errorMessage, orientation = "vertical", className, style }, ref) {
+export const RadioGroup = forwardRef<HTMLDivElement, RadioGroupProps>(function RadioGroup({ label, options, value, defaultValue, onValueChange, disabled, readOnly, required, invalid, name, description, descriptionPlacement, errorPlacement, errorMessage, orientation = "vertical", className, style }, ref) {
   const root = useRef<HTMLDivElement>(null);
   useImperativeHandle(ref, () => root.current!, []);
   const [internal, setInternal] = useState<string | null>(defaultValue ?? null);

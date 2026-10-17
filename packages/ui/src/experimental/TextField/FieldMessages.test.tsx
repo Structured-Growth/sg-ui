@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import {afterEach,expect,it} from "vitest";
 import {cleanup,render,screen} from "@testing-library/react";
+import {FormFieldScope} from "../FormFieldScope/FormFieldScope";
 import {Select} from "../Select/Select";
 import {ComboBox} from "../ComboBox/ComboBox";
 import {RadioGroup} from "../RadioGroup/RadioGroup";
@@ -17,7 +18,7 @@ import type {ReactNode} from "react";
 afterEach(cleanup);
 type Placement="above"|"below";
 const options=[{id:"one",label:"One"}];
-const cases:readonly [string,(placement:Placement)=>ReactNode,"button"|"combobox"|"radiogroup"|"checkbox"|"switch"|"textbox"|"group"|"searchbox",boolean][]=[
+const cases:readonly [string,(placement:Placement|undefined)=>ReactNode,"button"|"combobox"|"radiogroup"|"checkbox"|"switch"|"textbox"|"group"|"searchbox",boolean][]=[
  ["Select",p=><Select label="Field" options={options} description="Guidance" descriptionPlacement={p} errorPlacement={p} invalid errorMessage="Review value"/>,"button",true],
  ["ComboBox",p=><ComboBox label="Field" options={options} description="Guidance" descriptionPlacement={p} errorPlacement={p} invalid errorMessage="Review value"/>,"combobox",true],
  ["RadioGroup",p=><RadioGroup label="Field" options={[{value:"one",label:"One"}]} description="Guidance" descriptionPlacement={p} errorPlacement={p} invalid errorMessage="Review value"/>,"radiogroup",true],
@@ -46,4 +47,12 @@ it.each(["above","below"] as const)("places an inline range validation summary %
  render(<DateRangeSelector label="Field" months={1} defaultValue={{start:"2026-10-07",end:"2026-10-16"}} rangeLength={{mode:"bounded",max:2,unit:"days"}} errorPlacement={errorPlacement}/>);
  const expected=errorPlacement==="above"?Node.DOCUMENT_POSITION_FOLLOWING:Node.DOCUMENT_POSITION_PRECEDING;
  expect(screen.getByText("Choose an available date range.").compareDocumentPosition(screen.getByRole("grid"))&expected).toBeTruthy();
+});
+
+it.each(cases)("%s inherits both placements from FormFieldScope",(_name,field,role,hasError)=>{
+ const {container}=render(<FormFieldScope descriptionPlacement="below" errorPlacement="above">{field(undefined)}</FormFieldScope>);
+ const control=screen.getByRole(role);
+ const visual=container.querySelector('[data-sgui-part="choice-control"]')??(role==="radiogroup"?screen.getByRole("radio").closest("label")!:control);
+ expect(screen.getByText("Guidance").compareDocumentPosition(visual)&Node.DOCUMENT_POSITION_PRECEDING).toBeTruthy();
+ if(hasError)expect(screen.getByText("Review value").compareDocumentPosition(visual)&Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 });

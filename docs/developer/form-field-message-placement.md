@@ -35,3 +35,37 @@ height reservation by each independent field; wrapping preserves alignment withi
 each row. The TextField/TextArea comparisons and the other field reference panels
 show both placements at compact and comfortable densities. Playground controls
 and copied source remain local to their example.
+
+## Shared defaults with FormFieldScope
+
+`FormFieldScope` is exported from the root, primitives and experimental barrels.
+It supplies `descriptionPlacement` and `errorPlacement` through React context,
+without adding an element, a form, a theme or accessible grouping. Use native
+`form`, `fieldset` and `legend` for those semantics.
+
+Precedence is explicit field prop, then the nearest defined scope setting, then
+library defaults (description above, error below). A nested scope overrides only
+the settings it supplies; `undefined` inherits. Changes preserve mounted controls
+and their drafts. Context flows through React portals, including picker popups.
+Compositions forward explicit settings without injecting library defaults, so
+their descendants and aggregate errors inherit consistently. Explicit child
+configuration such as comparison `rangeProps` retains its existing precedence.
+
+```tsx
+import {FormFieldScope, TextField, Select} from '@structured-growth/sg-ui';
+
+<FormFieldScope descriptionPlacement="below" errorPlacement="above">
+  <form>
+    <TextField label="Name" description="Your full name."/>
+    <FormFieldScope errorPlacement="below">
+      <Select label="Country" options={[{id:'us',label:'United States'}]}/>
+      <TextField label="Notes" descriptionPlacement="above"/>
+    </FormFieldScope>
+  </form>
+</FormFieldScope>
+```
+
+All existing placement-capable fields participate. Switch, SearchField and
+AsyncMultiSelect inherit descriptions only; result failures retain their result
+flow. Values, descriptions, errors, validation timing and disabled/required state
+remain field-owned. Density stays in Provider/ThemeScope.

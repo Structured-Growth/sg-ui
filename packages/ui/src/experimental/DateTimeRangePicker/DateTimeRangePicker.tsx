@@ -22,7 +22,7 @@ export interface DateTimeRangePickerProps extends Omit<DateRangeConstraints,'min
  getDateTimeUnavailableReason?:(value:string,endpoint:'start'|'end')=>string|undefined;
  name?:string;disabled?:boolean;readOnly?:boolean;required?:boolean;
 }
-export function DateTimeRangePicker({label,value,defaultValue=null,onValueChange,min,max,minuteStep=15,hourCycle,referenceDate,presentation='popover',getDateTimeUnavailableReason,name,disabled,readOnly,required,descriptionPlacement="above",errorPlacement="below",...constraints}:DateTimeRangePickerProps){
+export function DateTimeRangePicker({label,value,defaultValue=null,onValueChange,min,max,minuteStep=15,hourCycle,referenceDate,presentation='popover',getDateTimeUnavailableReason,name,disabled,readOnly,required,descriptionPlacement,errorPlacement,...constraints}:DateTimeRangePickerProps){
  const {t}=useTranslation(),root=useRef<HTMLDivElement>(null);
  const [internal,setInternal]=useState(defaultValue),selected=value===undefined?internal:value;
  const [open,setOpen]=useState(false),[draft,setDraft]=useState<DateTimeRange|null>(null);

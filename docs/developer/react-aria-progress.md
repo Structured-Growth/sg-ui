@@ -2193,3 +2193,26 @@ Removed the optional start/end textboxes from DateRangePicker's “Preset panel 
 Implemented the requested default descriptions above controls and independently configurable `descriptionPlacement` / `errorPlacement` values (`above` / `below`; errors default below). A shared private helper/type keeps existing message nodes, IDs and interaction state owned by each field. Covers text, selection, choice, date/time (text and segments) and composed range/period fields. Switch/search/async selection expose description placement and retain their existing request-status semantics. Inline choice labels remain beside indicators; private grid/toolbar label hiding now targets the owned choice label marker. Updated public declarations, every affected playground/source, both-density message examples, usage guidance and the [contract guide](form-field-message-placement.md).
 
 [Receipts](final-acceptance/form-field-message-placement/results.json): 92 affected test files / 642 tests pass; fresh library/foundation/production docs/catalog/native fixture/browser types and final docs types pass. All 81 targeted native docs cases pass across Chromium/Firefox/WebKit, including composed forwarding and both grid renderers' visible selection controls. Reviewed aligned row screenshots. Initial locator/focus-driver failures are retained; native input focus inside managed grids is not used as a keyboard acceptance claim. Existing 139 A / 20 V / 6 future counts remain unchanged.
+
+## 2026-10-16 — FormFieldScope presentation defaults
+
+Implemented the requested reusable `FormFieldScope` (root/primitives/experimental
+exports) for shared description/error placement. Explicit field props win,
+nested scopes inherit omitted settings, and library fallback stays description
+above/error below. The scope adds no DOM element or native form. All existing
+placement-capable fields and composed picker errors participate; search/async
+request failures retain result-flow semantics. Values, messages, validation,
+required/disabled state and density keep their existing ownership.
+
+The new catalog page has its independent overview, playground, compact and
+comfortable nested-scope examples, generated public props and Contains metadata,
+and host/accessibility guidance. Copied source matches live controls and values.
+
+Validation: affected suite **314 tests / 49 files** passed; final dedicated scope
+suite **5 tests** also passed, including live inheritance in a date-time popup.
+Foundation guards, fresh library build, production docs build/catalog checks,
+docs typecheck, and packed package imports/declarations/assets passed. New docs
+browser scenario passed in Chromium, Firefox and WebKit (**3/3**), checking
+inheritance, overrides, state/source isolation and narrow reflow. Evidence:
+[form-field-scope/results.json](final-acceptance/form-field-scope/results.json).
+These feature checks do not close the broader device/AT/visual acceptance gates.

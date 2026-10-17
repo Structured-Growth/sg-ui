@@ -13,7 +13,7 @@ import field from "../TextField/TextField.module.css";
 import styles from "./TimeField.module.css";
 
 export const TextTimeField=forwardRef<HTMLDivElement,TimeFieldProps&{locale:string}>(function TextTimeField({
- label,value,defaultValue=null,onValueChange,onValidityChange,min,max,name,description,descriptionPlacement="above",errorPlacement="below",errorMessage,invalid,required,disabled,readOnly,hourCycle,locale,minuteStep=1,getTimeUnavailableReason
+ label,value,defaultValue=null,onValueChange,onValidityChange,min,max,name,description,descriptionPlacement,errorPlacement,errorMessage,invalid,required,disabled,readOnly,hourCycle,locale,minuteStep=1,getTimeUnavailableReason
 },ref){
  const {t}=useTranslation(),id=useId(),root=useRef<HTMLDivElement>(null),input=useRef<HTMLInputElement>(null);
  useImperativeHandle(ref,()=>root.current!);

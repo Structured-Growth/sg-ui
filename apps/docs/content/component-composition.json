@@ -771,6 +771,12 @@
       "children": []
     }
   ],
+  "form-field-scope": [
+    {
+      "name": "FormFieldScope",
+      "children": []
+    }
+  ],
   "period-picker": [
     {
       "name": "PeriodPicker",

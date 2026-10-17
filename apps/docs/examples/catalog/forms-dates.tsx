@@ -1,6 +1,7 @@
 'use client';
 
 import {AdvancedCalendarExamples,AdvancedRangeExample} from '../AdvancedCalendarExamples';
+import {FormFieldScopeExamples} from '../FormFieldScopeExamples';
 import {SearchFieldExamples} from '../SearchFieldExamples';
 import {FieldIconExamples} from '../FieldIconExamples';
 import {FieldMessageExamples} from '../FieldMessageExamples';
@@ -349,6 +350,7 @@ function PeriodPage(){return <AdvancedCalendarExamples kind="PeriodPicker"/>;}
 function DateTimeRangePage(){return <AdvancedCalendarExamples kind="DateTimeRangePicker"/>;}
 function ComparisonPage(){return <AdvancedCalendarExamples kind="DateRangeComparisonPicker"/>;}
 export const formsDateEntries: CatalogEntry[] = [
+  {slug:'form-field-scope',title:'FormFieldScope',description:'Shared message placement defaults with nested scopes and individual field overrides.',exports:['FormFieldScope'],Playground:FormFieldScopeExamples},
   {slug:'period-picker',title:'PeriodPicker',description:'Select a whole week, month, quarter or year.',exports:['PeriodPicker'],Playground:PeriodPage},
   {slug:'date-time-range-picker',title:'DateTimeRangePicker',description:'Local start/end datetime drafting with minute increments and atomic Apply.',exports:['DateTimeRangePicker'],Playground:DateTimeRangePage},
   {slug:'date-range-comparison-picker',title:'DateRangeComparisonPicker',description:'Compare a primary interval with a previous period, previous year or custom range.',exports:['DateRangeComparisonPicker'],Playground:ComparisonPage},

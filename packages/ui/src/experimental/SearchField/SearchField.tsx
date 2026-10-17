@@ -58,7 +58,7 @@ export type SearchFieldProps = SearchOptions & ({ label: string; "aria-label"?: 
 /** Search input and nonmodal results. The host owns data, remote request freshness and routing. */
 export const SearchField = forwardRef<HTMLInputElement, SearchFieldProps>(function SearchField({
   items = [], showResults = true, value, defaultValue = "", onValueChange, onResultSelect, onSearch, filter = "contains", label,
-  "aria-label": ariaLabel, placeholder, description, descriptionPlacement="above", resultsLabel, emptyMessage, resultCountLabel,
+  "aria-label": ariaLabel, placeholder, description, descriptionPlacement, resultsLabel, emptyMessage, resultCountLabel,
   loading, errorMessage, onRetry, disabled, readOnly, showClearButton = true, name, density, className,
   startIcon = <SearchIcon size={16}/>, endIcon,
 }, ref) {

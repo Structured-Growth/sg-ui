@@ -22,3 +22,5 @@ export { Provider, type ProviderProps } from "../../experimental/Provider/Provid
 export { ThemeScope, type ThemeScopeProps } from "../../foundation/ThemeScope";
 
 export { SearchField, type SearchFieldProps, type SearchFieldItem } from "../../experimental/SearchField/SearchField";
+
+export { FormFieldScope, type FormFieldScopeProps } from "../../experimental/FormFieldScope/FormFieldScope";

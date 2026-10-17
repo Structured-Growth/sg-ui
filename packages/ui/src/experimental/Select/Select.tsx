@@ -38,7 +38,7 @@ export interface SelectProps extends FieldMessagePlacementProps {
   errorMessage?: string;
   className?: string;
 }
-export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select({ label, options, value, defaultValue, onValueChange, name, placeholder, description, descriptionPlacement="above", errorPlacement="below", required, disabled, readOnly, invalid, errorMessage, className, startIcon, endIcon }, ref) {
+export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select({ label, options, value, defaultValue, onValueChange, name, placeholder, description, descriptionPlacement, errorPlacement, required, disabled, readOnly, invalid, errorMessage, className, startIcon, endIcon }, ref) {
   const { t } = useTranslation(); const scope = useOverlayScope();
   const { direction } = useLocale();
   const directionRef = useOverlayDirectionRef(direction);

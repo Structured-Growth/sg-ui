@@ -29,7 +29,7 @@ function NativeDateSegment({ segment, state }: { segment: DateSegment; state: Da
 }
 
 const SegmentedDateField = forwardRef<HTMLDivElement, DateFieldProps>(function SegmentedDateField({ label, kind = "date", value,
-  defaultValue, onValueChange, onValidityChange, min, max, name, description, descriptionPlacement="above", errorPlacement="below", errorMessage, invalid, required, disabled, readOnly, hourCycle }, ref) {
+  defaultValue, onValueChange, onValidityChange, min, max, name, description, descriptionPlacement, errorPlacement, errorMessage, invalid, required, disabled, readOnly, hourCycle }, ref) {
   const validateCandidate = useContext(DateFieldValidationContext);
   const [rejectedDraft, setRejectedDraft] = useState<string | undefined>(undefined);
   const [previousValue, setPreviousValue] = useState(value);

@@ -1,0 +1,88 @@
+{
+  "feature": "FormFieldScope inherited message placement",
+  "baseCommit": "6ddf332692710b6c3d892984b3edd3184c8b71b4",
+  "sourceSha256": {
+    "apps/docs/examples/FormFieldScopeExamples.tsx": "97ba8e7d4b686254587ad3702584f7e1022473736d3ab244d7ceb4194c974dad",
+    "apps/docs/tests/form-field-scope.spec.ts": "7bc4082dbc8c1fef4ca1f249bf00b4725ce81e9801b0ea60509f8ff3b53cf476",
+    "packages/ui/src/experimental/FormFieldScope/FormFieldScope.test.tsx": "679db7bfcdc2aca581c77a7bba00c33bbed495b2dd5edd7e4361101afefaedce",
+    "packages/ui/src/experimental/FormFieldScope/FormFieldScope.tsx": "1690b9f41bc1d5bca97d223c4522e4f50d10c056d8ba101ff16bbd4b710e7942",
+    "apps/docs/content/catalog.json": "6ae6e8b9fd97c3cbeef6022692f4b4659efd34a9d511e3e79eb3765fc4b847cd",
+    "apps/docs/content/component-api.json": "e246a736da30c738059aa52dc6f9de45d7b3fb3b76664f8f0385a88032e6c255",
+    "apps/docs/content/component-composition.json": "e9973e6b6f60e4c433b1266e95a78efc6f187824a17107b7501d41125e050b61",
+    "apps/docs/content/component-navigation.json": "0189b325cc77ce377d0b1fdcc5c656ed6615452520049650a0b211c757210598",
+    "apps/docs/content/component-usage/forms.json": "809c3c70e243d3b5591a395614654874355e23e1c2b1b3d94d43db8cb51556bc",
+    "apps/docs/examples/catalog/forms-dates.tsx": "0819f0faa40162e736cd1acf47fac5ba06a32dab317743773fc522a87736f0b5",
+    "docs/developer/form-field-message-placement.md": "8998e7c809738bd3b39669c244f77d4cc36ab8cc9cfa24576f9baf89c8a04849",
+    "docs/developer/react-aria-progress.md": "6df30f5286e86ca082a3e91de81e9cdda792078c1f18b46e5753f3b2c71a2a32",
+    "packages/ui/src/components/primitives/index.ts": "12d003102ae67731bb055b06a553d07f7e0ecd4e8136175d340554b51f8f529d",
+    "packages/ui/src/experimental/AsyncMultiSelect/AsyncMultiSelect.tsx": "a8be9002729d1e24b21b2596bbded3b8c99f4d089fe77ec8aec0e3ae940ebbf8",
+    "packages/ui/src/experimental/Checkbox/Checkbox.tsx": "24a89ec82398b83ba5e084977844b68fa9cf72e16749597df5d1a1ceba3cea3c",
+    "packages/ui/src/experimental/ComboBox/ComboBox.tsx": "6d2f06abf1318194e6bbdb43193dedd050997b287a1b61a37be071d1e84238a9",
+    "packages/ui/src/experimental/DateField/DateField.tsx": "61e0b2bc4ea79398b4eb8a42ffcc305b54e1be283f4982a2af5ec152082a527f",
+    "packages/ui/src/experimental/DateField/TextDateField.tsx": "ef2fb99bb34f5344a84f496aaa56595389a61722a17657738ff2e1e7681f4a0d",
+    "packages/ui/src/experimental/DateRangeComparisonPicker/DateRangeComparisonPicker.tsx": "6a61dd6a7b18f8cc60fe34219879c6d1cd032cabf6fb68e54866edca1bb375dd",
+    "packages/ui/src/experimental/DateRangePicker/DateRangePicker.tsx": "732e57d8acd57e86f3fb477ab29d70cc0f58243155a7308c8ac386f9c1192753",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": "b5a56537ca0a1d7f86ae6ad9d350e0ea44cd7ab9c1edac5c8350c92f98491bdf",
+    "packages/ui/src/experimental/DateTimeRangePicker/DateTimeRangePicker.tsx": "998ff09a714566dd458db7b3add2fa0e07786bc9db799555a2c54a978461c3d8",
+    "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx": "a17c6099b7ace9ca81f0a7d55a9c7534e124c3f3287efdb59b27f7cd7e9cd36e",
+    "packages/ui/src/experimental/RadioGroup/RadioGroup.tsx": "2d1ce9f65bb5ede574e4b36d1e0bcab493a23b4d3cbc65b4288235cc2e014042",
+    "packages/ui/src/experimental/SearchField/SearchField.tsx": "919fdfc1a1b9df3e6d4218d351a30e85c20e292e01b3f370fad7676fe0d9bc25",
+    "packages/ui/src/experimental/Select/Select.tsx": "f99a61a9f3f1c9f65e88fd13ff00ef9b15f8e6c6210b954ed4d295b1d632ada7",
+    "packages/ui/src/experimental/Switch/Switch.tsx": "2b09aaabd545fe8b8cf39e44f9f1b552833ae56641b057715cf39394ae34aaee",
+    "packages/ui/src/experimental/TextArea/TextArea.tsx": "0630b5dc4ef085bef18dcb7ec09049004b130806c20a68f7b41149ada57c3552",
+    "packages/ui/src/experimental/TextField/FieldMessages.test.tsx": "60b31da52a555361fa252a977ed7a14672c4eee5291a3add739357c26bf27e68",
+    "packages/ui/src/experimental/TextField/FieldMessages.tsx": "7d9920558f7e15f892a1f156f4b0a874e68bbace5ac742782710aa0af9c1860d",
+    "packages/ui/src/experimental/TextField/TextField.tsx": "f4599709af946457ffdfc17d61d3505af60940de4fe95ef916a24eb36dffdc6b",
+    "packages/ui/src/experimental/TimeField/TextTimeField.tsx": "b454ad6921a5ed5b96164c92baad525f6140c65f0c99c9d3f3e54786ea0b2d5d",
+    "packages/ui/src/experimental/TimeField/TimeField.tsx": "75f773b71ffce6c46ea071b1eed995bb495f5ff23ba0b549b95f4c5b28d83528",
+    "packages/ui/src/experimental/index.ts": "ba1ef1f3019cdf23f4bf4f98c98dc15a08445447d1c03d8ba432b9e4e8a70182"
+  },
+  "validation": {
+    "units": {
+      "path": "/tmp/sgui-form-field-scope-units.log",
+      "sha256": "b3e1355e78cd38fb5002780d3dd8dac143ed9c90dd852d934c3528f9e08f23cb",
+      "status": "passed"
+    },
+    "portal": {
+      "path": "/tmp/sgui-form-field-scope-portal.log",
+      "sha256": "0da478715101cca2d10add719ea0117ad7fe37645bd328da2c64be4f7929d50b",
+      "status": "passed"
+    },
+    "build": {
+      "path": "/tmp/sgui-form-field-scope-build.log",
+      "sha256": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+      "status": "passed"
+    },
+    "guards": {
+      "path": "/tmp/sgui-form-field-scope-guards.log",
+      "sha256": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647",
+      "status": "passed"
+    },
+    "docs": {
+      "path": "/tmp/sgui-form-field-scope-docs.log",
+      "sha256": "f8f7dbb16b30e4c14dc7d29d5344186dc79c0d5ef5326356aee2da43af25fc45",
+      "status": "passed"
+    },
+    "types": {
+      "path": "/tmp/sgui-form-field-scope-types.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "passed"
+    },
+    "package": {
+      "path": "/tmp/sgui-form-field-scope-package.log",
+      "sha256": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103",
+      "status": "passed"
+    },
+    "browser": {
+      "path": "/tmp/sgui-form-field-scope-browser.log",
+      "sha256": "7fb89e7b9c50bc3eebdaeaa72c5a4b91f202167c50cf0bf364216430f1d462e4",
+      "status": "passed"
+    }
+  },
+  "browserReport": "browser.json",
+  "notes": [
+    "Affected suite: 314 tests in 49 files. Final dedicated scope suite: 5 tests, including an additional portal scenario. Counts overlap.",
+    "Browser: 3 passed, Chromium/Firefox/WebKit.",
+    "Broader acceptance gates remain unchanged."
+  ]
+}

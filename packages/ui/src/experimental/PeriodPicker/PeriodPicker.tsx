@@ -23,7 +23,7 @@ export interface PeriodPickerProps extends DateRangeConstraints, FieldMessagePla
  presentation?:PopoverProps["presentation"];
  name?:string;disabled?:boolean;readOnly?:boolean;required?:boolean;
 }
-export function PeriodPicker({label,unit,value,defaultValue=null,onValueChange,referenceDate,firstDayOfWeek='mon',presentation='popover',name,disabled,readOnly,required,descriptionPlacement="above",errorPlacement="below",...constraints}:PeriodPickerProps){
+export function PeriodPicker({label,unit,value,defaultValue=null,onValueChange,referenceDate,firstDayOfWeek='mon',presentation='popover',name,disabled,readOnly,required,descriptionPlacement,errorPlacement,...constraints}:PeriodPickerProps){
  const {t,locale}=useTranslation();const root=useRef<HTMLDivElement>(null);
  const [internal,setInternal]=useState(defaultValue),selected=value===undefined?internal:value;
  const [yearDraft,setYearDraft]=useState<string|null>(null);

@@ -34,7 +34,7 @@ export type TextFieldProps = FieldOptions & (
 );
 
 export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(function TextField(
-  { label, description, descriptionPlacement = "above", errorMessage, errorPlacement = "below", invalid, density, className, inputClassName,
+  { label, description, descriptionPlacement, errorMessage, errorPlacement, invalid, density, className, inputClassName,
     disabled, readOnly, required, value, defaultValue, onValueChange, form, inputMode, startIcon, endIcon, ...props }, ref,
 ) {
   const input = useRef<HTMLInputElement>(null);

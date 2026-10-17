@@ -9282,6 +9282,39 @@
       ]
     }
   ],
+  "form-field-scope": [
+    {
+      "names": [
+        "FormFieldScope"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "children",
+          "type": "ReactNode",
+          "required": false,
+          "default": "—",
+          "description": "Fields and layout receiving these defaults. No DOM element or native form is created."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
+        }
+      ],
+      "native": []
+    }
+  ],
   "period-picker": [
     {
       "names": [
@@ -9413,15 +9446,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         }
       ],
       "native": []
@@ -9558,15 +9591,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         }
       ],
       "native": []
@@ -9654,15 +9687,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         }
       ],
       "native": []
@@ -9848,8 +9881,8 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "label",
@@ -10072,15 +10105,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         },
         {
           "name": "label",
@@ -10256,15 +10289,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         },
         {
           "name": "description",
@@ -10461,15 +10494,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         },
         {
           "name": "ref",
@@ -10616,15 +10649,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         },
         {
           "name": "ref",
@@ -10770,8 +10803,8 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         }
       ],
       "native": []
@@ -10887,15 +10920,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         },
         {
           "name": "ref",
@@ -10999,8 +11032,8 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "ref",
@@ -11132,15 +11165,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         },
         {
           "name": "ref",
@@ -11630,14 +11663,14 @@
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         },
         {
           "name": "ref",
@@ -11791,14 +11824,14 @@
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         },
         {
           "name": "ref",
@@ -12160,14 +12193,14 @@
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         }
       ],
       "native": []
@@ -12500,15 +12533,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         }
       ],
       "native": []
@@ -12806,15 +12839,15 @@
           "name": "descriptionPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"above\"",
-          "description": "Description position relative to the control. Defaults above, after the label where a separate label exists."
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
         },
         {
           "name": "errorPlacement",
           "type": "\"above\" | \"below\" | undefined",
           "required": false,
-          "default": "\"below\"",
-          "description": "Validation message position relative to the control. Defaults below; above follows any above-control description."
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
         }
       ],
       "native": []

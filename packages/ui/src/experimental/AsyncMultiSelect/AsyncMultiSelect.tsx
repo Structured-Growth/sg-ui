@@ -34,7 +34,7 @@ export interface AsyncMultiSelectProps extends Pick<FieldMessagePlacementProps,"
 }
 
 export function AsyncMultiSelect({ label, options, value, defaultValue = [], onValueChange,
-  query, onQueryChange, loading, errorMessage, onRetry, disabled, readOnly, name, description, descriptionPlacement="above", placeholder, startIcon, endIcon }: AsyncMultiSelectProps) {
+  query, onQueryChange, loading, errorMessage, onRetry, disabled, readOnly, name, description, descriptionPlacement, placeholder, startIcon, endIcon }: AsyncMultiSelectProps) {
   const { t } = useTranslation();
   const [internal, setInternal] = useState<readonly MultiSelectOption[]>(defaultValue);
   const selected = value ?? internal;

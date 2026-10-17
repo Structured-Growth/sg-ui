@@ -16,6 +16,7 @@
     "id": "forms",
     "label": "Form components",
     "slugs": [
+      "form-field-scope",
       "text-field",
       "search-field",
       "text-area",

@@ -12,7 +12,7 @@ import field from "../TextField/TextField.module.css";
 import styles from "./TextArea.module.css";
 type MultilineOptions<T> = T extends unknown ? Omit<T, "type" | "pattern" | "inputClassName"> : never;
 export type TextAreaProps = MultilineOptions<TextFieldProps> & { rows?: number; inputClassName?: string };
-export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea({ label, description, descriptionPlacement = "above", errorMessage, errorPlacement = "below", invalid, density, className, inputClassName, disabled, readOnly, required, value, defaultValue, onValueChange, form, inputMode, startIcon, endIcon, rows = 4, ...props }, ref) {
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea({ label, description, descriptionPlacement, errorMessage, errorPlacement, invalid, density, className, inputClassName, disabled, readOnly, required, value, defaultValue, onValueChange, form, inputMode, startIcon, endIcon, rows = 4, ...props }, ref) {
   const [draft, setDraft] = useState(defaultValue ?? "");
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
   const [preservedError, setPreservedError] = useState<string | undefined>();

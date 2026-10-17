@@ -120,7 +120,7 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
   name?: string;
 }
 
-export function DateRangeSelector({ label, showTitle = false, navigation = "arrows", visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement="above", errorPlacement="below", activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
+export function DateRangeSelector({ label, showTitle = false, navigation = "arrows", visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement, errorPlacement, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets:basePresets = [], presetGroups = [], presetPlacement = "side", months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
   const { locale, direction } = useLocale();

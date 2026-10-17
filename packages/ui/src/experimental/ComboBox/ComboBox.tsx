@@ -42,7 +42,7 @@ export interface ComboBoxProps extends FieldMessagePlacementProps {
 }
 
 export const ComboBox = forwardRef<HTMLInputElement, ComboBoxProps>(function ComboBox(
-  { label, options, value, defaultValue, onValueChange, name, placeholder, description, descriptionPlacement="above", errorPlacement="below",
+  { label, options, value, defaultValue, onValueChange, name, placeholder, description, descriptionPlacement, errorPlacement,
     required, disabled, readOnly, invalid, errorMessage, autoFocus, className, startIcon, endIcon }, ref,
 ) {
   const { t } = useTranslation();
