@@ -85,3 +85,12 @@ it("hides repeated endpoint fields by default and enables freehand endpoint edit
   await user.click(screen.getByRole('button',{name:'Apply',exact:true}));
   expect(change).toHaveBeenCalledExactlyOnceWith({start:'2024-02-03',end:'2024-02-29'});
 });
+
+it("keeps default fields clean and associates only explicit descriptions or errors", async () => {
+ const user=userEvent.setup();const {rerender}=render(<DateRangePicker label="Range" referenceDate="2026-10-16"/>);
+ const input=screen.getByRole("textbox",{name:"Range"});expect(input.getAttribute("aria-describedby")).toBeNull();expect(screen.queryByText(/Weeks start|Enter two dates|reference date/)).toBeNull();
+ rerender(<DateRangePicker label="Range" referenceDate="2026-10-16" description="Choose a reporting period."/>);
+ const descriptionId=input.getAttribute("aria-describedby")!;expect(document.getElementById(descriptionId)?.textContent).toBe("Choose a reporting period.");
+ rerender(<DateRangePicker label="Range" referenceDate="2026-10-16"/>);await user.type(input,"invalid{Enter}");
+ expect(input.getAttribute("aria-invalid")).toBe("true");const errorId=input.getAttribute("aria-describedby")!;expect(document.getElementById(errorId)?.textContent).toContain("Enter a valid date range");
+});

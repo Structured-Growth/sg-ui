@@ -88,16 +88,14 @@ export function DateRangePicker({ value, defaultValue = null, onValueChange, nam
     });
     return () => view.cancelAnimationFrame(frame);
   }, [open]);
-  const messages={descriptionPlacement,errorPlacement,description:((fieldMode === "text" || description) && <div id={`${id}-description`} className={fields.description}>{description ?? t("common.ui.dateRangeTextFormats", { defaultMessage: "Enter two dates separated by a spaced dash, such as {example}.", values: { example: `${formatDateText("2026-01-01", locale)} – ${formatDateText("2026-01-03", locale)}` } })}
-      {fieldMode === "text" && props.referenceDate && isDateOnly(props.referenceDate) && <> {t("common.ui.relativeRangeTextFormats", { defaultMessage: "This, last or next week, month and year use reference date {referenceDate}. Weeks start on {weekday}.", values: { referenceDate: props.referenceDate, weekday: new Intl.DateTimeFormat(locale, { weekday: "long", timeZone: "UTC" }).format(new Date(Date.UTC(2026, 0, 4 + weekStartsOn))) } })}</>}
-    </div>),error:(showError && <div id={`${id}-error`} className={fields.error}>{message}</div>)};
+  const messages={descriptionPlacement,errorPlacement,description:(description && <div id={`${id}-description`} className={fields.description}>{description}</div>),error:(showError && <div id={`${id}-error`} className={fields.error}>{message}</div>)};
   return <div ref={root} className={`${fields.root} ${styles.root}`} data-invalid={showError || undefined} data-disabled={props.disabled || undefined}>
     {fieldMode === "text" ? <label htmlFor={id} className={fields.label}>{props.label}</label> : <span className={fields.label}>{props.label}</span>}
     <FieldMessages position="above" {...messages}/>
     <div data-sgui-part={fieldMode === "text" ? "date-range-field-control-group" : undefined} className={fieldMode === "text" ? fields.controlGroup : undefined}>
     {fieldMode === "text" && <input id={id} ref={inputRef} type="text" className={fields.input} value={text}
       disabled={props.disabled} readOnly={props.readOnly} required={props.required} aria-invalid={showError || undefined}
-      aria-describedby={`${id}-description${showError ? ` ${id}-error` : ""}`}
+      aria-describedby={[description?`${id}-description`:null,showError?`${id}-error`:null].filter(Boolean).join(" ")||undefined}
       onChange={event => { setDraft(event.currentTarget.value); setValidationAttempted(false); }} onInvalid={() => setValidationAttempted(true)} onBlur={commitText}
       onKeyDown={event => { if (event.key === "Enter") { event.preventDefault(); commitText(); } }} /> }
     <Popover presentation={presentation} title={props.label} showTitle={showTitle} size="content" open={open} onOpenChange={setOpen}

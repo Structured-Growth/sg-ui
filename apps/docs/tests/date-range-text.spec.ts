@@ -4,6 +4,13 @@ import {checkSources} from './check-sources';
 
 test('range textbox: normalized dates, relative weeks, calendar transaction and isolated source',async({page},info)=>{
  await page.goto('/docs/components/date-range-picker');
+ await expect(page.getByText('Local value supplied by your host.',{exact:false})).toHaveCount(0);
+ await expect(page.getByText(/This, last or next week, month and year use reference date/)).toHaveCount(0);
+ await expect(page.getByText('Type a date range or a relative period, or open the calendar to choose dates.',{exact:true})).toBeVisible();
+ const overview=page.getByRole('region',{name:'DateRangePicker at a glance',exact:true});
+ const overviewField=overview.getByRole('textbox',{name:'Course schedule',exact:true});
+ const descriptionId=await overviewField.getAttribute('aria-describedby');
+ await expect(overview.locator(`[id="${descriptionId}"]`)).toHaveText("Select the calendar icon or type a date range, such as 'next week'");
  const panel=page.getByRole('region',{name:exampleName('Type a range or a relative period'),exact:true});
  const input=panel.getByRole('textbox',{name:'Reporting period',exact:true}),trigger=panel.getByRole('button',{name:'Choose Reporting period',exact:true});
  const sibling=page.getByRole('region',{name:exampleName('Prop playground'),exact:true}).locator('[data-docs-preview]').getByRole('textbox',{name:'Course schedule',exact:true});

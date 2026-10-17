@@ -695,7 +695,7 @@ rules; narrow layouts reflow label rows above calendars without changing selecti
 
 ### Clean flexible date fields — 2026-10-16
 
-Flexible DateField renders no automatic format, two-digit-year or relative-anchor
+Flexible DateField and the DateRangePicker range textbox render no automatic format, two-digit-year or relative-anchor
 instructions. This also cleans DatePicker and the optional range endpoint fields.
 Explicit host descriptions remain supported; blank descriptions produce no helper
 row or dangling aria-describedby. Invalid drafts still show associated validation

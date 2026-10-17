@@ -224,7 +224,7 @@ function DateScenario({kind, scenario}: {kind:DateKind; scenario:Scenario}) {
   const source = useExampleSource();
   const [density, setDensity] = useState<Density>(scenario === 'compact' ? 'compact' : 'comfortable');
   const [label, setLabel] = useState(kind === 'TimeField' ? 'Course start time' : 'Course schedule');
-  const [description, setDescription] = useState('Local value supplied by your host.');
+  const [description, setDescription] = useState(kind === 'DateRangePicker' ? "Select the calendar icon or type a date range, such as 'next week'" : 'Local value supplied by your host.');
   const [referenceDate,setReferenceDate]=useState("2026-10-16");
   const [disabled, setDisabled] = useState(false); const [readOnly, setReadOnly] = useState(false);
   const [required, setRequired] = useState(scenario === 'form'); const [invalid, setInvalid] = useState(false);
@@ -383,6 +383,6 @@ export const formsDateEntries: CatalogEntry[] = [
   {slug:'time-field', title:'TimeField', description:'Flexible time text entry with a selection dropdown, business-hour limits and 12/24-hour presentation.', exports:['TimeField'], Playground:datePage('TimeField')},
   {slug:'calendar', title:'Calendar', description:'One to three months with single/multiple selection and host availability explanations.', exports:['Calendar'], Playground:datePage('Calendar')},
   {slug:'date-picker', title:'DatePicker', description:'Flexible date text entry and a scoped calendar popup with clear and availability handling.', exports:['DatePicker'], Playground:datePage('DatePicker')},
-  {slug:'date-range-picker', title:'DateRangePicker', description:"Select the calendar icon or type a date range, such as 'next week'", exports:['DateRangePicker'], Playground:datePage('DateRangePicker')},
+  {slug:'date-range-picker', title:'DateRangePicker', description:'Type a date range or a relative period, or open the calendar to choose dates.', exports:['DateRangePicker'], Playground:datePage('DateRangePicker')},
   {slug:'date-range-selector', title:'DateRangeSelector', description:'Inline range drafting, named preset descriptions, Apply and Cancel transactions.', exports:['DateRangeSelector','getRelativeDateRange','getDateRangeLength'], Playground:datePage('DateRangeSelector')},
 ];

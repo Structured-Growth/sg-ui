@@ -2358,3 +2358,15 @@ checks). Two extra Chromium runs captured compact/comfortable range month/year
 views for visual review. Evidence is recorded in
 [shared calendar pickers](final-acceptance/shared-calendar-pickers/results.json).
 Broader historical acceptance/device/AT gates remain unchanged.
+
+### DateRangePicker field-description correction (2026-10-17)
+
+Restored the original catalog page subtitle. The overview/playground/reference
+field description now reads: “Select the calendar icon or type a date range,
+such as 'next week'”. Removed DateRangePicker's automatic format/reference-date
+paragraph; only an explicit host description is rendered. Description/error ARIA
+references now include only mounted messages. Parsing and deterministic reference
+semantics remain unchanged. Validation: 16 affected units in four files, fresh
+library/production docs builds and catalog checks, plus both Chromium range-text
+browser cases (including overview-description association, restored subtitle,
+relative input, native submission, isolation and copied source).
