@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 51,
-  "closedTotal": 232,
-  "remaining": 88,
+  "closedThisReview": 63,
+  "closedTotal": 244,
+  "remaining": 76,
   "entries": [
     {
       "id": "A-M-21",
@@ -452,6 +452,114 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-modal-final-closures.json",
       "sha256": "7e7443d62ea7e56abf9f67e2b868d5de5c8bb5fede1851be627bfc4c52804025",
       "limits": "Original technical component criteria only. No spoken AT or physical-device approval; zoom defects in selectors remain separately open."
+    },
+    {
+      "id": "A-C-19",
+      "basis": "Two enforced response policies are tested across3engines: nonce-authorized pressable/scroll-lock style elements work; allow-style-attribute policy preserves4overlay presentations without violations; restrictive policy still rejects parser-created inline attributes. Existing fallback/resize checks pass. Guide defines host nonce responsibility, CSSOM/style-attribute limits and no universal strict CSP claim.",
+      "criterion": "- [ ] A-C-19 Reconcile original `C-19`: Verify CSP behavior, including unavoidable inline styles for placement/dynamic values; do not claim strict CSP support without testing. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-csp-and-icon-contract-closures.json",
+      "sha256": "a4ca0e330c956836a93049ed091be1793eb0b148b4a3f1c4f718fa63165f59c7",
+      "limits": "Scoped installed-engine/controlled-host evidence. No universal CSP deployment, full visual state matrix, physical-device or spoken-AT approval. Original three CSP failures are preserved."
+    },
+    {
+      "id": "A-I-05",
+      "basis": "All96shipped icons pass1152geometry/RTL measurements perengine across16/20/24px,2densities and2directions, including viewBox/stroke/bounds and inherited/explicit/nested mirroring policy. Named theme/forced-color pairs pass contrast and meaningful/decorative naming checks. Coordinator inspected compactLTR20 and comfortableRTL16 full96icon captures: consistent strokes, readable alignment, correct directional mirroring, no clipped geometry.",
+      "criterion": "- [ ] A-I-05 Reconcile original `I-05`: Establish consistent optical size, weight, alignment, RTL mirroring policy, and theme contrast. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-csp-and-icon-contract-closures.json",
+      "sha256": "a4ca0e330c956836a93049ed091be1793eb0b148b4a3f1c4f718fa63165f59c7",
+      "limits": "Scoped installed-engine/controlled-host evidence. No universal CSP deployment, full visual state matrix, physical-device or spoken-AT approval. Original three CSP failures are preserved."
+    },
+    {
+      "id": "A-R-08",
+      "basis": "Exact archive4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959 is independently installed in Vite foundation18/19, editor18/19 and Next19 consumers. All5production builds and15host/engine SSR+hydrated browser flows pass; driver/test tools do not alias runtime package imports. Fresh package entrypoints, owned declarations and member/build matching pass.",
+      "criterion": "- [ ] A-R-08 Reconcile original `R-08`: Verify packed artifacts rather than only source imports; install the tarball in clean Vite and Next.js/SSR consumer fixtures and build production output. Historical status: checked.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-fresh-packed-consumer-closures.json",
+      "sha256": "9fd75c4bd772ce0bba3c524afb15dbf6f9f5f1021fd79753df1dad3ed74dacad",
+      "limits": "Exact current tarball on Node24.21, React18.3.1/19.2.3 and pinned fixture tooling. No universal framework/version, manual AT, performance budget or production publishing approval. Installed declaration negative-control expansion is separate pending work."
+    },
+    {
+      "id": "A-Z-09",
+      "basis": "All5clean locked consumer graphs contain no retired foundation/styling identity. Actual packed core controls, date selector, grid compositions and editor flows are installed/used in production consumers with both supported React generations; public stylesheet loads and runtime interactions pass across3engines.",
+      "criterion": "- [ ] A-Z-09 Reconcile original `Z-09`: Verify a clean consumer can install and use core, grid, editor and date components without installing any retired package or styling runtime. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-fresh-packed-consumer-closures.json",
+      "sha256": "9fd75c4bd772ce0bba3c524afb15dbf6f9f5f1021fd79753df1dad3ed74dacad",
+      "limits": "Exact current tarball on Node24.21, React18.3.1/19.2.3 and pinned fixture tooling. No universal framework/version, manual AT, performance budget or production publishing approval. Installed declaration negative-control expansion is separate pending work."
+    },
+    {
+      "id": "A-X-18",
+      "basis": "Fresh public entrypoints import in no-browser Node context, actual Vite React18/19 and Next19 SSR output passes server markup and hydrated interactions in all3engines. Stable scope/locale/date/control IDs and lack of hydration errors are asserted by existing real consumer fixtures. New hook-based clipboard plugin now preserves explicit use-client boundary, verified by fresh packed audit.",
+      "criterion": "- [ ] A-X-18 Reconcile original `X-18`: Add SSR render and hydration tests with no window/document at import time, no mismatched IDs, and correct initial locale/theme/date values. Historical status: checked.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-fresh-packed-consumer-closures.json",
+      "sha256": "9fd75c4bd772ce0bba3c524afb15dbf6f9f5f1021fd79753df1dad3ed74dacad",
+      "limits": "Exact current tarball on Node24.21, React18.3.1/19.2.3 and pinned fixture tooling. No universal framework/version, manual AT, performance budget or production publishing approval. Installed declaration negative-control expansion is separate pending work."
+    },
+    {
+      "id": "A-R-03",
+      "basis": "Shipped root and granular exports cover core, theme/tokens/styles, primitives/icons, hooks/adapters/i18n, grids/editors and learning compositions. Fresh package imports every entry successfully;14production entry probes and5installed consumers verify the documented shape. This closes entrypoint design, not separate-package installation-footprint decisions.",
+      "criterion": "- [ ] A-R-03 Reconcile original `R-03`: Design root and granular entry points for core, theme/tokens/styles, primitives, icons, hooks, adapters, i18n, grid, editor and learning compositions. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-current-package-contract-closures.json",
+      "sha256": "90d59b28472f117b46e6f4a3a1328befe5c17188d5aef8bfb006ddde523973a9",
+      "limits": "Exact candidate4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959 on Node24 and TypeScript5.9.3; no broader compiler/browser/framework range, legal approval, installation-footprint or performance budget claim."
+    },
+    {
+      "id": "A-C-20",
+      "basis": "All14current production probes retain exactly one explicit token/component CSS asset. Foundation consumers execute static/mixed/lazy CSS proofs in production; raw/gzip output hashes are recorded. Core subpaths exclude heavyweight editor/grid graphs, root Button drops those implementations, and individual icon excludes unrelated glyphs. No false side-effect removal or style duplication is observed.",
+      "criterion": "- [ ] A-C-20 Reconcile original `C-20`: Verify compiled CSS distribution, consumer production builds, stylesheet deduplication, and tree-shaking behavior; CSS must not be removed as a false side effect. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-current-package-contract-closures.json",
+      "sha256": "90d59b28472f117b46e6f4a3a1328befe5c17188d5aef8bfb006ddde523973a9",
+      "limits": "Exact candidate4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959 on Node24 and TypeScript5.9.3; no broader compiler/browser/framework range, legal approval, installation-footprint or performance budget claim."
+    },
+    {
+      "id": "A-I-04",
+      "basis": "Current package retains96individual icon entrypoints; check-package imports every icon module. Granular AddIcon production probe includes exactly one upstream glyph and excludes unrelated named glyphs; core component paths avoid the owned icon barrel.",
+      "criterion": "- [ ] A-I-04 Reconcile original `I-04`: Keep icons individually importable; avoid pulling an entire icon catalog into basic components. Historical status: checked.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-current-package-contract-closures.json",
+      "sha256": "90d59b28472f117b46e6f4a3a1328befe5c17188d5aef8bfb006ddde523973a9",
+      "limits": "Exact candidate4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959 on Node24 and TypeScript5.9.3; no broader compiler/browser/framework range, legal approval, installation-footprint or performance budget claim."
+    },
+    {
+      "id": "A-X-17",
+      "basis": "Exact current archive is independently installed with React18.3.1 and19.2.3, with both foundation/editor production SSR and3engine hydration interactions. Both actual installed React type families compile against TypeScript5.9.3 with skipLibCheck true/false and all32invalid API controls rejected per mode.",
+      "criterion": "- [ ] A-X-17 Reconcile original `X-17`: Verify React 18.3 and 19 behavior and declaration compatibility using actual consumer fixtures, not just the development React version. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-current-package-contract-closures.json",
+      "sha256": "90d59b28472f117b46e6f4a3a1328befe5c17188d5aef8bfb006ddde523973a9",
+      "limits": "Exact candidate4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959 on Node24 and TypeScript5.9.3; no broader compiler/browser/framework range, legal approval, installation-footprint or performance budget claim."
+    },
+    {
+      "id": "A-X-20",
+      "basis": "Actual installed public consumer fixtures compile generic grid rows, refs, callback/value contracts and owned public APIs, with32mutated negative controls detected in each of4runs. All443package declarations reject forbidden upstream leaks; fresh14production import/CSS probes and5consumer builds verify isolated entrypoints and stylesheet imports. Workspace-symlink negative control is correctly rejected.",
+      "criterion": "- [ ] A-X-20 Reconcile original `X-20`: Test API typing and package consumers, including generics, refs, callback payloads, CSS imports, isolated subpaths, and declaration dependency leakage. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-current-package-contract-closures.json",
+      "sha256": "90d59b28472f117b46e6f4a3a1328befe5c17188d5aef8bfb006ddde523973a9",
+      "limits": "Exact candidate4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959 on Node24 and TypeScript5.9.3; no broader compiler/browser/framework range, legal approval, installation-footprint or performance budget claim."
+    },
+    {
+      "id": "A-A-06",
+      "basis": "Existing owned controlled/default/null/empty/change/ID contracts are retained. The recorded canceled-reset callback/draft defect is fixed in shared ComboBox source, with10focused units and native reset cases in3engines; Chromium pending-cleanup timing correction passes its exact unchanged native assertions. Fresh React18/19 production SSR/hydration and declaration checks supplement stable IDs/host authority. No new exhaustive callback matrix is inferred.",
+      "criterion": "- [ ] A-A-06 Reconcile original `A-06`: Standardize controlled/uncontrolled pairs, defaults, change callbacks, null/empty semantics, disabled/read-only/loading behavior, and stable IDs. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-control-contract-final-closures.json",
+      "sha256": "5f340e585ccc78b7b03487183bc39db3a7ab152c31808226c102acae17678a7f",
+      "limits": "Closes original standardized implementation contracts and their recorded defects, reusing unaffected accepted coverage. No full visual state matrix, manual AT or physical-device claim."
+    },
+    {
+      "id": "A-U-17",
+      "basis": "Owned focus/target/disabled/validation/status and pointer/keyboard behavior retain accepted baseline/native evidence. Last named successors are resolved: native ComboBox reset/callback silence passes across3engines; modal text-spacing/resize and nested focus/isolation corrections pass current targeted cases; Toggle geometry/system-state indication and Checkbox IDREF corrections also pass. Broader all-state visual and spoken review remain separately open.",
+      "criterion": "- [ ] A-U-17 Reconcile original `U-17`: Provide consistent focus ring, target size, disabled styling, validation, status announcement, and pointer/keyboard interactions across primitives. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-control-contract-final-closures.json",
+      "sha256": "5f340e585ccc78b7b03487183bc39db3a7ab152c31808226c102acae17678a7f",
+      "limits": "Closes original standardized implementation contracts and their recorded defects, reusing unaffected accepted coverage. No full visual state matrix, manual AT or physical-device claim."
     }
   ],
   "limits": [

@@ -7,7 +7,27 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 232/320 A leaves closed; 88 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 244/320 A leaves closed; 76 A, 0 editor V review leaves and six future leaves remain.**
+
+### Wave 04 controlled primitive contracts — 2026-10-17
+
+A-A-06 and A-U-17 close after their recorded concrete ComboBox reset and Dialog resize successors pass. Retained state/identity/keyboard/target evidence is reused; no unrelated primitive matrix is repeated.
+Wave 04 now closes 63 of 139 items; 76 remain.
+
+### Wave 04 current import boundaries and React declarations — 2026-10-17
+
+A-R-03, A-C-20, A-I-04, A-X-17 and A-X-20 close after current tarball entrypoint, production import/CSS and installed declaration checks. Four React/declaration modes detect all 32 negative cases each; 443 declarations expose no forbidden upstream types. Installation-footprint/package-splitting decisions and broader TypeScript support policy remain separate.
+Wave 04 now closes 61 of 139 items; 78 remain.
+
+### Wave 04 fresh packed consumers and hydration — 2026-10-17
+
+A-R-08, A-Z-09 and A-X-18 close after five independent consumers install the current exact tarball and pass production SSR/hydration interactions in Chromium, Firefox and WebKit. The current package check first found and then verified the corrected clipboard-plugin client boundary.
+Wave 04 now closes 56 of 139 items; 83 remain.
+
+### Wave 04 CSP and icon presentation acceptance — 2026-10-17
+
+A-C-19 closes after six enforced CSP cases pass across Chromium, Firefox and WebKit with the installed engine nonce configured. Restrictive attributes remain blocked. A-I-05 closes after native geometry/RTL/contrast checks and coordinator review of the saved 96-icon grids.
+Wave 04 now closes 53 of 139 items; 86 remain.
 
 ### Wave 04 modal and dialog acceptance — 2026-10-17
 

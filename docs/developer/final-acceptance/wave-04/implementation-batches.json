@@ -1,7 +1,7 @@
 {
   "original": 139,
-  "closed": 51,
-  "remaining": 88,
+  "closed": 63,
+  "remaining": 76,
   "batches": [
     {
       "title": "Editors and content",
@@ -27,11 +27,9 @@
       ],
       "ids": [
         "A-K-05",
-        "A-U-17",
-        "A-A-06",
         "A-U-19"
       ],
-      "count": 4,
+      "count": 2,
       "state": "implementation-and-validation",
       "limits": "Retain accepted evidence. No releases or shared-output races. Exact test window and ownership required."
     },
@@ -46,22 +44,17 @@
       "ids": [
         "A-B-05",
         "A-C-04",
-        "A-X-20",
         "A-R-09",
         "A-R-15",
         "A-Z-13",
         "A-B-10",
         "A-A-18",
         "A-E-08",
-        "A-I-04",
         "A-P-08",
-        "A-R-03",
         "A-R-04",
-        "A-R-08",
-        "A-X-19",
-        "A-Z-09"
+        "A-X-19"
       ],
-      "count": 16,
+      "count": 11,
       "state": "implementation-and-validation",
       "limits": "Retain accepted evidence. No releases or shared-output races. Exact test window and ownership required."
     },
@@ -88,9 +81,6 @@
         "A-C-11",
         "A-C-14",
         "A-C-15",
-        "A-C-19",
-        "A-C-20",
-        "A-I-05",
         "A-X-07",
         "A-X-08",
         "A-X-10",
@@ -105,11 +95,9 @@
         "A-X-09",
         "A-X-13",
         "A-X-14",
-        "A-X-16",
-        "A-X-17",
-        "A-X-18"
+        "A-X-16"
       ],
-      "count": 32,
+      "count": 27,
       "state": "implementation-and-validation",
       "limits": "Retain accepted evidence. No releases or shared-output races. Exact test window and ownership required."
     },
