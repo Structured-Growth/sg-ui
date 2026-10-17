@@ -974,3 +974,24 @@ body as the replacement-view anchor, including its reserved hidden Clear/time
 area. This balances spacing across the whole popup without resizing it or changing
 date/datetime commit behavior. Range selectors retain their full reserved frame;
 multi-calendar choices remain isolated to their own calendar.
+
+
+### Nearest endpoint adjustment
+
+`DateRangeSelector` and `DateRangePicker` accept
+`rangeClickBehavior="adjust-nearest"`. After a complete day range, pointer and
+keyboard activation edit the endpoint with the smaller Gregorian civil-day distance.
+For 1st–15th, clicking 3rd gives 3rd–15th and clicking 14th gives 1st–14th.
+Outside clicks extend the nearest boundary. Existing endpoint clicks keep the range;
+a one-day range can extend in either direction. Distances include leap days and
+month/year transitions without timezone or daylight-saving arithmetic.
+
+`nearestEndpointTieBreak="end"` is the default **only for this policy**; with
+1st–15th, clicking 8th gives 1st–8th. Set it to `"start"` for 8th–15th.
+This tie preference does not read or change `activeEndpoint`, which belongs to
+explicit endpoint editing. The overall default remains `rangeClickBehavior="adjust-end"`.
+Initial/incomplete selection still completes with two activations in either order.
+Fixed duration, whole-period selection and assigned `calendarEndpoints` take precedence.
+Candidate availability receives the endpoint that candidate would edit; resulting
+ranges still validate bounds, duration and availability across the full interval.
+Typed fields, presets, dragging, Clear, Cancel and Apply keep their existing contracts.

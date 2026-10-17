@@ -2491,3 +2491,29 @@ Recorded bounded follow-up [TABS-MENU-WEBKIT-RO](final-acceptance/animated-tab-i
 without removing or filtering assertions. Library/docs builds, foundation guards,
 catalog, docs TypeScript and packed consumers pass. This is not an all-green
 browser or historical acceptance claim. [Evidence](final-acceptance/animated-tab-indicators/results.json).
+
+
+### 2026-10-17 — Nearest range endpoint adjustment
+
+DateRangeSelector and DateRangePicker now offer `rangeClickBehavior="adjust-nearest"`.
+Complete day ranges edit the closer endpoint using owned Gregorian civil-day
+arithmetic. Outside clicks extend the nearest boundary; exact endpoints keep the
+range, and one-day ranges extend in either direction. `nearestEndpointTieBreak`
+defaults to `"end"`, optionally `"start"`, independently of explicit activeEndpoint.
+The overall click policy remains adjust-end. Candidate availability uses the
+boundary that would move; full interval validation remains authoritative. Fixed
+length, whole-period selection and calendar-assigned endpoint intent take precedence.
+Both docs playgrounds expose the policy and tie preference with matching copied
+source, reference examples, usage guidance and generated public prop documentation.
+A native WebKit touch regression exposed a stale pressed date while waiting for
+synthesized-click cleanup. Pointer-up now releases pointer identity immediately,
+and sequence guards prevent old deferred cleanup from clearing a newer press;
+rapid taps use their own dates without dropping the private-anchor cleanup.
+Fresh presses also discard prior gesture click suppression, allowing a restarted
+incomplete range to complete through a native touch click.
+
+Validation: 157 unit cases in 26 files and all 12 native browser cases pass
+across Chromium, Firefox and WebKit, including both rapid-touch flows. Library
+and production docs builds, foundation guards, docs TypeScript, catalog and
+packed-package checks pass. Source fingerprints and logs are recorded in
+[the focused receipt](final-acceptance/nearest-range-endpoint/results.json).

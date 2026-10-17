@@ -49,6 +49,9 @@ export function RangeGestures({children,value,behavior,length,disabled,onActivat
  },[resetKey,onPreview,disabled,behavior,lengthKey]);
  function begin(event:PointerEvent<HTMLDivElement>){
   if(activePointer.current!==null){event.preventDefault();event.stopPropagation();return;}
+  // Suppression belongs to the previous gesture, even when it left an incomplete
+  // range. A fresh pointer press must be allowed to produce its own native click.
+  suppressClick.current=false;
   if(disabled||!value?.start||!value.end||event.button!==0)return;
   const cell=(event.target as Element).closest<HTMLElement>('[data-sgui-date]');
   const date=cell?.dataset.sguiDate;

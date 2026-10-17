@@ -19,7 +19,7 @@ import { useCalendarFormReset } from "./useCalendarFormReset";
 import { useNarrowWeekdays } from "./useNarrowWeekdays";
 import { useTranslation } from "../../i18n";
 import { isDateOnly, isDateRangeAllowed, fixedRangeFromStart, type DateRangeLength, type DateAvailabilityRule, type DateOnly, type DateRange, type DateAvailability, type DateRangePreset, type DateRangePresetGroup } from "./date-contract";
-import {getCivilPeriod,addCivilDays} from "../../utils/relative-dates";
+import {getCivilPeriod,addCivilDays,differenceInCivilDays} from "../../utils/relative-dates";
 import {RangeGestures,type RangeDragBehavior} from "./RangeGestures";
 import type {ReactNode} from "react";
 import styles from "./DateRangeSelector.module.css";
@@ -55,6 +55,11 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
    * - "adjust-boundaries": 5th becomes 5th–16th; 13th becomes 7th–13th;
    *   20th becomes 7th–20th. Clicking the start produces a one-day range;
    *   clicking the end leaves the range unchanged. Calendar clicks never clear it.
+   * - "adjust-nearest": edits the endpoint closest in Gregorian calendar days.
+   *   Given 1st–15th, 3rd becomes 3rd–15th and 14th becomes 1st–14th.
+   *   Outside clicks extend the closest boundary; existing endpoints are unchanged.
+   *   Equal distances use nearestEndpointTieBreak (default "end"). Complete ranges
+   *   remain complete; a one-day range can extend in either direction.
    * - "active-endpoint": edits activeEndpoint. Start intent with 5th becomes
    *   5th–16th; end intent with 13th becomes 7th–13th. Crossing the other
    *   boundary restarts at the clicked date with an empty end. Equality gives
@@ -63,7 +68,9 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
    * Changes remain drafts until Apply unless commitBehavior="immediate";
    * validation, Cancel and Clear still apply.
    */
-  rangeClickBehavior?: "restart" | "adjust-end" | "adjust-start" | "adjust-boundaries" | "active-endpoint";
+  rangeClickBehavior?: "restart" | "adjust-end" | "adjust-start" | "adjust-boundaries" | "adjust-nearest" | "active-endpoint";
+  /** Only for adjust-nearest: equal-distance clicks edit this endpoint. Defaults "end"; 1st–15th plus 8th becomes 1st–8th (or 8th–15th with "start"). Independent of activeEndpoint. Fixed length, whole-period selection and assigned calendarEndpoints retain precedence. */
+  nearestEndpointTieBreak?: "start" | "end";
   /** Used with rangeClickBehavior="active-endpoint". Start/End controls and field focus express which boundary calendar activations edit. Controlled when supplied. */
   activeEndpoint?: "start" | "end";
   defaultActiveEndpoint?: "start" | "end";
@@ -127,7 +134,7 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
   name?: string;
 }
 
-export function DateRangeSelector({ label, showTitle = false, navigation = "period", allowMonthSelection=true, allowYearSelection=true, periodPickerProps, visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement, errorPlacement, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "independent", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
+export function DateRangeSelector({ label, showTitle = false, navigation = "period", allowMonthSelection=true, allowYearSelection=true, periodPickerProps, visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", nearestEndpointTieBreak = "end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement, errorPlacement, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "independent", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets:basePresets = [], presetGroups = [], presetPlacement = "side", months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
   const { locale, direction } = useLocale();
@@ -173,6 +180,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
   const [pointerActive, setPointerActive] = useState(false);
   const pointerActiveRef = useRef(false);
   const pointerIdRef = useRef<number|null>(null);
+  const pointerSequence = useRef(0);
   const programmaticAnchor=useRef<string|null>(null);
   const pointerDate = useRef<DateOnly | null>(null);
   const activationEndpoint = useRef<"start" | "end" | undefined>(undefined);
@@ -199,16 +207,25 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
     };
     const releaseAfterGesture = (event: PointerEvent) => {
       if (!pointerActiveRef.current || event.pointerId !== pointerIdRef.current) return;
+      // The pointer is up even while its native click/anchor cleanup is pending.
+      // A following tap must capture its own date; stale timers cannot clear it.
+      if (touchTimer !== undefined) view?.clearTimeout(touchTimer);
+      if (frame !== undefined) view?.cancelAnimationFrame(frame);
+      pointerIdRef.current = null;
+      const sequence = pointerSequence.current;
+      const releaseCurrent = () => { if (pointerSequence.current === sequence) release(); };
       // Touch may synthesize click after the next frame; keep its endpoint-drag
       // anchor private until click, with a fallback for scroll/drag gestures.
-      if (event.pointerType === "touch") touchTimer = view?.setTimeout(release, 350);
-      else frame = view?.requestAnimationFrame(release);
+      if (event.pointerType === "touch") touchTimer = view?.setTimeout(releaseCurrent, 350);
+      else frame = view?.requestAnimationFrame(releaseCurrent);
     };
     const cancelGesture = (event: Event) => {
       if (!pointerActiveRef.current) return;
       if (event.type === 'pointercancel' && (event as PointerEvent).pointerId !== pointerIdRef.current) return;
       setResetRevision(revision => revision + 1);
-      frame = view?.requestAnimationFrame(release);
+      pointerIdRef.current = null;
+      const sequence = pointerSequence.current;
+      frame = view?.requestAnimationFrame(() => { if (pointerSequence.current === sequence) release(); });
     };
     doc?.addEventListener("pointerup", releaseAfterGesture, true);
     doc?.addEventListener("click", release, true);
@@ -234,6 +251,16 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
   const draftPayloadValid = (!required || draft !== null) && validRange(draft);
   const allowed = startValid && endValid && draftPayloadValid;
   const selectionEndpoint=!draft?.start||rangeLength?.mode==='fixed'?'start':!draft.end?'end':rangeClickBehavior==='active-endpoint'?endpoint:rangeClickBehavior==='adjust-start'?'start':'end';
+  // Resolve per candidate so endpoint restrictions match the boundary a click edits.
+  const endpointForDate = (date: DateOnly): "start" | "end" => {
+    if (rangeClickBehavior !== "adjust-nearest" || rangeLength?.mode === "fixed" || selectionUnit !== "day" ||
+      !draft || !isDateOnly(draft.start) || !isDateOnly(draft.end) || draft.start > draft.end) return selectionEndpoint;
+    if (date < draft.start) return "start";
+    if (date > draft.end) return "end";
+    const fromStart = differenceInCivilDays(draft.start, date);
+    const fromEnd = differenceInCivilDays(date, draft.end);
+    return fromStart === fromEnd ? nearestEndpointTieBreak : fromStart < fromEnd ? "start" : "end";
+  };
   const awaitingEnd = Boolean(draft && (isDateOnly(draft.start) && !draft.end || !draft.start && isDateOnly(draft.end)));
   const activateDate = useCallback((date: DateOnly, assignedEndpoint = activationEndpoint.current) => {
     setInteractionError(false);
@@ -263,7 +290,9 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
     const complete = draft && isDateOnly(draft.start) && isDateOnly(draft.end) && draft.start <= draft.end;
     if (complete && rangeClickBehavior !== "restart") {
       let next: DateRange | null = null;
-      if (rangeClickBehavior === "adjust-boundaries") {
+      if (rangeClickBehavior === "adjust-nearest") {
+        next = endpointForDate(date) === "start" ? {start: date, end: draft.end} : {start: draft.start, end: date};
+      } else if (rangeClickBehavior === "adjust-boundaries") {
         next = date < draft.start ? { start: date, end: draft.end } : { start: draft.start, end: date };
       } else if(rangeClickBehavior==='active-endpoint'){
         if(endpoint==='start'&&date<=draft.end)next={start:date,end:draft.end};
@@ -284,7 +313,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
       edit(date<draft.start?{start:date,end:draft.start}:{start:draft.start,end:date});return true;
     }
     return false;
-  }, [draft, rangeClickBehavior, selectionUnit, firstDayOfWeek, endpoint, activeEndpoint, onActiveEndpointChange, rangeLength, commitBehavior, value, onValueChange, min, max, unavailable, getDateUnavailableReason]);
+  }, [draft, rangeClickBehavior, nearestEndpointTieBreak, selectionUnit, firstDayOfWeek, endpoint, activeEndpoint, onActiveEndpointChange, rangeLength, commitBehavior, value, onValueChange, min, max, unavailable, getDateUnavailableReason]);
   const rangeError=<>
     {interactionError&&<p role="alert" className={styles.summary}>{t("common.ui.invalidRangeGesture",{defaultMessage:"That change is unavailable. The previous range was kept."})}</p>}
     {!allowed && !awaitingEnd && startValid && endValid && <p className={styles.summary}>{t("common.ui.invalidDateRange", { defaultMessage: "Choose an available date range." })}</p>}
@@ -298,7 +327,8 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
     ? { start: parseDate(displayRange.start), end: parseDate(displayRange.end) } : pendingDisplay;
   return <div ref={root} onPointerDownCapture={event => {
       rememberCalendar(event.target);
-      if (pointerActiveRef.current || event.button !== 0) return;
+      if (pointerIdRef.current !== null || event.button !== 0) return;
+      pointerSequence.current += 1;
       pointerIdRef.current = event.pointerId;
       pointerDate.current = (event.target as Element).closest("[data-sgui-date]")?.getAttribute("data-sgui-date") ?? null;
       pointerActiveRef.current = true; setPointerActive(true);
@@ -319,7 +349,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
       minValue={min && isDateOnly(min) ? parseDate(min) : undefined} maxValue={max && isDateOnly(max) ? parseDate(max) : undefined}
       onFocusChange={date => setFocusedDate(toCalendar(toCalendarDate(date), new GregorianCalendar()).toString())}
       isDisabled={disabled} isReadOnly={readOnly} isInvalid={!allowed && !awaitingEnd && startValid && endValid}
-      isDateUnavailable={date => {const iso=toCalendar(toCalendarDate(date),new GregorianCalendar()).toString();return unavailable.some(day=>day.date===iso)||Boolean(getDateUnavailableReason?.(iso,{range:draft,endpoint:selectionEndpoint}));}}
+      isDateUnavailable={date => {const iso=toCalendar(toCalendarDate(date),new GregorianCalendar()).toString();return unavailable.some(day=>day.date===iso)||Boolean(getDateUnavailableReason?.(iso,{range:draft,endpoint:endpointForDate(iso)}));}}
       onChange={range => edit(range ? {start:toCalendar(toCalendarDate(range.start),new GregorianCalendar()).toString(),end:toCalendar(toCalendarDate(range.end),new GregorianCalendar()).toString()}:null)} className={styles.calendar}>
     {({ state }) => {
       const previewText = t("common.ui.dateRangePreview", { defaultMessage: "Range preview: {start} – {end}. Choose an end date to finish.", values: {
@@ -353,7 +383,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
       const count=Math.min(remaining,calendarLayout==='scroll'?Math.max(1,Math.min(120,Math.floor(scrollMonths)||12)):months);
       const monthView=(index:number,offset=index)=><div key={index} className={styles.month} data-calendar-endpoint={calendarEndpoint(index)}><CalendarPeriodViewport options={{descriptionPlacement,errorPlacement,...periodPickerProps}} visibleYears={visibleYears} min={min} max={max} unavailable={unavailable} disabled={disabled} readOnly={readOnly}
           activeTarget={periodPanel?.index===index?periodPanel.target:null} onActiveTargetChange={target=>setPeriodPanel(target?{index,target}:null)}
-          getDateUnavailableReason={date=>getDateUnavailableReason?.(date,{range:draft,endpoint:calendarEndpoint(index)??selectionEndpoint})}>
+          getDateUnavailableReason={date=>getDateUnavailableReason?.(date,{range:draft,endpoint:calendarEndpoint(index)??endpointForDate(date)})}>
           <header className={styles.monthHeader}>
             {(index===months-1||calendarNavigation==='independent')&&calendarLayout!=='scroll'&&<Button className={styles.previous} slot="previous" variant="text" tone="neutral" aria-label={t("common.ui.previousMonth",{defaultMessage:"Previous month"})}>‹</Button>}
             {navigation==='month-year'&&(months===1||calendarNavigation==='independent')?<div className={styles.monthHeading}><CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/></div>:navigation==='period'?<div className={styles.monthHeading}><CalendarPeriodHeading offset={offset} disabled={disabled} readOnly={readOnly} allowMonthSelection={allowMonthSelection} allowYearSelection={allowYearSelection}/></div>:<CalendarHeading offset={{months:offset}} className={`${styles.heading} ${styles.monthHeading}`}/>}
@@ -361,7 +391,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
           </header>
           <RangeMonthMotion enabled={calendarLayout==='paged'}><div className={styles.gridViewport}><CalendarGrid offset={{months:offset}} weekdayStyle="short" className={`${styles.grid} ${styles.rangeGrid}`}>
             <CalendarGridHeader>{day=><CalendarHeaderCell className={styles.weekday} data-narrow-label={narrowWeekdays.get(day)??day}><span className={styles.weekdayLabel}>{day}</span></CalendarHeaderCell>}</CalendarGridHeader>
-            <CalendarGridBody>{date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();const reason=unavailable.find(day=>day.date===iso)?.reason??getDateUnavailableReason?.(iso,{range:draft,endpoint:calendarEndpoint(index)??selectionEndpoint});return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${iso}-${index}`} previewIds={state.anchorDate&&state.isFocused&&state.focusedDate.compare(date)===0?[previewId,previewContextId]:[]} content={renderDayContent?.(iso)} rangeValid={displayedRangeValid} inRange={Boolean(displayRange?.start&&displayRange?.end&&iso>=displayRange.start&&iso<=displayRange.end)} start={displayRange?.start===iso} end={displayRange?.end===iso}/>;}}</CalendarGridBody>
+            <CalendarGridBody>{date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();const reason=unavailable.find(day=>day.date===iso)?.reason??getDateUnavailableReason?.(iso,{range:draft,endpoint:calendarEndpoint(index)??endpointForDate(iso)});return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${iso}-${index}`} previewIds={state.anchorDate&&state.isFocused&&state.focusedDate.compare(date)===0?[previewId,previewContextId]:[]} content={renderDayContent?.(iso)} rangeValid={displayedRangeValid} inRange={Boolean(displayRange?.start&&displayRange?.end&&iso>=displayRange.start&&iso<=displayRange.end)} start={displayRange?.start===iso} end={displayRange?.end===iso}/>;}}</CalendarGridBody>
           </CalendarGrid></div></RangeMonthMotion>
         </CalendarPeriodViewport></div>;
       return <RangeGestures resetKey={`${committed?.start}/${committed?.end}/${resetRevision}`} value={calendarValue&&draft?.end?{start:calendarValue.start.toString(),end:calendarValue.end.toString()}:null} behavior={rangeDragBehavior} length={rangeLength} disabled={disabled||readOnly} onActivate={activateDate} onEdit={edit} onPreview={setDragPreview} isAllowed={validRange} onInvalid={()=>setInteractionError(true)} onRestart={date=>{programmaticAnchor.current=date;}}>
@@ -397,7 +427,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "peri
         <RangeCalendarContext.Provider key={calendarLayout==='scroll'?`${baseMonth.toString()}-${index}`:index} value={null}><RangeCalendar aria-label={t("common.ui.rangeMonth",{defaultMessage:"{label}, calendar {number}",values:{label:calendarEndpoint(index)?`${label}, ${t(calendarEndpoint(index)==='start'?"common.ui.startDate":"common.ui.endDate",{defaultMessage:calendarEndpoint(index)==='start'?"Start date":"End date"})}`:label,number:index+1}})} value={calendarValue}
           onFocusChange={date=>setFocusedDate(toCalendar(date,new GregorianCalendar()).toString())} defaultFocusedValue={baseMonth.add({months:index})} visibleDuration={{months:1}} minValue={min&&isDateOnly(min)?parseDate(min):undefined} maxValue={max&&isDateOnly(max)?parseDate(max):undefined}
           firstDayOfWeek={firstDayOfWeek} isDisabled={disabled} isReadOnly={readOnly} commitBehavior="reset"
-          isDateUnavailable={date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();return unavailable.some(day=>day.date===iso)||Boolean(getDateUnavailableReason?.(iso,{range:draft,endpoint:calendarEndpoint(index)??selectionEndpoint}));}}
+          isDateUnavailable={date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();return unavailable.some(day=>day.date===iso)||Boolean(getDateUnavailableReason?.(iso,{range:draft,endpoint:calendarEndpoint(index)??endpointForDate(iso)}));}}
           onChange={range=>edit(range?{start:range.start.toString(),end:range.end.toString()}:null)}>
           <IndependentRangePreview parent={state}/><ResetCalendarAnchor start={committed?.start} end={committed?.end} resetRevision={resetRevision}/><SelectionBehaviorBridge pointerActive={pointerActive} skipAnchor={programmaticAnchor} onActivate={date=>activateDate(date,calendarEndpoint(index))}/>{monthView(index,0)}
         </RangeCalendar></RangeCalendarContext.Provider>:monthView(index))}

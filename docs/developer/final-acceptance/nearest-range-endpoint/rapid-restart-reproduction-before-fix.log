@@ -1,0 +1,70 @@
+[WebServer] (node:42142) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:42161) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:42171) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/date-range-behavior.spec.ts:4:63 › date-range-picker: policies, reverse creation, source and prop documentation (5.3s)
+  ✓   2 [chromium] › tests/date-range-behavior.spec.ts:4:63 › date-range-selector: policies, reverse creation, source and prop documentation (7.1s)
+  ✓   3 [chromium] › tests/date-range-behavior.spec.ts:54:65 › touch range policies › adjust-end rapid taps preserve the start; reverse creation completes (839ms)
+  ✓   4 [chromium] › tests/date-range-behavior.spec.ts:54:65 › touch range policies › adjust-nearest rapid taps preserve the start; reverse creation completes (929ms)
+(node:42227) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [firefox] › tests/date-range-behavior.spec.ts:4:63 › date-range-picker: policies, reverse creation, source and prop documentation (6.7s)
+  ✓   6 [firefox] › tests/date-range-behavior.spec.ts:4:63 › date-range-selector: policies, reverse creation, source and prop documentation (9.4s)
+  ✓   7 [firefox] › tests/date-range-behavior.spec.ts:54:65 › touch range policies › adjust-end rapid taps preserve the start; reverse creation completes (918ms)
+  ✓   8 [firefox] › tests/date-range-behavior.spec.ts:54:65 › touch range policies › adjust-nearest rapid taps preserve the start; reverse creation completes (1.0s)
+(node:42333) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [webkit] › tests/date-range-behavior.spec.ts:4:63 › date-range-picker: policies, reverse creation, source and prop documentation (6.3s)
+  ✓  10 [webkit] › tests/date-range-behavior.spec.ts:4:63 › date-range-selector: policies, reverse creation, source and prop documentation (9.5s)
+  ✘  11 [webkit] › tests/date-range-behavior.spec.ts:54:65 › touch range policies › adjust-end rapid taps preserve the start; reverse creation completes (5.8s)
+(node:42406) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [webkit] › tests/date-range-behavior.spec.ts:54:65 › touch range policies › adjust-nearest rapid taps preserve the start; reverse creation completes (1.0s)
+
+
+  1) [webkit] › tests/date-range-behavior.spec.ts:54:65 › touch range policies › adjust-end rapid taps preserve the start; reverse creation completes 
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByRole('dialog', { name: 'Example range', exact: true }).getByRole('textbox', { name: 'Start date', exact: true })
+    Expected: "10/01/2026"
+    Received: "10/05/2026"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" getByRole('dialog', { name: 'Example range', exact: true }).getByRole('textbox', { name: 'Start date', exact: true }) with timeout 5000ms
+      - waiting for getByRole('dialog', { name: 'Example range', exact: true }).getByRole('textbox', { name: 'Start date', exact: true })
+        14 × locator resolved to <input id="_r_ko_" type="text" value="10/05/2026" class="sgui_input_3c6d7545"/>
+           - unexpected value "10/05/2026"
+
+
+      62 |   await day(13).tap();await expect(start).toHaveValue('10/07/2026');await expect(end).toHaveValue('10/13/2026');
+      63 |   if(behavior==='adjust-nearest'){await day(5).tap();await expect(start).toHaveValue('10/05/2026');await expect(end).toHaveValue('10/13/2026');await dialog.getByRole('button',{name:'Clear',exact:true}).tap();}
+    > 64 |   await day(5).tap();await expect(end).toHaveValue('');await day(1).tap();await expect(start).toHaveValue('10/01/2026');await expect(end).toHaveValue('10/05/2026');
+         |                                                                                               ^
+      65 |   await dialog.getByRole('button',{name:'Apply',exact:true}).tap();
+      66 |   await expect(panel.getByRole('textbox',{name:'Example range',exact:true})).toHaveValue('10/01/2026 – 10/05/2026');
+      67 |  });
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/date-range-behavior.spec.ts:64:95
+
+    Error Context: test-results/nearest-endpoint/date-range-behavior-touch--94d11--reverse-creation-completes-webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/nearest-endpoint/date-range-behavior-touch--94d11--reverse-creation-completes-webkit/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/nearest-endpoint/date-range-behavior-touch--94d11--reverse-creation-completes-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests/date-range-behavior.spec.ts:54:65 › touch range policies › adjust-end rapid taps preserve the start; reverse creation completes 
+  11 passed (57.9s)
+undefined
+/Users/thomashall/Repositories/sg-ui/apps/docs:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config /tmp/nearest-browser.config.mjs
