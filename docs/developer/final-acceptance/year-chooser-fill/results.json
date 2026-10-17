@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-17",
+  "baseCommit": "c6a34d76e5b9ec5955413c68a8a1a2b2289c3cf8",
+  "scope": "Year scroll area fills the replacement frame; a single-calendar range selector includes space reserved by hidden actions. Popup dimensions and independent views remain stable.",
+  "units": {
+    "files": 26,
+    "passed": 149
+  },
+  "browserStats": {
+    "startTime": "2026-10-17T16:59:21.210Z",
+    "duration": 59527.01,
+    "expected": 36,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "checks": {
+    "libraryBuild": "passed",
+    "foundationGuards": "passed",
+    "productionDocsBuildAndCatalog": "passed"
+  },
+  "sourceSha256": {
+    "packages/ui/src/experimental/PeriodPicker/PeriodPicker.module.css": "372ef965bd19dfef2bbf6bf16b407b5e73ab1e062de214cd2fbc4b397a2ba65e",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css": "c92d6dd96db8dc235f500cef20784a906488445606d6acef3597d4e8606b1250",
+    "apps/docs/tests/year-scroll.spec.ts": "6279326ebf9c661162ae813b77d1a3f063e00ee3bceb30e3c8b1da236b77fe83"
+  },
+  "initialRun": "35/36 passed; the Chromium inline Calendar example opened partly below the document viewport. The test now brings the whole host into view before opening, retaining selected-year visibility and all geometry assertions.",
+  "limitations": [
+    "Targeted geometry/browser evidence, not a full historical acceptance matrix."
+  ]
+}

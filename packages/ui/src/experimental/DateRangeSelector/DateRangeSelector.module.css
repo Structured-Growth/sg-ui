@@ -105,3 +105,9 @@
 }
 
 @layer sgui.components { .periodContents > [role="group"] { block-size: 100%; min-block-size: 0; } }
+
+@layer sgui.components {
+ /* Single-calendar choices occupy the full reserved selector, including hidden actions. */
+ .root[data-months="1"]:has([data-sgui-part="calendar-period-view"]) { position: relative; }
+ .root[data-months="1"] .periodViewport { position: static; }
+}

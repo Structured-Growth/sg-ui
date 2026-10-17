@@ -7,14 +7,24 @@ for(const [slug,title] of [['year-picker','YearPicker'],['date-picker','DatePick
  const popup=slug==='date-picker'||slug==='date-range-picker';
  if(popup)await preview.getByRole('button',{name:'Choose Course schedule',exact:true}).click();
  const host=popup?page.getByRole('dialog',{name:'Course schedule',exact:true}):preview;
+ await host.scrollIntoViewIfNeeded();
  const before=(await host.boundingBox())!;
  if(slug!=='year-picker')await host.getByRole('button',{name:'Choose year, 2026',exact:true}).first().click();
  const scroll=host.locator('[data-sgui-part="year-scroll"]');await expect(scroll).toBeVisible();
+ if(slug!=='year-picker'){
+  const view=host.locator('[data-sgui-part="calendar-period-view"]');
+  await expect.poll(async()=>{const a=(await scroll.boundingBox())!,b=(await view.boundingBox())!;return Math.abs(a.height-b.height)+Math.abs(a.y-b.y);}).toBeLessThan(2);
+  if(slug==='date-range-picker'||slug==='date-range-selector'){
+   const frame=host.locator('[data-sgui-part="date-range-selector"]');
+   const a=(await scroll.boundingBox())!,b=(await frame.boundingBox())!;expect(Math.abs(a.y+a.height-b.y-b.height)).toBeLessThan(2);
+  }
+ }
+
  await expect(host.getByRole('button',{name:'Previous years',exact:true})).toHaveCount(0);await expect(host.getByRole('button',{name:'Next years',exact:true})).toHaveCount(0);
  expect(await scroll.locator(':scope > div').evaluate(element=>getComputedStyle(element).gridTemplateColumns.split(' ').length)).toBe(4);
  if(slug!=='year-picker'){expect(Math.abs((await host.boundingBox())!.height-before.height)).toBeLessThan(1);const view=host.locator('[data-sgui-part="calendar-period-view"]');expect(await view.evaluate(element=>element.scrollHeight<=element.clientHeight+1)).toBe(true);}
  const selected=scroll.getByRole('button',{name:'2026',exact:true});await expect(selected).toBeInViewport();await host.screenshot({path:`/tmp/year-scroll-${slug}.png`});await selected.focus();await selected.press('Home');await expect.poll(()=>scroll.evaluate(element=>element.scrollTop)).toBeLessThan(5);
- await page.keyboard.press('End');await expect.poll(()=>scroll.evaluate(element=>element.scrollTop)).toBeGreaterThan(0);
+ await page.keyboard.press('End');await expect.poll(()=>scroll.evaluate(element=>element.scrollTop)).toBeGreaterThan(0);await expect.poll(()=>scroll.evaluate(element=>{const button=document.activeElement;if(!button||!element.contains(button))return false;const a=button.getBoundingClientRect(),b=element.getBoundingClientRect();return a.top>=b.top&&a.bottom<=b.bottom+1;})).toBe(true);
  await scroll.getByRole('button',{name:'2028',exact:true}).scrollIntoViewIfNeeded();await scroll.getByRole('button',{name:'2028',exact:true}).click();
  if(slug!=='year-picker'){await expect(scroll).toHaveCount(0);await expect(host.getByRole('button',{name:'Choose year, 2028',exact:true}).first()).toBeFocused();if(popup)await page.keyboard.press('Escape');}
  await panel.getByRole('button',{name:slug==='year-picker'?'Year navigation':'Period year navigation',exact:false}).click();await page.getByRole('option',{name:'Pages',exact:true}).click();

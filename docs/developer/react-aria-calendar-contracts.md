@@ -937,3 +937,13 @@ policy and works only with independent paged views. Scrolling month browsers kee
 their existing independent views. Calendar's `focusedDate` anchors the outer
 view; independent views retain local focus after initial placement, reporting
 focus through `onFocusedDateChange` without navigating sibling views.
+
+
+### Year chooser height correction (2026-10-17)
+
+The year scroller fills its available replacement frame rather than retaining a
+fixed six-row height inside a taller frame. In a single-calendar range selector,
+the replacement frame spans the full reserved selector area, including hidden
+fields/actions. The popup keeps its original dimensions, and multi-calendar
+choices remain scoped to their own calendar. Native scrolling can reveal the
+final row completely; hidden range actions return when the chooser closes.

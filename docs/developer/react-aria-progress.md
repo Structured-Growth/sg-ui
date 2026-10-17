@@ -2415,3 +2415,20 @@ consumer checks passed. Evidence and source fingerprints:
 [year scrolling and navigation](final-acceptance/year-scroll-independent-navigation/results.json).
 This does not close unrelated historical acceptance gates or the previously
 recorded optional legacy picker-radius year-label fit failures.
+
+
+### 2026-10-17 — Fill the year chooser's reserved surface
+
+Corrected the fixed six-row year scroller so it fills the available replacement
+frame. Single-calendar range selectors extend that frame across hidden fields
+and actions, removing the blank lower section without resizing the popup.
+Multi-calendar replacements remain isolated to their calendar.
+
+Validation: 149 affected units; 36 production browser cases in Chromium, Firefox
+and WebKit. New assertions measure full scroll-frame height, the range selector's
+bottom edge, and complete visibility of the last row after End. Existing stable
+popup dimensions, source compilation, navigation isolation and explicit pagination
+checks remain. Library/docs builds, catalog and foundation guards passed. The
+first browser run exposed an inline-example viewport setup issue (35/36); bringing
+the whole host into view retained all assertions and the final run passed 36/36.
+[Evidence](final-acceptance/year-chooser-fill/results.json).
