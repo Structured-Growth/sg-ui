@@ -383,6 +383,6 @@ export const formsDateEntries: CatalogEntry[] = [
   {slug:'time-field', title:'TimeField', description:'Flexible time text entry with a selection dropdown, business-hour limits and 12/24-hour presentation.', exports:['TimeField'], Playground:datePage('TimeField')},
   {slug:'calendar', title:'Calendar', description:'One to three months with single/multiple selection and host availability explanations.', exports:['Calendar'], Playground:datePage('Calendar')},
   {slug:'date-picker', title:'DatePicker', description:'Flexible date text entry and a scoped calendar popup with clear and availability handling.', exports:['DatePicker'], Playground:datePage('DatePicker')},
-  {slug:'date-range-picker', title:'DateRangePicker', description:'Type a date range or a relative period, or open the calendar to choose dates.', exports:['DateRangePicker'], Playground:datePage('DateRangePicker')},
+  {slug:'date-range-picker', title:'DateRangePicker', description:'An input component for selecting a range of dates.', exports:['DateRangePicker'], Playground:datePage('DateRangePicker')},
   {slug:'date-range-selector', title:'DateRangeSelector', description:'Inline range drafting, named preset descriptions, Apply and Cancel transactions.', exports:['DateRangeSelector','getRelativeDateRange','getDateRangeLength'], Playground:datePage('DateRangeSelector')},
 ];

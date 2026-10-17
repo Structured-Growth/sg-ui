@@ -6,7 +6,7 @@ test('range textbox: normalized dates, relative weeks, calendar transaction and 
  await page.goto('/docs/components/date-range-picker');
  await expect(page.getByText('Local value supplied by your host.',{exact:false})).toHaveCount(0);
  await expect(page.getByText(/This, last or next week, month and year use reference date/)).toHaveCount(0);
- await expect(page.getByText('Type a date range or a relative period, or open the calendar to choose dates.',{exact:true})).toBeVisible();
+ await expect(page.getByText('An input component for selecting a range of dates.',{exact:true})).toBeVisible();
  const overview=page.getByRole('region',{name:'DateRangePicker at a glance',exact:true});
  const overviewField=overview.getByRole('textbox',{name:'Course schedule',exact:true});
  const descriptionId=await overviewField.getAttribute('aria-describedby');
