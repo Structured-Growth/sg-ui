@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 75,
-  "closedTotal": 256,
-  "remaining": 64,
+  "closedThisReview": 76,
+  "closedTotal": 257,
+  "remaining": 63,
   "entries": [
     {
       "id": "A-M-21",
@@ -668,6 +668,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/15-historical-reference-review.json",
       "sha256": "232e0e3bf6249ce48839bbb7497cf5920f22bc713f8cc6c3e33ae966615f130a",
       "limits": "Local extraction history does not authenticate unavailable upstream bytes or prove an external learner checkout unchanged; A-B-14 retains that scope. Third-party rights and obsolete notices remain A-L/A-Z-06 work. Exact historical/migration identifiers are preserved as required; zero active implementation/dependency references is the maintained-code contract."
+    },
+    {
+      "id": "A-X-16",
+      "basis": "The five original clauses are mapped to exact tests and retained receipts.24 installed cases across React18/19, ar-EG/fr-FR, three engines and light/dark preserve ID/node/native-wire/IDREF contracts, portal identity, live theme/density/locale/direction changes, nested Escape/focus and sibling isolation. Exact retained StrictMode two-root cleanup tests balance shared listener/timer ownership through first/final unmount. Named field/grid/menu default/controlled update/reset tests and completed three-engine ComboBox reset proof preserve host authority, canceled reset and latest defaults. Provider/theme ownership and route-versus-controlled tabs remain mount-fixed where documented; no generic ownership-flip capability is claimed. No remaining uncovered supported transition was identified in this named contract scope.",
+      "criterion": "- [ ] A-X-16 Reconcile original `X-16`: Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-scoped-lifecycle-review.json",
+      "sha256": "da01deae238dfb9ad271e248e73c4a8638184e2dd1171b11ef1c5789425a6bce",
+      "limits": "Production hydration and development StrictMode cleanup retain distinct evidence. Later-expanded field test files reuse named unchanged assertions at their accepted checkpoint scope, not a fresh whole-file pass claim. No arbitrary controlled/uncontrolled mode switching, physical input, spoken AT or release approval is inferred. Original resolver/token failures remain preserved; only corrected complete runs count."
     }
   ],
   "limits": [

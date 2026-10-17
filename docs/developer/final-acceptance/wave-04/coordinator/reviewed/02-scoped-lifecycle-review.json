@@ -1,0 +1,52 @@
+{
+  "entries": [
+    {
+      "id": "A-X-16",
+      "basis": "The five original clauses are mapped to exact tests and retained receipts.24 installed cases across React18/19, ar-EG/fr-FR, three engines and light/dark preserve ID/node/native-wire/IDREF contracts, portal identity, live theme/density/locale/direction changes, nested Escape/focus and sibling isolation. Exact retained StrictMode two-root cleanup tests balance shared listener/timer ownership through first/final unmount. Named field/grid/menu default/controlled update/reset tests and completed three-engine ComboBox reset proof preserve host authority, canceled reset and latest defaults. Provider/theme ownership and route-versus-controlled tabs remain mount-fixed where documented; no generic ownership-flip capability is claimed. No remaining uncovered supported transition was identified in this named contract scope.",
+      "criterion": "- [ ] A-X-16 Reconcile original `X-16`: Test multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/scoped-lifecycle/x16-clause-map.json",
+      "sha256": "bccce730334172bdd0ec6887c20c621bdcd4421de9af431ccdbddd3ac0980e7b"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/scoped-lifecycle/receipt.json",
+      "sha256": "470c69c0084cc398bed7ae9f20eb4e1933ff12cbf79108b44de41d90285dbfb9"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/scoped-lifecycle/receipt.json",
+      "sha256": "470c69c0084cc398bed7ae9f20eb4e1933ff12cbf79108b44de41d90285dbfb9"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-11/unit-evidence.json",
+      "sha256": "0dddb457a6d733a5c0ac4f95cae90188f3af8bb0506e2dd7e48a75d4661662d5"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-11/lifecycle-matrix.json",
+      "sha256": "156ea2927b20a940eab6fb02dc30b161ba2f89b059b3499067208e8b2571df6f"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-integration/controls-lifecycle-clipboard.log",
+      "sha256": "5689ec32707d79bec011eeb5b599c80bb71bdd7f53bb5421eb0d2685e7781c67"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+      "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+    },
+    {
+      "path": "docs/developer/final-acceptance/parallel-04/input-reconciliation.json",
+      "sha256": "28c3e99e10292f26fd03c087287a7b45d719eb9368f3c28f6e6505427c7b299e"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/controls-native-12-01/results.json",
+      "sha256": "2878c20d4cf7c33479ddf80f99921ddde2218ca5d1048cfb57c04e3b17e4e977"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/combobox-chromium-reset-01/results.json",
+      "sha256": "fb9b9b2ffa2f4751d767023874c3102fb0228b5a86a6d59f195f2b28b89f9282"
+    }
+  ],
+  "limits": "Production hydration and development StrictMode cleanup retain distinct evidence. Later-expanded field test files reuse named unchanged assertions at their accepted checkpoint scope, not a fresh whole-file pass claim. No arbitrary controlled/uncontrolled mode switching, physical input, spoken AT or release approval is inferred. Original resolver/token failures remain preserved; only corrected complete runs count."
+}

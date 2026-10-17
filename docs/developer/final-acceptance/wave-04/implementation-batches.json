@@ -1,7 +1,7 @@
 {
   "original": 139,
-  "closed": 75,
-  "remaining": 64,
+  "closed": 76,
+  "remaining": 63,
   "batches": [
     {
       "title": "Editors and content",
@@ -83,10 +83,9 @@
         "A-X-06",
         "A-X-09",
         "A-X-13",
-        "A-X-14",
-        "A-X-16"
+        "A-X-14"
       ],
-      "count": 22,
+      "count": 21,
       "state": "implementation-and-validation",
       "limits": "Retain accepted evidence. No releases or shared-output races. Exact test window and ownership required."
     },

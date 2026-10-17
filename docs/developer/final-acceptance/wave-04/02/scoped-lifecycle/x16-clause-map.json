@@ -1,0 +1,254 @@
+{
+  "id": "A-X-16",
+  "originalClause": "Multiple independent component instances, nested themes/portals, stable IDs, React Strict Mode cleanup, and controlled/uncontrolled transitions.",
+  "recommendation": "Named original clauses now have joined concrete evidence; root may reconcile closure without inventing unsupported ownership flips. No new concrete uncovered supported transition identified in these named contracts.",
+  "clauses": [
+    {
+      "clause": "Multiple independent instances",
+      "evidence": [
+        "wave-04/02/scoped-lifecycle/receipt.json:24 installed cases keep sibling theme unchanged",
+        "wave-03-followup/validation-results.json:retained1851-test checkpoint",
+        "parallel-04/input-reconciliation.json:unchanged named test hashes"
+      ],
+      "tests": [
+        {
+          "path": "packages/ui/src/experimental/Provider/Provider.portal.test.tsx",
+          "tests": [
+            "keeps independently mounted scopes isolated across portal reopen and removal"
+          ],
+          "currentSha256": "8d02e22204d6a947c396f6aa7d6390ec68a773f3d0285661b221b55ec3eb8b39",
+          "retention": {
+            "matchesFA04CapturedTest": true,
+            "matchesWave03UnitProposal": false
+          }
+        },
+        {
+          "path": "packages/ui/src/components/AppPageTabs/AppPageTabs.test.tsx",
+          "tests": [
+            "keeps duplicate item IDs independent and leaves manual requests under host control"
+          ],
+          "currentSha256": "a7cff60793524ef62e57079c5e04ba9a2fa754c5c1e3ab423e5b3b2e59be66eb",
+          "retention": {
+            "matchesFA04CapturedTest": true,
+            "matchesWave03UnitProposal": false
+          }
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/AppDataGrid.next100-regression.test.tsx",
+          "tests": [
+            "restores standalone persisted grids independently and remounts the complete reset defaults"
+          ],
+          "currentSha256": "f016c7f9fc5294dfd0a3b47c31cad4ad05052e222dcca6fb2614aa9565300ba8",
+          "retention": {
+            "matchesFA04CapturedTest": true,
+            "matchesWave03UnitProposal": false
+          }
+        }
+      ],
+      "scope": "Independent root/portal/sibling, repeated local IDs, local selection/persistence; no shared setter or owner inferred."
+    },
+    {
+      "clause": "Nested themes and portals",
+      "evidence": [
+        "wave-04/02/scoped-lifecycle/react18-token-fix/scope-lifecycle.json:12passes",
+        "wave-04/02/scoped-lifecycle/react19-token-fix/scope-lifecycle.json:12passes",
+        "wave-03-11/unit-evidence.json:retained liveportal/StrictMode tests",
+        "wave-03-integration/controls-lifecycle-clipboard.log:integrated4files7tests pass"
+      ],
+      "tests": [
+        {
+          "path": "packages/ui/src/experimental/Provider/Provider.live-portal.test.tsx",
+          "tests": [
+            "updates an open nested portal without remounting its menu or changing its sibling"
+          ],
+          "currentSha256": "a859b1e693a493a70dd2e51cacd3f78ce96f54e4f7c7ed2f9abb0ac6c6837e3c",
+          "retention": {
+            "matchesFA04CapturedTest": false,
+            "matchesWave03UnitProposal": true
+          }
+        },
+        {
+          "path": "packages/ui/src/foundation/ThemeScope.next100-regression.test.tsx",
+          "tests": [
+            "updates nested public scope overrides without leaking to a sibling and releases the native ref"
+          ],
+          "currentSha256": "835209eb051493cd564ddba53ba9559497033d5d2e19e9e8443897211597cef1",
+          "retention": {
+            "matchesFA04CapturedTest": true,
+            "matchesWave03UnitProposal": false
+          }
+        }
+      ],
+      "scope": "Live theme/density/locale/direction/owned token propagation, system preference changes, fixed-light nested scope, sibling isolation, portal identity and nested Escape/focus. New installedproof uses shipped menu-surface; retained liveportal unit asserted forwarding old custom property, not computed color."
+    },
+    {
+      "clause": "Stable IDs and hydration identity",
+      "evidence": [
+        "wave-04/02/scoped-lifecycle/receipt.json:24completecases,24server/hydratedcontracts"
+      ],
+      "tests": [
+        {
+          "path": "packages/ui/scripts/test-scoped-lifecycle-consumer.mjs",
+          "tests": [
+            "all initial server ID-bearing nodes stay connected with sameID and identity",
+            "unique server/hydratedIDs and resolved label/description references",
+            "native named field values and disabled flags unchanged by hydration"
+          ],
+          "currentSha256": "1ec39f734446654f55f896b6c035b3ce958ca06520fd4312d580b65bc79a9b99",
+          "retention": {
+            "matchesFA04CapturedTest": false,
+            "matchesWave03UnitProposal": false
+          }
+        }
+      ],
+      "scope": "Exact4afcandidate React18.3.1/19.2.3 x ar-EG/fr-FR xChromium/Firefox/WebKit xlight/dark; eight initial named wire values including month/datetime/JSON. Initialfailedtoken attempts have0fullcases and remain separate."
+    },
+    {
+      "clause": "React Strict Mode cleanup and multiple roots",
+      "evidence": [
+        "wave-03-11/unit-evidence.json:exact current StrictMode test hash matches recorded proposal",
+        "wave-03-integration/controls-lifecycle-clipboard.log:integrated7tests",
+        "wave-03-followup/validation-results.json:accepted1851unit checkpoint"
+      ],
+      "tests": [
+        {
+          "path": "packages/ui/src/foundation/ThemeScope.strict-cleanup.test.tsx",
+          "tests": [
+            "balances StrictMode document observation and cancels the last owner's scroll timer"
+          ],
+          "currentSha256": "13be06df7ea48caf52776205f078fc5f5d06284fb7aca0c34f9f0b3d8b7f2b84",
+          "retention": {
+            "matchesFA04CapturedTest": false,
+            "matchesWave03UnitProposal": true
+          }
+        }
+      ],
+      "scope": "Two independent StrictMode roots share one document scroll listener; first unmount preserves surviving owner; final unmount removes listener, clearsscroll markers/cancels timer; postunmount scroll does not revive owner. Productionhydrate StrictMode wrapper is not substituted for this development cleanup test."
+    },
+    {
+      "clause": "Controlled/uncontrolled supported lifecycle transitions",
+      "evidence": [
+        "wave-03-11/lifecycle-matrix.json:retained named ownership/default/reset clauses",
+        "wave-03-followup/validation-results.json:acceptedunitcheckpoint for retainedfield/grid/menu assertions",
+        "wave-04/05/batch/controls-native-12-01/results.json:ComboBox Firefox/WebKit expected and independentcalendar3expected; preserve other failures",
+        "wave-04/05/batch/combobox-chromium-reset-01/results.json:corrected Chromium reset1pass completes3engine reset evidence"
+      ],
+      "tests": [
+        {
+          "path": "packages/ui/src/experimental/TextField/TextField.test.tsx",
+          "tests": [
+            "honors delegated reset prevention and restores uncontrolled defaults without callbacks",
+            "keeps reassociated controlled values and native edit callbacks host-owned"
+          ],
+          "currentSha256": "7491dcebec37153a7632c2945b7aafb688c4ec9dad9f73bcd5c18687a978e872",
+          "retention": {
+            "matchesFA04CapturedTest": false,
+            "matchesWave03UnitProposal": false,
+            "limit": "Current files include later added tests; retained named reset/authority assertions are evidence at prior checkpoint scope, not a claim this mapping freshly ran current whole files."
+          }
+        },
+        {
+          "path": "packages/ui/src/experimental/TextArea/TextArea.test.tsx",
+          "tests": [
+            "restores the latest uncontrolled default without notifying the host",
+            "retains controlled authority during reset on an externally associated form"
+          ],
+          "currentSha256": "498233a36379dd29893c445874d3c5ae894b80c50e2bffe37f6b393dfca05ac9",
+          "retention": {
+            "matchesFA04CapturedTest": false,
+            "matchesWave03UnitProposal": false,
+            "limit": "Current files include later added tests; retained named reset/authority assertions are evidence at prior checkpoint scope, not a claim this mapping freshly ran current whole files."
+          }
+        },
+        {
+          "path": "packages/ui/src/experimental/ComboBox/ComboBox.test.tsx",
+          "tests": [
+            "uses IDs rather than labels and accepts host updates including controlled null",
+            "keeps the controlled host label when the host declines a selection request"
+          ],
+          "currentSha256": "54bb1dc3057ca06ad73baf7429dc287562472c022ac3ace2a16f850dad770f58",
+          "retention": {
+            "matchesFA04CapturedTest": true,
+            "matchesWave03UnitProposal": false
+          }
+        },
+        {
+          "path": "packages/ui/src/experimental/ComboBox/ComboBox.reset-ownership.test.tsx",
+          "tests": [
+            "canceled native ComboBox reset keeps uncontrolled selection and sends no edit request",
+            "canceled native ComboBox reset keeps controlled selection and sends no edit request"
+          ],
+          "currentSha256": "9ca383c0336389466877a0a5606efa69d8c27d6ef1cef65bc55979550e64b3a8",
+          "retention": {
+            "matchesFA04CapturedTest": false,
+            "matchesWave03UnitProposal": false
+          }
+        },
+        {
+          "path": "packages/ui/src/components/AppDataGrid/ownedGridPersistence.test.tsx",
+          "tests": [
+            "saves reset defaults, suppresses an unchanged rejected snapshot, and resumes for an alternative"
+          ],
+          "currentSha256": "90e357fbdf04190c2d7b630258c49fc2ff47785310965942bcde49a586b61d0b",
+          "retention": {
+            "matchesFA04CapturedTest": true,
+            "matchesWave03UnitProposal": false
+          }
+        },
+        {
+          "path": "packages/ui/src/components/AppPageTabs/AppPageTabs.test.tsx",
+          "tests": [
+            "connects selected tabs to panels, skips disabled tabs and preserves controlled selection",
+            "keeps route mode free of tab panels and tab keyboard selection"
+          ],
+          "currentSha256": "a7cff60793524ef62e57079c5e04ba9a2fa754c5c1e3ab423e5b3b2e59be66eb",
+          "retention": {
+            "matchesFA04CapturedTest": true,
+            "matchesWave03UnitProposal": false
+          }
+        },
+        {
+          "path": "packages/ui/src/experimental/Menu/Menu.test.tsx",
+          "tests": [
+            "keeps controlled open state under host authority"
+          ],
+          "currentSha256": "d944225a253aba4e3d8d4ef2ab61f8c0eb567f1b7e33635c1ee391cc35bdcf97",
+          "retention": {
+            "matchesFA04CapturedTest": false,
+            "matchesWave03UnitProposal": false
+          }
+        }
+      ],
+      "scope": "Supported transitions are local edits/default replacement+accepted or prevented native reset, controlled value/null updates and request rejection/acceptance, form reassociation, persisted default remount, and scope prop updates. They do not mean an existing instance can arbitrarily change ownership."
+    }
+  ],
+  "mountFixedAndLiveContracts": [
+    {
+      "contract": "Field and grid value/default ownership",
+      "source": "docs/developer/react-aria-public-contracts.md:28; docs/developer/react-aria-grid-contracts.md:143",
+      "rule": "Keep value/default ownership mode stable per mount; controlledhost is authoritative; explicitnull clears nullablecontrols; defaults seed localstate and native reset uses latestdefault. Remount to change owner; no arbitrary undefined/value flips promised."
+    },
+    {
+      "contract": "Provider/ThemeScope",
+      "source": "packages/ui/src/experimental/Provider/Provider.tsx; packages/ui/src/foundation/ThemeScope.next100-regression.test.tsx",
+      "rule": "Provider owns locale adapter; ThemeScope inherits/overrides theme,density,interaction and ownedtokens. These props/systempreference may change live and are tested. Choosing Provider versus ThemeScope or replacing root composition is a host mount/composition choice, not a controlled/uncontrolled value flip."
+    },
+    {
+      "contract": "AppPageTabs route versus controlled composition",
+      "source": "docs/developer/react-aria-page-layout.md:8; packages/ui/src/components/AppPageTabs/AppPageTabs.tsx",
+      "rule": "With onChange: controlled tabs/panels; without: route navigation/native links. Choose composition/owner intentionally; no promise that toggling mode preserves panel-local state or focus through subtree replacement. Supported value/item updates within chosen mode have named tests."
+    }
+  ],
+  "remainingSuccessor": null,
+  "evidenceSha256": {
+    "docs/developer/final-acceptance/wave-04/02/scoped-lifecycle/receipt.json": "470c69c0084cc398bed7ae9f20eb4e1933ff12cbf79108b44de41d90285dbfb9",
+    "docs/developer/final-acceptance/wave-03-11/unit-evidence.json": "0dddb457a6d733a5c0ac4f95cae90188f3af8bb0506e2dd7e48a75d4661662d5",
+    "docs/developer/final-acceptance/wave-03-11/lifecycle-matrix.json": "156ea2927b20a940eab6fb02dc30b161ba2f89b059b3499067208e8b2571df6f",
+    "docs/developer/final-acceptance/wave-03-integration/controls-lifecycle-clipboard.log": "5689ec32707d79bec011eeb5b599c80bb71bdd7f53bb5421eb0d2685e7781c67",
+    "docs/developer/final-acceptance/wave-03-followup/validation-results.json": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42",
+    "docs/developer/final-acceptance/parallel-04/input-reconciliation.json": "28c3e99e10292f26fd03c087287a7b45d719eb9368f3c28f6e6505427c7b299e",
+    "docs/developer/final-acceptance/wave-04/05/batch/controls-native-12-01/results.json": "2878c20d4cf7c33479ddf80f99921ddde2218ca5d1048cfb57c04e3b17e4e977",
+    "docs/developer/final-acceptance/wave-04/05/batch/combobox-chromium-reset-01/results.json": "fb9b9b2ffa2f4751d767023874c3102fb0228b5a86a6d59f195f2b28b89f9282"
+  },
+  "limits": "Source/light reconciliation only; no acceptedtest rerun/install/build/browser. Retained results keep originalinput/runtime limits; latest24case browserpass bound exact4afcandidate. No all-export exhaustive lifecycle/device/AT claim. Root owns central acceptance/counts."
+}

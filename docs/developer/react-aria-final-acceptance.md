@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 256/320 A leaves closed; 64 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 257/320 A leaves closed; 63 A, 0 editor V review leaves and six future leaves remain.**
+
+### Installed lifecycle and ownership review — 2026-10-17
+
+Closed A-X-16 from24 current exact-tarball lifecycle passes joined to named StrictMode/two-root and controlled/default/reset evidence. The new runner preserves all server ID-bearing nodes, native values/disabled state and label references through hydration, plus live portals and sibling independence. Supported ownership updates are tested without inventing arbitrary mode switching.
+Wave 04 now closes 76 of 139 items; 63 remain.
 
 ### Historical-reference policy reconciliation — 2026-10-17
 
