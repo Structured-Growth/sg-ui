@@ -151,14 +151,17 @@ export const HierarchicalMenu = forwardRef<HTMLDivElement, HierarchicalMenuProps
         else { const item = commandItems.find(candidate => candidate.id === id); if (item) enter(item); }
       }}>
         {parent && <AriaMenuItem id={backId} textValue={accessibleBack!} aria-label={accessibleBack!} shouldCloseOnSelect={false}
-          className={`${styles.item} ${styles.back}`} data-hierarchical-item={parent.id} data-hierarchical-path={key} data-hierarchical-back><span className={styles.arrow} aria-hidden="true"><KeyboardArrowLeftIcon /></span>{parent.label}</AriaMenuItem>}
+          className={`${styles.item} ${styles.back}`} data-hierarchical-item={parent.id} data-hierarchical-path={key} data-hierarchical-back><span className={styles.arrow} aria-hidden="true"><KeyboardArrowLeftIcon /></span><span className={styles.itemLabel} data-sgui-part="hierarchical-back-label">{parent.label}</span></AriaMenuItem>}
         {resolved.level.sections.map(section => <MenuSection key={section.id} className={styles.section}>
           {section.label && <Header className={styles.sectionTitle}>{section.label}</Header>}{section.items.map(commandItem)}
         </MenuSection>)}
         {!!resolved.level.footerItems?.length && <MenuSection className={styles.footer}>{resolved.level.footerItems.map(commandItem)}</MenuSection>}
       </AriaMenu> : <nav aria-label={label} className={styles.navigation}>
         {parent && <Button variant="text" tone="neutral" aria-label={accessibleBack!} className={`${styles.item} ${styles.back}`}
-          startIcon={<KeyboardArrowLeftIcon />} {...{ "data-hierarchical-item": parent.id, "data-hierarchical-path": key, "data-hierarchical-back": true }} onPress={back}>{parent.label}</Button>}
+          {...{ "data-hierarchical-item": parent.id, "data-hierarchical-path": key, "data-hierarchical-back": true }} onPress={back}>
+          <span className={styles.arrow} aria-hidden="true"><KeyboardArrowLeftIcon /></span>
+          <span className={styles.itemLabel} data-sgui-part="hierarchical-back-label">{parent.label}</span>
+        </Button>}
         <div ref={scroll} className={styles.scroll}>{navigationLevel(resolved.level, resolved.path, new Set(resolved.levels))}</div>
       </nav>}
     </div>

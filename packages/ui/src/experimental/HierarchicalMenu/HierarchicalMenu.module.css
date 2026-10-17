@@ -13,7 +13,7 @@
   .sectionTitle { padding: var(--sgui-space2); font-family: var(--sgui-font-family); font-size: var(--sgui-caption-size); line-height: var(--sgui-label-line-height); }
   .list { list-style: none; margin: 0; padding: 0; }
   .root .item { display: flex; box-sizing: border-box; align-items: center; gap: var(--sgui-space2); inline-size: 100%; min-inline-size: 0; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding: var(--sgui-space1) var(--sgui-control-padding); text-align: start; color: var(--sgui-menu-text); border-radius: var(--sgui-control-radius); cursor: pointer; }
-  button.item > span { display: flex; align-items: center; gap: var(--sgui-space2); inline-size: 100%; min-inline-size: 0; }
+  button.item > span:not([aria-hidden="true"]) { display: flex; align-items: center; gap: var(--sgui-space2); inline-size: 100%; min-inline-size: 0; }
   .itemLabel { flex: 1; overflow-wrap: anywhere; }
   .item:hover, .item[aria-current="page"] { background: var(--sgui-menu-selected-surface); }
   .root:focus-visible, .item[data-focused], .item:focus-visible { background: var(--sgui-menu-focused-surface); outline: var(--sgui-control-focus-width) solid var(--sgui-menu-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
