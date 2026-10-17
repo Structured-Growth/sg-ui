@@ -1,6 +1,6 @@
 # Remaining browser, visual and final acceptance work
 
-**Current open work:** 20 hardening (V) items, 139 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md).
+**Current open work:** 14 hardening (V) items, 139 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md).
 
 Priority: P3 — third, only after the required functionality baseline and regression tasks are complete. P4 final acceptance follows hardening. Known defects are recorded individually as `BUG-0001`, `BUG-0002`, etc. with reproduction, expected result, affected component, priority and linked regression; allocate IDs only when a real defect is found. Do not create empty defect tasks.
 
@@ -50,27 +50,6 @@ example/fixture after transfer. The migrated existing native tests remain requir
 Storybook runtime is removed. Original A-* wording and historical results are preserved; close each
 leaf against its behavioral requirement and record the new host, without silently
 claiming old evidence exercised the website or changing acceptance counts.
-
-## C21: DocumentEditorLayout
-
-Scope: [src/components/DocumentEditorLayout](../../packages/ui/src/components/DocumentEditorLayout). Original scope: `M-21` in the [scope ledger](react-aria-scope-ledger.md).
-
-- [ ] V-C21-04 Review DocumentEditorLayout light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C21-05 Review DocumentEditorLayout translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
-
-## C22: DocumentEditorToolbar
-
-Scope: [src/components/DocumentEditorToolbar](../../packages/ui/src/components/DocumentEditorToolbar). Original scope: `M-22` in the [scope ledger](react-aria-scope-ledger.md).
-
-- [ ] V-C22-04 Review DocumentEditorToolbar light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C22-05 Review DocumentEditorToolbar translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
-
-## C23: ContentEditorChrome
-
-Scope: [src/components/ContentEditorChrome](../../packages/ui/src/components/ContentEditorChrome). Original scope: `M-23` in the [scope ledger](react-aria-scope-ledger.md).
-
-- [ ] V-C23-04 Review ContentEditorChrome light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C23-05 Review ContentEditorChrome translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
 
 ## C25: FloatingTextSelectionToolbar
 

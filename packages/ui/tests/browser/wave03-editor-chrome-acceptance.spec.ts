@@ -39,6 +39,10 @@ test('long chrome reflows in both production themes/densities and Arabic RTL', a
     const host = page.getByTestId('chrome-acceptance');
     const l = labels(arabic);
     await expect(host).toBeVisible();
+    expect(await host.evaluate(node => {
+      const scope=node.closest('[data-sgui-scope]')!;
+      return {theme:scope.getAttribute('data-sgui-theme'),density:scope.getAttribute('data-sgui-density')};
+    })).toEqual({theme,density});
     await expect(page.getByRole('group', { name: l.group, exact: true })).toBeVisible();
     await expect(page.getByRole('group', { name: l.tools, exact: true })).toBeVisible();
     expect(await host.evaluate(node => getComputedStyle(node).direction)).toBe(arabic ? 'rtl' : 'ltr');
@@ -51,9 +55,31 @@ test('long chrome reflows in both production themes/densities and Arabic RTL', a
     // These are observed logical DOM order and translated names, not spoken AT.
     const order = await host.locator('[data-sgui-part="editor-actions"] button').allTextContents();
     expect(order[0]).toContain(l.file);
+    const scroll=page.getByRole('region',{name:arabic?'منطقة تمرير المستند':'Acceptance scroll region',exact:true});
+    await expect(scroll.getByRole('textbox',{name:l.doc,exact:true})).toBeVisible();
+    expect(await scroll.evaluate(node=>node.scrollHeight>node.clientHeight)).toBe(true);
+    expect(await host.evaluate(node=>{
+      const menu=node.querySelector('[data-sgui-part="document-editor-menu"]')!;
+      const toolbar=node.querySelector('[data-sgui-part="document-editor-toolbar"]')!;
+      const content=node.querySelector('[data-sgui-part="document-editor-content"]')!;
+      return Boolean(menu.compareDocumentPosition(toolbar)&Node.DOCUMENT_POSITION_FOLLOWING)&&Boolean(toolbar.compareDocumentPosition(content)&Node.DOCUMENT_POSITION_FOLLOWING);
+    })).toBe(true);
     const id = `${theme}-${density}-${arabic ? 'ar' : 'en'}`;
     await info.attach(`${id}-geometry`, { body: JSON.stringify({ browser: browser.version(), ...measured }), contentType: 'application/json' });
     await info.attach(`${id}-chrome`, { body: await host.screenshot(), contentType: 'image/png' });
+    const bold=host.getByRole('button',{name:l.bold,exact:true});
+    await bold.focus();await bold.press('Enter');
+    await expect(bold).toHaveAttribute('aria-pressed','true');
+    await expect(scroll.getByRole('textbox',{name:l.doc,exact:true})).toBeFocused();
+    const heading=host.getByRole('button',{name:new RegExp(l.heading)});
+    await heading.focus();await heading.press('Enter');await page.keyboard.press('ArrowDown');await page.keyboard.press('Enter');
+    await expect(heading).toContainText(arabic?'عنوان أول':'H1');
+    await expect(scroll.getByRole('textbox',{name:l.doc,exact:true})).toBeFocused();
+    const file=host.getByRole('button',{name:l.file,exact:true});
+    await file.focus();await file.press('Enter');
+    const dialog=page.getByRole('dialog',{name:l.dialog,exact:true});
+    await expect(dialog).toHaveCSS('direction',arabic?'rtl':'ltr');
+    await page.keyboard.press('Escape');await expect(dialog).toHaveCount(0);await expect(file).toBeFocused();
   }
   expect(errors).toEqual([]);
 });

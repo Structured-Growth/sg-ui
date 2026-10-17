@@ -7,7 +7,7 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 181/320 A leaves closed; 139 A, 20 editor V and six future leaves remain.**
+**Current: 181/320 A leaves closed; 139 A, 14 editor V and six future leaves remain.**
 
 
 ### Validated browser follow-up after bd169b54 — 2026-10-16

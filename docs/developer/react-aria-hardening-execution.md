@@ -44,7 +44,7 @@ Results and exact V closures belong in
 [the execution receipt](backlog-execution-2026-10-15.md). The canonical remaining
 items stay in [the hardening checklist](react-aria-hardening-tasks.md).
 
-Current canonical progress: **280 / 300 complete; 20 remaining**. This counts V
+Current canonical progress: **286 / 300 complete; 14 remaining**. This counts V
 checklist items only, not test cases, engine executions, acceptance or future work.
 
 HB-07 complete: AppInlineProgress/AppOperationSteps/Status long-content and
@@ -70,7 +70,7 @@ successful screenshots reviewed. C08-04/05 and P22-04/05 removed. HB-09 also clo
 C09-04/05: its composed host renders the actual SideNavigation with long translated
 rows and landmark names in both layouts/directions, reviewed in all engines.
 
-First unfinished family in checklist order: DocumentEditorLayout (V-C21-04/05).
+First unfinished family in checklist order: FloatingTextSelectionToolbar (V-C25-04/05).
 Retain unaffected prior batches and rerun only relevant source or assertion changes.
 
 HB-11 complete: Link/Breadcrumbs/Navigation/Disclosure/Collapse. Eight configurations
@@ -165,3 +165,14 @@ The output directory must not exist. The driver acquires the existing serial val
 [Proof and repeat receipts](final-acceptance/apple-simulator/results.json) retain the initial locator failure and two successful executions. The repeatable driver passed build/test/summary/shutdown. Returned speech includes `Active First status Pop up button` and `Draft Second status Pop up button`; speech hints/verbosity are not exact snapshots. Xcode toolchain warnings remain in the logs.
 
 This establishes actual automated simulator VoiceOver capability, reducing required operator work. It does not certify physical gestures or complete A-X-11's manual six-family review, browser/OS support matrices, all announcements, rotor/gesture usability, or the20 editor V leaves. Expand the existing named scenarios next; keep human experience and physical-device observations separate. No acceptance checkbox/count changes follow from this one smoke.
+
+
+HB-19 complete: DocumentEditorLayout/DocumentEditorToolbar/ContentEditorChrome
+C21/C22/C23 V-04/V-05 close with the reused AcceptanceComposition host and
+strengthened existing wave03 chrome spec. Nine cases pass across all three engines,
+covering 24 theme/density/locale configurations; all 24 screenshots were inspected.
+Native Arabic/English bold and heading commands, dialog direction/return focus,
+resolved production scopes, semantic reading order and independent host scrolling
+are permanent assertions. No library source changed. Evidence:
+[editor chrome presentation](final-acceptance/editor-chrome-presentation/results.json).
+Resume at the remaining 14 editor V leaves; A and future counts are unchanged.

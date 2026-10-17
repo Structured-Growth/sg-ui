@@ -2534,3 +2534,18 @@ Validation: 158 unit cases in 26 files and all 12 browser cases pass across
 Chromium, Firefox and WebKit. Library/docs builds, foundation guards, docs
 TypeScript, catalog and packed-package checks pass. Source fingerprints and logs
 are recorded in [the focused receipt](final-acceptance/default-nearest-range/results.json).
+
+
+## HB-19 — editor layout/chrome presentation, 2026-10-17
+
+V-C21-04/05, V-C22-04/05 and V-C23-04/05 close with the existing public composed
+host, strengthened native assertions and 24 individually reviewed screenshots.
+Nine cases pass in Chromium/Firefox/WebKit. Long labels wrap at 320px in light/dark,
+both densities and English/Arabic RTL; localized actions, heading callbacks,
+independent scroll ownership, focus return and logical reading order pass.
+No production implementation change or spoken AT claim. The host textarea does
+not close the separate Lexical editor/formatting leaves. Exact source hashes,
+commands/results, limits and screenshot names are in the
+[HB-19 receipt](final-acceptance/editor-chrome-presentation/results.json).
+Current hardening count: 286/300 complete, 14 remaining. Final acceptance remains
+139 open A leaves, with six explicitly deferred future leaves separate.
