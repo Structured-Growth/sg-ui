@@ -1,4 +1,5 @@
 @layer sgui.components {
+  .popupBody { position: relative; --calendar-period-anchor-position: static; }
   .calendar:has([data-sgui-part="calendar-period-view"]) ~ .time, .calendar:has([data-sgui-part="calendar-period-view"]) ~ .clear { visibility: hidden; }
   .time { display: flex; flex-direction: column; gap: var(--sgui-space3); }
   .actions { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); }

@@ -108,6 +108,6 @@
 
 @layer sgui.components {
  /* Single-calendar choices occupy the full reserved selector, including hidden actions. */
- .root[data-months="1"]:has([data-sgui-part="calendar-period-view"]) { position: relative; }
+ .root[data-months="1"]:has([data-sgui-part="calendar-period-view"]) { position: var(--calendar-period-anchor-position, relative); }
  .root[data-months="1"] .periodViewport { position: static; }
 }

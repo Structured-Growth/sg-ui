@@ -64,7 +64,7 @@ export function DatePicker({ value, defaultValue = null, onValueChange, unavaila
   function change(date: string | null) { if (resetting.current || props.disabled || props.readOnly || (date && unavailableReasonFor(date))) return; if (value === undefined) setInternal(date); onValueChange?.(date); }
   const action = <Popover presentation={presentation} title={props.label} showTitle={showTitle} open={open} onOpenChange={openChange} trigger={<Button className={styles.trigger} variant="outlined" tone="neutral" disabled={props.disabled || props.readOnly}
       aria-label={t("common.ui.chooseDate", { defaultMessage: "Choose {label}", values: { label: props.label } })}><CalendarTodayIcon size={16} /></Button>}>
-      <div className={styles.calendar}><Calendar getDateUnavailableReason={getDateUnavailableReason} renderDayContent={renderDayContent} label={props.label} value={datetime ? draftDate : selected} onValueChange={date => {
+      <div className={styles.popupBody} data-sgui-part="date-picker-calendar-frame"><div className={styles.calendar}><Calendar getDateUnavailableReason={getDateUnavailableReason} renderDayContent={renderDayContent} label={props.label} value={datetime ? draftDate : selected} onValueChange={date => {
         if (datetime) setDraftDate(date); else { change(date); setOpen(false); }
       }} allowMonthSelection={allowMonthSelection} allowYearSelection={allowYearSelection} navigation={navigation} periodPickerProps={{descriptionPlacement:props.descriptionPlacement,errorPlacement:props.errorPlacement,...periodPickerProps}} visibleYears={visibleYears} disabled={props.disabled} readOnly={props.readOnly}
         min={props.min?.slice(0,10)} max={props.max?.slice(0,10)} unavailable={unavailable} defaultFocusedDate={selected?.slice(0,10) ?? defaultFocusedDate} /></div>
@@ -81,6 +81,7 @@ export function DatePicker({ value, defaultValue = null, onValueChange, unavaila
         onPress={() => { change(null); setOpen(false); }}>
         {t("common.ui.clear", { defaultMessage: "Clear" })}
       </Button>}
+      </div>
     </Popover>;
   return <div ref={root} className={styles.root}>
     <DateFieldValidationContext.Provider value={unavailableReasonFor}>

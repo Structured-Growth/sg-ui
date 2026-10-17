@@ -26,6 +26,10 @@ for(const slug of ['calendar','date-picker','date-range-picker','date-range-sele
  await host.getByRole('button',{name:'Choose month, October',exact:true}).click();const choices=host.getByRole('group',{name:'Month choices',exact:true}),view=host.locator('[data-sgui-part="calendar-period-view"]');
  await expect(choices).toHaveAttribute('data-month-columns','2');const a=(await choices.boundingBox())!,b=(await view.boundingBox())!;expect(Math.abs(a.height-b.height)).toBeLessThan(2);
  expect(Math.abs((await host.boundingBox())!.height-before.height)).toBeLessThan(1);
+ const center=await choices.evaluate(element=>{const buttons=Array.from(element.querySelectorAll('button')).map(button=>button.getBoundingClientRect());return (Math.min(...buttons.map(r=>r.top))+Math.max(...buttons.map(r=>r.bottom)))/2;});
+ const frame=slug==='date-picker'?host:choices;const frameBounds=(await frame.boundingBox())!;expect(Math.abs(center-frameBounds.y-frameBounds.height/2)).toBeLessThan(2);
+ await host.screenshot({path:`/tmp/month-centered-${slug}.png`,animations:'disabled'});
+
  await choices.getByRole('button',{name:'May',exact:true}).click();await expect(host.getByRole('button',{name:'Choose month, May',exact:true})).toBeFocused();
  if(popup)await expect(preview.getByRole('textbox',{name:'Course schedule',exact:true})).toHaveValue(slug==='date-picker'?'10/14/2026':'10/12/2026 – 10/16/2026');
 });

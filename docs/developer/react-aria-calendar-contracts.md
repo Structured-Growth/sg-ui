@@ -963,3 +963,14 @@ needs no browser globals. Selection/focus and month availability are unchanged.
 Calendar, DatePicker, range controls and inline PeriodPicker share this behavior;
 year choices retain four columns. The docs include independently stateful,
 resizable tall, medium and short/wide examples at both densities.
+
+
+### Centered month rows (2026-10-17)
+
+MonthPicker keeps natural control heights and centers its row block vertically
+when every month fits. Safe alignment falls back to start when rows overflow,
+preserving access to the first month. DatePicker provides a stable shared popup
+body as the replacement-view anchor, including its reserved hidden Clear/time
+area. This balances spacing across the whole popup without resizing it or changing
+date/datetime commit behavior. Range selectors retain their full reserved frame;
+multi-calendar choices remain isolated to their own calendar.

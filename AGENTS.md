@@ -841,3 +841,7 @@ that move together; calendarEndpoints is a separate range editing policy.
 MonthPicker adapts to its available frame, preferring two columns/six rows when
 height permits and more columns in shorter/wider hosts. Preserve minimum targets,
 localized labels, stable chooser dimensions and the separate four-column year grid.
+
+Center fitting month-choice rows vertically with natural control heights; keep
+start alignment for overflow. DatePicker's period replacement includes the hidden
+Clear/time region in its stable frame so the whole popup stays balanced.

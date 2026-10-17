@@ -2449,3 +2449,20 @@ Firefox and WebKit), including layout/resize/source checks and existing shared
 month/year isolation, range preservation and year-scroll regressions. Library/docs
 builds, catalog, foundation guards, docs TypeScript and packed consumers passed.
 [Evidence](final-acceptance/responsive-month-choices/results.json).
+
+
+### 2026-10-17 — Center fitting month choices
+
+Centered natural-height month rows within the available frame using safe grid
+alignment, retaining start alignment for overflow. DatePicker now provides one
+stable replacement-view anchor covering its calendar and reserved hidden Clear/
+time area, removing the previous top-heavy spacing without resizing the popup.
+The adaptive column count and independent multi-calendar behavior remain intact.
+
+Validation: 149 affected units; 62 browser cases (26 Chromium, 18 Firefox,
+18 WebKit). Added geometric assertions comparing month-row centers with the full
+DatePicker popup and other chooser frames, retaining responsive/source/selection,
+month/year isolation and year-scroll checks. Birthday, narrow popup and atomic
+datetime scenarios also passed. Library/docs builds, catalog, foundation guards,
+docs TypeScript and packed consumers passed. Screenshot review confirmed balanced
+spacing. [Evidence](final-acceptance/centered-month-choices/results.json).
