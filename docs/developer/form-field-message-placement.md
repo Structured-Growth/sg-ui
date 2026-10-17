@@ -21,7 +21,7 @@ text or validation APIs. Host-supplied labels/messages retain their translation
 ownership. Message positioning never changes native constraints, accepted values,
 commit callbacks or validation timing.
 
-`src/experimental/TextField/FieldMessages.tsx` owns the shared placement type and
+`packages/ui/src/experimental/TextField/FieldMessages.tsx` owns the shared placement type and
 private rendering helper. Fields supply their existing native message nodes,
 styles and IDs; the helper adds no DOM wrapper or interaction implementation.
 Above/below instances retain a stable control position in the React tree so that

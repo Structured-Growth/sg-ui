@@ -112,15 +112,15 @@ This plan is separate from historical F/T/V counts. Follow the
 
 - [x] HM-SCOPE-01 Inspect the reference sliding drilldown/Back pattern, reconcile
   existing SGUI support and record the standalone component boundary here.
-- [ ] HM-F-01 Finalize the owned panel model, controlled/local path contract,
+- [x] HM-F-01 Finalize the owned panel model, controlled/local path contract,
   per-level content options and navigation-versus-command host composition.
-- [ ] HM-F-02 Extract reusable drilldown/Back rendering and transitions; preserve
+- [x] HM-F-02 Extract reusable drilldown/Back rendering and transitions; preserve
   SideNavigation's public model, routing behavior and existing assertions.
-- [ ] HM-F-03 Add a public prop playground and independent source-backed examples:
+- [x] HM-F-03 Add a public prop playground and independent source-backed examples:
   three levels with Back, different sibling configurations, mixed inline/drilldown
   navigation and compact/comfortable references. Update usage, catalog exports
   and composition metadata; validate snippets against built public types.
-- [ ] HM-F-04 Establish the primary entry/Back/action flows using existing coverage
+- [x] HM-F-04 Establish the primary entry/Back/action flows using existing coverage
   and only 1–3 meaningful added/adapted smoke cases per affected component in total.
   Use a focused browser check to verify how motion, Back and scrolling appear.
 - [ ] HM-T-01 Cover deeper path/model changes, controlled ownership and independent
@@ -132,9 +132,10 @@ This plan is separate from historical F/T/V counts. Follow the
 
 HM-SCOPE-01 evidence: inspected the local reference SideNavigation source/stories
 and linked SGUI source/tests; verified document links and diff whitespace.
-No runtime or visual validation is claimed. Successor: integrate wave-04/06/hierarchical-integration.patch and run its bounded
-validation plan. HM-F-01–04 remain unchecked until public build, docs source,
-three baseline unit and focused native evidence pass.
+HM-F-01–04 are complete: public build/catalog/source-copy checks pass; three
+strengthened units and nine native cases pass. Coordinator screenshot review
+found and corrected narrow Back-label wrapping; final geometry/captures pass
+across all three engines. Broader HM-T/HM-V and adoption retain their own scope.
 
 
 ## Prepared owned contract

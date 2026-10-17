@@ -6,8 +6,12 @@ The user authorized targeted task validation and occasional full checkpoints on
 ## Task and dev integration checks
 
 Run meaningful tests for the changed behavior and affected consumers, including
-colocated/composed regressions. Use `pnpm exec vitest related --run <source paths>`
-for related unit tests and `pnpm exec vitest run <test paths>` for explicit cases.
+colocated/composed regressions. From the repository root, use
+`pnpm --filter @structured-growth/sg-ui exec vitest related --run <source paths>`
+for related unit tests and
+`pnpm --filter @structured-growth/sg-ui exec vitest run <test paths>` for explicit
+cases. These filtered commands run in `packages/ui`; resolve source and test paths
+relative to that workspace.
 Run typechecking and relevant foundation/token guards for source/API/style changes.
 Changes to build, exports or dependencies need the affected build/packed-consumer
 checks; workflow changes need syntax/event/selection checks. Update changed-state
@@ -76,3 +80,21 @@ The development branch was renamed from `codex/dev` to `dev` on 2026-10-14.
 This carries forward the existing development-validation policy. `main` remains
 the production/release branch; promotions require explicit approval and the
 complete production gates, as recorded in AGENTS.md.
+
+## Scoped current-documentation check
+
+From the repository root, run the lightweight source-consistency checker and its
+fixture tests:
+
+```sh
+node --test packages/ui/scripts/check-current-guidance-wave04.test.mjs
+node packages/ui/scripts/check-current-guidance-wave04.mjs
+```
+
+The [checker](../../packages/ui/scripts/check-current-guidance-wave04.mjs) covers
+the current browser guide prefix, this validation guide, server-component guidance
+and field-message placement. It checks local links/anchors, canonical catalog
+routes, command workspace ownership, referenced scripts/source paths and public
+package import routes. It explicitly excludes dated browser receipts and does not
+execute commands or compile component snippets. The coordinator still runs the
+required catalog/snippet browser checks against the frozen build.

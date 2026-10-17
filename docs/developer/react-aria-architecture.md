@@ -174,9 +174,12 @@ behind owned grid/icon contracts; MIT/ISC and applicable Feather notices are ret
 PostCSS and CSS Modules compilation are development dependencies only. The
 testing-library user-event dependency drives meaningful keyboard/form tests.
 Upgrades require regenerated lockfiles, license review, owned declaration checks,
-behavior checks, docs/native-fixture and packed-consumer validation. No upstream examples,
-implementation code or icon assets were copied. Adobe dependencies retain Apache
-2.0 licensing; existing commercial terms and notices remain in place.
+behavior checks, docs/native-fixture and packed-consumer validation. Current icon
+wrappers import Lucide components; that observation does not establish historical
+source or asset provenance. Final review must resolve copied/adapted implementation,
+example and asset attribution, including any required modified-file notices. Adobe
+dependencies retain Apache 2.0 licensing; existing commercial terms and notices
+remain in place.
 
 The catalog and public theme now resolve to owned implementations; retired runtime,
 peer and development foundation packages have been removed. Z still includes final

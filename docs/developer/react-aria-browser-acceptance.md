@@ -4,15 +4,18 @@ Task references: H-02, R-11 and X-12, with representative G/X/editor evidence.
 The Playwright suite now runs the built docs-owned native React fixture host, using production
 scopes, styles and existing host adapters. It requires no authentication, database
 or external application service. Test fixtures and assertions live in
-`tests/browser/acceptance.spec.ts`; `playwright.config.ts` requires Chromium,
+`packages/ui/tests/browser/acceptance.spec.ts`;
+`packages/ui/playwright.config.ts` requires Chromium,
 Firefox and WebKit. These engines do not establish real-device or assistive-
 technology conformance.
+
+Run these commands from the repository root:
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm check
 pnpm build:browser-docs
-pnpm exec playwright install --with-deps chromium firefox webkit
+pnpm --filter @structured-growth/sg-ui exec playwright install --with-deps chromium firefox webkit
 pnpm test:browser
 ```
 

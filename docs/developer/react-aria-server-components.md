@@ -31,7 +31,7 @@ Its React 19 fixture also installs the matching official
 `react-server-dom-webpack` test renderer, runs with Node's `react-server`
 condition and the official directive loader, and produces a Flight stream.
 It verifies that public presentation imports are executed on the server,
-that Provider, AppButton and AuthShell become client references, and that a composed
+that Provider, Button and AuthShell become client references, and that a composed
 shell/card/table tree serializes without render errors, including the exact
 private AppShellMain client reference in its Flight manifest. The renderer is confined
 to the disposable fixture and adds no package runtime dependency.
@@ -46,7 +46,9 @@ server scope node. Recoverable hydration errors, console warnings/errors and pag
 errors fail. `SGUI_BROWSER_ENGINES=chromium,webkit` selects an explicit local
 subset; CI requires all three engines.
 
-`node scripts/test-next-consumer.mjs` independently packs SGUI into a clean
+From the repository root,
+`pnpm --filter @structured-growth/sg-ui exec node scripts/test-next-consumer.mjs`
+independently packs SGUI into a clean
 Next.js App Router consumer, builds production output and starts its production
 server. Next is confined to the disposable fixture. The server imports eligible
 presentation and pagination modules and passes their output through a consumer
@@ -55,7 +57,7 @@ the built framework output rather than source aliases. See
 [browser acceptance](react-aria-browser-acceptance.md) for evidence and limits.
 
 Running
-`node scripts/test-foundation-consumer.mjs --react18`
+`pnpm --filter @structured-growth/sg-ui exec node scripts/test-foundation-consumer.mjs --react18`
 validates the React 18.3 path without installing the React 19 Flight
 renderer. These representative consumers do not certify every host framework or
 every control's hydration behavior; remaining R acceptance requirements retain
