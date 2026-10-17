@@ -1,3 +1,4 @@
+"use client";
 import { useEffect } from "react";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { COMMAND_PRIORITY_HIGH, PASTE_COMMAND } from "lexical";
