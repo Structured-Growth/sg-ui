@@ -7,7 +7,22 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 250/320 A leaves closed; 70 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 254/320 A leaves closed; 66 A, 0 editor V review leaves and six future leaves remain.**
+
+### Operation-step state support review — 2026-10-17
+
+Closed A-M-03 from retained F/T/V and native/presentation evidence. Accessible state text and the documented persistent host-owned polite Status cover state announcements without duplicating live regions or announcing every percentage tick. Actual spoken delivery remains the separate A-X-11 manual review.
+Wave 04 now closes 73 of 139 items; 66 remain.
+
+### Card contract and original-scope review — 2026-10-17
+
+Closed A-M-14/A-M-15 after comparing the initial extracted APIs with current source and documenting clause ownership. The instructor retains the same seven props; the learner retains the same nine. Generic menu/date/icon/status wording is attributed to the actual card, shared components and host adapters rather than inventing a new menu or lifecycle API. Existing accepted unit/native/visual evidence is retained.
+Wave 04 now closes 72 of 139 items; 67 remain.
+
+### Calendar navigation and announcement support review — 2026-10-17
+
+Closed A-K-05 by joining retained native multi-month/reflow/navigation/keyboard/focus evidence with actual emitted localized date/range live-message DOM evidence. No additional announcement layer is needed. Manual spoken screen-reader review remains explicitly tracked under A-X-11; it is not inferred from these probes.
+Wave 04 now closes 70 of 139 items; 69 remain.
 
 ### Installed public declaration review — 2026-10-17
 

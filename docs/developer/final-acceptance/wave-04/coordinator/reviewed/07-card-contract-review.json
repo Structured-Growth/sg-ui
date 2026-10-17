@@ -1,0 +1,57 @@
+{
+  "entries": [
+    {
+      "id": "A-M-14",
+      "basis": "Initial extraction21adebd and current InstructorClassCard have the same seven prop names: four lifecycle statuses, one labeled action destination, count/site/course content and host-formatted activity. There was no card menu, persistence callback, date parser or external icon/image input to restore. The owned Link adapter handles routing callbacks; fixed decorative icons/avatar preserve fallback behavior. Documented clause ownership resolves the prior attribution successor without requiring an invented approval for unchanged API scope. F/T/V lineage,21case unit coverage, batch66 native status/focus/host-date/fallback/one-route checks and HB12 reviewed long-text/theme/density presentation remain accepted; the later literal-label fix is integrated and covered.",
+      "criterion": "- [ ] A-M-14 Reconcile InstructorClassCard final acceptance: Status/menu/actions, callbacks, long text, date and icon fallbacks. Link its `F-C14`, `T-C14` and `V-C14` evidence and any unresolved defects."
+    },
+    {
+      "id": "A-M-15",
+      "basis": "Initial extraction21adebd and current LearnerClassCard have the same nine prop names: course/instructor content, progress, next activity, due/reference inputs, Details/Continue destinations and onContinue. Status refers to the existing progress/due presentation; no lifecycle-status API existed in either source. Current named/clamped progress, translated due/date fallbacks, isolated native links, exact callback delivery, meaningful headings and noninteractive decorative regions retain F/T/V, corrected all-engine learner-card native and HB12 reviewed presentation evidence. Source-backed ownership documentation resolves the ambiguous status successor without adding unsupported props.",
+      "criterion": "- [ ] A-M-15 Reconcile LearnerClassCard final acceptance: Progress/due labels/status/actions, translation, accessible interactive regions. Link its `F-C15`, `T-C15` and `V-C15` evidence and any unresolved defects."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/card-source-scope.json",
+      "sha256": "7c2b7eaa686ae0c8a69d2206b8014b995b3f1dada380660830bba8d4abdd2426"
+    },
+    {
+      "path": "docs/developer/react-aria-card-frames.md",
+      "sha256": "d0e3b28a7ff490c832e1369b2a6fea2dabec2b2b6490955bf23f0d4e39f38c30"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/07/results.json",
+      "sha256": "5dfe8396a37f61e29b91a49782da202788e1d374aa24e044ee126dd486c1d714"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/07/evidence.json",
+      "sha256": "55d66fce4ee6bc8112fd3aff7756546bfd1496e206749466e2e653d4cc1ab9a2"
+    },
+    {
+      "path": "docs/developer/parallel-batch-66/instructor-card-native-presentation.md",
+      "sha256": "8888de6a301d03d1ae319a85ee2f1f3a2c976d8a2c9f6cd0cb27d43e77b9ba5f"
+    },
+    {
+      "path": "docs/developer/parallel-batch-54/learner-card-engine-parity.md",
+      "sha256": "bb58020054d625258dcd6b93916a8bd0be1299f52f95610fcf66db0fe9f49293"
+    },
+    {
+      "path": "docs/developer/react-aria-hardening-execution.md",
+      "sha256": "245d4a7dc51f106bab2a5d93230f468b7b356cd33a7f14af6a619be35da94d8e"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-03-followup/validation-results.json",
+      "sha256": "dc345ca0d2e23c8e50a4808c62f5647c70de9eeabc82d7c9f90f5b63cb198d42"
+    },
+    {
+      "path": "packages/ui/src/components/InstructorClassCard/InstructorClassCard.test.tsx",
+      "sha256": "92419daa31d4bb30afd5f797397369bc2665b91b96b3e437a29a592f7e2ae3df"
+    },
+    {
+      "path": "packages/ui/src/components/LearnerClassCard/LearnerClassCard.test.tsx",
+      "sha256": "afdc59040905de45239131823fe3e6dad8a760b47c0e6a011e9e968c64e1c644"
+    }
+  ],
+  "limits": "No new card feature or human approval is inferred; this is reconciliation against the actual preserved source contract. Historical native and rendered reviews retain original source/runtime scopes. Manual spoken AT and physical-device coverage stay separate. No required shipped behavior is removed or deferred by this attribution."
+}

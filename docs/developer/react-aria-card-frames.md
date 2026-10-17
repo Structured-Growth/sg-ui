@@ -83,3 +83,23 @@ keyboard link/button activation, destination fallback, callback count, isolated
 new-tab links, progress semantics and server rendering. Native browser layout,
 focus and navigation checks are part of the batch acceptance evidence; broader
 cross-browser and assistive-technology checks remain under X.
+
+## Original card-scope attribution
+
+The initial extracted InstructorClassCard already exposed `status`, one
+`actionHref`/`actionLabel`, and host-formatted `lastLearnerActivityLabel`. Its seven
+prop names remain unchanged. Routing callbacks belong to the Link adapter; the
+card has no menu or persistence callback, date parser, or external icon/image
+input. Fixed icons are decorative and the avatar supplies its fallback. For a
+menu-bearing composition, compose the public Menu with ClassCardFrame in the host
+rather than passing unsupported props into this card.
+
+The original LearnerClassCard also exposed the same nine current prop names:
+progress, next activity, due-date/reference inputs, destinations and `onContinue`.
+Its status presentation is progress/due text; neither original nor current API
+contains a separate lifecycle-status prop. The owned migration preserves these
+boundaries and adds named/clamped progress and tested due-format fallbacks.
+The [source comparison](final-acceptance/wave-04/coordinator/reviewed/card-source-scope.json)
+records the immutable extraction commit, exact source hashes and prop-name lists.
+This resolves generic checklist wording against the actual extracted contracts;
+it is not a new feature approval or a claim about spoken screen-reader output.

@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 69,
-  "closedTotal": 250,
-  "remaining": 70,
+  "closedThisReview": 73,
+  "closedTotal": 254,
+  "remaining": 66,
   "entries": [
     {
       "id": "A-M-21",
@@ -614,6 +614,42 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-installed-declaration-review.json",
       "sha256": "633411003b14d5f14b652da24be17019bf816508a22a0e7017f1a9020b3d3f32",
       "limits": "TypeScript5.9.3 only; this does not announce compatibility with older/newer compilers. Historical API/default comparisons, breaking-release markers and production approval remain separate. No duplicate compiler run was needed for this evidence reconciliation."
+    },
+    {
+      "id": "A-K-05",
+      "basis": "Accepted year-scroll/independent-navigation and centered-month-choice receipts cover multi-month presentation, responsive month/year choices, keyboard navigation and focus restoration in all three desktop engines; current Material picker-radius six-case continuation passes both densities/themes with zero failures/skips. Current Calendar and DateRangeSelector source hashes match retained navigation proof. Two quiet probes exercise actual installed live-announcer output: leap-day keyboard selection emits a full weekday/month/day/year selected-date caption and completed range emits contextual full-date endpoints. SGUI preserves complete accessible date names and hides decorations. This establishes implementation support and meaningful emitted messages; actual spoken delivery remains the separate manual-AT gate.",
+      "criterion": "- [ ] A-K-05 Reconcile original `K-05`: Support multi-month presentation, responsive container sizing, month/year navigation, keyboard navigation, focus return, and meaningful date announcements. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-calendar-announcement-review.json",
+      "sha256": "43626d029c17126233632d4d314e50a0056f79cdb8dc9c5624b12dbaf54f3365",
+      "limits": "Announcement probes are jsdom/English actual live-region DOM evidence, not spoken AT or a new native-browser observation. Retained native scopes keep their original source/runtime limits. The broader manual platform/screen-reader review remains A-X-11 and is not waived; no audible test was run."
+    },
+    {
+      "id": "A-M-14",
+      "basis": "Initial extraction21adebd and current InstructorClassCard have the same seven prop names: four lifecycle statuses, one labeled action destination, count/site/course content and host-formatted activity. There was no card menu, persistence callback, date parser or external icon/image input to restore. The owned Link adapter handles routing callbacks; fixed decorative icons/avatar preserve fallback behavior. Documented clause ownership resolves the prior attribution successor without requiring an invented approval for unchanged API scope. F/T/V lineage,21case unit coverage, batch66 native status/focus/host-date/fallback/one-route checks and HB12 reviewed long-text/theme/density presentation remain accepted; the later literal-label fix is integrated and covered.",
+      "criterion": "- [ ] A-M-14 Reconcile InstructorClassCard final acceptance: Status/menu/actions, callbacks, long text, date and icon fallbacks. Link its `F-C14`, `T-C14` and `V-C14` evidence and any unresolved defects.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/07-card-contract-review.json",
+      "sha256": "244ece8723c4659c49008abf9660d374b69732488f2a5dac867b506ee46e5664",
+      "limits": "No new card feature or human approval is inferred; this is reconciliation against the actual preserved source contract. Historical native and rendered reviews retain original source/runtime scopes. Manual spoken AT and physical-device coverage stay separate. No required shipped behavior is removed or deferred by this attribution."
+    },
+    {
+      "id": "A-M-15",
+      "basis": "Initial extraction21adebd and current LearnerClassCard have the same nine prop names: course/instructor content, progress, next activity, due/reference inputs, Details/Continue destinations and onContinue. Status refers to the existing progress/due presentation; no lifecycle-status API existed in either source. Current named/clamped progress, translated due/date fallbacks, isolated native links, exact callback delivery, meaningful headings and noninteractive decorative regions retain F/T/V, corrected all-engine learner-card native and HB12 reviewed presentation evidence. Source-backed ownership documentation resolves the ambiguous status successor without adding unsupported props.",
+      "criterion": "- [ ] A-M-15 Reconcile LearnerClassCard final acceptance: Progress/due labels/status/actions, translation, accessible interactive regions. Link its `F-C15`, `T-C15` and `V-C15` evidence and any unresolved defects.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/07-card-contract-review.json",
+      "sha256": "244ece8723c4659c49008abf9660d374b69732488f2a5dac867b506ee46e5664",
+      "limits": "No new card feature or human approval is inferred; this is reconciliation against the actual preserved source contract. Historical native and rendered reviews retain original source/runtime scopes. Manual spoken AT and physical-device coverage stay separate. No required shipped behavior is removed or deferred by this attribution."
+    },
+    {
+      "id": "A-M-03",
+      "basis": "Current AppOperationSteps renders native ordered items with translated pending/in-progress/completed/error text, a named active progress indicator, distinct non-color state glyphs and no Step1of1 numbering. Existing unit tests verify exact state transitions, empty/SSR, stable list items, completed/error presentation and translated status. The composed host keeps one persistent polite Status; actual DOM messages update on completion/failure/reset while percentage ticks stay quiet. Batch07/batch67 and HB07 retain accepted native keyboard/focus/reflow/theme/density/presentation proof and F-C03/T-C03/V-C03 lineage. This satisfies state-announcement implementation support; it does not substitute DOM evidence for spoken AT.",
+      "criterion": "- [ ] A-M-03 Reconcile AppOperationSteps final acceptance: State announcements, completed/error/active visuals, hide single-step numbering. Link its `F-C03`, `T-C03` and `V-C03` evidence and any unresolved defects.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/07-operation-steps-support-review.json",
+      "sha256": "fc03d9f31b61b1402c10f02f9eef89d9906db62a54d4fcb9df9f98e7453f01f1",
+      "limits": "No new audible/simulator test or claim of spoken announcement timing, silence or duplicate-count conformance. Those operator observations remain under A-X-11. The component is presentation; hosts own milestone messages and real operation state. Existing native evidence keeps its original runtime/source boundaries."
     }
   ],
   "limits": [
