@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 68,
-  "closedTotal": 249,
-  "remaining": 71,
+  "closedThisReview": 69,
+  "closedTotal": 250,
+  "remaining": 70,
   "entries": [
     {
       "id": "A-M-21",
@@ -605,6 +605,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/08-inherited-styling-migration-review.json",
       "sha256": "c76efdad505a4bb46769c14d38e08951ce77fdcb0c3dbfa40e354cb506ef13de",
       "limits": "Captured styling contract migration only. Original general wrapper callbacks/models/defaults, exhaustive compatibility, final Conventional Commit release marking, physical devices and manual AT remain independently tracked. Current boundary index is generated from the reviewed built declarations; the source-only className JSDoc clarification enters declarations in the next scheduled build."
+    },
+    {
+      "id": "A-R-09",
+      "basis": "Reviewed independently installed declarations from frozen candidate 4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959. Four actual compile combinations cover React18/19 with skipLibCheck enabled/disabled using TypeScript5.9.3. Every original positive fixture compiles, all32 deliberately unmasked negative assertions produce diagnostics per run, and443 declarations per installation contain zero forbidden retired/private-upstream leaks. The checker rejects a workspace symlink before creating evidence; fixture bytes remain unchanged. Consumer documentation explicitly limits validated compiler coverage to5.9.3 rather than promising an untested range.",
+      "criterion": "- [ ] A-R-09 Reconcile original `R-09`: Test published type declarations with supported TypeScript versions and ensure no retired imports/augmentation or accidental private upstream types escape. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-installed-declaration-review.json",
+      "sha256": "633411003b14d5f14b652da24be17019bf816508a22a0e7017f1a9020b3d3f32",
+      "limits": "TypeScript5.9.3 only; this does not announce compatibility with older/newer compilers. Historical API/default comparisons, breaking-release markers and production approval remain separate. No duplicate compiler run was needed for this evidence reconciliation."
     }
   ],
   "limits": [

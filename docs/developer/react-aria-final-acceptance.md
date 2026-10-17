@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 249/320 A leaves closed; 71 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 250/320 A leaves closed; 70 A, 0 editor V review leaves and six future leaves remain.**
+
+### Installed public declaration review — 2026-10-17
+
+Closed A-R-09 from the current exact-tarball installed declaration matrix. React 18 and 19 both compile with TypeScript 5.9.3 and skipLibCheck true/false; all 32 negative API cases reject invalid usage in every run, and each 443-file declaration scan has zero forbidden imports. The documented compiler coverage stays 5.9.3; no wider compatibility range is claimed.
+Wave 04 now closes 69 of 139 items; 70 remain.
 
 ### Inherited styling migration review — 2026-10-17
 
