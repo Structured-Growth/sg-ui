@@ -1,7 +1,7 @@
 /** Read-only extraction/story/command guard. Run from any cwd:
  * node packages/ui/scripts/check-docs-provenance-wave04.mjs [--strict-history] [--json]
  * Structural success preserves explicit unresolved early scenarios; --strict-history
- * fails while any such scenario lacks accepted semantic disposition. No Git/network writes.
+ * fails while any such scenario lacks an explicit source-backed semantic disposition. No Git/network writes.
  * Local extraction Git objects authenticate local bytes only, never upstream behavior.
  */
 import {readFileSync,existsSync} from 'node:fs';
@@ -66,6 +66,38 @@ export function checkScenarioTransfer(before,current,{original,fixture}) {
   return {original,fixture,previousExports:previous,currentExports:now,
     missingExports:previous.filter(name=>!now.includes(name))};
 }
+/** Validate explicit semantic records, not aliases or export-presence parity. */
+export function checkScenarioDispositions(early,manifest,read) {
+  const issues=[],rows=[],seen=new Set();
+  if(manifest.schemaVersion!==1||manifest.baselineCommit!==initial)issues.push('Invalid early-scenario disposition schema/baseline');
+  if(!Array.isArray(manifest.scenarios))issues.push('Expected explicit scenario disposition array');
+  const expected=new Map(early.map(row=>[`${row.original}#${row.name}`,row]));
+  for(const row of Array.isArray(manifest.scenarios)?manifest.scenarios:[]) {
+    const key=`${row.original}#${row.name}`,source=expected.get(key),errors=[];
+    if(seen.has(key))errors.push('duplicate disposition');seen.add(key);
+    if(!source)errors.push('unknown original scenario');
+    else if(row.initialSha256!==source.initialSha256)errors.push('original source hash mismatch');
+    for(const field of ['originalBehavior','originalAssertions','rationale'])if(typeof row[field]!=='string'||!row[field].trim())errors.push(`missing ${field}`);
+    if(!['represented','changed-contract','gap'].includes(row.disposition))errors.push('invalid semantic disposition');
+    if(!Array.isArray(row.behaviorChanges)||!Array.isArray(row.remainingGaps))errors.push('explicit changes/gaps required');
+    else if([...row.behaviorChanges,...row.remainingGaps].some(value=>typeof value!=='string'||!value.trim()))errors.push('changes/gaps must contain explicit descriptions');
+    if(row.disposition==='changed-contract'&&!row.behaviorChanges?.length)errors.push('changed contract needs explicit differences');
+    const evidence=row.evidence??[];
+    if(!evidence.some(e=>e.kind==='fixture'||e.kind==='example')||!evidence.some(e=>e.kind==='test'))errors.push('current host and assertion evidence required');
+    for(const ref of evidence) {
+      if(!['fixture','example','implementation','test'].includes(ref.kind)||typeof ref.path!=='string'||ref.path.startsWith('/')||ref.path.split('/').includes('..')){errors.push('invalid evidence path/kind');continue;}
+      let text;try{text=read(ref.path);}catch{errors.push(`missing evidence ${ref.path}`);continue;}
+      if(typeof text!=='string'){errors.push(`missing evidence ${ref.path}`);continue;}
+      if(typeof ref.claim!=='string'||!ref.claim.trim()||!Array.isArray(ref.anchors)||!ref.anchors.length)errors.push(`missing semantic claim/anchors ${ref.path}`);
+      for(const anchor of ref.anchors??[])if(typeof anchor!=='string'||!anchor||!text.includes(anchor))errors.push(`stale evidence anchor ${ref.path}`);
+      if(ref.kind==='test'&&(typeof ref.assertion!=='string'||!/(?:^|\s)expect\(/.test(ref.assertion)||!text.includes(ref.assertion)))errors.push(`missing current assertion ${ref.path}`);
+    }
+    const resolved=!errors.length&&row.disposition!=='gap'&&row.remainingGaps?.length===0;
+    for(const error of errors)issues.push(`${key}: ${error}`);
+    rows.push({...row,resolved});
+  }
+  return {issues,rows,unresolved:early.filter(row=>!rows.some(r=>r.original===row.original&&r.name===row.name&&r.resolved))};
+}
 export function audit(root,{strictHistory=false}={}) {
   const read=p=>readFileSync(resolve(root,p),'utf8');
   const git=(ref,path)=>execFileSync('git',['show',`${ref}:${path}`],{cwd:root,encoding:'utf8',maxBuffer:8*1024*1024});
@@ -98,17 +130,20 @@ export function audit(root,{strictHistory=false}={}) {
     const beforeNames=exportsIn(before);
     for(const name of exportsIn(first).filter(name=>!beforeNames.includes(name)))early.push({original,name,initialSha256:hash(first),fixture:mapping[0].fixture,status:'semantic-disposition-required'});
   }
-  if(strictHistory)for(const e of early)issues.push(`Unresolved early extracted scenario: ${e.original}#${e.name}`);
+  const dispositionPath='apps/docs/native-fixtures/scenario-dispositions.json';
+  const dispositions=existsSync(resolve(root,dispositionPath))?checkScenarioDispositions(early,JSON.parse(read(dispositionPath)),read):{issues:[],rows:[],unresolved:early};
+  issues.push(...dispositions.issues);
+  if(strictHistory)for(const e of dispositions.unresolved)issues.push(`Unresolved early extracted scenario: ${e.original}#${e.name}`);
   const manifests=['package.json','packages/ui/package.json','apps/docs/package.json'].map(p=>JSON.parse(read(p)));
   const commandDocuments=['README.md','docs/migration.md','docs/developer/react-aria-component-recipe.md','docs/developer/react-aria-dependency-upgrades.md'];
   const commandResults=commandDocuments.map(p=>checkCommands(commandCodeIn(read(p)),manifests,p));
   for(const result of commandResults)issues.push(...result.issues);
   return {status:issues.length?'failed':'structural-checks-pass',strictHistory,localBaseline:{commit:initial,preDocs:beforeDocs,originalSourceCommit:manifest.sourceCommit},
-    extractionRows:extraction.rows,originalStoryModules:stories.length,transfers,deliberateReplacements:deliberate,unresolvedEarlyScenarios:early,
+    extractionRows:extraction.rows,originalStoryModules:stories.length,transfers,deliberateReplacements:deliberate,earlyScenarioDispositions:dispositions.rows,unresolvedEarlyScenarios:dispositions.unresolved,
     commands:commandResults.flatMap(r=>r.commands),issues,
     limits:['Source/metadata/command existence only; no product, browser, spoken AT, legal, release or upstream authentication result.',
       'Command code spans/fences checked only in four named current guides; script names/package filters, not shell flags, arguments or actual execution.',
-      'Structural success does not accept earlier semantic scenario losses; strict-history exposes them as failures.']};
+      'Semantic dispositions bind original hashes, behavior/differences/gaps and current host/assertion anchors; they do not prove runtime parity. Strict-history fails for unresolved records.']};
 }
 if(process.argv[1]&&pathToFileURL(resolve(process.argv[1])).href===import.meta.url) {
   try {

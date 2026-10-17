@@ -1,9 +1,10 @@
+import {SectionedRows} from "../AppDataGrid/SectionedRows";
 import type { Meta, StoryObj } from "../../../types";
 import { useEffect, useRef, useState } from "react";
 import { AppDataGridShell } from "@structured-growth/sg-ui/components";
 import type { AppDataGridColumn } from "@structured-growth/sg-ui/components";
 import type { OwnedGridCriteriaState } from "@sgui-test-internals/components/AppDataGrid/ownedGridState";
-import { Button } from "@structured-growth/sg-ui/experimental";
+import { Button, Link } from "@structured-growth/sg-ui/experimental";
 
 type Course = { id: string; name: string; status: "active" | "archived"; score: number };
 const rows: Course[] = Array.from({ length: 58 }, (_, index) => ({ id: `course-${index + 1}`, name: `Course ${index + 1}`,
@@ -13,6 +14,7 @@ const columns: AppDataGridColumn<Course>[] = [
   { field: "status", headerName: "Status", width: 150, filterType: "enum" },
   { field: "score", headerName: "Score", flex: 1, minWidth: 100, filterType: "number" },
 ];
+const serverRows = rows.map(row => ({ ...row, email: `${row.id}@example.test` }));
 const meta = { title: "Data Display/AppDataGridShell", component: AppDataGridShell<Course>,
   decorators: [(Story) => <div style={{ height: 500 }}><Story /></div>],
   args: { label: "Courses", rows, columns, getRowLabel: (row: Course) => row.name,
@@ -23,15 +25,24 @@ const meta = { title: "Data Display/AppDataGridShell", component: AppDataGridShe
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const SharedListAndCards: Story = { args: { view: { cards: { renderCard: row => <article>
-  <h3>{row.name}</h3><p>{row.status} · {row.score}</p><Button onPress={() => {}}>Open {row.name}</Button>
+  <h3>{row.name}</h3><p>{row.status} · {row.score}</p><Link href={`/courses/${row.id}`}>Open {row.name}</Link>
 </article> } } } };
 export const IndependentInstances: Story = { render: args => <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", height: 500, gap: 16 }}>
   <AppDataGridShell {...args} label="First courses" /> <AppDataGridShell {...args} label="Second courses" />
 </div> };
 
-function ServerPreview() {
-  const [request, setRequest] = useState<OwnedGridCriteriaState>({ paginationModel: { page: 0, pageSize: 10 }, sortRules: [],
+function ServerPreview({ debounced = false }: { debounced?: boolean }) {
+  const [request, setRequest] = useState<OwnedGridCriteriaState>({ paginationModel: { page: 0, pageSize: debounced ? 5 : 10 }, sortRules: debounced ? [{ field: "name", direction: "asc" }] : [],
     filterRules: [], searchValue: "", selectedRowIds: new Set() });
+  const [debouncedSearch, setDebouncedSearch] = useState("");
+  const [total, setTotal] = useState(0);
+  useEffect(() => {
+    if (!debounced) return;
+    const timer = window.setTimeout(() => setDebouncedSearch(request.searchValue), 250);
+    return () => window.clearTimeout(timer);
+  }, [debounced, request.searchValue]);
+  const query = debounced ? debouncedSearch : request.searchValue;
+  const serverSort = debounced ? request.sortRules : undefined;
   const [loaded, setLoaded] = useState<Course[]>([]);
   const [pending, setPending] = useState(false);
   const latest = useRef(0);
@@ -41,19 +52,32 @@ function ServerPreview() {
     // This simulates host work. A slower older request cannot replace new rows.
     const timer = window.setTimeout(() => {
       if (identity !== latest.current) return;
-      const matching = rows.filter(row => row.name.toLowerCase().includes(request.searchValue.toLowerCase()));
-      setLoaded(matching.slice(request.paginationModel.page * 10, request.paginationModel.page * 10 + 10));
+      const matching = (serverSort ? serverRows : rows).filter(row => row.name.toLowerCase().includes(query.toLowerCase()) ||
+        ("email" in row && String(row.email).toLowerCase().includes(query.toLowerCase())));
+      if (serverSort) matching.sort((a, b) => {
+        for (const rule of serverSort) {
+          const field = rule.field as keyof Course;
+          const left = a[field], right = b[field];
+          const comparison = typeof left === "number" && typeof right === "number" ? left - right : String(left).localeCompare(String(right));
+          if (comparison) return rule.direction === "desc" ? -comparison : comparison;
+        }
+        return 0;
+      });
+      const start = request.paginationModel.page * request.paginationModel.pageSize;
+      setLoaded(matching.slice(start, start + request.paginationModel.pageSize)); setTotal(matching.length);
       setPending(false);
-    }, request.searchValue.length % 2 ? 600 : 150);
+    }, query.length % 2 ? 600 : 150);
     return () => { window.clearTimeout(timer); };
-  }, [request.paginationModel, request.searchValue]);
+  }, [request.paginationModel, query, serverSort]);
   return <AppDataGridShell label="Server courses" rows={loaded} columns={columns} getRowLabel={row => row.name}
-    mode="server" paginationModel={request.paginationModel} searchValue={request.searchValue} pageSizeOptions={[10]}
-    hasNextPage={loaded.length === 10} refreshing={pending} onStateChange={setRequest}
+    mode="server" paginationModel={request.paginationModel} searchValue={request.searchValue} sortRules={serverSort} pageSizeOptions={debounced ? [5, 10] : [10]}
+    hasNextPage={loaded.length === request.paginationModel.pageSize} rowCount={debounced ? total : undefined} refreshing={pending} onStateChange={setRequest}
     view={{ cards: { renderCard: row => <article><h3>{row.name}</h3><p>{row.status}</p></article> } }}
-    toolbar={{ showFilterButton: false, showSortButton: false }} />;
+    toolbar={{ showFilterButton: false, showSortButton: debounced }} />;
 }
 export const ServerLatestRequestWins: Story = { render: () => <ServerPreview /> };
+/** Early server-search successor: host debounce, sorting, total and bounded query. */
+export const DebouncedServerSearchAndSort: Story = { render: () => <ServerPreview debounced /> };
 
 /** Stored state seeds the view once. Reset restores these declared defaults live. */
 export const ResetPersistedView: Story = { args: { ...SharedListAndCards.args, showResetView: true,
@@ -203,3 +227,6 @@ function NativeResponsivePreview() {
   </section>;
 }
 export const NativeResponsiveTransitions: Story = { render: () => <NativeResponsivePreview /> };
+
+/** Host-owned section search/filter/collapse/selection/order/refresh lineage. */
+export const HostSectionedOperations: Story = {render: () => <SectionedRows shell utilities/>};

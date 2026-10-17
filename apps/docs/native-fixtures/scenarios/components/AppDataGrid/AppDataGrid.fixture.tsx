@@ -1,3 +1,4 @@
+import {SectionedRows} from "./SectionedRows";
 import type { Meta, StoryObj } from "../../../types";
 import { useState } from "react";
 import { AppDataGrid } from "@structured-growth/sg-ui/components";
@@ -28,7 +29,7 @@ export const Refreshing: Story = { args: { refreshing: true } };
 export const Error: Story = { args: { errorMessage: "The host could not load these courses.", onRetry: () => {} } };
 
 /** Host-owned optimistic persistence and rollback; the grid only emits requests. */
-function HostReorder() {
+function HostReorder({ selection = true }: { selection?: boolean }) {
   const [courses, setCourses] = useState(rows.slice(0, 5));
   const [pending, setPending] = useState(false);
   const [failNext, setFailNext] = useState(false);
@@ -38,7 +39,7 @@ function HostReorder() {
     <Button variant="outlined" tone="neutral" aria-pressed={reorderEnabled} onPress={() => setReorderEnabled(value => !value)}>Enable row reorder</Button>
     <button type="button" onClick={() => setFailNext(value => !value)} aria-pressed={failNext}>Reject next move</button>
     <p role="status">{status}</p>
-    <AppDataGrid rows={courses} columns={columns} label="Reorder courses" getRowLabel={row => row.name}
+    <AppDataGrid rows={courses} columns={columns} label="Reorder courses" getRowLabel={row => row.name} selection={selection}
       defaultPaginationModel={{ page: 0, pageSize: 10 }} pageSizeOptions={[10]} refreshing={pending}
       rowDrag={reorderEnabled ? { onReorder: ({ sourceRowId, targetRowId, position }) => {
         if (pending) return;
@@ -58,6 +59,7 @@ function HostReorder() {
   </>;
 }
 export const HostOwnedReorder: Story = { render: () => <HostReorder /> };
+export const HostOwnedReorderWithoutSelection: Story = { render: () => <HostReorder selection={false} /> };
 export const ReorderUnavailableWhileSorted: Story = { args: { rows: rows.slice(0, 5), sortRules: [{ field: "name", direction: "asc" }], rowDrag: { onReorder: () => {} } } };
 
 /** Bounded browser smoke workload; timings are recorded, not a cross-hardware SLA. */
@@ -90,3 +92,7 @@ export const ClientDatasetShrink: Story = { render: args => {
     </div>
   </div>;
 } };
+
+/** Explicit early-extraction successors; private native host only. */
+export const HostSectionedRows: Story = {render: () => <SectionedRows/>};
+export const HostSectionedSelectionAndReorder: Story = {render: () => <SectionedRows utilities/>};

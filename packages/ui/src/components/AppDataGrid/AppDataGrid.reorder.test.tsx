@@ -18,7 +18,8 @@ const move = (name: string) => screen.getByRole("button", { name }) as HTMLButto
 describe("AppDataGrid public row reorder", () => {
   it("requests exact string IDs and host rows without mutating their order", async () => {
     const onReorder = vi.fn();
-    render(grid({ rowDrag: { onReorder } }));
+    render(grid({ selection: false, rowDrag: { onReorder } }));
+    expect(screen.queryByRole("checkbox")).toBeNull();
     expect(move("Move Course 1 up").disabled).toBe(true);
     expect(move("Move Course 3 down").disabled).toBe(true);
     await userEvent.click(move("Move Course 2 up"));

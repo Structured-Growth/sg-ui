@@ -290,6 +290,16 @@
       "importPath": "./scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
       "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx"
     },
+    "data-display-appdatagridshell--debounced-server-search-and-sort": {
+      "id": "data-display-appdatagridshell--debounced-server-search-and-sort",
+      "type": "fixture",
+      "title": "Data Display/AppDataGridShell",
+      "name": "DebouncedServerSearchAndSort",
+      "exportName": "DebouncedServerSearchAndSort",
+      "module": "./scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "importPath": "./scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx"
+    },
     "data-display-appdatagridshell--reset-persisted-view": {
       "id": "data-display-appdatagridshell--reset-persisted-view",
       "type": "fixture",
@@ -336,6 +346,16 @@
       "title": "Data Display/AppDataGridShell",
       "name": "NativeResponsiveTransitions",
       "exportName": "NativeResponsiveTransitions",
+      "module": "./scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "importPath": "./scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
+      "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx"
+    },
+    "data-display-appdatagridshell--host-sectioned-operations": {
+      "id": "data-display-appdatagridshell--host-sectioned-operations",
+      "type": "fixture",
+      "title": "Data Display/AppDataGridShell",
+      "name": "HostSectionedOperations",
+      "exportName": "HostSectionedOperations",
       "module": "./scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
       "importPath": "./scenarios/components/AppDataGridShell/AppDataGridShell.fixture.tsx",
       "original": "packages/ui/src/components/AppDataGridShell/AppDataGridShell.stories.tsx"
@@ -1710,6 +1730,16 @@
       "importPath": "./scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
       "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx"
     },
+    "data-appdatagrid--host-owned-reorder-without-selection": {
+      "id": "data-appdatagrid--host-owned-reorder-without-selection",
+      "type": "fixture",
+      "title": "Data/AppDataGrid",
+      "name": "HostOwnedReorderWithoutSelection",
+      "exportName": "HostOwnedReorderWithoutSelection",
+      "module": "./scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "importPath": "./scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx"
+    },
     "data-appdatagrid--reorder-unavailable-while-sorted": {
       "id": "data-appdatagrid--reorder-unavailable-while-sorted",
       "type": "fixture",
@@ -1736,6 +1766,26 @@
       "title": "Data/AppDataGrid",
       "name": "ClientDatasetShrink",
       "exportName": "ClientDatasetShrink",
+      "module": "./scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "importPath": "./scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx"
+    },
+    "data-appdatagrid--host-sectioned-rows": {
+      "id": "data-appdatagrid--host-sectioned-rows",
+      "type": "fixture",
+      "title": "Data/AppDataGrid",
+      "name": "HostSectionedRows",
+      "exportName": "HostSectionedRows",
+      "module": "./scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "importPath": "./scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
+      "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx"
+    },
+    "data-appdatagrid--host-sectioned-selection-and-reorder": {
+      "id": "data-appdatagrid--host-sectioned-selection-and-reorder",
+      "type": "fixture",
+      "title": "Data/AppDataGrid",
+      "name": "HostSectionedSelectionAndReorder",
+      "exportName": "HostSectionedSelectionAndReorder",
       "module": "./scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
       "importPath": "./scenarios/components/AppDataGrid/AppDataGrid.fixture.tsx",
       "original": "packages/ui/src/components/AppDataGrid/AppDataGrid.stories.tsx"

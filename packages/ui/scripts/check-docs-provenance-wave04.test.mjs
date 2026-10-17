@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {checkManifest,checkCommands,checkScenarioTransfer,exportsIn,commandCodeIn} from './check-docs-provenance-wave04.mjs';
+import {checkManifest,checkCommands,checkScenarioTransfer,exportsIn,commandCodeIn,checkScenarioDispositions} from './check-docs-provenance-wave04.mjs';
 const baseline={sourceRepository:'owner/source',sourceCommit:'immutable',sourceRoot:'app/ui',files:[{source:'A.stories.tsx',destination:'src/A.stories.tsx',present:true}]};
 const migrated={...baseline,files:[{...baseline.files[0],present:false,migration:{replacements:['apps/docs/A.fixture.tsx']}}]};
 test('removed extraction requires an existing replacement and preserves upstream identity/order',()=>{
@@ -32,4 +32,35 @@ test('prose tool versions are not treated as commands; inline and fenced command
  const source='Use pnpm 10.29.3. Root pnpm commands forward checks. Run `pnpm stale` or:\n```sh\npnpm build\n```';
  const result=checkCommands(commandCodeIn(source),[{scripts:{build:'true'}}],'guide');
  assert.equal(result.commands.length,2);assert.deepEqual(result.issues,['guide: unknown package/script in pnpm stale']);
+});
+
+const early=[{original:'packages/ui/src/A.stories.tsx',name:'OldSelection',initialSha256:'a'.repeat(64)}];
+const texts={'current.fixture.tsx':'export const Selection = {render: () => <Grid selection={selected}/>};','current.test.tsx':"it('retains host selection',()=>{expect(selected.has('one')).toBe(true);});"};
+const record=()=>({...early[0],originalBehavior:'Controlled selected row IDs and visible checkbox state.',originalAssertions:'Render-only original scenario; no play assertions.',rationale:'Host-controlled selection now has focused state assertions.',disposition:'represented',behaviorChanges:[],remainingGaps:[],evidence:[{kind:'fixture',path:'current.fixture.tsx',claim:'The host supplies selected state.',anchors:['selection={selected}']},{kind:'test',path:'current.test.tsx',claim:'Selection state is actually asserted.',anchors:['retains host selection'],assertion:"expect(selected.has('one')).toBe(true)"}]});
+const dispositions=rows=>({schemaVersion:1,baselineCommit:'21adebd61bedfc6a1ed395fe664ff4be83896821',scenarios:rows});
+const readEvidence=p=>{if(!(p in texts))throw Error('missing');return texts[p];};
+test('explicit original behavior/current host/assertion dispositions resolve an early scenario',()=>{
+ const result=checkScenarioDispositions(early,dispositions([record()]),readEvidence);
+ assert.deepEqual(result.issues,[]);assert.deepEqual(result.unresolved,[]);assert.equal(result.rows[0].resolved,true);
+});
+test('missing dispositions and explicit coverage gaps remain unresolved',()=>{
+ assert.equal(checkScenarioDispositions(early,dispositions([]),readEvidence).unresolved.length,1);
+ const row=record();row.disposition='gap';row.remainingGaps=['Missing composed collapse/selection host'];
+ assert.equal(checkScenarioDispositions(early,dispositions([row]),readEvidence).unresolved.length,1);
+});
+test('export-name aliases cannot replace original hashes or current assertion evidence',()=>{
+ const row=record();row.initialSha256='b'.repeat(64);row.evidence[1].assertion='expect(invented).toBe(true)';
+ const result=checkScenarioDispositions(early,dispositions([row]),readEvidence);
+ assert.match(result.issues.join('\n'),/source hash mismatch/);assert.match(result.issues.join('\n'),/missing current assertion/);assert.equal(result.unresolved.length,1);
+});
+test('stale/missing evidence, duplicate rows and invented original scenarios fail',()=>{
+ const row=record();row.evidence[0].anchors=['not shipped'];const unknown={...record(),name:'Invented'};
+ const result=checkScenarioDispositions(early,dispositions([row,row,unknown]),readEvidence);
+ assert.match(result.issues.join('\n'),/stale evidence anchor/);assert.match(result.issues.join('\n'),/duplicate disposition/);assert.match(result.issues.join('\n'),/unknown original scenario/);
+ row.evidence[0].path='missing.tsx';assert.match(checkScenarioDispositions(early,dispositions([row]),readEvidence).issues.join('\n'),/missing evidence/);
+});
+test('changed contracts require reviewable differences and path escapes cannot supply evidence',()=>{
+ const row=record();row.disposition='changed-contract';row.evidence[0].path='../other.fixture.tsx';
+ const result=checkScenarioDispositions(early,dispositions([row]),readEvidence);
+ assert.match(result.issues.join('\n'),/explicit differences/);assert.match(result.issues.join('\n'),/invalid evidence path/);
 });

@@ -4,6 +4,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { cleanup, render, screen, within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AppDataGridShell } from "./AppDataGridShell";
+import { Link } from "../../experimental/Link/Link";
 import type { OwnedGridCriteriaState } from "../AppDataGrid/ownedGridState";
 import type { AppDataGridColumn } from "../AppDataGrid";
 afterEach(() => { cleanup(); vi.restoreAllMocks(); });
@@ -15,13 +16,14 @@ const props = { label: "Courses", rows, columns, getRowLabel: (row: Course) => r
   view: { cards: { renderCard: (row: Course) => <span>{row.name}</span> } } };
 it("shares client page, selection and criteria between list and cards with one footer", async () => {
   const user = userEvent.setup();
-  render(<AppDataGridShell {...props} />);
+  render(<AppDataGridShell {...props} view={{ cards: { renderCard: row => <Link href={`/courses/${row.id}`} aria-label={`Open ${row.name}`}>{row.name}</Link> } }} />);
   await user.click(screen.getByRole("checkbox", { name: "Select Science" }));
   expect(screen.getByText("1 selected")).toBeTruthy();
   await user.click(screen.getByRole("button", { name: "Next page" }));
   expect(screen.getByRole("checkbox", { name: "Select Mathematics" })).toBeTruthy();
   await user.click(screen.getByRole("button", { name: "Cards" }));
   expect(within(screen.getByRole("list", { name: "Courses" })).getByText("Mathematics")).toBeTruthy();
+  expect(screen.getByRole("link", { name: "Open Mathematics" }).getAttribute("href")).toBe("/courses/b");
   expect(screen.getAllByRole("button", { name: "Next page" })).toHaveLength(1);
   await user.click(screen.getByRole("button", { name: "List" }));
   expect(screen.getByText("1 selected")).toBeTruthy();

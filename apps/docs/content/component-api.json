@@ -16102,7 +16102,7 @@
           "type": "string",
           "required": true,
           "default": "—",
-          "description": "Native CSS class hook."
+          "description": "Displayed course name retained under its historical prop name; not a CSS class or styling hook."
         },
         {
           "name": "siteName",

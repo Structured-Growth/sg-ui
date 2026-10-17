@@ -1,0 +1,33 @@
+{
+  "status": "integrated-source-unit-static-ready-for-root-review",
+  "originalScenarioCount": 16,
+  "sourceBaseline": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+  "strictHistory": true,
+  "resolvedDispositions": 16,
+  "unresolvedDispositions": 0,
+  "guardIssues": [],
+  "guardUnitPasses": 10,
+  "gridUnitPasses": 50,
+  "gridUnitFiles": 3,
+  "newFocusedHostCases": 4,
+  "retainedStrengthenedCases": [
+    "drag-only opt-out has no checkbox",
+    "card/list shared-state test asserts real native destination"
+  ],
+  "fixtureTypesExitCode": 0,
+  "scopedDiffCheckPassed": true,
+  "changedFiles": 10,
+  "remainingImplementationGaps": [],
+  "remainingValidation": [
+    "Root fresh private-host build/admission for five new fixture exports and card-link correction; scoped native confirmation has not run.",
+    "Semantic schema resolution is source/association evidence, not automated parity or B12/W10 acceptance; root owns decisions."
+  ],
+  "publicProcessingGridExamplesChanged": false,
+  "storybookRuntimeOrFilesRestored": false,
+  "sourceEvidenceOnlyCopies": "initial-*.txt are immutable local Git source evidence, not runtime story modules.",
+  "browserRuns": 0,
+  "builds": 0,
+  "installs": 0,
+  "countMutations": false,
+  "additionalFocusedBoundary": "Existing debounce case strengthened at200ms (beyond150ms query latency, before250ms debounce) and rerun:1pass; other49not selected, prior50pass retained; no new cases."
+}
