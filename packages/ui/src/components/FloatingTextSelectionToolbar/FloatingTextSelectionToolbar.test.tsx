@@ -13,17 +13,18 @@ import { Provider } from "../../experimental/Provider/Provider";
 import { EXPERIENCE_EDITOR_THEME } from "../PageRichTextEditorSection/lexical/editorConfig";
 import { FloatingTextSelectionToolbar, type FloatingTextSelectionToolbarProps } from "./FloatingTextSelectionToolbar";
 let editor: LexicalEditor;
+let selectionRects:DOMRect[]|null=null;
 let selectionRect = new DOMRect(100, 120, 90, 20);
 const originalRect = Range.prototype.getBoundingClientRect, originalRects = Range.prototype.getClientRects;
 beforeAll(() => {
   Range.prototype.getBoundingClientRect = () => selectionRect;
-  Range.prototype.getClientRects = () => [selectionRect] as unknown as DOMRectList;
+  Range.prototype.getClientRects = () => (selectionRects??[selectionRect]) as unknown as DOMRectList;
 });
 afterAll(() => {
   if (originalRect) Range.prototype.getBoundingClientRect = originalRect; else delete (Range.prototype as Partial<Range>).getBoundingClientRect;
   if (originalRects) Range.prototype.getClientRects = originalRects; else delete (Range.prototype as Partial<Range>).getClientRects;
 });
-afterEach(() => { cleanup(); selectionRect = new DOMRect(100, 120, 90, 20); });
+afterEach(() => { cleanup(); selectionRects=null; selectionRect = new DOMRect(100, 120, 90, 20); });
 function Capture() { const [value] = useLexicalComposerContext(); useEffect(() => { editor = value; }, [value]); return null; }
 function mount(props: FloatingTextSelectionToolbarProps = {}) {
   const ref=createRef<HTMLDivElement>();
@@ -156,4 +157,19 @@ it("disconnects the selection toolbar measurement observer on unmount", async ()
     view.unmount(); dispose = undefined;
     expect(measurement!.disconnect).toHaveBeenCalledTimes(1);
   } finally { dispose?.(); vi.unstubAllGlobals(); }
+});
+
+it("anchors a multi-line selection to a visible fragment and hides only when all fragments leave view",async()=>{
+ selectionRects=[new DOMRect(50,-50,100,20),new DOMRect(60,120,100,20)];
+ mount();await select();
+ const toolbar=screen.getByRole('group',{name:'Selection formatting'});
+ expect(toolbar.style.left).toBe('60px');
+ fireEvent.keyDown(editor.getRootElement()!,{key:'F10',altKey:true});
+ expect(document.activeElement).toBe(screen.getByRole('button',{name:'Bold'}));
+ selectionRects=[new DOMRect(50,-100,100,20),new DOMRect(70,150,100,20)];fireEvent.scroll(document);
+ expect(toolbar.style.left).toBe('70px');
+ expect(document.activeElement).toBe(screen.getByRole('button',{name:'Bold'}));
+ selectionRects=[new DOMRect(50,-100,100,20),new DOMRect(70,-50,100,20)];fireEvent.scroll(document);
+ expect(screen.queryByRole('group',{name:'Selection formatting'})).toBeNull();
+ expect(document.activeElement).toBe(editor.getRootElement());
 });

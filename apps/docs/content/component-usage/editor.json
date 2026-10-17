@@ -227,7 +227,7 @@
     "when": "Use FloatingTextSelectionToolbar to offer formatting near a selected range in a Lexical document. It is intended for an existing Lexical editor context; PageRichTextEditorSection already composes it for its own document.",
     "how": [
       "Mount it inside the document's LexicalComposer and provide boundaryRef when the host needs to constrain positioning to a particular visible editor area.",
-      "Select a non-collapsed text range to expose formatting. Alt+F10 provides a keyboard route to its actions, and Escape returns control to the editor.",
+      "Select a non-collapsed text range to expose formatting. The toolbar anchors to the first visible selected line inside the viewport/boundary, even when earlier selected lines have scrolled away. When every selected line leaves view, actions hide; a focused toolbar returns focus to the editor without changing host scroll. Alt+F10 provides a keyboard route to its actions, and Escape returns control to the editor.",
       "Connect onRequestLink to a host-owned link workflow and preserve the editor selection for that workflow. Keep the viewport-positioned toolbar outside ancestors that establish a transformed fixed-position containing block."
     ],
     "related": [

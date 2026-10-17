@@ -1989,3 +1989,26 @@ commands/results, limits and screenshot names are in the
 [HB-19 receipt](final-acceptance/editor-chrome-presentation/results.json).
 Current hardening count: 286/300 complete, 14 remaining. Final acceptance remains
 139 open A leaves, with six explicitly deferred future leaves separate.
+
+
+## HB-20 — rich editor presentation and two corrections, 2026-10-17
+
+V-C25/C26/C27/C28/C29/C30/C34-04/05 close: PageRichTextEditorSection and its actual
+floating/formatting/insertion/alignment/color/style controls were reviewed at
+360px with 150% text, both themes/densities, English/Arabic RTL. All 48 Chromium
+captures were inspected. The native matrix passes 24/24 across three engines;
+12 affected Arabic cases pass after a host translation isolates the hex sample.
+Eighteen selection-boundary/focus regressions and all 33 tab/overflow cases pass.
+
+BUG-0013: long selections now anchor at a visible selected client rectangle rather
+than hiding when their first line scrolls out; fully offscreen dismissal and exact
+host scroll/focus behavior remain tested. TABS-MENU-WEBKIT-RO: owned Menu popovers
+use intrinsic inline size within their existing viewport cap, avoiding width
+feedback as native positioning changes left/right. No observer, error assertion
+or native positioning path was disabled. Earlier warnings and unsuccessful,
+reverted experiments remain in [the receipt](final-acceptance/rich-editor-presentation/results.json).
+239 affected unit tests and library/docs/fixture/type/catalog/package/foundation
+checks pass. This completes the original V review checklist at300/300;139 A and
+six deferred future leaves remain. No broad production/device/spoken-AT claim.
+The older Material calendar legacy-year label-fit follow-up remains for current
+reproduction; these changes do not silently close it.

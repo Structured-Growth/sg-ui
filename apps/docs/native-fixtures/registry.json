@@ -510,6 +510,16 @@
       "importPath": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
       "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx"
     },
+    "editors-pagerichtexteditorsection--localized-presentation": {
+      "id": "editors-pagerichtexteditorsection--localized-presentation",
+      "type": "fixture",
+      "title": "Editors/PageRichTextEditorSection",
+      "name": "LocalizedPresentation",
+      "exportName": "LocalizedPresentation",
+      "module": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "importPath": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx"
+    },
     "data-display-cardpaginationfooter--interactive": {
       "id": "data-display-cardpaginationfooter--interactive",
       "type": "fixture",

@@ -1,0 +1,688 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/packages/ui/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/tmp/hb20.config.mjs"
+    ],
+    "configFile": "/tmp/hb20.config.mjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/hb20",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "hardening-rich-editor-presentation.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/hb20",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "hardening-rich-editor-presentation.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/hb20",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser",
+        "testIgnore": [],
+        "testMatch": [
+          "hardening-rich-editor-presentation.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/packages/ui/artifacts/hb20-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node scripts/serve-browser-docs.mjs",
+      "cwd": "/Users/thomashall/Repositories/sg-ui/packages/ui",
+      "url": "http://127.0.0.1:6173/fixtures/",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "hardening-rich-editor-presentation.spec.ts",
+      "file": "hardening-rich-editor-presentation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "rich editor presentation: light/compact/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1222,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T21:22:19.774Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-fd5f2e3af6eaad814b8e",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/compact/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1144,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T21:22:21.244Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-41783a44c2ff7567d1d3",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/comfortable/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1027,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T21:22:22.392Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-3c201b33a75faad4e24a",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/comfortable/ar-EG",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6029,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('localized-rich-editor').getByRole('group', { name: '\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f', exact: true }).getByRole('button').first()\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByTestId('localized-rich-editor').getByRole('group', { name: '\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f', exact: true }).getByRole('button').first() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('localized-rich-editor').getByRole('group', { name: '\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f', exact: true }).getByRole('button').first()\u001b[22m\n\u001b[2m    14 \u00d7 locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" aria-label=\"\u0639\u0631\u064a\u0636\" data-variant=\"text\" data-tone=\"neutral\" aria-pressed=\"false\" data-sgui-part=\"button\" data-sgui-density=\"compact\" data-react-aria-pressable=\"true\" id=\"react-aria1627557568-_r_20_\" class=\"sgui_root_4900c47b sgui_action_0b36f55d\">\u2026</button>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('localized-rich-editor').getByRole('group', { name: '\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f', exact: true }).getByRole('button').first()\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByTestId('localized-rich-editor').getByRole('group', { name: '\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f', exact: true }).getByRole('button').first() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('localized-rich-editor').getByRole('group', { name: '\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f', exact: true }).getByRole('button').first()\u001b[22m\n\u001b[2m    14 \u00d7 locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" aria-label=\"\u0639\u0631\u064a\u0636\" data-variant=\"text\" data-tone=\"neutral\" aria-pressed=\"false\" data-sgui-part=\"button\" data-sgui-density=\"compact\" data-react-aria-pressable=\"true\" id=\"react-aria1627557568-_r_20_\" class=\"sgui_root_4900c47b sgui_action_0b36f55d\">\u2026</button>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts:33:83",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts",
+                      "column": 83,
+                      "line": 33
+                    },
+                    "snippet": "  31 |  await expect.poll(()=>page.evaluate(()=>window.getSelection()?.toString().length??0)).toBeGreaterThan(50);\n  32 |  const floating=host.getByRole('group',{name:rtl?'\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f':'Selection formatting',exact:true});await expect(floating).toBeVisible();\n> 33 |  await editor.press('Alt+F10');await expect(floating.getByRole('button').first()).toBeFocused();await capture('selection',floating);\n     |                                                                                   ^\n  34 |  await expect(floating.getByRole('button',{name:rtl?'\u0639\u0631\u064a\u0636':'Bold',exact:true})).toBeFocused();\n  35 |  await page.keyboard.press('Escape');await expect(editor).toBeFocused();\n  36 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(361);expect(errors).toEqual([]);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts",
+                        "column": 83,
+                        "line": 33
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('localized-rich-editor').getByRole('group', { name: '\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f', exact: true }).getByRole('button').first()\nExpected: focused\nReceived: inactive\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeFocused\" getByTestId('localized-rich-editor').getByRole('group', { name: '\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f', exact: true }).getByRole('button').first() with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('localized-rich-editor').getByRole('group', { name: '\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f', exact: true }).getByRole('button').first()\u001b[22m\n\u001b[2m    14 \u00d7 locator resolved to <button data-rac=\"\" tabindex=\"0\" type=\"button\" aria-label=\"\u0639\u0631\u064a\u0636\" data-variant=\"text\" data-tone=\"neutral\" aria-pressed=\"false\" data-sgui-part=\"button\" data-sgui-density=\"compact\" data-react-aria-pressable=\"true\" id=\"react-aria1627557568-_r_20_\" class=\"sgui_root_4900c47b sgui_action_0b36f55d\">\u2026</button>\u001b[22m\n\u001b[2m       - unexpected value \"inactive\"\u001b[22m\n\n\n  31 |  await expect.poll(()=>page.evaluate(()=>window.getSelection()?.toString().length??0)).toBeGreaterThan(50);\n  32 |  const floating=host.getByRole('group',{name:rtl?'\u062a\u0646\u0633\u064a\u0642 \u0627\u0644\u0646\u0635 \u0627\u0644\u0645\u062d\u062f\u062f':'Selection formatting',exact:true});await expect(floating).toBeVisible();\n> 33 |  await editor.press('Alt+F10');await expect(floating.getByRole('button').first()).toBeFocused();await capture('selection',floating);\n     |                                                                                   ^\n  34 |  await expect(floating.getByRole('button',{name:rtl?'\u0639\u0631\u064a\u0636':'Bold',exact:true})).toBeFocused();\n  35 |  await page.keyboard.press('Escape');await expect(editor).toBeFocused();\n  36 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(361);expect(errors).toEqual([]);\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts:33:83"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T21:22:23.422Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts",
+                    "column": 83,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-3c183cee968ab4756deb",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/compact/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-63f0acde3639781f5389",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/compact/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-bb859710f6f9fc184b1c",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/comfortable/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-38d00a731b2a009f06a1",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/comfortable/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-2ff11ca7c0791d0d9653",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/compact/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-db6ffadec46b832087ce",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/compact/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-914dce007d256fc829ba",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/comfortable/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-755d289b581b44e7daa1",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/comfortable/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-e2dbeb21e008c1b7c3e6",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/compact/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-febe19c2a45419a5cd0d",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/compact/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-a95f3a22ebfaaa01b143",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/comfortable/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-0f43dffed2acd6700285",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/comfortable/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-e8053e58e950ce6dec97",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/compact/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-ed1d99bf983823ca5c20",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/compact/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-4381f745dfd196e76658",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/comfortable/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-55e2de5f7db24171ea0a",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: light/comfortable/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-f8d8fa04754ac0fd75ff",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/compact/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-85b7508c51a7f56ed310",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/compact/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-559f09cbe8725e8cdc61",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/comfortable/en-US",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-a69f9368320679fcd62e",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        },
+        {
+          "title": "rich editor presentation: dark/comfortable/ar-EG",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0844d17bdc92fbbdfc12-1a320fadf53fee0b43d3",
+          "file": "hardening-rich-editor-presentation.spec.ts",
+          "line": 3,
+          "column": 122
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-17T21:22:19.411Z",
+    "duration": 10099.341999999999,
+    "expected": 3,
+    "skipped": 20,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

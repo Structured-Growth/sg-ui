@@ -44,7 +44,7 @@ Results and exact V closures belong in
 [the execution receipt](backlog-execution-2026-10-15.md). The canonical remaining
 items stay in [the hardening checklist](react-aria-hardening-tasks.md).
 
-Current canonical progress: **286 / 300 complete; 14 remaining**. This counts V
+Current canonical progress: **300 / 300 complete; 0 remaining V review leaves**. This counts V
 checklist items only, not test cases, engine executions, acceptance or future work.
 
 HB-07 complete: AppInlineProgress/AppOperationSteps/Status long-content and
@@ -70,7 +70,7 @@ successful screenshots reviewed. C08-04/05 and P22-04/05 removed. HB-09 also clo
 C09-04/05: its composed host renders the actual SideNavigation with long translated
 rows and landmark names in both layouts/directions, reviewed in all engines.
 
-First unfinished family in checklist order: FloatingTextSelectionToolbar (V-C25-04/05).
+The V family review checklist is complete; see HB-19/20 and the next bounded work below.
 Retain unaffected prior batches and rerun only relevant source or assertion changes.
 
 HB-11 complete: Link/Breadcrumbs/Navigation/Disclosure/Collapse. Eight configurations
@@ -176,3 +176,21 @@ resolved production scopes, semantic reading order and independent host scrollin
 are permanent assertions. No library source changed. Evidence:
 [editor chrome presentation](final-acceptance/editor-chrome-presentation/results.json).
 Resume at the remaining 14 editor V leaves; A and future counts are unchanged.
+
+
+HB-20 complete: C25/C26/C27/C28/C29/C30/C34 V-04/V-05 close after reviewing
+48 Chromium captures (eight theme/density/locale configurations, six component
+states) at 360px and 150% text. Native assertions pass all 24 configurations in
+Chromium/Firefox/WebKit; 12 affected Arabic cases also pass after isolating the
+hex literal in the host translation. Eighteen selection/focus regressions and all
+33 docs tab/overflow cases pass. BUG-0013 and TABS-MENU-WEBKIT-RO are fixed.
+The original warnings/failures and reverted diagnostic experiments are retained.
+239 affected unit tests, builds, types, catalog, package and foundation guards
+pass. [Detailed evidence](final-acceptance/rich-editor-presentation/results.json).
+
+All 20 editor presentation/RTL leaves from the prior stopping boundary are now
+closed. Remaining A leaves:139; deferred future leaves:6, counted separately.
+Next bounded work: reproduce the historical Material calendar legacy month/year
+label-fit follow-up on current dev, then reconcile specific A successors with the
+retained per-leaf reports. No physical-device/spoken-AT or production gate closes
+from these visual/native checks.

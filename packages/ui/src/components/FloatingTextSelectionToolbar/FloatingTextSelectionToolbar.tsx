@@ -94,12 +94,17 @@ export const FloatingTextSelectionToolbar = forwardRef<HTMLDivElement, FloatingT
         dismissedSelection.current = null;
         savedRange.current = range.cloneRange();
         const rects = range.getClientRects();
-        const rect = rects.length ? rects[0] : range.getBoundingClientRect();
         const boundary = boundaryRef?.current?.getBoundingClientRect();
         const bounds = {
           left: Math.max(12, boundary?.left ?? 12), right: Math.min(window.innerWidth - 12, boundary?.right ?? window.innerWidth - 12),
           top: Math.max(12, boundary?.top ?? 12), bottom: Math.min(window.innerHeight - 12, boundary?.bottom ?? window.innerHeight - 12),
         };
+        // Multi-line selections may begin above the scroll pane while later
+        // fragments remain visible. Anchor to visible content, not a hidden first line.
+        const rect = Array.from(rects).find(fragment => fragment.width > 0 && fragment.height > 0 &&
+          fragment.bottom >= bounds.top && fragment.top <= bounds.bottom &&
+          fragment.right >= bounds.left && fragment.left <= bounds.right)
+          ?? (rects.length ? rects[0] : range.getBoundingClientRect());
         if ((!rect.width && !rect.height) || bounds.right <= bounds.left || bounds.bottom <= bounds.top ||
           rect.bottom < bounds.top || rect.top > bounds.bottom || rect.right < bounds.left || rect.left > bounds.right) {
           setVisible(false);

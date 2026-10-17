@@ -7,8 +7,21 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 181/320 A leaves closed; 139 A, 14 editor V and six future leaves remain.**
+**Current: 181/320 A leaves closed; 139 A, 0 editor V review leaves and six future leaves remain.**
 
+
+### Editor presentation and shared-menu corrections — 2026-10-17
+
+The final 20 original V leaves are closed through HB-19/20, with scoped rendered
+reviews and native evidence in all three engines. BUG-0013 and the separately
+tracked TABS-MENU-WEBKIT-RO warning are fixed. All 33 tab cases now pass, preserving
+the zero-page-error assertion that previously failed in WebKit. This does not
+close any of the 139 broader A obligations or infer device/spoken-AT approval.
+See [chrome](final-acceptance/editor-chrome-presentation/results.json) and
+[rich editor](final-acceptance/rich-editor-presentation/results.json) receipts.
+The historical Material calendar year-label fit follow-up remains for fresh
+reproduction. Resume the existing per-leaf A successors without repeating accepted
+inventories, and retain the six deferred future leaves outside required counts.
 
 ### Validated browser follow-up after bd169b54 — 2026-10-16
 

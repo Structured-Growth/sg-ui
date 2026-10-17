@@ -1,6 +1,6 @@
 # Remaining browser, visual and final acceptance work
 
-**Current open work:** 14 hardening (V) items, 139 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md).
+**Current open work:** 0 hardening (V) review items, 139 final-acceptance (A) items and six explicitly deferred future items. Completed items have been removed; evidence remains in the [execution receipt](backlog-execution-2026-10-15.md).
 
 Priority: P3 — third, only after the required functionality baseline and regression tasks are complete. P4 final acceptance follows hardening. Known defects are recorded individually as `BUG-0001`, `BUG-0002`, etc. with reproduction, expected result, affected component, priority and linked regression; allocate IDs only when a real defect is found. Do not create empty defect tasks.
 
@@ -51,54 +51,20 @@ Storybook runtime is removed. Original A-* wording and historical results are pr
 leaf against its behavioral requirement and record the new host, without silently
 claiming old evidence exercised the website or changing acceptance counts.
 
-## C25: FloatingTextSelectionToolbar
+## Editor review completion — 2026-10-17
 
-Scope: [src/components/FloatingTextSelectionToolbar](../../packages/ui/src/components/FloatingTextSelectionToolbar). Original scope: `M-25` in the [scope ledger](react-aria-scope-ledger.md).
+HB-19 and HB-20 close the final 20 named V presentation/translated reading-order
+leaves. [Chrome evidence](final-acceptance/editor-chrome-presentation/results.json)
+and [rich editor evidence](final-acceptance/rich-editor-presentation/results.json)
+retain exact matrices, reviewed captures, source hashes, original failures and
+successful corrections. BUG-0013 (partly visible multi-line selection anchoring)
+and TABS-MENU-WEBKIT-RO (intrinsic menu sizing feedback) are fixed and validated.
 
-- [ ] V-C25-04 Review FloatingTextSelectionToolbar light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C25-05 Review FloatingTextSelectionToolbar translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
-
-## C26: RichTextFormattingToolbar
-
-Scope: [src/components/RichTextFormattingToolbar](../../packages/ui/src/components/RichTextFormattingToolbar). Original scope: `M-26 E-04` in the [scope ledger](react-aria-scope-ledger.md).
-
-- [ ] V-C26-04 Review RichTextFormattingToolbar light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C26-05 Review RichTextFormattingToolbar translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
-
-## C27: InsertContentMenuControl
-
-Scope: [src/components/InsertContentMenuControl](../../packages/ui/src/components/InsertContentMenuControl). Original scope: `M-27` in the [scope ledger](react-aria-scope-ledger.md).
-
-- [ ] V-C27-04 Review InsertContentMenuControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C27-05 Review InsertContentMenuControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
-
-## C28: TextAlignMenuControl
-
-Scope: [src/components/TextAlignMenuControl](../../packages/ui/src/components/TextAlignMenuControl). Original scope: `M-28` in the [scope ledger](react-aria-scope-ledger.md).
-
-- [ ] V-C28-04 Review TextAlignMenuControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C28-05 Review TextAlignMenuControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
-
-## C29: TextColorPickerControl
-
-Scope: [src/components/TextColorPickerControl](../../packages/ui/src/components/TextColorPickerControl). Original scope: `M-29` in the [scope ledger](react-aria-scope-ledger.md).
-
-- [ ] V-C29-04 Review TextColorPickerControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C29-05 Review TextColorPickerControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
-
-## C30: TextStyleMenuControl
-
-Scope: [src/components/TextStyleMenuControl](../../packages/ui/src/components/TextStyleMenuControl). Original scope: `M-30` in the [scope ledger](react-aria-scope-ledger.md).
-
-- [ ] V-C30-04 Review TextStyleMenuControl light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C30-05 Review TextStyleMenuControl translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
-
-## C34: PageRichTextEditorSection
-
-Scope: [src/components/PageRichTextEditorSection](../../packages/ui/src/components/PageRichTextEditorSection). Original scope: `M-34 E-01–E-07` in the [scope ledger](react-aria-scope-ledger.md).
-
-- [ ] V-C34-04 Review PageRichTextEditorSection light/dark and compact/comfortable presentation with long content at narrow width; split any found defect into its own fix task.
-- [ ] V-C34-05 Review PageRichTextEditorSection translated/RTL names and reading order in a composed host; verify semantic labels remain meaningful.
+This is completion of the original 300 V checklist leaves, not all final acceptance
+or production approval. The historical Material calendar year-label fit follow-up
+in [field-focus evidence](final-acceptance/field-focus-boundary/results.json) still
+needs current-head reproduction; keep its strict fit assertion. Continue with
+specific remaining A successors after checking current focused defects.
 
 ## P4: catalog component acceptance closure
 

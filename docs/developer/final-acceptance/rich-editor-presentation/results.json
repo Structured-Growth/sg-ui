@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-17",
+  "baseCommit": "d955656b3ae85c600d233e959a0b9da3116eeb7f",
+  "batch": "HB-20",
+  "closedV": [
+    "V-C25-04",
+    "V-C25-05",
+    "V-C26-04",
+    "V-C26-05",
+    "V-C27-04",
+    "V-C27-05",
+    "V-C28-04",
+    "V-C28-05",
+    "V-C29-04",
+    "V-C29-05",
+    "V-C30-04",
+    "V-C30-05",
+    "V-C34-04",
+    "V-C34-05"
+  ],
+  "closedDefects": [
+    "BUG-0013",
+    "TABS-MENU-WEBKIT-RO"
+  ],
+  "fixes": {
+    "BUG-0013": "Choose the first visible selected client rectangle inside viewport/boundary. Full offscreen dismissal and focus/scroll ownership remain unchanged.",
+    "TABS-MENU-WEBKIT-RO": "Give command-menu popovers intrinsic max-content inline size with the existing viewport cap. Their width no longer changes merely because native RTL/LTR positioning updates left/right. All native positioning/resize observers and strict zero-page-error assertions remain intact."
+  },
+  "units": {
+    "files": 32,
+    "passed": 239
+  },
+  "browser": {
+    "richEditorMatrix": {
+      "startTime": "2026-10-17T21:33:34.297Z",
+      "duration": 24804.628,
+      "expected": 24,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "arabicTranslationContinuation": {
+      "startTime": "2026-10-17T21:35:49.318Z",
+      "duration": 14908.963,
+      "expected": 12,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "selectionRegressions": {
+      "startTime": "2026-10-17T21:33:59.824Z",
+      "duration": 13032.567000000001,
+      "expected": 18,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "tabAndOverflowRegressions": {
+      "startTime": "2026-10-17T21:34:43.882Z",
+      "duration": 36161.447,
+      "expected": 33,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "review": {
+    "engine": "chromium",
+    "images": 48,
+    "compositeSheets": 8,
+    "method": "Rendered inspection of all six component states per theme/density/locale; Arabic hex-example isolation correction rerendered and reviewed in four color captures. Composites arrange source PNGs at original resolution.",
+    "matrix": {
+      "theme": [
+        "light",
+        "dark"
+      ],
+      "density": [
+        "compact",
+        "comfortable"
+      ],
+      "locale": [
+        "en-US",
+        "ar-EG"
+      ],
+      "viewport": {
+        "width": 360,
+        "height": 1000
+      },
+      "textZoom": "150%"
+    },
+    "findings": "Toolbar rows wrap; document owns usable independent scrolling. Long menu labels and color validation text stay within popup widths; keyboard focus outlines remain visible. RTL order, icons and labels mirror. Month/style selector ellipsis is intentional and retains full accessible names. Native floating actions wrap and remain reachable on partially visible long selection. No remaining clipping/overlap observed in this bounded review."
+  },
+  "validation": {
+    "libraryBuild": "passed",
+    "foundationGuards": "passed",
+    "nativeFixtureBuild": "passed",
+    "nativeTypes": "passed",
+    "productionDocsBuild": "passed",
+    "docsTypes": "passed",
+    "catalog": "passed",
+    "packedPackage": "passed"
+  },
+  "evidenceReuse": "All 24 primary cases pass after the two code fixes. A later host-only Arabic hex example gained Unicode isolation; its 12 affected engine cases were rerun, preserving the untouched 12 English passes. HB-19 chrome evidence remains independently accepted.",
+  "history": [
+    "Initial 3 rich cases passed, then Chromium comfortable Arabic shortcut focus failed. Six focused native attempts passed; no broad pass was inferred from those attempts.",
+    "Firefox comfortable English reproduced the actual first-rectangle defect: first rect bottom 468.7 < viewport top 469, later selected rects visible. Existing focus/visibility assertions retained.",
+    "After the selection fix, 20/24 matrix cases passed; four Arabic WebKit cases completed functional assertions but failed the unchanged zero-page-error assertion with native ResizeObserver warning.",
+    "Native observer diagnostics recorded the insertion menu popover and trigger at first warning; floating toolbar was not involved. Explicit max-height and unused trigger-width observer experiments did not remove it and were reverted.",
+    "Intrinsic menu width cleared the reproduced WebKit case three consecutive times; the uninstrumented 24-case matrix and all 33 tabs cases then passed."
+  ],
+  "limits": [
+    "This closes the named V presentation/translated reading-order reviews and two bounded defects, not all 139 final acceptance obligations.",
+    "Chromium rendered screenshot review; native interaction/geometry assertions run in all three desktop engines. No physical touch or spoken screen-reader certification.",
+    "Historical field-focus-boundary calendar year-fit follow-up still needs current-head reproduction; not silently closed by this work."
+  ],
+  "sourceSha256": {
+    "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx": "efa988b430db84a03515476a3888256437d143581558560f73d3229512ecb63a",
+    "packages/ui/src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.test.tsx": "7c043fb1c4db5bb47164cadaf5be8294c1e01697e6841a8c5dde5b44a8493a02",
+    "packages/ui/src/experimental/Menu/Menu.module.css": "c1291a28693298ea9975a5dc4a68e84bad25093e7aa6999b0db073237a5b47c8",
+    "packages/ui/tests/browser/hardening-rich-editor-presentation.spec.ts": "69fd6929ba08ba4b1aca0bf985ada5c5fc05d30dd417db20314f4c412a6452fd",
+    "apps/docs/native-fixtures/scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx": "fd5e4d824df6604e1958b6d79a01d5c382a142701608c4c64d01b926377e8060",
+    "apps/docs/native-fixtures/registry.json": "6eefc562d28b6a986c237de16d80f5edfd734faac38bb1355c195a31abc3185b",
+    "apps/docs/content/component-usage/editor.json": "aafe2451e9d131a9fb3e27179d8f9ceb36bfe5060cbfd32d9b09ac8485cdbf90"
+  }
+}

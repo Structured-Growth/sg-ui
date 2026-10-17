@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import type { Meta, StoryObj } from "../../../types";
+import type { Meta, StoryObj, FixtureGlobals } from "../../../types";
+import {SGTranslationProvider,type SGTranslationAdapter} from "@structured-growth/sg-ui/i18n";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { PageRichTextEditorSection } from "@structured-growth/sg-ui/components";
 import { Button } from "@structured-growth/sg-ui/components";
@@ -306,3 +307,55 @@ export const TableHistory: Story = {
     </Provider>;
   },
 };
+
+
+// HB-20: real Lexical composition, with host-owned long content and translations.
+const richArabic:Record<string,string>={
+ 'editor.documentScrollRegion':'منطقة تمرير المستند',
+ 'editor.insert.menu':'إدراج محتوى', 'editor.insert.image':'إدراج صورة تعليمية',
+ 'editor.insert.horizontalRule':'إدراج فاصل أفقي للمحتوى التعليمي', 'editor.insert.columnsLayout':'تخطيط الأعمدة',
+ 'common.ui.editor.formatting':'تنسيق النص', 'common.ui.editor.selectionFormatting':'تنسيق النص المحدد',
+ 'common.ui.editor.undo':'تراجع', 'common.ui.editor.redo':'إعادة',
+ 'common.ui.editor.heading':'نمط عنوان النص', 'common.ui.editor.fontFamily':'نوع الخط',
+ 'common.ui.editor.fontSize':'حجم الخط', 'common.ui.editor.fontSizeDecrease':'تصغير حجم الخط',
+ 'common.ui.editor.fontSizeIncrease':'تكبير حجم الخط', 'common.ui.editor.bold':'عريض',
+ 'common.ui.editor.italic':'مائل','common.ui.editor.underline':'تسطير','common.ui.editor.code':'رمز برمجي',
+ 'common.ui.editor.link':'تعديل الرابط','common.ui.editor.textColor':'لون النص','common.ui.editor.backgroundColor':'لون الخلفية',
+ 'common.ui.editor.hexColor':'رمز اللون','common.ui.editor.customColor':'لون مخصص','common.ui.editor.themeColors':'ألوان السمة',
+ 'common.ui.editor.invalidHexColor':'أدخل رمز لون من ست خانات مثل \u2066#336699\u2069.',
+ 'common.ui.editor.alignment':'محاذاة النص','common.ui.editor.align.left':'محاذاة لليسار',
+ 'common.ui.editor.align.center':'محاذاة للوسط','common.ui.editor.align.right':'محاذاة لليمين',
+ 'common.ui.editor.align.justify':'ضبط محاذاة النص','common.ui.editor.align.start':'محاذاة لبداية السطر',
+ 'common.ui.editor.align.end':'محاذاة لنهاية السطر','common.ui.editor.indent':'زيادة المسافة البادئة',
+ 'common.ui.editor.outdent':'تقليل المسافة البادئة','common.ui.editor.textStyle':'نمط النص',
+ 'common.ui.editor.lowercase':'أحرف صغيرة','common.ui.editor.uppercase':'أحرف كبيرة',
+ 'common.ui.editor.capitalize':'تكبير الحرف الأول','common.ui.editor.strikethrough':'شطب النص',
+ 'common.ui.editor.subscript':'نص سفلي','common.ui.editor.superscript':'نص علوي',
+ 'common.ui.editor.highlight':'تمييز النص','common.ui.editor.clearFormatting':'إزالة تنسيق النص المحدد بالكامل',
+ 'common.ui.clear':'مسح','common.ui.reset':'إعادة ضبط',
+ 'common.ui.editor.color.text':'نص','common.ui.editor.color.textMuted':'نص ثانوي',
+ 'common.ui.editor.color.action':'أساسي','common.ui.editor.color.actionHover':'تأكيد أساسي',
+ 'common.ui.editor.color.danger':'خطأ','common.ui.editor.color.surface':'سطح',
+ 'common.ui.editor.color.surfaceSubtle':'سطح ثانوي',
+ 'common.ui.editor.headingOption0':'نص عادي للمستندات التعليمية الطويلة',
+ 'common.ui.editor.headingOption1':'عنوان أول','common.ui.editor.headingOption2':'عنوان ثان',
+ 'common.ui.editor.headingOption3':'عنوان ثالث','common.ui.editor.headingOption4':'عنوان رابع',
+ 'common.ui.editor.headingOption5':'عنوان خامس','common.ui.editor.headingOption6':'عنوان سادس',
+};
+const richEnglish:Record<string,string>={
+ 'common.ui.editor.headingOption0':'Normal text for long international course documents',
+ 'editor.insert.horizontalRule':'Insert a horizontal separator for the learning document',
+ 'common.ui.editor.clearFormatting':'Clear all formatting from the selected document content',
+};
+function LocalizedRichPresentation({globals}:{globals:FixtureGlobals}){
+ const rtl=globals.locale.startsWith('ar');
+ const text=rtl?'التعاون بين فرق التدريس وتطوير المحتوى التعليمي مع مراجعة المستندات والأنشطة.':'International teaching team collaboration, course development and review of learning documents and activities.';
+ const [value,setValue]=useState<unknown>(()=>({root:{type:'root',version:1,direction:rtl?'rtl':'ltr',format:'',indent:0,children:Array.from({length:18},(_,index)=>({type:'paragraph',version:1,direction:rtl?'rtl':'ltr',format:'',indent:0,children:[{type:'text',version:1,text:`${text} ${index+1}. ${text}`,detail:0,format:0,mode:'normal',style:''}]}))}}));
+ const adapter:SGTranslationAdapter={locale:globals.locale,useNamespace:()=>{},t:(key,options)=>(rtl?richArabic:richEnglish)[key]??options.defaultMessage};
+ return <SGTranslationProvider value={adapter}><Provider theme={globals.theme} density={globals.density} dir={rtl?'rtl':'ltr'}>
+  <div data-testid="localized-rich-editor" style={{height:760,maxWidth:'100%'}}>
+   <PageRichTextEditorSection editorKey="localized-presentation" lexicalValue={value} onLexicalChange={setValue} toolPreset="full" aria-label={rtl?'المستند التعليمي الطويل':'Long learning document'}/>
+  </div>
+ </Provider></SGTranslationProvider>;
+}
+export const LocalizedPresentation:Story={render:(_args,{globals})=><LocalizedRichPresentation globals={globals}/>};

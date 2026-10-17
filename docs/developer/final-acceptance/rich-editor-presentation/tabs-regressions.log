@@ -1,0 +1,48 @@
+[WebServer] (node:67080) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:67099) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 33 tests using 1 worker
+
+(node:67105) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density (935ms)
+  ✓   2 [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density (792ms)
+  ✓   3 [chromium] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at compact density (737ms)
+  ✓   4 [chromium] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at comfortable density (740ms)
+  ✓   5 [chromium] › tests/tab-indicator.spec.ts:26:52 › horizontal manual tabs animate on activation and snap for reduced motion (781ms)
+  ✓   6 [chromium] › tests/tab-indicator.spec.ts:26:52 › vertical manual tabs animate on activation and snap for reduced motion (710ms)
+  ✓   7 [chromium] › tests/tab-indicator.spec.ts:34:1 › vertical RTL and forced colors retain an aligned visible indicator (544ms)
+  ✓   8 [chromium] › tests/tab-indicator.spec.ts:41:1 › route page tabs share the moving indicator (572ms)
+  ✓   9 [chromium] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=false) (1.3s)
+  ✓  10 [chromium] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=true) (1.6s)
+  ✓  11 [chromium] › tests/tabs-overflow.spec.ts:61:1 › secondary tabs remain in the menu with spare room and restore their priority after leaving (1.1s)
+(node:67169) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [firefox] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density (1.3s)
+  ✓  13 [firefox] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density (862ms)
+  ✓  14 [firefox] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at compact density (819ms)
+  ✓  15 [firefox] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at comfortable density (868ms)
+  ✓  16 [firefox] › tests/tab-indicator.spec.ts:26:52 › horizontal manual tabs animate on activation and snap for reduced motion (888ms)
+  ✓  17 [firefox] › tests/tab-indicator.spec.ts:26:52 › vertical manual tabs animate on activation and snap for reduced motion (857ms)
+  ✓  18 [firefox] › tests/tab-indicator.spec.ts:34:1 › vertical RTL and forced colors retain an aligned visible indicator (705ms)
+  ✓  19 [firefox] › tests/tab-indicator.spec.ts:41:1 › route page tabs share the moving indicator (699ms)
+  ✓  20 [firefox] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=false) (1.8s)
+  ✓  21 [firefox] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=true) (2.1s)
+  ✓  22 [firefox] › tests/tabs-overflow.spec.ts:61:1 › secondary tabs remain in the menu with spare room and restore their priority after leaving (1.3s)
+(node:67251) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  23 [webkit] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density (1.2s)
+  ✓  24 [webkit] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density (798ms)
+  ✓  25 [webkit] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at compact density (774ms)
+  ✓  26 [webkit] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at comfortable density (820ms)
+  ✓  27 [webkit] › tests/tab-indicator.spec.ts:26:52 › horizontal manual tabs animate on activation and snap for reduced motion (1.1s)
+  ✓  28 [webkit] › tests/tab-indicator.spec.ts:26:52 › vertical manual tabs animate on activation and snap for reduced motion (802ms)
+  ✓  29 [webkit] › tests/tab-indicator.spec.ts:34:1 › vertical RTL and forced colors retain an aligned visible indicator (568ms)
+  ✓  30 [webkit] › tests/tab-indicator.spec.ts:41:1 › route page tabs share the moving indicator (559ms)
+  ✓  31 [webkit] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=false) (1.7s)
+  ✓  32 [webkit] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=true) (1.5s)
+  ✓  33 [webkit] › tests/tabs-overflow.spec.ts:61:1 › secondary tabs remain in the menu with spare room and restore their priority after leaving (1.3s)
+
+  33 passed (36.2s)

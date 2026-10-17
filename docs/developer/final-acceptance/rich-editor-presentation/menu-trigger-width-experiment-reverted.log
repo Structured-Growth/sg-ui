@@ -1,0 +1,48 @@
+[WebServer] (node:65168) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:65169) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [webkit] › tests/browser/hb20-resize-diagnostic.spec.ts:3:122 › rich editor presentation: light/compact/ar-EG (1.5s)
+Testing stopped early after 1 maximum allowed failures.
+
+
+  1) [webkit] › tests/browser/hb20-resize-diagnostic.spec.ts:3:122 › rich editor presentation: light/compact/ar-EG 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "ResizeObserver loop completed with undelivered notifications.",
+    + ]
+
+      47 |  await expect(floating.getByRole('button',{name:rtl?'عريض':'Bold',exact:true})).toBeFocused();
+      48 |  await page.keyboard.press('Escape');await expect(editor).toBeFocused();
+    > 49 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(361);await info.attach('resize-deliveries',{body:JSON.stringify(await page.evaluate(()=>Reflect.get(window,'__roFailures'))),contentType:'application/json'});expect(errors).toEqual([]);
+         |                                                                                                                                                                                                                                                                         ^
+      50 | });
+      51 |
+        at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/hb20-resize-diagnostic.spec.ts:49:265
+
+    Error Context: artifacts/hb20/hb20-resize-diagnostic-ric-b7009-ntation-light-compact-ar-EG-webkit/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts/hb20/hb20-resize-diagnostic-ric-b7009-ntation-light-compact-ar-EG-webkit/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace artifacts/hb20/hb20-resize-diagnostic-ric-b7009-ntation-light-compact-ar-EG-webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [webkit] › tests/browser/hb20-resize-diagnostic.spec.ts:3:122 › rich editor presentation: light/compact/ar-EG 
+  2 did not run
+  1 error was not a part of any test, see above for details
+undefined
+/Users/thomashall/Repositories/sg-ui/packages/ui:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config /tmp/hb20-resize-diagnostic.config.mjs --project webkit --grep light/compact/ar-EG --repeat-each 3

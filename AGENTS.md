@@ -849,3 +849,9 @@ Clear/time region in its stable frame so the whole popup stays balanced.
 Tabs indicators animate selection changes in both orientations using owned motion
 duration. Share the private indicator with AppPageTabs route mode; preserve reduced
 motion, forced colors, manual activation, native focus and scroll/resize alignment.
+
+FloatingTextSelectionToolbar anchors to a visible selected client rectangle within
+its viewport/boundary. A multi-line selection whose first line is offscreen is
+still actionable when another selected line is visible. Fully offscreen selections
+hide the toolbar and return its focused action to the editor without changing
+host scroll offsets. Preserve native Alt+F10 access and Escape return focus.
