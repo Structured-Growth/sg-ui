@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
-import { readFile, writeFile, mkdir, copyFile, readdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, copyFile, readdir, realpath } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium, firefox, webkit, expect } from '@playwright/test';
@@ -24,7 +24,13 @@ const root = join(fixture, `scope-proof-${Date.now()}`);
 await mkdir(root);
 await copyFile(join(own, 'scope-hydration-proof.jsx'), join(root, 'Proof.jsx'));
 const proofHash = createHash('sha256').update(await readFile(join(root, 'Proof.jsx'))).digest('hex');
-const packageJson = requireFixture.resolve('@structured-growth/sg-ui');
+const installedManifestPath = requireFixture.resolve('@structured-growth/sg-ui/package.json');
+const installedManifest = JSON.parse(await readFile(installedManifestPath, 'utf8'));
+const installedPackageDirectory = await realpath(dirname(installedManifestPath));
+assert(installedPackageDirectory.startsWith(`${await realpath(fixture)}/node_modules/`), 'Reject parent/workspace package fallback');
+// The public root is ESM-only: resolve its import target, not a CJS require branch.
+const packageJson = await realpath(resolve(installedPackageDirectory, installedManifest.exports['.'].import));
+assert(packageJson.startsWith(`${installedPackageDirectory}/`), 'Root import target escaped installed package');
 const packageEntryHash = createHash('sha256').update(await readFile(packageJson)).digest('hex');
 async function hashTree(directory) {
   const hashes = {};
@@ -96,6 +102,25 @@ window.scopeReactRoot = hydrateRoot(document.getElementById('root'), <Proof {...
                 window.scopeServerOwner = document.querySelector('[data-testid="owner"]');
                 window.scopeServerField = document.querySelector('input[name="course"]');
               });
+              // Save every server node with an ID, not just the first field. A duplicate,
+              // changed ID or replaced node can break label/description associations.
+              const serverContract = await page.evaluate(() => {
+                window.scopeServerNodes = [...document.querySelectorAll('#root [id]')].map(node => ({ node, id: node.id }));
+                const scope = document.querySelector('[data-testid="owner"]');
+                return {
+                  ids: window.scopeServerNodes.map(({ id }) => id),
+                  wires: [...scope.querySelectorAll('input[name],textarea[name],select[name]')].map(node => ({
+                    name: node.name, value: node.value, disabled: node.disabled,
+                  })),
+                };
+              });
+              results.prehydrationContracts ??= [];
+              results.prehydrationContracts.push({ locale, engine, preference, contract: serverContract });
+              assert(serverContract.ids.length > 1, 'Hydration identity probe is empty');
+              assert.equal(serverContract.wires.find(field => field.name === 'course')?.value, 'Science');
+              assert.equal(serverContract.wires.find(field => field.name === 'notes')?.value, 'Leap day');
+              assert.equal(serverContract.wires.find(field => field.name === 'month.start')?.value, '2024-02-01');
+              assert.equal(serverContract.wires.find(field => field.name === 'month.end')?.value, '2024-02-29');
               const fieldID = await page.getByRole('textbox', { name: 'Course name', exact: true }).getAttribute('id');
               const preIDs = await page.locator('[id]').evaluateAll(nodes => nodes.map(node => node.id));
               assert.equal(new Set(preIDs).size, preIDs.length, 'Duplicate server IDs');
@@ -107,6 +132,21 @@ window.scopeReactRoot = hydrateRoot(document.getElementById('root'), <Proof {...
               assert(await owner.evaluate(element => element === window.scopeServerOwner), 'Server scope replaced');
               assert(await page.locator('input[name="course"]').evaluate(element => element === window.scopeServerField), 'Server field replaced');
               await expect(page.getByRole('textbox', { name: 'Course name', exact: true })).toHaveAttribute('id', fieldID);
+              const hydratedContract = await page.evaluate(() => {
+                const scope = document.querySelector('[data-testid="owner"]');
+                return {
+                  preserved: window.scopeServerNodes.every(({ node, id }) => node.isConnected && node.id === id && document.getElementById(id) === node),
+                  wires: [...scope.querySelectorAll('input[name],textarea[name],select[name]')].map(node => ({ name: node.name, value: node.value, disabled: node.disabled })),
+                  descriptions: [...document.querySelectorAll('#root [aria-labelledby],#root [aria-describedby]')].every(node =>
+                    ['aria-labelledby', 'aria-describedby'].every(attr => (node.getAttribute(attr) ?? '').split(/\s+/).filter(Boolean).every(id => document.getElementById(id)))),
+                };
+              });
+              // Keep the exact server/hydrated observations in the failure receipt too.
+              results.hydrationContracts ??= [];
+              results.hydrationContracts.push({ locale, engine, preference, server: serverContract, hydrated: hydratedContract });
+              assert(hydratedContract.preserved, 'A server ID-bearing node was replaced or changed ID');
+              assert(hydratedContract.descriptions, 'Unresolved initial hydrated label/description reference');
+              assert.deepEqual(hydratedContract.wires, serverContract.wires, 'Hydration changed initial native form values or disabled state');
               assert.deepEqual(await computed(owner), before, 'Hydration changed initial theme');
               await expect(owner).toHaveAttribute('lang', locale);
               await expect(owner).toHaveAttribute('dir', locale === 'ar-EG' ? 'rtl' : 'ltr');

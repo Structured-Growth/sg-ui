@@ -14,7 +14,7 @@ export function Proof({ locale = 'ar-EG', theme = 'system' }) {
   }, []);
   return <React.StrictMode><SGTranslationProvider value={{ locale: changed ? 'fr-FR' : locale, t: (_key, options) => options.defaultMessage, useNamespace: () => {} }}>
     <Provider data-testid="owner" theme={changed ? 'dark' : theme} density={changed ? 'compact' : 'comfortable'}
-      style={{ width: '31rem', '--sgui-menu-background': changed ? '#172554' : '#fff7ed' }}>
+      style={{ width: '31rem', '--sgui-menu-surface': changed ? '#172554' : '#fff7ed' }}>
       <ThemeScope data-testid="inherited"><TextField label="Course name" name="course" defaultValue="Science" description="Host description" />
         <TextArea label="Notes" name="notes" defaultValue="Leap day" />
         <DateField label="Leap date" name="date" defaultValue="2024-02-29" />
