@@ -110,6 +110,11 @@ or IDs. Use explicit placement to retain a previous host layout. See the
 [focused follow-up](react-aria-public-contract-acceptance.md) for naming, scope,
 installed-declaration proof and remaining historical/release evidence.
 
+See the [inherited styling migration](react-aria-inherited-styling-migration.md)
+for the original locked style/slot/system-prop mappings, and the
+[public boundary index](react-aria-public-boundary-index.md) for current naming,
+composition, ref and visual domains.
+
 ## Release review
 
 Removed upstream types/style props, changed callback arity and changed omitted

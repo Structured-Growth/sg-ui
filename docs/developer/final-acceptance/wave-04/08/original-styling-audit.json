@@ -1,0 +1,325 @@
+{
+  "baseline": "21adebd61bedfc6a1ed395fe664ff4be83896821",
+  "sourceFiles": 129,
+  "inputs": {
+    "src/adapters/Link.tsx": "c20e569b0d214d2078d1e02aad18ac4245271d73ad1ec845462caf3590f2dc82",
+    "src/adapters/accounts.tsx": "30b2219c741d0472d14442bd628af68a434351f0a2a3cadb14bd62b574c5e493",
+    "src/adapters/index.ts": "631ebad537f309a64b61391442ed79f056312271fa3515418f832fba1019d46b",
+    "src/adapters/navigation.tsx": "0210b24e38d1a06a38c94463dd0540fde570de174ce517fd8eee9d40a756c15d",
+    "src/components/AdminDataGridOptions.ts": "6e915c3883f1f80a0d4d6041fa55b8b38c29ae85f674f7a2ffa338b99c59f5f2",
+    "src/components/AppButton/AppButton.tsx": "01061a95850b47105a9f09322c433c925030046dbd7c52273c2219e9375377f1",
+    "src/components/AppButton/index.ts": "136c0217d2252f7709db54642fae232f3b6004e5fbbb1821db04974ec13079d8",
+    "src/components/AppDataGrid/AppDataGrid.tsx": "bf05ed87e22bd2af2a3e9ab4153d0650be7b9c083ecfedae42ece9eff01604b2",
+    "src/components/AppDataGrid/components/RowSubHeader.tsx": "434e1a8d5af1a4bde5e3fb4aac7acd8cef8b5e884d189ae43fdea38f33a18f1a",
+    "src/components/AppDataGrid/components/TableLoaderOverlay.tsx": "e3ad2e8340303c099700bdf9e3aacc3e7ac4a5bc26960031dfc4d1b23bb7fe2c",
+    "src/components/AppDataGrid/components/TableNoResults.tsx": "2546532c87d545bd1581fd1bc8ce08215c2c1e5f35e0a8d542b3c41e25844949",
+    "src/components/AppDataGrid/components/baseGridSx.ts": "7f34dad48016e56b17f3a61391b2fcc10f99417c46dd38abe11c91d160d2a084",
+    "src/components/AppDataGrid/components/header/TableHeaderSortMenu.tsx": "76cdaecca6385926d579e755e9155862e5fc268055b13cced75919cc63a0d738",
+    "src/components/AppDataGrid/components/table-cell/CellFallback.tsx": "43b59dcb514de9e6e7cc4faf0abf4e8cabbeda0c0079c7228361e230e701f0dc",
+    "src/components/AppDataGrid/components/table-cell/CopyableTableCell.tsx": "b566f702c85acec5ced47e5f232059fb2bc5fde871486b9f8e95b3a337166daf",
+    "src/components/AppDataGrid/components/table-cell/CustomTableCell.tsx": "b29a5224dd2cecc00b375098a4b10bbcecb6744049390de6f19a41fb23dcd238",
+    "src/components/AppDataGrid/components/table-cell/DateTableCell.tsx": "fc17faf3021e83262b0b0a7216c4a697280764e87ee34836f696e24e87971d61",
+    "src/components/AppDataGrid/components/table-cell/DateTimeTableCell.tsx": "cee3bede6fe12de50da04ff1684628f022b6ef91433071c994fcdff3d25384af",
+    "src/components/AppDataGrid/components/table-cell/ImageTableCell.tsx": "3d0c88d46c37d03d743dd554ce2289b3897149cfb1f691b3dacf498f58163ebd",
+    "src/components/AppDataGrid/components/table-cell/JsonTableCell.tsx": "4f815be684524c6c5c54316360627438a87da12d6a09f5d23327f5ad934ac583",
+    "src/components/AppDataGrid/components/table-cell/TableCellLink.tsx": "ee16a68ebe8bb7517f7cede526a35e17948fb1588652a76df5285141bb7f059d",
+    "src/components/AppDataGrid/components/table-cell/TableCellMenu.tsx": "1d130df7d4e2b19211b4973953ca1ca68cdb0f2e92502617cb062106056a6722",
+    "src/components/AppDataGrid/components/table-cell/TextTableCell.tsx": "b60b46ba4f581ed8c03b098ffed1ff03fe7db186e2935299e8fcb7c0b4ac5d21",
+    "src/components/AppDataGrid/components/table-cell/index.ts": "1b7658d63b6e842a4fc1eac68e06a70e2a5c7c7f06cc59d67cee3edb65021e52",
+    "src/components/AppDataGrid/createActionMenuColumn.ts": "0bc7e513c115557e00a2d58cfdedca7e798cab455c4c399027d7ea7f8f5c1d78",
+    "src/components/AppDataGrid/createDataGridColumns.tsx": "4082f23cc6b31c6618dc8245af296bc7845ee737c5cce38d66a5190a583821fa",
+    "src/components/AppDataGrid/index.ts": "2b55c2b9195d45f572b47dacef8d7a5a8feec5b721d04fe53f678f58701da8e8",
+    "src/components/AppDataGrid/types.ts": "81a530166e652f4b462be8802e4e161bf4f56a5d310016de6be9e34f84659abb",
+    "src/components/AppDataGridRowDnd/DataGridDragHandle.tsx": "2372c257de04e19ea9ff2adf1f54199d779efced61c8609fb56398168dc226a1",
+    "src/components/AppDataGridRowDnd/index.ts": "b3282eca08feb6096a2896fe8717d7fbaf2f7d7fba4b0e9774c11ad2cd48bf4a",
+    "src/components/AppDataGridRowDnd/useDataGridRowDnd.ts": "9fec8154037847818ff9ca33c8924fbf40d49a1822d5cf4afffc1e3f67a591ab",
+    "src/components/AppDataGridShell/AppDataGridShell.tsx": "464e068fbfa8750092511fbc1d74b069cf38afe3f9150b4bd6823d6d78af5ed0",
+    "src/components/AppDataGridShell/index.ts": "6dee3aeeba19795fb9b316baa662c984277ff440336262245b11da7d0145b4b6",
+    "src/components/AppInlineProgress/AppInlineProgress.tsx": "9accdde5055e90c47a6e0dfed8fa1549502118411faa91aa5969cd5232642cc5",
+    "src/components/AppInlineProgress/index.ts": "9d733f8edadb36362874d8b2d34483a6a4d927ea5eaee5a97b4314288e6ba39c",
+    "src/components/AppModal/AppModal.tsx": "bc0ab501692f4e3d3acaa6af8b6c7553407b66b9548e7d7c7ba8e2cecb378fc5",
+    "src/components/AppModal/index.ts": "b1c8894c13577123972ccb6c2f46960f19670833d9b3e33d9dc5fdc2d6c0eec0",
+    "src/components/AppOperationSteps/AppOperationSteps.tsx": "845485f3227b998e7db22d9e07a8156c7520111c9427677760181bd0a02d7714",
+    "src/components/AppOperationSteps/index.ts": "8833c0ea9958554e5c947daa5257dfa30c6ee57f60e8b92e45e42daf35fd95f2",
+    "src/components/AppPageHeader/AppPageHeader.tsx": "1a2665bb312bddb4a141c81110770ac6bb7db1747746462255677443218b5f12",
+    "src/components/AppPageHeader/index.ts": "4b75f68b697f6ced0aff7f3ca0d26fc8dac312e6c223f4af0fb7eac1bcfabef8",
+    "src/components/AppPageTabs/AppPageTabs.tsx": "c9a6378c22c01dd35c3a8f1e38328a3b9f24621c3b1230a92d71b9f05cc891f9",
+    "src/components/AppPageTabs/index.ts": "9908f58b741b72d756ec2020a8fc58d2621fce9f7f2d2180e9f186afbd0cce2a",
+    "src/components/AppShell/AppShell.tsx": "e365c94c7aa2f06b636104d305a65413636fb7fd0707ea13a12d38d3dc5ede6d",
+    "src/components/AppShell/index.ts": "c36ff32ee68970e1fde540b80db20b4789f9434bff2462e17e3b772d07ee2698",
+    "src/components/AuthShell/AuthShell.tsx": "526f073c6db7d1972049cf11b07f79a0a2c75b52312c8b0180f0e73b48d51a9e",
+    "src/components/AuthShell/index.ts": "9310c7cccb93585c83c4959e914d79e4064b5a40ac54d6249f0eca389e5827b7",
+    "src/components/CardCollectionWithFooter/CardCollectionWithFooter.tsx": "02cf0126b71b050aacab5bc3ba8e11a3dbc120b401acff7191336a0bac6319fe",
+    "src/components/CardCollectionWithFooter/index.ts": "2494fc762c3ebe5d95e81c5666ce98df8345b09d7a930751de276741dc2ffeaa",
+    "src/components/CardPaginationFooter/CardPaginationFooter.tsx": "d94c88f0d2d32d40e57288ec5e9232cf76ccb5251273c7fb1ea0255cad8d639c",
+    "src/components/CardPaginationFooter/index.ts": "d80255ca0342ad644470034f1ba8344dbc3492c7140a6bf404691726016dff7e",
+    "src/components/ClassCardFrame/ClassCardFrame.tsx": "09fc80547e0ab06e82f8dcd506a8aad29311bc19026bdfe7a83339dcd044a5da",
+    "src/components/ClassCardFrame/index.ts": "278a51c6a807f80146486d858a3855db3333fa0a23480422ee1266039f68dbaa",
+    "src/components/ColumnsLayoutModal/ColumnsLayoutModal.tsx": "e063c584947f39f3e1e700c66ef82d2628e8e0b5a68e4c58dbfdea0847ecee7b",
+    "src/components/ColumnsLayoutModal/index.ts": "4fa29cc1d4fee3d3fa6063790437d38b6e5631570fb95f5f973345f5e15e27ba",
+    "src/components/ContentEditorChrome/ContentEditorChrome.tsx": "655da2fc245d4e0a5bf6415cfa1042f2af10c4f4779a35d11e47d9002b1f7be4",
+    "src/components/ContentEditorChrome/index.ts": "a34ea0aafc6658c4b8b0baac0acd4f3166d4221b2825e0a5f504983fa7b8e7e9",
+    "src/components/DataToolbar/DataToolbar.tsx": "88cb28f942090ada6a123d8b3edcd33c1670245b2528f90298ddf32a1cbeb738",
+    "src/components/DataToolbar/buildColumnOptions.ts": "167fb09f1dfd61c744542fa7e2dccf1abc7b44488750af8c3db1ccf351cf3a5d",
+    "src/components/DataToolbar/components/DataToolbarColumnsMenu.tsx": "a9c942c495bf5ffa761331afa419dbc6e55f7139bc62a300c89feb04c568bc0d",
+    "src/components/DataToolbar/components/DataToolbarFilterMenu.tsx": "5cbe21fe7d1aa8b9c57624835bbb67f1ec652f62c1abcf14ed2b43f98b9c1f7d",
+    "src/components/DataToolbar/components/DataToolbarSelectionMenu.tsx": "41d775bb3817ea02f58938b6198df8e0332afcb88c4821aa4302c57be4128120",
+    "src/components/DataToolbar/components/DataToolbarSortMenu.tsx": "ff44d8eaa8827808d8853e9657fa0316a9e102d0fc99e439e5ee8410f88658d2",
+    "src/components/DataToolbar/filterRuleValue.ts": "c1dea0a7962f30acc9486cab0bcdf4856f5a8926d0b415373cb6581027852cef",
+    "src/components/DataToolbar/index.ts": "fa444da74872b83ca9de7a330dce07b3584ba7a994e2a1917c3f8c7c3ec18c93",
+    "src/components/DocumentEditorLayout/DocumentEditorLayout.tsx": "5ba7f127e9eea99cd7ebf2d2e193b8fc8b21f1a5244bccdd12039607458eaa92",
+    "src/components/DocumentEditorLayout/index.ts": "1d5b830572110f7db052117130411070628135a31cd55b63662aecd2d81831a3",
+    "src/components/DocumentEditorToolbar/DocumentEditorToolbar.tsx": "f2326114105e8d9bfb5a15c007916e546020e5fd03fe6d32d48cbd676fd2f407",
+    "src/components/DocumentEditorToolbar/index.ts": "ca0796746547a95241dab916a566f90dac0b5ca88042a8a999f673900b97d734",
+    "src/components/EditableTitleField/EditableTitleField.tsx": "27bb1fdd4518f839cecf3b17910754e54722c8c3c95e3e213c1a7a5f2095fea1",
+    "src/components/EditableTitleField/index.ts": "5e4463a29e41279fa7cd7265a71b2c389f53ea131be6b01519b47319d0598776",
+    "src/components/ExperiencePageNavigator/ExperiencePageNavigator.tsx": "d38426a7ec4e997f9871fd1f5872e055d2effc208f5d720f41772a4a1f382a2b",
+    "src/components/ExperiencePageNavigator/index.ts": "09384d5c12a9a502282d844d9b270829a3c35dbc0d50d546247742209978e340",
+    "src/components/FloatingTextSelectionToolbar/FloatingTextSelectionToolbar.tsx": "9f9645e9a359106da09cd160ebc4b7f98860bc534d961d7b6a55931d0050dcd5",
+    "src/components/FloatingTextSelectionToolbar/index.ts": "b4b15e2a0fb61461eb9b165d5fd019037a099f50c31fce2ef6e0ddf8ea246de1",
+    "src/components/ImageUploadModal/ImageUploadModal.tsx": "e44f0f2d5763a46acf0d920841291545c5d3769c80c54d7d4ecbd03fce0a39d2",
+    "src/components/ImageUploadModal/index.ts": "2996ede013f9514eab3026e2ba0111c6d803b543a9a64302cf9a6ecb6035395a",
+    "src/components/InsertContentMenuControl/InsertContentMenuControl.tsx": "9dc8b874312dc2547b7f8e5ca8e6a458fd3f0c3f1d240ad9fa5ddd777c67131f",
+    "src/components/InsertContentMenuControl/index.ts": "dea9b7e43d5027b133ee8fd9e222b3161c746440867cec3e4225b95bec8ab37e",
+    "src/components/InstructorClassCard/InstructorClassCard.tsx": "23a8b3d27b52581a7e25f262ab15e7a3828ff6ea6d4948c2086010e853d99cf3",
+    "src/components/InstructorClassCard/index.ts": "c826fe269c3bc7e60248bec0d1faefb31af15691d76371a6fe79ed632a84ec69",
+    "src/components/InstructorDataGridOptions.ts": "6b1bbed194d185baff5a1f962888b75aef067d81be40f0836a76f5af62ca8317",
+    "src/components/LearnerClassCard/LearnerClassCard.tsx": "ee49cf92efa1a257951c4a1cc1f218c12813089afe9050b54f7c8a0a309821b3",
+    "src/components/LearnerClassCard/formatDueDateLabel.ts": "8c73d81c224a3699b663420afb2d98a3c5bc39de87a6746ef7f5cb394a10b408",
+    "src/components/LearnerClassCard/index.ts": "526c5f6ef46a719a08e472267c6d3b7f38aad5d1c85a739fbc9dda653fec1e7e",
+    "src/components/LearnerClassesDataGrid/LearnerClassesDataGrid.tsx": "f30d47fffbca928eb571a33c75cfaa6a728bb3f7fb7f6dbb5e83dbadc347d955",
+    "src/components/LearnerClassesDataGrid/index.ts": "3ff8057d92e69c9ec8dd77a83456ccf01855ba03c709e030909a5270fc57ee9c",
+    "src/components/LinkUrlModal/LinkUrlModal.tsx": "8cf0c73590c8b32638b320684b89cd2877663a210217219b72cff98be4edcacb",
+    "src/components/LinkUrlModal/index.ts": "9c2e34a9a5c6bf40b63882457555ddce958f6b9625e4e42497cf0bdfd3934b6c",
+    "src/components/PageRichTextEditorSection/PageRichTextEditorSection.impl.tsx": "c4d51cf7640ce4140c3a54e79361dcf266706da0642b0d94d56975e59c82ea6b",
+    "src/components/PageRichTextEditorSection/PageRichTextEditorSection.tsx": "134bbd768dba00bdf0f8710a8003e1145f2582e5d03b6348e0b208236016bd8b",
+    "src/components/PageRichTextEditorSection/index.ts": "f0295ecb274a4492d549dca92ae1085ee339edc5bfc4bb3d6258a442d83b6a5d",
+    "src/components/PageRichTextEditorSection/lexical/ExperienceEditorPlugins.tsx": "afd6bd60b3f45f0e05fb321480045f6c9c51bc300814f8019828201716311c9a",
+    "src/components/PageRichTextEditorSection/lexical/HorizontalRuleSelectionPlugin.tsx": "19eddf6ad3f8422098bbf1651b6a89fad3a2d93a6c581f1be3206167d418164e",
+    "src/components/PageRichTextEditorSection/lexical/ImageInsertPlugin.tsx": "7136862dd6103a3b40ac939a7a50c5ed9038394ade50bf38511609d5a98120bf",
+    "src/components/PageRichTextEditorSection/lexical/ImageNode.tsx": "dd8ade7de5d2ed80a976b643ef0d9621e8ab3bfc3de30f4634d9168cad4b62af",
+    "src/components/PageRichTextEditorSection/lexical/editorConfig.ts": "be7566a16c2b54b7820a17e2817c3906a996f3bd776b61995f9208df68a744d7",
+    "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.impl.tsx": "e65ab1c4f1a4a3435336cd766b155e628b6f27f894b98f19b1716d17baa2970b",
+    "src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.tsx": "0753ac62b8110dcb344d1d024dad426d42c4a18e467ab331bcac8c2c3f1dc4bc",
+    "src/components/RichTextFormattingToolbar/index.ts": "838939d5c35c4fb41ae342ef16fff1c80bf1276a17b51af557930784346dd12a",
+    "src/components/SideNavigation/SideNavigation.tsx": "434bac46fc04104fec83c560953f96f27c6fae18ad024a89c0cf6778a9bc13a2",
+    "src/components/SideNavigation/index.ts": "9c8e4717a06a95dd246af84cf1472d995aa87de4e5e9fcf99155bd13bc8e0ac4",
+    "src/components/TextAlignMenuControl/TextAlignMenuControl.tsx": "6fa7b3805d4bffb1942ed689d63ebaaadf45a44a5aa83b4d5d737281713a254e",
+    "src/components/TextAlignMenuControl/index.ts": "58d150ba924811cb33c347acf0c0256a71b1922bc819c531e95a6c2bfc94ba71",
+    "src/components/TextColorPickerControl/TextColorPickerControl.impl.tsx": "6227eadf776735af74988fda5cd6c1c5bc0efe42bbecd6bad2e1ca90246011c0",
+    "src/components/TextColorPickerControl/TextColorPickerControl.tsx": "4e0cce1cca52ae4d62e2311df384fceba7f4012ec55a13e7e9507a3c6a4a4de4",
+    "src/components/TextColorPickerControl/index.ts": "2a0b5431a8d8bfe9b945c38e097ba1a3dad935ab65acc67efa4ca2670a78547c",
+    "src/components/TextStyleMenuControl/TextStyleMenuControl.tsx": "831a87896b65690c26f9d0cf372d13e72526c40ed96498eb307994ea48dbdcfc",
+    "src/components/TextStyleMenuControl/index.ts": "4eacd173fa71aa0c9e6d51cd431351cbf9e24b97e0494a8552001f5ea79e21fc",
+    "src/components/icons/activityTypeIcon.tsx": "1c8429ec47c24565ee4238cee11ea1e4d330a466dcfeee83b112a1bd161e6789",
+    "src/components/icons/index.ts": "f9d741823dd357472c554f56c93ff8f88087dc8a6e760c31a700971d6b3de3f7",
+    "src/components/index.ts": "d931aa5934a073449e0b81d754be88d103246940754424c116ef12036406ab79",
+    "src/components/primitives/index.ts": "ca2df248d92bfbac9c38c2d8b073870a177a4080f95ae372b36baa573ca98704",
+    "src/fixtures/navigation.ts": "4a8f58179b1d94242de086d515edcbc147d41266c54a6b2e807e50d264065df5",
+    "src/hooks/index.ts": "867d88bdb1b1eeb9338ebbd1c40905fef2cc88998832d05cb74f2aceb89d5679",
+    "src/hooks/usePersistentPaginationModel.ts": "75e5105475a64f2c1670b229989c3b1109b09461a754bf6130d9836eb8d88339",
+    "src/hooks/usePersistentState.ts": "91136df4a131ec6bcf4f81cfdecfcc7e3be5145862a6dc00bf33e53927cf41d5",
+    "src/i18n/icu.ts": "af1535e7c22f72b060dc85746783d42cc8ec85cd0a393235d5c61bddbb24ab5c",
+    "src/i18n/index.tsx": "be821a6ac6a3aad2cb2010f6071c49efd9711e31776ce23285b3b2d791e10e34",
+    "src/i18n/labelKey.ts": "24de2e8a2d2bdc9b0f8a7cb3f0a4ebe1a7535a1b81a8391b1c7f5702177d8400",
+    "src/icons/index.ts": "f51711190ee506fe41777833c22a898d3ff91231bc575cfbffd02065e31f4b6b",
+    "src/index.ts": "7267aef5c095814b4e399459e064dc91c9c48c91a4e3f2feee215def3dc43bc3",
+    "src/models.ts": "e8802b99e081c5cff9ab9d9259fe15a3f95d1bad8dbffb9e8a0c0114c9767414",
+    "src/primitives/index.ts": "28a624960a636f5e5428ca7c78f80a06f50ae898b1976811897b7c0bcc421e14",
+    "src/theme/AppThemeProvider.tsx": "7a4ed3bf1b62613d2ccdd0f3b297b7af9891e14507c23b8f4b1b2f7793b6fceb",
+    "src/theme/index.ts": "c0a8c51c4c7ad1a9d92d97976603aeed9bf3e4a2e489f80df7c4dea4124a85e4",
+    "src/theme/mui-typography.ts": "c86b65a948c2f4b604fd611b30e438a03dabc6be9a4905cd7f38cde986f8abf4",
+    "src/theme/theme.ts": "1cb2befacdd26b0004be4d3bc7a5bb49ccb82928e38bafa069202c26d52e6cab",
+    "src/utils/formatDueDateLabel.ts": "526a0a5c9ee23655c6081a90bdb8acccaf5b2853b2ecd53b8fd15a95bd5601de"
+  },
+  "directRetiredStylingFields": [
+    {
+      "path": "src/components/AppDataGrid/AppDataGrid.tsx",
+      "name": "sx",
+      "type": "SxProps<Theme>",
+      "line": 49
+    },
+    {
+      "path": "src/components/AppModal/AppModal.tsx",
+      "name": "paperSx",
+      "type": "SxProps<Theme>",
+      "line": 50
+    },
+    {
+      "path": "src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "name": "headerSx",
+      "type": "SxProps<Theme>",
+      "line": 15
+    },
+    {
+      "path": "src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "name": "bodySx",
+      "type": "SxProps<Theme>",
+      "line": 16
+    },
+    {
+      "path": "src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "name": "footerSx",
+      "type": "SxProps<Theme>",
+      "line": 17
+    }
+  ],
+  "directNativeFieldDispositions": [
+    {
+      "path": "src/components/AppDataGridRowDnd/DataGridDragHandle.tsx",
+      "name": "className",
+      "type": "string",
+      "optional": true,
+      "disposition": "Native className retained on owned drag-handle button",
+      "currentType": "string | undefined"
+    },
+    {
+      "path": "src/components/InstructorClassCard/InstructorClassCard.tsx",
+      "name": "className",
+      "type": "string",
+      "optional": false,
+      "disposition": "Retained displayed course-name content, not a native style prop"
+    }
+  ],
+  "typeReferenceEdges": [
+    {
+      "path": "src/components/AppButton/AppButton.tsx",
+      "type": "AppButtonProps",
+      "exported": true,
+      "references": [
+        {
+          "name": "ButtonProps",
+          "module": "@mui/material/Button",
+          "imported": "ButtonProps"
+        }
+      ]
+    },
+    {
+      "path": "src/components/AppDataGrid/AppDataGrid.tsx",
+      "type": "AppDataGridProps",
+      "exported": true,
+      "references": [
+        {
+          "name": "MuiDataGridProps",
+          "module": "@mui/x-data-grid",
+          "imported": "DataGridProps"
+        },
+        {
+          "name": "SxProps",
+          "module": "@mui/material/styles",
+          "imported": "SxProps"
+        }
+      ]
+    },
+    {
+      "path": "src/components/AppDataGrid/components/RowSubHeader.tsx",
+      "type": "RowSubHeaderProps",
+      "exported": true,
+      "references": [
+        {
+          "name": "TypographyProps",
+          "module": "@mui/material/Typography",
+          "imported": "TypographyProps"
+        }
+      ]
+    },
+    {
+      "path": "src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "type": "AppDataGridShellToolbarConfig",
+      "exported": true,
+      "references": [
+        {
+          "name": "DataToolbarProps",
+          "module": "../DataToolbar",
+          "imported": "DataToolbarProps"
+        }
+      ]
+    },
+    {
+      "path": "src/components/AppDataGridShell/AppDataGridShell.tsx",
+      "type": "AppDataGridShellProps",
+      "exported": true,
+      "references": [
+        {
+          "name": "AppDataGridProps",
+          "module": "../AppDataGrid",
+          "imported": "AppDataGridProps"
+        }
+      ]
+    },
+    {
+      "path": "src/components/AppModal/AppModal.tsx",
+      "type": "AppModalAction",
+      "exported": true,
+      "references": [
+        {
+          "name": "ButtonProps",
+          "module": "@mui/material/Button",
+          "imported": "ButtonProps"
+        },
+        {
+          "name": "ButtonProps",
+          "module": "@mui/material/Button",
+          "imported": "ButtonProps"
+        },
+        {
+          "name": "ButtonProps",
+          "module": "@mui/material/Button",
+          "imported": "ButtonProps"
+        }
+      ]
+    },
+    {
+      "path": "src/components/AppModal/AppModal.tsx",
+      "type": "AppModalProps",
+      "exported": true,
+      "references": [
+        {
+          "name": "DialogProps",
+          "module": "@mui/material/Dialog",
+          "imported": "DialogProps"
+        },
+        {
+          "name": "DialogProps",
+          "module": "@mui/material/Dialog",
+          "imported": "DialogProps"
+        },
+        {
+          "name": "SxProps",
+          "module": "@mui/material/styles",
+          "imported": "SxProps"
+        }
+      ]
+    },
+    {
+      "path": "src/components/ClassCardFrame/ClassCardFrame.tsx",
+      "type": "ClassCardFrameProps",
+      "exported": false,
+      "references": [
+        {
+          "name": "SxProps",
+          "module": "@mui/material/styles",
+          "imported": "SxProps"
+        },
+        {
+          "name": "SxProps",
+          "module": "@mui/material/styles",
+          "imported": "SxProps"
+        },
+        {
+          "name": "SxProps",
+          "module": "@mui/material/styles",
+          "imported": "SxProps"
+        }
+      ]
+    }
+  ],
+  "matchedStylingMapRows": 740,
+  "currentRetiredPublicFields": [],
+  "passed": true,
+  "limits": [
+    "Complete original TS/TSX source AST traversal for direct sx/*Sx property signatures and imported Props/SxProps references.",
+    "Private nested records are retained as context; imported wrapper references are not automatically upstream public props.",
+    "Inherited primitive/Button/grid/shell branches resolve separately in historical-resolved-props.json; full callback/default/runtime migration remains separate."
+  ]
+}

@@ -84,12 +84,13 @@ retention, SSR, Flight or browser hydration evidence.
 ## Historical contract and release boundary
 
 The initial extraction lock resolves material/icons7.3.11, data-grid8.29.3,
-emotion-react11.14.0 and emotion-styled11.14.1. Their inherited declaration closure
-is still missing from the saved baseline. Recover those exact integrity-bound
-archives and transitive type dependencies in an isolated evidence location before
-claiming every former styling prop is mapped. Do not substitute current upstream
-APIs, infer props from component names, or treat the five wrapper styling rows as
-the complete inherited surface.
+emotion-react11.14.0 and emotion-styled11.14.1. The acceptance follow-up recovered
+the exact integrity-bound archives and transitive declarations, then resolved the
+captured primitive and Button/modal/grid wrapper contracts. The
+[inherited styling map](react-aria-inherited-styling-migration.md) records 740 hooks
+against the current declared boundaries. Other original wrapper joins and runtime
+default semantics remain separate before claiming complete API compatibility.
+Do not substitute current upstream APIs or infer props from component names.
 
 Use the existing nineteen breaking-map dispositions and twelve absent-symbol
 mappings as starting evidence. For each additional inherited key/default, record
@@ -125,3 +126,12 @@ default bindings against exact source hashes and current declared props. Its map
 bounded: historical upstream inherited props and final release-range markers still
 require their separate evidence. Source changes invalidate the relevant default
 row until reviewed. The gate neither publishes nor changes library versions.
+
+The [public boundary index](react-aria-public-boundary-index.md) defines naming,
+description, visual domains and composition/ref hooks for 111 non-icon callable
+boundaries and 96 icon contracts. Its JSON retains naming-union alternatives and
+aliases. InstructorClassCard.className is course-name content, not a CSS hook.
+The current inventory resolved 480 contracts on 238 public routes with no
+unresolved top-level types. The migration guard verified 12 removed-name mappings
+and five changed defaults. These are declaration/source checks; the separate
+installed-consumer receipts provide runtime and hydration evidence.

@@ -11,6 +11,7 @@ import styles from "./InstructorClassCard.module.css";
 export type InstructorClassCardStatus = "active" | "draft" | "closed" | "archived";
 
 export type InstructorClassCardProps = {
+  /** Displayed course name retained under its historical prop name; not a CSS class or styling hook. */
   className: string;
   siteName: string;
   status: InstructorClassCardStatus;
