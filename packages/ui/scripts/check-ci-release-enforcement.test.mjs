@@ -68,3 +68,20 @@ test('job permission overrides cannot broaden read-only CI or AI execution',()=>
  for(const mutate of mutations){const value=structuredClone(workflows);mutate(value);assert(workflowFindings(value).length);}
  const value=structuredClone(workflows);value.ci.jobs.validate.permissions={contents:'read'};assert.deepEqual(workflowFindings(value),[]);
 });
+
+
+test('logical gates cannot collapse onto one context or reuse legacy settings after a404',()=>{
+ const collapsed=synthetic();collapsed.observedContexts=Object.fromEntries(contexts.map(name=>[name,contexts[0]]));collapsed.branchProtection.required_status_checks.checks=[{context:contexts[0]}];
+ assert(protectionFindings(collapsed).some(finding=>finding.includes('distinct observed')));
+ const stale=synthetic();stale.queries.branchProtection=404;
+ const findings=protectionFindings(stale);
+ assert(findings.some(finding=>finding.includes('reviewed PR requirement absent')));
+ assert.equal(findings.filter(finding=>finding.includes('observed required context absent')).length,4);
+});
+
+
+test('YAML boolean false on an unconditional job is a skipped gate, not an absent condition',()=>{
+ for(const mutate of [w=>w.ci.jobs.docs.if=false,w=>w.release.jobs.validate.if=false,w=>w.title.jobs['conventional-title'].if=false,w=>w.ai.jobs['validate-draft'].if=false]){
+  const value=structuredClone(workflows);mutate(value);assert(workflowFindings(value).length);
+ }
+});

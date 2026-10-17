@@ -17,7 +17,7 @@ export function workflowFindings(workflows) {
  check(ci.on?.workflow_call?.inputs?.ref?.type==='string','CI: reusable exact-ref input missing');
  for(const [name,event] of Object.entries(ci.on??{}))if(['pull_request','push'].includes(name))for(const key of ['paths','paths-ignore'])check(event?.[key]===undefined,`CI: ${key} can bypass infrastructure PR/main validation`);
  check(equal(ci.permissions,{contents:'read'}),'CI: default credentials expanded');
- check(ci.jobs?.validate?.if==="github.event_name != 'pull_request' || github.base_ref != 'dev'" && !ci.jobs?.docs?.if,'CI: mandatory job can be skipped');
+ check(ci.jobs?.validate?.if==="github.event_name != 'pull_request' || github.base_ref != 'dev'" && ci.jobs?.docs?.if===undefined,'CI: mandatory job can be skipped');
  check(equal(ci.jobs?.validate?.strategy?.matrix?.node,['22.12.0','24']),'CI: required runtime matrix changed');
  check(ci.jobs?.validate?.name==='Validate Node ${{ matrix.node }}' && ci.jobs?.docs?.name==='Next.js docs','CI: named required contexts changed');
  for(const id of ['validate','docs']) {
@@ -43,13 +43,13 @@ export function workflowFindings(workflows) {
  for(const command of ['pnpm check:docs','pnpm build:docs','test:e2e --reporter=list,json'])requireStep(ci.jobs?.docs?.steps??[],command);
  const at=text=>commands.findIndex(s=>s.includes(text));
  check(at('ci-artifacts.mjs begin')>=0 && at('ci-artifacts.mjs begin')<at('pnpm check') && at('ci-artifacts.mjs complete')>at('pnpm pack'),'CI: fresh-output ordering changed');
- check(release.jobs?.validate?.uses==='./.github/workflows/ci.yml' && !release.jobs?.validate?.if,'Release: full prerequisite can be skipped');
+ check(release.jobs?.validate?.uses==='./.github/workflows/ci.yml' && release.jobs?.validate?.if===undefined,'Release: full prerequisite can be skipped');
  check(release.jobs?.release?.needs==='validate' && release.jobs?.release?.if==="github.ref == 'refs/heads/main'",'Release: main-only prerequisite missing');
  check(equal(release.on?.push?.branches,['main']),'Release: production branch changed');
  check(equal(title.on?.pull_request?.['branches-ignore'],['dev']) && !!title.jobs?.['conventional-title'],'Title: production PR validation/dev exception changed');
  check(equal(title.permissions,{contents:'read'}),'Title: default credentials expanded');
  const titleJob=title.jobs?.['conventional-title'];
- check(!titleJob?.if && !titleJob?.['continue-on-error'] && readOnlyJob(titleJob),'Title: job can be skipped, ignored or receive expanded credentials');
+ check(titleJob?.if===undefined && !titleJob?.['continue-on-error'] && readOnlyJob(titleJob),'Title: job can be skipped, ignored or receive expanded credentials');
  check(title.on?.pull_request?.branches===undefined && title.on?.pull_request?.paths===undefined && title.on?.pull_request?.['paths-ignore']===undefined && hasTypes(title.on?.pull_request,['opened','edited','synchronize','reopened','ready_for_review'],false),'Title: PR events/path filters can suppress final title validation');
  const titleSteps=titleJob?.steps??[];
  check(titleSteps.every(step=>!step['continue-on-error']),'Title: step failure can be ignored');
@@ -67,17 +67,20 @@ export function workflowFindings(workflows) {
  check(!(write?.steps??[]).some(s=>/pnpm |npm |yarn |git (?:merge|push)|gh pr merge/.test(s.run??'')),'AI: write job executes package code or merge commands');
  check(write?.steps?.some(s=>s.name==='Verify original patch identity' && s.if===undefined && !s['continue-on-error'] && s.run?.includes("throw new Error('Validation artifact changed proposal bytes')")),'AI: original patch identity check missing');
  const full=ai.jobs?.['validate-draft'];
- check(full?.needs==='propose' && full.uses==='./.github/workflows/ci.yml' && full.with?.ref==='${{ needs.propose.outputs.head }}' && !full.if && !full.secrets,'AI: explicit full validation at returned draft head missing');
+ check(full?.needs==='propose' && full.uses==='./.github/workflows/ci.yml' && full.with?.ref==='${{ needs.propose.outputs.head }}' && full.if===undefined && !full.secrets,'AI: explicit full validation at returned draft head missing');
  return failures;
 }
 export function protectionFindings(receipt) {
  const failures=[];const check=(ok,message)=>{if(!ok)failures.push(message);};
  const {branchProtection,effectiveRules,queries,observedContexts,ownerReview}=receipt??{};
  check([200,404].includes(queries?.branchProtection) && queries?.effectiveRules===200 && queries?.rulesets===200,'Protection: missing/failed raw settings queries');
- const branchContexts=[...(branchProtection?.required_status_checks?.contexts??[]),...(branchProtection?.required_status_checks?.checks??[]).map(c=>c.context)];
+ const legacy=queries?.branchProtection===200 ? branchProtection : undefined;
+ const branchContexts=[...(legacy?.required_status_checks?.contexts??[]),...(legacy?.required_status_checks?.checks??[]).map(c=>c.context)];
  const ruleContexts=(effectiveRules??[]).filter(r=>r.type==='required_status_checks').flatMap(r=>r.parameters?.required_status_checks??[]).map(c=>c.context);
  const required=new Set([...branchContexts,...ruleContexts]);
- const hasReview=(branchProtection?.required_pull_request_reviews?.required_approving_review_count??0)>0 || (effectiveRules??[]).some(r=>r.type==='pull_request' && r.parameters?.required_approving_review_count>0);
+ const mapped=logicalChecks.map(name=>observedContexts?.[name]);
+ check(mapped.every(context=>typeof context==='string' && context.trim().length>0) && new Set(mapped).size===logicalChecks.length,'Protection: logical jobs must map to distinct observed check contexts');
+ const hasReview=(legacy?.required_pull_request_reviews?.required_approving_review_count??0)>0 || (effectiveRules??[]).some(r=>r.type==='pull_request' && r.parameters?.required_approving_review_count>0);
  check(hasReview,'Protection: reviewed PR requirement absent');
  for(const name of logicalChecks){const context=observedContexts?.[name];check(typeof context==='string' && context.trim().length>0 && required.has(context),`Protection: observed required context absent: ${name}`);}
  check(typeof ownerReview?.owner==='string' && !!ownerReview.owner.trim() && Number.isFinite(Date.parse(ownerReview.observedAt)) && /^https:\/\//.test(ownerReview.reference??'') && ownerReview.bypassReview===true && ownerReview.tagAuthorityReview===true,'Protection: owner/date/bypass/tag authority review absent');
