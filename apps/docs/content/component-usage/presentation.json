@@ -689,5 +689,30 @@
         "label": "Scoped modal content"
       }
     ]
+  },
+  "hierarchical-menu": {
+    "when": "Use HierarchicalMenu for a reusable sliding drilldown panel with Back navigation. Use Menu for flat popup commands, Navigation for simple route lists, and Popover for arbitrary form content. The panel does not open a flyout or manage an overlay.",
+    "how": [
+      "Load /styles.css and provide Provider or ThemeScope. Supply a level with stable IDs, sections, optional titles and footerItems; IDs are unique within each level. Navigation renders links/buttons; commands renders a React Aria menu with arrow keys and disabled skipping.",
+      "Use children for drilldown. Navigation may mix childBehavior=\"inline\" sections with deeper drilldown; commands always drill down. Entering branches never invokes leaf actions or routes their href. Back returns to the prior displayed level and restores the opening branch, retaining inline expansion and scroll.",
+      "path and onPathChange form a controlled request contract; defaultPath starts a local stack. Removed/disabled ancestors render the longest valid path and request correction once. Accepted host focus outside the panel is preserved.",
+      "Give the host a bounded width/height when independent scrolling is needed. Back stays available above long navigation content; both densities use owned targets, directional motion respects RTL and reduced motion, and focus remains outlined in forced colors.",
+      "A popup host owns opening, positioning and dismissal. Pass onDismiss in command mode for root Escape; child Escape unwinds first. Unmounting popup content resets local path on reopening; controlled paths remain host-owned. Leaf href owns native/adapter routing, while onAction is a notification; do not navigate twice. Explicitly close the popup after a leaf action if desired. Persistent navigation has no popup Escape policy.",
+      "The host supplies translated item labels, router adapters, current markers, authorization and persistence. The library translates Back to the branch label. Avoid arbitrary forms inside the commands collection."
+    ],
+    "related": [
+      {
+        "slug": "menu",
+        "label": "Flat commands"
+      },
+      {
+        "slug": "navigation",
+        "label": "Native route lists"
+      },
+      {
+        "slug": "popover",
+        "label": "Anchored host surface"
+      }
+    ]
   }
 }

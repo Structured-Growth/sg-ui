@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "../../../types";
 import { useState } from "react";
+import { Checkbox } from "@structured-growth/sg-ui/experimental";
+import { SGNavigationProvider } from "@structured-growth/sg-ui";
 import { ExperiencePageNavigator } from "@structured-growth/sg-ui/components";
 import { Provider } from "@structured-growth/sg-ui/theme";
 const meta = {
@@ -33,3 +35,24 @@ export const ReadOnly: Story = { args: { readOnly: true } };
 export const LastPage: Story = { args: { pages: [{ key: "intro", title: "Introduction" }] } };
 export const Dark: Story = { decorators: [Story => <Provider theme="dark"><Story /></Provider>] };
 export const Scrollable: Story = { args: { pages: Array.from({ length: 20 }, (_, index) => ({ key: `page-${index}`, title: `Page heading ${index + 1}` })) } };
+
+function AdjacentDestinationsFixture() {
+  const [activePageKey,setActivePageKey] = useState('intro');
+  const [accept,setAccept] = useState(false);
+  const [linked,setLinked] = useState(false);
+  const [disabled,setDisabled] = useState(false);
+  const [requests,setRequests] = useState<string[]>([]);
+  const pages = [{key:'intro',title:'Introduction'},{key:'practice',title:'Practice'}];
+  const target = activePageKey === 'intro' ? pages[1] : pages[0];
+  const destination = {key:target.key,label:target.title,disabled,...(linked?{href:'#'+target.key}:{})};
+  return <><Checkbox label="Accept adjacent selection" checked={accept} onCheckedChange={setAccept}/>
+    <Checkbox label="Use adjacent links" checked={linked} onCheckedChange={setLinked}/>
+    <Checkbox label="Disable adjacent destination" checked={disabled} onCheckedChange={setDisabled}/>
+    <SGNavigationProvider value={{pathname:activePageKey,navigate:href=>{setRequests(items=>[...items,'route:'+href]);setActivePageKey(href.slice(1));}}}>
+      <ExperiencePageNavigator pages={pages} activePageKey={activePageKey} readOnly onSelectPage={key=>{setRequests(items=>[...items,'select:'+key]);if(accept)setActivePageKey(key);}}
+        adjacentNavigation={activePageKey==='intro'?{previous:null,next:destination}:{previous:destination,next:null}}
+        onAddPage={()=>{}} onRemovePage={()=>{}} onRenamePage={()=>{}} onReorderPages={()=>{}}/>
+    </SGNavigationProvider><output aria-label="Adjacent requests">{JSON.stringify(requests)}</output>
+  </>;
+}
+export const AdjacentDestinations: Story = {render: () => <AdjacentDestinationsFixture/>};

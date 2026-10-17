@@ -24,3 +24,5 @@ export { ThemeScope, type ThemeScopeProps } from "../../foundation/ThemeScope";
 export { SearchField, type SearchFieldProps, type SearchFieldItem } from "../../experimental/SearchField/SearchField";
 
 export { FormFieldScope, type FormFieldScopeProps } from "../../experimental/FormFieldScope/FormFieldScope";
+
+export { HierarchicalMenu, type HierarchicalMenuProps, type HierarchicalMenuItem, type HierarchicalMenuLevel, type HierarchicalMenuSection } from "../../experimental/HierarchicalMenu";

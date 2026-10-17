@@ -1,0 +1,23 @@
+import {expect,test} from '@playwright/test';
+test('adjacent boundaries preserve rejecting and accepting actions, disabled targets and native router links',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  await page.goto('/fixtures/?id=navigation-experiencepagenavigator--adjacent-destinations&globals=a11y.manual:!true');
+  await expect(page.getByRole('button',{name:'Previous page',exact:true})).toBeDisabled();
+  await page.getByRole('button',{name:'Next: Practice',exact:true}).focus();await page.keyboard.press('Enter');
+  await expect(page.getByRole('status',{name:'Adjacent requests',exact:true})).toHaveText('["select:practice"]');
+  await expect(page.getByRole('button',{name:'Introduction Page 1 • Active',exact:true})).toHaveAttribute('aria-current','page');
+  await page.getByText('Accept adjacent selection',{exact:true}).click();
+  await page.getByRole('button',{name:'Next: Practice',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Next page',exact:true})).toBeDisabled();
+  await expect(page.getByRole('button',{name:'Practice Page 2 • Active',exact:true})).toHaveAttribute('aria-current','page');
+  await page.getByText('Use adjacent links',{exact:true}).click();
+  const link=page.getByRole('link',{name:'Previous: Introduction',exact:true});
+  await expect(link).toHaveAttribute('href','#intro');await expect(link).toHaveAttribute('rel','prev');
+  await link.focus();await page.keyboard.press('Enter');
+  await expect(page.getByRole('button',{name:'Introduction Page 1 • Active',exact:true})).toHaveAttribute('aria-current','page');
+  await expect(page.getByRole('status',{name:'Adjacent requests',exact:true})).toHaveText('["select:practice","select:practice","route:#intro"]');
+  await page.getByText('Disable adjacent destination',{exact:true}).click();
+  await expect(page.getByRole('link',{name:'Next: Practice',exact:true})).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'Next: Practice',exact:true})).toBeDisabled();
+  expect(errors).toEqual([]);
+});

@@ -10,6 +10,7 @@ import { runSourceGraphRegression } from './check-source-graph.test.mjs';
 
 const interactionFiles = new Set(['SearchField', 'TextField', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'DateField', 'TimeField', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'Menu', 'Switch', 'RadioGroup', 'Select', 'TextArea', 'ToggleButton', 'Tooltip', 'TagGroup', 'Progress']
   .map(name => `src/experimental/${name}/${name}.tsx`));
+interactionFiles.add("src/experimental/HierarchicalMenu/HierarchicalMenu.tsx");
 interactionFiles.add("src/components/Button/Button.tsx");
 interactionFiles.add("src/experimental/Calendar/CalendarNavigation.tsx");
 interactionFiles.add("src/experimental/Calendar/CalendarPeriodNavigation.tsx");

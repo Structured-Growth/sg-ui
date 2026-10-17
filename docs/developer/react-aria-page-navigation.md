@@ -1,6 +1,6 @@
 # Owned page navigation
 
-Task reference: M-10. Repository inventory confirms this is an authoring page list; the backlog summary of previous/next navigation does not describe the shipped control. No link or route model is introduced. `ExperiencePageNavigator` preserves its public name, page
+Task reference: M-10. The authoring page list retains its existing page mutations and controlled selection. Optional adjacentNavigation supplies host-owned previous/next destinations without changing the existing authoring model. `ExperiencePageNavigator` preserves its public name, page
 model, active key and host callbacks. The host owns page creation, persistence,
 selection and ordering. It uses owned Button, IconButton, Menu, Dialog, TextField,
 Typography and icons, with React Aria inside interaction controls.
@@ -32,7 +32,19 @@ keys with English `defaultMessage`; host page titles and an explicit navigator
 
 Colocated behavior tests cover separated actions, controlled selection, rename
 submission/dismissal/focus, portal theme, keyboard reorder, drag validation,
-read-only mutations and last-page protection. Stories provide interactive host
-state, read-only, last-page, dark and independent-scrolling examples. Full native
-browser, touch, zoom and screen-reader acceptance gates remain in the master
-backlog until independently verified.
+read-only mutations and last-page protection. The docs website and private native fixtures provide interactive host
+state, read-only, last-page, dark and independent-scrolling examples.
+Retained native authoring-list and translated presentation evidence is mapped in
+[the prior component reconciliation](final-acceptance/wave-02-01/report.md#a-m-10--partial)
+and HB-14 in [hardening execution](react-aria-hardening-execution.md).
+Optional `adjacentNavigation` contains `previous` and `next` destination records
+(`key`, `label`, optional `href`/`disabled`) and an optional navigation-region label.
+Null or absent sides render disabled boundary buttons; disabled destinations never
+render an active link. Action destinations request `onSelectPage(key)` and keep
+`activePageKey` host controlled. `href` destinations use owned Link/native adapter
+semantics, retain modified-click behavior, and do not emit a second selection
+request. The host supplies adjacent records from its current ordered data and
+updates the accepted active page or route. Read-only blocks collection mutation
+while preserving these navigation paths. Omitting adjacentNavigation retains the
+existing presentation. Reorder commands remain distinct from page navigation. Actual browser zoom, physical touch and spoken screen-reader evidence
+remain separate; no owner decision is inferred from these examples.

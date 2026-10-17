@@ -1,0 +1,33 @@
+@layer sgui.components {
+  .root { display: flex; flex-direction: column; min-inline-size: 0; min-block-size: 0; max-inline-size: 100%; color: var(--sgui-menu-text); background: var(--sgui-menu-surface); border-radius: var(--sgui-control-radius); }
+  .title { flex: none; margin: 0; padding: var(--sgui-space2); }
+  .level { --_forward: var(--sgui-space4); --_back: calc(-1 * var(--sgui-space4)); display: flex; flex: 1; flex-direction: column; min-block-size: 0; min-inline-size: 0; }
+  .level:dir(rtl) { --_forward: calc(-1 * var(--sgui-space4)); --_back: var(--sgui-space4); }
+  .level[data-direction="forward"] { animation: forward var(--sgui-motion-duration) ease-out; }
+  .level[data-direction="back"] { animation: back var(--sgui-motion-duration) ease-out; }
+  .navigation { display: flex; flex: 1; flex-direction: column; min-block-size: 0; }
+  .scroll, .commands { composes: scope from "../../foundation/Scrollbars.module.css"; overflow: auto; overscroll-behavior: contain; min-block-size: 0; scrollbar-gutter: stable; scroll-padding-block: var(--sgui-space2); }
+  .scroll { flex: 1; }
+  .commands { outline: none; padding: var(--sgui-space1); font-family: var(--sgui-font-family); font-size: var(--sgui-control-text-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
+  .section { margin: 0; }
+  .sectionTitle { padding: var(--sgui-space2); font-family: var(--sgui-font-family); font-size: var(--sgui-caption-size); line-height: var(--sgui-label-line-height); }
+  .list { list-style: none; margin: 0; padding: 0; }
+  .root .item { display: flex; box-sizing: border-box; align-items: center; gap: var(--sgui-space2); inline-size: 100%; min-inline-size: 0; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding: var(--sgui-space1) var(--sgui-control-padding); text-align: start; color: var(--sgui-menu-text); border-radius: var(--sgui-control-radius); cursor: pointer; }
+  button.item > span { display: flex; align-items: center; gap: var(--sgui-space2); inline-size: 100%; min-inline-size: 0; }
+  .itemLabel { flex: 1; overflow-wrap: anywhere; }
+  .item:hover, .item[aria-current="page"] { background: var(--sgui-menu-selected-surface); }
+  .root:focus-visible, .item[data-focused], .item:focus-visible { background: var(--sgui-menu-focused-surface); outline: var(--sgui-control-focus-width) solid var(--sgui-menu-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
+  .item[data-disabled], .item:disabled { opacity: 0.5; cursor: default; }
+  .icon, .arrow { display: inline-flex; flex: none; inline-size: var(--sgui-side-navigation-icon-size); block-size: var(--sgui-side-navigation-icon-size); }
+  .icon > svg, .arrow > svg { inline-size: 100%; block-size: 100%; }
+  .back { flex: none; position: sticky; inset-block-start: 0; z-index: 1; background: var(--sgui-menu-surface); }
+  .footer { border-block-start: 1px solid var(--sgui-menu-separator-border); margin-block-start: var(--sgui-space2); }
+  .inline { padding-inline-start: var(--sgui-space3); }
+  @keyframes forward { from { opacity: 0; transform: translateX(var(--_forward)); } to { opacity: 1; transform: translateX(0); } }
+  @keyframes back { from { opacity: 0; transform: translateX(var(--_back)); } to { opacity: 1; transform: translateX(0); } }
+  @media (prefers-reduced-motion: reduce) { .level[data-direction] { animation: none; } }
+  @media (forced-colors: active) {
+    .root:focus-visible, .item[data-focused], .item:focus-visible, .item[aria-current="page"] { outline: 1px solid Highlight; outline-offset: -1px; }
+    .item[data-disabled], .item:disabled { color: GrayText; opacity: 1; }
+  }
+}

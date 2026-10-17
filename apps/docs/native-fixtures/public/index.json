@@ -521,6 +521,26 @@
       "importPath": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
       "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx"
     },
+    "editors-pagerichtexteditorsection--document-admission": {
+      "id": "editors-pagerichtexteditorsection--document-admission",
+      "type": "fixture",
+      "title": "Editors/PageRichTextEditorSection",
+      "name": "DocumentAdmission",
+      "exportName": "DocumentAdmission",
+      "module": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "importPath": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx"
+    },
+    "editors-pagerichtexteditorsection--structured-content": {
+      "id": "editors-pagerichtexteditorsection--structured-content",
+      "type": "fixture",
+      "title": "Editors/PageRichTextEditorSection",
+      "name": "StructuredContent",
+      "exportName": "StructuredContent",
+      "module": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "importPath": "./scenarios/components/PageRichTextEditorSection/PageRichTextEditorSection.fixture.tsx",
+      "original": "packages/ui/src/components/PageRichTextEditorSection/PageRichTextEditorSection.stories.tsx"
+    },
     "data-display-cardpaginationfooter--interactive": {
       "id": "data-display-cardpaginationfooter--interactive",
       "type": "fixture",
@@ -2221,6 +2241,16 @@
       "importPath": "./scenarios/components/ExperiencePageNavigator/ExperiencePageNavigator.fixture.tsx",
       "original": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx"
     },
+    "navigation-experiencepagenavigator--adjacent-destinations": {
+      "id": "navigation-experiencepagenavigator--adjacent-destinations",
+      "type": "fixture",
+      "title": "Navigation/ExperiencePageNavigator",
+      "name": "AdjacentDestinations",
+      "exportName": "AdjacentDestinations",
+      "module": "./scenarios/components/ExperiencePageNavigator/ExperiencePageNavigator.fixture.tsx",
+      "importPath": "./scenarios/components/ExperiencePageNavigator/ExperiencePageNavigator.fixture.tsx",
+      "original": "packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx"
+    },
     "components-appinlineprogress--default": {
       "id": "components-appinlineprogress--default",
       "type": "fixture",
@@ -3251,6 +3281,16 @@
       "importPath": "./scenarios/experimental/Calendar/Calendar.fixture.tsx",
       "original": "packages/ui/src/experimental/Calendar/Calendar.stories.tsx"
     },
+    "migration-proofs-calendar--speech-semantics": {
+      "id": "migration-proofs-calendar--speech-semantics",
+      "type": "fixture",
+      "title": "Migration proofs/Calendar",
+      "name": "SpeechSemantics",
+      "exportName": "SpeechSemantics",
+      "module": "./scenarios/experimental/Calendar/Calendar.fixture.tsx",
+      "importPath": "./scenarios/experimental/Calendar/Calendar.fixture.tsx",
+      "original": "packages/ui/src/experimental/Calendar/Calendar.stories.tsx"
+    },
     "migration-proofs-calendar-native-locales--sunday-first": {
       "id": "migration-proofs-calendar-native-locales--sunday-first",
       "type": "fixture",
@@ -3731,6 +3771,16 @@
       "importPath": "./scenarios/experimental/ToggleButton/ToggleButton.fixture.tsx",
       "original": "packages/ui/src/experimental/ToggleButton/ToggleButton.stories.tsx"
     },
+    "migration-proofs-togglebutton--selection-geometry": {
+      "id": "migration-proofs-togglebutton--selection-geometry",
+      "type": "fixture",
+      "title": "Migration proofs/ToggleButton",
+      "name": "SelectionGeometry",
+      "exportName": "SelectionGeometry",
+      "module": "./scenarios/experimental/ToggleButton/ToggleButton.fixture.tsx",
+      "importPath": "./scenarios/experimental/ToggleButton/ToggleButton.fixture.tsx",
+      "original": "packages/ui/src/experimental/ToggleButton/ToggleButton.stories.tsx"
+    },
     "migration-proofs-textfield--default": {
       "id": "migration-proofs-textfield--default",
       "type": "fixture",
@@ -3881,6 +3931,16 @@
       "importPath": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
       "original": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx"
     },
+    "migration-proofs-daterangeselector--independent-period-draft": {
+      "id": "migration-proofs-daterangeselector--independent-period-draft",
+      "type": "fixture",
+      "title": "Migration proofs/DateRangeSelector",
+      "name": "IndependentPeriodDraft",
+      "exportName": "IndependentPeriodDraft",
+      "module": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "importPath": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "original": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx"
+    },
     "migration-proofs-collapse--host-controlled": {
       "id": "migration-proofs-collapse--host-controlled",
       "type": "fixture",
@@ -3991,6 +4051,16 @@
       "importPath": "./scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
       "original": "packages/ui/src/experimental/ComboBox/ComboBox.stories.tsx"
     },
+    "migration-proofs-combobox--reset-authority": {
+      "id": "migration-proofs-combobox--reset-authority",
+      "type": "fixture",
+      "title": "Migration proofs/ComboBox",
+      "name": "ResetAuthority",
+      "exportName": "ResetAuthority",
+      "module": "./scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
+      "importPath": "./scenarios/experimental/ComboBox/ComboBox.fixture.tsx",
+      "original": "packages/ui/src/experimental/ComboBox/ComboBox.stories.tsx"
+    },
     "migration-proofs-dialog--nested-form": {
       "id": "migration-proofs-dialog--nested-form",
       "type": "fixture",
@@ -4017,6 +4087,26 @@
       "title": "Migration proofs/Dialog",
       "name": "LargeHeaderReflow",
       "exportName": "LargeHeaderReflow",
+      "module": "./scenarios/experimental/Dialog/Dialog.fixture.tsx",
+      "importPath": "./scenarios/experimental/Dialog/Dialog.fixture.tsx",
+      "original": "packages/ui/src/experimental/Dialog/Dialog.stories.tsx"
+    },
+    "migration-proofs-dialog--initial-nested-stack": {
+      "id": "migration-proofs-dialog--initial-nested-stack",
+      "type": "fixture",
+      "title": "Migration proofs/Dialog",
+      "name": "InitialNestedStack",
+      "exportName": "InitialNestedStack",
+      "module": "./scenarios/experimental/Dialog/Dialog.fixture.tsx",
+      "importPath": "./scenarios/experimental/Dialog/Dialog.fixture.tsx",
+      "original": "packages/ui/src/experimental/Dialog/Dialog.stories.tsx"
+    },
+    "migration-proofs-dialog--initial-nested-stack-strict": {
+      "id": "migration-proofs-dialog--initial-nested-stack-strict",
+      "type": "fixture",
+      "title": "Migration proofs/Dialog",
+      "name": "InitialNestedStackStrict",
+      "exportName": "InitialNestedStackStrict",
       "module": "./scenarios/experimental/Dialog/Dialog.fixture.tsx",
       "importPath": "./scenarios/experimental/Dialog/Dialog.fixture.tsx",
       "original": "packages/ui/src/experimental/Dialog/Dialog.stories.tsx"
@@ -4760,6 +4850,66 @@
       "module": "./scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx",
       "importPath": "./scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx",
       "original": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx"
+    },
+    "migration-proofs-form-participation--native-autofill": {
+      "id": "migration-proofs-form-participation--native-autofill",
+      "type": "fixture",
+      "title": "Migration proofs/Form participation",
+      "name": "NativeAutofill",
+      "exportName": "NativeAutofill",
+      "module": "./scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+      "importPath": "./scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx"
+    },
+    "migration-proofs-form-participation--native-baseline": {
+      "id": "migration-proofs-form-participation--native-baseline",
+      "type": "fixture",
+      "title": "Migration proofs/Form participation",
+      "name": "NativeBaseline",
+      "exportName": "NativeBaseline",
+      "module": "./scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+      "importPath": "./scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx"
+    },
+    "migration-proofs-form-participation--grouped-isolation": {
+      "id": "migration-proofs-form-participation--grouped-isolation",
+      "type": "fixture",
+      "title": "Migration proofs/Form participation",
+      "name": "GroupedIsolation",
+      "exportName": "GroupedIsolation",
+      "module": "./scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+      "importPath": "./scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx"
+    },
+    "migration-proofs-hierarchicalmenu--independent": {
+      "id": "migration-proofs-hierarchicalmenu--independent",
+      "type": "fixture",
+      "title": "Migration proofs/HierarchicalMenu",
+      "name": "Independent",
+      "exportName": "Independent",
+      "module": "./scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
+      "importPath": "./scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx"
+    },
+    "migration-proofs-hierarchicalmenu--controlled": {
+      "id": "migration-proofs-hierarchicalmenu--controlled",
+      "type": "fixture",
+      "title": "Migration proofs/HierarchicalMenu",
+      "name": "Controlled",
+      "exportName": "Controlled",
+      "module": "./scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
+      "importPath": "./scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx"
+    },
+    "migration-proofs-hierarchicalmenu--commands": {
+      "id": "migration-proofs-hierarchicalmenu--commands",
+      "type": "fixture",
+      "title": "Migration proofs/HierarchicalMenu",
+      "name": "Commands",
+      "exportName": "Commands",
+      "module": "./scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
+      "importPath": "./scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
+      "original": "apps/docs/native-fixtures/scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx"
     }
   }
 }

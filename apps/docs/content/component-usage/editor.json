@@ -106,7 +106,8 @@
     "how": [
       "Supply pages with stable keys and titles, plus activePageKey. Accept onSelectPage by updating the host's active page state.",
       "Implement every mutation callback against the host page collection. Keep the surviving active page valid after removal, and treat reorder callbacks as requests to update the collection and any persistence.",
-      "Use readOnly when viewers may navigate but must not change the page collection. Pass a title that describes the collection rather than relying on a generic label."
+      "Use readOnly when viewers may navigate but must not change the page collection. Pass a title that describes the collection rather than relying on a generic label.",
+      "Supply adjacentNavigation for a previous/next sequence: null or omitted sides render disabled boundaries, disabled targets cannot activate, and action destinations request onSelectPage. Targets with href render native Link semantics through SGNavigationProvider; the host route owns accepted current state, so link activation does not also call onSelectPage. Read-only still permits navigation and only blocks authoring mutations. Labels, adjacent destinations and persistence remain host-owned."
     ],
     "related": [
       {

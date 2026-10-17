@@ -14,6 +14,33 @@
       ]
     }
   ],
+  "hierarchical-menu": [
+    {
+      "name": "HierarchicalMenu",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "ChevronRightIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "KeyboardArrowLeftIcon",
+          "slug": "icons"
+        },
+        {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
+          "name": "Typography",
+          "slug": "typography"
+        }
+      ]
+    }
+  ],
   "icons": [
     {
       "name": "AccessTimeFilledIcon",
@@ -1291,6 +1318,10 @@
           "slug": "icon-button"
         },
         {
+          "name": "Link",
+          "slug": "link"
+        },
+        {
           "name": "Menu",
           "slug": "menu"
         },
@@ -1794,6 +1825,10 @@
         {
           "name": "RichTextFormattingToolbar",
           "slug": "rich-text-formatting-toolbar"
+        },
+        {
+          "name": "Status",
+          "slug": "status"
         },
         {
           "name": "Typography",

@@ -9,5 +9,8 @@
   .page > span { min-inline-size: 0; }
   .pageText { display: flex; flex-direction: column; overflow-wrap: anywhere; }
   .actions { flex-shrink: 0; }
+  .adjacent { display: flex; flex-wrap: wrap; gap: var(--sgui-space2); padding: var(--sgui-space3) var(--sgui-space4); border-block-start: 1px solid var(--sgui-experience-page-navigator-divider); }
+  .destination { font-family: var(--sgui-font-family); font-size: var(--sgui-control-text-size); line-height: var(--sgui-label-line-height); display: inline-flex; align-items: center; justify-content: center; flex: 1 1 8rem; min-inline-size: 0; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding: var(--sgui-space2); overflow-wrap: anywhere; text-align: center; }
+  .destination:not(:disabled):hover { background: var(--sgui-experience-page-navigator-subtle-background); }
   @media (hover: hover) { .actions { opacity: 0; } .row:hover .actions, .row:focus-within .actions { opacity: 1; } }
 }

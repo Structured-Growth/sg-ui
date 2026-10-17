@@ -598,6 +598,18 @@
       "fixture": "apps/docs/native-fixtures/scenarios/components/AppDataGridShell/GridHostOperations.fixture.tsx",
       "scenarioModule": true,
       "provenance": "New docs-owned acceptance scenario; no historical Storybook source."
+    },
+    {
+      "original": "apps/docs/native-fixtures/scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/FormParticipation/FormParticipation.fixture.tsx",
+      "scenarioModule": true,
+      "provenance": "New docs-owned native/CDP autofill and grouped association acceptance; no historical Storybook source."
+    },
+    {
+      "original": "apps/docs/native-fixtures/scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
+      "fixture": "apps/docs/native-fixtures/scenarios/experimental/HierarchicalMenu/HierarchicalMenu.fixture.tsx",
+      "scenarioModule": true,
+      "provenance": "New docs-owned sliding drilldown acceptance; no historical Storybook source."
     }
   ],
   "privateCompiledAliases": [

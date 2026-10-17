@@ -8,6 +8,7 @@
       "button-group",
       "split-action",
       "menu",
+      "hierarchical-menu",
       "toggle-button",
       "toggle-button-group"
     ]

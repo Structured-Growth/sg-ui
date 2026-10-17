@@ -10,6 +10,15 @@
   },
   {
     "group": "presentation",
+    "slug": "hierarchical-menu",
+    "title": "Hierarchical menu",
+    "description": "Sliding drilldown and Back navigation with native links or command menu semantics.",
+    "exports": [
+      "HierarchicalMenu"
+    ]
+  },
+  {
+    "group": "presentation",
     "slug": "icons",
     "title": "Icons",
     "description": "Search every owned public SVG icon and adjust sizing, stroke and accessible labels.",

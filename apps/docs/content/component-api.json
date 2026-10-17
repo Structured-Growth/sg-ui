@@ -174,6 +174,111 @@
       ]
     }
   ],
+  "hierarchical-menu": [
+    {
+      "names": [
+        "HierarchicalMenu"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "items",
+          "type": "HierarchicalMenuLevel",
+          "required": true,
+          "default": "—",
+          "description": "Root content. Each level has its own unique item IDs, optional title/sections/footer."
+        },
+        {
+          "name": "presentation",
+          "type": "\"navigation\" | \"commands\" | undefined",
+          "required": false,
+          "default": "\"navigation\"",
+          "description": "Navigation uses native links/buttons; commands uses an arrow-key menu collection."
+        },
+        {
+          "name": "path",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controlled ancestry by item ID, including inline ancestors of a drilldown branch."
+        },
+        {
+          "name": "defaultPath",
+          "type": "readonly string[] | undefined",
+          "required": false,
+          "default": "[]",
+          "description": "Initial local ancestry on mount; later changes do not reset the local path."
+        },
+        {
+          "name": "onPathChange",
+          "type": "((path: string[]) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Requests accepted navigation or one correction to a removed/disabled ancestry. Hosts retain authority."
+        },
+        {
+          "name": "onAction",
+          "type": "((id: string) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Leaf notification only. A leaf href owns routing; do not navigate again here."
+        },
+        {
+          "name": "onDismiss",
+          "type": "(() => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Optional outer popup dismissal request on Escape at root; persistent navigation omits it."
+        },
+        {
+          "name": "backLabel",
+          "type": "((branchLabel: string) => string) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Defaults to translated \"Back to {label}\"; visible Back text uses the branch label."
+        },
+        {
+          "name": "density",
+          "type": "Density | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Local density; otherwise use the surrounding scope."
+        },
+        {
+          "name": "className",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native CSS class hook."
+        },
+        {
+          "name": "style",
+          "type": "CSSProperties | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Native styles and applicable owned CSS variables."
+        },
+        {
+          "name": "ref",
+          "type": "Ref<HTMLDivElement> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded native element reference."
+        }
+      ],
+      "native": [
+        "key"
+      ]
+    }
+  ],
   "icons": [
     {
       "names": [
@@ -12631,6 +12736,13 @@
           "description": "Host callback; the signature specifies its arguments."
         },
         {
+          "name": "navigation",
+          "type": "\"period\" | \"arrows\" | \"month-year\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Defaults period: shared month/year text buttons open immediate inline choices. Arrows uses static headings; month-year keeps direct selects."
+        },
+        {
           "name": "name",
           "type": "string | undefined",
           "required": false,
@@ -12650,13 +12762,6 @@
           "required": true,
           "default": "—",
           "description": "Label supplied by the application."
-        },
-        {
-          "name": "navigation",
-          "type": "\"period\" | \"arrows\" | \"month-year\" | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Defaults period: shared month/year text buttons open immediate inline choices. Arrows uses static headings; month-year keeps direct selects."
         },
         {
           "name": "value",
@@ -13807,6 +13912,13 @@
           "required": false,
           "default": "false",
           "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "adjacentNavigation",
+          "type": "{ label?: string; previous?: AdjacentPageDestination | null; next?: AdjacentPageDestination | null; } | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Optional host-owned previous/next destinations. Null/omitted sides render disabled boundaries.\nhref uses native/router Link semantics; destinations without href request onSelectPage.\nRead-only preserves navigation and still blocks collection mutations."
         },
         {
           "name": "className",

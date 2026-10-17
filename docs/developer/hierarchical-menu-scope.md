@@ -1,6 +1,13 @@
 # Sliding drilldown menu panel scope
 
-Status: design scope only; no new public API ships with this document.
+Status: HierarchicalMenu is implemented and integrated with public exports,
+independent website overview/playground/examples, metadata and guard registration.
+Three strengthened unit cases and nine native cases pass; the changed duplicate-ID
+Back-focus case passes all three engines. The production docs check verifies both
+current copied source and reference independence; the complete catalog verifies
+98 routes and 1,284 setup/initial/changed example snippets. Validation logs are in
+`final-acceptance/wave-04/coordinator/validation`. No spoken-AT or physical-device
+approval is inferred from this technical component validation.
 The requested component is the sliding panel that replaces a menu level and
 provides a Back button. Dropdown/flyout submenus are outside this scope.
 Adopting the component in the current menu is a separate follow-up.
@@ -125,4 +132,21 @@ This plan is separate from historical F/T/V counts. Follow the
 
 HM-SCOPE-01 evidence: inspected the local reference SideNavigation source/stories
 and linked SGUI source/tests; verified document links and diff whitespace.
-No runtime or visual validation is claimed. Successor: HM-F-01.
+No runtime or visual validation is claimed. Successor: integrate wave-04/06/hierarchical-integration.patch and run its bounded
+validation plan. HM-F-01–04 remain unchecked until public build, docs source,
+three baseline unit and focused native evidence pass.
+
+
+## Prepared owned contract
+
+`HierarchicalMenu` is a surface-independent panel with `items` (a
+HierarchicalMenuLevel), `presentation="navigation" | "commands"`, controlled
+`path`/`onPathChange`, `defaultPath`, leaf `onAction`, optional root `onDismiss`,
+`backLabel`, density, native div ref/className/style. Levels own titles, labelled
+sections and optional footerItems. Item IDs are stable and unique within a level;
+children identify deeper levels and navigation supports mixed inline/drilldown.
+Commands use a React Aria menu collection, while navigation uses native Link and
+Button controls. Branches do not activate hrefs or leaf callbacks. The outer
+Popover or persistent host owns geometry/opening/dismissal. Reset follows remount;
+controlled paths remain authoritative. Existing SideNavigation is untouched;
+HM-ADOPT-01 remains separate.

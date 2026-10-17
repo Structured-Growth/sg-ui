@@ -61,3 +61,5 @@ export { FormFieldScope, type FormFieldScopeProps } from "./FormFieldScope/FormF
 
 export {MonthPicker,type MonthPickerProps} from "./MonthPicker/MonthPicker";
 export {YearPicker,type YearPickerProps} from "./YearPicker/YearPicker";
+
+export { HierarchicalMenu, type HierarchicalMenuProps, type HierarchicalMenuItem, type HierarchicalMenuLevel, type HierarchicalMenuSection } from "./HierarchicalMenu";

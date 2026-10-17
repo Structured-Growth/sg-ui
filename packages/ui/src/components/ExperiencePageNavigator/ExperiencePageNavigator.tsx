@@ -6,6 +6,7 @@ import { Dialog } from "../../experimental/Dialog/Dialog";
 import { IconButton } from "../../experimental/IconButton/IconButton";
 import { Menu } from "../../experimental/Menu/Menu";
 import { TextField } from "../../experimental/TextField/TextField";
+import { Link } from "../../experimental/Link/Link";
 import { Typography } from "../../experimental/Typography/Typography";
 import { AddIcon } from "../../experimental/icons/AddIcon";
 import { DragIndicatorIcon } from "../../experimental/icons/DragIndicatorIcon";
@@ -14,6 +15,7 @@ import { useTranslation } from "../../i18n";
 import styles from "./ExperiencePageNavigator.module.css";
 
 export type ExperiencePageNavigatorItem = { key: string; title: string };
+type AdjacentPageDestination = { key: string; label: string; href?: string; disabled?: boolean };
 export type ExperiencePageNavigatorProps = {
   pages: ExperiencePageNavigatorItem[];
   activePageKey: string | null;
@@ -24,12 +26,20 @@ export type ExperiencePageNavigatorProps = {
   onReorderPages: (sourceKey: string, targetKey: string) => void;
   title?: string;
   readOnly?: boolean;
+  /** Optional host-owned previous/next destinations. Null/omitted sides render disabled boundaries.
+   * href uses native/router Link semantics; destinations without href request onSelectPage.
+   * Read-only preserves navigation and still blocks collection mutations. */
+  adjacentNavigation?: {
+    label?: string;
+    previous?: AdjacentPageDestination | null;
+    next?: AdjacentPageDestination | null;
+  };
   className?: string;
   style?: CSSProperties;
 };
 
 export function ExperiencePageNavigator({ pages, activePageKey, onSelectPage, onAddPage,
-  onRemovePage, onRenamePage, onReorderPages, title, readOnly = false, className, style }: ExperiencePageNavigatorProps) {
+  onRemovePage, onRenamePage, onReorderPages, title, readOnly = false, adjacentNavigation, className, style }: ExperiencePageNavigatorProps) {
   const { t } = useTranslation();
   const [editingPageKey, setEditingPageKey] = useState<string | null>(null);
   const [editingTitle, setEditingTitle] = useState("");
@@ -102,6 +112,20 @@ export function ExperiencePageNavigator({ pages, activePageKey, onSelectPage, on
         </li>;
       })}
     </ul>
+    {adjacentNavigation && <nav className={styles.adjacent} aria-label={adjacentNavigation.label ?? t("experience.pages.adjacentNavigation", { defaultMessage: "Page navigation" })}>
+      {(["previous", "next"] as const).map(direction => {
+        const target = adjacentNavigation[direction];
+        const label = target ? t(direction === "previous" ? "experience.pages.previousDestination" : "experience.pages.nextDestination", {
+          defaultMessage: direction === "previous" ? "Previous: {title}" : "Next: {title}", values: { title: target.label },
+        }) : t(direction === "previous" ? "experience.pages.previous" : "experience.pages.next", {
+          defaultMessage: direction === "previous" ? "Previous page" : "Next page",
+        });
+        return target?.href && !target.disabled
+          ? <Link key={direction} href={target.href} rel={direction === "previous" ? "prev" : "next"} underline="none" className={styles.destination}>{label}</Link>
+          : <Button key={direction} tone="neutral" variant="outlined" className={styles.destination}
+            disabled={!target || target.disabled} onPress={() => {if (target && !target.disabled) onSelectPage(target.key);}}>{label}</Button>;
+      })}
+    </nav>}
     <Dialog open={editingPageKey !== null} title={editLabel} size="sm" onDismiss={closeRename}
       footer={<><Button variant="outlined" tone="neutral" onPress={closeRename}>{t("common.ui.cancel", { defaultMessage: "Cancel" })}</Button>
         <Button type="submit" form={formId} disabled={readOnly}>{t("common.ui.save", { defaultMessage: "Save" })}</Button></>}>

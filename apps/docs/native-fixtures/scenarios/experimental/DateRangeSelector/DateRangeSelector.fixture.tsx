@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "../../../types";
-import { useState } from "react";
-import { DateRangeSelector } from "@structured-growth/sg-ui/experimental";
+import { useCallback, useState } from "react";
+import { DateRangeSelector, type DateRange } from "@structured-growth/sg-ui/experimental";
 import { Button } from "@structured-growth/sg-ui/experimental";
 import { Provider } from "@structured-growth/sg-ui/theme";
 import { SGTranslationProvider } from "@structured-growth/sg-ui/i18n";
@@ -61,4 +61,35 @@ export const CompactNavigation: Story = { render: (_args,{globals}) =>
   <Provider density={globals.density} theme={globals.theme} interactionMode="pointer">
     <DateRangeSelector label="Travel dates" months={1} defaultFocusedDate="2026-10-14" defaultValue={{start:"2026-10-07",end:"2026-10-16"}} />
   </Provider>
+};
+
+// Adds only the missing typed-draft/controlled-endpoint navigation edge to the
+// accepted independent From/To configuration. Diagnostics are private-host only.
+function IndependentPeriodDraftHost() {
+  const [value, setValue] = useState<DateRange | null>({start:"2026-10-07",end:"2026-10-16"});
+  const [activeEndpoint, setActiveEndpoint] = useState<"start" | "end">("end");
+  const [draftRequests, setDraftRequests] = useState<(DateRange | null)[]>([]);
+  const [endpointRequests, setEndpointRequests] = useState<("start" | "end")[]>([]);
+  const [valueRequests, setValueRequests] = useState<(DateRange | null)[]>([]);
+  const recordDraft = useCallback((next: DateRange | null) => setDraftRequests(current => [...current, next]), []);
+  const recordEndpoint = useCallback((next: "start" | "end") => {
+    setActiveEndpoint(next); setEndpointRequests(current => [...current, next]);
+  }, []);
+  const recordValue = useCallback((next: DateRange | null) => {
+    setValue(next); setValueRequests(current => [...current, next]);
+  }, []);
+  return <form aria-label="Independent period draft form">
+    <DateRangeSelector label="Period draft dates" name="period" entryMode="text" showFields
+      months={2} navigation="period" calendarNavigation="independent" calendarEndpoints={["start","end"]}
+      rangeClickBehavior="active-endpoint" activeEndpoint={activeEndpoint} onActiveEndpointChange={recordEndpoint}
+      defaultFocusedDate="2026-10-07" min="2026-01-01" max="2027-12-31" presets={[]}
+      getDateUnavailableReason={(date,context) => context.endpoint === "start" && date.startsWith("2027") ? "No arrivals in 2027." : undefined}
+      value={value} onValueChange={recordValue} onDraftChange={recordDraft}/>
+    <output aria-label="Period draft requests">{JSON.stringify(draftRequests)}</output>
+    <output aria-label="Period endpoint requests">{JSON.stringify(endpointRequests)}</output>
+    <output aria-label="Period value requests">{JSON.stringify(valueRequests)}</output>
+  </form>;
+}
+export const IndependentPeriodDraft: Story = { render: (_args,{globals}) =>
+  <Provider theme={globals.theme} density="compact" interactionMode="pointer"><IndependentPeriodDraftHost/></Provider>
 };
