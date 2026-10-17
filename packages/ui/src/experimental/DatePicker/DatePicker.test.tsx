@@ -92,7 +92,7 @@ it("keeps the popup named without duplicate titles and can display one optional 
   await user.click(screen.getByRole("button", {name:"Choose Course date"}));
   expect(screen.getByRole("dialog", {name:"Course date"})).toBeTruthy();
   expect(screen.queryByRole("heading", {name:"Course date"})).toBeNull();
-  expect(screen.getByText("October 2026", {exact:true})).toBeTruthy();
+  expect(screen.getByRole("button", {name:"Choose month, October",exact:true})).toBeTruthy();
   await user.keyboard("{Escape}");
   rerender(<DatePicker label="Course date" defaultValue="2026-10-14" showTitle/>);
   await user.click(screen.getByRole("button", {name:"Choose Course date"}));

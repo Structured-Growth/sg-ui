@@ -92,3 +92,8 @@
     .rangeGrid td:has(+ td > .cell[data-outside-month]) > .cell[data-selected] { border-inline-end: 1px solid Highlight; }
     .rangeGrid .cell[data-selected][data-focus-visible] { outline-color: Highlight; } .cell[data-selected] { border: 1px solid Highlight; } .cell[data-disabled], .cell[data-unavailable] { color: GrayText; } }
 }
+
+@layer sgui.components {
+ .periodHeading { display: flex; align-items: center; gap: var(--sgui-space1); }
+ .periodHeading > button { padding-inline: var(--sgui-space1); }
+}

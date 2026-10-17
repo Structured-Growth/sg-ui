@@ -53,13 +53,13 @@ it("isolates selection and visible month across siblings and restores defaults o
   expect(firstFocus).toHaveBeenLastCalledWith("2024-02-29");
   expect(firstChange).toHaveBeenLastCalledWith("2024-02-29");
   await user.click(first.getByRole("button", { name: "Next month" }));
-  expect(first.getByText("March 2024")).toBeTruthy();
-  expect(second.getByText("April 2024")).toBeTruthy();
+  expect(first.getByRole("button", {name:"Choose month, March"})).toBeTruthy();
+  expect(second.getByRole("button", {name:"Choose month, April"})).toBeTruthy();
   expect(second.getByRole("button", { name: /Wednesday, April 10, 2024 selected/ })).toBeTruthy();
   expect(secondChange).not.toHaveBeenCalled(); expect(secondFocus).not.toHaveBeenCalled();
   firstChange.mockClear(); firstFocus.mockClear();
   rerender(composition("replacement"));
-  expect(first.getByText("February 2024")).toBeTruthy();
+  expect(first.getByRole("button", {name:"Choose month, February"})).toBeTruthy();
   expect(first.getByRole("button", { name: /Wednesday, February 28, 2024 selected/ })).toBeTruthy();
   expect(second.getByRole("button", { name: /Wednesday, April 10, 2024 selected/ })).toBeTruthy();
   expect(firstChange).not.toHaveBeenCalled(); expect(firstFocus).not.toHaveBeenCalled();

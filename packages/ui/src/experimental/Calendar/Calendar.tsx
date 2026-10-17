@@ -19,8 +19,12 @@ interface CalendarOptions {
   label: string;
   /** Show a visible calendar title in addition to its accessible label. Defaults to false. */
   showTitle?: boolean;
-  /** Defaults period: click the month/year heading to open PeriodPicker without selecting a day. Arrows keeps a static heading; month-year shows direct selects. */
+  /** Defaults period: separate month and year text buttons open immediate in-place choices without selecting a day. Arrows keeps a static heading; month-year shows direct selects. */
   navigation?: "period" | "arrows" | "month-year";
+  /** Enable the month heading button in period navigation. Defaults true; false keeps a static month label. Does not restrict date validity or arrow navigation; use min/max for that. */
+  allowMonthSelection?: boolean;
+  /** Enable the year heading button in period navigation. Defaults true; false keeps a static year label. Does not restrict date validity. */
+  allowYearSelection?: boolean;
   /** Relevant PeriodPicker options. Date bounds, availability, focus, labels and callbacks are owned by the calendar; year bounds can only narrow the date limits. */
   periodPickerProps?: Pick<PeriodPickerProps,"yearsPerPage"|"yearEntry"|"visibleYears"|"minYear"|"maxYear"|"descriptionPlacement"|"errorPlacement">;
   /** Number of localized years offered around focus, constrained by min/max. Defaults to 120. */
@@ -46,7 +50,7 @@ export function Calendar(props: CalendarProps) {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const narrowWeekdays = useNarrowWeekdays(locale);
-  const { label, showTitle = false, navigation = "period", periodPickerProps, visibleYears, min, max, unavailable = [], getDateUnavailableReason, renderDayContent, focusedDate, defaultFocusedDate, onFocusedDateChange, months = 1,
+  const { label, showTitle = false, navigation = "period", periodPickerProps, allowMonthSelection=true, allowYearSelection=true, visibleYears, min, max, unavailable = [], getDateUnavailableReason, renderDayContent, focusedDate, defaultFocusedDate, onFocusedDateChange, months = 1,
     firstDayOfWeek, disabled, readOnly } = props;
   const descriptionId = useId();
   const reasonForDate = (date: DateOnly) => unavailable.find(day => day.date === date)?.reason ?? getDateUnavailableReason?.(date, { range: null, endpoint: null });
@@ -58,7 +62,7 @@ export function Calendar(props: CalendarProps) {
   const calendarBody = <>{showTitle && <h2 className={styles.heading}>{label}</h2>}{navigation === "month-year" && months > 1 && <CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/>}<div className={styles.months}>{Array.from({ length: months }, (_, index) => <div key={index} className={styles.month}>
     <header className={styles.monthHeader}>
       {index === months - 1 && <Button className={styles.previous} slot="previous" variant="text" tone="neutral" aria-label={t("common.ui.previousMonth", { defaultMessage: "Previous month" })}>‹</Button>}
-      {navigation === "month-year" && months === 1 ? <div className={styles.monthHeading}><CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/></div> : navigation === "period" ? <div className={styles.monthHeading}><CalendarPeriodHeading offset={index} disabled={disabled} readOnly={readOnly}/></div> : <CalendarHeading offset={{ months: index }} className={`${styles.heading} ${styles.monthHeading}`} />}
+      {navigation === "month-year" && months === 1 ? <div className={styles.monthHeading}><CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/></div> : navigation === "period" ? <div className={styles.monthHeading}><CalendarPeriodHeading allowMonthSelection={allowMonthSelection} allowYearSelection={allowYearSelection} offset={index} disabled={disabled} readOnly={readOnly}/></div> : <CalendarHeading offset={{ months: index }} className={`${styles.heading} ${styles.monthHeading}`} />}
       {index === months - 1 && <Button className={styles.next} slot="next" variant="text" tone="neutral" aria-label={t("common.ui.nextMonth", { defaultMessage: "Next month" })}>›</Button>}
     </header>
     <CalendarMonthMotion><div className={styles.gridViewport}><CalendarGrid offset={{ months: index }} weekdayStyle="short" className={styles.grid}>
@@ -122,27 +126,32 @@ function CalendarMonthMotion({children}: {children: ReactNode}) {
  return <CalendarMonthTransition month={state.visibleRange.start.toString()} direction={direction}>{children}</CalendarMonthTransition>;
 }
 
-const CalendarPeriodContext=createContext<((offset:number)=>void)|null>(null);
-function CalendarPeriodHeading({offset,disabled,readOnly}:{offset:number;disabled?:boolean;readOnly?:boolean}) {
+type PeriodView="month"|"year";
+type PeriodTarget={offset:number;view:PeriodView};
+const CalendarPeriodContext=createContext<((target:PeriodTarget)=>void)|null>(null);
+function CalendarPeriodHeading({offset,disabled,readOnly,allowMonthSelection,allowYearSelection}:{offset:number;disabled?:boolean;readOnly?:boolean;allowMonthSelection:boolean;allowYearSelection:boolean}) {
  const state=useContext(CalendarStateContext)!;const open=useContext(CalendarPeriodContext)!;const {locale}=useLocale();const {t}=useTranslation();
  if(state.visibleRange.start.calendar.identifier!=="gregory")return <CalendarHeading offset={{months:offset}} className={styles.heading}/>;
  const date=toCalendar(state.visibleRange.start.add({months:offset}),new GregorianCalendar());
- const text=new Intl.DateTimeFormat(locale,{month:"long",year:"numeric",calendar:"gregory",timeZone:"UTC"}).format(date.toDate("UTC"));
- return <ButtonContext.Provider value={null}><Button variant="text" tone="neutral" disabled={disabled||readOnly}
-  aria-label={t("common.ui.chooseMonthYear",{defaultMessage:"Choose month and year, {month}",values:{month:text}})} onPress={()=>open(offset)}><span data-period-heading={offset}>{text}</span></Button></ButtonContext.Provider>;
+ const month=new Intl.DateTimeFormat(locale,{month:"long",calendar:"gregory",timeZone:"UTC"}).format(date.toDate("UTC"));
+ const year=new Intl.NumberFormat(locale,{useGrouping:false}).format(date.year);
+ return <ButtonContext.Provider value={null}><div role="group" aria-label={t("common.ui.calendarNavigation",{defaultMessage:"Calendar navigation"})} className={styles.periodHeading}>
+  {allowMonthSelection?<Button variant="text" tone="neutral" disabled={disabled||readOnly} aria-label={t("common.ui.chooseMonth",{defaultMessage:"Choose month, {month}",values:{month}})} onPress={()=>open({offset,view:"month"})}><span data-period-heading={`${offset}-month`}>{month}</span></Button>:<span className={styles.heading}>{month}</span>}
+  {allowYearSelection?<Button variant="text" tone="neutral" disabled={disabled||readOnly} aria-label={t("common.ui.chooseYear",{defaultMessage:"Choose year, {year}",values:{year}})} onPress={()=>open({offset,view:"year"})}><span data-period-heading={`${offset}-year`}>{year}</span></Button>:<span className={styles.heading}>{year}</span>}
+ </div></ButtonContext.Provider>;
 }
 
 /** Keep the day layout mounted as a size reservation, but inert and hidden from AT while replacing its contents. */
 function CalendarPeriodViewport({children,options,visibleYears,...constraints}:{children:ReactNode;options?:CalendarOptions["periodPickerProps"];visibleYears?:number;min?:string;max?:string;unavailable:readonly DateAvailability[];getDateUnavailableReason?:DateAvailabilityRule;disabled?:boolean;readOnly?:boolean}) {
  const state=useContext(CalendarStateContext)!;const {t}=useTranslation();
- const [offset,setOffset]=useState<number|null>(null);const root=useRef<HTMLDivElement>(null);const restore=useRef<number|null>(null);
- function close(){restore.current=offset;setOffset(null);}
- useEffect(()=>{if(offset===null&&restore.current!==null){root.current?.querySelector<HTMLElement>(`[data-period-heading="${restore.current}"]`)?.closest('button')?.focus();restore.current=null;}},[offset]);
+ const [target,setTarget]=useState<PeriodTarget|null>(null);const offset=target?.offset??null;const root=useRef<HTMLDivElement>(null);const restore=useRef<PeriodTarget|null>(null);
+ function close(){restore.current=target;setTarget(null);}
+ useEffect(()=>{if(offset===null&&restore.current!==null){root.current?.querySelector<HTMLElement>(`[data-period-heading="${restore.current.offset}-${restore.current.view}"]`)?.closest('button')?.focus();restore.current=null;}},[offset]);
  const date=toCalendar(state.visibleRange.start.add({months:offset??0}),new GregorianCalendar());
- return <CalendarPeriodContext.Provider value={setOffset}><div ref={root} className={styles.periodViewport}>
+ return <CalendarPeriodContext.Provider value={setTarget}><div ref={root} className={styles.periodViewport}>
   <div className={styles.calendar} aria-hidden={offset!==null||undefined} ref={node=>{node?.toggleAttribute("inert",offset!==null);}} style={{visibility:offset!==null?"hidden":undefined}}>{children}</div>
   {offset!==null&&<div className={styles.periodContents} data-sgui-part="calendar-period-view" onKeyDown={event=>{if(event.key!=="Tab"&&event.key!=="Escape")event.stopPropagation();}}><ButtonContext.Provider value={null}><PeriodPicker {...options} {...constraints} visibleYears={options?.visibleYears??visibleYears}
-   display="inline" unit="month" purpose="navigation" referenceDate={date.toString()} label={t("common.ui.chooseMonthYearInline",{defaultMessage:"Choose month and year"})}
+   display="inline" unit="month" purpose="navigation" navigationView={target!.view} referenceDate={date.toString()} label={target!.view==="month"?t("common.ui.chooseMonthInline",{defaultMessage:"Choose month"}):t("common.ui.chooseYearInline",{defaultMessage:"Choose year"})}
    value={getCivilPeriod(date.toString(),"month")} onCancel={close} onValueChange={period=>{
     if(!period)return;const target=firstPeriodNavigationDate(period,constraints);if(target)state.setFocusedDate(parseDate(target));close();
    }}/></ButtonContext.Provider></div>}

@@ -25,6 +25,8 @@ export interface PeriodPickerProps extends DateRangeConstraints, FieldMessagePla
  yearsPerPage?:12|16|24;
  /** Selection requires the entire period to be allowed (default). Navigation requires any selectable day and emits the period without committing a day. */
  purpose?:"selection"|"navigation";
+ /** For inline navigation only: show month or year choices exclusively and navigate immediately on selection. No action buttons. Escape returns without navigating. Omit for the combined draft chooser. */
+ navigationView?:"month"|"year";
  /** Year input style. Defaults text for selection, select for navigation. */
  yearEntry?:"text"|"select";
  /** Additional inclusive Gregorian year bounds, intersected with min/max dates. Defaults 1–9999. */
@@ -40,12 +42,14 @@ export interface PeriodPickerProps extends DateRangeConstraints, FieldMessagePla
  presentation?:PopoverProps["presentation"];
  name?:string;disabled?:boolean;readOnly?:boolean;required?:boolean;
 }
-export function PeriodPicker({label,unit,value,defaultValue=null,onValueChange,referenceDate,firstDayOfWeek='mon',presentation='popover',name,disabled,readOnly,required,descriptionPlacement,errorPlacement,display="popup",onCancel,yearsPerPage=12,purpose="selection",yearEntry=purpose==="navigation"?"select":"text",minYear,maxYear,visibleYears=120,...constraints}:PeriodPickerProps){
+export function PeriodPicker({label,unit,value,defaultValue=null,onValueChange,referenceDate,firstDayOfWeek='mon',presentation='popover',name,disabled,readOnly,required,descriptionPlacement,errorPlacement,display="popup",onCancel,yearsPerPage=12,purpose="selection",navigationView,yearEntry=purpose==="navigation"?"select":"text",minYear,maxYear,visibleYears=120,...constraints}:PeriodPickerProps){
  const {t,locale}=useTranslation();const root=useRef<HTMLDivElement>(null);
  const [internal,setInternal]=useState(defaultValue),selected=value===undefined?internal:value;
  const [yearDraft,setYearDraft]=useState<string|null>(null);
  const [open,setOpen]=useState(false),[anchor,setAnchor]=useState<string|null>(null);
  const [inlineYears,setInlineYears]=useState(false),[yearPage,setYearPage]=useState<number|null>(null);
+ const direct=display==="inline"&&purpose==="navigation"&&navigationView!==undefined;
+ const showYears=direct?navigationView==="year":inlineYears;
  const expanded=display==="inline"||open;
  useEffect(()=>{if(display==="inline")root.current?.querySelector<HTMLElement>('button:not(:disabled),input:not(:disabled)')?.focus();},[display]);
  const cancel=()=>{setOpen(false);setYearDraft(null);setAnchor(selected?.start??referenceDate??null);onCancel?.();};
@@ -80,22 +84,27 @@ export function PeriodPicker({label,unit,value,defaultValue=null,onValueChange,r
   </Stack>);
  const pageSize=[12,16,24].includes(yearsPerPage)?yearsPerPage:12;
  const pageStart=Math.max(0,Math.min(yearPage??Math.floor(Math.max(0,year-firstYear)/pageSize)*pageSize,Math.floor(Math.max(0,years.length-1)/pageSize)*pageSize));
+ const chooseYear=(text:string)=>{
+  const next=`${text.padStart(4,'0')}-${String(month).padStart(2,'0')}-01`;
+  if(direct){const period=getCivilPeriod(next,"month");change(available(period)?period:getCivilPeriod(`${text.padStart(4,'0')}-01-01`,"year"));}
+  else {setYearDraft(null);setAnchor(next);setYearPage(null);setInlineYears(false);}
+ };
  const inlineContent=<div className={styles.inline}>
-  <div className={styles.header}>
-   {yearEntry==="text"?<TextField descriptionPlacement={descriptionPlacement} errorPlacement={errorPlacement} label={t("common.ui.year",{defaultMessage:"Year"})} value={yearDraft??String(year)} disabled={disabled} readOnly={readOnly} onValueChange={text=>{setYearDraft(text);if(/^\d{4}$/.test(text)&&Number(text)>0)setAnchor(`${text}-${String(month).padStart(2,'0')}-01`);}}/>:
-    <Button variant="text" tone="neutral" disabled={disabled||readOnly} aria-label={t("common.ui.chooseYear",{defaultMessage:"Choose year, {year}",values:{year}})} endIcon={<KeyboardArrowDownIcon size={16}/>} aria-expanded={inlineYears} onPress={()=>setInlineYears(old=>!old)}>{inlineYears?`${firstYear+pageStart} – ${Math.min(lastYear,firstYear+pageStart+pageSize-1)}`:String(year)}</Button>}
-   {inlineYears&&<><Button variant="text" tone="neutral" aria-label={t("common.ui.previousYears",{defaultMessage:"Previous years"})} disabled={disabled||readOnly||pageStart===0} onPress={()=>setYearPage(Math.max(0,pageStart-pageSize))}>‹</Button><Button variant="text" tone="neutral" aria-label={t("common.ui.nextYears",{defaultMessage:"Next years"})} disabled={disabled||readOnly||pageStart+pageSize>=years.length} onPress={()=>setYearPage(pageStart+pageSize)}>›</Button></>}
+  <div className={styles.header} onKeyDown={event=>{if(direct&&yearEntry==="text"&&event.key==="Enter"&&/^\d{4}$/.test(yearDraft??String(year))&&available(getCivilPeriod(`${String(year).padStart(4,'0')}-01-01`,"year"))){event.preventDefault();chooseYear(String(year));}}}>
+   {(!direct||showYears)&& (yearEntry==="text"?<TextField descriptionPlacement={descriptionPlacement} errorPlacement={errorPlacement} label={t("common.ui.year",{defaultMessage:"Year"})} value={yearDraft??String(year)} disabled={disabled} readOnly={readOnly} onValueChange={text=>{setYearDraft(text);if(/^\d{4}$/.test(text)&&Number(text)>0)setAnchor(`${text}-${String(month).padStart(2,'0')}-01`);}}/>:
+    direct?<span>{`${firstYear+pageStart} – ${Math.min(lastYear,firstYear+pageStart+pageSize-1)}`}</span>:<Button variant="text" tone="neutral" disabled={disabled||readOnly} aria-label={t("common.ui.chooseYear",{defaultMessage:"Choose year, {year}",values:{year}})} endIcon={<KeyboardArrowDownIcon size={16}/>} aria-expanded={inlineYears} onPress={()=>setInlineYears(old=>!old)}>{showYears?`${firstYear+pageStart} – ${Math.min(lastYear,firstYear+pageStart+pageSize-1)}`:String(year)}</Button>)}
+   {showYears&&yearEntry==="select"&&<><Button variant="text" tone="neutral" aria-label={t("common.ui.previousYears",{defaultMessage:"Previous years"})} disabled={disabled||readOnly||pageStart===0} onPress={()=>setYearPage(Math.max(0,pageStart-pageSize))}>‹</Button><Button variant="text" tone="neutral" aria-label={t("common.ui.nextYears",{defaultMessage:"Next years"})} disabled={disabled||readOnly||pageStart+pageSize>=years.length} onPress={()=>setYearPage(pageStart+pageSize)}>›</Button></>}
   </div>
   <FieldMessages position="above" errorPlacement={errorPlacement} error={validationMessage}/>
-  <div className={styles.grid} role="group" aria-label={inlineYears?t("common.ui.yearChoices",{defaultMessage:"Year choices"}):t("common.ui.monthChoices",{defaultMessage:"Month choices"})}>
-   {inlineYears?years.slice(pageStart,pageStart+pageSize).map(option=><Button key={option.id} disabled={disabled||readOnly||option.disabled} variant={Number(option.id)===year?"filled":"text"} tone={Number(option.id)===year?"primary":"neutral"} onPress={()=>{setYearDraft(null);setAnchor(`${option.id.padStart(4,'0')}-${String(month).padStart(2,'0')}-01`);setYearPage(null);setInlineYears(false);}}>{option.label}</Button>):(unit==='month'||unit==='quarter')?Array.from({length:unit==='month'?12:4},(_,i)=>{
+  <div className={styles.grid} role="group" aria-label={showYears?t("common.ui.yearChoices",{defaultMessage:"Year choices"}):t("common.ui.monthChoices",{defaultMessage:"Month choices"})}>
+   {showYears?years.slice(pageStart,pageStart+pageSize).map(option=><Button key={option.id} disabled={disabled||readOnly||option.disabled} variant={Number(option.id)===year?"filled":"text"} tone={Number(option.id)===year?"primary":"neutral"} onPress={()=>chooseYear(option.id)}>{option.label}</Button>):(unit==='month'||unit==='quarter')?Array.from({length:unit==='month'?12:4},(_,i)=>{
     const m=unit==='month'?i+1:i*3+1,period=getCivilPeriod(`${String(year).padStart(4,'0')}-${String(m).padStart(2,'0')}-01`,unit);
     const full=unit==='month'?new Intl.DateTimeFormat(locale,{month:'long',calendar:'gregory',timeZone:'UTC'}).format(new Date(Date.UTC(2000,i,1))):t("common.ui.quarterNumber",{defaultMessage:"Quarter {number}",values:{number:i+1}});
-    return <Button key={m} aria-label={full} disabled={disabled||readOnly||!available(period)} variant={m===month?"filled":"text"} tone={m===month?"primary":"neutral"} onPress={()=>{setAnchor(`${String(year).padStart(4,'0')}-${String(m).padStart(2,'0')}-01`);}}>{unit==='month'?new Intl.DateTimeFormat(locale,{month:'short',calendar:'gregory',timeZone:'UTC'}).format(new Date(Date.UTC(2000,i,1))):full}</Button>;
+    return <Button key={m} aria-label={full} disabled={disabled||readOnly||!available(period)} variant={m===month?"filled":"text"} tone={m===month?"primary":"neutral"} onPress={()=>{if(direct)change(period);else setAnchor(`${String(year).padStart(4,'0')}-${String(m).padStart(2,'0')}-01`);}}>{unit==='month'?new Intl.DateTimeFormat(locale,{month:'short',calendar:'gregory',timeZone:'UTC'}).format(new Date(Date.UTC(2000,i,1))):full}</Button>;
    }):null}
   </div>
   <FieldMessages position="below" errorPlacement={errorPlacement} error={validationMessage}/>
-  <Stack direction="row" wrap gap={2}>{purpose==="selection"&&<Button variant="text" disabled={required||disabled||readOnly} onPress={()=>change(null)}>{t("common.ui.clear",{defaultMessage:"Clear"})}</Button>}<Button variant="text" tone="neutral" onPress={cancel}>{t("common.ui.cancel",{defaultMessage:"Cancel"})}</Button><Button disabled={disabled||readOnly||!valid} onPress={()=>change(candidate)}>{t("common.ui.apply",{defaultMessage:"Apply"})}</Button></Stack>
+  {!direct&&<Stack direction="row" wrap gap={2}>{purpose==="selection"&&<Button variant="text" disabled={required||disabled||readOnly} onPress={()=>change(null)}>{t("common.ui.clear",{defaultMessage:"Clear"})}</Button>}<Button variant="text" tone="neutral" onPress={cancel}>{t("common.ui.cancel",{defaultMessage:"Cancel"})}</Button><Button disabled={disabled||readOnly||!valid} onPress={()=>change(candidate)}>{t("common.ui.apply",{defaultMessage:"Apply"})}</Button></Stack>}
  </div>;
  if(display==="inline")return <div ref={root} role="group" aria-label={label} onKeyDown={event=>{if(event.key==="Escape"&&!event.defaultPrevented&&onCancel){event.preventDefault();event.stopPropagation();cancel();}}}>{unit==='week'?popupContent:inlineContent}{formFields}</div>;
  return <div ref={root}><Popover title={label} showTitle={false} presentation={presentation} size="content" open={open} onOpenChange={next=>{setOpen(next);if(next){setYearDraft(null);setAnchor(selected?.start??referenceDate??'2000-01-01');}}} trigger={<Button variant="outlined" tone="neutral" disabled={disabled||readOnly} aria-label={label}>{selected?`${selected.start} – ${selected.end}`:label}</Button>}>

@@ -2296,3 +2296,30 @@ year paging/leap-day selection, narrow fit, source compilation and existing
 date/time draft ownership. Compact and comfortable chooser screenshots were
 reviewed. Evidence: [results.json](final-acceptance/date-picker-inline-period-navigation/results.json).
 Broader device/AT/visual gates remain separate and unchanged.
+
+### Separate month/year navigation and optional heading controls (2026-10-17)
+
+Completed: Calendar/DatePicker period headings now use independent grouped text
+buttons. Month opens month-only choices; year opens year-only choices. A choice
+returns immediately to days without committing a date, with no Apply/Cancel/Clear.
+Escape restores the originating heading; one popup and its frame dimensions remain.
+Year navigation retains the visible month when eligible, otherwise uses the first
+eligible day of the chosen year. Optional typed-year navigation uses Enter.
+
+Added `allowMonthSelection` and `allowYearSelection` (both true by default) for
+period navigation. False retains plain text; actual date restrictions still use
+min/max and availability. Added independently owned week-only event reference,
+playground controls, generated API metadata and current contract guidance.
+Standalone PeriodPicker retains its existing defaults; optional inline navigationView
+selects immediate month-only/year-only choices.
+
+Validation: 136 affected unit tests in 23 files; library build/foundation guards;
+fresh production docs build/catalog/source-isolation checks; docs TypeScript;
+packed-package checks. All 16 browser cases passed: 4 new/updated scenarios across
+Chromium, Firefox and WebKit plus 4 affected Chromium birthday/time/range cases.
+The cases cover independent choices, immediate view changes without date commits,
+missing action controls, partial/full availability bounds, stable dimensions,
+compact/comfortable/narrow layouts, Escape/focus return, week-only restrictions,
+and source compilation. Month-choice screenshots reviewed. Evidence:
+[separate month/year navigation](final-acceptance/separate-month-year-navigation/results.json).
+Broader historical acceptance/device/AT gates remain separate.

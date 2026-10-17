@@ -9359,6 +9359,13 @@
           "description": "Selection requires the entire period to be allowed (default). Navigation requires any selectable day and emits the period without committing a day."
         },
         {
+          "name": "navigationView",
+          "type": "\"month\" | \"year\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "For inline navigation only: show month or year choices exclusively and navigate immediately on selection. No action buttons. Escape returns without navigating. Omit for the combined draft chooser."
+        },
+        {
           "name": "yearEntry",
           "type": "\"text\" | \"select\" | undefined",
           "required": false,
@@ -9388,7 +9395,7 @@
         },
         {
           "name": "unit",
-          "type": "\"week\" | \"month\" | \"quarter\" | \"year\"",
+          "type": "\"month\" | \"year\" | \"week\" | \"quarter\"",
           "required": true,
           "default": "—",
           "description": "Select a whole calendar period; week starts Monday unless firstDayOfWeek overrides it."
@@ -11929,7 +11936,21 @@
           "type": "\"period\" | \"arrows\" | \"month-year\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Defaults period: click the month/year heading to open PeriodPicker without selecting a day. Arrows keeps a static heading; month-year shows direct selects."
+          "description": "Defaults period: separate month and year text buttons open immediate in-place choices without selecting a day. Arrows keeps a static heading; month-year shows direct selects."
+        },
+        {
+          "name": "allowMonthSelection",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Enable the month heading button in period navigation. Defaults true; false keeps a static month label. Does not restrict date validity or arrow navigation; use min/max for that."
+        },
+        {
+          "name": "allowYearSelection",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Enable the year heading button in period navigation. Defaults true; false keeps a static year label. Does not restrict date validity."
         },
         {
           "name": "periodPickerProps",
@@ -12109,7 +12130,21 @@
           "type": "\"period\" | \"arrows\" | \"month-year\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Defaults period: the heading opens a month/year PeriodPicker. Arrows disables the chooser; month-year uses direct selects."
+          "description": "Defaults period: separate month/year text buttons open immediate in-place choices. Arrows disables the chooser; month-year uses direct selects."
+        },
+        {
+          "name": "allowMonthSelection",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Month heading is interactive in period navigation by default. False leaves plain text. Use min/max to restrict selectable dates."
+        },
+        {
+          "name": "allowYearSelection",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Year heading is interactive in period navigation by default. False leaves plain text."
         },
         {
           "name": "periodPickerProps",
@@ -12489,7 +12524,7 @@
         },
         {
           "name": "selectionUnit",
-          "type": "\"week\" | \"month\" | \"quarter\" | \"year\" | \"day\" | undefined",
+          "type": "\"month\" | \"year\" | \"week\" | \"quarter\" | \"day\" | undefined",
           "required": false,
           "default": "—",
           "description": "Calendar activation can select a whole Gregorian week/month/quarter/year. Defaults to individual days. Length constraints still validate the complete period."
@@ -12697,7 +12732,7 @@
         },
         {
           "name": "selectionUnit",
-          "type": "\"week\" | \"month\" | \"quarter\" | \"year\" | \"day\" | undefined",
+          "type": "\"month\" | \"year\" | \"week\" | \"quarter\" | \"day\" | undefined",
           "required": false,
           "default": "\"day\"",
           "description": "Calendar activation can select a whole Gregorian week/month/quarter/year. Defaults to individual days. Length constraints still validate the complete period."

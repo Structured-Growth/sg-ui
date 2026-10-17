@@ -9,17 +9,16 @@ test('birthday supports a year jump, leap day, direct input and narrow popup',as
  const field=panel.getByRole('textbox',{name:'Select your birthday',exact:true}),trigger=panel.getByRole('button',{name:'Choose Select your birthday',exact:true});
  await expect(field).toHaveValue('');await trigger.click();
  const dialog=page.getByRole('dialog',{name:'Select your birthday',exact:true});
- await dialog.getByRole('button',{name:'Choose month and year, January 2000',exact:true}).click();
- const chooser=dialog.getByRole('group',{name:'Choose month and year',exact:true});
- await chooser.getByRole('button',{name:'Choose year, 2000',exact:true}).click();
+ await dialog.getByRole('button',{name:'Choose year, 2000',exact:true}).click();
+ const chooser=dialog.getByRole('group',{name:'Choose year',exact:true});
  const previous=chooser.getByRole('button',{name:'Previous years',exact:true});
  for(let step=0;step<12&&await previous.isEnabled();step++)await previous.click();
  await expect(chooser.getByRole('button',{name:'1900',exact:true})).toBeAttached();
  await expect(chooser.getByRole('button',{name:'2027',exact:true})).toHaveCount(0);
  for(let step=0;step<12&&await chooser.getByRole('button',{name:'1984',exact:true}).count()===0;step++)await chooser.getByRole('button',{name:'Next years',exact:true}).click();
  await chooser.getByRole('button',{name:'1984',exact:true}).click();await expect(field).toHaveValue('');
- await chooser.getByRole('button',{name:'February',exact:true}).click();await chooser.getByRole('button',{name:'Apply',exact:true}).click();
- const monthBox=(await dialog.getByRole('button',{name:'Choose month and year, February 1984',exact:true}).boundingBox())!;
+ await dialog.getByRole('button',{name:'Choose month, January',exact:true}).click();await dialog.getByRole('group',{name:'Choose month',exact:true}).getByRole('button',{name:'February',exact:true}).click();
+ const monthBox=(await dialog.getByRole('button',{name:'Choose month, February',exact:true}).boundingBox())!;
  for(const name of ['Previous month','Next month']){
   const arrow=(await dialog.getByRole('button',{name,exact:true}).boundingBox())!;
   expect(Math.abs(arrow.y+arrow.height/2-monthBox.y-monthBox.height/2)).toBeLessThan(1);
@@ -43,9 +42,9 @@ for(const cycle of [12,24])test(`date/time ${cycle}: popup drafts, partial time 
  const input=panel.locator('input[name="appointment"]'),trigger=panel.getByRole('button',{name:'Choose Appointment date and time',exact:true});
  await trigger.click();
  const dialog=page.getByRole('dialog',{name:'Appointment date and time',exact:true}),apply=dialog.getByRole('button',{name:'Apply',exact:true});
- const beforePeriod=(await dialog.boundingBox())!;await dialog.getByRole('button',{name:'Choose month and year, October 2026',exact:true}).click();
- await expect(page.getByRole('dialog')).toHaveCount(1);await expect(dialog.getByRole('button',{name:'Apply',exact:true})).toHaveCount(1);await expect(dialog.getByRole('textbox',{name:'Time',exact:true})).toHaveCount(0);
- expect(Math.abs((await dialog.boundingBox())!.height-beforePeriod.height)).toBeLessThan(1);await dialog.getByRole('group',{name:'Choose month and year',exact:true}).getByRole('button',{name:'Cancel',exact:true}).click();
+ const beforePeriod=(await dialog.boundingBox())!;await dialog.getByRole('button',{name:'Choose month, October',exact:true}).click();
+ await expect(page.getByRole('dialog')).toHaveCount(1);await expect(dialog.getByRole('button',{name:'Apply',exact:true})).toHaveCount(0);await expect(dialog.getByRole('textbox',{name:'Time',exact:true})).toHaveCount(0);
+ expect(Math.abs((await dialog.boundingBox())!.height-beforePeriod.height)).toBeLessThan(1);await dialog.getByRole('group',{name:'Choose month',exact:true}).getByRole('button',{name:'October',exact:true}).press('Escape');
  await dialog.getByRole('button',{name:'Tuesday, October 20, 2026',exact:true}).click();
  await expect(input).toHaveValue('2026-10-14T09:30:00');
  await dialog.getByRole('textbox',{name:'Time',exact:true}).fill('8:31 am');await dialog.getByRole('textbox',{name:'Time',exact:true}).press('Tab');
