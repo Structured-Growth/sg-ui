@@ -1,0 +1,12 @@
+
+> @structured-growth/sg-ui@0.0.0-development test /Users/thomashall/Repositories/sg-ui/packages/ui
+> vitest run src/experimental/MonthPicker src/experimental/YearPicker src/experimental/Calendar src/experimental/DatePicker src/experimental/PeriodPicker src/experimental/DateRangeSelector src/experimental/DateRangePicker src/experimental/DateTimeRangePicker
+
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+
+ Test Files  26 passed (26)
+      Tests  149 passed (149)
+   Start at  12:04:17
+   Duration  7.81s (transform 1.99s, setup 324ms, import 11.84s, tests 41.44s, environment 6.25s)

@@ -947,3 +947,19 @@ the replacement frame spans the full reserved selector area, including hidden
 fields/actions. The popup keeps its original dimensions, and multi-calendar
 choices remain scoped to their own calendar. Native scrolling can reveal the
 final row completely; hidden range actions return when the chooser closes.
+
+
+### Responsive month-choice layout (2026-10-17)
+
+Shared MonthPicker fills the supplied frame and prefers two columns/six rows.
+A native ResizeObserver measures available width/height, label sizes, gaps and
+minimum control targets. If six rows do not fit, the grid tries three/four/six/
+twelve columns, subject to width. In extremely narrow or short hosts it chooses
+the widest fitting arrangement (including one column) and leaves overflow to the
+host rather than shrinking interaction targets or clipping labels. Unbounded
+standalone choices naturally start with two columns. Density, font and host-size
+changes trigger remeasurement. SSR starts with the same two-column markup and
+needs no browser globals. Selection/focus and month availability are unchanged.
+Calendar, DatePicker, range controls and inline PeriodPicker share this behavior;
+year choices retain four columns. The docs include independently stateful,
+resizable tall, medium and short/wide examples at both densities.

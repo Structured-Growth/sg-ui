@@ -1,10 +1,10 @@
 "use client";
 import {useState} from "react";
 import {MonthPicker,YearPicker,TextField,Select,Checkbox} from "@structured-growth/sg-ui/experimental";
-import {Stack} from "@structured-growth/sg-ui/primitives";
+import {Box,Stack} from "@structured-growth/sg-ui/primitives";
 import {Example} from "../components/Example";
 import {exampleSource} from "./source";
-export function MonthYearPickerExamples({kind}:{kind:"MonthPicker"|"YearPicker"}){return <Stack gap={4}><PickerPanel kind={kind} title="Prop playground" playground/>{(["compact","comfortable"] as const).map(density=><PickerPanel key={density} kind={kind} title={`${kind} — ${density}`} density={density}/>)}{kind==="YearPicker"&&(["compact","comfortable"] as const).map(density=><PickerPanel key={`pages-${density}`} kind={kind} title={`YearPicker pages — ${density}`} density={density} navigation="paged"/>)}</Stack>;}
+export function MonthYearPickerExamples({kind}:{kind:"MonthPicker"|"YearPicker"}){return <Stack gap={4}><PickerPanel kind={kind} title="Prop playground" playground/>{(["compact","comfortable"] as const).map(density=><PickerPanel key={density} kind={kind} title={`${kind} — ${density}`} density={density}/>)}{kind==="MonthPicker"&&(["compact","comfortable"] as const).map(density=><Stack key={`fit-${density}`} gap={4}>{([6,4,2] as const).map(rows=><MonthFitPanel key={rows} density={density} rows={rows}/>)}</Stack>)}{kind==="YearPicker"&&(["compact","comfortable"] as const).map(density=><PickerPanel key={`pages-${density}`} kind={kind} title={`YearPicker pages — ${density}`} density={density} navigation="paged"/>)}</Stack>;}
 function PickerPanel({kind,title,density="comfortable",playground=false,navigation="scroll"}:{kind:"MonthPicker"|"YearPicker";title:string;density?:"compact"|"comfortable";playground?:boolean;navigation?:"scroll"|"paged"}){
  const [value,setValue]=useState<number|null>(kind==="MonthPicker"?10:2026);
  const [label,setLabel]=useState(kind==="MonthPicker"?"Month choices":"Year choices"),[disabled,setDisabled]=useState(false),[readOnly,setReadOnly]=useState(false);
@@ -19,5 +19,18 @@ function PickerPanel({kind,title,density="comfortable",playground=false,navigati
  const extra=kind==="MonthPicker"?`year={${currentYear}}${bounds?` min="${min}" max="${max}"`:''}`:`referenceYear={2026} minYear={${lower}} maxYear={${upper}} yearNavigation="${yearNavigation}" yearsPerPage={${yearsPerPage}} yearEntry="${entry}"`;
  return <Example title={title} density={density} controls={controls} source={exampleSource({name:kind+"Example",imports:[`import {${kind}} from '@structured-growth/sg-ui/experimental';`],state:`  const [value,setValue]=useState<number|null>(${JSON.stringify(value)});`,body:`<ThemeScope density="${density}">\n<${kind} ${extra} ${props}/>\n</ThemeScope>`})}>
  {kind==="MonthPicker"?<MonthPicker label={label} year={currentYear} min={min} max={max} disabled={disabled} readOnly={readOnly} value={value} onValueChange={setValue}/>:<YearPicker label={label} referenceYear={2026} minYear={lower} maxYear={upper} yearNavigation={yearNavigation} yearsPerPage={yearsPerPage} yearEntry={entry} disabled={disabled} readOnly={readOnly} value={value} onValueChange={setValue}/>}
+ </Example>;
+}
+
+function MonthFitPanel({density,rows}:{density:"compact"|"comfortable";rows:2|4|6}){
+ const [month,setMonth]=useState<number|null>(10);
+ const width=rows===2?'32rem':'20rem';
+ const height=`calc(${rows} * max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)) + ${rows+1} * var(--sgui-space1))`;
+ return <Example title={`Month choices — ${rows===6?'tall':rows===4?'medium':'short and wide'} — ${density}`} density={density} description="The grid prefers two columns and six rows when they fit. Shorter hosts use more columns while preserving month labels and interaction targets. Resize the host to see the grid adapt; selecting a month does not resize it." source={exampleSource({name:'ResponsiveMonths',imports:["import {MonthPicker} from '@structured-growth/sg-ui/experimental';","import {Box} from '@structured-growth/sg-ui/primitives';"],state:`  const [month,setMonth]=useState<number|null>(${JSON.stringify(month)});`,body:`<ThemeScope density="${density}">
+<Box style={{inlineSize:${JSON.stringify(width)},maxInlineSize:'100%',blockSize:${JSON.stringify(height)},resize:'both',overflow:'auto'}}>
+<MonthPicker year={2026} value={month} onValueChange={setMonth}/>
+</Box>
+</ThemeScope>`})}>
+ <Box style={{inlineSize:width,maxInlineSize:'100%',blockSize:height,resize:'both',overflow:'auto'}}><MonthPicker year={2026} value={month} onValueChange={setMonth}/></Box>
  </Example>;
 }

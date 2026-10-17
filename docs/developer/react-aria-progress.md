@@ -2432,3 +2432,20 @@ checks remain. Library/docs builds, catalog and foundation guards passed. The
 first browser run exposed an inline-example viewport setup issue (35/36); bringing
 the whole host into view retained all assertions and the final run passed 36/36.
 [Evidence](final-acceptance/year-chooser-fill/results.json).
+
+
+### 2026-10-17 — Responsive month choices
+
+MonthPicker now measures its actual frame, localized labels and minimum control
+targets. It prefers two columns/six rows when they fit; shorter hosts use more
+columns, while narrow hosts retain readable controls and host-owned overflow.
+The shared calendar/date/range/inline-period adapters inherit this behavior;
+YearPicker keeps four columns. Resizing preserves selection/focus and calendar
+popup dimensions. Added independently stateful resizable examples for tall,
+medium and short/wide hosts at both densities, with matching public source.
+
+Validation: 149 affected units; 54 production browser cases (18 each in Chromium,
+Firefox and WebKit), including layout/resize/source checks and existing shared
+month/year isolation, range preservation and year-scroll regressions. Library/docs
+builds, catalog, foundation guards, docs TypeScript and packed consumers passed.
+[Evidence](final-acceptance/responsive-month-choices/results.json).

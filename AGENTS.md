@@ -837,3 +837,7 @@ Calendar, DateRangeSelector and DateRangePicker default calendarNavigation to
 independent. Month/year choices and arrows affect only their own view; shared
 selection is unchanged by navigation. Use linked explicitly for consecutive views
 that move together; calendarEndpoints is a separate range editing policy.
+
+MonthPicker adapts to its available frame, preferring two columns/six rows when
+height permits and more columns in shorter/wider hosts. Preserve minimum targets,
+localized labels, stable chooser dimensions and the separate four-column year grid.
