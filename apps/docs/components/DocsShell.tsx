@@ -59,7 +59,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
         </Surface>
         <Box ref={mainRef} as="main" id="main-content" tabIndex={-1} className={styles.main}><Box className={styles.mainContent} style={{padding:"clamp(1rem, 2vw, 2rem)"}}>{children}</Box></Box>
         {componentPage&&<Box ref={toolsRef} as="aside" aria-label="Component tools" className={styles.tools} data-active-tool={activeTool??undefined}>
-          <ThemeScope density="compact" className={styles.toolsScope}><IconPanelNavigation items={tools} activeId={activeTool} onActiveIdChange={setActiveTool} side="end" panelWidth="var(--docs-tool-panel-width)" aria-label="Component tools navigation"/></ThemeScope>
+          <ThemeScope density="compact" className={styles.toolsScope}><IconPanelNavigation items={tools} activeId={activeTool} onActiveIdChange={setActiveTool} side="end" resizable={activeTool==='documentation'} panelWidth="var(--docs-tool-panel-width)" aria-label="Component tools navigation"/></ThemeScope>
         </Box>}
       </Box>
     </Provider></DemoSettingsProvider></PageDocumentationContext.Provider>

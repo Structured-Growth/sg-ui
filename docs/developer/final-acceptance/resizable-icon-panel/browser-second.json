@@ -1,0 +1,484 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.npm/_npx/387698761821791d/node_modules/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/apps/docs/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/tmp/sgui-resizable-panel-browser.config.mjs"
+    ],
+    "configFile": "/tmp/sgui-resizable-panel-browser.config.mjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 2,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/resizable-panel",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "resizable-panel.spec.ts",
+          "icon-panel-navigation.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/resizable-panel",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "resizable-panel.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/resizable-panel",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "resizable-panel.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/resizable-panel-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm start --port 3100",
+      "cwd": "/Users/thomashall/Repositories/sg-ui/apps/docs",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": false
+    }
+  },
+  "suites": [
+    {
+      "title": "icon-panel-navigation.spec.ts",
+      "file": "icon-panel-navigation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "icon rail opens independent sliding panels with keyboard names and retained drafts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2717,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:32:39.036Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c69b1feb25139e54d506-76c1f0287a58bfb471d6",
+          "file": "icon-panel-navigation.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "icon rail composes beside a separate main menu and fits a narrow host",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 748,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:32:41.946Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c69b1feb25139e54d506-29dcae0d1bfae8e4a2f3",
+          "file": "icon-panel-navigation.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "primary icon sections open separate menus with host-owned page navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2766,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "icon-panel-navigation",
+                      "duration": 1408
+                    },
+                    {
+                      "title": "app-shell",
+                      "duration": 1319
+                    }
+                  ],
+                  "startTime": "2026-10-17T15:32:42.697Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c69b1feb25139e54d506-9baee0f004b11820e271",
+          "file": "icon-panel-navigation.spec.ts",
+          "line": 78,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "resizable-panel.spec.ts",
+      "file": "resizable-panel.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "documentation shelf resizes by pointer and keyboard and stays within narrow viewports",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5571,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m593.5936889648438\u001b[39m\nReceived:   \u001b[31m643.59375\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m593.5936889648438\u001b[39m\nReceived:   \u001b[31m643.59375\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/resizable-panel.spec.ts:17:65",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/resizable-panel.spec.ts",
+                      "column": 65,
+                      "line": 17
+                    },
+                    "snippet": "  15 |  const box=(await handle.boundingBox())!;const start=(await panel.boundingBox())!.width;\n  16 |  await page.mouse.move(box.x+box.width/2,box.y+80);await page.mouse.down();await page.mouse.move(box.x+80,box.y+80,{steps:8});await page.mouse.up();\n> 17 |  await expect.poll(async()=>(await panel.boundingBox())!.width).toBeLessThan(start-50);\n     |                                                                 ^\n  18 |  const resized=(await panel.boundingBox())!.width;\n  19 |  const cancelBox=(await handle.boundingBox())!;\n  20 |  await page.mouse.move(cancelBox.x+cancelBox.width/2,cancelBox.y+80);await page.mouse.down();await page.mouse.move(cancelBox.x+40,cancelBox.y+80,{steps:4});"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/resizable-panel.spec.ts",
+                        "column": 65,
+                        "line": 17
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m593.5936889648438\u001b[39m\nReceived:   \u001b[31m643.59375\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  15 |  const box=(await handle.boundingBox())!;const start=(await panel.boundingBox())!.width;\n  16 |  await page.mouse.move(box.x+box.width/2,box.y+80);await page.mouse.down();await page.mouse.move(box.x+80,box.y+80,{steps:8});await page.mouse.up();\n> 17 |  await expect.poll(async()=>(await panel.boundingBox())!.width).toBeLessThan(start-50);\n     |                                                                 ^\n  18 |  const resized=(await panel.boundingBox())!.width;\n  19 |  const cancelBox=(await handle.boundingBox())!;\n  20 |  await page.mouse.move(cancelBox.x+cancelBox.width/2,cancelBox.y+80);await page.mouse.down();await page.mouse.move(cancelBox.x+40,cancelBox.y+80,{steps:4});\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/resizable-panel.spec.ts:17:65"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:32:45.479Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/resizable-panel/resizable-panel-documentat-cb72c-ays-within-narrow-viewports-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/apps/docs/test-results/resizable-panel/resizable-panel-documentat-cb72c-ays-within-narrow-viewports-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/resizable-panel.spec.ts",
+                    "column": 65,
+                    "line": 17
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "1f085dbd74fe35a5c657-badac24d844dfb888bd1",
+          "file": "resizable-panel.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "reusable resize prop is opt-in and example source matches",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1211,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:32:51.419Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f085dbd74fe35a5c657-959b709ee4b7dd135551",
+          "file": "resizable-panel.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "documentation shelf resizes by pointer and keyboard and stays within narrow viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1693,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:32:52.995Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f085dbd74fe35a5c657-50fca67a086453105367",
+          "file": "resizable-panel.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "reusable resize prop is opt-in and example source matches",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "firefox",
+              "projectName": "firefox",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1153,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:32:55.142Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f085dbd74fe35a5c657-5c1b6fc558c036aac2b0",
+          "file": "resizable-panel.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "documentation shelf resizes by pointer and keyboard and stays within narrow viewports",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1469,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:32:56.789Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f085dbd74fe35a5c657-fff43c06703509c6f17a",
+          "file": "resizable-panel.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "reusable resize prop is opt-in and example source matches",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "webkit",
+              "projectName": "webkit",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1037,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-17T15:32:58.733Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "1f085dbd74fe35a5c657-5bf35d6b50ddf1985fad",
+          "file": "resizable-panel.spec.ts",
+          "line": 31,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-17T15:32:38.247Z",
+    "duration": 21560.528,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

@@ -12952,6 +12952,34 @@
           "description": "Panel width; constrained by the available container width."
         },
         {
+          "name": "resizable",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "false",
+          "description": "Enable an inward-edge resize separator. Defaults false. Widths are retained per panel while mounted."
+        },
+        {
+          "name": "minPanelWidth",
+          "type": "number | undefined",
+          "required": false,
+          "default": "240",
+          "description": "Minimum requested panel width in CSS pixels. Defaults 240; available space can constrain it further."
+        },
+        {
+          "name": "maxPanelWidth",
+          "type": "number | undefined",
+          "required": false,
+          "default": "960",
+          "description": "Maximum requested panel width in CSS pixels. Defaults 960; viewport and container constraints still apply."
+        },
+        {
+          "name": "onPanelWidthChange",
+          "type": "((width: number, id: string) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Reports requested user resize widths in CSS pixels and the affected item. Does not control width."
+        },
+        {
           "name": "aria-label",
           "type": "string | undefined",
           "required": false,

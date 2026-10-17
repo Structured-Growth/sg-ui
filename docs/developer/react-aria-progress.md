@@ -2216,3 +2216,37 @@ browser scenario passed in Chromium, Firefox and WebKit (**3/3**), checking
 inheritance, overrides, state/source isolation and narrow reflow. Evidence:
 [form-field-scope/results.json](final-acceptance/form-field-scope/results.json).
 These feature checks do not close the broader device/AT/visual acceptance gates.
+
+## 2026-10-17 — Opt-in resizable icon-panel shelves
+
+Added `IconPanelNavigation.resizable` (default false), `minPanelWidth` (240px),
+`maxPanelWidth` (960px), and `onPanelWidthChange(width, id)` notifications. A
+focusable inward-edge separator supports pointer capture, touch targets,
+physical Left/Right arrows with RTL, Shift increments, Home/End bounds, Escape
+rollback and pointer cancellation. Widths survive close/reopen and panel switches
+while mounted; content remains mounted and preserves its existing state.
+Host and viewport bounds still apply. The resize limit uses document geometry,
+including the stable scrollbar gutter, and updates when the viewport changes.
+
+DocsShell enables resizing only for Page documentation, leaving Demo settings
+fixed. Desktop growth preserves room for the main pane, and narrow shelves remain
+viewport-bounded overlays. The component playground exposes resizing and width
+bounds; named compact/comfortable examples demonstrate both rail sides. Public
+prop metadata, component guidance and the icon-panel architecture guide are current.
+
+Final validation: **15 units / 5 files**, foundation guards, fresh library build,
+production docs build/catalog/source guards, docs typecheck and packed-package
+checks pass. **9 browser cases pass**: six new resize cases across Chromium,
+Firefox and WebKit, plus the three existing rail cases in their configured
+Chromium environment. They cover drag, keyboard/RTL, cancellation, retained widths,
+opt-in/default behavior, source compilation and narrow viewport fit.
+Evidence: [resizable-icon-panel/results.json](final-acceptance/resizable-icon-panel/results.json).
+
+Retained probes: initial narrow viewport overflow was fixed by accounting for the
+document gutter. A Chromium pointer driver was stabilized by disabling opening
+motion for the resize scenario; existing motion assertions remain. An extra,
+outside-default-matrix Firefox run of the unchanged original rail smoke failed
+its `scrollbar-width: thin` assertion (received `none`); it is retained as an
+unclosed cross-engine follow-up, not counted as a passing baseline or resolved
+by weakening the assertion. The default docs suite runs that existing test in
+Chromium. These targeted results do not close broader acceptance gates.

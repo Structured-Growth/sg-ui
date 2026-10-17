@@ -49,3 +49,29 @@ Native ref/className/style apply to the outer div. Stable part hooks are
 `icon-panel-navigation`, `icon-navigation-panel`, and `icon-navigation-content`.
 Colors use generated `iconPanelNavigation*` component aliases. Width, spacing and
 layout do not imply a separate visual identity or application theme.
+
+## Optional resizing
+
+`resizable` defaults to false. Set it to true to show a focusable vertical
+separator at the panel's inward edge. Pointer/touch dragging changes width;
+Left/Right arrows move that edge physically by 10px (Shift: 50px), including RTL.
+Home requests `minPanelWidth` (240px default), End requests `maxPanelWidth`
+(960px default). The viewport and host CSS can constrain the rendered width
+further. Touch policy enlarges the handle's hit area; forced colors retain its
+visible bar and focus indicator. Escape during a drag and pointer cancellation
+restore the initial width; other Escape handling still closes the panel.
+
+Each item retains its user width while this navigation instance is mounted,
+including across close/reopen and panel switching. `panelWidth` remains the
+base for panels not yet resized. Later base-width changes do not replace a
+retained user width. Changing minimum/maximum clamps retained widths; disabling
+resizing removes the separator and uses `panelWidth` again.
+`onPanelWidthChange(width, id)` reports requested pixel widths after resize
+input, including cancellation; it is a notification rather than controlled
+width ownership. Consumers may persist those notifications themselves.
+
+The stable handle hook is `icon-navigation-resize-handle`. It announces its
+panel name, orientation, current pixel width and bounds with `aria-controls`
+pointing at the panel. DocsShell opts in only for Page documentation, leaving
+Demo settings fixed. Desktop docs preserve space for the main pane while the
+shelf grows; narrow layouts continue to overlay and fit the viewport.

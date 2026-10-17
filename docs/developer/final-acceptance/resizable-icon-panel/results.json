@@ -1,0 +1,61 @@
+{
+  "feature": "Opt-in resizable IconPanelNavigation shelves",
+  "baseCommit": "cd2b02f3f593b17e371e64d61d8723130bacfd40",
+  "sourceSha256": {
+    "apps/docs/tests/resizable-panel.spec.ts": "49be47f9c85a9667219a59d6e30d825169a064b5c7b5e703f48e542b34caee77",
+    "packages/ui/src/components/IconPanelNavigation/PanelResizeHandle.tsx": "ee254813fd260d7b9e3a5270a4072606bb8cd1d373b15952506c4854d5e08873",
+    "apps/docs/components/DocsShell.tsx": "f033c78c7db87c645605e34a25b971a318b3cf0f12d92e5b2d02e8c8f7fe1c63",
+    "apps/docs/components/docs.module.css": "d1f62e2257512a29efcdc030927054d9336b363b930beb61003a98d1cfaa49a0",
+    "apps/docs/content/component-api.json": "7ded326a59fb66e74a40f2b07c7f551e6fd56da707f37149173bd50f2311505e",
+    "apps/docs/content/component-usage/editor.json": "269c82d92b6127805ec50b84f5292d0ed386f34853d56110407d0a9d3974f0b5",
+    "apps/docs/examples/IconPanelNavigationExamples.tsx": "776e501a4457c618457c36b4f3d339be88beb447f68545ca83e773c6db69a419",
+    "docs/developer/react-aria-icon-panel-navigation.md": "f977931a57ae50ac108d6bf4649e7a288af1add1c632799fdb898b3f54383882",
+    "docs/developer/react-aria-progress.md": "a94e6921c65b3e364f08e2d737af0323f9418efeddcb77b2aace7e58f6f4d3a2",
+    "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.module.css": "c3219ad8d95a2c4091738dfbc1e951a9c900defd2ca5978bd468d1ded0af3336",
+    "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.test.tsx": "e7350808042a40bbd10f8a62ea40956e5eee81dddf6645a64411ceac703f4f4f",
+    "packages/ui/src/components/IconPanelNavigation/IconPanelNavigation.tsx": "6c811471a9fe33d7ff70f07522cae759fd1edbfc147c22a89bd4d85c0de78034"
+  },
+  "validation": {
+    "units": {
+      "path": "/tmp/sgui-resizable-panel-units.log",
+      "sha256": "3b2b218efeceafa8b63d7d001245320715b9845dc064bcd5f225be771a9b6e43",
+      "status": "passed"
+    },
+    "build": {
+      "path": "/tmp/sgui-resizable-panel-build.log",
+      "sha256": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+      "status": "passed"
+    },
+    "guards": {
+      "path": "/tmp/sgui-resizable-panel-guards.log",
+      "sha256": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647",
+      "status": "passed"
+    },
+    "docs": {
+      "path": "/tmp/sgui-resizable-panel-docs.log",
+      "sha256": "961dfb9bcb26fd7255d433f181c179549ebaa53eb8746601c845ce35ea103921",
+      "status": "passed"
+    },
+    "types": {
+      "path": "/tmp/sgui-resizable-panel-types.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "passed"
+    },
+    "package": {
+      "path": "/tmp/sgui-resizable-panel-package.log",
+      "sha256": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103",
+      "status": "passed"
+    },
+    "browser": {
+      "path": "/tmp/sgui-resizable-panel-browser.log",
+      "sha256": "9660a46059bf200bd90e0b7c7ee3cb44789fd43dc04c5a4f53b3818591427a21",
+      "status": "passed"
+    }
+  },
+  "browserReport": "browser-final.json",
+  "retainedProbes": [
+    "browser-initial.json",
+    "browser-second.json"
+  ],
+  "scope": "15 affected units; six new cross-engine browser scenarios and three existing Chromium rail scenarios. Extra original Firefox scrollbar assertion remains an open follow-up; broad acceptance unchanged."
+}

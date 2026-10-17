@@ -185,7 +185,7 @@
     "when": "Use DocumentEditorToolbar for a document host that needs a small controlled heading, formatting, zoom, and status bar. It requests commands from an existing editor rather than implementing document editing itself.",
     "how": [
       "Supply canEdit, headingValue, and actions with controlled active flags and real onClick callbacks. Derive those flags from the host editor selection; missing callbacks leave their commands unavailable.",
-      "Connect onHeadingChange to a host editor command and accept the requested normal/h1–h5 value. Heading requests finish the chooser interaction before invoking the host callback.",
+      "Connect onHeadingChange to a host editor command and accept the requested normal/h1\u2013h5 value. Heading requests finish the chooser interaction before invoking the host callback.",
       "Provide zoomValue and zoom callbacks separately from editing availability. Hide optional groups that the host does not use; alignment and custom-component placeholders do not provide active editing commands.",
       "Use statusLabel, a token-based statusColor, or rightSlot for host status. Saving and error recovery remain application responsibilities."
     ],
@@ -520,7 +520,9 @@
       "activeId and onActiveIdChange support host-controlled opening; defaultActiveId is available for uncontrolled use. null closes all panels. Clicking an active icon closes it, and another icon switches panels. Disabled items cannot open. Hidden panel content remains mounted so local drafts survive switching; the host owns saving, fetching and route changes.",
       "Every icon has a visible-on-hover/focus tooltip, an accessible label, aria-expanded and aria-controls. Use Tab to move through the rail and into the open panel; Enter or Space activates a tool. Close and Escape from within the panel return focus to its trigger. There is no focus trap or outside-click dismissal. Respect nested widgets that consume Escape.",
       "Use distinct aria-label values for multiple rails or other navigation landmarks. The host provides content accessibility, loading/error states and permission rules, and should give each content panel meaningful controls. Panel labels are heading text; choose label content accordingly. Reduced-motion preferences remove slide animation, and forced colors retain an active outline.",
-      "Rail items use the shared navigation icon and interaction target tokens. Compact/comfortable density controls item size; touch sizing increases targets and icons. Panel headings and spacing use the same compact navigation scale."
+      "Rail items use the shared navigation icon and interaction target tokens. Compact/comfortable density controls item size; touch sizing increases targets and icons. Panel headings and spacing use the same compact navigation scale.",
+      "Set resizable to opt into an inward-edge pull bar; it defaults false. Drag to resize, or focus the separator and use Left/Right arrows (10px; Shift 50px), Home for minimum and End for maximum. The arrows follow physical direction, including RTL. Escape while dragging restores the starting width; pointer cancellation also restores it. Closing, reopening and switching panels preserve each panel width while mounted.",
+      "minPanelWidth and maxPanelWidth bound requested widths in CSS pixels (defaults 240 and 960); viewport and container constraints can reduce actual width further, including on narrow screens. panelWidth supplies the base width before a user resize. onPanelWidthChange reports the requested width and item id, and does not make resizing controlled. Host persistence remains optional; changes to base panelWidth do not replace a retained user width. Turning resizable off uses panelWidth and removes the separator."
     ],
     "related": [
       {

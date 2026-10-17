@@ -55,13 +55,13 @@
 .layout[data-has-tools] { --docs-tool-rail-width: calc(max(var(--sgui-compact-navigation-item-height), var(--sgui-control-minimum-target-size)) + var(--sgui-space2)); grid-template-columns: 17rem minmax(0, 1fr) auto; }
 .tools { --docs-tool-panel-width: 20rem; position: relative; min-block-size: 0; min-inline-size: 0; max-inline-size: 48vw; border-inline-start: 1px solid var(--sgui-border); }
 .tools [data-sgui-part="icon-navigation-content"] { scrollbar-gutter: stable; }
-.tools[data-active-tool="documentation"] { --docs-tool-panel-width: min(40rem, 44vw); }
+.tools[data-active-tool="documentation"] { --docs-tool-panel-width: min(40rem, 44vw); max-inline-size: max(var(--docs-tool-rail-width), calc(100vw - 33rem)); }
 .tools code { display: block; min-inline-size: 0; }
 @media (max-width: 52rem) {
   .layout[data-has-tools] { grid-template-columns: minmax(0, 1fr) var(--docs-tool-rail-width); }
   .layout[data-has-tools] > .sidebar { grid-column: 1 / -1; }
   .tools, .tools[data-active-tool="documentation"] { --docs-tool-panel-width: min(40rem, calc(var(--docs-layout-width, 100vw) - var(--docs-tool-rail-width))); }
-  .tools { grid-column: 2; grid-row: 2; max-inline-size: none; z-index: 30; }
+  .tools, .tools[data-active-tool="documentation"] { grid-column: 2; grid-row: 2; max-inline-size: none; z-index: 30; }
   .tools [data-sgui-part="icon-navigation-panel"] { position: absolute; inset-block: 0; inset-inline-end: var(--docs-tool-rail-width); max-inline-size: none; background: var(--sgui-surface); border-inline-start: 1px solid var(--sgui-border); }
 }
 

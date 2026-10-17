@@ -5,6 +5,7 @@ import { Tooltip } from "../../experimental/Tooltip/Tooltip";
 import { Typography } from "../../experimental/Typography/Typography";
 import { CloseIcon } from "../../experimental/icons/CloseIcon";
 import { useTranslation } from "../../i18n";
+import {PanelResizeHandle} from "./PanelResizeHandle";
 import styles from "./IconPanelNavigation.module.css";
 
 export interface IconPanelNavigationItem {
@@ -28,6 +29,14 @@ export interface IconPanelNavigationProps {
   side?: "start" | "end";
   /** Panel width; constrained by the available container width. */
   panelWidth?: CSSProperties["width"];
+  /** Enable an inward-edge resize separator. Defaults false. Widths are retained per panel while mounted. */
+  resizable?: boolean;
+  /** Minimum requested panel width in CSS pixels. Defaults 240; available space can constrain it further. */
+  minPanelWidth?: number;
+  /** Maximum requested panel width in CSS pixels. Defaults 960; viewport and container constraints still apply. */
+  maxPanelWidth?: number;
+  /** Reports requested user resize widths in CSS pixels and the affected item. Does not control width. */
+  onPanelWidthChange?: (width: number, id: string) => void;
   "aria-label"?: string;
   className?: string;
   style?: CSSProperties;
@@ -35,12 +44,15 @@ export interface IconPanelNavigationProps {
 
 /** Non-modal icon rail and sliding workspace panels; usable independently or in AppShell. */
 export const IconPanelNavigation = forwardRef<HTMLDivElement, IconPanelNavigationProps>(function IconPanelNavigation(
-  { items, activeId, defaultActiveId = null, onActiveIdChange, side = "start", panelWidth = "20rem", "aria-label": ariaLabel, className, style }, ref,
+  { items, activeId, defaultActiveId = null, onActiveIdChange, side = "start", panelWidth = "20rem", resizable = false, minPanelWidth = 240, maxPanelWidth = 960, onPanelWidthChange, "aria-label": ariaLabel, className, style }, ref,
 ) {
   const { t } = useTranslation();
   const [internalId, setInternalId] = useState(defaultActiveId);
   const requested = activeId === undefined ? internalId : activeId;
   const selected = items.find(item => item.id === requested && !item.disabled)?.id ?? null;
+  const [widths, setWidths] = useState<Record<string, number>>({});
+  const widthMin=Number.isFinite(minPanelWidth)?Math.max(0,minPanelWidth):240;
+  const widthMax=Math.max(widthMin,Number.isFinite(maxPanelWidth)?maxPanelWidth:960);
   const previous = useRef(selected);
   const buttons = useRef(new Map<string, HTMLButtonElement>());
   const panels = useRef(new Map<string, HTMLElement>());
@@ -70,10 +82,13 @@ export const IconPanelNavigation = forwardRef<HTMLDivElement, IconPanelNavigatio
       } />)}
     </nav>
     {items.map((item, index) => <section key={item.id} ref={node => { if (node) panels.current.set(item.id, node); else panels.current.delete(item.id); }}
-      id={`${prefix}-panel-${index}`} aria-label={item.label} hidden={selected !== item.id} className={styles.panel} style={{inlineSize:panelWidth}}
+      id={`${prefix}-panel-${index}`} aria-label={item.label} hidden={selected !== item.id} className={styles.panel} style={{inlineSize:resizable && widths[item.id] !== undefined ? `min(${Math.max(widthMin,Math.min(widthMax,widths[item.id]))}px, var(--panel-resize-limit, calc(100vw - var(--rail-size))))` : panelWidth}}
       data-sgui-part="icon-navigation-panel" onKeyDown={event => {
         if (event.key === "Escape" && !event.defaultPrevented) { event.stopPropagation(); change(null); }
       }}>
+      {resizable && selected === item.id && <PanelResizeHandle side={side} minWidth={minPanelWidth} maxWidth={maxPanelWidth}
+        label={t("common.ui.resizePanel", {defaultMessage:"Resize {label} panel", values:{label:item.label}})} controls={`${prefix}-panel-${index}`}
+        onResize={width => {setWidths(old => ({...old, [item.id]:width}));onPanelWidthChange?.(width,item.id);}}/>}
       <div className={styles.header}>
         <Typography as="h2" variant="h6">{item.label}</Typography>
         <IconButton className={styles.trigger} label={t("common.ui.closePanel", { defaultMessage: "Close panel" })} onPress={() => change(null)}><span className={styles.icon}><CloseIcon /></span></IconButton>

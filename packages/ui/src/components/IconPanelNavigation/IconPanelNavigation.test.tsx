@@ -53,3 +53,18 @@ it("keeps separate rails independent and hides removed or disabled active items"
   rerender(<IconPanelNavigation items={items.filter(item=>item.id!=="notes")} activeId="notes"/>);
   expect(screen.queryByRole("region")).toBeNull();
 });
+it("offers resizing only when enabled and respects keyboard direction and limits",async()=>{
+  const user=userEvent.setup(),resize=vi.fn();
+  const {rerender}=render(<IconPanelNavigation items={items} defaultActiveId="notes"/>);
+  expect(screen.queryByRole("separator")).toBeNull();
+  Object.defineProperty(document.documentElement,"clientWidth",{configurable:true,value:1200});
+  const rect=vi.spyOn(HTMLElement.prototype,"getBoundingClientRect").mockImplementation(function(this:HTMLElement){return {width:this.tagName==='SECTION'?320:this.tagName==='HTML'?1200:40,left:this.tagName==='HTML'?0:800,right:this.tagName==='HTML'?1200:840,top:0,bottom:400,height:400,x:800,y:0,toJSON(){}};});
+  rerender(<IconPanelNavigation items={items} defaultActiveId="notes" side="end" resizable minPanelWidth={200} maxPanelWidth={600} onPanelWidthChange={resize}/>);
+  const handle=screen.getByRole("separator",{name:"Resize Notes panel"});handle.focus();
+  await user.keyboard("{ArrowLeft}");expect(resize).toHaveBeenLastCalledWith(330,"notes");
+  await user.keyboard("{Home}");expect(resize).toHaveBeenLastCalledWith(200,"notes");
+  await user.keyboard("{End}");expect(resize).toHaveBeenLastCalledWith(600,"notes");
+  await user.keyboard("{Shift>}{ArrowRight}{/Shift}");expect(resize).toHaveBeenLastCalledWith(270,"notes");
+  rerender(<IconPanelNavigation items={items} defaultActiveId="notes"/>);
+  expect(screen.queryByRole("separator")).toBeNull();rect.mockRestore();
+});
