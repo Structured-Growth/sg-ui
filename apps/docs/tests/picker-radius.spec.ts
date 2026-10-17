@@ -28,6 +28,10 @@ for(const [density,appearance] of [['Compact','Light'],['Comfortable','Dark']] a
     await button.click();const dialog=page.getByRole('dialog',{name:'Course schedule',exact:true});
     const year=dialog.getByRole('button',{name:'2026 year',exact:true});
     expect(await year.getByText('2026',{exact:true}).evaluate(element=>element.scrollWidth<=element.clientWidth)).toBe(true);
+    const month=dialog.getByRole('button',{name:'Oct month',exact:true});
+    expect(await month.getByText('Oct',{exact:true}).evaluate(element=>element.scrollWidth<=element.clientWidth)).toBe(true);
+    expect(await dialog.evaluate(element=>element.scrollWidth<=element.clientWidth)).toBe(true);
+    await info.attach('month-year-popup',{body:await dialog.screenshot({path:info.outputPath('month-year-popup.png')}),contentType:'image/png'});
     await year.click();await page.getByRole('option',{name:'1984',exact:true}).click();await expect(dialog.getByRole('grid')).toHaveAttribute('aria-label',/1984/);
     await page.keyboard.press('Escape');await expect(button).toBeFocused();
     await preview.evaluate(element=>element.setAttribute('dir','rtl'));

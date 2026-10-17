@@ -50,7 +50,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>(function Che
     slot={slot} aria-labelledby={labelId}
     aria-describedby={[description && `${labelId}-description`, errorMessage && `${labelId}-error`].filter(Boolean).join(" ") || undefined} validationBehavior="native" className={styles.root}>
     {({ isSelected, isIndeterminate, isInvalid }) => {
-      const messages={descriptionPlacement,errorPlacement,description:description&&<span id={`${labelId}-description`} className={styles.description}>{description}</span>,error:isInvalid&&errorMessage&&<span id={`${labelId}-error`} className={styles.error}>{errorMessage}</span>};
+      const messages={descriptionPlacement,errorPlacement,description:description&&<span id={`${labelId}-description`} className={styles.description}>{description}</span>,error:errorMessage&&<span id={`${labelId}-error`} hidden={!isInvalid} className={styles.error}>{isInvalid ? errorMessage : null}</span>};
       return <><FieldMessages position="above" {...messages}/>
         <span className={styles.control} data-sgui-part="choice-control"><span className={styles.indicator} aria-hidden="true">{isIndeterminate ? "−" : isSelected ? "✓" : ""}</span><span className={styles.content} id={labelId} data-sgui-part="choice-label">{label}</span></span>
         <FieldMessages position="below" {...messages}/></>;

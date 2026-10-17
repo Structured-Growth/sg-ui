@@ -43,6 +43,9 @@
   .weekday { padding: 0; font-size: var(--sgui-caption-size); line-height: var(--sgui-caption-line-height); white-space: nowrap; font-weight: var(--sgui-action-weight); color: var(--sgui-date-range-selector-weekday-text); }
   .weekday::after { content: attr(data-narrow-label); display: none; }
   @container (max-width: 22rem) {
+    /* Pill-shaped month/year fields need their own row at compact month widths. */
+    .monthHeader:has(.monthSelectors) > .monthHeading { grid-column: 1 / -1; }
+    .monthHeader:has(.monthSelectors) > :is(.previous, .next) { grid-row: 2; }
     .grid { border-spacing: 0 var(--sgui-space1); min-inline-size: calc(7 * var(--calendar-day-size)); }
     .weekdayLabel { display: none; }
     .weekday::after { display: inline; }

@@ -1,16 +1,23 @@
 @layer sgui.components {
   .button {
     box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
-    gap: var(--sgui-space2); min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); min-inline-size: var(--sgui-control-height);
+    gap: var(--sgui-space2); min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); min-inline-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size));
     padding-block: var(--sgui-space1); padding-inline: var(--sgui-control-padding);
     border: 1px solid var(--sgui-toggle-button-border); border-radius: var(--sgui-field-control-radius);
     font-family: var(--sgui-font-family); font-size: var(--sgui-control-text-size);
     font-weight: var(--sgui-action-weight); line-height: var(--sgui-label-line-height);
-    color: var(--sgui-toggle-button-text); background: var(--sgui-toggle-button-surface); cursor: pointer;
+    color: var(--sgui-toggle-button-text); background-color: var(--sgui-toggle-button-surface); cursor: pointer;
   }
-  .button[data-hovered], .button[data-pressed] { background: var(--sgui-toggle-button-hover-surface); }
-  .button[data-selected] { color: var(--sgui-toggle-button-selected-text); background: var(--sgui-toggle-button-selected-surface); border-color: var(--sgui-toggle-button-selected-border); }
-  .button[data-selected][data-hovered] { background: var(--sgui-toggle-button-selected-hover-surface); }
+  .button[data-hovered], .button[data-pressed] { background-color: var(--sgui-toggle-button-hover-surface); }
+  .button[data-selected] { color: var(--sgui-toggle-button-selected-text); background-color: var(--sgui-toggle-button-selected-surface); border-color: var(--sgui-toggle-button-selected-border); }
+  /* Double geometry exposes selection without color. Preserve the outer box:
+     each extra 2px of border replaces 2px of existing padding. */
+  .button[data-selected] {
+    border-style: double; border-width: 3px; background-clip: padding-box;
+    padding-block: max(0px, calc(var(--sgui-space1) - 2px));
+    padding-inline: max(0px, calc(var(--sgui-control-padding) - 2px));
+  }
+  .button[data-selected][data-hovered] { background-color: var(--sgui-toggle-button-selected-hover-surface); }
   .button[data-focus-visible] { position: relative; outline: var(--sgui-control-focus-width) solid var(--sgui-toggle-button-focus-color); outline-offset: var(--sgui-control-focus-offset); }
   .button[data-disabled] { opacity: 0.5; cursor: default; }
   .group { display: flex; flex-wrap: wrap; gap: var(--sgui-space1); }
@@ -21,7 +28,7 @@
   .group[data-button-width="equal"] .button { overflow-wrap: anywhere; }
   .icon { display: inline-flex; }
   @media (forced-colors: active) {
-    .button[data-selected] { color: HighlightText; background: Highlight; border-color: Highlight; forced-color-adjust: none; }
+    .button[data-selected] { color: HighlightText; background-color: Highlight; border-color: Highlight; forced-color-adjust: none; }
     .button[data-disabled] { color: GrayText; opacity: 1; }
     .button[data-focus-visible] { outline-color: Highlight; }
   }
