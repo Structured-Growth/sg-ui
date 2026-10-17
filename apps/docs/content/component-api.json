@@ -9331,6 +9331,62 @@
           "description": "Label supplied by the application."
         },
         {
+          "name": "display",
+          "type": "\"popup\" | \"inline\" | undefined",
+          "required": false,
+          "default": "\"popup\"",
+          "description": "Popup trigger by default; inline renders the chooser in place without creating an overlay."
+        },
+        {
+          "name": "onCancel",
+          "type": "(() => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Called on Cancel, or unhandled Escape in inline mode. The host owns returning to its previous view."
+        },
+        {
+          "name": "yearsPerPage",
+          "type": "12 | 16 | 24 | undefined",
+          "required": false,
+          "default": "12",
+          "description": "Number of year buttons per inline page. Defaults 12."
+        },
+        {
+          "name": "purpose",
+          "type": "\"navigation\" | \"selection\" | undefined",
+          "required": false,
+          "default": "\"selection\"",
+          "description": "Selection requires the entire period to be allowed (default). Navigation requires any selectable day and emits the period without committing a day."
+        },
+        {
+          "name": "yearEntry",
+          "type": "\"text\" | \"select\" | undefined",
+          "required": false,
+          "default": "purpose===\"navigation\"?\"select\":\"text\"",
+          "description": "Year input style. Defaults text for selection, select for navigation."
+        },
+        {
+          "name": "minYear",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Additional inclusive Gregorian year bounds, intersected with min/max dates. Defaults 1–9999."
+        },
+        {
+          "name": "maxYear",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "visibleYears",
+          "type": "number | undefined",
+          "required": false,
+          "default": "120",
+          "description": "Year choices when one or both year bounds are absent. Defaults 120 around the anchor. Explicit two-sided bounds offer the complete interval."
+        },
+        {
           "name": "unit",
           "type": "\"week\" | \"month\" | \"quarter\" | \"year\"",
           "required": true,
@@ -11870,10 +11926,17 @@
         },
         {
           "name": "navigation",
-          "type": "\"arrows\" | \"month-year\" | undefined",
+          "type": "\"period\" | \"arrows\" | \"month-year\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Optional direct month/year jumps; arrows remain available."
+          "description": "Defaults period: click the month/year heading to open PeriodPicker without selecting a day. Arrows keeps a static heading; month-year shows direct selects."
+        },
+        {
+          "name": "periodPickerProps",
+          "type": "Pick<PeriodPickerProps, \"visibleYears\" | \"descriptionPlacement\" | \"errorPlacement\" | \"yearsPerPage\" | \"yearEntry\" | \"minYear\" | \"maxYear\"> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Relevant PeriodPicker options. Date bounds, availability, focus, labels and callbacks are owned by the calendar; year bounds can only narrow the date limits."
         },
         {
           "name": "visibleYears",
@@ -12043,10 +12106,17 @@
         },
         {
           "name": "navigation",
-          "type": "\"arrows\" | \"month-year\" | undefined",
+          "type": "\"period\" | \"arrows\" | \"month-year\" | undefined",
           "required": false,
           "default": "—",
-          "description": "See the type and source-backed examples for this option."
+          "description": "Defaults period: the heading opens a month/year PeriodPicker. Arrows disables the chooser; month-year uses direct selects."
+        },
+        {
+          "name": "periodPickerProps",
+          "type": "Pick<PeriodPickerProps, \"visibleYears\" | \"descriptionPlacement\" | \"errorPlacement\" | \"yearsPerPage\" | \"yearEntry\" | \"minYear\" | \"maxYear\"> | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Forwarded month/year chooser options. min/max and availability always inherit from this DatePicker; explicit year bounds may narrow them."
         },
         {
           "name": "visibleYears",
@@ -16240,15 +16310,15 @@
           "description": "Host-controlled pending presentation."
         },
         {
-          "name": "errorMessage",
-          "type": "string | undefined",
+          "name": "selection",
+          "type": "boolean | AppDataGridSelectionConfig<RowModel> | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "selection",
-          "type": "boolean | AppDataGridSelectionConfig<RowModel> | undefined",
+          "name": "errorMessage",
+          "type": "string | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
@@ -16958,15 +17028,15 @@
           "description": "Host-controlled pending presentation."
         },
         {
-          "name": "errorMessage",
-          "type": "string | undefined",
+          "name": "selection",
+          "type": "boolean | AppDataGridSelectionConfig<LearnerClass> | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "selection",
-          "type": "boolean | AppDataGridSelectionConfig<LearnerClass> | undefined",
+          "name": "errorMessage",
+          "type": "string | undefined",
           "required": false,
           "default": "—",
           "description": "See the type and source-backed examples for this option."

@@ -37,3 +37,12 @@ it.each([['disabled',false],['readOnly',false],['disabled',true],['readOnly',tru
  expect(change).toHaveBeenCalledExactlyOnceWith(null);
  expect(accepted()).toBe(controlled?original:'');
 });
+it('renders inline without an overlay, retains selection form ownership and cancels draft edits',async()=>{
+ const user=userEvent.setup(),change=vi.fn(),cancel=vi.fn();const {container}=render(<form><PeriodPicker label="Inline month" display="inline" unit="month" referenceDate="2026-10-16" name="period" onValueChange={change} onCancel={cancel}/></form>);
+ expect(screen.queryByRole('dialog')).toBeNull();
+ await user.click(screen.getByRole('button',{name:'November',exact:true}));expect(change).not.toHaveBeenCalled();
+ await user.click(screen.getByRole('button',{name:'Apply',exact:true}));expect(change).toHaveBeenCalledExactlyOnceWith({start:'2026-11-01',end:'2026-11-30'});
+ expect(new FormData(container.querySelector('form')!).get('period.start')).toBe('2026-11-01');
+ await user.click(screen.getByRole('button',{name:'December',exact:true}));await user.click(screen.getByRole('button',{name:'Cancel',exact:true}));
+ expect(cancel).toHaveBeenCalledOnce();expect(change).toHaveBeenCalledTimes(1);expect(new FormData(container.querySelector('form')!).get('period.start')).toBe('2026-11-01');
+});

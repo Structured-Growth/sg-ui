@@ -13,6 +13,8 @@
   .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) > .calendarBody { flex: 1 1 var(--calendar-body-width); max-inline-size: 100%; }
   .calendar { display: flex; flex-direction: column; gap: var(--sgui-space2); }
   .actions, .presets { display: flex; align-items: center; gap: var(--sgui-space2); flex-wrap: wrap; }
+  .periodViewport { position: relative; }
+  .periodContents { position: absolute; inset: 0; overflow: auto; overscroll-behavior: contain; }
   .monthHeader { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; min-block-size: var(--calendar-day-size); gap: var(--sgui-space1); }
   .monthHeader:has(.monthSelectors) { align-items: end; }
   .monthHeading { grid-column: 1; grid-row: 1; text-align: start; }

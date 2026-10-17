@@ -21,12 +21,15 @@ export interface DatePickerProps extends DateFieldProps {
   presentation?: "popover" | "dialog" | "drawer" | "auto";
   getDateUnavailableReason?: CalendarProps["getDateUnavailableReason"];
   renderDayContent?: CalendarProps["renderDayContent"];
+  /** Defaults period: the heading opens a month/year PeriodPicker. Arrows disables the chooser; month-year uses direct selects. */
   navigation?: CalendarProps["navigation"];
+  /** Forwarded month/year chooser options. min/max and availability always inherit from this DatePicker; explicit year bounds may narrow them. */
+  periodPickerProps?: CalendarProps["periodPickerProps"];
   visibleYears?: number;
   unavailable?: readonly DateAvailability[];
   defaultFocusedDate?: string;
 }
-export function DatePicker({ value, defaultValue = null, onValueChange, unavailable, defaultFocusedDate, showTitle = false, entryMode = "text", kind = "date", hourCycle, navigation, visibleYears, presentation="popover", getDateUnavailableReason, renderDayContent, ...props }: DatePickerProps) {
+export function DatePicker({ value, defaultValue = null, onValueChange, unavailable, defaultFocusedDate, showTitle = false, entryMode = "text", kind = "date", hourCycle, navigation, periodPickerProps, visibleYears, presentation="popover", getDateUnavailableReason, renderDayContent, ...props }: DatePickerProps) {
   const { t } = useTranslation();
   const [internal, setInternal] = useState(defaultValue);
   const selected = value === undefined ? internal : value;
@@ -59,7 +62,7 @@ export function DatePicker({ value, defaultValue = null, onValueChange, unavaila
       aria-label={t("common.ui.chooseDate", { defaultMessage: "Choose {label}", values: { label: props.label } })}><CalendarTodayIcon size={16} /></Button>}>
       <div className={styles.calendar}><Calendar getDateUnavailableReason={getDateUnavailableReason} renderDayContent={renderDayContent} label={props.label} value={datetime ? draftDate : selected} onValueChange={date => {
         if (datetime) setDraftDate(date); else { change(date); setOpen(false); }
-      }} navigation={navigation} visibleYears={visibleYears} disabled={props.disabled} readOnly={props.readOnly}
+      }} navigation={navigation} periodPickerProps={{descriptionPlacement:props.descriptionPlacement,errorPlacement:props.errorPlacement,...periodPickerProps}} visibleYears={visibleYears} disabled={props.disabled} readOnly={props.readOnly}
         min={props.min?.slice(0,10)} max={props.max?.slice(0,10)} unavailable={unavailable} defaultFocusedDate={selected?.slice(0,10) ?? defaultFocusedDate} /></div>
       {datetime && <div className={styles.time}>
         <TimeField descriptionPlacement={props.descriptionPlacement} errorPlacement={props.errorPlacement} label={t("common.ui.time", {defaultMessage:"Time"})} value={draftTime} onValueChange={setDraftTime} onValidityChange={setTimeValid}

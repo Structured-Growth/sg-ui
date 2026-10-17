@@ -790,6 +790,10 @@
           "slug": "date-range-selector"
         },
         {
+          "name": "KeyboardArrowDownIcon",
+          "slug": "icons"
+        },
+        {
           "name": "Popover",
           "slug": "popover"
         },
@@ -1041,6 +1045,10 @@
         {
           "name": "Button",
           "slug": "button"
+        },
+        {
+          "name": "PeriodPicker",
+          "slug": "period-picker"
         },
         {
           "name": "Select",

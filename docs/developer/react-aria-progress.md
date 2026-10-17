@@ -2250,3 +2250,49 @@ its `scrollbar-width: thin` assertion (received `none`); it is retained as an
 unclosed cross-engine follow-up, not counted as a passing baseline or resolved
 by weakening the assertion. The default docs suite runs that existing test in
 Chromium. These targeted results do not close broader acceptance gates.
+
+## 2026-10-17 — In-place DatePicker month/year navigation
+
+Calendar and DatePicker now default to `navigation="period"`: the month/year
+heading replaces the day view with the shared PeriodPicker inline month/year
+buttons, inside the existing popup. `navigation="arrows"` retains the previous
+static heading, and `"month-year"` retains direct native dropdowns. Non-Gregorian
+calendars preserve their native heading/day navigation; their direct selectors
+remain available. Native locale and multiple-selection smoke evidence still passes.
+
+The mounted, inert/aria-hidden day layout reserves frame size. Year/month choices
+use buttons rather than nested popups; Apply navigates to the first eligible day
+and returns to days without committing the date, while Cancel/Escape returns
+without changing focus date/value. Heading focus is restored. Date/time actions
+are hidden while period navigation is active, retaining their layout space so
+there is only one visible Apply action and no change in popup dimensions.
+
+`periodPickerProps` forwards relevant year-entry, year-page-size, visible-year,
+year-bound and message-placement options. The calendar owns display, unit,
+purpose, labels, callbacks, disabled/read-only state and date restrictions.
+Additional chooser year bounds intersect inherited min/max and availability,
+and cannot broaden them; actual date validation remains the outer field's
+responsibility. Partial months remain navigable; completely blocked periods
+are disabled. Callback predicates retain single-date null endpoint/range context.
+
+PeriodPicker adds reusable inline display and navigation purpose while retaining
+popup/whole-period-selection defaults and native form semantics. Year pages
+default to 12 (16/24 configurable); text-year entry remains optional. Typed
+incomplete years stay invalid when choosing a month. Native serialization is
+absent in navigation mode and retained in inline selection mode.
+
+Updated public API/composition metadata, component guidance, prop playgrounds,
+compact/comfortable examples, birthday and date/time scenarios, and
+[calendar contracts](react-aria-calendar-contracts.md). Each Example owns state.
+
+Final targeted validation: **136 units / 23 files**, fresh library build,
+foundation/source graph guards, production docs build/catalog guards, docs
+typecheck and packed-package declarations/import/assets pass. **13 browser cases
+pass**: nine new cases across Chromium/Firefox/WebKit plus four affected existing
+Chromium birthday/date-time/range-navigation cases. Assertions cover exactly one
+popup, unchanged width/height across view changes, no default inline scrolling,
+availability/bounds, native values remaining uncommitted, cancellation and focus,
+year paging/leap-day selection, narrow fit, source compilation and existing
+date/time draft ownership. Compact and comfortable chooser screenshots were
+reviewed. Evidence: [results.json](final-acceptance/date-picker-inline-period-navigation/results.json).
+Broader device/AT/visual gates remain separate and unchanged.

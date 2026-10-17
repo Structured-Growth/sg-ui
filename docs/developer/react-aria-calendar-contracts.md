@@ -812,3 +812,50 @@ drafts cannot Apply or commit immediately. Fixed-length and whole-period selecti
 retain precedence. Bounds, length and whole-interval availability still validate
 the result; fields, presets, gestures, Cancel and host-controlled values retain
 their existing contracts. `DateRangePicker` forwards the same prop.
+
+## Month/year heading navigation (2026-10-17)
+
+Calendar and DatePicker default to `navigation="period"`. Activating the
+month/year heading replaces the days with the public PeriodPicker in
+`display="inline"`, `unit="month"`, `purpose="navigation"` mode. No second
+popup is created. Month and year choices are buttons; selecting the year heading
+shows paged year choices. Apply updates calendar focus, not its selected value;
+a later day activation commits the date. Cancel or Escape restores the day view
+and focuses its heading. The mounted day layout reserves the same frame size
+while it is inert, visually hidden and hidden from assistive technology. Unusually
+large content/text may scroll inside that frame rather than resize the popup.
+
+`navigation="arrows"` retains a static heading; `"month-year"` retains the direct
+month/year selects. Non-Gregorian calendars preserve their native heading and
+arrows; their existing native month/year controls remain available explicitly.
+Range-selector navigation retains its existing contract.
+
+`periodPickerProps` exposes relevant inline configuration: `yearEntry`,
+`yearsPerPage`, `visibleYears`, `minYear`, `maxYear`, `descriptionPlacement` and
+`errorPlacement`. Display, unit, purpose, dates, callbacks, labels and
+read-only/disabled state remain calendar-owned. min/max, unavailable records and
+the single-date availability callback always inherit from the containing
+calendar. Additional year bounds narrow chooser options only; DatePicker's
+actual input/day validation remains governed by its outer date restrictions.
+DatePicker forwards message placements unless chooser options override them.
+
+Navigation permits periods with any eligible day, including partial minimum/
+maximum months. Fully unavailable months/years are disabled. Apply focuses the
+first eligible date of the chosen month and leaves the selected value and native
+form data alone. Normal PeriodPicker `purpose="selection"` remains the default,
+requires the entire period, and retains form validation/serialization in popup
+or inline display. Navigation mode omits Clear and native form participation.
+
+`yearEntry` defaults to select for navigation, text for selection. Inline select
+uses year buttons, not another dropdown; popup display retains its dropdown.
+`yearsPerPage` defaults 12, with 16 and 24 supported. Two-sided year/date bounds
+supply all applicable years; otherwise visibleYears defaults to 120 around the
+anchor, clipped to supplied bounds and years 1–9999. Chooser visibleYears overrides
+the calendar setting. Availability predicates are synchronous and pure; offered
+years are evaluated only while the chooser is visible. Hidden headings do not
+enumerate year choices.
+
+```tsx
+<DatePicker label="Birthday" min="1900-01-01" max="2026-10-17"
+  periodPickerProps={{yearEntry:"select", yearsPerPage:24}} />
+```

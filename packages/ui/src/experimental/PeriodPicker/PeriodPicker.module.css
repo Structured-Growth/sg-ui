@@ -1,0 +1,8 @@
+@layer sgui.components {
+ .inline { display: flex; flex-direction: column; gap: var(--sgui-space1); min-inline-size: 0; }
+ .header { display: flex; align-items: center; gap: var(--sgui-space1); }
+ .header [aria-expanded="true"] svg { transform: rotate(180deg); }
+ .header > :first-child { margin-inline-end: auto; }
+ .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--sgui-space1); }
+ .grid > button { min-inline-size: 0; padding-inline: var(--sgui-space1); }
+}
