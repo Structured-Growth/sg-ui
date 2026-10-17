@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 65,
-  "closedTotal": 246,
-  "remaining": 74,
+  "closedThisReview": 66,
+  "closedTotal": 247,
+  "remaining": 73,
   "entries": [
     {
       "id": "A-M-21",
@@ -578,6 +578,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-actual-browser-zoom-closures.json",
       "sha256": "2372349eac9277f4777823fffa61232eba72c672e5ca5165f9ef30a5d6dddc65",
       "limits": "Actual page zoom measured in isolated bundled Chromium only; existing Firefox/WebKit evidence covers resize/text spacing, not browser page zoom. No physical-device or spoken-AT claim. All diagnostic failures remain retained."
+    },
+    {
+      "id": "A-X-01",
+      "basis": "The identified implementation-mirroring Lexical numeric-flag assertions were replaced with exact rendered bold/italic selection scope, unchanged suffix/fulltext and focus/callback behavior. Real Lexical/toolbar/Button/Provider remain mounted. Synthetic Range/focus instrumentation is explicitly jsdom characterization; actual native18selection-boundary regressions cover keyboard access/formatting/resize/offscreen/hostreplacement without those mocks. No originalcriterion demands an exhaustive rereview of every unrelated unit after this bounded correction.",
+      "criterion": "- [ ] A-X-01 Reconcile original `X-01`: Replace implementation-mirroring tests with behavior tests where needed; avoid mocks that hide the very focus/keyboard behavior under migration. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/10-behavior-test-review.json",
+      "sha256": "a28f1310e6a6d4ee290efa004e396db455ae70d35c6b88cf2016fd353c94e217",
+      "limits": "Does not reclassify mocked geometry as native, certify every test, or close X02-X18specific matrices. Existing characterization instrumentation stays explicit."
     }
   ],
   "limits": [

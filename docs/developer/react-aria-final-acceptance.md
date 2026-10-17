@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 246/320 A leaves closed; 74 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 247/320 A leaves closed; 73 A, 0 editor V review leaves and six future leaves remain.**
+
+### Behavior-test acceptance review — 2026-10-17
+
+Closed A-X-01 after verifying the retained source and evidence hashes: toolbar formatting assertions check the exact rendered selected-word scope, unchanged suffix and focus/callback behavior. The retained 18 native selection-boundary executions supply browser evidence beyond explicitly labeled DOM-emulation geometry. Broader keyboard, manual AT and environment matrices remain independent.
+Wave 04 now closes 66 of 139 items; 73 remain.
 
 ### Wave 04 actual browser zoom and focus visibility — 2026-10-17
 
