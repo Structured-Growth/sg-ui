@@ -792,3 +792,23 @@ not expand the supported textbox grammar to combined datetime or segmented field
 The clean default omits endpoint fields and month/year dropdowns (`showFields=false`, `navigation="arrows"`). Both densities reduce day-cell width and height; touch mode retains the owned minimum 44px target. A 12rem minimum month width accommodates a single-line month heading and two text navigation buttons. With fields hidden, inline width follows the visible months rather than reserving 23rem for textboxes. Optional fields retain their usable width, and very constrained/enlarged-text hosts retain local scrolling instead of clipping dates or shrinking touch targets.
 
 Paged grids slide on visible-month changes, including keyboard navigation and direct month/year jumps. A private presentation helper snapshots only the outgoing grid, removes its IDs/form names/tab stops, and marks it inert/aria-hidden. The live grid is never remounted for animation. Previous animations are canceled on rapid navigation/unmount; OS reduced-motion changes immediately remove the outgoing copy. The owned motion-duration token controls timing; RTL reverses the horizontal slide. Vertical month browsing remains a separate explicit layout without this paged slide.
+
+### Endpoint intent per independent calendar
+
+Navigation and endpoint intent are separate. `calendarNavigation="independent"`
+alone keeps shared range-click behavior. Add `calendarEndpoints={["start", "end"]}`
+with `months={2}` to make the first calendar a From editor and the second a To
+editor. The mapping is indexed by rendered calendar, not the month it displays;
+navigation never changes its role. Missing/null entries use `rangeClickBehavior`.
+Linked calendars and the scrolling browser ignore this optional mapping.
+
+Assigned calendar activations override the shared click policy and global
+`activeEndpoint`, report `onActiveEndpointChange`, and evaluate date availability
+with their assigned endpoint. With 7th–16th selected, From→9th gives 9th–16th;
+To→13th gives 7th–13th. Crossing the opposite endpoint clears only that opposite
+date: From→20th gives start=20th/end=empty; To→5th gives start=empty/end=5th.
+Either endpoint may be entered first; equal endpoints select one day. Incomplete
+drafts cannot Apply or commit immediately. Fixed-length and whole-period selection
+retain precedence. Bounds, length and whole-interval availability still validate
+the result; fields, presets, gestures, Cancel and host-controlled values retain
+their existing contracts. `DateRangePicker` forwards the same prop.

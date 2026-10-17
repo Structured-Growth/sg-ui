@@ -2169,3 +2169,10 @@ Completed the requested calendar layout update: tighter pointer cells in both de
 ## Presets opt-in in default date examples — 2026-10-16
 
 Corrected the docs-owned default that injected presets into date-range overviews, playgrounds, density and form examples. Show presets now starts off; explicit preset examples and the playground option remain available. The library already defaults to an empty preset list. Production docs build/catalog checks and four focused browser checks pass, covering both inline/dropdown defaults, opt-in choices/source/isolation and desktop/narrow overview sizing. [Receipt](final-acceptance/calendar-compact-layout/preset-defaults.json). Existing acceptance counts remain unchanged.
+
+
+## Independent calendar endpoint assignment — 2026-10-16
+
+Added optional `calendarEndpoints` index mapping for independent paged range calendars. The From/To reference examples now use `["start", "end"]`, and the range playgrounds expose an assignment option. Assigned calendars edit their endpoint and evaluate its restrictions; either endpoint can be entered first, crossing clears only the opposite endpoint, and incomplete drafts cannot commit. Shared/unassigned, linked and scrolling behavior remains covered. Updated public prop declarations, usage guidance and copied source.
+
+[Receipts](final-acceptance/calendar-independent-endpoints/results.json): 89 affected tests / 15 files pass; fresh library/foundation/production docs/catalog/native fixture/browser-type checks pass; six native docs cases pass across Chromium/Firefox/WebKit for inline and dropdown From/To selection, keyboard/pointer input, navigation, Apply/Cancel and compiled source. Existing 139 A / 20 V / 6 future acceptance counts remain unchanged.

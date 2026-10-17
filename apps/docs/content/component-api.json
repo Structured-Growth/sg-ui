@@ -12231,6 +12231,13 @@
           "description": "Linked months advance together; independent months have separate navigation and may be nonconsecutive."
         },
         {
+          "name": "calendarEndpoints",
+          "type": "readonly (\"start\" | \"end\" | null)[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Assign endpoint intent by calendar index, e.g. [\"start\", \"end\"] for From/To.\nApplies only to independent, paged calendars. Omitted/null entries retain\nrangeClickBehavior; linked and scrolling calendars ignore this mapping.\nAn assigned calendar edits its endpoint and preserves the other endpoint.\nCrossing the other endpoint clears that opposite endpoint; equality selects\none day. Either endpoint can be entered first. Incomplete drafts cannot Apply.\nAssignment overrides rangeClickBehavior/activeEndpoint for those calendar\nactivations and availability checks, and reports onActiveEndpointChange.\nFixed length and whole-period selection retain precedence. Text, presets,\ndragging, validation and Apply/Cancel retain their existing contracts."
+        },
+        {
           "name": "calendarLayout",
           "type": "\"scroll\" | \"paged\" | undefined",
           "required": false,
@@ -12437,6 +12444,13 @@
           "required": false,
           "default": "\"linked\"",
           "description": "Linked months advance together; independent months have separate navigation and may be nonconsecutive."
+        },
+        {
+          "name": "calendarEndpoints",
+          "type": "readonly (\"start\" | \"end\" | null)[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Assign endpoint intent by calendar index, e.g. [\"start\", \"end\"] for From/To.\nApplies only to independent, paged calendars. Omitted/null entries retain\nrangeClickBehavior; linked and scrolling calendars ignore this mapping.\nAn assigned calendar edits its endpoint and preserves the other endpoint.\nCrossing the other endpoint clears that opposite endpoint; equality selects\none day. Either endpoint can be entered first. Incomplete drafts cannot Apply.\nAssignment overrides rangeClickBehavior/activeEndpoint for those calendar\nactivations and availability checks, and reports onActiveEndpointChange.\nFixed length and whole-period selection retain precedence. Text, presets,\ndragging, validation and Apply/Cancel retain their existing contracts."
         },
         {
           "name": "calendarLayout",

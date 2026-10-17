@@ -76,6 +76,19 @@ export interface DateRangeSelectorProps {
   renderDayContent?: (date: DateOnly) => ReactNode;
   /** Linked months advance together; independent months have separate navigation and may be nonconsecutive. */
   calendarNavigation?: "linked" | "independent";
+  /**
+   * Assign endpoint intent by calendar index, e.g. ["start", "end"] for From/To.
+   * Applies only to independent, paged calendars. Omitted/null entries retain
+   * rangeClickBehavior; linked and scrolling calendars ignore this mapping.
+   * An assigned calendar edits its endpoint and preserves the other endpoint.
+   * Crossing the other endpoint clears that opposite endpoint; equality selects
+   * one day. Either endpoint can be entered first. Incomplete drafts cannot Apply.
+   * Assignment overrides rangeClickBehavior/activeEndpoint for those calendar
+   * activations and availability checks, and reports onActiveEndpointChange.
+   * Fixed length and whole-period selection retain precedence. Text, presets,
+   * dragging, validation and Apply/Cancel retain their existing contracts.
+   */
+  calendarEndpoints?: readonly ("start" | "end" | null)[];
   /** Paged months or a vertical scrolling month browser. Scrolling uses scrollMonths consecutive months. */
   calendarLayout?: "paged" | "scroll";
   /** Number of months in the scrolling browser, 1–120. Default 12. */
@@ -106,7 +119,7 @@ export interface DateRangeSelectorProps {
   name?: string;
 }
 
-export function DateRangeSelector({ label, showTitle = false, navigation = "arrows", visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
+export function DateRangeSelector({ label, showTitle = false, navigation = "arrows", visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets:basePresets = [], presetGroups = [], presetPlacement = "side", months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
   const { locale, direction } = useLocale();
@@ -153,6 +166,12 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
   const pointerIdRef = useRef<number|null>(null);
   const programmaticAnchor=useRef<string|null>(null);
   const pointerDate = useRef<DateOnly | null>(null);
+  const activationEndpoint = useRef<"start" | "end" | undefined>(undefined);
+  const calendarEndpoint = (index: number) => calendarNavigation === "independent" && calendarLayout === "paged" ? calendarEndpoints?.[index] ?? undefined : undefined;
+  const rememberCalendar = (target: EventTarget) => {
+    const intent = (target as Element).closest("[data-calendar-endpoint]")?.getAttribute("data-calendar-endpoint");
+    activationEndpoint.current = intent === "start" || intent === "end" ? intent : undefined;
+  };
   useEffect(() => {
     const doc = root.current?.ownerDocument;
     const view = doc?.defaultView;
@@ -206,8 +225,8 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
   const draftPayloadValid = (!required || draft !== null) && validRange(draft);
   const allowed = startValid && endValid && draftPayloadValid;
   const selectionEndpoint=!draft?.start||rangeLength?.mode==='fixed'?'start':!draft.end?'end':rangeClickBehavior==='active-endpoint'?endpoint:rangeClickBehavior==='adjust-start'?'start':'end';
-  const awaitingEnd = Boolean(draft && isDateOnly(draft.start) && !draft.end);
-  const activateDate = useCallback((date: DateOnly) => {
+  const awaitingEnd = Boolean(draft && (isDateOnly(draft.start) && !draft.end || !draft.start && isDateOnly(draft.end)));
+  const activateDate = useCallback((date: DateOnly, assignedEndpoint = activationEndpoint.current) => {
     setInteractionError(false);
     // Boundary drag setup may expose the opposite endpoint as the native anchor.
     // A completed-range click uses the date actually pressed, including touch.
@@ -221,6 +240,15 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
     if(rangeLength?.mode==='fixed') {
       const next=fixedRangeFromStart(date,rangeLength);
       if(next)edit(next);else setInteractionError(true);
+      return true;
+    }
+    if (assignedEndpoint) {
+      setEndpoint(assignedEndpoint);
+      const next = assignedEndpoint === "start"
+        ? { start: date, end: draft?.end && date <= draft.end ? draft.end : "" }
+        : { start: draft?.start && date >= draft.start ? draft.start : "", end: date };
+      edit(next);
+      setResetRevision(revision => revision + 1);
       return true;
     }
     const complete = draft && isDateOnly(draft.start) && isDateOnly(draft.end) && draft.start <= draft.end;
@@ -247,18 +275,21 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
       edit(date<draft.start?{start:date,end:draft.start}:{start:draft.start,end:date});return true;
     }
     return false;
-  }, [draft, rangeClickBehavior, selectionUnit, firstDayOfWeek, endpoint, rangeLength, commitBehavior, value, onValueChange, min, max, unavailable, getDateUnavailableReason]);
+  }, [draft, rangeClickBehavior, selectionUnit, firstDayOfWeek, endpoint, activeEndpoint, onActiveEndpointChange, rangeLength, commitBehavior, value, onValueChange, min, max, unavailable, getDateUnavailableReason]);
   const displayRange=dragPreview??draft;
   const displayedRangeValid=dragPreview?validRange(dragPreview):draftPayloadValid;
-  const pendingDisplay=(calendarNavigation==='independent'||calendarLayout==='scroll')&&displayRange?.start&&!displayRange.end&&isDateOnly(displayRange.start)?{start:parseDate(displayRange.start),end:parseDate(displayRange.start)}:null;
+  const pendingDate = displayRange && (displayRange.start && !displayRange.end ? displayRange.start : !displayRange.start && displayRange.end ? displayRange.end : null);
+  const pendingDisplay=(calendarNavigation==='independent'||calendarLayout==='scroll')&&pendingDate&&isDateOnly(pendingDate)?{start:parseDate(pendingDate),end:parseDate(pendingDate)}:null;
   const calendarValue = displayRange && isDateOnly(displayRange.start) && isDateOnly(displayRange.end) && displayRange.start <= displayRange.end
     ? { start: parseDate(displayRange.start), end: parseDate(displayRange.end) } : pendingDisplay;
   return <div ref={root} onPointerDownCapture={event => {
+      rememberCalendar(event.target);
       if (pointerActiveRef.current || event.button !== 0) return;
       pointerIdRef.current = event.pointerId;
       pointerDate.current = (event.target as Element).closest("[data-sgui-date]")?.getAttribute("data-sgui-date") ?? null;
       pointerActiveRef.current = true; setPointerActive(true);
     }} onKeyDownCapture={event => {
+      rememberCalendar(event.target);
       pointerDate.current = null;
       if(calendarLayout!=='scroll'||event.altKey||event.shiftKey||event.ctrlKey||event.metaKey)return;
       const date=(event.target as Element).closest<HTMLElement>('[data-sgui-date]')?.dataset.sguiDate;
@@ -306,7 +337,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
       const baseMonth=toCalendar(seed&&isDateOnly(seed)?parseDate(seed):state.focusedDate,new GregorianCalendar());
       const remaining=(9999-baseMonth.year)*12+13-baseMonth.month;
       const count=Math.min(remaining,calendarLayout==='scroll'?Math.max(1,Math.min(120,Math.floor(scrollMonths)||12)):months);
-      const monthView=(index:number,offset=index)=><div key={index} className={styles.month}>
+      const monthView=(index:number,offset=index)=><div key={index} className={styles.month} data-calendar-endpoint={calendarEndpoint(index)}>
           <header className={styles.monthHeader}>
             {(index===months-1||calendarNavigation==='independent')&&calendarLayout!=='scroll'&&<Button className={styles.previous} slot="previous" variant="text" tone="neutral" aria-label={t("common.ui.previousMonth",{defaultMessage:"Previous month"})}>‹</Button>}
             {navigation==='month-year'&&(months===1||calendarNavigation==='independent')?<div className={styles.monthHeading}><CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/></div>:<CalendarHeading offset={{months:offset}} className={`${styles.heading} ${styles.monthHeading}`}/>}
@@ -314,7 +345,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
           </header>
           <RangeMonthMotion enabled={calendarLayout==='paged'}><div className={styles.gridViewport}><CalendarGrid offset={{months:offset}} weekdayStyle="short" className={`${styles.grid} ${styles.rangeGrid}`}>
             <CalendarGridHeader>{day=><CalendarHeaderCell className={styles.weekday} data-narrow-label={narrowWeekdays.get(day)??day}><span className={styles.weekdayLabel}>{day}</span></CalendarHeaderCell>}</CalendarGridHeader>
-            <CalendarGridBody>{date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();const reason=unavailable.find(day=>day.date===iso)?.reason??getDateUnavailableReason?.(iso,{range:draft,endpoint:selectionEndpoint});return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${iso}-${index}`} previewIds={state.anchorDate&&state.isFocused&&state.focusedDate.compare(date)===0?[previewId,previewContextId]:[]} content={renderDayContent?.(iso)} rangeValid={displayedRangeValid} inRange={Boolean(displayRange?.start&&displayRange?.end&&iso>=displayRange.start&&iso<=displayRange.end)} start={displayRange?.start===iso} end={displayRange?.end===iso}/>;}}</CalendarGridBody>
+            <CalendarGridBody>{date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();const reason=unavailable.find(day=>day.date===iso)?.reason??getDateUnavailableReason?.(iso,{range:draft,endpoint:calendarEndpoint(index)??selectionEndpoint});return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${iso}-${index}`} previewIds={state.anchorDate&&state.isFocused&&state.focusedDate.compare(date)===0?[previewId,previewContextId]:[]} content={renderDayContent?.(iso)} rangeValid={displayedRangeValid} inRange={Boolean(displayRange?.start&&displayRange?.end&&iso>=displayRange.start&&iso<=displayRange.end)} start={displayRange?.start===iso} end={displayRange?.end===iso}/>;}}</CalendarGridBody>
           </CalendarGrid></div></RangeMonthMotion>
         </div>;
       return <RangeGestures resetKey={`${committed?.start}/${committed?.end}/${resetRevision}`} value={calendarValue&&draft?.end?{start:calendarValue.start.toString(),end:calendarValue.end.toString()}:null} behavior={rangeDragBehavior} length={rangeLength} disabled={disabled||readOnly} onActivate={activateDate} onEdit={edit} onPreview={setDragPreview} isAllowed={validRange} onInvalid={()=>setInteractionError(true)} onRestart={date=>{programmaticAnchor.current=date;}}>
@@ -346,12 +377,12 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
       </div></ButtonContext.Provider>}
       <div data-calendar-layout={calendarLayout} className={calendarLayout==='scroll'?styles.scrollingMonths:styles.months}>
       {Array.from({length:count},(_,index)=>calendarNavigation==='independent'||calendarLayout==='scroll'?
-        <RangeCalendar key={calendarLayout==='scroll'?`${baseMonth.toString()}-${index}`:index} aria-label={t("common.ui.rangeMonth",{defaultMessage:"{label}, calendar {number}",values:{label,number:index+1}})} value={calendarValue}
+        <RangeCalendar key={calendarLayout==='scroll'?`${baseMonth.toString()}-${index}`:index} aria-label={t("common.ui.rangeMonth",{defaultMessage:"{label}, calendar {number}",values:{label:calendarEndpoint(index)?`${label}, ${t(calendarEndpoint(index)==='start'?"common.ui.startDate":"common.ui.endDate",{defaultMessage:calendarEndpoint(index)==='start'?"Start date":"End date"})}`:label,number:index+1}})} value={calendarValue}
           defaultFocusedValue={baseMonth.add({months:index})} visibleDuration={{months:1}} minValue={min&&isDateOnly(min)?parseDate(min):undefined} maxValue={max&&isDateOnly(max)?parseDate(max):undefined}
           firstDayOfWeek={firstDayOfWeek} isDisabled={disabled} isReadOnly={readOnly} commitBehavior="reset"
-          isDateUnavailable={date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();return unavailable.some(day=>day.date===iso)||Boolean(getDateUnavailableReason?.(iso,{range:draft,endpoint:selectionEndpoint}));}}
+          isDateUnavailable={date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();return unavailable.some(day=>day.date===iso)||Boolean(getDateUnavailableReason?.(iso,{range:draft,endpoint:calendarEndpoint(index)??selectionEndpoint}));}}
           onChange={range=>edit(range?{start:range.start.toString(),end:range.end.toString()}:null)}>
-          <ResetCalendarAnchor start={committed?.start} end={committed?.end} resetRevision={resetRevision}/><SelectionBehaviorBridge pointerActive={pointerActive} skipAnchor={programmaticAnchor} onActivate={activateDate}/>{monthView(index,0)}
+          <ResetCalendarAnchor start={committed?.start} end={committed?.end} resetRevision={resetRevision}/><SelectionBehaviorBridge pointerActive={pointerActive} skipAnchor={programmaticAnchor} onActivate={date=>activateDate(date,calendarEndpoint(index))}/>{monthView(index,0)}
         </RangeCalendar>:monthView(index))}
       </div>
     {focusedReason && <p className={styles.summary} role="status" data-sgui-part="date-availability">{focusedDate}: {focusedReason}</p>}
