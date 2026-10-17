@@ -79,6 +79,37 @@ custom sizes; use pageSizeOptions for a host policy. See
 [pagination and storage](react-aria-pagination-state.md) and
 [grid migration](react-aria-catalog-grid.md) for copyable controlled examples.
 
+## Calendar and field-placement changes since the saved snapshot
+
+Calendar, DatePicker and the range controls now default to `navigation="period"`:
+month/year heading buttons open immediate in-place choices. Pass
+`navigation="arrows"` to retain static headings, or `"month-year"` for direct
+selects. `allowMonthSelection` and `allowYearSelection` default true; these control
+heading affordances, while min/max and availability control selectable dates.
+
+Calendar and range controls default to independent multi-month navigation. Pass
+`calendarNavigation="linked"` for consecutive views moving together. Range endpoint
+assignment (`calendarEndpoints`) is separate and applies to independent paged views.
+DateRangeSelector now omits endpoint fields: set `showFields` explicitly to retain
+the saved snapshot's inline fields. DateRangePicker already omitted them.
+
+DateRangeSelector and DateRangePicker now default `rangeClickBehavior` to
+`"adjust-nearest"`, editing the closest civil-day endpoint of a complete range.
+Equal distances use `nearestEndpointTieBreak="end"`. Use
+`rangeClickBehavior="adjust-end"` for the saved snapshot's endpoint policy.
+Navigation never commits dates; retain the control's Apply/Cancel and availability
+rules. These changed omitted behaviors need release review even though the new
+union members and optional configuration props are additive.
+
+Supported fields inherit message placement from `FormFieldScope`: description
+above the control, after its separate label, and validation below at the root.
+Individual descriptionPlacement/errorPlacement settings win over scope values.
+Switch, SearchField and AsyncMultiSelect expose descriptionPlacement only.
+FormFieldScope renders no DOM or native form and does not own values, validation
+or IDs. Use explicit placement to retain a previous host layout. See the
+[focused follow-up](react-aria-public-contract-acceptance.md) for naming, scope,
+installed-declaration proof and remaining historical/release evidence.
+
 ## Release review
 
 Removed upstream types/style props, changed callback arity and changed omitted

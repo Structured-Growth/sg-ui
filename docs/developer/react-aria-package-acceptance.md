@@ -88,3 +88,31 @@ modified `dev` checkout, package metadata, runtime/declaration export names and
 direct icon modules. Its fresh package audit imports declared routes, typechecks
 the existing consumer fixture and verifies packed bytes against the current build.
 It does not close the remaining editor presentation or broad release gates.
+
+
+## Reviewed immutable-consumer execution
+
+After the coordinator has frozen a reviewed tarball, the integrated-script launcher
+runs the existing five scopes serially and retains their independent installed
+fixtures, commands, stdout/stderr, installed graphs, browser artifacts and hashes:
+
+```sh
+node packages/ui/scripts/run-acceptance-consumers.mjs \
+  --tarball /absolute/reviewed-candidate.tgz \
+  --expected-sha256 REVIEWED_64_CHARACTER_SHA256 \
+  --output /absolute/new-consumer-evidence --browser
+```
+
+Use the existing validation lease and supported Node22.12/24 window. The launcher
+checks the reviewed hash before any consumer install, copies the current integrated
+scripts and existing assertions, and does not build/pack shared library output.
+The driver-only tool symlink does not replace independent tarball installations.
+Existing output paths are rejected. `--only foundation18,foundation19` (or editor18,
+editor19,next19) supports bounded continuations; keep original failed receipts.
+Next always executes browsers; Vite hydration requires `--browser`. The reviewed wave-04 current-candidate matrix passed all five scopes and their
+three-engine hydration flows against tarball SHA-256
+`4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959`.
+The receipt is `packages/ui/artifacts/wave04-current-consumers/matrix.json`;
+installed declaration checks separately passed both React generations with
+`skipLibCheck` enabled and disabled. This evidence does not
+supply owner package-split decisions, CI/release approval, or new support promises.

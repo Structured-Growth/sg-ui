@@ -1,0 +1,127 @@
+# Public contract acceptance follow-up
+
+This supplements [public contracts](react-aria-public-contracts.md),
+[names and composition](react-aria-public-composition-contracts.md) and
+[runtime evidence](react-aria-runtime-ci.md). It records a bounded source review;
+it does not announce a broader TypeScript support range or close native/AT gates.
+
+## Custom Dialog headers
+
+`Dialog.header` replaces the generated heading and description content. Providing
+`title` alongside a custom header does not render that title or automatically name
+the dialog. Supply a nonempty `aria-label` explicitly, or include a correctly
+associated accessible heading in the custom header. The simplest explicit contract:
+
+```tsx
+import { Typography } from '@structured-growth/sg-ui';
+import { Dialog } from '@structured-growth/sg-ui/experimental';
+
+export function CourseDialog({ open, onDismiss }: {
+  open: boolean;
+  onDismiss: (reason: 'escape' | 'outside' | 'close-button' | 'dismiss') => void;
+}) {
+  return <Dialog open={open} aria-label="Edit course" onDismiss={onDismiss}
+    header={<Typography as="h2" variant="h2">Edit course</Typography>}>
+    Course form supplied by the host
+  </Dialog>;
+}
+```
+
+Load the public stylesheet and provide the application scope as described in
+installation guidance. Custom header content owns description associations too:
+the default description ID is attached only when the generated header is used.
+A Tooltip or root class cannot repair a missing name. The string type prevents
+omission only where required; it cannot prove nonempty translated text or speech.
+
+## Scope and field defaults
+
+ThemeScope inherits omitted theme/density/interactionMode/direction/language from
+its parent; its root defaults are light/comfortable/auto. Only `--sgui-*` variables
+from its style enter overlay context. Ordinary layout style remains local. Overlay
+visual direction uses explicit scope direction, then interaction-locale direction.
+These are conditional composition defaults, not five independent literal defaults.
+
+Checkbox standalone state starts false when defaultChecked is omitted. Native reset
+uses the latest default for uncontrolled standalone state. `slot="selection"`
+delegates ownership to the collection; do not apply standalone reset semantics to
+it. Its ref is the label; use the label's native `control` for input focus/validity.
+
+TextField uncontrolled state starts empty and an uncanceled reset restores the
+latest default. Explicit empty strings remain controlled values. Its preserved
+native error is used only when errorMessage is nullish; an explicit empty host
+errorMessage suppresses that saved text. This precedence is distinct from validity
+and should not be generalized to date/time fields.
+
+## Installed declaration proof
+
+`packages/ui/scripts/acceptance-installed-types.mjs` reads an existing isolated
+foundation consumer produced by the immutable wave-03-32 matrix. It does not install,
+pack, rebuild or mutate that fixture. Run it serially with supported Node22/24:
+
+```sh
+node packages/ui/scripts/acceptance-installed-types.mjs \
+  --fixture /absolute/retained-foundation-consumer \
+  --output /absolute/new-types-evidence
+```
+
+It compiles the existing positive and expected-negative consumer plus the colocated
+public-contract-consumer.tsx fixture twice, with
+skipLibCheck true and false. It then masks only expect-error comment bytes in
+memory and requires a diagnostic in each following statement; the original source
+and offsets remain intact. This checks that negative assertions reject real invalid
+API usage, rather than silently passing through an any-valued declaration. The
+receipt retains exact compiler entry, React/type versions, fixture and installed
+declaration hashes and all diagnostics. A failure is preserved and fails the proof;
+never add skipLibCheck or weaken an assertion to turn it green.
+
+`--compilers` accepts comma-separated existing TypeScript package directories for
+an explicitly chosen matrix. No versions are downloaded and a passing pinned
+version does not define a new supported range. Run both independently installed
+React18 and React19 fixtures against the same frozen tarball. Keep their artifact
+identity/install records from the matrix; type receipts do not replace CSS/module
+retention, SSR, Flight or browser hydration evidence.
+
+## Historical contract and release boundary
+
+The initial extraction lock resolves material/icons7.3.11, data-grid8.29.3,
+emotion-react11.14.0 and emotion-styled11.14.1. Their inherited declaration closure
+is still missing from the saved baseline. Recover those exact integrity-bound
+archives and transitive type dependencies in an isolated evidence location before
+claiming every former styling prop is mapped. Do not substitute current upstream
+APIs, infer props from component names, or treat the five wrapper styling rows as
+the complete inherited surface.
+
+Use the existing nineteen breaking-map dispositions and twelve absent-symbol
+mappings as starting evidence. For each additional inherited key/default, record
+retained/replaced/removed, the precise consumer migration, and the release-range
+commit responsible. Release history and owner approval remain external inputs.
+The initial extraction is not proof of publication. A release-worthy incompatible
+change to an existing published contract requires a real `!` or `BREAKING CHANGE:`
+marker in the analyzed integration range; a proposed title is not such evidence.
+Semantic-release calculates versions. Production approval, final validation and
+promotion remain separate requirements.
+
+## Resolved inventory and migration gate
+
+Generate the complete current public declaration inventory without emitting code:
+
+```sh
+node packages/ui/scripts/public-contract-inventory.mjs \
+  --package packages/ui --output /absolute/new-public-inventory
+node packages/ui/scripts/verify-contract-migrations.mjs \
+  --inventory /absolute/new-public-inventory/public-contracts.json \
+  --repo . --output /absolute/new-migration-receipt.json
+```
+
+The generator expands wildcard exports, resolves aliases and inherited native
+properties, and records generic parameters, union alternatives, callback signatures,
+ref properties and deprecated tags. Top-level any/unknown fails the command and is
+retained as an issue. The generated declaration manifest hashes every current type
+file; optional props remain separate from source-backed runtime defaults.
+
+The migration gate requires all absent baseline names to have existing public
+replacement exports and a consumer guide. It also checks the five recorded changed
+default bindings against exact source hashes and current declared props. Its map is
+bounded: historical upstream inherited props and final release-range markers still
+require their separate evidence. Source changes invalidate the relevant default
+row until reviewed. The gate neither publishes nor changes library versions.
