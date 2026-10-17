@@ -87,7 +87,8 @@
     "how": [
       "For local panels, provide value, onChange, and items with stable IDs and content. The host accepts the requested ID and keeps the selected panel state.",
       "For route navigation, provide href on items and omit onChange. Supply the active value from the host route and connect navigation through SGNavigationProvider when needed.",
-      "Give the tab set a meaningful label, choose automatic or manual activation, and use disabled items for sections that cannot be entered. Set density locally for the composition."
+      "Give the tab set a meaningful label, choose automatic or manual activation, and use disabled items for sections that cannot be entered. Set density locally for the composition.",
+      "The selected-tab line animates to the new position and size using the owned motion-duration token. Horizontal and vertical Tabs share the behavior; manual keyboard focus leaves the line on the active tab until activation. The panel changes immediately. Initial placement, scrolling and resize tracking snap to keep the line aligned, and prefers-reduced-motion disables sliding. Forced colors keep a visible Highlight indicator. AppPageTabs shares the indicator for controlled panels and host route navigation; route animation requires the strip to remain mounted across value changes."
     ],
     "related": [
       {

@@ -1745,7 +1745,7 @@ function TabsMatrixExample({orientation, density, activation = 'automatic'}: {
 
   </Stack>
 </ThemeScope>`;
-  return <Example title={title} density={density} description={activation === 'manual' ? 'Move focus with arrows, then activate the desired tab. Selection belongs only to this panel.' : 'Arrow-key focus and panel selection move together; the archived tab is unavailable.'}
+  return <Example title={title} density={density} description={activation === 'manual' ? 'Move focus with arrows, then activate the desired tab. The indicator slides on activation; focus alone does not move it. Reduced motion removes sliding.' : 'Arrow-key focus and panel selection move together. The indicator slides to the selected tab; reduced motion removes sliding. The archived tab is unavailable.'}
     source={source({name:'TabsMatrix',imports:["import { Tabs, Stack, Typography } from '@structured-growth/sg-ui/experimental';"],state:`  const [selected, setSelected] = useState(${literal(selected)});`,body})}>
     <Stack gap={3}><Tabs label={title} orientation={orientation} activation={activation} value={selected} onValueChange={setSelected} items={[
       {id:'overview',label:'Course overview',content:<Typography>Explore learning objectives and course details.</Typography>},

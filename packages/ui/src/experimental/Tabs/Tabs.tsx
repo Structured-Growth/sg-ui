@@ -1,6 +1,7 @@
 "use client";
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Tabs as AriaTabs, TabList, Tab, TabPanel } from "react-aria-components/Tabs";
+import {TabIndicator} from "./TabIndicator";
 import { scrollTabIntoView } from "./scrollTabIntoView";
 import {Menu} from "../Menu/Menu";
 import {IconButton} from "../IconButton/IconButton";
@@ -83,6 +84,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
           items={hidden.map(item=>({id:item.id,label:item.label,icon:item.icon,disabled:item.disabled}))}
           onAction={id=>{pendingFocus.current=id;select(id);setMenuOpen(false);}} placement="bottom end"/>
       </div>}
+      <TabIndicator container={strip} value={selected} orientation={orientation} revision={visibleKey+JSON.stringify(items.map(item=>[item.id,item.label]))}/>
     </div>
     {items.map(item => <TabPanel key={item.id} id={item.id} className={styles.panel}>{item.content}</TabPanel>)}
   </AriaTabs>;

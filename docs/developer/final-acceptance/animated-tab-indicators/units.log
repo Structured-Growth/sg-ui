@@ -1,0 +1,19 @@
+
+> @structured-growth/sg-ui@0.0.0-development test /Users/thomashall/Repositories/sg-ui/packages/ui
+> vitest run src/experimental/Tabs src/components/AppPageTabs
+
+
+ RUN  v4.1.11 /Users/thomashall/Repositories/sg-ui/packages/ui
+
+Error: Not implemented: navigation (except hash changes)
+    at module.exports (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+    at navigateFetch (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:77:3)
+    at exports.navigate (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/window/navigation.js:55:3)
+    at Timeout._onTimeout (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/jsdom@26.1.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLHyperlinkElementUtils-impl.js:80:7)
+    at listOnTimeout (node:internal/timers:685:17)
+    at processTimers (node:internal/timers:618:7) undefined
+
+ Test Files  5 passed (5)
+      Tests  21 passed (21)
+   Start at  12:20:00
+   Duration  1.17s (transform 369ms, setup 39ms, import 1.52s, tests 906ms, environment 1.09s)

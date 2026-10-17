@@ -33,3 +33,25 @@ import "@structured-growth/sg-ui/styles.css";
 [Batch170 evidence](parallel-batch-170/tabs-orientation.md) records the bounded
 checks and prepared native cases. Broad U-09 and manual/device/assistive-technology
 acceptance remain open; DOM focus assertions do not establish spoken output.
+
+
+## Animated selection indicator (2026-10-17)
+
+Tabs now paints one decorative, clipped indicator per strip instead of moving
+independent selected-tab borders. Selection changes transition its position and
+width/height through the owned motion-duration token. Horizontal strips animate
+an underline; vertical strips animate the logical-end line (left in RTL). Panels
+and selection callbacks update immediately. Manual focus alone does not move it,
+and rejected controlled requests leave it on the accepted value.
+
+Initial placement and geometry updates from resize/scrolling are immediate.
+Observers follow tab sizes, labels, item changes, density and font layout; native
+scroll offsets and the overflow menu's visible list bounds determine clipping.
+Existing border indicators remain the SSR/unmeasured fallback. Reduced motion
+removes transitions and forced colors uses Highlight. The line is aria-hidden,
+adds no focus stops and never replaces native focus styling or panel semantics.
+
+AppPageTabs controlled panels inherit Tabs; route navigation uses the same private
+indicator implementation with its own component color alias. Hosts must keep route
+strips mounted for transitions between route values; a fresh mount shows the
+current indicator immediately. There is no new public motion prop.

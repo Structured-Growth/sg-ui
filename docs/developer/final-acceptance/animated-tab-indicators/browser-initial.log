@@ -1,0 +1,92 @@
+[WebServer] (node:35263) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:35282) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 33 tests using 1 worker
+
+(node:35288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density (5.6s)
+(node:35316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   2 [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density (5.5s)
+Testing stopped early after 2 maximum allowed failures.
+
+
+  1) [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('region', { name: /^(?:(?:AppModal|Icons|Button|Dialog|Popover|Tabs|Typography|Box|Stack|Surface|Card|Divider|Icon button|Button group|Menu|Split action|Link|Breadcrumbs|Tooltip|List|Navigation|Disclosure|Collapse|Chip|Badge|Progress|Status|Avatar|Table|Pagination|Provider|ThemeScope|FormFieldScope|MonthPicker|YearPicker|PeriodPicker|DateTimeRangePicker|DateRangeComparisonPicker|SearchField|TextField|TextArea|Select|ComboBox|AsyncMultiSelect|Checkbox|Switch|RadioGroup|ToggleButton|ToggleButtonGroup|TagGroup|DateField|TimeField|Calendar|DatePicker|DateRangePicker|DateRangeSelector|IconPanelNavigation|AuthShell|AppShell|AppPageHeader|AppPageTabs|ExperiencePageNavigator|SideNavigation|EditableTitleField|DocumentEditorLayout|DocumentEditorToolbar|ContentEditorChrome|FloatingTextSelectionToolbar|RichTextFormattingToolbar|InsertContentMenuControl|TextAlignMenuControl|TextColorPickerControl|TextStyleMenuControl|ColumnsLayoutModal|LinkUrlModal|ImageUploadModal|PageRichTextEditorSection|SGNavigationProvider|SGLink|SGAccountProvider|SGTranslationProvider|AppInlineProgress|AppOperationSteps|AppPaginationFooter|ClassCardFrame|InstructorClassCard|LearnerClassCard|CardCollectionWithFooter|AppDataGrid|AppDataGridShell|DataToolbar|DataToolbarSelectionMenu|DataGridDragHandle|LearnerClassesDataGrid|DataGrid|RowSubHeader|Grid presets): )?Horizontal tabs · compact · automatic$/ }).locator('[data-docs-preview]').locator('[data-sgui-part="tab-indicator"]')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('region', { name: /^(?:(?:AppModal|Icons|Button|Dialog|Popover|Tabs|Typography|Box|Stack|Surface|Card|Divider|Icon button|Button group|Menu|Split action|Link|Breadcrumbs|Tooltip|List|Navigation|Disclosure|Collapse|Chip|Badge|Progress|Status|Avatar|Table|Pagination|Provider|ThemeScope|FormFieldScope|MonthPicker|YearPicker|PeriodPicker|DateTimeRangePicker|DateRangeComparisonPicker|SearchField|TextField|TextArea|Select|ComboBox|AsyncMultiSelect|Checkbox|Switch|RadioGroup|ToggleButton|ToggleButtonGroup|TagGroup|DateField|TimeField|Calendar|DatePicker|DateRangePicker|DateRangeSelector|IconPanelNavigation|AuthShell|AppShell|AppPageHeader|AppPageTabs|ExperiencePageNavigator|SideNavigation|EditableTitleField|DocumentEditorLayout|DocumentEditorToolbar|ContentEditorChrome|FloatingTextSelectionToolbar|RichTextFormattingToolbar|InsertContentMenuControl|TextAlignMenuControl|TextColorPickerControl|TextStyleMenuControl|ColumnsLayoutModal|LinkUrlModal|ImageUploadModal|PageRichTextEditorSection|SGNavigationProvider|SGLink|SGAccountProvider|SGTranslationProvider|AppInlineProgress|AppOperationSteps|AppPaginationFooter|ClassCardFrame|InstructorClassCard|LearnerClassCard|CardCollectionWithFooter|AppDataGrid|AppDataGridShell|DataToolbar|DataToolbarSelectionMenu|DataGridDragHandle|LearnerClassesDataGrid|DataGrid|RowSubHeader|Grid presets): )?Horizontal tabs · compact · automatic$/ }).locator('[data-docs-preview]').locator('[data-sgui-part="tab-indicator"]') with timeout 5000ms
+      - waiting for getByRole('region', { name: /^(?:(?:AppModal|Icons|Button|Dialog|Popover|Tabs|Typography|Box|Stack|Surface|Card|Divider|Icon button|Button group|Menu|Split action|Link|Breadcrumbs|Tooltip|List|Navigation|Disclosure|Collapse|Chip|Badge|Progress|Status|Avatar|Table|Pagination|Provider|ThemeScope|FormFieldScope|MonthPicker|YearPicker|PeriodPicker|DateTimeRangePicker|DateRangeComparisonPicker|SearchField|TextField|TextArea|Select|ComboBox|AsyncMultiSelect|Checkbox|Switch|RadioGroup|ToggleButton|ToggleButtonGroup|TagGroup|DateField|TimeField|Calendar|DatePicker|DateRangePicker|DateRangeSelector|IconPanelNavigation|AuthShell|AppShell|AppPageHeader|AppPageTabs|ExperiencePageNavigator|SideNavigation|EditableTitleField|DocumentEditorLayout|DocumentEditorToolbar|ContentEditorChrome|FloatingTextSelectionToolbar|RichTextFormattingToolbar|InsertContentMenuControl|TextAlignMenuControl|TextColorPickerControl|TextStyleMenuControl|ColumnsLayoutModal|LinkUrlModal|ImageUploadModal|PageRichTextEditorSection|SGNavigationProvider|SGLink|SGAccountProvider|SGTranslationProvider|AppInlineProgress|AppOperationSteps|AppPaginationFooter|ClassCardFrame|InstructorClassCard|LearnerClassCard|CardCollectionWithFooter|AppDataGrid|AppDataGridShell|DataToolbar|DataToolbarSelectionMenu|DataGridDragHandle|LearnerClassesDataGrid|DataGrid|RowSubHeader|Grid presets): )?Horizontal tabs · compact · automatic$/ }).locator('[data-docs-preview]').locator('[data-sgui-part="tab-indicator"]')
+
+
+      3 | const line=(host:Locator)=>host.locator('[data-sgui-part="tab-indicator"]');
+      4 | async function aligned(indicator:Locator,target:Locator,vertical=false,rtl=false){
+    > 5 |  await expect(indicator).toBeVisible();
+        |                          ^
+      6 |  await expect.poll(async()=>{const a=(await indicator.boundingBox())!,b=(await target.boundingBox())!;return vertical?Math.abs(a.x-(rtl?b.x:b.x+b.width-2))+Math.abs(a.y-b.y)+Math.abs(a.height-b.height):Math.abs(a.x-b.x)+Math.abs(a.y-(b.y+b.height-2))+Math.abs(a.width-b.width);}).toBeLessThan(2);
+      7 | }
+      8 | async function halfway(indicator:Locator){
+        at aligned (/Users/thomashall/Repositories/sg-ui/apps/docs/tests/tab-indicator.spec.ts:5:26)
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/tab-indicator.spec.ts:16:217
+
+    Error Context: test-results/tab-indicator/tab-indicator-horizontal-t-4d631-r-slides-at-compact-density-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tab-indicator/tab-indicator-horizontal-t-4d631-r-slides-at-compact-density-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/tab-indicator/tab-indicator-horizontal-t-4d631-r-slides-at-compact-density-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('region', { name: /^(?:(?:AppModal|Icons|Button|Dialog|Popover|Tabs|Typography|Box|Stack|Surface|Card|Divider|Icon button|Button group|Menu|Split action|Link|Breadcrumbs|Tooltip|List|Navigation|Disclosure|Collapse|Chip|Badge|Progress|Status|Avatar|Table|Pagination|Provider|ThemeScope|FormFieldScope|MonthPicker|YearPicker|PeriodPicker|DateTimeRangePicker|DateRangeComparisonPicker|SearchField|TextField|TextArea|Select|ComboBox|AsyncMultiSelect|Checkbox|Switch|RadioGroup|ToggleButton|ToggleButtonGroup|TagGroup|DateField|TimeField|Calendar|DatePicker|DateRangePicker|DateRangeSelector|IconPanelNavigation|AuthShell|AppShell|AppPageHeader|AppPageTabs|ExperiencePageNavigator|SideNavigation|EditableTitleField|DocumentEditorLayout|DocumentEditorToolbar|ContentEditorChrome|FloatingTextSelectionToolbar|RichTextFormattingToolbar|InsertContentMenuControl|TextAlignMenuControl|TextColorPickerControl|TextStyleMenuControl|ColumnsLayoutModal|LinkUrlModal|ImageUploadModal|PageRichTextEditorSection|SGNavigationProvider|SGLink|SGAccountProvider|SGTranslationProvider|AppInlineProgress|AppOperationSteps|AppPaginationFooter|ClassCardFrame|InstructorClassCard|LearnerClassCard|CardCollectionWithFooter|AppDataGrid|AppDataGridShell|DataToolbar|DataToolbarSelectionMenu|DataGridDragHandle|LearnerClassesDataGrid|DataGrid|RowSubHeader|Grid presets): )?Horizontal tabs · comfortable · automatic$/ }).locator('[data-docs-preview]').locator('[data-sgui-part="tab-indicator"]')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('region', { name: /^(?:(?:AppModal|Icons|Button|Dialog|Popover|Tabs|Typography|Box|Stack|Surface|Card|Divider|Icon button|Button group|Menu|Split action|Link|Breadcrumbs|Tooltip|List|Navigation|Disclosure|Collapse|Chip|Badge|Progress|Status|Avatar|Table|Pagination|Provider|ThemeScope|FormFieldScope|MonthPicker|YearPicker|PeriodPicker|DateTimeRangePicker|DateRangeComparisonPicker|SearchField|TextField|TextArea|Select|ComboBox|AsyncMultiSelect|Checkbox|Switch|RadioGroup|ToggleButton|ToggleButtonGroup|TagGroup|DateField|TimeField|Calendar|DatePicker|DateRangePicker|DateRangeSelector|IconPanelNavigation|AuthShell|AppShell|AppPageHeader|AppPageTabs|ExperiencePageNavigator|SideNavigation|EditableTitleField|DocumentEditorLayout|DocumentEditorToolbar|ContentEditorChrome|FloatingTextSelectionToolbar|RichTextFormattingToolbar|InsertContentMenuControl|TextAlignMenuControl|TextColorPickerControl|TextStyleMenuControl|ColumnsLayoutModal|LinkUrlModal|ImageUploadModal|PageRichTextEditorSection|SGNavigationProvider|SGLink|SGAccountProvider|SGTranslationProvider|AppInlineProgress|AppOperationSteps|AppPaginationFooter|ClassCardFrame|InstructorClassCard|LearnerClassCard|CardCollectionWithFooter|AppDataGrid|AppDataGridShell|DataToolbar|DataToolbarSelectionMenu|DataGridDragHandle|LearnerClassesDataGrid|DataGrid|RowSubHeader|Grid presets): )?Horizontal tabs · comfortable · automatic$/ }).locator('[data-docs-preview]').locator('[data-sgui-part="tab-indicator"]') with timeout 5000ms
+      - waiting for getByRole('region', { name: /^(?:(?:AppModal|Icons|Button|Dialog|Popover|Tabs|Typography|Box|Stack|Surface|Card|Divider|Icon button|Button group|Menu|Split action|Link|Breadcrumbs|Tooltip|List|Navigation|Disclosure|Collapse|Chip|Badge|Progress|Status|Avatar|Table|Pagination|Provider|ThemeScope|FormFieldScope|MonthPicker|YearPicker|PeriodPicker|DateTimeRangePicker|DateRangeComparisonPicker|SearchField|TextField|TextArea|Select|ComboBox|AsyncMultiSelect|Checkbox|Switch|RadioGroup|ToggleButton|ToggleButtonGroup|TagGroup|DateField|TimeField|Calendar|DatePicker|DateRangePicker|DateRangeSelector|IconPanelNavigation|AuthShell|AppShell|AppPageHeader|AppPageTabs|ExperiencePageNavigator|SideNavigation|EditableTitleField|DocumentEditorLayout|DocumentEditorToolbar|ContentEditorChrome|FloatingTextSelectionToolbar|RichTextFormattingToolbar|InsertContentMenuControl|TextAlignMenuControl|TextColorPickerControl|TextStyleMenuControl|ColumnsLayoutModal|LinkUrlModal|ImageUploadModal|PageRichTextEditorSection|SGNavigationProvider|SGLink|SGAccountProvider|SGTranslationProvider|AppInlineProgress|AppOperationSteps|AppPaginationFooter|ClassCardFrame|InstructorClassCard|LearnerClassCard|CardCollectionWithFooter|AppDataGrid|AppDataGridShell|DataToolbar|DataToolbarSelectionMenu|DataGridDragHandle|LearnerClassesDataGrid|DataGrid|RowSubHeader|Grid presets): )?Horizontal tabs · comfortable · automatic$/ }).locator('[data-docs-preview]').locator('[data-sgui-part="tab-indicator"]')
+
+
+      3 | const line=(host:Locator)=>host.locator('[data-sgui-part="tab-indicator"]');
+      4 | async function aligned(indicator:Locator,target:Locator,vertical=false,rtl=false){
+    > 5 |  await expect(indicator).toBeVisible();
+        |                          ^
+      6 |  await expect.poll(async()=>{const a=(await indicator.boundingBox())!,b=(await target.boundingBox())!;return vertical?Math.abs(a.x-(rtl?b.x:b.x+b.width-2))+Math.abs(a.y-b.y)+Math.abs(a.height-b.height):Math.abs(a.x-b.x)+Math.abs(a.y-(b.y+b.height-2))+Math.abs(a.width-b.width);}).toBeLessThan(2);
+      7 | }
+      8 | async function halfway(indicator:Locator){
+        at aligned (/Users/thomashall/Repositories/sg-ui/apps/docs/tests/tab-indicator.spec.ts:5:26)
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/tab-indicator.spec.ts:16:217
+
+    Error Context: test-results/tab-indicator/tab-indicator-horizontal-t-c98fa-ides-at-comfortable-density-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tab-indicator/tab-indicator-horizontal-t-c98fa-ides-at-comfortable-density-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/tab-indicator/tab-indicator-horizontal-t-c98fa-ides-at-comfortable-density-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density
+    [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density
+  31 did not run
+  1 error was not a part of any test, see above for details
+undefined
+/Users/thomashall/Repositories/sg-ui/apps/docs:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config /tmp/tab-indicator-browser.config.mjs

@@ -6,7 +6,7 @@
   .root[data-orientation="vertical"] > .strip > .list > .tab { flex: none; border-block-end: 0; border-inline-end: 2px solid transparent; }
   .root[data-orientation="vertical"] > .strip > .list > .tab[data-selected] { border-inline-end-color: var(--sgui-tabs-selected-border); }
   .root[data-orientation="vertical"] > .panel { min-inline-size: 0; padding-inline: var(--sgui-space4); }
-  .strip { flex: none; min-inline-size: 0; }
+  .strip { position: relative; flex: none; min-inline-size: 0; }
   .list { display: flex; flex: none; overflow-x: auto; position: sticky; inset-block-start: 0; background: var(--sgui-tabs-surface); border-block-end: 1px solid var(--sgui-tabs-divider); }
   .icon { display: inline-flex; flex: none; }
   .tab { gap: var(--sgui-space2); display: flex; align-items: center; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline: var(--sgui-control-padding); border-block-end: 2px solid transparent; white-space: nowrap; cursor: pointer; font-size: var(--sgui-control-text-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
@@ -25,4 +25,9 @@
   .menuMode .tabLabel { min-inline-size: 0; overflow: hidden; text-overflow: ellipsis; }
   .more { display: flex; align-items: center; flex: none; }
   .menuMode [data-overflow-hidden] { position: absolute; visibility: hidden; pointer-events: none; }
+}
+
+@layer sgui.components {
+ .root[data-orientation="vertical"] > .strip:has([data-sgui-part="tab-indicator"]) > .list > .tab[data-selected] { border-inline-end-color: transparent; }
+ .strip:has([data-sgui-part="tab-indicator"]) .tab[data-selected] { border-block-end-color: transparent; border-inline-end-color: transparent; }
 }

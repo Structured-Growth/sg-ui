@@ -1,0 +1,121 @@
+[WebServer] (node:35991) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:36010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 33 tests using 1 worker
+
+(node:36016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density (768ms)
+  ✓   2 [chromium] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density (655ms)
+  ✓   3 [chromium] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at compact density (664ms)
+  ✓   4 [chromium] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at comfortable density (657ms)
+  ✓   5 [chromium] › tests/tab-indicator.spec.ts:26:52 › horizontal manual tabs animate on activation and snap for reduced motion (580ms)
+  ✓   6 [chromium] › tests/tab-indicator.spec.ts:26:52 › vertical manual tabs animate on activation and snap for reduced motion (594ms)
+  ✓   7 [chromium] › tests/tab-indicator.spec.ts:34:1 › vertical RTL and forced colors retain an aligned visible indicator (498ms)
+  ✓   8 [chromium] › tests/tab-indicator.spec.ts:41:1 › route page tabs share the moving indicator (471ms)
+  ✓   9 [chromium] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=false) (1.1s)
+  ✓  10 [chromium] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=true) (1.0s)
+  ✓  11 [chromium] › tests/tabs-overflow.spec.ts:56:1 › secondary tabs remain in the menu with spare room and restore their priority after leaving (926ms)
+(node:36067) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  12 [firefox] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density (1.1s)
+  ✓  13 [firefox] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density (745ms)
+  ✓  14 [firefox] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at compact density (704ms)
+  ✓  15 [firefox] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at comfortable density (709ms)
+  ✓  16 [firefox] › tests/tab-indicator.spec.ts:26:52 › horizontal manual tabs animate on activation and snap for reduced motion (765ms)
+  ✓  17 [firefox] › tests/tab-indicator.spec.ts:26:52 › vertical manual tabs animate on activation and snap for reduced motion (732ms)
+  ✓  18 [firefox] › tests/tab-indicator.spec.ts:34:1 › vertical RTL and forced colors retain an aligned visible indicator (646ms)
+  ✓  19 [firefox] › tests/tab-indicator.spec.ts:41:1 › route page tabs share the moving indicator (636ms)
+  ✓  20 [firefox] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=false) (1.4s)
+  ✓  21 [firefox] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=true) (1.7s)
+  ✓  22 [firefox] › tests/tabs-overflow.spec.ts:56:1 › secondary tabs remain in the menu with spare room and restore their priority after leaving (1.1s)
+(node:36121) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  23 [webkit] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at compact density (992ms)
+  ✓  24 [webkit] › tests/tab-indicator.spec.ts:12:99 › horizontal tab indicator slides at comfortable density (698ms)
+  ✓  25 [webkit] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at compact density (641ms)
+  ✓  26 [webkit] › tests/tab-indicator.spec.ts:12:99 › vertical tab indicator slides at comfortable density (639ms)
+  ✓  27 [webkit] › tests/tab-indicator.spec.ts:26:52 › horizontal manual tabs animate on activation and snap for reduced motion (613ms)
+  ✓  28 [webkit] › tests/tab-indicator.spec.ts:26:52 › vertical manual tabs animate on activation and snap for reduced motion (611ms)
+  ✓  29 [webkit] › tests/tab-indicator.spec.ts:34:1 › vertical RTL and forced colors retain an aligned visible indicator (465ms)
+  ✓  30 [webkit] › tests/tab-indicator.spec.ts:41:1 › route page tabs share the moving indicator (473ms)
+  ✘  31 [webkit] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=false) (1.2s)
+(node:36165) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  32 [webkit] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=true) (1.4s)
+Testing stopped early after 2 maximum allowed failures.
+
+
+  1) [webkit] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=false)
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "ResizeObserver loop completed with undelivered notifications.",
+    + ]
+
+      50 |   expect(checkSources(sources.map(source=>({slug:'tabs-overflow',source})))).toEqual([]);
+      51 |   await page.screenshot({path:`/tmp/sgui-tabs-overflow-${hasTouch}.png`});
+    > 52 |   expect(errors).toEqual([]);
+         |                  ^
+      53 |   await context.close();
+      54 | });
+      55 |
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/tabs-overflow.spec.ts:52:18
+
+    Error Context: test-results/tab-indicator/tabs-overflow-15-tabs-prom-3a8f7-through-resize-touch-false--webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tab-indicator/tabs-overflow-15-tabs-prom-3a8f7-through-resize-touch-false--webkit/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/tab-indicator/tabs-overflow-15-tabs-prom-3a8f7-through-resize-touch-false--webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [webkit] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=true)
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "ResizeObserver loop completed with undelivered notifications.",
+    + ]
+
+      50 |   expect(checkSources(sources.map(source=>({slug:'tabs-overflow',source})))).toEqual([]);
+      51 |   await page.screenshot({path:`/tmp/sgui-tabs-overflow-${hasTouch}.png`});
+    > 52 |   expect(errors).toEqual([]);
+         |                  ^
+      53 |   await context.close();
+      54 | });
+      55 |
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/tabs-overflow.spec.ts:52:18
+
+    Error Context: test-results/tab-indicator/tabs-overflow-15-tabs-prom-27e21--through-resize-touch-true--webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tab-indicator/tabs-overflow-15-tabs-prom-27e21--through-resize-touch-true--webkit/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/tab-indicator/tabs-overflow-15-tabs-prom-27e21--through-resize-touch-true--webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [webkit] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=false)
+    [webkit] › tests/tabs-overflow.spec.ts:4:36 › 15 tabs promote hidden selections and preserve focus through resize (touch=true)
+  1 did not run
+  30 passed (29.2s)
+  1 error was not a part of any test, see above for details
+undefined
+/Users/thomashall/Repositories/sg-ui/apps/docs:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config /tmp/tab-indicator-browser.config.mjs

@@ -845,3 +845,7 @@ localized labels, stable chooser dimensions and the separate four-column year gr
 Center fitting month-choice rows vertically with natural control heights; keep
 start alignment for overflow. DatePicker's period replacement includes the hidden
 Clear/time region in its stable frame so the whole popup stays balanced.
+
+Tabs indicators animate selection changes in both orientations using owned motion
+duration. Share the private indicator with AppPageTabs route mode; preserve reduced
+motion, forced colors, manual activation, native focus and scroll/resize alignment.

@@ -2466,3 +2466,28 @@ month/year isolation and year-scroll checks. Birthday, narrow popup and atomic
 datetime scenarios also passed. Library/docs builds, catalog, foundation guards,
 docs TypeScript and packed consumers passed. Screenshot review confirmed balanced
 spacing. [Evidence](final-acceptance/centered-month-choices/results.json).
+
+
+### 2026-10-17 — Sliding tab selection indicators
+
+Tabs now shares one decorative clipped indicator that animates selection changes
+horizontally or vertically and resizes to the selected tab. AppPageTabs controlled
+panels inherit it; route mode shares the private renderer and its own color alias.
+Initial placement, scrolling and resizing track immediately; manual focus waits
+for activation. Reduced motion disables transitions, forced colors uses Highlight,
+and SSR/unmeasured strips retain the existing border fallback. Native focus,
+selection callbacks and panel semantics are unchanged. Docs describe the default.
+
+Validation: 21 unit cases in five files; all 24 new native animation cases pass
+(eight each Chromium/Firefox/WebKit), including paused mid-transition geometry,
+both densities/orientations, manual activation, reduced motion, RTL/forced colors
+and route tabs. Existing overflow tests now also assert indicator alignment after
+promotion and scrolling. Combined run: 31 pass, two WebKit overflow-menu cases fail
+only the unchanged zero-page-error assertion with a ResizeObserver loop warning.
+The warning reproduces with the entire indicator function bypassed in the browser;
+this is isolation evidence, not an exact full-repository baseline checkout.
+
+Recorded bounded follow-up [TABS-MENU-WEBKIT-RO](final-acceptance/animated-tab-indicators/open-followup.md)
+without removing or filtering assertions. Library/docs builds, foundation guards,
+catalog, docs TypeScript and packed consumers pass. This is not an all-green
+browser or historical acceptance claim. [Evidence](final-acceptance/animated-tab-indicators/results.json).

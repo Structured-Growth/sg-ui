@@ -1,0 +1,85 @@
+[WebServer] (node:37818) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:37837) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:37849) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+baseline ["ResizeObserver loop completed with undelivered notifications."]
+  ✘  1 [webkit] › tests/tabs-overflow-indicator-diagnostic.spec.ts:4:85 › baseline: 15 tabs promote hidden selections and preserve focus through resize (touch=false) (1.3s)
+(node:37876) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+without-indicator ["ResizeObserver loop completed with undelivered notifications."]
+  ✘  2 [webkit] › tests/tabs-overflow-indicator-diagnostic.spec.ts:4:85 › without-indicator: 15 tabs promote hidden selections and preserve focus through resize (touch=false) (1.3s)
+
+
+  1) [webkit] › tests/tabs-overflow-indicator-diagnostic.spec.ts:4:85 › baseline: 15 tabs promote hidden selections and preserve focus through resize (touch=false)
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "ResizeObserver loop completed with undelivered notifications.",
+    + ]
+
+      52 |   await page.screenshot({path:`/tmp/sgui-tabs-overflow-${hasTouch}.png`});
+      53 |   console.log(variant,JSON.stringify(errors));
+    > 54 |   expect(errors).toEqual([]);
+         |                  ^
+      55 |   await context.close();
+      56 | });
+      57 |
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/tabs-overflow-indicator-diagnostic.spec.ts:54:18
+
+    Error Context: test-results/tab-indicator/tabs-overflow-indicator-di-e9334-through-resize-touch-false--webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tab-indicator/tabs-overflow-indicator-di-e9334-through-resize-touch-false--webkit/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/tab-indicator/tabs-overflow-indicator-di-e9334-through-resize-touch-false--webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [webkit] › tests/tabs-overflow-indicator-diagnostic.spec.ts:4:85 › without-indicator: 15 tabs promote hidden selections and preserve focus through resize (touch=false)
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "ResizeObserver loop completed with undelivered notifications.",
+    + ]
+
+      52 |   await page.screenshot({path:`/tmp/sgui-tabs-overflow-${hasTouch}.png`});
+      53 |   console.log(variant,JSON.stringify(errors));
+    > 54 |   expect(errors).toEqual([]);
+         |                  ^
+      55 |   await context.close();
+      56 | });
+      57 |
+        at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/tabs-overflow-indicator-diagnostic.spec.ts:54:18
+
+    Error Context: test-results/tab-indicator/tabs-overflow-indicator-di-05ca5-through-resize-touch-false--webkit/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tab-indicator/tabs-overflow-indicator-di-05ca5-through-resize-touch-false--webkit/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace test-results/tab-indicator/tabs-overflow-indicator-di-05ca5-through-resize-touch-false--webkit/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [webkit] › tests/tabs-overflow-indicator-diagnostic.spec.ts:4:85 › baseline: 15 tabs promote hidden selections and preserve focus through resize (touch=false)
+    [webkit] › tests/tabs-overflow-indicator-diagnostic.spec.ts:4:85 › without-indicator: 15 tabs promote hidden selections and preserve focus through resize (touch=false)
+undefined
+/Users/thomashall/Repositories/sg-ui/apps/docs:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: playwright test --config /tmp/tab-diagnostic.config.mjs

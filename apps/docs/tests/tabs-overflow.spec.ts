@@ -46,6 +46,11 @@ for(const hasTouch of [false,true])test(`15 tabs promote hidden selections and p
   await page.keyboard.press('End');
   await expect(scrolling.getByRole('tab',{name:'Activity log',exact:true})).toBeFocused();
   expect(await list.evaluate(el=>el.scrollLeft)).toBeGreaterThan(0);
+  const indicator=scrolling.locator('[data-sgui-part="tab-indicator"]'),activeScrolling=scrolling.getByRole('tab',{name:'Activity log',exact:true});
+  await expect.poll(async()=>{const a=(await indicator.boundingBox())!,b=(await activeScrolling.boundingBox())!;return Math.abs(a.x-b.x)+Math.abs(a.width-b.width)+Math.abs(a.y-b.y-b.height+2);}).toBeLessThan(2);
+  const menuIndicator=panel.locator('[data-sgui-part="tab-indicator"]');
+  await expect.poll(async()=>{const a=(await menuIndicator.boundingBox())!,b=(await panel.getByRole('tab',{selected:true}).boundingBox())!;return Math.abs(a.x-b.x)+Math.abs(a.width-b.width);}).toBeLessThan(2);
+
   const sources=await panel.locator('code').allTextContents();
   expect(checkSources(sources.map(source=>({slug:'tabs-overflow',source})))).toEqual([]);
   await page.screenshot({path:`/tmp/sgui-tabs-overflow-${hasTouch}.png`});

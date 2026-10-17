@@ -1,0 +1,7 @@
+@layer sgui.components {
+ .clip { position: absolute; pointer-events: none; overflow: hidden; }
+ .line { position: absolute; inset: 0 auto auto 0; background: var(--tab-indicator-color, var(--sgui-tabs-selected-border)); }
+ .line[data-animate] { transition: transform var(--sgui-motion-duration) ease, width var(--sgui-motion-duration) ease, height var(--sgui-motion-duration) ease; }
+ @media (prefers-reduced-motion: reduce) { .line[data-animate] { transition: none; } }
+ @media (forced-colors: active) { .line { background: Highlight; } }
+}

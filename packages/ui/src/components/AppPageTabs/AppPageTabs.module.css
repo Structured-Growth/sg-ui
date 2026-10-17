@@ -1,10 +1,14 @@
 @layer sgui.components {
   .root { display: flex; flex-direction: column; min-block-size: 0; min-inline-size: 0; background: var(--sgui-app-page-tabs-background); color: var(--sgui-app-page-tabs-text); }
-  .navigation { display: flex; overflow-x: auto; border-block-end: 1px solid var(--sgui-app-page-tabs-divider); padding-inline: var(--sgui-space3); }
+  .navigation { position: relative; --tab-indicator-color: var(--sgui-app-page-tabs-action); display: flex; overflow-x: auto; border-block-end: 1px solid var(--sgui-app-page-tabs-divider); padding-inline: var(--sgui-space3); }
   .link { display: inline-flex; align-items: center; gap: var(--sgui-space2); flex: none; box-sizing: border-box; min-block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); padding-inline: var(--sgui-control-padding); border-block-end: 2px solid transparent; white-space: nowrap; font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); font-weight: var(--sgui-label-weight); line-height: var(--sgui-label-line-height); }
   .link[aria-current="page"] { color: var(--sgui-app-page-tabs-action); border-block-end-color: var(--sgui-app-page-tabs-action); }
   .link[aria-disabled] { opacity: 0.5; }
   .link:focus-visible { outline: var(--sgui-control-focus-width) solid var(--sgui-control-focus-color); outline-offset: calc(-1 * var(--sgui-control-focus-width)); }
   .icon { display: inline-flex; flex: none; }
   @media (forced-colors: active) { .link[aria-current="page"] { border-color: Highlight; } .link[aria-disabled] { color: GrayText; opacity: 1; } }
+}
+
+@layer sgui.components {
+ .navigation:has([data-sgui-part="tab-indicator"]) .link[aria-current="page"] { border-block-end-color: transparent; }
 }
