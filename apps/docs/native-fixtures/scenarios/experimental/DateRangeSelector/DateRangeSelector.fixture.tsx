@@ -55,3 +55,10 @@ export const FocusedEndpointPreview: Story = {
     </form>;
   },
 };
+
+/** New range layout/animation acceptance scenario; no historical Storybook provenance. */
+export const CompactNavigation: Story = { render: (_args,{globals}) =>
+  <Provider density={globals.density} theme={globals.theme} interactionMode="pointer">
+    <DateRangeSelector label="Travel dates" months={1} defaultFocusedDate="2026-10-14" defaultValue={{start:"2026-10-07",end:"2026-10-16"}} />
+  </Provider>
+};

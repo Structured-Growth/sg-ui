@@ -26,11 +26,11 @@ for(const [locale,density,forced] of [['en-US','compact',false],['en-US','comfor
   await page.setViewportSize({width:1000,height:1100});
   await page.emulateMedia({forcedColors:forced?'active':'none',reducedMotion:'reduce'});
   await page.goto(`/fixtures/?id=migration-proofs-daterangeselector--reporting&embed=true&globals=locale:${locale};density:${density};theme:light`);
-  await page.getByRole('button',{name:'February reporting period',exact:true}).click();
+  await page.getByRole('option',{name:'February reporting period',exact:true}).click();
   const grids=page.getByRole('grid');await expect(grids).toHaveCount(2);
-  expect((await grids.first().locator('[role="button"]:not([data-outside-month])').first().boundingBox())!.height).toBe(density==='compact'?32:44);
+  expect((await grids.first().locator('[role="button"]:not([data-outside-month])').first().boundingBox())!.height).toBe(density==='compact'?24:36);
   for(const grid of await grids.all()){
-   const target=density==='compact'?32:44;
+   const target=density==='compact'?192/7:36;
    expect((await grid.boundingBox())!.width).toBeCloseTo(7*target,0);
    expect((await grid.locator('[role="button"]:not([data-outside-month])').first().boundingBox())!.width).toBeCloseTo(target,0);
   }

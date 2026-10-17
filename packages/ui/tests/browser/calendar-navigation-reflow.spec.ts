@@ -16,6 +16,8 @@ for(const theme of ['light','dark'])for(const density of ['compact','comfortable
   const leap=page.getByRole('button',{name:/Wednesday, February 29, 1984/});
   await leap.focus();await leap.press('Enter');
   await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');
+  // Measure the settled grid: a sliding month is intentionally partly offscreen.
+  await expect.poll(()=>page.locator('[data-sgui-part="calendar-month-transition"] [inert]').count()).toBe(0);
   for(const width of [360,1100]){
    await page.setViewportSize({width,height:900});
    await expect(leap.locator('..')).toHaveAttribute('aria-selected','true');

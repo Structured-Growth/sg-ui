@@ -1,0 +1,561 @@
+{
+  "rawReportSha256": "421e0226bd8a279cceee17f3cff87c35431b98946ec235cc62cc91914ebd3efa",
+  "stats": {
+    "startTime": "2026-10-17T03:10:19.831Z",
+    "duration": 30541.656,
+    "expected": 41,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "clean compact calendar has tight cells and aligned navigation without default scrolling",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 845,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "clean comfortable calendar has tight cells and aligned navigation without default scrolling",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 607,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "month paging slides in both directions, preserves one accessible grid and respects reduced motion",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 751,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "RTL month paging reverses the slide direction",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 163,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "clean compact calendar has tight cells and aligned navigation without default scrolling",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1000,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "clean comfortable calendar has tight cells and aligned navigation without default scrolling",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 511,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "month paging slides in both directions, preserves one accessible grid and respects reduced motion",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 457,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "RTL month paging reverses the slide direction",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 262,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "clean compact calendar has tight cells and aligned navigation without default scrolling",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 989,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "clean comfortable calendar has tight cells and aligned navigation without default scrolling",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 775,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "month paging slides in both directions, preserves one accessible grid and respects reduced motion",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 840,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-compact-navigation.spec.ts",
+      "title": "RTL month paging reverses the slide direction",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 471,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize light/compact",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 564,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize light/comfortable",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 538,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize dark/compact",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 511,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize dark/comfortable",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 494,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize light/compact",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 843,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize light/comfortable",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 884,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize dark/compact",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 690,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize dark/comfortable",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 687,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize light/compact",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 732,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize light/comfortable",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 714,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize dark/compact",
+      "project": "webkit",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "duration": 669,
+          "errors": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m0\u001b[39m\nReceived:    \u001b[31m-35.21729278564453\u001b[39m\n\n  22 |    await leap.focus();await expect(leap).toBeFocused();\n  23 |    const bounds=await leap.evaluate(el=>{const r=el.getBoundingClientRect();return {left:r.left,right:r.right};});\n> 24 |    expect(bounds.left).toBeGreaterThanOrEqual(0);expect(bounds.right).toBeLessThanOrEqual(width+1);\n     |                        ^\n  25 |    expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width+1);\n  26 |    await info.attach(`navigation-${width}`,{body:await page.screenshot(),contentType:'image/png'});\n  27 |   }\n    at /Users/thomashall/Repositories/sg-ui/packages/ui/tests/browser/calendar-navigation-reflow.spec.ts:24:24"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "calendar-navigation-reflow.spec.ts",
+      "title": "K05 month/year navigation and resize dark/comfortable",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 889,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: en-US/compact/forced=false",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 548,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: en-US/comfortable/forced=false",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 480,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: ar-EG/compact/forced=false",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 546,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: ar-EG/comfortable/forced=false",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 477,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: en-US/compact/forced=true",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 497,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "independent Calendar dates retain separate rounded boxes",
+      "project": "chromium",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 193,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: en-US/compact/forced=false",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 673,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: en-US/comfortable/forced=false",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 1078,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: ar-EG/compact/forced=false",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 739,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: ar-EG/comfortable/forced=false",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 975,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: en-US/compact/forced=true",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 709,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "independent Calendar dates retain separate rounded boxes",
+      "project": "firefox",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 373,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: en-US/compact/forced=false",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 805,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: en-US/comfortable/forced=false",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 703,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: ar-EG/compact/forced=false",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 721,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: ar-EG/comfortable/forced=false",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 729,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "continuous range rows: en-US/compact/forced=true",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 742,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "date-range-bands.spec.ts",
+      "title": "independent Calendar dates retain separate rounded boxes",
+      "project": "webkit",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration": 361,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

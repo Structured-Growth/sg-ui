@@ -3860,6 +3860,16 @@
       "importPath": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
       "original": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx"
     },
+    "migration-proofs-daterangeselector--compact-navigation": {
+      "id": "migration-proofs-daterangeselector--compact-navigation",
+      "type": "fixture",
+      "title": "Migration proofs/DateRangeSelector",
+      "name": "CompactNavigation",
+      "exportName": "CompactNavigation",
+      "module": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "importPath": "./scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx",
+      "original": "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.stories.tsx"
+    },
     "migration-proofs-collapse--host-controlled": {
       "id": "migration-proofs-collapse--host-controlled",
       "type": "fixture",

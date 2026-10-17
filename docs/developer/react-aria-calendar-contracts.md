@@ -223,8 +223,9 @@ Calendar grids reserve six week rows without stretching shorter months' day targ
 Day labels are centered in both directions. The website Calendar category groups
 all six date/time controls; the Calendar page includes independent compact and
 comfortable examples without host width overrides, a single-date dropdown and
-one/two-month range dropdowns. Months fit seven square day targets with no
-horizontal gaps: 32px compact pointer targets and 44px comfortable/touch targets.
+one/two-month range dropdowns. Months fit seven day columns with no horizontal gaps: 24px compact pointer cell
+height, 36px comfortable pointer cell height, and at least 44px touch targets.
+A 12rem minimum month width keeps the heading and text navigation buttons usable.
 They do not stretch across wider hosts. Two months wrap in narrow hosts; enlarged
 text and touch targets retain the local grid scrollport when space is insufficient.
 
@@ -384,7 +385,7 @@ or claim completion of historical migration IDs.
 
 ## Optional titles and month navigation
 
-Calendar, DateRangeSelector, DatePicker and DateRangePicker default showTitle to false. Their required labels continue to name the accessible calendar or dialog; picker field labels remain visible. Set showTitle to true for a visible title. Pickers render that title once on the popover, leaving the nested calendar title hidden. Generic Popover retains its visible-title default and accepts showTitle=false while keeping its accessible dialog name. Previous/next controls share the month-heading row, at the outer edges of the first/last visible months.
+Calendar, DateRangeSelector, DatePicker and DateRangePicker default showTitle to false. Their required labels continue to name the accessible calendar or dialog; picker field labels remain visible. Set showTitle to true for a visible title. Pickers render that title once on the popover, leaving the nested calendar title hidden. Generic Popover retains its visible-title default and accepts showTitle=false while keeping its accessible dialog name. The month/year is aligned to logical start (left in LTR), with both previous/next controls at logical end. Linked multi-month views group both controls in the last month header; independent views retain a pair in each header.
 
 
 ## Birthday entry and date/time selection research (2026-10-16)
@@ -679,7 +680,7 @@ source; global theme and host persistence remain outside copied examples.
 
 DateRangePicker defaults showFields=false: its outer editable range already provides
 freehand entry, so the dropdown opens directly to presets and calendars. Enable
-showFields to add start/end textboxes. Inline DateRangeSelector retains showFields=true.
+showFields to add start/end textboxes. Inline DateRangeSelector also defaults showFields=false; enable showFields explicitly when endpoint entry is useful.
 Both default endpoint entryMode to text, normalizing supported dates on blur/Enter;
 segmented entry remains an explicit option. This presentation does not change
 accepted values, validation, endpoint intent or Apply/Cancel ownership.
@@ -785,3 +786,9 @@ Unavailable clipboard access is a blocked prerequisite; do not substitute
 `dispatchEvent`, `insertText` or a synthetic clipboard event. Segmented paste
 remains observation-only in the existing native transaction scenario; it does
 not expand the supported textbox grammar to combined datetime or segmented fields.
+
+### Compact range defaults and month sliding
+
+The clean default omits endpoint fields and month/year dropdowns (`showFields=false`, `navigation="arrows"`). Both densities reduce day-cell width and height; touch mode retains the owned minimum 44px target. A 12rem minimum month width accommodates a single-line month heading and two text navigation buttons. With fields hidden, inline width follows the visible months rather than reserving 23rem for textboxes. Optional fields retain their usable width, and very constrained/enlarged-text hosts retain local scrolling instead of clipping dates or shrinking touch targets.
+
+Paged grids slide on visible-month changes, including keyboard navigation and direct month/year jumps. A private presentation helper snapshots only the outgoing grid, removes its IDs/form names/tab stops, and marks it inert/aria-hidden. The live grid is never remounted for animation. Previous animations are canceled on rapid navigation/unmount; OS reduced-motion changes immediately remove the outgoing copy. The owned motion-duration token controls timing; RTL reverses the horizontal slide. Vertical month browsing remains a separate explicit layout without this paged slide.

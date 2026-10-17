@@ -1,0 +1,51 @@
+import {expect,test} from '@playwright/test';
+const fixture='/fixtures/?id=migration-proofs-daterangeselector--compact-navigation&embed=true';
+for(const density of ['compact','comfortable'])test(`clean ${density} calendar has tight cells and aligned navigation without default scrolling`,async({page},info)=>{
+ await page.goto(fixture+`&globals=density:${density}`);
+ const root=page.locator('[data-sgui-part="date-range-selector"]');
+ await expect(page.getByRole('textbox')).toHaveCount(0);
+ await expect(page.getByRole('slider')).toHaveCount(0);
+ const before=await root.boundingBox();
+ expect(before!.width).toBeLessThanOrEqual(density==='compact'?194:254);
+ const grid=page.getByRole('grid');const date=page.getByRole('button',{name:/October 14, 2026/});
+ const size=await date.boundingBox();expect(size!.width).toBeLessThanOrEqual(density==='compact'?29:37);
+ const header=root.locator('header').getByText('October 2026',{exact:true});
+ const previous=page.getByRole('button',{name:'Previous month',exact:true}),next=page.getByRole('button',{name:'Next month',exact:true});
+ await expect(previous).toHaveAttribute("data-variant","text");await expect(next).toHaveAttribute("data-variant","text");
+ const boxes=await Promise.all([header.boundingBox(),previous.boundingBox(),next.boundingBox()]);
+ expect(boxes[0]!.x).toBeLessThan(boxes[1]!.x);expect(boxes[1]!.x).toBeLessThan(boxes[2]!.x);
+ expect(Math.abs(boxes[1]!.y-boxes[2]!.y)).toBeLessThan(1);
+ expect(await grid.evaluate(e=>e.scrollWidth<=e.clientWidth+1)).toBe(true);
+ await next.click();await expect(next).toBeFocused();
+ await expect(page.locator('header').getByText('November 2026',{exact:true})).toBeVisible();
+ await expect.poll(()=>root.locator('[inert]').count()).toBe(0);
+ expect((await root.boundingBox())!.height).toBeCloseTo(before!.height,0);
+ await page.screenshot({path:info.outputPath(`calendar-${density}.png`)});
+ await page.setViewportSize({width:320,height:800});
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(321);
+});
+test('month paging slides in both directions, preserves one accessible grid and respects reduced motion',async({page})=>{
+ await page.emulateMedia({reducedMotion:'no-preference'});await page.goto(fixture+'&globals=density:compact');
+ const view=page.locator('[data-sgui-part="calendar-month-transition"]');
+ const next=page.getByRole('button',{name:'Next month',exact:true});
+ // Inspect the native animations in the click task, before a short transition finishes.
+ const read=()=>view.evaluate(element=>({frames:element.getAnimations({subtree:true}).map(a=>(a.effect as KeyframeEffect).getKeyframes()),snapshot:element.querySelector('[inert]')?.getAttribute('aria-hidden'),ids:element.querySelector('[inert] [id]')!==null}));
+ await next.evaluate((element:HTMLButtonElement)=>element.click());
+ const forward=await read();expect(forward.frames).toHaveLength(2);expect(forward.snapshot).toBe('true');expect(forward.ids).toBe(false);
+ expect(forward.frames.some(frames=>frames[0].transform==='translateX(100%)')).toBe(true);
+ await expect(page.getByRole('grid')).toHaveCount(1);
+ await expect.poll(()=>view.locator('[inert]').count()).toBe(0);
+ await page.getByRole('button',{name:'Previous month',exact:true}).evaluate((element:HTMLButtonElement)=>element.click());
+ const backward=await read();expect(backward.frames.some(frames=>frames[0].transform==='translateX(-100%)')).toBe(true);
+ await page.emulateMedia({reducedMotion:'reduce'});await expect.poll(()=>view.locator('[inert]').count()).toBe(0);
+ await next.click();expect((await read()).frames).toHaveLength(0);
+ await expect(page.locator('header').getByText('November 2026',{exact:true})).toBeVisible();
+});
+test('RTL month paging reverses the slide direction',async({page})=>{
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ await page.goto(fixture+'&globals=locale:ar-EG;density:compact');
+ await page.getByRole('button',{name:'Next month',exact:true}).evaluate((element:HTMLButtonElement)=>element.click());
+ const frames=await page.locator('[data-sgui-part="calendar-month-transition"]').evaluate(element=>element.getAnimations({subtree:true}).flatMap(a=>(a.effect as KeyframeEffect).getKeyframes()));
+ expect(frames.some(frame=>frame.transform==='translateX(-100%)')).toBe(true);
+ await expect(page.getByRole('grid')).toHaveCount(1);
+});

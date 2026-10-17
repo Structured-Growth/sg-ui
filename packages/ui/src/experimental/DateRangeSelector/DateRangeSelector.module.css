@@ -1,21 +1,25 @@
 @layer sgui.components {
-  .root { --calendar-day-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size), calc(2 * var(--sgui-caption-size))); --calendar-months-width: calc(7 * var(--calendar-day-size)); --calendar-body-width: max(23rem, var(--calendar-months-width)); inline-size: var(--calendar-body-width); max-inline-size: 100%; container-type: inline-size; color: var(--sgui-date-range-selector-text); background: var(--sgui-date-range-selector-surface); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
-  .root[data-months="2"] { --calendar-months-width: calc(14 * var(--calendar-day-size) + var(--sgui-space3)); }
-  .root[data-months="3"] { --calendar-months-width: calc(21 * var(--calendar-day-size) + 2 * var(--sgui-space3)); }
+  .root { --calendar-day-size: max(calc(var(--sgui-control-height) - var(--sgui-space2)), var(--sgui-control-minimum-target-size), calc(2 * var(--sgui-caption-size))); --calendar-month-width: max(12rem, calc(7 * var(--calendar-day-size))); --calendar-months-width: var(--calendar-month-width); --calendar-body-width: var(--calendar-months-width); inline-size: var(--calendar-body-width); max-inline-size: 100%; container-type: inline-size; color: var(--sgui-date-range-selector-text); background: var(--sgui-date-range-selector-surface); font-family: var(--sgui-font-family); font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); }
+  .root[data-months="2"] { --calendar-months-width: calc(2 * var(--calendar-month-width) + var(--sgui-space3)); }
+  .root[data-months="3"] { --calendar-months-width: calc(3 * var(--calendar-month-width) + 2 * var(--sgui-space3)); }
   .root:is([data-preset-placement="side"], [data-preset-placement="end"]) { inline-size: calc(var(--calendar-body-width) + 12rem + var(--sgui-space3)); }
+  .root[data-show-fields] { --calendar-body-width: max(23rem, var(--calendar-months-width)); }
+  .monthTransition { position: relative; overflow: hidden; min-inline-size: 0; }
+  .monthFrame { inline-size: 100%; }
+  .outgoingMonth { position: absolute; inset: 0; pointer-events: none; }
   .layout, .calendarBody { display: flex; flex-direction: column; gap: var(--sgui-space2); min-inline-size: 0; }
   .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) { flex-direction: row; flex-wrap: wrap; align-items: start; gap: var(--sgui-space3); }
   .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) > .presets { flex: 0 0 12rem; box-sizing: border-box; max-inline-size: 100%; flex-direction: column; align-items: stretch; padding: 0; }
   .layout:is([data-preset-placement="side"], [data-preset-placement="end"]) > .calendarBody { flex: 1 1 var(--calendar-body-width); max-inline-size: 100%; }
   .calendar { display: flex; flex-direction: column; gap: var(--sgui-space2); }
   .actions, .presets { display: flex; align-items: center; gap: var(--sgui-space2); flex-wrap: wrap; }
-  .monthHeader { display: grid; grid-template-columns: var(--calendar-day-size) minmax(0, 1fr) var(--calendar-day-size); align-items: center; min-block-size: var(--calendar-day-size); gap: var(--sgui-space1); }
+  .monthHeader { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; min-block-size: var(--calendar-day-size); gap: var(--sgui-space1); }
   .monthHeader:has(.monthSelectors) { align-items: end; }
-  .monthHeading { grid-column: 2; grid-row: 1; }
+  .monthHeading { grid-column: 1; grid-row: 1; text-align: start; }
   .monthSelectors { display: flex; gap: var(--sgui-space1); align-items: end; min-inline-size: 0; }
   .monthSelectors > .navigationField { --field-edge-padding: max(var(--sgui-control-padding), calc(min(var(--sgui-field-control-radius), calc(max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)) / 2)) - var(--sgui-space1))); }
   .monthSelectors > * { flex: 1 1 0; min-inline-size: 0; }
-  .previous { grid-column: 1; grid-row: 1; }
+  .previous { grid-column: 2; grid-row: 1; }
   .next { grid-column: 3; grid-row: 1; }
   .heading { font-size: var(--sgui-label-size); line-height: var(--sgui-label-line-height); font-weight: var(--sgui-action-weight); margin: 0; }
   .presetList { display: flex; flex-direction: column; inline-size: 100%; gap: var(--sgui-space1); min-inline-size: 0; }
@@ -30,8 +34,8 @@
   .fields { display: flex; flex-wrap: wrap; gap: var(--sgui-space3); padding-block-end: var(--sgui-space3); }
   .fields > * { flex: 1 1 10rem; min-inline-size: 0; }
   .months { display: flex; justify-content: center; gap: var(--sgui-space3); flex-wrap: wrap; }
-  .month { container-type: inline-size; flex: 0 0 calc(7 * var(--calendar-day-size)); box-sizing: border-box; inline-size: calc(7 * var(--calendar-day-size)); max-inline-size: 100%; min-inline-size: 0; text-align: center; }
-  .gridViewport { min-block-size: calc(6 * max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)) + 8 * var(--sgui-space1) + var(--sgui-caption-size) * var(--sgui-caption-line-height)); box-sizing: border-box; inline-size: 100%; max-inline-size: 100%; min-inline-size: 0; overflow-x: auto; }
+  .month { container-type: inline-size; flex: 0 0 var(--calendar-month-width); box-sizing: border-box; inline-size: var(--calendar-month-width); max-inline-size: 100%; min-inline-size: 0; text-align: center; }
+  .gridViewport { min-block-size: calc(6 * var(--calendar-day-size) + 8 * var(--sgui-space1) + var(--sgui-caption-size) * var(--sgui-caption-line-height)); box-sizing: border-box; inline-size: 100%; max-inline-size: 100%; min-inline-size: 0; overflow-x: auto; }
   .grid { table-layout: fixed; border-spacing: 0 var(--sgui-space1); inline-size: 100%; min-inline-size: calc(7 * var(--calendar-day-size)); }
   .grid td { padding: 0; }
   .weekday { padding: 0; font-size: var(--sgui-caption-size); line-height: var(--sgui-caption-line-height); white-space: nowrap; font-weight: var(--sgui-action-weight); color: var(--sgui-date-range-selector-weekday-text); }
@@ -41,7 +45,7 @@
     .weekdayLabel { display: none; }
     .weekday::after { display: inline; }
   }
-  .cell { position:relative; display: flex; align-items: center; justify-content: center; box-sizing: border-box; text-align: center; border-radius: var(--sgui-field-control-radius); min-inline-size: var(--calendar-day-size); block-size: max(var(--sgui-control-height), var(--sgui-control-minimum-target-size)); cursor: pointer; }
+  .cell { position:relative; display: flex; align-items: center; justify-content: center; box-sizing: border-box; text-align: center; border-radius: var(--sgui-field-control-radius); min-inline-size: var(--calendar-day-size); block-size: var(--calendar-day-size); cursor: pointer; }
   .cell[data-outside-month] { visibility: hidden; }
   .cell[data-selected] { color: var(--sgui-date-range-selector-selected-text); background: var(--sgui-date-range-selector-selected-surface); }
   /* Only ranges join across columns; independent Calendar dates keep their boxes. */

@@ -1,4 +1,5 @@
 "use client";
+import { CalendarMonthTransition } from "./CalendarMonthTransition";
 import { CalendarNavigation } from "../Calendar/CalendarNavigation";
 import { useLocale } from "react-aria-components/I18nProvider";
 import { useNarrowWeekdays } from "../DateRangeSelector/useNarrowWeekdays";
@@ -50,17 +51,17 @@ export function Calendar(props: CalendarProps) {
     visibleDuration: { months }, firstDayOfWeek, isDisabled: disabled, isReadOnly: readOnly, className: styles.calendar };
   const content = <>{showTitle && <h2 className={styles.heading}>{label}</h2>}{navigation === "month-year" && months > 1 && <CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/>}<div className={styles.months}>{Array.from({ length: months }, (_, index) => <div key={index} className={styles.month}>
     <header className={styles.monthHeader}>
-      {index === 0 && <Button className={styles.previous} slot="previous" variant="outlined" tone="neutral" aria-label={t("common.ui.previousMonth", { defaultMessage: "Previous month" })}>‹</Button>}
+      {index === months - 1 && <Button className={styles.previous} slot="previous" variant="text" tone="neutral" aria-label={t("common.ui.previousMonth", { defaultMessage: "Previous month" })}>‹</Button>}
       {navigation === "month-year" && months === 1 ? <div className={styles.monthHeading}><CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/></div> : <CalendarHeading offset={{ months: index }} className={`${styles.heading} ${styles.monthHeading}`} />}
-      {index === months - 1 && <Button className={styles.next} slot="next" variant="outlined" tone="neutral" aria-label={t("common.ui.nextMonth", { defaultMessage: "Next month" })}>›</Button>}
+      {index === months - 1 && <Button className={styles.next} slot="next" variant="text" tone="neutral" aria-label={t("common.ui.nextMonth", { defaultMessage: "Next month" })}>›</Button>}
     </header>
-    <div className={styles.gridViewport}><CalendarGrid offset={{ months: index }} weekdayStyle="short" className={styles.grid}>
+    <CalendarMonthMotion><div className={styles.gridViewport}><CalendarGrid offset={{ months: index }} weekdayStyle="short" className={styles.grid}>
       <CalendarGridHeader>{day => <CalendarHeaderCell className={styles.weekday} data-narrow-label={narrowWeekdays.get(day) ?? day}><span className={styles.weekdayLabel}>{day}</span></CalendarHeaderCell>}</CalendarGridHeader>
       <CalendarGridBody>{date => {
         const iso = toCalendar(date, new GregorianCalendar()).toString();
         return <DescribedCalendarCell date={date} reason={reasonForDate(iso)} reasonId={`${descriptionId}-date-${iso}-${index}`} content={renderDayContent?.(iso)} />;
       }}</CalendarGridBody>
-    </CalendarGrid></div>
+    </CalendarGrid></div></CalendarMonthMotion>
   </div>)}</div><AvailabilityDisclosure unavailable={unavailable} reasonForDate={reasonForDate} /></>;
   return <div className={styles.root} data-months={months}>
     {props.selection === "multiple" ? <AriaCalendar {...shared} selectionMode="multiple" value={props.value?.map(parseDate)} defaultValue={props.defaultValue?.map(parseDate)}
@@ -106,4 +107,10 @@ function AvailabilityDisclosure({ unavailable, reasonForDate }: { unavailable: r
     <summary>{t("common.ui.unavailableDates", { defaultMessage: "Unavailable dates" })}</summary>
     <ul>{[...reasons].map(([date, reason]) => <li key={date}>{date}: {reason}</li>)}</ul>
   </details> : null;
+}
+
+function CalendarMonthMotion({children}: {children: ReactNode}) {
+ const state=useContext(CalendarStateContext)!;
+ const {direction}=useLocale();
+ return <CalendarMonthTransition month={state.visibleRange.start.toString()} direction={direction}>{children}</CalendarMonthTransition>;
 }

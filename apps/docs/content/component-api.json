@@ -12393,8 +12393,8 @@
           "name": "showFields",
           "type": "boolean | undefined",
           "required": false,
-          "default": "true",
-          "description": "Show editable endpoint fields. Defaults true inline; DateRangePicker defaults false to avoid repeating its range textbox. entryMode defaults to flexible text."
+          "default": "false",
+          "description": "Show editable endpoint fields. Defaults false; opt in to display flexible start/end textboxes. entryMode defaults to flexible text."
         },
         {
           "name": "showActions",

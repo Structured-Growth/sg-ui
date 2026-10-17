@@ -12,7 +12,7 @@ const cases = [
 ] as const;
 it.each(cases)('%s edits completed drafts; initial selection completes in either direction',async(behavior,expected)=>{
  const user=userEvent.setup(),change=vi.fn();
- render(<form data-testid="form"><DateRangeSelector label="Dates" months={1} entryMode="text" name="trip"
+ render(<form data-testid="form"><DateRangeSelector showFields label="Dates" months={1} entryMode="text" name="trip"
    defaultValue={{start:'2026-10-07',end:'2026-10-16'}} rangeClickBehavior={behavior} onValueChange={change}/></form>);
  const start=()=> (screen.getByRole('textbox',{name:'Start date'}) as HTMLInputElement).value;
  const end=()=> (screen.getByRole('textbox',{name:'End date'}) as HTMLInputElement).value;
@@ -39,12 +39,12 @@ it('defaults to adjust-end and keeps validation, read-only state and host replac
  const user=userEvent.setup(),change=vi.fn();
  const props:DateRangeSelectorProps={label:'Dates',months:1,entryMode:'text',value:{start:'2026-10-07',end:'2026-10-16'},onValueChange:change,
  unavailable:[{date:'2026-10-18',reason:'Closed'}]};
- const {rerender}=render(<DateRangeSelector {...props}/>);
+ const {rerender}=render(<DateRangeSelector showFields {...props}/>);
  await user.click(screen.getByRole('button',{name:/October 20, 2026/}));
  expect((screen.getByRole('textbox',{name:'Start date'}) as HTMLInputElement).value).toBe('10/07/2026');
  expect((screen.getByRole('textbox',{name:'End date'}) as HTMLInputElement).value).toBe('10/20/2026');
  expect((screen.getByRole('button',{name:'Apply',exact:true}) as HTMLButtonElement).disabled).toBe(true);
- rerender(<DateRangeSelector {...props} value={{start:'2026-10-09',end:'2026-10-12'}} readOnly/>);
+ rerender(<DateRangeSelector showFields {...props} value={{start:'2026-10-09',end:'2026-10-12'}} readOnly/>);
  await user.click(screen.getByRole('button',{name:/October 13, 2026/}));
  expect((screen.getByRole('textbox',{name:'End date'}) as HTMLInputElement).value).toBe('10/12/2026');
  expect(change).not.toHaveBeenCalled();

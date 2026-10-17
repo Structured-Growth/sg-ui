@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-16",
+  "baseCommit": "3c4fe77a6c3c1920683fda9bd72038b0a65b04a8",
+  "checks": {
+    "library build": {
+      "exitCode": 0,
+      "logSha256": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a"
+    },
+    "foundation guards": {
+      "exitCode": 0,
+      "logSha256": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647"
+    },
+    "production docs build and source/catalog checks": {
+      "exitCode": 0,
+      "logSha256": "d5dc97a4352d4a4ba3d59f62b98b3342adf96478dec426e61ee10f14bd7cd3b0"
+    },
+    "native fixture build": {
+      "exitCode": 0,
+      "logSha256": "815c7544307afd1e7093a4e98f4f30b05b43cc0e79852f1c34c96346541819ab"
+    },
+    "browser TypeScript": {
+      "exitCode": 0,
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "final catalog check": {
+      "exitCode": 0,
+      "logSha256": "f80e642e6dfa0085b0a240437ea8f40e03a17e05f67af609240d3b314807d6b1"
+    },
+    "affected units: 15 files, 82 tests": {
+      "exitCode": 0,
+      "logSha256": "37a00420f3ac6f7dfb51f59b74d067d13f2357554f52d04a2e5f60cce2cccb79"
+    }
+  },
+  "browser": {
+    "initial": "41 passed, 1 WebKit assertion measured a sliding date before motion ended",
+    "corrected": "12 month-navigation/reflow cases passed across Chromium/Firefox/WebKit after waiting for the inert outgoing frame to be removed",
+    "uniquePassingConfigurations": 42,
+    "originalFailureRetained": true
+  },
+  "notes": [
+    "Initial development run caught a real compact header wrap/height issue; a 12rem minimum month width resolves it while keeping cells tight.",
+    "The older range-band scenario queried presets as buttons; updated it to the shipped listbox option semantics and current compact dimensions, retaining band/selection/focus assertions.",
+    "Screenshot reviewed for compact layout: month and year on one line at logical start, text arrows at logical end.",
+    "139 A / 20 V / 6 future acceptance counts unchanged; no broad manual AT, physical-device, owner, legal or production gate claimed."
+  ],
+  "sourceSha256": {
+    "apps/docs/content/component-api.json": "cf99a3756e0ca79a1bac0b43fdedb572116e70f75b0e634d028643cda205ccbf",
+    "apps/docs/content/component-usage/forms.json": "e4861b28155b846c0c4b23617a20c5e79b3d08f098ee4b85c68b80446d699798",
+    "apps/docs/examples/catalog/forms-dates.tsx": "6d51cb7f87f7bb96997561c4e6313579cb0d75dc26918719a5439e869dab4d56",
+    "apps/docs/native-fixtures/public/index.json": "ef9790a1446afe884f4c41f74de712516a11c59d2022c073e0cd8ea41fdef121",
+    "apps/docs/native-fixtures/registry.json": "4de2a5400b7cef7b3a1120d78966ca4d4af4bdaa3c1d621bd0b17a5e3c80ad25",
+    "apps/docs/native-fixtures/scenarios/experimental/DateRangeSelector/DateRangeSelector.fixture.tsx": "0cc410179004bb0fe9712ef299ef255c1790fc291a8d008a1c4ab05342532527",
+    "docs/developer/react-aria-calendar-contracts.md": "eb786cd0a678c58ea2a38f64449786db8b1c02975f9f17a3bb60c626f75ef19e",
+    "packages/ui/src/experimental/Calendar/Calendar.tsx": "222266cb3076c67dd8d26e481f47556ac383ce3955f4c033086398fb60aec15e",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.behavior.test.tsx": "096d74d733f23be40071078c88546c1837a556daec1bf9d9cd0fc69a510e72ad",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css": "d0d0ce007fc36c6f43b939dfa0ff437aff346e85c93a3db54ce90382db291e81",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.test.tsx": "36c23a06a423849d42319e0ff300d386541b4b90acd7b4c70da9a48deb6882dc",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": "eb8f6bef52191b54c02f49aa7943fe5029199d7d0007cca8a3c984cded0b0ef4",
+    "packages/ui/src/experimental/DateRangeSelector/RangeGestures.test.tsx": "8fe31f633e60ea990500676004a216b90dda5c9ea4b14734958b463b504f4a5a",
+    "packages/ui/tests/browser/calendar-navigation-reflow.spec.ts": "2b4d5ea1ef016c9b20404268901f23a3361f77de18a7067e2fbed619708e6332",
+    "packages/ui/tests/browser/date-range-bands.spec.ts": "e25b3f0fe26e3c7714a8e6a2a828cb37c9163a401db02cdfbbf3e0e5f5fec4d7",
+    "packages/ui/src/experimental/Calendar/CalendarMonthTransition.tsx": "891bed682a4a70aebcbb91194f3f0edae5c2d657a53beace792be295f5695a3a",
+    "packages/ui/tests/browser/calendar-compact-navigation.spec.ts": "2e474fad37f9a5bab973e2718b221af736708c24b2913573c8cc36481c24e428"
+  }
+}

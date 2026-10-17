@@ -234,7 +234,7 @@ function DateScenario({kind, scenario}: {kind:DateKind; scenario:Scenario}) {
   const [presentation,setPresentation]=useState<'popover'|'dialog'|'drawer'|'auto'>('popover');
   const [availabilityRule,setAvailabilityRule]=useState(false),[markers,setMarkers]=useState(false);
   const [scrollMonths,setScrollMonths]=useState('12');
-  const [showFields,setShowFields]=useState(kind!=="DateRangePicker"),[showActions,setShowActions]=useState(true),[groupedPresets,setGroupedPresets]=useState(false);
+  const [showFields,setShowFields]=useState(false),[showActions,setShowActions]=useState(true),[groupedPresets,setGroupedPresets]=useState(false);
   const presetGroups=groupedPresets?[{id:'periods',label:'Date periods',presets:rangePresets,children:[{id:'archive',label:'Archived periods',presets:[{id:'year',label:'Last year',value:{start:'2025-01-01',end:'2025-12-31'}}]}]}]:undefined;
   const [minuteStep,setMinuteStep]=useState('1');
   const rangeLength=lengthMode==='fixed'?{mode:'fixed' as const,value:Number(lengthValue),unit:lengthUnit}:lengthMode==='bounded'?{mode:'bounded' as const,min:Number(lengthValue),max:Number(maxLength),unit:lengthUnit}:undefined;

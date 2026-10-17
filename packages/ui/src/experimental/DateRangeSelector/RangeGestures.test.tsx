@@ -22,11 +22,11 @@ it.each([
  ['range length',{rangeLength:{mode:'fixed',value:3,unit:'days'}}],
 ] as const)('cancels a pending gesture after the host changes %s',(_name,updated)=>{
  const change=vi.fn(),props:DateRangeSelectorProps={label:'Trip',months:1,defaultValue:{start:'2026-10-07',end:'2026-10-09'},commitBehavior:'immediate',onValueChange:change};
- const {container,rerender}=render(<DateRangeSelector {...props}/>),p=pointerSetup(container);
+ const {container,rerender}=render(<DateRangeSelector showFields {...props}/>),p=pointerSetup(container);
  try{
   p.hit.mockImplementation(()=>p.cell('2026-10-12'));
   fireEvent.pointerDown(p.cell('2026-10-09'),p.event);fireEvent.pointerMove(document,{...p.event,clientX:50});
-  rerender(<DateRangeSelector {...props} {...updated}/>);
+  rerender(<DateRangeSelector showFields {...props} {...updated}/>);
   fireEvent.pointerUp(document,{...p.event,clientX:50});
   expect(change).not.toHaveBeenCalled();
   expect((screen.getByRole('textbox',{name:'End date'}) as HTMLInputElement).value).toBe('10/09/2026');
@@ -35,7 +35,7 @@ it.each([
 
 it.each(['escape','pointercancel','outside'] as const)('rolls back %s and allows the next independent drag',cancel=>{
  const change=vi.fn();
- const {container}=render(<DateRangeSelector label="Trip" months={1} defaultValue={{start:'2026-10-07',end:'2026-10-09'}} commitBehavior="immediate" onValueChange={change}/>),p=pointerSetup(container);
+ const {container}=render(<DateRangeSelector showFields label="Trip" months={1} defaultValue={{start:'2026-10-07',end:'2026-10-09'}} commitBehavior="immediate" onValueChange={change}/>),p=pointerSetup(container);
  try{
   p.hit.mockImplementation(()=>p.cell('2026-10-12'));
   fireEvent.pointerDown(p.cell('2026-10-09'),p.event);fireEvent.pointerMove(document,{...p.event,clientX:50});
@@ -53,7 +53,7 @@ it.each(['escape','pointercancel','outside'] as const)('rolls back %s and allows
 
 it('ignores another pointer releasing or cancelling the active gesture',()=>{
  const change=vi.fn();
- const {container}=render(<DateRangeSelector label="Trip" months={1} defaultValue={{start:'2026-10-07',end:'2026-10-09'}} commitBehavior="immediate" onValueChange={change}/>),p=pointerSetup(container);
+ const {container}=render(<DateRangeSelector showFields label="Trip" months={1} defaultValue={{start:'2026-10-07',end:'2026-10-09'}} commitBehavior="immediate" onValueChange={change}/>),p=pointerSetup(container);
  try{
   p.hit.mockImplementation(()=>p.cell('2026-10-12'));
   fireEvent.pointerDown(p.cell('2026-10-09'),p.event);fireEvent.pointerMove(document,{...p.event,clientX:50});
@@ -73,7 +73,7 @@ it.each([
  ['resize','2026-10-09','2026-10-12',{start:'2026-10-07',end:'2026-10-12'}],
 ] as const)('%s mode applies only its supported operation from %s',(mode,grabbed,destination,expected)=>{
  const change=vi.fn();
- const {container}=render(<DateRangeSelector label="Trip" months={1} rangeDragBehavior={mode} defaultValue={{start:'2026-10-07',end:'2026-10-09'}} commitBehavior="immediate" onValueChange={change}/>),p=pointerSetup(container);
+ const {container}=render(<DateRangeSelector showFields label="Trip" months={1} rangeDragBehavior={mode} defaultValue={{start:'2026-10-07',end:'2026-10-09'}} commitBehavior="immediate" onValueChange={change}/>),p=pointerSetup(container);
  try{
   p.hit.mockImplementation(()=>p.cell(destination));
   fireEvent.pointerDown(p.cell(grabbed),p.event);fireEvent.pointerMove(document,{...p.event,clientX:50});fireEvent.pointerUp(document,{...p.event,clientX:50});
@@ -82,7 +82,7 @@ it.each([
 });
 it('fixed length completes on one activation, keyboard moves preserve length, invalid moves keep the draft',async()=>{
  const user=userEvent.setup(),change=vi.fn();
- render(<DateRangeSelector label="Trip" months={1} entryMode="text" defaultFocusedDate="2026-10-01" rangeLength={{mode:'fixed',value:2,unit:'days'}} onValueChange={change} min="2026-10-01"/>);
+ render(<DateRangeSelector showFields label="Trip" months={1} entryMode="text" defaultFocusedDate="2026-10-01" rangeLength={{mode:'fixed',value:2,unit:'days'}} onValueChange={change} min="2026-10-01"/>);
  const day=screen.getByRole('button',{name:/October 7, 2026/});await user.click(day);
  expect((screen.getByRole('textbox',{name:'End date'}) as HTMLInputElement).value).toBe('10/08/2026');
  day.focus();await user.keyboard('{Shift>}{ArrowLeft}{ArrowLeft}{ArrowLeft}{ArrowLeft}{ArrowLeft}{ArrowLeft}{ArrowLeft}{/Shift}');
@@ -96,7 +96,7 @@ it('fixed length completes on one activation, keyboard moves preserve length, in
 });
 it('active endpoint controls allow a departure but block arrival under distinct rules',async()=>{
  const user=userEvent.setup();
- render(<DateRangeSelector label="Trip" months={1} entryMode="text" rangeClickBehavior="active-endpoint" defaultValue={{start:'2026-10-07',end:'2026-10-16'}} getDateUnavailableReason={(date,ctx)=>date==='2026-10-13'&&ctx.endpoint==='start'?'No arrivals':undefined}/>);
+ render(<DateRangeSelector showFields label="Trip" months={1} entryMode="text" rangeClickBehavior="active-endpoint" defaultValue={{start:'2026-10-07',end:'2026-10-16'}} getDateUnavailableReason={(date,ctx)=>date==='2026-10-13'&&ctx.endpoint==='start'?'No arrivals':undefined}/>);
  await user.click(screen.getByRole('button',{name:'Start date',exact:true}));
  expect(screen.getByRole('button',{name:/Tuesday, October 13, 2026/}).getAttribute('aria-disabled')).toBe('true');
  await user.click(screen.getByRole('button',{name:'End date',exact:true}));
@@ -138,7 +138,7 @@ function pointerSetup(container:HTMLElement){
 }
 it('uses the release position rather than a stale preview and commits only once',()=>{
  const change=vi.fn();
- const {container}=render(<DateRangeSelector label="Trip" months={1} defaultValue={{start:'2026-10-07',end:'2026-10-09'}} commitBehavior="immediate" onValueChange={change}/>);
+ const {container}=render(<DateRangeSelector showFields label="Trip" months={1} defaultValue={{start:'2026-10-07',end:'2026-10-09'}} commitBehavior="immediate" onValueChange={change}/>);
  const p=pointerSetup(container);
  try{
   p.hit.mockImplementation(x=>p.cell(x>=70?'2026-10-13':'2026-10-11'));
@@ -150,12 +150,12 @@ it('uses the release position rather than a stale preview and commits only once'
 });
 it('checks new availability when the host changes it during a drag',()=>{
  const change=vi.fn(),initial={start:'2026-10-07',end:'2026-10-09'};
- const {container,rerender}=render(<DateRangeSelector label="Trip" months={1} defaultValue={initial} commitBehavior="immediate" onValueChange={change}/>);
+ const {container,rerender}=render(<DateRangeSelector showFields label="Trip" months={1} defaultValue={initial} commitBehavior="immediate" onValueChange={change}/>);
  const p=pointerSetup(container);
  try{
   p.hit.mockImplementation(()=>p.cell('2026-10-12'));
   fireEvent.pointerDown(p.cell('2026-10-09'),p.event);fireEvent.pointerMove(document,{...p.event,clientX:50});
-  rerender(<DateRangeSelector label="Trip" months={1} defaultValue={initial} commitBehavior="immediate" onValueChange={change} unavailable={[{date:'2026-10-12',reason:'Just booked'}]}/>);
+  rerender(<DateRangeSelector showFields label="Trip" months={1} defaultValue={initial} commitBehavior="immediate" onValueChange={change} unavailable={[{date:'2026-10-12',reason:'Just booked'}]}/>);
   fireEvent.pointerUp(document,{...p.event,clientX:50});
   expect(change).not.toHaveBeenCalled();expect(screen.getByRole('alert').textContent).toContain('previous range');
   expect((screen.getByRole('textbox',{name:'End date'}) as HTMLInputElement).value).toBe('10/09/2026');
@@ -164,26 +164,26 @@ it('checks new availability when the host changes it during a drag',()=>{
 it('cancels when disabled mid-drag, then allows a new gesture after re-enabling',()=>{
  const change=vi.fn(),initial={start:'2026-10-07',end:'2026-10-09'};
  const props={label:'Trip',months:1 as const,defaultValue:initial,commitBehavior:'immediate' as const,onValueChange:change};
- const {container,rerender}=render(<DateRangeSelector {...props}/>);
+ const {container,rerender}=render(<DateRangeSelector showFields {...props}/>);
  const p=pointerSetup(container);
  try{
   p.hit.mockImplementation(()=>p.cell('2026-10-12'));
   fireEvent.pointerDown(p.cell('2026-10-09'),p.event);fireEvent.pointerMove(document,{...p.event,clientX:50});
-  rerender(<DateRangeSelector {...props} disabled/>);
+  rerender(<DateRangeSelector showFields {...props} disabled/>);
   fireEvent.pointerUp(document,{...p.event,clientX:50});expect(change).not.toHaveBeenCalled();
-  rerender(<DateRangeSelector {...props}/>);
+  rerender(<DateRangeSelector showFields {...props}/>);
   fireEvent.pointerDown(p.cell('2026-10-09'),p.event);fireEvent.pointerMove(document,{...p.event,clientX:50});fireEvent.pointerUp(document,{...p.event,clientX:50});
   expect(change).toHaveBeenCalledExactlyOnceWith({start:'2026-10-07',end:'2026-10-12'});
  }finally{p.restore();}
 });
 it('keeps a new host value when it replaces the range during a drag',()=>{
  const change=vi.fn(),initial={start:'2026-10-07',end:'2026-10-09'};
- const {container,rerender}=render(<DateRangeSelector label="Trip" months={1} value={initial} commitBehavior="immediate" onValueChange={change}/>);
+ const {container,rerender}=render(<DateRangeSelector showFields label="Trip" months={1} value={initial} commitBehavior="immediate" onValueChange={change}/>);
  const p=pointerSetup(container);
  try{
   p.hit.mockImplementation(()=>p.cell('2026-10-12'));
   fireEvent.pointerDown(p.cell('2026-10-09'),p.event);fireEvent.pointerMove(document,{...p.event,clientX:50});
-  rerender(<DateRangeSelector label="Trip" months={1} value={{start:'2026-10-20',end:'2026-10-22'}} commitBehavior="immediate" onValueChange={change}/>);
+  rerender(<DateRangeSelector showFields label="Trip" months={1} value={{start:'2026-10-20',end:'2026-10-22'}} commitBehavior="immediate" onValueChange={change}/>);
   fireEvent.pointerUp(document,{...p.event,clientX:50});
   expect(change).not.toHaveBeenCalled();
   expect((screen.getByRole('textbox',{name:'Start date'}) as HTMLInputElement).value).toBe('10/20/2026');

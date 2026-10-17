@@ -1,4 +1,5 @@
 "use client";
+import { CalendarMonthTransition } from "../Calendar/CalendarMonthTransition";
 import { CalendarNavigation } from "../Calendar/CalendarNavigation";
 import { useLocale } from "react-aria-components/I18nProvider";
 import { useCallback, useContext, useEffect, useId, useRef, useState } from "react";
@@ -61,7 +62,7 @@ export interface DateRangeSelectorProps {
   onActiveEndpointChange?: (endpoint:"start"|"end") => void;
   /** Calendar activation can select a whole Gregorian week/month/quarter/year. Defaults to individual days. Length constraints still validate the complete period. */
   selectionUnit?: "day" | "week" | "month" | "quarter" | "year";
-  /** Show editable endpoint fields. Defaults true inline; DateRangePicker defaults false to avoid repeating its range textbox. entryMode defaults to flexible text. */
+  /** Show editable endpoint fields. Defaults false; opt in to display flexible start/end textboxes. entryMode defaults to flexible text. */
   showFields?: boolean;
   /** Hide Clear/Cancel/Apply when the enclosing composition owns actions. Defaults true. */
   showActions?: boolean;
@@ -105,7 +106,7 @@ export interface DateRangeSelectorProps {
   name?: string;
 }
 
-export function DateRangeSelector({ label, showTitle = false, navigation = "arrows", visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=true, showActions=true, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
+export function DateRangeSelector({ label, showTitle = false, navigation = "arrows", visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets:basePresets = [], presetGroups = [], presetPlacement = "side", months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
   const { locale, direction } = useLocale();
@@ -267,7 +268,7 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
       const target=event.currentTarget.querySelector<HTMLElement>(`[data-calendar-layout="scroll"] [data-sgui-date="${next}"][role="button"]:not([data-outside-month]):not([data-disabled])`);
       if(target){event.preventDefault();event.stopPropagation();target.focus();}
     }}
-    onClickCapture={event => { if (event.detail === 0) pointerDate.current = null; }} className={styles.root} data-sgui-part="date-range-selector" data-months={calendarLayout==="scroll"?1:months} data-drag-behavior={rangeDragBehavior} data-invalid-preview={dragPreview&&!displayedRangeValid||undefined} data-fixed-length={rangeLength?.mode==="fixed"||(rangeLength?.mode==="bounded"&&rangeLength.min!==undefined&&rangeLength.min===rangeLength.max)||undefined} data-preset-placement={hasPresets ? presetPlacement : undefined}>
+    onClickCapture={event => { if (event.detail === 0) pointerDate.current = null; }} className={styles.root} data-show-fields={showFields || undefined} data-sgui-part="date-range-selector" data-months={calendarLayout==="scroll"?1:months} data-drag-behavior={rangeDragBehavior} data-invalid-preview={dragPreview&&!displayedRangeValid||undefined} data-fixed-length={rangeLength?.mode==="fixed"||(rangeLength?.mode==="bounded"&&rangeLength.min!==undefined&&rangeLength.min===rangeLength.max)||undefined} data-preset-placement={hasPresets ? presetPlacement : undefined}>
     <RangeCalendar aria-label={label} aria-describedby={rangeDragBehavior!=="none"?`${descriptionId}-gestures`:undefined} value={calendarValue} visibleDuration={{ months }} pageBehavior="single" selectionAlignment="start" commitBehavior="reset"
       defaultFocusedValue={defaultFocusedDate && isDateOnly(defaultFocusedDate) ? parseDate(defaultFocusedDate) : undefined} firstDayOfWeek={firstDayOfWeek}
       minValue={min && isDateOnly(min) ? parseDate(min) : undefined} maxValue={max && isDateOnly(max) ? parseDate(max) : undefined}
@@ -307,14 +308,14 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
       const count=Math.min(remaining,calendarLayout==='scroll'?Math.max(1,Math.min(120,Math.floor(scrollMonths)||12)):months);
       const monthView=(index:number,offset=index)=><div key={index} className={styles.month}>
           <header className={styles.monthHeader}>
-            {(index===0||calendarNavigation==='independent')&&calendarLayout!=='scroll'&&<Button className={styles.previous} slot="previous" variant="outlined" tone="neutral" aria-label={t("common.ui.previousMonth",{defaultMessage:"Previous month"})}>‹</Button>}
+            {(index===months-1||calendarNavigation==='independent')&&calendarLayout!=='scroll'&&<Button className={styles.previous} slot="previous" variant="text" tone="neutral" aria-label={t("common.ui.previousMonth",{defaultMessage:"Previous month"})}>‹</Button>}
             {navigation==='month-year'&&(months===1||calendarNavigation==='independent')?<div className={styles.monthHeading}><CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/></div>:<CalendarHeading offset={{months:offset}} className={`${styles.heading} ${styles.monthHeading}`}/>}
-            {(index===months-1||calendarNavigation==='independent')&&calendarLayout!=='scroll'&&<Button className={styles.next} slot="next" variant="outlined" tone="neutral" aria-label={t("common.ui.nextMonth",{defaultMessage:"Next month"})}>›</Button>}
+            {(index===months-1||calendarNavigation==='independent')&&calendarLayout!=='scroll'&&<Button className={styles.next} slot="next" variant="text" tone="neutral" aria-label={t("common.ui.nextMonth",{defaultMessage:"Next month"})}>›</Button>}
           </header>
-          <div className={styles.gridViewport}><CalendarGrid offset={{months:offset}} weekdayStyle="short" className={`${styles.grid} ${styles.rangeGrid}`}>
+          <RangeMonthMotion enabled={calendarLayout==='paged'}><div className={styles.gridViewport}><CalendarGrid offset={{months:offset}} weekdayStyle="short" className={`${styles.grid} ${styles.rangeGrid}`}>
             <CalendarGridHeader>{day=><CalendarHeaderCell className={styles.weekday} data-narrow-label={narrowWeekdays.get(day)??day}><span className={styles.weekdayLabel}>{day}</span></CalendarHeaderCell>}</CalendarGridHeader>
             <CalendarGridBody>{date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();const reason=unavailable.find(day=>day.date===iso)?.reason??getDateUnavailableReason?.(iso,{range:draft,endpoint:selectionEndpoint});return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${iso}-${index}`} previewIds={state.anchorDate&&state.isFocused&&state.focusedDate.compare(date)===0?[previewId,previewContextId]:[]} content={renderDayContent?.(iso)} rangeValid={displayedRangeValid} inRange={Boolean(displayRange?.start&&displayRange?.end&&iso>=displayRange.start&&iso<=displayRange.end)} start={displayRange?.start===iso} end={displayRange?.end===iso}/>;}}</CalendarGridBody>
-          </CalendarGrid></div>
+          </CalendarGrid></div></RangeMonthMotion>
         </div>;
       return <RangeGestures resetKey={`${committed?.start}/${committed?.end}/${resetRevision}`} value={calendarValue&&draft?.end?{start:calendarValue.start.toString(),end:calendarValue.end.toString()}:null} behavior={rangeDragBehavior} length={rangeLength} disabled={disabled||readOnly} onActivate={activateDate} onEdit={edit} onPreview={setDragPreview} isAllowed={validRange} onInvalid={()=>setInteractionError(true)} onRestart={date=>{programmaticAnchor.current=date;}}>
     {rangeDragBehavior!=='none'&&<p id={`${descriptionId}-gestures`} className={styles.visuallyHidden}>{t("common.ui.rangeGestureHelp",{defaultMessage:"Shift and Left or Right moves the range when enabled. Alt and Left or Right resizes the end; add Shift to resize the start when enabled. Escape cancels dragging. Drag the first or last day to resize, or an interior day to move. Shift and drag moves from any selected day. At duration limits the opposite boundary follows; fixed duration moves the whole range."})}</p>}
@@ -339,9 +340,9 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
       {showTitle && <h2 className={styles.heading}>{label}</h2>}
       {navigation === "month-year" && months > 1 && calendarNavigation==='linked' && <CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/>}
       {calendarLayout==='scroll'&&<ButtonContext.Provider value={null}><div className={styles.monthHeader}>
-        <Button className={styles.previous} variant="outlined" tone="neutral" disabled={disabled||readOnly||!isDateOnly(baseMonth.subtract({months:count}).toString())||Boolean(min&&baseMonth.subtract({days:1}).toString()<min)} onPress={()=>setScrollStart(baseMonth.subtract({months:count}).toString())} aria-label={t("common.ui.previousMonths",{defaultMessage:"Previous months"})}>‹</Button>
+        <Button className={styles.previous} variant="text" tone="neutral" disabled={disabled||readOnly||!isDateOnly(baseMonth.subtract({months:count}).toString())||Boolean(min&&baseMonth.subtract({days:1}).toString()<min)} onPress={()=>setScrollStart(baseMonth.subtract({months:count}).toString())} aria-label={t("common.ui.previousMonths",{defaultMessage:"Previous months"})}>‹</Button>
         <h3 className={`${styles.heading} ${styles.monthHeading}`}>{t("common.ui.browseMonths",{defaultMessage:"Browse months"})}</h3>
-        <Button className={styles.next} variant="outlined" tone="neutral" disabled={disabled||readOnly||!isDateOnly(baseMonth.add({months:count}).toString())||Boolean(max&&baseMonth.add({months:count}).toString()>max)} onPress={()=>setScrollStart(baseMonth.add({months:count}).toString())} aria-label={t("common.ui.nextMonths",{defaultMessage:"Next months"})}>›</Button>
+        <Button className={styles.next} variant="text" tone="neutral" disabled={disabled||readOnly||!isDateOnly(baseMonth.add({months:count}).toString())||Boolean(max&&baseMonth.add({months:count}).toString()>max)} onPress={()=>setScrollStart(baseMonth.add({months:count}).toString())} aria-label={t("common.ui.nextMonths",{defaultMessage:"Next months"})}>›</Button>
       </div></ButtonContext.Provider>}
       <div data-calendar-layout={calendarLayout} className={calendarLayout==='scroll'?styles.scrollingMonths:styles.months}>
       {Array.from({length:count},(_,index)=>calendarNavigation==='independent'||calendarLayout==='scroll'?
@@ -440,4 +441,10 @@ function SelectionBehaviorBridge({ pointerActive, skipAnchor, onActivate }: { sk
     }
   }, [anchor, pointerActive, state.isDragging, state.setFocusedDate, onActivate]);
   return null;
+}
+
+function RangeMonthMotion({children,enabled}: {children:ReactNode;enabled:boolean}) {
+ const state=useContext(RangeCalendarStateContext)!;
+ const {direction}=useLocale();
+ return <CalendarMonthTransition month={state.visibleRange.start.toString()} direction={direction} enabled={enabled}>{children}</CalendarMonthTransition>;
 }

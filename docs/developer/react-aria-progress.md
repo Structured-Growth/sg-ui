@@ -2157,3 +2157,10 @@ Menu native Tab dismissal, neutral Button feedback and editor Cancel restoration
 ## iOS Simulator VoiceOver automation proof — 2026-10-16
 
 User prefers simulator automation. Verified installed Xcode27.1/iOS27.0; added a private standalone XCTest/Safari harness and leased runner under `packages/ui/tests/apple`. Two executions pass the Select interaction plus actual VoiceOver speech capture. The maintained runner passes build/test/summary/shutdown, retains immutable host/source hashes and xcresult. [Receipts and original failed locator run](final-acceptance/apple-simulator/results.json). No library source, public exports or consumer dependencies change. This is a bounded capability proof, not physical-device or whole manual-AT acceptance; existing139 A/20V/6future counts remain. No operator intervention was required.
+
+
+## Compact calendar defaults and text navigation — 2026-10-16
+
+Completed the requested calendar layout update: tighter pointer cells in both densities, default hidden endpoint fields, logical-start month/year with grouped text navigation buttons, and horizontal month slides. Touch minimum targets remain intact; RTL reverses motion and reduced motion disables it. A private inert outgoing snapshot preserves one live grid/focus owner. Compact headers reserve enough width to keep longer month names from changing height.
+
+[Task receipts](final-acceptance/calendar-compact-layout/results.json): affected units 15 files / 82 tests pass; library, foundation, production docs/catalog, native fixture and browser type checks pass. Browser evidence covers 42 passing configurations across Chromium/Firefox/WebKit: initial 41 passes plus a corrected 12-case navigation/reflow rerun after waiting for motion to settle. The original WebKit timing failure is retained. This feature does not change the remaining 139 A / 20 V / 6 future acceptance counts.

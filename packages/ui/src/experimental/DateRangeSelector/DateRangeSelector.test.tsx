@@ -151,7 +151,7 @@ it("resets standalone committed values, drafts and pending anchors through the n
 });
 it("retains a draft on prevented native reset and clears the anchor on a changed host value", async () => {
   const user = userEvent.setup();
-  const { rerender } = render(<form onReset={event => event.preventDefault()}><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" value={initial} months={1} presets={[preset]} /><button type="reset">Reset dates</button></form>);
+  const { rerender } = render(<form onReset={event => event.preventDefault()}><DateRangeSelector showFields entryMode="segments" rangeClickBehavior="restart" label="Dates" value={initial} months={1} presets={[preset]} /><button type="reset">Reset dates</button></form>);
   await user.click(screen.getByRole("option", { name: "March", exact: true }));
   await user.click(screen.getByRole("button", { name: "Reset dates" }));
   expect(screen.getByRole("status").textContent).toContain("2024-03-01 – 2024-03-31");
@@ -160,16 +160,16 @@ it("retains a draft on prevented native reset and clears the anchor on a changed
   screen.getByRole("button", { name: /Friday, March 1, 2024/ }).focus();
   await user.keyboard("{Enter}");
   expect(screen.getByText(/Range preview:/)).toBeTruthy();
-  rerender(<form><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" value={{ ...initial }} months={1} /></form>);
+  rerender(<form><DateRangeSelector showFields entryMode="segments" rangeClickBehavior="restart" label="Dates" value={{ ...initial }} months={1} /></form>);
   expect(screen.getByText(/Range preview:/)).toBeTruthy();
   expect(screen.getByRole("status").textContent).toBe("2024-03-01 – ");
-  rerender(<form><DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" value={{ start: "2024-04-01", end: "2024-04-02" }} months={1} /></form>);
+  rerender(<form><DateRangeSelector showFields entryMode="segments" rangeClickBehavior="restart" label="Dates" value={{ start: "2024-04-01", end: "2024-04-02" }} months={1} /></form>);
   expect(screen.queryByText(/Range preview:/)).toBeNull();
   expect(screen.getByRole("status").textContent).toContain("2024-04-01 – 2024-04-02");
 });
 it("synchronizes segmented edits and refuses reversed drafts", async () => {
   const user = userEvent.setup(); const change = vi.fn();
-  render(<DateRangeSelector entryMode="segments" rangeClickBehavior="restart" label="Dates" months={1} defaultValue={initial}
+  render(<DateRangeSelector showFields entryMode="segments" rangeClickBehavior="restart" label="Dates" months={1} defaultValue={initial}
     onValueChange={change} />);
   const days = screen.getAllByRole("spinbutton", { name: /day/ });
   await user.click(days[1]); await user.keyboard("27");
@@ -235,4 +235,16 @@ it("uses the constrained endpoint at unavailable boundaries and removes preview 
   expect(screen.queryByText(/Anchor:/)).toBeNull();
   expect(screen.getByRole("status").textContent).toBe("2024-02-20 – 2024-02-21");
   expect(change).not.toHaveBeenCalled();
+});
+
+it("hides endpoint entry by default while retaining explicit flexible fields", () => {
+ const {rerender}=render(<DateRangeSelector label="Travel dates" months={1} defaultValue={initial}/>);
+ expect(screen.queryByRole("textbox",{name:"Start date"})).toBeNull();
+ expect(screen.queryByRole("textbox",{name:"End date"})).toBeNull();
+ expect(screen.getAllByRole("grid")).toHaveLength(1);
+ expect(screen.getByRole("button",{name:"Previous month"})).toBeTruthy();
+ expect(screen.getByRole("button",{name:"Next month"})).toBeTruthy();
+ rerender(<DateRangeSelector showFields label="Travel dates" months={1} defaultValue={initial}/>);
+ expect((screen.getByRole("textbox",{name:"Start date"}) as HTMLInputElement).value).toBe("02/28/2024");
+ expect((screen.getByRole("textbox",{name:"End date"}) as HTMLInputElement).value).toBe("02/29/2024");
 });
