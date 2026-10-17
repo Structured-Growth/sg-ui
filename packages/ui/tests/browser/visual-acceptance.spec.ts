@@ -1,4 +1,6 @@
 import {test, expect} from '@playwright/test';
+import {resolve} from 'node:path';
+import {validateVisualExecution} from '../../scripts/visual-baseline-review.mjs';
 
 // Eight deliberately bounded configurations; each captures the five named families.
 // Screenshots are candidates until an operator reviews and approves baseline images.
@@ -15,6 +17,14 @@ const configurations = [
 for (const [theme,density,width,locale,direction,longLabels] of configurations) {
   const key = `${theme}-${density}-${width}-${locale}-${direction}-${longLabels?'long':'short'}`;
   test(`review matrix ${key}`, async ({page}, info) => {
+    // Required at the actual test entry, including custom/CI configs.
+    const reviewErrors = validateVisualExecution({
+      mode: process.env.SGUI_VISUAL_MODE ?? 'compare', updateSnapshots: info.config.updateSnapshots,
+      snapshotPaths: ['focused-action','controls','grids','navigation','editor','overlay'].map(family => info.snapshotPath(`${key}-${family}.png`)),
+      outputDirectory: process.env.SGUI_VISUAL_OUTPUT ?? '', baselineRoot: process.env.SGUI_VISUAL_BASELINES,
+      receiptPath: process.env.SGUI_VISUAL_REVIEW, repositoryRoot: resolve(import.meta.dirname, '../../../..'), argv: process.argv,
+    });
+    expect(reviewErrors, 'Deliberate screenshot review is mandatory for every visual test entry').toEqual([]);
     const warnings: string[] = [];
     page.on('pageerror', error => warnings.push(error.message));
     page.on('console', message => {if(['error','warning'].includes(message.type())) warnings.push(message.text());});
