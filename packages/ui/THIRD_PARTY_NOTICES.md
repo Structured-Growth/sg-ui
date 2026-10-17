@@ -474,8 +474,9 @@ React Aria Components 1.21.1, react-aria 3.52.1, react-stately 3.50.0,
 @react-types/shared 3.36.1, @internationalized/date 3.12.4,
 @internationalized/string 3.2.10, @internationalized/number 3.6.8, and their Adobe interaction/state utilities
 retain their upstream licenses. Copyright Adobe and contributors. SGUI depends
-on these packages; no upstream implementation or example stylesheet was copied
-or modified. SGUI's commercial license covers its own wrappers and styles.
+on these packages. Copied or adapted upstream code, example stylesheets, inline
+attribution and any required modified-file notices remain subject to the final
+source-provenance review; dependency declarations alone do not establish their absence. SGUI's commercial license covers its own wrappers and styles.
 The exact resolved transitive inventory is in pnpm-lock.yaml; each package
 distributes its own applicable notices. These packages supply the owned implementation's interaction, state and internationalization behavior.
 
