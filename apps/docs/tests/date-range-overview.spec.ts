@@ -1,6 +1,20 @@
 import {test,expect} from '@playwright/test';
 import {exampleName} from './example-name';
 
+test('one-calendar preset example omits endpoint fields in its dropdown and source',async({page})=>{
+ await page.goto('/docs/components/date-range-picker');
+ const panel=page.getByRole('region',{name:exampleName('Preset panel with one calendar'),exact:true});
+ await panel.getByRole('button',{name:'Choose Reporting period',exact:true}).click();
+ const dialog=page.getByRole('dialog',{name:'Reporting period',exact:true});
+ await expect(dialog.getByRole('grid')).toHaveCount(1);
+ await expect(dialog.getByRole('textbox')).toHaveCount(0);
+ await dialog.getByRole('option',{name:'Last business week',exact:true}).click();
+ await dialog.getByRole('button',{name:'Apply',exact:true}).click();
+ await expect(panel.getByRole('textbox',{name:'Reporting period',exact:true})).toHaveValue(/10\/05\/2026.*10\/09\/2026/);
+ await panel.getByRole('button',{name:'Show source: Preset panel with one calendar',exact:true}).click();
+ await expect(panel.getByRole('code')).not.toContainText('showFields');
+});
+
 for(const [slug,name] of [['date-range-selector','DateRangeSelector'],['date-range-picker','DateRangePicker']])test(`${name} defaults omit presets and keep them opt-in`,async({page})=>{
   await page.goto(`/docs/components/${slug}`);
   const overview=page.getByRole('region',{name:`${name} at a glance`,exact:true});

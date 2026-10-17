@@ -2181,3 +2181,8 @@ Added optional `calendarEndpoints` index mapping for independent paged range cal
 ## DatePicker popup width correction — 2026-10-16
 
 Removed the stale seven-control-width calculation from DatePicker's calendar wrapper; its content width now follows the actual compact calendar while retaining the viewport cap. [Receipt](final-acceptance/calendar-compact-layout/popup-width.json): all 12 browser checks pass across Chromium/Firefox/WebKit, including balanced padding at both densities on desktop/narrow viewports plus existing width/source/focus checks. Fresh library/foundation/production docs/catalog/native fixture/browser-type validation passes. Reviewed the Material dark popup screenshot. No public API change or broad acceptance closure.
+
+
+## One-calendar preset example without endpoint fields — 2026-10-16
+
+Removed the optional start/end textboxes from DateRangePicker's “Preset panel with one calendar” example (also reused on the Calendar page). Its copied source and description match the cleaned dropdown; other explicitly field-enabled preset examples remain. Production docs build/catalog checks and five focused overview/preset browser checks pass, including preset selection/Apply and the absence of endpoint textboxes in the dropdown/source. No library API or acceptance-count change.
