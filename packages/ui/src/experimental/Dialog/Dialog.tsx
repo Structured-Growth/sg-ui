@@ -1,5 +1,5 @@
 "use client";
-import { createContext, forwardRef, useContext, useCallback, useEffect, useId, useMemo, useRef, type CSSProperties, type FocusEvent, type ReactNode } from "react";
+import { createContext, forwardRef, useContext, useCallback, useEffect, useId, useMemo, useRef, useState, type CSSProperties, type FocusEvent, type ReactNode } from "react";
 import { useFocusManager, type FocusManager } from "react-aria/FocusScope";
 import { Modal, ModalOverlay } from "react-aria-components/Modal";
 import { Dialog as AriaDialog } from "react-aria-components/Dialog";
@@ -73,6 +73,34 @@ function DialogRecovery({ scope, parent }: { scope: RecoveryScope; parent: Recov
       });
     };
   }, [scope, parent]);
+  useEffect(() => {
+    const dialog = scope.dialog;
+    const view = dialog?.ownerDocument.defaultView;
+    if (!dialog || !view) return;
+    let frame = 0;
+    const revealAfterLayout = () => {
+      view.cancelAnimationFrame(frame);
+      frame = view.requestAnimationFrame(() => {
+        const active = dialog.ownerDocument.activeElement;
+        // A nested modal owns its own focus. Never scroll a parent for it.
+        if (active instanceof HTMLElement && active.closest('[role="dialog"]') === dialog) {
+          revealFocusedElement(active, dialog);
+        }
+      });
+    };
+    // Resizing an already focused control does not dispatch another focus event.
+    // Observe fixed chrome too: text spacing/font changes can resize the header
+    // while leaving the dialog's own outer dimensions unchanged.
+    const observer = typeof view.ResizeObserver === "function" ? new view.ResizeObserver(revealAfterLayout) : null;
+    observer?.observe(dialog);
+    for (const region of dialog.querySelectorAll(':scope > [data-sgui-part]')) observer?.observe(region);
+    view.addEventListener("resize", revealAfterLayout);
+    return () => {
+      view.cancelAnimationFrame(frame);
+      observer?.disconnect();
+      view.removeEventListener("resize", revealAfterLayout);
+    };
+  }, [scope]);
   return null;
 }
 
@@ -82,6 +110,10 @@ function revealFocusedControl(event: FocusEvent<HTMLElement>) {
   const target = event.target as HTMLElement;
   const dialog = event.currentTarget.closest('[role="dialog"]');
   if (!dialog || target.closest('[role="dialog"]') !== dialog) return;
+  revealFocusedElement(target, dialog);
+}
+
+function revealFocusedElement(target: HTMLElement, dialog: Element) {
   target.ownerDocument.defaultView?.requestAnimationFrame(() => {
     // Measure after focus-scope scroll restoration and the portal's layout.
     if (target.ownerDocument.activeElement !== target || !target.isConnected) return;
@@ -118,6 +150,11 @@ export const Dialog = forwardRef<HTMLElement, DialogProps>(function Dialog({ ope
   bodyClassName, bodyStyle, "aria-label": label }, ref) {
   const scope = useOverlayScope();
   const parentRecovery = useContext(RecoveryContext);
+  // When both controlled overlays start open, register the parent first. Mounting
+  // both portals in the same commit lets the parent's modal isolation hide the
+  // already-mounted child. A nested overlay activates after that parent commit.
+  const [nestedReady, setNestedReady] = useState(parentRecovery === null);
+  useEffect(() => { setNestedReady(true); }, []);
   const recovery = useMemo<RecoveryScope>(() => ({ dialog: null, initialFocus: null, opener: null, manager: null }), []);
   const dialogRef = useCallback((element: HTMLElement | null) => {
     if (element && element !== recovery.dialog) recovery.initialFocus = null;
@@ -135,7 +172,7 @@ export const Dialog = forwardRef<HTMLElement, DialogProps>(function Dialog({ ope
       && target.closest('[role="dialog"]') === recovery.dialog) recovery.initialFocus = target;
   }} onKeyDownCapture={event => { reason.current = event.key === "Escape" ? "escape" : "dismiss"; }}
     onClickCapture={event => { if (event.detail === 0) reason.current = "dismiss"; }}>
-    <ModalOverlay {...scope} isOpen={open} isDismissable={dismissOnOutside}
+    <ModalOverlay {...scope} isOpen={open && nestedReady} isDismissable={dismissOnOutside}
     isKeyboardDismissDisabled={!dismissOnEscape} className={styles.overlay} data-sgui-part="dialog-overlay" data-size={size}
     shouldCloseOnInteractOutside={() => { reason.current = "outside"; return true; }}
     onOpenChange={next => { if (!next) onDismiss(reason.current); }}>

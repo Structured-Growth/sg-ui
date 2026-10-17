@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { useEffect, useRef, useState } from "react";
+import { StrictMode, useEffect, useRef, useState } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -178,4 +178,96 @@ describe("removed child opener recovery", () => {
     await user.keyboard("{Escape}");
     await waitFor(() => expect(document.activeElement).toBe(outer));
   });
+});
+
+
+it("releases resize observers/listeners/queued work and keeps nested focus owned by its dialog", async () => {
+  // This double exposes observer lifetime only. Real focus/resize geometry remains
+  // covered by the native modal case; React Aria and focus scopes are not mocked.
+  const observers: ResizeObserverDouble[] = [];
+  class ResizeObserverDouble implements ResizeObserver {
+    readonly targets = new Set<Element>();
+    disconnected = false;
+    constructor(readonly callback: ResizeObserverCallback) { observers.push(this); }
+    observe = vi.fn((target: Element) => { this.targets.add(target); });
+    unobserve = vi.fn((target: Element) => { this.targets.delete(target); });
+    disconnect = vi.fn(() => { this.disconnected = true; });
+    notify() { this.callback([], this); }
+  }
+  vi.stubGlobal("ResizeObserver", ResizeObserverDouble);
+  const added = vi.spyOn(window, "addEventListener");
+  const removed = vi.spyOn(window, "removeEventListener");
+  function NestedResizeFixture() {
+    const [parentOpen, setParentOpen] = useState(false);
+    const [childOpen, setChildOpen] = useState(false);
+    return <Provider>
+      <Button onPress={() => setParentOpen(true)}>Open resize parent</Button>
+      <Dialog open={parentOpen} title="Resize parent" onDismiss={() => setParentOpen(false)}>
+        <TextField label="Parent resize field" autoFocus />
+        <Button onPress={() => setChildOpen(true)}>Open resize child</Button>
+        <Dialog open={childOpen} title="Resize child" onDismiss={() => setChildOpen(false)}>
+          <TextField label="Nested resize field" autoFocus />
+        </Dialog>
+      </Dialog>
+    </Provider>;
+  }
+  const user = userEvent.setup();
+  const view = render(<StrictMode><NestedResizeFixture /></StrictMode>);
+  try {
+    await user.click(screen.getByRole("button", { name: "Open resize parent" }));
+    const parent = await screen.findByRole("dialog", { name: "Resize parent" });
+    await waitFor(() => expect(document.activeElement).toBe(within(parent).getByRole("textbox", { name: "Parent resize field" })));
+    await user.click(within(parent).getByRole("button", { name: "Open resize child" }));
+    const child = await screen.findByRole("dialog", { name: "Resize child" });
+    const field = await within(child).findByRole("textbox", { name: "Nested resize field" });
+    await waitFor(() => expect(document.activeElement).toBe(field));
+    await act(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+    const parentBody = parent.querySelector(':scope > [data-sgui-part="dialog-body"]')!;
+    const childBody = child.querySelector(':scope > [data-sgui-part="dialog-body"]')!;
+    const parentObserver = observers.find(observer => !observer.disconnected && observer.targets.has(parent) && observer.targets.has(parentBody))!;
+    const childObserver = observers.find(observer => !observer.disconnected && observer.targets.has(child) && observer.targets.has(childBody))!;
+    expect(parentObserver).toBeDefined(); expect(childObserver).toBeDefined();
+    expect(added).toHaveBeenCalledWith("resize", parentObserver.callback);
+    expect(added).toHaveBeenCalledWith("resize", childObserver.callback);
+
+    const frames = new Map<number, FrameRequestCallback>();
+    let nextFrame = 900_000;
+    const scheduled = vi.spyOn(window, "requestAnimationFrame").mockImplementation(callback => {
+      const id = ++nextFrame; frames.set(id, callback); return id;
+    });
+    const cancelled = vi.spyOn(window, "cancelAnimationFrame").mockImplementation(id => { frames.delete(id); });
+    const flushFrame = () => {
+      const callbacks = [...frames.entries()]; frames.clear();
+      act(() => { for (const [, callback] of callbacks) callback(0); });
+    };
+    // Geometry is a lifecycle probe: force a reveal only if the proper owner
+    // reaches its measurement. Parent callbacks must not even measure the child.
+    const measured = vi.spyOn(field, "getBoundingClientRect").mockReturnValue(new DOMRect(0, 1000, 100, 40));
+    const scrolled = vi.fn();
+    Object.defineProperty(field, "scrollIntoView", { configurable: true, value: scrolled });
+    parentObserver.notify(); flushFrame(); flushFrame();
+    expect(measured).not.toHaveBeenCalled(); expect(scrolled).not.toHaveBeenCalled();
+    expect(document.activeElement).toBe(field);
+    childObserver.notify(); flushFrame(); flushFrame();
+    expect(scrolled).toHaveBeenCalledExactlyOnceWith({ block: "nearest", inline: "nearest" });
+    expect(document.activeElement).toBe(field);
+
+    // Schedule both owners, then remove the tree before either callback runs.
+    parentObserver.notify(); const parentPending = nextFrame;
+    childObserver.notify(); const childPending = nextFrame;
+    expect(scheduled).toHaveBeenCalled();
+    view.unmount();
+    expect(parentObserver.disconnect).toHaveBeenCalledOnce();
+    expect(childObserver.disconnect).toHaveBeenCalledOnce();
+    expect(removed).toHaveBeenCalledWith("resize", parentObserver.callback);
+    expect(removed).toHaveBeenCalledWith("resize", childObserver.callback);
+    expect(cancelled).toHaveBeenCalledWith(parentPending);
+    expect(cancelled).toHaveBeenCalledWith(childPending);
+    expect(frames.has(parentPending)).toBe(false); expect(frames.has(childPending)).toBe(false);
+    flushFrame(); expect(scrolled).toHaveBeenCalledTimes(1);
+    // StrictMode's discarded effect observers must also have been disconnected.
+    expect(observers.filter(observer => observer.targets.has(parent) || observer.targets.has(child)).every(observer => observer.disconnected)).toBe(true);
+  } finally {
+    view.unmount(); vi.restoreAllMocks(); vi.unstubAllGlobals();
+  }
 });

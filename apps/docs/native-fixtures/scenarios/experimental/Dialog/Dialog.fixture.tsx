@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { StrictMode, useId, useState } from "react";
 import type { Meta, StoryObj } from "../../../types";
 import { Dialog } from "@structured-growth/sg-ui/experimental";
 import { Button } from "@structured-growth/sg-ui/experimental";
@@ -74,3 +74,20 @@ function HeaderReflowProof({ size }: { size: "md" | "lg" }) {
 }
 export const MediumHeaderReflow: Story = { args: { open: false, children: null, onDismiss: () => {} }, render: () => <HeaderReflowProof size="md" /> };
 export const LargeHeaderReflow: Story = { args: { open: false, children: null, onDismiss: () => {} }, render: () => <HeaderReflowProof size="lg" /> };
+
+
+function InitialStackProof() {
+  const [parentOpen, setParentOpen] = useState(true);
+  const [childOpen, setChildOpen] = useState(true);
+  return <Provider>
+    <TextField label="Outside draft" defaultValue="Keep host draft" />
+    <Dialog open={parentOpen} title="Initially open parent" onDismiss={() => setParentOpen(false)}>
+      <TextField label="Parent initial field" autoFocus />
+      <Dialog open={childOpen} title="Initially open child" onDismiss={() => setChildOpen(false)}>
+        <TextField label="Child initial field" autoFocus />
+      </Dialog>
+    </Dialog>
+  </Provider>;
+}
+export const InitialNestedStack: Story = { args: { open: false, children: null, onDismiss: () => {} }, render: () => <InitialStackProof /> };
+export const InitialNestedStackStrict: Story = { args: { open: false, children: null, onDismiss: () => {} }, render: () => <StrictMode><InitialStackProof /></StrictMode> };
