@@ -2176,3 +2176,8 @@ Corrected the docs-owned default that injected presets into date-range overviews
 Added optional `calendarEndpoints` index mapping for independent paged range calendars. The From/To reference examples now use `["start", "end"]`, and the range playgrounds expose an assignment option. Assigned calendars edit their endpoint and evaluate its restrictions; either endpoint can be entered first, crossing clears only the opposite endpoint, and incomplete drafts cannot commit. Shared/unassigned, linked and scrolling behavior remains covered. Updated public prop declarations, usage guidance and copied source.
 
 [Receipts](final-acceptance/calendar-independent-endpoints/results.json): 89 affected tests / 15 files pass; fresh library/foundation/production docs/catalog/native fixture/browser-type checks pass; six native docs cases pass across Chromium/Firefox/WebKit for inline and dropdown From/To selection, keyboard/pointer input, navigation, Apply/Cancel and compiled source. Existing 139 A / 20 V / 6 future acceptance counts remain unchanged.
+
+
+## DatePicker popup width correction — 2026-10-16
+
+Removed the stale seven-control-width calculation from DatePicker's calendar wrapper; its content width now follows the actual compact calendar while retaining the viewport cap. [Receipt](final-acceptance/calendar-compact-layout/popup-width.json): all 12 browser checks pass across Chromium/Firefox/WebKit, including balanced padding at both densities on desktop/narrow viewports plus existing width/source/focus checks. Fresh library/foundation/production docs/catalog/native fixture/browser-type validation passes. Reviewed the Material dark popup screenshot. No public API change or broad acceptance closure.
