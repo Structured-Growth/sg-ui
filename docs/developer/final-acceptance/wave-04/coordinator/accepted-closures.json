@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 66,
-  "closedTotal": 247,
-  "remaining": 73,
+  "closedThisReview": 68,
+  "closedTotal": 249,
+  "remaining": 71,
   "entries": [
     {
       "id": "A-M-21",
@@ -587,6 +587,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/10-behavior-test-review.json",
       "sha256": "a28f1310e6a6d4ee290efa004e396db455ae70d35c6b88cf2016fd353c94e217",
       "limits": "Does not reclassify mocked geometry as native, certify every test, or close X02-X18specific matrices. Existing characterization instrumentation stays explicit."
+    },
+    {
+      "id": "A-R-04",
+      "basis": "Exact tarball 4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959 passes all 14 actual packed module probes: core/presentation paths omit editor/grid implementations; granular AddIcon retains one glyph; root Button pruning matches its granular output while positive editor/grid entries retain required implementations. Independently installed React18/19 foundation and editor consumers and Next19 production server/client composition passed all three desktop engines. Server markup, React19 Flight and hydration retain their actual consumer assertions; no source-only graph substitute is used.",
+      "criterion": "- [ ] A-R-04 Reconcile original `R-04`: Ensure barrels do not accidentally pull interactive/heavyweight dependencies into presentation-only imports or make server consumers import all editors. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/09-current-barrel-boundaries.json",
+      "sha256": "9829120dd4982ae63095cc3e8a3e4f636a64ccfcf1bd2c176f328f9d489881a8",
+      "limits": "No universal root-import cost claim: convenience-barrel traversal and emitted inclusion are distinct. Explicit stylesheet size remains included. This closes accidental runtime bundle/server import leakage only; mandatory install weight, package split, performance budgets, TypeScript version support and production/release approval retain separate obligations."
+    },
+    {
+      "id": "A-C-04",
+      "basis": "Original requirement replaces retired styling mechanisms and maps removed public styling props. The original129-source-file AST audit finds all five direct sx/*Sx fields/eight imported-prop reference edges. Exact original-lock packages resolve28 primitive props, eight wrapper/model/inherited branches, SelectChangeEvent and the real upstream SystemProps key set. The map now contains740 style/slot/system/visual rows with actual current supported hooks or explicit removals, including typography/spacing/theme grammar and scalar row-header variants. Current533-file production source guard has zero retired imports/selectors/props and current public declarations expose no retired fields. Definitions/mappings are complete on integration; broad runtime/default/release acceptance is not inferred.",
+      "criterion": "- [ ] A-C-04 Reconcile original `C-04`: Replace `sx`, `paperSx`, theme callbacks, object-style overrides, and retired DOM selectors with owned contracts and component styles; map each removed public styling prop. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/08-inherited-styling-migration-review.json",
+      "sha256": "c76efdad505a4bb46769c14d38e08951ce77fdcb0c3dbfa40e354cb506ef13de",
+      "limits": "Captured styling contract migration only. Original general wrapper callbacks/models/defaults, exhaustive compatibility, final Conventional Commit release marking, physical devices and manual AT remain independently tracked. Current boundary index is generated from the reviewed built declarations; the source-only className JSDoc clarification enters declarations in the next scheduled build."
     }
   ],
   "limits": [

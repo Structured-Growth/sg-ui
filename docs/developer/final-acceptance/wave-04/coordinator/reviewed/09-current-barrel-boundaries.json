@@ -1,0 +1,32 @@
+{
+  "entries": [
+    {
+      "id": "A-R-04",
+      "basis": "Exact tarball 4af68cf00eca568596d2acc0b057b67e94700428c23be444cd6049ef2a228959 passes all 14 actual packed module probes: core/presentation paths omit editor/grid implementations; granular AddIcon retains one glyph; root Button pruning matches its granular output while positive editor/grid entries retain required implementations. Independently installed React18/19 foundation and editor consumers and Next19 production server/client composition passed all three desktop engines. Server markup, React19 Flight and hydration retain their actual consumer assertions; no source-only graph substitute is used.",
+      "criterion": "- [ ] A-R-04 Reconcile original `R-04`: Ensure barrels do not accidentally pull interactive/heavyweight dependencies into presentation-only imports or make server consumers import all editors. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/consumer-driver-integration/current-import-boundaries.json",
+      "sha256": "ed783960f9ef2ff1314b0533ba34369a059cc8e9e9a67933813cd25257b194bc"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/consumer-driver-integration/current-boundaries-sizes.json",
+      "sha256": "f48876cda9963d208d46c03947680601e9daeb77d71355b98fd9983e26a64ba9"
+    },
+    {
+      "path": "packages/ui/artifacts/wave04-current-consumers/matrix.json",
+      "sha256": "1d0ea093567ba849b446bb84ea3a1823c51a687e6fb8c89d3628acb11642cc57"
+    },
+    {
+      "path": "packages/ui/scripts/test-next-consumer.mjs",
+      "sha256": "8a7ead40c945be22248934a8b6898066e98cc2bb5b9cdfbae7855dc04708f073"
+    },
+    {
+      "path": "packages/ui/scripts/test-foundation-consumer.mjs",
+      "sha256": "8cfb2ab8334e51e45aed8c1b3127f25505e898c1215f2659b52e03d719c44e41"
+    }
+  ],
+  "limits": "No universal root-import cost claim: convenience-barrel traversal and emitted inclusion are distinct. Explicit stylesheet size remains included. This closes accidental runtime bundle/server import leakage only; mandatory install weight, package split, performance budgets, TypeScript version support and production/release approval retain separate obligations."
+}

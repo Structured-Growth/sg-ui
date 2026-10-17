@@ -7,7 +7,17 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 247/320 A leaves closed; 73 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 249/320 A leaves closed; 71 A, 0 editor V review leaves and six future leaves remain.**
+
+### Inherited styling migration review — 2026-10-17
+
+Closed A-C-04 after integrating the exact locked inherited styling map and current public boundary documentation. The 740 mappings preserve explicit removed/changed contracts instead of suggesting generic sx or engine-slot passthrough. Current declaration and migration guards pass, and the owned foundation import/layer/token guard passes. Full original API/default compatibility and release marking remain separate.
+Wave 04 now closes 68 of 139 items; 71 remain.
+
+### Current packed barrel and server-boundary review — 2026-10-17
+
+Closed A-R-04 using the reviewed exact tarball module audit plus installed React 18/19 and Next server/hydration consumers. All 14 import probes passed, including presentation-only routes, basic controls, a single icon, positive grid/editor controls and root Button pruning. Separate-package installation policy and performance budgets remain separate.
+Wave 04 now closes 67 of 139 items; 72 remain.
 
 ### Behavior-test acceptance review — 2026-10-17
 
