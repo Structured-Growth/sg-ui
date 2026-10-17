@@ -717,6 +717,16 @@ outlined row bands in forced colors without disabling forced-color adjustment.
 
 Calendar and date/range pickers default to hidden visible titles (showTitle=false), retaining required accessible labels and visible field labels. Explicit picker titles appear once on the popover. Generic Popover keeps showTitle=true by default. Keep calendar navigation beside the month headings, including multi-month layouts.
 
+Calendar, DatePicker, DateRangeSelector and DateRangePicker now default to
+navigation="period", using the shared public MonthPicker and YearPicker for
+separate inline month/year choices. Choices navigate immediately without committing
+dates/ranges or showing chooser actions; Escape returns to days. Independent range
+calendars preserve their endpoint-aware availability and navigation isolation.
+allowMonthSelection/allowYearSelection default true; disabling one leaves plain
+heading text, while min/max and availability govern actual date restrictions.
+Keep these defaults and props consistent across the calendar family. See
+[calendar contracts](docs/developer/react-aria-calendar-contracts.md).
+
 Calendar, DatePicker and date range controls support navigation="month-year" and visibleYears (default 120, normalized to 1–9999, constrained by min/max). Month/year changes navigate without committing. Birthday examples keep direct entry and start empty. DatePicker kind="datetime" adds local datetime segments and a calendar/time draft committed by Apply; Cancel/Escape discard it. Preserve date-only immediate selection, host timezone policy, and TimeField completeness validation.
 
 TimeField defaults to a flexible textbox plus clock dropdown (entryMode="text"). Keep entryMode="segments" explicit in historical segment fixtures/tests. Values remain HH:mm:ss/null and refs remain outer divs. Normalize valid shorthand on blur/Enter; preserve invalid drafts and validity callbacks. Popup Hour/Minute/AM-PM choices apply atomically, retain all minute options and respect bounds/Cancel/reset/controlled authority. DatePicker datetime popups use this textbox; timezone/DST remains host-owned.

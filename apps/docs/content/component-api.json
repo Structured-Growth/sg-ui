@@ -9315,6 +9315,247 @@
       "native": []
     }
   ],
+  "month-picker": [
+    {
+      "names": [
+        "MonthPicker"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Accessible group name. Defaults to Month choices."
+        },
+        {
+          "name": "year",
+          "type": "number",
+          "required": true,
+          "default": "—",
+          "description": "Gregorian year, 1–9999. Supply explicitly; no live clock is consulted."
+        },
+        {
+          "name": "value",
+          "type": "number | null | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Month number 1–12, or null. Controlled when supplied."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number | null | undefined",
+          "required": false,
+          "default": "null",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((month: number) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "isMonthUnavailable",
+          "type": "((month: number) => boolean) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Additional month-level policy, combined with date restrictions. True disables the choice."
+        },
+        {
+          "name": "min",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "max",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "unavailable",
+          "type": "readonly DateAvailability[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "getDateUnavailableReason",
+          "type": "DateAvailabilityRule | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        }
+      ],
+      "native": []
+    }
+  ],
+  "year-picker": [
+    {
+      "names": [
+        "YearPicker"
+      ],
+      "from": "@structured-growth/sg-ui",
+      "kind": "component",
+      "props": [
+        {
+          "name": "label",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Label supplied by the application."
+        },
+        {
+          "name": "value",
+          "type": "number | null | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Gregorian year 1–9999, or null. Controlled when supplied."
+        },
+        {
+          "name": "defaultValue",
+          "type": "number | null | undefined",
+          "required": false,
+          "default": "null",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "onValueChange",
+          "type": "((year: number) => void) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Host callback; the signature specifies its arguments."
+        },
+        {
+          "name": "referenceYear",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Deterministic initial year window. Defaults to the selected year, or 2000."
+        },
+        {
+          "name": "minYear",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Inclusive bounds, intersected with date bounds and years 1–9999."
+        },
+        {
+          "name": "maxYear",
+          "type": "number | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "visibleYears",
+          "type": "number | undefined",
+          "required": false,
+          "default": "120",
+          "description": "Default 120. With two explicit bounds, offer the entire applicable interval."
+        },
+        {
+          "name": "yearsPerPage",
+          "type": "12 | 16 | 24 | undefined",
+          "required": false,
+          "default": "12",
+          "description": "Number of buttons per page; default 12."
+        },
+        {
+          "name": "yearEntry",
+          "type": "\"text\" | \"select\" | undefined",
+          "required": false,
+          "default": "\"select\"",
+          "description": "Buttons by default; text accepts a four-digit year on Enter or blur."
+        },
+        {
+          "name": "disabled",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Controls availability of the interaction."
+        },
+        {
+          "name": "readOnly",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "isYearUnavailable",
+          "type": "((year: number) => boolean) | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "descriptionPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Description position relative to the control. Inherits the nearest FormFieldScope; otherwise above, after a separate label."
+        },
+        {
+          "name": "errorPlacement",
+          "type": "\"above\" | \"below\" | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Validation position relative to the control. Inherits the nearest FormFieldScope; otherwise below. Above follows any above-control description."
+        },
+        {
+          "name": "min",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "max",
+          "type": "string | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "unavailable",
+          "type": "readonly DateAvailability[] | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        },
+        {
+          "name": "getDateUnavailableReason",
+          "type": "DateAvailabilityRule | undefined",
+          "required": false,
+          "default": "—",
+          "description": "See the type and source-backed examples for this option."
+        }
+      ],
+      "native": []
+    }
+  ],
   "period-picker": [
     {
       "names": [
@@ -11954,7 +12195,7 @@
         },
         {
           "name": "periodPickerProps",
-          "type": "Pick<PeriodPickerProps, \"visibleYears\" | \"descriptionPlacement\" | \"errorPlacement\" | \"yearsPerPage\" | \"yearEntry\" | \"minYear\" | \"maxYear\"> | undefined",
+          "type": "CalendarPeriodOptions | undefined",
           "required": false,
           "default": "—",
           "description": "Relevant PeriodPicker options. Date bounds, availability, focus, labels and callbacks are owned by the calendar; year bounds can only narrow the date limits."
@@ -12148,7 +12389,7 @@
         },
         {
           "name": "periodPickerProps",
-          "type": "Pick<PeriodPickerProps, \"visibleYears\" | \"descriptionPlacement\" | \"errorPlacement\" | \"yearsPerPage\" | \"yearEntry\" | \"minYear\" | \"maxYear\"> | undefined",
+          "type": "CalendarPeriodOptions | undefined",
           "required": false,
           "default": "—",
           "description": "Forwarded month/year chooser options. min/max and availability always inherit from this DatePicker; explicit year bounds may narrow them."
@@ -12391,10 +12632,10 @@
         },
         {
           "name": "navigation",
-          "type": "\"arrows\" | \"month-year\" | undefined",
+          "type": "\"period\" | \"arrows\" | \"month-year\" | undefined",
           "required": false,
           "default": "—",
-          "description": "Optional direct month/year jumps; arrows remain available."
+          "description": "Defaults period: shared month/year text buttons open immediate inline choices. Arrows uses static headings; month-year keeps direct selects."
         },
         {
           "name": "value",
@@ -12425,13 +12666,6 @@
           "description": "See the type and source-backed examples for this option."
         },
         {
-          "name": "rangeLength",
-          "type": "DateRangeLength | undefined",
-          "required": false,
-          "default": "—",
-          "description": "Fixed length completes on the first click and relocates on later clicks. Days are inclusive; nights are endpoint distance. Bounded length validates every input, preset and gesture."
-        },
-        {
           "name": "unavailable",
           "type": "readonly DateAvailability[] | undefined",
           "required": false,
@@ -12444,6 +12678,13 @@
           "required": false,
           "default": "—",
           "description": "Host-owned recurring/selection-aware availability. Return a reason, or undefined when allowed. Checked throughout the interval, including text and presets."
+        },
+        {
+          "name": "rangeLength",
+          "type": "DateRangeLength | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Fixed length completes on the first click and relocates on later clicks. Days are inclusive; nights are endpoint distance. Bounded length validates every input, preset and gesture."
         },
         {
           "name": "onValueChange",
@@ -12472,6 +12713,27 @@
           "required": false,
           "default": "false",
           "description": "Show a visible section title in addition to its accessible label. Defaults to false."
+        },
+        {
+          "name": "allowMonthSelection",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Enable the month heading button in period navigation. Defaults true. Use min/max for actual date restrictions."
+        },
+        {
+          "name": "allowYearSelection",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Enable the year heading button in period navigation. Defaults true."
+        },
+        {
+          "name": "periodPickerProps",
+          "type": "CalendarPeriodOptions | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Shared chooser settings; date bounds and endpoint-aware availability always inherit from this range."
         },
         {
           "name": "visibleYears",
@@ -12676,10 +12938,31 @@
         },
         {
           "name": "navigation",
-          "type": "\"arrows\" | \"month-year\" | undefined",
+          "type": "\"period\" | \"arrows\" | \"month-year\" | undefined",
           "required": false,
-          "default": "\"arrows\"",
-          "description": "Optional direct month/year jumps; arrows remain available."
+          "default": "\"period\"",
+          "description": "Defaults period: shared month/year text buttons open immediate inline choices. Arrows uses static headings; month-year keeps direct selects."
+        },
+        {
+          "name": "allowMonthSelection",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "true",
+          "description": "Enable the month heading button in period navigation. Defaults true. Use min/max for actual date restrictions."
+        },
+        {
+          "name": "allowYearSelection",
+          "type": "boolean | undefined",
+          "required": false,
+          "default": "true",
+          "description": "Enable the year heading button in period navigation. Defaults true."
+        },
+        {
+          "name": "periodPickerProps",
+          "type": "CalendarPeriodOptions | undefined",
+          "required": false,
+          "default": "—",
+          "description": "Shared chooser settings; date bounds and endpoint-aware availability always inherit from this range."
         },
         {
           "name": "visibleYears",

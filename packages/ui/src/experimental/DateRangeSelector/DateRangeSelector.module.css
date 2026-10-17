@@ -97,3 +97,9 @@
  .periodHeading { display: flex; align-items: center; gap: var(--sgui-space1); }
  .periodHeading > button { padding-inline: var(--sgui-space1); }
 }
+
+@layer sgui.components {
+ .root:has([data-sgui-part="calendar-period-view"]) .actions,
+ .root:has([data-sgui-part="calendar-period-view"]) .fields,
+ .root:has([data-sgui-part="calendar-period-view"]) .presets { visibility: hidden; }
+}

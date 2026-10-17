@@ -2323,3 +2323,38 @@ compact/comfortable/narrow layouts, Escape/focus return, week-only restrictions,
 and source compilation. Month-choice screenshots reviewed. Evidence:
 [separate month/year navigation](final-acceptance/separate-month-year-navigation/results.json).
 Broader historical acceptance/device/AT gates remain separate.
+
+
+### Shared MonthPicker/YearPicker and range navigation parity (2026-10-17)
+
+Completed the shared component extraction requested after the separate single-date
+heading work. Public MonthPicker (numeric 1–12) and YearPicker (numeric 1–9999)
+are exported through root/components/experimental, with localized choices,
+controlled/uncontrolled state, disabled/readOnly, bounded availability and owned
+styles. YearPicker supports paged buttons and deferred text validation/acceptance
+on Enter or blur. Both inherit density. Neither creates an overlay or owns native
+form serialization; PeriodPicker retains whole-period selection semantics.
+
+Calendar and all range calendar layouts now compose a shared private view adapter
+and these public choices. PeriodPicker inline month/year choices also reuse them.
+DateRangeSelector and DateRangePicker default to navigation="period" with the
+same allowMonthSelection/allowYearSelection and periodPickerProps contracts as
+Calendar/DatePicker. Explicit arrows/month-year remain available. Only one chooser
+is active in a range selector; independent From/To navigation preserves the other
+calendar and applies draft/endpoint-aware availability without changing the range.
+
+Added two catalog routes with independent overview/playground/reference panels,
+range examples at both densities and an independent From/To scenario. Regenerated
+API/composition/catalog metadata and documented props/defaults/host ownership.
+Existing single-date adapter tests moved to CalendarPeriodNavigation.test.tsx,
+retaining all four assertions/scenarios at the shared implementation boundary.
+
+Validation: 144 affected unit tests in 26 files; fresh library build and foundation
+import/layer/token guards; production docs build, catalog/source-isolation and
+metadata checks; docs TypeScript; packed runtime/declaration/CSS/asset checks,
+including public root picker imports. All 34 targeted browser cases passed across
+Chromium/Firefox/WebKit (existing single-date flows plus shared/range/standalone
+checks). Two extra Chromium runs captured compact/comfortable range month/year
+views for visual review. Evidence is recorded in
+[shared calendar pickers](final-acceptance/shared-calendar-pickers/results.json).
+Broader historical acceptance/device/AT gates remain unchanged.

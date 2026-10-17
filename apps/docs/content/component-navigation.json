@@ -42,7 +42,9 @@
       "date-range-selector",
       "period-picker",
       "date-time-range-picker",
-      "date-range-comparison-picker"
+      "date-range-comparison-picker",
+      "month-picker",
+      "year-picker"
     ]
   },
   {

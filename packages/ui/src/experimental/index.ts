@@ -58,3 +58,6 @@ export { DateRangeComparisonPicker, type DateRangeComparisonPickerProps, type Da
 export type { RangeDragBehavior } from "./DateRangeSelector/RangeGestures";
 
 export { FormFieldScope, type FormFieldScopeProps } from "./FormFieldScope/FormFieldScope";
+
+export {MonthPicker,type MonthPickerProps} from "./MonthPicker/MonthPicker";
+export {YearPicker,type YearPickerProps} from "./YearPicker/YearPicker";

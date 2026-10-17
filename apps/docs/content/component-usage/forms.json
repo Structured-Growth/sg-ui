@@ -346,7 +346,7 @@
       "Set navigation=\"month-year\" to add localized month/year dropdowns while keeping arrows. visibleYears defaults to 120, is limited to 1\u20139999 choices, and is constrained by the calendar min/max. Navigation changes focus/view without committing selection. Use explicit host min/max for birthday policy; keep direct text entry available for known dates.",
       "getDateUnavailableReason supplies recurring host availability rules; renderDayContent supplies decorative day annotations. DateRangeSelector adds endpoint-aware range validation, length constraints, active endpoint selection and move/resize gestures.",
       "navigation defaults to \"period\": separate month and year text buttons replace the days with month-only or year-only choices in the same popup. Selecting a choice immediately returns to days without changing the selected date. There is no Apply, Cancel or Clear in these views. Escape returns without navigating and restores focus to the triggering button. Use \"arrows\" for a static heading or \"month-year\" for the existing direct dropdowns.",
-      "periodPickerProps exposes yearEntry, yearsPerPage, visibleYears, minYear, maxYear, descriptionPlacement and errorPlacement. The chooser owns its month unit and navigation purpose; the calendar owns its labels, focus and change callback. It inherits min/max dates, unavailable records and getDateUnavailableReason, so chooser options cannot broaden those restrictions. Year bounds further narrow the dates; month/year options with no eligible day are disabled. Partly available periods remain navigable. DatePicker also forwards its message placements unless periodPickerProps overrides them.",
+      "The shared MonthPicker/YearPicker power navigation. periodPickerProps exposes yearEntry, yearsPerPage, visibleYears, minYear, maxYear, descriptionPlacement and errorPlacement. The chooser owns its month unit and navigation purpose; the calendar owns its labels, focus and change callback. It inherits min/max dates, unavailable records and getDateUnavailableReason, so chooser options cannot broaden those restrictions. Year bounds further narrow the dates; month/year options with no eligible day are disabled. Partly available periods remain navigable. DatePicker also forwards its message placements unless periodPickerProps overrides them.",
       "The year button opens paged year choices directly; yearsPerPage defaults to 12, with 16 and 24 available. Choosing a year keeps the visible month if it has an eligible day; otherwise it shows the first eligible date in that year. yearEntry=\"text\" permits a four-digit year followed by Enter. Two explicit year/date bounds offer the complete applicable interval; otherwise visibleYears defaults to 120 around focus, clipped to years 1\u20139999 and supplied bounds. periodPickerProps.visibleYears overrides the outer value. Availability callbacks must be pure and synchronous.",
       "The chooser replaces the day view inside the same frame; it creates no extra popup and preserves the calendar popup width/height. Calendar min/max determine actual date validity; periodPickerProps year bounds narrow only the chooser. Non-Gregorian display calendars retain their native heading and arrows; use month-year for their existing native month/year controls. allowMonthSelection and allowYearSelection independently enable their heading buttons in period navigation; both default true. False retains a static text label. These are navigation affordances, not date restrictions: min/max and availability govern actual date validity, arrow navigation and typed entry. For a next-week event, supply the week bounds as well as disabling either heading control."
     ],
@@ -397,7 +397,7 @@
       "Flexible text paste follows typing: blur or Enter commits a valid candidate; Enter prevents implicit submit. Inclusive min/max and host availability validate candidates. Required empty or invalid drafts block native submission while named fields retain the accepted value. FormData alone is not validation. Segmented/combined datetime whole-value paste is not a portable supported format; calendar and segment editing remain available.",
       "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit.",
       "navigation defaults to \"period\": separate month and year text buttons replace the days with month-only or year-only choices in the same popup. Selecting a choice immediately returns to days without changing the selected date. There is no Apply, Cancel or Clear in these views. Escape returns without navigating and restores focus to the triggering button. Use \"arrows\" for a static heading or \"month-year\" for the existing direct dropdowns.",
-      "periodPickerProps exposes yearEntry, yearsPerPage, visibleYears, minYear, maxYear, descriptionPlacement and errorPlacement. The chooser owns its month unit and navigation purpose; the calendar owns its labels, focus and change callback. It inherits min/max dates, unavailable records and getDateUnavailableReason, so chooser options cannot broaden those restrictions. Year bounds further narrow the dates; month/year options with no eligible day are disabled. Partly available periods remain navigable. DatePicker also forwards its message placements unless periodPickerProps overrides them.",
+      "The shared MonthPicker/YearPicker power navigation. periodPickerProps exposes yearEntry, yearsPerPage, visibleYears, minYear, maxYear, descriptionPlacement and errorPlacement. The chooser owns its month unit and navigation purpose; the calendar owns its labels, focus and change callback. It inherits min/max dates, unavailable records and getDateUnavailableReason, so chooser options cannot broaden those restrictions. Year bounds further narrow the dates; month/year options with no eligible day are disabled. Partly available periods remain navigable. DatePicker also forwards its message placements unless periodPickerProps overrides them.",
       "The year button opens paged year choices directly; yearsPerPage defaults to 12, with 16 and 24 available. Choosing a year keeps the visible month if it has an eligible day; otherwise it shows the first eligible date in that year. yearEntry=\"text\" permits a four-digit year followed by Enter. Two explicit year/date bounds offer the complete applicable interval; otherwise visibleYears defaults to 120 around focus, clipped to years 1\u20139999 and supplied bounds. periodPickerProps.visibleYears overrides the outer value. Availability callbacks must be pure and synchronous.",
       "The chooser replaces the day view inside the same frame; it creates no extra popup and preserves the calendar popup width/height. Calendar min/max determine actual date validity; periodPickerProps year bounds narrow only the chooser. Non-Gregorian display calendars retain their native heading and arrows; use month-year for their existing native month/year controls. allowMonthSelection and allowYearSelection independently enable their heading buttons in period navigation; both default true. False retains a static text label. These are navigation affordances, not date restrictions: min/max and availability govern actual date validity, arrow navigation and typed entry. For a next-week event, supply the week bounds as well as disabling either heading control."
     ],
@@ -464,7 +464,9 @@
       "For example, a 7th\u20139th range capped at three inclusive days becomes 10th\u201312th when its end is dragged to the 12th. At minimum length, dragging inward pushes the opposite edge too; endpoints do not invert. Date bounds and availability never silently relocate a rejected drop: the prior draft is kept. Dropping outside this selector also rolls back. Move-only treats endpoint days as whole-range drag targets; resize-only leaves interior drags unchanged.",
       "A drop uses its release position and the latest availability/bounds, not a cached preview. Disabling or making the control read-only, changing drag/length configuration, resetting or replacing the host value cancels an active gesture. Cross-month drops focus the actual destination calendar. Dragging a boundary validates its real start/end role independently of the active click endpoint; interior dates retain interior availability rules.",
       "A pasted text range needs two valid ordered endpoints separated by a spaced hyphen, en/em dash, or to. Relative expressions need referenceDate. Blur or Enter commits valid text; partial, reversed, unavailable or out-of-bounds drafts stay visible and block native submission. Enter does not submit. FormData keeps the accepted name.start/name.end values, and accepted reset silently restores uncontrolled defaults; prevented reset preserves drafts.",
-      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit."
+      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit.",
+      "navigation now defaults to \"period\", sharing separate MonthPicker and YearPicker heading buttons with Calendar and DatePicker. Choices replace days in the same frame, apply to the visible calendar immediately, and never commit a date/range. No chooser Apply, Cancel or Clear is shown. Escape returns to days and restores the heading. allowMonthSelection and allowYearSelection default true; false leaves a static label. Use min/max and availability for actual date restrictions. navigation=\"arrows\" retains static headings; \"month-year\" retains native selects.",
+      "periodPickerProps forwards yearEntry, yearsPerPage, visibleYears, minYear, maxYear and message placement. Year/date bounds and endpoint-aware availability constrain choices. In independent calendars, each chooser moves only that calendar and respects its assigned calendarEndpoints intent. Linked calendars navigate together. Only one inline chooser is active per selector. Navigation leaves current drafts and committed values unchanged; regular range Apply/Cancel remain unchanged after returning to days."
     ],
     "related": [
       {
@@ -520,7 +522,9 @@
       "For example, a 7th\u20139th range capped at three inclusive days becomes 10th\u201312th when its end is dragged to the 12th. At minimum length, dragging inward pushes the opposite edge too; endpoints do not invert. Date bounds and availability never silently relocate a rejected drop: the prior draft is kept. Dropping outside this selector also rolls back. Move-only treats endpoint days as whole-range drag targets; resize-only leaves interior drags unchanged.",
       "A drop uses its release position and the latest availability/bounds, not a cached preview. Disabling or making the control read-only, changing drag/length configuration, resetting or replacing the host value cancels an active gesture. Cross-month drops focus the actual destination calendar. Dragging a boundary validates its real start/end role independently of the active click endpoint; interior dates retain interior availability rules.",
       "Endpoint text paste uses the same date grammar and validation as typing. Invalid or incomplete endpoints disable Apply. Preset descriptions are associated with their keyboard-operable single-select options; full date names remain intact when range preview/availability descriptions or decorative day content are present. These accessible descriptions do not by themselves certify spoken AT output.",
-      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit."
+      "Wrap related fields in FormFieldScope to share message-placement defaults. Explicit field props override the nearest scope; nested scopes inherit settings they omit.",
+      "navigation now defaults to \"period\", sharing separate MonthPicker and YearPicker heading buttons with Calendar and DatePicker. Choices replace days in the same frame, apply to the visible calendar immediately, and never commit a date/range. No chooser Apply, Cancel or Clear is shown. Escape returns to days and restores the heading. allowMonthSelection and allowYearSelection default true; false leaves a static label. Use min/max and availability for actual date restrictions. navigation=\"arrows\" retains static headings; \"month-year\" retains native selects.",
+      "periodPickerProps forwards yearEntry, yearsPerPage, visibleYears, minYear, maxYear and message placement. Year/date bounds and endpoint-aware availability constrain choices. In independent calendars, each chooser moves only that calendar and respects its assigned calendarEndpoints intent. Linked calendars navigate together. Only one inline chooser is active per selector. Navigation leaves current drafts and committed values unchanged; regular range Apply/Cancel remain unchanged after returning to days."
     ],
     "related": [
       {
@@ -659,6 +663,56 @@
       {
         "slug": "provider",
         "label": "Theme and density defaults"
+      }
+    ]
+  },
+  "month-picker": {
+    "when": "Use MonthPicker for inline month choices without an overlay. Calendar, DatePicker and range calendars share these controls. PeriodPicker instead returns a whole civil-date interval.",
+    "how": [
+      "Import MonthPicker, load styles.css and provide Provider or ThemeScope. Use value/onValueChange for controlled numeric selection, or defaultValue for local state. The component inherits density and creates no popup.",
+      "MonthPicker requires a Gregorian year and emits months 1\u201312 immediately. Labels use the Provider locale; accessible names use full month names. YearPicker emits Gregorian years 1\u20139999; referenceYear defaults to the selected year, or deterministic 2000.",
+      "YearPicker defaults to yearEntry=\"select\", with 12 buttons per page (also 16/24). visibleYears defaults to 120 around the anchor; explicit bounds at both ends expose the whole interval. minYear/maxYear intersect min/max dates. yearEntry=\"text\" accepts a four-digit year on Enter or blur, with validation deferred until then.",
+      "min/max, unavailable records and a pure synchronous getDateUnavailableReason determine whether any eligible day exists in a month/year. Partly available periods remain enabled. isMonthUnavailable/isYearUnavailable can impose additional choice-level restrictions. Standalone availability callbacks receive null range and endpoint; range calendar adapters supply the actual draft and endpoint intent.",
+      "disabled/readOnly prevent selection. Buttons expose aria-pressed and retain native keyboard activation, focus and theme behavior. A grid here is a visual layout, not an ARIA grid requiring arrow navigation.",
+      "Selection reports a number only. The host owns displayed calendar state, actual day/range selection, native form serialization/reset, business rules and persistence. Use PeriodPicker to validate and submit entire periods; a navigable year does not imply every date in it is available."
+    ],
+    "related": [
+      {
+        "slug": "calendar",
+        "label": "Calendar navigation"
+      },
+      {
+        "slug": "date-range-selector",
+        "label": "Range calendar navigation"
+      },
+      {
+        "slug": "period-picker",
+        "label": "Whole-period selection"
+      }
+    ]
+  },
+  "year-picker": {
+    "when": "Use YearPicker for inline year choices without an overlay. Calendar, DatePicker and range calendars share these controls. PeriodPicker instead returns a whole civil-date interval.",
+    "how": [
+      "Import YearPicker, load styles.css and provide Provider or ThemeScope. Use value/onValueChange for controlled numeric selection, or defaultValue for local state. The component inherits density and creates no popup.",
+      "MonthPicker requires a Gregorian year and emits months 1\u201312 immediately. Labels use the Provider locale; accessible names use full month names. YearPicker emits Gregorian years 1\u20139999; referenceYear defaults to the selected year, or deterministic 2000.",
+      "YearPicker defaults to yearEntry=\"select\", with 12 buttons per page (also 16/24). visibleYears defaults to 120 around the anchor; explicit bounds at both ends expose the whole interval. minYear/maxYear intersect min/max dates. yearEntry=\"text\" accepts a four-digit year on Enter or blur, with validation deferred until then.",
+      "min/max, unavailable records and a pure synchronous getDateUnavailableReason determine whether any eligible day exists in a month/year. Partly available periods remain enabled. isMonthUnavailable/isYearUnavailable can impose additional choice-level restrictions. Standalone availability callbacks receive null range and endpoint; range calendar adapters supply the actual draft and endpoint intent.",
+      "disabled/readOnly prevent selection. Buttons expose aria-pressed and retain native keyboard activation, focus and theme behavior. A grid here is a visual layout, not an ARIA grid requiring arrow navigation.",
+      "Selection reports a number only. The host owns displayed calendar state, actual day/range selection, native form serialization/reset, business rules and persistence. Use PeriodPicker to validate and submit entire periods; a navigable year does not imply every date in it is available."
+    ],
+    "related": [
+      {
+        "slug": "calendar",
+        "label": "Calendar navigation"
+      },
+      {
+        "slug": "date-range-selector",
+        "label": "Range calendar navigation"
+      },
+      {
+        "slug": "period-picker",
+        "label": "Whole-period selection"
       }
     ]
   }

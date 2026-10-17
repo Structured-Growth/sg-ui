@@ -777,6 +777,32 @@
       "children": []
     }
   ],
+  "month-picker": [
+    {
+      "name": "MonthPicker",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        }
+      ]
+    }
+  ],
+  "year-picker": [
+    {
+      "name": "YearPicker",
+      "children": [
+        {
+          "name": "Button",
+          "slug": "button"
+        },
+        {
+          "name": "TextField",
+          "slug": "text-field"
+        }
+      ]
+    }
+  ],
   "period-picker": [
     {
       "name": "PeriodPicker",
@@ -794,6 +820,10 @@
           "slug": "icons"
         },
         {
+          "name": "MonthPicker",
+          "slug": "month-picker"
+        },
+        {
           "name": "Popover",
           "slug": "popover"
         },
@@ -808,6 +838,10 @@
         {
           "name": "TextField",
           "slug": "text-field"
+        },
+        {
+          "name": "YearPicker",
+          "slug": "year-picker"
         }
       ]
     }
@@ -1047,12 +1081,16 @@
           "slug": "button"
         },
         {
-          "name": "PeriodPicker",
-          "slug": "period-picker"
+          "name": "MonthPicker",
+          "slug": "month-picker"
         },
         {
           "name": "Select",
           "slug": "select"
+        },
+        {
+          "name": "YearPicker",
+          "slug": "year-picker"
         }
       ]
     }
@@ -1128,8 +1166,16 @@
           "slug": "date-field"
         },
         {
+          "name": "MonthPicker",
+          "slug": "month-picker"
+        },
+        {
           "name": "Select",
           "slug": "select"
+        },
+        {
+          "name": "YearPicker",
+          "slug": "year-picker"
         }
       ]
     }

@@ -1,5 +1,5 @@
 // This fixture typechecks only against built package entry points.
-import { Button, AppModal, AppDataGrid, PageRichTextEditorSection } from '@structured-growth/sg-ui';
+import { Button, AppModal, AppDataGrid, PageRichTextEditorSection, MonthPicker, YearPicker } from '@structured-growth/sg-ui';
 import { Typography } from '@structured-growth/sg-ui/primitives';
 import { AppThemeProvider, ThemeScope as PublicThemeScope } from '@structured-growth/sg-ui/theme';
 // @ts-expect-error Theme objects are replaced by scoped settings and CSS tokens.
@@ -222,3 +222,5 @@ export function PublicHookConsumer() {
     {pagination.pageSize} {draft.label}
   </button>;
 }
+
+export const sharedCalendarChoices = <><MonthPicker year={2026} value={10} onValueChange={month => month.toFixed()}/><YearPicker value={2026} minYear={1900} maxYear={2030} onValueChange={year => year.toFixed()}/></>;

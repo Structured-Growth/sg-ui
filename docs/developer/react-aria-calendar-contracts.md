@@ -815,7 +815,8 @@ their existing contracts. `DateRangePicker` forwards the same prop.
 
 ## Month/year heading navigation (2026-10-17)
 
-Calendar and DatePicker default to `navigation="period"`. Separate month and year
+Calendar, DatePicker, DateRangeSelector and DateRangePicker default to
+`navigation="period"`, using the same MonthPicker and YearPicker components. Separate month and year
 text buttons form the heading at logical start; arrows remain at logical end.
 Each button replaces the day view in the same frame: month shows all 12 months,
 year opens paged years directly. Selecting a choice immediately returns to days,
@@ -845,7 +846,8 @@ has an eligible day, otherwise focuses the first eligible date of that year.
 Month choices focus their first eligible day, including partially available months.
 
 Year buttons are the default; yearsPerPage defaults 12 (also 16/24). Optional
-`yearEntry="text"` accepts a four-digit year with Enter. Two-sided year/date bounds
+`yearEntry="text"` accepts a four-digit year on Enter or blur; invalid drafts
+are reported only after that attempt. Two-sided year/date bounds
 offer the complete applicable year interval; otherwise visibleYears defaults to
 120 around focus, clipped to bounds and years 1–9999. Availability callbacks
 remain synchronous and pure. Hidden headings do not enumerate choices.
@@ -855,3 +857,29 @@ selection validates and serializes the whole period with explicit actions.
 For inline navigation, `navigationView="month"|"year"` isolates choices with
 immediate navigation. Omit it to retain the combined draft chooser with actions.
 Navigation never participates in native form serialization.
+
+### Shared standalone MonthPicker and YearPicker
+
+Both controls are public through the root, components and experimental entry
+points. They render inline choices with no popup or action footer. MonthPicker
+requires a Gregorian year, uses numeric month values 1–12 and localized labels.
+YearPicker uses numeric years 1–9999, a deterministic referenceYear (selected year
+or 2000 by default), optional text entry, and paged buttons. Each supports
+controlled value/onValueChange and uncontrolled defaultValue, disabled/readOnly,
+date bounds, unavailable records and additional choice-level availability.
+Density inherits from the surrounding scope. These controls return a number;
+hosts own native form serialization, selected days/ranges and persistence.
+
+Month/year availability requires any eligible day. PeriodPicker composes the
+same choices for inline modes and adds whole-period validation when selecting
+an interval; its original popup/selection defaults remain unchanged. No copied
+month/year grids exist in the single-date and range calendar implementations.
+A private shared adapter handles engine focus and stable in-place view changes.
+
+Range navigation inherits endpoint-aware availability with the current draft.
+Independent From/To calendars navigate separately and preserve the other view;
+linked calendars navigate together. calendarEndpoints still assigns selection
+intent. At most one chooser is visible within a selector. Choice views hide
+range actions, fields and presets while retaining layout space, and restore them
+on return to days. Navigation never changes a committed range or its draft.
+DateRangePicker inherits all navigation props directly from DateRangeSelector.

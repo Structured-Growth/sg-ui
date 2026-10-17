@@ -1,0 +1,81 @@
+{
+  "feature": "Shared public MonthPicker/YearPicker and range calendar navigation parity",
+  "baseCommit": "22aab66670caf13f18d468623fc3028812ea798d",
+  "sourceSha256": {
+    "AGENTS.md": "bf1f3baefb3be66d7ee45c80111eb9bf2a3aca7e977395c817ac6bff348bd3b5",
+    "apps/docs/content/catalog.json": "095665e630eb24660fc4bc5250047c771019b19c87e0befcd6b556279f7b49c7",
+    "apps/docs/content/component-api.json": "d773e92cabdba32a5fce2f15cca0dea12476057c6d81e119e9b3cdac884bb949",
+    "apps/docs/content/component-composition.json": "64fb448cc59debd17dbdb1fe632cc466f99c88a59f91dae28e02f9f8ff0fddd3",
+    "apps/docs/content/component-navigation.json": "1dd6c097dc252d6e1029dae6218a238b98decd0173c40c93b2334f14b5009f4b",
+    "apps/docs/content/component-usage/forms.json": "8e06439668700a44c3c89bb9b6ae30376faa471b918e451f4384f34f9c396e9f",
+    "apps/docs/examples/MonthYearPickerExamples.tsx": "db5910039c95e8de53e2571ba32a2313c33072907f8d6be63c56fcce4e0ad574",
+    "apps/docs/examples/RangePeriodNavigationExamples.tsx": "301f351785c17e628e9e59f64476d3c900f1a6ca10822d07d38b971503abceac",
+    "apps/docs/examples/catalog/forms-dates.tsx": "127a9491dae67a56dc9d6676999512a069a8597b0bc7f1449aeea2d0b5de2e0e",
+    "apps/docs/tests/shared-calendar-pickers.spec.ts": "b6d80b9846399dac9946b28be0ff7eb4c1758caddea565cf504c4f72d7ecc085",
+    "docs/developer/react-aria-calendar-contracts.md": "5d95d189d4ab6b4d102b9dd90a4b7640f58a8a86dd13f316ca5054cb511b08d0",
+    "docs/developer/react-aria-progress.md": "1489c8355e32ad612bc8795018aed07dbd896d659a77d34b976b065a9dfea453",
+    "packages/ui/scripts/check-foundations.mjs": "e141803cb86e6ef563d9d45a3392c353a036e3066c3d0f75d452240445585c2e",
+    "packages/ui/scripts/check-package.mjs": "5bc108368e950de19d312984312f3353f52b0f93e176defa66df95a7db06ecc9",
+    "packages/ui/scripts/package-consumer.tsx": "673f49f2fcbfe2b62994f85db76f60815a3be3025585b9a23d16c519232c0aab",
+    "packages/ui/src/components/index.ts": "65addbf69bbaae4ef3650439a7bcd3da337827e19b6ccc7bc3c940f7c9f2f9a1",
+    "packages/ui/src/experimental/Calendar/Calendar.tsx": "b55c1228bc3e3de4813a1e6508c927a68c5ce328b72070d4bf91d6f02555b64f",
+    "packages/ui/src/experimental/Calendar/CalendarPeriodNavigation.test.tsx": "5c24c3f12becccc14cc8f3e69a08b66b0714891e323f535a42b9a16a678ee4f3",
+    "packages/ui/src/experimental/Calendar/CalendarPeriodNavigation.tsx": "e0364684372e191635df06a65867464bf1f1a41321513993f98b0f83e4f0df25",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.module.css": "b2cf8c6cb1e1345f4a693e485a9ad8ab63bbf57e6dc4f28280b643352ebea6d3",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.period-navigation.test.tsx": "0a7e0f500e5a8a538dc7701b1aaf9461d5d006ad870cf8464126207fc90415bd",
+    "packages/ui/src/experimental/DateRangeSelector/DateRangeSelector.tsx": "882f09ab98d398e58fa48cb71c0eb1c537888dc831310671991dbf36a70e7985",
+    "packages/ui/src/experimental/MonthPicker/MonthPicker.test.tsx": "daa5da9934b5f61d4abd3ced29d162d8792968603e6e332b896acf2c34b6847f",
+    "packages/ui/src/experimental/MonthPicker/MonthPicker.tsx": "2c7a707b3a8438c8908f4309fe33f571136115194b971deca5631836a05ad493",
+    "packages/ui/src/experimental/PeriodPicker/PeriodPicker.tsx": "72fa2c8b7d74764460a6372445e550c60cba180d0ee3a89edc27718f9aa97026",
+    "packages/ui/src/experimental/YearPicker/YearPicker.test.tsx": "8b1b50b7eb65df8a3ebe2087f23877bd03e02812b775afa913e86f40cccc1319",
+    "packages/ui/src/experimental/YearPicker/YearPicker.tsx": "427bb40c963fbb749115e16c7ab78c739bf5a23eeb6defdae5bca1a5e797ea6c",
+    "packages/ui/src/experimental/index.ts": "04e6775cb77eb835a59fcd7504d2a05ca8354791bf0516fb37dc47700df40e20"
+  },
+  "validation": {
+    "units": {
+      "path": "/tmp/shared-picker-units.log",
+      "sha256": "2f4c5f9d0bc1504cf6297b63a3bfeaf6cfa0424bfe0642c96d88c57eddab5a0b",
+      "status": "passed"
+    },
+    "build": {
+      "path": "/tmp/shared-picker-build.log",
+      "sha256": "0e7384987e9774684f06e9e35671290e0801459ad0488581108d9dc5e738d05a",
+      "status": "passed"
+    },
+    "guards": {
+      "path": "/tmp/shared-picker-guards.log",
+      "sha256": "460c6481313d8c45750767540b58151a1f23582a692573a0f786eea90e556647",
+      "status": "passed"
+    },
+    "docs": {
+      "path": "/tmp/shared-picker-docs.log",
+      "sha256": "4ab682ced2f9720ba230914de1bf4661d65e2d3f40083a66784c2b40bd1e8472",
+      "status": "passed"
+    },
+    "browser": {
+      "path": "/tmp/shared-picker-browser.log",
+      "sha256": "3aa9128cc2cb129b463c2dfcbde297e670d178290b341367f54a9f896dc9afd1",
+      "status": "passed"
+    },
+    "types": {
+      "path": "/tmp/shared-picker-types.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": "passed"
+    },
+    "package": {
+      "path": "/tmp/shared-picker-package.log",
+      "sha256": "4c7d3a663fe9817690f2d4cd1ed0a684a9f2c0b2982e54855d7224a7fef7b103",
+      "status": "passed"
+    },
+    "visual": {
+      "path": "/tmp/shared-picker-visual.log",
+      "sha256": "2de75babcdb42cebd33c855da505e850337c304f4c79861c2a015c45d39c9552",
+      "status": "passed"
+    }
+  },
+  "unitTests": 144,
+  "unitFiles": 26,
+  "browserCases": 34,
+  "additionalVisualCaptureRuns": 2,
+  "scope": "Targeted functionality and affected behavior evidence; historical acceptance/device/AT gates unchanged."
+}

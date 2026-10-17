@@ -106,7 +106,7 @@ execFileSync('pnpm', ['exec', 'tsc', '--noEmit', '--strict', '--skipLibCheck', '
 console.log('Consumer imports and owned theme/typography contracts typecheck.');
 
 const experimental = await import('../dist/experimental/index.js');
-for (const name of ['Button', 'TextField', 'ThemeScope', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'isDateOnly', 'isDateRangeAllowed', 'DateField', 'TimeField', 'dateTimeToInstant', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker',
+for (const name of ['Button', 'TextField', 'ThemeScope', 'Provider', 'Dialog', 'Popover', 'Tabs', 'ComboBox', 'AsyncMultiSelect', 'DateRangeSelector', 'isDateOnly', 'isDateRangeAllowed', 'DateField', 'TimeField', 'dateTimeToInstant', 'Checkbox', 'DataGrid', 'Calendar', 'DatePicker', 'DateRangePicker', 'MonthPicker', 'YearPicker',
   'ToggleButton', 'ToggleButtonGroup', 'Tooltip', 'List', 'ListItem', 'ListItemButton', 'ListItemText', 'ListItemIcon',
   'Navigation', 'NavigationItem', 'Disclosure', 'Collapse', 'Chip', 'Badge', 'TagGroup', 'Progress', 'Status', 'Avatar',
   'Table', 'TableHead', 'TableBody', 'TableFoot', 'TableRow', 'TableCell', 'TableHeaderCell', 'TableCaption', 'Pagination']) {

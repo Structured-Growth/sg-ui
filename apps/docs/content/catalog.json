@@ -410,6 +410,24 @@
   },
   {
     "group": "forms",
+    "slug": "month-picker",
+    "title": "MonthPicker",
+    "description": "Inline month choices shared by calendar navigation and period selection.",
+    "exports": [
+      "MonthPicker"
+    ]
+  },
+  {
+    "group": "forms",
+    "slug": "year-picker",
+    "title": "YearPicker",
+    "description": "Paged year buttons or typed year entry shared by calendars.",
+    "exports": [
+      "YearPicker"
+    ]
+  },
+  {
+    "group": "forms",
     "slug": "period-picker",
     "title": "PeriodPicker",
     "description": "Select a whole week, month, quarter or year.",

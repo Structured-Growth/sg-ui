@@ -12,6 +12,9 @@ const interactionFiles = new Set(['SearchField', 'TextField', 'Provider', 'Dialo
   .map(name => `src/experimental/${name}/${name}.tsx`));
 interactionFiles.add("src/components/Button/Button.tsx");
 interactionFiles.add("src/experimental/Calendar/CalendarNavigation.tsx");
+interactionFiles.add("src/experimental/Calendar/CalendarPeriodNavigation.tsx");
+interactionFiles.add("src/experimental/MonthPicker/MonthPicker.tsx");
+interactionFiles.add("src/experimental/YearPicker/YearPicker.tsx");
 interactionFiles.add("src/experimental/DateRangeSelector/RangeGestures.tsx");
 interactionFiles.add("src/experimental/Select/FramePositionedPopover.tsx");
 interactionFiles.add("src/components/AppDataGrid/ownedGridInteraction.tsx");

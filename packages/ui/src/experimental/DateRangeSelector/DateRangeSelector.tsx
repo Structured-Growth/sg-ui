@@ -1,6 +1,7 @@
 "use client";
 import {FieldMessages,type FieldMessagePlacementProps} from "../TextField/FieldMessages";
 import { CalendarMonthTransition } from "../Calendar/CalendarMonthTransition";
+import {CalendarPeriodHeading,CalendarPeriodViewport,type CalendarPeriodOptions,type PeriodTarget} from "../Calendar/CalendarPeriodNavigation";
 import { CalendarNavigation } from "../Calendar/CalendarNavigation";
 import { useLocale } from "react-aria-components/I18nProvider";
 import { useCallback, useContext, useEffect, useId, useRef, useState } from "react";
@@ -27,8 +28,14 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
   label: string;
   /** Show a visible section title in addition to its accessible label. Defaults to false. */
   showTitle?: boolean;
-  /** Optional direct month/year jumps; arrows remain available. */
-  navigation?: "arrows" | "month-year";
+  /** Defaults period: shared month/year text buttons open immediate inline choices. Arrows uses static headings; month-year keeps direct selects. */
+  navigation?: "period" | "arrows" | "month-year";
+  /** Enable the month heading button in period navigation. Defaults true. Use min/max for actual date restrictions. */
+  allowMonthSelection?:boolean;
+  /** Enable the year heading button in period navigation. Defaults true. */
+  allowYearSelection?:boolean;
+  /** Shared chooser settings; date bounds and endpoint-aware availability always inherit from this range. */
+  periodPickerProps?:CalendarPeriodOptions;
   /** Number of localized years offered around focus, constrained by min/max. Defaults to 120. */
   visibleYears?: number;
   /** Endpoint entry defaults to flexible date-only text. Use segments explicitly for segmented input. */
@@ -120,10 +127,11 @@ export interface DateRangeSelectorProps extends FieldMessagePlacementProps {
   name?: string;
 }
 
-export function DateRangeSelector({ label, showTitle = false, navigation = "arrows", visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement, errorPlacement, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
+export function DateRangeSelector({ label, showTitle = false, navigation = "period", allowMonthSelection=true, allowYearSelection=true, periodPickerProps, visibleYears, entryMode = "text", referenceDate, rangeClickBehavior = "adjust-end", selectionUnit="day", showFields=false, showActions=true, descriptionPlacement, errorPlacement, activeEndpoint, defaultActiveEndpoint="end", onActiveEndpointChange, rangeDragBehavior = "move-and-resize", rangeLength, getDateUnavailableReason, renderDayContent, calendarNavigation = "linked", calendarEndpoints, calendarLayout = "paged", scrollMonths = 12, commitBehavior = "apply", onDraftChange, value, defaultValue = null, onValueChange, onCancel, min, max,
   unavailable = [], presets:basePresets = [], presetGroups = [], presetPlacement = "side", months = 2, defaultFocusedDate, firstDayOfWeek, disabled, readOnly, required, name }: DateRangeSelectorProps) {
   const { t } = useTranslation();
   const { locale, direction } = useLocale();
+  const [periodPanel,setPeriodPanel]=useState<{index:number;target:PeriodTarget}|null>(null);
   const [presetGroup,setPresetGroup]=useState<string|null>(null);
   const flattenGroups=(groups:readonly DateRangePresetGroup[],prefix=''):DateRangePresetGroup[]=>groups.flatMap(group=>[{...group,label:prefix?`${prefix} / ${group.label}`:group.label},...flattenGroups(group.children??[],prefix?`${prefix} / ${group.label}`:group.label)]);
   const groups=flattenGroups(presetGroups);
@@ -342,17 +350,19 @@ export function DateRangeSelector({ label, showTitle = false, navigation = "arro
       const baseMonth=toCalendar(seed&&isDateOnly(seed)?parseDate(seed):state.focusedDate,new GregorianCalendar());
       const remaining=(9999-baseMonth.year)*12+13-baseMonth.month;
       const count=Math.min(remaining,calendarLayout==='scroll'?Math.max(1,Math.min(120,Math.floor(scrollMonths)||12)):months);
-      const monthView=(index:number,offset=index)=><div key={index} className={styles.month} data-calendar-endpoint={calendarEndpoint(index)}>
+      const monthView=(index:number,offset=index)=><div key={index} className={styles.month} data-calendar-endpoint={calendarEndpoint(index)}><CalendarPeriodViewport options={{descriptionPlacement,errorPlacement,...periodPickerProps}} visibleYears={visibleYears} min={min} max={max} unavailable={unavailable} disabled={disabled} readOnly={readOnly}
+          activeTarget={periodPanel?.index===index?periodPanel.target:null} onActiveTargetChange={target=>setPeriodPanel(target?{index,target}:null)}
+          getDateUnavailableReason={date=>getDateUnavailableReason?.(date,{range:draft,endpoint:calendarEndpoint(index)??selectionEndpoint})}>
           <header className={styles.monthHeader}>
             {(index===months-1||calendarNavigation==='independent')&&calendarLayout!=='scroll'&&<Button className={styles.previous} slot="previous" variant="text" tone="neutral" aria-label={t("common.ui.previousMonth",{defaultMessage:"Previous month"})}>‹</Button>}
-            {navigation==='month-year'&&(months===1||calendarNavigation==='independent')?<div className={styles.monthHeading}><CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/></div>:<CalendarHeading offset={{months:offset}} className={`${styles.heading} ${styles.monthHeading}`}/>}
+            {navigation==='month-year'&&(months===1||calendarNavigation==='independent')?<div className={styles.monthHeading}><CalendarNavigation visibleYears={visibleYears} disabled={disabled} readOnly={readOnly}/></div>:navigation==='period'?<div className={styles.monthHeading}><CalendarPeriodHeading offset={offset} disabled={disabled} readOnly={readOnly} allowMonthSelection={allowMonthSelection} allowYearSelection={allowYearSelection}/></div>:<CalendarHeading offset={{months:offset}} className={`${styles.heading} ${styles.monthHeading}`}/>}
             {(index===months-1||calendarNavigation==='independent')&&calendarLayout!=='scroll'&&<Button className={styles.next} slot="next" variant="text" tone="neutral" aria-label={t("common.ui.nextMonth",{defaultMessage:"Next month"})}>›</Button>}
           </header>
           <RangeMonthMotion enabled={calendarLayout==='paged'}><div className={styles.gridViewport}><CalendarGrid offset={{months:offset}} weekdayStyle="short" className={`${styles.grid} ${styles.rangeGrid}`}>
             <CalendarGridHeader>{day=><CalendarHeaderCell className={styles.weekday} data-narrow-label={narrowWeekdays.get(day)??day}><span className={styles.weekdayLabel}>{day}</span></CalendarHeaderCell>}</CalendarGridHeader>
             <CalendarGridBody>{date=>{const iso=toCalendar(date,new GregorianCalendar()).toString();const reason=unavailable.find(day=>day.date===iso)?.reason??getDateUnavailableReason?.(iso,{range:draft,endpoint:calendarEndpoint(index)??selectionEndpoint});return <DescribedCalendarCell date={date} reason={reason} reasonId={`${descriptionId}-date-${iso}-${index}`} previewIds={state.anchorDate&&state.isFocused&&state.focusedDate.compare(date)===0?[previewId,previewContextId]:[]} content={renderDayContent?.(iso)} rangeValid={displayedRangeValid} inRange={Boolean(displayRange?.start&&displayRange?.end&&iso>=displayRange.start&&iso<=displayRange.end)} start={displayRange?.start===iso} end={displayRange?.end===iso}/>;}}</CalendarGridBody>
           </CalendarGrid></div></RangeMonthMotion>
-        </div>;
+        </CalendarPeriodViewport></div>;
       return <RangeGestures resetKey={`${committed?.start}/${committed?.end}/${resetRevision}`} value={calendarValue&&draft?.end?{start:calendarValue.start.toString(),end:calendarValue.end.toString()}:null} behavior={rangeDragBehavior} length={rangeLength} disabled={disabled||readOnly} onActivate={activateDate} onEdit={edit} onPreview={setDragPreview} isAllowed={validRange} onInvalid={()=>setInteractionError(true)} onRestart={date=>{programmaticAnchor.current=date;}}>
     {rangeDragBehavior!=='none'&&<p id={`${descriptionId}-gestures`} className={styles.visuallyHidden}>{t("common.ui.rangeGestureHelp",{defaultMessage:"Shift and Left or Right moves the range when enabled. Alt and Left or Right resizes the end; add Shift to resize the start when enabled. Escape cancels dragging. Drag the first or last day to resize, or an interior day to move. Shift and drag moves from any selected day. At duration limits the opposite boundary follows; fixed duration moves the whole range."})}</p>}
     <ResetCalendarAnchor start={committed?.start} end={committed?.end} resetRevision={resetRevision} />

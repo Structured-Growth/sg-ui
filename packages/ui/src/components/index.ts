@@ -137,3 +137,6 @@ export {
   type SideNavigationProps,
 } from "./SideNavigation";
 export { IconPanelNavigation, type IconPanelNavigationProps, type IconPanelNavigationItem } from "./IconPanelNavigation";
+
+export {MonthPicker,type MonthPickerProps} from "../experimental/MonthPicker/MonthPicker";
+export {YearPicker,type YearPickerProps} from "../experimental/YearPicker/YearPicker";
