@@ -1,4 +1,28 @@
 import {test,expect} from '@playwright/test';
+import {exampleName} from './example-name';
+
+for(const [slug,name] of [['date-range-selector','DateRangeSelector'],['date-range-picker','DateRangePicker']])test(`${name} defaults omit presets and keep them opt-in`,async({page})=>{
+  await page.goto(`/docs/components/${slug}`);
+  const overview=page.getByRole('region',{name:`${name} at a glance`,exact:true});
+  const playground=page.getByRole('region',{name:exampleName('Prop playground'),exact:true});
+  await expect(playground.getByRole('checkbox',{name:'Show presets',exact:true})).not.toBeChecked();
+  if(name==='DateRangePicker')await overview.getByRole('button',{name:'Choose Course schedule',exact:true}).click();
+  const overviewCalendar=name==='DateRangePicker'?page.getByRole('dialog'):overview;
+  await expect(overviewCalendar.getByRole('grid')).toHaveCount(1);
+  await expect(overviewCalendar.getByRole('listbox',{name:'Date presets',exact:true})).toHaveCount(0);
+  await expect(playground.getByRole('listbox',{name:'Date presets',exact:true})).toHaveCount(0);
+  if(name==='DateRangePicker')await page.keyboard.press('Escape');
+  const showPresets=playground.getByRole('checkbox',{name:'Show presets',exact:true});
+  await showPresets.focus();await showPresets.press('Space');
+  if(name==='DateRangePicker')await playground.getByRole('button',{name:'Choose Course schedule',exact:true}).click();
+  const presets=(name==='DateRangePicker'?page.getByRole('dialog'):playground).getByRole('listbox',{name:'Date presets',exact:true});
+  await expect(presets).toHaveCount(1);
+  for(const label of ['This week','Last week','This month','Last month'])await expect(presets.getByRole('option',{name:label,exact:true})).toBeVisible();
+  if(name==='DateRangePicker')await page.keyboard.press('Escape');
+  await expect(overview.getByRole('listbox',{name:'Date presets',exact:true})).toHaveCount(0);
+  await playground.getByRole('button',{name:'Show source: Prop playground',exact:true}).click();
+  await expect(playground.getByRole('code')).toContainText('this-week');
+});
 
 for(const width of [1440,375])test(`range selector overview expands to its content at ${width}px`,async({page},info)=>{
   await page.setViewportSize({width,height:900});

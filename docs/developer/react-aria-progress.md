@@ -2164,3 +2164,8 @@ User prefers simulator automation. Verified installed Xcode27.1/iOS27.0; added a
 Completed the requested calendar layout update: tighter pointer cells in both densities, default hidden endpoint fields, logical-start month/year with grouped text navigation buttons, and horizontal month slides. Touch minimum targets remain intact; RTL reverses motion and reduced motion disables it. A private inert outgoing snapshot preserves one live grid/focus owner. Compact headers reserve enough width to keep longer month names from changing height.
 
 [Task receipts](final-acceptance/calendar-compact-layout/results.json): affected units 15 files / 82 tests pass; library, foundation, production docs/catalog, native fixture and browser type checks pass. Browser evidence covers 42 passing configurations across Chromium/Firefox/WebKit: initial 41 passes plus a corrected 12-case navigation/reflow rerun after waiting for motion to settle. The original WebKit timing failure is retained. This feature does not change the remaining 139 A / 20 V / 6 future acceptance counts.
+
+
+## Presets opt-in in default date examples — 2026-10-16
+
+Corrected the docs-owned default that injected presets into date-range overviews, playgrounds, density and form examples. Show presets now starts off; explicit preset examples and the playground option remain available. The library already defaults to an empty preset list. Production docs build/catalog checks and four focused browser checks pass, covering both inline/dropdown defaults, opt-in choices/source/isolation and desktop/narrow overview sizing. [Receipt](final-acceptance/calendar-compact-layout/preset-defaults.json). Existing acceptance counts remain unchanged.

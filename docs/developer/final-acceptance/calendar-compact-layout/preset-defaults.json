@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-16",
+  "change": "Default date-range overview, playground, density and form examples no longer inject presets. Show presets remains opt-in; dedicated preset examples remain. Library already defaults to no presets.",
+  "validation": {
+    "productionDocsBuild": {
+      "exitCode": 0,
+      "logSha256": "d8662a300b2d4563c8eba8ef27493dda078e987f88157d0b4bf94af5bfe3d1e1"
+    },
+    "targetedDocsBrowser": {
+      "exitCode": 0,
+      "passed": 4,
+      "log": "[WebServer] (node:81804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)\n[WebServer] (node:81823) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)\n\nRunning 4 tests using 1 worker\n\n(node:81835) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n  \u2713  1 [chromium] \u203a tests/date-range-overview.spec.ts:4:112 \u203a DateRangeSelector defaults omit presets and keep them opt-in (789ms)\n  \u2713  2 [chromium] \u203a tests/date-range-overview.spec.ts:4:112 \u203a DateRangePicker defaults omit presets and keep them opt-in (724ms)\n  \u2713  3 [chromium] \u203a tests/date-range-overview.spec.ts:27:31 \u203a range selector overview expands to its content at 1440px (655ms)\n  \u2713  4 [chromium] \u203a tests/date-range-overview.spec.ts:27:31 \u203a range selector overview expands to its content at 375px (652ms)\n\n  4 passed (3.6s)\n"
+    },
+    "scope": "No library source or public contract changed. No broad acceptance leaves closed."
+  },
+  "sourceSha256": {
+    "apps/docs/examples/catalog/forms-dates.tsx": "bbba12f5009f7ef2b59310a6c823f0265a6e5498c9ad30e8e73393a08821e2e4",
+    "apps/docs/tests/date-range-overview.spec.ts": "5734d333590f55e2e784592fddbc74fb045e514b875ce229826466f72dc645d8"
+  }
+}

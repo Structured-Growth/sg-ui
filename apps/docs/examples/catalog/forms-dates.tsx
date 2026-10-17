@@ -241,7 +241,7 @@ function DateScenario({kind, scenario}: {kind:DateKind; scenario:Scenario}) {
   const getDateUnavailableReason=availabilityRule?(date:string,context:{endpoint:'start'|'end'|null})=>date.endsWith('-13')&&context.endpoint==='start'?'No arrivals on the 13th.':undefined:undefined;
   const renderDayContent=markers?(date:string)=>date.endsWith('-15')?'•':null:undefined;
   const [presetPlacement,setPresetPlacement]=useState<'above'|'side'|'end'>('side');
-  const [presets, setPresets] = useState(true); const [months, setMonths] = useState<1|2|3>(1);
+  const [presets, setPresets] = useState(false); const [months, setMonths] = useState<1|2|3>(1);
   const [firstDay, setFirstDay] = useState<'sun'|'mon'>('mon');
   const [fieldMode, setFieldMode] = useState<'text'|'button'>('text');
   const [entryMode, setEntryMode] = useState<'segments'|'text'>(kind==='TimeField'||kind==='DatePicker'||kind==='DateRangePicker'||kind==='DateRangeSelector'?'text':'segments');
