@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 63,
-  "closedTotal": 244,
-  "remaining": 76,
+  "closedThisReview": 65,
+  "closedTotal": 246,
+  "remaining": 74,
   "entries": [
     {
       "id": "A-M-21",
@@ -560,6 +560,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-control-contract-final-closures.json",
       "sha256": "5f340e585ccc78b7b03487183bc39db3a7ab152c31808226c102acae17678a7f",
       "limits": "Closes original standardized implementation contracts and their recorded defects, reusing unaffected accepted coverage. No full visual state matrix, manual AT or physical-device claim."
+    },
+    {
+      "id": "A-U-19",
+      "basis": "Maintained overlay placement/portal scope contracts are supported by current native collision/resize cases and actual browser page zoom. Select passes100/200/400%; Popover and DateRangePicker pass400% with actual positioned-scrollport bounds, reachable visible content/Apply, native window resize, Escape and trigger return. Earlier inner-content and assistive-button driver-target errors are preserved and classified. Theme/locale portal inheritance retains accepted independent/nested-scope proof.",
+      "criterion": "- [ ] A-U-19 Reconcile original `U-19`: Define overlay collision/placement behavior at narrow widths and browser zoom; preserve theme/locale in portals and avoid clipped popovers. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-actual-browser-zoom-closures.json",
+      "sha256": "2372349eac9277f4777823fffa61232eba72c672e5ca5165f9ef30a5d6dddc65",
+      "limits": "Actual page zoom measured in isolated bundled Chromium only; existing Firefox/WebKit evidence covers resize/text spacing, not browser page zoom. No physical-device or spoken-AT claim. All diagnostic failures remain retained."
+    },
+    {
+      "id": "A-X-05",
+      "basis": "Tabbed AppModal at actual400% page zoom passes25unobscured observations using real Tab/ShiftTab:20fields, Cancel/Next, then footer and final field after native resize. Surface fits320x203 and275x178 viewports, root font remains16px, CSSzoom1, visualViewport.scale1, getZoom~4. Retained3engine text-spacing/root-font/resize checks and current selector/popover/range scroll reachability complement this focused evidence.",
+      "criterion": "- [ ] A-X-05 Reconcile original `X-05`: Ensure sticky headers/footers do not obscure focused controls; verify zoom/reflow/text-spacing behavior and scroll padding where needed. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-actual-browser-zoom-closures.json",
+      "sha256": "2372349eac9277f4777823fffa61232eba72c672e5ca5165f9ef30a5d6dddc65",
+      "limits": "Actual page zoom measured in isolated bundled Chromium only; existing Firefox/WebKit evidence covers resize/text spacing, not browser page zoom. No physical-device or spoken-AT claim. All diagnostic failures remain retained."
     }
   ],
   "limits": [

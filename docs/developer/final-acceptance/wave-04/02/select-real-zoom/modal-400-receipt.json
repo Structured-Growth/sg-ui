@@ -1,0 +1,415 @@
+{
+  "status": "passed",
+  "fixture": "overlays-appmodal--text-reflow",
+  "actualZoom": {
+    "factor": 3.9999999999999996,
+    "settings": {
+      "defaultZoomFactor": 1,
+      "mode": "automatic",
+      "scope": "per-tab"
+    }
+  },
+  "beforeZoomRootFont": "16px",
+  "afterZoomRootFont": "16px",
+  "openBounds": {
+    "left": 16,
+    "right": 304,
+    "top": 32.51953125,
+    "bottom": 170.7265625,
+    "viewportWidth": 320,
+    "viewportHeight": 203
+  },
+  "resizedBounds": {
+    "left": 16,
+    "right": 259,
+    "top": 28.51953125,
+    "bottom": 149.7265625,
+    "viewportWidth": 275,
+    "viewportHeight": 178
+  },
+  "observations": [
+    {
+      "label": "Field 1",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.6640625,
+        "width": 256,
+        "height": 44,
+        "top": 122.6640625,
+        "right": 288,
+        "bottom": 166.6640625,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 2",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.7109375,
+        "width": 256,
+        "height": 44,
+        "top": 122.7109375,
+        "right": 288,
+        "bottom": 166.7109375,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 3",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 90.0078125,
+        "width": 256,
+        "height": 44,
+        "top": 90.0078125,
+        "right": 288,
+        "bottom": 134.0078125,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 4",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.5546875,
+        "width": 256,
+        "height": 44,
+        "top": 122.5546875,
+        "right": 288,
+        "bottom": 166.5546875,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 5",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 90.1015625,
+        "width": 256,
+        "height": 44,
+        "top": 90.1015625,
+        "right": 288,
+        "bottom": 134.1015625,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 6",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.6484375,
+        "width": 256,
+        "height": 44,
+        "top": 122.6484375,
+        "right": 288,
+        "bottom": 166.6484375,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 7",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 90.1953125,
+        "width": 256,
+        "height": 44,
+        "top": 90.1953125,
+        "right": 288,
+        "bottom": 134.1953125,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 8",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.4921875,
+        "width": 256,
+        "height": 44,
+        "top": 122.4921875,
+        "right": 288,
+        "bottom": 166.4921875,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 9",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 90.0390625,
+        "width": 256,
+        "height": 44,
+        "top": 90.0390625,
+        "right": 288,
+        "bottom": 134.0390625,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 10",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.5859375,
+        "width": 256,
+        "height": 44,
+        "top": 122.5859375,
+        "right": 288,
+        "bottom": 166.5859375,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 11",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 90.1328125,
+        "width": 256,
+        "height": 44,
+        "top": 90.1328125,
+        "right": 288,
+        "bottom": 134.1328125,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 12",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.6796875,
+        "width": 256,
+        "height": 44,
+        "top": 122.6796875,
+        "right": 288,
+        "bottom": 166.6796875,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 13",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 90.2265625,
+        "width": 256,
+        "height": 44,
+        "top": 90.2265625,
+        "right": 288,
+        "bottom": 134.2265625,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 14",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.5234375,
+        "width": 256,
+        "height": 44,
+        "top": 122.5234375,
+        "right": 288,
+        "bottom": 166.5234375,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 15",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 90.0703125,
+        "width": 256,
+        "height": 44,
+        "top": 90.0703125,
+        "right": 288,
+        "bottom": 134.0703125,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 16",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.6171875,
+        "width": 256,
+        "height": 44,
+        "top": 122.6171875,
+        "right": 288,
+        "bottom": 166.6171875,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 17",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 90.1640625,
+        "width": 256,
+        "height": 44,
+        "top": 90.1640625,
+        "right": 288,
+        "bottom": 134.1640625,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 18",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.7109375,
+        "width": 256,
+        "height": 44,
+        "top": 122.7109375,
+        "right": 288,
+        "bottom": 166.7109375,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 19",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 90.0078125,
+        "width": 256,
+        "height": 44,
+        "top": 90.0078125,
+        "right": 288,
+        "bottom": 134.0078125,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 20",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 122.5546875,
+        "width": 256,
+        "height": 44,
+        "top": 122.5546875,
+        "right": 288,
+        "bottom": 166.5546875,
+        "left": 32
+      }
+    },
+    {
+      "label": "Cancel",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 85.6640625,
+        "width": 256,
+        "height": 32,
+        "top": 85.6640625,
+        "right": 288,
+        "bottom": 117.6640625,
+        "left": 32
+      }
+    },
+    {
+      "label": "Next",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 125.6640625,
+        "width": 256,
+        "height": 32,
+        "top": 125.6640625,
+        "right": 288,
+        "bottom": 157.6640625,
+        "left": 32
+      }
+    },
+    {
+      "label": "Next after resize",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 113.6640625,
+        "width": 211,
+        "height": 32,
+        "top": 113.6640625,
+        "right": 243,
+        "bottom": 145.6640625,
+        "left": 32
+      }
+    },
+    {
+      "label": "Cancel after resize",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 73.6640625,
+        "width": 211,
+        "height": 32,
+        "top": 73.6640625,
+        "right": 243,
+        "bottom": 105.6640625,
+        "left": 32
+      }
+    },
+    {
+      "label": "Field 20 after resize",
+      "active": true,
+      "visible": true,
+      "rect": {
+        "x": 32,
+        "y": 67.0546875,
+        "width": 211,
+        "height": 44,
+        "top": 67.0546875,
+        "right": 243,
+        "bottom": 111.0546875,
+        "left": 32
+      }
+    }
+  ],
+  "footerContract": "Actual existing TextReflow fixture uses Cancel/Next; no Save label invented. Same20fields+footer nativeTab checks as existing acceptance spec.",
+  "assertions": "Three horizontal hit points, full viewport and every clipping ancestor; polling real geometry; no forced focus/scroll inside modal. Native resize, reverse Tab, Escape and trigger restoration passed.",
+  "results": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-modal-400-01/results.json",
+  "resultsSha256": "b06ae81d978439d6199ddf5021c1e728f71900ca673addc01b25a7acf46204c4",
+  "provenanceSha256": "41a8a870c124ab62469002393a115f696ab6cb40d6ab1364ce696be35e389834",
+  "driverSha256": "811e55f560d64236c072dced6b6ba155af2d5b91d669b61777b732879e872be6",
+  "resources": "private profile/context closed; immutable6173 host closed; all canonical leases released",
+  "limits": "Chromium actual400only, no production/fixture changes/build or other families."
+}

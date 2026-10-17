@@ -1,0 +1,49 @@
+{
+  "entries": [
+    {
+      "id": "A-U-19",
+      "basis": "Maintained overlay placement/portal scope contracts are supported by current native collision/resize cases and actual browser page zoom. Select passes100/200/400%; Popover and DateRangePicker pass400% with actual positioned-scrollport bounds, reachable visible content/Apply, native window resize, Escape and trigger return. Earlier inner-content and assistive-button driver-target errors are preserved and classified. Theme/locale portal inheritance retains accepted independent/nested-scope proof.",
+      "criterion": "- [ ] A-U-19 Reconcile original `U-19`: Define overlay collision/placement behavior at narrow widths and browser zoom; preserve theme/locale in portals and avoid clipped popovers. Historical status: open."
+    },
+    {
+      "id": "A-X-05",
+      "basis": "Tabbed AppModal at actual400% page zoom passes25unobscured observations using real Tab/ShiftTab:20fields, Cancel/Next, then footer and final field after native resize. Surface fits320x203 and275x178 viewports, root font remains16px, CSSzoom1, visualViewport.scale1, getZoom~4. Retained3engine text-spacing/root-font/resize checks and current selector/popover/range scroll reachability complement this focused evidence.",
+      "criterion": "- [ ] A-X-05 Reconcile original `X-05`: Ensure sticky headers/footers do not obscure focused controls; verify zoom/reflow/text-spacing behavior and scroll padding where needed. Historical status: open."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/select-real-zoom/receipt.json",
+      "sha256": "776a6149438a6d5f1485994614fa26f3cb6388797ea77c308a1e513b38d40e72"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/select-real-zoom/popover-range-400-receipt.json",
+      "sha256": "3b22ed97838575d31b90319e5edff2d1d650117396e91b62f3db839e3056a3b6"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/02/select-real-zoom/modal-400-receipt.json",
+      "sha256": "b5d0f5ffb85890619714844d4759a2f9440ba93573db68587761a832d12476db"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-select-400-scrollport-01/results.json",
+      "sha256": "80cb704de4d004c1b873607514ba26bf33b4b7741db7e92afdcee11a31f20809"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-popover-400-01/results.json",
+      "sha256": "6c2155f59c27eae3ee35744d7311850f7483756d2e997a26f51c111b1adf231c"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-range-400-apply-01/results.json",
+      "sha256": "5fc83715b292b2aa47ca66d7054972cebed2d89aaf019688d3647a9ae49da5a9"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-modal-400-01/results.json",
+      "sha256": "b06ae81d978439d6199ddf5021c1e728f71900ca673addc01b25a7acf46204c4"
+    },
+    {
+      "path": "docs/developer/final-acceptance/wave-04/10/implementation-batch/focused-01/results.json",
+      "sha256": "8e7047082fdbfb29b5c0e246943dcbab6be481e8b664855e36dabc32212cb97b"
+    }
+  ],
+  "limits": "Actual page zoom measured in isolated bundled Chromium only; existing Firefox/WebKit evidence covers resize/text spacing, not browser page zoom. No physical-device or spoken-AT claim. All diagnostic failures remain retained."
+}

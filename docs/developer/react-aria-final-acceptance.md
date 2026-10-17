@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 244/320 A leaves closed; 76 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 246/320 A leaves closed; 74 A, 0 editor V review leaves and six future leaves remain.**
+
+### Wave 04 actual browser zoom and focus visibility — 2026-10-17
+
+A-U-19 and A-X-05 close after actual Chromium page zoom proves selector/popover/range collision bounds and tabbed-modal focus visibility, complementing retained three-engine resize/text-spacing checks. No font-size or pinch-scale simulation is substituted for page zoom.
+Wave 04 now closes 65 of 139 items; 74 remain.
 
 ### Wave 04 controlled primitive contracts — 2026-10-17
 

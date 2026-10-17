@@ -1,7 +1,7 @@
 {
   "original": 139,
-  "closed": 63,
-  "remaining": 76,
+  "closed": 65,
+  "remaining": 74,
   "batches": [
     {
       "title": "Editors and content",
@@ -26,10 +26,9 @@
         6
       ],
       "ids": [
-        "A-K-05",
-        "A-U-19"
+        "A-K-05"
       ],
-      "count": 2,
+      "count": 1,
       "state": "implementation-and-validation",
       "limits": "Retain accepted evidence. No releases or shared-output races. Exact test window and ownership required."
     },
@@ -90,14 +89,13 @@
         "A-X-02",
         "A-X-03",
         "A-X-04",
-        "A-X-05",
         "A-X-06",
         "A-X-09",
         "A-X-13",
         "A-X-14",
         "A-X-16"
       ],
-      "count": 27,
+      "count": 26,
       "state": "implementation-and-validation",
       "limits": "Retain accepted evidence. No releases or shared-output races. Exact test window and ownership required."
     },

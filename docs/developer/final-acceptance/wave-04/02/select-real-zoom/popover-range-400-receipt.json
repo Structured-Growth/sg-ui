@@ -1,0 +1,176 @@
+{
+  "results": [
+    {
+      "family": "popover",
+      "result": "passed",
+      "actualZoom": 3.9999999999999996,
+      "openBounds": {
+        "left": 12,
+        "right": 233,
+        "top": 12,
+        "bottom": 193.25,
+        "viewportWidth": 320,
+        "viewportHeight": 203
+      },
+      "resizedBounds": {
+        "left": 12,
+        "right": 233,
+        "top": 12,
+        "bottom": 168.25,
+        "viewportWidth": 275,
+        "viewportHeight": 178
+      },
+      "reachability": {
+        "rect": {
+          "x": 29,
+          "y": 137.59375,
+          "width": 187,
+          "height": 44,
+          "top": 137.59375,
+          "right": 216,
+          "bottom": 181.59375,
+          "left": 29
+        },
+        "text": "Review note",
+        "focused": true,
+        "hitTag": "SPAN",
+        "hitRole": null,
+        "reachable": true
+      },
+      "scrollRange": {
+        "scrollTop": 0,
+        "clientHeight": 179,
+        "scrollHeight": 185,
+        "maxScrollTop": 6
+      },
+      "failure": null,
+      "results": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-popover-400-01/results.json",
+      "sha256": "6c2155f59c27eae3ee35744d7311850f7483756d2e997a26f51c111b1adf231c"
+    },
+    {
+      "family": "range",
+      "result": "passed",
+      "actualZoom": 3.9999999999999996,
+      "openBounds": {
+        "left": 20,
+        "right": 308,
+        "top": 12,
+        "bottom": 193.25,
+        "viewportWidth": 320,
+        "viewportHeight": 203
+      },
+      "resizedBounds": {
+        "left": 20,
+        "right": 263,
+        "top": 12,
+        "bottom": 168.25,
+        "viewportWidth": 275,
+        "viewportHeight": 178
+      },
+      "reachability": {
+        "target": "Apply",
+        "focused": true,
+        "reachable": true,
+        "rect": {
+          "x": 217.95703125,
+          "y": 132.234375,
+          "width": 73.04296875,
+          "height": 44,
+          "top": 132.234375,
+          "right": 291,
+          "bottom": 176.234375,
+          "left": 217.95703125
+        }
+      },
+      "scrollRange": {
+        "scrollTop": 803.25,
+        "clientHeight": 179,
+        "scrollHeight": 982,
+        "maxScrollTop": 803
+      },
+      "resizedScrollRange": {
+        "scrollTop": 828.25,
+        "clientHeight": 154,
+        "scrollHeight": 1034,
+        "maxScrollTop": 880
+      },
+      "results": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-range-400-apply-01/results.json",
+      "sha256": "5fc83715b292b2aa47ca66d7054972cebed2d89aaf019688d3647a9ae49da5a9"
+    }
+  ],
+  "limits": "Popover and DateRangePicker400only pass in isolated Chromium; prior failed attempts preserved. No production/fixture change/build. All resources released.",
+  "driverSha256": "cfa509dc1c608f981338dd7bfa89f9bcd0f13366a7c452cfd3a652341d31e9c8",
+  "preservedInitialResults": [
+    {
+      "family": "popover",
+      "result": "passed",
+      "actualZoom": 3.9999999999999996,
+      "openBounds": {
+        "left": 12,
+        "right": 233,
+        "top": 12,
+        "bottom": 193.25,
+        "viewportWidth": 320,
+        "viewportHeight": 203
+      },
+      "resizedBounds": {
+        "left": 12,
+        "right": 233,
+        "top": 12,
+        "bottom": 168.25,
+        "viewportWidth": 275,
+        "viewportHeight": 178
+      },
+      "reachability": {
+        "rect": {
+          "x": 29,
+          "y": 137.59375,
+          "width": 187,
+          "height": 44,
+          "top": 137.59375,
+          "right": 216,
+          "bottom": 181.59375,
+          "left": 29
+        },
+        "text": "Review note",
+        "focused": true,
+        "hitTag": "SPAN",
+        "hitRole": null,
+        "reachable": true
+      },
+      "scrollRange": {
+        "scrollTop": 0,
+        "clientHeight": 179,
+        "scrollHeight": 185,
+        "maxScrollTop": 6
+      },
+      "failure": null,
+      "results": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-popover-400-01/results.json",
+      "sha256": "6c2155f59c27eae3ee35744d7311850f7483756d2e997a26f51c111b1adf231c"
+    },
+    {
+      "family": "range",
+      "result": "failed",
+      "actualZoom": 3.9999999999999996,
+      "openBounds": {
+        "left": 20,
+        "right": 308,
+        "top": 12,
+        "bottom": 193.25,
+        "viewportWidth": 320,
+        "viewportHeight": 203
+      },
+      "resizedBounds": null,
+      "reachability": null,
+      "scrollRange": null,
+      "failure": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: true\nReceived: false\n    at captureRawStack (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/playwright-core@1.63.0/node_modules/playwright-core/lib/coreBundle.js:8588:17)\n    at callMatcherAsStep (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13310:57)\n    at Object.toBe (/Users/thomashall/Repositories/sg-ui/node_modules/.pnpm/playwright@1.63.0/node_modules/playwright/lib/matchers/expect.js:13302:23)\n    at assertReachable (/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/run-real-zoom-window.mjs:28:558)\n    at async file:///Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/05/batch/run-real-zoom-window.mjs:60:314",
+      "results": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-range-400-01/results.json",
+      "sha256": "f2092638e17b23aee3e149a12ad830dea081ce2aedd87b3ce3157e01c84258d0"
+    }
+  ],
+  "correction": "Generic last enabled DOM button picked React Aria clipped assistive Next in1px wrapper. Complete diagnostic confirmed persistent clipping after animations settled. Named enabled Apply footer target passes unchanged reachability/bounds/resize/Escape assertions. No product defect demonstrated.",
+  "diagnostic": {
+    "path": "docs/developer/final-acceptance/wave-04/05/batch/real-zoom-range-400-diagnostic-01/results.json",
+    "sha256": "3c69df29d3eb86c763092102fcea2e65141ec3e6baaf679c070e202c54873eaa"
+  }
+}
