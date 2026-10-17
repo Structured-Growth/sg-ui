@@ -2153,3 +2153,7 @@ Known automated failures are resolved in the [follow-up receipts](final-acceptan
 
 Menu native Tab dismissal, neutral Button feedback and editor Cancel restoration order are fixed. Original failing runs remain retained. **139 A,20 editor V and six future leaves remain**; this follow-up does not close physical-device/AT, reviewed visual-baseline, installed-consumer or owner/legal/production gates.
 
+
+## iOS Simulator VoiceOver automation proof — 2026-10-16
+
+User prefers simulator automation. Verified installed Xcode27.1/iOS27.0; added a private standalone XCTest/Safari harness and leased runner under `packages/ui/tests/apple`. Two executions pass the Select interaction plus actual VoiceOver speech capture. The maintained runner passes build/test/summary/shutdown, retains immutable host/source hashes and xcresult. [Receipts and original failed locator run](final-acceptance/apple-simulator/results.json). No library source, public exports or consumer dependencies change. This is a bounded capability proof, not physical-device or whole manual-AT acceptance; existing139 A/20V/6future counts remain. No operator intervention was required.

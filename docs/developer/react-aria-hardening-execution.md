@@ -149,3 +149,19 @@ changes to dev and push. Do not start HB-19 in this pass. Resume at the 20 remai
 V leaves for editor layout/chrome/formatting controls and rich editor (C21/C22/C23/
 C25/C26/C27/C28/C29/C30/C34). Accepted original300 progress is280; final acceptance
 and explicitly deferred future items remain separate. No production release.
+
+## iOS Simulator and actual VoiceOver automation — 2026-10-16
+
+The user prefers a simulated phone. Xcode27.1 and an installed iOS27.0 iPhone18Pro runtime were verified locally. The private XCTest project in `packages/ui/tests/apple` drives Safari on that simulator, changes First status to Active, enables Apple's `XCUIDevice.shared.voiceOverService`, moves forward and captures actual returned utterances. Names/values for both independent selectors are asserted; the transcript and screenshot are retained in the xcresult. This uses no Appium/Guidepup or new consumer/runtime dependency.
+
+From repository root with supported Node22/24 and fresh compiled native fixtures:
+
+```sh
+node packages/ui/tests/apple/run-simulator.mjs --output /absolute/new/evidence-directory
+```
+
+The output directory must not exist. The driver acquires the existing serial validation leases itself; do not wrap it in another lease helper. It uses loopback6183 by default (`--port` can override, excluding3000), snapshots fixture bytes, builds a standalone UI-test runner, picks an installed iOS27+ iPhone simulator (`--device` accepts a specific simulator ID), sets the generated xctestrun environment, and runs without parallel workers or automatic failure diagnostics. It restores shutdown state if it booted the device, closes its own host, and saves source/fixture hashes, logs, process statuses, summary and xcresult. No runtime download, device erase, account sign-in, physical phone or changes to user server3000 are needed. First-use Xcode components may initialize through xcrun.
+
+[Proof and repeat receipts](final-acceptance/apple-simulator/results.json) retain the initial locator failure and two successful executions. The repeatable driver passed build/test/summary/shutdown. Returned speech includes `Active First status Pop up button` and `Draft Second status Pop up button`; speech hints/verbosity are not exact snapshots. Xcode toolchain warnings remain in the logs.
+
+This establishes actual automated simulator VoiceOver capability, reducing required operator work. It does not certify physical gestures or complete A-X-11's manual six-family review, browser/OS support matrices, all announcements, rotor/gesture usability, or the20 editor V leaves. Expand the existing named scenarios next; keep human experience and physical-device observations separate. No acceptance checkbox/count changes follow from this one smoke.
