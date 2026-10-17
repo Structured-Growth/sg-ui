@@ -602,7 +602,7 @@
     "group": "forms",
     "slug": "date-range-picker",
     "title": "DateRangePicker",
-    "description": "Type a date range or a relative period, or open the calendar to choose dates.",
+    "description": "Select the calendar icon or type a date range, such as 'next week'",
     "exports": [
       "DateRangePicker"
     ]
