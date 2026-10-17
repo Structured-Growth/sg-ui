@@ -160,10 +160,13 @@ captures, original acceptance IDs and execution receipts unchanged. They describ
 their original source/host and must not be presented as current runtime imports
 or fresh validation. Current guides point to owned public contracts and docs-native
 fixtures. Precise removed API names are necessary to explain consumer migration;
-negative guards retain the names they reject. This policy is a proposed
-documentation disposition, not a waiver of a literal zero-reference requirement.
-If literal zero matches is required, a separate provenance-preserving decision is
-still needed. Legal notices remain subject to their separate owner review.
+negative guards retain the names they reject. This follows the repository
+instructions to preserve original acceptance names and historical evidence while
+using owned APIs in maintained implementations and current consumer examples.
+The removal checks apply to shipped implementation, declarations, styles, maps,
+assets and dependency resolution; provenance/migration records keep the exact
+identifiers needed to explain their source. Git history is preserved. Legal
+notices retain their separate source/asset and license review under A-Z-06.
 
 [Audit evidence](final-acceptance/wave-03-33/evidence.json) records exact local Git
 blobs, source SHA-256 hashes, scenario export comparisons, unit assertion texts,

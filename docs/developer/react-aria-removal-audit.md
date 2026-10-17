@@ -24,8 +24,9 @@ old grid styling module is replaced by the owned interaction/grid/cell/status CS
 modules and associated behavior tests. Typography augmentation and theme objects
 are removed, with generated typography tokens and owned scopes as replacements.
 The [extraction manifest](../extraction-manifest.json) records the exact paths.
-Z-04's tracked-file inspection is complete; Z-05's historical-reference policy
-and Z-06's notice reconciliation remain open.
+Z-04's tracked-file inspection is complete. The current historical-reference
+policy is documented in the lineage reconciliation below; Z-06's notice
+reconciliation remains open.
 
 The initial generated `dist` audit inspected 1,628 files and found no retired
 references, including source maps. `pnpm test:package` now recursively rejects
@@ -56,8 +57,11 @@ live under `apps/docs/native-fixtures`. The extraction manifest now accounts for
 workspace moves and removed story modules. See [lineage reconciliation](extraction-lineage.md)
 for exact local AppButton story/unit dispositions and the upstream evidence limit.
 Keep original Git objects, source paths, snapshots and execution receipts unchanged.
-These precise historical identifiers do not establish active dependencies. Literal
-zero-reference policy and legal-notice approval remain separate open decisions.
+These precise historical identifiers do not establish active dependencies.
+Repository instructions preserve original acceptance names, source provenance
+and historical execution evidence. Maintained implementations and consumer
+examples use current owned APIs, with emitted-output/dependency guards enforcing
+removal. Legal-notice reconciliation retains its separate open decision.
 
 
 ## Current workspace audit (2026-10-16)

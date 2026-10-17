@@ -1,7 +1,7 @@
 {
   "original": 139,
-  "closed": 73,
-  "remaining": 66,
+  "closed": 75,
+  "remaining": 64,
   "batches": [
     {
       "title": "Editors and content",
@@ -135,7 +135,6 @@
         "A-G-21",
         "A-G-29",
         "A-B-07",
-        "A-B-12",
         "A-B-14",
         "A-I-08",
         "A-H-08",
@@ -144,13 +143,12 @@
         "A-W-13",
         "A-W-18",
         "A-W-19",
-        "A-Z-05",
         "A-Z-11",
         "A-Z-12",
         "A-Z-15",
         "A-Z-16"
       ],
-      "count": 23,
+      "count": 21,
       "state": "implementation-and-validation",
       "limits": "Retain accepted evidence. No releases or shared-output races. Exact test window and ownership required."
     }

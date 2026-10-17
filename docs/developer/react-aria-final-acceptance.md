@@ -7,7 +7,17 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 254/320 A leaves closed; 66 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 256/320 A leaves closed; 64 A, 0 editor V review leaves and six future leaves remain.**
+
+### Historical-reference policy reconciliation — 2026-10-17
+
+Closed A-Z-05 by aligning the lineage/removal guides with repository instructions: maintained code and consumer examples use owned APIs; exact source identifiers, original acceptance names, migration explanations and immutable history retain their provenance. Manifest destinations/replacements are explicit and source identity is unchanged. Legal-notice reconciliation remains separate.
+Wave 04 now closes 75 of 139 items; 64 remain.
+
+### Extraction manifest and grid-scenario review — 2026-10-17
+
+Closed A-B-12 after checking all201 extraction rows,32 transferred original story modules, one deliberate Button replacement and16 explicitly reconciled earlier grid scenarios. The concrete private fixture gaps are fixed and all nine focused native flows pass. Public-example breadth remains independently tracked under A-W-10.
+Wave 04 now closes 74 of 139 items; 65 remain.
 
 ### Operation-step state support review — 2026-10-17
 

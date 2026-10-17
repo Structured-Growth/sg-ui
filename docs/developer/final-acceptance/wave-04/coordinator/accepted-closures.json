@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 73,
-  "closedTotal": 254,
-  "remaining": 66,
+  "closedThisReview": 75,
+  "closedTotal": 256,
+  "remaining": 64,
   "entries": [
     {
       "id": "A-M-21",
@@ -650,6 +650,24 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/07-operation-steps-support-review.json",
       "sha256": "fc03d9f31b61b1402c10f02f9eef89d9906db62a54d4fcb9df9f98e7453f01f1",
       "limits": "No new audible/simulator test or claim of spoken announcement timing, silence or duplicate-count conformance. Those operator observations remain under A-X-11. The component is presentation; hosts own milestone messages and real operation state. Existing native evidence keeps its original runtime/source boundaries."
+    },
+    {
+      "id": "A-B-12",
+      "basis": "Strict source/provenance audit passes all201 original extraction rows, preserving source repository/commit and requiring existing files or explicit replacement mappings. All33 original story modules have32 checked native transfers plus the documented Button replacement. The16 earlier grid scenarios now have exact original hashes, explicit behavior/changed-contract dispositions and current host/assertion anchors; no export-name alias is treated as parity. Missing sectioned operations/debounced server search/card navigation were implemented,50 affected grid unit tests and10 guard cases pass, fixture/browser types and catalog checks pass, and all nine affected native flows are covered by five retained passes plus four corrected keyboard-setup passes. Helpers/models/nodes/plugins/fixtures/tests retain manifest destinations or documented replacements; no old Storybook runtime is restored.",
+      "criterion": "- [ ] A-B-12 Reconcile original `B-12`: Review the extraction manifest against actual files so helpers, model presets, nodes/plugins, fixtures, and tests are not lost when directories move. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/05-extraction-manifest-review.json",
+      "sha256": "f674dd885c74a7061a63913c02a70a1630f430cc6bf2de48adb95a684c181b26",
+      "limits": "Source extraction and documented behavior preservation only. The semantic record is not generic runtime parity; the nine native flows cover the changed private hosts. Public-example breadth, all-grid acceptance, performance, manual AT and legal/release gates remain separate. Original failed native runs are preserved."
+    },
+    {
+      "id": "A-Z-05",
+      "basis": "The extraction manifest retains all201 original source/destination identities and source repository/commit, with explicit current workspace/native replacement metadata. Strict-history audit has no unresolved records after the16grid dispositions. Lineage identifies the exact local Git objects, removed AppButton API replacement and source assertions without inventing unavailable upstream provenance. Current guidance now follows the existing AGENTS requirement to preserve original acceptance names and historical evidence; the prior proposed-policy wording is superseded by that existing repository rule, not a new permission exception. Maintained owned imports/emitted implementation/dependency guards retain removal enforcement. No Git history, original acceptance receipt or legal notice is rewritten.",
+      "criterion": "- [ ] A-Z-05 Reconcile original `Z-05`: Rewrite historical manifest entries/document explanations where necessary for literal-reference removal while retaining source repository/commit provenance; do not rewrite Git history or invent provenance. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/15-historical-reference-review.json",
+      "sha256": "232e0e3bf6249ce48839bbb7497cf5920f22bc713f8cc6c3e33ae966615f130a",
+      "limits": "Local extraction history does not authenticate unavailable upstream bytes or prove an external learner checkout unchanged; A-B-14 retains that scope. Third-party rights and obsolete notices remain A-L/A-Z-06 work. Exact historical/migration identifiers are preserved as required; zero active implementation/dependency references is the maintained-code contract."
     }
   ],
   "limits": [
