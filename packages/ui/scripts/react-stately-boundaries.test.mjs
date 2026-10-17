@@ -44,6 +44,8 @@ test('actual source checker permits DateField but rejects visited and transitive
   const fixture = await mkdtemp(join(tmpdir(), 'sgui-stately-source-'));
   try {
     await cp(join(root, 'src'), join(fixture, 'src'), { recursive: true });
+    // The repository source graph resolves local modules with its compiler config.
+    await cp(join(root, 'tsconfig.json'), join(fixture, 'tsconfig.json'));
     const fieldPath = join(fixture, dateField);
     await writeFile(fieldPath, `${await readFile(fieldPath, 'utf8')}\n${references[0]}\n`);
     const run = () => spawnSync(process.execPath, [join(root, 'scripts/check-foundations.mjs')], {

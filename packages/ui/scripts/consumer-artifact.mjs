@@ -8,7 +8,12 @@ import { join, resolve } from 'node:path';
 export async function consumerFixture(prefix, env = process.env) {
   const root = resolve(env.SGUI_CONSUMER_ROOT || tmpdir());
   await mkdir(root, { recursive: true });
-  return mkdtemp(join(root, prefix));
+  const fixture = await mkdtemp(join(root, prefix));
+  // Fixtures can live below the repository for retained evidence. Stop pnpm's
+  // ancestor workspace lookup here, so install/exec/list never select the host
+  // workspace lockfile or link an unrelated local package.
+  await writeFile(join(fixture, 'pnpm-workspace.yaml'), "packages:\n  - '.'\nlinkWorkspacePackages: false\npreferWorkspacePackages: false\nsharedWorkspaceLockfile: false\n");
+  return fixture;
 }
 
 // External mode never reads live dist or repacks. Each fixture owns identical bytes.

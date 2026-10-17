@@ -110,7 +110,7 @@ export function Proof() {
     <TextField label="Course name" name="course" required />
     <Button startIcon={<AddIcon />} onPress={()=>setOpen(true)}>Edit course</Button>
     <AsyncMultiSelect label="Courses" query="" onQueryChange={()=>{}} options={[{id:'one',label:'Science'}]} />
-    <DateRangeSelector label="Reporting dates" defaultValue={{start:'2024-02-28',end:'2024-02-29'}} />
+    <DateRangeSelector calendarNavigation="linked" label="Reporting dates" defaultValue={{start:'2024-02-28',end:'2024-02-29'}} />
     <Navigation label="Course navigation"><List><ListItem><NavigationItem href="/courses" current>Courses</NavigationItem></ListItem></List></Navigation>
     <Disclosure label="Details"><TextField label="Details note" /></Disclosure>
     <ToggleButtonGroup label="View" options={[{id:'grid',label:'Grid'},{id:'cards',label:'Cards'}]} defaultSelectedIds={['grid']} />
