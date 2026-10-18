@@ -1,0 +1,345 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/apps/docs/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "docs/developer/final-acceptance/wave-04/02/public-example-parity/bounded.config.mjs",
+      "--list",
+      "--reporter=json"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/bounded.config.mjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/discovery/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "form-integrations.spec.ts",
+          "content-integrations.spec.ts",
+          "grid-host-integrations.spec.ts",
+          "independent-scroll.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "content-integrations.spec.ts",
+      "file": "content-integrations.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "learner due matrix uses the fixed host clock and retains missing-date fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "ddeedd46cfd59825d881-f5617ab778afc8750f4d",
+          "file": "content-integrations.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "saved rich documents render public JSON in independent editable and read-only panels",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "ddeedd46cfd59825d881-8fc104b159d0b51e5a60",
+          "file": "content-integrations.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "host image adapter preserves a rejected upload for retry and inserts a durable asset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "ddeedd46cfd59825d881-494e241d43ecfc7d55a7",
+          "file": "content-integrations.spec.ts",
+          "line": 39,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "form-integrations.spec.ts",
+      "file": "form-integrations.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native reset restores both ownership modes",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-f2ce75ac1dbde01099f3",
+          "file": "form-integrations.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "host timezone conversion rejects ambiguity and supports deliberate resolution",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-cef7d557a3584d3e70b5",
+          "file": "form-integrations.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "async search retains selection and rejects superseded results through failure and retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-54a19fb15ff4c47e36b7",
+          "file": "form-integrations.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "locale scopes format the same civil range independently",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-a9a377f73cd37c16e190",
+          "file": "form-integrations.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "long authentication form scrolls to fields, action and footer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-b523974b8417ad812af2",
+          "file": "form-integrations.spec.ts",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "page header supplies primary actions and condensed ancestors",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-f45b1be5c0c8e8538cea",
+          "file": "form-integrations.spec.ts",
+          "line": 82,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "grid-host-integrations.spec.ts",
+      "file": "grid-host-integrations.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "isolated persisted view survives reload and reset restores declared defaults",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "27e0f7ab77a202990f5a-357af45863e446c8a29a",
+          "file": "grid-host-integrations.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "server criteria accept results, discard late responses and recover from rejection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "27e0f7ab77a202990f5a-77a5375a9e4f42409cf0",
+          "file": "grid-host-integrations.spec.ts",
+          "line": 25,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "independent-scroll.spec.ts",
+      "file": "independent-scroll.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "AppShell course navigation and lessons preserve separate scroll positions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "8e313e2589d23a8fcf2d-16399f99c2bf0aa21ad8",
+          "file": "independent-scroll.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T00:01:06.399Z",
+    "duration": 233.83399999999995,
+    "expected": 0,
+    "skipped": 12,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

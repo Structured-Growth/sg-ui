@@ -1,0 +1,218 @@
+[
+  {
+    "id": "DOCS-005-b01",
+    "title": "Native form reset",
+    "source": "apps/docs/examples/FormIntegrationExamples.tsx",
+    "owner": "NativeResetFormExample",
+    "testFile": "apps/docs/tests/form-integrations.spec.ts",
+    "test": "native reset restores both ownership modes",
+    "disposition": "Required controlled name and uncontrolled email defaults share a native form, explicit host reset, submit handling and local operation result.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+    "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b02",
+    "title": "Host-owned asynchronous search",
+    "source": "apps/docs/examples/AsyncSearchExample.tsx",
+    "owner": "AsyncSearchExample",
+    "testFile": "apps/docs/tests/form-integrations.spec.ts",
+    "test": "async search retains selection and rejects superseded results through failure and retry",
+    "disposition": "A bounded 350ms mock request owns pending/error/retry; AbortController cleanup and a freshness guard protect query replacement/unmount, while selections stay independent.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "e8edae785c0154835e6c997853fccd4427e3b0b882a8525f669ac7a314273809",
+    "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b03",
+    "title": "Local datetime and host timezone",
+    "source": "apps/docs/examples/FormIntegrationExamples.tsx",
+    "owner": "TimezoneInstantExample",
+    "testFile": "apps/docs/tests/form-integrations.spec.ts",
+    "test": "host timezone conversion rejects ambiguity and supports deliberate resolution",
+    "disposition": "Public dateTimeToInstant resolves a local datetime with an explicit IANA zone and reject/earlier/later clock-change policy; civil dates remain separate.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+    "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b04",
+    "title": "Localized civil calendar presentation",
+    "source": "apps/docs/examples/LocalizedRangeExample.tsx",
+    "owner": "LocalizedRangeExample",
+    "testFile": "apps/docs/tests/form-integrations.spec.ts",
+    "test": "locale scopes format the same civil range independently",
+    "disposition": "Independent de-DE/ar-EG locale scopes display the same ISO civil range and disclose America/Chicago reference context; source includes the required locale adapter and Provider.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+    "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b05",
+    "title": "Independent navigation and long content",
+    "source": "apps/docs/examples/AppShellScrollingExample.tsx",
+    "owner": "AppShellScrollingExample",
+    "testFile": "apps/docs/tests/independent-scroll.spec.ts",
+    "test": "AppShell course navigation and lessons preserve separate scroll positions",
+    "disposition": "Thirty navigation entries and twenty-four lesson paragraphs overflow independently in a bounded AppShell; the optional third column and existing responsive shell contract remain available.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "c76fe025646f8ba620475027a5e35f701b218da729dafabb99f577e76d255b87",
+    "testSha256": "7f73ffc2624b536bbe30d56c5d042d966414428ff61487487e78d89cb73bc37e",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/results.json",
+      "sha256": "22be889a3e36bf0ddc2647864c1549efc2c7af9131402928bbed30d935e67f18",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b06",
+    "title": "Long authentication form and footer",
+    "source": "apps/docs/examples/ShellContentExamples.tsx",
+    "owner": "LongAuthFormExample",
+    "testFile": "apps/docs/tests/form-integrations.spec.ts",
+    "test": "long authentication form scrolls to fields, action and footer",
+    "disposition": "A bounded long form supplies seven required fields, consent, native validation, a host-owned result and longer help/privacy footer; no account API is implied.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "9c18e6d7410b7a0e43cd317db2dc457ca2649554c2b600cf841ffee3c02073cc",
+    "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b07",
+    "title": "Primary actions and deep breadcrumbs",
+    "source": "apps/docs/examples/ShellContentExamples.tsx",
+    "owner": "HeaderActionsExample",
+    "testFile": "apps/docs/tests/form-integrations.spec.ts",
+    "test": "page header supplies primary actions and condensed ancestors",
+    "disposition": "The public actionButtons slot contains a neutral SplitAction; five breadcrumb levels condense middle ancestors into Show path while keeping the current page and host-owned callbacks.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "9c18e6d7410b7a0e43cd317db2dc457ca2649554c2b600cf841ffee3c02073cc",
+    "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b08",
+    "title": "Controlled server criteria and response ownership",
+    "source": "apps/docs/examples/GridHostExamples.tsx",
+    "owner": "ServerGridExample",
+    "testFile": "apps/docs/tests/grid-host-integrations.spec.ts",
+    "test": "server criteria accept results, discard late responses and recover from rejection",
+    "disposition": "One controlled criteria owner accepts combined page/search/sort/filter/selection transactions. A local async adapter rejects stale success/error/pending updates and demonstrates failure/retry without diagnostic resolve buttons.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "d0d3bdc7ff61a20c612869ad4f095e823b54645e142fe2d8a782a9c7e65bd9e9",
+    "testSha256": "7bb6704f865f94d5a1172a0af3f085ac692846c6afa69e67c7610d9cf7f8bf71",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b09",
+    "title": "Persisted view and complete reset",
+    "source": "apps/docs/examples/GridHostExamples.tsx",
+    "owner": "PersistedGridExample",
+    "testFile": "apps/docs/tests/grid-host-integrations.spec.ts",
+    "test": "isolated persisted view survives reload and reset restores declared defaults",
+    "disposition": "An isolated docs-course-view-v1 key opts into SSR-safe persistence; declared pagination/search/sort/filter/visibility/order/width/list defaults drive Reset view. Selection and host rows are not persisted.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "d0d3bdc7ff61a20c612869ad4f095e823b54645e142fe2d8a782a9c7e65bd9e9",
+    "testSha256": "7bb6704f865f94d5a1172a0af3f085ac692846c6afa69e67c7610d9cf7f8bf71",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b10",
+    "title": "Due labels and course content",
+    "source": "apps/docs/examples/LearnerDueExamples.tsx",
+    "owner": "LearnerDueExamples",
+    "testFile": "apps/docs/tests/content-integrations.spec.ts",
+    "test": "learner due matrix uses the fixed host clock and retains missing-date fallback",
+    "disposition": "A fixed host clock covers overdue/today/tomorrow/later plus long/missing supporting content. The required dueAt prop uses its shipped empty-string unavailable-date fallback; no optional API is invented.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "2bec153e8cc74cf660a148cd0ab25918cc8251f36db93cc21c14f315e7ed2d24",
+    "testSha256": "03525065066672120f4b0fccffdb25c2bf2e6de27ead3446cee39b07a5bdc169",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b11",
+    "title": "Saved rich document",
+    "source": "apps/docs/examples/SavedDocumentExamples.tsx",
+    "owner": "SavedDocumentExample",
+    "testFile": "apps/docs/tests/content-integrations.spec.ts",
+    "test": "saved rich documents render public JSON in independent editable and read-only panels",
+    "disposition": "Separate editable/read-only owners render public JSON containing headings, formatted/link text, list, code, table and a loaded host-served image; edits stay local.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "2ccba4734eb6a985d7080ba97041a8864a7c6022f917e89acfa872ad39407a82",
+    "testSha256": "03525065066672120f4b0fccffdb25c2bf2e6de27ead3446cee39b07a5bdc169",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  },
+  {
+    "id": "DOCS-005-b12",
+    "title": "Host upload and retry",
+    "source": "apps/docs/examples/SavedDocumentExamples.tsx",
+    "owner": "HostImageUploadExample",
+    "testFile": "apps/docs/tests/content-integrations.spec.ts",
+    "test": "host image adapter preserves a rejected upload for retry and inserts a durable asset",
+    "disposition": "The bounded onUploadImage mock rejects once and returns a predefined durable /course-guide.svg asset on retry. It explicitly does not transfer selected bytes; the host owns transport, authorization, asset metadata and storage.",
+    "status": "implementedandcurrentfocusedproductionflowpassed",
+    "sourceSha256": "2ccba4734eb6a985d7080ba97041a8864a7c6022f917e89acfa872ad39407a82",
+    "testSha256": "03525065066672120f4b0fccffdb25c2bf2e6de27ead3446cee39b07a5bdc169",
+    "validation": {
+      "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+      "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+      "engine": "chromium",
+      "status": "passed"
+    }
+  }
+]

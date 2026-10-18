@@ -1,0 +1,907 @@
+{
+  "config": {
+    "argv": [
+      "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+      "/Users/thomashall/Repositories/sg-ui/apps/docs/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config",
+      "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/bounded.config.mjs"
+    ],
+    "configFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/bounded.config.mjs",
+    "rootDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "form-integrations.spec.ts",
+          "content-integrations.spec.ts",
+          "grid-host-integrations.spec.ts",
+          "independent-scroll.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "content-integrations.spec.ts",
+      "file": "content-integrations.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "learner due matrix uses the fixed host clock and retains missing-date fallback",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 930,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 6\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:10 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 6\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:10 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts:14:141",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts",
+                      "column": 141,
+                      "line": 14
+                    },
+                    "snippet": "  12 |  await expect(panel.getByRole('status').filter({hasText:'Continue requested for'})).toBeVisible();\n  13 |  await panel.getByRole('button',{name:'Show source: Due dates and course content',exact:true}).click();\n> 14 |  expect(checkSources([{slug:'due-matrix',source:await panel.getByLabel('Source: Due dates and course content',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                             ^\n  15 | });\n  16 |\n  17 | test('saved rich documents render public JSON in independent editable and read-only panels',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts",
+                        "column": 141,
+                        "line": 14
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 6\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/due-matrix-0.tsx:10 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  12 |  await expect(panel.getByRole('status').filter({hasText:'Continue requested for'})).toBeVisible();\n  13 |  await panel.getByRole('button',{name:'Show source: Due dates and course content',exact:true}).click();\n> 14 |  expect(checkSources([{slug:'due-matrix',source:await panel.getByLabel('Source: Due dates and course content',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                             ^\n  15 | });\n  16 |\n  17 | test('saved rich documents render public JSON in independent editable and read-only panels',async({page})=>{\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts:14:141"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:18.637Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/content-integrations-learn-0a8ac-tains-missing-date-fallback-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/content-integrations-learn-0a8ac-tains-missing-date-fallback-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts",
+                    "column": 141,
+                    "line": 14
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ddeedd46cfd59825d881-f5617ab778afc8750f4d",
+          "file": "content-integrations.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "saved rich documents render public JSON in independent editable and read-only panels",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 922,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/Saved rich document — editable-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/Saved rich document — editable-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/Saved rich document — editable-0.tsx:9 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/Saved rich document — editable-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/Saved rich document — editable-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/Saved rich document — editable-0.tsx:9 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts:35:115",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts",
+                      "column": 115,
+                      "line": 35
+                    },
+                    "snippet": "  33 |  for(const [panel,title] of [[editable,'Saved rich document — editable'],[readonly,'Saved rich document — read only']] as const){\n  34 |   await panel.getByRole('button',{name:`Show source: ${title}`,exact:true}).click();\n> 35 |   expect(checkSources([{slug:title,source:await panel.getByLabel(`Source: ${title}`,{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                   ^\n  36 |  }\n  37 | });\n  38 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts",
+                        "column": 115,
+                        "line": 35
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/Saved rich document — editable-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/Saved rich document — editable-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/Saved rich document — editable-0.tsx:9 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  33 |  for(const [panel,title] of [[editable,'Saved rich document — editable'],[readonly,'Saved rich document — read only']] as const){\n  34 |   await panel.getByRole('button',{name:`Show source: ${title}`,exact:true}).click();\n> 35 |   expect(checkSources([{slug:title,source:await panel.getByLabel(`Source: ${title}`,{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                   ^\n  36 |  }\n  37 | });\n  38 |\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts:35:115"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:20.144Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/content-integrations-saved-57fbc-itable-and-read-only-panels-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/content-integrations-saved-57fbc-itable-and-read-only-panels-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts",
+                    "column": 115,
+                    "line": 35
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ddeedd46cfd59825d881-8fc104b159d0b51e5a60",
+          "file": "content-integrations.spec.ts",
+          "line": 17,
+          "column": 1
+        },
+        {
+          "title": "host image adapter preserves a rejected upload for retry and inserts a durable asset",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2730,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 6\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:4 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:5 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:16 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 6\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:4 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:5 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:16 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts:57:141",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts",
+                      "column": 141,
+                      "line": 57
+                    },
+                    "snippet": "  55 |  await expect.poll(()=>image.evaluate(node=>(node as HTMLImageElement).naturalWidth)).toBe(640);\n  56 |  await panel.getByRole('button',{name:'Show source: Host image upload and retry',exact:true}).click();\n> 57 |  expect(checkSources([{slug:'host-upload',source:await panel.getByLabel('Source: Host image upload and retry',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                             ^\n  58 | });\n  59 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts",
+                        "column": 141,
+                        "line": 57
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 6\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:4 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:5 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/host-upload-0.tsx:16 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  55 |  await expect.poll(()=>image.evaluate(node=>(node as HTMLImageElement).naturalWidth)).toBe(640);\n  56 |  await panel.getByRole('button',{name:'Show source: Host image upload and retry',exact:true}).click();\n> 57 |  expect(checkSources([{slug:'host-upload',source:await panel.getByLabel('Source: Host image upload and retry',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                             ^\n  58 | });\n  59 |\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts:57:141"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:21.515Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/content-integrations-host--4cd8f-and-inserts-a-durable-asset-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/content-integrations-host--4cd8f-and-inserts-a-durable-asset-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/content-integrations.spec.ts",
+                    "column": 141,
+                    "line": 57
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ddeedd46cfd59825d881-494e241d43ecfc7d55a7",
+          "file": "content-integrations.spec.ts",
+          "line": 39,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "form-integrations.spec.ts",
+      "file": "form-integrations.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native reset restores both ownership modes",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 951,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:4 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:12 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:12 Parameter 'event' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:23 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:4 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:12 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:12 Parameter 'event' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:23 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:20:133",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                      "column": 133,
+                      "line": 20
+                    },
+                    "snippet": "  18 |   await expect(panel.locator('[data-docs-preview]').getByRole('status').filter({hasText:'Registration prepared for'})).toHaveCount(0);\n  19 |   await panel.getByRole('button',{name:'Show source: Native form reset',exact:true}).click();\n> 20 |   expect(checkSources([{slug:'native-reset',source:await panel.getByLabel('Source: Native form reset',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                     ^\n  21 | });\n  22 |\n  23 | test('host timezone conversion rejects ambiguity and supports deliberate resolution',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                        "column": 133,
+                        "line": 20
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:4 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:12 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:12 Parameter 'event' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/native-reset-0.tsx:23 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  18 |   await expect(panel.locator('[data-docs-preview]').getByRole('status').filter({hasText:'Registration prepared for'})).toHaveCount(0);\n  19 |   await panel.getByRole('button',{name:'Show source: Native form reset',exact:true}).click();\n> 20 |   expect(checkSources([{slug:'native-reset',source:await panel.getByLabel('Source: Native form reset',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                     ^\n  21 | });\n  22 |\n  23 | test('host timezone conversion rejects ambiguity and supports deliberate resolution',async({page})=>{\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:20:133"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:24.714Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-native-reset-restores-both-ownership-modes-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-native-reset-restores-both-ownership-modes-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                    "column": 133,
+                    "line": 20
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-f2ce75ac1dbde01099f3",
+          "file": "form-integrations.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "host timezone conversion rejects ambiguity and supports deliberate resolution",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 904,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:4 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:14 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:17 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:18 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:4 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:14 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:17 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:18 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:33:152",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                      "column": 152,
+                      "line": 33
+                    },
+                    "snippet": "  31 |   await expect(panel.getByRole('status').filter({hasText:'2026-11-01'})).toHaveText('2026-11-01T06:30:00.000Z');\n  32 |   await panel.getByRole('button',{name:'Show source: Local datetime and host timezone',exact:true}).click();\n> 33 |   expect(checkSources([{slug:'timezone-instant',source:await panel.getByLabel('Source: Local datetime and host timezone',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                        ^\n  34 | });\n  35 |\n  36 | test('async search retains selection and rejects superseded results through failure and retry',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                        "column": 152,
+                        "line": 33
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:4 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:14 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:17 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/timezone-instant-0.tsx:18 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  31 |   await expect(panel.getByRole('status').filter({hasText:'2026-11-01'})).toHaveText('2026-11-01T06:30:00.000Z');\n  32 |   await panel.getByRole('button',{name:'Show source: Local datetime and host timezone',exact:true}).click();\n> 33 |   expect(checkSources([{slug:'timezone-instant',source:await panel.getByLabel('Source: Local datetime and host timezone',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                        ^\n  34 | });\n  35 |\n  36 | test('async search retains selection and rejects superseded results through failure and retry',async({page})=>{\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:33:152"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:26.344Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-host-tim-33f6b-ports-deliberate-resolution-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-host-tim-33f6b-ports-deliberate-resolution-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                    "column": 152,
+                    "line": 33
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-cef7d557a3584d3e70b5",
+          "file": "form-integrations.spec.ts",
+          "line": 23,
+          "column": 1
+        },
+        {
+          "title": "async search retains selection and rejects superseded results through failure and retry",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3976,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:4 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:28 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:29 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:29 Parameter 'value' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:4 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:28 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:29 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:29 Parameter 'value' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:51:144",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                      "column": 144,
+                      "line": 51
+                    },
+                    "snippet": "  49 |   await expect(panel.getByRole('button',{name:'Remove Design systems',exact:true})).toBeVisible();\n  50 |   await panel.getByRole('button',{name:'Show source: Host-owned asynchronous search',exact:true}).click();\n> 51 |   expect(checkSources([{slug:'async-host',source:await panel.getByLabel('Source: Host-owned asynchronous search',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                ^\n  52 | });\n  53 |\n  54 | test('locale scopes format the same civil range independently',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                        "column": 144,
+                        "line": 51
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:4 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:28 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:29 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/async-host-0.tsx:29 Parameter 'value' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  49 |   await expect(panel.getByRole('button',{name:'Remove Design systems',exact:true})).toBeVisible();\n  50 |   await panel.getByRole('button',{name:'Show source: Host-owned asynchronous search',exact:true}).click();\n> 51 |   expect(checkSources([{slug:'async-host',source:await panel.getByLabel('Source: Host-owned asynchronous search',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                ^\n  52 | });\n  53 |\n  54 | test('locale scopes format the same civil range independently',async({page})=>{\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:51:144"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:27.697Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-async-se-26550-s-through-failure-and-retry-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-async-se-26550-s-through-failure-and-retry-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                    "column": 144,
+                    "line": 51
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-54a19fb15ff4c47e36b7",
+          "file": "form-integrations.spec.ts",
+          "line": 36,
+          "column": 1
+        },
+        {
+          "title": "locale scopes format the same civil range independently",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1220,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:4 Cannot find module '@structured-growth/sg-ui/theme' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:6 Cannot find module '@structured-growth/sg-ui/i18n' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:12 Parameter '_key' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:12 Parameter 'options' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:4 Cannot find module '@structured-growth/sg-ui/theme' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:6 Cannot find module '@structured-growth/sg-ui/i18n' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:12 Parameter '_key' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:12 Parameter 'options' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:63:134",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                      "column": 134,
+                      "line": 63
+                    },
+                    "snippet": "  61 |     await expect(panel.locator('input[name=\"reporting.end\"]')).toHaveValue('2026-10-16');\n  62 |     await panel.getByRole('button',{name:`Show source: ${locale} civil calendar`,exact:true}).click();\n> 63 |     expect(checkSources([{slug:locale,source:await panel.getByLabel(`Source: ${locale} civil calendar`,{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                      ^\n  64 |   }\n  65 | });\n  66 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                        "column": 134,
+                        "line": 63
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:4 Cannot find module '@structured-growth/sg-ui/theme' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:6 Cannot find module '@structured-growth/sg-ui/i18n' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:12 Parameter '_key' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/de-DE-0.tsx:12 Parameter 'options' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  61 |     await expect(panel.locator('input[name=\"reporting.end\"]')).toHaveValue('2026-10-16');\n  62 |     await panel.getByRole('button',{name:`Show source: ${locale} civil calendar`,exact:true}).click();\n> 63 |     expect(checkSources([{slug:locale,source:await panel.getByLabel(`Source: ${locale} civil calendar`,{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                      ^\n  64 |   }\n  65 | });\n  66 |\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:63:134"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:32.176Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-locale-s-21af1-e-civil-range-independently-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-locale-s-21af1-e-civil-range-independently-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                    "column": 134,
+                    "line": 63
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-a9a377f73cd37c16e190",
+          "file": "form-integrations.spec.ts",
+          "line": 54,
+          "column": 1
+        },
+        {
+          "title": "long authentication form scrolls to fields, action and footer",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 962,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 12\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:6 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:12 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:14 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:14 Parameter 'event' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:21 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:23 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 12\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:6 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:12 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:14 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:14 Parameter 'event' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:21 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:23 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:79:140",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                      "column": 140,
+                      "line": 79
+                    },
+                    "snippet": "  77 |   await expect.poll(()=>scroller.evaluate(node=>node.scrollTop)).toBeGreaterThan(0);\n  78 |   await panel.getByRole('button',{name:'Show source: Long host registration form',exact:true}).click();\n> 79 |   expect(checkSources([{slug:'long-auth',source:await panel.getByLabel('Source: Long host registration form',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                            ^\n  80 | });\n  81 |\n  82 | test('page header supplies primary actions and condensed ancestors',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                        "column": 140,
+                        "line": 79
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 12\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:6 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:12 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:14 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:14 Parameter 'event' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:21 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/long-auth-0.tsx:23 JSX element implicitly has type 'any' because no interface 'JSX.IntrinsicElements' exists.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  77 |   await expect.poll(()=>scroller.evaluate(node=>node.scrollTop)).toBeGreaterThan(0);\n  78 |   await panel.getByRole('button',{name:'Show source: Long host registration form',exact:true}).click();\n> 79 |   expect(checkSources([{slug:'long-auth',source:await panel.getByLabel('Source: Long host registration form',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                            ^\n  80 | });\n  81 |\n  82 | test('page header supplies primary actions and condensed ancestors',async({page})=>{\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:79:140"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:33.910Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-long-aut-bacff-to-fields-action-and-footer-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-long-aut-bacff-to-fields-action-and-footer-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                    "column": 140,
+                    "line": 79
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-b523974b8417ad812af2",
+          "file": "form-integrations.spec.ts",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "page header supplies primary actions and condensed ancestors",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 8,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 850,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:6 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:13 Parameter 'id' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:6 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:13 Parameter 'id' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:93:151",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                      "column": 151,
+                      "line": 93
+                    },
+                    "snippet": "  91 |   await expect(panel.locator('[aria-current=\"page\"]')).toHaveText('Course details');\n  92 |   await panel.getByRole('button',{name:'Show source: Primary actions and deep breadcrumbs',exact:true}).click();\n> 93 |   expect(checkSources([{slug:'deep-header',source:await panel.getByLabel('Source: Primary actions and deep breadcrumbs',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                       ^\n  94 | });\n  95 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                        "column": 151,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:5 Cannot find module '@structured-growth/sg-ui/experimental' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:6 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:11 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/deep-header-0.tsx:13 Parameter 'id' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  91 |   await expect(panel.locator('[aria-current=\"page\"]')).toHaveText('Course details');\n  92 |   await panel.getByRole('button',{name:'Show source: Primary actions and deep breadcrumbs',exact:true}).click();\n> 93 |   expect(checkSources([{slug:'deep-header',source:await panel.getByLabel('Source: Primary actions and deep breadcrumbs',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                       ^\n  94 | });\n  95 |\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts:93:151"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:35.331Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-page-hea-cd46d-ons-and-condensed-ancestors-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/form-integrations-page-hea-cd46d-ons-and-condensed-ancestors-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/form-integrations.spec.ts",
+                    "column": 151,
+                    "line": 93
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e76f135db7592d9d14a9-f45b1be5c0c8e8538cea",
+          "file": "form-integrations.spec.ts",
+          "line": 82,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "grid-host-integrations.spec.ts",
+      "file": "grid-host-integrations.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "isolated persisted view survives reload and reset restores declared defaults",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 9,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1502,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:12 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:14 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:16 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:20 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:12 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:14 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:16 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:20 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts:22:148",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts",
+                      "column": 148,
+                      "line": 22
+                    },
+                    "snippet": "  20 |  expect(saved.paginationModel).toEqual({page:0,pageSize:5});expect(saved.sortRules).toEqual([{field:'name',direction:'asc'}]);expect(saved.filterRules).toEqual([]);expect(saved.columnOrder).toEqual(['name','status','actions']);expect(saved.selectedRowIds).toBeUndefined();\n  21 |  await panel.getByRole('button',{name:'Show source: Persisted course view and reset',exact:true}).click();\n> 22 |  expect(checkSources([{slug:'persisted-grid',source:await panel.getByLabel('Source: Persisted course view and reset',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                    ^\n  23 | });\n  24 |\n  25 | test('server criteria accept results, discard late responses and recover from rejection',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts",
+                        "column": 148,
+                        "line": 22
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 9\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:12 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:14 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:16 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/persisted-grid-0.tsx:20 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  20 |  expect(saved.paginationModel).toEqual({page:0,pageSize:5});expect(saved.sortRules).toEqual([{field:'name',direction:'asc'}]);expect(saved.filterRules).toEqual([]);expect(saved.columnOrder).toEqual(['name','status','actions']);expect(saved.selectedRowIds).toBeUndefined();\n  21 |  await panel.getByRole('button',{name:'Show source: Persisted course view and reset',exact:true}).click();\n> 22 |  expect(checkSources([{slug:'persisted-grid',source:await panel.getByLabel('Source: Persisted course view and reset',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                    ^\n  23 | });\n  24 |\n  25 | test('server criteria accept results, discard late responses and recover from rejection',async({page})=>{\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts:22:148"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:36.618Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/grid-host-integrations-iso-bd443--restores-declared-defaults-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/grid-host-integrations-iso-bd443--restores-declared-defaults-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts",
+                    "column": 148,
+                    "line": 22
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "27e0f7ab77a202990f5a-357af45863e446c8a29a",
+          "file": "grid-host-integrations.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "server criteria accept results, discard late responses and recover from rejection",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 10,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3713,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 12\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:6 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:16 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:34 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:36 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:36 Parameter 'value' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:38 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:38 Parameter 'value' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 12\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:6 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:16 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:34 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:36 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:36 Parameter 'value' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:38 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:38 Parameter 'value' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts:58:154",
+                    "location": {
+                      "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts",
+                      "column": 154,
+                      "line": 58
+                    },
+                    "snippet": "  56 |  await expect(grid.getByRole('row',{name:/Course 18/})).toHaveCount(0);\n  57 |  await panel.getByRole('button',{name:'Show source: Controlled server criteria and responses',exact:true}).click();\n> 58 |  expect(checkSources([{slug:'server-grid',source:await panel.getByLabel('Source: Controlled server criteria and responses',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                          ^\n  59 | });\n  60 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts",
+                        "column": 154,
+                        "line": 58
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 12\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:3 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:4 Cannot find module '@structured-growth/sg-ui/components' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:5 Cannot find module '@structured-growth/sg-ui/primitives' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:6 Cannot find module 'react' or its corresponding type declarations.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:16 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:34 This JSX tag requires the module path 'react/jsx-runtime' to exist, but none could be found. Make sure you have types for the appropriate package installed.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:36 Parameter 'row' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:36 Parameter 'value' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:38 Parameter 'next' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+   \"/Users/thomashall/Repositories/sg-ui/.source-check/server-grid-0.tsx:38 Parameter 'value' implicitly has an 'any' type.\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  56 |  await expect(grid.getByRole('row',{name:/Course 18/})).toHaveCount(0);\n  57 |  await panel.getByRole('button',{name:'Show source: Controlled server criteria and responses',exact:true}).click();\n> 58 |  expect(checkSources([{slug:'server-grid',source:await panel.getByLabel('Source: Controlled server criteria and responses',{exact:true}).innerText()}])).toEqual([]);\n     |                                                                                                                                                          ^\n  59 | });\n  60 |\n    at /Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts:58:154"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:38.572Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/grid-host-integrations-ser-baad3--and-recover-from-rejection-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/traces/grid-host-integrations-ser-baad3--and-recover-from-rejection-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/thomashall/Repositories/sg-ui/apps/docs/tests/grid-host-integrations.spec.ts",
+                    "column": 154,
+                    "line": 58
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "27e0f7ab77a202990f5a-77a5375a9e4f42409cf0",
+          "file": "grid-host-integrations.spec.ts",
+          "line": 25,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "independent-scroll.spec.ts",
+      "file": "independent-scroll.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "AppShell course navigation and lessons preserve separate scroll positions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 11,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1045,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-18T00:08:42.837Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8e313e2589d23a8fcf2d-16399f99c2bf0aa21ad8",
+          "file": "independent-scroll.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-18T00:08:18.237Z",
+    "duration": 25773.241,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 11,
+    "flaky": 0
+  }
+}

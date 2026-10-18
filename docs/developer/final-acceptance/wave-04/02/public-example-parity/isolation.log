@@ -1,0 +1,12 @@
+173 example component owners pass the single-panel isolation guard
+✔ separate component instances may each own one panel (0.445417ms)
+✔ multiple panels cannot share one component owner (0.300375ms)
+✔ mapped panels cannot capture page state through an inline callback (0.115125ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 237.724375

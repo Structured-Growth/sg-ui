@@ -1,0 +1,324 @@
+{
+  "id": "A-W-10",
+  "status": "12/12 boundedpublicexampleflows pass on onefreshproductiondocsbuild",
+  "dispositions": [
+    {
+      "id": "DOCS-005-b01",
+      "title": "Native form reset",
+      "source": "apps/docs/examples/FormIntegrationExamples.tsx",
+      "owner": "NativeResetFormExample",
+      "testFile": "apps/docs/tests/form-integrations.spec.ts",
+      "test": "native reset restores both ownership modes",
+      "disposition": "Required controlled name and uncontrolled email defaults share a native form, explicit host reset, submit handling and local operation result.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b02",
+      "title": "Host-owned asynchronous search",
+      "source": "apps/docs/examples/AsyncSearchExample.tsx",
+      "owner": "AsyncSearchExample",
+      "testFile": "apps/docs/tests/form-integrations.spec.ts",
+      "test": "async search retains selection and rejects superseded results through failure and retry",
+      "disposition": "A bounded 350ms mock request owns pending/error/retry; AbortController cleanup and a freshness guard protect query replacement/unmount, while selections stay independent.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "e8edae785c0154835e6c997853fccd4427e3b0b882a8525f669ac7a314273809",
+      "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b03",
+      "title": "Local datetime and host timezone",
+      "source": "apps/docs/examples/FormIntegrationExamples.tsx",
+      "owner": "TimezoneInstantExample",
+      "testFile": "apps/docs/tests/form-integrations.spec.ts",
+      "test": "host timezone conversion rejects ambiguity and supports deliberate resolution",
+      "disposition": "Public dateTimeToInstant resolves a local datetime with an explicit IANA zone and reject/earlier/later clock-change policy; civil dates remain separate.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+      "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b04",
+      "title": "Localized civil calendar presentation",
+      "source": "apps/docs/examples/LocalizedRangeExample.tsx",
+      "owner": "LocalizedRangeExample",
+      "testFile": "apps/docs/tests/form-integrations.spec.ts",
+      "test": "locale scopes format the same civil range independently",
+      "disposition": "Independent de-DE/ar-EG locale scopes display the same ISO civil range and disclose America/Chicago reference context; source includes the required locale adapter and Provider.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+      "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b05",
+      "title": "Independent navigation and long content",
+      "source": "apps/docs/examples/AppShellScrollingExample.tsx",
+      "owner": "AppShellScrollingExample",
+      "testFile": "apps/docs/tests/independent-scroll.spec.ts",
+      "test": "AppShell course navigation and lessons preserve separate scroll positions",
+      "disposition": "Thirty navigation entries and twenty-four lesson paragraphs overflow independently in a bounded AppShell; the optional third column and existing responsive shell contract remain available.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "c76fe025646f8ba620475027a5e35f701b218da729dafabb99f577e76d255b87",
+      "testSha256": "7f73ffc2624b536bbe30d56c5d042d966414428ff61487487e78d89cb73bc37e",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/results.json",
+        "sha256": "22be889a3e36bf0ddc2647864c1549efc2c7af9131402928bbed30d935e67f18",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b06",
+      "title": "Long authentication form and footer",
+      "source": "apps/docs/examples/ShellContentExamples.tsx",
+      "owner": "LongAuthFormExample",
+      "testFile": "apps/docs/tests/form-integrations.spec.ts",
+      "test": "long authentication form scrolls to fields, action and footer",
+      "disposition": "A bounded long form supplies seven required fields, consent, native validation, a host-owned result and longer help/privacy footer; no account API is implied.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "9c18e6d7410b7a0e43cd317db2dc457ca2649554c2b600cf841ffee3c02073cc",
+      "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b07",
+      "title": "Primary actions and deep breadcrumbs",
+      "source": "apps/docs/examples/ShellContentExamples.tsx",
+      "owner": "HeaderActionsExample",
+      "testFile": "apps/docs/tests/form-integrations.spec.ts",
+      "test": "page header supplies primary actions and condensed ancestors",
+      "disposition": "The public actionButtons slot contains a neutral SplitAction; five breadcrumb levels condense middle ancestors into Show path while keeping the current page and host-owned callbacks.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "9c18e6d7410b7a0e43cd317db2dc457ca2649554c2b600cf841ffee3c02073cc",
+      "testSha256": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b08",
+      "title": "Controlled server criteria and response ownership",
+      "source": "apps/docs/examples/GridHostExamples.tsx",
+      "owner": "ServerGridExample",
+      "testFile": "apps/docs/tests/grid-host-integrations.spec.ts",
+      "test": "server criteria accept results, discard late responses and recover from rejection",
+      "disposition": "One controlled criteria owner accepts combined page/search/sort/filter/selection transactions. A local async adapter rejects stale success/error/pending updates and demonstrates failure/retry without diagnostic resolve buttons.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "d0d3bdc7ff61a20c612869ad4f095e823b54645e142fe2d8a782a9c7e65bd9e9",
+      "testSha256": "7bb6704f865f94d5a1172a0af3f085ac692846c6afa69e67c7610d9cf7f8bf71",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b09",
+      "title": "Persisted view and complete reset",
+      "source": "apps/docs/examples/GridHostExamples.tsx",
+      "owner": "PersistedGridExample",
+      "testFile": "apps/docs/tests/grid-host-integrations.spec.ts",
+      "test": "isolated persisted view survives reload and reset restores declared defaults",
+      "disposition": "An isolated docs-course-view-v1 key opts into SSR-safe persistence; declared pagination/search/sort/filter/visibility/order/width/list defaults drive Reset view. Selection and host rows are not persisted.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "d0d3bdc7ff61a20c612869ad4f095e823b54645e142fe2d8a782a9c7e65bd9e9",
+      "testSha256": "7bb6704f865f94d5a1172a0af3f085ac692846c6afa69e67c7610d9cf7f8bf71",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b10",
+      "title": "Due labels and course content",
+      "source": "apps/docs/examples/LearnerDueExamples.tsx",
+      "owner": "LearnerDueExamples",
+      "testFile": "apps/docs/tests/content-integrations.spec.ts",
+      "test": "learner due matrix uses the fixed host clock and retains missing-date fallback",
+      "disposition": "A fixed host clock covers overdue/today/tomorrow/later plus long/missing supporting content. The required dueAt prop uses its shipped empty-string unavailable-date fallback; no optional API is invented.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "2bec153e8cc74cf660a148cd0ab25918cc8251f36db93cc21c14f315e7ed2d24",
+      "testSha256": "03525065066672120f4b0fccffdb25c2bf2e6de27ead3446cee39b07a5bdc169",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b11",
+      "title": "Saved rich document",
+      "source": "apps/docs/examples/SavedDocumentExamples.tsx",
+      "owner": "SavedDocumentExample",
+      "testFile": "apps/docs/tests/content-integrations.spec.ts",
+      "test": "saved rich documents render public JSON in independent editable and read-only panels",
+      "disposition": "Separate editable/read-only owners render public JSON containing headings, formatted/link text, list, code, table and a loaded host-served image; edits stay local.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "2ccba4734eb6a985d7080ba97041a8864a7c6022f917e89acfa872ad39407a82",
+      "testSha256": "03525065066672120f4b0fccffdb25c2bf2e6de27ead3446cee39b07a5bdc169",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    },
+    {
+      "id": "DOCS-005-b12",
+      "title": "Host upload and retry",
+      "source": "apps/docs/examples/SavedDocumentExamples.tsx",
+      "owner": "HostImageUploadExample",
+      "testFile": "apps/docs/tests/content-integrations.spec.ts",
+      "test": "host image adapter preserves a rejected upload for retry and inserts a durable asset",
+      "disposition": "The bounded onUploadImage mock rejects once and returns a predefined durable /course-guide.svg asset on retry. It explicitly does not transfer selected bytes; the host owns transport, authorization, asset metadata and storage.",
+      "status": "implementedandcurrentfocusedproductionflowpassed",
+      "sourceSha256": "2ccba4734eb6a985d7080ba97041a8864a7c6022f917e89acfa872ad39407a82",
+      "testSha256": "03525065066672120f4b0fccffdb25c2bf2e6de27ead3446cee39b07a5bdc169",
+      "validation": {
+        "path": "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json",
+        "sha256": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+        "engine": "chromium",
+        "status": "passed"
+      }
+    }
+  ],
+  "actualEdits": [
+    "docs/developer/docs-fixture-migration.md",
+    "docs/developer/docs-website.md"
+  ],
+  "implementationDecision": "No missing publicexample demonstrated. Reuse existing8sourcefiles and their catalogwiring rather than recreating acceptedexamples/privateprobes. Each Example has separate component state; copyable currentpublicsource and necessaryhostresponsibilities retained. No public/library/privatefixture runtime edited.",
+  "retainedEvidence": {
+    "focused20261015": {
+      "path": "docs/developer/backlog-execution-2026-10-15.md",
+      "sha256": "75a4996497dd31574bd8a7fa82e01e2345aed262697ec0515de7ae3f60ad2809",
+      "scope": "Historicaldevelopment receipt21Chromiumchecks including12scenario groups,90routes904snippets. Original apps/docs/test-results/backlog-docs-results.json no longer present locally; do not label as freshrawresult."
+    },
+    "latestCatalog": {
+      "path": "docs/developer/final-acceptance/wave-04/coordinator/validation/docs-full-catalog.log",
+      "sha256": "6160d50478c8481661d29c839ad816bef51f82f6f3d2c80f36004b332414f223",
+      "scope": "Accepted98route1284setup/initial/changedsource snapshots compiled; playground/reference source isolation. Separate from fullfocusedinteraction rerun."
+    }
+  },
+  "lightChecks": {
+    "isolation": "3/3tests;173componentowners pass",
+    "catalog": "98pages209publiccomponent/iconnames; usage/composition/builtAPI checks pass",
+    "discovery": "12existingChromiumcases,0executed",
+    "guidance": "12exacttesttitles/sourceowners verified;local linksvalid;diffwhitespace clean"
+  },
+  "nextBoundedValidation": {
+    "precondition": "After05heavyrelease; currentlibrarybuilt once then onefreshdocsproductionbuild; canonicalheavy+legacy leases and dedicated3100 host, no3000. No currentbrowser execution claimed.",
+    "build": [
+      "pnpm",
+      "--filter",
+      "@structured-growth/docs",
+      "build"
+    ],
+    "server": {
+      "cwd": "/Users/thomashall/Repositories/sg-ui/apps/docs",
+      "argv": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "node_modules/next/dist/bin/next",
+        "start",
+        "--hostname",
+        "127.0.0.1",
+        "--port",
+        "3100"
+      ]
+    },
+    "test": {
+      "cwd": "/Users/thomashall/Repositories/sg-ui",
+      "env": {
+        "SGUI_DOCS_PARITY_URL": "http://127.0.0.1:3100",
+        "SGUI_DOCS_PARITY_OUTPUT": "/Users/thomashall/Repositories/sg-ui/docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01"
+      },
+      "argv": [
+        "/Users/thomashall/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node",
+        "apps/docs/node_modules/@playwright/test/cli.js",
+        "test",
+        "--config",
+        "docs/developer/final-acceptance/wave-04/02/public-example-parity/bounded.config.mjs"
+      ]
+    },
+    "scope": "Onlyexisting12focusedflows6form+3content+2grid+1independentscroll,1worker0retries; retain initialfailures and narrowaffectedcontinuations.",
+    "state": "Executed; same-build affected11continuation completed after correcting ownedrunner cwd only."
+  },
+  "sourceAndTestSha256": {
+    "apps/docs/examples/AppShellScrollingExample.tsx": "c76fe025646f8ba620475027a5e35f701b218da729dafabb99f577e76d255b87",
+    "apps/docs/examples/AsyncSearchExample.tsx": "e8edae785c0154835e6c997853fccd4427e3b0b882a8525f669ac7a314273809",
+    "apps/docs/examples/FormIntegrationExamples.tsx": "ee92f00ca341baf0532d3fb3d90b4f67c70a14de3756819818dc8ffe313ccf78",
+    "apps/docs/examples/GridHostExamples.tsx": "d0d3bdc7ff61a20c612869ad4f095e823b54645e142fe2d8a782a9c7e65bd9e9",
+    "apps/docs/examples/LearnerDueExamples.tsx": "2bec153e8cc74cf660a148cd0ab25918cc8251f36db93cc21c14f315e7ed2d24",
+    "apps/docs/examples/LocalizedRangeExample.tsx": "d540a9cc90f45843d410d283112aea73e026a701b12c5f581843fbc7ed86a7ec",
+    "apps/docs/examples/SavedDocumentExamples.tsx": "2ccba4734eb6a985d7080ba97041a8864a7c6022f917e89acfa872ad39407a82",
+    "apps/docs/examples/ShellContentExamples.tsx": "9c18e6d7410b7a0e43cd317db2dc457ca2649554c2b600cf841ffee3c02073cc",
+    "apps/docs/examples/catalog/catalog-data.tsx": "a18a1ed73e319071b5cec6b840d6c2f629aa1518dd3a98f8d6c21cb19d5dc619",
+    "apps/docs/examples/catalog/catalog-editor.tsx": "0c3334c2896aedf08bbe594b50f4332bf3cb0611c9b0aa4177fb6f10f56c5bfe",
+    "apps/docs/examples/catalog/forms-dates.tsx": "02ab4d75231536b5efab3bc6e890da9175032599323c3515794a1c53c447aaad",
+    "apps/docs/examples/source.ts": "c7785b628b1275bc477b52fad9113cc40ce3841c77ff7fd3a0804b121bf1f292",
+    "apps/docs/public/course-guide.svg": "07a329b5d30685cd813fa1c9e578e588e7edb9aadeab2cba9947930534dc8da7",
+    "apps/docs/tests/content-integrations.spec.ts": "03525065066672120f4b0fccffdb25c2bf2e6de27ead3446cee39b07a5bdc169",
+    "apps/docs/tests/form-integrations.spec.ts": "c563ceaf1588402217c1b3df20eb0fd2919c45f2bb5b1ef5224b9e082af775a4",
+    "apps/docs/tests/grid-host-integrations.spec.ts": "7bb6704f865f94d5a1172a0af3f085ac692846c6afa69e67c7610d9cf7f8bf71",
+    "apps/docs/tests/independent-scroll.spec.ts": "7f73ffc2624b536bbe30d56c5d042d966414428ff61487487e78d89cb73bc37e"
+  },
+  "evidenceSha256": {
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/isolation.log": "29e2d3378eaa08d217dd3564581c0279d96e579168e6000f7848dffd7809d634",
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/catalog-check.log": "eb1eff6a4f3d72fcd1a3850885fd11d8ca5a5856f89653b5382f2a28955b7dac",
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/discovery.json": "0d9379349577d82bb9b8f1fa91bd30c7a17a7c2200a5249496b20891bd222f77",
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/bounded.config.mjs": "99bc9bb88b07cc8a8fa7adfb0931238b7433245c992751994a5932343ec0258c",
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/results.json": "22be889a3e36bf0ddc2647864c1549efc2c7af9131402928bbed30d935e67f18",
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/execution.json": "f7066b6b38af632117425a6522b3e36094320078503545c7261f07a13ad6c948",
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-01/docs-build.log": "39caf5825930b081c5b814814908f44c9648e022989a1fbaae3e61a8ff1ef741",
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/results.json": "1459dfc45a0a93e859449083e1b323cd505044029e9ae469ab595bcb4fbd51c4",
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/native-02/execution.json": "61df828a508f451a3aa7acdd71b6f925764e9b6e6604d35e10effd315fa40ea9",
+    "docs/developer/final-acceptance/wave-04/02/public-example-parity/run.mjs": "f441eb61e905e178d7fc50a6316ac02cadcd609eaf50f9f60bde20becb449f4d"
+  },
+  "limits": "Current12focusedChromiumpublicflowsandoneproductionbuildonly. Historical21case/oldercatalog evidence keptatseparatescope. No duplicatedpublicexamples, newlibrary/privatefixtureAPI, physicalinput/spokenAT/deployment or broaderreleaseapproval. RootownsW10closure/counts.",
+  "currentValidation": {
+    "buildId": "ZKjmjl8bzwcyOZlXcFYmn",
+    "publicPackageDistDigest": "81ffe1230d98e5e41c05815d47989624baab407ad96e5fd595ca1eabe535f2fe",
+    "build": "native-01/docs-build.log exit0; exactlyonefreshbuild",
+    "firstRun": "native-01:1pass/11fail; all11failed atfinalcheckSources due ownedrunner repositorycwd, originalfailures/traces retained",
+    "continuation": "native-02:11/11affectedflows pass withapps/docs cwd and portableconfig; sameBUILD_ID/package/sourcehashes; nosecondbuild oracceptedscrollrerun",
+    "joinedPassed": 12,
+    "browser": "Chromium;1worker0retries;no98routecatalogrerun",
+    "resources": "OwnedNext3100processgroupclosed; allcanonicalheavy/legacy/portleasesreleased; user3000untouched"
+  }
+}

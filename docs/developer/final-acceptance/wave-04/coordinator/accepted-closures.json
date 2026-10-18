@@ -1,8 +1,8 @@
 {
   "baseHead": "6c485ed79d0d6a521d188e5bde8315722296f518",
-  "closedThisReview": 77,
-  "closedTotal": 258,
-  "remaining": 62,
+  "closedThisReview": 78,
+  "closedTotal": 259,
+  "remaining": 61,
   "entries": [
     {
       "id": "A-M-21",
@@ -686,6 +686,15 @@
       "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/12-names-form-semantics-review.json",
       "sha256": "921b97c8b85272e92a59d245fba2c564b08950524d10f0f9dd033a58642d6a96",
       "limits": "Concrete supported composition semantics at their recorded inputs, not universal arbitrary host-content or accessibility conformance. State-message implementation/DOM assertions do not establish audible delivery, timing or manual review; A-X-11 remains open. Existing broader keyboard/focus/visual/device criteria retain separate scope."
+    },
+    {
+      "id": "A-W-10",
+      "basis": "The 33 original modules have explicit retained/replacement dispositions; catalog metadata covers public primitives/adapters/calendars/helpers. All twelve bounded missing-public-example obligations now have shipped independent source-backed owners and passing current production interaction/source-compilation evidence.",
+      "criterion": "- [ ] A-W-10 Reconcile original `W-10`: Retain the 33 existing story files or document deliberate replacements; add missing catalog coverage for primitives, adapters, calendars and grid helpers. Historical status: open.",
+      "decision": "complete",
+      "reviewedRecommendation": "docs/developer/final-acceptance/wave-04/coordinator/reviewed/02-public-example-parity-review.json",
+      "sha256": "544425244e82f3d616a504414187e43ce7d52d1ab95c39010b4f93100b651acc",
+      "limits": "Twelve focused Chromium flows, existing source replacement inventory and separately accepted 98-route catalog evidence; not private-scenario duplication, spoken AT, deployment or release approval."
     }
   ],
   "limits": [

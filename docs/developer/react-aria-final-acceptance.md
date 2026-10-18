@@ -7,7 +7,12 @@ the historical baseline and regression evidence. Close only the named result.
 
 ## Resume ledger
 
-**Current: 258/320 A leaves closed; 62 A, 0 editor V review leaves and six future leaves remain.**
+**Current: 259/320 A leaves closed; 61 A, 0 editor V review leaves and six future leaves remain.**
+
+### Public example and replacement coverage accepted — 2026-10-17
+
+Reviewed all twelve delivered public-example obligations against their source owners and current production interactions/source compilation. One fresh docs build produced twelve passing focused Chromium flows; eleven runner working-directory failures were retained and corrected through affected reruns on the same build. The retained 33-module replacement ledger and sixteen grid scenario dispositions complete the original W-10 scope.
+Wave 04 now closes 78 of 139 items; 61 remain.
 
 ### Composed semantics and hydration review — 2026-10-17
 
