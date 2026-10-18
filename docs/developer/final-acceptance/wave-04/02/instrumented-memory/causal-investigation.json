@@ -1,0 +1,99 @@
+{
+  "status": "Bounded source/existing14snapshot investigation complete; no new heavy execution or production fix",
+  "scope": "Exact source plus existing14heaps only; root05 owns next heavy lane. No allocation recording was collected in original memory run.",
+  "artifacts": [
+    "memory-02/causal-categories.json",
+    "memory-02/causal-summary.json",
+    "memory-02/code-retaining-paths.json",
+    "memory-02/code-path-summary.json",
+    "memory-02/analysis.json",
+    "memory-02/warm-layout-node-review.json"
+  ],
+  "observedCategories": {
+    "code": "Warm\u2192final serialized code-node self-size grows415092..576384bytes across7workloads; largest groups InstructionStream and TrustedByteArray. Ordinary object self-size changes552..1640bytes and closure count stays flat/slightly lower. Snapshot self-size totals include native allocations and are not an exact reconciliation to CDP JSHeapUsedSize.",
+    "nativeMediaQuery": "Processing grid nativeMediaQuerySet58\u2192283;catalog126\u2192701;selector13\u219213. All strong outgoing query-tree traversals across14heaps reach only native query structures:0serialized JSstring query-text edges and0reachable closures. Native strings stored inside C++ query records are not exposed by this snapshot graph.",
+    "ownership": "Native query-set retention sampled through document\u2192StyleEngine\u2192native hash table. Existing MQL wrapper/listener counts stable; root/Fiber property-shape candidates stable and old candidate IDs absent final, without real row data in reviewed shape. Paths and IDs retained.",
+    "warmException": "Catalog-wide warm nativeDIV id91601(rawflag2) under live-log/layoutfragment native path absent final; all final heaps have0flag2. No automatic benign/leak verdict."
+  },
+  "callsiteReview": [
+    {
+      "owner": "SGUI Provider/ThemeScope preferences",
+      "finding": "No matchMedia call in either source. Scope resolves system theme/interaction by CSS; Provider adds locale context. Scrollbar activity uses owned document scroll listener/cleanup, not media queries. No mounted repeated owned matchMedia allocator established."
+    },
+    {
+      "owner": "SGUI CalendarMonthTransition",
+      "query": "(prefers-reduced-motion: reduce)",
+      "finding": "Only2direct owned src callsites; per-owner Window and reduced-motion listener cleanup. Calendar is not rendered by this fixture; these calls are absent from compiled fixture bundle. Excluded as explanation of this execution."
+    },
+    {
+      "owner": "React Aria3.52.1 dnd/utils mapModality",
+      "query": "(pointer: coarse)",
+      "finding": "Literal matchMedia allocation exists in current production fixture bundle. useDragModality calls mapModality during useDrag/useVirtualDrop. Processing grid installs useDragAndDrop hooks with isDisabled when unavailable; both table engines depend on these interactions. Plausible source candidate consistent with grid-only native query growth, but no invocation/allocation counts were recorded. Do not label every retained query entry pointer:coarse from source alone."
+    },
+    {
+      "owner": "React DOM19.2.3 suspendResource",
+      "query": "dynamic props.media",
+      "finding": "Other actual matchMedia invocation in production bundle; conditional on stylesheet resource with string media. Fixture loads CSS through static HTML and supplies no React stylesheet media declaration. Source identifies condition, not executed runtime counts."
+    },
+    {
+      "owner": "Fixture/instrumentation",
+      "finding": "Fixture and memory driver contain no page-side matchMedia invocation. Driver sets reducedMotion:reduce once per context, then navigates seven workloads. Headless automation/native input and rendering can indirectly exercise library/browser paths; exact native allocation provenance is not captured."
+    }
+  ],
+  "sampleNewCodeOwners": [
+    {
+      "workload": "processing-small",
+      "functions": {
+        "innerSerialize": "Playwright UtilityScript",
+        "Z7": "TanStack createRow, identified by original/getValue/getUniqueValues implementation",
+        "Dm": "React state update dispatcher, matches production ReactDOM",
+        "Ku": "React Aria useKeyboard, matches shortcuts/allowRepeats/allowComposing",
+        "lw": "React Aria useDroppableCollection, matches props/state/nextTarget/dropOperation"
+      }
+    },
+    {
+      "workload": "catalog-wide",
+      "functions": {
+        "nA": "OwnedGridInteraction, matches public destructuring and controller call",
+        "createTable": "TanStack table feature",
+        "mA": "Performance Fixture, exact Course-data/state code",
+        "innerSerialize": "Playwright UtilityScript",
+        "Z7": "TanStack createRow"
+      }
+    },
+    {
+      "workload": "processing-selector",
+      "functions": {
+        "mA": "Performance Fixture",
+        "innerSerialize": "Playwright UtilityScript",
+        "$7": "Owned AsyncMultiSelect, matches query/value/options API",
+        "getElementAccessibleNameText": "Automation injected script",
+        "previewNode": "DevTools injected script"
+      }
+    }
+  ],
+  "conclusion": {
+    "established": "Observed growth includes retained compiled-code/metadata across actual library, fixture and automation functions, alongside native StyleEngine query cache and timing buffers. It is not equivalent to accumulating live owned callbacks/state.",
+    "notEstablished": "Exact native query strings/count-by-string, original allocation stacks, bounded/acceptable cache lifetime, an owned repeated matchMedia/cache-lifetime defect, or general absence of leaks.",
+    "implementation": "No source fix or cache added; changing Window/SSR semantics would be speculative under current evidence.",
+    "boundedFutureOption": "If root wants exact query/callsite attribution, collect an explicitly approved separate short query/allocation trace on frozen production fixture: count string+stack per lifecycle and preserve failure/ownership evidence. Do not rerun the210cycles or patch caches solely for credit. No such heavy work launched."
+  },
+  "sourceSha256": {
+    "packages/ui/src/foundation/ThemeScope.tsx": "a9185471533a806b34e7386c748f556e9156afe02a6db3fe4477a63cd51763e6",
+    "packages/ui/src/experimental/Provider/Provider.tsx": "b4437ea9566122c1bf67b6b75a4317a46ad831943f69cef818ab1d67a18f0b9d",
+    "packages/ui/src/experimental/Calendar/CalendarMonthTransition.tsx": "891bed682a4a70aebcbb91194f3f0edae5c2d657a53beace792be295f5695a3a",
+    "packages/ui/src/experimental/DataGrid/DataGrid.tsx": "c320eec3c58bd792ab14a3cc0d4493ce9cbf7f233c90e6f07869394300e03beb",
+    "packages/ui/src/components/AppDataGrid/ownedGridInteraction.tsx": "e0fc3483fcfcccce40ffeb831aa3d548f3ade9224c9c99e9fa7a5b839b6c6906",
+    "packages/ui/tests/performance/fixture.tsx": "27269c36ef9b2a36135ff15039b1ad0ad4c2ea983955951fbc30300405e1abd9",
+    "packages/ui/tests/performance/measure-memory.mjs": "45156e990d708ba5e218bfb871b31889ca29068fb72db02a2800e3fa1ac4adaa",
+    "packages/ui/tests/performance/dist/assets/index-Dgfndtku.js": "c32a14354d5d840da0e81901af81571a114aa0400c73bb8dc06e0aabc33313c9",
+    "node_modules/.pnpm/react-aria@3.52.1_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/react-aria/dist/private/dnd/utils.mjs": "06994c46b23ea21b88fc10704735e7112f8b02049d0a65ff9af89868f43f05fc",
+    "node_modules/.pnpm/react-aria@3.52.1_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/react-aria/dist/private/dnd/useVirtualDrop.mjs": "025f41fc6259389b1618486c4f61ab8a5a9d77648ee4a0f98516778b7e0047ce",
+    "node_modules/.pnpm/react-aria@3.52.1_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/react-aria/dist/private/dnd/useDrag.mjs": "957ed799027a8578b7742052c0768a886fcc13bd5493d04081908aa8e308edf4",
+    "node_modules/.pnpm/react-aria@3.52.1_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/react-aria/dist/private/interactions/useKeyboard.mjs": "c265eb252a8e6f4135d2deb1fd71c3c89f929e0fd161dfc61ae2388911eccc19",
+    "node_modules/.pnpm/react-aria@3.52.1_react-dom@19.2.3_react@19.2.3__react@19.2.3/node_modules/react-aria/dist/private/dnd/useDroppableCollection.mjs": "c762a22eb0fbd984d73ce325ba74f1709343471e3aee3e69d4a68bc2ce53cd57",
+    "node_modules/.pnpm/react-dom@19.2.3_react@19.2.3/node_modules/react-dom/cjs/react-dom-client.production.js": "3e472cce088eb5f01d931ba75ac64b27b52bd46a009e0657b56b45c97ed42044"
+  },
+  "centralCountsChanged": false,
+  "finishedAt": "2026-10-18T00:54:49.266235+00:00"
+}

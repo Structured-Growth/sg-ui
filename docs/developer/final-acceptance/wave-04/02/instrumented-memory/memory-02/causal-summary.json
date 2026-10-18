@@ -1,0 +1,639 @@
+[
+  {
+    "name": "processing-small",
+    "typeDeltas": {
+      "sliced string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "number": {
+        "count": 5,
+        "selfBytes": 36
+      },
+      "native": {
+        "count": 2306,
+        "selfBytes": 213320
+      },
+      "concatenated string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "array": {
+        "count": 0,
+        "selfBytes": -860
+      },
+      "object": {
+        "count": 78,
+        "selfBytes": 1640
+      },
+      "regexp": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "code": {
+        "count": 2372,
+        "selfBytes": 421324
+      },
+      "symbol": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "string": {
+        "count": 5,
+        "selfBytes": 0
+      },
+      "closure": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "object shape": {
+        "count": 167,
+        "selfBytes": 8140
+      },
+      "synthetic": {
+        "count": 0,
+        "selfBytes": 0
+      }
+    },
+    "queryStrings": {},
+    "queryTreeClosures": [],
+    "topGroups": [
+      {
+        "group": "code / system / InstructionStream",
+        "countDelta": 299,
+        "selfByteDelta": 269216
+      },
+      {
+        "group": "code / system / TrustedByteArray",
+        "countDelta": 652,
+        "selfByteDelta": 75232
+      },
+      {
+        "group": "native / system / WeakArrayList",
+        "countDelta": 157,
+        "selfByteDelta": 54100
+      },
+      {
+        "group": "code / system / ProtectedFixedArray",
+        "countDelta": 116,
+        "selfByteDelta": 26428
+      },
+      {
+        "group": "code / system / Code",
+        "countDelta": 299,
+        "selfByteDelta": 21528
+      },
+      {
+        "group": "native / blink::ScriptTimingInfo",
+        "countDelta": 140,
+        "selfByteDelta": 19040
+      }
+    ]
+  },
+  {
+    "name": "processing-wide",
+    "typeDeltas": {
+      "sliced string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "number": {
+        "count": 6,
+        "selfBytes": 60
+      },
+      "native": {
+        "count": 2608,
+        "selfBytes": 244404
+      },
+      "concatenated string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "array": {
+        "count": 0,
+        "selfBytes": -860
+      },
+      "object": {
+        "count": 74,
+        "selfBytes": 1568
+      },
+      "regexp": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "code": {
+        "count": 2391,
+        "selfBytes": 420244
+      },
+      "symbol": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "string": {
+        "count": 6,
+        "selfBytes": 0
+      },
+      "closure": {
+        "count": -2,
+        "selfBytes": -56
+      },
+      "object shape": {
+        "count": 167,
+        "selfBytes": 8140
+      },
+      "synthetic": {
+        "count": 0,
+        "selfBytes": 0
+      }
+    },
+    "queryStrings": {},
+    "queryTreeClosures": [],
+    "topGroups": [
+      {
+        "group": "code / system / InstructionStream",
+        "countDelta": 299,
+        "selfByteDelta": 268064
+      },
+      {
+        "group": "code / system / TrustedByteArray",
+        "countDelta": 647,
+        "selfByteDelta": 74900
+      },
+      {
+        "group": "native / system / WeakArrayList",
+        "countDelta": 157,
+        "selfByteDelta": 53932
+      },
+      {
+        "group": "native / PerformanceLongAnimationFrameTiming",
+        "countDelta": 154,
+        "selfByteDelta": 27104
+      },
+      {
+        "group": "code / system / ProtectedFixedArray",
+        "countDelta": 115,
+        "selfByteDelta": 26264
+      },
+      {
+        "group": "native / blink::ScriptTimingInfo",
+        "countDelta": 187,
+        "selfByteDelta": 25432
+      }
+    ]
+  },
+  {
+    "name": "processing-largePage",
+    "typeDeltas": {
+      "sliced string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "number": {
+        "count": 5,
+        "selfBytes": 48
+      },
+      "native": {
+        "count": 2644,
+        "selfBytes": 247532
+      },
+      "concatenated string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "array": {
+        "count": 0,
+        "selfBytes": -732
+      },
+      "object": {
+        "count": 76,
+        "selfBytes": 1604
+      },
+      "regexp": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "code": {
+        "count": 2321,
+        "selfBytes": 415092
+      },
+      "symbol": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "string": {
+        "count": 5,
+        "selfBytes": 0
+      },
+      "closure": {
+        "count": -1,
+        "selfBytes": -28
+      },
+      "object shape": {
+        "count": 167,
+        "selfBytes": 8140
+      },
+      "synthetic": {
+        "count": 0,
+        "selfBytes": 0
+      }
+    },
+    "queryStrings": {},
+    "queryTreeClosures": [],
+    "topGroups": [
+      {
+        "group": "code / system / InstructionStream",
+        "countDelta": 289,
+        "selfByteDelta": 268992
+      },
+      {
+        "group": "code / system / TrustedByteArray",
+        "countDelta": 628,
+        "selfByteDelta": 71224
+      },
+      {
+        "group": "native / system / WeakArrayList",
+        "countDelta": 150,
+        "selfByteDelta": 56456
+      },
+      {
+        "group": "native / blink::ScriptTimingInfo",
+        "countDelta": 200,
+        "selfByteDelta": 27200
+      },
+      {
+        "group": "native / PerformanceLongAnimationFrameTiming",
+        "countDelta": 153,
+        "selfByteDelta": 26928
+      },
+      {
+        "group": "code / system / ProtectedFixedArray",
+        "countDelta": 110,
+        "selfByteDelta": 24820
+      }
+    ]
+  },
+  {
+    "name": "catalog-small",
+    "typeDeltas": {
+      "sliced string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "number": {
+        "count": 4,
+        "selfBytes": 48
+      },
+      "native": {
+        "count": 5028,
+        "selfBytes": 444908
+      },
+      "concatenated string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "array": {
+        "count": 3,
+        "selfBytes": -180
+      },
+      "object": {
+        "count": 28,
+        "selfBytes": 580
+      },
+      "regexp": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "code": {
+        "count": 1958,
+        "selfBytes": 469756
+      },
+      "symbol": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "string": {
+        "count": 4,
+        "selfBytes": 0
+      },
+      "closure": {
+        "count": -1,
+        "selfBytes": -28
+      },
+      "object shape": {
+        "count": 49,
+        "selfBytes": 4808
+      },
+      "synthetic": {
+        "count": 0,
+        "selfBytes": 0
+      }
+    },
+    "queryStrings": {},
+    "queryTreeClosures": [],
+    "topGroups": [
+      {
+        "group": "code / system / InstructionStream",
+        "countDelta": 247,
+        "selfByteDelta": 299904
+      },
+      {
+        "group": "code / system / TrustedByteArray",
+        "countDelta": 560,
+        "selfByteDelta": 91772
+      },
+      {
+        "group": "native / system / WeakArrayList",
+        "countDelta": 312,
+        "selfByteDelta": 68852
+      },
+      {
+        "group": "native / blink::MediaQueryFeatureExpNode",
+        "countDelta": 575,
+        "selfByteDelta": 46000
+      },
+      {
+        "group": "native / blink::HashTrieNode<blink::CSSVariableData>",
+        "countDelta": 148,
+        "selfByteDelta": 40256
+      },
+      {
+        "group": "code / system / ProtectedFixedArray",
+        "countDelta": 138,
+        "selfByteDelta": 36156
+      }
+    ]
+  },
+  {
+    "name": "catalog-wide",
+    "typeDeltas": {
+      "sliced string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "number": {
+        "count": 3,
+        "selfBytes": 48
+      },
+      "native": {
+        "count": 3995,
+        "selfBytes": 273672
+      },
+      "concatenated string": {
+        "count": 1,
+        "selfBytes": 20
+      },
+      "array": {
+        "count": 3,
+        "selfBytes": -284
+      },
+      "object": {
+        "count": 27,
+        "selfBytes": 552
+      },
+      "regexp": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "code": {
+        "count": 2209,
+        "selfBytes": 576384
+      },
+      "symbol": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "string": {
+        "count": 3,
+        "selfBytes": 0
+      },
+      "closure": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "object shape": {
+        "count": 49,
+        "selfBytes": 1248
+      },
+      "synthetic": {
+        "count": 0,
+        "selfBytes": 0
+      }
+    },
+    "queryStrings": {},
+    "queryTreeClosures": [],
+    "topGroups": [
+      {
+        "group": "code / system / InstructionStream",
+        "countDelta": 273,
+        "selfByteDelta": 382496
+      },
+      {
+        "group": "code / system / TrustedByteArray",
+        "countDelta": 620,
+        "selfByteDelta": 106588
+      },
+      {
+        "group": "native / system / WeakArrayList",
+        "countDelta": 332,
+        "selfByteDelta": 60412
+      },
+      {
+        "group": "native / blink::MediaQueryFeatureExpNode",
+        "countDelta": 575,
+        "selfByteDelta": 46000
+      },
+      {
+        "group": "code / system / ProtectedFixedArray",
+        "countDelta": 163,
+        "selfByteDelta": 41444
+      },
+      {
+        "group": "native / blink::HashTrieNode<blink::CSSVariableData>",
+        "countDelta": 82,
+        "selfByteDelta": 22304
+      }
+    ]
+  },
+  {
+    "name": "catalog-largePage",
+    "typeDeltas": {
+      "sliced string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "number": {
+        "count": -26,
+        "selfBytes": 72
+      },
+      "native": {
+        "count": 3807,
+        "selfBytes": 256244
+      },
+      "concatenated string": {
+        "count": -9,
+        "selfBytes": -180
+      },
+      "array": {
+        "count": 4,
+        "selfBytes": -104
+      },
+      "object": {
+        "count": 30,
+        "selfBytes": 616
+      },
+      "regexp": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "code": {
+        "count": 1646,
+        "selfBytes": 497572
+      },
+      "symbol": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "string": {
+        "count": -65,
+        "selfBytes": -1204
+      },
+      "closure": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "object shape": {
+        "count": 49,
+        "selfBytes": 2400
+      },
+      "synthetic": {
+        "count": 0,
+        "selfBytes": 0
+      }
+    },
+    "queryStrings": {},
+    "queryTreeClosures": [],
+    "topGroups": [
+      {
+        "group": "code / system / InstructionStream",
+        "countDelta": 279,
+        "selfByteDelta": 352128
+      },
+      {
+        "group": "code / system / TrustedByteArray",
+        "countDelta": 623,
+        "selfByteDelta": 94564
+      },
+      {
+        "group": "native / system / WeakArrayList",
+        "countDelta": 383,
+        "selfByteDelta": 61044
+      },
+      {
+        "group": "native / blink::MediaQueryFeatureExpNode",
+        "countDelta": 575,
+        "selfByteDelta": 46000
+      },
+      {
+        "group": "code / system / ProtectedFixedArray",
+        "countDelta": 162,
+        "selfByteDelta": 37308
+      },
+      {
+        "group": "code / system / Code",
+        "countDelta": 279,
+        "selfByteDelta": 20088
+      }
+    ]
+  },
+  {
+    "name": "processing-selector",
+    "typeDeltas": {
+      "sliced string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "number": {
+        "count": 4,
+        "selfBytes": 60
+      },
+      "native": {
+        "count": 2252,
+        "selfBytes": 195284
+      },
+      "concatenated string": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "array": {
+        "count": -6,
+        "selfBytes": -1684
+      },
+      "object": {
+        "count": 30,
+        "selfBytes": 592
+      },
+      "regexp": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "code": {
+        "count": 1842,
+        "selfBytes": 431176
+      },
+      "symbol": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "string": {
+        "count": 4,
+        "selfBytes": 0
+      },
+      "closure": {
+        "count": 0,
+        "selfBytes": 0
+      },
+      "object shape": {
+        "count": 78,
+        "selfBytes": 3772
+      },
+      "synthetic": {
+        "count": 0,
+        "selfBytes": 0
+      }
+    },
+    "queryStrings": {},
+    "queryTreeClosures": [],
+    "topGroups": [
+      {
+        "group": "code / system / InstructionStream",
+        "countDelta": 236,
+        "selfByteDelta": 279360
+      },
+      {
+        "group": "code / system / TrustedByteArray",
+        "countDelta": 525,
+        "selfByteDelta": 80992
+      },
+      {
+        "group": "code / system / ProtectedFixedArray",
+        "countDelta": 104,
+        "selfByteDelta": 29020
+      },
+      {
+        "group": "native / DOMRectReadOnly",
+        "countDelta": 500,
+        "selfByteDelta": 28000
+      },
+      {
+        "group": "native / system / WeakArrayList",
+        "countDelta": 179,
+        "selfByteDelta": 27916
+      },
+      {
+        "group": "native / PerformanceLongAnimationFrameTiming",
+        "countDelta": 110,
+        "selfByteDelta": 19360
+      }
+    ]
+  }
+]

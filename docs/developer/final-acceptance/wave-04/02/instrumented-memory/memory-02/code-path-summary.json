@@ -1,0 +1,32 @@
+[
+  {
+    "name": "processing-small",
+    "paths": [
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 UtilityScript \u2192 Object \u2192 UtilityScript \u2192 system / Context / scope @67043 \u2192 system / Context / scope @66799 \u2192 innerSerialize \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @51817 \u2192 Z7 \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @51817 \u2192 Object \u2192  \u2192 system / Context / scope @47871 \u2192 Dm \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @51817 \u2192 Ku \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @51817 \u2192 lw \u2192 system / Code \u2192 system / InstructionStream"
+    ]
+  },
+  {
+    "name": "catalog-wide",
+    "paths": [
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @73237 \u2192 Object \u2192 nA \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @73237 \u2192 Array \u2192 Object \u2192 createTable \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @73237 \u2192 mA \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 UtilityScript \u2192 Object \u2192 UtilityScript \u2192 system / Context / scope @64295 \u2192 system / Context / scope @64289 \u2192 innerSerialize \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @73237 \u2192 Z7 \u2192 system / Code \u2192 system / InstructionStream"
+    ]
+  },
+  {
+    "name": "processing-selector",
+    "paths": [
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @56389 \u2192 mA \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 UtilityScript \u2192 Object \u2192 UtilityScript \u2192 system / Context / scope @102575 \u2192 system / Context / scope @102569 \u2192 innerSerialize \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 system / NativeContext / http://127.0.0.1:4179 \u2192 Window [JSGlobalObject] / http://127.0.0.1:4179 \u2192 Object \u2192 mount \u2192 system / Context / scope @56389 \u2192 $7 \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 InjectedScript \u2192 Object \u2192 getElementAccessibleNameText \u2192 system / Code \u2192 system / InstructionStream",
+      " \u2192 (GC roots) \u2192 (Global handles) \u2192 InjectedScript \u2192 Object \u2192 previewNode \u2192 system / Code \u2192 system / InstructionStream"
+    ]
+  }
+]

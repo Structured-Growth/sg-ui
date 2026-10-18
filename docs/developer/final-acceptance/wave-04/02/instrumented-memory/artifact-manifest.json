@@ -1,14 +1,17 @@
 {
   "schemaVersion": 1,
-  "status": "Finite memory execution manifest; no acceptance closure",
-  "capturedAt": "2026-10-18T00:52:15.951969+00:00",
+  "status": "Finite memory execution and source/snapshot investigation manifest; no acceptance closure",
+  "capturedAt": "2026-10-18T00:54:49.278354+00:00",
   "compactEntryPoints": [
     "receipt.json",
+    "causal-investigation.json",
     "config-resolution.json",
     "memory-01/execution.json",
     "memory-01/fixture-build.log",
     "memory-02/execution.json",
     "memory-02/analysis-summary.json",
+    "memory-02/causal-summary.json",
+    "memory-02/code-path-summary.json",
     "memory-02/warm-layout-node-review.json"
   ],
   "localRawSnapshots": [
@@ -105,9 +108,29 @@
       "sha256": "b147392f5543704b0921c7f345ac02bff802558e2a8ea2c51e2303082ba1b436"
     },
     {
+      "path": "categorize.py",
+      "bytes": 3279,
+      "sha256": "3f9f0fb04f782a6d6e2f3408bd330fc8ee8f938c7fab83666f35cfcefba08458"
+    },
+    {
+      "path": "causal-investigation.json",
+      "bytes": 8453,
+      "sha256": "9f263ab5e53ea65b8fefc62c2e933140387638c62f7d8b0055bcd856dd7775db"
+    },
+    {
+      "path": "code-paths.py",
+      "bytes": 1878,
+      "sha256": "da4b78ea24e782cabc3e335eff8a87d1bc400470e23edae12e7ab2483d5d0c7f"
+    },
+    {
       "path": "config-resolution.json",
       "bytes": 772,
       "sha256": "07bdf05f8e334e6de155c981bdb7c51cc35c1e06e5d7b96b01beab0c9f9164e4"
+    },
+    {
+      "path": "coordinator-retention.json",
+      "bytes": 1029,
+      "sha256": "450070e0f1007eb6f48dadb0a38fda605396bbd10bb6d2776f8d60baab6d61b0"
     },
     {
       "path": "finalize.py",
@@ -145,6 +168,26 @@
       "sha256": "4283cbb5798df09de1762c51dc68cb9b33f6bac2ac862ec327ac24b8915c81ab"
     },
     {
+      "path": "memory-02/causal-categories.json",
+      "bytes": 51061,
+      "sha256": "46029d84586c67ae20d2c65fad56d3c664207172240405466a695a1c1b4bd3dc"
+    },
+    {
+      "path": "memory-02/causal-summary.json",
+      "bytes": 13261,
+      "sha256": "432f806967b26ea0b6e8eca3dd1b4476c314d13c297998db2e71fac17b120090"
+    },
+    {
+      "path": "memory-02/code-path-summary.json",
+      "bytes": 4348,
+      "sha256": "7dad6b224420157fd54a32aa0bfc20265f75f82e07f39a064c22143b50552a90"
+    },
+    {
+      "path": "memory-02/code-retaining-paths.json",
+      "bytes": 36585,
+      "sha256": "b1d72c8a14b8cad2b2048207df9d307cbb9f8275f5b4fa89927fe6d650b8dddc"
+    },
+    {
       "path": "memory-02/completed-retainer-review.json",
       "bytes": 258257,
       "sha256": "975a834dd7d991e67a2aefccd0a53eaba075ce98de4ec7f02c8677d063c3ceea"
@@ -178,6 +221,11 @@
       "path": "memory-02/measurement.log.resources.json",
       "bytes": 3401145,
       "sha256": "aeb7aaa0435c6432009ab1cc2cb2a8c2c1e810fd35680a59b103dd075349d565"
+    },
+    {
+      "path": "memory-02/measurement.log.resources.json.gz",
+      "bytes": 193500,
+      "sha256": "848dc25e4db9226395db9b23c9a5438d5bb85b35009cc06b3501b195986b700e"
     },
     {
       "path": "memory-02/processing-small-path-review.json",
