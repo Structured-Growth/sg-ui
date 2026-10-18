@@ -1,5 +1,7 @@
 # React Aria migration execution record
 
+Current-link maintenance (2026-10-17): links to removed story files now point to their docs-owned native fixture replacements. Historical execution claims below retain their original scope and dates.
+
 ## Backlog sequencing update — 2026-10-08
 
 Follow-up priority clarification: enforce functionality → regression → hardening
@@ -218,7 +220,7 @@ command-menu work. Most of U/M/E/G/K and the final X/R/Z gates remain open.
 
 | Tasks | Implementation and acceptance evidence |
 | --- | --- |
-| U-03, M-35 | [Owned Typography](../../packages/ui/src/experimental/Typography/Typography.tsx), native semantics/ref and SSR tests, all typography roles including bodyAlt2/code. [Typefaces](../../packages/ui/src/components/Typefaces/Typefaces.stories.tsx) keeps the catalog and adds missing roles/dark mode using production tokens. |
+| U-03, M-35 | [Owned Typography](../../packages/ui/src/experimental/Typography/Typography.tsx), native semantics/ref and SSR tests, all typography roles including bodyAlt2/code. [Typefaces](../../apps/docs/native-fixtures/scenarios/components/Typefaces/Typefaces.fixture.tsx) keeps the catalog and adds missing roles/dark mode using production tokens. |
 | U-11 | [List](../../packages/ui/src/experimental/List/List.tsx), [Navigation](../../packages/ui/src/experimental/Navigation/Navigation.tsx), [Disclosure](../../packages/ui/src/experimental/Disclosure/Disclosure.tsx), [Collapse](../../packages/ui/src/experimental/Collapse/Collapse.tsx). Colocated stories and 11 behavior/SSR tests cover host routing, native roles, selected state, controlled/uncontrolled expansion, disabled state, tab order and focus restoration. Browser collapse removed the focused panel's input while preserving trigger focus. |
 | U-12 | [Chip](../../packages/ui/src/experimental/Chip/Chip.tsx), [Badge](../../packages/ui/src/experimental/Badge/Badge.tsx), [TagGroup](../../packages/ui/src/experimental/TagGroup/TagGroup.tsx). Nine tests cover refs/names, group/item disabling, translated removal, keyboard next/previous/empty focus and pointer removal. Browser Delete moved React→Design focus; pointer removal moved to the list when only a disabled tag remained. |
 | U-13, U-14 | [Progress](../../packages/ui/src/experimental/Progress/Progress.tsx), [Status](../../packages/ui/src/experimental/Status/Status.tsx), [Avatar](../../packages/ui/src/experimental/Avatar/Avatar.tsx), stories and behavior/SSR tests. Determinate/indeterminate semantics, optional announcements, name/ref, source replacement and image load/error. Browser native image success showed opacity 1/natural width 80 with a 40×40 root; native error removed the image and retained initials in the 48×48 large root. |

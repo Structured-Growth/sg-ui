@@ -1,5 +1,7 @@
 # Inventory contract wording reconciliation
 
+Current-link maintenance (2026-10-17): links to removed story files now point to their docs-owned native fixture replacements. Historical execution claims below retain their original scope and dates.
+
 Bounded W-19 / M-10 / M-14 / M-30 evidence, 2026-10-07. Inspected current
 baseline `e372781c2b1ceca630cda6fc7a989af2d6c05c33`, with a clean isolated
 worktree before edits. This supplements the [37-row inventory audit](react-aria-migration-inventory-acceptance.md)
@@ -70,7 +72,7 @@ cover single selection/add, trimmed Enter rename, dismissal/focus, blank/unchang
 names, keyboard reorder boundaries, invalid/self/read-only drag, last-page removal,
 host removal during rename, adjacent removal focus and live read-only changes.
 [SSR test](../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.ssr.test.tsx)
-and [stories](../../packages/ui/src/components/ExperiencePageNavigator/ExperiencePageNavigator.stories.tsx)
+and [stories](../../apps/docs/native-fixtures/scenarios/components/ExperiencePageNavigator/ExperiencePageNavigator.fixture.tsx)
 cover server rendering and host composition. The [page-navigation execution record](react-aria-progress.md#page-actions-and-navigation)
 records representative native rename/reorder/removal focus and independent list
 scrolling, plus packed React 18/19 checks. These are historical passes at their
@@ -123,7 +125,7 @@ Existing [three tests](../../packages/ui/src/components/InstructorClassCard/Inst
 cover keyboard routing, active metadata, archived omission, closed/custom activity
 and action text, draft label mapping, namespace/interpolation and SSR. They do
 not establish exhaustive empty/malformed/date/icon fallback acceptance.
-[Stories](../../packages/ui/src/components/InstructorClassCard/InstructorClassCard.stories.tsx)
+[Stories](../../apps/docs/native-fixtures/scenarios/components/InstructorClassCard/InstructorClassCard.fixture.tsx)
 and the [card execution record](react-aria-progress.md#card-pagination-and-course-cards)
 record narrow long-name wrapping and dark token rendering. Those historical
 checks do not close native navigation/reflow, device or AT acceptance.
@@ -188,7 +190,7 @@ catalog, not a font-selector runtime API.
 Existing [five menu tests](../../packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.test.tsx)
 cover all eight callbacks once, disabled activation, keyboard skipping/focus,
 controlled checked state, ordinary Clear and translated scoped dark portal.
-[Menu stories](../../packages/ui/src/components/TextStyleMenuControl/TextStyleMenuControl.stories.tsx)
+[Menu stories](../../apps/docs/native-fixtures/scenarios/components/TextStyleMenuControl/TextStyleMenuControl.fixture.tsx)
 and the [menu execution record](react-aria-progress.md#editor-menu-controls)
 record packed/native keyboard checks. [Toolbar tests](../../packages/ui/src/components/RichTextFormattingToolbar/RichTextFormattingToolbar.test.tsx)
 cover single controlled heading/font requests and callback-after-keydown focus

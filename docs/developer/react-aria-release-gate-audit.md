@@ -117,7 +117,7 @@ This avoids expression interpolation into shell source. The observed title
 checks above passed. The check does not validate the eventual squash body or
 prevent a merger changing the final title.
 
-[Release config](../../release.config.mjs), lines 2–9, selects main, `v${version}`,
+[Release config](../../packages/ui/release.config.mjs), lines 2–9, selects main, `v${version}`,
 Conventional Commits, npm publication and a GitHub tarball asset.
 [Commitlint config](../../commitlint.config.mjs), lines 2–6, permits either
 breaking marker independently. [Release-policy tests](../../packages/ui/scripts/release-policy.test.mjs),
